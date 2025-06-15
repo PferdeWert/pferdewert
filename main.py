@@ -39,6 +39,7 @@ def simple_valuation(d: BewertungRequest) -> tuple[int,int,str]:
 
 # GPT-Aufruf
 def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
+   
     prompt = (
       "Du bist Gutachter für Reitpferde. Schätze den aktuellen Marktwert "
       "und gib eine realistische Preisspanne in Euro.\n"
@@ -51,6 +52,7 @@ def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
       "Antwortiere **nur** JSON:\n"
       "{'min':<int>, 'max':<int>, 'text':'<max 200 Wörter>'}"
     )
+ logging.info("GPT-Call OK")        # wenn Anfrage durchgeht
 
     chat = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
