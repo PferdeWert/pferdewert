@@ -69,13 +69,21 @@ def simple_valuation(d: BewertungRequest) -> tuple[int, int, str]:
 # ------------------------------------------------------------------
 SYSTEM_PROMPT = """
 Du bist ein erfahrener, neutraler Pferdegutachter.
-Gib eine realistische Preis-Spanne in Euro und eine kurze Analyse.
+Gib eine realistische Preis-Spanne in Euro **und** eine kurze Analyse.
 
-Antwortformat ausschließlich JSON:
-{"min":12345,"max":23456,"text":"<max 200 Wörter>"}
+⚠️ Ausgabeformat (strict JSON, nichts davor oder danach):
+{
+  "min": 12345,
+  "max": 23456,
+  "text": "Die aktuelle Bewertung von <Name> liegt bei <min> € – <max> €. \
+<max 120 Wörter Analyse, sachlich, ohne Wiederholung der Basisdaten.>"
+}
 
-Die Spanne soll 15–25 % breit sein. Zahlen im deutschen Format
-(Leerzeichen als Tausendertrennzeichen).
+Regeln:
+• Erste Satzformulierung MUSS exakt wie oben starten.
+• Spanne 15–25 % breit.
+• Deutsch, Tausendertrennzeichen = Leerzeichen.
+• Keine Emojis, keine Bulletlisten.
 """
 
 def ai_valuation(d: BewertungRequest) -> tuple[int, int, str]:
@@ -101,7 +109,7 @@ def ai_valuation(d: BewertungRequest) -> tuple[int, int, str]:
             {"role": "user",   "content": user_prompt},
         ],
         temperature=0.4,
-        max_tokens=250,
+        max_tokens=180,
     )
     logging.info("GPT-Call OK")
 
