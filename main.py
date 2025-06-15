@@ -1,77 +1,71 @@
+import os, re, json, openai                # openai neu
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 
-app = FastAPI(title="PferdeWert API", version="0.2.0")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# --------------------------------------------------
-#  CORS – vorerst alle Origins erlauben
-# --------------------------------------------------
+app = FastAPI(title="PferdeWert API", version="0.3.0")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],        # später gern auf deine Domain einschränken
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# --------------------------------------------------
-#  Request-Schema (alle Formularfelder)
-# --------------------------------------------------
 class BewertungRequest(BaseModel):
-    # Basisdaten (Pflicht)
-    name: str
-    rasse: str
-    alter: int
-    geschlecht: str
-    stockmass: int
-    ausbildung: str
-    einsatz: str
-
-    # Zusatzdaten (optional)
+    name: str; rasse: str; alter: int; geschlecht: str
+    stockmass: int; ausbildung: str; einsatz: str
     gesundheit: Optional[str] = None
-    vater:      Optional[str] = None
-    mutter:     Optional[str] = None
-    muttervater:Optional[str] = None
-    erfolge:    Optional[str] = None
+    vater: Optional[str] = None; mutter: Optional[str] = None
+    muttervater: Optional[str] = None; erfolge: Optional[str] = None
 
+# Heuristik-Fallback (gratis)
+def simple_valuation(d: BewertungRequest) -> tuple[int,int,str]:
+    basis = 1_000
+    age = max(0.5, 1 - abs(d.alter - 8) * 0.06)
+    aus = {"roh":1,"angeritten":1.2,"A":1.4,"L":1.6,"M":2,"S":2.5}.get(d.ausbildung,1)
+    health = 0.8 if d.gesundheit and d.gesundheit != "gesund" else 1
+    stock = d.stockmass/160
+    mittel = int(max(basis*age*aus*health*stock,500))
+    return int(mittel*0.9), int(mittel*1.1), (
+        f"Schätzung anhand interner Heuristik: {mittel*0.9:,.0f}–{mittel*1.1:,.0f} €.")
 
-# --------------------------------------------------
-#  sehr einfache Heuristik – Platzhalter für echte KI
-# --------------------------------------------------
-def simple_valuation(d: BewertungRequest) -> int:
-    basis   = 1_000                                # Grundwert
-    age_fac = max(0.5, 1 - abs(d.alter - 8) * 0.06)  # Sweet-Spot bei 8 J.
-    aus_map = {"roh":1.0, "angeritten":1.2, "A":1.4,
-               "L":1.6, "M":2.0, "S":2.5}
-    aus_fac = aus_map.get(d.ausbildung, 1.0)
-    health  = 0.8 if d.gesundheit and d.gesundheit != "gesund" else 1.0
-    stock_fac = d.stockmass / 160                  # 160 cm ≙ 1.0
-
-    wert = int(basis * age_fac * aus_fac * health * stock_fac)
-    return max(wert, 500)                          # Untergrenze 500 €
-
-# --------------------------------------------------
-#  Endpunkt /api/bewertung  (POST)
-# --------------------------------------------------
-@app.post("/api/bewertung")
-def bewertung(req: BewertungRequest):
-    mittelwert = simple_valuation(req)
-
-    # Preisspanne ±10 % (Demo)
-    wert_min = int(mittelwert * 0.9)
-    wert_max = int(mittelwert * 1.1)
-
-    antwort_txt = (
-        f"Auf Basis der angegebenen Daten schätzen wir den aktuellen Marktwert "
-        f"von \"{req.name}\" ({req.rasse}, {req.alter} J.) auf etwa "
-        f"{wert_min:,} € – {wert_max:,} €.\n\n"
-        f"Bitte beachte, dass Gesundheit, Abstammung und aktuelle Turniererfolge "
-        f"den Wert zusätzlich beeinflussen können."
+# GPT-Aufruf
+def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
+    prompt = (
+      "Du bist Gutachter für Reitpferde. Schätze den aktuellen Marktwert "
+      "und gib eine realistische Preisspanne in Euro.\n"
+      f"Pferd: Name={d.name}, Rasse={d.rasse}, Alter={d.alter}, "
+      f"Geschlecht={d.geschlecht}, Stockmaß={d.stockmass} cm, "
+      f"Ausbildungsstand={d.ausbildung}, Einsatz={d.einsatz}. "
+      f"Gesundheit={d.gesundheit or 'k.A.'}, "
+      f"Erfolge={d.erfolge or 'k.A.'}, Abstammung=V:{d.vater or 'k.A.'} "
+      f"M:{d.mutter or 'k.A.'} MV:{d.muttervater or 'k.A.'}.\n\n"
+      "Antwortiere **nur** JSON:\n"
+      "{'min':<int>, 'max':<int>, 'text':'<max 200 Wörter>'}"
     )
 
-    return {
-        "wert_min": wert_min,
-        "wert_max": wert_max,
-        "text":     antwort_txt
-    }
+    chat = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role":"user", "content":prompt}],
+        temperature=0.4,
+        max_tokens=250,
+    )
+    content = chat.choices[0].message.content
+    data = json.loads(re.search(r"\{.*\}", content, re.S).group())
+    return data["min"], data["max"], data["text"]
+
+@app.post("/api/bewertung")
+def bewertung(req: BewertungRequest):
+    if openai.api_key:
+        try:
+            wert_min, wert_max, text = ai_valuation(req)
+        except Exception as e:                   # Fallback bei API-Fehler
+            wert_min, wert_max, text = simple_valuation(req)
+    else:
+        wert_min, wert_max, text = simple_valuation(req)
+
+    return {"wert_min": wert_min, "wert_max": wert_max, "text": text}
