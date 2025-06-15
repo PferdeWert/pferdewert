@@ -4,34 +4,37 @@ import json
 import logging
 from typing import Optional
 
-import openai
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from openai import OpenAI, OpenAIError
 
 # ------------------------------------------------------------------
-#  OpenAI-Key laden und einfache Log-Zeile ausgeben
+#  OpenAI-Client initialisieren
 # ------------------------------------------------------------------
-openai.api_key = os.getenv("OPENAI_API_KEY")
+OPENAI_KEY = os.getenv("OPENAI_API_KEY")
+MODEL_ID   = os.getenv("PW_MODEL", "gpt-3.5-turbo")
+client = OpenAI(api_key=OPENAI_KEY)
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logging.info(f"Key loaded? {'yes' if openai.api_key else 'no'}")
+logging.info(f"Key loaded? {'yes' if OPENAI_KEY else 'no'} | Model: {MODEL_ID}")
 
-MODEL_ID = os.getenv("PW_MODEL", "gpt-3.5-turbo")   # einfach per Env-Var wechseln
-
-app = FastAPI(title="PferdeWert API", version="0.3.0")
+# ------------------------------------------------------------------
+#  FastAPI-Grundgerüst
+# ------------------------------------------------------------------
+app = FastAPI(title="PferdeWert API", version="0.4.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],    # später gern nur https://pferdewert.vercel.app
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # ------------------------------------------------------------------
-#  Datenmodell
+#  Datenmodell der Anfrage
 # ------------------------------------------------------------------
 class BewertungRequest(BaseModel):
-    # Basisdaten
     name: str
     rasse: str
     alter: int
@@ -39,46 +42,40 @@ class BewertungRequest(BaseModel):
     stockmass: int
     ausbildung: str
     einsatz: str
-    # Zusatzdaten
     gesundheit: Optional[str] = None
     vater: Optional[str] = None
     mutter: Optional[str] = None
     muttervater: Optional[str] = None
     erfolge: Optional[str] = None
 
-
 # ------------------------------------------------------------------
-#  Heuristik-Fallback (gratis)
+#  Heuristik als Fallback
 # ------------------------------------------------------------------
 def simple_valuation(d: BewertungRequest) -> tuple[int, int, str]:
     basis = 1_000
-    age_fac   = max(0.5, 1 - abs(d.alter - 8) * 0.06)
-    aus_fac   = {"roh":1, "angeritten":1.2, "A":1.4,
-                 "L":1.6, "M":2.0, "S":2.5}.get(d.ausbildung, 1)
-    health_fac = 0.8 if d.gesundheit and d.gesundheit != "gesund" else 1
-    stock_fac  = d.stockmass / 160
-    mittel = int(max(basis * age_fac * aus_fac * health_fac * stock_fac, 500))
-    span   = int(mittel * 0.1)          # ±10 %
+    age   = max(0.5, 1 - abs(d.alter - 8) * 0.06)
+    aus   = {"roh":1, "angeritten":1.2, "A":1.4,
+             "L":1.6, "M":2, "S":2.5}.get(d.ausbildung, 1)
+    health= 0.8 if d.gesundheit and d.gesundheit != "gesund" else 1
+    stock = d.stockmass / 160
+    mittel = int(max(basis * age * aus * health * stock, 500))
+    span  = int(mittel * 0.1)
     min_, max_ = mittel - span, mittel + span
-    text = (
-        f"Schätzung (Heuristik) für \"{d.name}\": "
-        f"{min_:,} € – {max_:,} €."
-    )
+    text = f"Schätzung (Heuristik) für \"{d.name}\": {min_:,}–{max_:,} €."
     return min_, max_, text
 
-
 # ------------------------------------------------------------------
-#  GPT-Version
+#  GPT-Bewertung
 # ------------------------------------------------------------------
 SYSTEM_PROMPT = """
 Du bist ein erfahrener, neutraler Pferdegutachter.
-Gib eine realistische Preis-Spanne in Euro und eine kurze Analyse aus.
+Gib eine realistische Preis-Spanne in Euro und eine kurze Analyse.
 
-Antwortformat zwingend JSON:
-{"min":12345,"max":23456,"text":"<max 200 Wörter Analyse>"}
+Antwortformat ausschließlich JSON:
+{"min":12345,"max":23456,"text":"<max 200 Wörter>"}
 
-Die Spanne soll 15–25 % betragen. Schreibe sachlich, ohne Emojis,
-deutsches Zahlenformat (Leerzeichen als Tausendertrennzeichen).
+Die Spanne soll 15–25 % breit sein. Zahlen im deutschen Format
+(Leerzeichen als Tausendertrennzeichen).
 """
 
 def ai_valuation(d: BewertungRequest) -> tuple[int, int, str]:
@@ -97,7 +94,7 @@ def ai_valuation(d: BewertungRequest) -> tuple[int, int, str]:
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
 
-    chat = openai.ChatCompletion.create(
+    chat = client.chat.completions.create(
         model=MODEL_ID,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -108,7 +105,6 @@ def ai_valuation(d: BewertungRequest) -> tuple[int, int, str]:
     )
     logging.info("GPT-Call OK")
 
-    # JSON aus der Antwort herausparsen
     content = chat.choices[0].message.content
     match = re.search(r"\{.*\}", content, re.S)
     if not match:
@@ -116,20 +112,22 @@ def ai_valuation(d: BewertungRequest) -> tuple[int, int, str]:
     data = json.loads(match.group())
     return data["min"], data["max"], data["text"]
 
-
 # ------------------------------------------------------------------
 #  API-Endpunkt
 # ------------------------------------------------------------------
 @app.post("/api/bewertung")
 def bewertung(req: BewertungRequest):
-    if openai.api_key:
+    if OPENAI_KEY:
         try:
-            return_data = ai_valuation(req)
-        except Exception as e:
-            logging.error(f"GPT-Error: {e} – wechsle auf Heuristik")
-            return_data = simple_valuation(req)
+            return_min, return_max, return_text = ai_valuation(req)
+        except (OpenAIError, Exception) as e:
+            logging.error(f"GPT-Error: {e} – fallback auf Heuristik")
+            return_min, return_max, return_text = simple_valuation(req)
     else:
-        return_data = simple_valuation(req)
+        return_min, return_max, return_text = simple_valuation(req)
 
-    wert_min, wert_max, text = return_data
-    return {"wert_min": wert_min, "wert_max": wert_max, "text": text}
+    return {
+        "wert_min": return_min,
+        "wert_max": return_max,
+        "text":     return_text
+    }
