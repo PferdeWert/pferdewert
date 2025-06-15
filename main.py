@@ -4,6 +4,14 @@ from typing import Optional
 
 app = FastAPI(title="PferdeWert API", version="0.1.0")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],          # später auf deine Domain einschränken
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class BewertungRequest(BaseModel):
     name: str
