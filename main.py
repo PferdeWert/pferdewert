@@ -41,7 +41,6 @@ class BewertungRequest(BaseModel):
     ausbildung: str
     
      # Optional
-    einsatz: Optional[str] = None
     aku: Optional[str] = None   # AKU-Bericht
     erfolge: Optional[str] = None
 
