@@ -75,7 +75,7 @@ def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
         f"Abstammung: {d.abstammung}\nStockmaß: {d.stockmass} cm\n"
-        f"Ausbildungsstand: {d.ausbildung}\nEinsatz: {d.einsatz or 'k. A.'}\n"
+        f"Ausbildungsstand: {d.ausbildung}\n"
         f"AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
