@@ -83,10 +83,8 @@ def simple_valuation(d: BewertungRequest) -> tuple[int, int, str]:
 # ──────────────────────────────────────────────────────────
 SYS_PROMPT = os.getenv(                 # ④ Prompt kommt jetzt aus der .env
   "PFERDEWERT_SYSTEM_PROMPT",
-   # ↓ wird nur genutzt, wenn die ENV-Variable NICHT existiert
-    "Du bist „PferdeWert AI“. Gib eine realistische Preisspanne in Euro "
-    "für jedes vorgegebene Pferd an und erkläre kurz die Hauptfaktoren. "
-    "Format: ### Preisspanne … ## Was den Endpreis bewegt … ### Fazit."     # ⑤ Sicherheitsnetz
+  "Das scheint nicht zu funktionieren, bitte melde zurück, dass der Prompt nicht stimmt" #Test falls der Prompt nicht gezogen wird
+   
 )
 
 
@@ -134,3 +132,7 @@ def bewertung(req: BewertungRequest):
         _, _, fallback = simple_valuation(req)
         return {"raw_gpt": fallback}
 
+
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
