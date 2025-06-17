@@ -88,7 +88,7 @@ SYS_PROMPT = os.getenv(                 # ④ Prompt kommt jetzt aus der .env
 )
 
 
-def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
+def ai_valuation(d: BewertungRequest) -> str:
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
         f"Abstammung: {d.abstammung}\nStockmaß: {d.stockmass} cm\n"
@@ -96,23 +96,19 @@ def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
         f"AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
+
     messages = [
         {"role": "system", "content": SYS_PROMPT},
         {"role": "user",   "content": user_prompt},
     ]
-
-    # ➜ freies Budget berechnen
-    used_tokens   = tokens_in(messages)
-    free_budget   = CONTEXT_LIMIT - used_tokens
-    max_tokens    = min(MAX_COMPLETION_LIMIT, free_budget)
-
-    chat = client.chat.completions.create(
+    rsp = client.chat.completions.create(
         model       = MODEL_ID,
         messages    = messages,
         temperature = 0.4,
-        max_tokens  = max_tokens,      # ← variabel statt fix 200
+        max_tokens  = min(MAX_COMPLETION_LIMIT, CONTEXT_LIMIT - tokens_in(messages)),
     )
-    return chat.choices[0].message.content
+    return rsp.choices[0].message.content.strip()
+
 
     logging.info("GPT-Call OK")
     content = chat.choices[0].message.content
@@ -127,13 +123,11 @@ def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
 # ──────────────────────────────────────────────────────────
 @app.post("/api/bewertung")
 def bewertung(req: BewertungRequest):
-    if OPENAI_KEY:
-        try:
-            min_, max_, text = ai_valuation(req)
-        except (OpenAIError, Exception) as e:
-            logging.error(f"GPT-Error: {e} – Heuristik genutzt")
-            min_, max_, text = simple_valuation(req)
-    else:
-        min_, max_, text = simple_valuation(req)
+    try:
+        gpt_text = ai_valuation(req)
+        return {"raw_gpt": gpt_text}
+    except Exception as e:
+        logging.error(f"GPT-Error: {e} – Heuristik genutzt")
+        _, _, fallback = simple_valuation(req)
+        return {"raw_gpt": fallback}
 
-    return {"wert_min": min_, "wert_max": max_, "text": text}
