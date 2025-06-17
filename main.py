@@ -97,7 +97,7 @@ def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": SYS_PROMPT},
         {"role": "user",   "content": user_prompt},
     ]
 
