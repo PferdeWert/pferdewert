@@ -8,6 +8,8 @@ from openai import OpenAI, OpenAIError
 
 from dotenv import load_dotenv          # ① NEU
 load_dotenv()                           # ② liest .env ein
+print("System Prompt geladen:", os.getenv("PFERDEWERT_SYSTEM_PROMPT"))
+print("Verwendetes Modell:", os.getenv("PW_MODEL"))
 import tiktoken                    # Token-Zähler
 import os                               # ③ fürs getenv
 import logging
@@ -18,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 #  OpenAI-Initialisierung
 # ──────────────────────────────────────────────────────────
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_ID   = os.getenv("PW_MODEL", "gpt-3.5-turbo")
+MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
 client = OpenAI()                          # <- KEIN api_key-Argument mehr nötig (siehe .env)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
