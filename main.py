@@ -6,15 +6,33 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI, OpenAIError
 
+from dotenv import load_dotenv          # ① NEU
+load_dotenv()                           # ② liest .env ein
+import tiktoken                    # Token-Zähler
+import os                               # ③ fürs getenv
+
+
 # ──────────────────────────────────────────────────────────
 #  OpenAI-Initialisierung
 # ──────────────────────────────────────────────────────────
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 MODEL_ID   = os.getenv("PW_MODEL", "gpt-3.5-turbo")
-client     = OpenAI(api_key=OPENAI_KEY)
+client = OpenAI()                          # <- KEIN api_key-Argument mehr nötig (siehe .env)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logging.info(f"Key loaded? {'yes' if OPENAI_KEY else 'no'} | Model: {MODEL_ID}")
+
+ENC            = tiktoken.encoding_for_model(MODEL_ID)   # z. B. "gpt-4o-mini"
+CONTEXT_LIMIT  = 128_000                                 # Fenstergröße des Modells
+MAX_COMPLETION_LIMIT = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
+
+def tokens_in(msgs: list[dict]) -> int:
+    #"""Zählt Tokens in einer OpenAI-messages-Liste."""
+    total = 0
+    for m in msgs:
+        total += 4                     # fixer Overhead pro Message
+        total += len(ENC.encode(m["content"]))
+    return total + 2                   # Abschluss-Tokens
 
 # ──────────────────────────────────────────────────────────
 #  FastAPI-Grundgerüst
@@ -61,33 +79,14 @@ def simple_valuation(d: BewertungRequest) -> tuple[int, int, str]:
 # ──────────────────────────────────────────────────────────
 #  GPT-Bewertung
 # ──────────────────────────────────────────────────────────
-SYSTEM_PROMPT = """
-Du bist **„PferdeWert AI“**, eine hoch­spezialisierte Expert:innen-KI für Markt- und Preis­bewertungen von Sport- und Zuchtpferden (FN, DSP, Hannoveraner, KWPN, Oldenburger, AQHA u. a.).
+SYS_PROMPT = os.getenv(                 # ④ Prompt kommt jetzt aus der .env
+  "PFERDEWERT_SYSTEM_PROMPT",
+   # ↓ wird nur genutzt, wenn die ENV-Variable NICHT existiert
+    "Du bist „PferdeWert AI“. Gib eine realistische Preisspanne in Euro "
+    "für jedes vorgegebene Pferd an und erkläre kurz die Hauptfaktoren. "
+    "Format: ### Preisspanne … ## Was den Endpreis bewegt … ### Fazit."     # ⑤ Sicherheitsnetz
+)
 
-### Auftrag
-1. **Ermittle eine realistische Preisspanne in Euro (netto)** für jedes vorgegebene Pferd.  
-2. **Begründe den Preis** differenziert anhand von  
-   • Alter, Rasse, Geschlecht, Stockmaß  
-   • Abstammung (genaue Anpaarung, Stutenstämme, Zuchtwert-Trends)  
-   • Ausbildungs- und Turnierstand (inkl. Noten)  
-   • Gesundheitsdaten / AKU  
-   • Vermarktungsweg (Auktion vs. Privat) & aktueller Marktlage  
-3. Nutze öffentlich verfügbare Auktions- und Verkaufsdaten (FN-Erfolgsdaten, DSP- und Hannoveraner-Auktionen, Gestüt Marbach, KWPN, USEF usw.) als Referenz.  
-4. Weisen klar auf Unsicherheiten oder fehlende Angaben hin und erkläre, wie sie die Preisspanne beeinflussen.
-
-### Ausgabeformat (keine Tabellen)
-1. **„### Preisspanne“** Konkrete Spanne, z. B. „22 000 – 30 000 €“.  
-2. **Abstammungs-Zusammenfassung** Für jedes genannte Abstammungspferd ein eigener Absatz mit Beschreibung und Besonderheiten (ohne Preisangaben).  
-3. **„## Was den Endpreis besonders bewegt“** Liste der stärksten Preis-Hebel.  
-4. **„## Empfehlung & nächste Schritte“** Konkrete To-dos (z. B. Video, Stutenleistungsprüfung, Vermarktungsweg).  
-5. **„### Fazit“** Verständliche Zusammenfassung; erinnere an die Unverbindlichkeit („Orientierungswert, kein Ersatz für professionelle Wertermittlung“).
-
-### Stil- und Qualitätsrichtlinien
-- Fachlich präzise, aber für Laien verständlich.  
-- Klare Gliederung, kurze Absätze, **keine Tabellen**.  
-- Keine Halluzinationen: Fehlen Daten, stets deutlich kennzeichnen.
-
-"""
 
 def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
     user_prompt = (
@@ -97,15 +96,24 @@ def ai_valuation(d: BewertungRequest) -> tuple[int,int,str]:
         f"AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user",   "content": user_prompt},
+    ]
+
+    # ➜ freies Budget berechnen
+    used_tokens   = tokens_in(messages)
+    free_budget   = CONTEXT_LIMIT - used_tokens
+    max_tokens    = min(MAX_COMPLETION_LIMIT, free_budget)
+
     chat = client.chat.completions.create(
-        model=MODEL_ID,
-        messages=[
-            {"role":"system","content":SYSTEM_PROMPT},
-            {"role":"user","content":user_prompt},
-        ],
-        temperature=0.4,
-        max_tokens=200,
+        model       = MODEL_ID,
+        messages    = messages,
+        temperature = 0.4,
+        max_tokens  = max_tokens,      # ← variabel statt fix 200
     )
+    return chat.choices[0].message.content
+
     logging.info("GPT-Call OK")
     content = chat.choices[0].message.content
     match = re.search(r"\{.*\}", content, re.S)
