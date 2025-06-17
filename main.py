@@ -10,6 +10,7 @@ from dotenv import load_dotenv          # ① NEU
 load_dotenv()                           # ② liest .env ein
 import tiktoken                    # Token-Zähler
 import os                               # ③ fürs getenv
+import logging
 
 
 # ──────────────────────────────────────────────────────────
@@ -123,6 +124,7 @@ def ai_valuation(d: BewertungRequest) -> str:
 # ──────────────────────────────────────────────────────────
 @app.post("/api/bewertung")
 def bewertung(req: BewertungRequest):
+    logging.info(f"Incoming Request Data: {req.dict()}")
     try:
         gpt_text = ai_valuation(req)
         return {"raw_gpt": gpt_text}
