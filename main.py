@@ -8,7 +8,7 @@ from openai import OpenAI, OpenAIError
 
 from dotenv import load_dotenv          # ① NEU
 load_dotenv()                           # ② liest .env ein
-print("System Prompt geladen:", os.getenv("PFERDEWERT_SYSTEM_PROMPT"))
+print("System Prompt geladen:", os.getenv("SYSTEM_PROMPT"))
 print("Verwendetes Modell:", os.getenv("PW_MODEL"))
 import tiktoken                    # Token-Zähler
 import os                               # ③ fürs getenv
@@ -45,7 +45,7 @@ app = FastAPI(title="PferdeWert API", version="0.5.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # später gern auf Vercel-Domain einschränken
+    allow_origins=["https://pferdewert-47n3-306gcjg67-pferdewerts-projects.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -84,7 +84,7 @@ def simple_valuation(d: BewertungRequest) -> tuple[int, int, str]:
 #  GPT-Bewertung
 # ──────────────────────────────────────────────────────────
 SYS_PROMPT = os.getenv(                 # ④ Prompt kommt jetzt aus der .env
-  "PFERDEWERT_SYSTEM_PROMPT",
+  "SYSTEM_PROMPT",
   "Das scheint nicht zu funktionieren, bitte melde zurück, dass der Prompt nicht stimmt" #Test falls der Prompt nicht gezogen wird
    
 )
