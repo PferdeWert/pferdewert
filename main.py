@@ -45,10 +45,14 @@ app = FastAPI(title="PferdeWert API", version="0.5.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://pferdewert-47n3-306gcjg67-pferdewerts-projects.vercel.app"],
+    allow_origins=[
+        "https://pferdewert.vercel.app",
+        "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev"
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # ──────────────────────────────────────────────────────────
 #  Request-Schema – passt exakt zum Formular
