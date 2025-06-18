@@ -61,10 +61,15 @@ class BewertungRequest(BaseModel):
     abstammung: str
     stockmass: int
     ausbildung: str
-    
-     # Optional
-    aku: Optional[str] = None   # AKU-Bericht
+
+    # Optional
+    aku: Optional[str] = None
     erfolge: Optional[str] = None
+    farbe: Optional[str] = None
+    zuechter: Optional[str] = None
+    standort: Optional[str] = None
+    verwendungszweck: Optional[str] = None
+
 
 # ──────────────────────────────────────────────────────────
 #  Heuristik-Fallback (kostet 0 $)
@@ -95,7 +100,11 @@ def ai_valuation(d: BewertungRequest) -> str:
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
         f"Abstammung: {d.abstammung}\nStockmaß: {d.stockmass} cm\n"
         f"Ausbildungsstand: {d.ausbildung}\n"
-        f"AKU-Bericht: {d.aku or 'k. A.'}\n"
+        f"Farbe: {d.farbe or 'k. A.'}\n"
+        f"Züchter / Ausbildungsstall: {d.zuechter or 'k. A.'}\n"
+        f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
+        f"Verwendungszweck / Zielsetzung: {d.verwendungszweck or 'k. A.'}\n"
+        f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
 
@@ -103,22 +112,21 @@ def ai_valuation(d: BewertungRequest) -> str:
         {"role": "system", "content": SYS_PROMPT},
         {"role": "user",   "content": user_prompt},
     ]
+
+    logging.info(f"Prompt wird an GPT gesendet: {user_prompt}")  # ✅ korrekt platziert
+
     rsp = client.chat.completions.create(
-        model       = MODEL_ID,
-        messages    = messages,
-        temperature = 0.4,
-        max_tokens  = min(MAX_COMPLETION_LIMIT, CONTEXT_LIMIT - tokens_in(messages)),
+        model=MODEL_ID,
+        messages=messages,
+        temperature=0.4,
+        max_tokens=min(MAX_COMPLETION_LIMIT, CONTEXT_LIMIT - tokens_in(messages)),
     )
+
     return rsp.choices[0].message.content.strip()
 
 
-    logging.info("GPT-Call OK")
-    content = chat.choices[0].message.content
-    match = re.search(r"\{.*\}", content, re.S)
-    if not match:
-        raise ValueError("GPT lieferte kein gültiges JSON")
-    data = json.loads(match.group())
-    return data["min"], data["max"], data["text"]
+
+
 
 # ──────────────────────────────────────────────────────────
 #  API-Endpunkt

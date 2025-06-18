@@ -10,6 +10,10 @@ export default function Home() {
     ausbildung: "",
     aku: "",
     erfolge: "",
+    farbe: "",
+    zuechter: "",
+    standort: "",
+    verwendungszweck: "",
   });
 
   const [antwort, setAntwort] = useState("Noch keine Bewertung durchgeführt …");
@@ -44,6 +48,7 @@ export default function Home() {
     <main className="max-w-xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6">Pferdebewertung anfragen</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Pflichtfelder */}
         <label className="block">
           Rasse<span className="text-red-600">*</span>
           <input name="rasse" required value={form.rasse} onChange={handleChange} className="w-full p-2 border rounded" />
@@ -73,14 +78,39 @@ export default function Home() {
           Ausbildungsstand<span className="text-red-600">*</span>
           <input name="ausbildung" required value={form.ausbildung} onChange={handleChange} className="w-full p-2 border rounded" />
         </label>
+
+        {/* Geändertes Label */}
         <label className="block">
-          AKU-Bericht:
+          Gesundheitsstatus / AKU-Bericht:
           <input name="aku" value={form.aku} onChange={handleChange} className="w-full p-2 border rounded" />
         </label>
+
         <label className="block">
           Erfolge:
           <input name="erfolge" value={form.erfolge} onChange={handleChange} className="w-full p-2 border rounded" />
         </label>
+
+        {/* Neue optionale Felder */}
+        <label className="block">
+          Farbe:
+          <input name="farbe" value={form.farbe} onChange={handleChange} className="w-full p-2 border rounded" />
+        </label>
+
+        <label className="block">
+          Züchter / Ausbildungsstall:
+          <input name="zuechter" value={form.zuechter} onChange={handleChange} className="w-full p-2 border rounded" />
+        </label>
+
+        <label className="block">
+          Aktueller Standort (PLZ):
+          <input name="standort" value={form.standort} onChange={handleChange} className="w-full p-2 border rounded" />
+        </label>
+
+        <label className="block">
+          Verwendungszweck / Zielsetzung:
+          <input name="verwendungszweck" value={form.verwendungszweck} onChange={handleChange} className="w-full p-2 border rounded" />
+        </label>
+
         <button type="submit" disabled={loading} className="bg-blue-600 text-white px-4 py-2 rounded">
           {loading ? "Bewertung läuft..." : "Bewerten lassen"}
         </button>
