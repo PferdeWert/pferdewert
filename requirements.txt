@@ -1,6 +1,5 @@
 fastapi
 uvicorn[standard]
-openai          #  ← neu
+openai
 python-dotenv
 tiktoken
-uvicorn[standard]
