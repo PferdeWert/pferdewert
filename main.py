@@ -1,50 +1,52 @@
-import os, re, json, logging
+# main.py – PferdeWert API (ohne Heuristik-Fallback)
+import os
+import logging
 from typing import Optional
 
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from openai import OpenAI, OpenAIError
+from openai import OpenAI
 
-from dotenv import load_dotenv          # ① NEU
-load_dotenv()                           # ② liest .env ein
-print("System Prompt geladen:", os.getenv("SYSTEM_PROMPT"))
-print("Verwendetes Modell:", os.getenv("PW_MODEL"))
-import tiktoken                    # Token-Zähler
-import os                               # ③ fürs getenv
-import logging
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+import tiktoken  # Token-Zähler
 
+# ───────────────────────────────
+#  Initialisierung & Konfiguration
+# ───────────────────────────────
+load_dotenv()                                     # .env einlesen
 
-# ──────────────────────────────────────────────────────────
-#  OpenAI-Initialisierung
-# ──────────────────────────────────────────────────────────
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_ID = os.getenv("PW_MODEL")
+MODEL_ID   = os.getenv("PW_MODEL")
+SYS_PROMPT = os.getenv(
+    "SYSTEM_PROMPT",
+    "Das scheint nicht zu funktionieren, bitte melde zurück, dass der Prompt nicht stimmt"
+)
+
 if not MODEL_ID:
     raise EnvironmentError("PW_MODEL ist nicht gesetzt. Bitte .env prüfen.")
 
-client = OpenAI()                          # <- KEIN api_key-Argument mehr nötig (siehe .env)
+client = OpenAI()                                # Key wird aus Umgebung gezogen
+ENC     = tiktoken.encoding_for_model(MODEL_ID)
+CTX_MAX = 128_000
+MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logging.info(f"Key loaded? {'yes' if OPENAI_KEY else 'no'} | Model: {MODEL_ID}")
-
-ENC            = tiktoken.encoding_for_model(MODEL_ID)   # z. B. "gpt-4o-mini"
-CONTEXT_LIMIT  = 128_000                                 # Fenstergröße des Modells
-MAX_COMPLETION_LIMIT = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
+logging.info(f"OpenAI-key loaded? {'yes' if OPENAI_KEY else 'no'} | Model: {MODEL_ID}")
 
 def tokens_in(msgs: list[dict]) -> int:
-    #"""Zählt Tokens in einer OpenAI-messages-Liste."""
+    """Hilfsfunktion: zählt Tokens in OpenAI-Messages."""
     total = 0
     for m in msgs:
-        total += 4                     # fixer Overhead pro Message
+        total += 4                      # fixer Overhead pro Message
         total += len(ENC.encode(m["content"]))
-    return total + 2                   # Abschluss-Tokens
+    return total + 2                    # Abschluss-Tokens
 
-# ──────────────────────────────────────────────────────────
-#  FastAPI-Grundgerüst
-# ──────────────────────────────────────────────────────────
-app = FastAPI(title="PferdeWert API", version="0.5.0")
+# ───────────────────────────────
+#  FastAPI-App
+# ───────────────────────────────
+app = FastAPI(title="PferdeWert API", version="0.6.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -56,12 +58,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-# ──────────────────────────────────────────────────────────
-#  Request-Schema – passt exakt zum Formular
-# ──────────────────────────────────────────────────────────
+# ───────────────────────────────
+#  Request-Schema (passt zum Formular)
+# ───────────────────────────────
 class BewertungRequest(BaseModel):
-    # Pflicht
+    # Pflichtfelder
     rasse: str
     alter: int
     geschlecht: str
@@ -69,7 +70,7 @@ class BewertungRequest(BaseModel):
     stockmass: int
     ausbildung: str
 
-    # Optional
+    # Optionale Angaben
     aku: Optional[str] = None
     erfolge: Optional[str] = None
     farbe: Optional[str] = None
@@ -77,31 +78,9 @@ class BewertungRequest(BaseModel):
     standort: Optional[str] = None
     verwendungszweck: Optional[str] = None
 
-
-# ──────────────────────────────────────────────────────────
-#  Heuristik-Fallback (kostet 0 $)
-# ──────────────────────────────────────────────────────────
-def simple_valuation(d: BewertungRequest) -> tuple[int, int, str]:
-    basis = 1_000
-    age_fac = max(0.5, 1 - abs(d.alter - 8) * 0.06)
-    aus_fac = {"roh":1,"angeritten":1.2,"A":1.4,"L":1.6,"M":2,"S":2.5}.get(d.ausbildung,1)
-    stock_fac = d.stockmass / 160
-    mittel = int(max(basis * age_fac * aus_fac * stock_fac, 500))
-    span   = int(mittel * 0.10)          # ±10 %
-    min_, max_ = mittel - span, mittel + span
-    text = f"Schätzung (Heuristik): {min_:,} € – {max_:,} €."
-    return min_, max_, text
-
-# ──────────────────────────────────────────────────────────
+# ───────────────────────────────
 #  GPT-Bewertung
-# ──────────────────────────────────────────────────────────
-SYS_PROMPT = os.getenv(                 # ④ Prompt kommt jetzt aus der .env
-  "SYSTEM_PROMPT",
-  "Das scheint nicht zu funktionieren, bitte melde zurück, dass der Prompt nicht stimmt" #Test falls der Prompt nicht gezogen wird
-   
-)
-
-
+# ───────────────────────────────
 def ai_valuation(d: BewertungRequest) -> str:
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
@@ -117,39 +96,40 @@ def ai_valuation(d: BewertungRequest) -> str:
 
     messages = [
         {"role": "system", "content": SYS_PROMPT},
-        {"role": "user",   "content": user_prompt},
+        {"role": "user",   "content": user_prompt}
     ]
 
-    logging.info(f"Prompt wird an GPT gesendet: {user_prompt}")  # ✅ korrekt platziert
+    logging.info("Prompt wird an GPT gesendet …")
 
     rsp = client.chat.completions.create(
-        model=MODEL_ID,
-        messages=messages,
-        temperature=0.4,
-        max_tokens=min(MAX_COMPLETION_LIMIT, CONTEXT_LIMIT - tokens_in(messages)),
+        model       = MODEL_ID,
+        messages    = messages,
+        temperature = 0.4,
+        max_tokens  = min(MAX_COMPLETION, CTX_MAX - tokens_in(messages)),
     )
 
     return rsp.choices[0].message.content.strip()
 
-
-
-
-
-# ──────────────────────────────────────────────────────────
-#  API-Endpunkt
-# ──────────────────────────────────────────────────────────
+# ───────────────────────────────
+#  API-Endpoint (ohne Heuristik)
+# ───────────────────────────────
 @app.post("/api/bewertung")
 def bewertung(req: BewertungRequest):
-    logging.info(f"Incoming Request Data: {req.dict()}")
+    logging.info(f"Incoming Request: {req.dict()}")
     try:
         gpt_text = ai_valuation(req)
         return {"raw_gpt": gpt_text}
     except Exception as e:
-        logging.error(f"GPT-Error: {e} – Heuristik genutzt")
-        _, _, fallback = simple_valuation(req)
-        return {"raw_gpt": fallback}
+        logging.error(f"GPT-Error: {e}")
+        return {
+            "raw_gpt": (
+                "Wir arbeiten gerade an unserem KI-Modell, "
+                "bitte schicke uns eine E-Mail an info@pferdewert.de "
+                "und wir melden uns, sobald das Modell wieder online ist."
+            )
+        }
 
-
-from fastapi.staticfiles import StaticFiles
-
+# ───────────────────────────────
+#  Statische Dateien (optional)
+# ───────────────────────────────
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
