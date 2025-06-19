@@ -40,7 +40,7 @@ export default function Home() {
           {/* Hero Image (Placeholder) */}
           <div className="w-full max-w-lg lg:w-1/2">
             <Image
-              src="/images/hero-placeholder.jpg" // ersetze durch eigenes Bild
+               src="/images/hero.webp"
               alt="Pferd beim Sprung"
               width={800}
               height={534}
@@ -103,7 +103,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:flex lg:items-center lg:gap-12">
           <div className="lg:w-1/2">
             <Image
-              src="/images/result-placeholder.jpg" // Screenshot Platzhalter
+             src="/images/result.webp"
               alt="Beispiel-Ergebnis Pferdebewertung"
               width={800}
               height={600}
