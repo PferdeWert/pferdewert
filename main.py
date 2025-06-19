@@ -52,13 +52,14 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://pferdewert.vercel.app",
-        "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev"
+        "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev",
         "https://organic-sniffle-jjg7466rj9vvhqj7.github.dev"
-
     ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # ───────────────────────────────
 #  Request-Schema (passt zum Formular)
