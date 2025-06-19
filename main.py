@@ -20,7 +20,10 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 #  OpenAI-Initialisierung
 # ──────────────────────────────────────────────────────────
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
+MODEL_ID = os.getenv("PW_MODEL")
+if not MODEL_ID:
+    raise EnvironmentError("PW_MODEL ist nicht gesetzt. Bitte .env prüfen.")
+
 client = OpenAI()                          # <- KEIN api_key-Argument mehr nötig (siehe .env)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
