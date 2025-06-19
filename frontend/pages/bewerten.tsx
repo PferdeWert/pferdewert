@@ -52,13 +52,14 @@ export default function Bewerten() {
 
     try {
       const res = await fetch(
-        "https://api.pferdewert.onrender.com/api/bewertung",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        }
-      );
+  "https://pferdewert-api.onrender.com/api/bewertung",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(form),
+  }
+);
+
 
       const json: { raw_gpt?: string } = await res.json();
 
