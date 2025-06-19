@@ -54,6 +54,7 @@ app.add_middleware(
         "https://pferdewert.vercel.app",
         "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev",
         "https://organic-sniffle-jjg7466rj9vvhqj7.github.dev"
+        "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev/bewerten"
     ],
     allow_credentials=True,
     allow_methods=["*"],
