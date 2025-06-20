@@ -152,7 +152,7 @@ export default function Home() {
               Sieh hier, wie detailliert unsere Analyse ausfällt: Wertband, Begründung und konkrete Tipps zur Preisoptimierung. Alles für mehr Transparenz & Fairness auf dem Pferdemarkt!
             </p>
             <Link
-              href="/bewerten"
+              href="/beispiel-analyse"
               className="mt-6 inline-block rounded-xl bg-brand-accent px-6 py-3 text-button font-bold text-white shadow-soft hover:bg-brand"
             >
               Beispiel-Analyse ansehen
