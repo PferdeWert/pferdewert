@@ -49,7 +49,7 @@ const fields: {
     required: true,
     options: ["Stute", "Wallach", "Hengst"],
   },
-  { name: "abstammung", label: "Abstammung", required: true },
+  { name: "abstammung", label: "Abstammung (Vater x Muttervater", required: true },
   { name: "stockmass", label: "Stockmaß (cm)", type: "number", required: true },
   { name: "ausbildung", label: "Ausbildungsstand", required: true },
   { name: "aku", label: "Gesundheitsstatus / AKU-Bericht" },
