@@ -1,4 +1,6 @@
-// pages/ergebnis.tsx – Ergebnisanzeige (korrektes Next.js‑Link‑Routing)
+// pages/ergebnis.tsx
+
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
@@ -9,7 +11,6 @@ export default function Ergebnis() {
   const [text, setText] = useState<string>("");
   const [copied, setCopied] = useState(false);
 
-  // Fallback‑Hinweis, falls KI gerade nicht verfügbar
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell, bitte schicke uns eine E-Mail an info@pferdewert.de und wir melden uns sobald das Modell wieder online ist.";
 
@@ -31,7 +32,7 @@ export default function Ergebnis() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error("Copy failed", err);
+      // Fehlerhandling, falls Kopieren fehlschlägt
     }
   };
 
@@ -47,41 +48,66 @@ export default function Ergebnis() {
   };
 
   return (
-    <main className="mx-auto max-w-2xl p-6">
-      <h1 className="mb-4 text-2xl font-bold">📊 Ergebnis deiner Pferdebewertung</h1>
+    <>
+      <Head>
+        <title>Pferdebewertung – Ergebnis | PferdeWert</title>
+        <meta
+          name="description"
+          content="Hier erhältst du das individuelle Ergebnis deiner KI-gestützten Pferdebewertung – inklusive Analyse, Tipps & PDF-Download."
+        />
+      </Head>
 
-      {text ? (
-        <>
-          <div className="whitespace-pre-line rounded border border-gray-300 bg-gray-100 p-4 text-gray-800">
-            {text}
-          </div>
+      <main className="bg-brand-light min-h-screen py-20 px-4">
+        <div className="mx-auto max-w-2xl bg-white rounded-2xl shadow-soft p-8 border border-brand/10">
+          <h1 className="mb-6 text-h2 font-serif font-bold text-brand">
+            📊 Ergebnis deiner Pferdebewertung
+          </h1>
 
-          <div className="mt-4 flex gap-4">
-            <button
-              onClick={handleCopy}
-              className="rounded bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          {text ? (
+            <>
+              <div className="whitespace-pre-line rounded-2xl border border-brand-light bg-brand-light/70 p-6 text-brand font-mono text-base">
+                {text}
+              </div>
+
+              <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={handleCopy}
+                  className="flex-1 rounded-2xl bg-brand-accent px-6 py-3 font-bold text-white shadow-soft hover:bg-brand transition"
+                >
+                  📋 Ergebnis kopieren
+                </button>
+                <button
+                  onClick={handleDownloadPDF}
+                  className="flex-1 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
+                >
+                  🧾 PDF herunterladen
+                </button>
+              </div>
+
+              {copied && (
+                <p className="mt-3 text-center text-brand-green font-semibold">
+                  ✔️ In Zwischenablage kopiert!
+                </p>
+              )}
+            </>
+          ) : (
+            <p className="text-brand">
+              Kein Bewertungsergebnis verfügbar.
+              <br />
+              <span className="text-brand-accent">{fallbackMessage}</span>
+            </p>
+          )}
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/bewerten"
+              className="inline-block text-brand-accent underline underline-offset-4 hover:text-brand font-medium"
             >
-              📋 Ergebnis kopieren
-            </button>
-            <button
-              onClick={handleDownloadPDF}
-              className="rounded bg-green-600 px-4 py-2 font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300"
-            >
-              🧾 PDF herunterladen
-            </button>
+              ➕ Noch ein Pferd bewerten
+            </Link>
           </div>
-
-          {copied && <p className="mt-2 text-green-600">✔️ In Zwischenablage kopiert!</p>}
-        </>
-      ) : (
-        <p className="text-gray-600">Kein Bewertungsergebnis verfügbar.</p>
-      )}
-
-      <div className="mt-6">
-        <Link href="/bewerten" className="text-blue-600 hover:underline">
-          ➕ Noch ein Pferd bewerten
-        </Link>
-      </div>
-    </main>
+        </div>
+      </main>
+    </>
   );
 }
