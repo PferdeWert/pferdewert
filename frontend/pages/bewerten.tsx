@@ -1,5 +1,4 @@
 // pages/bewerten.tsx
-
 import Head from "next/head";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
@@ -64,22 +63,39 @@ const fields: {
 export default function Bewerten() {
   const router = useRouter();
   const [form, setForm] = useState<FormState>(initialForm);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
-  const [fehler, setFehler] = useState("");
+
+  function validateField(name: string, value: string): string {
+    const f = fields.find((f) => f.name === name);
+    if (f?.required && !value) return "Erforderlich";
+    return "";
+  }
 
   function handleChange(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) {
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ): void {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
+    setErrors((err) => ({ ...err, [name]: validateField(name, value) }));
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const newErrors: Record<string, string> = {};
+    fields.forEach((f) => {
+      const val = form[f.name];
+      const err = validateField(f.name, val);
+      if (err) newErrors[f.name] = err;
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     setLoading(true);
-    setFehler("");
+    setErrors({});
 
     try {
       const res = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
@@ -93,11 +109,11 @@ export default function Bewerten() {
       if (json.raw_gpt) {
         router.push(`/ergebnis?text=${encodeURIComponent(json.raw_gpt)}`);
       } else {
-        setFehler("Die Bewertung war nicht erfolgreich. Bitte überprüfe deine Eingaben.");
+        setErrors({ form: "Die Bewertung war nicht erfolgreich. Bitte überprüfe deine Eingaben." });
       }
     } catch {
-  setFehler("Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de.");
-}
+      setErrors({ form: "Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de." });
+    }
 
     setLoading(false);
   }
@@ -118,26 +134,32 @@ export default function Bewerten() {
             Jetzt Pferd bewerten
           </h1>
           <p className="text-brand mb-8 text-base">
-            Trage die wichtigsten Informationen ein – unsere KI analysiert sofort den Marktwert deines Pferdes. <span className="block mt-2 text-brand-accent font-medium">100% anonym & kostenlos.</span>
+            Trage die wichtigsten Informationen ein – unsere KI analysiert sofort den Marktwert deines Pferdes.
+            <span className="block mt-2 text-brand-accent font-medium">
+              100% anonym & kostenlos.
+            </span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {fields.map((field) => (
-              <label key={field.name} className="block">
-                <span className="font-medium text-brand">
+              <div key={field.name}>
+                <label htmlFor={field.name} className="block font-medium text-brand mb-1">
                   {field.label}
                   {field.required && <span className="text-red-600"> *</span>}
-                </span>
+                </label>
                 {field.type === "select" ? (
                   <select
+                    id={field.name}
                     name={field.name}
-                    required={field.required}
                     value={form[field.name]}
                     onChange={handleChange}
-                    className="w-full mt-1 p-3 border rounded-xl border-brand-light bg-white"
+                    autoComplete="off"
+                    className={`w-full p-3 border rounded-xl transition ${
+                      errors[field.name] ? "border-red-500" : "border-gray-300"
+                    } focus:border-brand-accent focus:outline-none`}
                   >
                     <option value="">Bitte wählen</option>
-                    {field.options?.map((opt) => (
+                    {field.options?.map((opt: string) => (
                       <option key={opt} value={opt}>
                         {opt}
                       </option>
@@ -145,19 +167,26 @@ export default function Bewerten() {
                   </select>
                 ) : (
                   <input
-                    type={field.type || "text"}
+                    id={field.name}
                     name={field.name}
-                    required={field.required}
+                    type={field.type || "text"}
+                    inputMode={field.type === "number" ? "numeric" : undefined}
+                    autoComplete="off"
                     value={form[field.name]}
                     onChange={handleChange}
-                    className="w-full mt-1 p-3 border rounded-xl border-brand-light"
+                    className={`w-full p-3 border rounded-xl transition ${
+                      errors[field.name] ? "border-red-500" : "border-gray-300"
+                    } focus:border-brand-accent focus:outline-none`}
                   />
                 )}
-              </label>
+                {errors[field.name] && (
+                  <p className="mt-1 text-red-600 text-sm">{errors[field.name]}</p>
+                )}
+              </div>
             ))}
 
-            {fehler && (
-              <p className="text-red-600 font-medium text-base">{fehler}</p>
+            {errors.form && (
+              <p className="text-red-600 font-medium text-base">{errors.form}</p>
             )}
 
             <button
