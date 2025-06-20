@@ -95,9 +95,10 @@ export default function Bewerten() {
       } else {
         setFehler("Die Bewertung war nicht erfolgreich. Bitte überprüfe deine Eingaben.");
       }
-    } catch (err) {
-      setFehler("Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de.");
-    }
+    } catch {
+  setFehler("Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de.");
+}
+
     setLoading(false);
   }
 
