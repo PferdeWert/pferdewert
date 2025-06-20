@@ -27,8 +27,9 @@ export default function Ergebnis() {
   const clean = (input: string) =>
     input
       .replace(/\/\s?/g, "")
-      .replace(/(\d)\s?–\s?(\d)/g, "$1–$2")
-      .replace(/(\d{1,3})[ .](\d{3})/g, "$1 $2"); // geschütztes Leerzeichen
+      .replace(/(\d)\s?[–-]\s?(\d)/g, "$1 - $2") // einfacher Bindestrich statt typografischem Gedankenstrich
+      .replace(/(\d{1,3})[ .](\d{3})/g, "$1 $2") // normales Leerzeichen statt geschütztem
+      .replace(/€\s?/g, " €"); // Leerzeichen vor dem Euro-Zeichen
 
   const handleCopy = async () => {
     try {
@@ -46,7 +47,10 @@ export default function Ergebnis() {
     const maxWidth = 170;
     let y = margin;
 
-    const drawTextBlock = (content: string, type: "heading" | "paragraph" | "list") => {
+    const drawTextBlock = (
+      content: string,
+      type: "heading" | "paragraph" | "list"
+    ) => {
       const cleaned = clean(content);
       doc.setFont("helvetica", type === "heading" ? "bold" : "normal");
       doc.setFontSize(type === "heading" ? 14 : 11);
