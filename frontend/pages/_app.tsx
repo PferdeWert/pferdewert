@@ -1,13 +1,12 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import Footer from "@/components/Footer"; // ⬅️ das hier neu
-import '../styles/fonts.css';
+import Footer from "@/components/Footer"; // Footer bleibt
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <Footer /> {/* ⬅️ Footer kommt unter jede Seite */}
+      <Footer /> {/* Footer unter jeder Seite */}
     </>
   );
 }
