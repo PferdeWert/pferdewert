@@ -114,12 +114,14 @@ export default function Home() {
               Sieh hier, wie detailliert unsere Analyse ausfällt: Wertband, Begründung und konkrete Tipps zur
               Preisoptimierung.
             </p>
-            <Link
-              href="/bewerten"
-              className="mt-6 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow hover:bg-blue-700"
-            >
-              Demo selbst erleben
-            </Link>
+      <Link
+       href="/bewerten"
+       className="mt-6 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow hover:bg-blue-700"
+      >
+       Beispiel-Analyse
+      </Link>
+
+
           </div>
         </div>
       </section>
