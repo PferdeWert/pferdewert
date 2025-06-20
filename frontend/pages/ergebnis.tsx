@@ -31,7 +31,7 @@ export default function Ergebnis() {
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
+    } catch {
       // Fehlerhandling, falls Kopieren fehlschlägt
     }
   };
