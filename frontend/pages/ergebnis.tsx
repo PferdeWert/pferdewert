@@ -1,21 +1,21 @@
-// pages/ergebnis.tsx – Ergebnisanzeige
+// pages/ergebnis.tsx – Ergebnisanzeige (korrektes Next.js‑Link‑Routing)
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
+import Link from "next/link";
 
 export default function Ergebnis() {
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [copied, setCopied] = useState(false);
 
-  // Fallback-Hinweis, falls KI gerade nicht verfügbar
+  // Fallback‑Hinweis, falls KI gerade nicht verfügbar
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell, bitte schicke uns eine E-Mail an info@pferdewert.de und wir melden uns sobald das Modell wieder online ist.";
 
   useEffect(() => {
     if (router.query.text) {
       const decoded = decodeURIComponent(router.query.text as string);
-      // Prüfen, ob Backend-Heuristik oder Error-Placeholder geliefert hat
       if (decoded.includes("Heuristik")) {
         setText(fallbackMessage);
       } else {
@@ -24,7 +24,6 @@ export default function Ergebnis() {
     }
   }, [router.query.text]);
 
-  // Text kopieren
   const handleCopy = async () => {
     if (!text) return;
     try {
@@ -36,7 +35,6 @@ export default function Ergebnis() {
     }
   };
 
-  // PDF herunterladen
   const handleDownloadPDF = () => {
     if (!text) return;
     const doc = new jsPDF();
@@ -49,12 +47,12 @@ export default function Ergebnis() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">📊 Ergebnis deiner Pferdebewertung</h1>
+    <main className="mx-auto max-w-2xl p-6">
+      <h1 className="mb-4 text-2xl font-bold">📊 Ergebnis deiner Pferdebewertung</h1>
 
       {text ? (
         <>
-          <div className="bg-gray-100 border border-gray-300 p-4 rounded whitespace-pre-line text-gray-800">
+          <div className="whitespace-pre-line rounded border border-gray-300 bg-gray-100 p-4 text-gray-800">
             {text}
           </div>
 
@@ -73,18 +71,16 @@ export default function Ergebnis() {
             </button>
           </div>
 
-          {copied && (
-            <p className="mt-2 text-green-600">✔️ In Zwischenablage kopiert!</p>
-          )}
+          {copied && <p className="mt-2 text-green-600">✔️ In Zwischenablage kopiert!</p>}
         </>
       ) : (
         <p className="text-gray-600">Kein Bewertungsergebnis verfügbar.</p>
       )}
 
       <div className="mt-6">
-        <a href="/bewerten" className="text-blue-600 hover:underline">
+        <Link href="/bewerten" className="text-blue-600 hover:underline">
           ➕ Noch ein Pferd bewerten
-        </a>
+        </Link>
       </div>
     </main>
   );
