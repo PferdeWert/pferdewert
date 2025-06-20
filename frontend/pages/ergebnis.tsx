@@ -1,10 +1,9 @@
-// pages/ergebnis.tsx
-
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 export default function Ergebnis() {
   const router = useRouter();
@@ -17,11 +16,9 @@ export default function Ergebnis() {
   useEffect(() => {
     if (router.query.text) {
       const decoded = decodeURIComponent(router.query.text as string);
-      if (decoded.includes("Heuristik")) {
-        setText(fallbackMessage);
-      } else {
-        setText(decoded);
-      }
+      setText(
+        decoded.includes("Heuristik") ? fallbackMessage : decoded
+      );
     }
   }, [router.query.text]);
 
@@ -32,18 +29,63 @@ export default function Ergebnis() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fehlerhandling, falls Kopieren fehlschlägt
+      // Fehlerhandling
     }
   };
 
   const handleDownloadPDF = () => {
     if (!text) return;
-    const doc = new jsPDF();
-    const lines = doc.splitTextToSize(text, 180);
-    doc.text(lines, 10, 20);
-    doc.setFontSize(10);
-    doc.setTextColor(100);
-    doc.text("Bereitgestellt von www.pferdewert.de", 10, 280);
+
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+    const margin = 20;
+    const maxWidth = 170;
+    let y = 20;
+
+    const drawHeading = (txt: string) => {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.text(txt.replace(/^#+\s*/, ""), margin, y);
+      y += 8;
+    };
+
+    const drawParagraph = (txt: string) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      const lines = doc.splitTextToSize(txt, maxWidth);
+      doc.text(lines, margin, y);
+      y += lines.length * 6 + 2;
+    };
+
+    const drawListItem = (txt: string) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      const lines = doc.splitTextToSize("• " + txt, maxWidth);
+      doc.text(lines, margin, y);
+      y += lines.length * 6 + 2;
+    };
+
+    const lines = text.split("\n");
+    lines.forEach((line) => {
+      if (y > 270) {
+        doc.addPage();
+        y = margin;
+      }
+
+      if (line.startsWith("###")) {
+        drawHeading(line);
+      } else if (line.startsWith("- ")) {
+        drawListItem(line.slice(2));
+      } else if (line.trim() === "") {
+        y += 4;
+      } else {
+        drawParagraph(line);
+      }
+    });
+
+    doc.setFontSize(9);
+    doc.setTextColor(120);
+    doc.text("Bereitgestellt von www.pferdewert.de", margin, 290);
+
     doc.save("pferdebewertung.pdf");
   };
 
@@ -65,8 +107,8 @@ export default function Ergebnis() {
 
           {text ? (
             <>
-              <div className="whitespace-pre-line rounded-2xl border border-brand-light bg-brand-light/70 p-6 text-brand font-mono text-base">
-                {text}
+              <div className="prose prose-blue max-w-none">
+                <ReactMarkdown>{text}</ReactMarkdown>
               </div>
 
               <div className="mt-6 flex flex-col sm:flex-row gap-4">
