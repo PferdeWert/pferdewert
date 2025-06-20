@@ -137,4 +137,4 @@ def bewertung(req: BewertungRequest):
 # ───────────────────────────────
 #  Statische Dateien (optional)
 # ───────────────────────────────
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+# noch aus dem ersten static html MVP: app.mount("/", StaticFiles(directory="static", html=True), name="static")
