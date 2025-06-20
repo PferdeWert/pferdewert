@@ -1,4 +1,6 @@
-// pages/bewerten.tsx – Formularseite
+// pages/bewerten.tsx
+
+import Head from "next/head";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -17,208 +19,156 @@ interface FormState {
   verwendungszweck: string;
 }
 
+const initialForm: FormState = {
+  rasse: "",
+  alter: "",
+  geschlecht: "",
+  abstammung: "",
+  stockmass: "",
+  ausbildung: "",
+  aku: "",
+  erfolge: "",
+  farbe: "",
+  zuechter: "",
+  standort: "",
+  verwendungszweck: "",
+};
+
+const fields: {
+  name: keyof FormState;
+  label: string;
+  type?: "text" | "number" | "select";
+  required?: boolean;
+  options?: string[];
+}[] = [
+  { name: "rasse", label: "Rasse", required: true },
+  { name: "alter", label: "Alter (Jahre)", type: "number", required: true },
+  {
+    name: "geschlecht",
+    label: "Geschlecht",
+    type: "select",
+    required: true,
+    options: ["Stute", "Wallach", "Hengst"],
+  },
+  { name: "abstammung", label: "Abstammung", required: true },
+  { name: "stockmass", label: "Stockmaß (cm)", type: "number", required: true },
+  { name: "ausbildung", label: "Ausbildungsstand", required: true },
+  { name: "aku", label: "Gesundheitsstatus / AKU-Bericht" },
+  { name: "erfolge", label: "Erfolge" },
+  { name: "farbe", label: "Farbe" },
+  { name: "zuechter", label: "Züchter / Ausbildungsstall" },
+  { name: "standort", label: "Standort (PLZ)" },
+  { name: "verwendungszweck", label: "Verwendungszweck / Zielsetzung" },
+];
+
 export default function Bewerten() {
   const router = useRouter();
-  const [form, setForm] = useState<FormState>({
-    rasse: "",
-    alter: "",
-    geschlecht: "",
-    abstammung: "",
-    stockmass: "",
-    ausbildung: "",
-    aku: "",
-    erfolge: "",
-    farbe: "",
-    zuechter: "",
-    standort: "",
-    verwendungszweck: "",
-  });
-
+  const [form, setForm] = useState<FormState>(initialForm);
   const [loading, setLoading] = useState(false);
   const [fehler, setFehler] = useState("");
 
-  const handleChange = (
+  function handleChange(
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  ) {
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+  }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setFehler("");
 
     try {
-      const res = await fetch(
-        "https://pferdewert-api.onrender.com/api/bewertung",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        }
-      );
+      const res = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
       const json: { raw_gpt?: string } = await res.json();
 
       if (json.raw_gpt) {
         router.push(`/ergebnis?text=${encodeURIComponent(json.raw_gpt)}`);
       } else {
-        setFehler(
-          "Die Bewertung war nicht erfolgreich. Bitte überprüfe deine Eingaben."
-        );
+        setFehler("Die Bewertung war nicht erfolgreich. Bitte überprüfe deine Eingaben.");
       }
     } catch (err) {
-      console.error(err);
-      setFehler(
-        "Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de."
-      );
+      setFehler("Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de.");
     }
-
     setLoading(false);
-  };
+  }
 
   return (
-    <main className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">Pferdebewertung anfragen</h1>
+    <>
+      <Head>
+        <title>Pferd bewerten – PferdeWert</title>
+        <meta
+          name="description"
+          content="Jetzt Pferd kostenlos bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung."
+        />
+      </Head>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Pflichtfelder */}
-        <label className="block">
-          Rasse<span className="text-red-600">*</span>
-          <input
-            name="rasse"
-            required
-            value={form.rasse}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Alter (Jahre)<span className="text-red-600">*</span>
-          <input
-            type="number"
-            name="alter"
-            required
-            value={form.alter}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Geschlecht<span className="text-red-600">*</span>
-          <select
-            name="geschlecht"
-            required
-            value={form.geschlecht}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          >
-            <option value="">Bitte wählen</option>
-            <option>Stute</option>
-            <option>Wallach</option>
-            <option>Hengst</option>
-          </select>
-        </label>
-        <label className="block">
-          Abstammung<span className="text-red-600">*</span>
-          <input
-            name="abstammung"
-            required
-            value={form.abstammung}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Stockmaß (cm)<span className="text-red-600">*</span>
-          <input
-            type="number"
-            name="stockmass"
-            required
-            value={form.stockmass}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Ausbildungsstand<span className="text-red-600">*</span>
-          <input
-            name="ausbildung"
-            required
-            value={form.ausbildung}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
+      <main className="bg-brand-light min-h-screen py-20 px-4">
+        <div className="mx-auto max-w-3xl bg-white rounded-2xl shadow-soft p-8 border border-brand/10">
+          <h1 className="text-h1 font-serif font-bold text-brand mb-6">
+            Jetzt Pferd bewerten
+          </h1>
+          <p className="text-brand mb-8 text-base">
+            Trage die wichtigsten Informationen ein – unsere KI analysiert sofort den Marktwert deines Pferdes. <span className="block mt-2 text-brand-accent font-medium">100% anonym & kostenlos.</span>
+          </p>
 
-        {/* Optionale Felder */}
-        <label className="block">
-          Gesundheitsstatus / AKU-Bericht:
-          <input
-            name="aku"
-            value={form.aku}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Erfolge:
-          <input
-            name="erfolge"
-            value={form.erfolge}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Farbe:
-          <input
-            name="farbe"
-            value={form.farbe}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Züchter / Ausbildungsstall:
-          <input
-            name="zuechter"
-            value={form.zuechter}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Standort (PLZ):
-          <input
-            name="standort"
-            value={form.standort}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
-        <label className="block">
-          Verwendungszweck / Zielsetzung:
-          <input
-            name="verwendungszweck"
-            value={form.verwendungszweck}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </label>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {fields.map((field) => (
+              <label key={field.name} className="block">
+                <span className="font-medium text-brand">
+                  {field.label}
+                  {field.required && <span className="text-red-600"> *</span>}
+                </span>
+                {field.type === "select" ? (
+                  <select
+                    name={field.name}
+                    required={field.required}
+                    value={form[field.name]}
+                    onChange={handleChange}
+                    className="w-full mt-1 p-3 border rounded-xl border-brand-light bg-white"
+                  >
+                    <option value="">Bitte wählen</option>
+                    {field.options?.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    type={field.type || "text"}
+                    name={field.name}
+                    required={field.required}
+                    value={form[field.name]}
+                    onChange={handleChange}
+                    className="w-full mt-1 p-3 border rounded-xl border-brand-light"
+                  />
+                )}
+              </label>
+            ))}
 
-        {fehler && <p className="text-red-600 font-medium">{fehler}</p>}
+            {fehler && (
+              <p className="text-red-600 font-medium text-base">{fehler}</p>
+            )}
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
-        >
-          {loading ? "🔄 Bewertung läuft..." : "Bewerten lassen"}
-        </button>
-      </form>
-    </main>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
+            >
+              {loading ? "🔄 Bewertung läuft..." : "Jetzt Bewertung starten"}
+            </button>
+          </form>
+        </div>
+      </main>
+    </>
   );
 }
