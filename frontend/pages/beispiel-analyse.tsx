@@ -33,10 +33,7 @@ _Ich bin PferdeWert AI von [www.pferdewert.de](https://www.pferdewert.de) – di
 
 export default function BeispielAnalyse() {
   return (
-    <BewertungLayout
-      title="📝 Beispiel-Analyse"
-      description="So sieht eine echte PferdeWert-Analyse aus: Beispiel-Report mit Marktwert, Analyse und Tipps zum Preis."
-    >
+    <BewertungLayout title="📝 Beispiel-Analyse">
       <div className="prose prose-blue max-w-none">
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </div>
