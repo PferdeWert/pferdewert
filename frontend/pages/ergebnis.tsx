@@ -16,9 +16,7 @@ export default function Ergebnis() {
   useEffect(() => {
     if (router.query.text) {
       const decoded = decodeURIComponent(router.query.text as string);
-      setText(
-        decoded.includes("Heuristik") ? fallbackMessage : decoded
-      );
+      setText(decoded.includes("Heuristik") ? fallbackMessage : decoded);
     }
   }, [router.query.text]);
 
@@ -39,19 +37,25 @@ export default function Ergebnis() {
     const doc = new jsPDF({ unit: "mm", format: "a4" });
     const margin = 20;
     const maxWidth = 170;
-    let y = 20;
+    let y = margin;
+
+    const clean = (input: string) =>
+      input
+        .replace(/\/\s?/g, "") // entfernt Slash-Zerlegungen
+        .replace(/(\d)\s?–\s?(\d)/g, "$1–$2") // korrekte Spanne
+        .replace(/(\d{1,3})[ .](\d{3})/g, "$1 $2"); // geschütztes Leerzeichen
 
     const drawHeading = (txt: string) => {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(14);
-      doc.text(txt.replace(/^#+\s*/, ""), margin, y);
+      doc.text(clean(txt.replace(/^#+\s*/, "")), margin, y);
       y += 8;
     };
 
     const drawParagraph = (txt: string) => {
       doc.setFont("helvetica", "normal");
       doc.setFontSize(11);
-      const lines = doc.splitTextToSize(txt, maxWidth);
+      const lines = doc.splitTextToSize(clean(txt), maxWidth);
       doc.text(lines, margin, y);
       y += lines.length * 6 + 2;
     };
@@ -59,12 +63,12 @@ export default function Ergebnis() {
     const drawListItem = (txt: string) => {
       doc.setFont("helvetica", "normal");
       doc.setFontSize(11);
-      const lines = doc.splitTextToSize("• " + txt, maxWidth);
+      const lines = doc.splitTextToSize("• " + clean(txt), maxWidth);
       doc.text(lines, margin, y);
       y += lines.length * 6 + 2;
     };
 
-    const lines = text.split("\n");
+    const lines = clean(text).split("\n");
     lines.forEach((line) => {
       if (y > 270) {
         doc.addPage();
@@ -82,6 +86,7 @@ export default function Ergebnis() {
       }
     });
 
+    // Footer
     doc.setFontSize(9);
     doc.setTextColor(120);
     doc.text("Bereitgestellt von www.pferdewert.de", margin, 290);
