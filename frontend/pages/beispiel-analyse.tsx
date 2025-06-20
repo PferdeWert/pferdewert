@@ -1,11 +1,12 @@
-import Head from "next/head";
+// pages/beispiel-analyse.tsx
+
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import BewertungLayout from "@/components/BewertungLayout";
 
-const markdown = `
-### Preisspanne
+const markdown = `### Preisspanne
 
-**10.000 – 15.000 €**
+**10.000 – 15.000 €**
 
 Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des Pferdes beeinflussen. Das untere Ende der Spanne berücksichtigt den Ausbildungsstand des Wallachs, der sich im L-Bereich im Ansatz befindet, sowie seine bisherigen Erfolge, die sich auf E-Siege und A-Platzierungen beschränken. Das obere Ende der Spanne könnte erreicht werden, wenn die Bewegungsqualität des Pferdes überdurchschnittlich ist und es eine besonders gute AKU vorweisen kann. Der Verkauf über einen privaten Anbieter und der derzeitige Standort können ebenfalls den Preis beeinflussen.
 
@@ -32,35 +33,22 @@ _Ich bin PferdeWert AI von [www.pferdewert.de](https://www.pferdewert.de) – di
 
 export default function BeispielAnalyse() {
   return (
-    <>
-      <Head>
-        <title>Beispiel-Analyse – PferdeWert</title>
-        <meta
-          name="description"
-          content="So sieht eine echte PferdeWert-Analyse aus: Beispiel-Report mit Marktwert, Analyse und Tipps zum Preis."
-        />
-      </Head>
+    <BewertungLayout
+      title="📝 Beispiel-Analyse"
+      description="So sieht eine echte PferdeWert-Analyse aus: Beispiel-Report mit Marktwert, Analyse und Tipps zum Preis."
+    >
+      <div className="prose prose-blue max-w-none">
+        <ReactMarkdown>{markdown}</ReactMarkdown>
+      </div>
 
-      <main className="bg-brand-light min-h-screen py-20 px-4">
-        <div className="mx-auto max-w-3xl bg-white rounded-2xl shadow-soft p-8 border border-brand/10">
-          <h1 className="mb-6 text-h2 font-serif font-bold text-brand text-center">
-            📝 Beispiel-Analyse
-          </h1>
-
-          <div className="prose prose-blue max-w-none">
-            <ReactMarkdown>{markdown}</ReactMarkdown>
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/bewerten"
-              className="inline-block rounded-xl bg-brand-accent px-6 py-3 font-semibold text-white shadow hover:bg-brand transition"
-            >
-              ➕ Eigene Bewertung starten
-            </Link>
-          </div>
-        </div>
-      </main>
-    </>
+      <div className="mt-8 text-center">
+        <Link
+          href="/bewerten"
+          className="inline-block rounded-xl bg-brand-accent px-6 py-3 font-semibold text-white shadow hover:bg-brand transition"
+        >
+          ➕ Eigene Bewertung starten
+        </Link>
+      </div>
+    </BewertungLayout>
   );
 }
