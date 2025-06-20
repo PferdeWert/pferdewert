@@ -16,7 +16,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-white">
         <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-24 pb-16 lg:flex-row lg:gap-16 lg:pb-32">
-          {/* Text */}
           <div className="max-w-xl lg:flex-auto">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Was ist dein Pferd wert?
@@ -37,10 +36,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Image (Placeholder) */}
           <div className="w-full max-w-lg lg:w-1/2">
             <Image
-               src="/images/hero.webp"
+              src="/images/hero.webp"
               alt="Pferd beim Sprung"
               width={800}
               height={534}
@@ -56,39 +54,40 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center text-3xl font-semibold text-gray-900">So einfach geht’s</h2>
           <div className="mt-14 grid gap-12 md:grid-cols-3">
-            {[
-              {
-                step: "01",
-                title: "Daten eingeben",
-                text: "Alter, Rasse, Ausbildungsstand &amp; Co. in nur 2 Minuten eintragen.",
-                icon: "📝",
-              },
-              {
-                step: "02",
-                title: "KI analysiert",
-                text: "Modernstes OpenAI‑Modell berechnet sofort den Marktwert.",
-                icon: "🤖",
-              },
-              {
-                step: "03",
-                title: "Wert erhalten",
-                text: "Ergebnis mit Analyse sofort online &amp; als PDF sichern.",
-                icon: "📊",
-              },
-            ].map(({ step, title, text, icon }) => (
-              <div key={step} className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-2xl text-white">
-                  {icon}
+            {[...Array(3)].map((_, i) => {
+              const steps = [
+                {
+                  icon: "📝",
+                  title: "Daten eingeben",
+                  text: "Alter, Rasse, Ausbildungsstand &amp; Co. in nur 2 Minuten eintragen.",
+                },
+                {
+                  icon: "🤖",
+                  title: "KI analysiert",
+                  text: "Modernstes OpenAI‑Modell berechnet sofort den Marktwert.",
+                },
+                {
+                  icon: "📊",
+                  title: "Wert erhalten",
+                  text: "Ergebnis mit Analyse sofort online &amp; als PDF sichern.",
+                },
+              ];
+              const { icon, title, text } = steps[i];
+              return (
+                <div key={i} className="text-center">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-2xl text-white">
+                    {icon}
+                  </div>
+                  <h3 className="mt-6 text-xl font-medium text-gray-900">{title}</h3>
+                  <p className="mt-2 text-gray-600">{text}</p>
                 </div>
-                <h3 className="mt-6 text-xl font-medium text-gray-900">{title}</h3>
-                <p className="mt-2 text-gray-600">{text}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Social Proof Section */}
+      {/* Social Proof */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-3xl font-semibold text-gray-900">Vertraut von über 1.200 Pferdebesitzern</h2>
@@ -103,7 +102,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:flex lg:items-center lg:gap-12">
           <div className="lg:w-1/2">
             <Image
-             src="/images/result.webp"
+              src="/images/result.webp"
               alt="Beispiel-Ergebnis Pferdebewertung"
               width={800}
               height={600}
@@ -132,31 +131,14 @@ export default function Home() {
           <h2 className="text-center text-3xl font-semibold text-gray-900">Häufige Fragen</h2>
           <div className="mt-12 space-y-6">
             {[
-              {
-                q: "Wie genau ist die Bewertung?",
-                a: "Unsere KI analysiert auf Basis tausender Markttransaktionen. Dennoch ist es eine Schätzung – nutzen Sie sie als Richtwert.",
-              },
-              {
-                q: "Kostet der Service etwas?",
-                a: "Die Basis-Bewertung ist kostenlos. Zukünftige Premium-Funktionen können kostenpflichtig sein.",
-              },
-              {
-                q: "Was passiert mit meinen Daten?",
-                a: "Wir speichern nur anonyme Bewertungsdaten zur Verbesserung des Modells. Keine personenbezogenen Daten werden weitergegeben.",
-              },
-              {
-                q: "Wie lange dauert die Analyse?",
-                a: "In der Regel weniger als 30 Sekunden nach Absenden des Formulars.",
-              },
-              {
-                q: "Kann ich mehrere Pferde bewerten?",
-                a: "Ja, nach jeder Bewertung kannst du sofort ein weiteres Pferd eingeben.",
-              },
-            ].map(({ q, a }, idx) => (
-              <details key={idx} className="rounded border border-gray-200 p-4">
-                <summary className="cursor-pointer select-none text-lg font-medium text-gray-900">
-                  {q}
-                </summary>
+              ["Wie genau ist die Bewertung?", "Unsere KI analysiert auf Basis tausender Markttransaktionen. Dennoch ist es eine Schätzung – nutzen Sie sie als Richtwert."],
+              ["Kostet der Service etwas?", "Die Basis-Bewertung ist kostenlos. Zukünftige Premium-Funktionen können kostenpflichtig sein."],
+              ["Was passiert mit meinen Daten?", "Wir speichern nur anonyme Bewertungsdaten zur Verbesserung des Modells. Keine personenbezogenen Daten werden weitergegeben."],
+              ["Wie lange dauert die Analyse?", "In der Regel weniger als 30 Sekunden nach Absenden des Formulars."],
+              ["Kann ich mehrere Pferde bewerten?", "Ja, nach jeder Bewertung kannst du sofort ein weiteres Pferd eingeben."]
+            ].map(([q, a], i) => (
+              <details key={i} className="rounded border border-gray-200 p-4">
+                <summary className="cursor-pointer select-none text-lg font-medium text-gray-900">{q}</summary>
                 <p className="mt-2 text-gray-600">{a}</p>
               </details>
             ))}
@@ -168,15 +150,9 @@ export default function Home() {
       <footer className="bg-[#4e463b] py-10 text-center text-sm text-gray-200">
         <p>© {new Date().getFullYear()} PferdeWert • Alle Rechte vorbehalten</p>
         <div className="mt-2 flex justify-center gap-4">
-          <a href="mailto:info@pferdewert.de" className="hover:underline">
-            E‑Mail
-          </a>
-          <a href="/impressum" className="hover:underline">
-            Impressum
-          </a>
-          <a href="/datenschutz" className="hover:underline">
-            Datenschutz
-          </a>
+          <a href="mailto:info@pferdewert.de" className="hover:underline">E‑Mail</a>
+          <a href="/impressum" className="hover:underline">Impressum</a>
+          <a href="/datenschutz" className="hover:underline">Datenschutz</a>
         </div>
       </footer>
     </>
