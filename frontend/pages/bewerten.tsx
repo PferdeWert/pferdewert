@@ -124,7 +124,7 @@ export default function Bewerten() {
         <title>Pferd bewerten – PferdeWert</title>
         <meta
           name="description"
-          content="Jetzt Pferd kostenlos bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung."
+          content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung."
         />
       </Head>
 
@@ -136,7 +136,7 @@ export default function Bewerten() {
           <p className="text-brand mb-8 text-base">
             Trage die wichtigsten Informationen ein – unsere KI analysiert sofort den Marktwert deines Pferdes.
             <span className="block mt-2 text-brand-accent font-medium">
-              100% anonym & kostenlos.
+              100% anonym und sofort verfügbar.
             </span>
           </p>
 
