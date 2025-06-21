@@ -4,36 +4,36 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+  apiVersion: "2023-10-16" as Stripe.LatestApiVersion, // 💡 Fix für TS-Fehler
+});
 
-interface CheckoutBody {
+type CheckoutBody = {
   text: string;
-}
+};
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const body = req.body as CheckoutBody;
-    if (!body.text) {
+    const { text } = req.body as CheckoutBody;
+    if (!text) {
       return res.status(400).json({ error: "Missing input data" });
     }
 
-    let parsedData: unknown;
+    let parsedData: Record<string, unknown>;
     try {
-      parsedData = JSON.parse(body.text);
+      parsedData = JSON.parse(text);
     } catch {
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
-    const origin =
-      req.headers.origin ||
-      `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
+    const isLocalhost = req.headers.host?.includes("localhost") || req.headers.host?.includes("3000");
+    const origin = isLocalhost
+      ? "http://localhost:3000"
+      : `https://${req.headers.host}`;
 
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
@@ -70,8 +70,7 @@ export default async function handler(
 
     return res.status(200).json({ url: session.url });
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unbekannter Fehler";
+    const message = error instanceof Error ? error.message : "Unbekannter Fehler";
     console.error("Fehler beim Checkout:", message);
     return res.status(500).json({ error: message });
   }
