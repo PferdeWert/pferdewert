@@ -1,15 +1,31 @@
 // lib/generateBewertung.ts
-export async function generateBewertung(daten: any): Promise<string> {
-  // Hier später echten OpenAI-Aufruf einbauen – aktuell nur Dummy
-  // Du kannst die daten z. B. ausgeben zur Prüfung
-  console.log("Eingabedaten für KI:", daten);
 
-  // Beispiel-Antwort
-  return `🏇 Bewertung für "${daten.name || "Unbekanntes Pferd"}":
-- Alter: ${daten.alter || "nicht angegeben"}
-- Rasse: ${daten.rasse || "unbekannt"}
-- Geschlecht: ${daten.geschlecht || "nicht definiert"}
+import OpenAI from "openai";
 
-🧠 Einschätzung:
-Dieses Pferd zeigt solide Merkmale und könnte auf dem Markt gut positioniert sein.`;
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function generateBewertung(daten: Record<string, unknown>): Promise<string> {
+  const completion = await openai.chat.completions.create({
+    model: process.env.PW_MODEL || "gpt-4o",
+    messages: [
+      {
+        role: "system",
+        content: "Du bist ein Experte für die Einschätzung von Pferden und gibst strukturierte Preisschätzungen.",
+      },
+      {
+        role: "user",
+        content: `Bewerte bitte dieses Pferd:\n\n${JSON.stringify(daten, null, 2)}`,
+      },
+    ],
+    max_tokens: 1000,
+  });
+
+  const text = completion.choices[0]?.message?.content;
+  if (!text) {
+    throw new Error("Antwort von OpenAI war leer");
+  }
+
+  return text;
 }
