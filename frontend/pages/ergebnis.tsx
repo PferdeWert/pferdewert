@@ -37,6 +37,7 @@ export default function Ergebnis() {
 
         setText(data.bewertung || fallbackMessage);
       } catch (err) {
+        console.error("Fehler beim Laden der Session:", err);
         setText(fallbackMessage);
       } finally {
         setLoading(false);
@@ -44,7 +45,7 @@ export default function Ergebnis() {
     };
 
     fetchSession();
-  }, [router.query.session_id]);
+  }, [router]);
 
   const clean = (input: string) =>
     input
@@ -58,7 +59,9 @@ export default function Ergebnis() {
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {}
+    } catch {
+      // Fehler ignorieren
+    }
   };
 
   const handleDownloadPDF = async () => {
