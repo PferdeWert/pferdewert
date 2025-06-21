@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-// ❌ Keine apiVersion hier angeben → sonst TypeScript-Konflikt
+// Stripe-Instanz (ohne apiVersion → sonst Konflikte mit TS)
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -9,14 +9,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { text } = req.body;
-
-  // Dynamische Origin: lokal & Prod kompatibel
-  const origin =
-    req.headers.origin || `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
-
   try {
-    // Bewertung vom KI-Modell generieren
+    // Eingabedaten prüfen
+    const { text } = req.body;
+    if (!text) {
+      return res.status(400).json({ error: "Missing input data" });
+    }
+
+    // Origin ermitteln (lokal oder prod)
+    const origin =
+      req.headers.origin || `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
+
+    // Bewertung generieren lassen
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -24,12 +28,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!response.ok) {
+      console.error("Fehler bei KI-Antwort", await response.text());
       throw new Error("OpenAI request failed");
     }
 
     const { result } = await response.json();
 
-    // Stripe Checkout-Session mit Bewertung in metadata
+    if (!result) {
+      return res.status(500).json({ error: "Kein Ergebnis vom KI-Modell" });
+    }
+
+    // Stripe Checkout-Session vorbereiten
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -47,8 +56,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     return res.status(200).json({ url: session.url });
-  } catch (error) {
-    console.error("Stripe Checkout Error:", error);
+  } catch (error: any) {
+    console.error("Stripe Checkout Error:", error.message || error);
     return res.status(500).json({ error: "Stripe Session error" });
   }
 }
