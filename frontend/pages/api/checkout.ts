@@ -3,6 +3,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
+// ✅ Stripe-Instanz mit Secret Key aus Umgebungsvariablen
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -12,8 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { text } = req.body;
 
-  // ✅ origin dynamisch lesen (lokal oder Codespace) mit Fallback
-  const origin = req.headers.origin || "http://localhost:3000";
+  // ✅ Dynamische Origin-URL: funktioniert lokal, in Codespaces und in Produktion
+  const origin =
+    req.headers.origin || `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
 
   try {
     const session = await stripe.checkout.sessions.create({
