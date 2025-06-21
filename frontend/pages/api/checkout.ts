@@ -1,14 +1,17 @@
+// pages/api/checkout.ts
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 
+// Initialisiere Stripe ohne apiVersion (nutzt automatisch die passende)
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 type CheckoutBody = {
   text: string;
 };
 
-type EingabeDaten = Record<string, unknown>;
+type BewertungEingabe = Record<string, unknown>;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
@@ -18,60 +21,59 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const { text } = req.body as CheckoutBody;
     if (!text) {
-      console.warn("❗️Request ohne Text-Feld erhalten");
       return res.status(400).json({ error: "Missing input data" });
     }
 
-    let parsedData: EingabeDaten;
+    // Eingabe parsen
+    let parsedData: BewertungEingabe;
     try {
       parsedData = JSON.parse(text);
-    } catch (e) {
-      console.warn("❗️Ungültiges JSON im Text-Feld:", e);
+    } catch {
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
-    const isLocal = process.env.NODE_ENV === "development" || req.headers.host?.includes("localhost");
-    const origin = isLocal ? "http://localhost:3000" : "https://pferdewert.vercel.app";
-
     console.log("📤 Sende Daten an /api/generate...");
-    const response = await fetch(`${origin}/api/generate`, {
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ daten: parsedData }),
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("❌ Fehler bei /api/generate:", errorText);
-      return res.status(500).json({ error: "Fehler bei der Bewertungserzeugung" });
-    }
+    if (!response.ok) throw new Error("KI-Anfrage fehlgeschlagen");
 
     const { result }: { result: string | null } = await response.json();
     if (!result) {
-      console.warn("⚠️ Keine Bewertung von der KI zurückbekommen");
       return res.status(500).json({ error: "Keine Bewertung erzeugt" });
     }
 
     console.log("💾 Speichere Bewertung in MongoDB...");
+
     const collection = await getCollection("bewertungen");
     const insertResult = await collection.insertOne({
       eingabe: parsedData,
       bewertung: result,
       createdAt: new Date(),
     });
+
     const bewertungId = insertResult.insertedId.toString();
 
-    console.log("💳 Erstelle Stripe-Checkout-Session...");
+    const isProd = process.env.NODE_ENV === "production";
+    const baseUrl = isProd
+      ? "https://pferdewert.vercel.app"
+      : "http://localhost:3000";
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
       metadata: { bewertungId },
-      success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/bewerten`,
+      success_url: `${baseUrl}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/bewerten`,
     });
 
-    console.log("✅ Checkout-Session erstellt:", session.url);
+    console.log("✅ Stripe-Session erstellt:", session.id);
+
     return res.status(200).json({ url: session.url });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unbekannter Fehler";
