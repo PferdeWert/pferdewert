@@ -54,6 +54,22 @@ export default function Ergebnis() {
     const maxWidth = 170;
     let y = margin;
 
+    // Header mit Logo und Titel
+    doc.setFontSize(18);
+    doc.setFont("helvetica", "bold");
+    doc.text("PferdeWert Analyse", margin, y);
+    y += 10;
+
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(100);
+    doc.text("KI-gestützte Pferdebewertung direkt online", margin, y);
+    y += 10;
+
+    doc.setDrawColor(200);
+    doc.line(margin, y, 210 - margin, y);
+    y += 10;
+
     const drawTextBlock = (
       content: string,
       type: "heading" | "paragraph" | "list"
@@ -99,6 +115,10 @@ export default function Ergebnis() {
       </Head>
 
       <BewertungLayout title="📊 Ergebnis deiner Pferdebewertung">
+        <p className="mb-6 text-green-700 font-semibold bg-green-50 border border-green-200 rounded-xl px-4 py-3 text-center">
+          ✅ Zahlung erfolgreich – deine Analyse ist jetzt bereit.
+        </p>
+
         {text ? (
           <>
             <div className="prose prose-blue max-w-none">
