@@ -7,6 +7,9 @@
 │   │   ├── BewertungLayout.tsx
 │   │   └── Footer.tsx
 │   ├── eslint.config.mjs
+│   ├── lib
+│   │   ├── generateBewertung.ts
+│   │   └── mongo.ts
 │   ├── next-env.d.ts
 │   ├── next.config.ts
 │   ├── package-lock.json
@@ -1194,4 +1197,4 @@
     ├── lib64 -> lib
     └── pyvenv.cfg
 
-133 directories, 1061 files
+134 directories, 1063 files
