@@ -1,7 +1,6 @@
 // pages/bewerten.tsx
 import Head from "next/head";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 
 interface FormState {
   rasse: string;
