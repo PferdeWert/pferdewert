@@ -3,7 +3,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-// ✅ Stripe-Instanz mit Secret Key aus Umgebungsvariablen
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -13,11 +12,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { text } = req.body;
 
-  // ✅ Dynamische Origin-URL: funktioniert lokal, in Codespaces und in Produktion
+  // 🌐 Origin automatisch bestimmen – lokal / Codespace / Produktion
   const origin =
     req.headers.origin || `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
 
   try {
+    // ✅ Bewertung vom KI-Modell generieren lassen
+    const response = await fetch(`${origin}/api/generate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ daten: JSON.parse(text) }),
+    });
+
+    if (!response.ok) {
+      throw new Error("OpenAI-Request failed");
+    }
+
+    const { result } = await response.json();
+
+    // ✅ Stripe Checkout-Session vorbereiten
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -27,7 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           quantity: 1,
         },
       ],
-      success_url: `${origin}/ergebnis?paid=true&text=${encodeURIComponent(text)}`,
+      success_url: `${origin}/ergebnis?paid=true&text=${encodeURIComponent(result)}`,
       cancel_url: `${origin}/bewerten`,
     });
 
