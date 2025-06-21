@@ -1,4 +1,5 @@
 // pages/impressum.tsx
+
 export default function Impressum() {
   return (
     <main className="mx-auto max-w-xl p-6">
@@ -8,13 +9,14 @@ export default function Impressum() {
       <p className="mb-4">
         PferdeWert GbR<br />
         Sabine und Benjamin Reder<br />
-        Feigenweg&nbsp;17B<br />
-        70619&nbsp;Stuttgart
+        Feigenweg 17B<br />
+        70619 Stuttgart<br />
+        Deutschland
       </p>
 
       <p className="mb-2 font-semibold">Kontakt:</p>
       <p className="mb-4">
-        E‑Mail:&nbsp;
+        E-Mail:&nbsp;
         <a
           href="mailto:info@pferdewert.de"
           className="text-blue-600 underline hover:text-blue-800"
@@ -23,11 +25,20 @@ export default function Impressum() {
         </a>
       </p>
 
-      <p className="mb-2 font-semibold">Verantwortlich nach § 55 Abs. 2 RStV:</p>
-      <p>
+      <p className="mb-2 font-semibold">Verantwortlich gemäß § 55 Abs. 2 RStV:</p>
+      <p className="mb-4">
         Sabine und Benjamin Reder<br />
-        Feigenweg&nbsp;17B<br />
-        70619&nbsp;Stuttgart
+        Feigenweg 17B<br />
+        70619 Stuttgart
+      </p>
+
+      <p className="mb-2 font-semibold">Umsatzsteuer-ID:</p>
+      <p className="mb-4">
+        Nicht umsatzsteuerpflichtig gemäß § 19 UStG (Kleinunternehmerregelung)
+      </p>
+
+      <p className="mt-6 text-sm text-gray-500">
+        Inhaltlich verantwortlich gemäß § 55 Abs. 2 RStV: Sabine und Benjamin Reder
       </p>
     </main>
   );

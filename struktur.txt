@@ -1,11 +1,10 @@
 .
 ├── -d
 ├── README.md
-├── __pycache__
-│   └── main.cpython-312.pyc
 ├── frontend
 │   ├── README.md
 │   ├── components
+│   │   ├── BewertungLayout.tsx
 │   │   └── Footer.tsx
 │   ├── eslint.config.mjs
 │   ├── next-env.d.ts
@@ -52,8 +51,6 @@
 ├── package.json
 ├── render.yaml
 ├── requirements.txt
-├── static
-│   └── index.html
 ├── struktur.txt
 └── venv
     ├── bin
@@ -1192,4 +1189,4 @@
     ├── lib64 -> lib
     └── pyvenv.cfg
 
-135 directories, 1057 files
+133 directories, 1056 files
