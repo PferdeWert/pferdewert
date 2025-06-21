@@ -18,18 +18,25 @@ export default function Ergebnis() {
 
   useEffect(() => {
     const raw = router.query.text;
+    const paid = router.query.paid;
+
+    if (!paid || paid !== "true") {
+      router.replace("/bewerten");
+      return;
+    }
+
     if (raw && typeof raw === "string") {
       const decoded = decodeURIComponent(raw);
       setText(decoded.includes("Heuristik") ? fallbackMessage : decoded);
     }
-  }, [router.query.text]);
+  }, [router.query]);
 
   const clean = (input: string) =>
     input
       .replace(/\/\s?/g, "")
-      .replace(/(\d)\s?[–-]\s?(\d)/g, "$1 - $2") // einfacher Bindestrich statt typografischem Gedankenstrich
-      .replace(/(\d{1,3})[ .](\d{3})/g, "$1 $2") // normales Leerzeichen statt geschütztem
-      .replace(/€\s?/g, " €"); // Leerzeichen vor dem Euro-Zeichen
+      .replace(/(\d)\s?[\u2013-]\s?(\d)/g, "$1 - $2")
+      .replace(/(\d{1,3})[ .](\d{3})/g, "$1 $2")
+      .replace(/\u20ac\s?/g, " €");
 
   const handleCopy = async () => {
     try {
@@ -109,7 +116,7 @@ export default function Ergebnis() {
                 onClick={handleDownloadPDF}
                 className="flex-1 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
               >
-                🧾 PDF herunterladen
+                🧞 PDF herunterladen
               </button>
             </div>
 
