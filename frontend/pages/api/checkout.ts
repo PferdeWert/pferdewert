@@ -4,11 +4,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string); // Kein apiVersion nötig
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 type CheckoutBody = {
   text: string;
 };
+
+type EingabeDaten = Record<string, unknown>;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
@@ -17,9 +19,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const { text } = req.body as CheckoutBody;
-    if (!text) return res.status(400).json({ error: "Missing input data" });
+    if (!text) {
+      return res.status(400).json({ error: "Missing input data" });
+    }
 
-    let parsedData: Record<string, any>;
+    let parsedData: EingabeDaten;
     try {
       parsedData = JSON.parse(text);
     } catch {
@@ -40,7 +44,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!response.ok) throw new Error("KI-Anfrage fehlgeschlagen");
 
     const { result }: { result: string | null } = await response.json();
-    if (!result) return res.status(500).json({ error: "Keine Bewertung erzeugt" });
+    if (!result) {
+      return res.status(500).json({ error: "Keine Bewertung erzeugt" });
+    }
 
     const collection = await getCollection("bewertungen");
     const insertResult = await collection.insertOne({
