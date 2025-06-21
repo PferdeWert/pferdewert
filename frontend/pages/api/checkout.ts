@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       payment_method_types: ["card"],
       line_items: [
         {
-          price: "price_1PvqHgGR0aWZuTFLbApPKlLd", // ⬅️ Deine Preis-ID
+          price: process.env.STRIPE_PRICE_ID as string, // ✅ neue Zeile mit env
           quantity: 1,
         },
       ],
