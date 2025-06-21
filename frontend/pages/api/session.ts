@@ -25,8 +25,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const bewertung = session.metadata?.bewertung ?? null;
 
     return res.status(200).json({ paid, bewertung });
-  } catch (error: any) {
-    console.error("Error loading Stripe session:", error.message || error);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("Error loading Stripe session:", message);
     return res.status(500).json({ error: "Unable to load Stripe session" });
   }
 }
