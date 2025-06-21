@@ -12,24 +12,39 @@ export default function Ergebnis() {
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
 
   useEffect(() => {
-    const raw = router.query.text;
-    const paid = router.query.paid;
+    const session_id = router.query.session_id;
 
-    if (!paid || paid !== "true") {
+    if (!session_id || typeof session_id !== "string") {
       router.replace("/bewerten");
       return;
     }
 
-    if (raw && typeof raw === "string") {
-      const decoded = decodeURIComponent(raw);
-      setText(decoded.includes("Heuristik") ? fallbackMessage : decoded);
-    }
-  }, [router.query]);
+    const fetchSession = async () => {
+      try {
+        const res = await fetch(`/api/session?session_id=${session_id}`);
+        const data = await res.json();
+
+        if (!data.paid) {
+          router.replace("/bewerten");
+          return;
+        }
+
+        setText(data.bewertung || fallbackMessage);
+      } catch (err) {
+        setText(fallbackMessage);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSession();
+  }, [router.query.session_id]);
 
   const clean = (input: string) =>
     input
@@ -43,9 +58,7 @@ export default function Ergebnis() {
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Fehler ignorieren
-    }
+    } catch {}
   };
 
   const handleDownloadPDF = async () => {
@@ -54,7 +67,6 @@ export default function Ergebnis() {
     const maxWidth = 170;
     let y = margin;
 
-    // Logo laden
     const logoUrl = "/logo.png";
     const logo = await fetch(logoUrl)
       .then(res => res.blob())
@@ -69,7 +81,6 @@ export default function Ergebnis() {
     doc.addImage(logo, "PNG", margin, y, 25, 25);
     y += 30;
 
-    // Header mit Titel
     doc.setFontSize(18);
     doc.setFont("helvetica", "bold");
     doc.text("PferdeWert Analyse", margin, y);
@@ -130,43 +141,45 @@ export default function Ergebnis() {
       </Head>
 
       <BewertungLayout title="📊 Ergebnis deiner Pferdebewertung">
-        <p className="mb-6 text-green-700 font-semibold bg-green-50 border border-green-200 rounded-xl px-4 py-3 text-center">
-          ✅ Zahlung erfolgreich – deine Analyse ist jetzt bereit.
-        </p>
-
-        {text ? (
+        {loading ? (
+          <p className="text-center text-brand-accent">⏳ Lade deine Analyse...</p>
+        ) : (
           <>
-            <div className="prose prose-blue max-w-none">
-              <ReactMarkdown>{text}</ReactMarkdown>
-            </div>
+            <p className="mb-6 text-green-700 font-semibold bg-green-50 border border-green-200 rounded-xl px-4 py-3 text-center">
+              ✅ Zahlung erfolgreich – deine Analyse ist jetzt bereit.
+            </p>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={handleCopy}
-                className="flex-1 rounded-2xl bg-brand-accent px-6 py-3 font-bold text-white shadow-soft hover:bg-brand transition"
-              >
-                📋 Ergebnis kopieren
-              </button>
-              <button
-                onClick={handleDownloadPDF}
-                className="flex-1 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
-              >
-                🧞 PDF herunterladen
-              </button>
-            </div>
+            {text ? (
+              <>
+                <div className="prose prose-blue max-w-none">
+                  <ReactMarkdown>{text}</ReactMarkdown>
+                </div>
 
-            {copied && (
-              <p className="mt-3 text-center text-brand-green font-semibold">
-                ✔️ In Zwischenablage kopiert!
-              </p>
+                <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={handleCopy}
+                    className="flex-1 rounded-2xl bg-brand-accent px-6 py-3 font-bold text-white shadow-soft hover:bg-brand transition"
+                  >
+                    📋 Ergebnis kopieren
+                  </button>
+                  <button
+                    onClick={handleDownloadPDF}
+                    className="flex-1 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
+                  >
+                    🧞 PDF herunterladen
+                  </button>
+                </div>
+
+                {copied && (
+                  <p className="mt-3 text-center text-brand-green font-semibold">
+                    ✔️ In Zwischenablage kopiert!
+                  </p>
+                )}
+              </>
+            ) : (
+              <p className="text-brand-accent text-center">{fallbackMessage}</p>
             )}
           </>
-        ) : (
-          <p className="text-brand">
-            Kein Bewertungsergebnis verfügbar.
-            <br />
-            <span className="text-brand-accent">{fallbackMessage}</span>
-          </p>
         )}
 
         <div className="mt-8 text-center">
