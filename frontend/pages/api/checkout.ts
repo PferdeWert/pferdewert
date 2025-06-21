@@ -4,9 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2023-10-16" as Stripe.LatestApiVersion, // 💡 Fix für TS-Fehler
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string); // Kein apiVersion nötig
 
 type CheckoutBody = {
   text: string;
@@ -19,20 +17,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const { text } = req.body as CheckoutBody;
-    if (!text) {
-      return res.status(400).json({ error: "Missing input data" });
-    }
+    if (!text) return res.status(400).json({ error: "Missing input data" });
 
-    let parsedData: Record<string, unknown>;
+    let parsedData: Record<string, any>;
     try {
       parsedData = JSON.parse(text);
     } catch {
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
-const isDev = process.env.NODE_ENV !== "production";
-const origin = isDev ? "http://localhost:3000" : `https://${req.headers.host}`;
-
+    const isLocalhost = req.headers.host?.includes("localhost") || req.headers.host?.includes("3000");
+    const origin = isLocalhost
+      ? "http://localhost:3000"
+      : `https://${req.headers.host}`;
 
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
@@ -40,14 +37,10 @@ const origin = isDev ? "http://localhost:3000" : `https://${req.headers.host}`;
       body: JSON.stringify({ daten: parsedData }),
     });
 
-    if (!response.ok) {
-      throw new Error("KI-Anfrage fehlgeschlagen");
-    }
+    if (!response.ok) throw new Error("KI-Anfrage fehlgeschlagen");
 
     const { result }: { result: string | null } = await response.json();
-    if (!result) {
-      return res.status(500).json({ error: "Keine Bewertung erzeugt" });
-    }
+    if (!result) return res.status(500).json({ error: "Keine Bewertung erzeugt" });
 
     const collection = await getCollection("bewertungen");
     const insertResult = await collection.insertOne({
