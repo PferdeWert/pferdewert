@@ -96,21 +96,18 @@ export default function Bewerten() {
     setErrors({});
 
     try {
-      const res = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+      const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ text: JSON.stringify(form) }),
       });
 
-      const json: { raw_gpt?: string } = await res.json();
+      const json = await res.json();
 
-      if (json.raw_gpt) {
-        const redirectUrl =
-          "https://buy.stripe.com/14A8wQc6L4d4d4d2fwcbC00?client_reference_id=" +
-          encodeURIComponent(json.raw_gpt);
-        window.location.href = redirectUrl;
+      if (json.url) {
+        window.location.href = json.url;
       } else {
-        setErrors({ form: "Die Bewertung war nicht erfolgreich. Bitte überprüfe deine Eingaben." });
+        setErrors({ form: "Fehler bei der Stripe-Weiterleitung." });
       }
     } catch {
       setErrors({ form: "Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de." });
