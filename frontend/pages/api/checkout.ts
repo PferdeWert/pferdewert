@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-// Stripe-Instanz (ohne apiVersion → sonst Konflikte mit TS)
+// Stripe-Instanz (ohne apiVersion → vermeidet TS-Konflikte)
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -10,17 +10,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    // Eingabedaten prüfen
     const { text } = req.body;
     if (!text) {
       return res.status(400).json({ error: "Missing input data" });
     }
 
-    // Origin ermitteln (lokal oder prod)
     const origin =
       req.headers.origin || `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
 
-    // Bewertung generieren lassen
+    // KI Bewertung anfordern
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -38,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: "Kein Ergebnis vom KI-Modell" });
     }
 
-    // Stripe Checkout-Session vorbereiten
+    // Stripe Checkout Session erstellen
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -56,8 +54,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     return res.status(200).json({ url: session.url });
-  } catch (error: any) {
-    console.error("Stripe Checkout Error:", error.message || error);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("Stripe Checkout Error:", message);
     return res.status(500).json({ error: "Stripe Session error" });
   }
 }
