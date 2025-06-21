@@ -28,8 +28,7 @@ Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des P
 
 Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren individuellen Faktoren und Marktbedingungen variieren kann.
 
-_Ich bin PferdeWert AI von [www.pferdewert.de](https://www.pferdewert.de) – dies ist keine verbindliche Wertermittlung._
-`;
+_Ich bin PferdeWert AI von [www.pferdewert.de](https://www.pferdewert.de) – dies ist keine verbindliche Wertermittlung._`;
 
 export default function BeispielAnalyse() {
   return (
@@ -38,12 +37,12 @@ export default function BeispielAnalyse() {
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </div>
 
-      <div className="mt-8 text-center">
+      <div className="mt-10 flex justify-center">
         <Link
           href="/bewerten"
-          className="inline-block rounded-xl bg-brand-accent px-6 py-3 font-semibold text-white shadow hover:bg-brand transition"
+          className="w-full sm:w-auto text-center rounded-2xl bg-brand-accent px-8 py-4 font-bold text-white text-button shadow-soft hover:bg-brand transition"
         >
-          ➕ Eigene Bewertung starten
+          🚀 Eigene Bewertung starten
         </Link>
       </div>
     </BewertungLayout>
