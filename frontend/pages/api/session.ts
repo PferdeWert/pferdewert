@@ -1,33 +1,36 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
+import { getCollection } from "@/lib/mongo";
+import { ObjectId } from "mongodb";
 
-// Stripe-Instanz initialisieren
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { session_id } = req.query;
 
-  // Validierung der session_id
   if (!session_id || typeof session_id !== "string") {
     return res.status(400).json({ error: "Missing or invalid session_id" });
   }
 
   try {
-    // Session von Stripe abrufen
-    const session = await stripe.checkout.sessions.retrieve(session_id, {
-      expand: ["payment_intent"],
-    });
-
-    // Zahlung erfolgreich?
+    const session = await stripe.checkout.sessions.retrieve(session_id);
     const paid = session.payment_status === "paid";
+    const bewertungId = session.metadata?.bewertungId;
 
-    // Bewertung aus metadata lesen (kann null sein)
-    const bewertung = session.metadata?.bewertung ?? null;
+    if (!bewertungId) {
+      return res.status(404).json({ error: "Bewertung ID not found in session" });
+    }
 
-    return res.status(200).json({ paid, bewertung });
-  } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error("Error loading Stripe session:", message);
-    return res.status(500).json({ error: "Unable to load Stripe session" });
+    const collection = await getCollection("bewertungen");
+    const doc = await collection.findOne({ _id: new ObjectId(bewertungId) });
+
+    if (!doc) {
+      return res.status(404).json({ error: "Bewertung not found" });
+    }
+
+    return res.status(200).json({ paid, bewertung: doc.bewertung });
+  } catch (error: any) {
+    console.error("Error loading Stripe session:", error.message);
+    return res.status(500).json({ error: "Unable to load session or Bewertung" });
   }
 }
