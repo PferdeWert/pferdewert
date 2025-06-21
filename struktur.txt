@@ -14,8 +14,12 @@
 │   ├── pages
 │   │   ├── _app.tsx
 │   │   ├── _document.tsx
+│   │   ├── agb.tsx
 │   │   ├── api
-│   │   │   └── hello.ts
+│   │   │   ├── checkout.ts
+│   │   │   ├── generate.ts
+│   │   │   ├── hello.ts
+│   │   │   └── session.ts
 │   │   ├── beispiel-analyse.tsx
 │   │   ├── bewerten.tsx
 │   │   ├── datenschutz.tsx
@@ -38,6 +42,7 @@
 │   │   ├── images
 │   │   │   ├── hero.webp
 │   │   │   └── result.webp
+│   │   ├── logo.png
 │   │   ├── next.svg
 │   │   ├── vercel.svg
 │   │   └── window.svg
@@ -1189,4 +1194,4 @@
     ├── lib64 -> lib
     └── pyvenv.cfg
 
-133 directories, 1056 files
+133 directories, 1061 files
