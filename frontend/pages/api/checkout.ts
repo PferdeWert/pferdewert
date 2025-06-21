@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let parsedData;
     try {
       parsedData = JSON.parse(text);
-    } catch (e) {
+    } catch {
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
@@ -30,19 +30,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!response.ok) throw new Error("KI-Anfrage fehlgeschlagen");
+
     const { result } = await response.json();
     if (!result) return res.status(500).json({ error: "Keine Bewertung erzeugt" });
 
-    // 📦 Bewertung und Eingabe in MongoDB speichern
     const collection = await getCollection("bewertungen");
     const insertResult = await collection.insertOne({
       eingabe: parsedData,
       bewertung: result,
       createdAt: new Date(),
     });
+
     const bewertungId = insertResult.insertedId.toString();
 
-    // 💳 Stripe Session erstellen mit Bewertung-ID im Metadata
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -53,8 +53,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     return res.status(200).json({ url: session.url });
-  } catch (error: any) {
-    console.error("Fehler beim Checkout:", error.message);
-    return res.status(500).json({ error: error.message || "Interner Fehler" });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unbekannter Fehler";
+    console.error("Fehler beim Checkout:", message);
+    return res.status(500).json({ error: message });
   }
 }
