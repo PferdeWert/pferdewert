@@ -1,8 +1,7 @@
-// frontend/pages/api/checkout.ts
-
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
+// ❌ Keine apiVersion hier angeben → sonst TypeScript-Konflikt
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -12,12 +11,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { text } = req.body;
 
-  // 🌐 Origin automatisch bestimmen – lokal / Codespace / Produktion
+  // Dynamische Origin: lokal & Prod kompatibel
   const origin =
     req.headers.origin || `http${req.headers.host?.includes("localhost") ? "" : "s"}://${req.headers.host}`;
 
   try {
-    // ✅ Bewertung vom KI-Modell generieren lassen
+    // Bewertung vom KI-Modell generieren
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -25,12 +24,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!response.ok) {
-      throw new Error("OpenAI-Request failed");
+      throw new Error("OpenAI request failed");
     }
 
     const { result } = await response.json();
 
-    // ✅ Stripe Checkout-Session vorbereiten
+    // Stripe Checkout-Session mit Bewertung in metadata
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -40,7 +39,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           quantity: 1,
         },
       ],
-      success_url: `${origin}/ergebnis?paid=true&text=${encodeURIComponent(result)}`,
+      metadata: {
+        bewertung: result,
+      },
+      success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/bewerten`,
     });
 
