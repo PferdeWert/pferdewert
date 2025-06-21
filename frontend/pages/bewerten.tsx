@@ -61,7 +61,6 @@ const fields: {
 ];
 
 export default function Bewerten() {
-  const router = useRouter();
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
