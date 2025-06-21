@@ -1,5 +1,3 @@
-// pages/api/generate.ts
-
 import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 
@@ -14,8 +12,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { daten } = req.body;
 
-  if (!daten) {
-    return res.status(400).json({ error: "Missing input data" });
+  if (!daten || typeof daten !== "object") {
+    return res.status(400).json({ error: "Missing or invalid input data" });
   }
 
   try {
@@ -34,10 +32,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       max_tokens: 1000,
     });
 
-    const text = completion.choices[0].message.content;
-    res.status(200).json({ result: text });
-  } catch (error) {
-    console.error("OpenAI-Error:", error);
-    res.status(500).json({ error: "OpenAI request failed" });
+    const result = completion.choices?.[0]?.message?.content;
+
+    if (!result) {
+      throw new Error("Kein Ergebnis von OpenAI erhalten.");
+    }
+
+    res.status(200).json({ result });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("OpenAI-Fehler:", message);
+    res.status(500).json({ error: "OpenAI-Anfrage fehlgeschlagen: " + message });
   }
 }

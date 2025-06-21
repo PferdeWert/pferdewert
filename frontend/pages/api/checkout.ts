@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { text } = req.body;
     if (!text) return res.status(400).json({ error: "Missing input data" });
 
-    let parsedData;
+    let parsedData: Record<string, any>;
     try {
       parsedData = JSON.parse(text);
     } catch {
@@ -40,13 +40,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       bewertung: result,
       createdAt: new Date(),
     });
-
     const bewertungId = insertResult.insertedId.toString();
+
+    const priceId = process.env.STRIPE_PRICE_ID;
+    if (!priceId) throw new Error("STRIPE_PRICE_ID fehlt in den Umgebungsvariablen");
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
-      line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
+      line_items: [{ price: priceId, quantity: 1 }],
       metadata: { bewertungId },
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/bewerten`,
