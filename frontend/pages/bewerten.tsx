@@ -137,10 +137,8 @@ export default function Bewerten() {
             Jetzt Pferd bewerten
           </h1>
           <p className="text-brand mb-8 text-base">
-            Trage die wichtigsten Informationen ein – unsere KI analysiert sofort den Marktwert deines Pferdes.
-            <span className="block mt-2 text-brand-accent font-medium">
-              100% anonym und sofort verfügbar.
-            </span>
+            Gib die Eckdaten deines Pferdes ein.<br />
+            Unsere KI analysiert sofort den aktuellen Marktwert – <strong>individuell, anonym & in unter 1 Minute.</strong>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -197,7 +195,7 @@ export default function Bewerten() {
               disabled={loading}
               className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
             >
-              {loading ? "🔄 Bewertung läuft..." : "Jetzt Bewertung starten"}
+              {loading ? "🔄 Bewertung läuft..." : "🚀 Bewertung starten & Ergebnis sichern"}
             </button>
           </form>
         </div>
