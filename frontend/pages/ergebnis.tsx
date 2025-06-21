@@ -48,13 +48,28 @@ export default function Ergebnis() {
     }
   };
 
-  const handleDownloadPDF = () => {
+  const handleDownloadPDF = async () => {
     const doc = new jsPDF({ unit: "mm", format: "a4" });
     const margin = 20;
     const maxWidth = 170;
     let y = margin;
 
-    // Header mit Logo und Titel
+    // Logo laden
+    const logoUrl = "/logo.png";
+    const logo = await fetch(logoUrl)
+      .then(res => res.blob())
+      .then(blob => {
+        return new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(blob);
+        });
+      });
+
+    doc.addImage(logo, "PNG", margin, y, 25, 25);
+    y += 30;
+
+    // Header mit Titel
     doc.setFontSize(18);
     doc.setFont("helvetica", "bold");
     doc.text("PferdeWert Analyse", margin, y);
