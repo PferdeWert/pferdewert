@@ -1,4 +1,4 @@
-// pages/api/checkout.ts
+// frontend/pages/api/checkout.ts
 
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
@@ -12,18 +12,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { text } = req.body;
 
+  // ✅ origin dynamisch lesen (lokal oder Codespace) mit Fallback
+  const origin = req.headers.origin || "http://localhost:3000";
+
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID as string, // ✅ neue Zeile mit env
+          price: process.env.STRIPE_PRICE_ID as string,
           quantity: 1,
         },
       ],
-      success_url: `${req.headers.origin}/ergebnis?paid=true&text=${encodeURIComponent(text)}`,
-      cancel_url: `${req.headers.origin}/bewerten`,
+      success_url: `${origin}/ergebnis?paid=true&text=${encodeURIComponent(text)}`,
+      cancel_url: `${origin}/bewerten`,
     });
 
     return res.status(200).json({ url: session.url });
