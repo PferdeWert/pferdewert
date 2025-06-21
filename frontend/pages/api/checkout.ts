@@ -30,10 +30,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
-    const isLocalhost = req.headers.host?.includes("localhost") || req.headers.host?.includes("3000");
-    const origin = isLocalhost
-      ? "http://localhost:3000"
-      : `https://${req.headers.host}`;
+const isDev = process.env.NODE_ENV !== "production";
+const origin = isDev ? "http://localhost:3000" : `https://${req.headers.host}`;
+
 
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
