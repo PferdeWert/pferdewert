@@ -111,16 +111,15 @@ export default function Bewerten() {
       } else {
         setErrors({ form: "Fehler bei der Stripe-Weiterleitung." });
       }
-    } catch (err: any) {
-  // Für echte Error-Objekte (z.B. bei fetch oder throw new Error)
+    } catch (err: unknown) {
   if (err instanceof Error) {
     console.error("[CHECKOUT] Fehler:", err.message, err.stack);
   } else {
-    // Für alle anderen (Objekte, die keine Error-Instanz sind)
-    console.error("[CHECKOUT] Fehler (Objekt):", JSON.stringify(err));
+    console.error("[CHECKOUT] Unbekannter Fehler:", err);
   }
-  setErrors({ form: "Ein Fehler ist aufgetreten. Bitte versuche es später erneut oder schreibe an info@pferdewert.de." });
+  setErrors({ form: "Ein Fehler ist aufgetreten." });
 }
+
 
 
     setLoading(false);
