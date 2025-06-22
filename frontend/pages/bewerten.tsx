@@ -187,12 +187,11 @@ console.log("🚧 Formular wird gerendert");
             )}
 
             <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
-            >
-              {loading ? "🔄 Bewertung läuft..." : "🚀 Bewertung starten & Ergebnis sichern"}
-            </button>
+  type="submit"
+  onClick={() => console.log("✅ Button-Klick")}
+>
+  Klick-Test
+</button>
           </form>
         </div>
       </main>
