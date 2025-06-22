@@ -79,9 +79,13 @@ export default function Bewerten() {
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    console.log("Absenden gestartet!", form);
+    console.log("🟢 handleSubmit wird ausgeführt!", form);
+
 
     e.preventDefault();
+    e.preventDefault();
+console.log("🟢 Submit ausgeführt", form);
+
     const newErrors: Record<string, string> = {};
     fields.forEach((f) => {
       const val = form[f.name];
