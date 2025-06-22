@@ -181,9 +181,10 @@ export default function Bewerten() {
               </div>
             ))}
 
-            {errors.form && (
-              <p className="text-red-600 font-medium text-base">{errors.form}</p>
-            )}
+            {Object.keys(errors).length > 0 && !errors.form && (
+  <p className="text-red-600 font-medium text-base">Bitte fülle alle Pflichtfelder aus.</p>
+)}
+
 
             <button
               type="submit"
