@@ -18,10 +18,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       tookMs: Date.now() - start,
       collections: collections.map((c) => c.name),
     });
-  } catch (err: any) {
-    res.status(500).json({
-      ok: false,
-      error: err.message,
-    });
+  } catch (err: unknown) {
+    // Prüfen, ob err ein Error-Objekt ist
+    if (err instanceof Error) {
+      res.status(500).json({
+        ok: false,
+        error: err.message,
+      });
+    } else {
+      res.status(500).json({
+        ok: false,
+        error: "Unbekannter Fehler",
+      });
+    }
   }
 }
