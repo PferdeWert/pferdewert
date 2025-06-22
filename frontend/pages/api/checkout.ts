@@ -89,7 +89,7 @@ const response = await fetch("http://127.0.0.1:3000/api/generate", {
         payment_method_types: ["card"],
         line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
         mode: "payment",
-        success_url: `${origin}/ergebnis?id=${insertResult.insertedId}`,
+success_url: `${origin}/ergebnis?session_id=${session.id}`,
         cancel_url: `${origin}/bewerten?abgebrochen=1`,
         metadata: { bewertungId: insertResult.insertedId.toString() },
       });
