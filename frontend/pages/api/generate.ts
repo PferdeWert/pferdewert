@@ -38,6 +38,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       max_tokens: 1000,
     });
 
+    console.debug("[GENERATE] Vollständige Antwort von OpenAI:", JSON.stringify(completion, null, 2));
+
     const result = completion.choices?.[0]?.message?.content;
 
     if (!result) {
@@ -46,10 +48,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     console.info("[GENERATE] ✅ Ergebnis von OpenAI erhalten (Auszug):", result.slice(0, 200));
-    res.status(200).json({ result });
+    return res.status(200).json({ result });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
     console.error("[GENERATE] ❌ OpenAI-Anfrage fehlgeschlagen:", message);
-    res.status(500).json({ error: "OpenAI-Anfrage fehlgeschlagen: " + message });
+
+    // Optional: Bei bestimmten Fehlern (z.B. Auth) kann man mehr Details loggen
+    if (error && typeof error === "object" && "response" in error) {
+      // @ts-ignore
+      console.error("[GENERATE] OpenAI Error Response:", JSON.stringify(error.response, null, 2));
+    }
+
+    return res.status(500).json({ error: "OpenAI-Anfrage fehlgeschlagen: " + message });
   }
 }
