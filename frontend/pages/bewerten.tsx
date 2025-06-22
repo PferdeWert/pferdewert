@@ -137,6 +137,7 @@ export default function Bewerten() {
             Gib die Eckdaten deines Pferdes ein.<br />
             Unsere KI analysiert sofort den aktuellen Marktwert – <strong>individuell, anonym & in unter 1 Minute.</strong>
           </p>
+console.log("🚧 Formular wird gerendert");
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {fields.map((field) => (
