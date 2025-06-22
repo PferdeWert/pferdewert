@@ -116,7 +116,7 @@ def ai_valuation(d: BewertungRequest) -> str:
     return rsp.choices[0].message.content.strip()
 
 # ───────────────────────────────
-#  API-Endpoint (ohne Heuristik)
+#  API-Endpoint
 # ───────────────────────────────
 @app.post("/api/bewertung")
 def bewertung(req: BewertungRequest):
