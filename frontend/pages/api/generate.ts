@@ -55,7 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Optional: Bei bestimmten Fehlern (z.B. Auth) kann man mehr Details loggen
     if (error && typeof error === "object" && "response" in error) {
-      // @ts-ignore
+      
       console.error("[GENERATE] OpenAI Error Response:", JSON.stringify(error.response, null, 2));
     }
 
