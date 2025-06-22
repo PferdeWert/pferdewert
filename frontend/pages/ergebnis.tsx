@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
-import { log, warn, error } from "@/lib/log"; // ✅ Zentrales Logging
+import { log, warn, error } from "@/lib/log";
 
 export default function Ergebnis() {
   const router = useRouter();
@@ -19,36 +19,40 @@ export default function Ergebnis() {
   useEffect(() => {
     if (!router.isReady) return;
 
-    const id = router.query.id;
+    const session_id = router.query.session_id;
 
-    if (!id || typeof id !== "string") {
+    if (!session_id || typeof session_id !== "string") {
       router.replace("/bewerten");
       return;
     }
 
     const fetchSession = async () => {
       try {
-        log("[ERGEBNIS] Lade Session für ID:", id);
+        log("[ERGEBNIS] Lade Session für ID:", session_id);
 
-        const res = await fetch(`/api/session?id=${id}`);
+        const res = await fetch(`/api/session?session_id=${session_id}`);
         log("[ERGEBNIS] HTTP Status Code:", res.status);
 
         const data = await res.json();
         log("[ERGEBNIS] API-Response:", data);
 
-        if (!data?.paid || !data?.bewertung) {
-          warn("[ERGEBNIS] Ungültige Bewertung oder Zahlung nicht erfolgt. Redirect nach /bewerten");
+        if (!data?.session?.payment_status || data.session.payment_status !== "paid") {
+          warn("[ERGEBNIS] Zahlung nicht erfolgt. Redirect nach /bewerten");
           router.replace("/bewerten");
           return;
         }
 
-        log("[ERGEBNIS] Bewertung erfolgreich geladen.");
-        setText(data.bewertung);
-        log("[ERGEBNIS] Bewertungstext gesetzt:", data.bewertung.slice(0, 200));
+        const bewertung = data.session?.metadata?.bewertung || "";
+
+        if (!bewertung) {
+          warn("[ERGEBNIS] Keine Bewertung gefunden. Fallback aktiv.");
+          setText(fallbackMessage);
+        } else {
+          setText(bewertung);
+        }
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Abrufen der Session:", err);
         setText(fallbackMessage);
-        warn("[ERGEBNIS] Fallback-Text gesetzt, Analyse konnte nicht geladen werden.");
       } finally {
         setLoading(false);
         log("[ERGEBNIS] Ladezustand beendet.");
@@ -56,7 +60,7 @@ export default function Ergebnis() {
     };
 
     fetchSession();
-  }, [router.isReady, router.query.id]);
+  }, [router.isReady, router.query.session_id]);
 
   const clean = (input: string) =>
     input
@@ -70,9 +74,7 @@ export default function Ergebnis() {
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Fehler ignorieren
-    }
+    } catch {}
   };
 
   const handleDownloadPDF = async () => {
@@ -84,13 +86,11 @@ export default function Ergebnis() {
     const logoUrl = "/logo.png";
     const logo = await fetch(logoUrl)
       .then(res => res.blob())
-      .then(blob => {
-        return new Promise<string>((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result as string);
-          reader.readAsDataURL(blob);
-        });
-      });
+      .then(blob => new Promise<string>((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.readAsDataURL(blob);
+      }));
 
     doc.addImage(logo, "PNG", margin, y, 25, 25);
     y += 30;
@@ -110,17 +110,11 @@ export default function Ergebnis() {
     doc.line(margin, y, 210 - margin, y);
     y += 10;
 
-    const drawTextBlock = (
-      content: string,
-      type: "heading" | "paragraph" | "list"
-    ) => {
+    const drawTextBlock = (content: string, type: "heading" | "paragraph" | "list") => {
       const cleaned = clean(content);
       doc.setFont("helvetica", type === "heading" ? "bold" : "normal");
       doc.setFontSize(type === "heading" ? 14 : 11);
-      const lines = doc.splitTextToSize(
-        type === "list" ? "• " + cleaned : cleaned,
-        maxWidth
-      );
+      const lines = doc.splitTextToSize(type === "list" ? "• " + cleaned : cleaned, maxWidth);
       doc.text(lines, margin, y);
       y += lines.length * 6 + 2;
     };
@@ -131,7 +125,6 @@ export default function Ergebnis() {
         doc.addPage();
         y = margin;
       }
-
       if (line.startsWith("###")) drawTextBlock(line.replace(/^#+\s*/, ""), "heading");
       else if (line.startsWith("- ")) drawTextBlock(line.slice(2), "list");
       else if (line.trim() !== "") drawTextBlock(line, "paragraph");
@@ -173,15 +166,11 @@ export default function Ergebnis() {
                   <button
                     onClick={handleCopy}
                     className="flex-1 rounded-2xl bg-brand-accent px-6 py-3 font-bold text-white shadow-soft hover:bg-brand transition"
-                  >
-                    📋 Ergebnis kopieren
-                  </button>
+                  >📋 Ergebnis kopieren</button>
                   <button
                     onClick={handleDownloadPDF}
                     className="flex-1 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
-                  >
-                    🧞 PDF herunterladen
-                  </button>
+                  >🧞 PDF herunterladen</button>
                 </div>
 
                 {copied && (
@@ -200,9 +189,7 @@ export default function Ergebnis() {
           <Link
             href="/bewerten"
             className="inline-block text-brand-accent underline underline-offset-4 hover:text-brand font-medium"
-          >
-            ➕ Noch ein Pferd bewerten
-          </Link>
+          >➕ Noch ein Pferd bewerten</Link>
         </div>
       </BewertungLayout>
     </>

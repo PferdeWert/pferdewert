@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { session_id } = req.query;
 
   if (!session_id || typeof session_id !== "string") {
+    console.warn("[SESSION] ⚠️ Ungültige oder fehlende session_id:", session_id);
     return res.status(400).json({ error: "Missing or invalid session_id" });
   }
 
@@ -17,6 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       expand: ["payment_intent", "customer"],
     });
 
+    console.info("[SESSION] ✅ Stripe-Session erfolgreich geladen:", session.id);
     return res.status(200).json({ session });
   } catch (err) {
     console.error("[SESSION] ❌ Fehler beim Laden der Stripe-Session:", err);
