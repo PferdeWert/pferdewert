@@ -37,14 +37,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
-    // Verwende BASE-URL aus .env
     const origin = process.env.NEXT_PUBLIC_BASE_URL!;
     info("[CHECKOUT] 🌍 BASE-URL verwendet:", origin);
 
-    // Anfrage an KI
     info("[CHECKOUT] 📤 Sende Daten an /api/generate...");
-const response = await fetch("http://127.0.0.1:3000/api/generate", {
-
+    const response = await fetch("http://127.0.0.1:3000/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ daten: parsedData }),
@@ -66,40 +63,24 @@ const response = await fetch("http://127.0.0.1:3000/api/generate", {
     info("[CHECKOUT] 🧠 Bewertung von KI empfangen.");
     log("[CHECKOUT] Bewertung (Auszug):", result.slice(0, 200));
 
-    // In MongoDB speichern
     const collection = await getCollection("bewertungen");
+    const insertResult = await collection.insertOne({
+      ...parsedData,
+      bewertung: result,
+      erstellt: new Date(),
+    });
+    info("[CHECKOUT] ✅ In MongoDB gespeichert – ID:", insertResult.insertedId);
 
-    let insertResult;
-    try {
-      insertResult = await collection.insertOne({
-        ...parsedData,
-        bewertung: result,
-        erstellt: new Date(),
-      });
-      info("[CHECKOUT] ✅ In MongoDB gespeichert – ID:", insertResult.insertedId);
-    } catch (err) {
-      error("[CHECKOUT] ❌ Fehler beim Speichern in MongoDB:", err);
-      return res.status(500).json({ error: "MongoDB Insert fehlgeschlagen" });
-    }
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
+      mode: "payment",
+      success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/bewerten?abgebrochen=1`,
+      metadata: { bewertungId: insertResult.insertedId.toString() },
+    });
 
-    // Stripe-Session erstellen
-    let session;
-    try {
-      session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
-        mode: "payment",
-success_url: `${origin}/ergebnis?session_id=${session.id}`,
-        cancel_url: `${origin}/bewerten?abgebrochen=1`,
-        metadata: { bewertungId: insertResult.insertedId.toString() },
-      });
-
-      info("[CHECKOUT] ✅ Stripe-Session erstellt, ID:", session.id);
-    } catch (err) {
-      error("[CHECKOUT] ❌ Stripe-Fehler:", err);
-      return res.status(500).json({ error: "Stripe-Session-Fehler" });
-    }
-
+    info("[CHECKOUT] ✅ Stripe-Session erstellt, ID:", session.id);
     res.status(200).json({ url: session.url });
   } catch (err) {
     error("[CHECKOUT] ❌ Unerwarteter Fehler:", err);
