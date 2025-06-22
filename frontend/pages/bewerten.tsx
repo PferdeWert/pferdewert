@@ -64,37 +64,37 @@ export default function Bewerten() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
 
-  function validateField(name: string, value: string): string {
-    const f = fields.find((f) => f.name === name);
-    if (f?.required && !value) return "Erforderlich";
+  const validateField = (name: string, value: string): string => {
+    const field = fields.find((f) => f.name === name);
+    if (field?.required && !value.trim()) return "Pflichtfeld";
     return "";
-  }
+  };
 
-  function handleChange(
+  const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ): void {
+  ) => {
     const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
-    setErrors((err) => ({ ...err, [name]: validateField(name, value) }));
-  }
+    setForm((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+  };
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("🚀 Submit gestartet", form);
+
     const newErrors: Record<string, string> = {};
     fields.forEach((f) => {
-      const val = form[f.name];
-      const err = validateField(f.name, val);
-      if (err) newErrors[f.name] = err;
+      const error = validateField(f.name, form[f.name]);
+      if (error) newErrors[f.name] = error;
     });
 
     if (Object.keys(newErrors).length > 0) {
+      console.warn("⚠️ Fehler:", newErrors);
       setErrors(newErrors);
       return;
     }
 
     setLoading(true);
-    setErrors({});
-
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -102,32 +102,30 @@ export default function Bewerten() {
         body: JSON.stringify({ text: JSON.stringify(form) }),
       });
 
-      const json = await res.json();
+      const data = await res.json();
+      console.log("✅ Antwort von API:", data);
 
-      if (json.url) {
-        window.location.href = json.url;
+      if (data.url) {
+        window.location.href = data.url;
       } else {
-        setErrors({ form: "Fehler bei der Stripe-Weiterleitung." });
+        setErrors({ form: "❌ Fehler bei der Weiterleitung." });
       }
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.error("[CHECKOUT] Fehler:", err.message, err.stack);
-      } else {
-        console.error("[CHECKOUT] Unbekannter Fehler:", err);
-      }
+    } catch (error) {
+      console.error("💥 API Fehler:", error);
       setErrors({ form: "Ein Fehler ist aufgetreten." });
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
-  }
+  };
 
   return (
     <>
-    {console.log("🧪 handleSubmit vorhanden:", typeof handleSubmit)}
-
       <Head>
         <title>Pferd bewerten – PferdeWert</title>
-        <meta name="description" content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung." />
+        <meta
+          name="description"
+          content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung."
+        />
       </Head>
 
       <main className="bg-brand-light min-h-screen py-20 px-4">
@@ -137,9 +135,9 @@ export default function Bewerten() {
           </h1>
           <p className="text-brand mb-8 text-base">
             Gib die Eckdaten deines Pferdes ein.<br />
-            Unsere KI analysiert sofort den aktuellen Marktwert – <strong>individuell, anonym & in unter 1 Minute.</strong>
+            Unsere KI analysiert sofort den aktuellen Marktwert –{" "}
+            <strong>individuell, anonym & in unter 1 Minute.</strong>
           </p>
-console.log("🚧 Formular wird gerendert");
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {fields.map((field) => (
@@ -154,7 +152,6 @@ console.log("🚧 Formular wird gerendert");
                     name={field.name}
                     value={form[field.name]}
                     onChange={handleChange}
-                    autoComplete="off"
                     className={`w-full p-3 border rounded-xl transition ${
                       errors[field.name] ? "border-red-500" : "border-gray-300"
                     } focus:border-brand-accent focus:outline-none`}
@@ -169,10 +166,10 @@ console.log("🚧 Formular wird gerendert");
                     id={field.name}
                     name={field.name}
                     type={field.type || "text"}
-                    inputMode={field.type === "number" ? "numeric" : undefined}
-                    autoComplete="off"
                     value={form[field.name]}
                     onChange={handleChange}
+                    autoComplete="off"
+                    inputMode={field.type === "number" ? "numeric" : undefined}
                     className={`w-full p-3 border rounded-xl transition ${
                       errors[field.name] ? "border-red-500" : "border-gray-300"
                     } focus:border-brand-accent focus:outline-none`}
@@ -189,11 +186,12 @@ console.log("🚧 Formular wird gerendert");
             )}
 
             <button
-  type="submit"
-  onClick={() => console.log("✅ Button-Klick")}
->
-  Klick-Test
-</button>
+              type="submit"
+              disabled={loading}
+              className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
+            >
+              {loading ? "🔄 Bewertung läuft..." : "🚀 Bewertung starten & Ergebnis sichern"}
+            </button>
           </form>
         </div>
       </main>
