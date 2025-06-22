@@ -41,12 +41,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     info("[CHECKOUT] 🌍 BASE-URL verwendet:", origin);
 
     info("[CHECKOUT] 📤 Sende Daten an /api/bewertung...");
-const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(parsedData),
-});
-
+    const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(parsedData),
+    });
 
     if (!response.ok) {
       const text = await response.text();
@@ -54,20 +53,20 @@ const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung"
       throw new Error("KI-Antwort fehlgeschlagen");
     }
 
-    const { result }: { result: string | null } = await response.json();
+    const { raw_gpt }: { raw_gpt: string | null } = await response.json();
 
-    if (!result) {
+    if (!raw_gpt) {
       warn("[CHECKOUT] ⚠️ Keine Bewertung von der KI erhalten.");
       return res.status(500).json({ error: "Keine Bewertung erzeugt" });
     }
 
     info("[CHECKOUT] 🧠 Bewertung von KI empfangen.");
-    log("[CHECKOUT] Bewertung (Auszug):", result.slice(0, 200));
+    log("[CHECKOUT] Bewertung (Auszug):", raw_gpt.slice(0, 200));
 
     const collection = await getCollection("bewertungen");
     const insertResult = await collection.insertOne({
       ...parsedData,
-      bewertung: result,
+      bewertung: raw_gpt,
       erstellt: new Date(),
     });
     info("[CHECKOUT] ✅ In MongoDB gespeichert – ID:", insertResult.insertedId);
