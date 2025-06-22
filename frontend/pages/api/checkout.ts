@@ -4,7 +4,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
-import { getOrigin } from "@/utils/getOrigin"; // <-- Import der zentralen Funktion
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
@@ -38,10 +37,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
 
-    // Nutze zentrale Origin-Ermittlung:
-    const origin = getOrigin(req);
-
-    info("[CHECKOUT] 📡 Origin gesetzt:", origin);
+    // Verwende BASE-URL aus .env
+    const origin = process.env.NEXT_PUBLIC_BASE_URL!;
+    info("[CHECKOUT] 🌍 BASE-URL verwendet:", origin);
 
     // Anfrage an KI
     info("[CHECKOUT] 📤 Sende Daten an /api/generate...");
