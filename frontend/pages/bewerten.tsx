@@ -79,135 +79,56 @@ export default function Bewerten() {
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    console.log("🟢 handleSubmit wird ausgeführt!", form);
+  e.preventDefault();
+  console.log("🚦 Submit gestartet", form);
 
+  const newErrors: Record<string, string> = {};
+  fields.forEach((f) => {
+    const val = form[f.name];
+    const err = validateField(f.name, val);
+    if (err) newErrors[f.name] = err;
+  });
 
-    e.preventDefault();
-    e.preventDefault();
-console.log("🟢 Submit ausgeführt", form);
+  if (Object.keys(newErrors).length > 0) {
+    console.warn("🚨 Validierungsfehler gefunden:", newErrors);
+    setErrors(newErrors);
+    return;
+  }
 
-    const newErrors: Record<string, string> = {};
-    fields.forEach((f) => {
-      const val = form[f.name];
-      const err = validateField(f.name, val);
-      if (err) newErrors[f.name] = err;
+  console.log("🟢 Keine Validierungsfehler!");
+
+  setLoading(true);
+  setErrors({});
+
+  try {
+    console.log("📨 API-Request gestartet");
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: JSON.stringify(form) }),
     });
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
+    console.log("📩 Antwort erhalten, Status:", res.status);
+
+    const json = await res.json();
+    console.log("📄 API-JSON:", json);
+
+    if (json.url) {
+      console.log("🔗 Weiterleitung zu:", json.url);
+      window.location.href = json.url;
+    } else {
+      console.error("❌ Keine URL erhalten");
+      setErrors({ form: "Fehler bei der Stripe-Weiterleitung." });
     }
-
-    setLoading(true);
-    setErrors({});
-
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: JSON.stringify(form) }),
-      });
-
-      const json = await res.json();
-
-      if (json.url) {
-        window.location.href = json.url;
-      } else {
-        setErrors({ form: "Fehler bei der Stripe-Weiterleitung." });
-      }
-    } catch (err: unknown) {
-  if (err instanceof Error) {
-    console.error("[CHECKOUT] Fehler:", err.message, err.stack);
-  } else {
-    console.error("[CHECKOUT] Unbekannter Fehler:", err);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error("[CHECKOUT] Fehler:", err.message, err.stack);
+    } else {
+      console.error("[CHECKOUT] Unbekannter Fehler:", err);
+    }
+    setErrors({ form: "Ein Fehler ist aufgetreten." });
   }
-  setErrors({ form: "Ein Fehler ist aufgetreten." });
+
+  setLoading(false);
 }
-
-
-
-    setLoading(false);
-  }
-
-  return (
-    <>
-      <Head>
-        <title>Pferd bewerten – PferdeWert</title>
-        <meta
-          name="description"
-          content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung."
-        />
-      </Head>
-
-      <main className="bg-brand-light min-h-screen py-20 px-4">
-        <div className="mx-auto max-w-3xl bg-white rounded-2xl shadow-soft p-8 border border-brand/10">
-          <h1 className="text-h1 font-serif font-bold text-brand mb-6">
-            Jetzt Pferd bewerten
-          </h1>
-          <p className="text-brand mb-8 text-base">
-            Gib die Eckdaten deines Pferdes ein.<br />
-            Unsere KI analysiert sofort den aktuellen Marktwert – <strong>individuell, anonym & in unter 1 Minute.</strong>
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {fields.map((field) => (
-              <div key={field.name}>
-                <label htmlFor={field.name} className="block font-medium text-brand mb-1">
-                  {field.label}
-                  {field.required && <span className="text-red-600"> *</span>}
-                </label>
-                {field.type === "select" ? (
-                  <select
-                    id={field.name}
-                    name={field.name}
-                    value={form[field.name]}
-                    onChange={handleChange}
-                    autoComplete="off"
-                    className={`w-full p-3 border rounded-xl transition ${
-                      errors[field.name] ? "border-red-500" : "border-gray-300"
-                    } focus:border-brand-accent focus:outline-none`}
-                  >
-                    <option value="">Bitte wählen</option>
-                    {field.options?.map((opt: string) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  <input
-                    id={field.name}
-                    name={field.name}
-                    type={field.type || "text"}
-                    inputMode={field.type === "number" ? "numeric" : undefined}
-                    autoComplete="off"
-                    value={form[field.name]}
-                    onChange={handleChange}
-                    className={`w-full p-3 border rounded-xl transition ${
-                      errors[field.name] ? "border-red-500" : "border-gray-300"
-                    } focus:border-brand-accent focus:outline-none`}
-                  />
-                )}
-                {errors[field.name] && (
-                  <p className="mt-1 text-red-600 text-sm">{errors[field.name]}</p>
-                )}
-              </div>
-            ))}
-
-            {errors.form && (
-              <p className="text-red-600 font-medium text-base">{errors.form}</p>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
-            >
-              {loading ? "🔄 Bewertung läuft..." : "🚀 Bewertung starten & Ergebnis sichern"}
-            </button>
-          </form>
-        </div>
-      </main>
-    </>
-  );
 }
