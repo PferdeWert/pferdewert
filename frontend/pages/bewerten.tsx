@@ -123,6 +123,8 @@ export default function Bewerten() {
 
   return (
     <>
+    {console.log("🧪 handleSubmit vorhanden:", typeof handleSubmit)}
+
       <Head>
         <title>Pferd bewerten – PferdeWert</title>
         <meta name="description" content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung." />
