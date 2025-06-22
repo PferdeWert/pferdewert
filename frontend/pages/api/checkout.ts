@@ -40,12 +40,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const origin = process.env.NEXT_PUBLIC_BASE_URL!;
     info("[CHECKOUT] 🌍 BASE-URL verwendet:", origin);
 
-    info("[CHECKOUT] 📤 Sende Daten an /api/generate...");
-    const response = await fetch("http://127.0.0.1:3000/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ daten: parsedData }),
-    });
+    info("[CHECKOUT] 📤 Sende Daten an /api/bewertung...");
+const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(parsedData),
+});
+
 
     if (!response.ok) {
       const text = await response.text();
