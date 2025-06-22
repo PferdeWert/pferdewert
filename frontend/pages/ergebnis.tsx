@@ -1,5 +1,3 @@
-// pages/ergebnis.tsx
-
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,6 +5,7 @@ import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import { log, warn, error } from "@/lib/log"; // ✅ Zentrales Logging
 
 export default function Ergebnis() {
   const router = useRouter();
@@ -18,34 +17,46 @@ export default function Ergebnis() {
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
 
   useEffect(() => {
-    const session_id = router.query.session_id;
+    if (!router.isReady) return;
 
-    if (!session_id || typeof session_id !== "string") {
+    const id = router.query.id;
+
+    if (!id || typeof id !== "string") {
       router.replace("/bewerten");
       return;
     }
 
     const fetchSession = async () => {
       try {
-        const res = await fetch(`/api/session?session_id=${session_id}`);
-        const data = await res.json();
+        log("[ERGEBNIS] Lade Session für ID:", id);
 
-        if (!data.paid) {
+        const res = await fetch(`/api/session?id=${id}`);
+        log("[ERGEBNIS] HTTP Status Code:", res.status);
+
+        const data = await res.json();
+        log("[ERGEBNIS] API-Response:", data);
+
+        if (!data?.paid || !data?.bewertung) {
+          warn("[ERGEBNIS] Ungültige Bewertung oder Zahlung nicht erfolgt. Redirect nach /bewerten");
           router.replace("/bewerten");
           return;
         }
 
-        setText(data.bewertung || fallbackMessage);
+        log("[ERGEBNIS] Bewertung erfolgreich geladen.");
+        setText(data.bewertung);
+        log("[ERGEBNIS] Bewertungstext gesetzt:", data.bewertung.slice(0, 200));
       } catch (err) {
-        console.error("Fehler beim Laden der Session:", err);
+        error("[ERGEBNIS] Fehler beim Abrufen der Session:", err);
         setText(fallbackMessage);
+        warn("[ERGEBNIS] Fallback-Text gesetzt, Analyse konnte nicht geladen werden.");
       } finally {
         setLoading(false);
+        log("[ERGEBNIS] Ladezustand beendet.");
       }
     };
 
     fetchSession();
-  }, [router]);
+  }, [router.isReady, router.query.id]);
 
   const clean = (input: string) =>
     input

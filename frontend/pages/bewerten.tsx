@@ -1,6 +1,6 @@
-// pages/bewerten.tsx
 import Head from "next/head";
 import React, { useState } from "react";
+import { log, warn, error } from "@/lib/log"; // 🔧 Logging importiert
 
 interface FormState {
   rasse: string;
@@ -80,7 +80,7 @@ export default function Bewerten() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("🚀 Submit gestartet", form);
+    log("🚀 Submit gestartet", form);
 
     const newErrors: Record<string, string> = {};
     fields.forEach((f) => {
@@ -89,7 +89,7 @@ export default function Bewerten() {
     });
 
     if (Object.keys(newErrors).length > 0) {
-      console.warn("⚠️ Fehler:", newErrors);
+      warn("⚠️ Fehler:", newErrors);
       setErrors(newErrors);
       return;
     }
@@ -103,15 +103,15 @@ export default function Bewerten() {
       });
 
       const data = await res.json();
-      console.log("✅ Antwort von API:", data);
+      log("✅ Antwort von API:", data);
 
       if (data.url) {
         window.location.href = data.url;
       } else {
         setErrors({ form: "❌ Fehler bei der Weiterleitung." });
       }
-    } catch (error) {
-      console.error("💥 API Fehler:", error);
+    } catch (err) {
+      error("💥 API Fehler:", err);
       setErrors({ form: "Ein Fehler ist aufgetreten." });
     } finally {
       setLoading(false);
@@ -182,9 +182,10 @@ export default function Bewerten() {
             ))}
 
             {Object.keys(errors).length > 0 && !errors.form && (
-  <p className="text-red-600 font-medium text-base">Bitte fülle alle Pflichtfelder aus.</p>
-)}
-
+              <p className="text-red-600 font-medium text-base">
+                Bitte fülle alle Pflichtfelder aus.
+              </p>
+            )}
 
             <button
               type="submit"
