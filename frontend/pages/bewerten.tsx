@@ -80,8 +80,6 @@ export default function Bewerten() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("🚦 Submit gestartet", form);
-
     const newErrors: Record<string, string> = {};
     fields.forEach((f) => {
       const val = form[f.name];
@@ -90,7 +88,6 @@ export default function Bewerten() {
     });
 
     if (Object.keys(newErrors).length > 0) {
-      console.warn("🚨 Validierungsfehler gefunden:", newErrors);
       setErrors(newErrors);
       return;
     }
@@ -128,10 +125,7 @@ export default function Bewerten() {
     <>
       <Head>
         <title>Pferd bewerten – PferdeWert</title>
-        <meta
-          name="description"
-          content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung."
-        />
+        <meta name="description" content="Jetzt Pferd bewerten lassen – KI-gestützt, anonym und in 30 Sekunden. PferdeWert ist Marktführer für digitale Pferdebewertung." />
       </Head>
 
       <main className="bg-brand-light min-h-screen py-20 px-4">
@@ -163,10 +157,8 @@ export default function Bewerten() {
                     } focus:border-brand-accent focus:outline-none`}
                   >
                     <option value="">Bitte wählen</option>
-                    {field.options?.map((opt: string) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
+                    {field.options?.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
                     ))}
                   </select>
                 ) : (
