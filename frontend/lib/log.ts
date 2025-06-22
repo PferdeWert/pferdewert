@@ -1,18 +1,31 @@
 // lib/log.ts
+
 const debug = process.env.NODE_ENV === "development";
 
-export const log = (...args: any[]) => {
+/**
+ * Loggt in der Entwicklung allgemeine Informationen.
+ */
+export const log = (...args: unknown[]) => {
   if (debug) console.log(...args);
 };
 
-export const info = (...args: any[]) => {
-  if (debug) console.info(...args); // <–– fehlte
+/**
+ * Loggt in der Entwicklung strukturierte Info-Nachrichten.
+ */
+export const info = (...args: unknown[]) => {
+  if (debug) console.info(...args);
 };
 
-export const warn = (...args: any[]) => {
+/**
+ * Loggt in der Entwicklung Warnungen.
+ */
+export const warn = (...args: unknown[]) => {
   if (debug) console.warn(...args);
 };
 
-export const error = (...args: any[]) => {
+/**
+ * Loggt in der Entwicklung Fehler.
+ */
+export const error = (...args: unknown[]) => {
   if (debug) console.error(...args);
 };

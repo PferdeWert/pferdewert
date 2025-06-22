@@ -1,7 +1,9 @@
+// pages/api/checkout.ts
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
-import { log, info, warn, error } from "@/lib/log"; // 🔧 zentraler Import
+import { log, info, warn, error } from "@/lib/log";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
@@ -28,7 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let parsedData: EingabeDaten;
     try {
       parsedData = JSON.parse(text);
-      info("[CHECKOUT] ✅ Eingabedaten geparst:", parsedData);
+      info("[CHECKOUT] ✅ Eingabedaten erfolgreich geparst.");
+      log("[CHECKOUT] Eingabe:", parsedData);
     } catch (err) {
       error("[CHECKOUT] ❌ JSON-Parsing fehlgeschlagen:", err);
       return res.status(400).json({ error: "Invalid JSON in text field" });
@@ -36,8 +39,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const origin =
       req.headers.origin ||
-      (req.headers.host?.includes("localhost") ? "http://localhost:3000" : `https://${req.headers.host}`);
+      (req.headers.host?.includes("localhost")
+        ? "http://localhost:3000"
+        : `https://${req.headers.host}`);
 
+    info("[CHECKOUT] 📡 Origin gesetzt:", origin);
+
+    // Anfrage an KI
     info("[CHECKOUT] 📤 Sende Daten an /api/generate...");
     const response = await fetch(`${origin}/api/generate`, {
       method: "POST",
@@ -47,17 +55,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!response.ok) {
       const text = await response.text();
-      error("[CHECKOUT] ❌ KI-Antwort fehlgeschlagen:", text);
-      throw new Error("KI-Anfrage fehlgeschlagen");
+      error("[CHECKOUT] ❌ KI-Fehler:", text);
+      throw new Error("KI-Antwort fehlgeschlagen");
     }
 
     const { result }: { result: string | null } = await response.json();
+
     if (!result) {
-      warn("[CHECKOUT] ⚠️ Keine Bewertung erhalten");
+      warn("[CHECKOUT] ⚠️ Keine Bewertung von der KI erhalten.");
       return res.status(500).json({ error: "Keine Bewertung erzeugt" });
     }
 
-    info("[CHECKOUT] 💾 Speichere Bewertung in MongoDB...");
+    info("[CHECKOUT] 🧠 Bewertung von KI empfangen.");
+    log("[CHECKOUT] Bewertung (Auszug):", result.slice(0, 200));
+
+    // In MongoDB speichern
     const collection = await getCollection("bewertungen");
 
     let insertResult;
@@ -67,12 +79,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         bewertung: result,
         erstellt: new Date(),
       });
-      info("[CHECKOUT] ✅ Bewertung gespeichert, ID:", insertResult.insertedId);
+      info("[CHECKOUT] ✅ In MongoDB gespeichert – ID:", insertResult.insertedId);
     } catch (err) {
-      error("[CHECKOUT] ❌ Fehler beim MongoDB Insert:", err);
+      error("[CHECKOUT] ❌ Fehler beim Speichern in MongoDB:", err);
       return res.status(500).json({ error: "MongoDB Insert fehlgeschlagen" });
     }
 
+    // Stripe-Session erstellen
     let session;
     try {
       session = await stripe.checkout.sessions.create({
@@ -83,15 +96,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         cancel_url: `${origin}/bewerten?abgebrochen=1`,
         metadata: { bewertungId: insertResult.insertedId.toString() },
       });
-      info("[CHECKOUT] ✅ Stripe-Session erstellt, sessionId:", session.id);
+
+      info("[CHECKOUT] ✅ Stripe-Session erstellt, ID:", session.id);
     } catch (err) {
-      error("[CHECKOUT] ❌ Fehler beim Stripe-Session-Create:", err);
+      error("[CHECKOUT] ❌ Stripe-Fehler:", err);
       return res.status(500).json({ error: "Stripe-Session-Fehler" });
     }
 
     res.status(200).json({ url: session.url });
-  } catch (e) {
-    error("[CHECKOUT] ❌ Allgemeiner Fehler im Handler:", e);
+  } catch (err) {
+    error("[CHECKOUT] ❌ Unerwarteter Fehler:", err);
     res.status(500).json({ error: "Interner Fehler im Checkout" });
   }
 }
