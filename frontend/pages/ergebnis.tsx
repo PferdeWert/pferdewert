@@ -42,14 +42,25 @@ export default function Ergebnis() {
           return;
         }
 
-        const bewertung = data.session?.metadata?.bewertung || "";
+        const bewertungId = data.session?.metadata?.bewertungId;
 
-        if (!bewertung) {
-          warn("[ERGEBNIS] Keine Bewertung gefunden. Fallback aktiv.");
+        if (!bewertungId) {
+          warn("[ERGEBNIS] Keine Bewertung-ID vorhanden. Fallback aktiv.");
           setText(fallbackMessage);
-        } else {
-          setText(bewertung);
+          return;
         }
+
+        const bewertungRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+        const bewertungData = await bewertungRes.json();
+
+        if (!bewertungData?.bewertung) {
+          warn("[ERGEBNIS] Bewertung nicht gefunden. Redirect nach /bewerten");
+          router.replace("/bewerten");
+          return;
+        }
+
+        setText(bewertungData.bewertung);
+        log("[ERGEBNIS] Bewertung erfolgreich gesetzt.");
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Abrufen der Session:", err);
         setText(fallbackMessage);
