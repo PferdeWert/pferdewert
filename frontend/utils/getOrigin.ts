@@ -1,5 +1,3 @@
-// utils/getOrigin.ts
-
 import { NextApiRequest } from "next";
 
 export function getOrigin(req: NextApiRequest): string {
