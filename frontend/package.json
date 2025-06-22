@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "predev": "kill $(lsof -t -i:$PORT) 2>/dev/null || true",
-  "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev next dev"
-},
-
-
+    "predev": "kill $(lsof -t -i:3000) 2>/dev/null || true",
+    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev next dev"
+  },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "jspdf": "^3.0.1",
