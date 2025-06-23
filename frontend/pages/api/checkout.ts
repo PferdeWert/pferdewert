@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       parsedData = JSON.parse(text);
       info("[CHECKOUT] ✅ Eingabedaten erfolgreich geparst.");
       log("[CHECKOUT] Eingabe:", parsedData);
-    } catch (err) {
+    } catch (err: unknown) {
       error("[CHECKOUT] ❌ JSON-Parsing fehlgeschlagen:", err);
       return res.status(400).json({ error: "Invalid JSON in text field" });
     }
@@ -53,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error("KI-Antwort fehlgeschlagen");
     }
 
-    const gpt_response: any = await response.json();
+    const gpt_response: { raw_gpt?: string } = await response.json();
     log("[CHECKOUT] GPT-Komplette Antwort:", gpt_response);
     const raw_gpt = gpt_response?.raw_gpt;
 
@@ -84,7 +84,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     info("[CHECKOUT] ✅ Stripe-Session erstellt, ID:", session.id);
     res.status(200).json({ url: session.url });
-  } catch (err) {
+  } catch (err: unknown) {
     error("[CHECKOUT] ❌ Unerwarteter Fehler:", err);
     res.status(500).json({ error: "Interner Fehler im Checkout" });
   }
