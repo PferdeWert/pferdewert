@@ -16,10 +16,7 @@ export default function AGB() {
         Sabine und Benjamin Reder<br />
         Feigenweg 17B<br />
         70619 Stuttgart<br />
-        E-Mail:{" "}
-        <a href="mailto:info@pferdewert.de" className="text-blue-600 underline hover:text-blue-800">
-          info@pferdewert.de
-        </a>
+        E-Mail: <a href="mailto:info@pferdewert.de" className="text-blue-600 underline hover:text-blue-800">info@pferdewert.de</a>
       </p>
 
       <h2 className="mt-6 text-xl font-semibold">2. Leistungen</h2>
@@ -34,32 +31,19 @@ export default function AGB() {
         Zahlung wird der digitale Inhalt freigeschaltet bzw. angezeigt.
       </p>
 
-      <h2 className="mt-6 text-xl font-semibold">4. Preise und Zahlung</h2>
+      <h2 className="mt-6 text-xl font-semibold">4. Widerrufsrecht</h2>
       <p className="mb-4">
-        Alle Preise verstehen sich als Endpreise in Euro. Die Zahlungsabwicklung erfolgt über Stripe. Es gelten deren
-        Nutzungsbedingungen.
+        Bei digitalen Inhalten erlischt das Widerrufsrecht, wenn mit der Ausführung des Vertrags begonnen wurde, nachdem der Nutzer ausdrücklich zugestimmt hat, dass mit der Ausführung vor Ablauf der Widerrufsfrist begonnen wird, und er seine Kenntnis davon bestätigt hat, dass er dadurch sein Widerrufsrecht verliert (§ 356 Abs. 5 BGB).
       </p>
 
-      <h2 className="mt-6 text-xl font-semibold">5. Lieferung und Nutzung</h2>
+      <h2 className="mt-6 text-xl font-semibold">5. Preise und Zahlung</h2>
       <p className="mb-4">
-        Das Analyseergebnis wird nach Zahlung direkt im Browser angezeigt. Es erfolgt kein physischer Versand.
+        Alle Preise verstehen sich in Euro. Es erfolgt kein Ausweis der Umsatzsteuer gemäß § 19 UStG (Kleinunternehmerregelung). Die Bezahlung erfolgt über den Zahlungsdienstleister Stripe.
       </p>
 
-      <h2 className="mt-6 text-xl font-semibold">6. Widerrufsrecht</h2>
+      <h2 className="mt-6 text-xl font-semibold">6. Haftung</h2>
       <p className="mb-4">
-        Bei digitalen Inhalten, die unmittelbar nach Vertragsschluss bereitgestellt werden, erlischt das Widerrufsrecht,
-        sobald die Ausführung beginnt (§ 356 Abs. 5 BGB). Nutzer:innen stimmen dem durch den Klick auf „Jetzt bezahlen“ zu.
-      </p>
-
-      <h2 className="mt-6 text-xl font-semibold">7. Haftungsausschluss</h2>
-      <p className="mb-4">
-        Die Analyse stellt keine tierärztliche Untersuchung dar. Für die Richtigkeit oder Vollständigkeit der Bewertung
-        wird keine Haftung übernommen. Die Nutzung erfolgt auf eigenes Risiko.
-      </p>
-
-      <h2 className="mt-6 text-xl font-semibold">8. Schlussbestimmungen</h2>
-      <p className="mb-4">
-        Es gilt deutsches Recht. Sollten einzelne Bestimmungen unwirksam sein, bleibt die Gültigkeit der übrigen AGB unberührt.
+        Die Inhalte der Analyse beruhen auf Algorithmen und externen Datenquellen. Eine Gewähr für deren Richtigkeit, Vollständigkeit oder Eignung für einen bestimmten Zweck wird nicht übernommen. Die Nutzung erfolgt auf eigenes Risiko.
       </p>
     </main>
   );
