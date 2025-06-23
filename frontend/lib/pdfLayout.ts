@@ -5,17 +5,14 @@ export function generateBewertungsPDF(text: string): jsPDF {
   const pdf = new jsPDF();
   const heute = new Date().toLocaleDateString("de-DE");
 
-  // Header
   const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse`;
 
-  // Vorverarbeitung
   const cleanedText = text
     .replace(/\u202f/g, " ")
     .replace(/\*\*(.*?)\*\*/g, "__$1__");
 
   const blocks = cleanedText.split(/\n{2,}/);
 
-  // Grundeinstellungen
   pdf.setFont("times", "normal");
   pdf.setFontSize(12);
   pdf.setLineHeightFactor(1.5);
@@ -30,6 +27,9 @@ export function generateBewertungsPDF(text: string): jsPDF {
 
   let y = 50;
   let isFirstSection = true;
+  let currentPageUsed = false;
+  const usedPages = new Set<number>();
+  usedPages.add(1);
 
   function drawWrapped(text: string, opts?: { bold?: boolean; bullet?: boolean }) {
     const indent = opts?.bullet ? 15 : 10;
@@ -40,20 +40,23 @@ export function generateBewertungsPDF(text: string): jsPDF {
       pdf.setFont("times", opts?.bold ? "bold" : "normal");
       pdf.text(line, indent, y);
       y += 7;
+      currentPageUsed = true;
+      usedPages.add(pdf.getCurrentPageInfo().pageNumber);
       if (y > 270) {
         pdf.addPage();
         y = 20;
+        currentPageUsed = false;
       }
     }
   }
 
   for (const block of blocks) {
-    // ### Überschriften
     if (block.startsWith("### ")) {
       y += isFirstSection ? 3 : 5;
       if (y > 270) {
         pdf.addPage();
         y = 20;
+        currentPageUsed = false;
       }
       const head = block.replace("### ", "").trim();
       pdf.setFont("times", "bold");
@@ -63,10 +66,10 @@ export function generateBewertungsPDF(text: string): jsPDF {
       pdf.setFont("times", "normal");
       pdf.setFontSize(12);
       isFirstSection = false;
+      usedPages.add(pdf.getCurrentPageInfo().pageNumber);
       continue;
     }
 
-    // Aufzählungen
     if (block.startsWith("- ")) {
       for (const item of block.split("- ").filter(Boolean)) {
         drawWrapped(item.replace(/__([^_]+?)__/g, "$1").trim(), { bullet: true });
@@ -75,7 +78,6 @@ export function generateBewertungsPDF(text: string): jsPDF {
       continue;
     }
 
-    // Label-Wert-Zeilen
     const labelMatch = block.match(/^__(.+?)__:\s*(.+)/);
     if (labelMatch) {
       pdf.setFont("times", "bold");
@@ -84,26 +86,34 @@ export function generateBewertungsPDF(text: string): jsPDF {
       for (const line of pdf.splitTextToSize(labelMatch[2], 140)) {
         pdf.text(line, 50, y);
         y += 7;
+        currentPageUsed = true;
+        usedPages.add(pdf.getCurrentPageInfo().pageNumber);
         if (y > 270) {
           pdf.addPage();
           y = 20;
+          currentPageUsed = false;
         }
       }
       y += 3;
       continue;
     }
 
-    // Normale Absätze
     drawWrapped(block.replace(/__/g, ""));
     y += 3;
   }
 
-  // Seitenzahlen unten rechts einfügen
-  const pageCount = pdf.getNumberOfPages();
-  for (let i = 1; i <= pageCount; i++) {
+  const totalPages = pdf.getNumberOfPages();
+
+  // Leere letzte Seite entfernen
+  if (!usedPages.has(totalPages) && totalPages > 1) {
+    pdf.deletePage(totalPages);
+  }
+
+  const finalPageCount = pdf.getNumberOfPages();
+  for (let i = 1; i <= finalPageCount; i++) {
     pdf.setPage(i);
     pdf.setFontSize(10);
-    pdf.text(`${i} / ${pageCount}`, 200, 290, { align: "right" });
+    pdf.text(`${i} / ${finalPageCount}`, 200, 290, { align: "right" });
   }
 
   return pdf;
