@@ -79,11 +79,13 @@ export default function Ergebnis() {
     const pdf = new jsPDF();
     const heute = new Date().toLocaleDateString("de-DE");
 
-    const header = `Pferdebewertung \u2013 erstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de \u2013 KI-gest\u00fctzte Pferdeanalyse\nwww.pferdewert.de\n\n`;
+    const header = `Pferdebewertung\nErstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
     const rawBody = text || fallbackMessage;
 
+    // Markdown-Anmutung für lesbare Struktur auflösen
     const body = rawBody
-      .replace(/^### (.*$)/gim, "\n\n$1\n" + "-".repeat(50))
+      .replace(/^### (.*$)/gim, "\n\n$1\n" + "=".repeat(50))
+      .replace(/^## (.*$)/gim, "\n\n$1\n" + "-".repeat(50))
       .replace(/\*\*(.*?)\*\*/gim, "$1:")
       .replace(/\n{2,}/g, "\n\n");
 
@@ -94,7 +96,7 @@ export default function Ergebnis() {
     img.onload = () => {
       const centerX = (210 - 50) / 2;
       pdf.addImage(img, "PNG", centerX, 10, 50, 15);
-      pdf.setFont("times", "normal");
+      pdf.setFont("Times", "");
       pdf.setFontSize(12);
       pdf.text(lines, 10, 35);
       pdf.save("pferdebewertung.pdf");
@@ -104,7 +106,7 @@ export default function Ergebnis() {
   return (
     <>
       <Head>
-        <title>PferdeWert \u2013 Ergebnis</title>
+        <title>PferdeWert – Ergebnis</title>
       </Head>
 
       <BewertungLayout title="Deine Pferdebewertung">
