@@ -7,8 +7,11 @@ export function generateBewertungsPDF(text: string): jsPDF {
 
   const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
 
-  const lines: string[] = [];
-  const blocks = text.replace(/\*\*(.*?)\*\*/g, "__$1__").split(/\n{2,}/);
+  const cleanedText = text
+    .replace(/\u202f/g, " ") // schmale geschützte Leerzeichen ersetzen
+    .replace(/\*\*(.*?)\*\*/g, "__$1__");
+
+  const blocks = cleanedText.split(/\n{2,}/);
 
   pdf.setFont("times", "normal");
   pdf.setFontSize(12);
