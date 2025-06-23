@@ -5,11 +5,11 @@ export function generateBewertungsPDF(text: string): jsPDF {
 const pdf = new jsPDF();
 const heute = new Date().toLocaleDateString("de-DE");
 
-const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse`;
+const headerText = Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse;
 
 const cleanedText = text
 .replace(/\u202f/g, " ")
-.replace(/\*\*(.\*?)\*\*/g, "**\$1**");
+.replace(/**(.*?)**/g, "$1");
 
 const blocks = cleanedText.split(/\n{2,}/);
 
@@ -27,7 +27,7 @@ pdf.text(headerText, 10, 30);
 
 let y = 50;
 let isFirstSection = true;
-const usedPages = new Set<number>();
+const usedPages = new Set();
 usedPages.add(1);
 
 function drawWrapped(text: string, opts?: { bold?: boolean; bullet?: boolean }) {
@@ -35,7 +35,6 @@ const indent = opts?.bullet ? 15 : 10;
 const prefix = opts?.bullet ? "• " : "";
 const wrapWidth = 180 - (indent - 10);
 
-```
 for (const line of pdf.splitTextToSize(prefix + text, wrapWidth)) {
   pdf.setFont("times", opts?.bold ? "bold" : "normal");
   pdf.text(line, indent, y);
@@ -46,7 +45,6 @@ for (const line of pdf.splitTextToSize(prefix + text, wrapWidth)) {
     y = 20;
   }
 }
-```
 
 }
 
@@ -69,7 +67,6 @@ usedPages.add(pdf.getCurrentPageInfo().pageNumber);
 continue;
 }
 
-```
 if (block.startsWith("- ")) {
   for (const item of block.split("- ").filter(Boolean)) {
     drawWrapped(item.replace(/__([^_]+?)__/g, "$1").trim(), { bullet: true });
@@ -98,7 +95,6 @@ if (labelMatch) {
 
 drawWrapped(block.replace(/__/g, ""));
 y += 3;
-```
 
 }
 
@@ -113,8 +109,9 @@ const finalPageCount = pdf.getNumberOfPages();
 for (let i = 1; i <= finalPageCount; i++) {
 pdf.setPage(i);
 pdf.setFontSize(10);
-pdf.text(`${i} / ${finalPageCount}`, 200, 290, { align: "right" });
+pdf.text(${i} / ${finalPageCount}, 200, 290, { align: "right" });
 }
 
 return pdf;
 }
+
