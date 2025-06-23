@@ -27,7 +27,6 @@ export function generateBewertungsPDF(text: string): jsPDF {
 
   let y = 50;
   let isFirstSection = true;
-  let currentPageUsed = false;
   const usedPages = new Set<number>();
   usedPages.add(1);
 
@@ -40,12 +39,10 @@ export function generateBewertungsPDF(text: string): jsPDF {
       pdf.setFont("times", opts?.bold ? "bold" : "normal");
       pdf.text(line, indent, y);
       y += 7;
-      currentPageUsed = true;
       usedPages.add(pdf.getCurrentPageInfo().pageNumber);
       if (y > 270) {
         pdf.addPage();
         y = 20;
-        currentPageUsed = false;
       }
     }
   }
