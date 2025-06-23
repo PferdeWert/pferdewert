@@ -1,7 +1,5 @@
 // pages/ergebnis.tsx
 
-import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { generateBewertungsPDF } from "@/lib/pdfLayout";
@@ -12,7 +10,6 @@ import { log, warn, error } from "@/lib/log";
 export default function Ergebnis() {
   const router = useRouter();
   const [text, setText] = useState<string>("");
-  const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
 
@@ -62,7 +59,7 @@ export default function Ergebnis() {
     };
 
     fetchSession();
-  }, [router.isReady, router.query.session_id]);
+  }, [router]);
 
   const handleDownloadPDF = () => {
     const pdf = generateBewertungsPDF(text);
