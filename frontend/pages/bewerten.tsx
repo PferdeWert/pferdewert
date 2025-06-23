@@ -109,8 +109,9 @@ export default function Bewerten() {
         setErrors({ form: data.error || "Fehler beim Starten der Bewertung." });
       }
     } catch (err) {
+      const message = err instanceof Error ? err.message : "Ein unerwarteter Fehler ist aufgetreten.";
       error("Fehler beim Starten der Bewertung", err);
-      setErrors({ form: err.message || "Ein unerwarteter Fehler ist aufgetreten." });
+      setErrors({ form: message });
     } finally {
       setLoading(false);
     }
