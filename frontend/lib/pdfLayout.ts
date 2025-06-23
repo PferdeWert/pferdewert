@@ -8,15 +8,14 @@ export function generateBewertungsPDF(text: string): jsPDF {
   // Header
   const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
 
-  // Vorverarbeitung: schmale Leerzeichen & Fettschreibung in __ fett __ umwandeln
+  // Vorverarbeitung
   const cleanedText = text
     .replace(/\u202f/g, " ")
     .replace(/\*\*(.*?)\*\*/g, "__$1__");
 
-  // Blöcke anhand von Leerzeilen trennen
   const blocks = cleanedText.split(/\n{2,}/);
 
-  // Grund­einstellungen
+  // Grundeinstellungen
   pdf.setFont("times", "normal");
   pdf.setFontSize(12);
   pdf.setLineHeightFactor(1.5);
@@ -28,15 +27,16 @@ export function generateBewertungsPDF(text: string): jsPDF {
   pdf.text(headerText, 10, 30);
 
   let y = 50;
+  let isFirstSection = true;
 
-  // Hilfsfunktion: Text umbrechen & zeichnen
-  function drawWrapped(text: string, options?: { bold?: boolean; bullet?: boolean }) {
-    const indent = options?.bullet ? 15 : 10;
-    const prefix = options?.bullet ? "• " : "";
+  // Hilfsfunktion: wraps & draws text with optional bold/bullet
+  function drawWrapped(text: string, opts?: { bold?: boolean; bullet?: boolean }) {
+    const indent = opts?.bullet ? 15 : 10;
+    const prefix = opts?.bullet ? "• " : "";
+    const wrapWidth = 180 - (indent - 10);
 
-    const wrapped = pdf.splitTextToSize(prefix + text, 180 - (indent - 10));
-    for (const line of wrapped) {
-      pdf.setFont("times", options?.bold ? "bold" : "normal");
+    for (const line of pdf.splitTextToSize(prefix + text, wrapWidth)) {
+      pdf.setFont("times", opts?.bold ? "bold" : "normal");
       pdf.text(line, indent, y);
       y += 7;
       if (y > 270) {
@@ -47,10 +47,9 @@ export function generateBewertungsPDF(text: string): jsPDF {
   }
 
   for (const block of blocks) {
-    // // ### Überschriften
+    // ### Überschriften
     if (block.startsWith("### ")) {
-      // etwas zusätzlicher Abstand vor jeder Hauptüberschrift
-      y += 5;
+      y += isFirstSection ? 8 : 5; // mehr Abstand vor erster Section
       if (y > 270) {
         pdf.addPage();
         y = 20;
@@ -62,37 +61,39 @@ export function generateBewertungsPDF(text: string): jsPDF {
       y += 10;
       pdf.setFont("times", "normal");
       pdf.setFontSize(12);
+      isFirstSection = false;
       continue;
     }
-    }
 
-    // Aufzählungen "- "
+    // Aufzählungen
     if (block.startsWith("- ")) {
-      const items = block.split("- ").filter(Boolean);
-      for (const item of items) {
-        const plain = item.replace(/__([^_]+?)__/g, "$1").trim();
-        drawWrapped(plain, { bullet: true });
+      for (const item of block.split("- ").filter(Boolean)) {
+        drawWrapped(item.replace(/__([^_]+?)__/g, "$1").trim(), { bullet: true });
       }
       y += 3;
       continue;
     }
 
-    // Label-Wert Zeilen  __Label__: value
+    // Label‑Wert‑Zeilen
     const labelMatch = block.match(/^__(.+?)__:\s*(.+)/);
     if (labelMatch) {
       pdf.setFont("times", "bold");
       pdf.text(`${labelMatch[1]}:`, 10, y);
       pdf.setFont("times", "normal");
-      const value = labelMatch[2];
-      const wrapped = pdf.splitTextToSize(value, 140);
-      pdf.text(wrapped, 50, y);
-      y += wrapped.length * 7 + 3;
+      for (const line of pdf.splitTextToSize(labelMatch[2], 140)) {
+        pdf.text(line, 50, y);
+        y += 7;
+        if (y > 270) {
+          pdf.addPage();
+          y = 20;
+        }
+      }
+      y += 3;
       continue;
     }
 
-    // Normaler Absatz (evtl. mit Rest-__ fett __)
-    const plainPara = block.replace(/__/g, "");
-    drawWrapped(plainPara);
+    // Normale Absätze
+    drawWrapped(block.replace(/__/g, ""));
     y += 3;
   }
 
