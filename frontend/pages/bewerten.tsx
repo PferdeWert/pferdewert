@@ -60,7 +60,7 @@ const fields: {
   { name: "farbe", label: "Farbe" },
   { name: "zuechter", label: "Züchter / Ausbildungsstall" },
   { name: "standort", label: "Standort" },
-  { name: "verwendungszweck", label: "Verwendungszweck", required: true },
+  { name: "verwendungszweck", label: "Verwendungszweck" },
 ];
 
 export default function Bewerten() {
