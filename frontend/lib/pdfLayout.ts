@@ -6,7 +6,7 @@ export function generateBewertungsPDF(text: string): jsPDF {
   const heute = new Date().toLocaleDateString("de-DE");
 
   // Header
-  const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
+  const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse`;
 
   // Vorverarbeitung
   const cleanedText = text
@@ -21,15 +21,16 @@ export function generateBewertungsPDF(text: string): jsPDF {
   pdf.setLineHeightFactor(1.5);
 
   // Titel & Header
+  pdf.setFont("times", "bold");
   pdf.setFontSize(14);
   pdf.text("Pferdebewertung", 105, 20, { align: "center" });
+  pdf.setFont("times", "normal");
   pdf.setFontSize(12);
   pdf.text(headerText, 10, 30);
 
   let y = 50;
   let isFirstSection = true;
 
-  // Hilfsfunktion: wraps & draws text with optional bold/bullet
   function drawWrapped(text: string, opts?: { bold?: boolean; bullet?: boolean }) {
     const indent = opts?.bullet ? 15 : 10;
     const prefix = opts?.bullet ? "• " : "";
@@ -49,7 +50,7 @@ export function generateBewertungsPDF(text: string): jsPDF {
   for (const block of blocks) {
     // ### Überschriften
     if (block.startsWith("### ")) {
-      y += isFirstSection ? 8 : 5; // mehr Abstand vor erster Section
+      y += isFirstSection ? 3 : 5;
       if (y > 270) {
         pdf.addPage();
         y = 20;
@@ -74,7 +75,7 @@ export function generateBewertungsPDF(text: string): jsPDF {
       continue;
     }
 
-    // Label‑Wert‑Zeilen
+    // Label-Wert-Zeilen
     const labelMatch = block.match(/^__(.+?)__:\s*(.+)/);
     if (labelMatch) {
       pdf.setFont("times", "bold");
