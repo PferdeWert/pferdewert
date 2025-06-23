@@ -1,3 +1,5 @@
+// pages/ergebnis.tsx
+
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +14,7 @@ export default function Ergebnis() {
   const [text, setText] = useState<string>("");
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [paid, setPaid] = useState(false);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -20,7 +23,6 @@ export default function Ergebnis() {
     if (!router.isReady) return;
 
     const session_id = router.query.session_id;
-
     if (!session_id || typeof session_id !== "string") {
       router.replace("/bewerten");
       return;
@@ -42,130 +44,54 @@ export default function Ergebnis() {
           return;
         }
 
-        const bewertungId = data.session?.metadata?.bewertungId;
-
-        if (!bewertungId) {
-          warn("[ERGEBNIS] Keine Bewertung-ID vorhanden. Fallback aktiv.");
-          setText(fallbackMessage);
-          return;
-        }
-
-        const bewertungRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-        const bewertungData = await bewertungRes.json();
-
-        if (!bewertungData?.bewertung) {
-          warn("[ERGEBNIS] Bewertung nicht gefunden. Redirect nach /bewerten");
-          router.replace("/bewerten");
-          return;
-        }
-
-        setText(bewertungData.bewertung);
-        log("[ERGEBNIS] Bewertung erfolgreich gesetzt.");
+        setPaid(true);
+        setText(data.bewertung?.raw_gpt || "");
       } catch (err) {
-        error("[ERGEBNIS] Fehler beim Abrufen der Session:", err);
-        setText(fallbackMessage);
+        error("[ERGEBNIS] Fehler beim Laden der Session:", err);
+        setText("");
       } finally {
         setLoading(false);
-        log("[ERGEBNIS] Ladezustand beendet.");
       }
     };
 
     fetchSession();
-  }, [router.isReady, router.query.session_id]);
-
-  const clean = (input: string) =>
-    input
-      .replace(/\/\s?/g, "")
-      .replace(/(\d)\s?[\u2013-]\s?(\d)/g, "$1 - $2")
-      .replace(/(\d{1,3})[ .](\d{3})/g, "$1 $2")
-      .replace(/\u20ac\s?/g, " €");
+  }, [router.isReady]);
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {}
+      setTimeout(() => setCopied(false), 3000);
+    } catch (err) {
+      error("Fehler beim Kopieren", err);
+    }
   };
 
-  const handleDownloadPDF = async () => {
-    const doc = new jsPDF({ unit: "mm", format: "a4" });
-    const margin = 20;
-    const maxWidth = 170;
-    let y = margin;
-
-    const logoUrl = "/logo.png";
-    const logo = await fetch(logoUrl)
-      .then(res => res.blob())
-      .then(blob => new Promise<string>((resolve) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result as string);
-        reader.readAsDataURL(blob);
-      }));
-
-    doc.addImage(logo, "PNG", margin, y, 25, 25);
-    y += 30;
-
-    doc.setFontSize(18);
-    doc.setFont("helvetica", "bold");
-    doc.text("PferdeWert Analyse", margin, y);
-    y += 10;
-
-    doc.setFontSize(12);
-    doc.setFont("helvetica", "normal");
-    doc.setTextColor(100);
-    doc.text("KI-gestützte Pferdebewertung direkt online", margin, y);
-    y += 10;
-
-    doc.setDrawColor(200);
-    doc.line(margin, y, 210 - margin, y);
-    y += 10;
-
-    const drawTextBlock = (content: string, type: "heading" | "paragraph" | "list") => {
-      const cleaned = clean(content);
-      doc.setFont("helvetica", type === "heading" ? "bold" : "normal");
-      doc.setFontSize(type === "heading" ? 14 : 11);
-      const lines = doc.splitTextToSize(type === "list" ? "• " + cleaned : cleaned, maxWidth);
-      doc.text(lines, margin, y);
-      y += lines.length * 6 + 2;
-    };
-
-    const lines = clean(text).split("\n");
-    lines.forEach((line) => {
-      if (y > 270) {
-        doc.addPage();
-        y = margin;
-      }
-      if (line.startsWith("###")) drawTextBlock(line.replace(/^#+\s*/, ""), "heading");
-      else if (line.startsWith("- ")) drawTextBlock(line.slice(2), "list");
-      else if (line.trim() !== "") drawTextBlock(line, "paragraph");
-      else y += 4;
-    });
-
-    doc.setFontSize(9);
-    doc.setTextColor(120);
-    doc.text("Bereitgestellt von www.pferdewert.de", margin, 290);
-    doc.save("pferdebewertung.pdf");
+  const handleDownloadPDF = () => {
+    const pdf = new jsPDF();
+    pdf.text(text || fallbackMessage, 10, 10);
+    pdf.save("pferdebewertung.pdf");
   };
 
   return (
     <>
       <Head>
-        <title>Pferdebewertung – Ergebnis | PferdeWert</title>
-        <meta
-          name="description"
-          content="Individuelle KI-Analyse für dein Pferd mit Preisspanne, Bewertung und Download."
-        />
+        <title>PferdeWert – Ergebnis</title>
       </Head>
 
-      <BewertungLayout title="📊 Ergebnis deiner Pferdebewertung">
+      <BewertungLayout title="Deine Pferdebewertung">
         {loading ? (
-          <p className="text-center text-brand-accent">⏳ Lade deine Analyse...</p>
+          <div className="py-20 text-center text-gray-500">
+            <div className="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-lg font-medium">Lade deine Bewertung…</p>
+          </div>
         ) : (
           <>
-            <p className="mb-6 text-green-700 font-semibold bg-green-50 border border-green-200 rounded-xl px-4 py-3 text-center">
-              ✅ Zahlung erfolgreich – deine Analyse ist jetzt bereit.
-            </p>
+            {paid && (
+              <p className="text-green-600 text-center text-lg font-semibold mb-6">
+                ✅ Bezahlung erfolgreich – deine Analyse ist jetzt bereit.
+              </p>
+            )}
 
             {text ? (
               <>
@@ -191,7 +117,7 @@ export default function Ergebnis() {
                 )}
               </>
             ) : (
-              <p className="text-brand-accent text-center">{fallbackMessage}</p>
+              <p className="text-brand-accent text-center mt-10">{fallbackMessage}</p>
             )}
           </>
         )}
