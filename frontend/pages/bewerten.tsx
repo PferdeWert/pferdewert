@@ -60,7 +60,7 @@ const fields: {
   { name: "farbe", label: "Farbe" },
   { name: "zuechter", label: "Züchter / Ausbildungsstall" },
   { name: "standort", label: "Standort" },
-{ name: "verwendungszweck", label: "Verwendungszweck" },
+  { name: "verwendungszweck", label: "Verwendungszweck", required: true },
 ];
 
 export default function Bewerten() {
@@ -127,9 +127,10 @@ export default function Bewerten() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {fields.map((field) => (
             <div key={field.name}>
-              <label htmlFor={field.name} className="block font-medium mb-1">
-                {field.label}
-              </label>
+  <label htmlFor={field.name} className="block font-medium mb-1">
+    {field.label}
+    {field.required && <span className="text-red-600 ml-1">*</span>}
+  </label>
               {field.type === "select" ? (
                 <select
                   id={field.name}
