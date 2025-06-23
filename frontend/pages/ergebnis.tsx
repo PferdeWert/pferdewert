@@ -69,8 +69,29 @@ export default function Ergebnis() {
 
   const handleDownloadPDF = () => {
     const pdf = new jsPDF();
-    pdf.text(text || fallbackMessage, 10, 10);
-    pdf.save("pferdebewertung.pdf");
+
+    const heute = new Date().toLocaleDateString("de-DE");
+    const header = `Pferdebewertung – erstellt am ${heute}
+
+Bereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse
+www.pferdewert.de
+
+`;
+    const body = text || fallbackMessage;
+
+    const fullText = header + body;
+    const lines = pdf.splitTextToSize(fullText, 180);
+
+    const img = new Image();
+    img.src = "/logo.png";
+    img.onload = () => {
+      pdf.addImage(img, "PNG", 80, 10, 50, 15);
+      pdf.setFontSize(12);
+      pdf.text(lines, 10, 35);
+      pdf.save("pferdebewertung.pdf");
+    };
+
+    
   };
 
   return (
