@@ -52,20 +52,26 @@ export function generateBewertungsPDF(text: string): jsPDF {
       }
     } else {
       const lineBlocks = block.split(/(__[^_]+__)/);
-      let x = 10;
+      const lines = [];
+      let currentLine = "";
+      let currentFont = "normal";
+
       for (const part of lineBlocks) {
         if (!part) continue;
+        const isBold = part.startsWith("__") && part.endsWith("__");
         const clean = part.replace(/__/g, "");
-        const width = pdf.getTextWidth(clean);
-        if (part.startsWith("__") && part.endsWith("__")) {
-          pdf.setFont("times", "bold");
-        } else {
-          pdf.setFont("times", "normal");
+        const segments = pdf.splitTextToSize(clean, 180);
+
+        for (const segment of segments) {
+          lines.push({ text: segment, bold: isBold });
         }
-        pdf.text(clean, x, y);
-        x += width;
       }
-      y += 7;
+
+      for (const line of lines) {
+        pdf.setFont("times", line.bold ? "bold" : "normal");
+        pdf.text(line.text, 10, y);
+        y += 7;
+      }
     }
 
     if (y > 270) {
