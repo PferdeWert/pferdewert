@@ -53,7 +53,6 @@ export function generateBewertungsPDF(text: string): jsPDF {
       if (y > 270) {
         pdf.addPage();
         y = 20;
-        currentPageUsed = false;
       }
       const head = block.replace("### ", "").trim();
       pdf.setFont("times", "bold");
@@ -83,12 +82,10 @@ export function generateBewertungsPDF(text: string): jsPDF {
       for (const line of pdf.splitTextToSize(labelMatch[2], 140)) {
         pdf.text(line, 50, y);
         y += 7;
-        currentPageUsed = true;
         usedPages.add(pdf.getCurrentPageInfo().pageNumber);
         if (y > 270) {
           pdf.addPage();
           y = 20;
-          currentPageUsed = false;
         }
       }
       y += 3;
