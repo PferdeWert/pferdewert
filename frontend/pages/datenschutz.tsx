@@ -29,54 +29,32 @@ export default function Datenschutz() {
 
       <h2 className="mt-6 text-xl font-semibold">3. Kontaktaufnahme</h2>
       <p className="mb-4">
-        Bei Kontakt per E-Mail werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.
+        Bei Kontakt per E-Mail werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht gespeichert, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.
       </p>
 
-      <h2 className="mt-6 text-xl font-semibold">4. Pferdebewertung</h2>
+      <h2 className="mt-6 text-xl font-semibold">4. Verarbeitung personenbezogener Daten bei Nutzung der KI-Funktion</h2>
       <p className="mb-4">
-        Die von Ihnen übermittelten Informationen zur Pferdebewertung werden ausschließlich zur automatisierten Analyse verwendet.
-        Es erfolgt keine dauerhafte Speicherung oder Weitergabe der Daten.
+        Wenn Sie eine Pferdebewertung auf unserer Website anfordern, verarbeiten wir die von Ihnen eingegebenen Daten (z. B. Name, Alter, Rasse, Disziplin des Pferdes), um die Bewertung durchzuführen. Diese Daten werden an die Server unseres technischen Dienstleisters <strong>OpenAI, L.L.C.</strong> in den USA übermittelt, da dort die KI-Verarbeitung erfolgt. Die Übermittlung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 46 Abs. 2 lit. c DSGVO (Standardvertragsklauseln).
       </p>
 
       <h2 className="mt-6 text-xl font-semibold">5. Zahlungsabwicklung über Stripe</h2>
       <p className="mb-4">
-        Zur Zahlungsabwicklung nutzen wir Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Dublin 2, Irland. Stripe verarbeitet
-        personenbezogene Daten wie Name, E-Mail-Adresse, Zahlungsdetails und IP-Adresse. Weitere Informationen finden Sie in der
-        <a
-          href="https://stripe.com/de/privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 underline hover:text-blue-800"
-        >
-          &nbsp;Datenschutzerklärung von Stripe
-        </a>.
+        Für kostenpflichtige Bewertungen nutzen wir den Zahlungsdienstleister <strong>Stripe Payments Europe Ltd.</strong> (Irland). Bei einem Kaufvorgang werden Daten wie Name, E-Mail-Adresse und Zahlungsinformationen an Stripe übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Stripe verarbeitet Ihre Daten auch in den USA. Es bestehen EU-Standardvertragsklauseln mit Stripe.
       </p>
 
-      <h2 className="mt-6 text-xl font-semibold">6. Einsatz von Google Analytics</h2>
+      <h2 className="mt-6 text-xl font-semibold">6. Speicherdauer</h2>
       <p className="mb-4">
-        Unsere Website nutzt Google Analytics (Google Ireland Ltd.) zur anonymisierten Reichweitenanalyse. Google verwendet Cookies,
-        um Informationen über die Nutzung der Website zu sammeln. Die IP-Anonymisierung ist aktiviert. Die Datenverarbeitung erfolgt
-        nur nach ausdrücklicher Zustimmung im Rahmen unseres Cookie-Hinweises. Widerspruchsmöglichkeit:
-        <a
-          href="https://tools.google.com/dlpage/gaoptout"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 underline hover:text-blue-800"
-        >
-          &nbsp;https://tools.google.com/dlpage/gaoptout
-        </a>.
+        Ihre Bewertungsdaten werden für die Dauer der gesetzlichen Aufbewahrungsfrist gespeichert oder bis Sie deren Löschung verlangen (sofern dem keine rechtlichen Pflichten entgegenstehen).
       </p>
 
       <h2 className="mt-6 text-xl font-semibold">7. Ihre Rechte</h2>
       <p className="mb-4">
-        Sie haben das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer Daten. Bitte wenden Sie sich
-        dazu an die oben genannte Kontaktadresse.
+        Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie auf Datenübertragbarkeit Ihrer gespeicherten personenbezogenen Daten. Sie können sich bei einer Aufsichtsbehörde beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung gegen Datenschutzrecht verstößt.
       </p>
 
-      <h2 className="mt-6 text-xl font-semibold">8. Änderungen</h2>
-      <p>
-        Wir behalten uns vor, diese Datenschutzerklärung anzupassen, z. B. bei neuen gesetzlichen Vorgaben oder technischen Änderungen.
-        Bitte informieren Sie sich regelmäßig über den aktuellen Stand.
+      <h2 className="mt-6 text-xl font-semibold">8. Cookies & Tracking</h2>
+      <p className="mb-4">
+        Unsere Website verwendet derzeit keine Cookies zu Analyse- oder Marketingzwecken. Sollte sich dies in Zukunft ändern (z. B. durch Einsatz von Google Analytics), werden wir Sie entsprechend informieren und Ihre Einwilligung einholen.
       </p>
     </main>
   );
