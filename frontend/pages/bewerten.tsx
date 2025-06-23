@@ -106,11 +106,11 @@ export default function Bewerten() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        setErrors({ form: "Fehler beim Starten der Bewertung." });
+        setErrors({ form: data.error || "Fehler beim Starten der Bewertung." });
       }
     } catch (err) {
       error("Fehler beim Starten der Bewertung", err);
-      setErrors({ form: "Ein unerwarteter Fehler ist aufgetreten." });
+      setErrors({ form: err.message || "Ein unerwarteter Fehler ist aufgetreten." });
     } finally {
       setLoading(false);
     }
