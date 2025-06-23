@@ -1,5 +1,4 @@
-// Diese Datei repräsentiert die Seite /bewerten.tsx
-// (bereits mehrfach bearbeitet, jetzt mit Widerrufs-Checkbox-Erweiterung)
+// Diese Datei repräsentiert die Seite /bewerten.tsx mit erweitertem UX-Hinweis bei Pflichtfeldfehlern
 
 import Head from "next/head";
 import Link from "next/link";
@@ -68,6 +67,7 @@ export default function Bewerten() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -75,6 +75,7 @@ export default function Bewerten() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitted(true);
     setErrors({});
 
     if (!consent) {
@@ -127,10 +128,10 @@ export default function Bewerten() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {fields.map((field) => (
             <div key={field.name}>
-  <label htmlFor={field.name} className="block font-medium mb-1">
-    {field.label}
-    {field.required && <span className="text-red-600 ml-1">*</span>}
-  </label>
+              <label htmlFor={field.name} className="block font-medium mb-1">
+                {field.label}
+                {field.required && <span className="text-red-600 ml-1">*</span>}
+              </label>
               {field.type === "select" ? (
                 <select
                   id={field.name}
@@ -182,6 +183,12 @@ export default function Bewerten() {
               </span>
             </label>
           </div>
+
+          {Object.keys(errors).length > 0 && submitted && (
+            <p className="text-red-600 text-center font-medium mt-2">
+              Bitte fülle alle markierten Pflichtfelder aus.
+            </p>
+          )}
 
           {errors.form && (
             <p className="text-red-600 font-medium text-base text-center">
