@@ -5,18 +5,23 @@ export function generateBewertungsPDF(text: string): jsPDF {
   const pdf = new jsPDF();
   const heute = new Date().toLocaleDateString("de-DE");
 
+  // Header
   const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
 
+  // Vorverarbeitung: schmale Leerzeichen & Fettschreibung in __ fett __ umwandeln
   const cleanedText = text
     .replace(/\u202f/g, " ")
     .replace(/\*\*(.*?)\*\*/g, "__$1__");
 
+  // Blöcke anhand von Leerzeilen trennen
   const blocks = cleanedText.split(/\n{2,}/);
 
+  // Grund­einstellungen
   pdf.setFont("times", "normal");
   pdf.setFontSize(12);
   pdf.setLineHeightFactor(1.5);
 
+  // Titel & Header
   pdf.setFontSize(14);
   pdf.text("Pferdebewertung", 105, 20, { align: "center" });
   pdf.setFontSize(12);
@@ -24,11 +29,15 @@ export function generateBewertungsPDF(text: string): jsPDF {
 
   let y = 50;
 
-  function drawWrappedLine(line: string, isBold: boolean) {
-    const wrapped = pdf.splitTextToSize(line, 180);
-    for (const l of wrapped) {
-      pdf.setFont("times", isBold ? "bold" : "normal");
-      pdf.text(l, 10, y);
+  // Hilfsfunktion: Text umbrechen & zeichnen
+  function drawWrapped(text: string, options?: { bold?: boolean; bullet?: boolean }) {
+    const indent = options?.bullet ? 15 : 10;
+    const prefix = options?.bullet ? "• " : "";
+
+    const wrapped = pdf.splitTextToSize(prefix + text, 180 - (indent - 10));
+    for (const line of wrapped) {
+      pdf.setFont("times", options?.bold ? "bold" : "normal");
+      pdf.text(line, indent, y);
       y += 7;
       if (y > 270) {
         pdf.addPage();
@@ -38,62 +47,45 @@ export function generateBewertungsPDF(text: string): jsPDF {
   }
 
   for (const block of blocks) {
+    // ### Überschriften
     if (block.startsWith("### ")) {
-      const headline = block.replace("### ", "").trim();
+      const head = block.replace("### ", "").trim();
       pdf.setFont("times", "bold");
       pdf.setFontSize(13);
-      pdf.text(headline, 10, y);
+      pdf.text(head, 10, y);
       y += 10;
       pdf.setFont("times", "normal");
       pdf.setFontSize(12);
       continue;
     }
 
+    // Aufzählungen "- "
     if (block.startsWith("- ")) {
       const items = block.split("- ").filter(Boolean);
       for (const item of items) {
-        const parsed = item.replace(/__([^_]+?)__/g, "$1:").trim();
-        drawWrappedLine("• " + parsed, false);
+        const plain = item.replace(/__([^_]+?)__/g, "$1").trim();
+        drawWrapped(plain, { bullet: true });
       }
       y += 3;
       continue;
     }
 
-    const match = block.match(/^__(.+?)__:\s*(.+)/);
-    if (match) {
+    // Label-Wert Zeilen  __Label__: value
+    const labelMatch = block.match(/^__(.+?)__:\s*(.+)/);
+    if (labelMatch) {
       pdf.setFont("times", "bold");
-      pdf.text(`${match[1]}:`, 10, y);
+      pdf.text(`${labelMatch[1]}:`, 10, y);
       pdf.setFont("times", "normal");
-      drawWrappedLine(match[2], false);
-      y += 3;
+      const value = labelMatch[2];
+      const wrapped = pdf.splitTextToSize(value, 140);
+      pdf.text(wrapped, 50, y);
+      y += wrapped.length * 7 + 3;
       continue;
     }
 
-    // Absatz mit oder ohne Fettstellen
-    const segments = block.split(/(__[^_]+__)/);
-    let line = "";
-    for (const seg of segments) {
-      const isBold = seg.startsWith("__") && seg.endsWith("__");
-      const clean = seg.replace(/__/g, "");
-      const words = clean.split(" ");
-      for (const word of words) {
-        const testLine = line + word + " ";
-        if (pdf.getTextWidth(testLine) > 180) {
-          pdf.setFont("times", isBold ? "bold" : "normal");
-          pdf.text(line.trim(), 10, y);
-          y += 7;
-          line = word + " ";
-        } else {
-          line = testLine;
-        }
-      }
-      if (line) {
-        pdf.setFont("times", isBold ? "bold" : "normal");
-        pdf.text(line.trim(), 10, y);
-        y += 7;
-        line = "";
-      }
-    }
+    // Normaler Absatz (evtl. mit Rest-__ fett __)
+    const plainPara = block.replace(/__/g, "");
+    drawWrapped(plainPara);
     y += 3;
   }
 
