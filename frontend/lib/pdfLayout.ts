@@ -8,7 +8,7 @@ export function generateBewertungsPDF(text: string): jsPDF {
   const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
 
   const lines: string[] = [];
-  const blocks = text.split(/\n{2,}/);
+  const blocks = text.replace(/\*\*(.*?)\*\*/g, "__$1__").split(/\n{2,}/);
 
   pdf.setFont("times", "normal");
   pdf.setFontSize(12);
@@ -30,8 +30,8 @@ export function generateBewertungsPDF(text: string): jsPDF {
       y += 8;
       pdf.setFont("times", "normal");
       pdf.setFontSize(12);
-    } else if (/^\*\*(.+?)\*\*:/.test(block)) {
-      const match = block.match(/^\*\*(.+?)\*\*: (.+)/);
+    } else if (/^__(.+?)__:\s*(.+)/.test(block)) {
+      const match = block.match(/^__(.+?)__:\s*(.+)/);
       if (match) {
         pdf.setFont("times", "bold");
         pdf.text(`${match[1]}:`, 10, y);
@@ -42,13 +42,19 @@ export function generateBewertungsPDF(text: string): jsPDF {
     } else if (block.startsWith("- ")) {
       const items = block.split("- ").filter(Boolean);
       for (const item of items) {
-        const parsed = item.replace(/^\*\*(.+?)\*\*/, "$1:").trim();
+        const parsed = item.replace(/__([^_]+?)__/g, "$1:").trim();
         const wrapped = pdf.splitTextToSize("• " + parsed, 180);
         pdf.text(wrapped, 10, y);
         y += wrapped.length * 7;
       }
     } else {
-      const wrapped = pdf.splitTextToSize(block, 180);
+      const cleaned = block.replace(/__([^_]+?)__/g, (match, p1) => {
+        pdf.setFont("times", "bold");
+        const result = p1;
+        pdf.setFont("times", "normal");
+        return result;
+      });
+      const wrapped = pdf.splitTextToSize(cleaned, 180);
       pdf.text(wrapped, 10, y);
       y += wrapped.length * 7;
     }
