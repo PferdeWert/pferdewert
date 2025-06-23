@@ -1,7 +1,7 @@
 // pages/pdf-test.tsx
 
 import Head from "next/head";
-import { jsPDF } from "jspdf";
+import { generateBewertungsPDF } from "@/lib/pdfLayout";
 import BewertungLayout from "@/components/BewertungLayout";
 
 export default function PdfTest() {
@@ -23,24 +23,7 @@ Sportlich, ausgeglichen, klar im Kopf.
 `;
 
   const handleDownloadPDF = () => {
-    const pdf = new jsPDF();
-    const heute = new Date().toLocaleDateString("de-DE");
-
-    const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
-
-    const body = sampleText
-      .replace(/^### (.*$)/gim, "\n\n$1\n" + "=".repeat(30) + "\n")
-      .replace(/^## (.*$)/gim, "\n\n$1\n" + "-".repeat(30) + "\n")
-      .replace(/\*\*(.*?)\*\*/gim, "$1:")
-      .replace(/\n{2,}/g, "\n\n");
-
-    const lines = pdf.splitTextToSize(body, 180);
-    pdf.setFont("times", "normal");
-    pdf.setFontSize(12);
-    pdf.setLineHeightFactor(1.6);
-    pdf.text("Pferdebewertung", 105, 20, { align: "center" });
-    pdf.text(headerText, 10, 30);
-    pdf.text(lines, 10, 50);
+    const pdf = generateBewertungsPDF(sampleText);
     pdf.save("test.pdf");
   };
 
