@@ -47,8 +47,14 @@ export function generateBewertungsPDF(text: string): jsPDF {
   }
 
   for (const block of blocks) {
-    // ### Überschriften
+    // // ### Überschriften
     if (block.startsWith("### ")) {
+      // etwas zusätzlicher Abstand vor jeder Hauptüberschrift
+      y += 5;
+      if (y > 270) {
+        pdf.addPage();
+        y = 20;
+      }
       const head = block.replace("### ", "").trim();
       pdf.setFont("times", "bold");
       pdf.setFontSize(13);
@@ -57,6 +63,7 @@ export function generateBewertungsPDF(text: string): jsPDF {
       pdf.setFont("times", "normal");
       pdf.setFontSize(12);
       continue;
+    }
     }
 
     // Aufzählungen "- "
