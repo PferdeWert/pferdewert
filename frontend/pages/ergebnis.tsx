@@ -44,17 +44,16 @@ export default function Ergebnis() {
           return;
         }
 
-        const bewertungId = data.session.metadata?.bewertungId;
-        if (!bewertungId) {
-          warn("[ERGEBNIS] Keine bewertungId in Session-Metadata");
-          setText("");
-          return;
-        }
-
-        const bewertungRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-        const bewertungData = await bewertungRes.json();
-        setText(bewertungData?.bewertung || "");
         setPaid(true);
+
+        const bewertungId = data.session.metadata?.bewertungId;
+        if (bewertungId) {
+          const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+          const resultData = await resultRes.json();
+          setText(resultData.bewertung || "");
+        } else {
+          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
+        }
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Laden der Session oder Bewertung:", err);
         setText("");
@@ -78,24 +77,18 @@ export default function Ergebnis() {
 
   const handleDownloadPDF = () => {
     const pdf = new jsPDF();
-
     const heute = new Date().toLocaleDateString("de-DE");
-    const header = `Pferdebewertung – erstellt am ${heute}
 
-Bereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse
-www.pferdewert.de
-
-`;
+    const header = `Pferdebewertung – erstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
     const body = text || fallbackMessage;
 
-    const fullText = header + body;
-    const lines = pdf.splitTextToSize(fullText, 180);
+    pdf.setFontSize(12);
+    const lines = pdf.splitTextToSize(header + body, 180);
 
     const img = new Image();
     img.src = "/logo.png";
     img.onload = () => {
       pdf.addImage(img, "PNG", 80, 10, 50, 15);
-      pdf.setFontSize(12);
       pdf.text(lines, 10, 35);
       pdf.save("pferdebewertung.pdf");
     };
