@@ -110,6 +110,15 @@ export default function Bewerten() {
       <Head>
         <title>PferdeWert – Bewertung</title>
       </Head>
+
+      {loading && (
+        <div className="fixed inset-0 bg-white/80 z-50 flex flex-col items-center justify-center text-center p-6">
+          <div className="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full mb-4"></div>
+          <p className="text-lg font-medium">Die Analyse wird vorbereitet…</p>
+          <p className="text-sm text-gray-600 mt-2">Du wirst in Kürze zur Bezahlung weitergeleitet.</p>
+        </div>
+      )}
+
       <main className="max-w-2xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6 text-center">Pferd analysieren lassen</h1>
 
@@ -169,7 +178,7 @@ export default function Bewerten() {
           )}
 
           <p className="text-sm text-gray-600 text-center mb-4">
-            Die Analyse kostet einmalig <strong>4,90 €</strong> (umsatzsteuerfrei nach § 19 UStG).
+            Die Analyse kostet einmalig <strong>4,90 €</strong> (umsatzsteuerfrei nach § 19 UStG)
           </p>
 
           <button
@@ -180,12 +189,11 @@ export default function Bewerten() {
             {loading ? "🔄 Bewertung läuft..." : "Jetzt kostenpflichtig analysieren"}
           </button>
 
-          <p className="text-xs text-gray-500 text-center">
-            Mit Klick auf „Jetzt kostenpflichtig analysieren“ akzeptierst du unsere <a href="/agb" className="underline">AGB</a>.
-          </p>
-
           <p className="text-xs text-gray-500 text-center mt-2">
             Du wirst zur sicheren Bezahlung weitergeleitet.
+          </p>
+          <p className="text-xs text-gray-500 text-center">
+            Mit Klick auf „Jetzt kostenpflichtig analysieren“ akzeptierst du unsere <a href="/agb" className="underline">AGB</a>.
           </p>
         </form>
       </main>
