@@ -44,10 +44,19 @@ export default function Ergebnis() {
           return;
         }
 
+        const bewertungId = data.session.metadata?.bewertungId;
+        if (!bewertungId) {
+          warn("[ERGEBNIS] Keine bewertungId in Session-Metadata");
+          setText("");
+          return;
+        }
+
+        const bewertungRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+        const bewertungData = await bewertungRes.json();
+        setText(bewertungData?.bewertung || "");
         setPaid(true);
-        setText(data.bewertung?.raw_gpt || "");
       } catch (err) {
-        error("[ERGEBNIS] Fehler beim Laden der Session:", err);
+        error("[ERGEBNIS] Fehler beim Laden der Session oder Bewertung:", err);
         setText("");
       } finally {
         setLoading(false);
@@ -90,8 +99,6 @@ www.pferdewert.de
       pdf.text(lines, 10, 35);
       pdf.save("pferdebewertung.pdf");
     };
-
-    
   };
 
   return (
