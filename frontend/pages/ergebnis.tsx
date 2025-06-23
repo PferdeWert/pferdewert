@@ -75,33 +75,62 @@ export default function Ergebnis() {
     }
   };
 
-  const handleDownloadPDF = () => {
-    const pdf = new jsPDF();
-    const heute = new Date().toLocaleDateString("de-DE");
+ const handleDownloadPDF = () => {
+  const pdf = new jsPDF();
+  const heute = new Date().toLocaleDateString("de-DE");
 
-    const header = `Pferdebewertung\nErstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
-    const rawBody = text || fallbackMessage;
+  const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
+  const rawBody = text || fallbackMessage;
 
-    // Markdown-Anmutung für lesbare Struktur auflösen
-    const body = rawBody
-      .replace(/^### (.*$)/gim, "\n\n$1\n" + "=".repeat(50))
-      .replace(/^## (.*$)/gim, "\n\n$1\n" + "-".repeat(50))
-      .replace(/\*\*(.*?)\*\*/gim, "$1:")
-      .replace(/\n{2,}/g, "\n\n");
+  const body = rawBody
+    .replace(/^### (.*$)/gim, "\n\n$1\n" + "=".repeat(30) + "\n")
+    .replace(/^## (.*$)/gim, "\n\n$1\n" + "-".repeat(30) + "\n")
+    .replace(/\*\*(.*?)\*\*/gim, "$1:")
+    .replace(/\n{2,}/g, "\n\n");
 
-    const lines = pdf.splitTextToSize(header + body, 180);
+  const img = new Image();
+  img.src = "/logo.png";
+  img.onload = () => {
+    const pageWidth = 210;
+    const pageHeight = 297;
+    const margin = 15;
+    const lineHeight = 6;
+    const lines = pdf.splitTextToSize(body, pageWidth - 2 * margin);
 
-    const img = new Image();
-    img.src = "/logo.png";
-    img.onload = () => {
-      const centerX = (210 - 50) / 2;
-      pdf.addImage(img, "PNG", centerX, 10, 50, 15);
-      pdf.setFont("Times", "");
-      pdf.setFontSize(12);
-      pdf.text(lines, 10, 35);
-      pdf.save("pferdebewertung.pdf");
+    let cursorY = 70;
+
+    const addPageFooter = (pageNum: number, totalPages: number) => {
+      pdf.setFontSize(10);
+      pdf.text(`© PferdeWert 2025 – www.pferdewert.de`, margin, pageHeight - 10);
+      pdf.text(`${pageNum} / ${totalPages}`, pageWidth - margin, pageHeight - 10, { align: "right" });
     };
+
+    pdf.addImage(img, "PNG", (pageWidth - 50) / 2, 10, 50, 15);
+    pdf.setFont("times", "normal");
+    pdf.setLineHeightFactor(1.6);
+    pdf.setFontSize(16);
+    pdf.text("Pferdebewertung", pageWidth / 2, 35, { align: "center" });
+    pdf.setFontSize(12);
+    pdf.text(headerText, margin, 45);
+
+    let pageNum = 1;
+    for (let i = 0; i < lines.length; i++) {
+      if (cursorY + lineHeight > pageHeight - 20) {
+        addPageFooter(pageNum, 1); // Temporär
+        pdf.addPage();
+        pageNum++;
+        cursorY = 20;
+      }
+      pdf.text(lines[i], margin, cursorY);
+      cursorY += lineHeight;
+    }
+
+    addPageFooter(pageNum, pageNum);
+    pdf.save("pferdebewertung.pdf");
   };
+};
+
+
 
   return (
     <>
