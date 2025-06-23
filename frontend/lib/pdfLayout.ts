@@ -98,5 +98,13 @@ export function generateBewertungsPDF(text: string): jsPDF {
     y += 3;
   }
 
+  // Seitenzahlen unten rechts einfügen
+  const pageCount = pdf.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    pdf.setPage(i);
+    pdf.setFontSize(10);
+    pdf.text(`${i} / ${pageCount}`, 200, 290, { align: "right" });
+  }
+
   return pdf;
 }
