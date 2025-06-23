@@ -48,15 +48,21 @@ export function generateBewertungsPDF(text: string): jsPDF {
         y += wrapped.length * 7;
       }
     } else {
-      const cleaned = block.replace(/__([^_]+?)__/g, (match, p1) => {
-        pdf.setFont("times", "bold");
-        const result = p1;
-        pdf.setFont("times", "normal");
-        return result;
-      });
-      const wrapped = pdf.splitTextToSize(cleaned, 180);
-      pdf.text(wrapped, 10, y);
-      y += wrapped.length * 7;
+      const lineBlocks = block.split(/(__[^_]+__)/);
+      let x = 10;
+      for (const part of lineBlocks) {
+        if (!part) continue;
+        const clean = part.replace(/__/g, "");
+        const width = pdf.getTextWidth(clean);
+        if (part.startsWith("__") && part.endsWith("__")) {
+          pdf.setFont("times", "bold");
+        } else {
+          pdf.setFont("times", "normal");
+        }
+        pdf.text(clean, x, y);
+        x += width;
+      }
+      y += 7;
     }
 
     if (y > 270) {
