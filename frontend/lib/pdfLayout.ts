@@ -8,7 +8,7 @@ export function generateBewertungsPDF(text: string): jsPDF {
   const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
 
   const cleanedText = text
-    .replace(/\u202f/g, " ") // schmale geschützte Leerzeichen ersetzen
+    .replace(/\u202f/g, " ")
     .replace(/\*\*(.*?)\*\*/g, "__$1__");
 
   const blocks = cleanedText.split(/\n{2,}/);
@@ -52,24 +52,34 @@ export function generateBewertungsPDF(text: string): jsPDF {
       }
     } else {
       const lineBlocks = block.split(/(__[^_]+__)/);
-      const lines = [];
-      let currentLine = "";
-      let currentFont = "normal";
+      let composedLine = "";
+      let currentBold = false;
+      const composedLines: { text: string; bold: boolean }[] = [];
 
       for (const part of lineBlocks) {
         if (!part) continue;
         const isBold = part.startsWith("__") && part.endsWith("__");
         const clean = part.replace(/__/g, "");
-        const segments = pdf.splitTextToSize(clean, 180);
-
-        for (const segment of segments) {
-          lines.push({ text: segment, bold: isBold });
-        }
+        composedLine += clean;
+        composedLines.push({ text: clean, bold: isBold });
       }
 
-      for (const line of lines) {
-        pdf.setFont("times", line.bold ? "bold" : "normal");
-        pdf.text(line.text, 10, y);
+      const fullText = composedLines.map(c => c.text).join("");
+      const wrappedLines = pdf.splitTextToSize(fullText, 180);
+
+      for (const line of wrappedLines) {
+        // Aufteilen in fette und normale Teile erneut
+        const reblocks = line.split(/(__[^_]+__)/);
+        let x = 10;
+        for (const seg of reblocks) {
+          if (!seg) continue;
+          const isBold = seg.startsWith("__") && seg.endsWith("__");
+          const clean = seg.replace(/__/g, "");
+          const width = pdf.getTextWidth(clean);
+          pdf.setFont("times", isBold ? "bold" : "normal");
+          pdf.text(clean, x, y);
+          x += width;
+        }
         y += 7;
       }
     }
