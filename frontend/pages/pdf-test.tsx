@@ -1,82 +1,72 @@
 // pages/pdf-test.tsx
 
-import { useState } from "react";
 import Head from "next/head";
 import { jsPDF } from "jspdf";
+import BewertungLayout from "@/components/BewertungLayout";
 
-export default function PdfTest() {
-  const [generating, setGenerating] = useState(false);
+const dummyText = `
+# Pferd im Profil
 
-  const markdownText = `
-**Abstammung**
+**Rasse:** Hannoveraner  
+**Alter:** 5 Jahre  
+**Stockmaß:** 168 cm
 
-Vater: Donnerhall
-Muttervater: Rubinstein
+## Ausbildung & Gesundheit
 
-**Besondere Merkmale**
+**Ausbildungsstand:** L-Dressur sicher, M in Arbeit  
+**Gesundheitsstatus:** AKU ohne Befund vom 05/2025
 
-- Sehr gute Rittigkeit
-- Klarer Kopf
-- Drei gute Grundgangarten
+## Erfolge
 
-**Was den Endpreis besonders bewegt**
+- 1. Platz Dressur L (2024)
+- 2. Platz Springprüfung A**
 
-- Erfolge auf Turnierniveau
-- Gesundheitszustand (AKU ohne Befund)
+## Bewertung
 
-**Fazit**
+Dieses Pferd überzeugt durch einen modernen Körperbau, gute Rittigkeit und klaren Leistungsnachweis. Hervorzuheben ist der taktklare Trab mit aktiver Hinterhand.
 
-Das Pferd überzeugt durch seine Abstammung, seinen Ausbildungsstand und seine Turniererfolge. Eine faire Preisspanne liegt bei ca. 25.000 € – 32.000 €.
+## Preis-Einschätzung
+
+**Wert:** ca. 18.000 – 22.000 €
+
+*Alle Angaben ohne Gewähr – basiert auf KI-Analyse.*
 `;
 
-  const generatePDF = () => {
-    setGenerating(true);
+export default function PDFTest() {
+  const handleDownload = () => {
     const pdf = new jsPDF();
-
     const heute = new Date().toLocaleDateString("de-DE");
-    const marginLeft = 20;
-    const contentWidth = 170;
 
-    pdf.setFont("helvetica", "normal");
-    pdf.setFontSize(16);
-    pdf.text("Pferdebewertung", pdf.internal.pageSize.getWidth() / 2, 30, { align: "center" });
+    const header = `Pferdebewertung – erstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
+    const fullText = header + dummyText;
+
+    const lines = pdf.splitTextToSize(fullText, 180);
+    pdf.setFont("helvetica", "");
     pdf.setFontSize(12);
-    pdf.text(`Erstellt am ${heute}`, pdf.internal.pageSize.getWidth() / 2, 38, { align: "center" });
 
     const img = new Image();
     img.src = "/logo.png";
     img.onload = () => {
-      pdf.addImage(img, "PNG", pdf.internal.pageSize.getWidth() / 2 - 25, 10, 50, 15);
-
-      pdf.setFontSize(12);
-      const lines = pdf.splitTextToSize(markdownText, contentWidth);
-      pdf.text(lines, marginLeft, 50);
-
-      pdf.setFontSize(10);
-      pdf.text("Bereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse", marginLeft, 280);
-      pdf.text("www.pferdewert.de", marginLeft, 285);
-
+      pdf.addImage(img, "PNG", 80, 10, 50, 15);
+      pdf.text(lines, 10, 35);
       pdf.save("pferdebewertung.pdf");
-      setGenerating(false);
     };
   };
 
   return (
     <>
       <Head>
-        <title>PDF-Test | PferdeWert</title>
+        <title>PDF-Test</title>
       </Head>
-      <main className="max-w-xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-2xl font-bold mb-6">PDF-Testseite</h1>
-        <p className="mb-4">Klicke unten, um eine Beispielbewertung als PDF zu generieren.</p>
+      <BewertungLayout title="PDF-Layout testen">
+        <div className="prose prose-blue max-w-none mb-6">
+          <p>Hier kannst du das PDF-Layout mit Dummy-Daten testen:</p>
+        </div>
         <button
-          onClick={generatePDF}
-          disabled={generating}
-          className="bg-brand-accent text-white px-6 py-3 rounded-2xl font-semibold shadow hover:bg-brand-accent/80"
-        >
-          {generating ? "Generiere PDF…" : "PDF erzeugen"}
-        </button>
-      </main>
+          onClick={handleDownload}
+          className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
+        >🧞 PDF herunterladen</button>
+      </BewertungLayout>
     </>
   );
-} 
+}
