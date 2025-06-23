@@ -202,12 +202,20 @@ export default function Bewerten() {
           </p>
 
           <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
-          >
-            {loading ? "🔄 Bewertung läuft..." : "Jetzt kostenpflichtig analysieren"}
-          </button>
+  type="submit"
+  disabled={loading}
+  className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
+>
+  {loading ? (
+    <>
+      <span className="inline-block animate-spin mr-2 h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+      Einen Moment – deine Analyse wird vorbereitet…
+    </>
+  ) : (
+    "Jetzt kostenpflichtig analysieren"
+  )}
+</button>
+
 
           <p className="text-xs text-gray-500 text-center mt-2">
             Du wirst zur sicheren Bezahlung weitergeleitet.
