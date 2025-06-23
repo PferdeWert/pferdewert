@@ -53,14 +53,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error("KI-Antwort fehlgeschlagen");
     }
 
-    const { raw_gpt }: { raw_gpt: string | null } = await response.json();
+    const gpt_response: any = await response.json();
+    log("[CHECKOUT] GPT-Komplette Antwort:", gpt_response);
+    const raw_gpt = gpt_response?.raw_gpt;
 
     if (!raw_gpt) {
       warn("[CHECKOUT] ⚠️ Keine Bewertung von der KI erhalten.");
       return res.status(500).json({ error: "Keine Bewertung erzeugt" });
     }
 
-    info("[CHECKOUT] 🧠 Bewertung von KI empfangen.");
+    info("[CHECKOUT] 🧐 Bewertung von KI empfangen.");
     log("[CHECKOUT] Bewertung (Auszug):", raw_gpt.slice(0, 200));
 
     const collection = await getCollection("bewertungen");
