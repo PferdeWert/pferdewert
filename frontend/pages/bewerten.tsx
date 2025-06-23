@@ -1,7 +1,10 @@
+// Diese Datei repräsentiert die Seite /bewerten.tsx
+// (bereits mehrfach bearbeitet, jetzt mit Widerrufs-Checkbox-Erweiterung)
+
 import Head from "next/head";
 import Link from "next/link";
 import React, { useState } from "react";
-import { error } from "@/lib/log"; // 🔧 Logging importiert
+import { error } from "@/lib/log";
 
 interface FormState {
   rasse: string;
@@ -64,6 +67,7 @@ export default function Bewerten() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -72,6 +76,11 @@ export default function Bewerten() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+
+    if (!consent) {
+      setErrors({ form: "Bitte bestätige den Verzicht auf dein Widerrufsrecht." });
+      return;
+    }
 
     const newErrors: { [key: string]: string } = {};
     fields.forEach((field) => {
@@ -111,14 +120,6 @@ export default function Bewerten() {
       <Head>
         <title>PferdeWert – Bewertung</title>
       </Head>
-
-      {loading && (
-        <div className="fixed inset-0 bg-white/80 z-50 flex flex-col items-center justify-center text-center p-6">
-          <div className="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full mb-4"></div>
-          <p className="text-lg font-medium">Die Analyse wird vorbereitet…</p>
-          <p className="text-sm text-gray-600 mt-2">Du wirst in Kürze zur Bezahlung weitergeleitet.</p>
-        </div>
-      )}
 
       <main className="max-w-2xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6 text-center">Pferd analysieren lassen</h1>
@@ -166,11 +167,20 @@ export default function Bewerten() {
             </div>
           ))}
 
-          {Object.keys(errors).length > 0 && !errors.form && (
-            <p className="text-red-600 font-medium text-base">
-              Bitte fülle alle Pflichtfelder aus.
-            </p>
-          )}
+          <div className="text-sm text-gray-700">
+            <label className="flex items-start gap-2">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="mt-1"
+                required
+              />
+              <span>
+                Ich stimme ausdrücklich zu, dass die Analyse sofort beginnt, und bestätige mein Erlöschen des Widerrufsrechts gemäß § 356 Abs. 5 BGB.
+              </span>
+            </label>
+          </div>
 
           {errors.form && (
             <p className="text-red-600 font-medium text-base text-center">
