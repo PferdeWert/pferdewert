@@ -76,23 +76,32 @@ export default function Ergebnis() {
   };
 
   const handleDownloadPDF = () => {
-    const pdf = new jsPDF();
-    const heute = new Date().toLocaleDateString("de-DE");
+  const pdf = new jsPDF();
+  const heute = new Date().toLocaleDateString("de-DE");
 
-    const header = `Pferdebewertung – erstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
-    const body = text || fallbackMessage;
+  const header = `Pferdebewertung – erstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
+  const rawBody = text || fallbackMessage;
 
+  // Markdown-Anmutung für lesbare Struktur auflösen
+  const body = rawBody
+    .replace(/^### (.*$)/gim, "\n\n$1\n" + "-".repeat(50))
+    .replace(/\*\*(.*?)\*\*/gim, "$1:")
+    .replace(/\n{2,}/g, "\n\n");
+
+  const lines = pdf.splitTextToSize(header + body, 180);
+
+  const img = new Image();
+  img.src = "/logo.png";
+  img.onload = () => {
+    // zentriert anzeigen, basierend auf Bildbreite
+    const centerX = (210 - 50) / 2;
+    pdf.addImage(img, "PNG", centerX, 10, 50, 15);
     pdf.setFontSize(12);
-    const lines = pdf.splitTextToSize(header + body, 180);
-
-    const img = new Image();
-    img.src = "/logo.png";
-    img.onload = () => {
-      pdf.addImage(img, "PNG", 80, 10, 50, 15);
-      pdf.text(lines, 10, 35);
-      pdf.save("pferdebewertung.pdf");
-    };
+    pdf.text(lines, 10, 35);
+    pdf.save("pferdebewertung.pdf");
   };
+};
+
 
   return (
     <>
