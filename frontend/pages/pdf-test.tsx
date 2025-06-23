@@ -4,68 +4,61 @@ import Head from "next/head";
 import { jsPDF } from "jspdf";
 import BewertungLayout from "@/components/BewertungLayout";
 
-const dummyText = `
-# Pferd im Profil
+export default function PdfTest() {
+  const sampleText = `
+## Allgemeine Bewertung
 
-**Rasse:** Hannoveraner  
-**Alter:** 5 Jahre  
-**Stockmaß:** 168 cm
+**Name**: Maximus
+**Alter**: 7 Jahre
+**Rasse**: Hannoveraner
 
-## Ausbildung & Gesundheit
+### Gebäude
+Gute Proportionen, korrekte Gliedmaßenstellung, harmonischer Körperbau.
 
-**Ausbildungsstand:** L-Dressur sicher, M in Arbeit  
-**Gesundheitsstatus:** AKU ohne Befund vom 05/2025
+### Bewegung
+Raumgreifender Schritt, elastischer Trab, bergauf gesprungener Galopp.
 
-## Erfolge
-
-- 1. Platz Dressur L (2024)
-- 2. Platz Springprüfung A**
-
-## Bewertung
-
-Dieses Pferd überzeugt durch einen modernen Körperbau, gute Rittigkeit und klaren Leistungsnachweis. Hervorzuheben ist der taktklare Trab mit aktiver Hinterhand.
-
-## Preis-Einschätzung
-
-**Wert:** ca. 18.000 – 22.000 €
-
-*Alle Angaben ohne Gewähr – basiert auf KI-Analyse.*
+### Gesamteindruck
+Sportlich, ausgeglichen, klar im Kopf.
 `;
 
-export default function PDFTest() {
-  const handleDownload = () => {
+  const handleDownloadPDF = () => {
     const pdf = new jsPDF();
     const heute = new Date().toLocaleDateString("de-DE");
 
-    const header = `Pferdebewertung – erstellt am ${heute}\n\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de\n\n`;
-    const fullText = header + dummyText;
+    const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
 
-    const lines = pdf.splitTextToSize(fullText, 180);
-    pdf.setFont("helvetica", "");
+    const body = sampleText
+      .replace(/^### (.*$)/gim, "\n\n$1\n" + "=".repeat(30) + "\n")
+      .replace(/^## (.*$)/gim, "\n\n$1\n" + "-".repeat(30) + "\n")
+      .replace(/\*\*(.*?)\*\*/gim, "$1:")
+      .replace(/\n{2,}/g, "\n\n");
+
+    const lines = pdf.splitTextToSize(body, 180);
+    pdf.setFont("times", "normal");
     pdf.setFontSize(12);
-
-    const img = new Image();
-    img.src = "/logo.png";
-    img.onload = () => {
-      pdf.addImage(img, "PNG", 80, 10, 50, 15);
-      pdf.text(lines, 10, 35);
-      pdf.save("pferdebewertung.pdf");
-    };
+    pdf.setLineHeightFactor(1.6);
+    pdf.text("Pferdebewertung", 105, 20, { align: "center" });
+    pdf.text(headerText, 10, 30);
+    pdf.text(lines, 10, 50);
+    pdf.save("test.pdf");
   };
 
   return (
     <>
       <Head>
-        <title>PDF-Test</title>
+        <title>PferdeWert – PDF-Test</title>
       </Head>
-      <BewertungLayout title="PDF-Layout testen">
-        <div className="prose prose-blue max-w-none mb-6">
-          <p>Hier kannst du das PDF-Layout mit Dummy-Daten testen:</p>
-        </div>
+      <BewertungLayout title="PDF-Testseite">
+        <p className="mb-6 text-gray-600">
+          Dies ist eine Testseite zur Generierung eines PDFs mit Beispieltext.
+        </p>
         <button
-          onClick={handleDownload}
+          onClick={handleDownloadPDF}
           className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
-        >🧞 PDF herunterladen</button>
+        >
+          🧞 PDF herunterladen
+        </button>
       </BewertungLayout>
     </>
   );
