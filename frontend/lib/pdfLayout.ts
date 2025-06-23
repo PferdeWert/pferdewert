@@ -17,79 +17,84 @@ export function generateBewertungsPDF(text: string): jsPDF {
   pdf.setFontSize(12);
   pdf.setLineHeightFactor(1.5);
 
-  // Titel
   pdf.setFontSize(14);
   pdf.text("Pferdebewertung", 105, 20, { align: "center" });
   pdf.setFontSize(12);
   pdf.text(headerText, 10, 30);
 
   let y = 50;
+
+  function drawWrappedLine(line: string, isBold: boolean) {
+    const wrapped = pdf.splitTextToSize(line, 180);
+    for (const l of wrapped) {
+      pdf.setFont("times", isBold ? "bold" : "normal");
+      pdf.text(l, 10, y);
+      y += 7;
+      if (y > 270) {
+        pdf.addPage();
+        y = 20;
+      }
+    }
+  }
+
   for (const block of blocks) {
     if (block.startsWith("### ")) {
       const headline = block.replace("### ", "").trim();
       pdf.setFont("times", "bold");
       pdf.setFontSize(13);
       pdf.text(headline, 10, y);
-      y += 8;
+      y += 10;
       pdf.setFont("times", "normal");
       pdf.setFontSize(12);
-    } else if (/^__(.+?)__:\s*(.+)/.test(block)) {
-      const match = block.match(/^__(.+?)__:\s*(.+)/);
-      if (match) {
-        pdf.setFont("times", "bold");
-        pdf.text(`${match[1]}:`, 10, y);
-        pdf.setFont("times", "normal");
-        pdf.text(match[2], 50, y);
-        y += 8;
-      }
-    } else if (block.startsWith("- ")) {
+      continue;
+    }
+
+    if (block.startsWith("- ")) {
       const items = block.split("- ").filter(Boolean);
       for (const item of items) {
         const parsed = item.replace(/__([^_]+?)__/g, "$1:").trim();
-        const wrapped = pdf.splitTextToSize("• " + parsed, 180);
-        pdf.text(wrapped, 10, y);
-        y += wrapped.length * 7;
+        drawWrappedLine("• " + parsed, false);
       }
-    } else {
-      const lineBlocks = block.split(/(__[^_]+__)/);
-      let composedLine = "";
-      let currentBold = false;
-      const composedLines: { text: string; bold: boolean }[] = [];
+      y += 3;
+      continue;
+    }
 
-      for (const part of lineBlocks) {
-        if (!part) continue;
-        const isBold = part.startsWith("__") && part.endsWith("__");
-        const clean = part.replace(/__/g, "");
-        composedLine += clean;
-        composedLines.push({ text: clean, bold: isBold });
-      }
+    const match = block.match(/^__(.+?)__:\s*(.+)/);
+    if (match) {
+      pdf.setFont("times", "bold");
+      pdf.text(`${match[1]}:`, 10, y);
+      pdf.setFont("times", "normal");
+      drawWrappedLine(match[2], false);
+      y += 3;
+      continue;
+    }
 
-      const fullText = composedLines.map(c => c.text).join("");
-      const wrappedLines = pdf.splitTextToSize(fullText, 180);
-
-      for (const line of wrappedLines) {
-        // Aufteilen in fette und normale Teile erneut
-        const reblocks = line.split(/(__[^_]+__)/);
-        let x = 10;
-        for (const seg of reblocks) {
-          if (!seg) continue;
-          const isBold = seg.startsWith("__") && seg.endsWith("__");
-          const clean = seg.replace(/__/g, "");
-          const width = pdf.getTextWidth(clean);
+    // Absatz mit oder ohne Fettstellen
+    const segments = block.split(/(__[^_]+__)/);
+    let line = "";
+    for (const seg of segments) {
+      const isBold = seg.startsWith("__") && seg.endsWith("__");
+      const clean = seg.replace(/__/g, "");
+      const words = clean.split(" ");
+      for (const word of words) {
+        const testLine = line + word + " ";
+        if (pdf.getTextWidth(testLine) > 180) {
           pdf.setFont("times", isBold ? "bold" : "normal");
-          pdf.text(clean, x, y);
-          x += width;
+          pdf.text(line.trim(), 10, y);
+          y += 7;
+          line = word + " ";
+        } else {
+          line = testLine;
         }
+      }
+      if (line) {
+        pdf.setFont("times", isBold ? "bold" : "normal");
+        pdf.text(line.trim(), 10, y);
         y += 7;
+        line = "";
       }
     }
-
-    if (y > 270) {
-      pdf.addPage();
-      y = 20;
-    } else {
-      y += 5;
-    }
+    y += 3;
   }
 
   return pdf;
