@@ -63,7 +63,7 @@ export default function Ergebnis() {
     };
 
     fetchSession();
-  }, [router, router.isReady]);
+  }, [router]);
 
   const handleCopy = async () => {
     try {
@@ -84,7 +84,6 @@ export default function Ergebnis() {
 
     pdf.setFontSize(12);
     const lines = pdf.splitTextToSize(header + body, 180);
-    const pageHeight = pdf.internal.pageSize.height;
 
     const img = new Image();
     img.src = "/logo.png";
