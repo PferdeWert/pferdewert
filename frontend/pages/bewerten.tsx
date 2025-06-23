@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Link from "next/link";
 import React, { useState } from "react";
-import { log, warn, error } from "@/lib/log"; // 🔧 Logging importiert
+import { error } from "@/lib/log"; // 🔧 Logging importiert
 
 interface FormState {
   rasse: string;
@@ -193,7 +194,7 @@ export default function Bewerten() {
             Du wirst zur sicheren Bezahlung weitergeleitet.
           </p>
           <p className="text-xs text-gray-500 text-center">
-            Mit Klick auf „Jetzt kostenpflichtig analysieren“ akzeptierst du unsere <a href="/agb" className="underline">AGB</a>.
+            Mit Klick auf „Jetzt kostenpflichtig analysieren“ akzeptierst du unsere <Link href="/agb" className="underline">AGB</Link>.
           </p>
         </form>
       </main>
