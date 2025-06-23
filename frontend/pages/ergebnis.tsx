@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { jsPDF } from "jspdf";
+import { generateBewertungsPDF } from "@/lib/pdfLayout";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 import { log, warn, error } from "@/lib/log";
@@ -55,160 +55,34 @@ export default function Ergebnis() {
           warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
         }
       } catch (err) {
-        error("[ERGEBNIS] Fehler beim Laden der Session oder Bewertung:", err);
-        setText("");
+        error("[ERGEBNIS] Fehler beim Laden der Session:", err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchSession();
-  }, [router]);
+  }, [router.isReady, router.query.session_id]);
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    } catch (err) {
-      error("Fehler beim Kopieren", err);
-    }
+  const handleDownloadPDF = () => {
+    const pdf = generateBewertungsPDF(text);
+    pdf.save("pferdebewertung.pdf");
   };
 
- const handleDownloadPDF = () => {
-  const pdf = new jsPDF();
-  const heute = new Date().toLocaleDateString("de-DE");
-  const pageWidth = 210;
-  const pageHeight = 297;
-  const margin = 15;
-  const lineHeight = 5;
-
-  const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
-  const rawBody = text || fallbackMessage;
-
-  const blocks = rawBody.split(/\n(?=###|##|\*\*)/).map((block) => block.trim());
-
-  let cursorY = 20;
-  pdf.setFont("times", "bold");
-  pdf.setFontSize(16);
-  pdf.text("Pferdebewertung", pageWidth / 2, cursorY, { align: "center" });
-
-  cursorY += 10;
-  pdf.setFont("times", "normal");
-  pdf.setFontSize(11);
-headerText.split("\n").forEach((line: string) => {
-    pdf.text(line, margin, cursorY);
-    cursorY += lineHeight;
-  });
-
-  cursorY += 5;
-
-  for (const block of blocks) {
-    if (cursorY > pageHeight - 20) {
-      pdf.addPage();
-      cursorY = 20;
-    }
-
-    if (block.startsWith("### ")) {
-      pdf.setFont("times", "bold");
-      pdf.setFontSize(13);
-      pdf.text(block.replace(/^### /, ""), margin, cursorY);
-      cursorY += lineHeight + 1;
-    } else if (block.startsWith("## ")) {
-      pdf.setFont("times", "bold");
-      pdf.setFontSize(12);
-      pdf.text(block.replace(/^## /, ""), margin, cursorY);
-      cursorY += lineHeight;
-    } else if (block.startsWith("**")) {
-      const [label, ...rest] = block.split("**");
-      if (label && rest.length > 0) {
-        pdf.setFont("times", "bold");
-        pdf.text(label.replace(/\*/g, "") + ":", margin, cursorY);
-        pdf.setFont("times", "normal");
-        pdf.text(rest.join("**").trim(), margin + 40, cursorY);
-        cursorY += lineHeight;
-      }
-    } else {
-      pdf.setFont("times", "normal");
-      pdf.setFontSize(11);
-      const lines = pdf.splitTextToSize(block, pageWidth - 2 * margin);
-lines.forEach((line: string) => {
-        if (cursorY > pageHeight - 20) {
-          pdf.addPage();
-          cursorY = 20;
-        }
-        pdf.text(line, margin, cursorY);
-        cursorY += lineHeight;
-      });
-    }
-
-    cursorY += 3;
-  }
-
-  pdf.save("pferdebewertung.pdf");
-};
-
-
-
-
-
+  if (loading) return <p className="p-10">Lade Bewertung…</p>;
+  if (!paid) return <p className="p-10 text-red-500">{fallbackMessage}</p>;
 
   return (
-    <>
-      <Head>
-        <title>PferdeWert – Ergebnis</title>
-      </Head>
-
-      <BewertungLayout title="Deine Pferdebewertung">
-        {loading ? (
-          <div className="py-20 text-center text-gray-500">
-            <div className="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-            <p className="text-lg font-medium">Lade deine Bewertung…</p>
-          </div>
-        ) : (
-          <>
-            {paid && (
-              <p className="text-green-600 text-center text-lg font-semibold mb-6">
-                ✅ Bezahlung erfolgreich – deine Analyse ist jetzt bereit.
-              </p>
-            )}
-
-            {text ? (
-              <>
-                <div className="prose prose-blue max-w-none">
-                  <ReactMarkdown>{text}</ReactMarkdown>
-                </div>
-
-                <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={handleCopy}
-                    className="flex-1 rounded-2xl bg-brand-accent px-6 py-3 font-bold text-white shadow-soft hover:bg-brand transition"
-                  >📋 Ergebnis kopieren</button>
-                  <button
-                    onClick={handleDownloadPDF}
-                    className="flex-1 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
-                  >🧞 PDF herunterladen</button>
-                </div>
-
-                {copied && (
-                  <p className="mt-3 text-center text-brand-green font-semibold">
-                    ✔️ In Zwischenablage kopiert!
-                  </p>
-                )}
-              </>
-            ) : (
-              <p className="text-brand-accent text-center mt-10">{fallbackMessage}</p>
-            )}
-          </>
-        )}
-
-        <div className="mt-8 text-center">
-          <Link
-            href="/bewerten"
-            className="inline-block text-brand-accent underline underline-offset-4 hover:text-brand font-medium"
-          >➕ Noch ein Pferd bewerten</Link>
-        </div>
-      </BewertungLayout>
-    </>
+    <BewertungLayout title="PferdeWert – Ergebnis">
+      <div className="prose prose-lg max-w-full">
+        <ReactMarkdown>{text}</ReactMarkdown>
+      </div>
+      <button
+        onClick={handleDownloadPDF}
+        className="mt-8 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
+      >
+        🧞 PDF herunterladen
+      </button>
+    </BewertungLayout>
   );
 }

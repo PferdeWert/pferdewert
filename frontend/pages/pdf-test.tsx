@@ -1,46 +1,36 @@
 // pages/pdf-test.tsx
 
 import Head from "next/head";
-import { jsPDF } from "jspdf";
+import { generateBewertungsPDF } from "@/lib/pdfLayout";
 import BewertungLayout from "@/components/BewertungLayout";
 
+const sampleText = `### Preisspanne
+
+**10.000 – 15.000 €**
+
+Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des Pferdes beeinflussen. Das untere Ende der Spanne berücksichtigt den Ausbildungsstand des Wallachs, der sich im L-Bereich im Ansatz befindet, sowie seine bisherigen Erfolge, die sich auf E-Siege und A-Platzierungen beschränken. Das obere Ende der Spanne könnte erreicht werden, wenn die Bewegungsqualität des Pferdes überdurchschnittlich ist und es eine besonders gute AKU vorweisen kann. Der Verkauf über einen privaten Anbieter und der derzeitige Standort können ebenfalls den Preis beeinflussen.
+
+### Abstammung
+
+**De Niro**: Ein bedeutender Hannoveraner Hengst, bekannt für seine Vererbung von Dressurtalent. De Niro hat zahlreiche Nachkommen, die im internationalen Dressursport erfolgreich sind, und ist als Vererber von Rittigkeit und Leistungsbereitschaft geschätzt.
+
+**Schwadroneur**: Ein Hengst, der ebenfalls in der Dressurszene bekannt ist. Schwadroneur hat eine solide Nachzucht, die durch Rittigkeit und gute Grundgangarten überzeugt.
+
+### Was den Endpreis besonders bewegt
+
+- **Abstammung**: De Niro als Vater ist ein starker Pluspunkt für die Dressurveranlagung.
+- **Ausbildungsstand**: Der Wallach ist im L-Bereich im Ansatz, was für einen 11-Jährigen relativ niedrig ist.
+- **Erfolge**: Nur E-Siege und A-Platzierungen, was den Preis drückt.
+- **Gesundheitsstatus**: Eine AKU ohne Befund ist ein positiver Faktor.
+- **Vermarktungsweg**: Privatverkauf kann den Preis im Vergleich zu einer Auktion niedriger halten.
+
+### Fazit
+
+Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren Informationen variieren kann.`;
+
 export default function PdfTest() {
-  const sampleText = `
-## Allgemeine Bewertung
-
-**Name**: Maximus
-**Alter**: 7 Jahre
-**Rasse**: Hannoveraner
-
-### Gebäude
-Gute Proportionen, korrekte Gliedmaßenstellung, harmonischer Körperbau.
-
-### Bewegung
-Raumgreifender Schritt, elastischer Trab, bergauf gesprungener Galopp.
-
-### Gesamteindruck
-Sportlich, ausgeglichen, klar im Kopf.
-`;
-
   const handleDownloadPDF = () => {
-    const pdf = new jsPDF();
-    const heute = new Date().toLocaleDateString("de-DE");
-
-    const headerText = `Erstellt am ${heute}\nBereitgestellt durch PferdeWert.de – KI-gestützte Pferdeanalyse\nwww.pferdewert.de`;
-
-    const body = sampleText
-      .replace(/^### (.*$)/gim, "\n\n$1\n" + "=".repeat(30) + "\n")
-      .replace(/^## (.*$)/gim, "\n\n$1\n" + "-".repeat(30) + "\n")
-      .replace(/\*\*(.*?)\*\*/gim, "$1:")
-      .replace(/\n{2,}/g, "\n\n");
-
-    const lines = pdf.splitTextToSize(body, 180);
-    pdf.setFont("times", "normal");
-    pdf.setFontSize(12);
-    pdf.setLineHeightFactor(1.6);
-    pdf.text("Pferdebewertung", 105, 20, { align: "center" });
-    pdf.text(headerText, 10, 30);
-    pdf.text(lines, 10, 50);
+    const pdf = generateBewertungsPDF(sampleText);
     pdf.save("test.pdf");
   };
 
