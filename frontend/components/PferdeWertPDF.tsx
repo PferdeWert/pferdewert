@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
   page: {
@@ -75,7 +75,7 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Image src="/logo.png" style={styles.logo} />
+          <Image src="/logo.png" style={styles.logo} alt="PferdeWert Logo" />
           <Text style={styles.title}>Pferdebewertung</Text>
         </View>
         {renderContent()}
