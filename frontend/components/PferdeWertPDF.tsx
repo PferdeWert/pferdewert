@@ -8,19 +8,18 @@ const styles = StyleSheet.create({
     fontFamily: 'Times-Roman',
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
   },
   logo: {
-    width: 80,
-    height: 40,
+    width: 100,
+    height: 30,
+    marginBottom: 8,
   },
   title: {
     fontSize: 20,
     fontFamily: 'Times-Bold',
-    textAlign: 'right',
+    textAlign: 'center',
   },
   heading: {
     fontSize: 14,
@@ -45,6 +44,12 @@ const styles = StyleSheet.create({
   bullet: {
     marginLeft: 12,
     marginBottom: 6,
+  },
+  disclaimer: {
+    marginTop: 40,
+    fontSize: 10,
+    fontStyle: 'italic',
+    textAlign: 'center',
   }
 });
 
@@ -63,6 +68,8 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
+      } else if (/\*\*.*\*\*/.test(line)) {
+        return <Text key={idx} style={{ fontFamily: 'Helvetica-Bold' }}>{line.replace(/\*\*/g, '').replace('/€', '€')}</Text>;
       } else if (line.startsWith('-')) {
         return <Text key={idx} style={styles.bullet}>{line}</Text>;
       } else {
@@ -72,13 +79,16 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
   };
 
   return (
-    <Document>
+    <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Image src="/logo.png" style={styles.logo} />
-          <Text style={styles.title}>Pferdebewertung</Text>
+          <Text style={styles.title}>PferdeWert-Analyse</Text>
         </View>
         {renderContent()}
+        <Text style={styles.disclaimer}>
+          Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
+        </Text>
       </Page>
     </Document>
   );
