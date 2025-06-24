@@ -53,9 +53,19 @@ export default function Datenschutz() {
       </p>
 
       <h2 className="mt-6 text-xl font-semibold">8. Cookies & Tracking</h2>
-      <p className="mb-4">
-        Unsere Website verwendet derzeit keine Cookies zu Analyse- oder Marketingzwecken. Sollte sich dies in Zukunft ändern (z. B. durch Einsatz von Google Analytics), werden wir Sie entsprechend informieren und Ihre Einwilligung einholen.
-      </p>
+<p className="mb-4">
+  Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und das Nutzerverhalten auszuwerten. Dies geschieht nur mit Ihrer ausdrücklichen Einwilligung über unseren Cookie-Banner.
+</p>
+<p className="mb-4">
+  Für die Analyse nutzen wir den Dienst <strong>Google Analytics</strong> der Google Ireland Ltd. Die Datenverarbeitung erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
+</p>
+<p className="mb-4">
+  Google Analytics verwendet Cookies, um Informationen über die Nutzung unserer Website zu erfassen und pseudonymisierte Nutzungsstatistiken zu erstellen. Die gewonnenen Informationen können an Server von Google LLC in den USA übertragen und dort gespeichert werden. Wir nutzen Google Analytics ausschließlich mit IP-Anonymisierung und auf Basis von EU-Standardvertragsklauseln.
+</p>
+<p className="mb-4">
+  Sie können Ihre Einwilligung jederzeit über den Cookie-Banner widerrufen.
+</p>
+
     </main>
   );
 }
