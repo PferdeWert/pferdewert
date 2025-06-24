@@ -59,12 +59,12 @@ const styles = StyleSheet.create({
   },
   bullet: {
     marginLeft: 12,
-    marginBottom: 8,
+    marginBottom: 10,
   },
   bulletLabel: {
     flexDirection: 'row',
     marginLeft: 12,
-    marginBottom: 10,
+    marginBottom: 12,
     flexWrap: 'wrap',
   },
   bulletLabelText: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   const today = new Date().toLocaleDateString('de-DE');
   const lines = markdownData
-    .replace(/\u202F/g, ' ') // NBSP entfernen
+    .replace(/[\u202F/]/g, ' ') // geschütztes Leerzeichen & Slash entfernen
     .split('\n')
     .filter(line => line.trim() !== '');
 
@@ -109,7 +109,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
       } else if (/^\*\*.*?\*\*:/.test(line)) {
         const [label, value] = line.replace(/\*\*/g, '').split(':');
         return (
-          <View key={idx} style={styles.labelBlock}>
+          <View key={idx} style={styles.labelBlock} wrap={false}>
             <Text style={styles.label}>{label.trim()}:</Text>
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
@@ -123,7 +123,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
         if (match) {
           const [, label, value] = match;
           return (
-            <View key={idx} style={styles.bulletLabel}>
+            <View key={idx} style={styles.bulletLabel} wrap={false}>
               <Text style={styles.bulletLabelText}>• {label.trim()}:</Text>
               <Text style={styles.bulletValueText}>{value.trim()}</Text>
             </View>
