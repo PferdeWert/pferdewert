@@ -102,8 +102,8 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     .split('\n')
     .filter(line => line.trim() !== '');
 
-  const content: JSX.Element[] = [];
-  let currentBlock: JSX.Element[] = [];
+  const content: any[] = [];
+  let currentBlock: any[] = [];
   let wrapCurrentBlock = true;
 
   const flushBlock = () => {
@@ -118,8 +118,8 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   lines.forEach((line, idx) => {
     if (line.startsWith('###')) {
       const heading = line.replace('###', '').trim();
-      if (heading.toLowerCase().includes('fazit')) flushBlock();
       wrapCurrentBlock = !heading.toLowerCase().includes('fazit');
+      flushBlock();
       content.push(<Text key={idx} style={styles.heading}>{heading}</Text>);
     } else {
       if (/^\*\*.*?\*\*:/.test(line)) {
