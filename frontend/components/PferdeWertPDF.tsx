@@ -1,4 +1,12 @@
+// Datei: frontend/components/PferdeWertPDF.tsx
+
+'use client';
+
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
+
+type Props = {
+  markdownData: string;
+};
 
 const styles = StyleSheet.create({
   page: {
@@ -6,7 +14,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 1.5,
     fontFamily: 'Times-Roman',
-    position: 'relative'
   },
   header: {
     alignItems: 'center',
@@ -37,6 +44,7 @@ const styles = StyleSheet.create({
   },
   labelBlock: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     marginBottom: 6,
   },
   label: {
@@ -61,7 +69,7 @@ const styles = StyleSheet.create({
     right: 40,
     textAlign: 'center',
     fontStyle: 'italic',
-    color: 'grey'
+    color: 'grey',
   },
   pageNumber: {
     position: 'absolute',
@@ -69,18 +77,27 @@ const styles = StyleSheet.create({
     bottom: 20,
     right: 40,
     textAlign: 'right',
-    color: 'grey'
-  }
+    color: 'grey',
+  },
 });
 
-type Props = {
-  markdownData: string;
-};
-
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
-  const lines = markdownData.split('\n').filter(line => line.trim() !== '');
+  const today = new Date().toLocaleDateString('de-DE');
 
-  const renderContent = () => {
+  const sections = markdownData
+    .split(/(?=^### )/m)
+    .reduce<string[]>((acc, curr, idx) => {
+      if (idx === 0 && !curr.startsWith('###')) {
+        acc.push(curr);
+      } else {
+        acc.push(curr);
+      }
+      return acc;
+    }, [])
+    .filter(s => s.trim() !== '');
+
+  const renderLines = (text: string) => {
+    const lines = text.split('\n').filter(line => line.trim() !== '');
     return lines.map((line, idx) => {
       if (line.startsWith('###')) {
         return <Text key={idx} style={styles.heading}>{line.replace('###', '').trim()}</Text>;
@@ -102,26 +119,26 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     });
   };
 
-  const today = new Date().toLocaleDateString('de-DE');
-
   return (
     <Document title="PferdeWert-Analyse">
-      <Page size="A4" style={styles.page} wrap>
-        <View style={styles.header} fixed>
-          <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
-          <Text style={styles.title}>PferdeWert-Analyse</Text>
-        </View>
-        <Text style={styles.date}>Stand: {today}</Text>
-        {renderContent()}
-        <Text style={styles.footer} fixed>
-          © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
-        </Text>
-        <Text
-          style={styles.pageNumber}
-          render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}
-          fixed
-        />
-      </Page>
+      {sections.map((section, pageIdx) => (
+        <Page size="A4" style={styles.page} wrap key={pageIdx}>
+          <View style={styles.header} fixed>
+            <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
+            <Text style={styles.title}>PferdeWert-Analyse</Text>
+          </View>
+          <Text style={styles.date}>Stand: {today}</Text>
+          {renderLines(section)}
+          <Text style={styles.footer} fixed>
+            © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
+          </Text>
+          <Text
+            style={styles.pageNumber}
+            render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}
+            fixed
+          />
+        </Page>
+      ))}
     </Document>
   );
 };
