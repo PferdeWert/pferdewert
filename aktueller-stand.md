@@ -1,118 +1,55 @@
 Projektübersicht: PferdeWert
+
 Ziel:
 Eine moderne Web-Anwendung zur KI-gestützten Bewertung von Pferden auf Basis individueller Merkmale – anonym, kostenlos und mit sofortigem PDF-Export.
 
 🔧 Technischer Stack
-Github Codespace im Browser, nichts lokal. Localhost funktioniert daher nicht. 
-🌐 Frontend
-Framework: Next.js mit TypeScript
+Github Codespace im Browser, nichts lokal. Localhost funktioniert daher nicht.
+Framework: Next.js (TypeScript) mit Tailwind CSS
+Deployment: Vercel
+Datenbank: MongoDB
+PDF-Generierung: @react-pdf/renderer
+Zahlung: Stripe
+Cookie-Consent & Tracking: CookieConsent v3 + Google Analytics (Opt-in)
 
-Styling: Tailwind CSS
+📄 Projektstruktur
 
-Komponentenstruktur:
+* pages/: klassische Next.js-Seiten (Start, Bewertung, Ergebnis, AGB, Datenschutz, Impressum)
+* components/: PDF-Layout, Footer, BewertungLayout
+* lib/: MongoDB-Connection, Logging, PDF-Layout-Logik
+* API-Routen: Bewertung, Zahlung, Session
 
-pages/ mit klassischen Next.js-Seiten: Start, Bewertung, Ergebnis, AGB, Datenschutz, Impressum
+🧠 Backend-Funktion
 
-components/PferdeWertPDF.tsx für PDF-Export mit @react-pdf/renderer
+* Bewertung wird per API erzeugt
+* Session-ID zur Verknüpfung mit Stripe
+* PDF mit Bewertung wird generiert und nach Bezahlung freigeschaltet
 
-🧠 Backend / API
-API-Routen:
+✅ Fertiggestellt
 
-/api/checkout → Stripe Integration für Bezahlprozess
+* Bewertungsformular (Frontend & Logik)
+* PDF-Generierung (stabil & typografisch hochwertig)
+* Session-Handling & Stripe-Integration
+* Datenschutzseite mit OpenAI- und Stripe-Hinweisen
+* AGB und Impressum vollständig & rechtssicher
+* Cookie-Consent zentriert, edgeless, mit Opt-in
+* Google Analytics wird erst nach Zustimmung geladen (DSGVO-konform)
 
-/api/generate → Bewertungslogik (ggf. KI-gestützt oder regelbasiert)
+🔍 Offene To-dos für morgen
 
-/api/session → Session-ID-Verwaltung
+* Analytics testen (z. B. in Echtzeit-Ansicht)
+* Consent-Optik ggf. mit Custom CSS verfeinern
+* Cookie-Banner nochmals im Livebetrieb prüfen (Mobile & Desktop)
+* Erste SEO-Checks: Title, Meta, Pagespeed
+* Event-Tracking (z. B. Formularübermittlung) optional vorbereiten
+* Cookie-Theme und Position nochmals prüfen ("classic" vs. "edgeless")
 
-Datenhaltung:
+🎯 Nächste potenzielle Schritte danach
 
-MongoDB via lib/mongo.ts
+* Conversion-Funnel auswerten
+* Integration von Plausible (falls gewünscht)
+* Benutzerführung & Call-to-Actions optimieren
+* Preismodell prüfen und ggf. erweitern (Abo?)
 
-PDF-Export:
-
-Erzeugung eines strukturierten PDFs mit Bewertungsergebnis
-
-Markdown wird analysiert und typografisch hochwertig dargestellt
-
-📄 PDF-Generierung: PferdeWertPDF.tsx
-Funktion:
-Konvertiert formatierte Markdown-Analyse in ein professionelles PDF-Dokument
-
-Strukturell unterteilt in: Titel, Datum, Inhalte, Fazit, Footer
-
-Besonderheiten:
-Markdown-Parser erkennt:
-
-### als Überschriften
-
-**Label**: Wert als Key-Value-Darstellung
-
-- **Label**: Wert als Bullet-Liste
-
-**Text** als betonten Abschnitt
-
-Fazit wird fett & kursiv hervorgehoben
-
-Layout:
-Klar gegliederte Struktur mit gutem Lesefluss
-
-Leicht erhöhte Schriftgröße (13px), großzügige Abstände
-
-Bulletpoints linksbündig
-
-Einheitliche Typografie (Times Roman, Bold für Titel)
-
-Dynamisches Datum
-
-Footer
-
-💶 Zahlungsintegration
-Anbindung an Stripe Checkout
-
-Session-ID für Zuordnung von Bewertung und Zahlung
-
-Erfolgreiche Bezahlung triggert Freigabe des Ergebnis-PDFs
-
-🛡 Rechtliches
-Seiten für:
-
-Impressum
-
-Datenschutz (DSGVO-konform)
-
-AGB
-
-Cookies fehlen noch komplett
-
-📈 SEO & UX
-Meta-Tags auf Landingpage gepflegt (Title, Description, OG)
-
-Klare Value Proposition und Conversion-Funnel
-
-Optimierungspotenziale:
-
-Auffälliger Call-to-Action
-
-Strukturierte interne Verlinkung
-
-Pagespeed-Optimierung durch Bildkomprimierung
-
-✅ Bisher erreicht
-Bewertungsformular vollständig
-
-API-Logik für Sessions & Texte steht
-
-PDF-Generierung stabil und optisch hochwertig
-
-Technische Infrastruktur bereit für Livebetrieb
-
-🧩 Nächste Schritte
-Cookie-Opt-in-Banner mit Consent Logging
-Conversion-Tracking (Google Analytics / Plausible einbinden)
-
-🧵 Update:
-Cookiebot-Account wurde erstellt.
-
-Als nächste Schritte stehen die Implementierung des Cookie-Consent-Banners über Cookiebot und danach die Einbindung von Google Analytics an.
-
-
+🧵 Letzter Stand:
+Consent-Banner zentral & modern. Analytics eingebunden. Projekt ist datenschutzkonform und bereit für Liveschaltung und Tracking.
