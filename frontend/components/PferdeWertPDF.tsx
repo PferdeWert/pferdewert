@@ -37,44 +37,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
-  heading: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginTop: 24,
-    marginBottom: 8,
-  },
-  labelBlock: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginBottom: 10,
-  },
-  label: {
-    fontFamily: 'Times-Bold',
-    width: '35%',
-  },
-  value: {
-    width: '65%',
-  },
   paragraph: {
     marginBottom: 14,
+  },
+  bold: {
+    fontFamily: 'Times-Bold',
   },
   bullet: {
     marginLeft: 12,
     marginBottom: 10,
-  },
-  bulletLabel: {
-    flexDirection: 'row',
-    marginLeft: 12,
-    marginBottom: 12,
-    flexWrap: 'wrap',
-  },
-  bulletLabelText: {
-    fontFamily: 'Times-Bold',
-    marginRight: 4,
-    flexShrink: 0,
-  },
-  bulletValueText: {
-    flex: 1,
   },
   footer: {
     position: 'absolute',
@@ -103,76 +74,30 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     .split('\n')
     .filter((line: string) => line.trim() !== '');
 
-  const content: ReactNode[] = [];
-  let currentBlock: ReactNode[] = [];
-  let wrapCurrentBlock = true;
-  let inFazit = false;
-
-  const flushBlock = (): void => {
-    if (currentBlock.length) {
-      content.push(
-        <View
-          wrap={wrapCurrentBlock}
-          key={`block-${content.length}`}
-        >
-          {currentBlock}
-        </View>
-      );
-      currentBlock = [];
-    }
-  };
-
-  lines.forEach((line: string, idx: number) => {
+  const content: ReactNode[] = lines.map((line, idx) => {
     if (line.startsWith('###')) {
-      const heading = line.replace('###', '').trim();
-      if (inFazit) flushBlock();
-      inFazit = heading.toLowerCase().includes('fazit');
-      wrapCurrentBlock = !inFazit;
-      if (inFazit) {
-        content.push(<View key={`spacer-${idx}`} style={{ marginBottom: 20 }} />);
+      return <Text key={idx} style={[styles.paragraph, styles.bold]}>{line.replace('###', '').trim()}</Text>;
+    } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
+      const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
+      if (match) {
+        const [, label, value] = match;
+        return <Text key={idx} style={styles.bullet}>• <Text style={styles.bold}>{label.trim()}:</Text> {value.trim()}</Text>;
       }
-      content.push(<Text key={idx} style={styles.heading}>{heading}</Text>);
+    } else if (/^\*\*(.*?)\*\*:/.test(line)) {
+      const [label, value] = line.replace(/\*\*/g, '').split(':');
+      return <Text key={idx} style={styles.paragraph}><Text style={styles.bold}>{label.trim()}:</Text> {value.trim()}</Text>;
+    } else if (/^\*\*(.+)\*\*$/.test(line)) {
+      return <Text key={idx} style={[styles.paragraph, styles.bold]}>{line.replace(/\*\*/g, '').trim()}</Text>;
     } else {
-      if (inFazit) {
-        currentBlock.push(<Text key={idx} style={styles.paragraph}>{line}</Text>);
-      } else if (/^\*\*.*?\*\*:/.test(line)) {
-        const [label, value] = line.replace(/\*\*/g, '').split(':');
-        currentBlock.push(
-          <View key={idx} style={styles.labelBlock} wrap={false}>
-            <Text style={styles.label}>{label.trim()}:</Text>
-            <Text style={styles.value}>{value.trim()}</Text>
-          </View>
-        );
-      } else if (/€/ .test(line) && /^\*\*.+\*\*$/.test(line)) {
-        currentBlock.push(<Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>);
-      } else if (/^\*\*(.+)\*\*$/.test(line)) {
-        currentBlock.push(<Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>);
-      } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
-        const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
-        if (match) {
-          const [, label, value] = match;
-          currentBlock.push(
-            <View key={idx} style={styles.bulletLabel} wrap={false}>
-              <Text style={styles.bulletLabelText}>• {label.trim()}:</Text>
-              <Text style={styles.bulletValueText}>{value.trim()}</Text>
-            </View>
-          );
-        }
-      } else if (line.startsWith('-')) {
-        currentBlock.push(<Text key={idx} style={styles.bullet}>{line}</Text>);
-      } else {
-        currentBlock.push(<Text key={idx} style={styles.paragraph}>{line}</Text>);
-      }
+      return <Text key={idx} style={styles.paragraph}>{line}</Text>;
     }
   });
-
-  flushBlock();
 
   return (
     <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page} wrap>
         <View style={styles.header} fixed>
-          <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
+          <Image src={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png` : '/logo.png'} style={styles.logo} />
           <Text style={styles.title}>PferdeWert-Analyse</Text>
         </View>
         <Text style={styles.date}>Stand: {today}</Text>
