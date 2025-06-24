@@ -83,21 +83,9 @@ const styles = StyleSheet.create({
 
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   const today = new Date().toLocaleDateString('de-DE');
+  const lines = markdownData.split('\n').filter(line => line.trim() !== '');
 
-  const sections = markdownData
-    .split(/(?=^### )/m)
-    .reduce<string[]>((acc, curr, idx) => {
-      if (idx === 0 && !curr.startsWith('###')) {
-        acc.push(curr);
-      } else {
-        acc.push(curr);
-      }
-      return acc;
-    }, [])
-    .filter(s => s.trim() !== '');
-
-  const renderLines = (text: string) => {
-    const lines = text.split('\n').filter(line => line.trim() !== '');
+  const renderContent = () => {
     return lines.map((line, idx) => {
       if (line.startsWith('###')) {
         return <Text key={idx} style={styles.heading}>{line.replace('###', '').trim()}</Text>;
@@ -121,24 +109,22 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
 
   return (
     <Document title="PferdeWert-Analyse">
-      {sections.map((section, pageIdx) => (
-        <Page size="A4" style={styles.page} wrap key={pageIdx}>
-          <View style={styles.header} fixed>
-            <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
-            <Text style={styles.title}>PferdeWert-Analyse</Text>
-          </View>
-          <Text style={styles.date}>Stand: {today}</Text>
-          {renderLines(section)}
-          <Text style={styles.footer} fixed>
-            © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
-          </Text>
-          <Text
-            style={styles.pageNumber}
-            render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}
-            fixed
-          />
-        </Page>
-      ))}
+      <Page size="A4" style={styles.page} wrap>
+        <View style={styles.header} fixed>
+          <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
+          <Text style={styles.title}>PferdeWert-Analyse</Text>
+        </View>
+        <Text style={styles.date}>Stand: {today}</Text>
+        {renderContent()}
+        <Text style={styles.footer} fixed>
+          © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
+        </Text>
+        <Text
+          style={styles.pageNumber}
+          render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}
+          fixed
+        />
+      </Page>
     </Document>
   );
 };
