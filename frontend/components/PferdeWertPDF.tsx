@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   const today = new Date().toLocaleDateString('de-DE');
   const lines = markdownData
-    .replace(/[ /]/g, ' ') // geschütztes Leerzeichen & Slash entfernen
+    .replace(/[ /]/g, ' ')
     .split('\n')
     .filter(line => line.trim() !== '');
 
@@ -111,7 +111,13 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   const flushBlock = () => {
     if (currentBlock.length) {
       content.push(
-        <View wrap={wrapCurrentBlock} key={`block-${content.length}`}>{currentBlock}</View>
+        <View
+          wrap={wrapCurrentBlock}
+          break={!wrapCurrentBlock ? 'avoid' : undefined}
+          key={`block-${content.length}`}
+        >
+          {currentBlock}
+        </View>
       );
       currentBlock = [];
     }
@@ -120,14 +126,17 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   lines.forEach((line, idx) => {
     if (line.startsWith('###')) {
       const heading = line.replace('###', '').trim();
-      flushBlock();
+      if (inFazit) flushBlock();
       inFazit = heading.toLowerCase().includes('fazit');
       wrapCurrentBlock = !inFazit;
+      if (inFazit) {
+        content.push(<View key={`spacer-${idx}`} style={{ marginBottom: 20 }} />);
+      }
       content.push(<Text key={idx} style={styles.heading}>{heading}</Text>);
-    } else if (inFazit) {
-      currentBlock.push(<Text key={idx} style={styles.paragraph}>{line}</Text>);
     } else {
-      if (/^\*\*.*?\*\*:/.test(line)) {
+      if (inFazit) {
+        currentBlock.push(<Text key={idx} style={styles.paragraph}>{line}</Text>);
+      } else if (/^\*\*.*?\*\*:/.test(line)) {
         const [label, value] = line.replace(/\*\*/g, '').split(':');
         currentBlock.push(
           <View key={idx} style={styles.labelBlock} wrap={false}>
@@ -136,13 +145,9 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
           </View>
         );
       } else if (/€/.test(line) && /^\*\*.+\*\*$/.test(line)) {
-        currentBlock.push(
-          <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>
-        );
+        currentBlock.push(<Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>);
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
-        currentBlock.push(
-          <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>
-        );
+        currentBlock.push(<Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>);
       } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
         const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
         if (match) {
