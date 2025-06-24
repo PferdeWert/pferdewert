@@ -75,3 +75,10 @@ blockquote {
   margin: 1em 0;
   padding-left: 1em;
 }
+
+/* ===== Fix für Cookie-Banner-Position (zentriert) ===== */
+.cc-window.cc-floating {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
