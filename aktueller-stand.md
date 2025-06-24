@@ -3,6 +3,7 @@ Ziel:
 Eine moderne Web-Anwendung zur KI-gestützten Bewertung von Pferden auf Basis individueller Merkmale – anonym, kostenlos und mit sofortigem PDF-Export.
 
 🔧 Technischer Stack
+Github Codespace im Browser, nichts lokal. Localhost funktioniert daher nicht. 
 🌐 Frontend
 Framework: Next.js mit TypeScript
 
@@ -63,7 +64,7 @@ Einheitliche Typografie (Times Roman, Bold für Titel)
 
 Dynamisches Datum
 
-Footer + Seitenzahlen
+Footer
 
 💶 Zahlungsintegration
 Anbindung an Stripe Checkout
@@ -81,7 +82,7 @@ Datenschutz (DSGVO-konform)
 
 AGB
 
-Cookie-Zustimmung noch ausbaufähig
+Cookies fehlen noch komplett
 
 📈 SEO & UX
 Meta-Tags auf Landingpage gepflegt (Title, Description, OG)
@@ -106,12 +107,12 @@ PDF-Generierung stabil und optisch hochwertig
 Technische Infrastruktur bereit für Livebetrieb
 
 🧩 Nächste Schritte
-PDF-Layout weiter verfeinern (Boxen, Tabellen, Farben)
-
-CI-Elemente stärker einbinden (Farben, Logo, Schriften)
-
-SEO-Strategie aufbauen (Longtail-Keywords, Strukturierte Daten)
-
+Cookie-Opt-in-Banner mit Consent Logging
 Conversion-Tracking (Google Analytics / Plausible einbinden)
 
-Cookie-Opt-in-Banner mit Consent Logging
+🧵 Update:
+Cookiebot-Account wurde erstellt.
+
+Als nächste Schritte stehen die Implementierung des Cookie-Consent-Banners über Cookiebot und danach die Einbindung von Google Analytics an.
+
+
