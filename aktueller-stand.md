@@ -32,7 +32,7 @@ Cookie-Consent & Tracking: CookieConsent v3 + Google Analytics (Opt-in)
 * Session-Handling & Stripe-Integration
 * Datenschutzseite mit OpenAI- und Stripe-Hinweisen
 * AGB und Impressum vollständig & rechtssicher
-* Cookie-Consent zentriert, edgeless, mit Opt-in
+* Cookie-Consent zentriert, jetzt mit theme "classic" und position "middle"
 * Google Analytics wird erst nach Zustimmung geladen (DSGVO-konform)
 
 🔍 Offene To-dos für morgen
@@ -42,7 +42,7 @@ Cookie-Consent & Tracking: CookieConsent v3 + Google Analytics (Opt-in)
 * Cookie-Banner nochmals im Livebetrieb prüfen (Mobile & Desktop)
 * Erste SEO-Checks: Title, Meta, Pagespeed
 * Event-Tracking (z. B. Formularübermittlung) optional vorbereiten
-* Cookie-Theme und Position nochmals prüfen ("classic" vs. "edgeless")
+* GA Debugging: Console-Logs, Network prüfen, Zustimmungsclick testen
 
 🎯 Nächste potenzielle Schritte danach
 
@@ -52,4 +52,8 @@ Cookie-Consent & Tracking: CookieConsent v3 + Google Analytics (Opt-in)
 * Preismodell prüfen und ggf. erweitern (Abo?)
 
 🧵 Letzter Stand:
-Consent-Banner zentral & modern. Analytics eingebunden. Projekt ist datenschutzkonform und bereit für Liveschaltung und Tracking.
+Consent-Banner funktioniert jetzt zentriert mit "classic"-Theme. Analytics eingebunden. Projekt ist datenschutzkonform und bereit für Liveschaltung und Tracking.
+
+🔧 Wenn es dich trotzdem stört:
+Ignoriere die Meldung – sie beeinflusst nicht deine App
+Oder ändere die Dateiendung von .css zu .pcss (PostCSS), wenn dein Codespace das unterstützt (optional)
