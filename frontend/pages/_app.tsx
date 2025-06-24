@@ -8,6 +8,23 @@ import { useEffect } from "react";
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window !== "undefined") {
+      const loadGtag = () => {
+        const gtagScript = document.createElement("script");
+        gtagScript.setAttribute("async", "true");
+        gtagScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=G-ZCQ4Z3PKND";
+        document.head.appendChild(gtagScript);
+
+        const inlineScript = document.createElement("script");
+        inlineScript.innerHTML = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZCQ4Z3PKND');
+        `;
+        document.head.appendChild(inlineScript);
+      };
+
       const runConsent = () => {
         window.cookieconsent.initialise({
           palette: {
@@ -34,14 +51,12 @@ export default function App({ Component, pageProps }: AppProps) {
           },
           onInitialise() {
             if (this.hasConsented()) {
-              // Cookies aktivieren (z. B. Google Analytics)
+              loadGtag();
             }
           },
           onStatusChange() {
             if (this.hasConsented()) {
-              // Cookies aktivieren
-            } else {
-              // Cookies blockieren
+              loadGtag();
             }
           },
         });
