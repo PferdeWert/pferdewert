@@ -102,40 +102,63 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     .split('\n')
     .filter(line => line.trim() !== '');
 
-  const renderContent = () => {
-    return lines.map((line, idx) => {
-      if (line.startsWith('###')) {
-        return <Text key={idx} style={styles.heading}>{line.replace('###', '').trim()}</Text>;
-      } else if (/^\*\*.*?\*\*:/.test(line)) {
-        const [label, value] = line.replace(/\*\*/g, '').split(':');
-        return (
-          <View key={idx} style={styles.labelBlock} wrap={false}>
-            <Text style={styles.label}>{label.trim()}:</Text>
-            <Text style={styles.value}>{value.trim()}</Text>
+  let currentBlock: JSX.Element[] = [];
+  let content: JSX.Element[] = [];
+
+  const flushBlock = () => {
+    if (currentBlock.length) {
+      content.push(
+        <View wrap={false} key={`block-${content.length}`}>{currentBlock}</View>
+      );
+      currentBlock = [];
+    }
+  };
+
+  lines.forEach((line, idx) => {
+    if (line.startsWith('###')) {
+      flushBlock();
+      content.push(
+        <Text key={idx} style={styles.heading}>{line.replace('###', '').trim()}</Text>
+      );
+    } else if (/^\*\*.*?\*\*:/.test(line)) {
+      const [label, value] = line.replace(/\*\*/g, '').split(':');
+      currentBlock.push(
+        <View key={idx} style={styles.labelBlock} wrap={false}>
+          <Text style={styles.label}>{label.trim()}:</Text>
+          <Text style={styles.value}>{value.trim()}</Text>
+        </View>
+      );
+    } else if (/€/.test(line) && /^\*\*.+\*\*$/.test(line)) {
+      currentBlock.push(
+        <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>
+      );
+    } else if (/^\*\*(.+)\*\*$/.test(line)) {
+      currentBlock.push(
+        <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>
+      );
+    } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
+      const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
+      if (match) {
+        const [, label, value] = match;
+        currentBlock.push(
+          <View key={idx} style={styles.bulletLabel} wrap={false}>
+            <Text style={styles.bulletLabelText}>• {label.trim()}:</Text>
+            <Text style={styles.bulletValueText}>{value.trim()}</Text>
           </View>
         );
-      } else if (line.includes('€') && /^\*\*.+\*\*$/.test(line)) {
-        return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
-      } else if (/^\*\*(.+)\*\*$/.test(line)) {
-        return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
-      } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
-        const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
-        if (match) {
-          const [, label, value] = match;
-          return (
-            <View key={idx} style={styles.bulletLabel} wrap={false}>
-              <Text style={styles.bulletLabelText}>• {label.trim()}:</Text>
-              <Text style={styles.bulletValueText}>{value.trim()}</Text>
-            </View>
-          );
-        }
-      } else if (line.startsWith('-')) {
-        return <Text key={idx} style={styles.bullet}>{line}</Text>;
-      } else {
-        return <Text key={idx} style={styles.paragraph}>{line}</Text>;
       }
-    });
-  };
+    } else if (line.startsWith('-')) {
+      currentBlock.push(
+        <Text key={idx} style={styles.bullet}>{line}</Text>
+      );
+    } else {
+      currentBlock.push(
+        <Text key={idx} style={styles.paragraph}>{line}</Text>
+      );
+    }
+  });
+
+  flushBlock();
 
   return (
     <Document title="PferdeWert-Analyse">
@@ -145,7 +168,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
           <Text style={styles.title}>PferdeWert-Analyse</Text>
         </View>
         <Text style={styles.date}>Stand: {today}</Text>
-        {renderContent()}
+        {content}
         <Text style={styles.footer} fixed>
           © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
         </Text>
