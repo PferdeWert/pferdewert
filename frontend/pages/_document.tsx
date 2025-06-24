@@ -5,51 +5,54 @@ export default function Document() {
     <Html lang="de">
       <Head>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-        
-        {/* Silktide Consent Manager */}
+        {/* Silktide Consent Manager (Open Source Version) */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+        />
         <script
-          id="cookieconsent"
-          src="https://cookieconsent.popupsmart.com/src/js/popper.js"
-          type="text/javascript"
-          async
+          src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+          data-cfasync="false"
         ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.cookieconsent.initialise({
-                palette: {
-                  popup: {
-                    background: "#fff",
-                    text: "#000"
+              window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                  palette: {
+                    popup: {
+                      background: "#fff",
+                      text: "#000"
+                    },
+                    button: {
+                      background: "#007bff",
+                      text: "#fff"
+                    }
                   },
-                  button: {
-                    background: "#007bff",
-                    text: "#fff"
+                  theme: "classic",
+                  position: "bottom-right",
+                  type: "opt-in",
+                  content: {
+                    message: "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
+                    dismiss: "Nur notwendige",
+                    allow: "Alle akzeptieren",
+                    deny: "Ablehnen",
+                    link: "Mehr erfahren",
+                    href: "/datenschutz"
+                  },
+                  onInitialise: function (status) {
+                    if (this.hasConsented()) {
+                      // Cookies aktivieren (z. B. Google Analytics)
+                    }
+                  },
+                  onStatusChange: function(status, chosenBefore) {
+                    if (this.hasConsented()) {
+                      // Cookies aktivieren
+                    } else {
+                      // Cookies blockieren
+                    }
                   }
-                },
-                theme: "classic",
-                position: "bottom-right",
-                type: "opt-in",
-                content: {
-                  message: "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
-                  dismiss: "Nur notwendige",
-                  allow: "Alle akzeptieren",
-                  deny: "Ablehnen",
-                  link: "Mehr erfahren",
-                  href: "/datenschutz"
-                },
-                onInitialise: function (status) {
-                  if (this.hasConsented()) {
-                    // Cookies aktivieren, z.B. Google Analytics
-                  }
-                },
-                onStatusChange: function(status, chosenBefore) {
-                  if (this.hasConsented()) {
-                    // Cookies aktivieren
-                  } else {
-                    // Cookies blockieren
-                  }
-                }
+                });
               });
             `
           }}
