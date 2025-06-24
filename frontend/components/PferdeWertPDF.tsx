@@ -3,6 +3,7 @@
 'use client';
 
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
+import type { ReactNode } from 'react';
 
 type Props = {
   markdownData: string;
@@ -102,9 +103,10 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     .split('\n')
     .filter(line => line.trim() !== '');
 
-  const content: any[] = [];
-  let currentBlock: any[] = [];
+  const content: ReactNode[] = [];
+  let currentBlock: ReactNode[] = [];
   let wrapCurrentBlock = true;
+  let inFazit = false;
 
   const flushBlock = () => {
     if (currentBlock.length) {
@@ -118,9 +120,12 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   lines.forEach((line, idx) => {
     if (line.startsWith('###')) {
       const heading = line.replace('###', '').trim();
-      wrapCurrentBlock = !heading.toLowerCase().includes('fazit');
       flushBlock();
+      inFazit = heading.toLowerCase().includes('fazit');
+      wrapCurrentBlock = !inFazit;
       content.push(<Text key={idx} style={styles.heading}>{heading}</Text>);
+    } else if (inFazit) {
+      currentBlock.push(<Text key={idx} style={styles.paragraph}>{line}</Text>);
     } else {
       if (/^\*\*.*?\*\*:/.test(line)) {
         const [label, value] = line.replace(/\*\*/g, '').split(':');
