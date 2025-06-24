@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   labelBlock: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 6,
+    marginBottom: 10,
   },
   label: {
     fontFamily: 'Times-Bold',
@@ -55,20 +55,22 @@ const styles = StyleSheet.create({
     width: '65%',
   },
   paragraph: {
-    marginBottom: 12,
+    marginBottom: 14,
   },
   bullet: {
     marginLeft: 12,
-    marginBottom: 6,
+    marginBottom: 8,
   },
   bulletLabel: {
     flexDirection: 'row',
     marginLeft: 12,
-    marginBottom: 6,
+    marginBottom: 10,
+    flexWrap: 'wrap',
   },
   bulletLabelText: {
     fontFamily: 'Times-Bold',
     marginRight: 4,
+    flexShrink: 0,
   },
   bulletValueText: {
     flex: 1,
