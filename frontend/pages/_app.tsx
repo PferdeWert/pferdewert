@@ -13,37 +13,37 @@ export default function App({ Component, pageProps }: AppProps) {
           palette: {
             popup: {
               background: "#fff",
-              text: "#000"
+              text: "#000",
             },
             button: {
               background: "#007bff",
-              text: "#fff"
-            }
+              text: "#fff",
+            },
           },
           theme: "classic",
           position: "bottom-right",
           type: "opt-in",
           content: {
-            message: "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
+            message:
+              "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
             dismiss: "Nur notwendige",
             allow: "Alle akzeptieren",
             deny: "Ablehnen",
             link: "Mehr erfahren",
-            href: "/datenschutz"
+            href: "/datenschutz",
           },
-          onInitialise(_: unknown) {
-  if (this.hasConsented()) {
-    // Cookies aktivieren (z. B. Google Analytics)
-  }
-},
-onStatusChange(_: unknown, __: unknown) {
-  if (this.hasConsented()) {
-    // Cookies aktivieren
-  } else {
-    // Cookies blockieren
-  }
-}
-
+          onInitialise() {
+            if (this.hasConsented()) {
+              // Cookies aktivieren (z. B. Google Analytics)
+            }
+          },
+          onStatusChange() {
+            if (this.hasConsented()) {
+              // Cookies aktivieren
+            } else {
+              // Cookies blockieren
+            }
+          },
         });
       };
 
@@ -63,10 +63,9 @@ onStatusChange(_: unknown, __: unknown) {
   return (
     <>
       <Script
-  strategy="afterInteractive"
-  src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-/>
-
+        strategy="afterInteractive"
+        src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+      />
       <Component {...pageProps} />
       <Footer />
     </>
