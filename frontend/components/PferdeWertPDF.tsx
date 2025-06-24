@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 14,
     fontWeight: 'bold',
-    marginTop: 16,
+    marginTop: 24,
     marginBottom: 8,
   },
   labelBlock: {
@@ -50,16 +50,20 @@ const styles = StyleSheet.create({
   label: {
     fontFamily: 'Times-Bold',
     width: '35%',
+    wordBreak: 'break-word',
   },
   value: {
     width: '65%',
+    wordBreak: 'break-word',
   },
   paragraph: {
     marginBottom: 12,
+    wordBreak: 'break-word',
   },
   bullet: {
     marginLeft: 12,
     marginBottom: 6,
+    wordBreak: 'break-word',
   },
   footer: {
     position: 'absolute',
@@ -94,11 +98,11 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
         return (
           <View key={idx} style={styles.labelBlock}>
             <Text style={styles.label}>{label.trim()}:</Text>
-            <Text style={styles.value}>{value.trim().replace('/', '')}</Text>
+            <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
-        return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').replace('/', '').trim()}</Text>;
+        return <Text key={idx} style={{ fontFamily: 'Times-Bold', wordBreak: 'break-word' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
       } else if (line.startsWith('-')) {
         return <Text key={idx} style={styles.bullet}>{line}</Text>;
       } else {
