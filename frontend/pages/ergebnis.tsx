@@ -2,9 +2,10 @@
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { generateBewertungsPDF } from "@/lib/pdfLayout";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import PferdeWertPDF from "@/components/PferdeWertPDF";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { log, warn, error } from "@/lib/log";
 
 export default function Ergebnis() {
@@ -61,11 +62,6 @@ export default function Ergebnis() {
     fetchSession();
   }, [router]);
 
-  const handleDownloadPDF = () => {
-    const pdf = generateBewertungsPDF(text);
-    pdf.save("pferdebewertung.pdf");
-  };
-
   if (loading) return <p className="p-10">Lade Bewertung…</p>;
   if (!paid) return <p className="p-10 text-red-500">{fallbackMessage}</p>;
 
@@ -74,12 +70,18 @@ export default function Ergebnis() {
       <div className="prose prose-lg max-w-full">
         <ReactMarkdown>{text}</ReactMarkdown>
       </div>
-      <button
-        onClick={handleDownloadPDF}
-        className="mt-8 rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
-      >
-        🧞 PDF herunterladen
-      </button>
+      <div className="mt-8">
+        <PDFDownloadLink
+          document={<PferdeWertPDF markdownData={text} />}
+          fileName="pferdebewertung.pdf"
+        >
+          {({ loading }) => (
+            <button className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition">
+              {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
+            </button>
+          )}
+        </PDFDownloadLink>
+      </div>
     </BewertungLayout>
   );
 }
