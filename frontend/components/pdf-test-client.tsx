@@ -1,3 +1,5 @@
+// Datei: frontend/pages/pdf-test-client.tsx
+
 'use client';
 
 import Head from "next/head";
@@ -20,7 +22,14 @@ Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des P
 ### Was den Endpreis besonders bewegt
 
 - **Abstammung**: De Niro als Vater ist ein starker Pluspunkt für die Dressurveranlagung.
-- **Ausbildungsstand**: Der Wallach ist im L-Bereich im Ansatz, was für einen 11-Jährigen relativ niedrig ist.`;
+- **Ausbildungsstand**: Der Wallach ist im L-Bereich im Ansatz, was für einen 11-Jährigen relativ niedrig ist.
+- **Erfolge**: Nur E-Siege und A-Platzierungen, was den Preis drückt.
+- **Gesundheitsstatus**: Eine AKU ohne Befund ist ein positiver Faktor.
+- **Vermarktungsweg**: Privatverkauf kann den Preis im Vergleich zu einer Auktion niedriger halten.
+
+### Fazit
+
+Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren Informationen variieren kann.`;
 
 export default function PDFTestClient() {
   return (
