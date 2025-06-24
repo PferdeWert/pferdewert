@@ -113,7 +113,6 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
       content.push(
         <View
           wrap={wrapCurrentBlock}
-          break={!wrapCurrentBlock}
           key={`block-${content.length}`}
         >
           {currentBlock}
