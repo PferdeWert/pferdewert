@@ -12,8 +12,8 @@ type Props = {
 const styles = StyleSheet.create({
   page: {
     padding: 40,
-    fontSize: 12,
-    lineHeight: 1.5,
+    fontSize: 13, // leicht erhöht
+    lineHeight: 1.6,
     fontFamily: 'Times-Roman',
   },
   header: {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
     fontFamily: 'Times-Bold',
     textAlign: 'center',
   },
@@ -35,16 +35,16 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: 'grey',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 16,
   },
   paragraph: {
-    marginBottom: 14,
+    marginBottom: 18,
   },
   bold: {
     fontFamily: 'Times-Bold',
   },
   bullet: {
-    marginLeft: 12,
+    marginLeft: 0,
     marginBottom: 10,
   },
   footer: {
@@ -65,6 +65,9 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     color: 'grey',
   },
+  italic: {
+    fontStyle: 'italic',
+  },
 });
 
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
@@ -75,6 +78,9 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     .filter((line: string) => line.trim() !== '');
 
   const content: ReactNode[] = lines.map((line, idx) => {
+    const trimmed = line.trim().toLowerCase();
+    const isFazit = trimmed === 'fazit';
+
     if (line.startsWith('###')) {
       return <Text key={idx} style={[styles.paragraph, styles.bold]}>{line.replace('###', '').trim()}</Text>;
     } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
@@ -88,6 +94,8 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
       return <Text key={idx} style={styles.paragraph}><Text style={styles.bold}>{label.trim()}:</Text> {value.trim()}</Text>;
     } else if (/^\*\*(.+)\*\*$/.test(line)) {
       return <Text key={idx} style={[styles.paragraph, styles.bold]}>{line.replace(/\*\*/g, '').trim()}</Text>;
+    } else if (isFazit) {
+      return <Text key={idx} style={[styles.paragraph, styles.bold, styles.italic]}>{line}</Text>;
     } else {
       return <Text key={idx} style={styles.paragraph}>{line}</Text>;
     }
