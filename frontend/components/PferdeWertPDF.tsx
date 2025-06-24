@@ -102,15 +102,14 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     .split('\n')
     .filter(line => line.trim() !== '');
 
-  let content: JSX.Element[] = [];
+  const content: JSX.Element[] = [];
   let currentBlock: JSX.Element[] = [];
-  let currentSection = '';
-  let isFazit = false;
+  let wrapCurrentBlock = true;
 
-  const flushBlock = (wrapFazit = false) => {
+  const flushBlock = () => {
     if (currentBlock.length) {
       content.push(
-        <View wrap={!wrapFazit} key={`block-${content.length}`}>{currentBlock}</View>
+        <View wrap={wrapCurrentBlock} key={`block-${content.length}`}>{currentBlock}</View>
       );
       currentBlock = [];
     }
@@ -118,10 +117,9 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
 
   lines.forEach((line, idx) => {
     if (line.startsWith('###')) {
-      flushBlock(isFazit);
+      flushBlock();
       const heading = line.replace('###', '').trim();
-      currentSection = heading.toLowerCase();
-      isFazit = currentSection.includes('fazit');
+      wrapCurrentBlock = !heading.toLowerCase().includes('fazit');
       content.push(<Text key={idx} style={styles.heading}>{heading}</Text>);
     } else {
       if (/^\*\*.*?\*\*:/.test(line)) {
@@ -159,7 +157,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     }
   });
 
-  flushBlock(isFazit);
+  flushBlock();
 
   return (
     <Document title="PferdeWert-Analyse">
