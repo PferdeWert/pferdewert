@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
   page: {
@@ -7,17 +7,33 @@ const styles = StyleSheet.create({
     lineHeight: 1.5,
     fontFamily: 'Times-Roman',
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  logo: {
+    width: 80,
+    height: 40,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: 'Times-Bold',
+    textAlign: 'right',
+  },
   heading: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginTop: 16,
+    marginBottom: 8,
   },
   labelBlock: {
     flexDirection: 'row',
     marginBottom: 6,
   },
   label: {
-    fontWeight: 'bold',
+    fontFamily: 'Helvetica-Bold',
     width: '30%',
   },
   value: {
@@ -25,11 +41,14 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     marginBottom: 10,
+  },
+  bullet: {
+    marginLeft: 12,
+    marginBottom: 6,
   }
 });
 
 const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
-  // Beispiel: Primitive Markdown-Parser, später ersetzen durch echten Parser
   const lines = markdownData.split('\n');
 
   const renderContent = () => {
@@ -44,6 +63,8 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
+      } else if (line.startsWith('-')) {
+        return <Text key={idx} style={styles.bullet}>{line}</Text>;
       } else {
         return <Text key={idx} style={styles.paragraph}>{line}</Text>;
       }
@@ -53,6 +74,10 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
+        <View style={styles.header}>
+          <Image src="/logo.png" style={styles.logo} />
+          <Text style={styles.title}>Pferdebewertung</Text>
+        </View>
         {renderContent()}
       </Page>
     </Document>
