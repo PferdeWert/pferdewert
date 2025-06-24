@@ -83,7 +83,10 @@ const styles = StyleSheet.create({
 
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   const today = new Date().toLocaleDateString('de-DE');
-  const lines = markdownData.split('\n').filter(line => line.trim() !== '');
+  const lines = markdownData
+    .replace(/\u202F/g, ' ') // NBSP entfernen
+    .split('\n')
+    .filter(line => line.trim() !== '');
 
   const renderContent = () => {
     return lines.map((line, idx) => {
@@ -97,7 +100,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
-      } else if (/^\*\*[\d.,\s–-]+€\*\*$/.test(line)) {
+      } else if (line.includes('€') && /^\*\*.+\*\*$/.test(line)) {
         return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
         return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
