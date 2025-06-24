@@ -37,8 +37,8 @@ export default function App({ Component, pageProps }: AppProps) {
               text: "#fff",
             },
           },
-          theme: "classic",
-          position: "bottom-right",
+          theme: "edgeless",
+          position: "middle",
           type: "opt-in",
           content: {
             message:
