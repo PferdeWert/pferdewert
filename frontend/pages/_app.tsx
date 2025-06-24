@@ -31,18 +31,19 @@ export default function App({ Component, pageProps }: AppProps) {
             link: "Mehr erfahren",
             href: "/datenschutz"
           },
-          onInitialise(status: unknown) {
-            if (this.hasConsented()) {
-              // Cookies aktivieren (z. B. Google Analytics)
-            }
-          },
-          onStatusChange(status: unknown, chosenBefore: unknown) {
-            if (this.hasConsented()) {
-              // Cookies aktivieren
-            } else {
-              // Cookies blockieren
-            }
-          }
+          onInitialise(_: unknown) {
+  if (this.hasConsented()) {
+    // Cookies aktivieren (z. B. Google Analytics)
+  }
+},
+onStatusChange(_: unknown, __: unknown) {
+  if (this.hasConsented()) {
+    // Cookies aktivieren
+  } else {
+    // Cookies blockieren
+  }
+}
+
         });
       };
 
@@ -62,9 +63,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
-        strategy="beforeInteractive"
-        src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-      />
+  strategy="afterInteractive"
+  src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+/>
+
       <Component {...pageProps} />
       <Footer />
     </>
