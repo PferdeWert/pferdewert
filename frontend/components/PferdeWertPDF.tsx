@@ -61,6 +61,18 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginBottom: 6,
   },
+  bulletLabel: {
+    flexDirection: 'row',
+    marginLeft: 12,
+    marginBottom: 6,
+  },
+  bulletLabelText: {
+    fontFamily: 'Times-Bold',
+    marginRight: 4,
+  },
+  bulletValueText: {
+    flex: 1,
+  },
   footer: {
     position: 'absolute',
     fontSize: 9,
@@ -104,6 +116,17 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
         return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
         return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
+      } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
+        const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
+        if (match) {
+          const [, label, value] = match;
+          return (
+            <View key={idx} style={styles.bulletLabel}>
+              <Text style={styles.bulletLabelText}>• {label.trim()}:</Text>
+              <Text style={styles.bulletValueText}>{value.trim()}</Text>
+            </View>
+          );
+        }
       } else if (line.startsWith('-')) {
         return <Text key={idx} style={styles.bullet}>{line}</Text>;
       } else {
