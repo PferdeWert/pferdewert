@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 1.5,
     fontFamily: 'Times-Roman',
+    position: 'relative'
   },
   header: {
     alignItems: 'center',
@@ -50,6 +51,14 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontStyle: 'italic',
     textAlign: 'center',
+  },
+  pageNumber: {
+    position: 'absolute',
+    fontSize: 10,
+    bottom: 20,
+    right: 40,
+    textAlign: 'right',
+    color: 'grey'
   }
 });
 
@@ -89,6 +98,11 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
         <Text style={styles.disclaimer}>
           Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
         </Text>
+        <Text
+          style={styles.pageNumber}
+          render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}
+          fixed
+        />
       </Page>
     </Document>
   );
