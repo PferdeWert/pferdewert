@@ -98,17 +98,17 @@ const styles = StyleSheet.create({
 
 const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   const today = new Date().toLocaleDateString('de-DE');
-  const lines = markdownData
+  const lines: string[] = markdownData
     .replace(/[ /]/g, ' ')
     .split('\n')
-    .filter(line => line.trim() !== '');
+    .filter((line: string) => line.trim() !== '');
 
   const content: ReactNode[] = [];
   let currentBlock: ReactNode[] = [];
   let wrapCurrentBlock = true;
   let inFazit = false;
 
-  const flushBlock = () => {
+  const flushBlock = (): void => {
     if (currentBlock.length) {
       content.push(
         <View
@@ -123,7 +123,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     }
   };
 
-  lines.forEach((line, idx) => {
+  lines.forEach((line: string, idx: number) => {
     if (line.startsWith('###')) {
       const heading = line.replace('###', '').trim();
       if (inFazit) flushBlock();
