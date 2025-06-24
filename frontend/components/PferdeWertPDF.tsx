@@ -105,18 +105,12 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   let content: JSX.Element[] = [];
   let currentBlock: JSX.Element[] = [];
   let currentSection = '';
-  let inFazit = false;
-  let fazitBlock: JSX.Element[] = [];
+  let isFazit = false;
 
-  const flushBlock = () => {
-    if (inFazit && fazitBlock.length) {
+  const flushBlock = (wrapFazit = false) => {
+    if (currentBlock.length) {
       content.push(
-        <View wrap={false} key={`fazit-${content.length}`}>{fazitBlock}</View>
-      );
-      fazitBlock = [];
-    } else if (currentBlock.length) {
-      content.push(
-        <View wrap={false} key={`block-${content.length}`}>{currentBlock}</View>
+        <View wrap={!wrapFazit} key={`block-${content.length}`}>{currentBlock}</View>
       );
       currentBlock = [];
     }
@@ -124,37 +118,33 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
 
   lines.forEach((line, idx) => {
     if (line.startsWith('###')) {
-      flushBlock();
+      flushBlock(isFazit);
       const heading = line.replace('###', '').trim();
       currentSection = heading.toLowerCase();
-      inFazit = currentSection.includes('fazit');
-      content.push(
-        <Text key={idx} style={styles.heading}>{heading}</Text>
-      );
+      isFazit = currentSection.includes('fazit');
+      content.push(<Text key={idx} style={styles.heading}>{heading}</Text>);
     } else {
-      const target = inFazit ? fazitBlock : currentBlock;
-
       if (/^\*\*.*?\*\*:/.test(line)) {
         const [label, value] = line.replace(/\*\*/g, '').split(':');
-        target.push(
+        currentBlock.push(
           <View key={idx} style={styles.labelBlock} wrap={false}>
             <Text style={styles.label}>{label.trim()}:</Text>
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
       } else if (/€/.test(line) && /^\*\*.+\*\*$/.test(line)) {
-        target.push(
+        currentBlock.push(
           <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>
         );
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
-        target.push(
+        currentBlock.push(
           <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>
         );
       } else if (/^- \*\*(.*?)\*\*:/.test(line)) {
         const match = line.match(/^- \*\*(.*?)\*\*: (.+)/);
         if (match) {
           const [, label, value] = match;
-          target.push(
+          currentBlock.push(
             <View key={idx} style={styles.bulletLabel} wrap={false}>
               <Text style={styles.bulletLabelText}>• {label.trim()}:</Text>
               <Text style={styles.bulletValueText}>{value.trim()}</Text>
@@ -162,18 +152,14 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
           );
         }
       } else if (line.startsWith('-')) {
-        target.push(
-          <Text key={idx} style={styles.bullet}>{line}</Text>
-        );
+        currentBlock.push(<Text key={idx} style={styles.bullet}>{line}</Text>);
       } else {
-        target.push(
-          <Text key={idx} style={styles.paragraph}>{line}</Text>
-        );
+        currentBlock.push(<Text key={idx} style={styles.paragraph}>{line}</Text>);
       }
     }
   });
 
-  flushBlock();
+  flushBlock(isFazit);
 
   return (
     <Document title="PferdeWert-Analyse">
