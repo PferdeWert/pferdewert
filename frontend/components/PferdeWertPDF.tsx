@@ -93,7 +93,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     return lines.map((line, idx) => {
       if (line.startsWith('###')) {
         return <Text key={idx} style={styles.heading}>{line.replace('###', '').trim()}</Text>;
-      } else if (/\*\*.*\*\*:/.test(line)) {
+      } else if (/^\*\*.*?\*\*:/.test(line)) {
         const [label, value] = line.replace(/\*\*/g, '').split(':');
         return (
           <View key={idx} style={styles.labelBlock}>
@@ -101,6 +101,8 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
+      } else if (/^\*\*[\d.,\s–-]+€\*\*$/.test(line)) {
+        return <Text key={idx} style={{ fontFamily: 'Times-Bold', wordBreak: 'break-word' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
         return <Text key={idx} style={{ fontFamily: 'Times-Bold', wordBreak: 'break-word' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
       } else if (line.startsWith('-')) {
