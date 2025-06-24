@@ -7,6 +7,7 @@
     "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev next dev"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.3.0",
     "@tailwindcss/typography": "^0.5.16",
     "jspdf": "^3.0.1",
     "mongodb": "^6.17.0",
