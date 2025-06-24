@@ -113,7 +113,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
       content.push(
         <View
           wrap={wrapCurrentBlock}
-          break={!wrapCurrentBlock ? 'avoid' : undefined}
+          break={!wrapCurrentBlock}
           key={`block-${content.length}`}
         >
           {currentBlock}
@@ -144,7 +144,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
             <Text style={styles.value}>{value.trim()}</Text>
           </View>
         );
-      } else if (/€/.test(line) && /^\*\*.+\*\*$/.test(line)) {
+      } else if (/€/ .test(line) && /^\*\*.+\*\*$/.test(line)) {
         currentBlock.push(<Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>);
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
         currentBlock.push(<Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>);
