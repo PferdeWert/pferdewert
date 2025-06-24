@@ -89,11 +89,11 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
         return (
           <View key={idx} style={styles.labelBlock}>
             <Text style={styles.label}>{label.trim()}:</Text>
-            <Text style={styles.value}>{value.trim()}</Text>
+            <Text style={styles.value}>{value.trim().replace('/', '')}</Text>
           </View>
         );
       } else if (/^\*\*(.+)\*\*$/.test(line)) {
-        return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').trim()}</Text>;
+        return <Text key={idx} style={{ fontFamily: 'Times-Bold' }}>{line.replace(/\*\*/g, '').replace('/', '').trim()}</Text>;
       } else if (line.startsWith('-')) {
         return <Text key={idx} style={styles.bullet}>{line}</Text>;
       } else {
@@ -108,7 +108,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page} wrap>
         <View style={styles.header} fixed>
-<Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
+          <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`} style={styles.logo} />
           <Text style={styles.title}>PferdeWert-Analyse</Text>
         </View>
         <Text style={styles.date}>Stand: {today}</Text>
