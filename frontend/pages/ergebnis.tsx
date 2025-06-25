@@ -81,7 +81,7 @@ export default function Ergebnis() {
       <div className="mt-8">
         <PDFDownloadLink
           document={<PferdeWertPDF markdownData={text} />}
-          fileName="pferdebewertung.pdf"
+          fileName="PferdeWert-Analyse.pdf"
         >
           {({ loading }) => (
             <button className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition">
