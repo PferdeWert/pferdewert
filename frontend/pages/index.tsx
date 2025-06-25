@@ -119,7 +119,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-h2 font-serif text-brand font-bold">
-            Zahlreiche zufriedene Pferdebesitzer vertrauen <span className="text-brand-accent">PferdeWert.de</span>
+            Zahlreiche zufriedene Pferdebesitzer vertrauen auf <span className="text-brand-accent">PferdeWert.de</span>
           </h2>
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-base text-brand">
             <span className="px-3 py-1 rounded bg-brand-light/80 font-medium shadow-sm">
