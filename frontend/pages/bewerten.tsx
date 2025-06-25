@@ -74,6 +74,13 @@ export default function Bewerten() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (window.gtag) {
+  window.gtag("event", "start_bewertung", {
+    event_category: "Funnel",
+    event_label: "Formular abgeschickt",
+    value: 1,
+  });
+}
     e.preventDefault();
     setSubmitted(true);
     setErrors({});
