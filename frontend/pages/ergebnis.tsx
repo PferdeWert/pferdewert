@@ -44,6 +44,14 @@ export default function Ergebnis() {
 
         setPaid(true);
 
+        // Google Analytics Conversion-Tracking
+        if (typeof window !== "undefined" && window.gtag) {
+         window.gtag("event", "conversion", {
+            event_category: "Bewertung",
+           event_label: "PDF freigeschaltet",
+            value: 1,
+         });
+        }
         const bewertungId = data.session.metadata?.bewertungId;
         if (bewertungId) {
           const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);

@@ -1,4 +1,9 @@
 // frontend/types/global.d.ts
-interface Window {
-  cookieconsent: any;
+export {};
+
+declare global {
+  interface Window {
+    cookieconsent: any;
+    gtag?: (...args: any[]) => void;
+  }
 }
