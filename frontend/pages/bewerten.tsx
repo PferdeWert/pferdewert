@@ -192,11 +192,11 @@ export default function Bewerten() {
             </label>
           </div>
 
-          {Object.keys(errors).length > 0 && submitted && (
-            <p className="text-red-600 text-center font-medium mt-2">
-              Bitte fülle alle markierten Pflichtfelder aus.
-            </p>
-          )}
+        {Object.keys(errors).some((key) => key !== "form") && submitted && (
+  <p className="text-red-600 text-center font-medium mt-2">
+    Bitte fülle alle markierten Pflichtfelder aus.
+  </p>
+)}
 
           {errors.form && (
             <p className="text-red-600 font-medium text-base text-center">
