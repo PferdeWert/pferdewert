@@ -35,20 +35,21 @@ export default function Home() {
               <br />
               Inklusive ausführlicher Analyse und PDF zum Download.
             </p>
-            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-brand-green text-base font-medium">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-gold text-lg">★</span>
-                Zahlreiche zufriedene Pferdebesitzer vertrauen auf PferdeWert.de
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent text-lg">✔</span>
-                DSGVO-konform & anonym
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand text-lg">⚡</span>
-                Ergebnis in 2 Minuten
-              </li>
-            </ul>
+            <ul className="mt-8 space-y-2 text-brand-green text-base font-medium">
+  <li className="flex items-center gap-2">
+    <span className="text-brand-gold text-lg" aria-hidden="true">★</span>
+    Zahlreiche zufriedene Pferdebesitzer
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-brand-accent text-lg" aria-hidden="true">✔</span>
+    DSGVO-konform & anonym
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-brand text-lg" aria-hidden="true">⚡</span>
+    Ergebnis in 2 Minuten
+  </li>
+</ul>
+
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/bewerten"
