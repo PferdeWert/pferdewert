@@ -75,12 +75,12 @@ export default function Bewerten() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     if (window.gtag) {
-  window.gtag("event", "start_bewertung", {
-    event_category: "Funnel",
-    event_label: "Formular abgeschickt",
-    value: 1,
-  });
-}
+      window.gtag("event", "start_bewertung", {
+        event_category: "Funnel",
+        event_label: "Formular abgeschickt",
+        value: 1,
+      });
+    }
     e.preventDefault();
     setSubmitted(true);
     setErrors({});
@@ -109,20 +109,21 @@ export default function Bewerten() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: JSON.stringify(form) }),
       });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
+
+      if (res.ok) {
+        const { url } = await res.json();
+        window.location.href = url;
       } else {
-        setErrors({ form: data.error || "Fehler beim Starten der Bewertung." });
+        const { error } = await res.json();
+        setErrors({ form: error || "Fehler beim Starten der Bewertung." });
       }
     } catch (err) {
       const message =
-  err instanceof Error
-    ? "Die Verbindung zum Server ist fehlgeschlagen. Bitte versuche es in einer Minute erneut oder wende dich an info@pferdewert.de."
-    : "Ein unerwarteter Fehler ist aufgetreten.";
-error("Fehler beim Starten der Bewertung", err);
-setErrors({ form: message });
-
+        err instanceof Error
+          ? "Die Verbindung zum Server ist fehlgeschlagen. Bitte versuche es in einer Minute erneut oder wende dich an info@pferdewert.de."
+          : "Ein unerwarteter Fehler ist aufgetreten.";
+      error("Fehler beim Starten der Bewertung", err);
+      setErrors({ form: message });
     } finally {
       setLoading(false);
     }
@@ -196,11 +197,11 @@ setErrors({ form: message });
             </label>
           </div>
 
-        {Object.keys(errors).some((key) => key !== "form") && submitted && (
-  <p className="text-red-600 text-center font-medium mt-2">
-    Bitte fülle alle markierten Pflichtfelder aus.
-  </p>
-)}
+          {Object.keys(errors).some((key) => key !== "form") && submitted && (
+            <p className="text-red-600 text-center font-medium mt-2">
+              Bitte fülle alle markierten Pflichtfelder aus.
+            </p>
+          )}
 
           {errors.form && (
             <p className="text-red-600 font-medium text-base text-center">
@@ -213,20 +214,25 @@ setErrors({ form: message });
           </p>
 
           <button
-  type="submit"
-  disabled={loading}
-  className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
->
-  {loading ? (
-    <>
-      <span className="inline-block animate-spin mr-2 h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
-      Einen Moment – deine Analyse wird vorbereitet…
-    </>
-  ) : (
-    "Jetzt kostenpflichtig analysieren"
-  )}
-</button>
+            type="submit"
+            disabled={loading}
+            className="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold text-button shadow-soft hover:bg-brand transition"
+          >
+            {loading ? (
+              <>
+                <span className="inline-block animate-spin mr-2 h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+                Einen Moment – deine Analyse wird vorbereitet…
+              </>
+            ) : (
+              "Jetzt kostenpflichtig analysieren"
+            )}
+          </button>
 
+          {loading && (
+            <p className="text-sm text-gray-500 text-center mt-4">
+              Bitte einen Moment Geduld – du wirst zur sicheren Zahlung bei Stripe weitergeleitet…
+            </p>
+          )}
 
           <p className="text-xs text-gray-500 text-center mt-2">
             Du wirst zur sicheren Bezahlung weitergeleitet.
