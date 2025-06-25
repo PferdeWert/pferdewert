@@ -30,7 +30,7 @@ export default function Home() {
               Was ist dein Pferd wert?
             </h1>
             <p className="mt-6 text-lg leading-8 text-brand">
-              Kostenlose & sofortige Marktwert-Schätzung für dein Pferd –
+              Kostenlose & sofortige Marktwert-Schätzung deines Pferdes –
               <span className="font-bold text-brand-accent"> anonym, digital und unabhängig.</span> 
               <br />
               Inklusive ausführlicher Analyse und PDF zum Download.
@@ -38,7 +38,7 @@ export default function Home() {
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-brand-green text-base font-medium">
               <li className="flex items-center gap-2">
                 <span className="text-brand-gold text-lg">★</span>
-                Über 1.200 zufriedene Pferdebesitzer
+                Zahlreiche zufriedene Pferdebesitzer vertrauen auf PferdeWert.de
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-brand-accent text-lg">✔</span>
@@ -46,7 +46,7 @@ export default function Home() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-brand text-lg">⚡</span>
-                Ergebnis in 30 Sekunden
+                Ergebnis in 2 Minuten
               </li>
             </ul>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -79,7 +79,7 @@ export default function Home() {
       <section id="ablauf" className="bg-brand-light py-20">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center text-h2 font-serif text-brand font-bold">
-            So einfach geht’s
+            So einfach geht’s:
           </h2>
           <div className="mt-14 grid gap-12 md:grid-cols-3">
             {[
@@ -91,7 +91,7 @@ export default function Home() {
               {
                 icon: "🤖",
                 title: "KI analysiert",
-                text: "Modernste OpenAI-Technologie berechnet sofort den Marktwert.",
+                text: "Modernste KI-Technologie berechnet den Marktwert in wenigen Minuten.",
               },
               {
                 icon: "📊",
@@ -118,14 +118,14 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-h2 font-serif text-brand font-bold">
-            Vertraut von über <span className="text-brand-accent">1.200 Pferdebesitzern</span>
+            Zahlreiche zufriedene Pferdebesitzer vertrauen <span className="text-brand-accent">PferdeWert.de</span>
           </h2>
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-base text-brand">
             <span className="px-3 py-1 rounded bg-brand-light/80 font-medium shadow-sm">
               DSGVO-konform
             </span>
             <span className="px-3 py-1 rounded bg-brand-light/80 font-medium shadow-sm">
-              Powered by OpenAI
+              Powered by KI
             </span>
             <span className="px-3 py-1 rounded bg-brand-light/80 font-medium shadow-sm">
               4.9/5 ⭐ Nutzerbewertung
@@ -173,7 +173,7 @@ export default function Home() {
               ],
               [
                 "Kostet der Service etwas?",
-                "Die Basis-Bewertung ist kostenlos. Zukünftige Premium-Funktionen können kostenpflichtig sein.",
+                "Unsere umfassende Preisanalyse kostet dich momentan nur 4,90 Euro.",
               ],
               [
                 "Was passiert mit meinen Daten?",
@@ -181,11 +181,11 @@ export default function Home() {
               ],
               [
                 "Wie lange dauert die Analyse?",
-                "In der Regel weniger als 30 Sekunden nach Absenden des Formulars.",
+                "Unser KI-Modell erstellt deine Analyse in der Regel in weniger als 2 Minuten nach Absenden des Formulars.",
               ],
               [
-                "Kann ich mehrere Pferde bewerten?",
-                "Ja, nach jeder Bewertung kannst du sofort ein weiteres Pferd eingeben.",
+                "Welche Zahlungsmöglichkeiten gibt es?",
+                "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay, Giropay und Klarna möglich.",
               ],
             ].map(([q, a], idx) => (
               <details key={idx} className="rounded-2xl border border-brand-light p-4 bg-brand-light/80">
