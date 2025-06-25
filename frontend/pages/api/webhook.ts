@@ -3,7 +3,9 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
-import { log, info, error } from "@/lib/log";
+import { ObjectId } from "mongodb";
+import { info, error } from "@/lib/log";
+
 
 export const config = {
   api: { bodyParser: false },
@@ -39,7 +41,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
       const collection = await getCollection("bewertungen");
-      const doc = await collection.findOne({ _id: new (require("mongodb")).ObjectId(bewertungId) });
+
+
+const doc = await collection.findOne({ _id: new ObjectId(bewertungId) });
 
       if (!doc) {
         error("[WEBHOOK] ❌ Bewertung nicht gefunden");
