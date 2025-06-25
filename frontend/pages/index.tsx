@@ -11,10 +11,10 @@ export default function Home() {
         <title>PferdeWert – Online Pferdebewertung vom Experten</title>
         <meta
           name="description"
-          content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd – inkl. PDF, Analyse und Preisoptimierungs-Tipps. PferdeWert ist Marktführer für digitale Pferdebewertung in Deutschland."
+          content="Schnell, fair & datensicher: Digitale Marktwert-Schätzung für dein Pferd mit Analyse & PDF. PferdeWert ist Marktführer für KI-gestützte Pferdebewertung."
         />
         <meta property="og:title" content="PferdeWert – Online Pferdebewertung vom Experten" />
-        <meta property="og:description" content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd." />
+        <meta property="og:description" content="Schnell, fair & datensicher: Digitale Marktwert-Schätzung für dein Pferd mit Analyse & PDF." />
         <meta property="og:image" content="/images/hero.webp" />
         <meta property="og:url" content="https://www.pferdewert.de/" />
         <meta name="robots" content="index, follow" />
@@ -24,10 +24,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-24 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
           <div className="max-w-xl lg:flex-auto">
             <h1 className="text-4xl font-bold text-center mb-4">
-              Was ist dein Pferd aktuell wert?
+              Was ist dein Pferd wert?
             </h1>
             <p className="text-lg text-center text-gray-700 mb-6">
-              In 2 Minuten zur individuellen Marktwert-Schätzung – kostenlos, anonym & als PDF.
+              In 2 Minuten zur individuellen Marktwert-Schätzung – als PDF mit Analyse & Tipps.
             </p>
             <ul className="space-y-2 text-gray-800 text-base mb-8">
               <li>✅ Über 500 zufriedene Pferdebesitzer</li>
@@ -37,13 +37,22 @@ export default function Home() {
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/bewerten"
-                className="px-6 py-4 bg-brand text-white rounded-2xl text-lg font-bold shadow-soft hover:bg-brand-dark transition"
+                className="w-full sm:w-auto px-6 py-4 bg-brand text-white rounded-2xl text-lg font-bold shadow-soft hover:bg-brand-dark transition"
               >
                 Pferd jetzt bewerten
               </Link>
-              <a href="#so-funktionierts" className="text-brand underline text-sm sm:text-base">
+              <Link
+                href="#ablauf"
+                className="text-brand underline text-sm sm:text-base"
+              >
                 So funktioniert’s
-              </a>
+              </Link>
+              <Link
+                href="/beispiel-analyse"
+                className="w-full sm:w-auto px-6 py-4 bg-brand-accent text-white rounded-2xl text-sm font-semibold shadow-soft hover:bg-brand transition"
+              >
+                Beispiel-Ergebnis ansehen
+              </Link>
             </div>
           </div>
           <div className="w-full max-w-lg lg:w-1/2 drop-shadow-xl">
