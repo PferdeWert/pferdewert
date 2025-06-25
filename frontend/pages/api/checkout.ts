@@ -28,17 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     info("[CHECKOUT] ✅ Eingabedaten geparst.");
     log("[CHECKOUT] Eingabe:", parsedData);
 
-    // 1. Eingabedaten in MongoDB zwischenspeichern
-    const collection = await getCollection("bewertungen");
-    const insertResult = await collection.insertOne({
-      ...parsedData,
-      status: "offen",
-      erstellt: new Date(),
-    });
-    const bewertungId = insertResult.insertedId.toString();
-    info("[CHECKOUT] 💾 Eingabe gespeichert, ID:", bewertungId);
-
-    // 2. Stripe-Session sofort erstellen
+    // 1. Stripe-Session erstellen
     const origin = process.env.NEXT_PUBLIC_BASE_URL!;
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -46,10 +36,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       mode: "payment",
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/bewerten?abgebrochen=1`,
-      metadata: { bewertungId },
     });
 
-    info("[CHECKOUT] ✅ Stripe-Session erstellt, ID:", session.id);
+    // 2. Daten in MongoDB speichern mit stripeSessionId
+    const collection = await getCollection("bewertungen");
+    const insertResult = await collection.insertOne({
+      ...parsedData,
+      status: "offen",
+      stripeSessionId: session.id,
+      erstellt: new Date(),
+    });
+
+    info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
     res.status(200).json({ url: session.url });
   } catch (err: unknown) {
     error("[CHECKOUT] ❌ Fehler im Checkout:", err);
