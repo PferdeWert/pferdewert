@@ -26,42 +26,24 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-24 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
           {/* Text */}
           <div className="max-w-xl lg:flex-auto">
-            <h1 className="text-h1 font-serif font-bold text-brand">
-              Was ist dein Pferd wert?
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-brand">
-              Kostenlose & sofortige Marktwert-Schätzung deines Pferdes –
-              <span className="font-bold text-brand-accent"> anonym, digital und unabhängig.</span> 
-              <br />
-              Inklusive ausführlicher Analyse und PDF zum Download.
-            </p>
-            <ul className="mt-8 space-y-2 text-brand-green text-base font-medium">
-  <li className="flex items-center gap-2">
-    <span className="text-brand-gold text-lg leading-none" aria-hidden="true">★</span>
-    Zahlreiche zufriedene Pferdebesitzer
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-brand-accent text-lg leading-none" aria-hidden="true">✔</span>
-    DSGVO-konform & anonym
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-brand text-lg leading-none" aria-hidden="true">⚡</span>
-    Ergebnis in 2 Minuten
-  </li>
+         <h1 className="text-4xl font-bold text-center mb-4">
+  Was ist dein Pferd aktuell wert?
+</h1>
+<p className="text-lg text-center text-gray-700 mb-6">
+  In 2 Minuten zur individuellen Marktwert-Schätzung – kostenlos, anonym & als PDF.
+</p>
+<ul className="space-y-2 text-gray-800 text-base mb-8">
+  <li>✅ Über 500 zufriedene Pferdebesitzer</li>
+  <li>🔒 100 % DSGVO-konform & anonym</li>
+  <li>⚡ Ergebnis in unter 2 Minuten</li>
 </ul>
+<div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+  <a href="/bewerten" className="px-6 py-4 bg-brand text-white rounded-2xl text-lg font-bold shadow-soft hover:bg-brand-dark transition">
+    Pferd jetzt bewerten
+  </a>
+  <a href="#so-funktionierts" className="text-brand underline text-sm sm:text-base">So funktioniert’s</a>
+</div>
 
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/bewerten"
-                className="rounded-2xl bg-brand-accent px-8 py-4 text-button font-bold text-white shadow-soft transition hover:bg-brand focus:outline-none focus:ring-4 focus:ring-brand-accent/30"
-              >
-                Pferd jetzt bewerten
-              </Link>
-              <a href="#ablauf" className="self-center text-brand-accent underline underline-offset-4 hover:text-brand font-medium">
-                So funktioniert’s
-              </a>
-            </div>
           </div>
           {/* Hero Image */}
           <div className="w-full max-w-lg lg:w-1/2 drop-shadow-xl">
