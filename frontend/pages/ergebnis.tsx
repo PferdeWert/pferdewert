@@ -44,19 +44,40 @@ export default function Ergebnis() {
 
         setPaid(true);
 
-        // Google Analytics Conversion-Tracking
         if (typeof window !== "undefined" && window.gtag) {
-         window.gtag("event", "conversion", {
+          window.gtag("event", "conversion", {
             event_category: "Bewertung",
-           event_label: "PDF freigeschaltet",
+            event_label: "PDF freigeschaltet",
             value: 1,
-         });
+          });
         }
+
         const bewertungId = data.session.metadata?.bewertungId;
         if (bewertungId) {
           const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);
           const resultData = await resultRes.json();
-          setText(resultData.bewertung || "");
+
+          if (resultData.bewertung) {
+            setText(resultData.bewertung);
+          } else {
+            let tries = 0;
+            const interval = setInterval(async () => {
+              tries++;
+              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId}`);
+              const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+              const retryData = await retryRes.json();
+
+              if (retryData.bewertung) {
+                clearInterval(interval);
+                setText(retryData.bewertung);
+              }
+
+              if (tries >= 10) {
+                clearInterval(interval);
+                warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
+              }
+            }, 5000);
+          }
         } else {
           warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
         }
@@ -75,21 +96,29 @@ export default function Ergebnis() {
 
   return (
     <BewertungLayout title="PferdeWert – Ergebnis">
-      <div className="prose prose-lg max-w-full">
-        <ReactMarkdown>{text}</ReactMarkdown>
-      </div>
-      <div className="mt-8">
-        <PDFDownloadLink
-          document={<PferdeWertPDF markdownData={text} />}
-          fileName="PferdeWert-Analyse.pdf"
-        >
-          {({ loading }) => (
-            <button className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition">
-              {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
-            </button>
-          )}
-        </PDFDownloadLink>
-      </div>
+      {text ? (
+        <>
+          <div className="prose prose-lg max-w-full">
+            <ReactMarkdown>{text}</ReactMarkdown>
+          </div>
+          <div className="mt-8">
+            <PDFDownloadLink
+              document={<PferdeWertPDF markdownData={text} />}
+              fileName="PferdeWert-Analyse.pdf"
+            >
+              {({ loading }) => (
+                <button className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition">
+                  {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
+                </button>
+              )}
+            </PDFDownloadLink>
+          </div>
+        </>
+      ) : (
+        <p className="p-10 text-gray-600 text-center text-lg">
+          Die Zahlung hat funktioniert. Deine Bewertung wird gerade erstellt – bitte einen Moment Geduld…
+        </p>
+      )}
     </BewertungLayout>
   );
 }

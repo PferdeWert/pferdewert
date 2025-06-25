@@ -3,9 +3,7 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
-import { ObjectId } from "mongodb";
 import { info, error } from "@/lib/log";
-
 
 export const config = {
   api: { bodyParser: false },
@@ -26,27 +24,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
   } catch (err) {
     error("[WEBHOOK] ❌ Signature verification failed:", err);
-    return res.status(400).send(`Webhook Error`);
+    return res.status(400).send("Webhook Error");
   }
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
-    const bewertungId = session.metadata?.bewertungId;
-    if (!bewertungId) {
-      error("[WEBHOOK] ❌ Keine Bewertung-ID in Session-Metadata");
-      return res.status(400).end();
-    }
+    const sessionId = session.id;
 
-    info("[WEBHOOK] ✅ Zahlung abgeschlossen, Bewertung ID:", bewertungId);
+    info("[WEBHOOK] ✅ Zahlung abgeschlossen, Session ID:", sessionId);
 
     try {
       const collection = await getCollection("bewertungen");
-
-
-const doc = await collection.findOne({ _id: new ObjectId(bewertungId) });
+      const doc = await collection.findOne({ stripeSessionId: sessionId });
 
       if (!doc) {
-        error("[WEBHOOK] ❌ Bewertung nicht gefunden");
+        error("[WEBHOOK] ❌ Keine Bewertung mit Session ID gefunden");
         return res.status(404).end();
       }
 
