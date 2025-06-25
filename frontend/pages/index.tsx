@@ -13,7 +13,6 @@ export default function Home() {
           name="description"
           content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd – inkl. PDF, Analyse und Preisoptimierungs-Tipps. PferdeWert ist Marktführer für digitale Pferdebewertung in Deutschland."
         />
-        {/* SEO Basics */}
         <meta property="og:title" content="PferdeWert – Online Pferdebewertung vom Experten" />
         <meta property="og:description" content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd." />
         <meta property="og:image" content="/images/hero.webp" />
@@ -21,31 +20,32 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
       </Head>
 
-      {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-brand-light">
         <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-24 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
-          {/* Text */}
           <div className="max-w-xl lg:flex-auto">
-         <h1 className="text-4xl font-bold text-center mb-4">
-  Was ist dein Pferd aktuell wert?
-</h1>
-<p className="text-lg text-center text-gray-700 mb-6">
-  In 2 Minuten zur individuellen Marktwert-Schätzung – kostenlos, anonym & als PDF.
-</p>
-<ul className="space-y-2 text-gray-800 text-base mb-8">
-  <li>✅ Über 500 zufriedene Pferdebesitzer</li>
-  <li>🔒 100 % DSGVO-konform & anonym</li>
-  <li>⚡ Ergebnis in unter 2 Minuten</li>
-</ul>
-<div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-  <a href="/bewerten" className="px-6 py-4 bg-brand text-white rounded-2xl text-lg font-bold shadow-soft hover:bg-brand-dark transition">
-    Pferd jetzt bewerten
-  </a>
-  <a href="#so-funktionierts" className="text-brand underline text-sm sm:text-base">So funktioniert’s</a>
-</div>
-
+            <h1 className="text-4xl font-bold text-center mb-4">
+              Was ist dein Pferd aktuell wert?
+            </h1>
+            <p className="text-lg text-center text-gray-700 mb-6">
+              In 2 Minuten zur individuellen Marktwert-Schätzung – kostenlos, anonym & als PDF.
+            </p>
+            <ul className="space-y-2 text-gray-800 text-base mb-8">
+              <li>✅ Über 500 zufriedene Pferdebesitzer</li>
+              <li>🔒 100 % DSGVO-konform & anonym</li>
+              <li>⚡ Ergebnis in unter 2 Minuten</li>
+            </ul>
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href="/bewerten"
+                className="px-6 py-4 bg-brand text-white rounded-2xl text-lg font-bold shadow-soft hover:bg-brand-dark transition"
+              >
+                Pferd jetzt bewerten
+              </Link>
+              <a href="#so-funktionierts" className="text-brand underline text-sm sm:text-base">
+                So funktioniert’s
+              </a>
+            </div>
           </div>
-          {/* Hero Image */}
           <div className="w-full max-w-lg lg:w-1/2 drop-shadow-xl">
             <Image
               src="/images/hero.webp"
@@ -59,7 +59,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ablauf Section */}
       <section id="ablauf" className="bg-brand-light py-20">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center text-h2 font-serif text-brand font-bold">
@@ -98,7 +97,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-h2 font-serif text-brand font-bold">
@@ -118,7 +116,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Beispiel-Ergebnis */}
       <section className="bg-brand-light py-20">
         <div className="mx-auto max-w-6xl px-6 lg:flex lg:items-center lg:gap-12">
           <div className="lg:w-1/2">
@@ -145,7 +142,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-center text-h2 font-serif text-brand font-bold">Häufige Fragen</h2>
