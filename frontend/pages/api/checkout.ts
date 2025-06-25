@@ -40,12 +40,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // 2. Daten in MongoDB speichern mit stripeSessionId
     const collection = await getCollection("bewertungen");
-    const insertResult = await collection.insertOne({
-      ...parsedData,
-      status: "offen",
-      stripeSessionId: session.id,
-      erstellt: new Date(),
-    });
+await collection.insertOne({
+  ...parsedData,
+  status: "offen",
+  stripeSessionId: session.id,
+  erstellt: new Date(),
+});
+
 
     info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
     res.status(200).json({ url: session.url });
