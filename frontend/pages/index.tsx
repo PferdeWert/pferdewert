@@ -24,7 +24,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-24 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
           <div className="max-w-xl lg:flex-auto">
             <h1 className="text-4xl font-bold text-center mb-4">
-              Was ist dein Pferd aktuell wert?
+              Was ist dein Pferd wert?
             </h1>
             <p className="text-lg text-center text-gray-700 mb-6">
               In 2 Minuten zur individuellen Marktwert-Schätzung – als PDF mit Analyse & Tipps.
