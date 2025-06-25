@@ -28,7 +28,7 @@ Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des P
 
 Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren individuellen Faktoren und Marktbedingungen variieren kann.
 
-_Ich bin PferdeWert AI von [www.pferdewert.de](https://www.pferdewert.de) – dies ist keine verbindliche Wertermittlung._`;
+_Ergebnis erstellt von PferdeWert AI – keine rechtsverbindliche Bewertung._`;
 
 export default function BeispielAnalyse() {
   return (
