@@ -82,6 +82,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       const gpt_response = await response.json();
+      console.log("[WEBHOOK] 🔁 GPT-Response:", gpt_response);
+
       const raw_gpt = gpt_response?.raw_gpt;
 
       if (!raw_gpt) {
