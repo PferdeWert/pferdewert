@@ -2,13 +2,21 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getCollection } from "@/lib/mongo";
 import { ObjectId } from "mongodb";
+import { z } from "zod";
+
+const querySchema = z.object({
+  id: z.string().refine((val) => ObjectId.isValid(val), {
+    message: "Ungültige ObjectId",
+  }),
+});
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { id } = req.query;
-
-  if (!id || typeof id !== "string") {
-    return res.status(400).json({ error: "Missing or invalid id" });
+  const parse = querySchema.safeParse(req.query);
+  if (!parse.success) {
+    return res.status(400).json({ error: "Missing or invalid id", details: parse.error.flatten() });
   }
+
+  const { id } = parse.data;
 
   try {
     const collection = await getCollection("bewertungen");
