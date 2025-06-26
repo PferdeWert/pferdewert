@@ -42,7 +42,7 @@ export default function Home() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-brand-accent text-lg leading-none" aria-hidden="true">✔</span>
-                Anonym & sicher
+                Ohne Anmeldung – Bewertung selbst erstellen
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-brand text-lg leading-none" aria-hidden="true">⚡</span>
