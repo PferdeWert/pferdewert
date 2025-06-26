@@ -19,7 +19,7 @@ export default function Datenschutz() {
       <h2>Zahlungsabwicklung über Stripe</h2>
       <p>
         Zur Abwicklung von Zahlungen nutzen wir den Dienstleister Stripe. Bei Auswahl
-        der Zahlungsart "Kreditkarte" erfolgt die Zahlungsabwicklung über Stripe
+        der Zahlungsart &quot;Kreditkarte&quot; erfolgt die Zahlungsabwicklung über Stripe
         Payments Europe, Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin,
         Irland. Dabei werden Ihre Zahlungsdaten direkt an Stripe übermittelt und dort
         verarbeitet. Die Übermittlung Ihrer Daten erfolgt auf Grundlage von Art. 6 Abs.
