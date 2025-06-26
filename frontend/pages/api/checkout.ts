@@ -38,10 +38,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let parsedData;
 try {
   parsedData = JSON.parse(text);
-} catch (_err) {
+} catch {
   warn("[CHECKOUT] ⚠️ JSON-Parse fehlgeschlagen");
   return res.status(400).json({ error: "Invalid JSON" });
 }
+
 
 
     const validation = BewertungSchema.safeParse(parsedData);
