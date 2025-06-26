@@ -15,8 +15,11 @@ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end("Method Not Allowed");
 
+  console.log("[WEBHOOK] HEADERS:", req.headers);
+  console.log("[WEBHOOK] ENV SECRET:", process.env.STRIPE_WEBHOOK_SECRET);
+
   const buf = await buffer(req);
-  const sig = req.headers["stripe-signature"]!;
+  const sig = req.headers["stripe-signature"] as string;
 
   let event: Stripe.Event;
 
