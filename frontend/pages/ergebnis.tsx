@@ -1,7 +1,5 @@
-// pages/ergebnis.tsx
-
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 import PferdeWertPDF from "@/components/PferdeWertPDF";
@@ -9,10 +7,12 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { log, warn, error } from "@/lib/log";
 
 export default function Ergebnis() {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
+  const [errorLoading, setErrorLoading] = useState<string | null>(null);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -61,19 +61,19 @@ export default function Ergebnis() {
             setText(resultData.bewertung);
           } else {
             let tries = 0;
-            const interval = setInterval(async () => {
+            intervalRef.current = setInterval(async () => {
               tries++;
               log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId}`);
               const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
               const retryData = await retryRes.json();
 
               if (retryData.bewertung) {
-                clearInterval(interval);
+                clearInterval(intervalRef.current!);
                 setText(retryData.bewertung);
               }
 
               if (tries >= 10) {
-                clearInterval(interval);
+                clearInterval(intervalRef.current!);
                 warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
               }
             }, 5000);
@@ -83,16 +83,25 @@ export default function Ergebnis() {
         }
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Laden der Session:", err);
+        setErrorLoading("Beim Laden der Bewertung ist ein Fehler aufgetreten. Bitte versuche es später erneut oder kontaktiere uns.");
+        setLoading(false);
       } finally {
         setLoading(false);
       }
     };
 
     fetchSession();
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, [router]);
 
-  if (loading) return <p className="p-10">Lade Bewertung…</p>;
-  if (!paid) return <p className="p-10 text-red-500">{fallbackMessage}</p>;
+  if (loading) return <p className="p-10 text-center">Lade Bewertung…</p>;
+  if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
+  if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
   return (
     <BewertungLayout title="PferdeWert – Ergebnis">
