@@ -1,55 +1,77 @@
-Projektübersicht: PferdeWert
+**Projekt: PferdeWert – Online Pferdebewertung**
 
-Ziel:
-Eine moderne Web-Anwendung zur KI-gestützten Bewertung von Pferden auf Basis individueller Merkmale – anonym, kostengünstig und mit sofortigem PDF-Export nach Bezahlung.
+**Technischer Gesamtstand (Stand: 26.06.2025)**
 
-🔧 Technischer Stack
-Github Codespace im Browser, nichts lokal. Localhost funktioniert daher nicht.
-Framework: Next.js (TypeScript) mit Tailwind CSS
-Deployment: Vercel
-Datenbank: MongoDB
-PDF-Generierung: @react-pdf/renderer
-Zahlung: Stripe
-Cookie-Consent & Tracking: CookieConsent v3 + Google Analytics (Opt-in, DSGVO-konform)
+---
 
-📄 Projektstruktur
+### 1. Architektur & Infrastruktur
 
-* pages/: klassische Next.js-Seiten (Start, Bewertung, Ergebnis, AGB, Datenschutz, Impressum)
-* components/: PDF-Layout, Footer, BewertungLayout
-* lib/: MongoDB-Connection, Logging, PDF-Layout-Logik
-* API-Routen: Bewertung, Zahlung, Session
+* **Frontend:** Next.js App mit TailwindCSS.
+* **Backend/API:** Next.js API-Routen.
+* **Datenbank:** MongoDB (extern gehostet, angebunden über `getCollection()`).
+* **Zahlung:** Stripe Checkout mit Webhook.
+* **Deployment:**
 
-🧠 Backend-Funktion
+  * Vercel (Frontend + API)
+  * Render (Backend für KI-Auswertung `/api/bewertung`)
 
-* Bewertung wird per API erzeugt
-* Session-ID zur Verknüpfung mit Stripe
-* PDF mit Bewertung wird generiert und nach Bezahlung freigeschaltet
+### 2. Wichtige Features
 
-✅ Fertiggestellt
+* Nutzer gibt Pferdedaten über `/bewerten` ein.
+* Session wird per Stripe Checkout erstellt (`/api/checkout`).
+* Nach Bezahlung Redirect zu `/ergebnis?session_id=...`.
+* Webhook (`/api/webhook`) verarbeitet Stripe-Event `checkout.session.completed`.
+* Bewertungsdaten werden an Render-API gesendet, GPT-Ergebnis wird gespeichert.
+* PDF-Download auf `/ergebnis` via `@react-pdf/renderer`.
 
-* Bewertungsformular (Frontend & Logik)
-* PDF-Generierung (stabil & typografisch hochwertig)
-* Session-Handling & Stripe-Integration
-* Datenschutzseite mit OpenAI- und Stripe-Hinweisen
-* AGB und Impressum vollständig & rechtssicher
-* Cookie-Consent zentriert, jetzt mit theme "classic" und position "middle"
-* Google Analytics wird erst nach Zustimmung geladen (DSGVO-konform)
-* Google Analytics Events (start\_bewertung, conversion) sind eingebaut und getestet
+### 3. Technische Integrationen
 
-🔍 Offene To-dos für morgen
+* **Stripe:**
 
-* Analytics-Events in GA4 als Conversion markieren
-* Consent-Optik ggf. mit Custom CSS verfeinern
-* Cookie-Banner nochmals im Livebetrieb prüfen (Mobile & Desktop)
-* Erste SEO-Checks: Title, Meta, Pagespeed
+  * `STRIPE_SECRET_KEY`, `STRIPE_PRICE_ID`, `STRIPE_WEBHOOK_SECRET` in `.env`
+  * Webhook erwartet exakte Secret-Validierung.
+  * Webhook sendet Session-Daten an Render-API bei Erfolg.
+* **MongoDB:** Dokument wird mit Session-ID gespeichert, dann bei GPT-Rückgabe aktualisiert.
+* **OpenAI / GPT:** Response wird persistiert und für PDF verwendet.
 
-🎯 Nächste potenzielle Schritte danach
+### 4. Aktuelle Probleme (26.06.2025)
 
-* Conversion-Funnel auswerten
-* Integration von Plausible (falls gewünscht)
-* Benutzerführung & Call-to-Actions optimieren
-* Preismodell prüfen und ggf. erweitern (Abo?)
-* Tracking-Code modularisieren (post-MVP)
+1. **Webhook liefert 401**
 
-🧵 Letzter Stand:
-Consent-Banner funktioniert jetzt zentriert mit "classic"-Theme. Analytics eingebunden und funktional. Event-Tracking für Formular-Start und Bezahlung ist aktiv. Projekt ist datenschutzkonform und bereit für Liveschaltung und Performance-Analyse.
+   * Stripe meldet: „Signature verification failed“.
+   * Ursache: Lokale Umgebungsvariable `STRIPE_WEBHOOK_SECRET` stimmt evtl. nicht mit Stripe-Webhook überein.
+   * Möglicherweise kein Zugriff auf korrekte Secret in Vercel oder lokale Umgebung.
+
+2. **Bewertung wird nicht erzeugt**
+
+   * Log zeigt: Mongo-Dokument wird korrekt gespeichert (`Session gespeichert`).
+   * API `/api/bewertung` wird mit `id` abgefragt, liefert aber 404 (nicht gefunden).
+   * Mögliche Ursachen:
+
+     * Webhook hat Bewertung nicht gesendet (siehe Punkt 1).
+     * Render API liefert kein `raw_gpt` oder Fehler.
+
+3. **Vercel verweigert POST auf `/api/checkout` mit 405**
+
+   * Ursache unklar, möglicherweise fehlende Authentifizierung oder fehlerhafte Konfiguration in Vercel-Umgebung.
+
+4. **Environment Confusion bei Vercel**
+
+   * Erwartung: Deploy auf main = Production Vars.
+   * Tatsächlich: Vercel verwendet teilweise Preview Environment.
+   * → Dadurch evtl. falsche Stripe-Keys / Webhook-Secrets.
+
+### 5. Debug-Maßnahmen bereits erfolgt
+
+* Manuelles Logging eingefügt (Headers, ENV).
+* Überprüfung Webhook-Zustellung in Stripe.
+* Getestet mit Stripe-Testdaten.
+* Manuelle Session-ID-Tests lokal und in Vercel.
+
+### 6. Empfehlungen (Next Steps)
+
+* Sicherstellen, dass Vercel `Production Environment` korrekt konfiguriert ist.
+* Überprüfen, ob `STRIPE_WEBHOOK_SECRET` exakt mit Stripe-Webhook-übereinstimmt.
+* Testweise Webhook lokal via `stripe listen` und `ngrok` forwarden.
+* Render-API auf Logs prüfen (Rückgabe `raw_gpt`).
+* End-to-End Test mit Stripe-Testumgebung + verifizierter Datenbankverbindung.
