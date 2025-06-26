@@ -73,7 +73,28 @@ const fields = [
     label: "Erfolge",
     placeholder: "z. B. L-Platzierungen Springen, A-Dressur gewonnen",
   },
+  {
+    name: "farbe",
+    label: "Farbe",
+    placeholder: "z. B. Fuchs, Rappe, Brauner",
+  },
+  {
+    name: "zuechter",
+    label: "Züchter",
+    placeholder: "z. B. Privat oder Zuchtbetrieb XYZ",
+  },
+  {
+    name: "standort",
+    label: "Standort",
+    placeholder: "z. B. München oder PLZ",
+  },
+  {
+    name: "verwendungszweck",
+    label: "Verwendungszweck",
+    placeholder: "z. B. Freizeit, Turnier, Zucht",
+  },
 ];
+
 
 export default function Bewerten() {
   const [form, setForm] = useState(initialForm);
