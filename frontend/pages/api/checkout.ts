@@ -75,8 +75,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
     res.status(200).json({ url: session.url });
-  } catch (err: unknown) {
-    error("[CHECKOUT] ❌ Fehler im Checkout:", err);
-    res.status(500).json({ error: "Interner Serverfehler" });
-  }
+  } catch (_err: unknown) {
+  error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
+  res.status(500).json({ error: "Interner Serverfehler" });
+}
+
 }
