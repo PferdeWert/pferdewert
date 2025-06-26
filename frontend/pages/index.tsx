@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>PferdeWert – Online Pferdebewertung vom Experten</title>
+        <title>Pferdebewertung online – ideal für Pferdekauf & Pferdeverkauf | PferdeWert</title>
         <meta
           name="description"
           content="Pferdebewertung online: Schnell und günstig zur Marktwert-Schätzung – ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf."
         />
         {/* SEO Basics */}
-        <meta property="og:title" content="PferdeWert – Online Pferdebewertung vom Experten" />
-        <meta property="og:description" content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd." />
+        <meta property="og:title" content="Pferdebewertung online – ideal für Pferdekauf & Pferdeverkauf | PferdeWert" />
+        <meta property="og:description" content="Pferdebewertung online: Schnell und günstig zur Marktwert-Schätzung – ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
         <meta property="og:image" content="/images/hero.webp" />
         <meta property="og:url" content="https://www.pferdewert.de/" />
         <meta name="robots" content="index, follow" />
@@ -29,31 +29,48 @@ export default function Home() {
             <h1 className="text-h1 font-serif font-bold text-brand">
               Was ist dein Pferd wert?
             </h1>
-            <h2 className="text-h2 mt-4 text-brand font-semibold">
-              Günstige Pferdebewertung in wenigen Minuten – digital und fundiert
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-700">
-              Unsere KI-gestützte Online-Bewertung hilft dir, den realistischen Marktwert deines Pferdes schnell und einfach zu ermitteln. Ideal für Verkauf, Versicherung oder Einschätzung.
+            <p className="mt-6 text-lg leading-8 text-brand">
+              Kostenlose & sofortige Marktwert-Schätzung deines Pferdes –
+              <span className="font-bold text-brand-accent"> anonym, digital und unabhängig.</span> 
+              <br />
+              Inklusive ausführlicher Analyse und PDF zum Download.
             </p>
-            <div className="mt-10 flex items-center gap-x-6">
+            <ul className="mt-8 space-y-2 text-brand-green text-base font-medium">
+              <li className="flex items-center gap-2">
+                <span className="text-brand-gold text-lg leading-none" aria-hidden="true">★</span>
+                Zahlreiche zufriedene Pferdebesitzer
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-brand-accent text-lg leading-none" aria-hidden="true">✔</span>
+                Anonym & sicher
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-brand text-lg leading-none" aria-hidden="true">⚡</span>
+                Marktwert & Analyse in nur 2 Minuten
+              </li>
+            </ul>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/bewerten"
-                className="rounded-md bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                className="rounded-2xl bg-brand-accent px-8 py-4 text-button font-bold text-white shadow-soft transition hover:bg-brand focus:outline-none focus:ring-4 focus:ring-brand-accent/30"
               >
-                Jetzt bewerten
+                Pferd jetzt bewerten
               </Link>
+              <a href="#ablauf" className="self-center text-brand-accent underline underline-offset-4 hover:text-brand font-medium">
+                So funktioniert’s
+              </a>
             </div>
           </div>
-
           {/* Hero Image */}
-          <div className="w-full max-w-md lg:max-w-xl">
+          <div className="w-full max-w-lg lg:w-1/2 drop-shadow-xl">
             <Image
               src="/images/hero.webp"
-              alt="Pferdebewertung"
+              alt="Pferd beim Sprung"
               width={800}
-              height={600}
-              className="w-full rounded-xl shadow-md"
+              height={534}
               priority
+              className="rounded-2xl shadow-soft border border-brand/10"
             />
           </div>
         </div>
