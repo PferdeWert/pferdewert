@@ -1,54 +1,80 @@
-## Projektstand: PferdeWert.de (Stand: 26.06.2025)
+Projektstatus: PferdeWert.de – Stand GoLive 26.06.2025
 
-### Ziel
+✨ Ziel
 
-Bereitstellung eines MVP zur Online-Pferdebewertung, der anonym, einfach und schnell eine Marktwert-Schätzung liefert – mit Fokus auf Conversion, UX und rechtliche Absicherung.
+Online-Plattform zur anonymen, schnellen und professionellen Pferdebewertung mit Fokus auf UX, Conversion und Rechtssicherheit.
 
----
+🔄 Infrastruktur
 
-### 1. **Landing Page (/index.tsx)**
+Frontend: Next.js (Vercel Deployment)
 
-* ✅ Hero mit starkem H1: "Was ist dein Pferd wert?"
-* ✅ Klare Bullet Points mit Trust-Faktoren (u. a. "Zahlreiche zufriedene Pferdebesitzer")
-* ✅ Preis im Text nicht erwähnt (nur auf Bewertungsseite)
-* ✅ SEO-optimierte Metadaten: Titel, Beschreibung, OG-Tags
-* ✅ Responsive mit CTA "Pferd jetzt bewerten"
-* 🔍 Noch offen: Optionale Mikro-Copy für SEO-Feintuning (z. B. H2 für Keywords)
+Backend: FastAPI auf Render.com (kein Stripe-Handling dort)
 
-### 2. **Bewertungsformular (/bewerten.tsx)**
+Deployment: Vercel Production + Preview Umgebung
 
-* ✅ Felder mit sinnvoll gewählten Platzhaltern (z. B. "Cornet x Contender")
-* ✅ Pflichtfeldprüfung + UX-Hinweis bei fehlender Zustimmung
-* ✅ Einwilligung zu sofortigem Leistungsbeginn (§356 BGB) korrekt eingebaut
-* ✅ Preis klar kommuniziert: "einmalig 4,90 €"
-* ✅ DSGVO-freundlich: "Keine Anmeldung nötig – anonym & sicher"
-* ✅ Fehlerbehandlung + Stripe-Redirect implementiert
-* 🔍 Noch offen: Optional weitere Beispiele / Validierung (z. B. Eingabefilter)
+DNS:
 
-### 3. **Technik & Struktur**
+pferdewert.de zeigt auf Vercel
 
-* ✅ TypeScript sauber typisiert (inkl. Fix für dynamisches `form[field.name]`)
-* ✅ Projektstruktur folgt Next.js-Konventionen
-* ✅ Deployment-Ready für MVP
+Weiterleitungen von pferde-wert.de, .com, .eu, .org, horse-value.com korrekt eingerichtet bei IONOS
 
-### 4. **APIs mit Zod validiert**
+SSL via Vercel aktiv
 
-* ✅ `/api/generate.ts`: Strukturprüfung via Zod-Schema
-* ✅ `/api/bewertung.ts`: Absicherung mit ObjectId-Prüfung
-* ✅ `/api/session.ts`: Zod-Validierung mit Mindestlänge für `session_id`
+💳 Stripe-Integration
 
-### 5. **Cookie Consent**
+Live-Modus aktiv (Stripe Dashboard)
 
-* ✅ DSGVO-konformes Consent-Banner mit `react-cookie-consent` & `cookies-next`
-* ✅ Blockierung externer Skripte bis Zustimmung (z. B. Google Analytics, Stripe)
-* ✅ Speicherung und Widerrufsmöglichkeit der Entscheidung vorhanden
+Produkt: "Pferdebewertung" für 4,90 EUR (einmalig)
 
-### 6. **Nächste Schritte**
+STRIPE_SECRET_KEY, STRIPE_PRICE_ID, STRIPE_WEBHOOK_SECRET in Vercel Production gesetzt
 
-* 🔜 Optional: SEO-Microcopy ergänzen
-* 🔜 Stripe Live Key setzen (sofern nicht erfolgt)
-* 🔜 Domain-Setup + Hosting auf Render o.ä. finalisieren
+Klarna aktiviert, wird bei korrektem Setup im Checkout angezeigt
 
----
+Webhook: /api/webhook.ts (Next.js API)
 
-✅ MVP ist rechtlich, technisch und funktional startklar für den Go-Live.
+Verifiziert checkout.session.completed
+
+Holt Bewertung per session.id und aktualisiert MongoDB
+
+🚀 Frontend
+
+Startseite (/index.tsx): SEO-optimiert, starke H1, Bullet-Points, OG-Tags, responsiv
+
+Bewerten (/bewerten.tsx): Formular mit Validierung, rechtssicheren Checkboxen, Preisangabe, Weiterleitung zu Stripe
+
+Ergebnis (/ergebnis.tsx): Zeigt Ergebnis nach Zahlung
+
+Pages: /agb, /datenschutz, /impressum vorhanden und verlinkt
+
+PDF: Generierung nach Bewertung implementiert
+
+NEXT_PUBLIC_BASE_URL: getrennt für Production (https://pferdewert.de) & Preview gesetzt
+
+⚡ Rechtssicherheit
+
+Impressum, Datenschutz, AGB sauber eingebunden
+
+Checkboxen zur Einwilligung & Leistungserbringung nach §356 BGB korrekt umgesetzt
+
+Stripe als Zahlungsdienstleister in Datenschutz integriert (empfohlen noch prüfen)
+
+🌐 Domains & Weiterleitungen
+
+pferdewert.de ✔ Valid + HTTPS aktiv
+
+www.pferdewert.de ✔ Weiterleitung aktiv
+
+Weiterleitungen ✔ für: pferde-wert.de, .com, .eu, .org, horse-value.com
+
+Kein SSL-Zertifikat bei IONOS notwendig (Vercel regelt HTTPS)
+
+🔄 Nächste Schritte (empfohlen)
+
+Stripe Klarna-Darstellung in der Session-Config validieren (payment_method_types: ['card', 'klarna'])
+
+Google Search Console + Plausible / GA4 für Analytics einrichten
+
+Optional: Feedback-Loop / E-Mail-PDF Versand bei Zahlungserfolg
+
+Weiterentwicklung: Feature-Branches, Staging-Umgebung, lokale Tests → nur Test-Stripe Keys
+
