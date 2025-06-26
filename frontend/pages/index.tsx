@@ -34,19 +34,20 @@ export default function Home() {
               Inklusive ausführlicher Analyse und PDF zum Download.
             </p>
             <ul className="mt-8 space-y-2 text-brand-green text-base font-medium">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-gold text-lg leading-none" aria-hidden="true">★</span>
-                Zahlreiche zufriedene Pferdebesitzer
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent text-lg leading-none" aria-hidden="true">✔</span>
-                DSGVO-konform & anonym
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand text-lg leading-none" aria-hidden="true">⚡</span>
-                Ergebnis in 2 Minuten
-              </li>
-            </ul>
+  <li className="flex items-center gap-2">
+    <span className="text-brand-gold text-lg leading-none" aria-hidden="true">★</span>
+    Zahlreiche zufriedene Pferdebesitzer
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-brand-accent text-lg leading-none" aria-hidden="true">✔</span>
+    Ohne Anmeldung – Bewertung selbst erstellen
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-brand text-lg leading-none" aria-hidden="true">⚡</span>
+    Marktwert & Analyse in nur 2 Minuten
+  </li>
+</ul>
+
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
