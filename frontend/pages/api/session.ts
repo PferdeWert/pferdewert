@@ -2,16 +2,23 @@
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
+import { z } from "zod";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { session_id } = req.query;
+const querySchema = z.object({
+  session_id: z.string().min(10, "Ungültige Session-ID"),
+});
 
-  if (!session_id || typeof session_id !== "string") {
-    console.warn("[SESSION] ⚠️ Ungültige oder fehlende session_id:", session_id);
-    return res.status(400).json({ error: "Missing or invalid session_id" });
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const parse = querySchema.safeParse(req.query);
+
+  if (!parse.success) {
+    console.warn("[SESSION] ⚠️ Ungültige session_id:", parse.error.flatten());
+    return res.status(400).json({ error: "Missing or invalid session_id", details: parse.error.flatten() });
   }
+
+  const { session_id } = parse.data;
 
   try {
     const session = await stripe.checkout.sessions.retrieve(session_id, {
