@@ -45,10 +45,40 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).end();
       }
 
+      const {
+        rasse,
+        alter,
+        geschlecht,
+        abstammung,
+        stockmass,
+        ausbildung,
+        aku,
+        erfolge,
+        farbe,
+        zuechter,
+        standort,
+        verwendungszweck,
+      } = doc;
+
+      const bewertbareDaten = {
+        rasse,
+        alter,
+        geschlecht,
+        abstammung,
+        stockmass,
+        ausbildung,
+        aku,
+        erfolge,
+        farbe,
+        zuechter,
+        standort,
+        verwendungszweck,
+      };
+
       const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(doc),
+        body: JSON.stringify(bewertbareDaten),
       });
 
       const gpt_response = await response.json();
