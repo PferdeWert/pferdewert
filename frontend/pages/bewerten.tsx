@@ -35,13 +35,7 @@ const initialForm: FormState = {
   verwendungszweck: "",
 };
 
-const fields: {
-  name: keyof FormState;
-  label: string;
-  type?: "text" | "number" | "select";
-  required?: boolean;
-  options?: string[];
-}[] = [
+const fields = [
   { name: "rasse", label: "Rasse", required: true },
   { name: "alter", label: "Alter (Jahre)", type: "number", required: true },
   {
@@ -51,15 +45,34 @@ const fields: {
     required: true,
     options: ["Stute", "Wallach", "Hengst"],
   },
-  { name: "abstammung", label: "Abstammung (Vater x Muttervater)", required: true },
-  { name: "stockmass", label: "Stockmaß (cm)", type: "number", required: true },
-  { name: "ausbildung", label: "Ausbildungsstand", required: true },
-  { name: "aku", label: "Gesundheitsstatus / AKU-Bericht" },
-  { name: "erfolge", label: "Erfolge" },
-  { name: "farbe", label: "Farbe" },
-  { name: "zuechter", label: "Züchter / Ausbildungsstall" },
-  { name: "standort", label: "Standort" },
-  { name: "verwendungszweck", label: "Verwendungszweck" },
+  {
+    name: "abstammung",
+    label: "Abstammung (Vater x Muttervater)",
+    required: true,
+    placeholder: "z. B. Cornet Obolensky x Contender",
+  },
+  {
+    name: "stockmass",
+    label: "Stockmaß (cm)",
+    type: "number",
+    required: true,
+  },
+  {
+    name: "ausbildung",
+    label: "Ausbildungsstand",
+    required: true,
+    placeholder: "z. B. A-Dressur, Springpferde L, angeritten",
+  },
+  {
+    name: "aku",
+    label: "Gesundheitsstatus / AKU-Bericht",
+    placeholder: "z. B. AKU ohne Befund, kleine Röntgenklasse II",
+  },
+  {
+    name: "erfolge",
+    label: "Erfolge",
+    placeholder: "z. B. L-Platzierungen Springen, A-Dressur gewonnen",
+  },
 ];
 
 export default function Bewerten() {
@@ -92,7 +105,7 @@ export default function Bewerten() {
 
     const newErrors: { [key: string]: string } = {};
     fields.forEach((field) => {
-      if (field.required && !form[field.name]) {
+      if (field.required && !form[field.name as keyof FormState]) {
         newErrors[field.name] = "Pflichtfeld";
       }
     });
@@ -136,7 +149,10 @@ export default function Bewerten() {
       </Head>
 
       <main className="max-w-2xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6 text-center">Pferd analysieren lassen</h1>
+        <h1 className="text-3xl font-bold mb-2 text-center">Pferd analysieren lassen</h1>
+        <p className="text-sm text-gray-600 text-center mb-6">
+          🔒 Keine Anmeldung nötig – deine Eingaben bleiben anonym und werden nicht gespeichert.
+        </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {fields.map((field) => (
@@ -149,7 +165,7 @@ export default function Bewerten() {
                 <select
                   id={field.name}
                   name={field.name}
-                  value={form[field.name]}
+                  value={form[field.name as keyof FormState]}
                   onChange={handleChange}
                   className={`w-full p-3 border rounded-xl transition ${
                     errors[field.name] ? "border-red-500" : "border-gray-300"
@@ -167,10 +183,11 @@ export default function Bewerten() {
                   id={field.name}
                   name={field.name}
                   type={field.type || "text"}
-                  value={form[field.name]}
+                  value={form[field.name as keyof FormState]}
                   onChange={handleChange}
                   autoComplete="off"
                   inputMode={field.type === "number" ? "numeric" : undefined}
+                  placeholder={field.placeholder}
                   className={`w-full p-3 border rounded-xl transition ${
                     errors[field.name] ? "border-red-500" : "border-gray-300"
                   } focus:border-brand-accent focus:outline-none`}
