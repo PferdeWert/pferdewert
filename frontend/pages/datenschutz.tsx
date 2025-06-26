@@ -21,12 +21,12 @@ export default function Datenschutz() {
 
       <h2 className="mt-6 text-xl font-semibold">2. Zugriffsdaten und Hosting</h2>
       <p className="mb-4">
-        Unsere Website wird bei Vercel Inc. (USA) gehostet. Beim Aufruf unserer Website werden automatisch Informationen erfasst (z. B. IP-Adresse, Browsertyp, Uhrzeit). Diese Daten dienen der technischen Sicherheit. Mit Vercel besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO. Die Übertragung der Daten in die USA erfolgt auf Basis von Standardvertragsklauseln.
+        Unsere Website wird bei Vercel Inc. (USA) gehostet. Beim Aufruf unserer Website werden automatisch Informationen erfasst (z.&nbsp;B. IP-Adresse, Browsertyp, Uhrzeit). Diese Daten dienen der technischen Sicherheit. Mit Vercel besteht ein Auftragsverarbeitungsvertrag gemäß Art.&nbsp;28 DSGVO. Die Übertragung der Daten in die USA erfolgt auf Basis von Standardvertragsklauseln.
       </p>
 
       <h2 className="mt-6 text-xl font-semibold">3. Nutzung von Google Analytics</h2>
       <p className="mb-4">
-        Diese Website verwendet Google Analytics, einen Webanalysedienst der Google LLC ("Google"). Google Analytics verwendet sogenannte "Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und eine Analyse der Benutzung der Website ermöglichen.
+        Diese Website verwendet Google Analytics, einen Webanalysedienst der Google LLC (&quot;Google&quot;). Google Analytics verwendet sogenannte &quot;Cookies&quot;, Textdateien, die auf Ihrem Computer gespeichert werden und eine Analyse der Benutzung der Website ermöglichen.
       </p>
       <p className="mb-4">
         Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben die IP-Anonymisierung auf dieser Website aktiviert, sodass Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt wird.
@@ -35,7 +35,7 @@ export default function Datenschutz() {
         Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich nutzen können.
       </p>
       <p className="mb-4">
-        Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser-Add-on herunterladen und installieren:{" "}
+        Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser-Add-on herunterladen und installieren:{' '}
         <a
           href="https://tools.google.com/dlpage/gaoptout"
           target="_blank"
