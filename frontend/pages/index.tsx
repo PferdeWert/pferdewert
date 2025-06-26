@@ -6,18 +6,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>PferdeWert – Online Pferdebewertung vom Experten</title>
-        <meta
-          name="description"
-          content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd – inkl. PDF, Analyse und Preisoptimierungs-Tipps. PferdeWert ist Marktführer für digitale Pferdebewertung in Deutschland."
-        />
-        {/* SEO Basics */}
-        <meta property="og:title" content="PferdeWert – Online Pferdebewertung vom Experten" />
-        <meta property="og:description" content="Kostenlos & anonym: Sofortige KI-gestützte Marktwert-Schätzung für dein Pferd." />
-        <meta property="og:image" content="/images/hero.webp" />
-        <meta property="og:url" content="https://www.pferdewert.de/" />
-        <meta name="robots" content="index, follow" />
-      </Head>
+  <title>Pferdebewertung online – ideal für Pferdekauf & Pferdeverkauf | PferdeWert</title>
+  <meta
+    name="description"
+    content="Pferdebewertung online: Schnell und günstig zur Marktwert-Schätzung – ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf."
+  />
+  <meta property="og:title" content="Pferdebewertung online – ideal für Pferdekauf & Pferdeverkauf | PferdeWert" />
+  <meta property="og:description" content="Pferdebewertung online: Schnell und günstig zur Marktwert-Schätzung – ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+  <meta property="og:image" content="/images/hero.webp" />
+  <meta property="og:url" content="https://www.pferdewert.de/" />
+  <meta name="robots" content="index, follow" />
+</Head>
+
 
       {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-brand-light">
