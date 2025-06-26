@@ -66,7 +66,7 @@ const fields = [
   {
     name: "aku",
     label: "Gesundheitsstatus / AKU-Bericht",
-    placeholder: "z. B. AKU ohne Befund, kleine Röntgenklasse II",
+    placeholder: "z. B. AKU ohne Befund",
   },
   {
     name: "erfolge",
