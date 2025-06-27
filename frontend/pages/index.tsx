@@ -61,7 +61,7 @@ export default function Home() {
     <div className="max-w-xl lg:flex-auto">
      <h1 className="text-h1 font-serif font-bold text-brand leading-tight">
   Jetzt Pferdewert berechnen<br />
-  <span className="block text-xl text-brand-accent font-medium">
+<span className="block text-xl font-serif text-brand-accent font-medium">
     ohne Anmeldung & direkt als PDF
   </span>
 </h1>
