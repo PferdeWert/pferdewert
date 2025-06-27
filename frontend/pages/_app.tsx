@@ -63,16 +63,20 @@ export default function App({ Component, pageProps }: AppProps) {
         });
       };
 
-      if (window.cookieconsent) {
-        runConsent();
-      } else {
-        const interval = setInterval(() => {
-          if (window.cookieconsent) {
-            clearInterval(interval);
-            runConsent();
-          }
-        }, 100);
-      }
+      const waitForCookieConsent = (callback: () => void) => {
+        if (window.cookieconsent) {
+          callback();
+        } else {
+          const interval = setInterval(() => {
+            if (window.cookieconsent) {
+              clearInterval(interval);
+              callback();
+            }
+          }, 100);
+        }
+      };
+
+      waitForCookieConsent(runConsent);
     }
   }, []);
 
