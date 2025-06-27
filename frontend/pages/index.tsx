@@ -56,57 +56,61 @@ export default function Home() {
 
       {/* Hero Section */}
 <section className="relative isolate overflow-hidden bg-brand-light">
-  <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-24 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
+  <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-20 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
     {/* Text */}
     <div className="max-w-xl lg:flex-auto">
       <h1 className="text-h1 font-serif font-bold text-brand">
-        Was ist dein Pferd wert? Jetzt berechnen – ohne Anmeldung.
+        Jetzt den Pferdewert berechnen – anonym & ohne Anmeldung.
       </h1>
-      <p className="mt-6 text-lg leading-8 text-brand">
-        Fundierte Marktwert-Analyse – anonym, schnell & direkt als PDF.
+      <p className="mt-4 text-base leading-7 text-brand">
+        Fundierte Marktwert-Analyse – schnell, objektiv & als PDF zum Download.
       </p>
 
-      <ul className="mt-8 space-y-2 text-brand-green text-base font-medium">
+      <ul className="mt-6 space-y-2 text-brand text-sm font-medium">
         <li className="flex items-center gap-2">
-          <span className="text-brand-gold text-lg leading-none" aria-hidden="true">★</span>
+          <span className="text-brand-accent text-lg leading-none">✔</span>
           Zahlreiche zufriedene Pferdebesitzer
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-brand-accent text-lg leading-none" aria-hidden="true">✔</span>
-    Ohne Anmeldung – Bewertung selbst erstellen
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-brand text-lg leading-none" aria-hidden="true">⚡</span>
-    Marktwert & Analyse in nur 2 Minuten
-  </li>
-</ul>
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="text-brand-accent text-lg leading-none">✔</span>
+          Ohne Anmeldung – Bewertung selbst erstellen
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="text-brand-accent text-lg leading-none">✔</span>
+          Marktwert & Analyse in nur 2 Minuten
+        </li>
+      </ul>
 
+      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        <Link
+          href="/bewerten"
+          className="rounded-2xl bg-brand-accent px-8 py-3 text-button font-bold text-white shadow-soft transition hover:bg-brand focus:outline-none focus:ring-4 focus:ring-brand-accent/30"
+        >
+          Pferd jetzt bewerten
+        </Link>
+        <a
+          href="#ablauf"
+          className="self-center text-brand-accent underline underline-offset-4 hover:text-brand font-medium"
+        >
+          So funktioniert’s
+        </a>
+      </div>
+    </div>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/bewerten"
-                className="rounded-2xl bg-brand-accent px-8 py-4 text-button font-bold text-white shadow-soft transition hover:bg-brand focus:outline-none focus:ring-4 focus:ring-brand-accent/30"
-              >
-                Pferd jetzt bewerten
-              </Link>
-              <a href="#ablauf" className="self-center text-brand-accent underline underline-offset-4 hover:text-brand font-medium">
-                So funktioniert’s
-              </a>
-            </div>
-          </div>
-          {/* Hero Image */}
-          <div className="w-full max-w-lg lg:w-1/2 drop-shadow-xl">
-            <Image
-              src="/images/hero.webp"
-              alt="Pferd beim Sprung"
-              width={800}
-              height={534}
-              priority
-              className="rounded-2xl shadow-soft border border-brand/10"
-            />
-          </div>
-        </div>
-      </section>
+    {/* Hero Image */}
+    <div className="w-full max-w-lg lg:w-1/2 drop-shadow-xl">
+      <Image
+        src="/images/hero.webp"
+        alt="Pferd beim Sprung"
+        width={800}
+        height={534}
+        priority
+        className="rounded-2xl shadow-soft border border-brand/10"
+      />
+    </div>
+  </div>
+</section>
+
 
       {/* Ablauf Section */}
       <section id="ablauf" className="bg-brand-light py-20">
