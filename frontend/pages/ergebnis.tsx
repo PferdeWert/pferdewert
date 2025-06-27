@@ -5,6 +5,8 @@ import BewertungLayout from "@/components/BewertungLayout";
 import PferdeWertPDF from "@/components/PferdeWertPDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { log, warn, error } from "@/lib/log";
+import Head from "next/head";
+
 
 export default function Ergebnis() {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -104,6 +106,11 @@ export default function Ergebnis() {
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
   return (
+    <>
+    <Head>
+  <meta name="robots" content="noindex, nofollow" />
+</Head>
+
     <BewertungLayout title="PferdeWert – Ergebnis">
       {text ? (
         <>
@@ -129,5 +136,5 @@ export default function Ergebnis() {
         </p>
       )}
     </BewertungLayout>
-  );
-}
+  </>
+);}
