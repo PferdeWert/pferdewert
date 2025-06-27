@@ -82,3 +82,18 @@ blockquote {
   top: 50% !important;
   transform: translate(-50%, -50%) !important;
 }
+
+/* Cookie-Banner Mobil-Optimierung */
+.cc-window {
+  max-width: 95vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .cc-window {
+    font-size: 0.9rem;
+  }
+}

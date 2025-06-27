@@ -7,73 +7,70 @@ import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const loadGtag = () => {
-        const gtagScript = document.createElement("script");
-        gtagScript.setAttribute("async", "true");
-        gtagScript.src =
-          "https://www.googletagmanager.com/gtag/js?id=G-ZCQ4Z3PKND";
-        document.head.appendChild(gtagScript);
+  if (typeof window !== "undefined") {
+    const loadGtag = () => {
+      const gtagScript = document.createElement("script");
+      gtagScript.setAttribute("async", "true");
+      gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ZCQ4Z3PKND"; // <-- Deine GA-ID
+      document.head.appendChild(gtagScript);
 
-        const inlineScript = document.createElement("script");
-        inlineScript.innerHTML = `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-ZCQ4Z3PKND');
-        `;
-        document.head.appendChild(inlineScript);
-      };
+      const inlineScript = document.createElement("script");
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZCQ4Z3PKND', { anonymize_ip: true });
+      `;
+      document.head.appendChild(inlineScript);
+    };
 
-      const runConsent = () => {
-        window.cookieconsent.initialise({
-          palette: {
-            popup: {
-              background: "#fff",
-              text: "#000",
-            },
-            button: {
-              background: "#007bff",
-              text: "#fff",
-            },
-          },
-theme: "classic",
-          position: "middle",
-          type: "opt-in",
-          content: {
-            message:
-              "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
-            dismiss: "Nur notwendige",
-            allow: "Alle akzeptieren",
-            deny: "Ablehnen",
-            link: "Mehr erfahren",
-            href: "/datenschutz",
-          },
-          onInitialise() {
-            if (this.hasConsented()) {
-              loadGtag();
-            }
-          },
-          onStatusChange() {
-            if (this.hasConsented()) {
-              loadGtag();
-            }
-          },
-        });
-      };
-
-      if (window.cookieconsent) {
-        runConsent();
-      } else {
-        const interval = setInterval(() => {
-          if (window.cookieconsent) {
-            clearInterval(interval);
-            runConsent();
+    const runConsent = () => {
+      window.cookieconsent.initialise({
+        palette: {
+          popup: { background: "#ffffff", text: "#000000" },
+          button: { background: "#007bff", text: "#ffffff" },
+        },
+        theme: "classic",
+        position: "bottom",
+        type: "opt-in",
+        content: {
+          message:
+            "Wir verwenden Cookies, um die Nutzung dieser Website zu analysieren und unser Angebot zu verbessern. Sie entscheiden, welche Cookies Sie zulassen.",
+          dismiss: "Nur essenzielle",
+          allow: "Alle akzeptieren",
+          deny: "Ablehnen",
+          link: "Datenschutzerklärung",
+          href: "/datenschutz",
+        },
+        onPopupOpen() {
+          const popup = document.querySelector(".cc-window");
+          if (popup) {
+            popup.setAttribute("role", "dialog");
+            popup.setAttribute("aria-label", "Cookie-Einstellungen");
           }
-        }, 100);
-      }
+        },
+        onInitialise() {
+          if (this.hasConsented()) loadGtag();
+        },
+        onStatusChange() {
+          if (this.hasConsented()) loadGtag();
+        },
+      });
+    };
+
+    if (window.cookieconsent) {
+      runConsent();
+    } else {
+      const interval = setInterval(() => {
+        if (window.cookieconsent) {
+          clearInterval(interval);
+          runConsent();
+        }
+      }, 100);
     }
-  }, []);
+  }
+}, []);
+
 
   return (
     <>
