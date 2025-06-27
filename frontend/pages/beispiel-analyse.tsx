@@ -33,21 +33,45 @@ export default function BeispielAnalyse() {
   return (
     <>
       <Head>
-        <title>Beispiel Pferdebewertung – PferdeWert für Pferdekauf oder Pferdeverkauf</title>
-        <meta
-          name="description"
-          content="Beispiel Pferdebewertung mit Preisspanne, Abstammung und Gesundheitsstatus. Ideal für Pferdekauf, Pferdeverkauf und Marktwertanalyse."
-        />
-        <meta property="og:title" content="Beispiel Pferdebewertung – PferdeWert" />
-        <meta
-          property="og:description"
-          content="Beispiel Pferdebewertung mit Preisspanne, Abstammung und Gesundheitsstatus. Ideal für Pferdekauf, Pferdeverkauf und Marktwertanalyse."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
-        <meta property="og:image" content="https://pferdewert.de/images/social-preview.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+  <title>Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert</title>
+  <meta
+  name="description"
+  content="Sieh dir die Beispiel-Analyse an: Marktwert-Band, Begründung und Tipps zur Preisoptimierung für dein Pferd. Für mehr Transparenz & Fairness auf dem Pferdemarkt."
+/>
+
+
+  {/* Open Graph */}
+  <meta property="og:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
+  <meta property="og:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung. Transparenz & Fairness im Pferdemarkt." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
+  <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
+  <meta name="twitter:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung." />
+  <meta name="twitter:image" content="https://pferdewert.de/images/result.webp" />
+
+  {/* Strukturierte Daten */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Beispiel-Analyse Pferd",
+      "description": "Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung.",
+      "image": "https://pferdewert.de/images/result.webp",
+      "url": "https://pferdewert.de/beispiel-analyse",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert"
+      }
+    }
+    `}
+  </script>
+</Head>
+
 
       <BewertungLayout title="📝 Beispiel-Analyse">
         <div className="prose prose-blue max-w-none">
