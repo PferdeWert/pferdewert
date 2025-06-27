@@ -62,7 +62,7 @@ export default function Home() {
     <h1 className="text-h1 font-serif font-bold text-brand leading-tight">
   Jetzt Pferdewert berechnen
   <span className="block text-2xl font-serif text-brand-accent font-semibold mt-1">
-    anonym, ohne Anmeldung & als PDF
+    Ohne Anmeldung – in 2 Minuten zur fundierten Marktwert-Analyse
   </span>
 </h1>
 
