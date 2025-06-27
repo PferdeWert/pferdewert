@@ -167,7 +167,7 @@ export default function Bewerten() {
     <>
       <Head>
   <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
-  <meta name="description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
+  <meta name="description" content="Pferd bewerten & Marktwert online ermitteln – anonym, sicher & KI-basiert. Ideal bei Pferdekauf oder Pferdeverkauf." />
 
   {/* Open Graph Tags */}
   <meta property="og:title" content="Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert" />
@@ -194,6 +194,7 @@ export default function Bewerten() {
     }
     `}
   </script>
+  <link rel="canonical" href="https://pferdewert.de/bewerten" />
 </Head>
 
 
