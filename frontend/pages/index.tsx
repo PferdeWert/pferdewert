@@ -5,18 +5,42 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <Head>
-  <title>Pferdebewertung online – ideal für Pferdekauf & Pferdeverkauf | PferdeWert</title>
-  <meta
-    name="description"
-    content="Pferdebewertung online: Schnell und günstig zur Marktwert-Schätzung – ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf."
-  />
-  <meta property="og:title" content="Pferdebewertung online – ideal für Pferdekauf & Pferdeverkauf | PferdeWert" />
-  <meta property="og:description" content="Pferdebewertung online: Schnell und günstig zur Marktwert-Schätzung – ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
-  <meta property="og:image" content="/images/hero.webp" />
-  <meta property="og:url" content="https://www.pferdewert.de/" />
-  <meta name="robots" content="index, follow" />
+     <Head>
+  <title>Pferdebewertung online – Pferdewert & Preis für Pferdekauf & Verkauf | PferdeWert</title>
+  <meta name="description" content="Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+
+  {/* Open Graph */}
+  <meta property="og:title" content="Pferdebewertung online – Pferdewert & Preis für Pferdekauf & Verkauf | PferdeWert" />
+  <meta property="og:description" content="Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pferdewert.de/" />
+  <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pferdebewertung online – Pferdewert & Preis für Pferdekauf & Verkauf | PferdeWert" />
+  <meta name="twitter:description" content="Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+  <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
+
+  {/* Strukturierte Daten */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PferdeWert",
+      "url": "https://pferdewert.de/",
+      "description": "Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert"
+      }
+    }
+    `}
+  </script>
 </Head>
+
+
 
 
       {/* Hero Section */}
