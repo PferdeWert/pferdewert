@@ -166,8 +166,37 @@ export default function Bewerten() {
   return (
     <>
       <Head>
-        <title>PferdeWert – Bewertung</title>
-      </Head>
+  <title>Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert</title>
+  <meta name="description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
+
+  {/* Open Graph Tags */}
+  <meta property="og:title" content="Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert" />
+  <meta property="og:description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pferdewert.de/bewerten" />
+  <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert" />
+  <meta name="twitter:description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
+  <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
+
+  {/* Strukturierte Daten */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung",
+      "description": "Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf.",
+      "url": "https://pferdewert.de/bewerten"
+    }
+    `}
+  </script>
+</Head>
+
+
 
       <main className="max-w-2xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-2 text-center">Pferd analysieren lassen</h1>
