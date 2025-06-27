@@ -70,6 +70,8 @@ export default function BeispielAnalyse() {
     }
     `}
   </script>
+  <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
+
 </Head>
 
 

@@ -38,6 +38,8 @@ export default function Home() {
     }
     `}
   </script>
+  <link rel="canonical" href="https://pferdewert.de/" />
+
 </Head>
 
 
