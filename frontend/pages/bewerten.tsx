@@ -166,7 +166,7 @@ export default function Bewerten() {
   return (
     <>
       <Head>
-  <title>Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert</title>
+  <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
   <meta name="description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
 
   {/* Open Graph Tags */}
