@@ -5,10 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== Farbvariablen für Light/Dark Mode ===== */
+/* ===== Farb- und Font-Variablen ===== */
 :root {
+  --font-sans: 'Lato', Arial, Helvetica, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --background: #ffffff;
   --foreground: #171717;
+
+  --color-primary: #7c4dff;
+  --color-accent: #ffb74d;
+  --color-success: #4caf50;
+  --color-error: #f44336;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,70 +25,95 @@
   }
 }
 
-/* ===== Fonts als CSS-Variablen (optional, für Custom-Use) ===== */
-:root {
-  --font-sans: 'Lato', Arial, Helvetica, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-}
-
 /* ===== Global Styles ===== */
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+
+  h1 { font-size: clamp(2rem, 5vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+  h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+  h4 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+
+  button, .btn, strong, b {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  ul, ol {
+    padding-left: 1.25em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  blockquote {
+    font-style: italic;
+    color: #666;
+    border-left: 4px solid #eee;
+    margin: 1em 0;
+    padding-left: 1em;
+  }
 }
 
-/* Headlines: Playfair Display */
-h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 0;
+/* ===== Button Styles ===== */
+.btn-primary {
+  @apply px-4 py-2 rounded-full font-bold uppercase transition-colors;
+  background-color: var(--color-primary);
+  color: #fff;
 }
 
-/* Buttons und starke Hervorhebungen: Lato fett */
-button, .btn, strong, b {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+.btn-primary:hover {
+  background-color: #5e35b1;
 }
 
-/* Optional: Grundreset für Bilder und Links */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.btn-primary:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    background-color: #9c27b0;
+    color: #fff;
+  }
 }
 
-/* Optional: Ausrichtung von Listen, Blockquotes, usw. anpassen */
-ul, ol {
-  padding-left: 1.25em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-blockquote {
-  font-style: italic;
-  color: #666;
-  border-left: 4px solid #eee;
-  margin: 1em 0;
-  padding-left: 1em;
-}
-
-/* ===== Fix für Cookie-Banner-Position (zentriert) ===== */
-
+/* ===== Cookie-Banner Styles ===== */
 .cc-window {
   @apply max-w-[95vw] left-1/2 transform -translate-x-1/2 box-border text-sm shadow-xl rounded-xl;
+  background-color: #ffffff !important;
   transition: all 0.3s ease-in-out;
 }
 
@@ -95,7 +127,6 @@ blockquote {
   }
 }
 
-/* Feinschliff für sehr kleine Screens */
 @media (max-width: 480px) {
   .cc-window {
     position: fixed !important;
@@ -107,18 +138,16 @@ blockquote {
     transform: none !important;
     font-size: 0.85rem !important;
     padding: 1rem !important;
-    z-index: 10000 !important; /* falls nötig */
+    z-index: 10000 !important;
   }
 }
 
-/* Tablet bis Desktop – maximale Breite begrenzen */
 @media (min-width: 768px) {
   .cc-window {
     max-width: 600px !important;
   }
 }
 
-/* Dark-Mode Variante */
 @media (prefers-color-scheme: dark) {
   .cc-window {
     background-color: #1a1a1a !important;
