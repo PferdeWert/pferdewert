@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./frontend/pages/**/*.{js,ts,jsx,tsx}",
-    "./frontend/components/**/*.{js,ts,jsx,tsx}",
-    "./frontend/styles/**/*.{js,ts,jsx,tsx,css}",
-    "./frontend/app/**/*.{js,ts,jsx,tsx}",
-  ],
+  "./pages/**/*.{js,ts,jsx,tsx}",
+  "./components/**/*.{js,ts,jsx,tsx}",
+  "./styles/**/*.{js,ts,jsx,tsx,css}",
+  "./app/**/*.{js,ts,jsx,tsx}",
+],
+
   darkMode: 'media',
   theme: {
     extend: {
