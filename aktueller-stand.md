@@ -1,80 +1,71 @@
-Projektstatus: PferdeWert.de – Stand GoLive 26.06.2025
+**Projektstand PferdeWert (Stand: Juni 2025)**
 
-✨ Ziel
+---
 
-Online-Plattform zur anonymen, schnellen und professionellen Pferdebewertung mit Fokus auf UX, Conversion und Rechtssicherheit.
+### 🔧 Tech-Stack & Infrastruktur
 
-🔄 Infrastruktur
+* **Frontend:** Next.js (Pages Router)
+* **Styling:** Tailwind CSS
+* **Backend:** API-Routen in Next.js, Serverless Functions
+* **Datenhaltung:** Firestore (Firebase) für Bewertungen & Sessions
+* **Auth & Session Mgmt:** Session-ID via Stripe Metadata
+* **Deployment:** GitHub Codespaces + Vercel
+* **Domain:** [https://pferdewert.de](https://pferdewert.de) (live, produktiv)
+* **CI/CD:** GitHub + `main` Branch als Deploy-Ziel bei Vercel
+* **PDF-Export:** `@react-pdf/renderer`
+* **Markdown-Rendering:** `react-markdown`
 
-Frontend: Next.js (Vercel Deployment)
+---
 
-Backend: FastAPI auf Render.com (kein Stripe-Handling dort)
+### 💳 Zahlungsabwicklung mit Stripe
 
-Deployment: Vercel Production + Preview Umgebung
+* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet, Amazon Pay
+* **PayPal:** Noch nicht aktiv (Business-Konto erforderlich)
+* **Checkout:** Weiterleitung zu Stripe gehostetem Checkout
+* **Session-Verarbeitung:** `session_id` wird im Query empfangen, Validierung erfolgt über `GET /api/session`
+* **Zugriffsschutz:** Ergebnisseite nur nach erfolgreicher Zahlung sichtbar, sonst Weiterleitung zu `/bewerten`
 
-DNS:
+---
 
-pferdewert.de zeigt auf Vercel
+### 📈 SEO & Metadaten
 
-Weiterleitungen von pferde-wert.de, .com, .eu, .org, horse-value.com korrekt eingerichtet bei IONOS
+* **Alle Hauptseiten optimiert:**
 
-SSL via Vercel aktiv
+  * `index`, `bewerten`, `beispiel-analyse` ✓
+  * mit `<title>`, `<meta name="description">`, Open Graph, Twitter Cards, JSON-LD strukturiert
+  * `rel="canonical"` jeweils korrekt gesetzt
+* **Ergebnisseite:** `noindex, nofollow` via `<meta name="robots">`
+* **Sitemap & robots.txt:** Noch nicht vorhanden (Empfehlung: `next-sitemap`)
 
-💳 Stripe-Integration
+---
 
-Live-Modus aktiv (Stripe Dashboard)
+### 📊 Analytics & Tracking
 
-Produkt: "Pferdebewertung" für 4,90 EUR (einmalig)
+* **Google Analytics 4 (GA4)** integriert
+* **Eigene Zugriffe:** über `gtag('set', 'send_to', null)` lokal deaktivierbar
+* **Event-Tracking:** Conversion-Tracking bei Erfolg über `gtag('event', 'conversion')`
+* **Keine Nutzung von Google Tag Manager** (bewusst modular via `lib/analytics.ts`)
 
-STRIPE_SECRET_KEY, STRIPE_PRICE_ID, STRIPE_WEBHOOK_SECRET in Vercel Production gesetzt
+---
 
-Klarna aktiviert, wird bei korrektem Setup im Checkout angezeigt
+### 📝 Inhalt & Positionierung
 
-Webhook: /api/webhook.ts (Next.js API)
+* **Startseite:**
 
-Verifiziert checkout.session.completed
+  * Hero: USP-basiertes Value-Prop "Jetzt den Pferdewert & Preis online berechnen"
+  * Optimiert auf Keywords: "Pferdebewertung", "Pferdekauf", "Pferdeverkauf"
+* **Bewerten-Page:** Optimiert auf Conversion, klarer CTA zur Stripe-Weiterleitung
+* **Beispiel-Analyse:** Content-Rich mit Markdown-gestütztem Beispiel inkl. Preisspanne, Abstammung etc.
+* **Ergebnis-Page:**
 
-Holt Bewertung per session.id und aktualisiert MongoDB
+  * Dynamisch über Markdown
+  * PDF-Export der KI-Analyse möglich
+  * Nach Zahlung automatisch erreichbar
 
-🚀 Frontend
+---
 
-Startseite (/index.tsx): SEO-optimiert, starke H1, Bullet-Points, OG-Tags, responsiv
+### 🚀 Aktueller Fokus & Nächste Schritte
 
-Bewerten (/bewerten.tsx): Formular mit Validierung, rechtssicheren Checkboxen, Preisangabe, Weiterleitung zu Stripe
-
-Ergebnis (/ergebnis.tsx): Zeigt Ergebnis nach Zahlung
-
-Pages: /agb, /datenschutz, /impressum vorhanden und verlinkt
-
-PDF: Generierung nach Bewertung implementiert
-
-NEXT_PUBLIC_BASE_URL: getrennt für Production (https://pferdewert.de) & Preview gesetzt
-
-⚡ Rechtssicherheit
-
-Impressum, Datenschutz, AGB sauber eingebunden
-
-Checkboxen zur Einwilligung & Leistungserbringung nach §356 BGB korrekt umgesetzt
-
-Stripe als Zahlungsdienstleister in Datenschutz integriert (empfohlen noch prüfen)
-
-🌐 Domains & Weiterleitungen
-
-pferdewert.de ✔ Valid + HTTPS aktiv
-
-www.pferdewert.de ✔ Weiterleitung aktiv
-
-Weiterleitungen ✔ für: pferde-wert.de, .com, .eu, .org, horse-value.com
-
-Kein SSL-Zertifikat bei IONOS notwendig (Vercel regelt HTTPS)
-
-🔄 Nächste Schritte (empfohlen)
-
-Stripe Klarna-Darstellung in der Session-Config validieren (payment_method_types: ['card', 'klarna'])
-
-Google Search Console + Plausible / GA4 für Analytics einrichten
-
-Optional: Feedback-Loop / E-Mail-PDF Versand bei Zahlungserfolg
-
-Weiterentwicklung: Feature-Branches, Staging-Umgebung, lokale Tests → nur Test-Stripe Keys
-
+* **Indexierung über Google Search Console** initial angestoßen (manuell für alle relevanten Seiten)
+* **Nächster Schritt:** Setup von automatisierten End-to-End Tests (z. B. mit Playwright)
+* **Optional:** Sitemap + robots.txt einführen, Performance-Monitoring (Core Web Vitals), Google Tag Manager erwägen
