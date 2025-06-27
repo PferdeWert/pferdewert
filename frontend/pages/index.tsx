@@ -59,9 +59,11 @@ export default function Home() {
   <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 pt-20 pb-16 lg:flex-row lg:gap-20 lg:pb-32">
     {/* Text */}
     <div className="max-w-xl lg:flex-auto">
-      <h1 className="text-h1 font-serif font-bold text-brand">
-        Jetzt den Pferdewert berechnen – anonym & ohne Anmeldung.
-      </h1>
+      <h1 className="text-h1 font-serif font-bold text-brand leading-tight">
+  Jetzt Pferdewert berechnen<br />
+  <span className="text-brand-accent">ohne Anmeldung & direkt als PDF</span>
+</h1>
+
       <p className="mt-4 text-base leading-7 text-brand">
         Fundierte Marktwert-Analyse – schnell, objektiv & als PDF zum Download.
       </p>
