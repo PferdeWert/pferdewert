@@ -6,8 +6,7 @@ module.exports = {
     "./frontend/styles/**/*.{js,ts,jsx,tsx,css}",
     "./frontend/app/**/*.{js,ts,jsx,tsx}",
   ],
-    darkMode: 'media',
-
+  darkMode: 'media',
   theme: {
     extend: {
       fontFamily: {
@@ -42,4 +41,3 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/typography')],
 };
-
