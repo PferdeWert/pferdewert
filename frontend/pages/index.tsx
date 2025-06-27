@@ -6,20 +6,29 @@ export default function Home() {
   return (
     <>
      <Head>
-  <title>Pferdebewertung online – Pferdewert & Preis für Pferdekauf & Verkauf | PferdeWert</title>
-  <meta name="description" content="Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+  <title>Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert</title>
+  <meta
+    name="description"
+    content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. In 2 Minuten zur fundierten Analyse."
+  />
 
   {/* Open Graph */}
-  <meta property="og:title" content="Pferdebewertung online – Pferdewert & Preis für Pferdekauf & Verkauf | PferdeWert" />
-  <meta property="og:description" content="Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+  <meta property="og:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
+  <meta
+    property="og:description"
+    content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pferdewert.de/" />
   <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
 
   {/* Twitter Card */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pferdebewertung online – Pferdewert & Preis für Pferdekauf & Verkauf | PferdeWert" />
-  <meta name="twitter:description" content="Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf." />
+  <meta name="twitter:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
+  <meta
+    name="twitter:description"
+    content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf."
+  />
   <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
 
   {/* Strukturierte Daten */}
@@ -30,7 +39,7 @@ export default function Home() {
       "@type": "WebSite",
       "name": "PferdeWert",
       "url": "https://pferdewert.de/",
-      "description": "Jetzt den Pferdewert & Pferdepreis online berechnen – anonym, digital & KI-basiert. Ideal zur Vorbereitung auf Pferdekauf oder Pferdeverkauf.",
+      "description": "Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF.",
       "publisher": {
         "@type": "Organization",
         "name": "PferdeWert"
@@ -39,8 +48,8 @@ export default function Home() {
     `}
   </script>
   <link rel="canonical" href="https://pferdewert.de/" />
-
 </Head>
+
 
 
 
