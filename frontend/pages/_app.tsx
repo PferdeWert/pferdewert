@@ -39,12 +39,6 @@ export default function App({ Component, pageProps }: AppProps) {
           theme: "classic",
           position: "bottom",
           type: "opt-in",
-          elements: {
-            allow: "cc-btn cc-allow",
-            deny: "cc-btn cc-deny",
-            dismiss: "cc-btn cc-dismiss",
-            link: "cc-link",
-          },
           content: {
             message:
               "Wir verwenden Cookies, um die Nutzung dieser Website zu analysieren und unser Angebot zu verbessern. Sie entscheiden, welche Cookies Sie zulassen.",
