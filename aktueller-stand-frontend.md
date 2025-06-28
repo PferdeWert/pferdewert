@@ -1,47 +1,44 @@
-**Aktueller Projektstand PferdeWert.de (Stand: 28.06.2025)**
+**Aktueller Stand PferdeWert.de – Cookie Banner & Analytics (Stand: 28.06.2025)**
 
 ---
 
-**1. Frontend-Setup & Technologien:**
+### 🌐 Frontend
 
-* Framework: Next.js mit TypeScript
-* Styling: Tailwind CSS + Custom CSS in `globals.css`
-* Deployment: Vercel (Frontend), Render (Backend)
+#### ✅ CookieConsent-Integration (Osano)
 
-**2. Cookie Consent Integration:**
+* ✔ Cookie-Banner korrekt initialisiert über `window.cookieconsent.initialise`
+* ✔ Opt-in-Modus (DSGVO-konform)
+* ✔ Barrierefrei: `role="dialog"`, `aria-live="assertive"`
+* ✔ Farben & Texte CI-konform angepasst
+* ✔ Zentrale Steuerung über `_app.tsx`
 
-* Bibliothek: CookieConsent v3 von Osano
-* Script-Einbindung erfolgt über `beforeInteractive`
-* Initialisierung erfolgt per `useEffect` in `_app.tsx`
-* Consent-Logik korrekt implementiert (opt-in, mit Google Analytics Tracking)
-* Styling über `globals.css` an das Design angepasst
-* Aktueller Bugfix-Status: Buttons sichtbar, Styling korrekt, aber funktional noch nicht klickbar
+#### 🔹 Verbesserungen:
 
-**3. Bug-Analyse & Lösungsschritte:**
-
-* Ursache für nicht klickbare Buttons: `display: none` Inline-Style auf `.cc-window`
-* `elements`-Block entfernt, da nicht offiziell unterstützt (Version 3)
-* `onPopupOpen`-Workaround eingefügt, der `display: flex` erzwingt (jedoch nicht dauerhaft wirksam)
-* Neuaufbau des Initialisierungscodes nach Best Practices umgesetzt
-
-**4. Nächste Schritte:**
-
-* Finales Testing ob die Button-Funktionalität nun gegeben ist
-* Optional: Migration auf eine moderne Consent-Library (z.B. Klaro, Cookiebot) falls Problem nicht gelöst
-* SEO-relevante Daten wie Meta-Tags und strukturierte Daten (Schema.org) überprüfen
-* Google Analytics Funktion testen (nur bei Consent!)
-
-**5. Sonstige Optimierungen:**
-
-* Performance: Lighthouse & Core Web Vitals im Fokus
-* Mobile-First Design korrekt umgesetzt
-* Barrierefreiheit verbessert: `role="dialog"`, `aria-label` gesetzt
-
-**6. Git-Status:**
-
-* Branch `cookie-banner-optimierung` erfolgreich mit `main` gemerged
-* Änderungen auf GitHub gepusht und auf Vercel live
+* ✅ Verzicht auf `display: flex !important` – automatische Steuerung durch Library
+* ✅ Sanfter Fade-out über Tailwind (`opacity-0`, `transition-opacity`, `duration-200`)
+* ✅ Manuelles `popup.remove()` nach 200ms als Fallback
 
 ---
 
-Button funktioniert immer noch nicht.. auch nicht im inkognito.. da müssen wir jetzt debuggen..
+### 📈 Analytics & Consent Mode
+
+#### ✅ Status-Handling
+
+* ✔ Klick auf "Zustimmen"/"Ablehnen" wird korrekt erkannt
+* ✔ `gtag('consent','update',...)` wird bei Zustimmung korrekt ausgelöst
+
+#### ❌ Noch offen:
+
+* ⚠ Kein `gtag('consent','default',...)` vor Ladezeitpunkt von `gtag.js`
+* ⚠ Noch kein Consent Mode v2 (Google) implementiert
+* ⚠ Kein Debug via Google Tag Assistant aktiviert
+
+---
+
+### 🛠 Nächste Schritte (Empfehlung)
+
+* [ ] Consent Mode v2 einführen (ad\_user\_data, ad\_personalization)
+* [ ] `gtag('consent','default')` vor GTM/gtag laden
+* [ ] Cookie-Banner optional in eigene Komponente auslagern
+* [ ] Storybook-Integration für UX-Testbarkeit
+* [ ] Lighthouse-Check nach Deployment
