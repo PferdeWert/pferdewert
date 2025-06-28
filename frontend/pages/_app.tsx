@@ -46,11 +46,12 @@ export default function App({ Component, pageProps }: AppProps) {
                   });
                 }
 
-                // ✅ Fallback: manuelles Entfernen, falls Library nicht korrekt schließt
-                setTimeout(() => {
-                  const popup = document.querySelector(".cc-window");
-                  if (popup) popup.remove();
-                }, 500);
+                // ✨ Sanfter Fade-Out
+                const popup = document.querySelector(".cc-window") as HTMLElement;
+                if (popup) {
+                  popup.classList.add("opacity-0", "transition-opacity", "duration-200");
+                  setTimeout(() => popup.remove(), 200);
+                }
               },
             });
             console.log("🍪 CookieConsent initialisiert");
