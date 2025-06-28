@@ -31,36 +31,42 @@ export default function App({ Component, pageProps }: AppProps) {
 
       const runConsent = () => {
         window.cookieconsent.initialise({
-          palette: {
-            popup: { background: "#ffffff", text: "#000000" },
-            button: { background: "#007bff", text: "#ffffff" },
-          },
-          theme: "classic",
-          position: "bottom",
-          type: "opt-in",
-          content: {
-            message:
-              "Wir verwenden Cookies, um die Nutzung dieser Website zu analysieren und unser Angebot zu verbessern. Sie entscheiden, welche Cookies Sie zulassen.",
-            dismiss: "Nur essenzielle",
-            allow: "Alle akzeptieren",
-            deny: "Ablehnen",
-            link: "Datenschutzerklärung",
-            href: "/datenschutz",
-          },
-          onPopupOpen() {
-            const popup = document.querySelector(".cc-window");
-            if (popup) {
-              popup.setAttribute("role", "dialog");
-              popup.setAttribute("aria-label", "Cookie-Einstellungen");
-            }
-          },
-          onInitialise() {
-            if (this.hasConsented()) loadGtag();
-          },
-          onStatusChange() {
-            if (this.hasConsented()) loadGtag();
-          },
-        });
+  palette: {
+    popup: { background: "#ffffff", text: "#000000" },
+    button: { background: "#007bff", text: "#ffffff" },
+  },
+  theme: "classic",
+  position: "bottom",
+  type: "opt-in",
+  content: {
+    message:
+      "Wir verwenden Cookies, um die Nutzung dieser Website zu analysieren und unser Angebot zu verbessern. Sie entscheiden, welche Cookies Sie zulassen.",
+    dismiss: "Nur essenzielle",
+    allow: "Alle akzeptieren",
+    deny: "Ablehnen",
+    link: "Datenschutzerklärung",
+    href: "/datenschutz",
+  },
+  elements: {
+    allow: '<button class="cc-btn cc-allow">{allow}</button>',
+    deny: '<button class="cc-btn cc-deny">{deny}</button>',
+    dismiss: '<button class="cc-btn cc-deny">{dismiss}</button>',
+  },
+  onPopupOpen() {
+    const popup = document.querySelector(".cc-window");
+    if (popup) {
+      popup.setAttribute("role", "dialog");
+      popup.setAttribute("aria-label", "Cookie-Einstellungen");
+    }
+  },
+  onInitialise() {
+    if (this.hasConsented()) loadGtag();
+  },
+  onStatusChange() {
+    if (this.hasConsented()) loadGtag();
+  },
+});
+
       };
 
       const waitForCookieConsent = (callback: () => void) => {
