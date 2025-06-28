@@ -5,11 +5,8 @@ export default function Document() {
   return (
     <Html lang="de">
       <Head>
+        <link rel="stylesheet" href="/css/cookieconsent.min.css" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css?v=20250628"
-        />
       </Head>
       <body className="antialiased">
         <Main />
