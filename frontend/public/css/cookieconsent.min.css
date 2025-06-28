@@ -1,4 +1,6 @@
-/*! Cookie Consent v3.1.1 – angepasst für PferdeWert.de */
+/*!
+ * Cookie Consent v3.1.1 – angepasst für PferdeWert.de
+ */
 
 .cc-window {
   font-family: Roboto, sans-serif;
@@ -14,6 +16,8 @@
   max-width: 90%;
   margin: 0 auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  font-size: 1rem;
 }
 
 .cc-message {
@@ -44,13 +48,25 @@
   text-decoration: underline;
 }
 
+/* ===== Optimierung für kleinere Displays (Mobil) ===== */
+@media (max-width: 768px) {
+  .cc-window {
+    font-size: 0.9rem;
+    max-width: 95vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* ===== Optimierung für größere Displays (Desktop): Vollbreite unten ===== */
 @media (min-width: 768px) {
   .cc-window {
-    max-width: 460px;
-    bottom: 30px;
-    left: 30px;
-    right: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    max-width: none;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   }
 }
