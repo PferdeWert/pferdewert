@@ -35,13 +35,15 @@ export default function App({ Component, pageProps }: AppProps) {
                 }
               },
 onStatusChange(status: "allow" | "deny") {
-                if (this.hasConsented()) {
-                  window.gtag?.("consent", "update", {
-                    ad_storage: "granted",
-                    analytics_storage: "granted",
-                  });
-                }
-              },
+  console.log("Consent status changed:", status);
+  if (status === "allow") {
+    window.gtag?.("consent", "update", {
+      ad_storage: "granted",
+      analytics_storage: "granted",
+    });
+  }
+}
+
             });
           } else {
             console.warn("CookieConsent konnte nicht initialisiert werden.");
