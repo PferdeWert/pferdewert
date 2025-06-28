@@ -1,0 +1,9 @@
+/*!
+ * Cookie Consent v3.1.1
+ * https://github.com/osano/cookieconsent
+ */
+.cc-window{font-family:Roboto,sans-serif;position:fixed;z-index:9999;bottom:20px;right:20px;padding:20px;background:#232323;color:#fff;border-radius:5px;max-width:300px;box-shadow:0 0 15px rgba(0,0,0,.3)}
+.cc-window .cc-message{margin-bottom:1rem;font-size:14px;line-height:1.5}
+.cc-btn{display:inline-block;font-size:14px;margin:0 .25rem;text-decoration:none;color:#fff;background:#14a7d0;padding:.5rem 1rem;border-radius:3px;cursor:pointer}
+.cc-btn:hover{opacity:.9}
+.cc-link{color:#ffd42d;text-decoration:underline}
