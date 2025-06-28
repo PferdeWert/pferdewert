@@ -12,8 +12,10 @@ export default function App({ Component, pageProps }: AppProps) {
         src="/js/cookieconsent.min.js"
         strategy="afterInteractive"
         onLoad={() => {
-          if (typeof window !== "undefined" && window.cookieconsent) {
-            window.cookieconsent.initialise({
+          console.log("📥 CookieConsent Script geladen:", typeof window.cookieconsent);
+
+          if (typeof window.cookieconsent !== "undefined") {
+            const cc = window.cookieconsent.initialise({
               type: "opt-in",
               palette: {
                 popup: { background: "#ffffff", text: "#000000" },
@@ -33,20 +35,29 @@ export default function App({ Component, pageProps }: AppProps) {
                   popup.style.setProperty("display", "flex", "important");
                   popup.style.setProperty("pointer-events", "auto", "important");
                   popup.style.setProperty("z-index", "9999", "important");
+
+                  popup.setAttribute("role", "dialog");
+                  popup.setAttribute("aria-live", "assertive");
                 }
+                console.log("🍪 Popup geöffnet");
               },
-              onStatusChange(status: "allow" | "deny") {
-                console.log("Consent status changed:", status);
+              onStatusChange: (status: "allow" | "deny") => {
+                console.log("🍪 Status geändert:", status);
                 if (status === "allow") {
-                  window.gtag?.("consent", "update", {
-                    ad_storage: "granted",
-                    analytics_storage: "granted",
-                  });
+                  if (window.gtag) {
+                    window.gtag("consent", "update", {
+                      ad_storage: "granted",
+                      analytics_storage: "granted",
+                    });
+                  } else {
+                    console.warn("⚠️ gtag nicht verfügbar");
+                  }
                 }
               },
             });
+            console.log("🍪 CookieConsent initialisiert:", cc);
           } else {
-            console.warn("CookieConsent nicht geladen.");
+            console.error("❌ CookieConsent nicht gefunden");
           }
         }}
       />
