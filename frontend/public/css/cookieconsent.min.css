@@ -74,3 +74,12 @@
     text-align: center;
   }
 }
+.cc-btn.cc-allow {
+  background-color: #007bff; /* Blau – Primäraktion */
+  color: #fff;
+}
+
+.cc-btn.cc-deny {
+  background-color: #6c757d; /* Grau – Weniger auffällig */
+  color: #fff;
+}
