@@ -1,6 +1,6 @@
-/* Ergänzung in globals.css */
 /* frontend/styles/globals.css */
 
+/* ===== CookieConsent Styles ===== */
 .cc-deny, .cc-dismiss {
   background-color: #e0e0e0 !important;
   color: #000 !important;
