@@ -1,13 +1,13 @@
 // frontend/pages/_app.tsx
 import "@/styles/globals.css";
-import "/css/cookieconsent.min.css"; // ✅ CookieConsent CSS korrekt eingebunden
+import "/css/cookieconsent.min.css"; // ✅ CookieConsent CSS eingebunden
 import type { AppProps } from "next/app";
 import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* CookieConsent JavaScript */}
+      {/* ✅ CookieConsent JS wird nach Interaktivität geladen */}
       <Script
         src="/js/cookieconsent.min.js"
         strategy="afterInteractive"
@@ -50,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         }}
       />
+
       <Component {...pageProps} />
     </>
   );
