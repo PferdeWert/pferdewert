@@ -1,40 +1,50 @@
-/*!
- * Cookie Consent v3.1.1 – angepasst für PferdeWert.de
- */
+/*! Cookie Consent v3.1.1 – angepasst für PferdeWert.de */
 
+/* ========== Basis-Layout ========== */
 .cc-window {
   font-family: Roboto, sans-serif;
   position: fixed;
   z-index: 9999;
-  bottom: 20px;
-  left: 10px;
-  right: 10px;
-  padding: 16px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: #ffffff;
   color: #000000;
-  border-radius: 6px;
-  max-width: 90%;
-  margin: 0 auto;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  font-size: 1rem;
-}
-
-.cc-message {
-  margin-bottom: 1rem;
+  padding: 16px 24px;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   font-size: 14px;
-  line-height: 1.5;
 }
 
+/* ========== Inhalt ========== */
+.cc-message {
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cc-link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* ========== Button-Container ========== */
+.cc-compliance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ========== Buttons ========== */
 .cc-btn {
   display: inline-block;
   font-size: 14px;
-  margin: 0.25rem 0.25rem 0 0;
   text-decoration: none;
   color: #ffffff;
   background: #007bff;
   padding: 0.5rem 1rem;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -43,30 +53,24 @@
   opacity: 0.9;
 }
 
-.cc-link {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-/* ===== Optimierung für kleinere Displays (Mobil) ===== */
-@media (max-width: 768px) {
+/* ========== Desktop-Layout (Buttons rechts) ========== */
+@media (min-width: 768px) {
   .cc-window {
-    font-size: 0.9rem;
-    max-width: 95vw !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
   }
 }
 
-/* ===== Optimierung für größere Displays (Desktop): Vollbreite unten ===== */
-@media (min-width: 768px) {
-  .cc-window {
-    max-width: none;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    border-radius: 0;
-    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+/* ========== Mobile-Optimierung (gestapelte Buttons) ========== */
+@media (max-width: 767px) {
+  .cc-compliance {
+    flex-direction: column;
+  }
+
+  .cc-btn {
+    width: 100%;
+    text-align: center;
   }
 }
