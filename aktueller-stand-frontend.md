@@ -1,59 +1,47 @@
-Hier ist eine strukturierte Übersicht des aktuellen Frontend-Status von PferdeWert.de aus nächster Nähe:
+**Aktueller Projektstand PferdeWert.de (Stand: 28.06.2025)**
 
-🧩 1. CSS & Design-Grundlage
-Tailwind Config:
+---
 
-Klassische Ordnerstruktur (pages, components, styles, app) ist korrekt eingebunden.
+**1. Frontend-Setup & Technologien:**
 
-Angepasste Farbpalette, Schriftarten und responsive Font-Sizes (via clamp(...)).
+* Framework: Next.js mit TypeScript
+* Styling: Tailwind CSS + Custom CSS in `globals.css`
+* Deployment: Vercel (Frontend), Render (Backend)
 
-darkMode: 'media' aktiviert das automatische Umschalten via Systempräferenz.
+**2. Cookie Consent Integration:**
 
-globals.css:
+* Bibliothek: CookieConsent v3 von Osano
+* Script-Einbindung erfolgt über `beforeInteractive`
+* Initialisierung erfolgt per `useEffect` in `_app.tsx`
+* Consent-Logik korrekt implementiert (opt-in, mit Google Analytics Tracking)
+* Styling über `globals.css` an das Design angepasst
+* Aktueller Bugfix-Status: Buttons sichtbar, Styling korrekt, aber funktional noch nicht klickbar
 
-Einheitliches Setup mit Tailwind-Imports (base, components, utilities).
+**3. Bug-Analyse & Lösungsschritte:**
 
-Farben und Fonts zentral über CSS-Variablen gesteuert.
+* Ursache für nicht klickbare Buttons: `display: none` Inline-Style auf `.cc-window`
+* `elements`-Block entfernt, da nicht offiziell unterstützt (Version 3)
+* `onPopupOpen`-Workaround eingefügt, der `display: flex` erzwingt (jedoch nicht dauerhaft wirksam)
+* Neuaufbau des Initialisierungscodes nach Best Practices umgesetzt
 
-Globaler Reset und typografische Standards im @layer base.
+**4. Nächste Schritte:**
 
-Button-Styles (inkl. Focus-State / Accessibility) und Dark-Mode-Anpassungen durchgeführt.
+* Finales Testing ob die Button-Funktionalität nun gegeben ist
+* Optional: Migration auf eine moderne Consent-Library (z.B. Klaro, Cookiebot) falls Problem nicht gelöst
+* SEO-relevante Daten wie Meta-Tags und strukturierte Daten (Schema.org) überprüfen
+* Google Analytics Funktion testen (nur bei Consent!)
 
-Cookie-Banner: responsive, zentriert, mit Dark/Light-Mode-Styling, inklusive !important-Overrides.
+**5. Sonstige Optimierungen:**
 
-✅ 2. UX & Barrierefreiheit
-Responsive Headlines: h1–h4 skalieren via clamp, ideal für verschiedene Viewports.
+* Performance: Lighthouse & Core Web Vitals im Fokus
+* Mobile-First Design korrekt umgesetzt
+* Barrierefreiheit verbessert: `role="dialog"`, `aria-label` gesetzt
 
-A11y Checks:
+**6. Git-Status:**
 
-Button-Focus-Ring vorhanden (.btn-primary:focus).
+* Branch `cookie-banner-optimierung` erfolgreich mit `main` gemerged
+* Änderungen auf GitHub gepusht und auf Vercel live
 
-Hover-Effekte für Links sorgen für bessere Interaktionswahrnehmung.
+---
 
-Dark Mode Integration durch CSS-Variablen sauber umgesetzt.
-
-🧠 3. Performance & SEO
-@layer base: sorgt dafür, dass Tailwind nicht jedes Mal die Basisstile neu erstellt – gut fürs Bundle & Laden.
-
-Klare Struktur mittels Utility-first-Ansatz – CSS bleibt schlank und wartbar.
-
-🎯 4. Nächste To‑Dos / Quick Scans
-Bereich	Status
-✅ Tailwind Import & Global Styles	Fertig & getestet
-⚠️ Deployment & Vercel-Build	Bisher manuell geprüft – automatischer Build noch offen
-🔍 _document.tsx & Font-Imports	Noch zu prüfen (Google Fonts, Preload etc.)
-📚 Component-Design	Über bestehenden Styles hinaus ggf. spezifische Komponenten-Styles nötig
-🧪 Testing	Manuelles QA notwendig (Mobile, Dark/Light, Fokus etc.)
-🔄 Portuguese Changes?	Noch abzustimmen, falls weitere Feature-Branches bestehen
-
-🔜 5. Empfohlene nächste Schritte
-Build in QA-Umgebung durchlaufen lassen (z. B. vercel dev).
-
-Komponentenvisuell prüfen – reagieren Buttons, Banner, Überschriften korrekt?
-
-Fonts & <Head> in _document.tsx gegenchecken – Geschwindigkeit, Preload, SEO-Metadaten.
-
-Responsives & A11y Testing – mobile Darstellung, Focus-Styling, Kontrastwerte.
-
-🧭 Fazit
-Das Frontend ist nun strukturell sauber, performant und UX-affin aufgesetzt. Die globale Basis ist technisch ausgereift – der Fokus liegt jetzt darauf, alle Komponenten darauf aufzubauen und final auf unterschiedlichen Geräten & Umgebungen durchzutesten. Sag Bescheid, welche Stelle du als nächstes angehen möchtest – z. B. _app.tsx, _document.tsx, einzelne Komponenten oder auch das Deployment auf Vercel.
+Button funktioniert immer noch nicht.. auch nicht im inkognito.. da müssen wir jetzt debuggen..
