@@ -1,12 +1,13 @@
 // frontend/pages/_app.tsx
 import "@/styles/globals.css";
+import "/css/cookieconsent.min.css"; // ✅ CookieConsent CSS korrekt eingebunden
 import type { AppProps } from "next/app";
 import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* CookieConsent Script wird erst geladen, wenn der Browser bereit ist */}
+      {/* CookieConsent JavaScript */}
       <Script
         src="/js/cookieconsent.min.js"
         strategy="afterInteractive"
@@ -34,23 +35,21 @@ export default function App({ Component, pageProps }: AppProps) {
                   popup.style.setProperty("z-index", "9999", "important");
                 }
               },
-onStatusChange(status: "allow" | "deny") {
-  console.log("Consent status changed:", status);
-  if (status === "allow") {
-    window.gtag?.("consent", "update", {
-      ad_storage: "granted",
-      analytics_storage: "granted",
-    });
-  }
-}
-
+              onStatusChange(status: "allow" | "deny") {
+                console.log("Consent status changed:", status);
+                if (status === "allow") {
+                  window.gtag?.("consent", "update", {
+                    ad_storage: "granted",
+                    analytics_storage: "granted",
+                  });
+                }
+              },
             });
           } else {
-            console.warn("CookieConsent konnte nicht initialisiert werden.");
+            console.warn("CookieConsent nicht geladen.");
           }
         }}
       />
-
       <Component {...pageProps} />
     </>
   );
