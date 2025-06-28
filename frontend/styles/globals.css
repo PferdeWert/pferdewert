@@ -1,78 +1,52 @@
-/* ===== Tailwind CSS Import ===== */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Ergänzung in globals.css */
+/* frontend/styles/globals.css */
 
-/* ===== Farbvariablen für Light/Dark Mode ===== */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.cc-deny, .cc-dismiss {
+  background-color: #e0e0e0 !important;
+  color: #000 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.cc-btn {
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.cc-btn:hover {
+  filter: brightness(0.95);
+}
+
+.cc-link {
+  font-size: 0.85em;
+  text-decoration: underline;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.cc-link:hover {
+  color: #000;
+}
+
+.cc-window.cc-floating {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.cc-window {
+  max-width: 95vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-sizing: border-box;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .cc-window {
+    font-size: 0.9rem;
   }
 }
 
-/* ===== Fonts als CSS-Variablen (optional, für Custom-Use) ===== */
-:root {
-  --font-sans: 'Lato', Arial, Helvetica, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-}
-
-/* ===== Global Styles ===== */
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-/* Headlines: Playfair Display */
-h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 0;
-}
-
-/* Buttons und starke Hervorhebungen: Lato fett */
-button, .btn, strong, b {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-/* Optional: Grundreset für Bilder und Links */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Optional: Ausrichtung von Listen, Blockquotes, usw. anpassen */
-ul, ol {
-  padding-left: 1.25em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-blockquote {
-  font-style: italic;
-  color: #666;
-  border-left: 4px solid #eee;
-  margin: 1em 0;
-  padding-left: 1em;
-}  
-/* Hinweis: Styling für .cc-window etc. bitte ausschließlich in /css/cookieconsent.min.css pflegen – nicht hier! */
+/* Hinweis: Diese Cookie-Banner-Stile bewusst in globals.css gepflegt – nicht in der externen cookieconsent.min.css! */
