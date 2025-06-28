@@ -1,5 +1,5 @@
 /*! Cookie Consent v3.1.1 – angepasst für PferdeWert.de */
-/*cookieconsent.min.css
+
 /* ========== Basis-Layout ========== */
 .cc-window {
   font-family: Roboto, sans-serif;
@@ -74,12 +74,14 @@
     text-align: center;
   }
 }
+
+/* ========== Spezifische Button-Farben ========== */
 .cc-btn.cc-allow {
   background-color: #007bff; /* Blau – Primäraktion */
   color: #fff;
 }
 
 .cc-btn.cc-deny {
-  background-color: #6c757d; /* Grau – Weniger auffällig */
+  background-color: #6c757d; /* Grau – Sekundäraktion */
   color: #fff;
 }
