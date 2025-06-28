@@ -1,3 +1,4 @@
+// frontend/pages/_app.tsx
 import "@/styles/globals.css";
 import "@/styles/cookieconsent.min.css";
 import type { AppProps } from "next/app";
@@ -37,6 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
               },
               onStatusChange(status: "allow" | "deny") {
                 console.log("🍪 Status geändert:", status);
+
                 if (status === "allow") {
                   window.gtag?.("consent", "update", {
                     ad_storage: "granted",
@@ -44,12 +46,10 @@ export default function App({ Component, pageProps }: AppProps) {
                   });
                 }
 
-                // Optional: Manuelles Entfernen, falls nötig
+                // ✅ Fallback: manuelles Entfernen, falls Library nicht korrekt schließt
                 setTimeout(() => {
                   const popup = document.querySelector(".cc-window");
-                  if (popup && popup.classList.contains("cc-invisible") === false) {
-                    popup.remove();
-                  }
+                  if (popup) popup.remove();
                 }, 500);
               },
             });
