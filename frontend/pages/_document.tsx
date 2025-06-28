@@ -7,9 +7,9 @@ export default function Document() {
       <Head>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
         <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-        />
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"
+/>
       </Head>
       <body className="antialiased">
         <Main />
