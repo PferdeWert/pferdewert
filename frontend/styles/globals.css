@@ -78,7 +78,7 @@ blockquote {
   padding-left: 1em;
 }
 
-/* ===== CookieConsent Styles – optimiert ===== */
+/* ===== CookieConsent Styles – optimiert und funktionssicher ===== */
 .cc-window {
   display: flex !important;
   flex-direction: column;
@@ -94,6 +94,9 @@ blockquote {
   border-radius: 8px;
   padding: 1.25em 1.5em;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: fixed !important;
+  bottom: 1.5em !important;
+  z-index: 9999 !important;
 }
 
 .cc-btn {
@@ -103,6 +106,8 @@ blockquote {
   font-size: 0.9rem;
   transition: all 0.2s ease;
   cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
 
 .cc-btn + .cc-btn {
@@ -149,7 +154,6 @@ blockquote {
   }
 
   .cc-btn {
-    display: block;
     width: 100%;
     margin: 0.3em 0;
   }
