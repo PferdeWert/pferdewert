@@ -1,34 +1,65 @@
-// frontend/pages/_document.tsx
-import { Html, Head, Main, NextScript } from "next/document";
+// frontend/pages/_app.tsx
+import "@/styles/globals.css";
+import "@/styles/cookieconsent.min.css";
+import type { AppProps } from "next/app";
+import Script from "next/script";
 
-export default function Document() {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Html lang="de">
-      <Head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
-      <body className="antialiased">
-        <noscript>
-          <div
-            role="alert"
-            aria-live="assertive"
-            style={{
-              background: "#fff",
-              color: "#000",
-              padding: "1rem",
-              textAlign: "center",
-              fontSize: "14px",
-              fontFamily: "sans-serif",
-              zIndex: 9999,
-            }}
-          >
-            Diese Website benötigt JavaScript für die Cookie-Einstellungen. Bitte aktivieren Sie JavaScript in Ihrem Browser.
-          </div>
-        </noscript>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
+    <>
+      <Script
+        src="/js/cookieconsent.min.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.log("📥 CookieConsent Script geladen:", typeof window.cookieconsent);
+
+          if (window.cookieconsent) {
+            window.cookieconsent.initialise({
+              type: "opt-in",
+              palette: {
+                popup: { background: "#ffffff", text: "#000000" },
+                button: { background: "#0a74da", text: "#ffffff" },
+              },
+              theme: "classic",
+              content: {
+                message: "Wir verwenden Cookies für eine bessere Nutzererfahrung.",
+                allow: "Zustimmen",
+                deny: "Ablehnen",
+                link: "Mehr erfahren",
+                href: "/datenschutz",
+              },
+              onPopupOpen: () => {
+                const popup = document.querySelector(".cc-window") as HTMLElement;
+                if (popup) {
+                  popup.setAttribute("role", "dialog");
+                  popup.setAttribute("aria-live", "assertive");
+                }
+                console.log("🍪 Popup geöffnet");
+              },
+              onStatusChange(status: "allow" | "deny") {
+                console.log("🍪 Status geändert:", status);
+
+                if (status === "allow") {
+                  window.gtag?.("consent", "update", {
+                    ad_storage: "granted",
+                    analytics_storage: "granted",
+                  });
+                }
+
+                // ✅ Fallback: manuelles Entfernen, falls Library nicht korrekt schließt
+                setTimeout(() => {
+                  const popup = document.querySelector(".cc-window");
+                  if (popup) popup.remove();
+                }, 500);
+              },
+            });
+            console.log("🍪 CookieConsent initialisiert");
+          } else {
+            console.error("❌ CookieConsent nicht gefunden");
+          }
+        }}
+      />
+      <Component {...pageProps} />
+    </>
   );
 }
