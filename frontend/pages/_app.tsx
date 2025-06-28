@@ -51,9 +51,9 @@ export default function App({ Component, pageProps }: AppProps) {
           onPopupOpen() {
             const popup = document.querySelector(".cc-window");
             if (popup) {
+              (popup as HTMLElement).style.display = "flex"; // ← Typensicher
               popup.setAttribute("role", "dialog");
               popup.setAttribute("aria-label", "Cookie-Einstellungen");
-              popup.style.display = "flex"; // 💡 Sichtbarkeit sicherstellen
             }
           },
           onInitialise() {
@@ -87,7 +87,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script
         id="cookieconsent-script"
         src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <Component {...pageProps} />
       <Footer />
