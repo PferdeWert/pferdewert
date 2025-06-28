@@ -91,10 +91,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        src="/js/cookieconsent.min.js"
-      />
+     <Script
+  strategy="afterInteractive"
+  src="/js/cookieconsent.min.js?v=20250628"
+/>
+
       <Component {...pageProps} />
       <Footer />
     </>
