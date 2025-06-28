@@ -123,14 +123,14 @@ blockquote {
   outline-offset: 2px;
 }
 
-.cc-allow {
+.cc-btn.cc-allow {
   background-color: #007bff !important;
   color: #fff !important;
   border: none;
 }
 
-.cc-deny,
-.cc-dismiss {
+.cc-btn.cc-deny,
+.cc-btn.cc-dismiss {
   background-color: #f0f0f0 !important;
   color: #333 !important;
   border: none;
