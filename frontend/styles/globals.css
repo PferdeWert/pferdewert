@@ -74,26 +74,4 @@ blockquote {
   border-left: 4px solid #eee;
   margin: 1em 0;
   padding-left: 1em;
-}
-
-/* ===== Fix für Cookie-Banner-Position (zentriert) ===== */
-.cc-window.cc-floating {
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-/* Cookie-Banner Mobil-Optimierung */
-.cc-window {
-  max-width: 95vw !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  box-sizing: border-box;
-  font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-  .cc-window {
-    font-size: 0.9rem;
-  }
-}
+}  
