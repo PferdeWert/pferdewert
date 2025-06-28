@@ -86,8 +86,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script
   id="cookieconsent-script"
   src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-  strategy="beforeInteractive"
+  strategy="afterInteractive"
 />
+
       <Component {...pageProps} />
       <Footer />
     </>
