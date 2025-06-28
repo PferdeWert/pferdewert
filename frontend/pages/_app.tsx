@@ -47,11 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
     link: "Datenschutzerklärung",
     href: "/datenschutz",
   },
-  elements: {
-    allow: '<button class="cc-btn cc-allow">{allow}</button>',
-    deny: '<button class="cc-btn cc-deny">{deny}</button>',
-    dismiss: '<button class="cc-btn cc-deny">{dismiss}</button>',
-  },
+  
   onPopupOpen() {
     const popup = document.querySelector(".cc-window");
     if (popup) {
