@@ -1,10 +1,9 @@
 // frontend/components/Layout.tsx
 
 import React from "react";
+import Header from "./Header";
 import Footer from "./Footer";
 
-// Layout-Komponente für konsistente Seitenstruktur
-// Nutzt optional Footer (showFooter kann z. B. bei PDF-Ansicht deaktiviert werden)
 type LayoutProps = {
   children: React.ReactNode;
   showFooter?: boolean;
@@ -13,6 +12,7 @@ type LayoutProps = {
 export default function Layout({ children, showFooter = true }: LayoutProps) {
   return (
     <>
+      <Header />
       <main>{children}</main>
       {showFooter && <Footer />}
     </>
