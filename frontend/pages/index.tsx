@@ -62,62 +62,29 @@ export default function Home() {
         <link rel="canonical" href="https://pferdewert.de/" />
       </Head>
 
-      <main className="min-h-screen bg-white px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Was ist dein Pferd wirklich wert?
-          </h1>
-          <p className="mt-4 text-lg text-gray-600">
-            Du willst ein Pferd kaufen oder verkaufen oder einfach nur wissen was dein Pferd aktuell wert ist? Jetzt Analyse starten und objektiven Marktwert deines Pferdes erhalten – fundiert, anonym & datenbasiert.
-          </p>
-
-          <div className="mt-8">
-            <Image
-              src="/images/hero.webp"
-              alt="Symbolbild Pferdeanalyse"
-              width={800}
-              height={400}
-              className="rounded-xl mx-auto shadow-md"
-              priority
-            />
-          </div>
-
-          <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-xl mt-6 shadow-md">
-            <p className="text-lg font-semibold text-gray-800">
-              💥 Schnell sein lohnt sich: Nur <span className="text-red-600 font-bold text-xl">4,90 €</span>
-              <span className="line-through text-gray-500 text-sm ml-2">statt 39 €</span> – für die ersten 100 Bewertungen!
-            </p>
-            <p className="text-sm text-gray-600 mt-1">Keine versteckten Kosten • Kein Abo • Direkt online starten</p>
-          </div>
-
-          <Link href="/bewerten" className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700">
-            Jetzt für nur 4,90 € bewerten lassen
+      {/* Hero-Bereich mit Bild-Hintergrund */}
+      <section className="relative bg-gray-900 text-white h-[75vh] flex items-center justify-center text-center px-4">
+        <Image
+          src="/images/hero.webp"
+          alt="Pferd vor schwarzem Hintergrund"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          priority
+          className="z-0 brightness-50"
+        />
+        <div className="relative z-10 max-w-2xl">
+          <h1 className="text-3xl sm:text-4xl font-bold">Was ist dein Pferd wirklich wert?</h1>
+          <p className="mt-4 text-lg">Jetzt Analyse starten – schnell, anonym & professionell</p>
+          <Link href="/bewerten" className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700">
+            Für 4,90 € bewerten lassen
           </Link>
-
-          <p className="text-xs text-gray-500 mt-2">
-            Aktion gültig für die ersten 100 Analysen – danach regulärer Preis von 39 €.
-          </p>
-
-          <p className="mt-6 text-sm text-gray-700 italic">Von Reitern für Reiter entwickelt • DSGVO-konform • SSL-verschlüsselt</p>
-
-          <div className="mt-16">
-            <Image
-              src="/images/result.webp"
-              alt="Beispiel-Ergebnis einer Bewertung"
-              width={800}
-              height={500}
-              className="rounded-lg mx-auto shadow"
-            />
-            <Link href="/beispiel-analyse" className="mt-6 inline-block bg-blue-50 text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-100">
-              Beispiel-Ergebnis deiner Analyse ansehen
-            </Link>
-          </div>
-
-          <Link href="/bewerten" className="mt-8 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700">
-            Jetzt eigene Analyse starten
-          </Link>
+          <p className="mt-2 text-sm text-white/80">Von Reitern für Reiter entwickelt</p>
         </div>
+      </section>
 
+      {/* Weiterer Seiteninhalt bleibt unverändert erhalten */}
+      <main className="bg-white px-4 py-6 sm:px-6 lg:px-8">
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="text-center text-2xl sm:text-3xl font-serif text-gray-900 font-bold">Häufige Fragen</h2>
@@ -140,6 +107,14 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <footer className="bg-gray-100 text-center py-6 text-sm text-gray-600">
+        <div className="space-x-4">
+          <Link href="/impressum" className="hover:underline">Impressum</Link>
+          <Link href="/datenschutz" className="hover:underline">Datenschutz</Link>
+        </div>
+        <p className="mt-2">© {new Date().getFullYear()} PferdeWert</p>
+      </footer>
     </>
   );
 }
