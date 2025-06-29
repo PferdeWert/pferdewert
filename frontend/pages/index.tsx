@@ -68,12 +68,27 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Was ist dein Pferd wirklich wert?</h1>
           <p className="mt-4 text-lg text-gray-700">Jetzt Analyse starten – schnell, anonym & professionell</p>
+
+          {/* Preisbanner */}
+          <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-xl mt-6 shadow-md">
+            <p className="text-lg font-semibold text-gray-800">
+              💥 Schnell sein lohnt sich: Nur <span className="text-red-600 font-bold text-xl">4,90 €</span>
+              <span className="line-through text-gray-500 text-sm ml-2">statt 39 €</span> – für die ersten 100 Bewertungen!
+            </p>
+            <p className="text-sm text-gray-600 mt-1">Keine versteckten Kosten • Einmalzahlung • Direkt online starten</p>
+          </div>
+
           <Link
             href="/bewerten"
-            className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition"
+            className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition"
           >
-            Für 4,90 € bewerten lassen
+            Jetzt für nur 4,90 € bewerten lassen
           </Link>
+
+          <p className="text-xs text-gray-500 mt-2">
+            Aktion gültig für die ersten 100 Analysen – danach regulärer Preis von 39 €.
+          </p>
+
           <p className="mt-2 text-sm text-gray-600">Von Reitern für Reiter entwickelt</p>
         </div>
         <div className="mt-10">
