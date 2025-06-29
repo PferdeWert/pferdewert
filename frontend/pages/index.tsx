@@ -1,5 +1,6 @@
 // frontend/pages/index.tsx
 import Head from "next/head";
+import Layout from "@/components/Layout"; // Footer via Layout integriert
 import Link from "next/link";
 import Image from "next/image";
 
@@ -28,7 +29,7 @@ export default function Home() {
   ];
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert</title>
         <meta
@@ -152,18 +153,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-gray-100 text-center py-6 text-xs text-gray-600">
-        <div className="space-x-4">
-          <Link href="/impressum" className="hover:underline">
-            Impressum
-          </Link>
-          <Link href="/datenschutz" className="hover:underline">
-            Datenschutz
-          </Link>
-        </div>
-        <p className="mt-2">© {new Date().getFullYear()} PferdeWert</p>
-      </footer>
-    </>
+    </Layout>
   );
 }
