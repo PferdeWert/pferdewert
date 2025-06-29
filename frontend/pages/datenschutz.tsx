@@ -1,8 +1,11 @@
 // frontend/pages/datenschutz.tsx
 import Head from "next/head";
+import Layout from "@/components/Layout"; // Footer via Layout integriert
+
 
 export default function Datenschutz() {
   return (
+    <Layout>
     <main className="prose mx-auto p-8">
       <Head>
         <title>Datenschutz | PferdeWert</title>
@@ -42,5 +45,6 @@ export default function Datenschutz() {
         ohne Ihre Einwilligung weiter.
       </p>
     </main>
+    </Layout>
   );
 }

@@ -1,7 +1,10 @@
 // pages/agb.tsx
 
+import Layout from "@/components/Layout"; // Footer via Layout integriert
+
 export default function AGB() {
   return (
+    <Layout>
     <main className="mx-auto max-w-xl p-6">
       <h1 className="mb-4 text-2xl font-bold">Allgemeine Geschäftsbedingungen (AGB)</h1>
 
@@ -46,5 +49,6 @@ export default function AGB() {
         Die Inhalte der Analyse beruhen auf Algorithmen und externen Datenquellen. Eine Gewähr für deren Richtigkeit, Vollständigkeit oder Eignung für einen bestimmten Zweck wird nicht übernommen. Die Nutzung erfolgt auf eigenes Risiko.
       </p>
     </main>
+    </Layout>
   );
 }

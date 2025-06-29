@@ -1,7 +1,10 @@
 // pages/impressum.tsx
 
+import Layout from "@/components/Layout"; // Footer via Layout integriert
+
 export default function Impressum() {
   return (
+    <Layout>
     <main className="mx-auto max-w-xl p-6">
       <h1 className="mb-4 text-2xl font-bold">Impressum</h1>
 
@@ -41,5 +44,6 @@ export default function Impressum() {
         Inhaltlich verantwortlich gemäß § 55 Abs. 2 RStV: Sabine und Benjamin Reder
       </p>
     </main>
+    </Layout>
   );
 }
