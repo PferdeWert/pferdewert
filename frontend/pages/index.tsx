@@ -33,7 +33,7 @@ export default function Home() {
         <title>Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert</title>
         <meta
           name="description"
-          content="Lass dein Pferd jetzt professionell bewerten – schnell, anonym & datenbasiert. Nur für kurze Zeit: Analyse für 4,90 € statt 39 €!"
+          content="Nur für kurze Zeit: Pferdebewertung für 4,90 € statt 39 € auf PferdeWert.de"
         />
         <meta property="og:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
         <meta property="og:description" content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf." />
@@ -44,9 +44,10 @@ export default function Home() {
         <meta name="twitter:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
         <meta name="twitter:description" content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf." />
         <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
-        <script type="application/ld+json">
-          {`
-            {
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "PferdeWert",
@@ -56,14 +57,14 @@ export default function Home() {
                 "@type": "Organization",
                 "name": "PferdeWert"
               }
-            }
-          `}
-        </script>
+            })
+          }}
+        />
         <link rel="canonical" href="https://pferdewert.de/" />
       </Head>
 
       {/* Hero-Bereich mit Bild-Hintergrund */}
-      <section className="relative bg-gray-900 text-white h-[75vh] flex items-center justify-center text-center px-4">
+      <section className="relative bg-gray-900 text-white min-h-[75vh] flex items-center justify-center text-center px-4 overflow-hidden">
         <Image
           src="/images/hero.webp"
           alt="Pferd vor schwarzem Hintergrund"
@@ -73,15 +74,15 @@ export default function Home() {
           className="z-0 brightness-50"
         />
         <div className="relative z-10 max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl font-bold">Was ist dein Pferd wirklich wert?</h1>
-          <p className="mt-4 text-lg">Jetzt Analyse starten – schnell, anonym & professionell</p>
+          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Was ist dein Pferd wirklich wert?</h1>
+          <p className="mt-4 text-lg sm:text-xl">Jetzt Analyse starten – schnell, anonym & professionell</p>
           <Link
             href="/bewerten"
             className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700"
           >
             Für 4,90 € bewerten lassen
           </Link>
-          <p className="mt-2 text-sm text-white/80">Von Reitern für Reiter entwickelt</p>
+          <p className="mt-3 text-sm text-white/80">Von Reitern für Reiter entwickelt</p>
         </div>
       </section>
 
