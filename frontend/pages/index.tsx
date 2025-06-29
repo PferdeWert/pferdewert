@@ -63,30 +63,54 @@ export default function Home() {
         <link rel="canonical" href="https://pferdewert.de/" />
       </Head>
 
-      {/* Hero-Bereich mit leichtem Overlay und höherem Fokuspunkt */}
-      <section className="relative bg-gray-900 text-white min-h-[65vh] flex items-start justify-center text-center px-4 pt-20 overflow-hidden">
-        <Image
-          src="/images/hero.webp"
-          alt="Pferd vor schwarzem Hintergrund"
-          fill
-          priority
-          className="object-cover object-center brightness-50 z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent z-0" />
-        <div className="relative z-10 max-w-2xl">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Was ist dein Pferd wirklich wert?</h1>
-          <p className="mt-4 text-lg sm:text-xl">Jetzt Analyse starten – schnell, anonym & professionell</p>
+      {/* Hero-Bereich */}
+      <section className="bg-white text-center py-16 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Was ist dein Pferd wirklich wert?</h1>
+          <p className="mt-4 text-lg text-gray-700">Jetzt Analyse starten – schnell, anonym & professionell</p>
           <Link
             href="/bewerten"
-            className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700"
+            className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition"
           >
             Für 4,90 € bewerten lassen
           </Link>
-          <p className="mt-3 text-sm text-white/80">Von Reitern für Reiter entwickelt</p>
+          <p className="mt-2 text-sm text-gray-600">Von Reitern für Reiter entwickelt</p>
+        </div>
+        <div className="mt-10">
+          <Image
+            src="/images/hero.webp"
+            width={800}
+            height={500}
+            alt="Pferd als Symbolbild für Bewertung"
+            className="rounded-xl mx-auto shadow-md"
+          />
         </div>
       </section>
 
-      {/* Weiterer Seiteninhalt bleibt unverändert erhalten */}
+      {/* Beispiel-Ergebnis Sektion */}
+      <section className="bg-yellow-50 py-16 px-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Beispiel-Ergebnis deiner Analyse</h2>
+          <p className="mb-6 text-gray-700">So könnte dein Analyse-PDF aussehen – fundiert, strukturiert & professionell aufbereitet.</p>
+          <Image
+            src="/images/beispiel-ergebnis.webp"
+            width={800}
+            height={500}
+            alt="Beispiel einer Pferdewert-Analyse"
+            className="rounded-lg shadow-md mx-auto"
+          />
+          <div className="mt-6">
+            <Link
+              href="/beispiel"
+              className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-800"
+            >
+              Beispiel ansehen
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Sektion */}
       <main className="bg-white px-4 py-6 sm:px-6 lg:px-8">
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-5xl px-6">
