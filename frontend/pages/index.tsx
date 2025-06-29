@@ -66,8 +66,8 @@ export default function Home() {
       {/* Hero-Bereich */}
       <section className="bg-white text-center py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Was ist dein Pferd wirklich wert?</h1>
-          <p className="mt-4 text-lg text-gray-700">Jetzt Analyse starten – schnell, anonym & professionell</p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-blue-900">Was ist dein Pferd wirklich wert?</h1>
+          <p className="mt-4 text-lg text-gray-600 max-w-md mx-auto">Jetzt Analyse starten – schnell, anonym & professionell</p>
 
           {/* Preisbanner */}
           <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-xl mt-6 shadow-md">
@@ -80,7 +80,7 @@ export default function Home() {
 
           <Link
             href="/bewerten"
-            className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition"
+            className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition-colors"
           >
             Jetzt für nur 4,90 € bewerten lassen
           </Link>
@@ -103,7 +103,7 @@ export default function Home() {
       </section>
 
       {/* Beispiel-Ergebnis Sektion */}
-      <section className="bg-yellow-50 py-16 px-6 text-center">
+      <section className="bg-[#fefaf1] py-20 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Beispiel-Ergebnis deiner Analyse</h2>
           <p className="mb-6 text-gray-700">So könnte dein Analyse-PDF aussehen – fundiert, strukturiert & professionell aufbereitet.</p>
@@ -127,7 +127,7 @@ export default function Home() {
 
       {/* FAQ Sektion */}
       <main className="bg-white px-4 py-6 sm:px-6 lg:px-8">
-        <section className="py-20 bg-white">
+        <section className="pt-16 pb-20 bg-white">
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="text-center text-2xl sm:text-3xl font-serif text-gray-900 font-bold">Häufige Fragen</h2>
             <div className="mt-12 space-y-6">
@@ -153,7 +153,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-gray-100 text-center py-6 text-sm text-gray-600">
+      <footer className="bg-gray-100 text-center py-6 text-xs text-gray-600">
         <div className="space-x-4">
           <Link href="/impressum" className="hover:underline">
             Impressum
