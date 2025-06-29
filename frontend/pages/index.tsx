@@ -66,7 +66,7 @@ export default function Home() {
       {/* Hero-Bereich */}
       <section className="bg-white text-center py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold text-blue-900">Was ist dein Pferd wirklich wert?</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Was ist dein Pferd wirklich wert?</h1>
           <p className="mt-4 text-lg text-gray-600 max-w-md mx-auto">Jetzt Analyse starten – schnell, anonym & professionell</p>
 
           {/* Preisbanner */}
