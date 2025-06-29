@@ -7,9 +7,7 @@
 * **Frontend:** Next.js (Pages Router)
 * **Styling:** Tailwind CSS
 * **Backend:** API-Routen in Next.js, Serverless Functions
-* **Datenhaltung:** Firestore (Firebase) für Bewertungen & Sessions
-* **Auth & Session Mgmt:** Session-ID via Stripe Metadata
-* **Deployment:** GitHub Codespaces + Vercel
+* **Deployment:** GitHub Codespaces im Browser + Vercel
 * **Domain:** [https://pferdewert.de](https://pferdewert.de) (live, produktiv)
 * **CI/CD:** GitHub + `main` Branch als Deploy-Ziel bei Vercel
 * **PDF-Export:** `@react-pdf/renderer`
@@ -19,23 +17,13 @@
 
 ### 💳 Zahlungsabwicklung mit Stripe
 
-* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet, Amazon Pay
+* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet
 * **PayPal:** Noch nicht aktiv (Business-Konto erforderlich)
 * **Checkout:** Weiterleitung zu Stripe gehostetem Checkout
 * **Session-Verarbeitung:** `session_id` wird im Query empfangen, Validierung erfolgt über `GET /api/session`
 * **Zugriffsschutz:** Ergebnisseite nur nach erfolgreicher Zahlung sichtbar, sonst Weiterleitung zu `/bewerten`
 
 ---
-
-### 📈 SEO & Metadaten
-
-* **Alle Hauptseiten optimiert:**
-
-  * `index`, `bewerten`, `beispiel-analyse` ✓
-  * mit `<title>`, `<meta name="description">`, Open Graph, Twitter Cards, JSON-LD strukturiert
-  * `rel="canonical"` jeweils korrekt gesetzt
-* **Ergebnisseite:** `noindex, nofollow` via `<meta name="robots">`
-* **Sitemap & robots.txt:** Noch nicht vorhanden (Empfehlung: `next-sitemap`)
 
 ---
 
@@ -47,93 +35,144 @@
 * **Keine Nutzung von Google Tag Manager** (bewusst modular via `lib/analytics.ts`)
 
 ---
+PferdeWert.de – Projektübersicht (Technisch & Marketing)
+1. Technischer Stack & Infrastruktur
+Framework:
+Next.js (aktuelle Version 13+) – React-basiertes Framework für SSR (Server-Side Rendering) und statische Seiten (SSG).
 
-### 📝 Inhalt & Positionierung
+Programmiersprache:
+TypeScript / JavaScript (TS ist empfohlen für bessere Wartbarkeit, aktuell JS möglich).
 
-* **Startseite:**
+Styling:
+Tailwind CSS – Utility-first CSS Framework für schnelles, responsives Styling und konsistente Design-Umsetzung.
 
-  * Hero: USP-basiertes Value-Prop "Jetzt den Pferdewert & Preis online berechnen"
-  * Optimiert auf Keywords: "Pferdebewertung", "Pferdekauf", "Pferdeverkauf"
-* **Bewerten-Page:** Optimiert auf Conversion, klarer CTA zur Stripe-Weiterleitung
-* **Beispiel-Analyse:** Content-Rich mit Markdown-gestütztem Beispiel inkl. Preisspanne, Abstammung etc.
-* **Ergebnis-Page:**
+Bildoptimierung:
+next/image Komponente für automatisches Lazy Loading, Responsive Images, und Optimierung.
 
-  * Dynamisch über Markdown
-  * PDF-Export der KI-Analyse möglich
-  * Nach Zahlung automatisch erreichbar
+SEO & Performance:
 
----
+Vollständige Meta-Tags (Title, Description, Open Graph, Twitter Card).
 
-### 🚀 Aktueller Fokus & Nächste Schritte
+Strukturierte Daten mit JSON-LD (Schema.org WebSite).
 
-* **Indexierung über Google Search Console** initial angestoßen (manuell für alle relevanten Seiten)
-* **Nächster Schritt:** Setup von automatisierten End-to-End Tests (z. B. mit Playwright)
-* **Optional:**  Performance-Monitoring (Core Web Vitals)
+Canonical URLs für Duplicate Content Vermeidung.
 
+Optimierung auf Core Web Vitals mit Tailwind & Next.js.
 
-Aktueller Projektstand (basierend auf deinen Inputs)
-1. Website / Landingpage
-Klar fokussierte Startseite mit CTA „Jetzt Pferdewert berechnen“
+Hosting & Deployment:
+Vercel (Cloud Plattform speziell für Next.js-Projekte):
 
-Headline und Subline klar strukturiert, gut typografisch abgestimmt
+Automatische Builds und Deploys bei Push ins Git (CI/CD).
 
-Bullet-Points mit Social Proof und Nutzenkommunikation
+Globales CDN für schnelle Ladezeiten weltweit.
 
-Stimmige Farbgestaltung, die Vertrauen schafft (Brandfarben Blau, Gold, Grün)
+Preview Deployments für Feature-Branches.
 
-Hero Image passend und professionell eingebunden
+Monitoring & Analytics (optional konfigurierbar).
 
-Ablauf-Sektion erklärt Nutzerprozess klar und verständlich
+Zahlungsintegration:
+Stripe API (inkl. Apple Pay, Google Pay, Giropay, Klarna).
 
-FAQ-Bereich beantwortet wichtige Kundenfragen
+2. Frontend Komponenten & Struktur
+Pages:
 
-Beispiel-Ergebnis zeigt Transparenz und erhöht Glaubwürdigkeit
+/index.tsx – Landing Page mit Hero, Preisbanner, Beispiel-Ergebnis, FAQs, Footer.
 
-Social Proof-Sektion mit Bewertungen, DSGVO-Hinweis und KI-Verweis
+/bewerten – Bewertungsformular (nicht Teil dieses Snippets, aber vorhanden).
 
-2. SEO & Meta
-Title und Meta Description optimiert, stark auf Conversion & Keywordfokus ausgerichtet
+/beispiel – Beispielseite mit Musteranalyse-PDF.
 
-Open Graph und Twitter Cards sauber implementiert
+Design:
 
-Strukturierte Daten für Website und einzelne Seiten implementiert
+Farbpalette: Blau (Hauptfarbe), Gelb (Preis-Highlight), Grautöne für Text.
 
-Canonical Tags gesetzt, um Duplicate Content zu vermeiden
+Responsive Layout via Tailwind (mobile-first).
 
-3. Technik & UX
-Next.js-Framework mit modernem Image-Handling
+Konsistente Schriftgrößen, Abstände und Buttons mit Hover- und Fokus-States.
 
-Formulare mit Validierung, Pflichtfeldern und User-Feedback
+Call-to-Actions mehrfach platziert für Conversion.
 
-Consent-Checkbox zur rechtssicheren Einwilligung
+Interaktive Elemente:
 
-Ladezustände und Fehlerbehandlung implementiert
+FAQ mit native <details> und <summary> für Zugänglichkeit.
 
-Klare Call-to-Actions und übersichtliche Nutzerführung
+Buttons mit Transition- und Hover-Effekten.
 
-💡 Empfehlungen & Ergänzungen
-A. Conversion-Optimierung
-A/B-Testing für Headlines, Subline und CTA-Farben / Texte starten
+3. Marketing-relevante Features
+Preis-Transparenz:
+Klar kommunizierte Einmalzahlung (aktuell 4,90 € statt regulär 39 €) im Hero und Preisbanner.
 
-Mehr Nutzer-Feedback integrieren (z. B. Testimonials oder Ratings in Hero)
+Vertrauensanker:
+„Von Reitern für Reiter entwickelt“ als Claim zur Zielgruppenbindung.
 
-Vertrauensanker (z. B. „DSGVO-konform“ oder „Sicher & anonym“) prominent im Hero platzieren
+Conversion-Optimierung:
 
-B. Content & Storytelling
-Storytelling-Elemente ergänzen: Warum „Pferdewert“? Was macht den Service besonders?
+CTA-Buttons mit klarer Farbgebung und Hover-Effekten.
 
-Mehr FAQ-Punkte aufnehmen, vor allem zu Sicherheit und Datenverarbeitung
+Preisbanner als visuelles Highlight.
 
-Blog/News-Bereich zur Markenpositionierung & SEO aufbauen
+FAQ zur Reduktion von Kaufbarrieren.
 
-C. Technische Skalierung & Monitoring
-Performance-Optimierung mit Lighthouse-Checks regelmäßig durchführen
+Social Sharing Metadaten und strukturierte Daten für bessere Auffindbarkeit.
 
-Tracking-Setup (Google Analytics, ggf. Hotjar für Heatmaps)
+Rechtliches:
+Links zu Impressum und Datenschutz im Footer sind standardkonform implementiert.
 
-Automatisierte Tests (Unit, Integration, E2E) für Formulare und Seiten
+4. Entwicklungs- & Betriebshinweise
+Entwicklungsworkflow:
 
-D. Rechtliche Absicherung
-Datenschutz (DSGVO) prüfen, ggf. Cookie-Management ergänzen
+Git als Versionskontrolle.
 
-Impressum & AGB vollständig und gut verlinkt
+Feature-Branches mit Preview-Deployments auf Vercel für Tests.
+
+Code Reviews und Tests empfohlen (aktuell unklar, ob implementiert).
+
+Performance & Optimierung:
+
+Next.js optimiert Auslieferung automatisch via SSR/SSG.
+
+Tailwind minimiert CSS-Größe.
+
+Bilder optimiert durch next/image.
+
+Vermeidung von Deprecated APIs (bspw. legacyBehavior bei Link wurde entfernt).
+
+Barrierefreiheit:
+
+Fokus auf zugängliche HTML-Elemente (z.B. native Details/Summary).
+
+Alt-Texte für Bilder sind gesetzt.
+
+Farbkontraste müssen noch geprüft und ggf. verbessert werden.
+
+Zukünftige Erweiterungen:
+
+Eventuell Trust-Badges und weitere Kundenbewertungen.
+
+Newsletter-Integration.
+
+Erweiterte SEO-Maßnahmen (Rich Snippets, Blog).
+
+Analytics und Heatmaps für Nutzerverhalten.
+
+5. Empfehlungen für Team
+Frontend-Entwickler:
+
+Fokus auf Tailwind-konformes Styling, saubere Komponententrennung.
+
+Nutzung moderner Next.js Features (App Router, Middleware etc.).
+
+Einheitliche Typisierung und Tests.
+
+Regelmäßige Performance Checks via Lighthouse.
+
+Marketing-Team:
+
+Kontrolle der Content-Texte auf Conversion-Wirkung.
+
+Monitoring der Funnel-Performance.
+
+Pflege von Keywords und Meta-Daten.
+
+Plan für A/B-Testing von CTAs und Preis-Texten.
+
