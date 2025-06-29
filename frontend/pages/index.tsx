@@ -63,8 +63,8 @@ export default function Home() {
         <link rel="canonical" href="https://pferdewert.de/" />
       </Head>
 
-      {/* Hero-Bereich mit Bild-Hintergrund */}
-      <section className="relative bg-gray-900 text-white min-h-[75vh] flex items-center justify-center text-center px-4 overflow-hidden">
+      {/* Hero-Bereich mit leichtem Overlay und höherem Fokuspunkt */}
+      <section className="relative bg-gray-900 text-white min-h-[65vh] flex items-start justify-center text-center px-4 pt-20 overflow-hidden">
         <Image
           src="/images/hero.webp"
           alt="Pferd vor schwarzem Hintergrund"
@@ -72,6 +72,7 @@ export default function Home() {
           priority
           className="object-cover object-center brightness-50 z-0"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent z-0" />
         <div className="relative z-10 max-w-2xl">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Was ist dein Pferd wirklich wert?</h1>
           <p className="mt-4 text-lg sm:text-xl">Jetzt Analyse starten – schnell, anonym & professionell</p>
