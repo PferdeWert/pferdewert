@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="text-center text-sm text-gray-500 mt-12 py-6 border-t">
+    <footer className="bg-[#FCFAF6] text-center text-sm text-[#5A4B3B] mt-12 py-6 border-t border-[#EAE4DC]">
       <div className="space-x-4">
         <Link href="/impressum" className="hover:underline">
           Impressum
@@ -13,7 +13,7 @@ export default function Footer() {
           Datenschutz
         </Link>
       </div>
-      <p className="mt-2 text-xs text-gray-400">
+      <p className="mt-2 text-xs text-[#9C8E7F]">
         © {new Date().getFullYear()} PferdeWert – alle Rechte vorbehalten
       </p>
     </footer>
