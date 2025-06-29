@@ -67,16 +67,18 @@ export default function Home() {
         <Image
           src="/images/hero.webp"
           alt="Pferd vor schwarzem Hintergrund"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          fill
           priority
+          style={{ objectFit: "cover", objectPosition: "center" }}
           className="z-0 brightness-50"
         />
         <div className="relative z-10 max-w-2xl">
           <h1 className="text-3xl sm:text-4xl font-bold">Was ist dein Pferd wirklich wert?</h1>
           <p className="mt-4 text-lg">Jetzt Analyse starten – schnell, anonym & professionell</p>
-          <Link href="/bewerten" className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700">
+          <Link
+            href="/bewerten"
+            className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700"
+          >
             Für 4,90 € bewerten lassen
           </Link>
           <p className="mt-2 text-sm text-white/80">Von Reitern für Reiter entwickelt</p>
@@ -100,7 +102,10 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/bewerten" className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700">
+              <Link
+                href="/bewerten"
+                className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700"
+              >
                 Jetzt Bewertung starten
               </Link>
             </div>
@@ -110,8 +115,12 @@ export default function Home() {
 
       <footer className="bg-gray-100 text-center py-6 text-sm text-gray-600">
         <div className="space-x-4">
-          <Link href="/impressum" className="hover:underline">Impressum</Link>
-          <Link href="/datenschutz" className="hover:underline">Datenschutz</Link>
+          <Link href="/impressum" className="hover:underline">
+            Impressum
+          </Link>
+          <Link href="/datenschutz" className="hover:underline">
+            Datenschutz
+          </Link>
         </div>
         <p className="mt-2">© {new Date().getFullYear()} PferdeWert</p>
       </footer>
