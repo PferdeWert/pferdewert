@@ -4,6 +4,8 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { useState } from "react";
 import { error } from "@/lib/log";
+import Layout from "@/components/Layout"; // Footer via Layout integriert
+
 
 interface FormState {
   rasse: string;
@@ -164,7 +166,7 @@ export default function Bewerten() {
   };
 
   return (
-    <>
+    <Layout>
       <Head>
   <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
   <meta name="description" content="Jetzt dein Pferd bewerten & den realistischen Marktwert online ermitteln – anonym, sicher & direkt als PDF. Ideal bei Pferdekauf & Pferdeverkauf." />
@@ -196,7 +198,6 @@ export default function Bewerten() {
   </script>
   <link rel="canonical" href="https://pferdewert.de/bewerten" />
 </Head>
-
 
 
       <main className="max-w-2xl mx-auto px-4 py-8">
@@ -310,6 +311,6 @@ export default function Bewerten() {
           </p>
         </form>
       </main>
-    </>
+    </Layout>
   );
 }
