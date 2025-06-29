@@ -6,6 +6,8 @@ import PferdeWertPDF from "@/components/PferdeWertPDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { log, warn, error } from "@/lib/log";
 import Head from "next/head";
+import Layout from "@/components/Layout"; // Footer via Layout integriert
+
 
 
 export default function Ergebnis() {
@@ -106,7 +108,7 @@ export default function Ergebnis() {
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
   return (
-    <>
+    <Layout>
     <Head>
   <meta name="robots" content="noindex, nofollow" />
 </Head>
@@ -136,5 +138,5 @@ export default function Ergebnis() {
         </p>
       )}
     </BewertungLayout>
-  </>
+  </Layout>
 );}
