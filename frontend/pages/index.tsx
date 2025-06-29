@@ -89,7 +89,7 @@ export default function Home() {
             Aktion gültig für die ersten 100 Analysen – danach regulärer Preis von 39 €.
           </p>
 
-          <p className="mt-2 text-sm text-gray-600">Von Reitern für Reiter entwickelt</p>
+          <p className="mt-4 text-base sm:text-lg font-semibold text-gray-700 italic">Von Reitern für Reiter entwickelt</p>
         </div>
         <div className="mt-10">
           <Image
