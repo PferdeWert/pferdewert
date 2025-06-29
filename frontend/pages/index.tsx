@@ -70,8 +70,7 @@ export default function Home() {
           alt="Pferd vor schwarzem Hintergrund"
           fill
           priority
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          className="z-0 brightness-50"
+          className="object-cover object-center brightness-50 z-0"
         />
         <div className="relative z-10 max-w-2xl">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Was ist dein Pferd wirklich wert?</h1>
