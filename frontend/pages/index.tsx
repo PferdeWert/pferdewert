@@ -90,10 +90,8 @@ export default function Home() {
             <p className="text-sm text-gray-600 mt-1">Keine versteckten Kosten • Kein Abo • Direkt online starten</p>
           </div>
 
-          <Link href="/bewerten">
-            <a className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700">
-              Jetzt für nur 4,90 € bewerten lassen
-            </a>
+          <Link href="/bewerten" className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700">
+            Jetzt für nur 4,90 € bewerten lassen
           </Link>
 
           <p className="text-xs text-gray-500 mt-2">
@@ -102,8 +100,7 @@ export default function Home() {
 
           <p className="mt-6 text-sm text-gray-700 italic">Von Reitern für Reiter entwickelt • DSGVO-konform • SSL-verschlüsselt</p>
 
-          <h2 className="text-2xl font-bold mt-16 text-center">Beispiel-Ergebnis deiner Analyse</h2>
-          <div className="mt-6">
+          <div className="mt-16">
             <Image
               src="/images/result.webp"
               alt="Beispiel-Ergebnis einer Bewertung"
@@ -111,17 +108,13 @@ export default function Home() {
               height={500}
               className="rounded-lg mx-auto shadow"
             />
-            <Link href="/beispiel-analyse">
-              <a className="mt-4 inline-block text-blue-600 font-semibold hover:underline">
-                Beispiel-Analyse ansehen
-              </a>
+            <Link href="/beispiel-analyse" className="mt-6 inline-block bg-blue-50 text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-100">
+              Beispiel-Ergebnis deiner Analyse ansehen
             </Link>
           </div>
 
-          <Link href="/bewerten">
-            <a className="mt-8 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700">
-              Jetzt eigene Analyse starten
-            </a>
+          <Link href="/bewerten" className="mt-8 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700">
+            Jetzt eigene Analyse starten
           </Link>
         </div>
 
@@ -140,10 +133,8 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/bewerten">
-                <a className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700">
-                  Jetzt Bewertung starten
-                </a>
+              <Link href="/bewerten" className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700">
+                Jetzt Bewertung starten
               </Link>
             </div>
           </div>
