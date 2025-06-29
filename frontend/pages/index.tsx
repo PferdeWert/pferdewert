@@ -108,7 +108,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Beispiel-Ergebnis deiner Analyse</h2>
           <p className="mb-6 text-gray-700">So könnte dein Analyse-PDF aussehen – fundiert, strukturiert & professionell aufbereitet.</p>
           <Image
-            src="/images/beispiel-ergebnis.webp"
+            src="/images/result.webp"
             width={800}
             height={500}
             alt="Beispiel einer Pferdewert-Analyse"
