@@ -13,6 +13,15 @@ export default function App({ Component, pageProps }: AppProps) {
         onLoad={() => {
           console.log("📥 CookieConsent Script geladen:", typeof window.cookieconsent);
 
+          const existingConsent =
+            document.cookie.includes("cookieconsent_status=allow") ||
+            document.cookie.includes("cookieconsent_status=deny");
+
+          if (existingConsent) {
+            console.log("🍪 Bereits bestehender Consent erkannt, Initialisierung übersprungen");
+            return;
+          }
+
           if (window.cookieconsent) {
             window.cookieconsent.initialise({
               type: "opt-in",
@@ -27,6 +36,13 @@ export default function App({ Component, pageProps }: AppProps) {
                 deny: "Ablehnen",
                 link: "Mehr erfahren",
                 href: "/datenschutz",
+              },
+              cookie: {
+                name: "cookieconsent_status",
+                path: "/",
+                expiryDays: 365,
+                sameSite: "Lax", // oder "None" + secure wenn Cross-Site nötig
+                secure: true,    // notwendig bei HTTPS (Vercel = ✅)
               },
               onPopupOpen: () => {
                 const popup = document.querySelector(".cc-window") as HTMLElement;
@@ -46,7 +62,6 @@ export default function App({ Component, pageProps }: AppProps) {
                   });
                 }
 
-                // ✨ Sanfter Fade-Out
                 const popup = document.querySelector(".cc-window") as HTMLElement;
                 if (popup) {
                   popup.classList.add("opacity-0", "transition-opacity", "duration-200");
