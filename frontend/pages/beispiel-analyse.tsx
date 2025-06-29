@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Layout from "@/components/Layout"; // Neu: Layout mit Footer
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
@@ -31,7 +32,7 @@ _Ergebnis erstellt von PferdeWert AI – keine rechtsverbindliche Bewertung._`;
 
 export default function BeispielAnalyse() {
   return (
-    <>
+    <Layout>
       <Head>
   <title>Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert</title>
   <meta
@@ -89,6 +90,6 @@ export default function BeispielAnalyse() {
           </Link>
         </div>
       </BewertungLayout>
-    </>
+    </Layout>
   );
 }
