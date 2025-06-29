@@ -24,7 +24,7 @@ export default function Header() {
         {/* Navigation Desktop */}
         <nav className="hidden md:flex gap-3 items-center" aria-label="Hauptnavigation">
           <Link
-            href="/beispiel"
+            href="/beispiel-analyse"
             className="border border-[#6B4A2D] text-[#6B4A2D] px-4 py-2 rounded-lg hover:bg-[#F2EDE8] transition"
           >
             Beispiel ansehen
