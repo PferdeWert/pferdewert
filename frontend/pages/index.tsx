@@ -116,7 +116,7 @@ export default function Home() {
           />
           <div className="mt-6">
             <Link
-              href="/beispiel"
+              href="/beispiel-analyse"
               className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-800"
             >
               Beispiel ansehen
