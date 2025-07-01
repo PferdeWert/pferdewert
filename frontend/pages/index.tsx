@@ -184,8 +184,9 @@ export default function Home() {
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-amber-800 mb-12">
-              So einfach geht's
+            So einfach geht&rsquo;s
             </h2>
+
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {/* Schritt 1: Pferdedetails eingeben */}
