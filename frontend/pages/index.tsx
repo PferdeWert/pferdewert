@@ -74,7 +74,7 @@ export default function Home() {
                 src="/images/blossi-shooting.webp"
                 width={700}
                 height={500}
-                alt="Pferdeportrait Blossi"
+                alt="Deutsches Sportpferd Blossom im Porträt für KI-Pferdebewertung“"
                 className="rounded-xl shadow-md w-full h-auto"
               />
             </div>
@@ -85,7 +85,7 @@ export default function Home() {
                 Was ist Dein Pferd wirklich wert?
               </h1>
               <p className="text-lg text-gray-700 mb-4">
-                Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht. Perfekt für Kauf, Verkauf oder einfach aus Neugier.
+                Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht. Marktwert-Schätzung. Perfekt für Kauf, Verkauf oder einfach aus Neugier.
               </p>
               <Link
                 href="/bewerten"
