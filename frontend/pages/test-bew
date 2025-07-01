@@ -5,8 +5,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { error } from "@/lib/log";
-import Layout from "@/components/Layout";
+import { error } from "../lib/log";
+import Layout from "../components/Layout";
 
 // 2. Typen & Formulardaten
 interface FormState {
