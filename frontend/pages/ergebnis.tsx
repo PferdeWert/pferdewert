@@ -25,10 +25,15 @@ export default function Ergebnis() {
     if (!router.isReady) return;
 
     const session_id = router.query.session_id;
-    if (!session_id || typeof session_id !== "string") {
-      router.replace("/bewerten");
-      return;
-    }
+console.log("[ERGENIS DEBUG] raw router.query:", router.query);
+console.log("[ERGENIS DEBUG] extracted session_id:", session_id);
+
+if (!session_id || typeof session_id !== "string") {
+  console.warn("[ERGENIS DEBUG] session_id fehlt oder ist kein String:", session_id);
+  router.replace("/bewerten");
+  return;
+}
+
 
     const fetchSession = async () => {
       try {
@@ -38,6 +43,10 @@ export default function Ergebnis() {
         log("[ERGEBNIS] HTTP Status Code:", res.status);
 
         const data = await res.json();
+        console.log("[ERGENIS DEBUG] Stripe-API Response Payload:", data);
+console.log("[ERGENIS DEBUG] data.session:", data.session);
+console.log("[ERGENIS DEBUG] metadata:", data.session?.metadata);
+
         log("[ERGEBNIS] API-Response:", data);
 
         if (!data?.session?.payment_status || data.session.payment_status !== "paid") {

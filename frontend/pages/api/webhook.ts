@@ -7,206 +7,191 @@ import { info, error } from "@/lib/log";
 
 export const config = {
   api: { bodyParser: false },
-};
+  };
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log("[WEBHOOK] 🚀 === WEBHOOK DEBUG START ===");
-  
-  if (req.method !== "POST") {
-    console.log("[WEBHOOK] ❌ Wrong method:", req.method);
-    return res.status(405).end("Method Not Allowed");
-  }
-
-  // 1. HEADERS DEBUG
-  console.log("[WEBHOOK] 📋 REQUEST HEADERS:");
-  Object.entries(req.headers).forEach(([key, value]) => {
-    if (key.includes('stripe') || key === 'content-type' || key === 'user-agent') {
-      console.log(`[WEBHOOK] - ${key}: ${value}`);
-    }
-  });
-
-  // 2. ENVIRONMENT VARIABLES DEBUG
-  console.log("[WEBHOOK] 🔧 ENVIRONMENT CHECK:");
-  console.log(`[WEBHOOK] - STRIPE_SECRET_KEY exists: ${!!process.env.STRIPE_SECRET_KEY}`);
-  console.log(`[WEBHOOK] - STRIPE_WEBHOOK_SECRET exists: ${!!process.env.STRIPE_WEBHOOK_SECRET}`);
-  console.log(`[WEBHOOK] - STRIPE_WEBHOOK_SECRET starts with: ${process.env.STRIPE_WEBHOOK_SECRET?.substring(0, 10)}...`);
-
-  // 3. RAW BODY EXTRACTION
-  let buf;
-  try {
-    buf = await buffer(req);
-    console.log(`[WEBHOOK] ✅ Buffer extracted, size: ${buf.length} bytes`);
-  } catch (bufferError) {
-    console.log("[WEBHOOK] ❌ Buffer extraction failed:", bufferError);
-    return res.status(400).send("Buffer Error");
-  }
-
-  // 4. SIGNATURE EXTRACTION
-  const sig = req.headers["stripe-signature"] as string;
-  console.log(`[WEBHOOK] 🔐 Stripe signature: ${sig ? 'EXISTS' : 'MISSING'}`);
-  if (sig) {
-    console.log(`[WEBHOOK] 🔐 Signature preview: ${sig.substring(0, 50)}...`);
-  }
-
-  // 5. WEBHOOK SIGNATURE VERIFICATION
-  let event: Stripe.Event;
-  try {
-    console.log("[WEBHOOK] 🔍 Attempting signature verification...");
-    event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
-    console.log("[WEBHOOK] ✅ Signature verification successful!");
-    console.log(`[WEBHOOK] 📋 Event type: ${event.type}`);
-    console.log(`[WEBHOOK] 📋 Event ID: ${event.id}`);
-  } catch (err) {
-    console.log("[WEBHOOK] ❌ === SIGNATURE VERIFICATION FAILED ===");
-    console.log("[WEBHOOK] ❌ Error details:", err);
-    
-    if (err instanceof Error) {
-      console.log(`[WEBHOOK] - Error name: ${err.name}`);
-      console.log(`[WEBHOOK] - Error message: ${err.message}`);
-    }
-    
-    console.log("[WEBHOOK] 🔧 DEBUG INFO:");
-    console.log(`[WEBHOOK] - Buffer length: ${buf.length}`);
-    console.log(`[WEBHOOK] - Signature present: ${!!sig}`);
-    console.log(`[WEBHOOK] - Endpoint secret present: ${!!endpointSecret}`);
-    
-    error("[WEBHOOK] ❌ Signature verification failed:", err);
-    return res.status(400).send("Webhook Error");
-  }
-
-  // 6. EVENT TYPE CHECK
-  if (event.type === "checkout.session.completed") {
-    console.log("[WEBHOOK] 🎯 Processing checkout.session.completed event");
-    
-    const session = event.data.object as Stripe.Checkout.Session;
-    const sessionId = session.id;
-
-    console.log(`[WEBHOOK] 💳 Session ID: ${sessionId}`);
-    console.log(`[WEBHOOK] 💰 Payment status: ${session.payment_status}`);
-    console.log(`[WEBHOOK] 📋 Metadata:`, session.metadata);
-
-    info("[WEBHOOK] ✅ Zahlung abgeschlossen, Session ID:", sessionId);
-
-    try {
-      // 7. DATABASE LOOKUP
-      console.log("[WEBHOOK] 🔍 Looking up bewertung in database...");
+  export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    console.log("[WEBHOOK] 🚀 === WEBHOOK DEBUG START ===");
       
-      const collection = await getCollection("bewertungen");
-      const doc = await collection.findOne({ stripeSessionId: sessionId });
+        if (req.method !== "POST") {
+            console.log("[WEBHOOK] ❌ Wrong method:", req.method);
+                return res.status(405).end("Method Not Allowed");
+                  }
 
-      if (!doc) {
-        console.log("[WEBHOOK] ❌ No bewertung found for session ID:", sessionId);
-        error("[WEBHOOK] ❌ Keine Bewertung mit Session ID gefunden");
-        return res.status(404).end();
-      }
+                    // 1. HEADERS DEBUG
+                      console.log("[WEBHOOK] 📋 REQUEST HEADERS:");
+                        Object.entries(req.headers).forEach(([key, value]) => {
+                            if (key.includes('stripe') || key === 'content-type' || key === 'user-agent') {
+                                  console.log(`[WEBHOOK] - ${key}: ${value}`);
+                                      }
+                                        });
 
-      console.log("[WEBHOOK] ✅ Bewertung found!");
-      console.log(`[WEBHOOK] 📄 Document ID: ${doc._id}`);
-      console.log("[WEBHOOK] 📊 Available fields in document:", Object.keys(doc));
+                                          // 2. ENVIRONMENT VARIABLES DEBUG
+                                            console.log("[WEBHOOK] 🔧 ENVIRONMENT CHECK:");
+                                              console.log(`[WEBHOOK] - STRIPE_SECRET_KEY exists: ${!!process.env.STRIPE_SECRET_KEY}`);
+                                                console.log(`[WEBHOOK] - STRIPE_WEBHOOK_SECRET exists: ${!!process.env.STRIPE_WEBHOOK_SECRET}`);
+                                                  console.log(`[WEBHOOK] - STRIPE_WEBHOOK_SECRET starts with: ${process.env.STRIPE_WEBHOOK_SECRET?.substring(0, 10)}...`);
 
-      // 8. EXTRACT BEWERTUNG DATA
-      const {
-        rasse,
-        alter,
-        geschlecht,
-        abstammung,
-        stockmass,
-        ausbildung,
-        aku,
-        erfolge,
-        farbe,
-        zuechter,
-        standort,
-        verwendungszweck,
-      } = doc;
+                                                    // 3. RAW BODY EXTRACTION
+                                                      let buf;
+                                                        try {
+                                                            buf = await buffer(req);
+                                                                console.log(`[WEBHOOK] ✅ Buffer extracted, size: ${buf.length} bytes`);
+                                                                  } catch (bufferError) {
+                                                                      console.log("[WEBHOOK] ❌ Buffer extraction failed:", bufferError);
+                                                                          return res.status(400).send("Buffer Error");
+                                                                            }
 
-     const bewertbareDaten = {
-  rasse,
-  abstammung,
-  einsatzgebiet: verwendungszweck,
-  geburtsjahr: alter,
-  stockmaß: stockmass,
-  farbe,
-  vater: "", // optional, wenn leer
-  mutter: "", // optional
-  preise: erfolge,
-  besonderheiten: aku
-};
+                                                                              // 4. SIGNATURE EXTRACTION
+                                                                                const sig = req.headers["stripe-signature"] as string;
+                                                                                  console.log(`[WEBHOOK] 🔐 Stripe signature: ${sig ? 'EXISTS' : 'MISSING'}`);
+                                                                                    if (sig) {
+                                                                                        console.log(`[WEBHOOK] 🔐 Signature preview: ${sig.substring(0, 50)}...`);
+                                                                                          }
+
+                                                                                            // 5. WEBHOOK SIGNATURE VERIFICATION
+                                                                                              let event: Stripe.Event;
+                                                                                                try {
+                                                                                                    console.log("[WEBHOOK] 🔍 Attempting signature verification...");
+                                                                                                        event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
+                                                                                                            console.log("[WEBHOOK] ✅ Signature verification successful!");
+                                                                                                                console.log(`[WEBHOOK] 📋 Event type: ${event.type}`);
+                                                                                                                    console.log(`[WEBHOOK] 📋 Event ID: ${event.id}`);
+                                                                                                                      } catch (err) {
+                                                                                                                          console.log("[WEBHOOK] ❌ === SIGNATURE VERIFICATION FAILED ===");
+                                                                                                                              console.log("[WEBHOOK] ❌ Error details:", err);
+                                                                                                                                  
+                                                                                                                                      if (err instanceof Error) {
+                                                                                                                                            console.log(`[WEBHOOK] - Error name: ${err.name}`);
+                                                                                                                                                  console.log(`[WEBHOOK] - Error message: ${err.message}`);
+                                                                                                                                                      }
+                                                                                                                                                          
+                                                                                                                                                              console.log("[WEBHOOK] 🔧 DEBUG INFO:");
+                                                                                                                                                                  console.log(`[WEBHOOK] - Buffer length: ${buf.length}`);
+                                                                                                                                                                      console.log(`[WEBHOOK] - Signature present: ${!!sig}`);
+                                                                                                                                                                          console.log(`[WEBHOOK] - Endpoint secret present: ${!!endpointSecret}`);
+                                                                                                                                                                              
+                                                                                                                                                                                  error("[WEBHOOK] ❌ Signature verification failed:", err);
+                                                                                                                                                                                      return res.status(400).send("Webhook Error");
+                                                                                                                                                                                        }
+
+                                                                                                                                                                                          // 6. EVENT TYPE CHECK
+                                                                                                                                                                                            if (event.type === "checkout.session.completed") {
+                                                                                                                                                                                                console.log("[WEBHOOK] 🎯 Processing checkout.session.completed event");
+                                                                                                                                                                                                    
+                                                                                                                                                                                                        const session = event.data.object as Stripe.Checkout.Session;
+                                                                                                                                                                                                            const sessionId = session.id;
+
+                                                                                                                                                                                                                console.log(`[WEBHOOK] 💳 Session ID: ${sessionId}`);
+                                                                                                                                                                                                                    console.log(`[WEBHOOK] 💰 Payment status: ${session.payment_status}`);
+                                                                                                                                                                                                                        console.log(`[WEBHOOK] 📋 Metadata:`, session.metadata);
+
+                                                                                                                                                                                                                            info("[WEBHOOK] ✅ Zahlung abgeschlossen, Session ID:", sessionId);
+
+                                                                                                                                                                                                                                try {
+                                                                                                                                                                                                                                      // 7. DATABASE LOOKUP
+                                                                                                                                                                                                                                            console.log("[WEBHOOK] 🔍 Looking up bewertung in database...");
+                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                        const collection = await getCollection("bewertungen");
+                                                                                                                                                                                                                                                              const doc = await collection.findOne({ stripeSessionId: sessionId });
+
+                                                                                                                                                                                                                                                                    if (!doc) {
+                                                                                                                                                                                                                                                                            console.log("[WEBHOOK] ❌ No bewertung found for session ID:", sessionId);
+                                                                                                                                                                                                                                                                                    error("[WEBHOOK] ❌ Keine Bewertung mit Session ID gefunden");
+                                                                                                                                                                                                                                                                                            return res.status(404).end();
+                                                                                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                                                                                        console.log("[WEBHOOK] ✅ Bewertung found!");
+                                                                                                                                                                                                                                                                                                              console.log(`[WEBHOOK] 📄 Document ID: ${doc._id}`);
+                                                                                                                                                                                                                                                                                                                    console.log("[WEBHOOK] 📊 Available fields in document:", Object.keys(doc));
+
+                                                                                                                                                                                                                                                                                                                          // 8. EXTRACT BEWERTUNG DATA
+                                                                                                                                                                                                                                                                                                                          const bewertbareDaten = {
+                                                                                                                                                                                                                                                                                                                            rasse: doc.rasse || "",
+                                                                                                                                                                                                                                                                                                                              abstammung: doc.abstammung || "",
+                                                                                                                                                                                                                                                                                                                                einsatzgebiet: doc.verwendungszweck || "",
+                                                                                                                                                                                                                                                                                                                                  geburtsjahr: doc.alter || "",
+                                                                                                                                                                                                                                                                                                                                    stockmaß: doc.stockmass || "",
+                                                                                                                                                                                                                                                                                                                                      farbe: doc.farbe || "",
+                                                                                                                                                                                                                                                                                                                                        vater: "",
+                                                                                                                                                                                                                                                                                                                                          mutter: "",
+                                                                                                                                                                                                                                                                                                                                            preise: doc.erfolge || "",
+                                                                                                                                                                                                                                                                                                                                              besonderheiten: doc.aku || "",
+                                                                                                                                                                                                                                                                                                                                              };
 
 
-      console.log("[WEBHOOK] 📊 Extracted bewertbare data:", JSON.stringify(bewertbareDaten, null, 2));
+                                                                                                                                                                                                                                                                                                                                                    console.log("[WEBHOOK] 📊 Extracted bewertbare data:", JSON.stringify(bewertbareDaten, null, 2));
 
-      // 9. EXTERNAL API CALL
-      console.log("[WEBHOOK] 🌐 Calling external API...");
-      console.log("[WEBHOOK] 🎯 API URL: https://pferdewert-api.onrender.com/api/bewertung");
-      
-      const startTime = Date.now();
-      
-      const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bewertbareDaten),
-      });
+                                                                                                                                                                                                                                                                                                                                                          // 9. EXTERNAL API CALL
+                                                                                                                                                                                                                                                                                                                                                                console.log("[WEBHOOK] 🌐 Calling external API...");
+                                                                                                                                                                                                                                                                                                                                                                      console.log("[WEBHOOK] 🎯 API URL: https://pferdewert-api.onrender.com/api/bewertung");
+                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                  const startTime = Date.now();
+                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                              const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+                                                                                                                                                                                                                                                                                                                                                                                                      method: "POST",
+                                                                                                                                                                                                                                                                                                                                                                                                              headers: { "Content-Type": "application/json" },
+                                                                                                                                                                                                                                                                                                                                                                                                                      body: JSON.stringify(bewertbareDaten),
+                                                                                                                                                                                                                                                                                                                                                                                                                            });
 
-      const responseTime = Date.now() - startTime;
-      console.log(`[WEBHOOK] ⏱️ API call took: ${responseTime}ms`);
-      console.log(`[WEBHOOK] 📊 API response status: ${response.status}`);
-      console.log(`[WEBHOOK] 📊 API response ok: ${response.ok}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                  const responseTime = Date.now() - startTime;
+                                                                                                                                                                                                                                                                                                                                                                                                                                        console.log(`[WEBHOOK] ⏱️ API call took: ${responseTime}ms`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                              console.log(`[WEBHOOK] 📊 API response status: ${response.status}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    console.log(`[WEBHOOK] 📊 API response ok: ${response.ok}`);
 
-      if (!response.ok) {
-        console.log("[WEBHOOK] ❌ API response not ok");
-        const errorText = await response.text();
-        console.log("[WEBHOOK] ❌ API error response:", errorText);
-        throw new Error(`API returned ${response.status}: ${errorText}`);
-      }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          if (!response.ok) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  console.log("[WEBHOOK] ❌ API response not ok");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          const errorText = await response.text();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  console.log("[WEBHOOK] ❌ API error response:", errorText);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          throw new Error(`API returned ${response.status}: ${errorText}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
 
-      const gpt_response = await response.json();
-      console.log("[WEBHOOK] 🔁 GPT-Response received:", JSON.stringify(gpt_response, null, 2));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      const gpt_response = await response.json();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            console.log("[WEBHOOK] 🔁 GPT-Response received:", JSON.stringify(gpt_response, null, 2));
 
-      const raw_gpt = gpt_response?.raw_gpt;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  const raw_gpt = gpt_response?.raw_gpt;
 
-      if (!raw_gpt) {
-        console.log("[WEBHOOK] ❌ No raw_gpt in response");
-        error("[WEBHOOK] ❌ Keine GPT-Antwort");
-        return res.status(500).end();
-      }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        if (!raw_gpt) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log("[WEBHOOK] ❌ No raw_gpt in response");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        error("[WEBHOOK] ❌ Keine GPT-Antwort");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                return res.status(500).end();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
 
-      console.log("[WEBHOOK] ✅ GPT response looks good, length:", raw_gpt.length);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            console.log("[WEBHOOK] ✅ GPT response looks good, length:", raw_gpt.length);
 
-      // 10. DATABASE UPDATE
-      console.log("[WEBHOOK] 💾 Updating database with bewertung...");
-      
-      const updateResult = await collection.updateOne(
-        { _id: doc._id },
-        { $set: { bewertung: raw_gpt, status: "fertig", aktualisiert: new Date() } }
-      );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  // 10. DATABASE UPDATE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        console.log("[WEBHOOK] 💾 Updating database with bewertung...");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    const updateResult = await collection.updateOne(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            { _id: doc._id },
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    { $set: { bewertung: raw_gpt, status: "fertig", aktualisiert: new Date() } }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          );
 
-      console.log("[WEBHOOK] 📊 Update result:", updateResult);
-      console.log(`[WEBHOOK] ✅ Matched: ${updateResult.matchedCount}, Modified: ${updateResult.modifiedCount}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log("[WEBHOOK] 📊 Update result:", updateResult);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      console.log(`[WEBHOOK] ✅ Matched: ${updateResult.matchedCount}, Modified: ${updateResult.modifiedCount}`);
 
-      info("[WEBHOOK] ✅ Bewertung gespeichert.");
-      console.log("[WEBHOOK] 🎯 === WEBHOOK DEBUG SUCCESS ===");
-      
-      return res.status(200).end("Done");
-      
-    } catch (err) {
-      console.log("[WEBHOOK] 💥 === WEBHOOK PROCESSING ERROR ===");
-      console.log("[WEBHOOK] ❌ Error details:", err);
-      
-      if (err instanceof Error) {
-        console.log(`[WEBHOOK] - Error name: ${err.name}`);
-        console.log(`[WEBHOOK] - Error message: ${err.message}`);
-        console.log(`[WEBHOOK] - Error stack: ${err.stack}`);
-      }
-      
-      error("[WEBHOOK] ❌ Fehler bei Bewertung:", err);
-      return res.status(500).end("Interner Fehler");
-    }
-  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            info("[WEBHOOK] ✅ Bewertung gespeichert.");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  console.log("[WEBHOOK] 🎯 === WEBHOOK DEBUG SUCCESS ===");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              return res.status(200).end("Done");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } catch (err) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              console.log("[WEBHOOK] 💥 === WEBHOOK PROCESSING ERROR ===");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    console.log("[WEBHOOK] ❌ Error details:", err);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if (err instanceof Error) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        console.log(`[WEBHOOK] - Error name: ${err.name}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log(`[WEBHOOK] - Error message: ${err.message}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        console.log(`[WEBHOOK] - Error stack: ${err.stack}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          error("[WEBHOOK] ❌ Fehler bei Bewertung:", err);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                return res.status(500).end("Interner Fehler");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
 
-  console.log(`[WEBHOOK] ℹ️ Event type ignored: ${event.type}`);
-  res.status(200).end("Event ignoriert");
-}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        console.log(`[WEBHOOK] ℹ️ Event type ignored: ${event.type}`);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          res.status(200).end("Event ignoriert");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          }

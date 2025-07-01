@@ -1,108 +1,55 @@
-// pages/api/webhook.ts
+// pages/api/webhook.ts - CONNECTIVITY TEST VERSION
 import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
-import Stripe from "stripe";
-import { getCollection } from "@/lib/mongo";
-import { info, error } from "@/lib/log";
 
 export const config = {
   api: { bodyParser: false },
 };
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") return res.status(405).end("Method Not Allowed");
+  // 🚨 IMMER LOGGEN - egal was passiert
+  console.log("=".repeat(80));
+  console.log("🚨 WEBHOOK HANDLER CALLED!");
+  console.log("⏰ Timestamp:", new Date().toISOString());
+  console.log("🌐 Method:", req.method);
+  console.log("📍 URL:", req.url);
+  console.log("🎯 User-Agent:", req.headers['user-agent']);
+  console.log("🔗 Origin:", req.headers.origin || 'no origin');
+  console.log("=".repeat(80));
 
-  console.log("[WEBHOOK] HEADERS:", req.headers);
-  console.log("[WEBHOOK] ENV SECRET:", process.env.STRIPE_WEBHOOK_SECRET);
-
-  const buf = await buffer(req);
-  const sig = req.headers["stripe-signature"] as string;
-
-  let event: Stripe.Event;
-
-  try {
-    event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
-  } catch (err) {
-    error("[WEBHOOK] ❌ Signature verification failed:", err);
-    return res.status(400).send("Webhook Error");
+  // Simple response für alle Requests
+  if (req.method === "GET") {
+    console.log("✅ GET Request - sending OK");
+    return res.status(200).json({ 
+      status: "webhook alive", 
+      timestamp: new Date().toISOString(),
+      method: req.method 
+    });
   }
 
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
-    const sessionId = session.id;
-
-    info("[WEBHOOK] ✅ Zahlung abgeschlossen, Session ID:", sessionId);
-
+  if (req.method === "POST") {
+    console.log("📬 POST Request detected");
+    
     try {
-      const collection = await getCollection("bewertungen");
-      const doc = await collection.findOne({ stripeSessionId: sessionId });
-
-      if (!doc) {
-        error("[WEBHOOK] ❌ Keine Bewertung mit Session ID gefunden");
-        return res.status(404).end();
-      }
-
-      const {
-        rasse,
-        alter,
-        geschlecht,
-        abstammung,
-        stockmass,
-        ausbildung,
-        aku,
-        erfolge,
-        farbe,
-        zuechter,
-        standort,
-        verwendungszweck,
-      } = doc;
-
-      const bewertbareDaten = {
-        rasse,
-        alter,
-        geschlecht,
-        abstammung,
-        stockmass,
-        ausbildung,
-        aku,
-        erfolge,
-        farbe,
-        zuechter,
-        standort,
-        verwendungszweck,
-      };
-
-      const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bewertbareDaten),
+      const buf = await buffer(req);
+      console.log(`📊 Body size: ${buf.length} bytes`);
+      console.log(`🔐 Stripe signature: ${req.headers['stripe-signature'] ? 'EXISTS' : 'MISSING'}`);
+      
+      // Für jetzt: Immer success zurückgeben
+      console.log("✅ POST Request - sending OK (without processing)");
+      return res.status(200).json({ 
+        status: "post received", 
+        bodySize: buf.length,
+        hasSignature: !!req.headers['stripe-signature'],
+        timestamp: new Date().toISOString()
       });
-
-      const gpt_response = await response.json();
-      console.log("[WEBHOOK] 🔁 GPT-Response:", gpt_response);
-
-      const raw_gpt = gpt_response?.raw_gpt;
-
-      if (!raw_gpt) {
-        error("[WEBHOOK] ❌ Keine GPT-Antwort");
-        return res.status(500).end();
-      }
-
-      await collection.updateOne(
-        { _id: doc._id },
-        { $set: { bewertung: raw_gpt, status: "fertig", aktualisiert: new Date() } }
-      );
-
-      info("[WEBHOOK] ✅ Bewertung gespeichert.");
-      return res.status(200).end("Done");
+      
     } catch (err) {
-      error("[WEBHOOK] ❌ Fehler bei Bewertung:", err);
-      return res.status(500).end("Interner Fehler");
+      console.log("❌ Error in POST processing:", err);
+      return res.status(500).json({ error: "processing failed" });
     }
   }
 
-  res.status(200).end("Event ignoriert");
+  console.log(`❓ Unexpected method: ${req.method}`);
+  return res.status(405).json({ error: "Method not allowed" });
 }
