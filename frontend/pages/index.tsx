@@ -65,7 +65,6 @@ export default function Home() {
           <link rel="canonical" href="https://pferdewert.de/" />
         </Head>
 
-        {/* Hero-Bereich */}
         {/* Hero-Bereich neu (bild oben auf mobil) */}
         <section className="bg-[#fdf9f4] py-16 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
@@ -86,7 +85,7 @@ export default function Home() {
                 Was ist Dein Pferd wirklich wert?
               </h1>
               <p className="text-lg text-gray-700 mb-4">
-                Lass den Marktwert deines Pferdes professionell schätzen – schnell, anonym und fundiert.
+                Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht. Perfekt für Kauf, Verkauf oder einfach aus Neugier.
               </p>
               <Link
                 href="/bewerten"
