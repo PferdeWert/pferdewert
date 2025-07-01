@@ -11,10 +11,10 @@ type LayoutProps = {
 
 export default function Layout({ children, showFooter = true }: LayoutProps) {
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
       <Header />
-      <main>{children}</main>
+      <main className="flex-1 w-full max-w-6xl mx-auto px-4">{children}</main>
       {showFooter && <Footer />}
-    </>
+    </div>
   );
 }
