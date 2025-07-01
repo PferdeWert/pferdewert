@@ -1,4 +1,4 @@
-// frontend/pages/bewerten.tsx - Modernes Design mit Verbesserungen
+// frontend/pages/test-bew.tsx - Modernes Design mit Verbesserungen
 
 // 1. Imports & Initialisierung
 import Head from "next/head";
@@ -93,3 +93,13 @@ const stepData = [
     fields: []
   }
 ];
+export default function TestBewPage() {
+  return (
+    <Layout>
+      <h1 className="text-2xl font-bold">Test Pferdebewertung</h1>
+      <p>Hier kannst du dein Formular testen.</p>
+      {/* Optional: Debug-Ausgabe */}
+      <pre>{JSON.stringify(stepData, null, 2)}</pre>
+    </Layout>
+  );
+}
