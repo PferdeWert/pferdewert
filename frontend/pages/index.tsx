@@ -97,37 +97,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Preisbanner */}
-        <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-xl mt-6 shadow-md">
-          <p className="text-lg font-semibold text-gray-800">
-            💥 Schnell sein lohnt sich: Nur <span className="text-red-600 font-bold text-xl">4,90 €</span>
-            <span className="line-through text-gray-500 text-sm ml-2">statt 39 €</span> – für die ersten 100 Bewertungen!
-          </p>
-          <p className="text-sm text-gray-600 mt-1">Keine versteckten Kosten • Einmalzahlung • Direkt online starten</p>
-        </div>
+        {/* Preisbanner-Sektion */}
+<section className="bg-white py-16 px-6 text-center">
+  <div className="max-w-4xl mx-auto">
+    {/* Preisbanner */}
+    <div className="bg-yellow-100 border border-yellow-300 p-6 rounded-xl shadow-md">
+      <p className="text-lg font-semibold text-gray-800">
+        💥 Schnell sein lohnt sich: Nur <span className="text-red-600 font-bold text-xl">4,90 €</span>
+        <span className="line-through text-gray-500 text-sm ml-2">statt 39 €</span> – für die ersten 100 Bewertungen!
+      </p>
+      <p className="text-sm text-gray-600 mt-1">Keine versteckten Kosten • Einmalzahlung • Direkt online starten</p>
+    </div>
 
-        <Link
-          href="/bewerten"
-          className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition-colors"
-        >
-          Jetzt für nur 4,90 € bewerten lassen
-        </Link>
+    <Link
+      href="/bewerten"
+      className="inline-block mt-6 px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition-colors text-lg"
+    >
+      Jetzt für nur 4,90 € bewerten lassen
+    </Link>
 
-        <p className="text-xs text-gray-500 mt-2">
-          Aktion gültig für die ersten 100 Analysen – danach regulärer Preis von 39 €.
-        </p>
+    <p className="text-xs text-gray-500 mt-3">
+      Aktion gültig für die ersten 100 Analysen – danach regulärer Preis von 39 €.
+    </p>
 
-        <p className="mt-4 text-base sm:text-lg font-semibold text-gray-700 italic">Von Reitern für Reiter entwickelt</p>
-
-        <div className="mt-10">
-          <Image
-            src="/images/hero.webp"
-            width={800}
-            height={500}
-            alt="Pferd als Symbolbild für Bewertung"
-            className="rounded-xl mx-auto shadow-md"
-          />
-        </div>
+    <p className="mt-6 text-base font-semibold text-gray-700 italic">
+      Von Reitern für Reiter entwickelt
+    </p>
+  </div>
+</section>
 
         {/* Beispiel-Ergebnis Sektion */}
         <section className="bg-[#fefaf1] py-20 px-6 text-center">
