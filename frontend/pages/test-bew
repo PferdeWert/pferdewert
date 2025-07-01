@@ -1,0 +1,95 @@
+// frontend/pages/bewerten.tsx - Modernes Design mit Verbesserungen
+
+// 1. Imports & Initialisierung
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import { error } from "@/lib/log";
+import Layout from "@/components/Layout";
+
+// 2. Typen & Formulardaten
+interface FormState {
+  rasse: string;
+  alter: string;
+  geschlecht: string;
+  abstammung: string;
+  stockmass: string;
+  ausbildung: string;
+  aku: string;
+  erfolge: string;
+  farbe: string;
+  zuechter: string;
+  standort: string;
+  verwendungszweck: string;
+}
+
+const initialForm: FormState = {
+  rasse: "",
+  alter: "",
+  geschlecht: "",
+  abstammung: "",
+  stockmass: "",
+  ausbildung: "",
+  aku: "",
+  erfolge: "",
+  farbe: "",
+  zuechter: "",
+  standort: "",
+  verwendungszweck: "",
+};
+
+// 3. Step-Konfiguration (Wizard-Fortschritt)
+const stepData = [
+  {
+    id: 1,
+    title: "Grunddaten",
+    subtitle: "Grunddaten deines Pferdes",
+    description: "Erzähle uns die wichtigsten Daten zu deinem Pferd",
+    icon: "🐎",
+    iconBg: "bg-amber-100",
+    fields: [
+      { name: "rasse", label: "Rasse", required: true, placeholder: "z.B. Deutsches Sportpferd, Hannoveraner, Oldenburger" },
+      { name: "alter", label: "Alter (Jahre)", type: "number", required: true, placeholder: "z.B. 8" },
+      { name: "geschlecht", label: "Geschlecht", type: "select", required: true, options: ["Stute", "Wallach", "Hengst"] },
+      { name: "stockmass", label: "Stockmaß (cm)", type: "number", required: true, placeholder: "z.B. 168" },
+    ]
+  },
+  {
+    id: 2,
+    title: "Details",
+    subtitle: "Abstammung & Ausbildung",
+    description: "Details zur Leistung und Ausbildung deines Pferdes",
+    icon: "🏆",
+    iconBg: "bg-blue-100",
+    fields: [
+      { name: "abstammung", label: "Abstammung (Vater x Muttervater)", required: true, placeholder: "z.B. Cornet Obolensky x Contender" },
+      { name: "ausbildung", label: "Ausbildungsstand", required: true, placeholder: "z.B. A-Dressur, Springpferde L, angeritten" },
+      { name: "verwendungszweck", label: "Verwendungszweck", placeholder: "z.B. Freizeit, Turnier, Zucht" },
+    ]
+  },
+  {
+    id: 3,
+    title: "Zusatzinfos",
+    subtitle: "Zusätzliche Informationen",
+    description: "Optionale Details für eine noch genauere Bewertung",
+    icon: "📋",
+    iconBg: "bg-green-100",
+    fields: [
+      { name: "aku", label: "Gesundheitsstatus / AKU-Bericht", placeholder: "z.B. AKU ohne Befund, kleine Befunde" },
+      { name: "erfolge", label: "Erfolge", placeholder: "z.B. L-Platzierungen Springen, A-Dressur gewonnen" },
+      { name: "farbe", label: "Farbe", placeholder: "z.B. Fuchs, Rappe, Brauner" },
+      { name: "standort", label: "Standort", placeholder: "z.B. München oder PLZ" },
+      { name: "zuechter", label: "Züchter", placeholder: "z.B. Privat oder Zuchtbetrieb XYZ" },
+    ]
+  },
+  {
+    id: 4,
+    title: "Bezahlung",
+    subtitle: "Analyse starten",
+    description: "Nur noch ein Klick zur professionellen Pferdebewertung",
+    icon: "💳",
+    iconBg: "bg-purple-100",
+    fields: []
+  }
+];
