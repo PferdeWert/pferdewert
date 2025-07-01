@@ -123,20 +123,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         verwendungszweck,
       } = doc;
 
-      const bewertbareDaten = {
-        rasse,
-        alter,
-        geschlecht,
-        abstammung,
-        stockmass,
-        ausbildung,
-        aku,
-        erfolge,
-        farbe,
-        zuechter,
-        standort,
-        verwendungszweck,
-      };
+     const bewertbareDaten = {
+  rasse,
+  abstammung,
+  einsatzgebiet: verwendungszweck,
+  geburtsjahr: alter,
+  stockmaß: stockmass,
+  farbe,
+  vater: "", // optional, wenn leer
+  mutter: "", // optional
+  preise: erfolge,
+  besonderheiten: aku
+};
+
 
       console.log("[WEBHOOK] 📊 Extracted bewertbare data:", JSON.stringify(bewertbareDaten, null, 2));
 
