@@ -3,6 +3,8 @@ import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
 import Link from "next/link";
 import Image from "next/image";
+import { Star } from "lucide-react";
+
 
 export default function Home() {
   const faqs = [
