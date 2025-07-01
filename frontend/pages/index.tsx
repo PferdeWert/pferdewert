@@ -88,10 +88,10 @@ export default function Home() {
                 Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht. Perfekt für Kauf, Verkauf oder einfach aus Neugier.
               </p>
               <Link
-                href="/bewerten"
+                href="/beispiel-analyse"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow transition"
               >
-                Jetzt bewerten
+                Beispiel-Bewertung
               </Link>
             </div>
           </div>
