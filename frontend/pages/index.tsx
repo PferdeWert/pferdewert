@@ -91,7 +91,7 @@ export default function Home() {
                 href="/beispiel-analyse"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow transition"
               >
-                Beispiel-Bewertung
+                Beispiel - Bewertung
               </Link>
             </div>
           </div>
