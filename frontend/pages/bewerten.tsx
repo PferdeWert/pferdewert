@@ -63,7 +63,7 @@ interface StepData {
 
 // Step-Konfiguration (Wizard-Fortschritt)
 const stepData: StepData[] = [
-  {
+ {
     id: 1,
     title: "Grunddaten",
     subtitle: "Grunddaten deines Pferdes",
@@ -191,13 +191,12 @@ const stepData: StepData[] = [
   }
 ];
 
-export default function TestBewPage() {
+export default function Bewerten() {
   const [currentStep, setCurrentStep] = useState(1);
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
   const [consent, setConsent] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   // Formular bei Start wiederherstellen
   useEffect(() => {
@@ -252,8 +251,14 @@ export default function TestBewPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (window.gtag) {
+      window.gtag("event", "start_bewertung", {
+        event_category: "Funnel",
+        event_label: "Formular abgeschickt",
+        value: 1,
+      });
+    }
     e.preventDefault();
-    setSubmitted(true);
     setErrors({});
 
     if (!consent) {
@@ -321,6 +326,32 @@ export default function TestBewPage() {
       <Head>
         <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
         <meta name="description" content="Jetzt dein Pferd bewerten & den realistischen Marktwert online ermitteln – anonym, sicher & direkt als PDF. Ideal bei Pferdekauf & Pferdeverkauf." />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert" />
+        <meta property="og:description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pferdewert.de/bewerten" />
+        <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung | PferdeWert" />
+        <meta name="twitter:description" content="Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf." />
+        <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
+
+        {/* Strukturierte Daten */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Pferd bewerten & Marktwert ermitteln – fundierte Einschätzung",
+            "description": "Jetzt Pferd bewerten & Marktwert ermitteln – schnell, anonym & sicher. Ideal bei Pferdekauf und Pferdeverkauf.",
+            "url": "https://pferdewert.de/bewerten"
+          }
+          `}
+        </script>
         <link rel="canonical" href="https://pferdewert.de/bewerten" />
       </Head>
 
@@ -514,7 +545,6 @@ export default function TestBewPage() {
                 </p>
               </div>
 
-
               {/* Einverständnis */}
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                 <label className="flex items-start gap-3 cursor-pointer">
@@ -576,7 +606,7 @@ export default function TestBewPage() {
                   Du wirst zur sicheren Bezahlung weitergeleitet.
                 </p>
                 <p className="text-xs text-gray-500">
-                  Mit Klick auf „Jetzt kostenpflichtig analysieren" akzeptierst du unsere{" "}
+                  Mit Klick auf &ldquo;Jetzt kostenpflichtig analysieren&rdquo; akzeptierst du unsere{" "}
                   <Link href="/agb" className="underline hover:text-gray-700">
                     AGB
                   </Link>.
@@ -615,7 +645,7 @@ export default function TestBewPage() {
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!"
+                &ldquo;Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!&rdquo;
               </blockquote>
               <cite className="text-sm text-gray-600 font-semibold not-italic">
                 - Sarah M., Freizeitreiterin
@@ -630,7 +660,7 @@ export default function TestBewPage() {
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "Vor dem Pferdekauf wollte ich wissen, ob der angegebene Preis fair ist. Die PferdeWert-Analyse war sehr detailliert und hat mir bei der Preisverhandlung sehr geholfen."
+                &ldquo;Vor dem Pferdekauf wollte ich wissen, ob der angegebene Preis fair ist. Die PferdeWert-Analyse war sehr detailliert und hat mir bei der Preisverhandlung sehr geholfen.&rdquo;
               </blockquote>
               <cite className="text-sm text-gray-600 font-semibold not-italic">
                 - Michael K., Hobbyreiter
@@ -645,7 +675,7 @@ export default function TestBewPage() {
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!"
+                &ldquo;Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!&rdquo;
               </blockquote>
               <cite className="text-sm text-gray-600 font-semibold not-italic">
                 - Anna L., Pferdebesitzerin
@@ -654,6 +684,6 @@ export default function TestBewPage() {
           </div>
         </div>
       </section>
-    </Layout>
+      </Layout>
   );
 }
