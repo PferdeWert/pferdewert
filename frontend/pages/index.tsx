@@ -75,7 +75,7 @@ export default function Home() {
         src="/images/blossi-shooting.webp"
         width={700}
         height={500}
-        alt="Deutsches Sportpferd Blossom im Portr&apos;t für KI-Pferdebewertung"
+        alt="Deutsches Sportpferd Blossom im Porträt für KI-Pferdebewertung"
         className="rounded-xl shadow-md w-full h-auto"
       />
     </div>
