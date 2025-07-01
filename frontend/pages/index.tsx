@@ -66,20 +66,19 @@ export default function Home() {
           />
           <link rel="canonical" href="https://pferdewert.de/" />
         </Head>
-
-        {/* Hero-Bereich neu (bild oben auf mobil) */}
-        <section className="bg-[#fdf9f4] py-16 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-            {/* Bild zuerst – auf Mobilgeräten oben */}
-            <div className="order-1 md:order-none">
-              <Image
-                src="/images/blossi-shooting.webp"
-                width={700}
-                height={500}
-                alt="Deutsches Sportpferd Blossom im Porträt für KI-Pferdebewertung“"
-                className="rounded-xl shadow-md w-full h-auto"
-              />
-            </div>
+{/* Hero-Bereich neu (bild oben auf mobil) */}
+<section className="bg-[#fdf9f4] py-16 px-6">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    {/* Bild zuerst – auf Mobilgeräten oben */}
+    <div className="order-1 md:order-none">
+      <Image
+        src="/images/blossi-shooting.webp"
+        width={700}
+        height={500}
+        alt="Deutsches Sportpferd Blossom im Portr&apos;t für KI-Pferdebewertung"
+        className="rounded-xl shadow-md w-full h-auto"
+      />
+    </div>
 
             {/* Textblock */}
             <div>
