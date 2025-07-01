@@ -4,6 +4,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
 
 /* ===== Farbvariablen für Light/Dark Mode ===== */
 :root {
@@ -21,7 +23,8 @@
 /* ===== Fonts als CSS-Variablen (optional, für Custom-Use) ===== */
 :root {
   --font-sans: 'Lato', Arial, Helvetica, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;  /* Bleibt für Logo */
+  --font-heading: 'Merriweather', Georgia, serif;     /* Neu für Headlines */
 }
 
 /* ===== Global Styles ===== */
@@ -37,7 +40,7 @@ body {
 
 /* Headlines: Playfair Display */
 h1, h2, h3, h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);  /* Statt var(--font-serif) */
   font-weight: 700;
   line-height: 1.2;
   margin-top: 0;
