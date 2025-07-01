@@ -1,9 +1,9 @@
 // frontend/pages/index.tsx
 import Head from "next/head";
-import Layout from "@/components/Layout"; // Footer via Layout integriert
+import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { Star, CheckCircle, Lock, Zap } from "lucide-react"; // ← HIER: Neue Icons hinzugefügt
 
 
 export default function Home() {
@@ -129,63 +129,57 @@ export default function Home() {
 </section>
 
         {/* Warum PferdeWert vertrauen Sektion */}
-        <section className="bg-[#fdf9f4] py-16 px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-12">
-              Warum PferdeWert vertrauen?
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Karte 1: Präzise KI-Analyse */}
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Präzise KI-Analyse
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Basiert auf tausenden echten<br />
-                  Markttransaktionen und Expertenwissen
-                </p>
-              </div>
+<section className="bg-[#fdf9f4] py-16 px-6">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-3xl font-bold text-gray-800 mb-12">
+      Warum PferdeWert vertrauen?
+    </h2>
+    
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Karte 1: Präzise KI-Analyse */}
+      <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+        <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="w-8 h-8 text-pink-500" />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          Präzise KI-Analyse
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Basiert auf tausenden echten<br />
+          Markttransaktionen und Expertenwissen
+        </p>
+      </div>
 
-              {/* Karte 2: 100% Datenschutz */}
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  100% Datenschutz
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Deine Daten bleiben anonym und werden<br />
-                  nicht weitergegeben
-                </p>
-              </div>
+      {/* Karte 2: 100% Datenschutz */}
+      <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+        <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Lock className="w-8 h-8 text-orange-500" />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          100% Datenschutz
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Deine Daten bleiben anonym und werden<br />
+          nicht weitergegeben
+        </p>
+      </div>
 
-              {/* Karte 3: Sofort verfügbar */}
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Sofort verfügbar
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Analyse in unter 2 Minuten - kein Warten,<br />
-                  keine Termine
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Karte 3: Sofort verfügbar */}
+      <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Zap className="w-8 h-8 text-yellow-500" />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          Sofort verfügbar
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Analyse in unter 2 Minuten - kein Warten,<br />
+          keine Termine
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* So einfach geht's Sektion */}
         <section className="bg-white py-16 px-6">
