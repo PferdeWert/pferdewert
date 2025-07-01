@@ -82,7 +82,7 @@ export default function Home() {
             {/* Textblock */}
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                Was ist Dein Pferd wirklich wert?
+                Was ist Dein Pferd wert?
               </h1>
               <p className="text-lg text-gray-700 mb-4">
                 Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht. Perfekt für Kauf, Verkauf oder einfach aus Neugier.
@@ -98,7 +98,7 @@ export default function Home() {
         </section>
 
         {/* Preisbanner-Sektion */}
-<section className="bg-white py-16 px-6 text-center">
+  <section className="bg-white py-16 px-6 text-center">
   <div className="max-w-4xl mx-auto">
     {/* Preisbanner */}
     <div className="bg-yellow-100 border border-yellow-300 p-6 rounded-xl shadow-md">
@@ -250,6 +250,81 @@ export default function Home() {
                 className="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-lg shadow transition-colors border border-gray-300"
               >
                 Beispiel-Analyse anschauen
+              </Link>
+            </div>
+          </div>
+        </section>
+
+{/* Das sagen unsere Kunden Sektion */}
+        <section className="bg-[#fdf9f4] py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-amber-800 text-center mb-12">
+              Das sagen unsere Kunden
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {/* Testimonial 1 */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-amber-600 relative">
+                <div className="absolute -left-1 top-6 text-4xl text-amber-600 font-serif leading-none">
+                  "
+                </div>
+                <div className="flex mb-4 ml-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
+                  "Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!"
+                </blockquote>
+                <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
+                  - Sarah M., Freizeitreiterin
+                </cite>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-amber-600 relative">
+                <div className="absolute -left-1 top-6 text-4xl text-amber-600 font-serif leading-none">
+                  "
+                </div>
+                <div className="flex mb-4 ml-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
+                  "Vor dem Pferdekauf wollte ich wissen, ob der angegebene Preis fair ist. Die PferdeWert-Analyse war sehr detailliert und hat mir bei der Preisverhandlung sehr geholfen."
+                </blockquote>
+                <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
+                  - Michael K., Hobbyreiter
+                </cite>
+              </div>
+
+              {/* Testimonial 3 */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-amber-600 relative md:col-span-2 lg:col-span-1">
+                <div className="absolute -left-1 top-6 text-4xl text-amber-600 font-serif leading-none">
+                  "
+                </div>
+                <div className="flex mb-4 ml-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
+                  "Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die ANalyse der Abstammung fand ich sehr spannend!"
+                </blockquote>
+                <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
+                  - Anna L., Pferdebesitzerin
+                </cite>
+              </div>
+            </div>
+
+            {/* Call-to-Action Button */}
+            <div className="text-center">
+              <Link
+                href="/bewerten"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow transition-colors"
+              >
+                Jetzt Bewertung starten
               </Link>
             </div>
           </div>
