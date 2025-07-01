@@ -305,7 +305,7 @@ export default function Home() {
           ))}
         </div>
         <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
-          &quot;Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!&quot;
+        &quot;Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!&quot;
         </blockquote>
         <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
           - Anna L., Pferdebesitzerin
