@@ -5,6 +5,11 @@ import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 import { info, error } from "@/lib/log";
 
+type GptResponse = {
+  raw_gpt?: string;
+  [key: string]: unknown;
+};
+
 export const config = { api: { bodyParser: false } };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
@@ -143,7 +148,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const responseText = await response.text();
       console.log(`[WEBHOOK] 📥 Raw API response (${responseText.length} chars):`, responseText.substring(0, 200) + "...");
       
-      let gpt_response: any;
+let gpt_response: GptResponse;
       try {
         gpt_response = JSON.parse(responseText);
         console.log("[WEBHOOK] ✅ API response parsed successfully");
