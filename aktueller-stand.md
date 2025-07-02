@@ -1,3 +1,52 @@
+Was wir versucht haben
+Stripe Webhook Debugging
+
+stripe listen --forward-to localhost:3000/api/webhook korrekt ausgeführt
+
+Webhook wurde ausgelöst bei checkout.session.completed
+
+Signaturprüfung ✅ erfolgreich
+
+Webhook hat reagiert, aber mit 404 geantwortet, da kein Dokument gefunden wurde
+
+MongoDB-Verlauf überprüft
+
+Neue Einträge wurden korrekt in die Datenbank geschrieben
+
+stripeSessionId war bei neuen Einträgen nicht vorhanden
+
+Ältere Einträge enthielten gültige bewertung-Felder, neue nicht
+
+Frontend und API getestet
+
+Bewertungsvorgang (POST an /api/create-checkout-session) erzeugt Mongo-Eintrag korrekt
+
+Weiterleitung zu Stripe funktioniert
+
+Rückleitung funktioniert nicht sinnvoll, da keine Bewertung generiert wird
+
+🧨 Vermutete Fehlerursache
+Beim Erstellen der Stripe-Checkout-Session wird das metadata-Feld nicht korrekt gesetzt:
+
+ts
+Kopieren
+Bearbeiten
+metadata: {
+  bewertungId: insertedId.toString()
+}
+Fehlt dieses metadata, kann der Webhook die zugehörige Bewertung in MongoDB nicht finden und somit keine Preisermittlung starten.
+
+✅ Nächste Schritte
+Stelle sicher, dass beim Erstellen der Stripe-Session das metadata korrekt gesetzt wird.
+
+Prüfe, ob insertedId korrekt übergeben und geloggt wird.
+
+Optional: Bei Problemen, Logik in api/webhook.ts erweitern um alle empfangenen Daten zu loggen.
+
+Wenn du später weitermachst, starte am besten mit dem create-checkout-session.ts Endpoint und überprüfe den stripe.checkout.sessions.create Call.
+
+Ich stehe bereit, wenn du wieder anknüpfst.
+
 **Aktueller Stand PferdeWert Webhook Debugging (01.07.2025)**
 
 **Problem:**
