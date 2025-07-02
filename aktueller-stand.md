@@ -1,3 +1,40 @@
+**Aktueller Stand PferdeWert Webhook Debugging (01.07.2025)**
+
+**Problem:**
+
+* Der Webhook `/api/webhook` läuft mehrfach durch, aber keine Bewertung wird gespeichert.
+* Das Feld `bewertung` bleibt leer in MongoDB.
+* Die API `/api/bewertung` gibt weiterhin 404 zurück, da das Feld fehlt.
+
+**Fehlermeldung:**
+
+* `API handler should not return a value, received object.`
+
+**Ursache:**
+
+* Im Webhook-Handler wird z. B. `res.status(404).end("No matching document")` ohne `return` ausgeführt.
+* Dadurch wird nach dem Beenden der Response der Code weiter ausgeführt, was zu unerwartetem Verhalten und schwer nachvollziehbaren Bugs führt.
+
+**Lösung:**
+
+* Jeder `res.status(...).end(...)` muss direkt mit einem `return` abgeschlossen werden.
+
+**Beispiel-Fix:**
+
+```ts
+if (!doc) {
+  res.status(404).end("No matching document");
+  return;
+}
+```
+
+**Nächster Schritt:**
+
+* Alle Response-Enden im Webhook prüfen und mit `return` absichern.
+* Danach Test mit Stripe Checkout durchführen.
+* Wenn erfolgreich: `bewertung`-Feld wird korrekt gesetzt, `/ergebnis` zeigt Markdown-Analyse.
+
+
 **Projektstand PferdeWert (Stand: Juni 2025)**
 
 ---
