@@ -1,10 +1,10 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.1.0", 
   "private": true,
   "scripts": {
-    "predev": "fuser -k 3000/tcp || true",
-    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev next dev"
+    "predev": "npx kill-port 3000 || echo 'Port cleaning attempted'",
+    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
