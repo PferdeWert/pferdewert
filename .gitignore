@@ -40,16 +40,19 @@ frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/pnpm-debug.log*
 
-# Umgebungsdateien
-frontend/.env
-frontend/.env.*
+# Umgebungsdateien - NUR lokale Secrets
+frontend/.env.local
+frontend/.env.*.local
 
-# IDE / Editor
-.vscode/
+# IDE / Editor - NUR persönliche Settings
 .idea/
 *.swp
 *.swo
 *.bak
+
+# VS Code - NUR persönliche User Settings (nicht Workspace)
+.vscode/settings.json
+.vscode/extensions.json
 
 # MacOS
 .DS_Store
