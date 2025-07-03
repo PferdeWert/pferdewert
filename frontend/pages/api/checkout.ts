@@ -9,16 +9,18 @@ import { z } from "zod";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 const BewertungSchema = z.object({
-  rasse: z.string().min(2),
-  abstammung: z.string().optional(),
-  einsatzgebiet: z.string().optional(),
-  geburtsjahr: z.string().optional(),
-  stockmaß: z.string().optional(),
+  rasse: z.string(),
+  alter: z.number(),
+  geschlecht: z.string(),
+  abstammung: z.string(),
+  stockmass: z.number(),
+  ausbildung: z.string(),
+  aku: z.string().optional(),
+  erfolge: z.string().optional(),
   farbe: z.string().optional(),
-  vater: z.string().optional(),
-  mutter: z.string().optional(),
-  preise: z.string().optional(),
-  besonderheiten: z.string().optional(),
+  zuechter: z.string().optional(),
+  standort: z.string().optional(),
+  verwendungszweck: z.string().optional(),
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
