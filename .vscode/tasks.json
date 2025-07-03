@@ -1,0 +1,120 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Next.js Dev Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": "$tsc-watch",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Start Stripe Webhook Listener",
+      "type": "shell",
+      "command": "stripe",
+      "args": [
+        "listen",
+        "--forward-to",
+        "localhost:3000/api/webhook",
+        "--events",
+        "checkout.session.completed,payment_intent.succeeded,payment_intent.payment_failed"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": [],
+      "dependsOn": "Check Stripe CLI"
+    },
+    {
+      "label": "Check Stripe CLI",
+      "type": "shell",
+      "command": "stripe",
+      "args": ["--version"],
+      "group": "build",
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev + Webhooks",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Start Next.js Dev Server",
+        "Start Stripe Webhook Listener"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "label": "Test Webhook",
+      "type": "shell",
+      "command": "stripe",
+      "args": [
+        "trigger",
+        "checkout.session.completed",
+        "--override",
+        "checkout.session.completed:data.object.id=cs_test_123"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Stop All Stripe Processes",
+      "type": "shell",
+      "command": "pkill",
+      "args": ["-f", "stripe listen"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}
