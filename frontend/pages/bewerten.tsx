@@ -10,10 +10,10 @@ import { Star, CheckCircle, Lock, Zap, ArrowRight, ArrowLeft } from "lucide-reac
 
 interface FormState {
   rasse: string;
-  alter: string;
+  alter: number;                    // Backend erwartet int
   geschlecht: string;
   abstammung: string;
-  stockmass: string;
+  stockmass: number;                // Backend erwartet int (ohne ß!)
   ausbildung: string;
   aku: string;
   erfolge: string;
@@ -25,10 +25,10 @@ interface FormState {
 
 const initialForm: FormState = {
   rasse: "",
-  alter: "",
+  alter: 0,                         // Number statt String
   geschlecht: "",
   abstammung: "",
-  stockmass: "",
+  stockmass: 0,                     // Number statt String
   ausbildung: "",
   aku: "",
   erfolge: "",
@@ -218,12 +218,18 @@ export default function Bewerten() {
   }, [form]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    // Clear error when user starts typing
-    if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: "" });
-    }
-  };
+  const { name, value, type } = e.target;
+  
+  setForm({ 
+    ...form, 
+    [name]: type === "number" ? Number(value) || 0 : value 
+  });
+  
+  // Clear error when user starts typing
+  if (errors[name]) {
+    setErrors({ ...errors, [name]: "" });
+  }
+};
 
   const validateStep = (step: number) => {
     const currentStepData = stepData.find(s => s.id === step);
