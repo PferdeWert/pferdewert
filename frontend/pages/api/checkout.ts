@@ -107,8 +107,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const bewertungId = new ObjectId();
     console.log("[CHECKOUT] 🆔 Generated bewertungId:", bewertungId.toHexString());
     
-    const origin = process.env.NEXT_PUBLIC_BASE_URL!;
-    console.log("[CHECKOUT] 🌐 Origin URL:", origin);
+     const origin = process.env.VERCEL_URL 
+     ? `https://${process.env.VERCEL_URL}` 
+     : process.env.NEXT_PUBLIC_BASE_URL;
 
     // 6. STRIPE SESSION CREATION
     console.log("[CHECKOUT] 💳 Creating Stripe session...");
