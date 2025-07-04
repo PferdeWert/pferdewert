@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "lsof -ti:3000 | xargs -r kill -9 && cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev"
+  "dev": "(lsof -ti:3000 || netstat -tulpn | grep :3000 | awk '{print $7}' | cut -d'/' -f1) | xargs -r kill -9 && cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev"
 },
+
   
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
