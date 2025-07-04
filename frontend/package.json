@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "predev": "while lsof -ti:3000 > /dev/null; do echo 'Port 3000 belegt, Prozess wird beendet...'; kill -9 $(lsof -ti:3000); sleep 1; done"
+  "predev": "while lsof -ti:3000 > /dev/null; do echo 'Port 3000 belegt, Prozess wird beendet...'; kill -9 $(lsof -ti:3000); sleep 1; done",
     "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev"
   },
   "dependencies": {
