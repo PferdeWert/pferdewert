@@ -9,6 +9,11 @@ import { BewertungSchema, type Bewertung } from "@/lib/bewertung-schema";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
+// Umgebungsvariablen validieren
+if (!process.env.STRIPE_PRICE_ID) {
+  throw new Error("STRIPE_PRICE_ID ist nicht gesetzt");
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     warn("[CHECKOUT] ❌ Ungültige Methode:", req.method);
@@ -35,30 +40,53 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // 2. KI-Bewertung über FastAPI durchführen
     info("[CHECKOUT] 🤖 Starte KI-Bewertung über FastAPI...");
     
-    const fastApiResponse = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    // AbortController für Timeout (30 Sekunden)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
-    if (!fastApiResponse.ok) {
-      error("[CHECKOUT] ❌ FastAPI Fehler:", fastApiResponse.status);
-      return res.status(500).json({ 
-        error: "KI-Bewertung fehlgeschlagen", 
-        details: `FastAPI Status: ${fastApiResponse.status}` 
+    try {
+      const fastApiResponse = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId); // Timeout löschen bei erfolgreicher Antwort
+
+      if (!fastApiResponse.ok) {
+        error("[CHECKOUT] ❌ FastAPI Fehler:", fastApiResponse.status);
+        return res.status(500).json({ 
+          error: "KI-Bewertung fehlgeschlagen", 
+          details: `FastAPI Status: ${fastApiResponse.status}` 
+        });
+      }
+
+      const gptResponse = await fastApiResponse.json();
+      const bewertungsText = gptResponse?.raw_gpt;
+
+      if (!bewertungsText) {
+        error("[CHECKOUT] ❌ Keine KI-Antwort erhalten");
+        return res.status(500).json({ error: "Keine KI-Bewertung erhalten" });
+      }
+
+      info("[CHECKOUT] ✅ KI-Bewertung erfolgreich erhalten");
+      log("[CHECKOUT] Bewertung (erste 100 Zeichen):", bewertungsText.substring(0, 100));
+
+    } catch (fetchError: any) {
+      clearTimeout(timeoutId);
+      
+      if (fetchError.name === 'AbortError') {
+        error("[CHECKOUT] ❌ FastAPI Timeout nach 30 Sekunden");
+        return res.status(504).json({ 
+          error: "KI-Service Timeout", 
+          details: "Die KI-Bewertung dauert zu lange. Bitte versuchen Sie es erneut." 
+        });
+      }
+      
+      // Andere Fetch-Fehler
+      throw fetchError; // Wird vom äußeren catch gefangen
     }
-
-    const gptResponse = await fastApiResponse.json();
-    const bewertungsText = gptResponse?.raw_gpt;
-
-    if (!bewertungsText) {
-      error("[CHECKOUT] ❌ Keine KI-Antwort erhalten");
-      return res.status(500).json({ error: "Keine KI-Bewertung erhalten" });
-    }
-
-    info("[CHECKOUT] ✅ KI-Bewertung erfolgreich erhalten");
-    log("[CHECKOUT] Bewertung (erste 100 Zeichen):", bewertungsText.substring(0, 100));
 
     // 3. Bewertungsdokument in MongoDB speichern (Status: "bewertet")
     const bewertungId = new ObjectId();
@@ -86,7 +114,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna"],
       line_items: [{ 
-        price: process.env.STRIPE_PRICE_ID!, 
+        price: process.env.STRIPE_PRICE_ID, // Bereits validiert oben
         quantity: 1 
       }],
       mode: "payment",
