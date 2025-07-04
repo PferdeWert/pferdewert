@@ -3,11 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "sudo lsof -ti:3000 | xargs sudo kill -9 2>/dev/null || true",
-    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "predev": "while lsof -ti:3000 | grep -q .; do kill -9 $(lsof -ti:3000); sleep 1; done",
+    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
