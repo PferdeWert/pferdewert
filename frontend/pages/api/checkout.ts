@@ -1,179 +1,135 @@
-// frontend/pages/api/checkout.ts - DEBUG VERSION
+// /pages/api/checkout.ts
+// Neuer Ablauf: KI-Bewertung VOR Zahlung
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
-import { z } from "zod";
+import { BewertungSchema, type Bewertung } from "@/lib/bewertung-schema";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
-const BewertungSchema = z.object({
-  rasse: z.string(),
-  alter: z.number(),
-  geschlecht: z.string(),
-  abstammung: z.string(),
-  stockmass: z.number(),
-  ausbildung: z.string(),
-  aku: z.string().optional(),
-  erfolge: z.string().optional(),
-  farbe: z.string().optional(),
-  zuechter: z.string().optional(),
-  standort: z.string().optional(),
-  verwendungszweck: z.string().optional(),
-});
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log("[CHECKOUT] 🚀 === CHECKOUT DEBUG START ===");
-  
   if (req.method !== "POST") {
     warn("[CHECKOUT] ❌ Ungültige Methode:", req.method);
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  const start = Date.now(); // Performance-Messung
+
   try {
-    // 1. REQUEST BODY LOGGING
-    console.log("[CHECKOUT] 📥 Request Body:", JSON.stringify(req.body, null, 2));
-    
-    const { text } = req.body;
-
-    if (!text || typeof text !== "string") {
-      console.log("[CHECKOUT] ❌ Missing/Invalid text:", { text, type: typeof text });
-      warn("[CHECKOUT] ⚠️ Kein valider Text übergeben");
-      return res.status(400).json({ error: "Missing input data" });
+    // 1. Formulardaten validieren
+    const validation = BewertungSchema.safeParse(req.body);
+    if (!validation.success) {
+      warn("[CHECKOUT] ❌ Validierungsfehler:", validation.error.flatten());
+      return res.status(400).json({ 
+        error: "Ungültige Bewertungsdaten",
+        details: validation.error.flatten() 
+      });
     }
 
-    console.log("[CHECKOUT] 📝 Raw text received:", text);
+    const formData: Bewertung = validation.data;
+    info("[CHECKOUT] ✅ Eingabedaten validiert");
+    log("[CHECKOUT] Formular-Daten:", formData);
 
-    // 2. JSON PARSING DEBUG
-    let parsedData;
-    try {
-      parsedData = JSON.parse(text);
-      console.log("[CHECKOUT] ✅ JSON parsed successfully");
-      console.log("[CHECKOUT] 📊 Parsed data:", JSON.stringify(parsedData, null, 2));
-    } catch (parseError) {
-      console.log("[CHECKOUT] ❌ JSON Parse Error:", parseError);
-      console.log("[CHECKOUT] 💀 Failed to parse:", text);
-      warn("[CHECKOUT] ⚠️ JSON-Parse fehlgeschlagen");
-      return res.status(400).json({ error: "Invalid JSON" });
-    }
-
-    // 3. DATA STRUCTURE ANALYSIS
-    console.log("[CHECKOUT] 🔍 Analyzing received data structure:");
-    console.log(`[CHECKOUT] - Keys received: [${Object.keys(parsedData).join(', ')}]`);
-    console.log(`[CHECKOUT] - Total fields: ${Object.keys(parsedData).length}`);
+    // 2. KI-Bewertung über FastAPI durchführen
+    info("[CHECKOUT] 🤖 Starte KI-Bewertung über FastAPI...");
     
-    // Check each field
-    Object.entries(parsedData).forEach(([key, value]) => {
-      console.log(`[CHECKOUT] - ${key}: "${value}" (type: ${typeof value}, length: ${String(value).length})`);
+    const fastApiResponse = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     });
 
-    // 4. ZOD SCHEMA VALIDATION DEBUG
-    console.log("[CHECKOUT] 🔍 Starting Zod validation...");
-    
-    const validation = BewertungSchema.safeParse(parsedData);
-    
-    if (!validation.success) {
-      console.log("[CHECKOUT] ❌ ZOD VALIDATION FAILED:");
-      console.log("[CHECKOUT] 📋 Validation errors:", JSON.stringify(validation.error.flatten(), null, 2));
-      
-      // Detailed field-by-field analysis
-      console.log("[CHECKOUT] 🔍 Field-by-field validation:");
-      const schemaFields = ['rasse', 'abstammung', 'einsatzgebiet', 'geburtsjahr', 'stockmaß', 'farbe', 'vater', 'mutter', 'preise', 'besonderheiten'];
-      
-      schemaFields.forEach(field => {
-        const value = parsedData[field];
-        console.log(`[CHECKOUT] - ${field}: ${value ? `"${value}" ✅` : 'missing ❌'}`);
+    if (!fastApiResponse.ok) {
+      error("[CHECKOUT] ❌ FastAPI Fehler:", fastApiResponse.status);
+      return res.status(500).json({ 
+        error: "KI-Bewertung fehlgeschlagen", 
+        details: `FastAPI Status: ${fastApiResponse.status}` 
       });
-      
-      // Check for required field 'rasse'
-      if (!parsedData.rasse) {
-        console.log("[CHECKOUT] ❌ CRITICAL: 'rasse' field is missing!");
-      } else if (parsedData.rasse.length < 2) {
-        console.log(`[CHECKOUT] ❌ CRITICAL: 'rasse' too short: "${parsedData.rasse}" (${parsedData.rasse.length} chars, min 2 required)`);
-      }
-      
-      warn("[CHECKOUT] ❌ Validierungsfehler:", validation.error.flatten());
-      return res.status(400).json({ error: "Ungültige Bewertungsdaten", details: validation.error.flatten() });
     }
 
-    console.log("[CHECKOUT] ✅ Zod validation successful!");
-    console.log("[CHECKOUT] 📊 Validated data:", JSON.stringify(validation.data, null, 2));
+    const gptResponse = await fastApiResponse.json();
+    const bewertungsText = gptResponse?.raw_gpt;
 
-    info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
-    log("[CHECKOUT] Eingabe:", parsedData);
+    if (!bewertungsText) {
+      error("[CHECKOUT] ❌ Keine KI-Antwort erhalten");
+      return res.status(500).json({ error: "Keine KI-Bewertung erhalten" });
+    }
 
-    // 5. MONGODB PREPARATION
+    info("[CHECKOUT] ✅ KI-Bewertung erfolgreich erhalten");
+    log("[CHECKOUT] Bewertung (erste 100 Zeichen):", bewertungsText.substring(0, 100));
+
+    // 3. Bewertungsdokument in MongoDB speichern (Status: "bewertet")
     const bewertungId = new ObjectId();
-    console.log("[CHECKOUT] 🆔 Generated bewertungId:", bewertungId.toHexString());
-    
-     const origin =
-  process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : process.env.NEXT_PUBLIC_BASE_URL ??
-      (req.headers.host && !req.headers.host.startsWith("localhost")
-        ? `https://${req.headers.host}`
-        : null);
+    const collection = await getCollection("bewertungen");
 
-if (!origin) {
-  error("[CHECKOUT] ❌ Keine gültige origin-URL verfügbar");
-  return res.status(500).json({ error: "Fehlende oder ungültige Redirect-URL" });
-}
+    const bewertungsDokument = {
+      _id: bewertungId,
+      ...formData,
+      status: "bewertet", // Bewertung liegt vor, aber noch nicht freigegeben
+      bewertung: bewertungsText,
+      erstellt_am: new Date(),
+      aktualisiert_am: new Date(),
+      stripe_session_id: null, // wird gleich gesetzt
+      // Metainfos für Analyse
+      user_agent: req.headers['user-agent'] || null,
+      client_ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress || null,
+    };
 
+    await collection.insertOne(bewertungsDokument);
+    info("[CHECKOUT] ✅ Bewertungsdokument in DB gespeichert, ID:", bewertungId.toHexString());
 
-    // 6. STRIPE SESSION CREATION
-    console.log("[CHECKOUT] 💳 Creating Stripe session...");
+    // 4. Stripe Checkout-Session erstellen
+    const origin = process.env.NEXT_PUBLIC_BASE_URL || req.headers.origin;
     
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna"],
-      line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
+      line_items: [{ 
+        price: process.env.STRIPE_PRICE_ID!, 
+        quantity: 1 
+      }],
       mode: "payment",
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/bewerten?abgebrochen=1`,
-      metadata: { bewertungId: bewertungId.toHexString() },
+      metadata: { 
+        bewertungId: bewertungId.toHexString() // Wichtig für Webhook!
+      },
     });
 
-    console.log("[DEBUG ENV] NEXT_PUBLIC_BASE_URL =", process.env.NEXT_PUBLIC_BASE_URL);
+    // 5. Stripe Session ID in Dokument speichern
+    await collection.updateOne(
+      { _id: bewertungId },
+      { $set: { stripe_session_id: session.id } }
+    );
 
-    console.log("[CHECKOUT] ✅ Stripe session created:", session.id);
-    console.log("[CHECKOUT] 🔗 Success URL:", session.success_url);
+    info("[CHECKOUT] ✅ Stripe-Session erstellt:", session.id);
+    info("[CHECKOUT] ✅ Session-ID im Dokument gespeichert");
+    info(`[CHECKOUT] ⏱️ Dauer gesamt: ${Date.now() - start}ms`);
 
-    // 7. DATABASE INSERTION DEBUG
-    console.log("[CHECKOUT] 💾 Inserting into MongoDB...");
-    
-    const dbDocument = {
-      _id: bewertungId,
-      ...parsedData,  // Insert ALL received data, not just validated fields
-      status: "offen",
-      stripeSessionId: session.id,
-      erstellt: new Date(),
-    };
-    
-    console.log("[CHECKOUT] 📄 Document to insert:", JSON.stringify(dbDocument, null, 2));
+    // 6. Session-URL zurückgeben für Frontend-Redirect
+    return res.status(200).json({ 
+      url: session.url,
+      sessionId: session.id,
+      bewertungId: bewertungId.toHexString()
+    });
 
-    const collection = await getCollection("bewertungen");
-    await collection.insertOne(dbDocument);
-
-    console.log("[CHECKOUT] ✅ Document inserted successfully!");
+  } catch (err: unknown) {
+    error("[CHECKOUT] ❌ Unerwarteter Fehler:", err);
     
-    info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
-    
-    console.log("[CHECKOUT] 🎯 === CHECKOUT DEBUG SUCCESS ===");
-    console.log("[CHECKOUT] 🔗 Redirecting to:", session.url);
-    
-    res.status(200).json({ url: session.url });
-    
-  } catch (_err: unknown) {
-    console.log("[CHECKOUT] 💥 === CHECKOUT DEBUG ERROR ===");
-    console.log("[CHECKOUT] ❌ Error details:", _err);
-    
-    if (_err instanceof Error) {
-      console.log("[CHECKOUT] - Error name:", _err.name);
-      console.log("[CHECKOUT] - Error message:", _err.message);
-      console.log("[CHECKOUT] - Error stack:", _err.stack);
+    // Detaillierte Fehlerbehandlung
+    if (err instanceof Error) {
+      if (err.message.includes('ENOTFOUND') || err.message.includes('fetch')) {
+        return res.status(503).json({ 
+          error: "KI-Service temporär nicht verfügbar", 
+          details: "Bitte versuchen Sie es in wenigen Minuten erneut" 
+        });
+      }
     }
-    
-    error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
-    res.status(500).json({ error: "Interner Serverfehler" });
+
+    return res.status(500).json({ 
+      error: "Interner Serverfehler",
+      details: "Unbekannter Fehler beim Erstellen der Bewertung"
+    });
   }
 }
