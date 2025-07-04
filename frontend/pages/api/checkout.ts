@@ -43,6 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // AbortController für Timeout (30 Sekunden)
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 30000);
+    let bewertungsText: string;
 
     try {
       const fastApiResponse = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
@@ -63,7 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       const gptResponse = await fastApiResponse.json();
-      const bewertungsText = gptResponse?.raw_gpt;
+      bewertungsText = gptResponse?.raw_gpt;
 
       if (!bewertungsText) {
         error("[CHECKOUT] ❌ Keine KI-Antwort erhalten");
