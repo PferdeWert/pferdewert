@@ -107,9 +107,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const bewertungId = new ObjectId();
     console.log("[CHECKOUT] 🆔 Generated bewertungId:", bewertungId.toHexString());
     
-     const origin = process.env.VERCEL_URL 
-     ? `https://${process.env.VERCEL_URL}` 
-     : process.env.NEXT_PUBLIC_BASE_URL;
+     const origin =
+  process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL ??
+      (req.headers.host && !req.headers.host.startsWith("localhost")
+        ? `https://${req.headers.host}`
+        : null);
+
+if (!origin) {
+  error("[CHECKOUT] ❌ Keine gültige origin-URL verfügbar");
+  return res.status(500).json({ error: "Fehlende oder ungültige Redirect-URL" });
+}
+
 
     // 6. STRIPE SESSION CREATION
     console.log("[CHECKOUT] 💳 Creating Stripe session...");
