@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "predev": "while lsof -ti:3000 > /dev/null; do echo 'Port 3000 belegt, Prozess wird beendet...'; kill -9 $(lsof -ti:3000); sleep 1; done",
+    "kill-port": "lsof -ti:3000 | xargs -r kill -9 || true",
+    "predev": "while lsof -ti:3000 > /dev/null; do echo 'Port 3000 belegt, Prozess wird beendet...'; kill -9 $(lsof -ti:3000); sleep 1; done",
     "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=http://localhost:3000 next dev"
   },
   "dependencies": {
@@ -29,10 +30,3 @@
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.4",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.3",
-    "typescript": "5.8.3"
-  }
-}
