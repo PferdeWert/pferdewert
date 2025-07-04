@@ -123,6 +123,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       metadata: { bewertungId: bewertungId.toHexString() },
     });
 
+    console.log("[DEBUG ENV] NEXT_PUBLIC_BASE_URL =", process.env.NEXT_PUBLIC_BASE_URL);
+
     console.log("[CHECKOUT] ✅ Stripe session created:", session.id);
     console.log("[CHECKOUT] 🔗 Success URL:", session.success_url);
 
