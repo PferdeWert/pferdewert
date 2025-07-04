@@ -74,10 +74,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       info("[CHECKOUT] ✅ KI-Bewertung erfolgreich erhalten");
       log("[CHECKOUT] Bewertung (erste 100 Zeichen):", bewertungsText.substring(0, 100));
 
-    } catch (fetchError: any) {
+    } catch (fetchError: unknown) {
       clearTimeout(timeoutId);
       
-      if (fetchError.name === 'AbortError') {
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
         error("[CHECKOUT] ❌ FastAPI Timeout nach 30 Sekunden");
         return res.status(504).json({ 
           error: "KI-Service Timeout", 
