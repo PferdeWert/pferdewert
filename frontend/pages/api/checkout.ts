@@ -112,6 +112,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // 4. Stripe Checkout-Session erstellen
     const origin = process.env.NEXT_PUBLIC_BASE_URL || req.headers.origin;
     
+    // 🔍 DEBUG: Schauen was tatsächlich verwendet wird
+console.log("[CHECKOUT] 🌐 Origin Debug:", {
+  NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+  'req.headers.origin': req.headers.origin,
+  'req.headers.host': req.headers.host,
+  'req.headers.referer': req.headers.referer,
+  'final_origin': origin
+});
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna"],
       line_items: [{ 
