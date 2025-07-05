@@ -140,7 +140,7 @@ export default function Ergebnis() {
         }
 
         setIsPaid(true);
-        const bewertungId = sessionData.metadata?.bewertungId;
+const bewertungId = sessionData.session?.metadata?.bewertungId;
 if (!bewertungId) throw new Error("Keine bewertungId in Session-Metadaten gefunden. Bitte kontaktiere den Support.");
 
         log("[ERGEBNIS] Starte Status-Polling für Bewertung:", bewertungId);
