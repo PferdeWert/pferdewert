@@ -18,14 +18,12 @@ import tiktoken  # Token-Zähler
 load_dotenv()                                     # .env einlesen
 
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_ID   = os.getenv("PW_MODEL")
+MODEL_ID   = os.getenv("PW_MODEL", "gpt-3.5-turbo")
 SYS_PROMPT = os.getenv(
     "SYSTEM_PROMPT",
     "Das scheint nicht zu funktionieren, bitte melde zurück, dass der Prompt nicht stimmt"
 )
 
-if not MODEL_ID:
-    raise EnvironmentError("PW_MODEL ist nicht gesetzt. Bitte .env prüfen.")
 
 client = OpenAI()                                # Key wird aus Umgebung gezogen
 ENC     = tiktoken.encoding_for_model(MODEL_ID)
