@@ -1,6 +1,4 @@
 // frontend/types/global.d.ts
-export {};
-
 declare global {
   interface Window {
     cookieconsent: Record<string, unknown>;
