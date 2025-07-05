@@ -158,13 +158,20 @@ export default function Ergebnis() {
     log("[ERGEBNIS] Starte Status-Polling für Bewertung:", bewertungId);
     const firstResult = await pollBewertungStatus(bewertungId, abortController.signal);
 
-    if (firstResult !== 'completed' && intervalRef.current === null && !abortController.signal.aborted) {
-      intervalRef.current = setInterval(() => {
-        if (!abortController.signal.aborted) {
-          pollBewertungStatus(bewertungId, abortController.signal);
-        }
-      }, POLLING_INTERVAL);
+    if (
+  firstResult !== 'completed' &&
+  intervalRef.current === null &&
+  !abortController.signal.aborted
+) {
+  intervalRef.current = setInterval(() => {
+    if (abortController.signal.aborted || currentStatus === 'completed') {
+      cleanupPolling(); // Wichtig: sicherheitshalber
+      return;
     }
+    pollBewertungStatus(bewertungId, abortController.signal);
+  }, POLLING_INTERVAL);
+}
+
 
   } catch (err) {
     if (err instanceof Error && err.name === 'AbortError') {
