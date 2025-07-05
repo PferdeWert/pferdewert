@@ -3,7 +3,9 @@ export {};
 
 declare global {
   interface Window {
-    cookieconsent: any;
-    gtag?: (...args: any[]) => void;
+    cookieconsent: Record<string, unknown>;
+    gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
   }
 }
+
+export {};
