@@ -62,7 +62,7 @@ export default function Ergebnis() {
   const pollBewertungStatus = async (bewertungId: string, abortSignal: AbortSignal) => {
     try {
       setCurrentStatus('polling');
-      const res = await fetch(`/api/status?id=${bewertungId}`, { signal: abortSignal });
+const res = await fetch(`/api/status/${bewertungId}`, { signal: abortSignal });
       if (!res.ok) throw new Error(getErrorMessage(res.status));
       const data: StatusResponse = await res.json();
       log(`[ERGEBNIS] Status-Poll #${pollingAttempts + 1}:`, data);
