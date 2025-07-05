@@ -12,7 +12,7 @@ interface ErrorResponse {
   error: {
     message: string;
     code: string;
-    details?: any;
+    details?: Record<string, unknown>;
   };
 }
 
