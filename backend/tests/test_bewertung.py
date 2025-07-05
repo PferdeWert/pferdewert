@@ -1,4 +1,18 @@
 from unittest.mock import patch
+import os
+import sys
+import types
+
+dummy_tiktoken = types.SimpleNamespace(
+    encoding_for_model=lambda model: types.SimpleNamespace(encode=lambda s: [])
+)
+sys.modules.setdefault("tiktoken", dummy_tiktoken)
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
+os.environ.setdefault("PW_MODEL", "gpt-3.5-turbo")
+os.environ.setdefault("OPENAI_API_KEY", "test-key")
+
 from fastapi.testclient import TestClient
 from backend.main import app
 
