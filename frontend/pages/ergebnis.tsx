@@ -171,7 +171,7 @@ export default function Ergebnis() {
       abortController.abort();
       cleanupPolling();
     };
-  }, [router.isReady, router.query.session_id]); // FIX: Dependencies entfernt
+  }, [router.isReady, router.query.session_id, router, pollBewertungStatus]); // ESLint fix
 
   const handleRetry = () => {
     setErrorMessage(null);

@@ -1,4 +1,4 @@
-//frontend/pages/bewerten.tsx
+// File: frontend/pages/bewerten.tsx
 import Head from "next/head";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -159,13 +159,14 @@ export default function Bewerten() {
     // Zod-Validierung mit transformierten Daten
     try {
       BewertungSchema.parse(dataForValidation);
-    } catch (zodError: any) {
+    } catch (zodError: unknown) {
       console.error("Zod-Validierungsfehler:", zodError);
       const fieldErrors: { [key: string]: string } = {};
       
       // Zod-Fehler in benutzerfreundliche deutsche Nachrichten umwandeln
-      if (zodError.errors) {
-        zodError.errors.forEach((error: any) => {
+      if (zodError && typeof zodError === 'object' && 'errors' in zodError) {
+        const errors = (zodError as { errors: Array<{ path: string[]; message: string }> }).errors;
+        errors.forEach((error) => {
           const fieldName = error.path[0];
           if (fieldName === 'alter') {
             fieldErrors[fieldName] = "Alter muss zwischen 1 und 50 Jahren liegen";
@@ -261,6 +262,15 @@ export default function Bewerten() {
       </Head>
 
       <main className="max-w-2xl mx-auto px-4 py-8">
+        {/* Breadcrumb Navigation */}
+        <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2">
+            <li><Link href="/" className="hover:text-gray-700">Home</Link></li>
+            <li><span className="mx-2">›</span></li>
+            <li className="text-gray-900 font-medium">Pferd bewerten</li>
+          </ol>
+        </nav>
+
         <h1 className="text-3xl font-bold mb-2 text-center">Pferd analysieren lassen</h1>
         <p className="text-sm text-gray-600 text-center mb-6">
           🔒 Keine Anmeldung nötig – deine Eingaben bleiben anonym und werden nicht gespeichert.
@@ -395,7 +405,7 @@ export default function Bewerten() {
             Du wirst zur sicheren Bezahlung weitergeleitet.
           </p>
           <p className="text-xs text-gray-500 text-center">
-            Mit Klick auf „Jetzt kostenpflichtig analysieren" akzeptierst du unsere <Link href="/agb" className="underline" rel="noopener noreferrer">AGB</Link>.
+            Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere <Link href="/agb" className="underline" rel="noopener noreferrer">AGB</Link>.
           </p>
         </form>
       </main>
