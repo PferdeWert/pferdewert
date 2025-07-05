@@ -8,17 +8,23 @@ import { z } from "zod";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
+// Schema entspricht backend.BewertungRequest
 const BewertungSchema = z.object({
-  rasse: z.string().min(2),
-  abstammung: z.string().optional(),
-  einsatzgebiet: z.string().optional(),
-  geburtsjahr: z.string().optional(),
-  stockmaß: z.string().optional(),
+  // Pflichtfelder
+  rasse: z.string(),
+  alter: z.coerce.number(),
+  geschlecht: z.string(),
+  abstammung: z.string(),
+  stockmass: z.coerce.number(),
+  ausbildung: z.string(),
+
+  // Optionale Angaben
+  aku: z.string().optional(),
+  erfolge: z.string().optional(),
   farbe: z.string().optional(),
-  vater: z.string().optional(),
-  mutter: z.string().optional(),
-  preise: z.string().optional(),
-  besonderheiten: z.string().optional(),
+  zuechter: z.string().optional(),
+  standort: z.string().optional(),
+  verwendungszweck: z.string().optional(),
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -51,8 +57,10 @@ try {
       return res.status(400).json({ error: "Ungültige Bewertungsdaten" });
     }
 
+    const bewertungData = validation.data;
+
     info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
-    log("[CHECKOUT] Eingabe:", parsedData);
+    log("[CHECKOUT] Eingabe:", bewertungData);
 
     const bewertungId = new ObjectId();
     const origin = process.env.NEXT_PUBLIC_BASE_URL!;
@@ -69,7 +77,7 @@ try {
     const collection = await getCollection("bewertungen");
     await collection.insertOne({
       _id: bewertungId,
-      ...parsedData,
+      ...bewertungData,
       status: "offen",
       stripeSessionId: session.id,
       erstellt: new Date(),
