@@ -64,7 +64,11 @@ export default function Ergebnis() {
   abortSignal: AbortSignal
 ): Promise<'completed' | 'waiting' | 'error'> => {
   try {
-    if (currentStatus === 'completed') return 'completed'; // 🔒 Safety Check
+    if (currentStatus === 'completed') {
+  log("[ERGEBNIS] Poll übersprungen – bereits abgeschlossen");
+  return 'completed';
+}
+
 
     const res = await fetch(`/api/status/${bewertungId}`, { signal: abortSignal });
     if (!res.ok) throw new Error(getErrorMessage(res.status));
