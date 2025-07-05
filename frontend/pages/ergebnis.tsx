@@ -59,57 +59,62 @@ export default function Ergebnis() {
     }
   };
 
-  const pollBewertungStatus = async (bewertungId: string, abortSignal: AbortSignal) => {
-    try {
-      setCurrentStatus('polling');
-const res = await fetch(`/api/status/${bewertungId}`, { signal: abortSignal });
-      if (!res.ok) throw new Error(getErrorMessage(res.status));
-      const data: StatusResponse = await res.json();
-      log(`[ERGEBNIS] Status-Poll #${pollingAttempts + 1}:`, data);
+  const pollBewertungStatus = async (
+  bewertungId: string,
+  abortSignal: AbortSignal
+): Promise<'completed' | 'waiting' | 'error'> => {
+  try {
+    if (currentStatus === 'completed') return 'completed'; // 🔒 Safety Check
 
-      if (data.status === 'freigegeben' && data.bewertung) {
-        setBewertungText(data.bewertung);
-        setCurrentStatus('completed');
-        cleanupPolling();
-        setIsLoading(false);
-        if (typeof window !== "undefined" && window.gtag) {
-          window.gtag("event", "bewertung_loaded", {
-            event_category: "Success",
-            event_label: "Bewertung erfolgreich geladen",
-            value: 1,
-          });
-        }
-        return;
-      }
+    const res = await fetch(`/api/status/${bewertungId}`, { signal: abortSignal });
+    if (!res.ok) throw new Error(getErrorMessage(res.status));
+    const data: StatusResponse = await res.json();
+    log(`[ERGEBNIS] Status-Poll #${pollingAttempts + 1}:`, data);
 
-      if (data.status === 'bewertet') {
-        setCurrentStatus('processing');
-        setPollingAttempts(prev => {
-          const newAttempts = prev + 1;
-          if (newAttempts >= MAX_POLLING_ATTEMPTS) {
-            cleanupPolling();
-            setErrorMessage("Die Bewertung dauert ungewöhnlich lange. Bitte versuche es in wenigen Minuten erneut oder kontaktiere uns unter info@pferdewert.de");
-            setIsLoading(false);
-          }
-          return newAttempts;
-        });
-        return;
-      }
-
-      throw new Error(`Unerwarteter Status: ${data.status}. Bitte kontaktiere den Support.`);
-
-    } catch (err) {
-      if (err instanceof Error && err.name === 'AbortError') {
-        log("[ERGEBNIS] Request abgebrochen (Component unmount)");
-        return;
-      }
-      logError("[ERGEBNIS] Polling-Fehler:", err);
+    if (data.status === 'freigegeben' && data.bewertung) {
+      setBewertungText(data.bewertung);
+      setCurrentStatus('completed');
       cleanupPolling();
-      const fallbackMsg = err instanceof Error ? err.message : "Verbindung fehlgeschlagen. Bitte überprüfe deine Internetverbindung.";
-      setErrorMessage(fallbackMsg);
       setIsLoading(false);
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "bewertung_loaded", {
+          event_category: "Success",
+          event_label: "Bewertung erfolgreich geladen",
+          value: 1,
+        });
+      }
+      return 'completed';
     }
-  };
+
+    if (data.status === 'bewertet') {
+      setCurrentStatus('processing');
+      setPollingAttempts(prev => {
+        const newAttempts = prev + 1;
+        if (newAttempts >= MAX_POLLING_ATTEMPTS) {
+          cleanupPolling();
+          setErrorMessage("Die Bewertung dauert ungewöhnlich lange. Bitte versuche es in wenigen Minuten erneut oder kontaktiere uns unter info@pferdewert.de");
+          setIsLoading(false);
+        }
+        return newAttempts;
+      });
+      return 'waiting';
+    }
+
+    throw new Error(`Unerwarteter Status: ${data.status}`);
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      log("[ERGEBNIS] Request abgebrochen (Component unmount)");
+      return 'error';
+    }
+    logError("[ERGEBNIS] Polling-Fehler:", err);
+    cleanupPolling();
+    const fallbackMsg = err instanceof Error ? err.message : "Verbindung fehlgeschlagen. Bitte überprüfe deine Internetverbindung.";
+    setErrorMessage(fallbackMsg);
+    setIsLoading(false);
+    return 'error';
+  }
+};
+
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -123,48 +128,56 @@ const res = await fetch(`/api/status/${bewertungId}`, { signal: abortSignal });
     const abortController = new AbortController();
 
     const initializeErgebnis = async () => {
-      try {
-        setCurrentStatus('validating');
-        log("[ERGEBNIS] Validiere Session für ID:", session_id);
-        const sessionRes = await fetch(`/api/session?session_id=${session_id}`, {
-          signal: abortController.signal
-        });
-        if (!sessionRes.ok) throw new Error(getErrorMessage(sessionRes.status));
-        const sessionData: SessionResponse = await sessionRes.json();
-        log("[ERGEBNIS] Session-Daten:", sessionData);
+  try {
+    setCurrentStatus('validating');
+    log("[ERGEBNIS] Validiere Session für ID:", session_id);
 
-        if (!sessionData?.session?.payment_status || sessionData.session.payment_status !== "paid") {
-          warn("[ERGEBNIS] Zahlung nicht erfolgt - Redirect zu /bewerten");
-          router.replace("/bewerten");
-          return;
+    const sessionRes = await fetch(`/api/session?session_id=${session_id}`, {
+      signal: abortController.signal
+    });
+
+    if (!sessionRes.ok) throw new Error(getErrorMessage(sessionRes.status));
+    const sessionData: SessionResponse = await sessionRes.json();
+    log("[ERGEBNIS] Session-Daten:", sessionData);
+
+    const isPaymentOk = sessionData?.session?.payment_status === "paid";
+    const bewertungId = sessionData?.session?.metadata?.bewertungId;
+
+    if (!isPaymentOk) {
+      warn("[ERGEBNIS] Zahlung nicht erfolgt – Redirect zu /bewerten");
+      router.replace("/bewerten");
+      return;
+    }
+
+    if (!bewertungId) {
+      throw new Error("Keine bewertungId in Session-Metadaten gefunden. Bitte kontaktiere den Support.");
+    }
+
+    setIsPaid(true); // ← WICHTIG: sofort setzen, damit kein falscher UI-State entsteht
+
+    log("[ERGEBNIS] Starte Status-Polling für Bewertung:", bewertungId);
+    const firstResult = await pollBewertungStatus(bewertungId, abortController.signal);
+
+    if (firstResult !== 'completed' && intervalRef.current === null && !abortController.signal.aborted) {
+      intervalRef.current = setInterval(() => {
+        if (!abortController.signal.aborted) {
+          pollBewertungStatus(bewertungId, abortController.signal);
         }
+      }, POLLING_INTERVAL);
+    }
 
-        setIsPaid(true);
-const bewertungId = sessionData.session?.metadata?.bewertungId;
-if (!bewertungId) throw new Error("Keine bewertungId in Session-Metadaten gefunden. Bitte kontaktiere den Support.");
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      log("[ERGEBNIS] Initialisierung abgebrochen (Component unmount)");
+      return;
+    }
+    logError("[ERGEBNIS] Initialisierungs-Fehler:", err);
+    const fallbackMsg = err instanceof Error ? err.message : "Fehler beim Laden der Bewertung. Bitte erneut versuchen.";
+    setErrorMessage(fallbackMsg);
+    setIsLoading(false);
+  }
+};
 
-        log("[ERGEBNIS] Starte Status-Polling für Bewertung:", bewertungId);
-        await pollBewertungStatus(bewertungId, abortController.signal);
-
-        if (intervalRef.current === null && !abortController.signal.aborted) {
-          intervalRef.current = setInterval(() => {
-            if (!abortController.signal.aborted) {
-              pollBewertungStatus(bewertungId, abortController.signal);
-            }
-          }, POLLING_INTERVAL);
-        }
-
-      } catch (err) {
-        if (err instanceof Error && err.name === 'AbortError') {
-          log("[ERGEBNIS] Initialisierung abgebrochen (Component unmount)");
-          return;
-        }
-        logError("[ERGEBNIS] Initialisierungs-Fehler:", err);
-        const fallbackMsg = err instanceof Error ? err.message : "Fehler beim Laden der Bewertung. Bitte erneut versuchen.";
-        setErrorMessage(fallbackMsg);
-        setIsLoading(false);
-      }
-    };
 
     initializeErgebnis();
     return () => {
@@ -235,18 +248,19 @@ if (!bewertungId) throw new Error("Keine bewertungId in Session-Metadaten gefund
   );
 
   // Render Logic
-  if (!isPaid && !errorMessage) {
-    return (
-      <Layout>
-        <Head>
-          <meta name="robots" content="noindex, nofollow" />
-        </Head>
-        <div className="p-10 text-red-500 text-center">
-          <p>Zugriff verweigert. Bitte führe zuerst eine Bewertung durch.</p>
-        </div>
-      </Layout>
-    );
-  }
+ if (!isLoading && !isPaid && !errorMessage) {
+  return (
+    <Layout>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <div className="p-10 text-red-500 text-center">
+        <p>Zugriff verweigert. Bitte führe zuerst eine Bewertung durch.</p>
+      </div>
+    </Layout>
+  );
+}
+
 
   if (errorMessage) {
     return (
