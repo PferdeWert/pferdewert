@@ -197,7 +197,6 @@ export default function TestBewPage() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
   const [consent, setConsent] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   // Formular bei Start wiederherstellen
   useEffect(() => {
@@ -253,7 +252,6 @@ export default function TestBewPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
     setErrors({});
 
     if (!consent) {
@@ -576,7 +574,7 @@ export default function TestBewPage() {
                   Du wirst zur sicheren Bezahlung weitergeleitet.
                 </p>
                 <p className="text-xs text-gray-500">
-                  Mit Klick auf „Jetzt kostenpflichtig analysieren" akzeptierst du unsere{" "}
+                Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere{" "}
                   <Link href="/agb" className="underline hover:text-gray-700">
                     AGB
                   </Link>.
@@ -614,9 +612,9 @@ export default function TestBewPage() {
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!"
-              </blockquote>
+                <blockquote className="text-gray-700 mb-4 leading-relaxed">
+                  Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!
+                </blockquote>
               <cite className="text-sm text-gray-600 font-semibold not-italic">
                 - Sarah M., Freizeitreiterin
               </cite>
@@ -630,7 +628,7 @@ export default function TestBewPage() {
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "Vor dem Pferdekauf wollte ich wissen, ob der angegebene Preis fair ist. Die PferdeWert-Analyse war sehr detailliert und hat mir bei der Preisverhandlung sehr geholfen."
+                Vor dem Pferdekauf wollte ich wissen, ob der angegebene Preis fair ist. Die PferdeWert-Analyse war sehr detailliert und hat mir bei der Preisverhandlung sehr geholfen.
               </blockquote>
               <cite className="text-sm text-gray-600 font-semibold not-italic">
                 - Michael K., Hobbyreiter
@@ -645,7 +643,7 @@ export default function TestBewPage() {
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!"
+                Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!
               </blockquote>
               <cite className="text-sm text-gray-600 font-semibold not-italic">
                 - Anna L., Pferdebesitzerin
