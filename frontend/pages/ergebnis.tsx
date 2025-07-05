@@ -6,7 +6,6 @@ import PferdeWertPDF from "@/components/PferdeWertPDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Head from "next/head";
 import Layout from "@/components/Layout";
-import Link from "next/link";
 
 interface StatusResponse {
   status: 'bewertet' | 'freigegeben' | 'offen';
