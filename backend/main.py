@@ -1,4 +1,4 @@
-# main.py – PferdeWert API (Schema aktualisiert)
+# main.py – PferdeWert API (Vereinfacht)
 import os
 import logging
 from typing import Optional
@@ -9,8 +9,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from openai import OpenAI
-
-import tiktoken  # Token-Zähler
 
 # Import des neuen Schema
 from schemas.bewertung_validation import BewertungRequest, format_prompt_from_request
@@ -36,22 +34,12 @@ if not OPENAI_KEY:
 
 # Explizite OpenAI-Client Initialisierung mit API-Key
 client = OpenAI(api_key=OPENAI_KEY)
-ENC     = tiktoken.encoding_for_model(MODEL_ID)
-CTX_MAX = 128_000
 MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
 
 # Logging-Konfiguration je nach Debug-Modus
 log_level = logging.DEBUG if DEBUG_MODE else logging.INFO
 logging.basicConfig(level=log_level, format="%(levelname)s: %(message)s")
 logging.info(f"OpenAI-key loaded? {'yes' if OPENAI_KEY else 'no'} | Model: {MODEL_ID} | Debug: {DEBUG_MODE}")
-
-def tokens_in(msgs: list[dict]) -> int:
-    """Hilfsfunktion: zählt Tokens in OpenAI-Messages."""
-    total = 0
-    for m in msgs:
-        total += 4                      # fixer Overhead pro Message
-        total += len(ENC.encode(m["content"]))
-    return total + 2                    # Abschluss-Tokens
 
 # ───────────────────────────────
 #  FastAPI-App
@@ -73,7 +61,7 @@ app.add_middleware(
 )
 
 # ───────────────────────────────
-#  GPT-Bewertung (verwendet neues Schema)
+#  GPT-Bewertung (vereinfacht)
 # ───────────────────────────────
 def ai_valuation(d: BewertungRequest) -> str:
     """
@@ -92,7 +80,6 @@ def ai_valuation(d: BewertungRequest) -> str:
     if DEBUG_MODE:
         logging.debug(f"System Prompt: {SYS_PROMPT}")
         logging.debug(f"User Prompt: {user_prompt}")
-        logging.debug(f"Token count: {tokens_in(messages)}")
     else:
         logging.info("Prompt wird an GPT gesendet (neues Schema)...")
 
@@ -101,7 +88,7 @@ def ai_valuation(d: BewertungRequest) -> str:
             model       = MODEL_ID,
             messages    = messages,
             temperature = 0.4,
-            max_tokens  = min(MAX_COMPLETION, CTX_MAX - tokens_in(messages)),
+            max_tokens  = MAX_COMPLETION,  # Vereinfacht: OpenAI macht Context-Check
         )
 
         result = rsp.choices[0].message.content.strip()
@@ -135,7 +122,7 @@ def health_check():
     }
 
 # ───────────────────────────────
-#  API-Endpoint (aktualisiert)
+#  API-Endpoint (vereinfacht)
 # ───────────────────────────────
 @app.post("/api/bewertung")
 def bewertung(req: BewertungRequest):
@@ -145,44 +132,23 @@ def bewertung(req: BewertungRequest):
     """
     logging.info(f"Incoming Request (neues Schema): {req.dict()}")
     
-    # Validierung der Eingabedaten (bereits durch Pydantic erfolgt)
-    if req.alter <= 0 or req.alter > 50:
-        raise HTTPException(
-            status_code=400,
-            detail="Alter muss zwischen 1 und 50 Jahren liegen"
-        )
+    # Schema-Validierung erfolgt automatisch durch Pydantic
+    # Keine manuellen Checks mehr - alles im Schema definiert
     
-    if req.stockmass < 100 or req.stockmass > 220:
-        raise HTTPException(
-            status_code=400,
-            detail="Stockmaß muss zwischen 100 und 220 cm liegen"
-        )
-
-    try:
-        gpt_text = ai_valuation(req)
-        
-        # Erweiterte Antwort mit Metadaten
-        return {
-            "raw_gpt": gpt_text,
-            "status": "success",
-            "model_used": MODEL_ID,
-            "request_data": {
-                "rasse": req.rasse,
-                "alter": req.alter,
-                "geschlecht": req.geschlecht,
-                "stockmass": req.stockmass
-            }
+    gpt_text = ai_valuation(req)
+    
+    # Erweiterte Antwort mit Metadaten
+    return {
+        "raw_gpt": gpt_text,
+        "status": "success",
+        "model_used": MODEL_ID,
+        "request_data": {
+            "rasse": req.rasse,
+            "alter": req.alter,
+            "geschlecht": req.geschlecht,
+            "stockmass": req.stockmass
         }
-        
-    except HTTPException:
-        # HTTPExceptions weiterleiten (bereits formatiert)
-        raise
-    except Exception as e:
-        logging.error(f"Unerwarteter Fehler: {e}")
-        raise HTTPException(
-            status_code=500,
-            detail="Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
-        )
+    }
 
 # ───────────────────────────────
 #  Fallback Error Handler
