@@ -18,7 +18,7 @@ import tiktoken  # Token-Zähler
 load_dotenv()                                     # .env einlesen
 
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_ID   = os.getenv("PW_MODEL", "gpt-3.5-turbo")
+MODEL_ID   = os.getenv("PW_MODEL", "gpt-4o")
 SYS_PROMPT = os.getenv(
     "SYSTEM_PROMPT",
     "Das scheint nicht zu funktionieren, bitte melde zurück, dass der Prompt nicht stimmt"
