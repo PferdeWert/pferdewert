@@ -104,7 +104,8 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
     <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page} wrap>
         <View style={styles.header} fixed>
-          <Image src="/logo.png" style={styles.logo} />
+{/* eslint-disable-next-line jsx-a11y/alt-text */}
+<Image src="/logo.png" style={styles.logo} />
           <Text style={styles.title}>PferdeWert-Analyse</Text>
         </View>
         <Text style={styles.date}>Stand: {today}</Text>
