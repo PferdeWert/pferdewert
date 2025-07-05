@@ -64,9 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    // Jetzt ist status typisiert als BewertungStatus
     const status: BewertungStatus = rawStatus;
-
     console.log(`[STATUS-API] Status abgerufen für ID ${id}: ${status}`);
 
     // Audit-Logging (optional, non-blocking)
@@ -81,7 +79,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     } catch (auditError) {
       console.error("[STATUS-API] Audit-Log Fehler:", auditError);
-      // Audit-Fehler blockieren nicht die Response
     }
 
     // Legacy-Felder handhaben
@@ -100,16 +97,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
 
       case "bewertet":
-        const response: any = {
-          status: "bewertet",
-          message: "Bewertung wird nach Zahlungsbestätigung freigeschaltet..."
+        const response = {
+          status: "bewertet" as const,
+          message: "Bewertung wird nach Zahlungsbestätigung freigeschaltet...",
+          ...(stripeSessionId && { stripe_session_id: stripeSessionId })
         };
-        
-        // Optional: Stripe Session ID für erneuten Checkout
-        if (stripeSessionId) {
-          response.stripe_session_id = stripeSessionId;
-        }
-        
         return res.status(200).json(response);
 
       case "in_bewertung":
@@ -119,8 +111,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
 
       default:
-        // TypeScript exhaustive check - sollte nie erreicht werden
-        const _exhaustiveCheck: never = status;
         return res.status(500).json({
           status: "unknown",
           message: "Status konnte nicht verarbeitet werden"
