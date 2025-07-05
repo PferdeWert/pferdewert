@@ -13,37 +13,65 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") return res.status(405).end("Method Not Allowed");
+  console.log("🔥 [WEBHOOK] Webhook aufgerufen!");
+  console.log("🔥 [WEBHOOK] Method:", req.method);
+  console.log("🔥 [WEBHOOK] URL:", req.url);
+  console.log("🔥 [WEBHOOK] Headers:", JSON.stringify(req.headers, null, 2));
 
-  console.log("[WEBHOOK] HEADERS:", req.headers);
-  console.log("[WEBHOOK] ENV SECRET:", process.env.STRIPE_WEBHOOK_SECRET);
+  if (req.method !== "POST") {
+    console.log("❌ [WEBHOOK] Falsche Methode:", req.method);
+    return res.status(405).end("Method Not Allowed");
+  }
+
+  console.log("🔥 [WEBHOOK] ENV SECRET:", process.env.STRIPE_WEBHOOK_SECRET ? "✅ gesetzt" : "❌ fehlt");
 
   const buf = await buffer(req);
+  console.log("🔥 [WEBHOOK] Buffer Größe:", buf.length, "bytes");
+  
   const sig = req.headers["stripe-signature"] as string;
+  console.log("🔥 [WEBHOOK] Stripe Signature:", sig ? "✅ vorhanden" : "❌ fehlt");
 
   let event: Stripe.Event;
 
   try {
+    console.log("🔥 [WEBHOOK] Versuche Event zu konstruieren...");
     event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
+    console.log("✅ [WEBHOOK] Event erfolgreich konstruiert:", event.type);
   } catch (err) {
-    error("[WEBHOOK] ❌ Signature verification failed:", err);
+    console.error("❌ [WEBHOOK] Signature verification failed:", err);
+    console.error("❌ [WEBHOOK] Error details:", {
+      message: err instanceof Error ? err.message : String(err),
+      signature: sig,
+      bufferLength: buf.length,
+      endpointSecret: endpointSecret ? "gesetzt" : "nicht gesetzt"
+    });
     return res.status(400).send("Webhook Error");
   }
+
+  console.log("🔥 [WEBHOOK] Event Type:", event.type);
+  console.log("🔥 [WEBHOOK] Event ID:", event.id);
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
     const sessionId = session.id;
 
-    info("[WEBHOOK] ✅ Zahlung abgeschlossen, Session ID:", sessionId);
+    console.log("✅ [WEBHOOK] Zahlung abgeschlossen!");
+    console.log("🔥 [WEBHOOK] Session ID:", sessionId);
+    console.log("🔥 [WEBHOOK] Session Metadata:", JSON.stringify(session.metadata, null, 2));
 
     try {
+      console.log("🔥 [WEBHOOK] Suche MongoDB-Dokument...");
       const collection = await getCollection("bewertungen");
       const doc = await collection.findOne({ stripeSessionId: sessionId });
 
       if (!doc) {
-        error("[WEBHOOK] ❌ Keine Bewertung mit Session ID gefunden");
+        console.error("❌ [WEBHOOK] Keine Bewertung mit Session ID gefunden:", sessionId);
         return res.status(404).end();
       }
+
+      console.log("✅ [WEBHOOK] MongoDB-Dokument gefunden:");
+      console.log("🔥 [WEBHOOK] Dokument ID:", doc._id);
+      console.log("🔥 [WEBHOOK] Dokument Daten:", JSON.stringify(doc, null, 2));
 
       const {
         rasse,
@@ -75,33 +103,48 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         verwendungszweck,
       };
 
+      console.log("🔥 [WEBHOOK] Daten für FastAPI:");
+      console.log(JSON.stringify(bewertbareDaten, null, 2));
+
+      console.log("🔥 [WEBHOOK] Rufe FastAPI auf...");
       const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bewertbareDaten),
       });
 
+      console.log("🔥 [WEBHOOK] FastAPI Response Status:", response.status);
+      console.log("🔥 [WEBHOOK] FastAPI Response Headers:", JSON.stringify([...response.headers.entries()], null, 2));
+
       const gpt_response = await response.json();
-      console.log("[WEBHOOK] 🔁 GPT-Response:", gpt_response);
+      console.log("🔥 [WEBHOOK] FastAPI Response Body:");
+      console.log(JSON.stringify(gpt_response, null, 2));
 
       const raw_gpt = gpt_response?.raw_gpt;
 
       if (!raw_gpt) {
-        error("[WEBHOOK] ❌ Keine GPT-Antwort");
+        console.error("❌ [WEBHOOK] Keine GPT-Antwort in Response");
+        console.error("❌ [WEBHOOK] Expected 'raw_gpt' field, got:", Object.keys(gpt_response));
         return res.status(500).end();
       }
 
-      await collection.updateOne(
+      console.log("🔥 [WEBHOOK] Speichere Bewertung in MongoDB...");
+      const updateResult = await collection.updateOne(
         { _id: doc._id },
         { $set: { bewertung: raw_gpt, status: "fertig", aktualisiert: new Date() } }
       );
 
-      info("[WEBHOOK] ✅ Bewertung gespeichert.");
+      console.log("✅ [WEBHOOK] MongoDB Update Result:", updateResult);
+      console.log("✅ [WEBHOOK] Bewertung erfolgreich gespeichert!");
+      
       return res.status(200).end("Done");
     } catch (err) {
-      error("[WEBHOOK] ❌ Fehler bei Bewertung:", err);
+      console.error("❌ [WEBHOOK] Fehler bei Bewertung:", err);
+      console.error("❌ [WEBHOOK] Error Stack:", err instanceof Error ? err.stack : "No stack");
       return res.status(500).end("Interner Fehler");
     }
+  } else {
+    console.log("ℹ️ [WEBHOOK] Event ignoriert:", event.type);
   }
 
   res.status(200).end("Event ignoriert");
