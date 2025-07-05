@@ -45,7 +45,9 @@ const extractSafeSessionData = (session: Stripe.Checkout.Session) => ({
   amount_total: session.amount_total,
   currency: session.currency,
   payment_status: session.payment_status,
-  created: session.created
+  created: session.created,
+  metadata: session.metadata ?? {} // 👈 DAS IST DER WICHTIGE FIX!
+
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
