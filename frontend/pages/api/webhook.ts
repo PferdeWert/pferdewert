@@ -3,7 +3,7 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
-import { info, error } from "@/lib/log";
+// import { info, error } from "@/lib/log"; // Auskommentiert für Debug-Phase
 
 export const config = {
   api: { bodyParser: false },
