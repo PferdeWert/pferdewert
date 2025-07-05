@@ -110,8 +110,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     info("[CHECKOUT] ✅ Bewertungsdokument in DB gespeichert, ID:", bewertungId.toHexString());
 
     // 4. Stripe Checkout-Session erstellen
-    const origin = process.env.NEXT_PUBLIC_BASE_URL || req.headers.origin;
-    
+    // Temporär für sofortiges Testing:
+const origin = "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev";
+
     // 🔍 DEBUG: Schauen was tatsächlich verwendet wird
 console.log("[CHECKOUT] 🌐 Origin Debug:", {
   NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
