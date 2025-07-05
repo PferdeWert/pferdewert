@@ -1,151 +1,379 @@
+// frontend/pages/ergebnis.tsx
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 import PferdeWertPDF from "@/components/PferdeWertPDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { log, warn, error } from "@/lib/log";
+import { log, warn, error as logError } from "@/lib/log";
 import Head from "next/head";
-import Layout from "@/components/Layout"; // Footer via Layout integriert
+import Layout from "@/components/Layout";
+import Link from "next/link";
 
+// Typing für API-Responses
+interface StatusResponse {
+  status: 'bewertet' | 'freigegeben' | 'offen';
+  bewertung?: string;
+  message?: string;
+}
 
+interface SessionResponse {
+  session: {
+    payment_status: string;
+    metadata?: {
+      bewertungId: string;
+    };
+  };
+}
 
 export default function Ergebnis() {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
-  const [text, setText] = useState<string>("");
-  const [loading, setLoading] = useState(true);
-  const [paid, setPaid] = useState(false);
-  const [errorLoading, setErrorLoading] = useState<string | null>(null);
 
-  const fallbackMessage =
-    "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
+  // State Management
+  const [bewertungText, setBewertungText] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isPaid, setIsPaid] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [pollingAttempts, setPollingAttempts] = useState(0);
+  const [currentStatus, setCurrentStatus] = useState<string>('checking');
+
+  const MAX_POLLING_ATTEMPTS = 10;
+  const POLLING_INTERVAL = 3000; // 3 Sekunden
+
+  const getErrorMessage = (status: number): string => {
+    switch (status) {
+      case 401: return "Zugriff verweigert. Bitte führe erneut eine Bewertung durch.";
+      case 404: return "Bewertung nicht gefunden. Möglicherweise ist sie abgelaufen oder wurde bereits verarbeitet.";
+      case 429: return "Zu viele Anfragen. Bitte warte einen Moment und versuche es erneut.";
+      case 500: return "Serverfehler. Wir arbeiten an einer Lösung - bitte versuche es in wenigen Minuten erneut.";
+      case 503: return "Service vorübergehend nicht verfügbar. Bitte später erneut versuchen.";
+      default: return `Unerwarteter Fehler (${status}). Bitte kontaktiere den Support unter info@pferdewert.de.`;
+    }
+  };
+
+  const cleanupPolling = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  const pollBewertungStatus = async (bewertungId: string, abortSignal: AbortSignal) => {
+    try {
+      setCurrentStatus('polling');
+      const res = await fetch(`/api/status?id=${bewertungId}`, { signal: abortSignal });
+      if (!res.ok) throw new Error(getErrorMessage(res.status));
+      const data: StatusResponse = await res.json();
+      log(`[ERGEBNIS] Status-Poll #${pollingAttempts + 1}:`, data);
+
+      if (data.status === 'freigegeben' && data.bewertung) {
+        setBewertungText(data.bewertung);
+        setCurrentStatus('completed');
+        cleanupPolling();
+        setIsLoading(false);
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "bewertung_loaded", {
+            event_category: "Success",
+            event_label: "Bewertung erfolgreich geladen",
+            value: 1,
+          });
+        }
+        return;
+      }
+
+      if (data.status === 'bewertet') {
+        setCurrentStatus('processing');
+        setPollingAttempts(prev => {
+          const newAttempts = prev + 1;
+          if (newAttempts >= MAX_POLLING_ATTEMPTS) {
+            cleanupPolling();
+            setErrorMessage("Die Bewertung dauert ungewöhnlich lange. Bitte versuche es in wenigen Minuten erneut oder kontaktiere uns unter info@pferdewert.de");
+            setIsLoading(false);
+          }
+          return newAttempts;
+        });
+        return;
+      }
+
+      throw new Error(`Unerwarteter Status: ${data.status}. Bitte kontaktiere den Support.`);
+
+    } catch (err) {
+      if (err instanceof Error && err.name === 'AbortError') {
+        log("[ERGEBNIS] Request abgebrochen (Component unmount)");
+        return;
+      }
+      logError("[ERGEBNIS] Polling-Fehler:", err);
+      cleanupPolling();
+      const fallbackMsg = err instanceof Error ? err.message : "Verbindung fehlgeschlagen. Bitte überprüfe deine Internetverbindung.";
+      setErrorMessage(fallbackMsg);
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (!router.isReady) return;
-
     const session_id = router.query.session_id;
-console.log("[ERGENIS DEBUG] raw router.query:", router.query);
-console.log("[ERGENIS DEBUG] extracted session_id:", session_id);
+    if (!session_id || typeof session_id !== "string") {
+      warn("[ERGEBNIS] Keine session_id gefunden - Redirect zu /bewerten");
+      router.replace("/bewerten");
+      return;
+    }
 
-if (!session_id || typeof session_id !== "string") {
-  console.warn("[ERGENIS DEBUG] session_id fehlt oder ist kein String:", session_id);
-  router.replace("/bewerten");
-  return;
-}
+    const abortController = new AbortController();
 
-
-    const fetchSession = async () => {
+    const initializeErgebnis = async () => {
       try {
-        log("[ERGEBNIS] Lade Session für ID:", session_id);
+        setCurrentStatus('validating');
+        log("[ERGEBNIS] Validiere Session für ID:", session_id);
+        const sessionRes = await fetch(`/api/session?session_id=${session_id}`, {
+          signal: abortController.signal
+        });
+        if (!sessionRes.ok) throw new Error(getErrorMessage(sessionRes.status));
+        const sessionData: SessionResponse = await sessionRes.json();
+        log("[ERGEBNIS] Session-Daten:", sessionData);
 
-        const res = await fetch(`/api/session?session_id=${session_id}`);
-        log("[ERGEBNIS] HTTP Status Code:", res.status);
-
-        const data = await res.json();
-        console.log("[ERGENIS DEBUG] Stripe-API Response Payload:", data);
-console.log("[ERGENIS DEBUG] data.session:", data.session);
-console.log("[ERGENIS DEBUG] metadata:", data.session?.metadata);
-
-        log("[ERGEBNIS] API-Response:", data);
-
-        if (!data?.session?.payment_status || data.session.payment_status !== "paid") {
-          warn("[ERGEBNIS] Zahlung nicht erfolgt. Redirect nach /bewerten");
+        if (!sessionData?.session?.payment_status || sessionData.session.payment_status !== "paid") {
+          warn("[ERGEBNIS] Zahlung nicht erfolgt - Redirect zu /bewerten");
           router.replace("/bewerten");
           return;
         }
 
-        setPaid(true);
+        setIsPaid(true);
+        const bewertungId = sessionData.session.metadata?.bewertungId;
+        if (!bewertungId) throw new Error("Keine bewertungId in Session-Metadaten gefunden. Bitte kontaktiere den Support.");
 
-        if (typeof window !== "undefined" && window.gtag) {
-          window.gtag("event", "conversion", {
-            event_category: "Bewertung",
-            event_label: "PDF freigeschaltet",
-            value: 1,
-          });
+        log("[ERGEBNIS] Starte Status-Polling für Bewertung:", bewertungId);
+        await pollBewertungStatus(bewertungId, abortController.signal);
+
+        if (intervalRef.current === null && !abortController.signal.aborted) {
+          intervalRef.current = setInterval(() => {
+            if (!abortController.signal.aborted) {
+              pollBewertungStatus(bewertungId, abortController.signal);
+            }
+          }, POLLING_INTERVAL);
         }
 
-        const bewertungId = data.session.metadata?.bewertungId;
-        if (bewertungId) {
-          const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-          const resultData = await resultRes.json();
-
-          if (resultData.bewertung) {
-            setText(resultData.bewertung);
-          } else {
-            let tries = 0;
-            intervalRef.current = setInterval(async () => {
-              tries++;
-              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId}`);
-              const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-              const retryData = await retryRes.json();
-
-              if (retryData.bewertung) {
-                clearInterval(intervalRef.current!);
-                setText(retryData.bewertung);
-              }
-
-              if (tries >= 10) {
-                clearInterval(intervalRef.current!);
-                warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
-              }
-            }, 5000);
-          }
-        } else {
-          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
-        }
       } catch (err) {
-        error("[ERGEBNIS] Fehler beim Laden der Session:", err);
-        setErrorLoading("Beim Laden der Bewertung ist ein Fehler aufgetreten. Bitte versuche es später erneut oder kontaktiere uns.");
-        setLoading(false);
-      } finally {
-        setLoading(false);
+        if (err instanceof Error && err.name === 'AbortError') {
+          log("[ERGEBNIS] Initialisierung abgebrochen (Component unmount)");
+          return;
+        }
+        logError("[ERGEBNIS] Initialisierungs-Fehler:", err);
+        const fallbackMsg = err instanceof Error ? err.message : "Fehler beim Laden der Bewertung. Bitte erneut versuchen.";
+        setErrorMessage(fallbackMsg);
+        setIsLoading(false);
       }
     };
 
-    fetchSession();
-
+    initializeErgebnis();
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      abortController.abort();
+      cleanupPolling();
+    };
+  }, [router.isReady, router.query.session_id]); // FIX: Dependencies entfernt
+
+  const handleRetry = () => {
+    setErrorMessage(null);
+    setIsLoading(true);
+    setPollingAttempts(0);
+    window.location.reload(); // FIX: Vereinfacht
+  };
+
+  // Progress Indicator Component
+  const ProgressIndicator = () => {
+    const getStatusText = () => {
+      switch (currentStatus) {
+        case 'checking': return 'Überprüfe Zahlung...';
+        case 'validating': return 'Validiere Session...';
+        case 'polling': return 'Prüfe Bewertungs-Status...';
+        case 'processing': return 'Deine Bewertung wird erstellt...';
+        default: return 'Lädt...';
       }
     };
-  }, [router]);
 
-  if (loading) return <p className="p-10 text-center">Lade Bewertung…</p>;
-  if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
-  if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
+    return (
+      <div className="text-center py-8">
+        <div className="inline-flex items-center space-x-2 mb-4">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <span className="text-lg font-medium text-gray-700">{getStatusText()}</span>
+        </div>
+        
+        {currentStatus === 'processing' && (
+          <div className="mb-4">
+            <div className="bg-gray-200 rounded-full h-2 max-w-md mx-auto">
+              <div 
+                className="bg-blue-600 h-2 rounded-full transition-all duration-500"
+                style={{ width: `${Math.min((pollingAttempts / MAX_POLLING_ATTEMPTS) * 100, 90)}%` }}
+              ></div>
+            </div>
+            <p className="text-sm text-gray-500 mt-2">
+              Versuch {pollingAttempts} von {MAX_POLLING_ATTEMPTS}
+            </p>
+          </div>
+        )}
+        
+        <p className="text-gray-600 max-w-md mx-auto">
+          Wir analysieren deine Eingaben mit KI. Dies dauert normalerweise nur wenige Sekunden.
+        </p>
+      </div>
+    );
+  };
 
+  // Loading Skeleton Component
+  const LoadingSkeleton = () => (
+    <div className="animate-pulse">
+      <div className="h-8 bg-gray-200 rounded-lg mb-6 w-3/4"></div>
+      <div className="space-y-4">
+        <div className="h-4 bg-gray-200 rounded w-full"></div>
+        <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+        <div className="h-4 bg-gray-200 rounded w-4/5"></div>
+        <div className="h-4 bg-gray-200 rounded w-full"></div>
+        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+      </div>
+    </div>
+  );
+
+  // Render Logic
+  if (!isPaid && !errorMessage) {
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <div className="p-10 text-red-500 text-center">
+          <p>Zugriff verweigert. Bitte führe zuerst eine Bewertung durch.</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (errorMessage) {
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <BewertungLayout title="PferdeWert – Fehler">
+          {/* Breadcrumb Navigation */}
+          <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2">
+              <li><Link href="/" className="hover:text-gray-700">Home</Link></li>
+              <li><span className="mx-2">›</span></li>
+              <li><Link href="/bewerten" className="hover:text-gray-700">Bewerten</Link></li>
+              <li><span className="mx-2">›</span></li>
+              <li className="text-red-600 font-medium">Fehler</li>
+            </ol>
+          </nav>
+          
+          <div className="text-center py-8">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+              <h2 className="text-xl font-semibold text-red-800 mb-4">
+                Oops, da ist etwas schiefgelaufen
+              </h2>
+              <p className="text-red-700 mb-6">{errorMessage}</p>
+              <button
+                onClick={handleRetry}
+                className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              >
+                Erneut versuchen
+              </button>
+            </div>
+          </div>
+        </BewertungLayout>
+      </Layout>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <BewertungLayout title="PferdeWert – Erstelle Bewertung">
+          {/* Breadcrumb Navigation */}
+          <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2">
+              <li><Link href="/" className="hover:text-gray-700">Home</Link></li>
+              <li><span className="mx-2">›</span></li>
+              <li><Link href="/bewerten" className="hover:text-gray-700">Bewerten</Link></li>
+              <li><span className="mx-2">›</span></li>
+              <li className="text-gray-900 font-medium">Ergebnis (Lädt...)</li>
+            </ol>
+          </nav>
+          
+          <ProgressIndicator />
+          <div className="mt-8">
+            <LoadingSkeleton />
+          </div>
+        </BewertungLayout>
+      </Layout>
+    );
+  }
+
+  // Bewertung anzeigen
   return (
     <Layout>
-    <Head>
-  <meta name="robots" content="noindex, nofollow" />
-</Head>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Deine Pferdebewertung - PferdeWert</title>
+      </Head>
+      
+      <BewertungLayout title="PferdeWert – Deine Bewertung">
+        {/* Breadcrumb Navigation */}
+        <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2">
+            <li><Link href="/" className="hover:text-gray-700">Home</Link></li>
+            <li><span className="mx-2">›</span></li>
+            <li><Link href="/bewerten" className="hover:text-gray-700">Bewerten</Link></li>
+            <li><span className="mx-2">›</span></li>
+            <li className="text-gray-900 font-medium">Ergebnis</li>
+          </ol>
+        </nav>
 
-    <BewertungLayout title="PferdeWert – Ergebnis">
-      {text ? (
-        <>
-          <div className="prose prose-lg max-w-full">
-            <ReactMarkdown>{text}</ReactMarkdown>
+        {bewertungText ? (
+          <>
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <p className="text-green-800 text-center font-medium">
+                ✅ Deine Bewertung ist fertig! Hier ist deine detaillierte Analyse:
+              </p>
+            </div>
+            
+            <div className="prose prose-lg max-w-full mb-8">
+              <ReactMarkdown>{bewertungText}</ReactMarkdown>
+            </div>
+            
+            <div className="text-center">
+              <PDFDownloadLink
+                document={<PferdeWertPDF markdownData={bewertungText} />}
+                fileName="PferdeWert-Analyse.pdf"
+              >
+                {({ loading }) => (
+                  <button className="bg-brand-green hover:bg-brand-green/80 text-white font-bold py-4 px-8 rounded-2xl shadow-soft transition-colors">
+                    {loading ? (
+                      <>
+                        <span className="inline-block animate-spin mr-2 h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+                        Erstelle PDF...
+                      </>
+                    ) : (
+                      <>
+                        📄 PDF herunterladen
+                      </>
+                    )}
+                  </button>
+                )}
+              </PDFDownloadLink>
+            </div>
+          </>
+        ) : (
+          <div className="text-center py-8">
+            <p className="text-gray-600 text-lg">
+              Keine Bewertung gefunden. Bitte versuche es erneut.
+            </p>
           </div>
-          <div className="mt-8">
-            <PDFDownloadLink
-              document={<PferdeWertPDF markdownData={text} />}
-              fileName="PferdeWert-Analyse.pdf"
-            >
-              {({ loading }) => (
-                <button className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition">
-                  {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
-                </button>
-              )}
-            </PDFDownloadLink>
-          </div>
-        </>
-      ) : (
-        <p className="p-10 text-gray-600 text-center text-lg">
-          Die Zahlung hat funktioniert. Deine Bewertung wird gerade erstellt – bitte einen Moment Geduld…
-        </p>
-      )}
-    </BewertungLayout>
-  </Layout>
-);}
+        )}
+      </BewertungLayout>
+    </Layout>
+  );
+}
