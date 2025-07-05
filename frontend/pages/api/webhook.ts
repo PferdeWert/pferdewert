@@ -12,6 +12,8 @@ export const config = {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
+
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   console.log("🔥 [WEBHOOK] Webhook aufgerufen!");
   console.log("🔥 [WEBHOOK] Method:", req.method);
