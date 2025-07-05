@@ -2,10 +2,11 @@
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
-import BewertungLayout from "@/components/BewertungLayout";
 import PferdeWertPDF from "@/components/PferdeWertPDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { log, warn, error as logError } from "@/lib/log";
+import Head from "next/head";
+import Layout from "@/components/Layout";
+import Link from "next/link";
 
 interface StatusResponse {
   status: 'bewertet' | 'freigegeben' | 'offen';
@@ -23,32 +24,35 @@ interface SessionResponse {
 }
 
 export default function Ergebnis() {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
+
   const [bewertungText, setBewertungText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isPaid, setIsPaid] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [pollingAttempts, setPollingAttempts] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const currentStatusRef = useRef<'checking' | 'validating' | 'polling' | 'processing' | 'completed'>('checking');
 
   const MAX_POLLING_ATTEMPTS = 10;
   const POLLING_INTERVAL = 3000;
 
-  const getErrorMessage = (status: number): string => {
-    const messages: Record<number, string> = {
-      401: "Zugriff verweigert. Bitte führe erneut eine Bewertung durch.",
-      404: "Bewertung nicht gefunden.",
-      429: "Zu viele Anfragen. Bitte später erneut versuchen.",
-      500: "Serverfehler. Bitte versuche es später erneut.",
-      503: "Service nicht verfügbar. Versuche es später erneut."
-    };
-    return messages[status] || `Fehler (${status}) - Support kontaktieren.`;
+  const cleanupPolling = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
   };
 
-  const cleanupPolling = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = null;
+  const getErrorMessage = (status: number): string => {
+    switch (status) {
+      case 401: return "Zugriff verweigert. Bitte führe erneut eine Bewertung durch.";
+      case 404: return "Bewertung nicht gefunden. Möglicherweise ist sie abgelaufen oder wurde bereits verarbeitet.";
+      case 429: return "Zu viele Anfragen. Bitte warte einen Moment und versuche es erneut.";
+      case 500: return "Serverfehler. Wir arbeiten an einer Lösung - bitte versuche es in wenigen Minuten erneut.";
+      case 503: return "Service vorübergehend nicht verfügbar. Bitte später erneut versuchen.";
+      default: return `Unerwarteter Fehler (${status}). Bitte kontaktiere den Support unter info@pferdewert.de.`;
+    }
   };
 
   const pollBewertungStatus = useCallback(async (
@@ -73,13 +77,13 @@ export default function Ergebnis() {
       if (data.status === 'bewertet') {
         currentStatusRef.current = 'processing';
         setPollingAttempts(prev => {
-          const attempts = prev + 1;
-          if (attempts >= MAX_POLLING_ATTEMPTS) {
+          const newAttempts = prev + 1;
+          if (newAttempts >= MAX_POLLING_ATTEMPTS) {
             cleanupPolling();
-            setErrorMessage("Bewertung dauert zu lange. Bitte später erneut versuchen.");
+            setErrorMessage("Die Bewertung dauert ungewöhnlich lange. Bitte versuche es später erneut oder kontaktiere uns unter info@pferdewert.de");
             setIsLoading(false);
           }
-          return attempts;
+          return newAttempts;
         });
         return 'waiting';
       }
@@ -87,9 +91,8 @@ export default function Ergebnis() {
       throw new Error(`Unerwarteter Status: ${data.status}`);
     } catch (err) {
       if (err instanceof Error && err.name === 'AbortError') return 'error';
-      logError("[POLLING-ERROR]", err);
       cleanupPolling();
-      setErrorMessage(err instanceof Error ? err.message : "Verbindung fehlgeschlagen.");
+      setErrorMessage(err instanceof Error ? err.message : "Verbindung fehlgeschlagen. Bitte überprüfe deine Internetverbindung.");
       setIsLoading(false);
       return 'error';
     }
@@ -105,27 +108,33 @@ export default function Ergebnis() {
 
     const abortController = new AbortController();
 
-    const fetchSession = async () => {
+    const initializeErgebnis = async () => {
       try {
-        const res = await fetch(`/api/session?session_id=${session_id}`, {
+        currentStatusRef.current = 'validating';
+        const sessionRes = await fetch(`/api/session?session_id=${session_id}`, {
           signal: abortController.signal
         });
 
-        if (!res.ok) throw new Error(getErrorMessage(res.status));
-        const sessionData: SessionResponse = await res.json();
+        if (!sessionRes.ok) throw new Error(getErrorMessage(sessionRes.status));
+        const sessionData: SessionResponse = await sessionRes.json();
 
-        if (sessionData.session.payment_status !== "paid") {
+        const isPaymentOk = sessionData?.session?.payment_status === "paid";
+        const bewertungId = sessionData?.session?.metadata?.bewertungId;
+
+        if (!isPaymentOk || !bewertungId) {
           router.replace("/bewerten");
           return;
         }
 
-        const bewertungId = sessionData.session.metadata?.bewertungId;
-        if (!bewertungId) throw new Error("Keine bewertungId vorhanden.");
-
         setIsPaid(true);
-        const result = await pollBewertungStatus(bewertungId, abortController.signal);
 
-        if (result !== 'completed' && !abortController.signal.aborted) {
+        const firstResult = await pollBewertungStatus(bewertungId, abortController.signal);
+
+        if (
+          firstResult !== 'completed' &&
+          intervalRef.current === null &&
+          !abortController.signal.aborted
+        ) {
           intervalRef.current = setInterval(() => {
             if (abortController.signal.aborted || currentStatusRef.current === 'completed') {
               cleanupPolling();
@@ -136,14 +145,13 @@ export default function Ergebnis() {
         }
 
       } catch (err) {
-        if (!(err instanceof Error && err.name === 'AbortError')) {
-          setErrorMessage(err instanceof Error ? err.message : "Unbekannter Fehler.");
-          setIsLoading(false);
-        }
+        if (err instanceof Error && err.name === 'AbortError') return;
+        setErrorMessage(err instanceof Error ? err.message : "Fehler beim Laden der Bewertung. Bitte erneut versuchen.");
+        setIsLoading(false);
       }
     };
 
-    fetchSession();
+    initializeErgebnis();
     return () => {
       abortController.abort();
       cleanupPolling();
@@ -151,37 +159,82 @@ export default function Ergebnis() {
   }, [router.isReady, router.query.session_id, pollBewertungStatus]);
 
   if (!isLoading && !isPaid && !errorMessage) {
-    return <div className="p-10 text-red-500 text-center">Zugriff verweigert.</div>;
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <div className="p-10 text-red-500 text-center">
+          <p>Zugriff verweigert. Bitte führe zuerst eine Bewertung durch.</p>
+        </div>
+      </Layout>
+    );
   }
 
   if (errorMessage) {
-    return <div className="p-10 text-red-500 text-center">{errorMessage}</div>;
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <div className="text-center py-8">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+            <h2 className="text-xl font-semibold text-red-800 mb-4">
+              Oops, da ist etwas schiefgelaufen
+            </h2>
+            <p className="text-red-700 mb-6">{errorMessage}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            >
+              Erneut versuchen
+            </button>
+          </div>
+        </div>
+      </Layout>
+    );
   }
 
   if (isLoading) {
-    return <div className="p-10 text-gray-500 text-center">Lädt Bewertung...</div>;
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <div className="text-center py-8">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Wir analysieren deine Eingaben mit KI. Dies dauert normalerweise nur wenige Sekunden.</p>
+        </div>
+      </Layout>
+    );
   }
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded">
-        <p className="text-green-800 font-medium">✅ Deine Bewertung ist fertig!</p>
-      </div>
-      <div className="prose mb-8">
-        <ReactMarkdown>{bewertungText}</ReactMarkdown>
-      </div>
-      <div className="text-center">
+    <Layout>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Deine Pferdebewertung - PferdeWert</title>
+      </Head>
+      <div className="text-center py-8">
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <p className="text-green-800 font-medium">
+            ✅ Deine Bewertung ist fertig!
+          </p>
+        </div>
+        <div className="prose prose-lg max-w-full mb-8 text-left mx-auto">
+          <ReactMarkdown>{bewertungText}</ReactMarkdown>
+        </div>
         <PDFDownloadLink
           document={<PferdeWertPDF markdownData={bewertungText} />}
           fileName="PferdeWert-Analyse.pdf"
         >
           {({ loading }) => (
-            <button className="bg-brand-green text-white font-bold py-3 px-6 rounded">
-              {loading ? "PDF wird erstellt..." : "📄 PDF herunterladen"}
+            <button className="bg-brand-green hover:bg-brand-green/80 text-white font-bold py-4 px-8 rounded-2xl shadow-soft transition-colors">
+              {loading ? "Erstelle PDF..." : "📄 PDF herunterladen"}
             </button>
           )}
         </PDFDownloadLink>
       </div>
-    </div>
+    </Layout>
   );
 }
