@@ -1,3 +1,4 @@
+//frontend/pages/bewerten.tsx
 import Head from "next/head";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
