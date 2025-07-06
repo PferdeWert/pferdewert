@@ -62,8 +62,22 @@ try {
     info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
     log("[CHECKOUT] Eingabe:", bewertungData);
 
-    const bewertungId = new ObjectId();
-    const origin = process.env.NEXT_PUBLIC_BASE_URL!;
+    const bewertungId = new ObjectId();    // Generiere eine neue Bewertung-ID
+    info("[CHECKOUT] 🆕 Neue Bewertung-ID generiert:", bewertungId.toHexString()); // Logging der Bewertung-ID
+
+    // Bestimme den Origin für die Stripe-Session. Fallback auf Vercel-URL, falls NEXT_PUBLIC_BASE_URL nicht gesetzt ist.
+    // Dies ist wichtig für die success_url und cancel_url der Stripe-Session
+    const origin =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    req.headers.origin ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
+
+if (!origin) {
+  error("[CHECKOUT] ❌ origin konnte nicht ermittelt werden.");
+  return res.status(500).json({ error: "Server misconfigured: origin fehlt" });
+}
+
+info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna"],
