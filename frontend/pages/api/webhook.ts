@@ -23,6 +23,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log("🔥 [WEBHOOK] Method:", req.method);
   console.log("🔥 [WEBHOOK] URL:", req.url);
   console.log("🔥 [WEBHOOK] Headers:", JSON.stringify(req.headers, null, 2));
+  console.log("🔍 [RESEND MAIL] RESEND_TO_EMAIL:", process.env.RESEND_TO_EMAIL);
+
 
   if (req.method !== "POST") {
     console.log("❌ [WEBHOOK] Falsche Methode:", req.method);
@@ -148,11 +150,16 @@ const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")
   .split(",")
   .map(email => email.trim())
   .filter(email => !!email); // optional zur Sicherheit
+console.log("📬 Empfänger:", empfaenger);
 
       try {
-        
+
 console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
 
+if (empfaenger.length === 0) {
+  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");
+  return;
+}
   const mailResult = await resend.emails.send({
        from: "PferdeWert <noreply@pferdewert.onresend.com>",
        to: empfaenger,
