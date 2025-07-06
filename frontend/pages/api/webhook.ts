@@ -144,8 +144,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log("✅ [WEBHOOK] Bewertung erfolgreich gespeichert!");
       
       // 📬 Mailbenachrichtigung versenden per Resend
-      const empfaenger = process.env.RESEND_TO_EMAIL || "info@pferdewert.de";
-
+const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")
+  .split(",")
+  .map(email => email.trim())
+  .filter(email => !!email); // optional zur Sicherheit
+  
       try {
 
   const mailResult = await resend.emails.send({
