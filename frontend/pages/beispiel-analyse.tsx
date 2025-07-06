@@ -81,12 +81,12 @@ export default function BeispielAnalyse() {
           <ReactMarkdown>{markdown}</ReactMarkdown>
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <div className="not-prose mt-10 flex justify-center">
           <Link
             href="/bewerten"
-            className="w-full sm:w-auto text-center rounded-2xl bg-brand-accent px-8 py-4 font-bold text-white text-button shadow-soft hover:bg-brand transition"
+            className="btn-primary"
           >
-            🚀 Eigene Bewertung starten
+            Jetzt Bewertung Starten
           </Link>
         </div>
       </BewertungLayout>
