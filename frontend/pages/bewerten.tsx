@@ -265,8 +265,6 @@ export default function TestBewPage() {
 
 
 
-
-
   const prevStep = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
@@ -491,29 +489,27 @@ export default function TestBewPage() {
               </div>
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
-                <button
-                  type="button"
-                  onClick={prevStep}
-                  disabled={currentStep === 1}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all ${
-                    currentStep === 1
-                      ? "text-gray-400 cursor-not-allowed"
-                      : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
-                  }`}
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Zurück
-                </button>
+             <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
+  <button
+    type="button"
+    onClick={prevStep}
+    disabled={currentStep === 1}
+    className={`btn-secondary flex items-center justify-center gap-2 ${
+      currentStep === 1 ? "text-gray-400 cursor-not-allowed" : ""
+    }`}
+  >
+    <ArrowLeft className="w-4 h-4" />
+    <span className="normal-case">Zurück</span>
+  </button>
 
-                <button
-                  type="button"
-                  onClick={nextStep}
-                  className="flex items-center gap-2 bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
-                >
-                  Weiter
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+  <button
+    type="button"
+    onClick={nextStep}
+    className="btn-primary flex items-center justify-center gap-2"
+  >
+    <span className="normal-case">Weiter</span>
+    <ArrowRight className="w-4 h-4" />
+  </button>
               </div>
             </>
           )}
