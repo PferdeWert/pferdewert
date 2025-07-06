@@ -380,19 +380,19 @@ export default function TestBewPage() {
                 <div className={`
                   w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all
                   ${currentStep >= step.id 
-                    ? 'bg-amber-600 text-white' 
+                    ? 'bg-brand-brown text-white'
                     : 'bg-gray-200 text-gray-500'}
                 `}>
                   {step.id}
                 </div>
                 <span className={`ml-2 text-sm font-medium hidden sm:block ${
-                  currentStep >= step.id ? 'text-amber-600' : 'text-gray-500'
+                  currentStep >= step.id ? 'text-brand-brown' : 'text-gray-500'
                 }`}>
                   {step.title}
                 </span>
                 {index < stepData.length - 1 && (
                   <div className={`ml-4 w-8 h-0.5 ${
-                    currentStep > step.id ? 'bg-amber-600' : 'bg-gray-200'
+                    currentStep > step.id ? 'bg-brand-brown' : 'bg-gray-200'
                   }`} />
                 )}
               </div>
@@ -488,7 +488,7 @@ export default function TestBewPage() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
+                  className="flex items-center gap-2 bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
                 >
                   Weiter
                   <ArrowRight className="w-4 h-4" />
@@ -550,7 +550,7 @@ export default function TestBewPage() {
               <button
                 type="submit"
                 disabled={loading || !consent}
-                className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 disabled:from-gray-300 disabled:to-gray-400 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-brand-gold to-brand-orange hover:from-brand-gold hover:to-brand-orange disabled:from-gray-300 disabled:to-gray-400 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <div className="flex items-center justify-center gap-3">
