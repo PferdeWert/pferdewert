@@ -104,10 +104,14 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
   return (
     <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page} wrap>
-        <View style={styles.header} fixed>
-          <Image src={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png` : '/logo.png'} style={styles.logo} />
-          <Text style={styles.title}>PferdeWert-Analyse</Text>
-        </View>
+      <View style={styles.header} fixed>
+        <Image
+        src={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png` : '/logo.png'}
+        style={styles.logo}
+        alt="PferdeWert Logo"
+        />
+        <Text style={styles.title}>PferdeWert-Analyse</Text>
+      </View>
         <Text style={styles.date}>Stand: {today}</Text>
         {content}
         <Text style={styles.footer} fixed>
