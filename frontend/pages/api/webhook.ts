@@ -160,6 +160,11 @@ if (empfaenger.length === 0) {
   console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");
   return;
 }
+
+const betrag = session.amount_total
+  ? `${(session.amount_total / 100).toFixed(2)} €`
+  : "unbekannt";
+
   const mailResult = await resend.emails.send({
        from: "PferdeWert <noreply@pferdewert.onresend.com>",
        to: empfaenger,
@@ -169,7 +174,7 @@ if (empfaenger.length === 0) {
          <p><strong>Session ID:</strong> ${sessionId}</p>
          <p><strong>Pferd:</strong> ${rasse}, ${alter} Jahre, ${geschlecht}</p>
          <p><strong>Standort:</strong> ${standort}</p>
-         <p><strong>Betrag:</strong> ${(session.amount_total! / 100).toFixed(2)} €</p>
+    <p><strong>Betrag:</strong> ${betrag}</p>
          <p>Kunde: ${session.customer_details?.email}</p>
          <p>Bewertung: ${raw_gpt}</p>
 
