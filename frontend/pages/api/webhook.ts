@@ -166,7 +166,7 @@ const betrag = session.amount_total
   : "unbekannt";
 
   const mailResult = await resend.emails.send({
-       from: "PferdeWert <onboarding@resend.dev>",
+       from: "PferdeWert <kauf@pferdewert.de>",
        to: empfaenger,
        subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
        html: `
@@ -174,7 +174,7 @@ const betrag = session.amount_total
          <p><strong>Session ID:</strong> ${sessionId}</p>
          <p><strong>Pferd:</strong> ${rasse}, ${alter} Jahre, ${geschlecht}</p>
          <p><strong>Standort:</strong> ${standort}</p>
-    <p><strong>Betrag:</strong> ${betrag}</p>
+         <p><strong>Betrag:</strong> ${betrag}</p>
          <p>Kunde: ${session.customer_details?.email}</p>
          <p>Bewertung: ${raw_gpt}</p>
 
