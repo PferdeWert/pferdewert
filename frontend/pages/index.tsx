@@ -224,11 +224,12 @@ export default function Home() {
                   <span className="text-white font-bold text-lg">3</span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Ergebnis erhalten
+                  Ergebnis in 2 Minuten
+
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Detaillierte PDF-Analyse mit Marktwert<br />
-                  und Begründung
+                  Detaillierte PDF-Analyse mit Marktwert,<br />
+                  Begründung und Abstammungsanalyse.
                 </p>
               </div>
             </div>
