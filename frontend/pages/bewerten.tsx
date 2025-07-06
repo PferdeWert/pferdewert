@@ -249,12 +249,12 @@ export default function TestBewPage() {
       setTimeout(() => {
         const isMobile = window.innerWidth < 768;
         const targetElement = document.getElementById(
-          isMobile ? "wizard-card" : "wizard-progress"
+          isMobile ? "wizard-card" : "wizard-start"
         );
 
         if (targetElement) {
           const scrollTarget = targetElement.offsetTop;
-          window.scrollTo({ top: scrollTarget - 16, behavior: "smooth" });
+          window.scrollTo({ top: scrollTarget - 30, behavior: "smooth" });
         }
       }, 100);
 
