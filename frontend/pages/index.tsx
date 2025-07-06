@@ -90,7 +90,7 @@ export default function Home() {
               </p>
               <Link
                 href="/beispiel-analyse"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow transition"
+                className="btn-primary"
               >
                 Beispiel einer PferdeWert Analyse
               </Link>
@@ -112,7 +112,7 @@ export default function Home() {
 
     <Link
       href="/bewerten"
-      className="btn-secondary mt-6">    
+      className="btn-primary mt-6">    
       Jetzt 4,90 €-Analyse starten
     </Link>
 
@@ -236,13 +236,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/bewerten"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow transition-colors"
+                className="btn-primary"
               >
                 Jetzt Bewertung starten
               </Link>
               <Link
                 href="/beispiel-analyse"
-                className="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-lg shadow transition-colors border border-gray-300"
+                className="btn-secondary"
               >
                 Beispiel-Analyse anschauen
               </Link>
@@ -317,7 +317,7 @@ export default function Home() {
     <div className="text-center">
       <Link
         href="/bewerten"
-        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow transition-colors"
+        className="btn-primary"
       >
         Jetzt Bewertung starten
       </Link>
@@ -344,7 +344,7 @@ export default function Home() {
               <div className="text-center mt-12">
                 <Link
                   href="/bewerten"
-                  className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700"
+                  className="btn-primary"
                 >
                   Jetzt Bewertung starten
                 </Link>
