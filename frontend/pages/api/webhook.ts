@@ -3,6 +3,9 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
+import { Resend } from 'resend';
+
+
 // import { info, error } from "@/lib/log"; // Auskommentiert für Debug-Phase
 
 export const config = {
@@ -11,6 +14,7 @@ export const config = {
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 
@@ -19,6 +23,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log("🔥 [WEBHOOK] Method:", req.method);
   console.log("🔥 [WEBHOOK] URL:", req.url);
   console.log("🔥 [WEBHOOK] Headers:", JSON.stringify(req.headers, null, 2));
+  console.log("🔍 [RESEND MAIL] RESEND_TO_EMAIL:", process.env.RESEND_TO_EMAIL);
+
 
   if (req.method !== "POST") {
     console.log("❌ [WEBHOOK] Falsche Methode:", req.method);
@@ -139,6 +145,48 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log("✅ [WEBHOOK] MongoDB Update Result:", updateResult);
       console.log("✅ [WEBHOOK] Bewertung erfolgreich gespeichert!");
       
+      // 📬 Mailbenachrichtigung versenden per Resend
+const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")
+  .split(",")
+  .map(email => email.trim())
+  .filter(email => !!email); // optional zur Sicherheit
+console.log("📬 Empfänger:", empfaenger);
+
+      try {
+
+console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
+
+if (empfaenger.length === 0) {
+  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");
+  return;
+}
+
+const betrag = session.amount_total
+  ? `${(session.amount_total / 100).toFixed(2)} €`
+  : "unbekannt";
+
+  const mailResult = await resend.emails.send({
+       from: "PferdeWert <kauf@pferdewert.de>",
+       to: empfaenger,
+       subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
+       html: `
+         <h2>Neue Zahlung bei PferdeWert.de!</h2>
+         <p><strong>Session ID:</strong> ${sessionId}</p>
+         <p><strong>Pferd:</strong> ${rasse}, ${alter} Jahre, ${geschlecht}</p>
+         <p><strong>Standort:</strong> ${standort}</p>
+         <p><strong>Betrag:</strong> ${betrag}</p>
+         <p>Kunde: ${session.customer_details?.email}</p>
+         <p>Bewertung: ${raw_gpt}</p>
+
+        `,
+          });
+
+  // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
+  console.log("✅ [WEBHOOK] Resend-Mail gesendet:", mailResult);
+} catch (err) {
+  console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
+}
+
       return res.status(200).end("Done");
     } catch (err) {
       console.error("❌ [WEBHOOK] Fehler bei Bewertung:", err);
