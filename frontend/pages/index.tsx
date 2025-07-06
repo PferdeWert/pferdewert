@@ -68,9 +68,9 @@ export default function Home() {
         </Head>
 {/* Hero-Bereich neu (bild oben auf mobil) */}
 <section className="bg-[#fdf9f4] py-16 px-6">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-y-10 md:gap-10 items-center">
     {/* Bild zuerst – auf Mobilgeräten oben */}
-    <div className="order-1 md:order-none">
+    <div className="order-1 md:order-1">
       <Image
         src="/images/blossi-shooting.webp"
         width={700}
@@ -81,7 +81,7 @@ export default function Home() {
     </div>
 
             {/* Textblock */}
-            <div>
+              <div className="order-2 md:order-2">
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Was ist Dein Pferd wert?
               </h1>
@@ -94,7 +94,7 @@ export default function Home() {
               >
                 Beispiel einer PferdeWert Analyse
               </Link>
-            </div>
+          </div>
           </div>
         </section>
 
