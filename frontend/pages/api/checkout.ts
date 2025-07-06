@@ -8,17 +8,23 @@ import { z } from "zod";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
+// Schema entspricht backend.BewertungRequest
 const BewertungSchema = z.object({
-  rasse: z.string().min(2),
-  abstammung: z.string().optional(),
-  einsatzgebiet: z.string().optional(),
-  geburtsjahr: z.string().optional(),
-  stockmaß: z.string().optional(),
+  // Pflichtfelder
+  rasse: z.string(),
+  alter: z.coerce.number(),
+  geschlecht: z.string(),
+  abstammung: z.string(),
+  stockmass: z.coerce.number(),
+  ausbildung: z.string(),
+
+  // Optionale Angaben
+  aku: z.string().optional(),
+  erfolge: z.string().optional(),
   farbe: z.string().optional(),
-  vater: z.string().optional(),
-  mutter: z.string().optional(),
-  preise: z.string().optional(),
-  besonderheiten: z.string().optional(),
+  zuechter: z.string().optional(),
+  standort: z.string().optional(),
+  verwendungszweck: z.string().optional(),
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -51,11 +57,27 @@ try {
       return res.status(400).json({ error: "Ungültige Bewertungsdaten" });
     }
 
-    info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
-    log("[CHECKOUT] Eingabe:", parsedData);
+    const bewertungData = validation.data;
 
-    const bewertungId = new ObjectId();
-    const origin = process.env.NEXT_PUBLIC_BASE_URL!;
+    info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
+    log("[CHECKOUT] Eingabe:", bewertungData);
+
+    const bewertungId = new ObjectId();    // Generiere eine neue Bewertung-ID
+    info("[CHECKOUT] 🆕 Neue Bewertung-ID generiert:", bewertungId.toHexString()); // Logging der Bewertung-ID
+
+    // Bestimme den Origin für die Stripe-Session. Fallback auf Vercel-URL, falls NEXT_PUBLIC_BASE_URL nicht gesetzt ist.
+    // Dies ist wichtig für die success_url und cancel_url der Stripe-Session
+    const origin =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    req.headers.origin ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
+
+if (!origin) {
+  error("[CHECKOUT] ❌ origin konnte nicht ermittelt werden.");
+  return res.status(500).json({ error: "Server misconfigured: origin fehlt" });
+}
+
+info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna"],
@@ -69,7 +91,7 @@ try {
     const collection = await getCollection("bewertungen");
     await collection.insertOne({
       _id: bewertungId,
-      ...parsedData,
+      ...bewertungData,
       status: "offen",
       stripeSessionId: session.id,
       erstellt: new Date(),

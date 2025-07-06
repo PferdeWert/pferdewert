@@ -4,6 +4,9 @@ import "@/styles/cookieconsent.min.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 
+// Add a TypeScript declaration for window.cookieconsent
+
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -23,7 +26,8 @@ export default function App({ Component, pageProps }: AppProps) {
           }
 
           if (window.cookieconsent) {
-            window.cookieconsent.initialise({
+          const cookieConsent = window.cookieconsent as { initialise?: (config: unknown) => void };
+          cookieConsent.initialise?.({
               type: "opt-in",
               palette: {
                 popup: { background: "#ffffff", text: "#000000" },

@@ -104,7 +104,11 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
     <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page} wrap>
         <View style={styles.header} fixed>
+          {/* @react-pdf/renderer unterstützt kein echtes "alt", aber Sie können ein unsichtbares Text-Element hinzufügen */}
           <Image src="/logo.png" style={styles.logo} />
+          <Text style={{ fontSize: 0, height: 0, width: 0, opacity: 0, position: 'absolute' }}>
+        PferdeWert Logo
+          </Text>
           <Text style={styles.title}>PferdeWert-Analyse</Text>
         </View>
         <Text style={styles.date}>Stand: {today}</Text>

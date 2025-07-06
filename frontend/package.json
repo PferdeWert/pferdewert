@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "predev": "fuser -k 3000/tcp || true",
-    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev next dev"
+    "dev": "cross-env PORT=3000 NEXT_PUBLIC_BASE_URL=https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev next dev",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
@@ -31,6 +32,8 @@
     "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.3",
     "typescript": "5.8.3"
