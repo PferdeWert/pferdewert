@@ -148,8 +148,10 @@ const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")
   .split(",")
   .map(email => email.trim())
   .filter(email => !!email); // optional zur Sicherheit
-  
+
       try {
+        
+console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
 
   const mailResult = await resend.emails.send({
        from: "PferdeWert <noreply@pferdewert.onresend.com>",
