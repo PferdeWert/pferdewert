@@ -521,6 +521,24 @@ export default function TestBewPage() {
           {/* Bezahlung-Step */}
           {currentStep === 4 && (
             <form onSubmit={handleSubmit}>
+              {/* Sticky Submit Button auf Mobile */}
+              <div className="fixed bottom-0 left-0 right-0 bg-white shadow px-4 py-4 z-40 md:hidden">
+              <button
+             type="submit"
+              disabled={loading || !consent}
+              className="w-full bg-gradient-to-r from-brand-gold to-brand-orange hover:from-brand-gold hover:to-brand-orange disabled:from-gray-300 disabled:to-gray-400 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed"
+              >
+             {loading ? (
+             <div className="flex items-center justify-center gap-3">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              Wird vorbereitet…
+           </div>
+           ) : (
+           "Jetzt kostenpflichtig analysieren"
+          )}
+         </button>
+          </div>
+
               <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">💳</span>
@@ -571,7 +589,7 @@ export default function TestBewPage() {
               <button
                 type="submit"
                 disabled={loading || !consent}
-                className="w-full bg-gradient-to-r from-brand-gold to-brand-orange hover:from-brand-gold hover:to-brand-orange disabled:from-gray-300 disabled:to-gray-400 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-brand-gold to-brand-orange hover:from-brand-gold hover:to-brand-orange disabled:from-gray-300 disabled:to-gray-400 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed hidden md:block"
               >
                 {loading ? (
                   <div className="flex items-center justify-center gap-3">
@@ -613,6 +631,9 @@ export default function TestBewPage() {
                   Zurück
                 </button>
               </div>
+              {/* Abstand für Sticky-Button auf Mobile */} 
+              <div className="h-32 md:hidden" />
+
             </form>
           )}
         </div>
