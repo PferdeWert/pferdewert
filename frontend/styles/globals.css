@@ -179,5 +179,8 @@ blockquote {
   @apply text-sm px-4 py-2;
 }
 
-
+/* Icon-Buttons – für Aktionen wie "Schließen" oder "Löschen" */
+.btn-icon {
+  @apply p-3 rounded-full w-10 h-10 flex items-center justify-center;
+}
 /* Hinweis: Diese Cookie-Banner-Stile bewusst in globals.css gepflegt – nicht in der externen cookieconsent.min.css! */
