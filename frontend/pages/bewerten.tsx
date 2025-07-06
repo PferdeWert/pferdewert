@@ -240,11 +240,27 @@ export default function TestBewPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Nächster Schritt Definition mit Stickyness je nach Devices
   const nextStep = () => {
-    if (validateStep(currentStep)) {
-      setCurrentStep(prev => Math.min(prev + 1, stepData.length));
-    }
-  };
+  if (validateStep(currentStep)) {
+    setCurrentStep(prev => {
+      const next = Math.min(prev + 1, stepData.length);
+
+      setTimeout(() => {
+        const isMobile = window.innerWidth < 768;
+        const targetElement = isMobile
+          ? document.querySelector("#wizard-start input, #wizard-start select")
+          : document.getElementById("wizard-progress");
+
+        const scrollTarget = targetElement?.offsetTop || 0;
+        window.scrollTo({ top: scrollTarget - 16, behavior: "smooth" });
+      }, 100); // Scroll nach DOM-Update
+
+      return next;
+    });
+  }
+};
+
 
   const prevStep = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
@@ -371,9 +387,9 @@ export default function TestBewPage() {
       </section>
 
       {/* Wizard-Bereich */}
-      <section className="max-w-4xl mx-auto px-4 py-8">
+      <section id="wizard-start" className="max-w-4xl mx-auto px-4 py-8">
         {/* Step-Indikatoren */}
-        <div className="mb-8">
+        <div id="wizard-progress" className="mb-8 sticky top-0 bg-white z-30 py-4">
           <div className="flex items-center justify-center space-x-8">
             {stepData.map((step, index) => (
               <div key={step.id} className="flex items-center">
