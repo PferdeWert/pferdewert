@@ -146,7 +146,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // 📬 Mailbenachrichtigung versenden per Resend
       const empfaenger = process.env.RESEND_TO_EMAIL || "info@pferdewert.de";
 
-      await resend.emails.send({
+      try {
+
+  const mailResult = await resend.emails.send({
        from: "PferdeWert <noreply@pferdewert.onresend.com>",
        to: empfaenger,
        subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
@@ -160,8 +162,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
          <p>Bewertung: ${raw_gpt}</p>
 
         `,
-      });
-      console.log("✅ [WEBHOOK] Resend-Mail versendet an:", empfaenger);
+          });
+
+  // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
+  console.log("✅ [WEBHOOK] Resend-Mail gesendet:", mailResult);
+} catch (err) {
+  console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
+}
 
       return res.status(200).end("Done");
     } catch (err) {
