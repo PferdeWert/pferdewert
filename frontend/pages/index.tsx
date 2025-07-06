@@ -112,9 +112,8 @@ export default function Home() {
 
     <Link
       href="/bewerten"
-      className="inline-block mt-6 px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-800 transition-colors text-lg"
-    >
-      Jetzt für nur 4,90 € bewerten lassen
+      className="btn-secondary mt-6">    
+      Jetzt 4,90 €-Analyse starten
     </Link>
 
     <p className="text-xs text-gray-500 mt-3">
