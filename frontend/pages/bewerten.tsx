@@ -490,25 +490,32 @@ export default function TestBewPage() {
 
               {/* Navigation Buttons */}
             <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-100 gap-4">
+  {/* Zurück */}
   <button
     type="button"
     onClick={prevStep}
     disabled={currentStep === 1}
-    className={`btn-secondary ${currentStep === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
+    className={`btn-secondary relative px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-xl ${
+      currentStep === 1 ? "opacity-50 cursor-not-allowed" : ""
+    }`}
+    aria-label="Zum vorherigen Schritt"
   >
-    <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
-    <span className="ml-2">Zurück</span>
+    <ArrowLeft className="w-5 h-5" />
+    <span className="hidden sm:inline ml-2">Zurück</span>
   </button>
 
+  {/* Weiter */}
   <button
     type="button"
     onClick={nextStep}
-    className="btn-primary"
+    className="btn-primary relative px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-xl"
+    aria-label="Zum nächsten Schritt"
   >
-    <span className="mr-2">Weiter</span>
-    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+    <span className="hidden sm:inline mr-2">Weiter</span>
+    <ArrowRight className="w-5 h-5" />
   </button>
 </div>
+
 
 
             </>
