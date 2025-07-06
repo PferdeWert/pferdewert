@@ -199,7 +199,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed">
                   Rasse, Alter, Ausbildungsstand,<br />
                   Gesundheit und weitere wichtige<br />
-                  Informationen
+                  Informationen.
                 </p>
               </div>
 
@@ -212,8 +212,9 @@ export default function Home() {
                   Bezahlvorgang abschließen
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Sie werden weitergeleitet zu Stripe,<br />
-                  unserem Zahlungsdiensleister
+                  Sicher und verschlüsselt bezahlen –<br />
+                  mit Stripe, dem Zahlungsstandard für<br />
+                  über 4 Millionen Unternehmen.
                 </p>
               </div>
 
