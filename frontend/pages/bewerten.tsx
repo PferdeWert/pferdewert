@@ -589,7 +589,7 @@ export default function TestBewPage() {
               <button
                 type="submit"
                 disabled={loading || !consent}
-                className="w-full bg-gradient-to-r from-brand-gold to-brand-orange hover:from-brand-gold hover:to-brand-orange disabled:from-gray-300 disabled:to-gray-400 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed hidden md:block"
+                className="w-full bg-brand-brown hover:bg-brand-brownDark text-white py-4 rounded-xl font-bold text-lg shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed hidden md:block"
               >
                 {loading ? (
                   <div className="flex items-center justify-center gap-3">
