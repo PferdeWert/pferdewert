@@ -46,12 +46,11 @@ h1, h2, h3, h4 {
   margin-top: 0;
 }
 
-/* Buttons und starke Hervorhebungen: Lato fett */
-button, .btn, strong, b {
+/* Optional: starke Hervorhebungen wie <strong>, <b> */
+strong, b {
   font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
 }
 
 /* Optional: Grundreset für Bilder und Links */
