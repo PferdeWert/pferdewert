@@ -499,7 +499,7 @@ export default function TestBewPage() {
     }`}
   >
     <ArrowLeft className="w-4 h-4" />
-    <span className="normal-case">Zurück</span>
+    <span className="leading-none">Zurück</span>
   </button>
 
   <button
@@ -507,7 +507,7 @@ export default function TestBewPage() {
     onClick={nextStep}
     className="btn-primary flex items-center justify-center gap-2"
   >
-    <span className="normal-case">Weiter</span>
+<span className="leading-none">Weiter</span>
     <ArrowRight className="w-4 h-4" />
   </button>
               </div>
