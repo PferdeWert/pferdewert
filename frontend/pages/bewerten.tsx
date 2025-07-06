@@ -265,8 +265,6 @@ export default function TestBewPage() {
 
 
 
-
-
   const prevStep = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
@@ -491,30 +489,35 @@ export default function TestBewPage() {
               </div>
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
-                <button
-                  type="button"
-                  onClick={prevStep}
-                  disabled={currentStep === 1}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all ${
-                    currentStep === 1
-                      ? "text-gray-400 cursor-not-allowed"
-                      : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
-                  }`}
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Zurück
-                </button>
+            <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-100 gap-4">
+  {/* Zurück */}
+  <button
+    type="button"
+    onClick={prevStep}
+    disabled={currentStep === 1}
+    className={`btn-secondary relative px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-xl ${
+      currentStep === 1 ? "opacity-50 cursor-not-allowed" : ""
+    }`}
+    aria-label="Zum vorherigen Schritt"
+  >
+    <ArrowLeft className="w-5 h-5" />
+    <span className="hidden sm:inline ml-2">Zurück</span>
+  </button>
 
-                <button
-                  type="button"
-                  onClick={nextStep}
-                  className="flex items-center gap-2 bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
-                >
-                  Weiter
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+  {/* Weiter */}
+  <button
+    type="button"
+    onClick={nextStep}
+    className="btn-primary relative px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-xl"
+    aria-label="Zum nächsten Schritt"
+  >
+    <span className="hidden sm:inline mr-2">Weiter</span>
+    <ArrowRight className="w-5 h-5" />
+  </button>
+</div>
+
+
+
             </>
           )}
 
