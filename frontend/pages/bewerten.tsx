@@ -248,18 +248,23 @@ export default function TestBewPage() {
 
       setTimeout(() => {
         const isMobile = window.innerWidth < 768;
-        const targetElement = isMobile
-          ? document.querySelector("#wizard-start input, #wizard-start select")
-          : document.getElementById("wizard-progress");
+        const targetElement = document.getElementById(
+          isMobile ? "wizard-card" : "wizard-progress"
+        );
 
-        const scrollTarget = targetElement?.offsetTop || 0;
-        window.scrollTo({ top: scrollTarget - 16, behavior: "smooth" });
-      }, 100); // Scroll nach DOM-Update
+        if (targetElement) {
+          const scrollTarget = targetElement.offsetTop;
+          window.scrollTo({ top: scrollTarget - 16, behavior: "smooth" });
+        }
+      }, 100);
 
       return next;
     });
   }
 };
+
+
+
 
 
   const prevStep = () => {
@@ -417,7 +422,7 @@ export default function TestBewPage() {
         </div>
 
         {/* Hauptkarte */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+        <div id="wizard-card" className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
           {currentStepData && currentStep <= 3 && (
             <>
               {/* Step Header */}
