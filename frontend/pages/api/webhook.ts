@@ -67,55 +67,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log("🔥 [WEBHOOK] Session ID:", sessionId);
     console.log("🔥 [WEBHOOK] Session Metadata:", JSON.stringify(session.metadata, null, 2));
 
-    console.log("🚀 [DEBUG] Starte Mail-Bereich...");
-      console.log("🚀 [DEBUG] RESEND_TO_EMAIL existiert:", !!process.env.RESEND_TO_EMAIL);
-
-      // 📬 Mailbenachrichtigung versenden per Resend
-      console.log("🚀 [DEBUG] Verarbeite Empfänger...");  
-const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")   // Fallback auf leeren String, falls nicht gesetzt
-  .split(",") // Aufteilen bei Kommas
-  .map(email => email.trim()) // Leerzeichen entfernen
-  .filter(email => !!email); // Nur nicht-leere E-Mails behalten
-console.log("📬 Empfänger:", empfaenger);
-
-      try {
-
-console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
-
-if (empfaenger.length === 0) {  
-  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");  
-  return;
-}
-
-const betrag = session.amount_total
-  ? `${(session.amount_total / 100).toFixed(2)} €`
-  : "unbekannt";
-
-  const mailResult = await resend.emails.send({
-       from: "PferdeWert <kauf@pferdewert.de>",
-       to: empfaenger,
-       subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
-       html: `
-         <h2>Neue Zahlung bei PferdeWert.de!</h2>
-         <p><strong>Session ID:</strong> ${sessionId}</p>
-         <p><strong>Pferd:</strong> ${rasse}, ${alter} Jahre, ${geschlecht}</p>
-         <p><strong>Standort:</strong> ${standort}</p>
-         <p><strong>Betrag:</strong> ${betrag}</p>
-         <p>Kunde: ${session.customer_details?.email}</p>
-         <p>Bewertung: ${raw_gpt}</p>
-
-        `,
-          });
-
-  // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
-  console.log("✅ [WEBHOOK] Resend-Mail gesendet:", mailResult);
-} catch (err) {
-  console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
-}
-
-      return res.status(200).end("Done");
-    } 
-
     try {
       console.log("🔥 [WEBHOOK] Suche MongoDB-Dokument...");
       const collection = await getCollection("bewertungen");
@@ -193,10 +144,54 @@ const betrag = session.amount_total
 
       console.log("✅ [WEBHOOK] MongoDB Update Result:", updateResult);
       console.log("✅ [WEBHOOK] Bewertung erfolgreich gespeichert!");
-      
-      // hier war der mailversand 
+      console.log("🚀 [DEBUG] Starte Mail-Bereich...");
+      console.log("🚀 [DEBUG] RESEND_TO_EMAIL existiert:", !!process.env.RESEND_TO_EMAIL);
 
-      catch (err) {
+      // 📬 Mailbenachrichtigung versenden per Resend
+      console.log("🚀 [DEBUG] Verarbeite Empfänger...");  
+const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")   // Fallback auf leeren String, falls nicht gesetzt
+  .split(",") // Aufteilen bei Kommas
+  .map(email => email.trim()) // Leerzeichen entfernen
+  .filter(email => !!email); // Nur nicht-leere E-Mails behalten
+console.log("📬 Empfänger:", empfaenger);
+
+      try {
+
+console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
+
+if (empfaenger.length === 0) {  
+  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");  
+  return;
+}
+
+const betrag = session.amount_total
+  ? `${(session.amount_total / 100).toFixed(2)} €`
+  : "unbekannt";
+
+  const mailResult = await resend.emails.send({
+       from: "PferdeWert <kauf@pferdewert.de>",
+       to: empfaenger,
+       subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
+       html: `
+         <h2>Neue Zahlung bei PferdeWert.de!</h2>
+         <p><strong>Session ID:</strong> ${sessionId}</p>
+         <p><strong>Pferd:</strong> ${rasse}, ${alter} Jahre, ${geschlecht}</p>
+         <p><strong>Standort:</strong> ${standort}</p>
+         <p><strong>Betrag:</strong> ${betrag}</p>
+         <p>Kunde: ${session.customer_details?.email}</p>
+         <p>Bewertung: ${raw_gpt}</p>
+
+        `,
+          });
+
+  // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
+  console.log("✅ [WEBHOOK] Resend-Mail gesendet:", mailResult);
+} catch (err) {
+  console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
+}
+
+      return res.status(200).end("Done");
+    } catch (err) {
       console.error("❌ [WEBHOOK] Fehler bei Bewertung:", err);
       console.error("❌ [WEBHOOK] Error Stack:", err instanceof Error ? err.stack : "No stack");
       return res.status(500).end("Interner Fehler");
