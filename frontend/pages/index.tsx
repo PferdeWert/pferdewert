@@ -14,7 +14,7 @@ export default function Home() {
     ],
     [
       "Kostet der Service etwas?",
-      "Unsere umfassende Preisanalyse kostet aktuell nur 4,90 Euro."
+      "Unsere umfassende Preisanalyse kostet aktuell 4,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
     ],
     [
       "Was passiert mit meinen Daten?",
@@ -22,11 +22,11 @@ export default function Home() {
     ],
     [
       "Wie lange dauert die Analyse?",
-      "Unser KI-Modell erstellt deine Analyse in der Regel in weniger als 2 Minuten nach Absenden des Formulars."
+      "Unser KI-Modell erstellt deine Analyse sofort nach dem Bezahlvorgang bei Stripe."
     ],
     [
       "Welche Zahlungsmöglichkeiten gibt es?",
-      "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay, Giropay und Klarna möglich."
+      "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay und Klarna möglich."
     ]
   ];
 
