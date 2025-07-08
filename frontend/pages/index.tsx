@@ -14,7 +14,7 @@ export default function Home() {
     ],
     [
       "Kostet der Service etwas?",
-      "Unsere umfassende Preisanalyse kostet aktuell 4,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
+      "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
     ],
     [
       "Was passiert mit meinen Daten?",
@@ -37,7 +37,7 @@ export default function Home() {
           <title>Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert</title>
           <meta
             name="description"
-            content="Nur für kurze Zeit: Pferdebewertung für 4,90 € statt 39 € auf PferdeWert.de"
+            content="Nur für kurze Zeit: Pferdebewertung für 9,90 € statt 39 € auf PferdeWert.de"
           />
           <meta property="og:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
           <meta property="og:description" content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf." />
@@ -104,7 +104,7 @@ export default function Home() {
     {/* Preisbanner */}
     <div className="bg-yellow-100 border border-yellow-300 p-6 rounded-xl shadow-md">
       <p className="text-lg font-semibold text-gray-800">
-        💥 Schnell sein lohnt sich: Nur <span className="text-red-600 font-bold text-xl">4,90 €</span>
+        💥 Schnell sein lohnt sich: Nur <span className="text-red-600 font-bold text-xl">9,90 €</span>
         <span className="line-through text-gray-500 text-sm ml-2">statt 39 €</span> – für die ersten 100 Bewertungen!
       </p>
       <p className="text-sm text-gray-600 mt-1">Keine versteckten Kosten • Einmalzahlung • Direkt online starten</p>
@@ -113,7 +113,7 @@ export default function Home() {
     <Link
       href="/bewerten"
       className="btn-primary mt-6">    
-      Jetzt 4,90 €-Analyse starten
+      Jetzt 9,90 €-Analyse starten
     </Link>
 
     <p className="text-xs text-gray-500 mt-3">

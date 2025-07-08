@@ -6,7 +6,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { error } from "@/lib/log";
 import Layout from "@/components/Layout";
-import {Star, ArrowRight, ArrowLeft } from "lucide-react";
+import { Star, ArrowRight, ArrowLeft } from "lucide-react";
 
 interface FormState {
   rasse: string;
@@ -353,8 +353,8 @@ export default function TestBewPage() {
             {/* Preisbanner */}
             <div className="bg-gradient-to-r from-orange-100 to-yellow-100 border border-orange-200 p-4 rounded-xl shadow-sm mb-6">
               <p className="text-lg font-semibold text-gray-800">
-                💥 Einführungspreis <span className="text-red-600 font-bold text-xl">4,90 €</span>
-                <span className="line-through text-gray-500 text-base ml-2">anstatt 39 €</span>
+                💥 Nur <span className="text-red-600 font-bold text-xl">9,90 €</span>
+                <span className="line-through text-gray-500 text-base ml-2">statt 39 €</span>
               </p>
               <p className="text-sm text-gray-600 mt-1">Für die ersten 100 Bewertungen!</p>
             </div>
@@ -595,7 +595,7 @@ export default function TestBewPage() {
               {/* Preis */}
               <div className="text-center mb-6">
                 <p className="text-lg text-gray-700">
-                  Die Analyse kostet einmalig <strong className="text-amber-600 text-xl">4,90 €</strong>
+                  Die Analyse kostet einmalig <strong className="text-amber-600 text-xl">9,90 €</strong>
                 </p>
                 <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
               </div>
