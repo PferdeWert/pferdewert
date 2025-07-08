@@ -6,7 +6,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { error } from "@/lib/log";
 import Layout from "@/components/Layout";
-import { Star, CheckCircle, Lock, Zap, ArrowRight, ArrowLeft } from "lucide-react";
+import { Star, ArrowRight, ArrowLeft } from "lucide-react";
 
 interface FormState {
   rasse: string;
@@ -362,15 +362,12 @@ export default function TestBewPage() {
             {/* Features */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2 text-gray-700">
-                <Lock className="w-5 h-5 text-green-600" />
                 <span>🔒 Komplett anonym – keine Anmeldung nötig</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <Zap className="w-5 h-5 text-blue-600" />
                 <span>⚡ Ergebnis in unter 2 Minuten</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <CheckCircle className="w-5 h-5 text-amber-600" />
                 <span>📊 Detaillierte PDF-Analyse</span>
               </div>
             </div>
