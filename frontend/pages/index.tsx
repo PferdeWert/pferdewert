@@ -14,7 +14,7 @@ export default function Home() {
     ],
     [
       "Kostet der Service etwas?",
-      "Unsere umfassende Preisanalyse kostet aktuell 4,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
+      "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
     ],
     [
       "Was passiert mit meinen Daten?",
