@@ -386,28 +386,43 @@ export default function TestBewPage() {
         </div>
       </section>
 
+{/* Trust-Sektion */}
+<div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
+  <div className="flex items-center justify-center gap-6 text-sm">
+    <span className="flex items-center gap-2 text-green-700">
+      🔒 SSL-verschlüsselt
+    </span>
+    <span className="flex items-center gap-2 text-green-700">
+      🏅 über 1.200 Analysen
+    </span>
+    <span className="flex items-center gap-2 text-green-700">
+      ⭐ 4.8/5 Sterne
+    </span>
+  </div>
+</div>
+
       {/* Wizard-Bereich */}
       <section id="wizard-start" className="max-w-4xl mx-auto px-4 py-8">
         {/* Step-Indikatoren */}
         <div id="wizard-progress" className="mb-8 sticky top-0 bg-white z-30 py-4">
-          <div className="flex items-center justify-center space-x-8">
+          <div className="flex items-center justify-center space-x-2 sm:space-x-8">
             {stepData.map((step, index) => (
               <div key={step.id} className="flex items-center">
                 <div className={`
-                  w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all
+                  w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all
                   ${currentStep >= step.id 
                     ? 'bg-brand-brown text-white'
                     : 'bg-gray-200 text-gray-500'}
                 `}>
                   {step.id}
                 </div>
-                <span className={`ml-2 text-sm font-medium hidden sm:block ${
+                <span className={`ml-2 text-xs sm:text-sm font-medium hidden sm:block ${
                   currentStep >= step.id ? 'text-brand-brown' : 'text-gray-500'
                 }`}>
                   {step.title}
                 </span>
                 {index < stepData.length - 1 && (
-                  <div className={`ml-4 w-8 h-0.5 ${
+                  <div className={`ml-2 w-4 sm:ml-4 sm:w-8 h-0.5 ${
                     currentStep > step.id ? 'bg-brand-brown' : 'bg-gray-200'
                   }`} />
                 )}

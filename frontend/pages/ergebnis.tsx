@@ -113,20 +113,20 @@ export default function Ergebnis() {
   <meta name="robots" content="noindex, nofollow" />
 </Head>
 
-    <BewertungLayout title="PferdeWert – Ergebnis">
+    <BewertungLayout title="PferdeWert – Ergebnis der Pferdebewertung">
       {text ? (
         <>
           <div className="prose prose-lg max-w-full">
             <ReactMarkdown>{text}</ReactMarkdown>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex justify-center sm:mt-10">
             <PDFDownloadLink
               document={<PferdeWertPDF markdownData={text} />}
               fileName="PferdeWert-Analyse.pdf"
             >
               {({ loading }) => (
-                <button className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition">
-                  {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
+                <button className="btn-primary">
+                  {loading ? "Lade PDF..." : "Als PDF herunterladen"}
                 </button>
               )}
             </PDFDownloadLink>

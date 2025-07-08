@@ -144,20 +144,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       console.log("✅ [WEBHOOK] MongoDB Update Result:", updateResult);
       console.log("✅ [WEBHOOK] Bewertung erfolgreich gespeichert!");
-      
+      console.log("🚀 [DEBUG] Starte Mail-Bereich...");
+      console.log("🚀 [DEBUG] RESEND_TO_EMAIL existiert:", !!process.env.RESEND_TO_EMAIL);
+
       // 📬 Mailbenachrichtigung versenden per Resend
-const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")
-  .split(",")
-  .map(email => email.trim())
-  .filter(email => !!email); // optional zur Sicherheit
+      console.log("🚀 [DEBUG] Verarbeite Empfänger...");  
+const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")   // Fallback auf leeren String, falls nicht gesetzt
+  .split(",") // Aufteilen bei Kommas
+  .map(email => email.trim()) // Leerzeichen entfernen
+  .filter(email => !!email); // Nur nicht-leere E-Mails behalten
 console.log("📬 Empfänger:", empfaenger);
 
       try {
 
 console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
 
-if (empfaenger.length === 0) {
-  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");
+if (empfaenger.length === 0) {  
+  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");  
   return;
 }
 

@@ -14,7 +14,7 @@ export default function Home() {
     ],
     [
       "Kostet der Service etwas?",
-      "Unsere umfassende Preisanalyse kostet aktuell nur 9,90 Euro."
+      "Unsere umfassende Preisanalyse kostet aktuell 4,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
     ],
     [
       "Was passiert mit meinen Daten?",
@@ -22,11 +22,11 @@ export default function Home() {
     ],
     [
       "Wie lange dauert die Analyse?",
-      "Unser KI-Modell erstellt deine Analyse in der Regel in weniger als 2 Minuten nach Absenden des Formulars."
+      "Unser KI-Modell erstellt deine Analyse sofort nach dem Bezahlvorgang bei Stripe."
     ],
     [
       "Welche Zahlungsmöglichkeiten gibt es?",
-      "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay, Giropay und Klarna möglich."
+      "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay und Klarna möglich."
     ]
   ];
 
@@ -199,7 +199,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed">
                   Rasse, Alter, Ausbildungsstand,<br />
                   Gesundheit und weitere wichtige<br />
-                  Informationen
+                  Informationen.
                 </p>
               </div>
 
@@ -212,8 +212,9 @@ export default function Home() {
                   Bezahlvorgang abschließen
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Sie werden weitergeleitet zu Stripe,<br />
-                  unserem Zahlungsdiensleister
+                  Sicher und verschlüsselt bezahlen –<br />
+                  mit Stripe, dem Zahlungsstandard für<br />
+                  über 4 Millionen Unternehmen.
                 </p>
               </div>
 
@@ -223,11 +224,12 @@ export default function Home() {
                   <span className="text-white font-bold text-lg">3</span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Ergebnis erhalten
+                  Ergebnis in 2 Minuten
+
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Detaillierte PDF-Analyse mit Marktwert<br />
-                  und Begründung
+                  Detaillierte PDF-Analyse mit Marktwert,<br />
+                  Begründung und Abstammungsanalyse.
                 </p>
               </div>
             </div>
