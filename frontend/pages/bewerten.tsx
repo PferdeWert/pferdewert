@@ -6,7 +6,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { error } from "@/lib/log";
 import Layout from "@/components/Layout";
-import {Star, ArrowRight, ArrowLeft } from "lucide-react";
+import { Star, ArrowRight, ArrowLeft } from "lucide-react";
 
 interface FormState {
   rasse: string;
