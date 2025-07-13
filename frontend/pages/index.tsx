@@ -42,10 +42,10 @@ export default function Home() {
     <Layout>
       <>
         <Head>
-          <title>Pferde Preis berechnen mit KI – Was ist dein Pferd wert? | PferdeWert.de</title>
+          <title>Pferde Preis berechnen: Was ist mein Pferd wert? | PferdeWert.de</title>
           <meta
             name="description"
-            content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier."
+            content="Pferde Preis professionell berechnen ✓ Sofort Marktwert ermitteln ✓ Für Freizeitreiter beim Kauf & Verkauf ✓ 2 Min zur Bewertung"
           />
           <meta property="og:title" content="Pferde Preis berechnen mit KI – Was ist dein Pferd wert?" />
           <meta property="og:description" content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier." />
@@ -189,7 +189,7 @@ export default function Home() {
     </div>
 
     <Link
-      href="/bewerten"
+      href="/pferde-preis-berechnen"
       className="btn-primary mt-6">    
       Jetzt 9,90 €-Analyse starten
     </Link>
@@ -315,7 +315,7 @@ export default function Home() {
             {/* Call-to-Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="/bewerten"
+                href="/pferde-preis-berechnen"
                 className="btn-primary"
               >
                 Jetzt Bewertung starten
@@ -396,7 +396,7 @@ export default function Home() {
     {/* Call-to-Action Button */}
     <div className="text-center">
       <Link
-        href="/bewerten"
+        href="/pferde-preis-berechnen"
         className="btn-primary"
       >
         Jetzt Bewertung starten
@@ -423,7 +423,7 @@ export default function Home() {
 
               <div className="text-center mt-12">
                 <Link
-                  href="/bewerten"
+                  href="/pferde-preis-berechnen"
                   className="btn-primary"
                 >
                   Jetzt Bewertung starten

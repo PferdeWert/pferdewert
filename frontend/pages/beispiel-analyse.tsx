@@ -83,7 +83,7 @@ export default function BeispielAnalyse() {
 
         <div className="not-prose mt-10 flex justify-center">
           <Link
-            href="/bewerten"
+            href="/pferde-preis-berechnen"
             className="btn-primary"
           >
             Jetzt Bewertung Starten

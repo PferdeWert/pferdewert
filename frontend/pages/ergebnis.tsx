@@ -26,7 +26,7 @@ export default function Ergebnis() {
 
     const session_id = router.query.session_id;
     if (!session_id || typeof session_id !== "string") {
-      router.replace("/bewerten");
+      router.replace("/pferde-preis-berechnen");
       return;
     }
 
@@ -41,8 +41,8 @@ export default function Ergebnis() {
         log("[ERGEBNIS] API-Response:", data);
 
         if (!data?.session?.payment_status || data.session.payment_status !== "paid") {
-          warn("[ERGEBNIS] Zahlung nicht erfolgt. Redirect nach /bewerten");
-          router.replace("/bewerten");
+          warn("[ERGEBNIS] Zahlung nicht erfolgt. Redirect nach /pferde-preis-berechnen");
+          router.replace("/pferde-preis-berechnen");
           return;
         }
 

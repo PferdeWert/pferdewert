@@ -184,3 +184,32 @@ blockquote {
   @apply p-3 rounded-full w-10 h-10 flex items-center justify-center;
 }
 /* Hinweis: Diese Cookie-Banner-Stile bewusst in globals.css gepflegt – nicht in der externen cookieconsent.min.css! */
+
+/* =============================== */
+/* TYPOGRAFIE-STYLES – Headline-System */
+/* =============================== */
+
+/* Haupttitel – z. B. für Seiten wie /, /pferde-preis-berechnen */
+.page-title {
+  @apply text-3xl sm:text-4xl font-bold text-gray-900 mb-4;
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+/* Untertitel – kurze Einleitung unter H1 */
+.page-subtitle {
+  @apply text-lg text-gray-700 mb-6;
+  font-family: var(--font-sans);
+}
+
+/* Abschnittsüberschrift – für "So funktioniert’s", "Kundenstimmen" etc. */
+.section-title {
+  @apply text-2xl font-semibold text-gray-800 mb-4;
+  font-family: var(--font-heading);
+}
+
+/* Kleine Überschrift – z. B. für Trust-Labels oder Karten */
+.mini-title {
+  @apply text-sm font-semibold text-gray-600 uppercase tracking-wide;
+  font-family: var(--font-sans);
+}

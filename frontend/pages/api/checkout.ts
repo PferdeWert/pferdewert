@@ -84,7 +84,7 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
       mode: "payment",
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/bewerten?abgebrochen=1`,
+      cancel_url: `${origin}/pferde-preis-berechnen?abgebrochen=1`,
       metadata: { bewertungId: bewertungId.toHexString() },
     });
 
