@@ -189,7 +189,7 @@ export default function Home() {
     </div>
 
     <Link
-      href="/bewerten"
+      href="/pferde-preis-berechnen"
       className="btn-primary mt-6">    
       Jetzt 9,90 €-Analyse starten
     </Link>
@@ -315,7 +315,7 @@ export default function Home() {
             {/* Call-to-Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="/bewerten"
+                href="/pferde-preis-berechnen"
                 className="btn-primary"
               >
                 Jetzt Bewertung starten
@@ -396,7 +396,7 @@ export default function Home() {
     {/* Call-to-Action Button */}
     <div className="text-center">
       <Link
-        href="/bewerten"
+        href="/pferde-preis-berechnen"
         className="btn-primary"
       >
         Jetzt Bewertung starten
@@ -423,7 +423,7 @@ export default function Home() {
 
               <div className="text-center mt-12">
                 <Link
-                  href="/bewerten"
+                  href="/pferde-preis-berechnen"
                   className="btn-primary"
                 >
                   Jetzt Bewertung starten
