@@ -195,7 +195,7 @@ export default function WasIstMeinPferdWert() {
                 Was ist mein Pferd wert? Professionelle Bewertung in 2 Minuten
               </h1>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                <strong>Pferd wert ermitteln</strong> mit KI-basierter Analyse. Ob für <strong>Verkauf</strong>, <strong>Kauf</strong> oder <strong>Versicherung</strong> – erhalten Sie eine fundierte <strong>Pferdebewertung</strong> basierend auf tausenden Marktdaten.
+                <strong>Pferdewert ermitteln</strong> mit KI-basierter Analyse. Ob für <strong>Verkauf</strong>, <strong>Kauf</strong> oder <strong>Versicherung</strong> – erhalten Sie eine fundierte <strong>Pferdebewertung</strong> basierend auf tausenden Marktdaten.
               </p>
               <p className="text-base text-gray-600 mb-6">
                 ✓ Sofort verfügbar ✓ Ohne Anmeldung ✓ Als PDF-Report
