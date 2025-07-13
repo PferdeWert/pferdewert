@@ -347,7 +347,7 @@ export default function TestBewPage() {
           {/* Text-Bereich */}
           <div>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Pferd analysieren
+              Pferdepreis online berechnen
             </h1>
             
             {/* Preisbanner */}
