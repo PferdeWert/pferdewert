@@ -34,13 +34,13 @@ export default function Home() {
     <Layout>
       <>
         <Head>
-          <title>Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert</title>
+          <title>Pferde Preis berechnen mit KI – Was ist dein Pferd wert? | PferdeWert.de</title>
           <meta
             name="description"
-            content="Nur für kurze Zeit: Pferdebewertung für 9,90 € statt 39 € auf PferdeWert.de"
+            content="Jetzt den Pferde Preis berechnen mit KI – schnell, anonym & ohne Anmeldung. Ideal für Verkauf, Kauf oder einfach aus Neugier."
           />
-          <meta property="og:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
-          <meta property="og:description" content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf." />
+          <meta property="og:title" content="Pferde Preis berechnen mit KI – Was ist dein Pferd wert?" />
+          <meta property="og:description" content="Jetzt Pferdebewertung durchführen – schnell, anonym & ohne Anmeldung. Ideal für Verkauf, Kauf oder einfach aus Neugier." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://pferdewert.de/" />
           <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
@@ -86,7 +86,7 @@ export default function Home() {
                 Was ist Dein Pferd wert?
               </h1>
               <p className="text-lg text-gray-700 mb-4">
-                Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht. Perfekt für Kauf, Verkauf oder einfach aus Neugier.
+                Jetzt <strong>Pferde Preis berechnen</strong> mit KI – ideal für Kauf, Verkauf oder einfach aus Neugier. Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht.
               </p>
               <Link
                 href="/beispiel-analyse"
