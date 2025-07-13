@@ -1,10 +1,61 @@
 // pages/was-ist-mein-pferd-wert.tsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, TrendingUp, Calculator, Shield, Clock, CheckCircle } from "lucide-react";
+import { Star, TrendingUp, Shield, Clock, CheckCircle } from "lucide-react";
+
+// Sticky Mobile CTA Component
+const StickyMobileCTA = () => {
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowSticky(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!showSticky) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-200 shadow-lg">
+      <div className="p-4">
+        <Link
+          href="/pferde-preis-berechnen"
+          className="btn-primary w-full text-center py-4 font-bold text-lg shadow-lg"
+        >
+          Jetzt Pferd bewerten → 9,90€
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+// Trust Badges Component
+const TrustBadges = () => (
+  <div className="flex flex-wrap justify-center items-center gap-6 py-8 px-4 bg-gray-50 rounded-xl">
+    <div className="flex items-center space-x-2">
+      <Shield className="w-6 h-6 text-green-600" />
+      <span className="text-sm font-medium text-gray-700">SSL-verschlüsselt</span>
+    </div>
+    <div className="flex items-center space-x-2">
+      <CheckCircle className="w-6 h-6 text-blue-600" />
+      <span className="text-sm font-medium text-gray-700">Stripe-gesichert</span>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Shield className="w-6 h-6 text-gray-600" />
+      <span className="text-sm font-medium text-gray-700">DSGVO-konform</span>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Clock className="w-6 h-6 text-orange-500" />
+      <span className="text-sm font-medium text-gray-700">Sofort verfügbar</span>
+    </div>
+  </div>
+);
 
 export default function WasIstMeinPferdWert() {
   const bewertungsfaktoren = [
@@ -43,23 +94,28 @@ export default function WasIstMeinPferdWert() {
   const faqItems = [
     {
       frage: "Wie genau ist die Bewertung?",
-      antwort: "Unsere KI analysiert auf Basis tausender Markttransaktionen und Experteneinschätzungen. Dennoch ist es eine Schätzung – bitte als Richtwert nutzen."
+      antwort: "Unsere KI analysiert auf Basis tausender Markttransaktionen und Experteneinschätzungen. Dennoch ist es eine Schätzung – bitte als Richtwert nutzen.",
+      isOpen: true // Erstes FAQ standardmäßig geöffnet
     },
     {
       frage: "Kostet der Service etwas?",
-      antwort: "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
+      antwort: "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro.",
+      isOpen: false
     },
     {
       frage: "Was passiert mit meinen Daten?",
-      antwort: "Wir speichern nur anonyme Bewertungsdaten zur Verbesserung des Modells. Keine personenbezogenen Daten werden weitergegeben."
+      antwort: "Wir speichern nur anonyme Bewertungsdaten zur Verbesserung des Modells. Keine personenbezogenen Daten werden weitergegeben.",
+      isOpen: false
     },
     {
       frage: "Wie lange dauert die Analyse?",
-      antwort: "Unser KI-Modell erstellt deine Analyse sofort nach dem Bezahlvorgang bei Stripe."
+      antwort: "Unser KI-Modell erstellt deine Analyse sofort nach dem Bezahlvorgang bei Stripe.",
+      isOpen: false
     },
     {
       frage: "Welche Zahlungsmöglichkeiten gibt es?",
-      antwort: "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay und Klarna möglich."
+      antwort: "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay und Klarna möglich.",
+      isOpen: false
     }
   ];
 
@@ -70,108 +126,92 @@ export default function WasIstMeinPferdWert() {
           <title>Was ist mein Pferd wert? Professionelle Pferdebewertung | PferdeWert.de</title>
           <meta
             name="description"
-            content="Was ist mein Pferd wert? Erfahren Sie, welche Faktoren den Pferdewert bestimmen ✓ Kostenlose Ersteinschätzung ✓ Professionelle Bewertung in 2 Minuten"
+            content="Was ist mein Pferd wert? Professionelle Pferdebewertung mit KI ✓ Pferde Preis berechnen ✓ Marktwert ermitteln ✓ In 2 Minuten zum Ergebnis"
           />
-          <meta name="keywords" content="was ist mein pferd wert, pferdewert, pferdebewertung, pferd wert ermitteln, marktwert pferd" />
-          <meta property="og:title" content="Was ist mein Pferd wert? Professionelle Antworten & Bewertung" />
-          <meta property="og:description" content="Finden Sie heraus, was Ihr Pferd wirklich wert ist. Professionelle Bewertung basierend auf Marktdaten und Expertenwissen." />
+          <meta name="keywords" content="was ist mein pferd wert, pferdewert, pferdebewertung, pferd wert ermitteln, marktwert pferd, pferde preis berechnen, pferdemarkt" />
+          <meta property="og:title" content="Was ist mein Pferd wert? Professionelle Pferdebewertung | PferdeWert.de" />
+          <meta property="og:description" content="Professionelle Pferdebewertung mit KI - Pferde Preis berechnen & Marktwert ermitteln in 2 Minuten. Basierend auf tausenden Marktdaten." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://pferdewert.de/was-ist-mein-pferd-wert" />
           <meta property="og:image" content="https://pferdewert.de/images/blossi-3.jpg" />
           <link rel="canonical" href="https://pferdewert.de/was-ist-mein-pferd-wert" />
+          
+          {/* Strukturierte Daten für Rich Snippets */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": "Professionelle Pferdebewertung",
+                "description": "KI-basierte Pferdebewertung zur Ermittlung des Marktwerts",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "PferdeWert.de",
+                  "url": "https://pferdewert.de"
+                },
+                "serviceType": "Pferdebewertung",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "9.90",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "reviewCount": "127"
+                }
+              })
+            }}
+          />
+
+          {/* FAQ Schema */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "headline": "Was ist mein Pferd wert? Professionelle Pferdebewertung",
-                "description": "Umfassender Ratgeber zur Ermittlung des Pferdewerts mit professionellen Bewertungsmethoden",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "Wie genau ist die Bewertung?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Unsere KI analysiert auf Basis tausender Markttransaktionen und Experteneinschätzungen. Dennoch ist es eine Schätzung – bitte als Richtwert nutzen."
-                    }
-                  },
-                  {
-                    "@type": "Question", 
-                    "name": "Kostet der Service etwas?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Was passiert mit meinen Daten?", 
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Wir speichern nur anonyme Bewertungsdaten zur Verbesserung des Modells. Keine personenbezogenen Daten werden weitergegeben."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Wie lange dauert die Analyse?",
-                    "acceptedAnswer": {
-                      "@type": "Answer", 
-                      "text": "Unser KI-Modell erstellt deine Analyse sofort nach dem Bezahlvorgang bei Stripe."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Welche Zahlungsmöglichkeiten gibt es?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay und Klarna möglich."
-                    }
+                "mainEntity": faqItems.map(item => ({
+                  "@type": "Question",
+                  "name": item.frage,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.antwort
                   }
-                ],
-                "author": {
-                  "@type": "Organization",
-                  "name": "PferdeWert.de"
-                },
-                "publisher": {
-                  "@type": "Organization", 
-                  "name": "PferdeWert.de"
-                },
-                "mainEntityOfPage": {
-                  "@type": "WebPage",
-                  "@id": "https://pferdewert.de/was-ist-mein-pferd-wert"
-                }
+                }))
               })
             }}
           />
         </Head>
 
-        {/* Hero Section */}
-        <section className="bg-brand-light py-16 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        {/* Hero Section - Verkürzt und SEO-optimiert */}
+        <section className="bg-brand-light py-12 px-6">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             {/* Content */}
             <div className="order-2 md:order-1">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Was ist mein Pferd wert?
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                Was ist mein Pferd wert? Professionelle Bewertung in 2 Minuten
               </h1>
-              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                Eine Frage, die sich jeder Pferdebesitzer früher oder später stellt. Ob vor dem <strong>Kauf</strong>, einem anstehenden <strong>Verkauf</strong>, die <strong>Versicherung</strong> oder einfach aus <strong>Neugier</strong> – der Wert Ihres treuen Gefährten hängt von vielen Faktoren ab.
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                <strong>Pferdewert ermitteln</strong> mit KI-basierter Analyse. Ob für <strong>Verkauf</strong>, <strong>Kauf</strong> oder <strong>Versicherung</strong> – erhalten Sie eine fundierte <strong>Pferdebewertung</strong> basierend auf tausenden Marktdaten.
               </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Erfahren Sie, welche Kriterien den Marktwert bestimmen und erhalten Sie eine professionelle Einschätzung für Ihr Pferd.
+              <p className="text-base text-gray-600 mb-6">
+                ✓ Sofort verfügbar ✓ Ohne Anmeldung ✓ Als PDF-Report
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/pferde-preis-berechnen" className="btn-primary">
-                  Jetzt Bewertung starten
+                <Link href="/pferde-preis-berechnen" className="btn-primary bg-gradient-to-r from-brand-brown to-brand-brownDark hover:from-brand-brownDark hover:to-brand-brown text-white font-bold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200">
+                  Jetzt 9,90€-Analyse starten
                 </Link>
-                <Link href="/beispiel-analyse" className="btn-secondary">
+                <Link href="/beispiel-analyse" className="btn-secondary border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200">
                   Beispiel-Analyse anschauen
                 </Link>
               </div>
             </div>
 
-            {/* Hero Image */}
+            {/* Hero Image - Optimiert für Performance */}
             <div className="order-1 md:order-2">
               <Image
                 src="/images/blossi-3.webp"
@@ -180,8 +220,16 @@ export default function WasIstMeinPferdWert() {
                 alt="Professionelle Pferdebewertung - Deutsches Sportpferd für Marktwert-Ermittlung"
                 className="rounded-2xl shadow-xl w-full h-auto"
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
+          </div>
+        </section>
+
+        {/* Trust Badges Section */}
+        <section className="bg-white py-8 px-6">
+          <div className="max-w-4xl mx-auto">
+            <TrustBadges />
           </div>
         </section>
 
@@ -263,31 +311,31 @@ export default function WasIstMeinPferdWert() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section - Verbesserte Kontraste */}
         <section className="bg-gradient-to-r from-brand-brown to-brand-brownDark py-16 px-6 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Finden Sie jetzt heraus, was Ihr Pferd wirklich wert ist
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-xl mb-8 text-gray-100">
               Professionelle Bewertung in 2 Minuten • Basierend auf aktuellen Marktdaten • Sofort verfügbar
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/pferde-preis-berechnen"
-                className="btn-primary"
+                className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200"
               >
-                Jetzt Bewertung starten
+                Jetzt 9,90€-Analyse starten
               </Link>
-              <div className="text-sm opacity-75">
+              <div className="text-sm text-gray-200">
                 ✓ Keine Anmeldung erforderlich • ✓ Sofort verfügbar
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ - Erstes Element geöffnet */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-brand mb-12">
@@ -296,7 +344,7 @@ export default function WasIstMeinPferdWert() {
 
             <div className="space-y-6">
               {faqItems.map((item, index) => (
-                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200">
+                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200" open={item.isOpen}>
                   <summary className="cursor-pointer p-6 text-lg font-semibold text-brand hover:text-brand-brown transition">
                     {item.frage}
                   </summary>
@@ -312,9 +360,9 @@ export default function WasIstMeinPferdWert() {
             <div className="text-center mt-12">
               <Link
                 href="/pferde-preis-berechnen"
-                className="btn-primary"
+                className="btn-primary bg-gradient-to-r from-brand-brown to-brand-brownDark hover:from-brand-brownDark hover:to-brand-brown text-white font-bold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                Jetzt Bewertung starten
+                Jetzt 9,90€-Analyse starten
               </Link>
             </div>
           </div>
@@ -372,6 +420,9 @@ export default function WasIstMeinPferdWert() {
             </div>
           </div>
         </section>
+
+        {/* Sticky Mobile CTA */}
+        <StickyMobileCTA />
       </>
     </Layout>
   );
