@@ -1,4 +1,4 @@
-// frontend/pages/bewerten.tsx - Modernes Wizard Design
+// frontend/pages/pferde-preis-berechnen.tsx - Modernes Wizard Design
 
 import Head from "next/head";
 import Link from "next/link";
@@ -338,7 +338,7 @@ export default function TestBewPage() {
       <Head>
         <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
         <meta name="description" content="Jetzt dein Pferd bewerten & den realistischen Marktwert online ermitteln – anonym, sicher & direkt als PDF. Ideal bei Pferdekauf & Pferdeverkauf." />
-        <link rel="canonical" href="https://pferdewert.de/bewerten" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-preis-berechnen" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
@@ -426,7 +426,7 @@ export default function TestBewPage() {
       "@type": "ListItem",
       "position": 2,
       "name": "Pferd bewerten",
-      "item": "https://pferdewert.de/bewerten"
+      "item": "https://pferdewert.de/pferde-preis-berechnen"
     }
   ]
 })}} />

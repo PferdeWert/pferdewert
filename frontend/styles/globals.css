@@ -189,7 +189,7 @@ blockquote {
 /* TYPOGRAFIE-STYLES – Headline-System */
 /* =============================== */
 
-/* Haupttitel – z. B. für Seiten wie /, /bewerten */
+/* Haupttitel – z. B. für Seiten wie /, /pferde-preis-berechnen */
 .page-title {
   @apply text-3xl sm:text-4xl font-bold text-gray-900 mb-4;
   font-family: var(--font-heading);
