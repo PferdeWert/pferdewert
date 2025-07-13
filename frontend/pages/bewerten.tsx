@@ -359,52 +359,58 @@ export default function TestBewPage() {
     "serviceType": "KI-gestützte Pferdebewertung"
   })}} />
 
-  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Wie kann ich den Preis für mein Pferd online ermitteln?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mit dem KI-basierten Pferdepreis-Rechner von PferdeWert kannst du ganz einfach den Marktwert deines Pferdes online berechnen lassen – anonym, schnell und ohne Anmeldung."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Was kostet die Pferdebewertung?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Die Analyse kostet einmalig 9,90 €. Du erhältst eine detaillierte Bewertung mit Preisspanne und PDF-Auswertung."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Für wen eignet sich die Online-Pferdebewertung?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Die Bewertung ist ideal für private Pferdebesitzer, die verkaufen oder kaufen wollen – oder einfach nur den aktuellen Wert ihres Pferdes wissen möchten."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Welche Daten werden für die Pferdebewertung benötigt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Es werden u. a. Rasse, Alter, Geschlecht, Stockmaß, Ausbildungsstand und ggf. Erfolge oder AKU-Daten abgefragt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie schnell bekomme ich das Ergebnis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Die Auswertung erfolgt in der Regel innerhalb von 2 Minuten und steht dir direkt als PDF zur Verfügung."
-      }
-    }
-  ]
-})}} />
+ <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie kann ich den Preis für mein Pferd online ermitteln?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mit unserem KI-basierten Pferdepreis-Rechner erhältst du eine fundierte Preisspanne – anonym und ohne Anmeldung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet die Pferdebewertung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Bewertung kostet aktuell nur 9,90 € Einführungspreis statt 39 €. Es handelt sich um eine einmalige Zahlung, keine Abo-Falle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schnell erhalte ich das Ergebnis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Direkt nach dem Bezahlvorgang erstellt unser System deine individuelle Bewertung und du bekommst sie sofort angezeigt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Daten brauche ich zur Bewertung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Du solltest Angaben zu Rasse, Alter, Geschlecht, Stockmaß, Ausbildungsstand, ggf. AKU, Erfolge usw. bereithalten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Für wen eignet sich die Online-Pferdebewertung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ideal für alle, die ein Pferd verkaufen oder kaufen möchten – oder einfach den aktuellen Marktwert wissen wollen. Auch zur Orientierung oder bei Verhandlungen hilfreich."
+          }
+        }
+      ]
+    })
+  }}
+/>
+
 
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
   "@context": "https://schema.org",
@@ -835,6 +841,7 @@ export default function TestBewPage() {
           Mit unserem KI-basierten Pferdepreis-Rechner erhältst du eine fundierte Preisspanne – anonym und ohne Anmeldung.
         </p>
       </details>
+
       <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
         <summary className="cursor-pointer text-lg font-semibold text-gray-800">
           Was kostet die Pferdebewertung?
@@ -843,6 +850,7 @@ export default function TestBewPage() {
           Die Bewertung kostet aktuell nur 9,90 € Einführungspreis statt 39 €. Es handelt sich um eine einmalige Zahlung, keine Abo-Falle.
         </p>
       </details>
+
       <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
         <summary className="cursor-pointer text-lg font-semibold text-gray-800">
           Wie schnell erhalte ich das Ergebnis?
@@ -851,6 +859,7 @@ export default function TestBewPage() {
           Direkt nach dem Bezahlvorgang erstellt unser System deine individuelle Bewertung und du bekommst sie sofort angezeigt.
         </p>
       </details>
+
       <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
         <summary className="cursor-pointer text-lg font-semibold text-gray-800">
           Welche Daten brauche ich zur Bewertung?
@@ -859,6 +868,15 @@ export default function TestBewPage() {
           Du solltest Angaben zu Rasse, Alter, Geschlecht, Stockmaß, Ausbildungsstand, ggf. AKU, Erfolge usw. bereithalten.
         </p>
       </details>
+
+        <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+         <summary className="cursor-pointer text-lg font-semibold text-gray-800">
+          Für wen eignet sich die Online-Pferdebewertung?
+          </summary>
+         <p className="mt-2 text-gray-700">
+          Ideal für alle, die ein Pferd verkaufen oder kaufen möchten – oder einfach den aktuellen Marktwert wissen wollen. Auch zur Orientierung oder bei Verhandlungen hilfreich.
+          </p>
+        </details>
     </div>
   </div>
 </section>
