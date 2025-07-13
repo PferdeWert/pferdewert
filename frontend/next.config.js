@@ -7,7 +7,7 @@ const nextConfig = {
     return [
       {
         source: '/bewerten',
-        destination: '/pferde-preis-rechner',
+        destination: '/pferde-preis-berechnen',
         permanent: true,
       },
           // Weitere Redirects kann man dann hier hinzufügen...
