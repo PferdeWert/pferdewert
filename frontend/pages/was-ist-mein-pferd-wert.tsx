@@ -198,7 +198,7 @@ export default function WasIstMeinPferdWert() {
                 <strong>Pferdewert ermitteln</strong> mit KI-basierter Analyse. Ob für <strong>Verkauf</strong>, <strong>Kauf</strong> oder <strong>Versicherung</strong> – erhalten Sie eine fundierte <strong>Pferdebewertung</strong> basierend auf tausenden Marktdaten.
               </p>
               <p className="text-base text-gray-600 mb-6">
-                ✓ Sofort verfügbar ✓ Ohne Anmeldung ✓ Als PDF-Report
+                ✓ Sofort verfügbar ✓ Ohne Anmeldung<br className="sm:hidden" /> ✓ Als PDF-Report
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
