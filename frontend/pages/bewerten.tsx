@@ -339,6 +339,92 @@ export default function TestBewPage() {
         <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
         <meta name="description" content="Jetzt dein Pferd bewerten & den realistischen Marktwert online ermitteln – anonym, sicher & direkt als PDF. Ideal bei Pferdekauf & Pferdeverkauf." />
         <link rel="canonical" href="https://pferdewert.de/bewerten" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pferdebewertung online",
+    "provider": {
+      "@type": "Organization",
+      "name": "PferdeWert",
+      "url": "https://pferdewert.de"
+    },
+    "areaServed": "DE",
+    "description": "Schnelle und anonyme Online-Einschätzung des Pferdepreises auf Basis von Rasse, Alter, Ausbildung u.v.m.",
+    "offers": {
+      "@type": "Offer",
+      "price": "9.90",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    },
+    "serviceType": "KI-gestützte Pferdebewertung"
+  })}} />
+
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie kann ich den Preis für mein Pferd online ermitteln?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mit dem KI-basierten Pferdepreis-Rechner von PferdeWert kannst du ganz einfach den Marktwert deines Pferdes online berechnen lassen – anonym, schnell und ohne Anmeldung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet die Pferdebewertung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Analyse kostet einmalig 9,90 €. Du erhältst eine detaillierte Bewertung mit Preisspanne und PDF-Auswertung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Für wen eignet sich die Online-Pferdebewertung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Bewertung ist ideal für private Pferdebesitzer, die verkaufen oder kaufen wollen – oder einfach nur den aktuellen Wert ihres Pferdes wissen möchten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Daten werden für die Pferdebewertung benötigt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es werden u. a. Rasse, Alter, Geschlecht, Stockmaß, Ausbildungsstand und ggf. Erfolge oder AKU-Daten abgefragt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie schnell bekomme ich das Ergebnis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Auswertung erfolgt in der Regel innerhalb von 2 Minuten und steht dir direkt als PDF zur Verfügung."
+      }
+    }
+  ]
+})}} />
+
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://pferdewert.de"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Pferd bewerten",
+      "item": "https://pferdewert.de/bewerten"
+    }
+  ]
+})}} />
+
       </Head>
 
       {/* Hero-Bereich */}
@@ -346,10 +432,14 @@ export default function TestBewPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           {/* Text-Bereich */}
           <div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="page-title">
               Pferdepreis online berechnen
             </h1>
-            
+
+            <p className="page-subtitle">
+            Preis für Pferde schnell & anonym ermitteln – ideal für Kauf, Verkauf oder einfach zur Orientierung.
+            </p>
+
             {/* Preisbanner */}
             <div className="bg-gradient-to-r from-orange-100 to-yellow-100 border border-orange-200 p-4 rounded-xl shadow-sm mb-6">
               <p className="text-lg font-semibold text-gray-800">
@@ -654,6 +744,28 @@ export default function TestBewPage() {
         </div>
       </section>
 
+            {/* Content-Block für SEO Maximierung */}
+            <section className="max-w-4xl mx-auto px-4 py-16 text-gray-800">
+             <h2 className="section-title">
+              Pferdepreis ermitteln – warum eine objektive Bewertung wichtig ist
+            </h2>
+              <p className="page-subtitle">
+              Was ist mein Pferd wert? Der marktgerechte Preis hängt von vielen Faktoren ab – darunter <strong>Rasse</strong>, <strong>Alter</strong>,
+              <strong> Ausbildungsstand</strong>, <strong>Abstammung</strong> und <strong>Gesundheitsstatus</strong>.
+            </p>
+            <p className="mb-4 leading-relaxed">
+              Unsere <strong>KI-gestützte Pferdebewertung</strong> analysiert genau diese Merkmale und liefert dir in unter 2 Minuten eine fundierte Preisspanne –
+             <strong> online, anonym</strong> und <strong>ohne Anmeldung</strong> auch als PDF. Perfekt bei <strong>Pferdekauf</strong>, <strong>Pferdeverkauf</strong> oder einfach zur Orientierung.
+            </p>
+            <p className="mb-4 leading-relaxed">
+             Du kannst dein <strong>Pferd online bewerten lassen</strong> und dabei auf ein lernendes System setzen, das auf echten Marktdaten basiert.
+             So vermeidest du Fehleinschätzungen beim <strong>Pferdepreis</strong> und stärkst deine Verhandlungsposition.
+            </p>
+            <p className="mb-4 leading-relaxed">
+             Probiere jetzt unseren <strong>Pferdepreis-Rechner</strong> aus – schnell, sicher und anonym.
+                    </p>
+          </section>
+
       {/* Social Proof */}
       <section className="bg-white py-16 px-4 -mx-4 mt-16">
         <div className="max-w-6xl mx-auto">
@@ -709,6 +821,48 @@ export default function TestBewPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ-Sektion */}
+      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+  <div className="mx-auto max-w-5xl">
+    <h2 className="section-title text-center">Häufige Fragen zur Pferdebewertung</h2>
+    <div className="mt-10 space-y-6">
+      <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+        <summary className="cursor-pointer text-lg font-semibold text-gray-800">
+          Wie kann ich den Preis für mein Pferd online ermitteln?
+        </summary>
+        <p className="mt-2 text-gray-700">
+          Mit unserem KI-basierten Pferdepreis-Rechner erhältst du eine fundierte Preisspanne – anonym und ohne Anmeldung.
+        </p>
+      </details>
+      <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+        <summary className="cursor-pointer text-lg font-semibold text-gray-800">
+          Was kostet die Pferdebewertung?
+        </summary>
+        <p className="mt-2 text-gray-700">
+          Die Bewertung kostet aktuell nur 9,90 € Einführungspreis statt 39 €. Es handelt sich um eine einmalige Zahlung, keine Abo-Falle.
+        </p>
+      </details>
+      <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+        <summary className="cursor-pointer text-lg font-semibold text-gray-800">
+          Wie schnell erhalte ich das Ergebnis?
+        </summary>
+        <p className="mt-2 text-gray-700">
+          Direkt nach dem Bezahlvorgang erstellt unser System deine individuelle Bewertung und du bekommst sie sofort angezeigt.
+        </p>
+      </details>
+      <details className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+        <summary className="cursor-pointer text-lg font-semibold text-gray-800">
+          Welche Daten brauche ich zur Bewertung?
+        </summary>
+        <p className="mt-2 text-gray-700">
+          Du solltest Angaben zu Rasse, Alter, Geschlecht, Stockmaß, Ausbildungsstand, ggf. AKU, Erfolge usw. bereithalten.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
     </Layout>
   );
 }
