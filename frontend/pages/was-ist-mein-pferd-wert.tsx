@@ -1,9 +1,9 @@
 // pages/was-ist-mein-pferd-wert.tsx
+import React from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
 import { Star, TrendingUp, Calculator, Shield, Clock, CheckCircle } from "lucide-react";
 
 export default function WasIstMeinPferdWert() {
@@ -37,27 +37,6 @@ export default function WasIstMeinPferdWert() {
       title: "Charakter & Reitbarkeit",
       description: "Brave, verlässliche Pferde sind besonders bei Freizeitreitern gefragt",
       impact: "Mittel"
-    }
-  ];
-
-  const preisbeispiele = [
-    {
-      kategorie: "Freizeitpferd",
-      alter: "8-15 Jahre",
-      ausbildung: "Grundausbildung",
-      preisSpanne: "3.000 - 8.000 €"
-    },
-    {
-      kategorie: "Sportpferd",
-      alter: "6-12 Jahre", 
-      ausbildung: "L-M Niveau",
-      preisSpanne: "8.000 - 25.000 €"
-    },
-    {
-      kategorie: "Hochleistungspferd",
-      alter: "7-10 Jahre",
-      ausbildung: "S-Niveau",
-      preisSpanne: "25.000 - 100.000+ €"
     }
   ];
 
@@ -176,30 +155,26 @@ export default function WasIstMeinPferdWert() {
                 Was ist mein Pferd wert?
               </h1>
               <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                Eine Frage, die sich jeder Pferdebesitzer stellt. Ob für den <strong>Verkauf</strong>, die <strong>Versicherung</strong> oder einfach aus <strong>Neugier</strong> – der Wert Ihres treuen Gefährten hängt von vielen Faktoren ab.
+                Eine Frage, die sich jeder Pferdebesitzer früher oder später stellt. Ob vor dem <strong>Kauf</strong>, einem anstehenden <strong>Verkauf</strong>, die <strong>Versicherung</strong> oder einfach aus <strong>Neugier</strong> – der Wert Ihres treuen Gefährten hängt von vielen Faktoren ab.
               </p>
               <p className="text-lg text-gray-600 mb-8">
                 Erfahren Sie, welche Kriterien den Marktwert bestimmen und erhalten Sie eine professionelle Einschätzung für Ihr Pferd.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/pferde-preis-berechnen"
-                  className="bg-brand-brown text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-brand-brownDark transition shadow-lg inline-flex items-center justify-center"
-                >
-                  <Calculator className="w-5 h-5 mr-2" />
-                  Jetzt Pferdewert ermitteln
+                <Link href="/pferde-preis-berechnen" className="btn-primary">
+                  Jetzt Bewertung starten
                 </Link>
-                <button className="border-2 border-brand-brown text-brand-brown px-8 py-4 rounded-lg font-semibold hover:bg-brand-light transition">
-                  Kostenlose Erstberatung
-                </button>
+                <Link href="/beispiel-analyse" className="btn-secondary">
+                  Beispiel-Analyse anschauen
+                </Link>
               </div>
             </div>
 
             {/* Hero Image */}
             <div className="order-1 md:order-2">
               <Image
-                src="/images/blossi-3.jpg"
+                src="/images/blossi-3.webp"
                 width={600}
                 height={800}
                 alt="Professionelle Pferdebewertung - Deutsches Sportpferd für Marktwert-Ermittlung"
@@ -288,50 +263,6 @@ export default function WasIstMeinPferdWert() {
           </div>
         </section>
 
-        {/* Preisbeispiele */}
-        <section className="bg-white py-16 px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              Realistische Preisspannen nach Kategorien
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {preisbeispiele.map((beispiel, index) => (
-                <div key={index} className="bg-brand-light rounded-2xl p-8 border border-brand-gold/30">
-                  <h3 className="text-xl font-bold text-brand mb-4">
-                    {beispiel.kategorie}
-                  </h3>
-                  <div className="space-y-3 mb-6">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Alter:</span>
-                      <span className="font-medium">{beispiel.alter}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Ausbildung:</span>
-                      <span className="font-medium">{beispiel.ausbildung}</span>
-                    </div>
-                  </div>
-                  <div className="border-t border-brand-gold/30 pt-4">
-                    <div className="text-center">
-                      <span className="text-sm text-gray-600">Typischer Preis:</span>
-                      <div className="text-2xl font-bold text-brand-brown">
-                        {beispiel.preisSpanne}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 p-6 bg-brand-accent/5 rounded-xl border border-brand-accent/20">
-              <p className="text-sm text-brand-accent text-center">
-                <strong>Hinweis:</strong> Dies sind Richtwerte basierend auf Marktdaten. 
-                Der tatsächliche Wert kann je nach individuellen Faktoren erheblich abweichen.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-brand-brown to-brand-brownDark py-16 px-6 text-white">
           <div className="max-w-4xl mx-auto text-center">
@@ -345,10 +276,9 @@ export default function WasIstMeinPferdWert() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/pferde-preis-berechnen"
-                className="bg-white text-brand-brown px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition shadow-lg inline-flex items-center"
+                className="btn-primary"
               >
-                <Calculator className="w-5 h-5 mr-2" />
-                Jetzt kostenlos bewerten
+                Jetzt Bewertung starten
               </Link>
               <div className="text-sm opacity-75">
                 ✓ Keine Anmeldung erforderlich • ✓ Sofort verfügbar
@@ -382,10 +312,9 @@ export default function WasIstMeinPferdWert() {
             <div className="text-center mt-12">
               <Link
                 href="/pferde-preis-berechnen"
-                className="bg-brand-brown text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-brand-brownDark transition shadow-lg inline-flex items-center"
+                className="btn-primary"
               >
-                <CheckCircle className="w-5 h-5 mr-2" />
-                Jetzt Pferdewert ermitteln
+                Jetzt Bewertung starten
               </Link>
             </div>
           </div>
