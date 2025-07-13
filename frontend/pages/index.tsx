@@ -9,25 +9,33 @@ import { Star, CheckCircle, Lock, Zap } from "lucide-react"; // ← HIER: Neue I
 export default function Home() {
   const faqs = [
     [
-      "Wie genau ist die Bewertung?",
-      "Unsere KI analysiert auf Basis tausender Markttransaktionen und Experteneinschätzungen. Dennoch ist es eine Schätzung – bitte als Richtwert nutzen."
-    ],
-    [
-      "Kostet der Service etwas?",
-      "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro."
-    ],
-    [
-      "Was passiert mit meinen Daten?",
-      "Wir speichern nur anonyme Bewertungsdaten zur Verbesserung des Modells. Keine personenbezogenen Daten werden weitergegeben."
-    ],
-    [
-      "Wie lange dauert die Analyse?",
-      "Unser KI-Modell erstellt deine Analyse sofort nach dem Bezahlvorgang bei Stripe."
-    ],
-    [
-      "Welche Zahlungsmöglichkeiten gibt es?",
-      "Wir nutzen mit Stripe einen der größten Zahlungsdienstleister. Zahlungen sind per Kreditkarte, Apple Pay, Google Pay und Klarna möglich."
-    ]
+    "Was ist mein Pferd wert?",
+    "Unser KI-Modell analysiert Verkaufsdaten, Rasse, Alter, Ausbildung, Gesundheitsstatus und mehr – so erhältst du eine realistische Preisspanne für dein Pferd, sofort und ohne Anmeldung."
+  ],
+  [
+    "Wie kann ich den Preis für mein Pferd berechnen?",
+    "Einfach das Online-Formular ausfüllen und unser KI-System ermittelt in unter 2 Minuten eine fundierte Preisspanne – ideal zur Vorbereitung für Verkauf oder Kauf."
+  ],
+  [
+    "Was kostet es, den Pferdepreis berechnen zu lassen?",
+    "Aktuell bieten wir die Analyse für nur 9,90 € statt 39 € an – ohne Abo, ohne versteckte Gebühren."
+  ],
+  [
+    "Kann ich den Pferdepreis kostenlos berechnen?",
+    "Nein, da wir auf ein professionelles, datenbasiertes KI-Modell setzen. Der Preis von 9,90 € ermöglicht eine qualitativ hochwertige Analyse ohne Werbung oder Datenweitergabe."
+  ],
+  [
+    "Wie schnell bekomme ich das Ergebnis?",
+    "Direkt nach Bezahlung bekommst du deine PferdeWert-Analyse angezeigt und kannst sie dir dann auch als PDF herunterladen. Die Analyse dauert weniger als 2 Minuten."
+  ],
+  [
+    "Welche Angaben brauche ich für die Preisanalyse?",
+    "Du brauchst nur ein paar Eckdaten: Rasse, Alter, Ausbildungsstand, Stockmaß, Gesundheit, Erfolge, Standort usw."
+  ],
+  [
+    "Welche Zahlungsmethoden werden unterstützt?",
+    "Du kannst sicher zahlen mit Kreditkarte, Klarna, Apple Pay oder Google Pay – über unseren Zahlungsanbieter Stripe."
+  ]
   ];
 
   return (
@@ -37,17 +45,19 @@ export default function Home() {
           <title>Pferde Preis berechnen mit KI – Was ist dein Pferd wert? | PferdeWert.de</title>
           <meta
             name="description"
-            content="Jetzt den Pferde Preis berechnen mit KI – schnell, anonym & ohne Anmeldung. Ideal für Verkauf, Kauf oder einfach aus Neugier."
+            content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier."
           />
           <meta property="og:title" content="Pferde Preis berechnen mit KI – Was ist dein Pferd wert?" />
-          <meta property="og:description" content="Jetzt Pferdebewertung durchführen – schnell, anonym & ohne Anmeldung. Ideal für Verkauf, Kauf oder einfach aus Neugier." />
+          <meta property="og:description" content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://pferdewert.de/" />
           <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Pferdewert jetzt berechnen – schnell & ohne Anmeldung | PferdeWert" />
-          <meta name="twitter:description" content="Jetzt den Marktwert deines Pferdes berechnen – anonym, ohne Anmeldung & direkt als PDF. Ideal zur Vorbereitung auf Pferdekauf oder Verkauf." />
+          <meta name="twitter:title" content="Pferde Preis berechnen mit KI – Was ist dein Pferd wert?" />
+          <meta name="twitter:description" content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier." />
           <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
+
+          {/* Structured Data für SEO */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -64,6 +74,74 @@ export default function Home() {
               })
             }}
           />
+          {/*FAQPage Schema-Block */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was ist mein Pferd wert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unser KI-Modell analysiert Verkaufsdaten, Rasse, Alter, Ausbildung, Gesundheitsstatus und mehr – so erhältst du eine realistische Preisspanne für dein Pferd, sofort und ohne Anmeldung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie kann ich den Preis für mein Pferd berechnen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Einfach das Online-Formular ausfüllen und unser KI-System ermittelt in unter 2 Minuten eine fundierte Preisspanne – ideal zur Vorbereitung für Verkauf oder Kauf."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet es, den Pferdepreis berechnen zu lassen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aktuell bieten wir die Analyse für nur 9,90 € statt 39 € an – ohne Abo, ohne versteckte Gebühren."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich den Pferdepreis kostenlos berechnen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein, da wir auf ein professionelles, datenbasiertes KI-Modell setzen. Der Preis von 9,90 € ermöglicht eine qualitativ hochwertige Analyse ohne Werbung oder Datenweitergabe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie schnell bekomme ich das Ergebnis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Direkt nach Bezahlung bekommst du deine PferdeWert-Analyse angezeigt und kannst sie dir dann auch als PDF herunterladen. Die Analyse dauert weniger als 2 Minuten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche Angaben brauche ich für die Preisanalyse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Du brauchst nur ein paar Eckdaten: Rasse, Alter, Ausbildungsstand, Stockmaß, Gesundheit, Erfolge, Standort usw."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche Zahlungsmethoden werden unterstützt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Du kannst sicher zahlen mit Kreditkarte, Klarna, Apple Pay oder Google Pay – über unseren Zahlungsanbieter Stripe."
+            }
+          }
+        ]
+      })
+    }}
+  />
           <link rel="canonical" href="https://pferdewert.de/" />
         </Head>
 {/* Hero-Bereich neu (bild oben auf mobil) */}
