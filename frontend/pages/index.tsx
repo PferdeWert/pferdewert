@@ -145,7 +145,23 @@ export default function Home() {
               "@type": "Answer",
               "text": "Du kannst sicher zahlen mit Kreditkarte, Klarna, Apple Pay oder Google Pay – über unseren Zahlungsanbieter Stripe."
             }
-          }
+          },
+          {
+  "@type": "Question",
+  "name": "Hilft die Bewertung beim Pferdekauf?",
+  "acceptedAnswer": {
+    "@type": "Answer", 
+    "text": "Ja! Unsere Analyse zeigt dir den fairen Marktwert und hilft dir beim Verhandeln. So erkennst du überteuerte Angebote und kaufst zum richtigen Preis."
+  }
+          },
+      {
+  "@type": "Question",
+  "name": "Kann ich vor dem Pferdekauf den Preis prüfen lassen?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest. Du erhältst eine objektive Preiseinschätzung als Verhandlungsgrundlage."
+  }
+},
         ]
       })
     }}
