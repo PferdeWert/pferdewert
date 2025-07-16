@@ -200,7 +200,7 @@ export default function Home() {
   </div>
   
   <p className="text-xs text-gray-500 mt-3">
-    Über 500 zufriedene Kunden • Durchschnitt 4.8/5 Sterne
+    Über 150 zufriedene Kunden • Durchschnitt 4.7/5 Sterne
   </p>
 </div>
           </div>
