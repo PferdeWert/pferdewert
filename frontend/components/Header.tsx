@@ -70,7 +70,7 @@ export default function Header() {
           onClick={() => setMenuOpen(false)}
           className="block bg-[#6B4A2D] text-white px-4 py-2 rounded-lg hover:bg-[#5A3F28] transition"
         >
-          Jetzt pferde-preis-berechnen
+          Jetzt bewerten
         </Link>
       </div>
     </header>
