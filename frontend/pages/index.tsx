@@ -181,18 +181,18 @@ export default function Home() {
       href="/pferde-preis-berechnen"
       className="btn-primary"
     >
-      🔥 Jetzt für 9,90€ starten
+      Jetzt Marktwert ermitteln
     </Link>
     <Link
       href="/beispiel-analyse"
-      className="btn-secondary text-sm"
+      className="btn-secondary"
     >
-      📋 Beispiel-Analyse ansehen
+      Beispiel-Analyse ansehen
     </Link>
   </div>
   
   <p className="text-xs text-gray-500 mt-3">
-    ⚡ Über 500 zufriedene Kunden • 4.8/5 Sterne ⭐
+    Über 500 zufriedene Kunden • Durchschnitt 4.8/5 Sterne
   </p>
 </div>
           </div>
