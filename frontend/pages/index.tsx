@@ -42,10 +42,10 @@ export default function Home() {
     <Layout>
       <>
         <Head>
-          <title>Pferde Preis berechnen mit KI – Was ist dein Pferd wert? | PferdeWert.de</title>
+          <title>Pferd verkaufen & kaufen: Marktwert berechnen | Pferde Preis ermitteln | PferdeWert.de</title>
           <meta
             name="description"
-            content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier."
+            content="Pferd verkaufen oder kaufen? Marktwert berechnen mit KI ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min Analyse als PDF"
           />
           <meta property="og:title" content="Pferde Preis berechnen mit KI – Was ist dein Pferd wert?" />
           <meta property="og:description" content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier." />
