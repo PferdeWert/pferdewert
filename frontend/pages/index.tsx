@@ -61,8 +61,8 @@ export default function Home() {
           <meta property="og:url" content="https://pferdewert.de/" />
           <meta property="og:image" content="https://pferdewert.de/images/hero.webp" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Pferde Preis berechnen mit KI – Was ist dein Pferd wert?" />
-          <meta name="twitter:description" content="Was ist dein Pferd wert? Jetzt den Pferde Preis berechnen mit KI – anonym, schnell & als PDF. Ideal für Kauf, Verkauf oder Neugier." />
+          <meta name="twitter:title" content="Pferd verkaufen & kaufen: Marktwert mit KI berechnen" />
+          <meta name="twitter:description" content="Marktwert berechnen ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min KI-Analyse" />
           <meta name="twitter:image" content="https://pferdewert.de/images/hero.webp" />
 
           {/* Structured Data für SEO */}
