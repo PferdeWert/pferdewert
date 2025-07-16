@@ -159,20 +159,42 @@ export default function Home() {
     </div>
 
             {/* Textblock */}
-              <div className="order-2 md:order-2">
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                Was ist Dein Pferd wert?
-              </h1>
-              <p className="text-lg text-gray-700 mb-4">
-                Jetzt <strong>Pferde Preis berechnen</strong> mit KI – ideal für Kauf, Verkauf oder einfach aus Neugier. Professionelle KI-Bewertung in 2 Minuten. Von Reitern entwickelt, für Reiter gemacht.
-              </p>
-              <Link
-                href="/beispiel-analyse"
-                className="btn-primary"
-              >
-                Beispiel einer PferdeWert Analyse
-              </Link>
-          </div>
+<div className="order-2 md:order-2">
+  <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+    Was ist dein Pferd wirklich wert?
+  </h1>
+  
+  <div className="space-y-4 mb-6">
+    <p className="text-lg text-gray-700">
+      <strong className="text-amber-700">Pferd verkaufen?</strong> Finde den optimalen Verkaufspreis und verkaufe schneller.
+    </p>
+    <p className="text-lg text-gray-700">
+      <strong className="text-blue-700">Pferd kaufen?</strong> Erkenne faire Preise und verhandle selbstbewusst.
+    </p>
+    <p className="text-base text-gray-600">
+      KI-basierte Profi-Bewertung in 2 Minuten • Anonym • Sofort als PDF
+    </p>
+  </div>
+
+  <div className="flex flex-col sm:flex-row gap-3">
+    <Link
+      href="/pferde-preis-berechnen"
+      className="btn-primary"
+    >
+      Jetzt Marktwert ermitteln
+    </Link>
+    <Link
+      href="/beispiel-analyse"
+      className="btn-secondary"
+    >
+      Beispiel-Analyse ansehen
+    </Link>
+  </div>
+  
+  <p className="text-xs text-gray-500 mt-3">
+    Über 500 zufriedene Kunden • Durchschnitt 4.8/5 Sterne
+  </p>
+</div>
           </div>
         </section>
 
