@@ -35,6 +35,14 @@ export default function Home() {
   [
     "Welche Zahlungsmethoden werden unterstützt?",
     "Du kannst sicher zahlen mit Kreditkarte, Klarna, Apple Pay oder Google Pay – über unseren Zahlungsanbieter Stripe."
+  ],
+  [
+    "Hilft die Bewertung beim Pferdekauf?",
+    "Ja! Unsere Analyse zeigt dir den fairen Marktwert und hilft dir beim Verhandeln. So erkennst du überteuerte Angebote und kaufst zum richtigen Preis."
+  ],
+  [
+    "Kann ich vor dem Pferdekauf den Preis prüfen lassen?",
+    "Absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest. Du erhältst eine objektive Preiseinschätzung als Verhandlungsgrundlage."
   ]
   ];
 
