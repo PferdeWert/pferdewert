@@ -592,23 +592,15 @@ export default function TestBewPage() {
                 </div>
               )}
 
-              {/* Preis 
-             </form> <div className="text-center mb-6">
+              {/* Preis */}
+              <div className="text-center mb-6">
                 <p className="text-lg text-gray-700">
-                  Die Analyse kostet einmalig <strong className="text-amber-600 text-xl">9,90 €</strong>
+                  Die Analyse kostet einmalig
                 </p>
-                <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
+                <strong className="text-amber-600 text-xl">9,90&nbsp;€</strong>
+              <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
               </div>
-              */}
-{/* Preis */}
-<div className="text-center mb-6">
-  <p className="text-lg text-gray-700">
-    Die Analyse kostet einmalig
-  </p>
-  <strong className="text-amber-600 text-xl">9,90&nbsp;€</strong>
-  
-  <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
-</div>
+              
               {/* Submit Button */}
               <button
                 type="submit"
