@@ -54,26 +54,29 @@ export default function PferdKaufen() {
     <Layout>
       <>
         <Head>
-          <title>Pferd kaufen: Faire Preise erkennen & Überzahlung vermeiden | PferdeWert.de</title>
-          <meta
-            name="description"
-            content="Pferd kaufen? Erkenne faire Preise mit KI-Bewertung ✓ Überzahlung vermeiden ✓ Verhandlungshilfe ✓ Objektive Preiseinschätzung in 2 Min"
-          />
-          <meta name="keywords" content="pferd kaufen, faire preise, überzahlung vermeiden, pferdekauf beratung, verhandlungshilfe, pferd kaufen preis, pferdekauf guide" />
-          
-          {/* Open Graph */}
-          <meta property="og:title" content="Pferd kaufen: Faire Preise erkennen & Überzahlung vermeiden" />
-          <meta property="og:description" content="Erkenne faire Preise mit KI-Bewertung ✓ Überzahlung vermeiden ✓ Verhandlungshilfe ✓ Objektive Preiseinschätzung" />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://pferdewert.de/pferd-kaufen" />
-          <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+        <title>Pferd kaufen – Preis prüfen & günstig verhandeln | PferdeWert</title>
+        <meta
+         name="description"
+         content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min"
+        />
+         <meta
+         name="keywords"
+         content="pferd kaufen, faire preise, überzahlung vermeiden, pferdekauf beratung, verhandlungshilfe, pferd kaufen preis, pferdekauf guide"
+        />
 
-          {/* Twitter Card */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Pferd kaufen: Faire Preise erkennen & Überzahlung vermeiden" />
-          <meta name="twitter:description" content="Erkenne faire Preise mit KI-Bewertung ✓ Überzahlung vermeiden ✓ Verhandlungshilfe ✓ Objektive Preiseinschätzung" />
-          <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+        {/* Open Graph */}
+        <meta property="og:title" content="Pferd kaufen – Preis prüfen & günstig verhandeln | PferdeWert" />
+        <meta property="og:description" content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min" />
+         <meta property="og:type" content="website" />
+         <meta property="og:url" content="https://pferdewert.de/pferd-kaufen" />
+         <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
 
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+         <meta name="twitter:title" content="Pferd kaufen – Preis prüfen & günstig verhandeln | PferdeWert" />
+        <meta name="twitter:description" content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min" />
+         <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+         
           {/* Structured Data für SEO */}
           <script
             type="application/ld+json"
@@ -101,7 +104,7 @@ export default function PferdKaufen() {
         {/* Hero-Bereich für Käufer */}
         <section className="bg-[#fdf9f4] py-20 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-            <div>
+            <div className="order-2 md:order-1">
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
                 Pferd kaufen: So erkennst du faire Preise
               </h1>
@@ -135,14 +138,15 @@ export default function PferdKaufen() {
               </div>
             </div>
 
-            <div>
+            {/* Hero Image */}
+            <div className="order-1 md:order-2">
               <Image
-                src="/images/blossi-shooting.webp"
+                src="/images/blossi-4.webp"
                 width={600}
                 height={400}
-                alt="Pferd kaufen - Faire Preise erkennen mit PferdeWert Bewertung"
+                alt="Unser Pferd Blossom mit Weihnachtsschmuck - Pferd kaufen mit professioneller Preisbewertung"
                 className="rounded-xl shadow-lg"
-              />
+                />
               <div className="mt-4 bg-blue-600 text-white p-4 rounded-xl shadow-lg">
                 <p className="font-semibold">40.500+ Käufer</p>
                 <p className="text-sm">suchen monatlich nach fairen Preisen</p>
@@ -354,7 +358,7 @@ export default function PferdKaufen() {
                 {[
                   "NRW", "Bayern", "Niedersachsen", "Baden-Württemberg", "Hessen", 
                   "Sachsen", "Thüringen", "Brandenburg", "Schleswig-Holstein", 
-                  "Sachsen-Anhalt", "Saarland", "Mecklenburg-VP", "Berlin", "Hamburg", "Bremen"
+                  "Sachsen-Anhalt", "Saarland", "Mecklenburg-Vorpommern", "Berlin", "Hamburg", "Bremen"
                 ].map(bundesland => (
                   <div key={bundesland} className="bg-white border border-gray-200 rounded-lg p-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors">
                     <span className="font-medium">Pferd kaufen {bundesland}</span>
@@ -391,7 +395,7 @@ export default function PferdKaufen() {
             </div>
           </div>
         </section>
-        
+
         {/* Call-to-Action für Käufer */}
         <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 px-6">
           <div className="max-w-4xl mx-auto text-center">
