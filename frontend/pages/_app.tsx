@@ -7,27 +7,42 @@ import Script from "next/script";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      {/* -------------------------------------------------------------
+           CookieConsent-Script
+           ------------------------------------------------------------- */}
       <Script
         src="/js/cookieconsent.min.js"
         strategy="afterInteractive"
         onLoad={() => {
-          console.log("📥 CookieConsent Script geladen:", typeof window.cookieconsent);
+          /* ----------------------------------------------------------
+           * 1 · Helper-Funktion immer verfügbar machen
+           * ---------------------------------------------------------- */
+          window.showCookieSettings = () => {
+            window.cookieconsent?.setStatus("deny");
+            window.cookieconsent?.close();
+          };
 
-          const existingConsent =
-            document.cookie.includes("cookieconsent_status=allow") ||
-            document.cookie.includes("cookieconsent_status=deny");
+          console.log(
+            "📥 CookieConsent Script geladen:",
+            typeof window.cookieconsent
+          );
 
-          if (existingConsent) {
-            console.log("🍪 Bereits bestehender Consent erkannt, Initialisierung übersprungen");
+          // Früh exitieren, falls Consent‑Cookie bereits existiert
+          const consentExists = /cookieconsent_status=(allow|deny)/.test(
+            document.cookie
+          );
+          if (consentExists) {
+            console.log(
+              "🍪 Consent bereits vorhanden – Initialisierung übersprungen"
+            );
             return;
           }
 
-          if (window.cookieconsent) {
-            // TypeScript-sicher: Verwende die bestehenden Deklarationen
-            const cookieConsent = window.cookieconsent as Record<string, unknown>;
-            const initialise = cookieConsent.initialise as ((config: Record<string, unknown>) => void) | undefined;
-            
-            initialise?.({
+          /* ----------------------------------------------------------
+           * 2 · Banner initialisieren
+           * ---------------------------------------------------------- */
+          if (window.cookieconsent?.initialise) {
+            window.cookieconsent.initialise({
               type: "opt-in",
               palette: {
                 popup: { background: "#ffffff", text: "#000000" },
@@ -35,14 +50,15 @@ export default function App({ Component, pageProps }: AppProps) {
               },
               theme: "classic",
               content: {
-                header: "PferdeWert.de bittet um Einwilligung, Ihre personenbezogenen Daten für Folgendes zu nutzen:",
+                header:
+                  "PferdeWert.de bittet um Einwilligung, Ihre personenbezogenen Daten für Folgendes zu nutzen:",
                 message: `
                   <div class="consent-purposes">
                     <div class="purpose-item">
                       <div class="purpose-icon">👤</div>
                       <div>
                         <strong>Personalisierte Werbung und Inhalte</strong><br>
-                        Messung von Werbeleistung und der Performance von Inhalten,
+                        Messung von Werbeleistung und Performance von Inhalten,
                         Zielgruppenforschung sowie Entwicklung und Verbesserung von Angeboten
                       </div>
                     </div>
@@ -91,62 +107,31 @@ export default function App({ Component, pageProps }: AppProps) {
                 sameSite: "Lax",
                 secure: true,
               },
+              /* ----------------------- Callbacks ------------------- */
               onPopupOpen: () => {
-                const popup = document.querySelector(".cc-window") as HTMLElement;
-                if (popup) {
-                  popup.setAttribute("role", "dialog");
-                  popup.setAttribute("aria-live", "assertive");
-                  // Verhindere Scrollen im Hintergrund auf Mobile
-                  document.body.style.overflow = "hidden";
-                }
-                console.log("🍪 Cookie Banner geöffnet");
+                document
+                  .querySelector<HTMLElement>(".cc-window")
+                  ?.setAttribute("aria-live", "assertive");
+                document.body.style.overflow = "hidden"; // TODO Prev‑overflow sichern
+                console.log("🍪 Banner geöffnet");
               },
               onPopupClose: () => {
-                // Scrolling wieder aktivieren
                 document.body.style.overflow = "";
-                console.log("🍪 Cookie Banner geschlossen");
+                console.log("🍪 Banner geschlossen");
               },
-              onStatusChange: (status: string) => {
+              onStatusChange: (status: "allow" | "deny") => {
                 console.log("🍪 Status geändert:", status);
-                
-                // Scrolling wieder aktivieren
                 document.body.style.overflow = "";
 
-                if (status === "allow") {
-                  if (window.gtag) {
-                    window.gtag("consent", "update", {
-                      ad_storage: "granted",
-                      analytics_storage: "granted",
-                      ad_user_data: "granted",
-                      ad_personalization: "granted",
-                    });
-                  }
-                  console.log("✅ Alle Cookies zugelassen");
-                } else {
-                  if (window.gtag) {
-                    window.gtag("consent", "update", {
-                      ad_storage: "denied",
-                      analytics_storage: "denied",
-                      ad_user_data: "denied",
-                      ad_personalization: "denied",
-                    });
-                  }
-                  console.log("❌ Cookies abgelehnt");
-                }
+                const granted = status === "allow";
+                window.gtag?.("consent", "update", {
+                  ad_storage: granted ? "granted" : "denied",
+                  analytics_storage: granted ? "granted" : "denied",
+                  ad_user_data: granted ? "granted" : "denied",
+                  ad_personalization: granted ? "granted" : "denied",
+                });
               },
             });
-
-            // Globale Funktion für Cookie-Settings
-              (window as unknown as Record<string, unknown>).showCookieSettings = () => {
-              if (window.cookieconsent) {
-                const cc = window.cookieconsent as Record<string, unknown>;
-                const setStatus = cc.setStatus as ((status: string) => void) | undefined;
-                const close = cc.close as (() => void) | undefined;
-                
-                setStatus?.("deny");
-                close?.();
-              }
-            };
 
             console.log("🍪 CookieConsent initialisiert");
           } else {
@@ -154,7 +139,17 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         }}
       />
+
+      {/* Haupt‑Komponente */}
       <Component {...pageProps} />
     </>
   );
 }
+// Note: This file is responsible for initializing the Cookie Consent banner
+// and making the `showCookieSettings` function globally available.
+// It also sets up Google Analytics consent management.
+// The banner is configured to ask for user consent for personalized ads and content,
+// and it provides options to manage cookie settings.
+// The styles for the banner are imported from `globals.css` and `cookieconsent.min.css`.
+// The banner will not be shown if a consent cookie already exists.
+// The `gtag` function is used to update consent status in Google Analytics.
