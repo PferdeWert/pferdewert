@@ -17,7 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
           /* ----------------------------------------------------------
            * 1 · Helper-Funktion immer verfügbar machen
            * ---------------------------------------------------------- */
-          // Platzhalter – wird nach Initialisierung überschrieben
           window.showCookieSettings = () => {
             console.warn("Cookie-Dialog noch nicht geladen – reloading …");
             location.reload();
@@ -29,10 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
           );
 
           // Früh exitieren, falls Consent‑Cookie bereits existiert
-          const consentExists = /cookieconsent_status=(allow|deny)/.test(
-            document.cookie
-          );
-          if (consentExists) {
+          if (/cookieconsent_status=(allow|deny)/.test(document.cookie)) {
             console.log(
               "🍪 Consent bereits vorhanden – Initialisierung übersprungen"
             );
@@ -43,9 +39,8 @@ export default function App({ Component, pageProps }: AppProps) {
            * 2 · Banner initialisieren
            * ---------------------------------------------------------- */
           if (window.cookieconsent?.initialise) {
-            // Banner-Instanz zurückbekommen → enthält open/close/setStatus
+            // Banner‑Instanz zurückbekommen → enthält open/close/setStatus
             const cc = window.cookieconsent.initialise({
-              /* … Konfiguration unverändert … */
               type: "opt-in",
               palette: {
                 popup: { background: "#ffffff", text: "#000000" },
@@ -136,9 +131,8 @@ export default function App({ Component, pageProps }: AppProps) {
               },
             });
 
-            // 👉 Jetzt, wo wir die Instanz (cc) haben, überschreiben wir
-            //    showCookieSettings, damit Buttons funktionieren.
-            window.showCookieSettings = () => cc.open?.();
+            // showCookieSettings nutzt jetzt die globale Instanz
+            window.showCookieSettings = () => window.cookieconsent.open?.();
 
             console.log("🍪 CookieConsent initialisiert");
           } else {
@@ -152,6 +146,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
-// Note: This file is responsible for initializing the Cookie Consent banner
-// and making the `showCookieSettings` function globally available.
-// It also sets up Google Analytics consent management. 
