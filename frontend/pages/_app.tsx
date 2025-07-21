@@ -17,9 +17,10 @@ export default function App({ Component, pageProps }: AppProps) {
           /* ----------------------------------------------------------
            * 1 · Helper-Funktion immer verfügbar machen
            * ---------------------------------------------------------- */
+          // Platzhalter – wird nach Initialisierung überschrieben
           window.showCookieSettings = () => {
-            window.cookieconsent?.setStatus("deny");
-            window.cookieconsent?.close();
+            console.warn("Cookie-Dialog noch nicht geladen – reloading …");
+            location.reload();
           };
 
           console.log(
@@ -42,7 +43,9 @@ export default function App({ Component, pageProps }: AppProps) {
            * 2 · Banner initialisieren
            * ---------------------------------------------------------- */
           if (window.cookieconsent?.initialise) {
-            window.cookieconsent.initialise({
+            // Banner-Instanz zurückbekommen → enthält open/close/setStatus
+            const cc = window.cookieconsent.initialise({
+              /* … Konfiguration unverändert … */
               type: "opt-in",
               palette: {
                 popup: { background: "#ffffff", text: "#000000" },
@@ -112,7 +115,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 document
                   .querySelector<HTMLElement>(".cc-window")
                   ?.setAttribute("aria-live", "assertive");
-                document.body.style.overflow = "hidden"; // TODO Prev‑overflow sichern
+                document.body.style.overflow = "hidden";
                 console.log("🍪 Banner geöffnet");
               },
               onPopupClose: () => {
@@ -133,7 +136,14 @@ export default function App({ Component, pageProps }: AppProps) {
               },
             });
 
+            // 👉 Jetzt, wo wir die Instanz (cc) haben, überschreiben wir
+            //    showCookieSettings, damit Buttons funktionieren.
+            window.showCookieSettings = () => cc.open?.();
+
             console.log("🍪 CookieConsent initialisiert");
+          } else {
+            console.error("❌ CookieConsent nicht gefunden");
+          }
           } else {
             console.error("❌ CookieConsent nicht gefunden");
           }
@@ -147,9 +157,4 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 // Note: This file is responsible for initializing the Cookie Consent banner
 // and making the `showCookieSettings` function globally available.
-// It also sets up Google Analytics consent management.
-// The banner is configured to ask for user consent for personalized ads and content,
-// and it provides options to manage cookie settings.
-// The styles for the banner are imported from `globals.css` and `cookieconsent.min.css`.
-// The banner will not be shown if a consent cookie already exists.
-// The `gtag` function is used to update consent status in Google Analytics.
+// It also sets up Google Analytics consent management. 
