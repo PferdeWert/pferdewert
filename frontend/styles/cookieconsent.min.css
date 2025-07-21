@@ -51,10 +51,13 @@
   }
 }
 
-/* ========== Logo Section ========== */
+/* ========== Logo Section (zentriert) ========== */
 .cc-logo {
   text-align: center;
   margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cc-logo img {
@@ -62,6 +65,7 @@
   height: 64px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 /* ========== Header Text ========== */
@@ -151,7 +155,7 @@
   }
 }
 
-/* ========== Buttons (wie stallbewertung.de) ========== */
+/* ========== Buttons (Einwilligen rechts, Optionen grau) ========== */
 .cc-btn {
   display: flex !important;
   align-items: center !important;
@@ -168,11 +172,11 @@
   box-sizing: border-box !important;
 }
 
-/* Primärer Button: Einwilligen (auffälliges Blau) */
+/* Primärer Button: Einwilligen (rechts, auffälliges Blau) */
 .cc-btn.cc-allow {
   background: #4285f4 !important;
   color: #ffffff !important;
-  order: 1;
+  order: 2; /* Rechts */
 }
 
 .cc-btn.cc-allow:hover {
@@ -181,17 +185,15 @@
   box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
 }
 
-/* Sekundärer Button: Optionen verwalten (dezenter) */
+/* Sekundärer Button: Optionen verwalten (links, grauer Hintergrund) */
 .cc-btn.cc-deny {
-  background: #4285f4 !important;
+  background: #6c757d !important; /* Grau */
   color: #ffffff !important;
-  order: 2;
-  opacity: 0.9;
+  order: 1; /* Links */
 }
 
 .cc-btn.cc-deny:hover {
-  background: #3367d6 !important;
-  opacity: 1;
+  background: #5a6268 !important; /* Dunkleres Grau beim Hover */
   transform: translateY(-1px);
 }
 
@@ -199,6 +201,15 @@
   .cc-btn {
     padding: 18px 24px !important;
     font-size: 17px !important;
+  }
+  
+  /* Mobile: Einwilligen oben, Optionen unten */
+  .cc-btn.cc-allow {
+    order: 1; /* Oben */
+  }
+  
+  .cc-btn.cc-deny {
+    order: 2; /* Unten */
   }
 }
 
