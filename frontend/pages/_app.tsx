@@ -144,9 +144,6 @@ export default function App({ Component, pageProps }: AppProps) {
           } else {
             console.error("❌ CookieConsent nicht gefunden");
           }
-          } else {
-            console.error("❌ CookieConsent nicht gefunden");
-          }
         }}
       />
 
