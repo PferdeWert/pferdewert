@@ -8,17 +8,17 @@ import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Euro } from
 export default function PferdVerkaufen() {
   const verkaufstipps = [
     {
-      icon: <Calculator className="w-6 h-6 text-green-600" />,
+      icon: <Calculator className="w-6 h-6 text-brand-brown" />,
       title: "Optimalen Verkaufspreis ermitteln",
       description: "Lass den Marktwert professionell bewerten, bevor du inserierst. So verkaufst du weder zu teuer noch zu günstig."
     },
     {
-      icon: <TrendingUp className="w-6 h-6 text-blue-600" />,
+      icon: <TrendingUp className="w-6 h-6 text-brand-accent" />,
       title: "Schneller verkaufen",
       description: "Der richtige Preis führt zu mehr Anfragen und schnellerem Verkauf. Vermeide monatelanges Inserieren."
     },
     {
-      icon: <Shield className="w-6 h-6 text-purple-600" />,
+      icon: <Shield className="w-6 h-6 text-brand-brown" />,
       title: "Verhandlungssicherheit gewinnen",
       description: "Mit einer professionellen Bewertung kannst du selbstbewusst auf Preisverhandlungen eingehen."
     }
@@ -164,13 +164,13 @@ export default function PferdVerkaufen() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/pferde-preis-berechnen"
-                  className="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
+                  className="btn-primary"
                 >
                   Jetzt Verkaufspreis ermitteln
                 </Link>
                 <Link
                   href="/beispiel-analyse"
-                  className="border border-green-600 text-green-600 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition-colors text-center"
+                  className="btn-secondary"
                 >
                   Beispiel-Bewertung ansehen
                 </Link>
@@ -179,10 +179,10 @@ export default function PferdVerkaufen() {
 
             <div className="order-1 md:order-2">
               <Image
-                src="/images/blossi-shooting.webp"
+                src="/images/dino-1.webp"
                 width={600}
                 height={400}
-                alt="Professionelle Pferdebewertung für erfolgreichen Verkauf"
+                alt="Unser Pferd Dino - Erfolgreicher Pferdeverkauf mit professioneller Bewertung"
                 className="rounded-xl shadow-lg w-full h-auto"
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -241,7 +241,7 @@ export default function PferdVerkaufen() {
             <div className="text-center mt-8">
               <Link
                 href="/pferde-preis-berechnen"
-                className="inline-flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+                className="btn-primary"
               >
                 <Shield className="w-5 h-5" />
                 Jetzt Wertverluste vermeiden
@@ -260,7 +260,7 @@ export default function PferdVerkaufen() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {verkaufsschritte.map((schritt, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-brand-brown rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="text-white font-bold text-xl">{schritt.schritt}</span>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">
@@ -276,7 +276,7 @@ export default function PferdVerkaufen() {
             <div className="text-center mt-12">
               <Link
                 href="/pferde-preis-berechnen"
-                className="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-flex items-center gap-2"
+                className="btn-primary"
               >
                 <Calculator className="w-5 h-5" />
                 Schritt 1: Marktwert ermitteln
@@ -321,32 +321,32 @@ export default function PferdVerkaufen() {
         </section>
 
         {/* CTA Section - Verkaufs-spezifisch */}
-        <section className="bg-gradient-to-r from-green-600 to-green-700 py-16 px-6 text-white">
+        <section className="bg-gradient-to-r from-brand-brown to-brand-brownDark py-16 px-6 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Verkaufe dein Pferd zum optimalen Preis
             </h2>
-            <p className="text-xl mb-8 text-green-100">
+            <p className="text-xl mb-8 text-orange-100">
               Professionelle Bewertung in 2 Minuten • Marktbasierte Preisanalyse • Sofort verfügbar
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/pferde-preis-berechnen"
-                className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
+                className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
               >
                 <Euro className="w-5 h-5" />
                 Jetzt Verkaufspreis ermitteln → 9,90€
               </Link>
               <Link
                 href="/beispiel-analyse"
-                className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-green-600 transition-colors"
+                className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-brand-brown transition-colors"
               >
                 Beispiel-Bewertung ansehen
               </Link>
             </div>
             
-            <p className="text-sm text-green-200 mt-4">
+            <p className="text-sm text-orange-200 mt-4">
               ⚡ Über 150 zufriedene Kunden • Durchschnitt 4.7/5 Sterne
             </p>
           </div>
@@ -361,7 +361,7 @@ export default function PferdVerkaufen() {
             
             <div className="space-y-4">
               <details className="bg-gray-50 rounded-lg p-6 border border-gray-200" open>
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-green-600">
+                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
                   Wie finde ich den richtigen Verkaufspreis für mein Pferd?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -370,7 +370,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-green-600">
+                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
                   Wie schnell verkauft sich ein Pferd zum richtigen Preis?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -379,7 +379,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-green-600">
+                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
                   Was passiert, wenn ich mein Pferd zu teuer anbiete?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -388,7 +388,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-green-600">
+                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
                   Kann ich die Bewertung für Verhandlungen nutzen?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -397,7 +397,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-green-600">
+                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
                   Was kostet die Verkaufspreis-Analyse?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
