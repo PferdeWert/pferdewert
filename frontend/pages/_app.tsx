@@ -39,8 +39,8 @@ export default function App({ Component, pageProps }: AppProps) {
            * 2 · Banner initialisieren
            * ---------------------------------------------------------- */
           if (window.cookieconsent?.initialise) {
-            // Banner‑Instanz zurückbekommen → enthält open/close/setStatus
-            const cc = window.cookieconsent.initialise({
+                        /* Banner initialisieren */
+            window.cookieconsent.initialise({
               type: "opt-in",
               palette: {
                 popup: { background: "#ffffff", text: "#000000" },
