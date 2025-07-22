@@ -58,54 +58,11 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       },
       theme: 'classic',
       content: {
-        header: 'PferdeWert.de bittet um Einwilligung, Ihre personenbezogenen Daten für Folgendes zu nutzen:',
-        message: `
-          <div class="consent-purposes">
-            <div class="purpose-item">
-              <div class="purpose-icon">👤</div>
-              <div>
-                <strong>Personalisierte Werbung und Inhalte</strong><br>
-                Messung von Werbeleistung und Performance von Inhalten,
-                Zielgruppenforschung sowie Entwicklung und Verbesserung von Angeboten
-              </div>
-            </div>
-            <div class="purpose-item">
-              <div class="purpose-icon">💾</div>
-              <div>
-                <strong>Speichern von oder Zugriff auf Informationen auf einem Endgerät</strong>
-              </div>
-            </div>
-            <div class="purpose-item">
-              <div class="purpose-icon">⚙️</div>
-              <div>
-                <strong>Weitere Informationen</strong>
-              </div>
-            </div>
-          </div>
-        `,
+        message: 'Wir verwenden Cookies für eine bessere Nutzererfahrung und Analyse.',
         allow: 'Einwilligen',
-        deny: 'Optionen verwalten',
+        deny: 'Alle ablehnen',
         link: 'Mehr erfahren',
         href: '/datenschutz',
-      },
-      elements: {
-        header: '<div class="cc-header">{{header}}</div>',
-        message: '<div class="cc-message">{{message}}</div>',
-        messagelink: '<div class="cc-message">{{message}}</div>',
-        allow: '<button class="cc-btn cc-allow">{{allow}}</button>',
-        deny: '<button class="cc-btn cc-deny" onclick="showCookieSettings()">{{deny}}</button>',
-        link: '<a class="cc-link" href="{{href}}" target="_blank" rel="noopener">{{link}}</a>',
-      },
-      window: `
-        <div role="dialog" aria-live="polite" aria-label="cookieconsent" class="cc-window {{classes}}">
-          <div class="cc-logo">
-            <img src="/logo.png" alt="PferdeWert Logo" />
-          </div>
-          {{children}}
-        </div>
-      `,
-      compliance: {
-        'opt-in': '<div class="cc-compliance">{{deny}}{{allow}}</div>',
       },
       cookie: {
         name: 'cookieconsent_status',
@@ -129,6 +86,14 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
         console.log('🍪 Status geändert:', status);
         document.body.style.overflow = '';
 
+        // Banner manuell schließen/verstecken
+        const popup = document.querySelector('.cc-window') as HTMLElement;
+        if (popup) {
+          popup.style.display = 'none';
+          // Oder komplett entfernen:
+          // popup.remove();
+        }
+
         const granted = status === 'allow';
         
         // Google Consent Mode v2 Update
@@ -149,16 +114,21 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     };
 
     // Cookie-Consent initialisieren und Instanz speichern
+    console.log('🍪 Initialisiere CookieConsent...');
     const popupInstance = window.cookieconsent.initialise(config);
     popupInstanceRef.current = popupInstance;
 
     // showCookieSettings mit der echten Instanz verknüpfen
     window.showCookieSettings = () => {
       console.log('🍪 Cookie-Einstellungen öffnen');
-      popupInstance.open();
+      if (popupInstanceRef.current) {
+        popupInstanceRef.current.open();
+      } else {
+        console.warn('🍪 Popup-Instanz nicht verfügbar');
+      }
     };
 
-    console.log('🍪 CookieConsent initialisiert');
+    console.log('🍪 CookieConsent initialisiert', popupInstance);
   };
 
   if (!autoLoad) {
