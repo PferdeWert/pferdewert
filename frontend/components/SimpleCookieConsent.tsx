@@ -65,12 +65,6 @@ const SimpleCookieConsent = () => {
         console.log('🍪 Status changed:', status);
         document.body.style.overflow = '';
 
-        // Hide banner immediately
-        const popup = document.querySelector('.cc-window') as HTMLElement;
-        if (popup) {
-          popup.style.display = 'none';
-        }
-
         const granted = status === 'allow';
 
         // Google Consent Mode
@@ -85,12 +79,32 @@ const SimpleCookieConsent = () => {
 
         if (granted) {
           console.log('✅ Analytics enabled');
+          
+          // Banner schließen - mehrere Methoden versuchen
+          const popup = document.querySelector('.cc-window') as HTMLElement;
+          if (popup) {
+            // Methode 1: Display none
+            popup.style.display = 'none';
+            
+            // Methode 2: Komplett entfernen
+            setTimeout(() => {
+              popup.remove();
+            }, 100);
+            
+            console.log('🍪 Banner manually closed');
+          }
         } else {
-          console.log('❌ User chose settings (will redirect)');
-          // "Einstellungen" redirects to privacy page
-          setTimeout(() => {
-            window.open('/datenschutz', '_blank');
-          }, 500);
+          console.log('❌ User chose settings');
+          
+          // KEIN REDIRECT - nur Cookie setzen als "deny"
+          // User kann manuell zu Datenschutz gehen wenn er will
+          const popup = document.querySelector('.cc-window') as HTMLElement;
+          if (popup) {
+            popup.style.display = 'none';
+            setTimeout(() => {
+              popup.remove();
+            }, 100);
+          }
         }
       },
     });
