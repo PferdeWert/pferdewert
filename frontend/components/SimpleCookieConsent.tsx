@@ -83,7 +83,7 @@ const SimpleCookieConsent = () => {
           const isMobile = window.innerWidth < 768;
           
           if (isMobile) {
-            // Mobile: 70% Bildschirmhöhe, sehr prominent
+            // Mobile: 50% Bildschirmhöhe, sehr prominent
             popup.style.cssText = `
               position: fixed !important;
               bottom: 0 !important;
@@ -91,7 +91,7 @@ const SimpleCookieConsent = () => {
               right: 0 !important;
               max-width: 100% !important;
               width: 100% !important;
-              min-height: 70vh !important;
+              min-height: 50vh !important;
               background: #ffffff !important;
               box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15) !important;
               border-radius: 16px 16px 0 0 !important;
