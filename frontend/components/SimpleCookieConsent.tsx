@@ -53,8 +53,8 @@ const SimpleCookieConsent = () => {
             </p>
           </div>
         `,
-        allow: '✅ Cookies akzeptieren',  // Positiv, mit Emoji - GEÄNDERT!
-        deny: 'Einstellungen verwalten',      // Neutral, keine Ablehnung
+        allow: 'Einwilligen',  // Positiv, mit Emoji - GEÄNDERT!
+        deny: 'Optionen verwalten',      // Neutral, keine Ablehnung
         link: 'Datenschutz',
         href: '/datenschutz',
       },
