@@ -98,7 +98,7 @@ const SimpleCookieConsent = () => {
               padding: 2rem 1.5rem !important;
               display: flex !important;
               flex-direction: column !important;
-              justify-content: space-between !important;
+              justify-content: center !important;
               z-index: 10000 !important;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
               transform: none !important;
