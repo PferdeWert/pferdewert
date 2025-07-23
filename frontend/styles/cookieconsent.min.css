@@ -1,87 +1,272 @@
-/*! Cookie Consent v3.1.1 – angepasst für PferdeWert.de */
+/*! Cookie Consent v3.1.1 – PferdeWert.de Style (wie stallbewertung.de) */
 
-/* ========== Basis-Layout ========== */
+/* ✅ Nutze diesen kompletten CSS-Code für frontend/styles/cookieconsent.min.css */
+
+/* ========== Basis-Layout (Desktop & Mobile) ========== */
 .cc-window {
-  font-family: Roboto, sans-serif;
-  position: fixed;
-  z-index: 9999;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  color: #000000;
-  padding: 16px 24px;
-  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  position: fixed !important;
+  z-index: 9999 !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px;
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ========== Desktop Layout ========== */
+@media (min-width: 768px) {
+  .cc-window {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    max-width: 480px !important;
+    padding: 32px 24px 24px 24px !important;
+    bottom: auto !important;
+    right: auto !important;
+  }
+}
+
+/* ========== Mobile Fullscreen Layout (wie stallbewertung.de) ========== */
+@media (max-width: 767px) {
+  .cc-window {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+    padding: 40px 24px 32px 24px !important;
+    transform: none !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* ========== Logo Section (zentriert) ========== */
+.cc-logo {
+  text-align: center;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cc-logo img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+/* ========== Header Text ========== */
+.cc-header {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #000000 !important;
+  margin-bottom: 24px !important;
+  line-height: 1.4 !important;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .cc-header {
+    font-size: 20px !important;
+    margin-bottom: 32px !important;
+  }
+}
+
+/* ========== Message Content ========== */
+.cc-message {
+  color: #333333 !important;
+  font-size: 14px !important;
+  text-align: left !important;
+  margin-bottom: 32px !important;
+}
+
+@media (max-width: 767px) {
+  .cc-message {
+    font-size: 15px !important;
+    margin-bottom: 40px !important;
+  }
+}
+
+/* ========== Purpose Items (wie stallbewertung.de) ========== */
+.consent-purposes {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-size: 14px;
 }
 
-/* ========== Inhalt ========== */
-.cc-message {
-  line-height: 1.5;
-  margin: 0;
-}
-
-.cc-link {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-/* ========== Button-Container ========== */
-.cc-compliance {
+.purpose-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
-/* ========== Buttons ========== */
-.cc-btn {
-  display: inline-block;
-  font-size: 14px;
-  text-decoration: none;
-  color: #ffffff;
-  background: #007bff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
+.purpose-icon {
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  background: #e3f2fd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.cc-btn:hover {
-  opacity: 0.9;
+.purpose-item div:last-child {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
-/* ========== Desktop-Layout (Buttons rechts) ========== */
+.purpose-item strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ========== Button Container ========== */
+.cc-compliance {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin-top: auto;
+}
+
 @media (min-width: 768px) {
-  .cc-window {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 15px;
-  }
-}
-
-/* ========== Mobile-Optimierung (gestapelte Buttons) ========== */
-@media (max-width: 767px) {
   .cc-compliance {
-    flex-direction: column;
-  }
-
-  .cc-btn {
-    width: 100%;
-    text-align: center;
+    flex-direction: row !important;
+    gap: 16px !important;
   }
 }
 
-/* ========== Spezifische Button-Farben ========== */
+/* ========== Buttons (Einwilligen rechts, Optionen grau) ========== */
+.cc-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  padding: 16px 24px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Primärer Button: Einwilligen (rechts, auffälliges Blau) */
 .cc-btn.cc-allow {
-  background-color: #007bff; /* Blau – Primäraktion */
-  color: #fff;
+  background: #4285f4 !important;
+  color: #ffffff !important;
+  order: 2; /* Rechts */
 }
 
+.cc-btn.cc-allow:hover {
+  background: #3367d6 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+/* Sekundärer Button: Optionen verwalten (links, grauer Hintergrund) */
 .cc-btn.cc-deny {
-  background-color: #6c757d; /* Grau – Sekundäraktion */
-  color: #fff;
+  background: #6c757d !important; /* Grau */
+  color: #ffffff !important;
+  order: 1; /* Links */
+}
+
+.cc-btn.cc-deny:hover {
+  background: #5a6268 !important; /* Dunkleres Grau beim Hover */
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .cc-btn {
+    padding: 18px 24px !important;
+    font-size: 17px !important;
+  }
+  
+  /* Mobile: Einwilligen oben, Optionen unten */
+  .cc-btn.cc-allow {
+    order: 1; /* Oben */
+  }
+  
+  .cc-btn.cc-deny {
+    order: 2; /* Unten */
+  }
+}
+
+/* ========== Links ========== */
+.cc-link {
+  color: #4285f4 !important;
+  text-decoration: underline !important;
+  font-size: 13px !important;
+  margin-top: 16px !important;
+  display: inline-block !important;
+}
+
+.cc-link:hover {
+  color: #3367d6 !important;
+}
+
+/* ========== Animationen ========== */
+.cc-window {
+  animation: ccSlideIn 0.3s ease-out;
+}
+
+@keyframes ccSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  @keyframes ccSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ========== Body Scroll Prevention ========== */
+body.cc-window-open {
+  overflow: hidden !important;
+}
+
+/* ========== Accessibility ========== */
+.cc-window:focus {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+}
+
+.cc-btn:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
