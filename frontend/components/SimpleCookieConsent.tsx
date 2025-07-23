@@ -89,9 +89,12 @@ const SimpleCookieConsent = () => {
               bottom: 0 !important;
               left: 0 !important;
               right: 0 !important;
-              max-width: 100% !important;
-              width: 100% !important;
-              min-height: 50vh !important;
+
+              top: auto !important;        // hebt das 100%-Fullscreen auf */
+              height: auto !important;        /* Library setzt evtl. height */
+              max-height: 75vh !important;    /* jetzt wirkt die Begrenzung */
+              overflow-y: auto !important;    /* falls Text länger als 75vh */
+
               background: #ffffff !important;
               box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15) !important;
               border-radius: 16px 16px 0 0 !important;
