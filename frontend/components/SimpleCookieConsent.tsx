@@ -154,7 +154,7 @@ if (denyButton) {
                 margin-top: 1rem !important;
               `;
             }
-          }, 50);
+          }, 100);
         }
 
         console.log('🍪 Banner opened');
