@@ -110,37 +110,37 @@ const SimpleCookieConsent = () => {
             const allowButton = popup.querySelector('.cc-allow') as HTMLElement;
             const denyButton = popup.querySelector('.cc-deny') as HTMLElement;
             
-            // BEIDE BUTTONS: Gleiche Größe und Styling
-            const buttonStyles = `
-              padding: ${isMobile ? '1rem 1.5rem' : '0.75rem 1.5rem'} !important;
-              border-radius: 8px !important;
-              border: none !important;
-              font-size: ${isMobile ? '1rem' : '1rem'} !important;
-              font-weight: 600 !important;
-              cursor: pointer !important;
-              transition: all 0.2s ease !important;
-              width: ${isMobile ? '100%' : 'auto'} !important;
-              margin: ${isMobile ? '0 0 0.5rem 0' : '0 0.25rem'} !important;
-              display: inline-block !important;
-              text-align: center !important;
-              min-width: ${isMobile ? 'auto' : '160px'} !important;
-            `;
-            
-            if (allowButton) {
-              allowButton.style.cssText = buttonStyles + `
-                background-color: #8B4513 !important;
-                color: #ffffff !important;
-                box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3) !important;
-              `;
-            }
+            // BEIDE BUTTONS: Gleiche Größe, untereinander auf Mobile
+const buttonStyles = `
+  padding: ${isMobile ? '1rem 1.5rem' : '0.75rem 1.5rem'} !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  width: ${isMobile ? '100%' : 'auto'} !important;
+  margin: ${isMobile ? '0 0 0.75rem 0' : '0 0.25rem'} !important;
+  display: inline-block !important;
+  text-align: center !important;
+  min-width: ${isMobile ? 'auto' : '160px'} !important;
+`;
 
-            if (denyButton) {
-              denyButton.style.cssText = buttonStyles + `
-                background-color: #6c757d !important;
-                color: #ffffff !important;
-                box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3) !important;
-              `;
-            }
+if (allowButton) {
+  allowButton.style.cssText = buttonStyles + `
+    background-color: #8B4513 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3) !important;
+  `;
+}
+
+if (denyButton) {
+  denyButton.style.cssText = buttonStyles + `
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3) !important;
+  `;
+}
 
             // Button Container anpassen
             const compliance = popup.querySelector('.cc-compliance') as HTMLElement;
