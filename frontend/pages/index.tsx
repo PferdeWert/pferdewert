@@ -215,8 +215,8 @@ export default function Home() {
     </Link>
   </div>
   
-  <p className="text-xs text-gray-500 mt-3">
-    Über 150 zufriedene Kunden • Durchschnitt 4.7/5 Sterne
+  <p className="text-xs sm:text-sm text-gray-600 mt-2">
+    <strong>In&nbsp;2&nbsp;Minuten</strong>&nbsp;• kein&nbsp;Abo&nbsp;• Geld-zurück-Garantie&nbsp;• <strong>4,7/5&nbsp;⭐</strong>
   </p>
 </div>
           </div>
