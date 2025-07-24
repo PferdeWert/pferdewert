@@ -364,13 +364,13 @@ export default function Home() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary"
               >
-                Jetzt Bewertung starten
+                Jetzt Pferdewert berechnen
               </Link>
               <Link
                 href="/beispiel-analyse"
                 className="btn-secondary"
               >
-                Beispiel-Analyse anschauen
+                Beispielanalyse ansehen
               </Link>
             </div>
           </div>
@@ -445,7 +445,7 @@ export default function Home() {
         href="/pferde-preis-berechnen"
         className="btn-primary"
       >
-        Jetzt Bewertung starten
+        Jetzt Pferdewert berechnen
       </Link>
     </div>
   </div>
@@ -472,7 +472,7 @@ export default function Home() {
                   href="/pferde-preis-berechnen"
                   className="btn-primary"
                 >
-                  Jetzt Bewertung starten
+                  Jetzt Pferdewert berechnen
                 </Link>
               </div>
             </div>
