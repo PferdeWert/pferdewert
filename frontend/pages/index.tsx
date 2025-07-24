@@ -205,7 +205,7 @@ export default function Home() {
       href="/pferde-preis-berechnen"
       className="btn-primary"
     >
-      Jetzt Pferdewert brechnen
+      Jetzt Pferdewert berechnen
     </Link>
     <Link
       href="/beispiel-analyse"
