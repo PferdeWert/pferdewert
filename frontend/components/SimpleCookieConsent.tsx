@@ -7,6 +7,7 @@ import Script from 'next/script';
 
 // WICHTIG: eigener Cookie-Name, damit wir nicht mit library-internen kollidieren
 const CONSENT_COOKIE = 'pferdewert_cookie_consent';
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // Google Analytics ID
 
 const SimpleCookieConsent = () => {
   const router = useRouter();
@@ -114,20 +115,22 @@ const SimpleCookieConsent = () => {
             const denyButton = popup.querySelector('.cc-deny') as HTMLElement;
             
             // BEIDE BUTTONS: Gleiche Größe, untereinander auf Mobile
-const buttonStyles = `
-  padding: ${isMobile ? '1rem 1.5rem' : '0.75rem 1.5rem'} !important;
-  border-radius: 8px !important;
-  border: none !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  width: ${isMobile ? '100%' : 'auto'} !important;
-  margin: ${isMobile ? '0 0 0.75rem 0' : '0 0.25rem'} !important;
-  display: inline-block !important;
-  text-align: center !important;
-  min-width: ${isMobile ? 'auto' : '160px'} !important;
-`;
+            const buttonStyles = `
+            padding: ${isMobile ? '1rem 1.5rem' : '0.75rem 1.5rem'} !important;
+            border-radius: 8px !important;
+            border: none !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            width: ${isMobile ? '100%' : 'auto'} !important;
+            margin: ${isMobile ? '0 0 0.75rem 0' : '0 0.25rem'} !important;
+            display: inline-block !important;
+            text-align: center !important;
+            min-width: ${isMobile ? 'auto' : '160px'} !important;
+            box-sizing: border-box !important;
+            flex: 1 !important; /* Gleiche Breite auf Mobile */
+          `;
 
 if (allowButton) {
   allowButton.style.cssText = buttonStyles + `
@@ -210,11 +213,42 @@ if (denyButton) {
   }, [router]);
 
   return (
-    <Script
-      src="/js/cookieconsent.min.js"
-      strategy="afterInteractive"
-      onLoad={initCookieConsent}
-    />
+    <>
+       {/* ✅ NEU: GA Scripts ZUERST laden */}
+    {GA_ID && (
+      <>
+        <Script 
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            // Consent Mode v2: Standard = abgelehnt (DSGVO-konform)
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              analytics_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied'
+            });
+            
+            gtag('config', '${GA_ID}');
+            console.log('📊 Google Analytics loaded:', '${GA_ID}');
+          `}
+        </Script>
+      </>
+    )}
+    
+      {/* ✅ BESTEHEND: Cookie Script */}
+      <Script
+        src="/js/cookieconsent.min.js"
+        strategy="afterInteractive"
+        onLoad={initCookieConsent}
+      />
+    </>
   );
 };
 
