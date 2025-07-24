@@ -190,6 +190,7 @@ if (denyButton) {
 
     if (granted) {
       console.log('✅ Analytics enabled - User accepted cookies');
+      const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
       if (GA_ID) {
         window.gtag?.('config', GA_ID, {
           page_path: window.location.pathname,
