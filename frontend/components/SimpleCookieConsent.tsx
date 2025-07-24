@@ -54,8 +54,8 @@ const SimpleCookieConsent = () => {
             </p>
           </div>
         `,
-        allow: 'Einwilligen',  // Positiv, mit Emoji - GEÄNDERT!
-        deny: 'Optionen verwalten',      // Neutral, keine Ablehnung
+        allow: 'Einwilligen',  
+        deny: 'Ablehnen',      // In Zukunft evtl. "Optionen verwalten einfügen mit zweiter Page dahinter
         link: 'Datenschutz',
         href: '/datenschutz',
       },
