@@ -188,11 +188,20 @@ if (denyButton) {
           ad_personalization: granted ? 'granted' : 'denied',
         });
 
-        if (granted) {
-          console.log('✅ Analytics enabled - User accepted cookies');
-        } else {
-          console.log('⚙️ User chose settings - Analytics disabled');
-        }
+    if (granted) {
+      console.log('✅ Analytics enabled - User accepted cookies');
+      if (GA_ID) {
+        window.gtag?.('config', GA_ID, {
+          page_path: window.location.pathname,
+          anonymize_ip: true,
+        });
+        console.log('📊 Page view sent to GA4');
+      } else {
+        console.warn('GA_ID is not defined, skipping gtag config.');
+      }
+    } else {
+      console.log('⚙️ User chose settings - Analytics disabled');
+    }
 
         // Banner sauber entfernen
         const popup = document.querySelector('.cc-window');
@@ -241,7 +250,7 @@ if (denyButton) {
         </Script>
       </>
     )}
-    
+
       {/* ✅ BESTEHEND: Cookie Script */}
       <Script
         src="/js/cookieconsent.min.js"
