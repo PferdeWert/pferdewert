@@ -1,178 +1,183 @@
-**Projektstand PferdeWert (Stand: Juni 2025)**
+# Projektstand PferdeWert.de
+
+**Stand: Juli 2025**
 
 ---
 
-### 🔧 Tech-Stack & Infrastruktur
+## 🔧 Tech-Stack & Infrastruktur
 
-* **Frontend:** Next.js (Pages Router)
-* **Styling:** Tailwind CSS
-* **Backend:** API-Routen in Next.js, Serverless Functions
-* **Deployment:** GitHub Codespaces im Browser + Vercel
-* **Domain:** [https://pferdewert.de](https://pferdewert.de) (live, produktiv)
-* **CI/CD:** GitHub + `main` Branch als Deploy-Ziel bei Vercel
+* **Frontend:** Next.js 13+ (Pages Router)
+* **Styling:** Tailwind CSS + Custom CSS
+* **Backend:** API-Routen in Next.js + FastAPI (Python)
+* **Deployment:** 
+  - Frontend: Vercel (https://pferdewert.de)
+  - Backend: Render (https://pferdewert-api.onrender.com)
+* **CI/CD:** GitHub + automatische Deployments vom `main` Branch
+* **Datenbank:** MongoDB (NoSQL)
 * **PDF-Export:** `@react-pdf/renderer`
-* **Markdown-Rendering:** `react-markdown`
 
 ---
 
-### 💳 Zahlungsabwicklung mit Stripe
+## 💳 Zahlungsabwicklung mit Stripe
 
 * **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet
 * **PayPal:** Noch nicht aktiv (Business-Konto erforderlich)
 * **Checkout:** Weiterleitung zu Stripe gehostetem Checkout
 * **Session-Verarbeitung:** `session_id` wird im Query empfangen, Validierung erfolgt über `GET /api/session`
 * **Zugriffsschutz:** Ergebnisseite nur nach erfolgreicher Zahlung sichtbar, sonst Weiterleitung zu `/bewerten`
+* **Webhooks:** Vollständig implementiert für Payment-Confirmations
 
 ---
 
+## 📊 Analytics & Tracking
+
+* **Google Analytics 4 (GA4):** Vollständig integriert
+* **Implementierung:** Direkt in `SimpleCookieConsent` Komponente
+* **Consent Mode v2:** DSGVO-konform mit denied/granted States
+* **Environment Variable:** `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+* **Cookie-Integration:** GA startet nur nach expliziter User-Zustimmung
+* **Event-Tracking:** Bereit für Conversion-Tracking und Custom Events
+* **Debug-Logging:** Alle Analytics-Events werden in Console geloggt
+
 ---
 
-### 📊 Analytics & Tracking
+## 🍪 Cookie-Consent & DSGVO
 
-* **Google Analytics 4 (GA4)** integriert
-* **Eigene Zugriffe:** über `gtag('set', 'send_to', null)` lokal deaktivierbar
-* **Event-Tracking:** Conversion-Tracking bei Erfolg über `gtag('event', 'conversion')`
-* **Keine Nutzung von Google Tag Manager** (bewusst modular via `lib/analytics.ts`)
+* **Komponente:** `SimpleCookieConsent` (React-Komponente)
+* **Library:** Osano Cookie Consent (lokale Integration)
+* **Compliance:** Opt-in Modus (DSGVO-konform)
+* **Cookie-Name:** `pferdewert_cookie_consent` (eigener Name)
+* **Mobile-Optimierung:** Touch-optimierte Buttons, responsive Design
+* **UX-Optimiert:** Conversion-optimierte Texte mit emotionaler Ansprache
 
 ---
-PferdeWert.de – Projektübersicht (Technisch & Marketing)
-1. Technischer Stack & Infrastruktur
-Framework:
-Next.js (aktuelle Version 13+) – React-basiertes Framework für SSR (Server-Side Rendering) und statische Seiten (SSG).
 
-Programmiersprache:
-TypeScript / JavaScript (TS ist empfohlen für bessere Wartbarkeit, aktuell JS möglich).
+## 🎨 Frontend Komponenten & Design
 
-Styling:
-Tailwind CSS – Utility-first CSS Framework für schnelles, responsives Styling und konsistente Design-Umsetzung.
+### Pages:
+* **`/index.tsx`** – Landing Page mit Hero, Preisbanner, FAQ, Footer
+* **`/bewerten`** – Bewertungsformular (Stripe-Integration)
+* **`/ergebnis`** – Geschützte Ergebnisseite nach Payment
+* **`/beispiel-analyse`** – Beispielseite mit Muster-PDF
 
-Bildoptimierung:
-next/image Komponente für automatisches Lazy Loading, Responsive Images, und Optimierung.
+### Design-System:
+* **Farbpalette:** Blau (Primary), Braun (Brand), Gelb (Highlights)
+* **Responsive Layout:** Mobile-first via Tailwind CSS
+* **Komponenten:** Konsistente Button-Styles, Form-Komponenten
+* **Accessibility:** ARIA-Labels, Keyboard-Navigation, Screen-Reader Support
 
-SEO & Performance:
+### Interaktive Elemente:
+* **FAQ:** Native `<details>` und `<summary>` für Zugänglichkeit
+* **Buttons:** Hover- und Focus-States, Touch-optimiert
+* **Cookie-Banner:** Mobile-responsive mit conversion-optimierten CTAs
 
-Vollständige Meta-Tags (Title, Description, Open Graph, Twitter Card).
+---
 
-Strukturierte Daten mit JSON-LD (Schema.org WebSite).
+## 🔐 Sicherheit & Datenschutz
 
-Canonical URLs für Duplicate Content Vermeidung.
+* **HTTPS:** SSL-Zertifikate auf allen Domains
+* **DSGVO:** Anonyme Datenverarbeitung, explizite Consent-Mechanismen
+* **API-Sicherheit:** Input-Validation, Rate-Limiting, Error-Handling
+* **Environment Variables:** Sichere Speicherung von API-Keys
+* **Session-Management:** Stripe-Sessions für sichere Payment-Flows
 
-Optimierung auf Core Web Vitals mit Tailwind & Next.js.
+---
 
-Hosting & Deployment:
-Vercel (Cloud Plattform speziell für Next.js-Projekte):
+## 🚀 Performance & SEO
 
-Automatische Builds und Deploys bei Push ins Git (CI/CD).
+* **Core Web Vitals:** Optimiert durch Next.js SSR/SSG
+* **Image-Optimization:** `next/image` für Lazy Loading
+* **Bundle-Size:** Minimiert durch Tailwind CSS Purging
+* **Meta-Tags:** Vollständige SEO-Optimierung (Title, Description, Open Graph)
+* **Structured Data:** JSON-LD Schema.org für Rich Snippets
+* **Sitemap:** Automatisch generiert für alle Routen
 
-Globales CDN für schnelle Ladezeiten weltweit.
+---
 
-Preview Deployments für Feature-Branches.
+## 🛠 Entwicklungs-Workflow
 
-Monitoring & Analytics (optional konfigurierbar).
+* **Version Control:** Git mit Feature-Branches
+* **Code Quality:** ESLint + TypeScript für Type-Safety
+* **Preview Deployments:** Vercel Preview-URLs für Feature-Branches
+* **Environment Management:** 
+  - `.env.local` für lokale Entwicklung
+  - Vercel Environment Variables für Production
+* **Monitoring:** Build-Status über Vercel + Render Dashboards
 
-Zahlungsintegration:
-Stripe API (inkl. Apple Pay, Google Pay, Giropay, Klarna).
+---
 
-2. Frontend Komponenten & Struktur
-Pages:
+## 🧪 Testing & Quality Assurance
 
-/index.tsx – Landing Page mit Hero, Preisbanner, Beispiel-Ergebnis, FAQs, Footer.
+* **Backend Tests:** pytest mit FastAPI TestClient
+* **Frontend Testing:** Manual Testing + Browser DevTools
+* **Payment Testing:** Stripe Test-Mode für sichere Entwicklung
+* **Analytics Testing:** GA4 Debug Mode + Real-Time Reports
+* **Cross-Browser:** Getestet auf Chrome, Firefox, Safari, Mobile Browsers
 
-/bewerten – Bewertungsformular (nicht Teil dieses Snippets, aber vorhanden).
+---
 
-/beispiel – Beispielseite mit Musteranalyse-PDF.
+## 📱 Mobile-Optimierung
 
-Design:
+* **Responsive Design:** Mobile-first Ansatz
+* **Touch-Targets:** Optimale Button-Größen für Touch-Bedienung
+* **Performance:** Lazy Loading, minimale Bundle-Größe
+* **Cookie-Banner:** Spezielle Mobile-Layouts (70vh Höhe)
+* **Forms:** Touch-optimierte Input-Fields und Dropdowns
 
-Farbpalette: Blau (Hauptfarbe), Gelb (Preis-Highlight), Grautöne für Text.
+---
 
-Responsive Layout via Tailwind (mobile-first).
+## 📈 Marketing & Conversion
 
-Konsistente Schriftgrößen, Abstände und Buttons mit Hover- und Fokus-States.
+### Preis-Transparenz:
+* **Einmalzahlung:** 4,90€ (reduziert von 39€) prominent dargestellt
+* **Trust-Badges:** Stripe-Sicherheit, SSL-Zertifikate sichtbar
+* **Social Proof:** "Von Reitern für Reiter entwickelt" als Claim
 
-Call-to-Actions mehrfach platziert für Conversion.
+### Conversion-Optimierung:
+* **CTA-Buttons:** Klare Farbgebung und Hover-Effekte
+* **Progress-Indikatoren:** Schritte im Bewertungsprozess
+* **FAQ-Sektion:** Reduktion von Kaufbarrieren
+* **Mobile UX:** Touch-optimierte Bedienung
 
-Interaktive Elemente:
+---
 
-FAQ mit native <details> und <summary> für Zugänglichkeit.
+## 🔮 Roadmap & Nächste Schritte
 
-Buttons mit Transition- und Hover-Effekten.
+### Kurzfristig (1-2 Wochen):
+* [ ] **Custom Events:** Button-Tracking für wichtige CTAs
+* [ ] **Conversion Goals:** GA4-Ziele für Bewertungs-Abschlüsse
+* [ ] **A/B Testing:** Cookie-Banner Texte optimieren
 
-3. Marketing-relevante Features
-Preis-Transparenz:
-Klar kommunizierte Einmalzahlung (aktuell 4,90 € statt regulär 39 €) im Hero und Preisbanner.
+### Mittelfristig (1-2 Monate):
+* [ ] **PayPal Integration:** Business-Konto einrichten
+* [ ] **User Feedback:** Bewertungs-System für Service-Qualität
+* [ ] **Content Marketing:** Blog-Sektion für SEO
 
-Vertrauensanker:
-„Von Reitern für Reiter entwickelt“ als Claim zur Zielgruppenbindung.
+### Langfristig (3+ Monate):
+* [ ] **Advanced Analytics:** Custom Dashboards und Reports
+* [ ] **API-Erweiterung:** Externe Integrationen (ehorses, etc.)
+* [ ] **Mobile App:** React Native App für iOS/Android
 
-Conversion-Optimierung:
+---
 
-CTA-Buttons mit klarer Farbgebung und Hover-Effekten.
+## 💡 Empfehlungen
 
-Preisbanner als visuelles Highlight.
+### Frontend-Team:
+* **Code-Qualität:** Konsistente TypeScript-Nutzung
+* **Performance:** Regelmäßige Lighthouse-Audits
+* **Accessibility:** WCAG 2.1 Guidelines befolgen
+* **Testing:** Unit-Tests für kritische Komponenten einführen
 
-FAQ zur Reduktion von Kaufbarrieren.
+### Marketing-Team:
+* **Analytics:** Wöchentliche GA4-Reports erstellen
+* **Conversion-Rate:** A/B Tests für Landing-Page-Elemente
+* **SEO:** Keyword-Monitoring und Content-Optimierung
+* **User Journey:** Funnel-Analyse für Conversion-Optimierung
 
-Social Sharing Metadaten und strukturierte Daten für bessere Auffindbarkeit.
+---
 
-Rechtliches:
-Links zu Impressum und Datenschutz im Footer sind standardkonform implementiert.
+**Status: ✅ Vollständig funktionsfähig und produktionsbereit**
 
-4. Entwicklungs- & Betriebshinweise
-Entwicklungsworkflow:
+*Alle kritischen Features implementiert, Analytics läuft, Payments funktionieren, Mobile-optimiert.*
 
-Git als Versionskontrolle.
-
-Feature-Branches mit Preview-Deployments auf Vercel für Tests.
-
-Code Reviews und Tests empfohlen (aktuell unklar, ob implementiert).
-
-Performance & Optimierung:
-
-Next.js optimiert Auslieferung automatisch via SSR/SSG.
-
-Tailwind minimiert CSS-Größe.
-
-Bilder optimiert durch next/image.
-
-Vermeidung von Deprecated APIs (bspw. legacyBehavior bei Link wurde entfernt).
-
-Barrierefreiheit:
-
-Fokus auf zugängliche HTML-Elemente (z.B. native Details/Summary).
-
-Alt-Texte für Bilder sind gesetzt.
-
-Farbkontraste müssen noch geprüft und ggf. verbessert werden.
-
-Zukünftige Erweiterungen:
-
-Eventuell Trust-Badges und weitere Kundenbewertungen.
-
-Newsletter-Integration.
-
-Erweiterte SEO-Maßnahmen (Rich Snippets, Blog).
-
-Analytics und Heatmaps für Nutzerverhalten.
-
-5. Empfehlungen für Team
-Frontend-Entwickler:
-
-Fokus auf Tailwind-konformes Styling, saubere Komponententrennung.
-
-Nutzung moderner Next.js Features (App Router, Middleware etc.).
-
-Einheitliche Typisierung und Tests.
-
-Regelmäßige Performance Checks via Lighthouse.
-
-Marketing-Team:
-
-Kontrolle der Content-Texte auf Conversion-Wirkung.
-
-Monitoring der Funnel-Performance.
-
-Pflege von Keywords und Meta-Daten.
-
-Plan für A/B-Testing von CTAs und Preis-Texten.
-
+WICHTIG: Auch die TYPESCRIPT-GUIDELINES.md beachten!!
