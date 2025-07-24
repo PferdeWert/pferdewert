@@ -205,13 +205,13 @@ export default function Home() {
       href="/pferde-preis-berechnen"
       className="btn-primary"
     >
-      Jetzt Marktwert ermitteln
+      Jetzt Pferdewert brechnen
     </Link>
     <Link
       href="/beispiel-analyse"
       className="btn-secondary"
     >
-      Beispiel-Analyse ansehen
+      Beispielanalyse ansehen
     </Link>
   </div>
   
