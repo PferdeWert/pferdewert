@@ -35,7 +35,7 @@ const SimpleCookieConsent = () => {
       
       palette: {
         popup: { background: '#ffffff', text: '#2d2d2d' },
-        button: { background: '#8B4513', text: '#ffffff' }, // PferdeWert Braun
+        button: { background: 'var(--brand-brown)', text: '#ffffff' }, // PferdeWert Braun
       },
       
       position: 'bottom',

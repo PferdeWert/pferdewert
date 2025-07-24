@@ -34,7 +34,7 @@ export default function Header() {
           </Link>
           <Link
             href="/pferde-preis-berechnen"
-            className="bg-[#6B4A2D] text-white px-4 py-2 rounded-lg hover:bg-[#5A3F28] transition"
+            className="bg-brand-brown text-white px-4 py-2 rounded-lg hover:bg-brand-brownDark transition"
           >
             Jetzt bewerten
           </Link>
@@ -68,7 +68,7 @@ export default function Header() {
         <Link
           href="/pferde-preis-berechnen"
           onClick={() => setMenuOpen(false)}
-          className="block bg-[#6B4A2D] text-white px-4 py-2 rounded-lg hover:bg-[#5A3F28] transition"
+          className="block bg-brand-brown text-white px-4 py-2 rounded-lg hover:bg-brand-brownDark transition"
         >
           Jetzt bewerten
         </Link>
