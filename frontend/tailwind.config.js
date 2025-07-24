@@ -19,8 +19,8 @@ module.exports = {
           accent: "#3068d6",       // Modernes Blau – Links/Buttons
           green: "#406243",        // Waldgrün – Akzent
           gold: "#f6c36a",         // Amber/Gold – Highlights
-          brown: "#6B4A2D",        // Haupt-CTA wie im Header
-          brownDark: "#5A3F28",    // Hover-Variante
+          brown: "#92400e",        // Haupt-CTA wie im Header
+          brownDark: "#78350f",    // Hover-Variante
         },
       },
       fontSize: {
