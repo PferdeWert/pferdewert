@@ -86,7 +86,7 @@ export default function BeispielAnalyse() {
             href="/pferde-preis-berechnen"
             className="btn-primary"
           >
-            Jetzt Bewertung Starten
+            Jetzt Pferdewert berechnen
           </Link>
         </div>
       </BewertungLayout>
