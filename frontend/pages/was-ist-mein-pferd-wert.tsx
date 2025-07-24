@@ -206,7 +206,7 @@ export default function WasIstMeinPferdWert() {
                   Jetzt 9,90€-Analyse starten
                 </Link>
                 <Link href="/beispiel-analyse" className="btn-secondary border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200">
-                  Beispiel-Analyse anschauen
+                  Beispielanalyse ansehen
                 </Link>
               </div>
             </div>
