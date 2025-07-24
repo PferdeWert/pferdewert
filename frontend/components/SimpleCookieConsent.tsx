@@ -189,7 +189,6 @@ if (denyButton) {
         });
 
     if (granted) {
-        const GA_ID_FRESH = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
       console.log('✅ Analytics enabled - User accepted cookies');
       if (GA_ID) {
         window.gtag?.('config', GA_ID, {
