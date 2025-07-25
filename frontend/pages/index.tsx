@@ -42,7 +42,7 @@ export default function PferdeWertHomepage() {
   ];
 
   return (
-    <Layout fullWidth={true} background="bg-gradient-to-b from-brand-light to-white">
+    <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         <title>Pferd verkaufen & kaufen: Marktwert berechnen | PferdeWert</title>
         <meta
@@ -404,7 +404,7 @@ export default function PferdeWertHomepage() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary text-lg px-8 py-4"
               >
-                Jetzt Pferdewert berechnen
+                Jetzt {PRICING.launch.toFixed(2).replace('.', ',')} €-Analyse starten
               </Link>
             </div>
           </div>
