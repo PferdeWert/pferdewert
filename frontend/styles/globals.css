@@ -80,6 +80,14 @@ blockquote {
   padding-left: 1em;
 }
 
+/* ===== Section Spacing Utility ===== */
+.section {
+  @apply pt-24 pb-24 lg:pt-32 lg:pb-32;
+}
+
+.section + .section {
+  @apply mt-24 lg:mt-32;
+}
 
 /* ===== Globale Button-Varianten ===== */
 
