@@ -147,7 +147,7 @@ export default function PferdeWertHomepage() {
               <div className="space-y-8 hero-fade-in-left">
                 <div className="space-y-4">
                   <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                    🏆 KI-gestützte Pferdebewertung
+                    🏆 #1 Online Pferdebewertung
                   </div>
                   <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     Deutschlands führende Plattform für{" "}
@@ -235,6 +235,22 @@ export default function PferdeWertHomepage() {
             </div>
           </div>
         </section>
+
+{/* CTA Section direkt darunter */}
+<section className="bg-white py-12 px-4">
+  <div className="container mx-auto text-center">
+    <Link
+      href="/pferde-preis-berechnen"
+      className="btn-primary px-8 py-4 text-lg"
+    >
+      Jetzt Pferdewert berechnen
+    </Link>
+    
+    <p className="text-sm text-gray-600 mt-4">
+      Sichere Bezahlung • Sofortiges Ergebnis • Keine Abos
+    </p>
+  </div>
+</section>
 
         {/* Features Section */}
         <section id="vorteile" className="py-20 bg-white">
