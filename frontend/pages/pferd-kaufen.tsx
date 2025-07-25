@@ -141,10 +141,10 @@ export default function PferdKaufen() {
             {/* Hero Image */}
             <div className="order-1 md:order-2">
               <Image
-                src="/images/blossi-4.webp"
+                src="/images/blossi-5.webp"
                 width={600}
                 height={400}
-                alt="Unser Pferd Blossom mit Weihnachtsschmuck - Pferd kaufen mit professioneller Preisbewertung"
+                alt="Unser Pferd Blossom bei Sonnenschein - Pferd kaufen mit professioneller Preisbewertung"
                 className="rounded-xl shadow-lg"
                 />
               <div className="mt-4 bg-blue-600 text-white p-4 rounded-xl shadow-lg">
