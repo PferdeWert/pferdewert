@@ -147,7 +147,7 @@ export default function PferdeWertHomepage() {
               <div className="space-y-8 hero-fade-in-left">
                 <div className="space-y-4">
                   <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                    🏆 KI-gestützte Pferdebewertung
+                    🏆 #1 Online Pferdebewertung
                   </div>
                   <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     Deutschlands führende Plattform für{" "}
@@ -225,9 +225,9 @@ export default function PferdeWertHomepage() {
           <div className="px-4 lg:px-8 xl:px-12 py-6">
             <div className="text-center">
               <p className="text-lg">
-                <span className="font-semibold text-brand-brown">🎯 Launch-Angebot:</span> Nur{" "}
+                <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
                 <span className="font-bold text-2xl text-brand-brown">{PRICING.launch.toFixed(2).replace('.', ',')} €</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING.regular} €</span> – jetzt bei unserem Launch!
+                <span className="line-through text-gray-500">statt {PRICING.regular} €</span> – für die ersten 100 Bewertungen!
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten
