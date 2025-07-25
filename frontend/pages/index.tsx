@@ -147,7 +147,7 @@ export default function PferdeWertHomepage() {
               <div className="space-y-8 hero-fade-in-left">
                 <div className="space-y-4">
                   <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                    🏆 KI-gestützte Pferdebewertung
+                    🏆 #1 Online Pferdebewertung
                   </div>
                   <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     Deutschlands führende Plattform für{" "}
@@ -225,9 +225,9 @@ export default function PferdeWertHomepage() {
           <div className="px-4 lg:px-8 xl:px-12 py-6">
             <div className="text-center">
               <p className="text-lg">
-                <span className="font-semibold text-brand-brown">🎯 Launch-Angebot:</span> Nur{" "}
+                <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
                 <span className="font-bold text-2xl text-brand-brown">{PRICING.launch.toFixed(2).replace('.', ',')} €</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING.regular} €</span> – jetzt bei unserem Launch!
+                <span className="line-through text-gray-500">statt {PRICING.regular} €</span> – für die ersten 100 Bewertungen!
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten
@@ -237,7 +237,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Features Section */}
-        <section id="vorteile" className="py-20 bg-white">
+        <section id="vorteile" className="section bg-white">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
@@ -294,7 +294,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-brand-light/50">
+        <section className="section bg-brand-light/50">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
@@ -375,7 +375,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-white">
+        <section className="section bg-white">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Häufige Fragen</h2>
@@ -411,7 +411,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-brand-brown to-brand-brownDark">
+        <section className="section bg-gradient-to-r from-brand-brown to-brand-brownDark">
           <div className="px-4 lg:px-8 xl:px-12 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
