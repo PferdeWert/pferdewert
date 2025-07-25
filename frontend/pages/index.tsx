@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Star, CheckCircle, Lock, Zap } from "lucide-react";
+    import { Clock, Shield, Award, Star, ArrowRight, CheckCircle, Lock, Zap } from "lucide-react";
 
 export default function Home() {
   const faqs: [string, string][] = [
