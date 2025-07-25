@@ -424,7 +424,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       `}</style>
 
       {/* Hero-Bereich mit fullWidth Layout wie index.tsx */}
-      <section id="bewertung" className="relative overflow-hidden">
+      <section id="preise" className="relative overflow-hidden">
         <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text-Bereich - Links mit fade-in */}
@@ -485,32 +485,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         </div>
       </section>
 
-      {/* Trust-Sektion mit fullWidth Layout */}
-      <section id="preise" className="py-8">
-        <div className="px-4 lg:px-8 xl:px-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-sm">
-              <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
-                <div className="flex items-center gap-2 text-green-700 font-medium">
-                  <Shield className="w-4 h-4" />
-                  <span>SSL-verschlüsselt</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-700 font-medium">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>über 1.200 Analysen</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-700 font-medium">
-                  <Star className="w-4 h-4 fill-current" />
-                  <span>4.8/5 Sterne</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Wizard-Bereich mit fullWidth Layout und fade-in */}
-      <section id="wizard-start" className="py-8 lg:py-16">
+      <section id="bewertung" className="py-8 lg:py-16">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto wizard-fade-in">
             {/* Step-Indikatoren */}
@@ -767,6 +743,30 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   <div className="h-32 md:hidden" />
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust-Sektion mit fullWidth Layout - NACH dem Wizard */}
+      <section className="py-8">
+        <div className="px-4 lg:px-8 xl:px-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-sm">
+              <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+                <div className="flex items-center gap-2 text-green-700 font-medium">
+                  <Shield className="w-4 h-4" />
+                  <span>SSL-verschlüsselt</span>
+                </div>
+                <div className="flex items-center gap-2 text-green-700 font-medium">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>über 1.200 Analysen</span>
+                </div>
+                <div className="flex items-center gap-2 text-green-700 font-medium">
+                  <Star className="w-4 h-4 fill-current" />
+                  <span>4.8/5 Sterne</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
