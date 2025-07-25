@@ -236,6 +236,22 @@ export default function PferdeWertHomepage() {
           </div>
         </section>
 
+{/* CTA Section direkt darunter */}
+<section className="bg-white py-12 px-4">
+  <div className="container mx-auto text-center">
+    <Link
+      href="/pferde-preis-berechnen"
+      className="btn-primary px-8 py-4 text-lg"
+    >
+      Jetzt Pferdewert berechnen
+    </Link>
+    
+    <p className="text-sm text-gray-600 mt-4">
+      Sichere Bezahlung • Sofortiges Ergebnis • Keine Abos
+    </p>
+  </div>
+</section>
+
         {/* Features Section */}
         <section id="vorteile" className="section bg-white">
           <div className="px-4 lg:px-8 xl:px-12">
