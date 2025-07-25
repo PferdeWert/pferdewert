@@ -758,7 +758,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                 </div>
                 <div className="flex items-center gap-2 text-green-700 font-medium">
                   <CheckCircle className="w-4 h-4" />
-                  <span>über 1.200 Analysen</span>
+                  <span>Geld-zurück-Garantie</span>
                 </div>
                 <div className="flex items-center gap-2 text-green-700 font-medium">
                   <Star className="w-4 h-4 fill-current" />
