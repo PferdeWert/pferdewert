@@ -762,7 +762,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                 </div>
                 <div className="flex items-center gap-2 text-green-700 font-medium">
                   <Star className="w-4 h-4 fill-current" />
-                  <span>4.8/5 Sterne</span>
+                  <span>4.7/5 Sterne</span>
                 </div>
               </div>
             </div>
