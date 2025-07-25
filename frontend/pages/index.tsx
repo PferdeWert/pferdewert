@@ -237,7 +237,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Features Section */}
-        <section id="vorteile" className="py-20 bg-white">
+        <section id="vorteile" className="section bg-white">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
@@ -294,7 +294,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-brand-light/50">
+        <section className="section bg-brand-light/50">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
@@ -375,7 +375,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-white">
+        <section className="section bg-white">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Häufige Fragen</h2>
@@ -411,7 +411,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-brand-brown to-brand-brownDark">
+        <section className="section bg-gradient-to-r from-brand-brown to-brand-brownDark">
           <div className="px-4 lg:px-8 xl:px-12 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
