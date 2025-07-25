@@ -404,7 +404,7 @@ export default function PferdeWertHomepage() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary text-lg px-8 py-4"
               >
-                Jetzt {PRICING.launch.toFixed(2).replace('.', ',')} €-Analyse starten
+                Jetzt Pferdewert berechnen
               </Link>
             </div>
           </div>
