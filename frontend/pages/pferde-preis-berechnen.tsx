@@ -486,7 +486,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       </section>
 
       {/* Wizard-Bereich mit fullWidth Layout und fade-in */}
-      <section id="bewertung" className="py-8 lg:py-16">
+      <section id="wizard-start" className="py-8 lg:py-16">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto wizard-fade-in">
             {/* Step-Indikatoren */}
@@ -746,11 +746,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Trust-Sektion mit fullWidth Layout - NACH dem Wizard */}
-      <section className="py-8">
-        <div className="px-4 lg:px-8 xl:px-12">
+        {/* Trust-Sektion direkt unter dem Wizard - kleiner natürlicher Abstand */}
+        <div className="px-4 lg:px-8 xl:px-12 pt-6 pb-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-sm">
               <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
