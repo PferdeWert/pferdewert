@@ -7,13 +7,22 @@ import Footer from "./Footer";
 type LayoutProps = {
   children: React.ReactNode;
   showFooter?: boolean;
+  fullWidth?: boolean;
+  background?: string;
 };
 
-export default function Layout({ children, showFooter = true }: LayoutProps) {
+export default function Layout({ 
+  children, 
+  showFooter = true, 
+  fullWidth = false, 
+  background 
+}: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
+    <div className={`min-h-screen flex flex-col text-gray-900 ${background || "bg-gray-50"}`}>
       <Header />
-      <main className="flex-1 w-full max-w-6xl mx-auto px-4">{children}</main>
+      <main className={fullWidth ? "flex-1 w-full" : "flex-1 w-full max-w-6xl mx-auto px-4"}>
+        {children}
+      </main>
       {showFooter && <Footer />}
     </div>
   );
