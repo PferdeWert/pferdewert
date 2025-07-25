@@ -80,6 +80,20 @@ blockquote {
   padding-left: 1em;
 }
 
+/* ===== Section Spacing Utility ===== */
+.section {
+  @apply py-24 lg:py-32;
+}
+
+/* Abstand zwischen Hero und erstem Content-Block */
+#bewertung + section {
+  @apply mt-16 lg:mt-24;
+}
+
+/* Genereller Abstand zwischen Sections */
+section + section {
+  @apply mt-0;
+}
 
 /* ===== Globale Button-Varianten ===== */
 
