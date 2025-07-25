@@ -82,11 +82,17 @@ blockquote {
 
 /* ===== Section Spacing Utility ===== */
 .section {
-  @apply pt-24 pb-24 lg:pt-32 lg:pb-32;
+  @apply py-24 lg:py-32;
 }
 
-.section + .section {
-  @apply mt-24 lg:mt-32;
+/* Abstand zwischen Hero und erstem Content-Block */
+#bewertung + section {
+  @apply mt-16 lg:mt-24;
+}
+
+/* Genereller Abstand zwischen Sections */
+section + section {
+  @apply mt-0;
 }
 
 /* ===== Globale Button-Varianten ===== */
