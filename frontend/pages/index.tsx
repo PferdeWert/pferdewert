@@ -141,13 +141,13 @@ export default function PferdeWertHomepage() {
 
         {/* Hero Section */}
         <section id="bewertung" className="relative overflow-hidden">
-          <div className="container mx-auto px-4 lg:px-6 py-12 lg:py-20 max-w-6xl">
+          <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-8 hero-fade-in-left">
                 <div className="space-y-4">
                   <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                    🏆 #1 Online-Pferdebewertung
+                    🏆 KI-gestützte Pferdebewertung
                   </div>
                   <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     Deutschlands führende Plattform für{" "}
@@ -222,7 +222,7 @@ export default function PferdeWertHomepage() {
 
         {/* Special Offer Banner */}
         <section id="preise" className="bg-gradient-to-r from-brand-gold/20 to-brand-brown/20 border-y border-brand-brown/20">
-          <div className="container mx-auto px-4 lg:px-6 py-6 max-w-6xl">
+          <div className="px-4 lg:px-8 xl:px-12 py-6">
             <div className="text-center">
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Launch-Angebot:</span> Nur{" "}
@@ -238,7 +238,7 @@ export default function PferdeWertHomepage() {
 
         {/* Features Section */}
         <section id="vorteile" className="py-20 bg-white">
-          <div className="container mx-auto px-4 lg:px-6 max-w-6xl">
+          <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -295,7 +295,7 @@ export default function PferdeWertHomepage() {
 
         {/* Testimonials Section */}
         <section className="py-20 bg-brand-light/50">
-          <div className="container mx-auto px-4 lg:px-6 max-w-6xl">
+          <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
               <p className="text-xl text-gray-600">
@@ -376,7 +376,7 @@ export default function PferdeWertHomepage() {
 
         {/* FAQ Section */}
         <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 lg:px-6 max-w-6xl">
+          <div className="px-4 lg:px-8 xl:px-12">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Häufige Fragen</h2>
               <p className="text-xl text-gray-600">
@@ -412,7 +412,7 @@ export default function PferdeWertHomepage() {
 
         {/* Final CTA Section */}
         <section className="py-20 bg-gradient-to-r from-brand-brown to-brand-brownDark">
-          <div className="container mx-auto px-4 lg:px-6 text-center max-w-6xl">
+          <div className="px-4 lg:px-8 xl:px-12 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 Bereit für Ihre professionelle Pferdebewertung?
