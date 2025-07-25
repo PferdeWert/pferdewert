@@ -1,78 +1,167 @@
 // frontend/components/Header.tsx
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navLinks = [
+    { href: "#bewertung", label: "Bewertung" },
+    { href: "#vorteile", label: "Vorteile" },
+    { href: "#preise", label: "Preise" },
+  ]
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
+  // Body scroll lock für Mobile-Menü
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+
+    // Cleanup beim Component unmount
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [isMenuOpen])
+
+  // ESC-Taste zum Schließen
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMenuOpen])
 
   return (
-    <header className="sticky top-0 bg-[#FCFAF6] shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between h-16">
-        {/* Logo + Text */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo-white.svg"
-            alt="PferdeWert Logo"
-            width={32}
-            height={32}
-            className="h-8 w-auto"
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
+      <div className="w-full px-4 lg:px-6 h-16 flex items-center justify-between">
+        
+        {/* Logo + Brand Name */}
+        <Link href="/" className="flex items-center space-x-3" onClick={closeMenu}>
+          <Image 
+            src="/favicon.svg" 
+            alt="PferdeWert" 
+            width={40} 
+            height={40} 
+            className="rounded-full" 
           />
-          <span className="text-xl font-serif text-[#4B3F30] tracking-tight">
+          <span className="text-xl font-bold text-brand-brown">
             PferdeWert
           </span>
         </Link>
 
-        {/* Navigation Desktop */}
-        <nav className="hidden md:flex gap-3 items-center" aria-label="Hauptnavigation">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8" aria-label="Hauptnavigation">
+          {navLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-gray-700 hover:text-brand-brown font-medium transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex items-center space-x-3">
           <Link
             href="/beispiel-analyse"
-            className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-[#F2EDE8] transition"
+            className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
           >
             Beispiel ansehen
           </Link>
           <Link
             href="/pferde-preis-berechnen"
-            className="bg-brand-brown text-white px-4 py-2 rounded-lg hover:bg-brand-brownDark transition"
+            className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
           >
             Jetzt bewerten
           </Link>
-        </nav>
+        </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-2xl text-brand-brown"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menü öffnen"
-          aria-expanded={menuOpen}
+          className="md:hidden p-2 text-gray-700 hover:text-brand-brown transition-colors"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
-          {menuOpen ? "✕" : "☰"}
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu mit sanfter Animation */}
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 top-16 bg-black bg-opacity-50 z-40"
+          onClick={closeMenu}
+        />
+      )}
+
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? "max-h-40 opacity-100 py-4" : "max-h-0 opacity-0"
-        } bg-[#FCFAF6] px-4 space-y-2 border-t border-[#EAE4DC]`}
-        role="menu"
+        id="mobile-menu"
+        className={`md:hidden fixed top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+        style={{ 
+          visibility: isMenuOpen ? 'visible' : 'hidden',
+          pointerEvents: isMenuOpen ? 'auto' : 'none'
+        }}
       >
-        <Link
-          href="/beispiel-analyse"
-          onClick={() => setMenuOpen(false)}
-          className="block border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-[#F2EDE8] transition"
-        >
-          Beispiel ansehen
-        </Link>
-        <Link
-          href="/pferde-preis-berechnen"
-          onClick={() => setMenuOpen(false)}
-          className="block bg-brand-brown text-white px-4 py-2 rounded-lg hover:bg-brand-brownDark transition"
-        >
-          Jetzt bewerten
-        </Link>
+        <nav className="px-4 py-6 space-y-4" aria-label="Mobile Navigation">
+          {/* Mobile Navigation Links */}
+          {navLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="block text-gray-700 hover:text-brand-brown font-medium py-3 px-2 transition-colors border-b border-gray-100 last:border-b-0"
+              onClick={closeMenu}
+            >
+              {label}
+            </a>
+          ))}
+
+          {/* Mobile Buttons */}
+          <div className="pt-4 space-y-3 border-t border-gray-200">
+            <Link
+              href="/pferde-preis-berechnen"
+              className="block w-full text-center bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-3 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Jetzt bewerten
+            </Link>
+            <Link
+              href="/beispiel-analyse"
+              className="block w-full text-center border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Beispiel ansehen
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
-  );
+  )
 }
