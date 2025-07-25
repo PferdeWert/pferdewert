@@ -424,7 +424,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       `}</style>
 
       {/* Hero-Bereich mit fullWidth Layout wie index.tsx */}
-      <section id="bewertung" className="relative overflow-hidden">
+      <section id="preise" className="relative overflow-hidden">
         <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text-Bereich - Links mit fade-in */}
@@ -479,30 +479,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust-Sektion mit fullWidth Layout */}
-      <section className="py-8">
-        <div className="px-4 lg:px-8 xl:px-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-sm">
-              <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
-                <div className="flex items-center gap-2 text-green-700 font-medium">
-                  <Shield className="w-4 h-4" />
-                  <span>SSL-verschlüsselt</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-700 font-medium">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>über 1.200 Analysen</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-700 font-medium">
-                  <Star className="w-4 h-4 fill-current" />
-                  <span>4.8/5 Sterne</span>
-                </div>
               </div>
             </div>
           </div>
@@ -770,10 +746,32 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
             </div>
           </div>
         </div>
+
+        {/* Trust-Sektion direkt unter dem Wizard - kleiner natürlicher Abstand */}
+        <div className="px-4 lg:px-8 xl:px-12 pt-6 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-6 shadow-sm">
+              <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+                <div className="flex items-center gap-2 text-green-700 font-medium">
+                  <Shield className="w-4 h-4" />
+                  <span>SSL-verschlüsselt</span>
+                </div>
+                <div className="flex items-center gap-2 text-green-700 font-medium">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>Geld-zurück-Garantie</span>
+                </div>
+                <div className="flex items-center gap-2 text-green-700 font-medium">
+                  <Star className="w-4 h-4 fill-current" />
+                  <span>4.7/5 Sterne</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Social Proof mit fullWidth Layout */}
-      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-16 lg:py-24">
+      <section id="vorteile" className="bg-gradient-to-br from-gray-50 to-blue-50 py-16 lg:py-24">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-12">
