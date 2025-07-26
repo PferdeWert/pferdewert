@@ -98,7 +98,7 @@ export default function UeberUns() {
                       Über uns
                     </h1>
                     <p className="text-xl text-gray-600 leading-relaxed">
-                      Eine kleine Pferdefamilie mit großer Mission: Den Pferdemarkt transparenter, fairer und einfach besser
+                      Eine kleine Pferdefamilie mit großer Mission: Den Pferdemarkt transparenter, fairer und einfach besser zu
                       machen – mit KI-Power und viel Herzblut.
                     </p>
                   </div>
@@ -155,16 +155,16 @@ export default function UeberUns() {
                     wir lange gesucht, viel verglichen – aber nie gewusst,
                     <span className="font-semibold text-brand-brown"> was ein fairer Preis ist</span>. Und auch beim Verkauf
                     eines Pferdes Jahre zuvor taten wir uns schwer:
-                    <em>Wie den Marktwert realistisch einschätzen?</em>
+                    <em>Was ist ein fairer und realistischer Verkaufspreis?</em>
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Da wir uns beruflich und privat viel mit{" "}
                     <span className="font-semibold text-brand-brown">Künstlicher Intelligenz</span> beschäftigen, stellten wir
-                    uns die Frage: &ldquo;Kann eine KI den Wert eines Pferdes besser einschätzen als wir?&rdquo; Und die Antwort hat uns
-                    verblüfft: <span className="font-semibold text-brand-brown">Ja, sie kann.</span>
+                    uns die Frage: &ldquo;Können KI-Modelle den Marktwert von Pferden einschätzen?&rdquo; Und die Antwort hat uns
+                    verblüfft: <span className="font-semibold text-brand-brown">Ja, und zwar ziemlich genau.</span>
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Aus dieser Neugier wurde ein Projekt – und daraus:{" "}
+                    Aus dieser Neugier wurde ein kleines Projekt – und aus diesem Projekt entstand:{" "}
                     <span className="font-bold text-brand-brown text-xl">PferdeWert.de</span>
                   </p>
                 </div>
@@ -181,10 +181,10 @@ export default function UeberUns() {
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Wir wollen, dass jeder Pferdemensch – ob Käufer, Verkäufer oder Besitzer – den Marktwert eines Pferdes
                     <span className="font-semibold text-brand-brown"> realistisch und fair einschätzen</span> kann. Ohne
-                    Rätselraten. Ohne Bauchgefühl. Sondern mit einer datenbasierten, neutralen Analyse.
+                    teure Experten. Ohne Rätselraten. Ohne Bauchgefühl. Sondern mit einer datenbasierten, neutralen Analyse.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Natürlich bleibt der Pferdekauf eine emotionale Entscheidung. Wer sich verliebt, zahlt oft gern mehr –
+                    Natürlich bleibt der Pferdekauf eine emotionale Entscheidung. Wer sich verliebt, zahlt oft mehr –
                     und das ist auch völlig okay. Aber gerade{" "}
                     <span className="font-semibold text-brand-brown">weil so viele Emotionen im Spiel sind</span>, ist ein
                     rationaler Ausgangspunkt wertvoll: Eine objektive Analyse hilft dir, bewusst und mit klarem Kopf zu
@@ -197,15 +197,15 @@ export default function UeberUns() {
                     <ul className="space-y-2">
                       <li className="flex items-center text-brand-brown">
                         <Zap className="w-5 h-5 mr-3" />
-                        <span className="font-medium">Schnell</span>
+                        <span className="font-medium">Schnell: In nur 2 Minuten hast du dein Ergebnis</span>
                       </li>
                       <li className="flex items-center text-brand-brown">
                         <Shield className="w-5 h-5 mr-3" />
-                        <span className="font-medium">Transparent</span>
+                        <span className="font-medium">Neutral: KI-Modell auf Basis realer Verkaufsdaten</span>
                       </li>
                       <li className="flex items-center text-brand-brown">
                         <Target className="w-5 h-5 mr-3" />
-                        <span className="font-medium">Viel günstiger als ein professionelles Gutachten</span>
+                        <span className="font-medium">Günstig: Klassische Gutachten kosten mehrere hundert Euro</span>
                       </li>
                     </ul>
                   </div>
