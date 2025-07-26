@@ -258,51 +258,6 @@ export default function UeberUns() {
             </div>
           </section>
 
-          {/* Für wen ist PferdeWert */}
-          <section className="py-12 lg:py-20 bg-white section-fade-in" id="zielgruppe">
-            <div className="px-4 lg:px-8 xl:px-12">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-12">Für wen ist PferdeWert?</h2>
-                <div className="space-y-8">
-                  {[
-                    {
-                      title: "Pferdebesitzer:innen",
-                      description: "Du möchtest wissen, was dein Pferd wert ist –",
-                      highlight: "schnell, anonym und günstig",
-                      action: "Nutze unseren Preis-Rechner – ohne Anmeldung."
-                    },
-                    {
-                      title: "Pferdekäufer:innen",
-                      description: "Du hast ein Pferd im Blick und willst wissen, ob der Preis passt?",
-                      highlight: "",
-                      action: "Nutze unser Formular zur Preisanfrage – wir analysieren für dich."
-                    },
-                    {
-                      title: "Neugierige Pferdefreunde",
-                      description: "Kein konkreter Anlass – nur ein bisschen Neugier?",
-                      highlight: "",
-                      action: "Teste unser Tool einfach mal aus. Vielleicht überrascht dich das Ergebnis."
-                    }
-                  ].map((group, index) => (
-                    <div key={index} className="border-l-4 border-brand-brown pl-6">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">{group.title}</h3>
-                      <p className="text-lg text-gray-700 mb-4">
-                        {group.description}{" "}
-                        {group.highlight && (
-                          <span className="font-semibold text-brand-brown">{group.highlight}</span>
-                        )}
-                        {group.description.includes("?") ? "" : "?"}
-                      </p>
-                      <p className="text-gray-600">
-                        → {group.action}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* CTA Section - Wie Preisbanner in index.tsx */}
           <section className="py-12 lg:py-20 bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 section-fade-in" id="cta">
             <div className="px-4 lg:px-8 xl:px-12">
