@@ -8,12 +8,6 @@ import { Menu, X } from "lucide-react"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const navLinks = [
-    { href: "#bewertung", label: "Bewertung" },
-    { href: "#vorteile", label: "Vorteile" },
-    { href: "#preise", label: "Preise" },
-  ]
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -66,26 +60,19 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8" aria-label="Hauptnavigation">
-          {navLinks.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className="text-gray-700 hover:text-brand-brown font-medium transition-colors"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Desktop Buttons */}
-        <div className="hidden md:flex items-center space-x-3">
+        {/* Desktop Navigation - Neue Struktur */}
+        <div className="hidden md:flex items-center space-x-6">
+          <Link
+            href="/ueber-pferdewert"
+            className="text-gray-700 hover:text-brand-brown font-medium transition-colors"
+          >
+            Über PferdeWert
+          </Link>
           <Link
             href="/beispiel-analyse"
             className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
           >
-            Beispiel ansehen
+            Beispiel-Analyse
           </Link>
           <Link
             href="/pferde-preis-berechnen"
@@ -132,16 +119,13 @@ export default function Header() {
       >
         <nav className="px-4 py-6 space-y-4" aria-label="Mobile Navigation">
           {/* Mobile Navigation Links */}
-          {navLinks.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className="block text-gray-700 hover:text-brand-brown font-medium py-3 px-2 transition-colors border-b border-gray-100 last:border-b-0"
-              onClick={closeMenu}
-            >
-              {label}
-            </a>
-          ))}
+          <Link
+            href="/ueber-pferdewert"
+            className="block text-gray-700 hover:text-brand-brown font-medium py-3 px-2 transition-colors border-b border-gray-100"
+            onClick={closeMenu}
+          >
+            Über PferdeWert
+          </Link>
 
           {/* Mobile Buttons */}
           <div className="pt-4 space-y-3 border-t border-gray-200">
@@ -157,7 +141,7 @@ export default function Header() {
               className="block w-full text-center border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
               onClick={closeMenu}
             >
-              Beispiel ansehen
+              Beispiel-Analyse
             </Link>
           </div>
         </nav>
