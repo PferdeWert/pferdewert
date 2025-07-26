@@ -49,8 +49,8 @@ export default function PferdeWertHomepage() {
           name="description"
           content="Pferd verkaufen oder kaufen? Marktwert berechnen mit KI ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min Analyse als PDF"
         />
-        <meta property="og:title" content="Pferd verkaufen & kaufen: Marktwert mit KI berechnen | PferdeWert" />
-        <meta property="og:description" content="Pferd verkaufen oder kaufen? Marktwert berechnen mit KI ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min Analyse als PDF" />
+        <meta property="og:title" content="Was ist dein Pferd wert? Marktwert in 2 Minuten per KI-Algorithmus | PferdeWert" />
+        <meta property="og:description" content="Professionelle KI-Bewertung in 2 Min ✓ Marktwert sofort berechnen für Kauf/Verkauf oder aus Neugier ✓ Ohne Anmeldung" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/" />
         <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
