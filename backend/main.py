@@ -107,7 +107,7 @@ def ai_valuation(d: BewertungRequest) -> str:
     rsp = client.chat.completions.create(
         model       = MODEL_ID,
         messages    = messages,
-        temperature = 0.2,
+        temperature = 0.1,
         top_p       = 0.8,
         seed        = 12345,  # Reproduzierbarkeit
         max_tokens  = min(MAX_COMPLETION, CTX_MAX - tokens_in(messages)),
