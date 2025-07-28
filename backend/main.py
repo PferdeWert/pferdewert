@@ -21,7 +21,6 @@ load_dotenv()
 # API Keys
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
-RESEND_KEY = os.getenv("RESEND_API_KEY")
 
 # Model Settings
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
@@ -276,5 +275,4 @@ def health_check():
         "claude_model": CLAUDE_MODEL,
         "openai_model": MODEL_ID,
         "use_claude": USE_CLAUDE,
-        "resend_available": bool(resend)
     }
