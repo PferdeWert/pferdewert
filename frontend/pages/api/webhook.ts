@@ -15,6 +15,7 @@ export const config = {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 const resend = new Resend(process.env.RESEND_API_KEY);
+const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com'; // Fallback auf Standard-URL, falls nicht gesetzt
 
 
 
@@ -114,8 +115,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log("🔥 [WEBHOOK] Daten für FastAPI:");
       console.log(JSON.stringify(bewertbareDaten, null, 2));
 
-      console.log("🔥 [WEBHOOK] Rufe FastAPI auf...");
-      const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+      console.log("🔥 [WEBHOOK] Rufe FastAPI auf:", `${BACKEND_URL}/api/bewertung`);
+      const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bewertbareDaten),
