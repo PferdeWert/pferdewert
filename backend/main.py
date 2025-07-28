@@ -2,7 +2,6 @@
 import os
 import logging
 from typing import Optional
-from datetime import datetime
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
