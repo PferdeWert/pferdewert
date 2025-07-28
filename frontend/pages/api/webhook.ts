@@ -15,6 +15,7 @@ export const config = {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 const resend = new Resend(process.env.RESEND_API_KEY);
+const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com'; // Fallback auf Standard-URL, falls nicht gesetzt
 
 
 
@@ -114,8 +115,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log("🔥 [WEBHOOK] Daten für FastAPI:");
       console.log(JSON.stringify(bewertbareDaten, null, 2));
 
-      console.log("🔥 [WEBHOOK] Rufe FastAPI auf...");
-      const response = await fetch("https://pferdewert-api.onrender.com/api/bewertung", {
+      console.log("🔥 [WEBHOOK] Rufe FastAPI auf:", `${BACKEND_URL}/api/bewertung`);
+      const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bewertbareDaten),
@@ -168,21 +169,58 @@ const betrag = session.amount_total
   ? `${(session.amount_total / 100).toFixed(2)} €`
   : "unbekannt";
 
-  const mailResult = await resend.emails.send({
-       from: "PferdeWert <kauf@pferdewert.de>",
-       to: empfaenger,
-       subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
-       html: `
-         <h2>Neue Zahlung bei PferdeWert.de!</h2>
-         <p><strong>Session ID:</strong> ${sessionId}</p>
-         <p><strong>Pferd:</strong> ${rasse}, ${alter} Jahre, ${geschlecht}</p>
-         <p><strong>Standort:</strong> ${standort}</p>
-         <p><strong>Betrag:</strong> ${betrag}</p>
-         <p>Kunde: ${session.customer_details?.email}</p>
-         <p>Bewertung: ${raw_gpt}</p>
+// Formatierte Darstellung aller Formularfelder
+const formularFelderHtml = `
+  <h3>📋 Eingabedaten des Kunden:</h3>
+  
+  <p><strong>Rasse (Pflicht):</strong> ${rasse || 'nicht angegeben'}</p>
+  <p><strong>Alter (Pflicht):</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
+  <p><strong>Geschlecht (Pflicht):</strong> ${geschlecht || 'nicht angegeben'}</p>
+  <p><strong>Stockmaß (Pflicht):</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
+  <p><strong>Abstammung (Pflicht):</strong> ${abstammung || 'nicht angegeben'}</p>
+  <p><strong>Ausbildungsstand (Pflicht):</strong> ${ausbildung || 'nicht angegeben'}</p>
+  
+  <hr style="margin: 20px 0; border: 1px solid #eee;">
+  
+  <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
+  <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
+  <p><strong>Farbe (Optional):</strong> ${farbe || 'nicht angegeben'}</p>
+  <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
+  <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
+  <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
+`;
 
-        `,
-          });
+const mailResult = await resend.emails.send({
+  from: "PferdeWert <kauf@pferdewert.de>",
+  to: empfaenger,
+  subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
+  html: `
+    <h2>🐴 Neue Zahlung bei PferdeWert.de!</h2>
+    
+    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+      <h3>💳 Zahlungsdetails:</h3>
+      <p><strong>Session ID:</strong> ${sessionId}</p>
+      <p><strong>Betrag:</strong> ${betrag}</p>
+      <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
+    </div>
+    
+    <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
+      ${formularFelderHtml}
+    </div>
+    
+    <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+      <h3>🤖 KI-Bewertung:</h3>
+      <div style="white-space: pre-wrap; font-family: monospace; background: white; padding: 10px; border-radius: 4px;">
+        ${raw_gpt}
+      </div>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    <p style="color: #666; font-size: 12px;">
+      Diese E-Mail wurde automatisch von PferdeWert.de generiert.
+    </p>
+  `,
+});
 
   // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
   console.log("✅ [WEBHOOK] Resend-Mail gesendet:", mailResult);
