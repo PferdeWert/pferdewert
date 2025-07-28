@@ -10,7 +10,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
 import anthropic
-# from resend import Resend  # Temporär deaktiviert
 
 import tiktoken  # Token-Zähler
 
@@ -32,8 +31,6 @@ USE_CLAUDE = os.getenv("USE_CLAUDE", "false").lower() == "true"
 # Initialize clients
 openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
 claude_client = anthropic.Anthropic(api_key=CLAUDE_KEY) if CLAUDE_KEY else None
-# resend = Resend(RESEND_KEY) if RESEND_KEY else None  # Temporär deaktiviert
-resend = None
 
 # Token counting
 ENC = tiktoken.encoding_for_model(MODEL_ID) if OPENAI_KEY else None
