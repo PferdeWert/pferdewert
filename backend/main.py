@@ -164,57 +164,6 @@ class BewertungRequest(BaseModel):
     verwendungszweck: Optional[str] = None
 
 # ───────────────────────────────
-#  Resend Comparison Mail
-# ───────────────────────────────
-def send_gpt_comparison_mail(request_data: BewertungRequest, gpt_analysis: str):
-    """Sendet GPT-Analyse per Resend für internen Vergleich"""
-    if not resend:
-        logging.warning("Resend nicht verfügbar - GPT-Vergleich kann nicht gesendet werden")
-        return
-    
-    try:
-        pferde_info = f"{request_data.rasse}, {request_data.alter}J, {request_data.geschlecht}"
-        timestamp = datetime.now().strftime('%d.%m.%Y %H:%M')
-        
-        # Empfänger aus Environment Variable
-        empfaenger = (os.getenv("RESEND_TO_EMAIL", "")).split(",")
-        empfaenger = [email.strip() for email in empfaenger if email.strip()]
-        
-        if not empfaenger:
-            logging.error("Keine RESEND_TO_EMAIL für GPT-Vergleich definiert")
-            return
-        
-        mail_result = resend.emails.send({
-            "from": "PferdeWert <kauf@pferdewert.de>",
-            "to": empfaenger,
-            "subject": f"🤖 GPT-Vergleich: {pferde_info}",
-            "html": f"""
-            <h2>🤖 GPT-4o Analyse (nur für Vergleich)</h2>
-            <p><strong>Pferd:</strong> {pferde_info}</p>
-            <p><strong>Erstellt:</strong> {timestamp}</p>
-            <p><strong>Standort:</strong> {request_data.standort or 'k.A.'}</p>
-            <p><strong>Verwendungszweck:</strong> {request_data.verwendungszweck or 'k.A.'}</p>
-            
-            <hr>
-            
-            <div style="white-space: pre-wrap; font-family: Arial, sans-serif; background: #f9f9f9; padding: 15px; border-radius: 5px; line-height: 1.6;">
-{gpt_analysis}
-            </div>
-            
-            <hr>
-            <p style="color: #666; font-style: italic;">
-            ℹ️ Der Kunde hat die Claude-Version erhalten.<br>
-            📧 Diese Mail dient nur dem internen Qualitätsvergleich.
-            </p>
-            """
-        })
-        
-        logging.info(f"✅ GPT-Vergleichsmail gesendet")
-        
-    except Exception as e:
-        logging.error(f"❌ Fehler beim Senden der GPT-Vergleichsmail: {e}")
-
-# ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
 # ───────────────────────────────
 def ai_valuation(d: BewertungRequest) -> str:
