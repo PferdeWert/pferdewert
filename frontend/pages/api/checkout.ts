@@ -80,7 +80,7 @@ if (!origin) {
 info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card", "klarna"],
+      payment_method_types: ["card", "klarna", "paypal"],
       line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
       mode: "payment",
       allow_promotion_codes: true,
