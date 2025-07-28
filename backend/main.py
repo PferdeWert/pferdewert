@@ -21,7 +21,7 @@ load_dotenv()
 
 # API Keys
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-CLAUDE_KEY = os.getenv("CLAUDE_API_KEY")
+CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 RESEND_KEY = os.getenv("RESEND_API_KEY")
 
 # Model Settings
