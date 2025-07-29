@@ -293,8 +293,8 @@ def debug_comparison(req: BewertungRequest):
             {"role": "system", "content": GPT_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ]
-        
-        gpt_response = client.chat.completions.create(
+
+            gpt_response = openai_client.chat.completions.create(  # ← openai_client verwenden
             model=MODEL_ID,
             messages=gpt_messages,
             temperature=0.0,
