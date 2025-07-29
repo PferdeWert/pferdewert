@@ -294,7 +294,7 @@ def debug_comparison(req: BewertungRequest):
             {"role": "user", "content": user_prompt}
         ]
 
-            gpt_response = openai_client.chat.completions.create(  # ← korrekte Einrückung (4 Spaces weniger)
+        gpt_response = openai_client.chat.completions.create(  # ← korrekte Einrückung (4 Spaces weniger)
             model=MODEL_ID,
             messages=gpt_messages,
             temperature=0.0,
