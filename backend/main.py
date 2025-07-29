@@ -263,6 +263,111 @@ def bewertung(req: BewertungRequest):
         }
 
 # ───────────────────────────────
+#  API-DEBUG-Endpoint
+# ───────────────────────────────
+@app.post("/api/debug-comparison")
+def debug_comparison(req: BewertungRequest):
+    """Debug-Endpoint: Vergleich GPT vs Claude parallel"""
+    logging.info(f"Debug Comparison Request: {req.dict()}")
+    
+    results = {}
+    user_prompt = (
+        f"Rasse: {req.rasse}\n"
+        f"Alter: {req.alter}\n"
+        f"Geschlecht: {req.geschlecht}\n"
+        f"Abstammung: {req.abstammung}\n"
+        f"Stockmaß: {req.stockmass} cm\n"
+        f"Ausbildungsstand: {req.ausbildung}\n"
+        f"Farbe: {req.farbe or 'k. A.'}\n"
+        f"Züchter / Ausbildungsstall: {req.zuechter or 'k. A.'}\n"
+        f"Aktueller Standort (PLZ): {req.standort or 'k. A.'}\n"
+        f"Verwendungszweck / Zielsetzung: {req.verwendungszweck or 'k. A.'}\n"
+        f"Gesundheitsstatus / AKU-Bericht: {req.aku or 'k. A.'}\n"
+        f"Erfolge: {req.erfolge or 'k. A.'}"
+    )
+    
+    # GPT-4o Test (wie aktuell für Kunden)
+    try:
+        logging.info("Testing GPT-4o...")
+        gpt_messages = [
+            {"role": "system", "content": SYS_PROMPT},
+            {"role": "user", "content": user_prompt}
+        ]
+        
+        gpt_response = client.chat.completions.create(
+            model=MODEL_ID,
+            messages=gpt_messages,
+            temperature=0.0,
+            top_p=0.8,
+            seed=12345,
+            max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
+        )
+        results["gpt"] = gpt_response.choices[0].message.content.strip()
+        logging.info("GPT-4o: Success")
+        
+    except Exception as e:
+        results["gpt"] = f"GPT Error: {str(e)}"
+        logging.error(f"GPT-4o Error: {e}")
+    
+    # Claude Test (immer testen, unabhängig von USE_CLAUDE)
+    try:
+        logging.info("Testing Claude...")
+        
+        # Prüfen ob Claude Client verfügbar ist
+        if not hasattr(globals(), 'claude_client') or claude_client is None:
+            import anthropic
+            claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        
+        # Claude System Prompt (angepasst für GPT-Stil)
+        claude_system_prompt = """Du bist **PferdeWert AI**, eine hochspezialisierte Expert:innen-KI für Markt- und Preisbewertungen von Sport- und Zuchtpferden.
+
+WICHTIG - SCHREIBSTIL:
+Schreibe im Stil von ChatGPT/GPT-4o - das bedeutet:
+- Emotional und verkaufsorientiert
+- Verwende Begriffe wie "erheblich steigert", "hohes Wertpotenzial", "außergewöhnlich"
+- Betone positive Aspekte mit starken Adjektiven
+- Verwende Marketing-Sprache: "Bieterinteresse", "optimale Präsentation", "starke Turnierpräsenz"
+- Beschreibe Vermarktungswege lebendig: "Auktion mit starkem Bieterinteresse"
+- Nutze emotionale Verstärker: "beeindruckend", "vielversprechend", "exzellent"
+
+AUFGABE:
+Erstelle eine professionelle Marktwert-Analyse für das beschriebene Pferd.
+
+FORMAT:
+1. **Kurze Zusammenfassung** (2-3 Sätze über das Pferd)
+2. **Marktwert-Schätzung** (konkrete Preisspanne in Euro)
+3. **Stärken & Potenziale** (positive Aspekte hervorheben)
+4. **Vermarktungsempfehlung** (beste Verkaufskanäle)
+5. **Fazit** (Investment-Potenzial, Zukunftsaussichten)
+
+WICHTIG: Sei konsistent und realistisch bei der Preisbewertung!"""
+        
+        claude_response = claude_client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=1000,
+            temperature=0.0,  # Wichtig für Konsistenz!
+            system=claude_system_prompt,
+            messages=[{"role": "user", "content": user_prompt}]
+        )
+        results["claude"] = claude_response.content[0].text.strip()
+        logging.info("Claude: Success")
+        
+    except Exception as e:
+        results["claude"] = f"Claude Error: {str(e)}"
+        logging.error(f"Claude Error: {e}")
+    
+    # Vergleichsinfo hinzufügen
+    results["info"] = {
+        "timestamp": "2025-07-29",
+        "gpt_model": MODEL_ID,
+        "claude_model": "claude-sonnet-4-20250514",
+        "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
+        "test_data": req.dict()
+    }
+    
+    return results
+
+# ───────────────────────────────
 #  Health Check
 # ───────────────────────────────
 @app.get("/health")
