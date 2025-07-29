@@ -290,7 +290,7 @@ def debug_comparison(req: BewertungRequest):
     try:
         logging.info("Testing GPT-4o...")
         gpt_messages = [
-            {"role": "system", "content": SYS_PROMPT},
+            {"role": "system", "content": GPT_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ]
         
