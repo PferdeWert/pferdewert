@@ -239,13 +239,13 @@ if (customerEmail) {
     subject: "🐴 Deine Pferdebewertung ist fertig!",
     html: `
       <h2>Hallo!</h2>
-      <p>Deine Pferdebewertung ist jetzt verfügbar.</p>
-      
+      <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
+          <br> 
       <p><strong><a href="https://pferdewert.de/ergebnis?session_id=${sessionId}" 
          style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
          🐴 Zur Bewertung & PDF-Download
       </a></strong></p>
-      
+          <br>
       <p><small>Falls der Button nicht funktioniert:<br>
       https://pferdewert.de/ergebnis?session_id=${sessionId}</small></p>
       
