@@ -291,26 +291,6 @@ def debug_comparison(req: BewertungRequest):
         results["claude"] = f"Claude Error: {str(e)}"
         logging.error(f"Claude Error: {e}")
 
-    # O3 Test (identisch zu GPT-4o, aber separat für Vergleich)
-    try:
-        logging.info("Testing O3...")
-        o3_messages = [
-            {"role": "system", "content": GPT_SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt}
-        ]
-        o3_response = openai_client.chat.completions.create(
-            model="gpt-4o",  # Identisch zu GPT-Test, aber separater Run
-            messages=o3_messages,
-            temperature=0.0,
-            top_p=0.8,
-            seed=54321,  # bewusst anderer seed als GPT für Variation
-            max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(o3_messages)),
-        )
-        results["o3"] = o3_response.choices[0].message.content.strip()
-        logging.info("O3: Success")
-    except Exception as e:
-        results["o3"] = f"O3 Error: {str(e)}"
-        logging.error(f"O3 Error: {e}")
 
     # Vergleichsinfo hinzufügen
     results["info"] = {
@@ -319,7 +299,6 @@ def debug_comparison(req: BewertungRequest):
         "claude_model": CLAUDE_MODEL,
         "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
         "test_data": req.dict(),
-        "o3_model": "gpt-4o",
     }
 
     return results
