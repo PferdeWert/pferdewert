@@ -85,7 +85,6 @@ GPT_SYSTEM_PROMPT = os.getenv(
 )
 
 # Claude Prompt für Tests = GPT Prompt
-# (angepasst für Claude-Stil, aber inhaltlich identisch)
 CLAUDE_SYSTEM_PROMPT = GPT_SYSTEM_PROMPT
 
 # ───────────────────────────────
@@ -285,7 +284,7 @@ def debug_comparison(req: BewertungRequest):
             import anthropic
             claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
         
-        # Claude System Prompt (angepasst für GPT-Stil)
+        # Claude System Prompt
         claude_system_prompt = GPT_SYSTEM_PROMPT
         
         claude_response = claude_client.messages.create(
@@ -302,15 +301,38 @@ def debug_comparison(req: BewertungRequest):
         results["claude"] = f"Claude Error: {str(e)}"
         logging.error(f"Claude Error: {e}")
     
+   # O3 Test - NEU
+    try:
+    logging.info("Testing O3...")
+    
+    if not openai_client:
+        raise Exception("OpenAI client not available")
+    
+    # O3 benötigt responses API statt chat.completions
+    o3_response = openai_client.responses.create(
+        model="o3",
+        messages=[
+            {"role": "system", "content": GPT_SYSTEM_PROMPT},  # <- Bestehenden Prompt verwenden
+            {"role": "user", "content": user_prompt}
+        ]
+    )
+    results["o3"] = o3_response.content[0].text.strip()
+    logging.info("O3: Success")
+    
+    except Exception as e:
+    results["o3"] = f"O3 Error: {str(e)}"
+    logging.error(f"O3 Error: {e}")
+
     # Vergleichsinfo hinzufügen
     results["info"] = {
         "timestamp": "2025-07-29",
         "gpt_model": MODEL_ID,
         "claude_model": CLAUDE_MODEL,
         "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
-        "test_data": req.dict()
+        "test_data": req.dict(),
+        "o3_model": "o3",
     }
-    
+
     return results
 
 # ───────────────────────────────
