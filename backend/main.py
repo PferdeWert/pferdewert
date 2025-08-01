@@ -343,7 +343,7 @@ FORMAT:
 WICHTIG: Sei konsistent und realistisch bei der Preisbewertung!"""
         
         claude_response = claude_client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model=CLAUDE_MODEL,
             max_tokens=1000,
             temperature=0.0,  # Wichtig für Konsistenz!
             system=claude_system_prompt,
