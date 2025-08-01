@@ -233,7 +233,7 @@ def bewertung(req: BewertungRequest):
 # ───────────────────────────────
 @app.post("/api/debug-comparison")
 def debug_comparison(req: BewertungRequest):
-    """Debug-Endpoint: Vergleich GPT vs Claude parallel"""
+    """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
     logging.info(f"Debug Comparison Request: {req.dict()}")
     
     results = {}
@@ -251,16 +251,15 @@ def debug_comparison(req: BewertungRequest):
         f"Gesundheitsstatus / AKU-Bericht: {req.aku or 'k. A.'}\n"
         f"Erfolge: {req.erfolge or 'k. A.'}"
     )
-    
-    # GPT-4o Test (wie aktuell für Kunden)
+
+    # GPT-4o Test
     try:
         logging.info("Testing GPT-4o...")
         gpt_messages = [
             {"role": "system", "content": GPT_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ]
-
-        gpt_response = openai_client.chat.completions.create(  # ← korrekte Einrückung (4 Spaces weniger)
+        gpt_response = openai_client.chat.completions.create(
             model=MODEL_ID,
             messages=gpt_messages,
             temperature=0.0,
@@ -270,58 +269,48 @@ def debug_comparison(req: BewertungRequest):
         )
         results["gpt"] = gpt_response.choices[0].message.content.strip()
         logging.info("GPT-4o: Success")
-        
     except Exception as e:
         results["gpt"] = f"GPT Error: {str(e)}"
         logging.error(f"GPT-4o Error: {e}")
-    
-    # Claude Test (immer testen, unabhängig von USE_CLAUDE)
+
+    # Claude Test
     try:
         logging.info("Testing Claude...")
-        
-        # Prüfen ob Claude Client verfügbar ist
-        if not hasattr(globals(), 'claude_client') or claude_client is None:
-            import anthropic
+        if not claude_client:
             claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        
-        # Claude System Prompt
-        claude_system_prompt = GPT_SYSTEM_PROMPT
-        
         claude_response = claude_client.messages.create(
             model=CLAUDE_MODEL,
             max_tokens=1000,
-            temperature=0.0,  # Wichtig für Konsistenz!
-            system=claude_system_prompt,
+            temperature=0.0,
+            system=CLAUDE_SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_prompt}]
         )
         results["claude"] = claude_response.content[0].text.strip()
         logging.info("Claude: Success")
-        
     except Exception as e:
         results["claude"] = f"Claude Error: {str(e)}"
         logging.error(f"Claude Error: {e}")
-    
-   # O3 Test - NEU
+
+    # O3 Test (identisch zu GPT-4o, aber separat für Vergleich)
     try:
-    logging.info("Testing O3...")
-    
-    if not openai_client:
-        raise Exception("OpenAI client not available")
-    
-    # O3 benötigt responses API statt chat.completions
-    o3_response = openai_client.responses.create(
-        model="o3",
-        messages=[
-            {"role": "system", "content": GPT_SYSTEM_PROMPT},  # <- Bestehenden Prompt verwenden
+        logging.info("Testing O3...")
+        o3_messages = [
+            {"role": "system", "content": GPT_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ]
-    )
-    results["o3"] = o3_response.content[0].text.strip()
-    logging.info("O3: Success")
-    
+        o3_response = openai_client.chat.completions.create(
+            model="gpt-4o",  # Identisch zu GPT-Test, aber separater Run
+            messages=o3_messages,
+            temperature=0.0,
+            top_p=0.8,
+            seed=54321,  # bewusst anderer seed als GPT für Variation
+            max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(o3_messages)),
+        )
+        results["o3"] = o3_response.choices[0].message.content.strip()
+        logging.info("O3: Success")
     except Exception as e:
-    results["o3"] = f"O3 Error: {str(e)}"
-    logging.error(f"O3 Error: {e}")
+        results["o3"] = f"O3 Error: {str(e)}"
+        logging.error(f"O3 Error: {e}")
 
     # Vergleichsinfo hinzufügen
     results["info"] = {
@@ -330,7 +319,7 @@ def debug_comparison(req: BewertungRequest):
         "claude_model": CLAUDE_MODEL,
         "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
         "test_data": req.dict(),
-        "o3_model": "o3",
+        "o3_model": "gpt-4o",
     }
 
     return results
