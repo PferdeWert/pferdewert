@@ -360,7 +360,7 @@ WICHTIG: Sei konsistent und realistisch bei der Preisbewertung!"""
     results["info"] = {
         "timestamp": "2025-07-29",
         "gpt_model": MODEL_ID,
-        "claude_model": "claude-sonnet-4-20250514",
+        "claude_model": CLAUDE_MODEL,
         "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
         "test_data": req.dict()
     }
