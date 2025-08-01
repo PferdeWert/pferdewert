@@ -228,6 +228,38 @@ const mailResult = await resend.emails.send({
   console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
 }
 
+// 📧 Email an Kunden
+const customerEmail = session.customer_details?.email;
+
+if (customerEmail) {
+  try {
+  await resend.emails.send({
+    from: "PferdeWert <info@pferdewert.de>",
+    to: customerEmail,
+    subject: "🐴 Deine Pferdebewertung ist fertig!",
+    html: `
+      <h2>Hallo!</h2>
+      <p>Deine Pferdebewertung ist jetzt verfügbar.</p>
+      
+      <p><strong><a href="https://pferdewert.de/ergebnis?session_id=${sessionId}" 
+         style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
+         🐴 Zur Bewertung & PDF-Download
+      </a></strong></p>
+      
+      <p><small>Falls der Button nicht funktioniert:<br>
+      https://pferdewert.de/ergebnis?session_id=${sessionId}</small></p>
+      
+      <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
+    `
+  });
+  console.log("✅ [WEBHOOK] Kunden-Mail gesendet an:", customerEmail);
+  } catch (err) {
+    console.error("❌ [WEBHOOK] Fehler beim Kunden-Mailversand:", err);
+  }
+} else {
+  console.warn("⚠️ [WEBHOOK] Keine Kunden-Email verfügbar");
+}
+
       return res.status(200).end("Done");
     } catch (err) {
       console.error("❌ [WEBHOOK] Fehler bei Bewertung:", err);
@@ -238,5 +270,6 @@ const mailResult = await resend.emails.send({
     console.log("ℹ️ [WEBHOOK] Event ignoriert:", event.type);
   }
 
+  
   res.status(200).end("Event ignoriert");
 }
