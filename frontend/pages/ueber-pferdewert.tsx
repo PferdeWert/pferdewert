@@ -25,58 +25,6 @@ export default function UeberUns() {
       </Head>
 
       <div className="flex-1">
-        {/* CSS Styles */}
-        <style jsx>{`
-          section[id] {
-            scroll-margin-top: 4rem;
-          }
-          .hero-fade-in-left {
-            animation: fadeInLeft 1s ease 0.2s both;
-          }
-          .hero-fade-in-right {
-            animation: fadeInRight 1s ease 0.5s both;
-          }
-          .section-fade-in {
-            animation: fadeInUp 0.8s ease 0.3s both;
-          }
-          @keyframes fadeInLeft {
-            from { 
-              opacity: 0; 
-              transform: translateX(-10px); 
-            }
-            to { 
-              opacity: 1; 
-              transform: translateX(0); 
-            }
-          }
-          @keyframes fadeInRight {
-            from { 
-              opacity: 0; 
-              transform: translateX(10px); 
-            }
-            to { 
-              opacity: 1; 
-              transform: translateX(0); 
-            }
-          }
-          @keyframes fadeInUp {
-            from { 
-              opacity: 0; 
-              transform: translateY(20px); 
-            }
-            to { 
-              opacity: 1; 
-              transform: translateY(0); 
-            }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .hero-fade-in-left,
-            .hero-fade-in-right,
-            .section-fade-in {
-              animation: none;
-            }
-          }
-        `}</style>
 
         {/* Hero Section */}
         <section id="hero" className="relative overflow-hidden">
