@@ -105,10 +105,10 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
     <Document title="PferdeWert-Analyse">
       <Page size="A4" style={styles.page} wrap>
       <View style={styles.header} fixed>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
         src={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png` : '/logo.png'}
         style={styles.logo}
-        //alt="PferdeWert Logo" macht den Code kaputt: kompatibel mit @react-pdf/renderer, da es kein echtes "alt" unterstützt
         />
         <Text style={styles.title}>PferdeWert-Analyse</Text>
       </View>

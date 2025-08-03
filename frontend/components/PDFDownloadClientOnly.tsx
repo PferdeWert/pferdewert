@@ -105,6 +105,7 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
       <Page size="A4" style={styles.page} wrap>
         <View style={styles.header} fixed>
           {/* @react-pdf/renderer unterstützt kein echtes "alt", aber Sie können ein unsichtbares Text-Element hinzufügen */}
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image src="/logo.png" style={styles.logo} />
           <Text style={{ fontSize: 0, height: 0, width: 0, opacity: 0, position: 'absolute' }}>
         PferdeWert Logo
