@@ -204,6 +204,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [consent, setConsent] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
@@ -355,9 +356,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   const currentStepData = stepData.find(s => s.id === currentStep);
 
-  // Client-only state für bessere SSR-Kompatibilität
-  const [isMounted, setIsMounted] = useState(false);
-  
+  // isMounted useEffect für client-only features
   useEffect(() => {
     setIsMounted(true);
   }, []);
