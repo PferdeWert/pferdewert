@@ -20,8 +20,8 @@
 
 ## 💳 Zahlungsabwicklung mit Stripe
 
-* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet
-* **PayPal:** Noch nicht aktiv (Business-Konto erforderlich)
+* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet, PayPal
+* **PayPal:** ✅ Live und aktiv
 * **Checkout:** Weiterleitung zu Stripe gehostetem Checkout
 * **Session-Verarbeitung:** `session_id` wird im Query empfangen, Validierung erfolgt über `GET /api/session`
 * **Zugriffsschutz:** Ergebnisseite nur nach erfolgreicher Zahlung sichtbar, sonst Weiterleitung zu `/bewerten`
@@ -149,7 +149,7 @@
 * [ ] **A/B Testing:** Cookie-Banner Texte optimieren
 
 ### Mittelfristig (1-2 Monate):
-* [ ] **PayPal Integration:** Business-Konto einrichten
+* [x] **PayPal Integration:** Business-Konto einrichten ✅ Erledigt
 * [ ] **User Feedback:** Bewertungs-System für Service-Qualität
 * [ ] **Content Marketing:** Blog-Sektion für SEO
 
