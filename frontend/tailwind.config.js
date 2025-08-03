@@ -6,6 +6,8 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./styles/**/*.{js,ts,jsx,tsx,css}",
   ],
+  // Enable JIT mode for smaller CSS bundles
+  mode: 'jit',
   theme: {
     extend: {
       fontFamily: {

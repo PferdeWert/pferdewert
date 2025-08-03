@@ -100,44 +100,6 @@ export default function PferdeWertHomepage() {
       </Head>
 
       <main className="min-h-screen">
-        {/* Scroll offset für sticky header */}
-        <style jsx>{`
-          section[id] {
-            scroll-margin-top: 4rem;
-          }
-          .hero-fade-in-left {
-            animation: fadeInLeft 1s ease 0.2s both;
-          }
-          .hero-fade-in-right {
-            animation: fadeInRight 1s ease 0.5s both;
-          }
-          @keyframes fadeInLeft {
-            from { 
-              opacity: 0; 
-              transform: translateX(-10px); 
-            }
-            to { 
-              opacity: 1; 
-              transform: translateX(0); 
-            }
-          }
-          @keyframes fadeInRight {
-            from { 
-              opacity: 0; 
-              transform: translateX(10px); 
-            }
-            to { 
-              opacity: 1; 
-              transform: translateX(0); 
-            }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .hero-fade-in-left,
-            .hero-fade-in-right {
-              animation: none;
-            }
-          }
-        `}</style>
 
         {/* Hero Section */}
         <section id="bewertung" className="relative overflow-hidden">
@@ -203,7 +165,7 @@ export default function PferdeWertHomepage() {
 
               {/* Right Image */}
               <div className="relative hero-fade-in-right">
-                <div className="relative">
+                <div className="relative hero-fade-in-right">
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-brown/20 to-brand-gold/20 rounded-3xl blur-3xl"></div>
                   <Image
                     src="/images/blossi-shooting.webp"
@@ -213,6 +175,8 @@ export default function PferdeWertHomepage() {
                     sizes="(min-width: 1024px) 600px, 100vw"
                     className="relative rounded-3xl shadow-2xl object-cover"
                     priority
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bvND+0532KzGVhZQAAAAD//Z"
                   />
                 </div>
               </div>

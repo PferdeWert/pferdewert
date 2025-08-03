@@ -1,12 +1,29 @@
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
-import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
-import PferdeWertPDF from "@/components/PferdeWertPDF";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import dynamic from "next/dynamic";
+
+// Dynamic import for ReactMarkdown - only loaded when needed
+const ReactMarkdown = dynamic(() => import("react-markdown"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-200 h-96 rounded"></div>,
+});
 import { log, warn, error } from "@/lib/log";
 import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
+
+// Dynamic imports for heavy PDF libraries - only loaded when needed
+const PferdeWertPDF = dynamic(() => import("@/components/PferdeWertPDF"), {
+  ssr: false,
+});
+
+const PDFDownloadLink = dynamic(
+  () => import("@react-pdf/renderer").then((mod) => ({ default: mod.PDFDownloadLink })),
+  {
+    ssr: false,
+    loading: () => <button className="btn-primary">PDF wird vorbereitet...</button>,
+  }
+);
 
 
 

@@ -229,9 +229,9 @@ if (denyButton) {
       <>
         <Script 
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-config" strategy="afterInteractive">
+        <Script id="ga-config" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -252,10 +252,10 @@ if (denyButton) {
       </>
     )}
 
-      {/* ✅ BESTEHEND: Cookie Script */}
+      {/* ✅ OPTIMIERT: Cookie Script mit Lazy Loading */}
       <Script
         src="/js/cookieconsent.min.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         onLoad={initCookieConsent}
       />
     </>
