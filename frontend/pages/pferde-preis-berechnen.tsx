@@ -210,8 +210,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   // Formular bei Start wiederherstellen
   useEffect(() => {
-    // SSR-Sicherheit innerhalb des useEffect
-    if (typeof window === "undefined") return;
+    if (!isMounted) return;
     
     const savedForm = localStorage.getItem(STORAGE_KEY);
     if (savedForm) {
@@ -223,15 +222,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         console.warn("Fehler beim Wiederherstellen des Formulars:", e);
       }
     }
-  }, []);
+  }, [isMounted]);
 
   // Formularwerte speichern bei jedem Change
   useEffect(() => {
-    // SSR-Sicherheit innerhalb des useEffect
-    if (typeof window === "undefined") return;
+    if (!isMounted) return;
     
     localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
-  }, [form]);
+  }, [form, isMounted]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
@@ -264,6 +262,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         const next = Math.min(prev + 1, stepData.length);
 
         setTimeout(() => {
+          if (!isMounted) return;
+          
           const isMobile = window.innerWidth < 768;
           const targetElement = document.getElementById(
             isMobile ? "wizard-card" : "wizard-start"
@@ -328,8 +328,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         const data = await res.json() as { url: string };
         const { url } = data;
         // Formular aus localStorage löschen bei erfolgreicher Einreichung
-        localStorage.removeItem(STORAGE_KEY);
-        console.log("Formular erfolgreich eingereicht - localStorage geleert");
+        if (isMounted) {
+          localStorage.removeItem(STORAGE_KEY);
+          console.log("Formular erfolgreich eingereicht - localStorage geleert");
+        }
         window.location.href = url;
       } else {
         const errorData = await res.json() as { error?: string };
@@ -353,10 +355,12 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   const currentStepData = stepData.find(s => s.id === currentStep);
 
-  // SSR-Sicherheit - NACH allen Hooks
-  if (typeof window === "undefined") {
-    return <div>Loading...</div>;
-  }
+  // Client-only state für bessere SSR-Kompatibilität
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
