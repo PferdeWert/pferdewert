@@ -33,6 +33,7 @@
     "@types/styled-jsx": "^2.2.9",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
+    "cssnano": "^7.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "husky": "^9.1.7",
