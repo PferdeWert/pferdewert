@@ -569,7 +569,7 @@ This project uses multiple MCP (Model Context Protocol) servers for enhanced AI 
       "command": "npx",
       "args": ["-y", "@notionhq/notion-mcp-server"],
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer NOTION_TOKEN_REMOVED\", \"Notion-Version\": \"2022-06-28\" }"
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer NOTION_API_TOKEN\", \"Notion-Version\": \"2022-06-28\" }"
       }
     }
   }
