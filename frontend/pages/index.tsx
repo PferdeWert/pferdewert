@@ -59,6 +59,21 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:description" content="Marktwert berechnen ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min KI-Analyse" />
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
         <link rel="canonical" href="https://pferdewert.de/" />
+        
+        {/* Font Preloads für bessere Performance */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
+        />
 
         {/* Structured Data für SEO */}
         <script
@@ -172,7 +187,7 @@ export default function PferdeWertHomepage() {
                     alt="Unser Pferd Blossom beim Photoshooting - Professionelle Pferdebewertung Beispiel"
                     width={600}
                     height={600}
-                    sizes="(min-width: 1024px) 600px, 100vw"
+                    sizes="(min-width: 1024px) 600px, (min-width: 768px) 80vw, 90vw"
                     className="relative rounded-3xl shadow-2xl object-cover"
                     priority
                     placeholder="blur"
