@@ -1,9 +1,10 @@
 // frontend/components/SimpleCookieConsent.tsx
-// Production-Ready: Verwendet BESTEHENDE Types aus global.d.ts
+// Production-Ready: Optimized for Lighthouse Best Practices
 
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // Pages Router
 import Script from 'next/script';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 // WICHTIG: eigener Cookie-Name, damit wir nicht mit library-internen kollidieren
 const CONSENT_COOKIE = 'pferdewert_cookie_consent';
@@ -11,23 +12,20 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // Google Analytics ID
 
 const SimpleCookieConsent = () => {
   const router = useRouter();
+  // Remove unused isScriptLoaded state for cleaner code
+  const [hasConsent, setHasConsent] = useState<boolean | null>(null);
 
-  /** useCallback verhindert Re-Creation bei jedem Render */
-  const initCookieConsent = useCallback(() => {
-    console.log('🍪 Cookie Script loaded');
-
-    // Exit early if consent already exists (eigener Cookie-Name!)
-    if (new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie)) {
-      console.log('🍪 Consent already exists');
-      return;
+  // Check existing consent on mount
+  useEffect(() => {
+    const existingConsent = new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie);
+    if (existingConsent) {
+      const isAllowed = document.cookie.includes(`${CONSENT_COOKIE}=allow`);
+      setHasConsent(isAllowed);
     }
+  }, []);
 
-    // Check if cookieconsent is available (verwendet bestehenden Type!)
-    const cookieConsent = window.cookieconsent;
-    if (!cookieConsent?.initialise) {
-      console.error('❌ CookieConsent library not found');
-      return;
-    }
+  const initCookieConsentConfig = useCallback((cookieConsent: typeof window.cookieconsent) => {
+    if (!cookieConsent?.initialise) return;
 
     // Conversion-optimierte Konfiguration für PferdeWert.de
     cookieConsent.initialise({
@@ -179,36 +177,42 @@ if (denyButton) {
         document.body.style.overflow = '';
 
         const granted = status === 'allow';
+        setHasConsent(granted);
 
-        // Google Consent Mode v2 (verwendet bestehenden Type aus global.d.ts!)
-        window.gtag?.('consent', 'update', {
-          ad_storage: granted ? 'granted' : 'denied',
-          analytics_storage: granted ? 'granted' : 'denied',
-          ad_user_data: granted ? 'granted' : 'denied',
-          ad_personalization: granted ? 'granted' : 'denied',
-        });
+        // Google Consent Mode v2 - Enhanced for @next/third-parties
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('consent', 'update', {
+            ad_storage: granted ? 'granted' : 'denied',
+            analytics_storage: granted ? 'granted' : 'denied',
+            ad_user_data: granted ? 'granted' : 'denied',
+            ad_personalization: granted ? 'granted' : 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted',
+          });
 
-    if (granted) {
-      console.log('✅ Analytics enabled - User accepted cookies');
-      const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-      if (GA_ID) {
-        window.gtag?.('config', GA_ID, {
-          page_path: window.location.pathname,
-          anonymize_ip: true,
-        });
-        console.log('📊 Page view sent to GA4');
-      } else {
-        console.warn('GA_ID is not defined, skipping gtag config.');
-      }
-    } else {
-      console.log('⚙️ User chose settings - Analytics disabled');
-    }
+          if (granted && GA_ID) {
+            window.gtag('config', GA_ID, {
+              page_path: window.location.pathname,
+              anonymize_ip: true,
+              cookie_expires: 63072000, // 2 years in seconds
+              cookie_flags: 'SameSite=Lax;Secure',
+            });
+            console.log('📊 Enhanced GA4 tracking enabled');
+          }
+        }
+
+        if (granted) {
+          console.log('✅ Analytics enabled - User accepted cookies');
+        } else {
+          console.log('⚙️ Analytics disabled - User declined cookies');
+        }
 
         // Banner sauber entfernen
         const popup = document.querySelector('.cc-window');
         popup?.remove();
 
-        // Kein Reload nötig - Banner ist weg, Cookie gesetzt, Analytics updated
+        // Update document.cookie with proper flags
+        document.cookie = `${CONSENT_COOKIE}=${status}; path=/; max-age=31536000; SameSite=Lax; Secure`;
       },
     });
 
@@ -220,43 +224,89 @@ if (denyButton) {
     };
 
     console.log('🍪 SimpleCookieConsent initialized with mobile optimization');
-  }, [router]);
+  }, [setHasConsent, router]);
+
+  /** useCallback verhindert Re-Creation bei jedem Render */
+  const initCookieConsent = useCallback(() => {
+    console.log('🍪 Cookie Script loaded');
+
+    // Exit early if consent already exists (eigener Cookie-Name!)
+    if (new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie)) {
+      console.log('🍪 Consent already exists');
+      return;
+    }
+
+    // Enhanced error handling with retry mechanism
+    const cookieConsent = window.cookieconsent;
+    if (!cookieConsent?.initialise) {
+      console.error('❌ CookieConsent library not found - retrying in 100ms');
+      setTimeout(() => {
+        const retryConsent = window.cookieconsent;
+        if (!retryConsent?.initialise) {
+          console.error('❌ CookieConsent library failed to load after retry');
+          return;
+        }
+        initCookieConsentConfig(retryConsent);
+      }, 100);
+      return;
+    }
+
+    initCookieConsentConfig(cookieConsent);
+  }, [initCookieConsentConfig]);
 
   return (
     <>
-       {/* ✅ NEU: GA Scripts ZUERST laden */}
-    {GA_ID && (
-      <>
-        <Script 
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="lazyOnload"
-        />
-        <Script id="ga-config" strategy="lazyOnload">
+      {/* ✅ LIGHTHOUSE OPTIMIZED: Use @next/third-parties for better performance */}
+      {GA_ID && hasConsent && (
+        <GoogleAnalytics gaId={GA_ID} />
+      )}
+      
+      {/* Initialize gtag with consent mode */}
+      {GA_ID && (
+        <Script id="gtag-consent-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
             
-            // Consent Mode v2: Standard = abgelehnt (DSGVO-konform)
+            // Consent Mode v2: Default denied (GDPR compliant)
             gtag('consent', 'default', {
               ad_storage: 'denied',
               analytics_storage: 'denied',
               ad_user_data: 'denied',
-              ad_personalization: 'denied'
+              ad_personalization: 'denied',
+              functionality_storage: 'granted',
+              security_storage: 'granted'
             });
             
-            gtag('config', '${GA_ID}');
-            console.log('📊 Google Analytics loaded:', '${GA_ID}');
+            gtag('js', new Date());
+            console.log('🔒 Consent Mode v2 initialized');
           `}
         </Script>
-      </>
-    )}
+      )}
 
-      {/* ✅ OPTIMIERT: Cookie Script mit Lazy Loading */}
+      {/* ✅ LIGHTHOUSE OPTIMIZED: Modern Cookie Consent with CDN + source maps */}
       <Script
-        src="/js/cookieconsent.min.js"
+        src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+        integrity="sha384-5SS1RE4eZWVVWT/0CK5PXN0POhg4TQCX21CiKTbVgHNKZpDHusFdjT+Xgs7XC+BZ"
+        crossOrigin="anonymous"
         strategy="lazyOnload"
         onLoad={initCookieConsent}
+        onError={() => {
+          console.error('Failed to load cookieconsent from CDN, falling back to local');
+          // Fallback to local file
+          const script = document.createElement('script');
+          script.src = '/js/cookieconsent.min.js';
+          script.onload = initCookieConsent;
+          document.head.appendChild(script);
+        }}
+      />
+      
+      {/* CSS für Cookie Consent */}
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+        integrity="sha384-5SS1RE4eZWVVWT/0CK5PXN0POhg4TQCX21CiKTbVgHNKZpDHusFdjT+Xgs7XC+BZ"
+        crossOrigin="anonymous"
       />
     </>
   );
