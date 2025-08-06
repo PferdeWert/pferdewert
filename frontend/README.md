@@ -46,3 +46,36 @@ Run ESLint with:
 ```bash
 npm run lint
 ```
+
+## Testing with Playwright MCP
+
+This project integrates with Playwright MCP for visual testing and browser automation. See [PLAYWRIGHT.md](./PLAYWRIGHT.md) for detailed testing scenarios.
+
+### Quick Visual Testing
+
+When making UI changes, always validate visually:
+
+```typescript
+// Through Claude Code Playwright MCP:
+await page.goto('http://localhost:3000');
+await page.screenshot({ path: 'homepage.png', fullPage: true });
+```
+
+### Key Test Scenarios
+
+- **Horse valuation form flow**: End-to-end form submission and result validation
+- **Multi-language support**: German/English translation testing  
+- **Payment integration**: Stripe checkout flow testing
+- **PDF generation**: Download and content validation
+- **Mobile responsiveness**: Cross-device layout testing
+- **Performance monitoring**: Core Web Vitals measurement
+
+### Development Workflow
+
+1. Make changes to components/pages
+2. Use Playwright MCP through Claude Code to take screenshots
+3. Validate visual changes and functionality
+4. Iterate based on visual feedback
+5. Run `npm run lint` and `npm run type-check` before committing
+
+For complete testing documentation, see [PLAYWRIGHT.md](./PLAYWRIGHT.md).
