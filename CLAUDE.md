@@ -1,150 +1,39 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Project Overview
-
-PferdeWert is an AI-assisted service for estimating the market value of horses. The project combines a Next.js frontend with a FastAPI backend that communicates with AI services (OpenAI GPT & Anthropic Claude).
-
-## Development Setup
-
-### Frontend (Next.js)
-```bash
-cd frontend
-npm install
-npm run dev        # Starts development server on port 3000
-npm run lint       # ESLint checking
-npm run type-check # TypeScript type checking
-```
-
-### Backend (FastAPI)
-```bash
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-```
-
-### Environment Variables Required
-- `OPENAI_API_KEY` - OpenAI API access
-- `ANTHROPIC_API_KEY` - Claude API access  
-- `MONGODB_URI` - MongoDB connection string
-- `PW_MODEL` - OpenAI model to use (default: gpt-4o)
-- `USE_CLAUDE` - Whether to use Claude as primary AI (true/false)
+PferdeWert.de - AI-assisted horse market value estimation platform.
 
 ## Architecture
+- **Frontend**: Next.js 15 (Pages Router) + TypeScript + Tailwind + Stripe
+- **Backend**: FastAPI + MongoDB + Dual AI (GPT/Claude)
+- **Deployment**: Frontend on Vercel, Backend on Render
 
-### Frontend Structure
-- **Next.js 15** with TypeScript and React 19
-- **Tailwind CSS** for styling
-- **Pages Router** (not App Router)
-- **MongoDB** integration via `/lib/mongo.ts`
-- **Stripe** for payments
-- **PDF generation** using jsPDF and @react-pdf/renderer
-
-Key directories:
-- `pages/` - Next.js pages and API routes
-- `components/` - React components
-- `lib/` - Utilities (mongo.ts, log.ts, pdfLayout.ts)
-- `styles/` - CSS files
-
-### Backend Structure
-- **FastAPI** with Python
-- **Dual AI system**: GPT (primary) + Claude (benchmark/comparison)
-- **Pydantic** models for request validation
-- **Token counting** with tiktoken
-- **CORS** configured for frontend domains
-
-Main endpoints:
-- `POST /api/bewertung` - Horse valuation
-- `POST /api/debug-comparison` - Compare AI models
-- `GET /health` - Health check
-
-### Database
-- **MongoDB** with connection caching
-- Collections accessed via `getCollection()` helper
-- Used for storing Stripe sessions and horse evaluation data
-
-## TypeScript & ESLint Rules
-
-**Critical requirements** (from TYPESCRIPT_GUIDELINES.md):
-- **Never use `any` type** - `@typescript-eslint/no-explicit-any` is enabled
-- **No CommonJS require()** - Use ES6 imports only
-- **Window object extensions** - Properly typed in `types/global.d.ts`
-
-### Allowed Patterns
-```typescript
-// ✅ Correct: Window extensions in types/global.d.ts
-declare global {
-  interface Window {
-    cookieconsent?: {
-      initialise?: (config: Record<string, unknown>) => void;
-    };
-  }
-}
-
-// ✅ Correct: Safe external library usage
-const cookieConsent = window.cookieconsent;
-if (!cookieConsent?.initialise) return;
-```
-
-### Forbidden Patterns
-```typescript
-// ❌ Never do this
-const cookieConsent = (window as any).cookieconsent;
-const CookieConsent = require("@/components/CookieConsent");
-```
-
-## Code Quality Standards
-
-### Coding Guidelines Documentation
-**IMPORTANT: All AI agents and developers must follow these guidelines:**
-
-- **[`FRONTEND_CODING_GUIDELINES.md`](./FRONTEND_CODING_GUIDELINES.md)** - **PRIMARY** React/Next.js development standards
-- **[`TYPESCRIPT_GUIDELINES.md`](./TYPESCRIPT_GUIDELINES.md)** - TypeScript rules and ESLint configuration
-- **[`DESIGN_GUIDELINES.md`](./DESIGN_GUIDELINES.md)** - UI/UX design standards and component patterns
-- **[`Coding-Guidelines.md`](./Coding-Guidelines.md)** - General best practices and backend API standards
-
-### Pre-commit Requirements
+## Development Commands
 ```bash
-npm run lint       # Must return 0 errors
-npm run type-check # Must return 0 errors
+# Frontend
+cd frontend && npm run dev     # Port 3000
+npm run lint && npm run type-check  # REQUIRED before commits
+
+# Backend  
+cd backend && uvicorn main:app --reload --port 8000
 ```
 
-**CRITICAL: Claude must ALWAYS run these commands before any git commit!**
-- Never commit without running lint and type-check first
-- This prevents runtime errors, hydration issues, and TypeScript problems
-- If either command fails, fix the issues before committing
+## Critical Rules
+- **Never use `any` type** - ESLint enforced
+- **No `require()`** - ES6 imports only
+- **Always run lint + type-check before commits**
+- **Use Context7**: Prefix prompts with "use context7" for current docs
 
-### Key Frontend Standards (see FRONTEND_CODING_GUIDELINES.md for details)
-- **Context7 Usage**: ALWAYS prefix development prompts with "use context7" for current documentation
-- **Import all modules**: Prevent `'X is not defined'` errors
-- **Custom logging**: Use `import { info, warn, error } from '@/lib/log'` instead of `console.log`
-- **TypeScript strict**: No `any` types, no `require()` imports
-- **Async patterns**: Proper try/catch, loading states, error handling
-- **React Hooks**: Top-level only, dependency arrays, cleanup functions
-- **Responsive design**: Mobile-first with Tailwind classes
-- **Accessibility**: Semantic HTML, ARIA attributes, form labels
+## Key Files
+- `pages/` - Next.js routes
+- `components/` - React components  
+- `lib/mongo.ts` - Database connection
+- `types/global.d.ts` - Window extensions
 
-### Backend Best Practices
-- **Context7 Usage**: ALWAYS prefix development prompts with "use context7" for current documentation
-- Validate inputs with Pydantic/Zod schemas
-- Use async/await for all asynchronous operations
-- Wrap external calls in try/catch blocks
-- Ensure every API path sends exactly one response
-- Use structured logging (avoid console.log in production)
-
-## Git Workflow
-- Husky pre-commit hooks run ESLint and Prettier
-- All files are formatted with Prettier on commit
-- lint-staged processes TypeScript/JavaScript files
-
-## Deployment
-- Backend: Deployed on Render using `render.yaml`
-- Frontend: Likely Vercel deployment
-- Build command: `pip install -r requirements.txt` (backend)
-- Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+## Detailed Guidelines
+See separate files for full standards:
+- **[FRONTEND_CODING_GUIDELINES.md](./FRONTEND_CODING_GUIDELINES.md)** - React/Next.js standards
+- **[TYPESCRIPT_GUIDELINES.md](./TYPESCRIPT_GUIDELINES.md)** - TS/ESLint rules  
+- **[DESIGN_GUIDELINES.md](./DESIGN_GUIDELINES.md)** - UI/UX patterns
 
 ## Playwright MCP Integration
 
