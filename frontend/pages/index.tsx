@@ -60,20 +60,22 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
         <link rel="canonical" href="https://pferdewert.de/" />
         
-        {/* Font Preloads für bessere Performance */}
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
-        />
+        {/* Critical CSS für above-the-fold Content */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .hero-fade-in-left,.hero-fade-in-right{opacity:1;transform:none}
+            @media(min-width:768px){
+              .hero-fade-in-left{animation:fadeInLeft 1s ease 0.2s both}
+              .hero-fade-in-right{animation:fadeInRight 1s ease 0.2s both}
+            }
+            @keyframes fadeInLeft{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+            @keyframes fadeInRight{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
+            .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.75rem 1.5rem;background-color:#8B4513;color:#fff;font-weight:700;border-radius:1rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);transition:all 0.3s;text-decoration:none}
+            .btn-primary:hover{background-color:#7A3F12}
+            .btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.75rem 1.5rem;border:1px solid #8B4513;color:#8B4513;background:#fff;font-weight:700;border-radius:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);transition:all 0.3s;text-decoration:none}
+            .btn-secondary:hover{background-color:#f9fafb}
+          `
+        }} />
 
         {/* Structured Data für SEO */}
         <script

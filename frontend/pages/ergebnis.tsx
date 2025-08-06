@@ -2,17 +2,16 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import BewertungLayout from "@/components/BewertungLayout";
 import dynamic from "next/dynamic";
+import { log, warn, error } from "@/lib/log";
+import Head from "next/head";
+import Layout from "@/components/Layout";
 
-// Dynamic import for ReactMarkdown - only loaded when needed
+// Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
   ssr: false,
   loading: () => <div className="animate-pulse bg-gray-200 h-96 rounded"></div>,
 });
-import { log, warn, error } from "@/lib/log";
-import Head from "next/head";
-import Layout from "@/components/Layout"; // Footer via Layout integriert
 
-// Dynamic imports for heavy PDF libraries - only loaded when needed
 const PferdeWertPDF = dynamic(() => import("@/components/PferdeWertPDF"), {
   ssr: false,
 });
@@ -141,7 +140,7 @@ export default function Ergebnis() {
               document={<PferdeWertPDF markdownData={text} />}
               fileName="PferdeWert-Analyse.pdf"
             >
-              {({ loading }) => (
+              {({ loading }: { loading: boolean }) => (
                 <button className="btn-primary">
                   {loading ? "Lade PDF..." : "Als PDF herunterladen"}
                 </button>
