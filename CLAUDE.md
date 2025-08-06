@@ -569,7 +569,7 @@ This project uses multiple MCP (Model Context Protocol) servers for enhanced AI 
       "command": "npx",
       "args": ["-y", "@notionhq/notion-mcp-server"],
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer NOTION_API_TOKEN\", \"Notion-Version\": \"2022-06-28\" }"
+        "NOTION_API_KEY": "your-notion-api-key-here"
       }
     }
   }
@@ -658,6 +658,8 @@ PferdeWert nutzt Gemini CLI für einfache Code-Tasks, um Claude Tokens zu sparen
 ```
 
 **Note**: MongoDB access intentionally excluded - database operations remain with Claude for security and complexity reasons.
+
+**CRITICAL**: NEVER store actual API keys, tokens, or secrets in CLAUDE.md - use placeholder text only!
 
 ### Usage Examples
 
