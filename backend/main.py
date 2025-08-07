@@ -229,11 +229,17 @@ def bewertung(req: BewertungRequest):
         }
 
 # ───────────────────────────────
-#  API-DEBUG-Endpoint
+#  API-DEBUG-Endpoint - DISABLED FOR SECURITY
 # ───────────────────────────────
+# SECURITY FIX: Debug endpoint disabled to prevent unauthorized access to internal AI responses
+# This endpoint exposed both GPT and Claude responses without authentication, which could
+# allow attackers to abuse the AI services and access sensitive model interactions.
+# Uncomment only for local development/testing purposes with proper access controls.
+
+"""
 @app.post("/api/debug-comparison")
 def debug_comparison(req: BewertungRequest):
-    """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
+    \"""Debug-Endpoint: Vergleich GPT vs Claude vs O3\"""
     logging.info(f"Debug Comparison Request: {req.dict()}")
     
     results = {}
@@ -302,6 +308,7 @@ def debug_comparison(req: BewertungRequest):
     }
 
     return results
+"""
 
 # ───────────────────────────────
 #  Health Check

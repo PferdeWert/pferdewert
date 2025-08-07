@@ -80,7 +80,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       console.log("✅ [WEBHOOK] MongoDB-Dokument gefunden:");
       console.log("🔥 [WEBHOOK] Dokument ID:", doc._id);
-      console.log("🔥 [WEBHOOK] Dokument Daten:", JSON.stringify(doc, null, 2));
+      console.log("🔥 [WEBHOOK] Dokument gefunden:", doc._id.toString());
 
       const {
         rasse,
@@ -112,8 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         verwendungszweck,
       };
 
-      console.log("🔥 [WEBHOOK] Daten für FastAPI:");
-      console.log(JSON.stringify(bewertbareDaten, null, 2));
+      console.log("🔥 [WEBHOOK] Daten für FastAPI vorbereitet");
 
       console.log("🔥 [WEBHOOK] Rufe FastAPI auf:", `${BACKEND_URL}/api/bewertung`);
       const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
@@ -123,11 +122,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       console.log("🔥 [WEBHOOK] FastAPI Response Status:", response.status);
-      console.log("🔥 [WEBHOOK] FastAPI Response Headers:", JSON.stringify([...response.headers.entries()], null, 2));
+      console.log("🔥 [WEBHOOK] FastAPI Response Headers erhalten");
 
       const gpt_response = await response.json();
-      console.log("🔥 [WEBHOOK] FastAPI Response Body:");
-      console.log(JSON.stringify(gpt_response, null, 2));
+      console.log("🔥 [WEBHOOK] AI-Bewertung erhalten:", gpt_response?.raw_gpt ? "Erfolgreich" : "Fehler");
 
       const raw_gpt = gpt_response?.raw_gpt;
 
@@ -190,7 +188,7 @@ const formularFelderHtml = `
   <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
 `;
 
-const mailResult = await resend.emails.send({
+await resend.emails.send({
   from: "PferdeWert <kauf@pferdewert.de>",
   to: empfaenger,
   subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
@@ -223,7 +221,7 @@ const mailResult = await resend.emails.send({
 });
 
   // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
-  console.log("✅ [WEBHOOK] Resend-Mail gesendet:", mailResult);
+  console.log("✅ [WEBHOOK] Mail gesendet an:", empfaenger.join(", "));
 } catch (err) {
   console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
 }
@@ -252,7 +250,7 @@ if (customerEmail) {
       <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
     `
   });
-  console.log("✅ [WEBHOOK] Kunden-Mail gesendet an:", customerEmail);
+  console.log("✅ [WEBHOOK] Kunden-Mail gesendet an:", session.customer_email);
   } catch (err) {
     console.error("❌ [WEBHOOK] Fehler beim Kunden-Mailversand:", err);
   }

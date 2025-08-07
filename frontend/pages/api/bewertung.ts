@@ -18,9 +18,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { id } = parse.data;
 
+  // Zusätzliche Sanitization für MongoDB Security
+  const sanitizedId = id.toString().replace(/[^a-fA-F0-9]/g, ''); // Nur hex chars
+  if (sanitizedId.length !== 24) {
+    return res.status(400).json({ error: "Invalid ID format" });
+  }
+
   try {
     const collection = await getCollection("bewertungen");
-    const result = await collection.findOne({ _id: new ObjectId(id) });
+    const result = await collection.findOne({ _id: new ObjectId(sanitizedId) });
 
     if (!result || !result.bewertung) {
       return res.status(404).json({ error: "Bewertung nicht gefunden" });
