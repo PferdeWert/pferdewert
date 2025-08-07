@@ -50,14 +50,14 @@ export default function PferdeWertHomepage() {
       name: "Andrea K.",
       location: "Deutschland",
       role: "Freizeitreiterin",
-      quote: "Ich wollte mein Pferd verkaufen und war völlig unsicher beim Preis. Im Internet fand man so unterschiedliche Angaben und ich wollte nicht zu wenig verlangen, aber auch keine unrealistischen Vorstellungen haben. Die Bewertung von PferdeWert hat mir sehr geholfen eine realistische Einschätzung zu bekommen. Besonders überzeugt hat mich, dass nicht nur Alter und Rasse berücksichtigt wurden, sondern auch der Ausbildungsstand und die Gesundheit meines Pferdes. Mit dieser fundierten Einschätzung im Rücken konnte ich selbstsicher in die Verkaufsgespräche gehen und mein Pferd tatsächlich zu dem empfohlenen Preis verkaufen!",
+      quote: "Ich wollte mein Pferd verkaufen und war völlig unsicher beim Preis. Die Bewertung von PferdeWert hat mir sehr geholfen eine realistische Einschätzung zu bekommen. Besonders überzeugt hat mich, dass nicht nur Alter und Rasse berücksichtigt wurden, sondern auch Ausbildungsstand und Gesundheit. Mit dieser fundierten Einschätzung konnte ich selbstsicher in die Verkaufsgespräche gehen und mein Pferd zu dem empfohlenen Preis verkaufen!",
       rating: 5
     },
     {
       name: "Julia M.",
       location: "Deutschland",
       role: "Pferdebesitzerin",
-      quote: "Ich besitze seit fünf Jahren ein Pferd und wollte einfach aus Neugier den aktuellen Marktwert wissen. Man hört ja oft unterschiedliche Meinungen und ich war gespannt, was eine objektive Bewertung ergeben würde. Das Ergebnis von PferdeWert war super interessant und sehr ausführlich! Besonders fasziniert hat mich die detaillierte Analyse der Abstammung und wie sich verschiedene Faktoren auf den Wert auswirken. Die Bewertung hat mir auch geholfen, den Versicherungswert anzupassen und ich verstehe jetzt viel besser, worauf beim Pferdekauf wirklich zu achten ist. Eine sehr lehrreiche Erfahrung!",
+      quote: "Ich besitze seit fünf Jahren ein Pferd und wollte aus Neugier den aktuellen Marktwert wissen. Das Ergebnis von PferdeWert war super interessant und sehr ausführlich! Besonders fasziniert hat mich die detaillierte Analyse der Abstammung und wie sich verschiedene Faktoren auf den Wert auswirken. Die Bewertung hat mir geholfen, den Versicherungswert anzupassen und ich verstehe jetzt viel besser, worauf beim Pferdekauf zu achten ist.",
       rating: 5
     }
   ];
@@ -359,18 +359,18 @@ export default function PferdeWertHomepage() {
                     &quot;
                   </div>
                   
-                  {/* Customer info */}
-                  <div className="flex items-center mb-4 ml-6">
-                    <div className="relative">
+                  {/* Customer info with consistent height */}
+                  <div className="flex items-center mb-4 ml-6 min-h-[80px]">
+                    <div className="relative w-16 mr-4 flex-shrink-0">
                       <Image
                         src={realTestimonial.photo}
                         alt={`${realTestimonial.name} Profilbild`}
                         width={64}
                         height={64}
-                        className="rounded-full border-2 border-yellow-400 shadow-md object-cover"
+                        className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
                       />
                     </div>
-                    <div className="ml-4">
+                    <div>
                       <div className="font-semibold text-gray-900">{realTestimonial.name}</div>
                       <div className="text-sm text-gray-600">{realTestimonial.role}</div>
                       <div className="text-xs text-gray-500">{realTestimonial.location}</div>
@@ -421,7 +421,7 @@ export default function PferdeWertHomepage() {
                     <div className="flex items-center mb-4 ml-6 min-h-[80px]">
                       {/* Invisible placeholder to maintain alignment with photo testimonial */}
                       <div className="w-16 mr-4 flex-shrink-0">
-                        <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center border-2 border-transparent">
                           <Users className="w-8 h-8 text-gray-400" />
                         </div>
                       </div>
