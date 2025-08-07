@@ -4,7 +4,27 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle } from "lucide-react";
+import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram } from "lucide-react";
+
+// TypeScript interfaces for testimonials
+interface RealTestimonial {
+  name: string;
+  location: string;
+  role: string;
+  photo: string;
+  instagramHandle?: string;
+  quote: string;
+  verifiedDate: string;
+  rating: number;
+}
+
+interface CompositeTestimonial {
+  name: string;
+  location: string;
+  role: string;
+  quote: string;
+  rating: number;
+}
 
 export default function PferdeWertHomepage() {
   // Preise als Konstanten
@@ -12,6 +32,35 @@ export default function PferdeWertHomepage() {
     launch: 9.90,
     regular: 39
   };
+
+  // Testimonials data
+  const realTestimonial: RealTestimonial = {
+    name: "Miriam F.",
+    location: "Deutschland",
+    role: "Ambitionierte Freizeitreiterin (Dressur)",
+    photo: "/images/testimonials/miriam-customer-64.webp",
+    instagramHandle: "herzenspferd_felino",
+    quote: "Nach einem Jahr gemeinsamer Zeit war ich neugierig, wie mein Pferd aktuell bewertet wird. Die Bewertung über PferdeWert war für mich eine tolle Möglichkeit, eine realistische Einschätzung zu bekommen – unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung. Besonders gut: Es wird nicht nur pauschal bewertet, sondern auch individuell auf Abstammung und Gesundheitsstatus eingegangen.",
+    verifiedDate: "2024-01-15",
+    rating: 5
+  };
+
+  const compositeTestimonials: CompositeTestimonial[] = [
+    {
+      name: "Andrea K.",
+      location: "Deutschland",
+      role: "Freizeitreiterin",
+      quote: "Ich wollte mein Pferd verkaufen und war völlig unsicher beim Preis. Im Internet fand man so unterschiedliche Angaben und ich wollte nicht zu wenig verlangen, aber auch keine unrealistischen Vorstellungen haben. Die Bewertung von PferdeWert hat mir sehr geholfen eine realistische Einschätzung zu bekommen. Besonders überzeugt hat mich, dass nicht nur Alter und Rasse berücksichtigt wurden, sondern auch der Ausbildungsstand und die Gesundheit meines Pferdes. Mit dieser fundierten Einschätzung im Rücken konnte ich selbstsicher in die Verkaufsgespräche gehen und mein Pferd tatsächlich zu dem empfohlenen Preis verkaufen!",
+      rating: 5
+    },
+    {
+      name: "Julia M.",
+      location: "Deutschland",
+      role: "Pferdebesitzerin",
+      quote: "Ich besitze seit fünf Jahren ein Pferd und wollte einfach aus Neugier den aktuellen Marktwert wissen. Man hört ja oft unterschiedliche Meinungen und ich war gespannt, was eine objektive Bewertung ergeben würde. Das Ergebnis von PferdeWert war super interessant und sehr ausführlich! Besonders fasziniert hat mich die detaillierte Analyse der Abstammung und wie sich verschiedene Faktoren auf den Wert auswirken. Die Bewertung hat mir auch geholfen, den Versicherungswert anzupassen und ich verstehe jetzt viel besser, worauf beim Pferdekauf wirklich zu achten ist. Eine sehr lehrreiche Erfahrung!",
+      rating: 5
+    }
+  ];
 
   // FAQ Data
   const faqItems = [
@@ -120,7 +169,7 @@ export default function PferdeWertHomepage() {
 
         {/* Hero Section */}
         <section id="bewertung" className="relative overflow-hidden">
-          <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
+          <div className="container mx-auto px-4 py-12 lg:py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-8 hero-fade-in-left">
@@ -203,7 +252,7 @@ export default function PferdeWertHomepage() {
 
         {/* Special Offer Banner */}
         <section id="preise" className="bg-gradient-to-r from-brand-gold/20 to-brand-brown/20 border-y border-brand-brown/20">
-          <div className="px-4 lg:px-8 xl:px-12 py-6">
+          <div className="container mx-auto px-4 py-6">
             <div className="text-center">
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
@@ -235,7 +284,7 @@ export default function PferdeWertHomepage() {
 
         {/* Features Section */}
         <section id="vorteile" className="section bg-white">
-          <div className="px-4 lg:px-8 xl:px-12">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -292,88 +341,146 @@ export default function PferdeWertHomepage() {
 
         {/* Testimonials Section */}
         <section className="section bg-brand-light/50">
-          <div className="px-4 lg:px-8 xl:px-12">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
               <p className="text-xl text-gray-600">
-                Echte Erfahrungen von Pferdebesitzern, die unseren Service bereits genutzt haben
+                Echte und repräsentative Erfahrungen von Pferdebesitzern
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Testimonial 1 */}
-              <div className="bg-white rounded-xl p-6 shadow-soft border-l-4 border-brand-brown relative">
-                <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
-                  &quot;
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {/* Featured Real Testimonial */}
+              <div className="md:col-span-2 lg:col-span-1 flex">
+                <div className="bg-white rounded-xl p-6 shadow-xl border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
+                  
+                  {/* Quote mark */}
+                  <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
+                    &quot;
+                  </div>
+                  
+                  {/* Customer info */}
+                  <div className="flex items-center mb-4 ml-6">
+                    <div className="relative">
+                      <Image
+                        src={realTestimonial.photo}
+                        alt={`${realTestimonial.name} Profilbild`}
+                        width={64}
+                        height={64}
+                        className="rounded-full border-2 border-yellow-400 shadow-md object-cover"
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="font-semibold text-gray-900">{realTestimonial.name}</div>
+                      <div className="text-sm text-gray-600">{realTestimonial.role}</div>
+                      <div className="text-xs text-gray-500">{realTestimonial.location}</div>
+                    </div>
+                  </div>
+                  
+                  {/* Rating */}
+                  <div className="flex mb-4 ml-6">
+                    {[...Array(realTestimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
+                    ))}
+                  </div>
+                  
+                  {/* Quote - grows to fill available space */}
+                  <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed flex-grow">
+                    {realTestimonial.quote}
+                  </blockquote>
+                  
+                  {/* Instagram link - always at bottom */}
+                  {realTestimonial.instagramHandle && (
+                    <div className="ml-6 mt-auto">
+                      <a
+                        href={`https://instagram.com/${realTestimonial.instagramHandle}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors min-h-[44px] py-2"
+                        aria-label={`${realTestimonial.name} auf Instagram folgen`}
+                      >
+                        <Instagram className="w-4 h-4" />
+                        @{realTestimonial.instagramHandle}
+                      </a>
+                    </div>
+                  )}
                 </div>
-                <div className="flex mb-4 ml-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
-                  Das Pferd wurde für 18.000€ angeboten. Die PferdeWert-Analyse ergab 14.000-16.000€. 
-                  Ich konnte auf 15.500€ verhandeln und habe 2.500€ gespart!
-                </blockquote>
-                <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
-                  - Lisa K., Dressurreiterin
-                </cite>
               </div>
 
-              {/* Testimonial 2 */}
-              <div className="bg-white rounded-xl p-6 shadow-soft border-l-4 border-brand-brown relative">
-                <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
-                  &quot;
+              {/* Composite Testimonials */}
+              {compositeTestimonials.map((testimonial, index) => (
+                <div key={index} className="flex">
+                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
+                    
+                    {/* Quote mark */}
+                    <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
+                      &quot;
+                    </div>
+                    
+                    {/* Customer info with placeholder space for photo alignment */}
+                    <div className="flex items-center mb-4 ml-6 min-h-[80px]">
+                      {/* Invisible placeholder to maintain alignment with photo testimonial */}
+                      <div className="w-16 mr-4 flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+                          <Users className="w-8 h-8 text-gray-400" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                        <div className="text-sm text-gray-600">{testimonial.role}</div>
+                        <div className="text-xs text-gray-500">{testimonial.location}</div>
+                      </div>
+                    </div>
+                    
+                    {/* Rating */}
+                    <div className="flex mb-4 ml-6">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
+                      ))}
+                    </div>
+                    
+                    {/* Quote - grows to fill available space */}
+                    <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed flex-grow">
+                      {testimonial.quote}
+                    </blockquote>
+                    
+                    {/* Placeholder space to match Instagram link height */}
+                    <div className="ml-6 min-h-[56px] flex items-center">
+                      {/* Empty space for layout alignment */}
+                    </div>
+                  </div>
                 </div>
-                <div className="flex mb-4 ml-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
-                  Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen 
-                  eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!
-                </blockquote>
-                <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
-                  - Sarah M., Freizeitreiterin
-                </cite>
-              </div>
-
-              {/* Testimonial 3 */}
-              <div className="bg-white rounded-xl p-6 shadow-soft border-l-4 border-brand-brown relative">
-                <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
-                  &quot;
-                </div>
-                <div className="flex mb-4 ml-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed">
-                  Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. 
-                  Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung!
-                </blockquote>
-                <cite className="text-sm text-gray-600 font-semibold ml-6 not-italic">
-                  - Anna L., Pferdebesitzerin
-                </cite>
-              </div>
+              ))}
             </div>
 
-            {/* Call-to-Action Button */}
-            <div className="text-center mt-12">
+            {/* Enhanced Call-to-Action */}
+            <div className="text-center mt-16">
+              <div className="mb-4">
+                <p className="text-lg text-gray-700 font-medium mb-6">
+                  Professionelle Bewertungen für Pferdebesitzer deutschlandweit
+                </p>
+              </div>
+              
               <Link
                 href="/pferde-preis-berechnen"
-                className="btn-primary text-lg px-8 py-4"
+                className="btn-primary text-lg px-8 py-4 inline-block"
               >
                 Jetzt Pferdewert berechnen
               </Link>
+              
+              <div className="mt-4">
+                <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500" />
+                  30 Tage Geld-zurück-Garantie
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
         <section className="section bg-white">
-          <div className="px-4 lg:px-8 xl:px-12">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Häufige Fragen</h2>
               <p className="text-xl text-gray-600">
@@ -409,7 +516,7 @@ export default function PferdeWertHomepage() {
 
         {/* Final CTA Section */}
         <section className="section bg-gradient-to-r from-brand-brown to-brand-brownDark">
-          <div className="px-4 lg:px-8 xl:px-12 text-center">
+          <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 Bereit für Ihre professionelle Pferdebewertung?
