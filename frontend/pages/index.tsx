@@ -182,8 +182,8 @@ export default function PferdeWertHomepage() {
                     <span className="text-brand-brown">Pferdebewertung</span>
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Entwickelt von Reitern für Reiter – präzise, transparent, vertrauenswürdig. Erhalten Sie eine
-                    professionelle KI-basierte Bewertung Ihres Pferdes in nur 2 Minuten.
+                    Entwickelt von Reitern für Reiter – präzise, transparent, vertrauenswürdig. Erhalte eine
+                    professionelle KI-basierte Bewertung deines Pferdes in nur 2 Minuten.
                   </p>
                 </div>
 
@@ -317,7 +317,7 @@ export default function PferdeWertHomepage() {
                 {
                   icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
                   title: "Geld-zurück-Garantie",
-                  description: "Nicht zufrieden? Wir erstatten Ihnen den vollen Betrag zurück.",
+                  description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
                 },
                 {
                   icon: <Users className="w-8 h-8 text-brand-brown" />,
@@ -484,7 +484,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Häufige Fragen</h2>
               <p className="text-xl text-gray-600">
-                Alles was Sie über unsere Pferdebewertung wissen möchten
+                Alles was du über unsere Pferdebewertung wissen möchtest
               </p>
             </div>
 
@@ -519,10 +519,10 @@ export default function PferdeWertHomepage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Bereit für Ihre professionelle Pferdebewertung?
+                Bereit für deine professionelle Pferdebewertung?
               </h2>
               <p className="text-xl text-brand-light mb-8">
-                Starten Sie jetzt und erhalten Sie in wenigen Minuten eine detaillierte, professionelle Bewertung Ihres
+                Starte jetzt und erhalte in wenigen Minuten eine detaillierte, professionelle Bewertung deines
                 Pferdes.
               </p>
               <Link

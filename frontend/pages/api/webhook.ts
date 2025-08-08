@@ -14,7 +14,10 @@ export const config = {
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend sicher initialisieren
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com'; // Fallback auf Standard-URL, falls nicht gesetzt
 
 
@@ -99,10 +102,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const bewertbareDaten = {
         rasse,
-        alter,
+        alter: parseInt(String(alter)) || 0,
         geschlecht,
         abstammung,
-        stockmass,
+        stockmass: Math.round(parseFloat(String(stockmass)) * 100) || 0,
         ausbildung,
         aku,
         erfolge,
@@ -114,6 +117,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       console.log("🔥 [WEBHOOK] Daten für FastAPI vorbereitet");
 
+      // Health check first
+      console.log("🔥 [WEBHOOK] Prüfe Backend-Verfügbarkeit:", `${BACKEND_URL}/health`);
+      try {
+        const healthResponse = await fetch(`${BACKEND_URL}/health`, { 
+          method: "GET"
+        });
+        if (!healthResponse.ok) {
+          console.warn("⚠️ [WEBHOOK] Backend health check failed, continuing anyway");
+        } else {
+          const healthData = await healthResponse.json();
+          console.log("✅ [WEBHOOK] Backend health:", healthData);
+        }
+      } catch (healthErr) {
+        console.warn("⚠️ [WEBHOOK] Backend health check error:", healthErr);
+        // Continue anyway, might be a network issue
+      }
+
       console.log("🔥 [WEBHOOK] Rufe FastAPI auf:", `${BACKEND_URL}/api/bewertung`);
       const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
@@ -124,15 +144,46 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log("🔥 [WEBHOOK] FastAPI Response Status:", response.status);
       console.log("🔥 [WEBHOOK] FastAPI Response Headers erhalten");
 
-      const gpt_response = await response.json();
-      console.log("🔥 [WEBHOOK] AI-Bewertung erhalten:", gpt_response?.raw_gpt ? "Erfolgreich" : "Fehler");
+      if (!response.ok) {
+        console.error("❌ [WEBHOOK] Backend-Fehler:", response.status, response.statusText);
+        console.error("❌ [WEBHOOK] Backend URL:", `${BACKEND_URL}/api/bewertung`);
+        const errorText = await response.text();
+        console.error("❌ [WEBHOOK] Backend-Error-Details:", errorText);
+        
+        // Log CORS error specifically
+        if (response.status === 0 || response.status === 403 || response.status === 405) {
+          console.error("❌ [WEBHOOK] Possible CORS issue - check backend allowed origins");
+        }
+        
+        // Trotzdem 200 zurückgeben, um Stripe-Retries zu vermeiden
+        return res.status(200).json({ 
+          error: "Backend temporarily unavailable", 
+          status: response.status,
+          backend_url: `${BACKEND_URL}/api/bewertung`
+        });
+      }
+
+      let gpt_response;
+      try {
+        gpt_response = await response.json();
+        console.log("🔥 [WEBHOOK] AI-Bewertung erhalten:", gpt_response?.raw_gpt ? "Erfolgreich" : "Fehler");
+      } catch (jsonError) {
+        console.error("❌ [WEBHOOK] JSON-Parse-Fehler:", jsonError);
+        // Trotzdem 200 zurückgeben für Stripe
+        return res.status(200).json({ error: "Invalid JSON response from backend" });
+      }
 
       const raw_gpt = gpt_response?.raw_gpt;
 
       if (!raw_gpt) {
         console.error("❌ [WEBHOOK] Keine GPT-Antwort in Response");
         console.error("❌ [WEBHOOK] Expected 'raw_gpt' field, got:", Object.keys(gpt_response));
-        return res.status(500).end();
+        console.error("❌ [WEBHOOK] Full response:", JSON.stringify(gpt_response));
+        // 200 statt 500 zurückgeben, um Stripe-Retries zu vermeiden
+        return res.status(200).json({ 
+          error: "No AI response received",
+          received: Object.keys(gpt_response)
+        });
       }
 
       console.log("🔥 [WEBHOOK] Speichere Bewertung in MongoDB...");
@@ -160,7 +211,8 @@ console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
 
 if (empfaenger.length === 0) {  
   console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");  
-  return;
+  // Webhook trotzdem erfolgreich beenden, damit Stripe nicht retry macht
+  return res.status(200).end();
 }
 
 const betrag = session.amount_total
@@ -187,6 +239,13 @@ const formularFelderHtml = `
   <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
   <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
 `;
+
+// Nur senden wenn Resend verfügbar ist
+if (!resend) {
+  console.error("❌ Resend nicht initialisiert - RESEND_API_KEY fehlt!");
+  // Trotzdem 200 zurückgeben, damit Stripe nicht retry macht
+  return res.status(200).end();
+}
 
 await resend.emails.send({
   from: "PferdeWert <kauf@pferdewert.de>",
@@ -229,7 +288,7 @@ await resend.emails.send({
 // 📧 Email an Kunden
 const customerEmail = session.customer_details?.email;
 
-if (customerEmail) {
+if (customerEmail && resend) {
   try {
   await resend.emails.send({
     from: "PferdeWert <info@pferdewert.de>",
@@ -262,7 +321,15 @@ if (customerEmail) {
     } catch (err) {
       console.error("❌ [WEBHOOK] Fehler bei Bewertung:", err);
       console.error("❌ [WEBHOOK] Error Stack:", err instanceof Error ? err.stack : "No stack");
-      return res.status(500).end("Interner Fehler");
+      console.error("❌ [WEBHOOK] Error Details:", err instanceof Error ? err.message : String(err));
+      
+      // WICHTIG: Immer 200 zurückgeben, damit Stripe nicht endlos retried!
+      // Der Fehler wird geloggt, aber wir verhindern Webhook-Retry-Loops
+      return res.status(200).json({ 
+        success: false, 
+        error: "Webhook processing failed but acknowledged",
+        details: err instanceof Error ? err.message : "Unknown error"
+      });
     }
   } else {
     console.log("ℹ️ [WEBHOOK] Event ignoriert:", event.type);
