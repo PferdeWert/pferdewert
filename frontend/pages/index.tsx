@@ -34,25 +34,30 @@ export default function PferdeWertHomepage() {
   };
 
   // Testimonials data
-  const realTestimonial: RealTestimonial = {
-    name: "Miriam F.",
-    location: "Deutschland",
-    role: "Ambitionierte Freizeitreiterin (Dressur)",
-    photo: "/images/testimonials/miriam-customer-64.webp",
-    instagramHandle: "herzenspferd_felino",
-    quote: "Nach einem Jahr gemeinsamer Zeit war ich neugierig, wie mein Pferd aktuell bewertet wird. Die Bewertung über PferdeWert war für mich eine tolle Möglichkeit, eine realistische Einschätzung zu bekommen – unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung. Besonders gut: Es wird nicht nur pauschal bewertet, sondern auch individuell auf Abstammung und Gesundheitsstatus eingegangen.",
-    verifiedDate: "2024-01-15",
-    rating: 5
-  };
-
-  const compositeTestimonials: CompositeTestimonial[] = [
+  const realTestimonials: RealTestimonial[] = [
     {
-      name: "Andrea K.",
+      name: "Miriam F.",
       location: "Deutschland",
-      role: "Freizeitreiterin",
-      quote: "Ich wollte mein Pferd verkaufen und war völlig unsicher beim Preis. Die Bewertung von PferdeWert hat mir sehr geholfen eine realistische Einschätzung zu bekommen. Besonders überzeugt hat mich, dass nicht nur Alter und Rasse berücksichtigt wurden, sondern auch Ausbildungsstand und Gesundheit. Mit dieser fundierten Einschätzung konnte ich selbstsicher in die Verkaufsgespräche gehen und mein Pferd zu dem empfohlenen Preis verkaufen!",
+      role: "Ambitionierte Freizeitreiterin (Dressur)",
+      photo: "/images/testimonials/miriam-customer-64.webp",
+      instagramHandle: "herzenspferd_felino",
+      quote: "Nach einem Jahr gemeinsamer Zeit war ich neugierig, wie mein Pferd aktuell bewertet wird. Die Bewertung über PferdeWert war für mich eine tolle Möglichkeit, eine realistische Einschätzung zu bekommen – unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung. Besonders gut: Es wird nicht nur pauschal bewertet, sondern auch individuell auf Abstammung und Gesundheitsstatus eingegangen.",
+      verifiedDate: "2024-01-15",
       rating: 5
     },
+    {
+      name: "Eva T.",
+      location: "Deutschland",
+      role: "Besitzerin von Fürstiano",
+      photo: "/images/testimonials/eva-customer-64.webp",
+      instagramHandle: "die_rappenschmiede",
+      quote: "Nach einer Verletzung von Fürstiano war ich unsicher über seinen aktuellen Marktwert. Die PferdeWert-Analyse war super einfach auszufüllen und das Ergebnis kam sofort. Besonders hilfreich fand ich die detaillierte Aufschlüsselung der Bewertungsfaktoren - das hat mir wirklich geholfen, die Situation realistisch einzuschätzen. Auch wenn für mich mein Pferd unbezahlbar bleibt, war es interessant zu wissen, wo er marktmäßig steht.",
+      verifiedDate: "2024-12-20",
+      rating: 5
+    }
+  ];
+
+  const compositeTestimonials: CompositeTestimonial[] = [
     {
       name: "Julia M.",
       location: "Deutschland",
@@ -350,62 +355,69 @@ export default function PferdeWertHomepage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {/* Featured Real Testimonial */}
-              <div className="md:col-span-2 lg:col-span-1 flex">
-                <div className="bg-white rounded-xl p-6 shadow-xl border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
-                  
-                  {/* Quote mark */}
-                  <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
-                    &quot;
-                  </div>
-                  
-                  {/* Customer info with consistent height */}
-                  <div className="flex items-center mb-4 ml-6 min-h-[80px]">
-                    <div className="relative w-16 mr-4 flex-shrink-0">
-                      <Image
-                        src={realTestimonial.photo}
-                        alt={`${realTestimonial.name} Profilbild`}
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
-                      />
+              {/* Real Testimonials with Photos */}
+              {realTestimonials.map((testimonial, index) => (
+                <div key={index} className="flex">
+                  <div className="bg-white rounded-xl p-6 shadow-xl border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
+                    
+                    {/* Quote mark */}
+                    <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
+                      &quot;
                     </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">{realTestimonial.name}</div>
-                      <div className="text-sm text-gray-600">{realTestimonial.role}</div>
-                      <div className="text-xs text-gray-500">{realTestimonial.location}</div>
+                    
+                    {/* Customer info with consistent height */}
+                    <div className="flex items-center mb-4 ml-6 min-h-[80px]">
+                      <div className="relative w-16 mr-4 flex-shrink-0">
+                        <Image
+                          src={testimonial.photo}
+                          alt={`${testimonial.name} Profilbild`}
+                          width={64}
+                          height={64}
+                          className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                        <div className="text-sm text-gray-600">{testimonial.role}</div>
+                        <div className="text-xs text-gray-500">{testimonial.location}</div>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Rating */}
-                  <div className="flex mb-4 ml-6">
-                    {[...Array(realTestimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
-                    ))}
-                  </div>
-                  
-                  {/* Quote - grows to fill available space */}
-                  <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed flex-grow">
-                    {realTestimonial.quote}
-                  </blockquote>
-                  
-                  {/* Instagram link - always at bottom */}
-                  {realTestimonial.instagramHandle && (
-                    <div className="ml-6 mt-auto">
-                      <a
-                        href={`https://instagram.com/${realTestimonial.instagramHandle}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors min-h-[44px] py-2"
-                        aria-label={`${realTestimonial.name} auf Instagram folgen`}
-                      >
-                        <Instagram className="w-4 h-4" />
-                        @{realTestimonial.instagramHandle}
-                      </a>
+                    
+                    {/* Rating */}
+                    <div className="flex mb-4 ml-6">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
+                      ))}
                     </div>
-                  )}
+                    
+                    {/* Quote - grows to fill available space */}
+                    <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed flex-grow">
+                      {testimonial.quote}
+                    </blockquote>
+                    
+                    {/* Instagram link - always at bottom */}
+                    {testimonial.instagramHandle && (
+                      <div className="ml-6 mt-auto">
+                        <a
+                          href={`https://instagram.com/${testimonial.instagramHandle}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors min-h-[44px] py-2"
+                          aria-label={`${testimonial.name} auf Instagram folgen`}
+                        >
+                          <Instagram className="w-4 h-4" />
+                          @{testimonial.instagramHandle}
+                        </a>
+                      </div>
+                    )}
+                    {!testimonial.instagramHandle && (
+                      <div className="ml-6 min-h-[56px] flex items-center">
+                        {/* Empty space for layout alignment */}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              ))}
 
               {/* Composite Testimonials */}
               {compositeTestimonials.map((testimonial, index) => (
