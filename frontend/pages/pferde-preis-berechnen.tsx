@@ -218,18 +218,22 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       try {
         const parsedForm = JSON.parse(savedForm) as FormState;
         setForm(parsedForm);
-        console.log("Formular aus localStorage wiederhergestellt");
+        // Form restored from localStorage
       } catch (e) {
         console.warn("Fehler beim Wiederherstellen des Formulars:", e);
       }
     }
   }, [isMounted]);
 
-  // Formularwerte speichern bei jedem Change
+  // Throttled localStorage save to reduce performance impact
   useEffect(() => {
     if (!isMounted) return;
     
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
+    const saveTimer = setTimeout(() => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
+    }, 500); // Throttle saves to every 500ms
+
+    return () => clearTimeout(saveTimer);
   }, [form, isMounted]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
@@ -262,53 +266,19 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       setCurrentStep(prev => {
         const next = Math.min(prev + 1, stepData.length);
 
-        // Erhöhtes Timeout für mobile Geräte zur besseren DOM-Stabilität
-        const timeout = window.innerWidth < 768 ? 250 : 100;
-        
-        setTimeout(() => {
+        // Simplified scroll logic - reduced DOM calculation overhead
+        requestAnimationFrame(() => {
           if (!isMounted) return;
           
-          const isMobile = window.innerWidth < 768;
-          const targetElement = document.getElementById(
-            isMobile ? "wizard-card" : "wizard-start"
-          );
-
+          const targetElement = document.getElementById("wizard-card");
           if (targetElement) {
-            // Sticky Header berücksichtigen (wizard-progress ist sticky top-0)
-            const stickyHeaderHeight = isMobile ? 80 : 60;
-            const scrollTarget = targetElement.offsetTop - stickyHeaderHeight;
-            
-            // Fallback: Mehrere Scroll-Versuche für bessere Mobile-Kompatibilität
-            const scrollToTarget = (attempt = 0) => {
-              window.scrollTo({ 
-                top: Math.max(0, scrollTarget), 
-                behavior: "smooth" 
-              });
-              
-              // Verificierung nach dem Scroll-Versuch
-              setTimeout(() => {
-                const currentScrollY = window.scrollY;
-                const targetReached = Math.abs(currentScrollY - scrollTarget) < 50;
-                
-                // Falls Scroll-Ziel nicht erreicht wurde, Fallback ohne smooth behavior
-                if (!targetReached && attempt < 2) {
-                  if (attempt === 1) {
-                    // Letzter Versuch: Direkter Scroll ohne Animation
-                    window.scrollTo({ 
-                      top: Math.max(0, scrollTarget), 
-                      behavior: "auto" 
-                    });
-                  } else {
-                    // Wiederholung mit smooth
-                    scrollToTarget(attempt + 1);
-                  }
-                }
-              }, 300);
-            };
-            
-            scrollToTarget();
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "nearest"
+            });
           }
-        }, timeout);
+        });
 
         return next;
       });
@@ -365,7 +335,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         // Formular aus localStorage löschen bei erfolgreicher Einreichung
         if (isMounted) {
           localStorage.removeItem(STORAGE_KEY);
-          console.log("Formular erfolgreich eingereicht - localStorage geleert");
+          // Form successfully submitted - localStorage cleared
         }
         window.location.href = url;
       } else {
@@ -405,60 +375,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta property="og:image:height" content="400" />
         <meta property="og:image:alt" content="PferdeWert - Professionelle Pferdebewertung" />
         <link rel="canonical" href="https://pferdewert.de/pferde-preis-berechnen"/>
+        
+        {/* Performance optimizations */}
+        <link rel="preload" href="/images/result.webp" as="image" />
+        <link rel="dns-prefetch" href="//js.stripe.com" />
+        <link rel="preconnect" href="//fonts.googleapis.com" crossOrigin="" />
       </Head>
 
-      {/* Fade-in Animationen wie in index.tsx */}
-      <style jsx>{`
-        section[id] {
-          scroll-margin-top: 4rem;
-        }
-        .hero-fade-in-left {
-          animation: fadeInLeft 1s ease 0.2s both;
-        }
-        .hero-fade-in-right {
-          animation: fadeInRight 1s ease 0.5s both;
-        }
-        .wizard-fade-in {
-          animation: fadeInUp 0.8s ease 0.3s both;
-        }
-        @keyframes fadeInLeft {
-          from { 
-            opacity: 0; 
-            transform: translateX(-20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateX(0); 
-          }
-        }
-        @keyframes fadeInRight {
-          from { 
-            opacity: 0; 
-            transform: translateX(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateX(0); 
-          }
-        }
-        @keyframes fadeInUp {
-          from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .hero-fade-in-left,
-          .hero-fade-in-right,
-          .wizard-fade-in {
-            animation: none;
-          }
-        }
-      `}</style>
+      {/* Note: Animations moved to globals.css for better performance */}
 
       {/* Hero-Bereich mit fullWidth Layout wie index.tsx */}
       <section id="preise" className="relative overflow-hidden">
@@ -514,6 +438,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   alt="Deutsches Sportpferd für KI-Pferdebewertung"
                   className="w-full h-auto"
                   priority
+                  sizes="(max-width: 480px) 400px, (max-width: 768px) 500px, (max-width: 1200px) 600px, 600px"
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>

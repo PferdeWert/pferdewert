@@ -75,11 +75,16 @@ section[id] {
   .section-fade-in {
     animation: fadeInUp 0.8s ease 0.3s both;
   }
+  
+  .wizard-fade-in {
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
 }
 
 /* Mobile: Keine Section Animation */
 @media (max-width: 767px) {
-  .section-fade-in {
+  .section-fade-in,
+  .wizard-fade-in {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
