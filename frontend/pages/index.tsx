@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram } from "lucide-react";
+import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 
 // TypeScript interfaces for testimonials
 interface RealTestimonial {
@@ -27,11 +28,7 @@ interface CompositeTestimonial {
 }
 
 export default function PferdeWertHomepage() {
-  // Preise als Konstanten
-  const PRICING = {
-    launch: 9.90,
-    regular: 39
-  };
+  // Preise aus zentraler Konfiguration (importiert)
 
   // Testimonials data
   const realTestimonials: RealTestimonial[] = [
@@ -86,8 +83,8 @@ export default function PferdeWertHomepage() {
       antwort: "Ja! Verkäufer erhalten eine realistische Preiseinschätzung, Käufer können überprüfen ob ein Angebot fair ist und haben starke Argumente für Verhandlungen."
     },
     {
-      frage: "Warum kostet die Bewertung nur 9,90€?",
-      antwort: `Das ist unser Launch-Angebot als neues Startup. Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei ${PRICING.regular}€.`
+      frage: PRICING_TEXTS.whyAffordable,
+      antwort: `Das ist unser Launch-Angebot als neues Startup. Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei ${PRICING_FORMATTED.decoy}.`
     },
     {
       frage: "Erhalte ich eine Geld-zurück-Garantie?",
@@ -261,8 +258,8 @@ export default function PferdeWertHomepage() {
             <div className="text-center">
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
-                <span className="font-bold text-2xl text-brand-brown">{PRICING.launch.toFixed(2).replace('.', ',')} €</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING.regular} €</span> – für die ersten 100 Bewertungen!
+                <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
+                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – für die ersten 100 Bewertungen!
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten
@@ -541,10 +538,10 @@ export default function PferdeWertHomepage() {
                 href="/pferde-preis-berechnen"
                 className="inline-flex items-center justify-center px-12 py-4 text-xl font-semibold bg-white text-brand-brown hover:bg-brand-light transition-colors rounded-xl shadow-lg"
               >
-                Jetzt {PRICING.launch.toFixed(2).replace('.', ',')} €-Analyse starten
+                {PRICING_TEXTS.ctaButton}
               </Link>
               <p className="text-sm text-brand-light/80 mt-4">
-                Launch-Angebot – danach regulärer Preis von {PRICING.regular} €
+                Launch-Angebot – danach regulärer Preis von {PRICING_FORMATTED.decoy}
               </p>
             </div>
           </div>

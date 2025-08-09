@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Users } from "lucide-react";
+import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 
 export default function PferdKaufen() {
   const kauftipps = [
@@ -404,7 +405,7 @@ export default function PferdKaufen() {
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Lass den Preis bewerten, bevor du verhandelst. 
-              Nur 9,90€ können dir tausende Euro sparen.
+              {PRICING_TEXTS.savings}
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-6 mb-8">
@@ -414,7 +415,7 @@ export default function PferdKaufen() {
                   <div className="text-sm text-blue-100">Analysedauer</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold">9,90€</div>
+                  <div className="text-2xl font-bold">{PRICING_FORMATTED.current}</div>
                   <div className="text-sm text-blue-100">Einmalpreis</div>
                 </div>
                 <div>
