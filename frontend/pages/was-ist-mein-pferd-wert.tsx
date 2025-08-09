@@ -5,7 +5,6 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { Star, TrendingUp, Shield, Clock, CheckCircle } from "lucide-react";
-import { PRICING_TEXTS, PRICING_FORMATTED, SCHEMA_PRICING } from "../lib/pricing";
 
 // Sticky Mobile CTA Component
 const StickyMobileCTA = () => {
@@ -29,7 +28,7 @@ const StickyMobileCTA = () => {
           href="/pferde-preis-berechnen"
           className="btn-primary w-full text-center py-4 font-bold text-lg shadow-lg"
         >
-          {PRICING_TEXTS.mobileButton}
+          Jetzt Pferd bewerten → 9,90€
         </Link>
       </div>
     </div>
@@ -100,7 +99,7 @@ export default function WasIstMeinPferdWert() {
     },
     {
       frage: "Kostet der Service etwas?",
-      antwort: PRICING_TEXTS.faqAnswer,
+      antwort: "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro.",
       isOpen: false
     },
     {
@@ -154,7 +153,7 @@ export default function WasIstMeinPferdWert() {
                 "serviceType": "Pferdebewertung",
                 "offers": {
                   "@type": "Offer",
-                  "price": SCHEMA_PRICING.price,
+                  "price": "9.90",
                   "priceCurrency": "EUR",
                   "availability": "https://schema.org/InStock"
                 },
@@ -204,7 +203,7 @@ export default function WasIstMeinPferdWert() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/pferde-preis-berechnen" className="btn-primary bg-gradient-to-r from-brand-brown to-brand-brownDark hover:from-brand-brownDark hover:to-brand-brown text-white font-bold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200">
-                  {PRICING_TEXTS.ctaButton}
+                  Jetzt 9,90€-Analyse starten
                 </Link>
                 <Link href="/beispiel-analyse" className="btn-secondary border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200">
                   Beispielanalyse ansehen
@@ -327,7 +326,7 @@ export default function WasIstMeinPferdWert() {
                 href="/pferde-preis-berechnen"
                 className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200"
               >
-                Jetzt 14,90€-Analyse starten
+                Jetzt 9,90€-Analyse starten
               </Link>
               <div className="text-sm text-gray-200">
                 ✓ Keine Anmeldung erforderlich • ✓ Sofort verfügbar
@@ -363,7 +362,7 @@ export default function WasIstMeinPferdWert() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary bg-gradient-to-r from-brand-brown to-brand-brownDark hover:from-brand-brownDark hover:to-brand-brown text-white font-bold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                Jetzt 14,90€-Analyse starten
+                Jetzt 9,90€-Analyse starten
               </Link>
             </div>
           </div>
