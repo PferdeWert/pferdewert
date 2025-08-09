@@ -6,7 +6,16 @@
       "cd",
       "git",
       "npm",
-      "npm run"
+      "npm run",
+      "playwright",
+      "javascript",
+      "mcp",
+      "npx",
+      "node",
+      "rm",
+      "run lint",
+      "playwright",
+      "resize"
     ],
     "deny": []
   }

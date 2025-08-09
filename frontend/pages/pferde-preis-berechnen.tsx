@@ -256,12 +256,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Nächster Schritt Definition mit Stickyness je nach Devices
+  // Nächster Schritt Definition mit verbessertem Mobile Scroll-Verhalten
   const nextStep = (): void => {
     if (validateStep(currentStep)) {
       setCurrentStep(prev => {
         const next = Math.min(prev + 1, stepData.length);
 
+        // Erhöhtes Timeout für mobile Geräte zur besseren DOM-Stabilität
+        const timeout = window.innerWidth < 768 ? 250 : 100;
+        
         setTimeout(() => {
           if (!isMounted) return;
           
@@ -271,10 +274,41 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           );
 
           if (targetElement) {
-            const scrollTarget = targetElement.offsetTop;
-            window.scrollTo({ top: scrollTarget - 30, behavior: "smooth" });
+            // Sticky Header berücksichtigen (wizard-progress ist sticky top-0)
+            const stickyHeaderHeight = isMobile ? 80 : 60;
+            const scrollTarget = targetElement.offsetTop - stickyHeaderHeight;
+            
+            // Fallback: Mehrere Scroll-Versuche für bessere Mobile-Kompatibilität
+            const scrollToTarget = (attempt = 0) => {
+              window.scrollTo({ 
+                top: Math.max(0, scrollTarget), 
+                behavior: "smooth" 
+              });
+              
+              // Verificierung nach dem Scroll-Versuch
+              setTimeout(() => {
+                const currentScrollY = window.scrollY;
+                const targetReached = Math.abs(currentScrollY - scrollTarget) < 50;
+                
+                // Falls Scroll-Ziel nicht erreicht wurde, Fallback ohne smooth behavior
+                if (!targetReached && attempt < 2) {
+                  if (attempt === 1) {
+                    // Letzter Versuch: Direkter Scroll ohne Animation
+                    window.scrollTo({ 
+                      top: Math.max(0, scrollTarget), 
+                      behavior: "auto" 
+                    });
+                  } else {
+                    // Wiederholung mit smooth
+                    scrollToTarget(attempt + 1);
+                  }
+                }
+              }, 300);
+            };
+            
+            scrollToTarget();
           }
-        }, 100);
+        }, timeout);
 
         return next;
       });

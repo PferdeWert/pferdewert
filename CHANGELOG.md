@@ -1,5 +1,35 @@
 # Changelog
 
+## [2025-01-09] - Real Customer Testimonial Integration & Asset Cleanup
+
+### Added
+- **Real customer testimonial** - Eva T. testimonial with authentic content about Fürstiano
+- **Instagram integration** - Added @die_rappenschmiede link with proper icon display
+- **Image optimization** - WebP conversion for Eva's customer photo (64x64, 2.18 KB)
+
+### Enhanced
+- **Mixed testimonial approach** - 2 real customer testimonials + 1 composite for balanced social proof
+- **Consistent Instagram styling** - Matching icon treatment across all customer testimonials
+- **Professional testimonial content** - Authentic German testimonial about post-injury horse valuation
+
+### Optimized
+- **Asset management** - Cleaned up testimonials folder from 18 files to 2 active images
+- **File structure** - Removed 16 unused customer photos (various formats and sizes)
+- **Storage efficiency** - Deleted redundant Eva.jpg source file after WebP conversion
+
+### Technical
+- Extended `RealTestimonial` interface to support multiple real customers
+- Changed from single `realTestimonial` to `realTestimonials` array structure
+- Added Sharp-based image processing workflow for optimal WebP conversion
+- Maintained responsive layout consistency with new testimonial structure
+
+### Files Changed
+- `frontend/pages/index.tsx` - Added Eva T. testimonial, updated testimonial arrays
+- `frontend/public/images/testimonials/` - Added eva-customer-64.webp, removed 16 unused files
+- `docs/Eva.jpg` - Removed after conversion to optimized WebP format
+
+---
+
 ## [2025-01-07] - Testimonial Content & Technical Fixes
 
 ### Fixed

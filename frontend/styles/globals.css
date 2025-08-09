@@ -28,9 +28,25 @@
 
 /* ===== Global Styles ===== */
 
+/* Improved scroll behavior for mobile UX */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Animations for ueber-pferdewert page */
 section[id] {
   scroll-margin-top: 4rem;
+}
+
+/* Wizard-specific scroll margins for mobile navigation */
+#wizard-card {
+  scroll-margin-top: 5rem;
+}
+
+@media (max-width: 767px) {
+  #wizard-card {
+    scroll-margin-top: 6rem;
+  }
 }
 
 /* Desktop: Synchrone Animationen für einheitlichen Effekt */
