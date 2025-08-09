@@ -129,7 +129,7 @@
 ## 📈 Marketing & Conversion
 
 ### Preis-Transparenz:
-* **Einmalzahlung:** 4,90€ (reduziert von 39€) prominent dargestellt
+* **Einmalzahlung:** 14,90€ (reduziert von 39€) prominent dargestellt
 * **Trust-Badges:** Stripe-Sicherheit, SSL-Zertifikate sichtbar
 * **Social Proof:** "Von Reitern für Reiter entwickelt" als Claim
 

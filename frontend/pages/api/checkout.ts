@@ -5,6 +5,7 @@ import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
 import { z } from "zod";
+import { STRIPE_CONFIG } from "@/lib/pricing";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
@@ -81,7 +82,7 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],
-      line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
+      line_items: [{ price: STRIPE_CONFIG.priceId, quantity: 1 }],
       mode: "payment",
       allow_promotion_codes: true,
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,

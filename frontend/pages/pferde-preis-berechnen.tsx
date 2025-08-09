@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import { error, warn } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
+import { PRICING_FORMATTED } from "../lib/pricing";
 
 interface FormState {
   rasse: string;
@@ -61,11 +62,7 @@ interface StepData {
   fields: FormField[];
 }
 
-// Preise als Konstanten (wie in index.tsx)
-const PRICING = {
-  launch: "9,90",
-  regular: "39,00"
-};
+// Preise aus zentraler Konfiguration werden über Import geladen
 
 // Step-Konfiguration (Wizard-Fortschritt)
 const stepData: StepData[] = [
@@ -220,7 +217,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         setForm(parsedForm);
         // Form restored from localStorage
       } catch (e) {
-        console.warn("Fehler beim Wiederherstellen des Formulars:", e);
+        warn("Fehler beim Wiederherstellen des Formulars:", e);
       }
     }
   }, [isMounted]);
@@ -260,52 +257,65 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Mobile viewport constants
+  const MOBILE_BREAKPOINT = 768;
+  const MOBILE_TOP_OFFSET = 20;
+
   // Optimierte Scroll-Funktion für bessere Mobile-Erfahrung
   const scrollToFormCard = (): void => {
-    requestAnimationFrame(() => {
-      if (!isMounted) return;
-      
-      const wizardCard = document.querySelector('#wizard-card') as HTMLElement;
-      const isMobile = window.innerWidth < 768; // md breakpoint
-      
-      if (wizardCard && isMobile) {
-        // Auf Mobile: Scroll so dass die gesamte Karte sichtbar ist
-        const cardRect = wizardCard.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const cardHeight = cardRect.height;
+    try {
+      requestAnimationFrame(() => {
+        if (!isMounted) return;
         
-        // Berechne ideale Scroll-Position
-        // Lasse etwas Platz am oberen Rand (20px) und stelle sicher, dass die gesamte Karte sichtbar ist
-        const topOffset = 20;
-        const idealScrollTop = window.scrollY + cardRect.top - topOffset;
+        const wizardCard = document.querySelector('#wizard-card') as HTMLElement;
+        if (!wizardCard) {
+          warn("Wizard card element not found for scrolling");
+          return;
+        }
         
-        // Überprüfe ob die ganze Karte in den Viewport passt
-        if (cardHeight + topOffset * 2 <= viewportHeight) {
-          // Karte passt komplett: Zentriere sie im Viewport
-          const centeredScrollTop = window.scrollY + cardRect.top - (viewportHeight - cardHeight) / 2;
-          window.scrollTo({
-            top: Math.max(0, centeredScrollTop),
-            behavior: 'smooth'
-          });
+        const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
+        
+        if (isMobile) {
+          // Auf Mobile: Scroll so dass die gesamte Karte sichtbar ist
+          const cardRect = wizardCard.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const cardHeight = cardRect.height;
+          
+          // Berechne ideale Scroll-Position
+          const idealScrollTop = window.scrollY + cardRect.top - MOBILE_TOP_OFFSET;
+          
+          // Überprüfe ob die ganze Karte in den Viewport passt
+          if (cardHeight + MOBILE_TOP_OFFSET * 2 <= viewportHeight) {
+            // Karte passt komplett: Zentriere sie im Viewport
+            const centeredScrollTop = window.scrollY + cardRect.top - (viewportHeight - cardHeight) / 2;
+            window.scrollTo({
+              top: Math.max(0, centeredScrollTop),
+              behavior: 'smooth'
+            });
+          } else {
+            // Karte ist zu groß: Positioniere sie so, dass sie oben beginnt
+            window.scrollTo({
+              top: Math.max(0, idealScrollTop),
+              behavior: 'smooth'
+            });
+          }
         } else {
-          // Karte ist zu groß: Positioniere sie so, dass sie oben beginnt
-          window.scrollTo({
-            top: Math.max(0, idealScrollTop),
-            behavior: 'smooth'
-          });
+          // Desktop: Scroll zum ersten Eingabefeld (bisheriges Verhalten)
+          const firstField = document.querySelector('#wizard-card input, #wizard-card select, #wizard-card textarea') as HTMLElement;
+          if (firstField) {
+            firstField.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+              inline: "nearest"
+            });
+          } else {
+            warn("First form field not found for desktop scrolling");
+          }
         }
-      } else {
-        // Desktop: Scroll zum ersten Eingabefeld (bisheriges Verhalten)
-        const firstField = document.querySelector('#wizard-card input, #wizard-card select, #wizard-card textarea') as HTMLElement;
-        if (firstField) {
-          firstField.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-            inline: "nearest"
-          });
-        }
-      }
-    });
+      });
+    } catch (error) {
+      warn("Error in scrollToFormCard function:", error);
+    }
   };
 
   // Nächster Schritt Definition mit verbessertem Mobile Scroll-Verhalten
@@ -442,8 +452,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">🔥</span>
                     <p className="text-xl font-bold text-gray-800">
-                      Nur <span className="text-3xl text-red-600 font-black">{PRICING.launch}€</span>
-                      <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING.regular}€</span>
+                      Nur <span className="text-3xl text-red-600 font-black">{PRICING_FORMATTED.current}</span>
+                      <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
                     </p>
                   </div>
                   <p className="text-sm text-gray-600 font-medium">Für die ersten 100 Bewertungen!</p>
@@ -690,7 +700,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                       Die Analyse kostet einmalig
                     </p>
                     <div className="text-4xl font-black text-brand-brown mb-2">
-                      {PRICING.launch}€
+                      {PRICING_FORMATTED.current}
                     </div>
                     <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
                   </div>

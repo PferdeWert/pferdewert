@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Euro } from "lucide-react";
+import { PRICING_TEXTS, PRICING_FORMATTED } from "../lib/pricing";
 
 export default function PferdVerkaufen() {
   const verkaufstipps = [
@@ -336,7 +337,7 @@ export default function PferdVerkaufen() {
                 className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
               >
                 <Euro className="w-5 h-5" />
-                Jetzt Verkaufspreis ermitteln → 9,90€
+                {PRICING_TEXTS.sellCta}
               </Link>
               <Link
                 href="/beispiel-analyse"
@@ -401,7 +402,7 @@ export default function PferdVerkaufen() {
                   Was kostet die Verkaufspreis-Analyse?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
-                  Die umfassende Preisanalyse kostet aktuell nur 9,90€ (statt regulär 39€). Eine Investition, die sich beim Verkauf um ein Vielfaches auszahlt - bereits 100€ mehr Verkaufspreis rechtfertigen die Analyse.
+                  Die umfassende Preisanalyse kostet aktuell nur {PRICING_FORMATTED.current} (statt regulär {PRICING_FORMATTED.decoy}). Eine Investition, die sich beim Verkauf um ein Vielfaches auszahlt - bereits 100€ mehr Verkaufspreis rechtfertigen die Analyse.
                 </p>
               </details>
             </div>

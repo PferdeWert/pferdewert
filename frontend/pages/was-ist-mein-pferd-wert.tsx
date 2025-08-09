@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { Star, TrendingUp, Shield, Clock, CheckCircle } from "lucide-react";
-import { PRICING_TEXTS, PRICING_FORMATTED, SCHEMA_PRICING } from "../lib/pricing";
+import { PRICING_TEXTS, SCHEMA_PRICING } from "../lib/pricing";
 
 // Sticky Mobile CTA Component
 const StickyMobileCTA = () => {
@@ -327,7 +327,7 @@ export default function WasIstMeinPferdWert() {
                 href="/pferde-preis-berechnen"
                 className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200"
               >
-                Jetzt 14,90€-Analyse starten
+{PRICING_TEXTS.ctaButton}
               </Link>
               <div className="text-sm text-gray-200">
                 ✓ Keine Anmeldung erforderlich • ✓ Sofort verfügbar
@@ -363,7 +363,7 @@ export default function WasIstMeinPferdWert() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary bg-gradient-to-r from-brand-brown to-brand-brownDark hover:from-brand-brownDark hover:to-brand-brown text-white font-bold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                Jetzt 14,90€-Analyse starten
+{PRICING_TEXTS.ctaButton}
               </Link>
             </div>
           </div>

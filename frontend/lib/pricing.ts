@@ -143,10 +143,12 @@ export const validatePricing = (): boolean => {
 
 // ===== DEVELOPMENT HELPERS =====
 if (process.env.NODE_ENV === 'development') {
-  console.log('💰 PferdeWert Pricing Config loaded:', {
-    current: PRICING_FORMATTED.current,
-    decoy: PRICING_FORMATTED.decoy,
-    stripeId: STRIPE_CONFIG.priceId,
-    valid: validatePricing()
+  import('@/lib/log').then(({ log }) => {
+    log('💰 PferdeWert Pricing Config loaded:', {
+      current: PRICING_FORMATTED.current,
+      decoy: PRICING_FORMATTED.decoy,
+      stripeId: STRIPE_CONFIG.priceId,
+      valid: validatePricing()
+    });
   });
 }

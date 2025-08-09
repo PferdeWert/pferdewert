@@ -228,7 +228,7 @@ const trackEvent = (eventName: string, parameters: object = {}) => {
 
 // Usage examples
 trackEvent('form_start', { form_name: 'horse_evaluation' });
-trackEvent('payment_attempt', { value: 4.90, currency: 'EUR' });  
+trackEvent('payment_attempt', { value: 14.90, currency: 'EUR' });  
 ```
 
 ## 🛡️ Error Handling & Logging
@@ -281,7 +281,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       aria-describedby="price-info"
       onClick={handleStart}
     >
-      Jetzt für 4,90€ bewerten
+      Jetzt für 14,90€ bewerten
     </button>
     <p id="price-info">Keine versteckten Kosten</p>
   </section>
@@ -377,9 +377,9 @@ import PriceButton from './PriceButton';
 test('shows correct price and handles click', async () => {
   const handleClick = jest.fn();
   
-  render(<PriceButton price={4.90} onClick={handleClick} />);
+  render(<PriceButton price={14.90} onClick={handleClick} />);
   
-  expect(screen.getByText('4,90€')).toBeInTheDocument();
+  expect(screen.getByText('14,90€')).toBeInTheDocument();
   
   fireEvent.click(screen.getByRole('button'));
   expect(handleClick).toHaveBeenCalledTimes(1);
