@@ -9,7 +9,7 @@ export default function Datenschutz() {
     <main className="prose mx-auto p-8">
       <Head>
         <title>Datenschutz | PferdeWert</title>
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="index, follow" />
       </Head>
       <h1>Datenschutzerklärung</h1>
 

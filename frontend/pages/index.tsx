@@ -113,6 +113,7 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:description" content="Marktwert berechnen ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min KI-Analyse" />
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
         <link rel="canonical" href="https://pferdewert.de/" />
+        <meta name="robots" content="index, follow" />
         
         {/* Critical CSS für above-the-fold Content */}
         <style dangerouslySetInnerHTML={{

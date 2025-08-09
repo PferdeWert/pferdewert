@@ -1,10 +1,14 @@
 // pages/agb.tsx
-
+import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
 
 export default function AGB() {
   return (
     <Layout>
+      <Head>
+        <title>AGB | PferdeWert</title>
+        <meta name="robots" content="index, follow" />
+      </Head>
     <main className="mx-auto max-w-xl p-6">
       <h1 className="mb-4 text-2xl font-bold">Allgemeine Geschäftsbedingungen (AGB)</h1>
 
