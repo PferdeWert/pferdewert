@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "bash",
+      "webfetch",
+      "cd",
+      "git",
+      "npm",
+      "npm run"
+    ],
+    "deny": []
+  }
+}

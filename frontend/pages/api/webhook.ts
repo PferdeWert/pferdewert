@@ -4,87 +4,140 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 import { Resend } from 'resend';
-
-
-// import { info, error } from "@/lib/log"; // Auskommentiert für Debug-Phase
+import { info, error, warn } from "@/lib/log";
 
 export const config = {
   api: { bodyParser: false },
 };
 
+// Type definitions for better type safety
+interface HorseData {
+  rasse: string;
+  alter: number;
+  geschlecht: string;
+  abstammung: string;
+  stockmass: number;
+  ausbildung: string;
+  aku?: string;
+  erfolge?: string;
+  farbe?: string;
+  zuechter?: string;
+  standort?: string;
+  verwendungszweck?: string;
+}
+
+interface BackendResponse {
+  raw_gpt?: string;
+}
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+
 // Resend sicher initialisieren
 const resend = process.env.RESEND_API_KEY 
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
-const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com'; // Fallback auf Standard-URL, falls nicht gesetzt
+
+const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com';
+
+// Utility function to safely convert stockmass with proper validation
+const convertStockmassToNumber = (stockmass: unknown): number => {
+  if (stockmass === null || stockmass === undefined || stockmass === '') {
+    warn('[WEBHOOK] Stockmass is empty or null, defaulting to 0');
+    return 0;
+  }
+  
+  const numValue = parseFloat(String(stockmass));
+  if (isNaN(numValue)) {
+    warn('[WEBHOOK] Invalid stockmass value, defaulting to 0:', String(stockmass));
+    return 0;
+  }
+  
+  // Convert to centimeters and round to nearest integer
+  const result = Math.round(numValue * 100);
+  if (result < 0 || result > 25000) { // Reasonable limits for horse height in cm
+    warn('[WEBHOOK] Stockmass value out of range, using raw value:', result);
+  }
+  
+  return result;
+};
 
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log("🔥 [WEBHOOK] Webhook aufgerufen!");
-  console.log("🔥 [WEBHOOK] Method:", req.method);
-  console.log("🔥 [WEBHOOK] URL:", req.url);
-  console.log("🔥 [WEBHOOK] Headers:", JSON.stringify(req.headers, null, 2));
-  console.log("🔍 [RESEND MAIL] RESEND_TO_EMAIL:", process.env.RESEND_TO_EMAIL);
-
+  info('[WEBHOOK] Webhook request received');
+  info('[WEBHOOK] Method:', req.method);
+  info('[WEBHOOK] URL:', req.url);
+  
+  // Log headers without sensitive data
+  const safeHeaders = {
+    'content-type': req.headers['content-type'],
+    'user-agent': req.headers['user-agent'],
+    'stripe-signature': req.headers['stripe-signature'] ? 'present' : 'missing'
+  };
+  info('[WEBHOOK] Safe headers:', safeHeaders);
 
   if (req.method !== "POST") {
-    console.log("❌ [WEBHOOK] Falsche Methode:", req.method);
+    warn('[WEBHOOK] Invalid method:', req.method);
     return res.status(405).end("Method Not Allowed");
   }
 
-  console.log("🔥 [WEBHOOK] ENV SECRET:", process.env.STRIPE_WEBHOOK_SECRET ? "✅ gesetzt" : "❌ fehlt");
+  info('[WEBHOOK] Webhook secret status:', endpointSecret ? 'configured' : 'missing');
 
   const buf = await buffer(req);
-  console.log("🔥 [WEBHOOK] Buffer Größe:", buf.length, "bytes");
+  info('[WEBHOOK] Buffer size:', buf.length, 'bytes');
   
   const sig = req.headers["stripe-signature"] as string;
-  console.log("🔥 [WEBHOOK] Stripe Signature:", sig ? "✅ vorhanden" : "❌ fehlt");
+  info('[WEBHOOK] Stripe signature status:', sig ? 'present' : 'missing');
 
   let event: Stripe.Event;
 
   try {
-    console.log("🔥 [WEBHOOK] Versuche Event zu konstruieren...");
+    info('[WEBHOOK] Constructing event from webhook payload');
     event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
-    console.log("✅ [WEBHOOK] Event erfolgreich konstruiert:", event.type);
+    info('[WEBHOOK] Event constructed successfully, type:', event.type);
   } catch (err) {
-    console.error("❌ [WEBHOOK] Signature verification failed:", err);
-    console.error("❌ [WEBHOOK] Error details:", {
+    error('[WEBHOOK] Signature verification failed');
+    error('[WEBHOOK] Error details:', {
       message: err instanceof Error ? err.message : String(err),
-      signature: sig,
+      hasSignature: !!sig,
       bufferLength: buf.length,
-      endpointSecret: endpointSecret ? "gesetzt" : "nicht gesetzt"
+      hasEndpointSecret: !!endpointSecret
     });
     return res.status(400).send("Webhook Error");
   }
 
-  console.log("🔥 [WEBHOOK] Event Type:", event.type);
-  console.log("🔥 [WEBHOOK] Event ID:", event.id);
+  info('[WEBHOOK] Processing event type:', event.type);
+  info('[WEBHOOK] Event ID:', event.id);
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
     const sessionId = session.id;
 
-    console.log("✅ [WEBHOOK] Zahlung abgeschlossen!");
-    console.log("🔥 [WEBHOOK] Session ID:", sessionId);
-    console.log("🔥 [WEBHOOK] Session Metadata:", JSON.stringify(session.metadata, null, 2));
+    info('[WEBHOOK] Payment completed successfully');
+    info('[WEBHOOK] Session ID:', sessionId);
+    
+    // Log session metadata without sensitive customer data
+    const safeMetadata = session.metadata ? {
+      hasMetadata: true,
+      metadataKeys: Object.keys(session.metadata)
+    } : { hasMetadata: false };
+    info('[WEBHOOK] Session metadata info:', safeMetadata);
 
     try {
-      console.log("🔥 [WEBHOOK] Suche MongoDB-Dokument...");
+      info('[WEBHOOK] Searching for MongoDB document');
       const collection = await getCollection("bewertungen");
       const doc = await collection.findOne({ stripeSessionId: sessionId });
 
       if (!doc) {
-        console.error("❌ [WEBHOOK] Keine Bewertung mit Session ID gefunden:", sessionId);
+        error('[WEBHOOK] No evaluation found for session ID:', sessionId);
         return res.status(404).end();
       }
 
-      console.log("✅ [WEBHOOK] MongoDB-Dokument gefunden:");
-      console.log("🔥 [WEBHOOK] Dokument ID:", doc._id);
-      console.log("🔥 [WEBHOOK] Dokument gefunden:", doc._id.toString());
+      info('[WEBHOOK] MongoDB document found');
+      info('[WEBHOOK] Document ID:', doc._id.toString());
 
+      // Extract data with type safety
       const {
         rasse,
         alter,
@@ -100,231 +153,230 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         verwendungszweck,
       } = doc;
 
-      const bewertbareDaten = {
-        rasse,
+      // Prepare data with proper validation
+      const bewertbareDaten: HorseData = {
+        rasse: String(rasse || ''),
         alter: parseInt(String(alter)) || 0,
-        geschlecht,
-        abstammung,
-        stockmass: Math.round(parseFloat(String(stockmass)) * 100) || 0,
-        ausbildung,
-        aku,
-        erfolge,
-        farbe,
-        zuechter,
-        standort,
-        verwendungszweck,
+        geschlecht: String(geschlecht || ''),
+        abstammung: String(abstammung || ''),
+        stockmass: convertStockmassToNumber(stockmass),
+        ausbildung: String(ausbildung || ''),
+        aku: aku ? String(aku) : undefined,
+        erfolge: erfolge ? String(erfolge) : undefined,
+        farbe: farbe ? String(farbe) : undefined,
+        zuechter: zuechter ? String(zuechter) : undefined,
+        standort: standort ? String(standort) : undefined,
+        verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined,
       };
 
-      console.log("🔥 [WEBHOOK] Daten für FastAPI vorbereitet");
+      info('[WEBHOOK] Data prepared for backend API');
 
       // Health check first
-      console.log("🔥 [WEBHOOK] Prüfe Backend-Verfügbarkeit:", `${BACKEND_URL}/health`);
+      info('[WEBHOOK] Checking backend availability');
       try {
         const healthResponse = await fetch(`${BACKEND_URL}/health`, { 
           method: "GET"
         });
         if (!healthResponse.ok) {
-          console.warn("⚠️ [WEBHOOK] Backend health check failed, continuing anyway");
+          warn('[WEBHOOK] Backend health check failed, continuing anyway');
         } else {
           const healthData = await healthResponse.json();
-          console.log("✅ [WEBHOOK] Backend health:", healthData);
+          info('[WEBHOOK] Backend health check passed:', { status: healthData?.status });
         }
       } catch (healthErr) {
-        console.warn("⚠️ [WEBHOOK] Backend health check error:", healthErr);
+        warn('[WEBHOOK] Backend health check error:', healthErr instanceof Error ? healthErr.message : String(healthErr));
         // Continue anyway, might be a network issue
       }
 
-      console.log("🔥 [WEBHOOK] Rufe FastAPI auf:", `${BACKEND_URL}/api/bewertung`);
+      info('[WEBHOOK] Calling backend API for evaluation');
       const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bewertbareDaten),
       });
 
-      console.log("🔥 [WEBHOOK] FastAPI Response Status:", response.status);
-      console.log("🔥 [WEBHOOK] FastAPI Response Headers erhalten");
+      info('[WEBHOOK] Backend API response status:', response.status);
 
       if (!response.ok) {
-        console.error("❌ [WEBHOOK] Backend-Fehler:", response.status, response.statusText);
-        console.error("❌ [WEBHOOK] Backend URL:", `${BACKEND_URL}/api/bewertung`);
-        const errorText = await response.text();
-        console.error("❌ [WEBHOOK] Backend-Error-Details:", errorText);
+        error('[WEBHOOK] Backend API error:', {
+          status: response.status,
+          statusText: response.statusText
+        });
         
-        // Log CORS error specifically
+        const errorText = await response.text();
+        error('[WEBHOOK] Backend error details:', errorText);
+        
+        // Log specific error types
         if (response.status === 0 || response.status === 403 || response.status === 405) {
-          console.error("❌ [WEBHOOK] Possible CORS issue - check backend allowed origins");
+          error('[WEBHOOK] Possible CORS issue - check backend allowed origins');
         }
         
-        // Trotzdem 200 zurückgeben, um Stripe-Retries zu vermeiden
+        // Return 200 to prevent Stripe retries
         return res.status(200).json({ 
           error: "Backend temporarily unavailable", 
-          status: response.status,
-          backend_url: `${BACKEND_URL}/api/bewertung`
+          status: response.status
         });
       }
 
-      let gpt_response;
+      let gptResponse: BackendResponse;
       try {
-        gpt_response = await response.json();
-        console.log("🔥 [WEBHOOK] AI-Bewertung erhalten:", gpt_response?.raw_gpt ? "Erfolgreich" : "Fehler");
+        gptResponse = await response.json();
+        info('[WEBHOOK] AI evaluation received:', gptResponse?.raw_gpt ? 'Success' : 'Missing response');
       } catch (jsonError) {
-        console.error("❌ [WEBHOOK] JSON-Parse-Fehler:", jsonError);
-        // Trotzdem 200 zurückgeben für Stripe
+        error('[WEBHOOK] JSON parse error:', jsonError instanceof Error ? jsonError.message : String(jsonError));
         return res.status(200).json({ error: "Invalid JSON response from backend" });
       }
 
-      const raw_gpt = gpt_response?.raw_gpt;
+      const rawGpt = gptResponse?.raw_gpt;
 
-      if (!raw_gpt) {
-        console.error("❌ [WEBHOOK] Keine GPT-Antwort in Response");
-        console.error("❌ [WEBHOOK] Expected 'raw_gpt' field, got:", Object.keys(gpt_response));
-        console.error("❌ [WEBHOOK] Full response:", JSON.stringify(gpt_response));
-        // 200 statt 500 zurückgeben, um Stripe-Retries zu vermeiden
+      if (!rawGpt) {
+        error('[WEBHOOK] No AI response in backend response');
+        error('[WEBHOOK] Expected raw_gpt field, got keys:', Object.keys(gptResponse));
         return res.status(200).json({ 
           error: "No AI response received",
-          received: Object.keys(gpt_response)
+          received: Object.keys(gptResponse)
         });
       }
 
-      console.log("🔥 [WEBHOOK] Speichere Bewertung in MongoDB...");
+      info('[WEBHOOK] Saving evaluation to MongoDB');
       const updateResult = await collection.updateOne(
         { _id: doc._id },
-        { $set: { bewertung: raw_gpt, status: "fertig", aktualisiert: new Date() } }
+        { $set: { bewertung: rawGpt, status: "fertig", aktualisiert: new Date() } }
       );
 
-      console.log("✅ [WEBHOOK] MongoDB Update Result:", updateResult);
-      console.log("✅ [WEBHOOK] Bewertung erfolgreich gespeichert!");
-      console.log("🚀 [DEBUG] Starte Mail-Bereich...");
-      console.log("🚀 [DEBUG] RESEND_TO_EMAIL existiert:", !!process.env.RESEND_TO_EMAIL);
-
-      // 📬 Mailbenachrichtigung versenden per Resend
-      console.log("🚀 [DEBUG] Verarbeite Empfänger...");  
-const empfaenger = (process.env.RESEND_TO_EMAIL ?? "")   // Fallback auf leeren String, falls nicht gesetzt
-  .split(",") // Aufteilen bei Kommas
-  .map(email => email.trim()) // Leerzeichen entfernen
-  .filter(email => !!email); // Nur nicht-leere E-Mails behalten
-console.log("📬 Empfänger:", empfaenger);
+      info('[WEBHOOK] MongoDB update completed:', { 
+        acknowledged: updateResult.acknowledged,
+        modifiedCount: updateResult.modifiedCount 
+      });
+      // Email notification section
+      info('[WEBHOOK] Starting email notification process');
+      
+      const recipientEmails = (process.env.RESEND_TO_EMAIL ?? "")
+        .split(",")
+        .map(email => email.trim())
+        .filter(email => !!email);
+      
+      info('[WEBHOOK] Email recipients configured:', recipientEmails.length > 0);
 
       try {
+        if (recipientEmails.length === 0) {
+          warn('[WEBHOOK] No email recipients configured');
+          // Continue processing, don't fail webhook
+        } else if (!resend) {
+          error('[WEBHOOK] Resend not initialized - missing API key');
+          // Continue processing, don't fail webhook
+        } else {
+          const amount = session.amount_total
+            ? `${(session.amount_total / 100).toFixed(2)} €`
+            : "unbekannt";
 
-console.log("📬 Empfänger:", empfaenger); // direkt vor resend.emails.send
+          // Create formatted HTML for form fields (without sensitive data in logs)
+          const formularFelderHtml = `
+            <h3>📋 Eingabedaten des Kunden:</h3>
+            
+            <p><strong>Rasse (Pflicht):</strong> ${rasse || 'nicht angegeben'}</p>
+            <p><strong>Alter (Pflicht):</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
+            <p><strong>Geschlecht (Pflicht):</strong> ${geschlecht || 'nicht angegeben'}</p>
+            <p><strong>Stockmaß (Pflicht):</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
+            <p><strong>Abstammung (Pflicht):</strong> ${abstammung || 'nicht angegeben'}</p>
+            <p><strong>Ausbildungsstand (Pflicht):</strong> ${ausbildung || 'nicht angegeben'}</p>
+            
+            <hr style="margin: 20px 0; border: 1px solid #eee;">
+            
+            <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
+            <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
+            <p><strong>Farbe (Optional):</strong> ${farbe || 'nicht angegeben'}</p>
+            <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
+            <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
+            <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
+          `;
 
-if (empfaenger.length === 0) {  
-  console.error("❌ Keine Empfänger definiert – prüfe RESEND_TO_EMAIL");  
-  // Webhook trotzdem erfolgreich beenden, damit Stripe nicht retry macht
-  return res.status(200).end();
-}
+          // Send admin notification email
+          await resend.emails.send({
+            from: "PferdeWert <kauf@pferdewert.de>",
+            to: recipientEmails,
+            subject: `💰 Neuer Kauf auf PferdeWert.de`,
+            html: `
+              <h2>🐴 Neue Zahlung bei PferdeWert.de!</h2>
+              
+              <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <h3>💳 Zahlungsdetails:</h3>
+                <p><strong>Session ID:</strong> ${sessionId}</p>
+                <p><strong>Betrag:</strong> ${amount}</p>
+                <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
+              </div>
+              
+              <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
+                ${formularFelderHtml}
+              </div>
+              
+              <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <h3>🤖 KI-Bewertung:</h3>
+                <div style="white-space: pre-wrap; font-family: monospace; background: white; padding: 10px; border-radius: 4px;">
+                  ${rawGpt}
+                </div>
+              </div>
+              
+              <hr style="margin: 30px 0;">
+              <p style="color: #666; font-size: 12px;">
+                Diese E-Mail wurde automatisch von PferdeWert.de generiert.
+              </p>
+            `,
+          });
 
-const betrag = session.amount_total
-  ? `${(session.amount_total / 100).toFixed(2)} €`
-  : "unbekannt";
+          info('[WEBHOOK] Admin notification email sent successfully');
+        }
+      } catch (err) {
+        error('[WEBHOOK] Error sending admin notification email:', err instanceof Error ? err.message : String(err));
+      }
 
-// Formatierte Darstellung aller Formularfelder
-const formularFelderHtml = `
-  <h3>📋 Eingabedaten des Kunden:</h3>
-  
-  <p><strong>Rasse (Pflicht):</strong> ${rasse || 'nicht angegeben'}</p>
-  <p><strong>Alter (Pflicht):</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
-  <p><strong>Geschlecht (Pflicht):</strong> ${geschlecht || 'nicht angegeben'}</p>
-  <p><strong>Stockmaß (Pflicht):</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
-  <p><strong>Abstammung (Pflicht):</strong> ${abstammung || 'nicht angegeben'}</p>
-  <p><strong>Ausbildungsstand (Pflicht):</strong> ${ausbildung || 'nicht angegeben'}</p>
-  
-  <hr style="margin: 20px 0; border: 1px solid #eee;">
-  
-  <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
-  <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
-  <p><strong>Farbe (Optional):</strong> ${farbe || 'nicht angegeben'}</p>
-  <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
-  <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
-  <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
-`;
+      // Send customer email
+      const customerEmail = session.customer_details?.email;
 
-// Nur senden wenn Resend verfügbar ist
-if (!resend) {
-  console.error("❌ Resend nicht initialisiert - RESEND_API_KEY fehlt!");
-  // Trotzdem 200 zurückgeben, damit Stripe nicht retry macht
-  return res.status(200).end();
-}
-
-await resend.emails.send({
-  from: "PferdeWert <kauf@pferdewert.de>",
-  to: empfaenger,
-  subject: `💰 Neuer Kauf auf PferdeWert.de von: ${session.customer_details?.email || "unbekannt"}`,
-  html: `
-    <h2>🐴 Neue Zahlung bei PferdeWert.de!</h2>
-    
-    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
-      <h3>💳 Zahlungsdetails:</h3>
-      <p><strong>Session ID:</strong> ${sessionId}</p>
-      <p><strong>Betrag:</strong> ${betrag}</p>
-      <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
-    </div>
-    
-    <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-      ${formularFelderHtml}
-    </div>
-    
-    <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
-      <h3>🤖 KI-Bewertung:</h3>
-      <div style="white-space: pre-wrap; font-family: monospace; background: white; padding: 10px; border-radius: 4px;">
-        ${raw_gpt}
-      </div>
-    </div>
-    
-    <hr style="margin: 30px 0;">
-    <p style="color: #666; font-size: 12px;">
-      Diese E-Mail wurde automatisch von PferdeWert.de generiert.
-    </p>
-  `,
-});
-
-  // ⚠️ Kein Zugriff auf .id mehr – stattdessen ganze Antwort loggen
-  console.log("✅ [WEBHOOK] Mail gesendet an:", empfaenger.join(", "));
-} catch (err) {
-  console.error("❌ [WEBHOOK] Fehler beim Mailversand:", err);
-}
-
-// 📧 Email an Kunden
-const customerEmail = session.customer_details?.email;
-
-if (customerEmail && resend) {
-  try {
-  await resend.emails.send({
-    from: "PferdeWert <info@pferdewert.de>",
-    to: customerEmail,
-    subject: "🐴 Deine Pferdebewertung ist fertig!",
-    html: `
-      <h2>Hallo!</h2>
-      <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
-          <br> 
-      <p><strong><a href="https://pferdewert.de/ergebnis?session_id=${sessionId}" 
-         style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
-         🐴 Zur Bewertung & PDF-Download
-      </a></strong></p>
-          <br>
-      <p><small>Falls der Button nicht funktioniert:<br>
-      https://pferdewert.de/ergebnis?session_id=${sessionId}</small></p>
-      
-      <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
-    `
-  });
-  console.log("✅ [WEBHOOK] Kunden-Mail gesendet an:", session.customer_email);
-  } catch (err) {
-    console.error("❌ [WEBHOOK] Fehler beim Kunden-Mailversand:", err);
-  }
-} else {
-  console.warn("⚠️ [WEBHOOK] Keine Kunden-Email verfügbar");
-}
+      if (customerEmail && resend) {
+        try {
+          await resend.emails.send({
+            from: "PferdeWert <info@pferdewert.de>",
+            to: customerEmail,
+            subject: "🐴 Deine Pferdebewertung ist fertig!",
+            html: `
+              <h2>Hallo!</h2>
+              <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
+                  <br> 
+              <p><strong><a href="https://pferdewert.de/ergebnis?session_id=${sessionId}" 
+                 style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
+                 🐴 Zur Bewertung & PDF-Download
+              </a></strong></p>
+                  <br>
+              <p><small>Falls der Button nicht funktioniert:<br>
+              https://pferdewert.de/ergebnis?session_id=${sessionId}</small></p>
+              
+              <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
+            `
+          });
+          info('[WEBHOOK] Customer email sent successfully');
+        } catch (err) {
+          error('[WEBHOOK] Error sending customer email:', err instanceof Error ? err.message : String(err));
+        }
+      } else {
+        if (!customerEmail) {
+          warn('[WEBHOOK] No customer email available');
+        }
+        if (!resend) {
+          warn('[WEBHOOK] Resend not available for customer email');
+        }
+      }
 
       return res.status(200).end("Done");
     } catch (err) {
-      console.error("❌ [WEBHOOK] Fehler bei Bewertung:", err);
-      console.error("❌ [WEBHOOK] Error Stack:", err instanceof Error ? err.stack : "No stack");
-      console.error("❌ [WEBHOOK] Error Details:", err instanceof Error ? err.message : String(err));
+      error('[WEBHOOK] Error processing evaluation:', {
+        message: err instanceof Error ? err.message : String(err),
+        stack: err instanceof Error ? err.stack : undefined,
+        sessionId: sessionId
+      });
       
-      // WICHTIG: Immer 200 zurückgeben, damit Stripe nicht endlos retried!
-      // Der Fehler wird geloggt, aber wir verhindern Webhook-Retry-Loops
+      // IMPORTANT: Always return 200 to prevent Stripe retries
+      // Error is logged but we prevent webhook retry loops
       return res.status(200).json({ 
         success: false, 
         error: "Webhook processing failed but acknowledged",
@@ -332,9 +384,8 @@ if (customerEmail && resend) {
       });
     }
   } else {
-    console.log("ℹ️ [WEBHOOK] Event ignoriert:", event.type);
+    info('[WEBHOOK] Event ignored:', event.type);
   }
 
-  
-  res.status(200).end("Event ignoriert");
+  res.status(200).end("Event ignored");
 }
