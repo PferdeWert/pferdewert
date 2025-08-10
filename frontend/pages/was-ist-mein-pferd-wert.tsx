@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { Star, TrendingUp, Shield, Clock, CheckCircle } from "lucide-react";
-import { PRICING_TEXTS } from "../lib/pricing";
+import { PRICING_TEXTS, SCHEMA_PRICING } from "../lib/pricing";
 
 // Sticky Mobile CTA Component
 const StickyMobileCTA = () => {
@@ -29,7 +29,7 @@ const StickyMobileCTA = () => {
           href="/pferde-preis-berechnen"
           className="btn-primary w-full text-center py-4 font-bold text-lg shadow-lg"
         >
-          Jetzt Pferd bewerten → 9,90€
+          {PRICING_TEXTS.mobileButton}
         </Link>
       </div>
     </div>
@@ -100,7 +100,7 @@ export default function WasIstMeinPferdWert() {
     },
     {
       frage: "Kostet der Service etwas?",
-      antwort: "Unsere umfassende Preisanalyse kostet aktuell 9,90 Euro (Einführungspreis), anstatt regulär 39 Euro.",
+      antwort: PRICING_TEXTS.faqAnswer,
       isOpen: false
     },
     {
@@ -154,8 +154,8 @@ export default function WasIstMeinPferdWert() {
                 "serviceType": "Pferdebewertung",
                 "offers": {
                   "@type": "Offer",
-                  "price": "9.90",
-                  "priceCurrency": "EUR",
+                  "price": SCHEMA_PRICING.price,
+                  "priceCurrency": SCHEMA_PRICING.priceCurrency,
                   "availability": "https://schema.org/InStock"
                 },
                 "aggregateRating": {
