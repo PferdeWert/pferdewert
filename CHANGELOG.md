@@ -1,5 +1,47 @@
 # Changelog
 
+## [2025-01-10] - Price Increase Implementation: 9,90€ → 14,90€
+
+### Added
+- **Centralized pricing configuration** - Single source of truth in `lib/pricing.ts` for all price data
+- **TypeScript types** - Complete type safety for pricing constants and configurations
+- **Utility functions** - formatPrice(), toCents(), validatePricing() helpers
+- **Schema.org pricing** - Structured data support for SEO optimization
+- **Environment-based Stripe config** - Dynamic Price ID loading from environment variables
+
+### Enhanced  
+- **Psychological pricing strategy** - 14,90€ current price with 39€ decoy price for anchoring effect
+- **Historical price tracking** - Launch (4,90€), previous (9,90€), current (14,90€) for comparison texts
+- **German currency formatting** - Proper comma decimal separator throughout application
+- **Marketing copy automation** - Dynamic CTA buttons and FAQ answers based on pricing config
+
+### Fixed
+- **FAQ display bug** - Corrected literal string "{PRICING_TEXTS.whyAffordable}" to proper JSX expression
+- **Hardcoded price removal** - Eliminated all static 9,90€ references across frontend pages
+- **Console.log replacement** - Development-only logging with proper dynamic import structure
+- **TypeScript compliance** - All pricing references now type-safe with const assertions
+
+### Technical
+- **Centralized configuration pattern** - All prices managed from single `lib/pricing.ts` file
+- **Stripe integration update** - New Price ID for 14,90€ with automatic cent conversion
+- **Development helpers** - Validation and logging for price configuration integrity
+- **Template literal migration** - All pricing texts now use centralized string templates
+
+### Files Changed
+- `frontend/lib/pricing.ts` - New centralized pricing configuration (154 lines)
+- `frontend/pages/index.tsx` - Updated pricing imports and fixed FAQ bug (line 86)
+- `frontend/pages/pferd-kaufen.tsx` - Migrated to centralized pricing imports
+- `frontend/pages/pferd-verkaufen.tsx` - Migrated to centralized pricing imports  
+- `frontend/pages/was-ist-mein-pferd-wert.tsx` - Migrated to centralized pricing imports
+
+### Quality Assurance
+- ✅ TypeScript: No type errors
+- ✅ ESLint: All pricing-related violations resolved
+- ✅ Manual verification: All hardcoded prices removed
+- ✅ Functionality: Pricing displays consistently across all pages
+
+---
+
 ## [2025-01-09] - Real Customer Testimonial Integration & Asset Cleanup
 
 ### Added

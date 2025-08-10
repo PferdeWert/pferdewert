@@ -15,7 +15,9 @@
       "rm",
       "run lint",
       "playwright",
-      "resize"
+      "resize",
+      "allow-all-browser-permissions",
+      "all browser permissions"
     ],
     "deny": []
   }

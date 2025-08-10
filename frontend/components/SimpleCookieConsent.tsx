@@ -105,6 +105,29 @@ const SimpleCookieConsent = () => {
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
               transform: none !important;
             `;
+          } else {
+            // Desktop: Apply direct centering styles since CSS isn't loading properly
+            popup.style.cssText = `
+              position: fixed !important;
+              top: 50% !important;
+              left: 50% !important;
+              transform: translate(-50%, -50%) !important;
+              width: 90% !important;
+              max-width: 480px !important;
+              padding: 2rem 1.5rem !important;
+              background: #ffffff !important;
+              box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15) !important;
+              border-radius: 12px !important;
+              display: flex !important;
+              flex-direction: column !important;
+              z-index: 10000 !important;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+              text-align: center !important;
+              bottom: auto !important;
+              right: auto !important;
+              height: auto !important;
+              margin: 0 !important;
+            `;
           }
 
           // 🎯 GLEICHE BUTTON-GRÖSSEN für faire UX
@@ -301,13 +324,6 @@ if (denyButton) {
         }}
       />
       
-      {/* CSS für Cookie Consent */}
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-        integrity="sha384-5SS1RE4eZWVVWT/0CK5PXN0POhg4TQCX21CiKTbVgHNKZpDHusFdjT+Xgs7XC+BZ"
-        crossOrigin="anonymous"
-      />
     </>
   );
 };
