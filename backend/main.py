@@ -31,7 +31,18 @@ openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
 claude_client = anthropic.Anthropic(api_key=CLAUDE_KEY) if CLAUDE_KEY else None
 
 # Token counting
-ENC = tiktoken.encoding_for_model(MODEL_ID) if OPENAI_KEY else None
+def get_tokenizer(model_id: str):
+    """Get tokenizer for model, with fallback for newer models like GPT-5."""
+    try:
+        return tiktoken.encoding_for_model(model_id)
+    except KeyError:
+        # Fallback for newer models (GPT-5, etc.) - use GPT-4 tokenizer
+        if model_id.startswith("gpt-5"):
+            return tiktoken.encoding_for_model("gpt-4")
+        # For other unknown models, use a safe default
+        return tiktoken.get_encoding("cl100k_base")
+
+ENC = get_tokenizer(MODEL_ID) if OPENAI_KEY else None
 CTX_MAX = 128_000
 MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
 
