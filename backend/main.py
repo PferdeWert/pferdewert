@@ -251,7 +251,7 @@ def bewertung(req: BewertungRequest):
 
 @app.post("/api/debug-comparison")
 def debug_comparison(req: BewertungRequest):
-    \"""Debug-Endpoint: Vergleich GPT vs Claude vs O3\"""
+    """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
     logging.info(f"Debug Comparison Request: {req.dict()}")
     
     results = {}
