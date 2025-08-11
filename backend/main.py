@@ -249,7 +249,6 @@ def bewertung(req: BewertungRequest):
 # allow attackers to abuse the AI services and access sensitive model interactions.
 # Uncomment only for local development/testing purposes with proper access controls.
 
-"""
 @app.post("/api/debug-comparison")
 def debug_comparison(req: BewertungRequest):
     \"""Debug-Endpoint: Vergleich GPT vs Claude vs O3\"""
@@ -321,7 +320,6 @@ def debug_comparison(req: BewertungRequest):
     }
 
     return results
-"""
 
 # ───────────────────────────────
 #  Health Check
