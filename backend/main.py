@@ -299,13 +299,16 @@ def debug_comparison(req: BewertungRequest):
             )
         
         # Debug logging for GPT-5 response
-        logging.info(f"GPT Response object: {gpt_response}")
-        logging.info(f"GPT Choices: {gpt_response.choices}")
+        logging.info(f"GPT Response received, has {len(gpt_response.choices)} choices")
         if gpt_response.choices and len(gpt_response.choices) > 0:
-            logging.info(f"First choice: {gpt_response.choices[0]}")
-            logging.info(f"Message content: {gpt_response.choices[0].message.content}")
-        
-        results["gpt"] = gpt_response.choices[0].message.content.strip() if gpt_response.choices[0].message.content else ""
+            content = gpt_response.choices[0].message.content
+            logging.info(f"Message content type: {type(content)}")
+            logging.info(f"Message content length: {len(content) if content else 'None'}")
+            logging.info(f"Message content: '{content}'")
+            results["gpt"] = content.strip() if content else "GPT-5 returned None content"
+        else:
+            logging.info("No choices in GPT response")
+            results["gpt"] = "GPT-5 returned no choices"
         logging.info(f"{MODEL_ID}: Success")
     except Exception as e:
         results["gpt"] = f"GPT Error: {str(e)}"
