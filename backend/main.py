@@ -277,14 +277,22 @@ def debug_comparison(req: BewertungRequest):
             {"role": "system", "content": GPT_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt}
         ]
-        gpt_response = openai_client.chat.completions.create(
-            model=MODEL_ID,
-            messages=gpt_messages,
-            temperature=1.0,  # GPT-5 requires temperature=1.0
-            top_p=0.8,
-            seed=12345,
-            max_completion_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
-        )
+        # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
+        if MODEL_ID.startswith("gpt-5"):
+            gpt_response = openai_client.chat.completions.create(
+                model=MODEL_ID,
+                messages=gpt_messages,
+                max_completion_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
+            )
+        else:
+            gpt_response = openai_client.chat.completions.create(
+                model=MODEL_ID,
+                messages=gpt_messages,
+                temperature=0.0,
+                top_p=0.8,
+                seed=12345,
+                max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
+            )
         results["gpt"] = gpt_response.choices[0].message.content.strip()
         logging.info("GPT-4o: Success")
     except Exception as e:
