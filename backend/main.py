@@ -279,10 +279,14 @@ def debug_comparison(req: BewertungRequest):
         ]
         # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
         if MODEL_ID.startswith("gpt-5"):
+            token_count = tokens_in(gpt_messages)
+            max_completion = min(MAX_COMPLETION, CTX_MAX - token_count)
+            logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, limit={MAX_COMPLETION}")
+            
             gpt_response = openai_client.chat.completions.create(
                 model=MODEL_ID,
                 messages=gpt_messages,
-                max_completion_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
+                max_completion_tokens=max_completion,
             )
         else:
             gpt_response = openai_client.chat.completions.create(
