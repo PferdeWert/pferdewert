@@ -263,7 +263,7 @@ def debug_comparison(req: BewertungRequest):
             simple_response = openai_client.chat.completions.create(
                 model=MODEL_ID,
                 messages=[{"role": "user", "content": "Hello, please respond with exactly: TEST SUCCESSFUL"}],
-                max_completion_tokens=50,
+                max_completion_tokens=2000,
             )
             simple_content = simple_response.choices[0].message.content if simple_response.choices else None
             logging.info(f"GPT-5 Simple test result: '{simple_content}'")
@@ -297,8 +297,8 @@ def debug_comparison(req: BewertungRequest):
         # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
         if MODEL_ID.startswith("gpt-5"):
             token_count = tokens_in(gpt_messages)
-            max_completion = min(MAX_COMPLETION, CTX_MAX - token_count)
-            logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, limit={MAX_COMPLETION}")
+            max_completion = min(2000, CTX_MAX - token_count)  # Increased from MAX_COMPLETION (800) to 2000
+            logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, old_limit={MAX_COMPLETION}")
             
             gpt_response = openai_client.chat.completions.create(
                 model=MODEL_ID,
