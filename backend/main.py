@@ -280,7 +280,7 @@ def debug_comparison(req: BewertungRequest):
         gpt_response = openai_client.chat.completions.create(
             model=MODEL_ID,
             messages=gpt_messages,
-            temperature=0.0,
+            temperature=1.0,  # GPT-5 requires temperature=1.0
             top_p=0.8,
             seed=12345,
             max_completion_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
