@@ -293,8 +293,16 @@ def debug_comparison(req: BewertungRequest):
                 seed=12345,
                 max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
             )
-        results["gpt"] = gpt_response.choices[0].message.content.strip()
-        logging.info("GPT-4o: Success")
+        
+        # Debug logging for GPT-5 response
+        logging.info(f"GPT Response object: {gpt_response}")
+        logging.info(f"GPT Choices: {gpt_response.choices}")
+        if gpt_response.choices and len(gpt_response.choices) > 0:
+            logging.info(f"First choice: {gpt_response.choices[0]}")
+            logging.info(f"Message content: {gpt_response.choices[0].message.content}")
+        
+        results["gpt"] = gpt_response.choices[0].message.content.strip() if gpt_response.choices[0].message.content else ""
+        logging.info(f"{MODEL_ID}: Success")
     except Exception as e:
         results["gpt"] = f"GPT Error: {str(e)}"
         logging.error(f"GPT-4o Error: {e}")
