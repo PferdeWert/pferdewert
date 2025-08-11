@@ -283,7 +283,7 @@ def debug_comparison(req: BewertungRequest):
             temperature=0.0,
             top_p=0.8,
             seed=12345,
-            max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
+            max_completion_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
         )
         results["gpt"] = gpt_response.choices[0].message.content.strip()
         logging.info("GPT-4o: Success")
@@ -294,9 +294,8 @@ def debug_comparison(req: BewertungRequest):
     # Claude Test
     try:
         logging.info("Testing Claude...")
-        if not claude_client:
-            claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        claude_response = claude_client.messages.create(
+        local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        claude_response = local_claude_client.messages.create(
             model=CLAUDE_MODEL,
             max_tokens=1000,
             temperature=0.0,
