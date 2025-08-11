@@ -255,6 +255,23 @@ def debug_comparison(req: BewertungRequest):
     logging.info(f"Debug Comparison Request: {req.dict()}")
     
     results = {}
+    
+    # Test simple prompt first if GPT-5
+    if MODEL_ID.startswith("gpt-5"):
+        logging.info("Testing GPT-5 with simple prompt first...")
+        try:
+            simple_response = openai_client.chat.completions.create(
+                model=MODEL_ID,
+                messages=[{"role": "user", "content": "Hello, please respond with exactly: TEST SUCCESSFUL"}],
+                max_completion_tokens=50,
+            )
+            simple_content = simple_response.choices[0].message.content if simple_response.choices else None
+            logging.info(f"GPT-5 Simple test result: '{simple_content}'")
+            results["gpt5_simple_test"] = simple_content or "No response"
+        except Exception as e:
+            logging.error(f"GPT-5 Simple test failed: {e}")
+            results["gpt5_simple_test"] = f"Error: {str(e)}"
+    
     user_prompt = (
         f"Rasse: {req.rasse}\n"
         f"Alter: {req.alter}\n"
