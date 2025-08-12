@@ -19,13 +19,6 @@ interface RealTestimonial {
   rating: number;
 }
 
-interface CompositeTestimonial {
-  name: string;
-  location: string;
-  role: string;
-  quote: string;
-  rating: number;
-}
 
 export default function PferdeWertHomepage() {
   // Preise aus zentraler Konfiguration (importiert)
@@ -51,18 +44,20 @@ export default function PferdeWertHomepage() {
       quote: "Nach einer Verletzung von Fürstiano war ich unsicher über seinen aktuellen Marktwert. Die PferdeWert-Analyse war super einfach auszufüllen und das Ergebnis kam sofort. Besonders hilfreich fand ich die detaillierte Aufschlüsselung der Bewertungsfaktoren - das hat mir wirklich geholfen, die Situation realistisch einzuschätzen. Auch wenn für mich mein Pferd unbezahlbar bleibt, war es interessant zu wissen, wo er marktmäßig steht.",
       verifiedDate: "2024-12-20",
       rating: 5
-    }
-  ];
-
-  const compositeTestimonials: CompositeTestimonial[] = [
+    },
     {
-      name: "Julia M.",
-      location: "Deutschland",
-      role: "Pferdebesitzerin",
-      quote: "Ich besitze seit fünf Jahren ein Pferd und wollte aus Neugier den aktuellen Marktwert wissen. Das Ergebnis von PferdeWert war super interessant und sehr ausführlich! Besonders fasziniert hat mich die detaillierte Analyse der Abstammung und wie sich verschiedene Faktoren auf den Wert auswirken. Die Bewertung hat mir geholfen, den Versicherungswert anzupassen und ich verstehe jetzt viel besser, worauf beim Pferdekauf zu achten ist.",
+      name: "Denise B.",
+      location: "Deutschland", 
+      role: "von energy_emotion",
+      photo: "/images/testimonials/denise-customer-64.webp",
+      instagramHandle: "energy_emotion",
+      quote: "Auch wenn ein Verkauf meiner beiden Stuten nicht in Frage kommt, war ich neugierig, wo ihr aktueller Marktwert liegt. Die Bewertung bei PferdeWert war überraschend einfach – ein paar Fragen zur Abstammung, zu eventuellen Krankheitsbildern, Ausbildung und Turniererfolgen, das war's. Keine 10 Minuten später hatte ich eine detaillierte Analyse zu beiden Pferden. Perfekt für alle, die vor einem Pferdekauf oder Pferdeverkauf stehen oder einfach so wissen möchten, was ihre Pferde wert sind",
+      verifiedDate: "2025-01-12",
       rating: 5
     }
   ];
+
+  // Removed composite testimonials as we now have 3 real testimonials
 
   // FAQ Data
   const faqItems = [
@@ -351,7 +346,8 @@ export default function PferdeWertHomepage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Optimized grid layout for 3 testimonials */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
               {/* Real Testimonials with Photos */}
               {realTestimonials.map((testimonial, index) => (
                 <div key={index} className="flex">
@@ -363,19 +359,19 @@ export default function PferdeWertHomepage() {
                     </div>
                     
                     {/* Customer info with consistent height */}
-                    <div className="flex items-center mb-4 ml-6 min-h-[80px]">
+                    <div className="flex items-start mb-4 ml-6 min-h-[80px]">
                       <div className="relative w-16 mr-4 flex-shrink-0">
-                        <Image
+                        <img
                           src={testimonial.photo}
                           alt={`${testimonial.name} Profilbild`}
-                          width={64}
-                          height={64}
+                          width="64"
+                          height="64"
                           className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
                         />
                       </div>
-                      <div>
+                      <div className="flex-1 pt-1">
                         <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                        <div className="text-sm text-gray-600">{testimonial.role}</div>
+                        <div className="text-sm text-gray-600 leading-snug">{testimonial.role}</div>
                         <div className="text-xs text-gray-500">{testimonial.location}</div>
                       </div>
                     </div>
@@ -388,74 +384,24 @@ export default function PferdeWertHomepage() {
                     </div>
                     
                     {/* Quote - grows to fill available space */}
-                    <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed flex-grow">
+                    <blockquote className="text-gray-700 mb-6 ml-6 leading-relaxed flex-grow text-sm">
                       {testimonial.quote}
                     </blockquote>
                     
-                    {/* Instagram link - always at bottom */}
-                    {testimonial.instagramHandle && (
-                      <div className="ml-6 mt-auto">
+                    {/* Instagram link - always at bottom with consistent height */}
+                    <div className="ml-6 mt-auto min-h-[48px] flex items-center">
+                      {testimonial.instagramHandle && (
                         <a
                           href={`https://instagram.com/${testimonial.instagramHandle}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors min-h-[44px] py-2"
+                          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors py-2 px-3 rounded-lg hover:bg-brand-light/50"
                           aria-label={`${testimonial.name} auf Instagram folgen`}
                         >
                           <Instagram className="w-4 h-4" />
                           @{testimonial.instagramHandle}
                         </a>
-                      </div>
-                    )}
-                    {!testimonial.instagramHandle && (
-                      <div className="ml-6 min-h-[56px] flex items-center">
-                        {/* Empty space for layout alignment */}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-
-              {/* Composite Testimonials */}
-              {compositeTestimonials.map((testimonial, index) => (
-                <div key={index} className="flex">
-                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
-                    
-                    {/* Quote mark */}
-                    <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
-                      &quot;
-                    </div>
-                    
-                    {/* Customer info with placeholder space for photo alignment */}
-                    <div className="flex items-center mb-4 ml-6 min-h-[80px]">
-                      {/* Invisible placeholder to maintain alignment with photo testimonial */}
-                      <div className="w-16 mr-4 flex-shrink-0">
-                        <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center border-2 border-transparent">
-                          <Users className="w-8 h-8 text-gray-400" />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                        <div className="text-sm text-gray-600">{testimonial.role}</div>
-                        <div className="text-xs text-gray-500">{testimonial.location}</div>
-                      </div>
-                    </div>
-                    
-                    {/* Rating */}
-                    <div className="flex mb-4 ml-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
-                      ))}
-                    </div>
-                    
-                    {/* Quote - grows to fill available space */}
-                    <blockquote className="text-gray-700 mb-4 ml-6 leading-relaxed flex-grow">
-                      {testimonial.quote}
-                    </blockquote>
-                    
-                    {/* Placeholder space to match Instagram link height */}
-                    <div className="ml-6 min-h-[56px] flex items-center">
-                      {/* Empty space for layout alignment */}
+                      )}
                     </div>
                   </div>
                 </div>

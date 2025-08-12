@@ -17,7 +17,9 @@
       "playwright",
       "resize",
       "allow-all-browser-permissions",
-      "all browser permissions"
+      "all browser permissions",
+      "source",
+      "ruff"
     ],
     "deny": []
   }
