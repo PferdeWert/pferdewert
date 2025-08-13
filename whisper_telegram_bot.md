@@ -1,6 +1,8 @@
 # Whisper Telegram Bot - Kompletter Setup Guide
 
-**Status:** 🚀 Production Ready  
+**Status:** 🚀 Production Ready - **BOT LÄUFT BEREITS!**  
+**Server:** pferdewert-dev (167.235.233.90)  
+**Prozess:** python voice_bot.py (PID 9042, läuft seit Aug 12)  
 **Ziel:** Voice → Claude Code Integration für PferdeWert Server  
 **Ansatz:** Von MVP bis Full Feature in Stufen
 
@@ -392,6 +394,20 @@ sudo systemctl status whisperbot
 ---
 
 ## 📊 **Monitoring & Wartung**
+
+### ✅ Aktueller Bot Status (Live)
+```bash
+# Bot läuft aktuell:
+Process: python voice_bot.py
+PID: 9042
+Memory: 698MB (17.8% vom Server)
+Uptime: Seit Aug 12, 2025
+Status: ✅ AKTIV und empfangsbereit
+
+# Bot prüfen:
+ps aux | grep voice_bot.py
+# → Sollte Prozess 9042 zeigen
+```
 
 ### Daily Checks
 ```bash
