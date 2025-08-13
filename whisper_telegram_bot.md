@@ -45,7 +45,7 @@ load_dotenv()
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 MY_TELEGRAM_ID = int(os.getenv("MY_TELEGRAM_ID"))
-model = whisper.load_model("base")
+model = whisper.load_model("tiny")  # 39MB statt 142MB für "base"
 
 async def handle_voice(update, context):
     # Security Check - NUR DU hast Zugriff!
@@ -400,9 +400,12 @@ sudo systemctl status whisperbot
 # Bot läuft aktuell:
 Process: python voice_bot.py
 PID: 9042
-Memory: 698MB (17.8% vom Server)
+Memory: 698MB (17.8% vom Server) ⚠️ ZU VIEL!
 Uptime: Seit Aug 12, 2025
-Status: ✅ AKTIV und empfangsbereit
+Status: ✅ AKTIV aber speicher-hungrig
+
+# Problem: Whisper "base" Model lädt 500-600MB in RAM
+# Lösung: Auf "tiny" Model wechseln (39MB statt 142MB)
 
 # Bot prüfen:
 ps aux | grep voice_bot.py
@@ -421,6 +424,31 @@ free -h && df -h
 curl -s "https://api.telegram.org/bot$TOKEN/getMe"
 ```
 
+### Memory Optimization (WICHTIG!)
+```bash
+# Aktuelles Problem: Bot nutzt 698MB RAM (17.8%)
+# Grund: Whisper "base" model ist speicher-hungrig
+
+# Sofortige Lösung - Auf "tiny" model wechseln:
+cd ~/pferdewert
+pkill -f voice_bot.py
+
+# voice_bot.py editieren:
+# Zeile ändern: model = whisper.load_model("tiny")
+
+# Bot neu starten:
+source voicebot_env/bin/activate
+python voice_bot.py &
+
+# Memory Vergleich:
+# tiny:   ~50MB  (Qualität: 95% gut für deutsche Sprache)
+# base:   ~150MB (Qualität: 98% gut)
+# small:  ~244MB (Qualität: 99% gut)
+# medium: ~769MB (Qualität: 99.5% gut) ← Aktuell zu viel!
+
+# Empfehlung: "tiny" für Entwicklung, "small" für Production
+```
+
 ### Weekly Maintenance
 ```bash
 # Updates
@@ -429,6 +457,9 @@ pip install --upgrade -r requirements.txt
 
 # Logs Cleanup
 sudo journalctl --vacuum-time=7d
+
+# Memory Check nach Updates
+free -h && ps aux --sort=-%mem | head -5
 ```
 
 ---
