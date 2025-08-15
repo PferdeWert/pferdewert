@@ -6,6 +6,7 @@ PferdeWert.de - AI-assisted horse market value estimation platform.
 - **Frontend**: Next.js 15 (Pages Router) + TypeScript + Tailwind + Stripe
 - **Backend**: FastAPI + MongoDB + Dual AI (GPT/Claude)
 - **Deployment**: Frontend on Vercel, Backend on Render
+- **Development Server**: Hetzner Cloud (167.235.233.90) - Claude Code via Terminus mobile
 
 ## Development Commands
 ```bash
@@ -15,6 +16,9 @@ npm run lint && npm run type-check  # REQUIRED before commits
 
 # Backend  
 cd backend && uvicorn main:app --reload --port 8000
+
+# Hetzner Server Access
+ssh dev@167.235.233.90
 ```
 
 ## Critical Rules
