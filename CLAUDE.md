@@ -18,7 +18,11 @@ npm run lint && npm run type-check  # REQUIRED before commits
 cd backend && uvicorn main:app --reload --port 8000
 
 # Hetzner Server Access
-ssh dev@167.235.233.90
+ssh pferdewert-hetzner  # Configured alias in ~/.ssh/config
+# Alternative: ssh dev@167.235.233.90
+# SSH key is stored at: ~/.ssh/hetzner_key
+# Claude CAN access the server when started with: c (alias for --dangerous-allow-all-permissions)
+# Server: Ubuntu 24.04.3 LTS, Python 3.12.3, Node.js v20.19.4
 ```
 
 ## Critical Rules
@@ -26,6 +30,7 @@ ssh dev@167.235.233.90
 - **No `require()`** - ES6 imports only
 - **Always run lint + type-check before commits**
 - **Use Context7**: Prefix prompts with "use context7" for current docs
+- **Claude Capabilities**: Use `/docs` command for Claude Code documentation and capabilities
 
 ## Key Files
 - `pages/` - Next.js routes
@@ -41,13 +46,20 @@ See separate files for full standards:
 
 ## Extended Documentation
 For specialized workflows and tools:
-- **[CLAUDE_AGENTS.md](./CLAUDE_AGENTS.md)** - pferdewert-* specialized agents
-- **[CLAUDE_MCP.md](./CLAUDE_MCP.md)** - MCP server setup and integration
-- **[CLAUDE_PLAYWRIGHT.md](./CLAUDE_PLAYWRIGHT.md)** - Browser automation and visual testing
-- **[CLAUDE_GEMINI.md](./CLAUDE_GEMINI.md)** - Gemini CLI for token savings
+- **[AGENTS.md](./AGENTS.md)** - pferdewert-* specialized agents
+- **[GEMINI_CLI_SETUP.md](./GEMINI_CLI_SETUP.md)** - Gemini CLI setup and integration
+- **[GEMINI_USAGE.md](./GEMINI_USAGE.md)** - Gemini CLI usage patterns for token savings
+- **[WHISPER_TODO.md](./WHISPER_TODO.md)** - Whisper Voice Bot implementation guide
+
+## Recent Additions
+- **[CHANGELOG.md](./CHANGELOG.md)** - Project changelog with detailed version history
+- **[NOTION_VOICE_SETUP_COMPLETE.md](./NOTION_VOICE_SETUP_COMPLETE.md)** - Complete Notion voice integration setup
+- Voice bot scripts: `voice_bot.py`, `voice_bot_notion.py`, `notion_analyzer.py`, etc.
 
 ## Quick References
 - **Agents**: Use `pferdewert-frontend-dev`, `pferdewert-debugger`, `pferdewert-code-reviewer`
 - **Visual Testing**: Always use Playwright MCP for frontend changes
 - **Token Savings**: Use Gemini CLI for ESLint fixes, TypeScript types
 - **Context7**: `"use context7 for Next.js 15"` for current docs
+- **Voice Bot**: Whisper transcription → Claude Code CLI integration on Hetzner server
+- **Notion Integration**: Voice-controlled diary entries and workspace management
