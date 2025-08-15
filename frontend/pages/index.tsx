@@ -57,8 +57,6 @@ export default function PferdeWertHomepage() {
     }
   ];
 
-  // Removed composite testimonials as we now have 3 real testimonials
-
   // FAQ Data
   const faqItems = [
     {
@@ -342,7 +340,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
               <p className="text-xl text-gray-600">
-                Echte und repräsentative Erfahrungen von Pferdebesitzern
+                Erfahrungen von Pferdebesitzern und Reitern
               </p>
             </div>
 
@@ -361,11 +359,11 @@ export default function PferdeWertHomepage() {
                     {/* Customer info with consistent height */}
                     <div className="flex items-start mb-4 ml-6 min-h-[80px]">
                       <div className="relative w-16 mr-4 flex-shrink-0">
-                        <img
+                        <Image
                           src={testimonial.photo}
                           alt={`${testimonial.name} Profilbild`}
-                          width="64"
-                          height="64"
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
                         />
                       </div>
@@ -412,7 +410,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mt-16">
               <div className="mb-4">
                 <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Bewertungen für Pferdebesitzer deutschlandweit
+                  Professionelle Bewertungen für Pferdebesitzer und Pferdekäufer
                 </p>
               </div>
               
