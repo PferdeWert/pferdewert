@@ -1,6 +1,6 @@
 # Projektstand PferdeWert.de
 
-**Stand: Juli 2025**
+**Stand: August 2025**
 
 ---
 
@@ -144,6 +144,7 @@
 ## 🔮 Roadmap & Nächste Schritte
 
 ### Kurzfristig (1-2 Wochen):
+* [x] **Formular-Optimierung:** 8→6 Pflichtfelder, 4→3 Schritte ✅ Erledigt (Aug 2025)
 * [ ] **Custom Events:** Button-Tracking für wichtige CTAs
 * [ ] **Conversion Goals:** GA4-Ziele für Bewertungs-Abschlüsse
 * [ ] **A/B Testing:** Cookie-Banner Texte optimieren

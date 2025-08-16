@@ -9,22 +9,25 @@ import { STRIPE_CONFIG } from "@/lib/pricing";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
-// Schema entspricht backend.BewertungRequest
+// Schema entspricht backend.BewertungRequest - OPTIMIERT
 const BewertungSchema = z.object({
-  // Pflichtfelder
+  // Pflichtfelder (6 statt 8)
   rasse: z.string(),
   alter: z.coerce.number(),
   geschlecht: z.string(),
-  abstammung: z.string(),
   stockmass: z.coerce.number(),
+  haupteignung: z.string(), // NEU: ersetzt verwendungszweck
   ausbildung: z.string(),
 
   // Optionale Angaben
+  abstammung: z.string().optional(), // JETZT OPTIONAL
   aku: z.string().optional(),
   erfolge: z.string().optional(),
-  farbe: z.string().optional(),
-  zuechter: z.string().optional(),
   standort: z.string().optional(),
+  charakter: z.string().optional(), // NEU
+  besonderheiten: z.string().optional(), // NEU
+  
+  // Legacy Support (falls alte Daten gesendet werden)
   verwendungszweck: z.string().optional(),
 });
 

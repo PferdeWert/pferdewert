@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { error, warn } from "@/lib/log";
+import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED } from "../lib/pricing";
@@ -18,10 +18,10 @@ interface FormState {
   ausbildung: string;
   aku: string;
   erfolge: string;
-  farbe: string;
-  zuechter: string;
   standort: string;
-  verwendungszweck: string;
+  haupteignung: string;  // NEU: ersetzt verwendungszweck
+  charakter?: string;    // NEU: optional
+  besonderheiten?: string; // NEU: optional
 }
 
 const initialForm: FormState = {
@@ -33,10 +33,10 @@ const initialForm: FormState = {
   ausbildung: "",
   aku: "",
   erfolge: "",
-  farbe: "",
-  zuechter: "",
   standort: "",
-  verwendungszweck: "",
+  haupteignung: "",
+  charakter: "",
+  besonderheiten: "",
 };
 
 // Field Interface
@@ -64,13 +64,13 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration (Wizard-Fortschritt)
+// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4 → 3 Schritte
 const stepData: StepData[] = [
   {
     id: 1,
     title: "Grunddaten",
     subtitle: "Grunddaten deines Pferdes",
-    description: "Erzähle uns die wichtigsten Daten zu deinem Pferd",
+    description: "Die wichtigsten Informationen zu deinem Pferd",
     icon: "🐎",
     iconBg: "bg-amber-100",
     fields: [
@@ -86,7 +86,7 @@ const stepData: StepData[] = [
         label: "Alter (Jahre)", 
         type: "number", 
         required: true, 
-        placeholder: "z.B. 8",
+        placeholder: "8",
         halfWidth: true
       },
       { 
@@ -102,7 +102,22 @@ const stepData: StepData[] = [
         label: "Stockmaß (cm)", 
         type: "number", 
         required: true, 
-        placeholder: "z.B. 168",
+        placeholder: "165",
+        halfWidth: true
+      },
+      { 
+        name: "haupteignung", 
+        label: "Haupteignung / Disziplin", 
+        required: true, 
+        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
+        halfWidth: true
+      },
+      { 
+        name: "ausbildung", 
+        label: "Ausbildungsstand", 
+        type: "select",
+        required: true, 
+        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
         fullWidth: true
       },
     ]
@@ -110,81 +125,57 @@ const stepData: StepData[] = [
   {
     id: 2,
     title: "Details",
-    subtitle: "Abstammung & Ausbildung",
-    description: "Details zur Leistung und Ausbildung deines Pferdes",
+    subtitle: "Weitere Informationen",
+    description: "Optionale Details für eine genauere Bewertung",
     icon: "🏆",
     iconBg: "bg-blue-100",
     fields: [
       { 
+        name: "erfolge", 
+        label: "Turniererfahrung / Erfolge", 
+        required: false,
+        placeholder: "z.B. A-Dressur platziert, L-Springen teilgenommen",
+        fullWidth: true
+      },
+      { 
         name: "abstammung", 
         label: "Abstammung (Vater x Muttervater)", 
-        required: true, 
+        required: false, 
         placeholder: "z.B. Cornet Obolensky x Contender",
         fullWidth: true
       },
       { 
-        name: "ausbildung", 
-        label: "Ausbildungsstand", 
-        required: true, 
-        placeholder: "z.B. A-Dressur, Springpferde L, angeritten",
-        fullWidth: true
+        name: "charakter", 
+        label: "Charakter & Rittigkeit", 
+        required: false,
+        placeholder: "z.B. sehr brav, brav, normal, sensibel, anspruchsvoll",
+        halfWidth: true
       },
       { 
-        name: "verwendungszweck", 
-        label: "Verwendungszweck", 
+        name: "aku", 
+        label: "Gesundheit / AKU", 
         required: false,
-        placeholder: "z.B. Freizeit, Turnier, Zucht",
-        fullWidth: true
+        placeholder: "z.B. AKU 2023 ohne Befund, leichte Arthrose",
+        halfWidth: true
+      },
+      { 
+        name: "besonderheiten", 
+        label: "Besonderheiten", 
+        required: false,
+        placeholder: "z.B. verladefromm, geländesicher, anfängertauglich",
+        halfWidth: true
+      },
+      { 
+        name: "standort", 
+        label: "Standort (PLZ)", 
+        required: false,
+        placeholder: "z.B. 72770",
+        halfWidth: true
       },
     ]
   },
   {
     id: 3,
-    title: "Zusatzinfos",
-    subtitle: "Zusätzliche Informationen",
-    description: "Optionale Details für eine noch genauere Bewertung",
-    icon: "📋",
-    iconBg: "bg-green-100",
-    fields: [
-      { 
-        name: "aku", 
-        label: "Gesundheitsstatus / AKU-Bericht", 
-        required: false,
-        placeholder: "z.B. AKU ohne Befund, kleine Befunde",
-        fullWidth: true
-      },
-      { 
-        name: "erfolge", 
-        label: "Erfolge", 
-        required: false,
-        placeholder: "z.B. L-Platzierungen Springen, A-Dressur gewonnen",
-        fullWidth: true
-      },
-      { 
-        name: "farbe", 
-        label: "Farbe", 
-        required: false,
-        placeholder: "z.B. Fuchs, Rappe, Brauner",
-        halfWidth: true
-      },
-      { 
-        name: "standort", 
-        label: "Standort", 
-        required: false,
-        placeholder: "z.B. München oder PLZ",
-        halfWidth: true
-      },
-      { 
-        name: "zuechter", 
-        label: "Züchter", 
-        required: false,
-        placeholder: "z.B. Privat oder Zuchtbetrieb XYZ",
-        fullWidth: true
-      },
-    ]
-  },
-  {
-    id: 4,
     title: "Bezahlung",
     subtitle: "Analyse starten",
     description: "Nur noch ein Klick zur professionellen Pferdebewertung",
@@ -206,7 +197,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
 
-  // Formular bei Start wiederherstellen
+  // Formular bei Start wiederherstellen + Migration für alte Daten
   useEffect(() => {
     if (!isMounted) return;
     
@@ -214,8 +205,18 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     if (savedForm) {
       try {
         const parsedForm = JSON.parse(savedForm) as FormState;
-        setForm(parsedForm);
-        // Form restored from localStorage
+        
+        // Migration: verwendungszweck → haupteignung
+        const legacyForm = parsedForm as FormState & { verwendungszweck?: string };
+        const migratedForm = {
+          ...parsedForm,
+          haupteignung: parsedForm.haupteignung || legacyForm.verwendungszweck || "",
+          charakter: parsedForm.charakter || "",
+          besonderheiten: parsedForm.besonderheiten || ""
+        };
+        
+        setForm(migratedForm);
+        info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration)");
       } catch (e) {
         warn("Fehler beim Wiederherstellen des Formulars:", e);
       }
@@ -345,9 +346,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       return;
     }
 
-    // Validate all required fields from all steps
+    // Validate all required fields from all steps (now only 2 steps before payment)
     const newErrors: { [key: string]: string } = {};
-    stepData.slice(0, 3).forEach(step => {
+    stepData.slice(0, 2).forEach(step => {
       step.fields.forEach((field) => {
         if (field.required && !form[field.name as keyof FormState]) {
           newErrors[field.name] = "Pflichtfeld";
@@ -531,7 +532,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
             {/* Hauptkarte */}
             <div id="wizard-card" className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-              {currentStepData && currentStep <= 3 && (
+              {currentStepData && currentStep <= 2 && (
                 <>
                   {/* Step Header */}
                   <div className="text-center mb-8">
@@ -582,9 +583,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                               value={form[field.name as keyof FormState]}
                               onChange={handleChange}
                               autoComplete="off"
-                              inputMode={field.type === "number" ? "decimal" : undefined}
+                              inputMode={field.type === "number" ? "numeric" : undefined}
                               pattern={field.type === "number" ? "[0-9]*" : undefined}
-                              min={field.type === "number" ? "0" : undefined}
+                              min={field.type === "number" ? (field.name === "alter" ? "0" : field.name === "stockmass" ? "50" : "0") : undefined}
+                              max={field.type === "number" ? (field.name === "alter" ? "50" : field.name === "stockmass" ? "250" : undefined) : undefined}
                               placeholder={field.placeholder}
                               className={`w-full p-4 border rounded-2xl transition-all text-lg ${
                                 errors[field.name] 
@@ -635,7 +637,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               )}
 
               {/* Bezahlung-Step */}
-              {currentStep === 4 && (
+              {currentStep === 3 && (
                 <form onSubmit={handleSubmit}>
                   {/* Sticky Submit Button auf Mobile */}
                   <div className="fixed bottom-0 left-0 right-0 bg-white shadow-xl px-4 py-4 z-40 md:hidden border-t">

@@ -1,6 +1,6 @@
 # Aktueller Stand PferdeWert.de – Frontend & Analytics
 
-**Stand: 24.07.2025**
+**Stand: 16.08.2025**
 
 ---
 
@@ -267,7 +267,17 @@
 
 ---
 
-## 📋 **Nächste Schritte (Morgen)**
+## ✅ **Letzte Updates (August 2025)**
+
+### **Formular-Optimierung abgeschlossen:**
+
+1. **Wizard-Schritte:** Von 4 auf 3 Schritte reduziert ✅
+2. **Pflichtfelder:** Von 8 auf 6 Felder reduziert ✅  
+3. **Number-Inputs:** Alter & Stockmaß mit nativer Browser-Validierung ✅
+4. **Mobile UX:** Optimierte Touch-Eingabe mit numeric keyboards ✅
+5. **Neue Felder:** haupteignung (Pflicht), charakter + besonderheiten (optional) ✅
+
+## 📋 **Nächste Schritte**
 
 ### **Noch zu klären:**
 

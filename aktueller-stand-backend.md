@@ -1,5 +1,7 @@
 # Aktueller Stand – Backend PferdeWert.de
 
+**Stand: 16.08.2025**
+
 ## Technologie-Stack
 - Python mit FastAPI für REST-API-Endpoints
 - Datenbank: MongoDB (NoSQL), Speicherung anonymisierter Bewertungsdaten
@@ -63,5 +65,20 @@ Weitere Tests schreiben, um Backend-Funktionalität umfassend abzudecken.
 Planung einer CI/CD-Pipeline, um Tests automatisiert bei jedem Commit laufen zu lassen.
 
 Frontend-Integration prüfen und ggf. Backend-API-URL anpassen.
+
+## ✅ **Updates August 2025**
+
+### **Formular-Optimierung Backend-seitig abgeschlossen:**
+
+- **Schema-Anpassung in checkout.ts:** ✅ Neue Feldstruktur implementiert
+- **Neue Pflichtfelder:** `haupteignung` ersetzt `verwendungszweck` ✅
+- **Optionale Felder:** `abstammung` (vorher Pflicht), `charakter`, `besonderheiten` ✅
+- **Rückwärtskompatibilität:** `verwendungszweck` bleibt für Legacy-Daten ✅
+- **Validierung:** Zod-Schema mit 6 statt 8 Pflichtfeldern ✅
+
+### **MongoDB Integration:**
+- **Schema-flexibel:** Keine DB-Migration nötig dank NoSQL ✅
+- **Neue Dokumente:** Automatisch mit neuer Feldstruktur ✅
+- **Alte Dokumente:** Bleiben unverändert, keine Kompatibilitätsprobleme ✅
 
 Wenn du morgen weitermachen willst, können wir direkt mit dem Mocking-Test starten oder bei anderen Punkten ansetzen.

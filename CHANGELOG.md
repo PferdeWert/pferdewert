@@ -1,5 +1,59 @@
 # Changelog
 
+## [2025-08-16] - Form Optimization: UX Improvement & Field Reduction
+
+### Added
+- **Optimized form wizard**: Reduced steps from 4 to 3 for better conversion
+- **Reduced required fields**: Streamlined from 8 to 6 mandatory fields  
+- **Native number inputs**: Age (0-50) and height (50-250cm) with browser validation
+- **New form fields**: 
+  - `haupteignung` (required): Replaces `verwendungszweck` with clearer terminology
+  - `charakter` (optional): Character/temperament description
+  - `besonderheiten` (optional): Special features/notes
+- **Mobile optimization**: Numeric keyboards for number inputs on mobile devices
+- **Backward compatibility**: localStorage migration for existing form data
+
+### Changed
+- **Form structure**: 
+  - Step 1: 6 required basic fields (breed, age, gender, height, discipline, training)
+  - Step 2: Optional details (achievements, pedigree, character, health, location)
+  - Step 3: Payment (unchanged)
+  - Step 4: Removed completely
+- **Field requirements**: `abstammung` changed from required to optional
+- **Backend schema**: Updated Zod validation with new field structure
+
+### Enhanced
+- **User experience**: Shorter form completion time with fewer required fields
+- **Mobile UX**: Touch-optimized inputs with proper input modes and patterns
+- **Validation**: Native HTML5 validation for number fields with min/max constraints
+- **Data migration**: Seamless upgrade path for existing localStorage data
+
+### Technical
+- **Frontend**: Updated `pages/pferde-preis-berechnen.tsx` with new form structure
+- **Backend**: Modified `pages/api/checkout.ts` schema validation
+- **TypeScript**: Enhanced FormState interface with new optional fields
+- **Validation**: Maintained robust client-side and server-side validation
+- **Performance**: Throttled localStorage saves and optimized scroll behavior
+
+### Files Changed
+- `frontend/pages/pferde-preis-berechnen.tsx` - Complete form structure optimization
+- `frontend/pages/api/checkout.ts` - Updated Zod schema for new field structure
+
+### Quality Assurance
+- ✅ TypeScript: All types updated and validated
+- ✅ ESLint: Code standards maintained
+- ✅ Mobile testing: Optimized for iOS and Android
+- ✅ Backward compatibility: Legacy data migration tested
+- ✅ Form validation: Client and server-side validation working
+
+### Impact
+- **UX improvement**: Reduced form completion time and friction
+- **Conversion optimization**: Fewer barriers to purchase completion  
+- **Mobile experience**: Enhanced touch interaction with proper input types
+- **Data quality**: Maintained while reducing required field overhead
+
+---
+
 ## [2025-08-13] - Voice Bot Integration & Whisper AI Implementation
 
 ### Added
