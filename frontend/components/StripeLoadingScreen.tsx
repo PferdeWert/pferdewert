@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import "../styles/loading-screen.css";
 
 interface StripeLoadingScreenProps {
   loadingText?: string;
@@ -47,10 +48,10 @@ export default function StripeLoadingScreen({
           </span>
         </p>
         
-        {/* ✅ ANIMATED PROGRESS BAR - Indeterminate loading animation */}
+        {/* ✅ ANIMATED PROGRESS BAR - Sliding indeterminate animation */}
         <div className="w-full max-w-md mx-auto pt-4" aria-label="Fortschrittsanzeige">
           <div className="w-full h-4 bg-white/50 rounded-full overflow-hidden shadow-inner relative">
-            <div className="absolute h-full w-1/3 bg-brand-brown rounded-full motion-safe:animate-bounce"></div>
+            <div className="absolute h-full w-1/3 bg-brand-brown rounded-full progress-slide motion-reduce:animate-none"></div>
           </div>
         </div>
       </div>
