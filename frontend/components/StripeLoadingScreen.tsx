@@ -19,9 +19,17 @@ export default function StripeLoadingScreen({
       aria-live="polite"
       aria-busy="true"
     >
+      {/* ✅ STATIC LOGO - No animations */}
       <div className="flex justify-center">
         <div className="w-24 h-24 md:w-32 md:h-32 relative">
-          <Image src="/logo.png" alt="PferdeWert Logo" width={128} height={128} className="rounded-full" />
+          <Image 
+            src="/logo.png" 
+            alt="PferdeWert Logo" 
+            width={128} 
+            height={128} 
+            className="rounded-full"
+            priority
+          />
         </div>
       </div>
 
@@ -36,17 +44,10 @@ export default function StripeLoadingScreen({
           </span>
         </p>
         
-        <div className="w-full max-w-md mx-auto pt-4" aria-label="Fortschrittsanzeige" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={50}>
+        {/* ✅ SIMPLIFIED PROGRESS BAR - No animations, static design */}
+        <div className="w-full max-w-md mx-auto pt-4" aria-label="Fortschrittsanzeige">
           <div className="w-full h-4 bg-white/50 rounded-full overflow-hidden shadow-inner">
-            <div className="h-full bg-brand-brown rounded-full relative overflow-hidden motion-safe:animate-pulse">
-              <div
-                className="absolute inset-0 w-1/3 opacity-80"
-                style={{
-                  background: `linear-gradient(90deg, transparent 0%, var(--tw-colors-brand-gold) 50%, transparent 100%)`,
-                  animation: "slide 2s ease-in-out infinite",
-                }}
-              />
-            </div>
+            <div className="h-full w-3/4 bg-brand-brown rounded-full"></div>
           </div>
         </div>
       </div>
@@ -59,25 +60,6 @@ export default function StripeLoadingScreen({
           {estimatedTime}
         </div>
       </div>
-
-      <style>{`
-        @keyframes slide {
-          0% { transform: translateX(-100%); }
-          50% { transform: translateX(200%); }
-          100% { transform: translateX(-100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .motion-safe\\:animate-bounce {
-            animation: none;
-          }
-          .motion-safe\\:animate-pulse {
-            animation: none;
-          }
-          div[style*="animation"] {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }
