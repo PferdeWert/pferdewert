@@ -47,10 +47,10 @@ export default function StripeLoadingScreen({
           </span>
         </p>
         
-        {/* ✅ SIMPLIFIED PROGRESS BAR - No animations, static design */}
+        {/* ✅ ANIMATED PROGRESS BAR - Indeterminate loading animation */}
         <div className="w-full max-w-md mx-auto pt-4" aria-label="Fortschrittsanzeige">
-          <div className="w-full h-4 bg-white/50 rounded-full overflow-hidden shadow-inner">
-            <div className="h-full w-3/4 bg-brand-brown rounded-full"></div>
+          <div className="w-full h-4 bg-white/50 rounded-full overflow-hidden shadow-inner relative">
+            <div className="absolute h-full w-1/3 bg-brand-brown rounded-full motion-safe:animate-bounce"></div>
           </div>
         </div>
       </div>
