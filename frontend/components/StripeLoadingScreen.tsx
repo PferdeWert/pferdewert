@@ -20,11 +20,8 @@ export default function StripeLoadingScreen({
       aria-busy="true"
     >
       <div className="flex justify-center">
-        <div className="relative">
-          <div className="w-24 h-24 md:w-32 md:h-32 relative motion-safe:animate-bounce">
-            <Image src="/logo.png" alt="PferdeWert Logo" width={128} height={128} className="rounded-full" />
-          </div>
-          <div className="absolute inset-0 rounded-full blur-xl opacity-40 motion-safe:animate-pulse bg-brand-gold" />
+        <div className="w-24 h-24 md:w-32 md:h-32 relative">
+          <Image src="/logo.png" alt="PferdeWert Logo" width={128} height={128} className="rounded-full" />
         </div>
       </div>
 
