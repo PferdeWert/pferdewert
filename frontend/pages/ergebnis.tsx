@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { log, warn, error } from "@/lib/log";
 import Head from "next/head";
 import Layout from "@/components/Layout";
+import StripeLoadingScreen from "@/components/StripeLoadingScreen";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -119,7 +120,7 @@ export default function Ergebnis() {
     };
   }, [router]);
 
-  if (loading) return <p className="p-10 text-center">Lade Bewertung…</p>;
+  if (loading) return <StripeLoadingScreen />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
