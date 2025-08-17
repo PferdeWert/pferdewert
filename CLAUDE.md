@@ -13,6 +13,7 @@ PferdeWert.de - AI-assisted horse market value estimation platform.
 # Frontend
 cd frontend && npm run dev     # Port 3000
 npm run lint && npm run type-check  # REQUIRED before commits
+npm run sitemap                # Generate sitemap.xml & robots.txt (vor deployment)
 
 # Backend  
 cd backend && uvicorn main:app --reload --port 8000
@@ -29,8 +30,9 @@ ssh pferdewert-hetzner  # Configured alias in ~/.ssh/config
 - **Never use `any` type** - ESLint enforced
 - **No `require()`** - ES6 imports only
 - **Always run lint + type-check before commits**
+- **SECURITY: No real API keys in documentation** - Always use placeholders like `your_api_key_here` in docs
 - **Use Context7**: Prefix prompts with "use context7" for current docs
-- **Claude Capabilities**: Use `/docs` command for Claude Code documentation and capabilities
+- **Auto-Check Documentation**: Always use `/docs` when questions arise about Claude Code capabilities, MCP, or available features
 
 ## Key Files
 - `pages/` - Next.js routes
@@ -56,10 +58,21 @@ For specialized workflows and tools:
 - **[NOTION_VOICE_SETUP_COMPLETE.md](./NOTION_VOICE_SETUP_COMPLETE.md)** - Complete Notion voice integration setup
 - Voice bot scripts: `voice_bot.py`, `voice_bot_notion.py`, `notion_analyzer.py`, etc.
 
+## MCP Troubleshooting Guide
+### Common MCP Setup Issues
+1. **Package Namen verifizieren**: `npm search [package] mcp` vor Installation
+2. **Korrekte Syntax**: `claude mcp add [name] --scope user --env KEY=value -- npx [package]`
+3. **Das `--` ist KRITISCH** - trennt Claude-Flags von Server-Args
+4. **API-Keys prüfen**: Viele MCP-Server brauchen Environment Variables
+5. **Connection testen**: `claude mcp list` zeigt Status aller Server
+
 ## Quick References
+- **Documentation**: Use `/docs` for current Claude Code capabilities, MCP guides, and best practices
 - **Agents**: Use `pferdewert-frontend-dev`, `pferdewert-debugger`, `pferdewert-code-reviewer`
 - **Visual Testing**: Always use Playwright MCP for frontend changes
 - **Token Savings**: Use Gemini CLI for ESLint fixes, TypeScript types
 - **Context7**: `"use context7 for Next.js 15"` for current docs
 - **Voice Bot**: Whisper transcription → Claude Code CLI integration on Hetzner server
 - **Notion Integration**: Voice-controlled diary entries and workspace management
+- **Web Research**: Always use Firecrawl MCP for online searches and web scraping
+- **SEO Management**: Always run `npm run sitemap` before deployment to update sitemap.xml & robots.txt

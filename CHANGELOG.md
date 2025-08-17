@@ -1,5 +1,52 @@
 # Changelog
 
+## [2025-08-17] - StripeLoadingScreen UX Optimization
+
+### Added
+- **Optimized StripeLoadingScreen component**: Complete redesign for post-payment loading experience
+- **Continuous shimmer animation**: Seamless left-to-right shimmer effect without delay between iterations
+- **Mobile-optimized design**: Fullscreen loading experience with responsive spacing
+- **Test route**: `/test-loading` for development and QA testing
+
+### Changed
+- **Removed logo display**: Too brief for visibility during sub-second loading times
+- **Removed percentage display**: Inappropriate for very short loading durations
+- **Animation timing**: Reduced from 2s to 1.5s with linear timing for immediate feedback
+- **Progress bar design**: Simplified to continuous shimmer without bounce effects
+
+### Enhanced
+- **User experience**: Clean, minimal loading screen focused on brief post-payment transitions
+- **CSS animations**: Performance-optimized with CSS instead of JavaScript
+- **Accessibility**: Proper ARIA attributes and screen reader support
+- **Visual consistency**: Maintains PferdeWert brand colors and typography
+
+### Technical
+- **Animation implementation**: CSS keyframes with `transform: translateX()` for GPU acceleration
+- **Global CSS**: Shimmer animation in `globals.css` for reusability
+- **Component integration**: Seamless integration in `pages/ergebnis.tsx`
+- **Performance**: Lightweight component without external dependencies
+
+### Files Changed
+- `frontend/components/StripeLoadingScreen.tsx` - Complete component redesign
+- `frontend/styles/globals.css` - Added optimized shimmer animation
+- `frontend/pages/ergebnis.tsx` - Integrated new loading component
+- `frontend/pages/test-loading.tsx` - Added development test route
+
+### Quality Assurance
+- ✅ TypeScript: All types validated and compliant
+- ✅ ESLint: Code standards maintained
+- ✅ Performance: CSS animations for smooth 60fps experience
+- ✅ Mobile testing: Optimized for all device sizes
+- ✅ Accessibility: Screen reader friendly with proper ARIA
+
+### Impact
+- **UX improvement**: Professional loading experience reduces post-payment anxiety
+- **Performance**: GPU-accelerated animations for smooth visual feedback
+- **Maintainability**: Clean component structure with global CSS animations
+- **Testing**: Dedicated test route for easy QA validation
+
+---
+
 ## [2025-08-16] - Form Optimization: UX Improvement & Field Reduction
 
 ### Added

@@ -158,6 +158,51 @@ export default function PferdeWertHomepage() {
             })
           }}
         />
+
+        {/* LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "PferdeWert",
+              "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung",
+              "url": "https://pferdewert.de",
+              "logo": "https://pferdewert.de/images/logo.png",
+              "image": "https://pferdewert.de/images/blossi-shooting.webp",
+              "priceRange": "€",
+              "areaServed": {
+                "@type": "Country",
+                "name": "Deutschland"
+              },
+              "serviceArea": {
+                "@type": "Country", 
+                "name": "Deutschland"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Pferdebewertung Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "KI-basierte Pferdebewertung",
+                      "description": "Professionelle Bewertung des Marktwerts von Pferden mittels künstlicher Intelligenz"
+                    }
+                  }
+                ]
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "reviewCount": "3",
+                "bestRating": "5"
+              }
+            })
+          }}
+        />
       </Head>
 
       <main className="min-h-screen">

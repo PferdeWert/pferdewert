@@ -1,0 +1,10 @@
+{
+  "hetzner": {
+    "command": "ssh pferdewert-hetzner",
+    "description": "Connect to Hetzner development server"
+  },
+  "docs": {
+    "command": "~/.claude-code-docs/claude-docs-helper.sh",
+    "description": "Access Claude Code documentation (auto-updating)"
+  }
+}

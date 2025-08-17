@@ -127,8 +127,9 @@ export default function Ergebnis() {
   return (
     <Layout>
     <Head>
-  <meta name="robots" content="noindex, nofollow" />
-</Head>
+      <meta name="robots" content="noindex, nofollow" />
+      <link rel="canonical" href="https://pferdewert.de/ergebnis" />
+    </Head>
 
     <BewertungLayout title="PferdeWert – Ergebnis der Pferdebewertung">
       {text ? (
