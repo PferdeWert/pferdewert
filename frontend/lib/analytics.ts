@@ -45,37 +45,57 @@ export const trackValuationStart = (): void => {
 
 // Track payment initiation (begin_checkout)
 export const trackPaymentStart = (formData: Record<string, unknown>): void => {
-  if (typeof window !== "undefined" && window.gtag) {
-    console.log("🎯 [GA4] Firing begin_checkout event", formData);
-    // Enhanced E-commerce begin_checkout event
-    window.gtag("event", "begin_checkout", {
-      event_category: "E-commerce",
-      event_label: "Payment Initiated",
-      value: 14.90,
-      currency: "EUR",
-      items: [{
-        item_id: "pferde-bewertung",
-        item_name: "Professionelle Pferdebewertung",
-        category: "AI-Service", 
-        quantity: 1,
-        price: 14.90
-      }],
-      custom_parameters: {
-        horse_breed: formData.rasse || "unknown",
-        horse_age: formData.alter || "unknown",
-        horse_discipline: formData.haupteignung || "unknown",
-        form_completion_time: formData.completionTime || 0
-      }
-    });
+  // Enhanced error handling and retry mechanism for GA4 timing issues
+  const sendEvent = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      console.log("🎯 [GA4] Firing begin_checkout event", formData);
+      // Enhanced E-commerce begin_checkout event
+      window.gtag("event", "begin_checkout", {
+        event_category: "E-commerce",
+        event_label: "Payment Initiated",
+        value: 14.90,
+        currency: "EUR",
+        items: [{
+          item_id: "pferde-bewertung",
+          item_name: "Professionelle Pferdebewertung",
+          category: "AI-Service", 
+          quantity: 1,
+          price: 14.90
+        }],
+        custom_parameters: {
+          horse_breed: formData.rasse || "unknown",
+          horse_age: formData.alter || "unknown",
+          horse_discipline: formData.haupteignung || "unknown",
+          form_completion_time: formData.completionTime || 0
+        }
+      });
 
-    // Custom conversion funnel event
-    window.gtag("event", "pferde_payment_started", {
-      event_category: "Conversion Funnel",
-      event_label: "Payment Process Initiated",
-      value: 14.90,
-      currency: "EUR"
-    });
-  }
+      // Custom conversion funnel event
+      window.gtag("event", "pferde_payment_started", {
+        event_category: "Conversion Funnel",
+        event_label: "Payment Process Initiated",
+        value: 14.90,
+        currency: "EUR"
+      });
+      return true;
+    }
+    return false;
+  };
+
+  // Immediate attempt
+  if (sendEvent()) return;
+
+  // Retry with delays for GA4 initialization timing
+  console.warn("🎯 [GA4] gtag not ready, retrying begin_checkout...");
+  setTimeout(() => {
+    if (!sendEvent()) {
+      setTimeout(() => {
+        if (!sendEvent()) {
+          console.error("🎯 [GA4] Failed to send begin_checkout after retries");
+        }
+      }, 500);
+    }
+  }, 200);
 };
 
 // Track successful horse valuation completion (main conversion)
