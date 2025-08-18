@@ -79,3 +79,6 @@ await page.screenshot({ path: 'homepage.png', fullPage: true });
 5. Run `npm run lint` and `npm run type-check` before committing
 
 For complete testing documentation, see [PLAYWRIGHT.md](./PLAYWRIGHT.md).
+
+## Staging GA4 Test
+Testing GA4 integration with staging environment and Stripe checkout flow.
