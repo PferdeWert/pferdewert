@@ -55,18 +55,18 @@ export default function PferdKaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd kaufen – Preis prüfen & günstig verhandeln | PferdeWert</title>
+        <title>Pferd kaufen Bayern NRW: Preis prüfen & günstig verhandeln | PferdeWert</title>
         <meta
          name="description"
-         content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min"
+         content="🐎 Pferd kaufen Bayern, NRW & bundesweit! KI-Preischeck für 14,90€ ➤ Regional optimierte Bewertung ✓ Keine Überzahlung ✓ Jetzt prüfen!"
         />
          <meta
          name="keywords"
-         content="pferd kaufen, faire preise, überzahlung vermeiden, pferdekauf beratung, verhandlungshilfe, pferd kaufen preis, pferdekauf guide"
+         content="pferd kaufen bayern, pferd kaufen nrw, pferd kaufen baden württemberg, pferdekauf deutschland, faire preise, verhandlungshilfe, pferd kaufen preis"
         />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Pferd kaufen – Preis prüfen & günstig verhandeln | PferdeWert" />
+        <meta property="og:title" content="Pferd kaufen Bayern NRW: Preis prüfen & günstig verhandeln | PferdeWert" />
         <meta property="og:description" content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min" />
          <meta property="og:type" content="website" />
          <meta property="og:url" content="https://pferdewert.de/pferd-kaufen" />
@@ -392,6 +392,12 @@ export default function PferdKaufen() {
             <div className="mt-8 p-4 bg-blue-50 rounded-lg">
               <p className="text-blue-800 font-medium">
                 💡 Egal wo und welche Rasse – unsere KI-Bewertung berücksichtigt lokale Marktgegebenheiten und Rassenbesonderheiten
+              </p>
+            </div>
+            
+            <div className="mt-6 p-4 bg-green-50 rounded-lg">
+              <p className="text-sm text-green-800">
+                💡 <strong>Verkäufer-Tipp:</strong> Du möchtest dein <Link href="/pferd-verkaufen" className="text-green-700 underline hover:text-green-900">Pferd verkaufen in Bayern oder NRW</Link>? Nutze unsere Bewertung für den optimalen Verkaufspreis.
               </p>
             </div>
           </div>

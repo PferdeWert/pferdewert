@@ -6,6 +6,7 @@ import { log, warn, error } from "@/lib/log";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
+import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -65,15 +66,13 @@ export default function Ergebnis() {
 
         setPaid(true);
 
-        if (typeof window !== "undefined" && window.gtag) {
-          window.gtag("event", "conversion", {
-            event_category: "Bewertung",
-            event_label: "PDF freigeschaltet",
-            value: 1,
-          });
-        }
-
+        // Enhanced GA4 conversion tracking
         const bewertungId = data.session.metadata?.bewertungId;
+        const sessionId = session_id;
+        const paymentMethod = data.session.payment_method_types?.[0] || "unknown";
+        
+        // Track the main conversion event
+        trackValuationCompleted(sessionId, bewertungId || "unknown", paymentMethod);
         if (bewertungId) {
           const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);
           const resultData = await resultRes.json();
@@ -143,7 +142,15 @@ export default function Ergebnis() {
               fileName="PferdeWert-Analyse.pdf"
             >
               {({ loading }: { loading: boolean }) => (
-                <button className="btn-primary">
+                <button 
+                  className="btn-primary"
+                  onClick={() => {
+                    if (!loading) {
+                      const bewertungId = router.query.session_id as string;
+                      trackPDFDownload(bewertungId || "unknown");
+                    }
+                  }}
+                >
                   {loading ? "Lade PDF..." : "Als PDF herunterladen"}
                 </button>
               )}

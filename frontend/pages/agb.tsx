@@ -1,10 +1,24 @@
 // pages/agb.tsx
 
+import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
 
 export default function AGB() {
   return (
     <Layout>
+      <Head>
+        <title>AGB – Allgemeine Geschäftsbedingungen | PferdeWert</title>
+        <meta
+          name="description"
+          content="🐎 AGB PferdeWert: Transparente Bedingungen für KI-Bewertung ➤ Nur 14,90€ ✓ Faire Konditionen ✓ Rechtssicherheit ✓ Jetzt informieren!"
+        />
+        <meta name="keywords" content="agb pferdewert, geschäftsbedingungen, pferdebewertung konditionen, rechtliche bedingungen, pferdemarkt agb" />
+        <meta property="og:title" content="AGB – Allgemeine Geschäftsbedingungen | PferdeWert" />
+        <meta property="og:description" content="Transparente Geschäftsbedingungen für die professionelle KI-Pferdebewertung. Faire Konditionen und Rechtssicherheit für alle Kunden." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pferdewert.de/agb" />
+        <link rel="canonical" href="https://pferdewert.de/agb" />
+      </Head>
     <main className="mx-auto max-w-xl p-6">
       <h1 className="mb-4 text-2xl font-bold">Allgemeine Geschäftsbedingungen (AGB)</h1>
 

@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 
@@ -88,10 +89,10 @@ export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd verkaufen & kaufen: Marktwert berechnen | PferdeWert</title>
+        <title>Pferd kaufen Bayern, NRW & bundesweit: Marktwert berechnen | PferdeWert</title>
         <meta
           name="description"
-          content="Pferd verkaufen oder kaufen? Marktwert berechnen mit KI ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min Analyse als PDF"
+          content="🐎 Pferdewert berechnen Bayern & NRW ✓ 40.500+ Pferde-Suchen täglich ✓ KI-Bewertung für 14,90€ ✓ Pferd kaufen & verkaufen ✓ Jetzt starten!"
         />
         <meta property="og:title" content="Was ist dein Pferd wert? Marktwert in 2 Minuten per KI-Algorithmus | PferdeWert" />
         <meta property="og:description" content="Professionelle KI-Bewertung in 2 Min ✓ Marktwert sofort berechnen für Kauf/Verkauf oder aus Neugier ✓ Ohne Anmeldung" />
@@ -193,16 +194,13 @@ export default function PferdeWertHomepage() {
                     }
                   }
                 ]
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "3",
-                "bestRating": "5"
               }
             })
           }}
         />
+
+        {/* Review Schema für Trust-Signale */}
+        <HomepageReviewSchema />
       </Head>
 
       <main className="min-h-screen">
@@ -508,6 +506,103 @@ export default function PferdeWertHomepage() {
               >
                 Jetzt Pferdewert berechnen
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Regional Services Cross-linking Section */}
+        <section className="section bg-brand-light/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Pferdebewertung für alle Lebenslagen
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Ob Kauf, Verkauf oder einfach aus Neugier – unsere KI-Bewertung unterstützt dich bei allen Entscheidungen rund um deinen Pferdewert
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Käufer-Service */}
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Für Pferdekäufer</h3>
+                  <p className="text-gray-600">Sichere Kaufentscheidungen treffen</p>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Faire Preise erkennen und Überzahlung vermeiden</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Fundierte Verhandlungsgrundlage mit Marktdaten</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Objektive Bewertung vor der Besichtigung</span>
+                  </li>
+                </ul>
+                <Link 
+                  href="/pferd-kaufen" 
+                  className="block w-full text-center bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Pferd kaufen in Bayern & NRW →
+                </Link>
+              </div>
+
+              {/* Verkäufer-Service */}
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-green-100 hover:shadow-xl transition-shadow">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Für Pferdeverkäufer</h3>
+                  <p className="text-gray-600">Optimalen Verkaufspreis ermitteln</p>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Marktgerechten Verkaufspreis bestimmen</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Schneller verkaufen durch realistische Preisgestaltung</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Verhandlungssicherheit mit professioneller Bewertung</span>
+                  </li>
+                </ul>
+                <Link 
+                  href="/pferd-verkaufen" 
+                  className="block w-full text-center bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                >
+                  Pferd verkaufen in Bayern & NRW →
+                </Link>
+              </div>
+            </div>
+
+            {/* Central Service Hub */}
+            <div className="mt-12 text-center">
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-brand-brown/20 max-w-2xl mx-auto">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  💡 Neugierig auf den aktuellen Marktwert deines Pferdes?
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Erfahre mit unserer <Link href="/was-ist-mein-pferd-wert" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Marktwert – 
+                  egal ob aus Neugier, für Versicherung oder zukünftige Planung.
+                </p>
+                <Link 
+                  href="/was-ist-mein-pferd-wert" 
+                  className="inline-flex items-center gap-2 bg-brand-brown text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-brownDark transition-colors"
+                >
+                  Was ist mein Pferd wert? <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>

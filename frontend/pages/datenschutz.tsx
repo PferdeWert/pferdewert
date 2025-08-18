@@ -9,6 +9,10 @@ export default function Datenschutz() {
     <main className="prose mx-auto p-8">
       <Head>
         <title>Datenschutz | PferdeWert</title>
+        <meta
+          name="description"
+          content="🐎 DSGVO-konforme Pferdebewertung bei PferdeWert für 14,90€ ➤ Datenschutz garantiert ✓ SSL-verschlüsselt ✓ Keine Datenweitergabe ✓ Jetzt sicher nutzen!"
+        />
         <meta name="robots" content="noindex, follow" />
       </Head>
       <h1>Datenschutzerklärung</h1>

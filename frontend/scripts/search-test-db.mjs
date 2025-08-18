@@ -1,8 +1,10 @@
 // scripts/search-test-db.js
 // Script to search in the correct database (test)
 
-const { MongoClient, ObjectId } = require('mongodb');
-require('dotenv').config({ path: '.env.local' });
+import { MongoClient, ObjectId } from 'mongodb';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -49,7 +51,7 @@ async function searchInTestDB(documentId) {
         } else {
           console.log('❌ Document not found with that ID');
         }
-      } catch (err) {
+      } catch {
         console.log('❌ Invalid ObjectId format');
       }
     }

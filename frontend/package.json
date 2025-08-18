@@ -7,8 +7,8 @@
     "dev": "cross-env PORT=3000 next dev",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "fix-order": "node scripts/fix-order.js",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "fix-order": "node scripts/fix-order.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^15.4.6",

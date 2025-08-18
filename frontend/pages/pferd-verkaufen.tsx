@@ -88,18 +88,18 @@ export default function PferdVerkaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd verkaufen – Optimaler Preis & schneller Verkauf | PferdeWert</title>
+        <title>Pferd verkaufen Bayern NRW Baden-Württemberg: Optimaler Preis & schneller Verkauf | PferdeWert</title>
         <meta
          name="description"
-         content="Pferd verkaufen? Ermittle den optimalen Verkaufspreis mit KI-Bewertung ✓ Schneller verkaufen ✓ Faire Preise ✓ Keine Wertverluste in NRW, Bayern & deutschlandweit"
+         content="🐎 Pferd verkaufen zum optimalen Preis! KI-Bewertung für 14,90€ ➤ Schneller verkaufen ✓ Keine Wertverluste ✓ Marktgerecht ✓ Jetzt starten!"
         />
          <meta
          name="keywords"
-         content="pferd verkaufen, pferd verkaufen preis, pferd schnell verkaufen, pferd online verkaufen, pferd verkaufen tipps, verkaufspreis pferd"
+         content="pferd verkaufen bayern, pferd verkaufen nrw, pferd verkaufen baden württemberg, pferd schnell verkaufen, verkaufspreis pferd regional"
         />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Pferd verkaufen – Optimaler Preis & schneller Verkauf | PferdeWert" />
+        <meta property="og:title" content="Pferd verkaufen Bayern NRW: Optimaler Preis & schneller Verkauf | PferdeWert" />
         <meta property="og:description" content="Pferd verkaufen? Ermittle den optimalen Verkaufspreis mit KI-Bewertung ✓ Schneller verkaufen ✓ Faire Preise ✓ Keine Wertverluste" />
          <meta property="og:type" content="website" />
          <meta property="og:url" content="https://pferdewert.de/pferd-verkaufen" />
@@ -175,6 +175,12 @@ export default function PferdVerkaufen() {
                 >
                   Beispiel-Bewertung ansehen
                 </Link>
+              </div>
+              
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  💡 <strong>Tipp:</strong> Wenn du ein <Link href="/pferd-kaufen" className="text-blue-700 underline hover:text-blue-900">Pferd kaufen in Bayern oder NRW</Link> möchtest, nutze unseren Service zur Preisüberprüfung vor dem Kauf.
+                </p>
               </div>
             </div>
 

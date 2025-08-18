@@ -11,7 +11,7 @@ export default function UeberUns() {
         <title>Über uns - PferdeWert.de | Deutschlands führende Pferdebewertung</title>
         <meta
           name="description"
-          content="Lernen Sie das Team hinter PferdeWert.de kennen - eine Pferdefamilie mit KI-Know-how, die faire und transparente Pferdebewertungen für alle Pferdemenschen möglich macht."
+          content="🐎 Team PferdeWert: Pferdefamilie mit KI-Expertise für 14,90€ ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ Vertrauenswürdig ✓ Mehr erfahren!"
         />
         <meta property="og:title" content="Über uns - PferdeWert.de" />
         <meta

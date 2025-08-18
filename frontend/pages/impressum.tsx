@@ -1,10 +1,24 @@
 // pages/impressum.tsx
 
+import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
 
 export default function Impressum() {
   return (
     <Layout>
+      <Head>
+        <title>Impressum | PferdeWert.de</title>
+        <meta
+          name="description"
+          content="🐎 Impressum & Kontakt zu PferdeWert.de ➤ Professionelle Pferdebewertung für 14,90€ ✓ Rechtssichere Angaben ✓ Direkter Kontakt ✓ Deutschland"
+        />
+        <meta name="keywords" content="impressum, kontakt, pferdewert, rechtliche angaben, anbieterkennung, deutschland" />
+        <meta property="og:title" content="Impressum | PferdeWert.de" />
+        <meta property="og:description" content="Impressum und Kontaktdaten von PferdeWert.de - Professionelle Pferdebewertung in Deutschland" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pferdewert.de/impressum" />
+        <link rel="canonical" href="https://pferdewert.de/impressum" />
+      </Head>
     <main className="mx-auto max-w-xl p-6">
       <h1 className="mb-4 text-2xl font-bold">Impressum</h1>
 

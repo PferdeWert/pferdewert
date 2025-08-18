@@ -37,7 +37,7 @@ export default function BeispielAnalyse() {
   <title>Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert</title>
   <meta
   name="description"
-  content="Sieh dir die Beispiel-Analyse an: Marktwert-Band, Begründung und Tipps zur Preisoptimierung für dein Pferd. Für mehr Transparenz & Fairness auf dem Pferdemarkt."
+  content="🐎 Beispiel-Analyse: Pferdebewertung für 14,90€ ➤ Detailliertes PDF mit Preisspanne ✓ Begründung & Tipps ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!"
 />
 
 

@@ -1,8 +1,10 @@
 // scripts/fix-order.js
 // Simple Node.js script to manually complete a failed order
 
-const { MongoClient, ObjectId } = require('mongodb');
-require('dotenv').config({ path: '.env.local' });
+import { MongoClient, ObjectId } from 'mongodb';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com';
@@ -125,8 +127,8 @@ async function main() {
   const documentId = process.argv[2];
   
   if (!documentId) {
-    console.error('❌ Usage: node scripts/fix-order.js <document-id>');
-    console.error('Example: node scripts/fix-order.js 68963bc9818a940a01833301');
+    console.error('❌ Usage: node scripts/fix-order.mjs <document-id>');
+    console.error('Example: node scripts/fix-order.mjs 68963bc9818a940a01833301');
     process.exit(1);
   }
   

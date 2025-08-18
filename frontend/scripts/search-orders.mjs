@@ -1,8 +1,10 @@
 // scripts/search-orders.js
 // Script to search for orders and find the failed one
 
-const { MongoClient, ObjectId } = require('mongodb');
-require('dotenv').config({ path: '.env.local' });
+import { MongoClient } from 'mongodb';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 

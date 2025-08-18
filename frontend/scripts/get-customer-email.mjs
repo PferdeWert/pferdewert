@@ -1,9 +1,11 @@
 // scripts/get-customer-email.js
 // Script to get customer email from Stripe session
 
-const { MongoClient, ObjectId } = require('mongodb');
-const Stripe = require('stripe');
-require('dotenv').config({ path: '.env.local' });
+import { MongoClient, ObjectId } from 'mongodb';
+import Stripe from 'stripe';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
@@ -77,8 +79,8 @@ async function main() {
   const documentId = process.argv[2];
   
   if (!documentId) {
-    console.error('❌ Usage: node scripts/get-customer-email.js <document-id>');
-    console.error('Example: node scripts/get-customer-email.js 68963bc9818a940a01833301');
+    console.error('❌ Usage: node scripts/get-customer-email.mjs <document-id>');
+    console.error('Example: node scripts/get-customer-email.mjs 68963bc9818a940a01833301');
     process.exit(1);
   }
   

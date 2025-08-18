@@ -4,6 +4,7 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
+import { AboutReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Star, TrendingUp, Shield, Clock, CheckCircle } from "lucide-react";
 import { PRICING_TEXTS, SCHEMA_PRICING } from "../lib/pricing";
 
@@ -124,14 +125,14 @@ export default function WasIstMeinPferdWert() {
     <Layout>
       <>
         <Head>
-          <title>Was ist mein Pferd wert? Professionelle Pferdebewertung | PferdeWert.de</title>
+          <title>Was ist mein Pferd wert Bayern NRW? Professionelle Bewertung | PferdeWert</title>
           <meta
             name="description"
-            content="Was ist mein Pferd wert? Professionelle Pferdebewertung mit KI ✓ Pferde Preis berechnen ✓ Marktwert ermitteln ✓ In 2 Minuten zum Ergebnis"
+            content="🐎 Pferdebewertung Bayern & NRW: Was ist mein Pferd wert? KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ 32+ Bewertungen täglich ✓ Jetzt Marktwert ermitteln!"
           />
-          <meta name="keywords" content="was ist mein pferd wert, pferdewert, pferdebewertung, pferd wert ermitteln, marktwert pferd, pferde preis berechnen, pferdemarkt" />
+          <meta name="keywords" content="was ist mein pferd wert bayern, pferd wert nrw, pferdebewertung baden württemberg, pferd wert ermitteln, marktwert pferd regional, pferde preis berechnen" />
           <meta property="og:title" content="Was ist mein Pferd wert? Professionelle Pferdebewertung | PferdeWert.de" />
-          <meta property="og:description" content="Professionelle Pferdebewertung mit KI - Pferde Preis berechnen & Marktwert ermitteln in 2 Minuten. Basierend auf tausenden Marktdaten." />
+          <meta property="og:description" content="🐎 Was ist mein Pferd wert? KI-Pferdebewertung für nur 14,90€ ✓ Ohne Anmeldung ✓ Sofort als PDF ✓ Jetzt Marktwert ermitteln!" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://pferdewert.de/was-ist-mein-pferd-wert" />
           <meta property="og:image" content="https://pferdewert.de/images/blossi-3.jpg" />
@@ -185,6 +186,9 @@ export default function WasIstMeinPferdWert() {
               })
             }}
           />
+          
+          {/* Review Schema für About-Seite */}
+          <AboutReviewSchema />
         </Head>
 
         {/* Hero Section - Verkürzt und SEO-optimiert */}
@@ -365,6 +369,25 @@ export default function WasIstMeinPferdWert() {
               >
                 {PRICING_TEXTS.ctaButton}
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Cross-linking Section */}
+        <section className="bg-white py-12 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-6 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  💡 <strong>Käufer-Tipp:</strong> Du möchtest ein <Link href="/pferd-kaufen" className="text-blue-700 underline hover:text-blue-900">Pferd kaufen in Bayern oder NRW</Link>? Nutze unsere Bewertung zur Preisüberprüfung vor dem Kauf.
+                </p>
+              </div>
+              
+              <div className="p-6 bg-green-50 rounded-lg">
+                <p className="text-sm text-green-800">
+                  💡 <strong>Verkäufer-Tipp:</strong> Du möchtest dein <Link href="/pferd-verkaufen" className="text-green-700 underline hover:text-green-900">Pferd verkaufen in Bayern oder NRW</Link>? Ermittle den optimalen Verkaufspreis mit unserer Bewertung.
+                </p>
+              </div>
             </div>
           </div>
         </section>

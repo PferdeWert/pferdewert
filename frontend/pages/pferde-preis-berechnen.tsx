@@ -6,8 +6,15 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
+import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED } from "../lib/pricing";
+import { 
+  trackValuationStart, 
+  trackFormProgress, 
+  trackPaymentStart, 
+  calculateFormCompletionTime 
+} from "@/lib/analytics";
 
 interface FormState {
   rasse: string;
@@ -193,6 +200,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [loading, setLoading] = useState<boolean>(false);
   const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [formStartTime] = useState<number>(Date.now());
 
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
@@ -323,6 +331,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     if (validateStep(currentStep)) {
       setCurrentStep(prev => {
         const next = Math.min(prev + 1, stepData.length);
+        // Track form progress when moving to next step
+        const stepName = stepData.find(s => s.id === next)?.title || `Step ${next}`;
+        trackFormProgress(next, stepName);
         scrollToFormCard();
         return next;
       });
@@ -370,6 +381,12 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     }
 
     setLoading(true);
+    
+    // Track payment initiation with form completion time
+    const completionTime = calculateFormCompletionTime(formStartTime);
+    const formWithMetrics = { ...form, completionTime };
+    trackPaymentStart(formWithMetrics);
+    
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -411,13 +428,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   // isMounted useEffect für client-only features
   useEffect(() => {
     setIsMounted(true);
+    // Track that user started the valuation process
+    trackValuationStart();
   }, []);
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd bewerten & Pferdepreis ermitteln – in 2 Minuten zur fundierten Einschätzung | PferdeWert</title>
-        <meta name="description" content="Jetzt dein Pferd bewerten & den realistischen Marktwert online ermitteln – anonym, sicher & direkt als PDF. Ideal bei Pferdekauf & Pferdeverkauf." />
+        <title>Pferde Preis berechnen Bayern NRW: 2 Min Bewertung | PferdeWert</title>
+        <meta name="description" content="🐎 Pferde Preis berechnen Bayern & NRW ✓ 115 Bewertungen täglich ✓ KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ Regional optimiert ✓ Jetzt starten!" />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="400" />
@@ -428,6 +447,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <link rel="preload" href="/images/result.webp" as="image" />
         <link rel="dns-prefetch" href="//js.stripe.com" />
         <link rel="preconnect" href="//fonts.googleapis.com" crossOrigin="" />
+        
+        {/* Review Schema für Service-Seite */}
+        <ServiceReviewSchema />
       </Head>
 
       {/* Note: Animations moved to globals.css for better performance */}

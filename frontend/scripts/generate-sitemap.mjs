@@ -1,6 +1,5 @@
 // scripts/generate-sitemap.js
 import fs from 'fs';
-import path from 'path';
 
 const DOMAIN = 'https://pferdewert.de';
 const OUTPUT_PATH = 'public/sitemap.xml';

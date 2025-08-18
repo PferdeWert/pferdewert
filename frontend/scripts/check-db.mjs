@@ -1,8 +1,10 @@
 // scripts/check-db.js
 // Script to check database structure and collections
 
-const { MongoClient } = require('mongodb');
-require('dotenv').config({ path: '.env.local' });
+import { MongoClient } from 'mongodb';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 

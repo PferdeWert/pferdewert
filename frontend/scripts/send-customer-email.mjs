@@ -1,9 +1,11 @@
 // scripts/send-customer-email.js
 // Script to send customer notification email for completed order
 
-const { MongoClient, ObjectId } = require('mongodb');
-const { Resend } = require('resend');
-require('dotenv').config({ path: '.env.local' });
+import { MongoClient, ObjectId } from 'mongodb';
+import { Resend } from 'resend';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -97,8 +99,8 @@ async function main() {
   const customerEmail = process.argv[3];
   
   if (!documentId || !customerEmail) {
-    console.error('❌ Usage: node scripts/send-customer-email.js <document-id> <customer-email>');
-    console.error('Example: node scripts/send-customer-email.js 68963bc9818a940a01833301 customer@example.com');
+    console.error('❌ Usage: node scripts/send-customer-email.mjs <document-id> <customer-email>');
+    console.error('Example: node scripts/send-customer-email.mjs 68963bc9818a940a01833301 customer@example.com');
     process.exit(1);
   }
   
