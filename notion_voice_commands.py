@@ -30,6 +30,27 @@ def detect_notion_command(text: str) -> Optional[Dict[str, Any]]:
                 'raw_text': text
             }
     
+    # Ideen Commands
+    ideen_patterns = [
+        r"idee:?\s*(.+)",
+        r"ideen\s+eintrag:?\s*(.+)",
+        r"neue\s+idee:?\s*(.+)",
+        r"eingebung:?\s*(.+)", 
+        r"ich\s+(?:hab|habe)\s+(?:eine\s+)?idee:?\s*(.+)",
+        r"brainstorm:?\s*(.+)",
+        r"konzept:?\s*(.+)",
+        r"(?:spontane|kreative)\s+idee:?\s*(.+)"
+    ]
+    
+    for pattern in ideen_patterns:
+        match = re.search(pattern, text_lower)
+        if match:
+            return {
+                'type': 'ideen',
+                'content': match.group(1).strip(),
+                'raw_text': text
+            }
+    
     # Analyse Commands  
     analyse_patterns = [
         r"durchsuche?\s+(?:mein\s+)?notion\s*(?:board|workspace)?",
@@ -107,6 +128,9 @@ def format_notion_response(command: Dict[str, Any], result: str) -> str:
     if command['type'] == 'tagebuch':
         return f"📝 **Tagebuch-Eintrag erstellt**\n\n💭 _{command['content'][:200]}{'...' if len(command['content']) > 200 else ''}_\n\n{result}"
     
+    elif command['type'] == 'ideen':
+        return f"💡 **Ideen-Eintrag erstellt**\n\n🧠 _{command['content'][:200]}{'...' if len(command['content']) > 200 else ''}_\n\n{result}"
+    
     elif command['type'] == 'analyse':
         return f"📊 **Notion Workspace Analyse**\n\n{result}"
     
@@ -127,6 +151,10 @@ def test_detection():
     test_cases = [
         "Tagebuch Eintrag: Heute war ein produktiver Tag mit dem Whisper Bot",
         "Schreibe ins Tagebuch: Meeting mit dem Team war erfolgreich",
+        "Idee: Eine App die automatisch Pferde-Bewertungen optimiert",
+        "Neue Idee: Blockchain für Pferdezucht-Transparenz",
+        "Ich habe eine Idee: KI-basierte Futter-Empfehlungen",
+        "Brainstorm: Social Network für Pferdebesitzer",
         "Durchsuche mein Notion Board",
         "Analysiere mein Notion Workspace",
         "Fasse mir mein Notion zusammen",

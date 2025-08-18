@@ -94,6 +94,10 @@ def execute_notion_command(notion_cmd):
             # Tagebuch entry - SIMPLE & SAFE
             cmd = [venv_python, "/home/dev/notion_diary.py", "add", notion_cmd['content']]
             
+        elif notion_cmd['type'] == 'ideen':
+            # Ideen entry - with smart headline generation
+            cmd = [venv_python, "/home/dev/notion_ideas.py", "add", notion_cmd['content']]
+            
         elif notion_cmd['type'] == 'analyse':
             if notion_cmd.get('subtype') == 'weekly':
                 cmd = [venv_python, "/home/dev/notion_analyzer.py", "weekly"]
@@ -140,6 +144,7 @@ def send_welcome(message):
         "📢 **Voice Commands:**\n"
         "🎯 **Normale Befehle:** 'claude [command]'\n"
         "📝 **Notion Tagebuch:** 'Tagebuch Eintrag: [text]'\n"
+        "💡 **Notion Ideen:** 'Idee: [text]' (mit KI-Überschriften)\n"
         "📊 **Notion Analyse:** 'Durchsuche mein Notion Board'\n"
         "🔍 **Notion Suche:** 'Suche in Notion nach [query]'\n"
         "✏️ **Notion Update:** 'Füge zum [page] hinzu: [content]'\n\n"
@@ -377,6 +382,7 @@ def handle_text(message):
         "🎯 **Voice Commands:**\n"
         "• 'Claude [command]' - Normale Befehle\n"
         "• 'Tagebuch Eintrag: [text]' - Notion Diary\n"
+        "• 'Idee: [text]' - Notion Ideen (mit KI-Überschriften)\n"
         "• 'Durchsuche mein Notion Board' - Analyse\n"
         "• 'Suche in Notion nach [query]' - Suche\n\n"
         "✏️ `/fix [Text]` um letzte Transkription zu korrigieren\n"
