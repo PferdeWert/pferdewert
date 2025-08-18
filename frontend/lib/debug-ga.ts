@@ -32,5 +32,5 @@ export const debugGA4 = (): void => {
 
 // Add to window for console access
 if (typeof window !== "undefined") {
-  (window as any).debugGA4 = debugGA4;
+  (window as unknown as { debugGA4: () => void }).debugGA4 = debugGA4;
 }
