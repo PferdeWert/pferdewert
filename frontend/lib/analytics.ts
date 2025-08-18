@@ -1,7 +1,7 @@
 // frontend/lib/analytics.ts
 // GA4 Analytics Configuration for PferdeWert.de
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Track page views
 export const trackPageView = (url: string): void => {
@@ -113,12 +113,6 @@ export const trackValuationCompleted = (
       }
     });
 
-    // Legacy conversion event (if needed for old GA setup)
-    window.gtag("event", "conversion", {
-      event_category: "Bewertung",
-      event_label: "PDF freigeschaltet",
-      value: 1
-    });
   }
 };
 

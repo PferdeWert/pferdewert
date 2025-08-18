@@ -1,5 +1,24 @@
 # Changelog
 
+All notable changes to the PferdeWert.de project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - 2025-08-18
+
+### Recent Changes
+- ✨ **Complete SEO implementation and fix ESLint script errors**
+- ✨ **Complete SEO optimization and security improvements**
+- ✨ **Mark completed SEO tasks as done**
+- 🐛 **Optimize StripeLoadingScreen shimmer animation**
+- ✨ **Restore original sliding progress bar animation with external CSS**
+- ✨ **Re-add progress bar animation with safe Tailwind bounce**
+- ✨ **Optimize logo loading with blur placeholder and quality settings**
+- 🐛 **Complete loading screen stability and performance fix**
+- 🐛 **Remove logo animations for faster loading visibility**
+- ✨ **Implement accessibility-improved StripeLoadingScreen**
+
 ## [2025-08-17] - StripeLoadingScreen UX Optimization
 
 ### Added
