@@ -28,6 +28,7 @@ export const trackFormProgress = (stepNumber: number, stepName: string): void =>
 // Track when user starts the valuation process
 export const trackValuationStart = (): void => {
   if (typeof window !== "undefined" && window.gtag) {
+    console.log("🎯 [GA4] Firing pferde_bewertung_started event");
     window.gtag("event", "pferde_bewertung_started", {
       event_category: "Conversion Funnel",
       event_label: "Valuation Process Started",
@@ -37,12 +38,15 @@ export const trackValuationStart = (): void => {
         timestamp: new Date().toISOString()
       }
     });
+  } else {
+    console.warn("🎯 [GA4] trackValuationStart called but gtag not available");
   }
 };
 
 // Track payment initiation (begin_checkout)
 export const trackPaymentStart = (formData: Record<string, unknown>): void => {
   if (typeof window !== "undefined" && window.gtag) {
+    console.log("🎯 [GA4] Firing begin_checkout event", formData);
     // Enhanced E-commerce begin_checkout event
     window.gtag("event", "begin_checkout", {
       event_category: "E-commerce",
@@ -81,6 +85,7 @@ export const trackValuationCompleted = (
   paymentMethod?: string
 ): void => {
   if (typeof window !== "undefined" && window.gtag) {
+    console.log("🎯 [GA4] Firing purchase event", { sessionId, bewertungId, paymentMethod });
     // Enhanced E-commerce purchase event
     window.gtag("event", "purchase", {
       transaction_id: sessionId,

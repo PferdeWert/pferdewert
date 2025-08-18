@@ -37,6 +37,25 @@
 3. **Goals definieren** - Klare KPIs festlegen
 4. **Funnel-Analyse einrichten** - Von Landing Page bis Conversion
 
+## 🎯 Definierter Conversion-Funnel
+
+### **4-Stufen Conversion-Funnel:**
+1. **Pageview** → `/pferde-preis-berechnen` (Landing Page Interest)
+2. **`pferde_bewertung_started`** → "Pferd bewerten" Button geklickt (Qualified Intent)
+3. **`begin_checkout`** → Formular completed + "Kaufen" geklickt (Purchase Intent)
+4. **`purchase`** → Erfolgreiche Zahlung 14,90€ (Conversion)
+
+### **Conversion-Raten zu überwachen:**
+- **Landing → Intent**: % Besucher die "Pferd bewerten" klicken
+- **Intent → Purchase Intent**: % die das Formular komplettieren
+- **Purchase Intent → Success**: % die tatsächlich bei Stripe bezahlen
+- **Overall Conversion**: % Gesamtbesucher die kaufen
+
+### **GA4 Setup für Funnel:**
+- **Trichter-Analyse**: Erkunden → Trichter-Analyse → 4 Schritte definieren
+- **Conversions markieren**: `purchase`, `begin_checkout`, `pferde_bewertung_started`
+- **Abbruch-Analyse**: Wo verlieren wir die meisten Nutzer?
+
 ### Phase 2: Enhanced Tracking (1-2 Wochen)
 1. **Scroll-Tracking hinzufügen** - Wie tief scrollen Nutzer?
 2. **Page Engagement** - Zeit auf Seite, Interaktionen
