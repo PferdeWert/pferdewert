@@ -454,7 +454,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                       <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
                     </p>
                   </div>
-                  <p className="text-sm text-gray-600 font-medium">Für die ersten 100 Bewertungen!</p>
+                  <p className="text-sm text-gray-600 font-medium">Exklusiv in der Sommer-Aktion!</p>
                 </div>
 
                 {/* Features mit Icons */}
