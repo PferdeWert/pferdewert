@@ -254,7 +254,7 @@ export default function PferdeWertHomepage() {
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
                 <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – für die ersten 100 Bewertungen!
+                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – exklusiv in der Sommer-Aktion!
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten
