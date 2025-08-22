@@ -320,63 +320,6 @@ export default function PferdeWertHomepage() {
   </div>
 </section>
 
-        {/* Features Section */}
-        <section id="vorteile" className="section bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Professionelle Pferdebewertung basierend auf jahrelanger Expertise und modernster KI-Technologie
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: <Clock className="w-8 h-8 text-brand-brown" />,
-                  title: "Blitzschnell",
-                  description: "Professionelle Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
-                },
-                {
-                  icon: <Shield className="w-8 h-8 text-brand-brown" />,
-                  title: "100% Transparent",
-                  description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung aller Faktoren.",
-                },
-                {
-                  icon: <Award className="w-8 h-8 text-brand-brown" />,
-                  title: "Expertenwissen",
-                  description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
-                },
-                {
-                  icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
-                  title: "Marktgerecht",
-                  description: "Aktuelle Marktpreise und Trends fließen in jede Bewertung mit ein.",
-                },
-                {
-                  icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
-                  title: "Geld-zurück-Garantie",
-                  description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
-                },
-                {
-                  icon: <Users className="w-8 h-8 text-brand-brown" />,
-                  title: "Vertrauenswürdig",
-                  description: "Professionelle Bewertungen für Pferdebesitzer deutschlandweit.",
-                },
-              ].map((feature, index) => (
-                <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
-                  <div className="p-8 text-center">
-                    <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Testimonials Section */}
         <section className="section bg-brand-light/50">
           <div className="container mx-auto px-4">
@@ -470,6 +413,63 @@ export default function PferdeWertHomepage() {
                   30 Tage Geld-zurück-Garantie
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="vorteile" className="section bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Professionelle Pferdebewertung basierend auf jahrelanger Expertise und modernster KI-Technologie
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <Clock className="w-8 h-8 text-brand-brown" />,
+                  title: "Blitzschnell",
+                  description: "Professionelle Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
+                },
+                {
+                  icon: <Shield className="w-8 h-8 text-brand-brown" />,
+                  title: "100% Transparent",
+                  description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung aller Faktoren.",
+                },
+                {
+                  icon: <Award className="w-8 h-8 text-brand-brown" />,
+                  title: "Expertenwissen",
+                  description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
+                },
+                {
+                  icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
+                  title: "Marktgerecht",
+                  description: "Aktuelle Marktpreise und Trends fließen in jede Bewertung mit ein.",
+                },
+                {
+                  icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
+                  title: "Geld-zurück-Garantie",
+                  description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
+                },
+                {
+                  icon: <Users className="w-8 h-8 text-brand-brown" />,
+                  title: "Vertrauenswürdig",
+                  description: "Professionelle Bewertungen für Pferdebesitzer deutschlandweit.",
+                },
+              ].map((feature, index) => (
+                <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
+                  <div className="p-8 text-center">
+                    <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
