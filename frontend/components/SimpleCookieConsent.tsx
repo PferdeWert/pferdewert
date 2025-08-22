@@ -310,7 +310,6 @@ if (denyButton) {
       {/* ✅ LIGHTHOUSE OPTIMIZED: Modern Cookie Consent with CDN + source maps */}
       <Script
         src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-        integrity="sha384-5SS1RE4eZWVVWT/0CK5PXN0POhg4TQCX21CiKTbVgHNKZpDHusFdjT+Xgs7XC+BZ"
         crossOrigin="anonymous"
         strategy="lazyOnload"
         onLoad={initCookieConsent}
