@@ -10,7 +10,7 @@ export default function AGB() {
         <title>AGB – Allgemeine Geschäftsbedingungen | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 AGB PferdeWert: Transparente Bedingungen für KI-Bewertung ➤ Nur 14,90€ ✓ Faire Konditionen ✓ Rechtssicherheit ✓ Jetzt informieren!"
+          content="🐎 AGB PferdeWert: Transparente Bedingungen für KI-Bewertung ➤ Nur ${PRICING_FORMATTED.current} ✓ Faire Konditionen ✓ Rechtssicherheit ✓ Jetzt informieren!"
         />
         <meta name="keywords" content="agb pferdewert, geschäftsbedingungen, pferdebewertung konditionen, rechtliche bedingungen, pferdemarkt agb" />
         <meta property="og:title" content="AGB – Allgemeine Geschäftsbedingungen | PferdeWert" />

@@ -123,4 +123,36 @@ if (document.cookie.includes("pferdewert_cookie_consent=allow")) {
 
 ---
 
-*Updated: 22.08.2025 | Next Review: Post-Deployment Custom Events Test*
+## 🔧 Todo für 23.08.2025
+
+### **Google Analytics MCP Setup**
+**Ziel**: Direkter GA-Zugriff über Claude Code für bessere Analyse und Optimierung
+
+**Setup-Schritte:**
+1. **Google Cloud Console:**
+   - Google Analytics Data API aktivieren
+   - Service Account erstellen
+   - JSON-Key für Service Account herunterladen
+   - Service Account "Viewer"-Zugriff in GA4-Property geben
+
+2. **Environment Variables setzen:**
+   ```bash
+   export GOOGLE_CLIENT_EMAIL="service-account@projekt.iam.gserviceaccount.com"
+   export GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nKEY\n-----END PRIVATE KEY-----\n"
+   export GA_PROPERTY_ID="deine_ga4_property_id"
+   ```
+
+3. **MCP-Server installieren:**
+   ```bash
+   claude mcp add google-analytics --scope user --env GOOGLE_CLIENT_EMAIL=email --env GOOGLE_PRIVATE_KEY=key --env GA_PROPERTY_ID=id -- npx mcp-server-google-analytics
+   ```
+
+**Nutzen:**
+- ✅ MCP bereits installiert: `mcp-server-google-analytics`
+- 🔄 Direkte GA4-Datenabfragen über Claude
+- 📊 Automatisierte Berichte und Analysen
+- 🎯 Bessere Conversion-Rate Optimierung
+
+---
+
+*Updated: 22.08.2025 | Next Review: Post-GA-MCP-Setup*

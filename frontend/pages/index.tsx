@@ -92,7 +92,7 @@ export default function PferdeWertHomepage() {
         <title>Pferd kaufen Bayern, NRW & bundesweit: Marktwert berechnen | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 Pferdewert berechnen Bayern & NRW ✓ 40.500+ Pferde-Suchen täglich ✓ KI-Bewertung für 14,90€ ✓ Pferd kaufen & verkaufen ✓ Jetzt starten!"
+          content="🐎 Pferdewert berechnen Bayern & NRW ✓ 40.500+ Pferde-Suchen täglich ✓ KI-Bewertung für ${PRICING_FORMATTED.current} ✓ Pferd kaufen & verkaufen ✓ Jetzt starten!"
         />
         <meta property="og:title" content="Was ist dein Pferd wert? Marktwert in 2 Minuten per KI-Algorithmus | PferdeWert" />
         <meta property="og:description" content="Professionelle KI-Bewertung in 2 Min ✓ Marktwert sofort berechnen für Kauf/Verkauf oder aus Neugier ✓ Ohne Anmeldung" />

@@ -1,6 +1,8 @@
 // frontend/lib/analytics.ts
 // GA4 Analytics Configuration for PferdeWert.de
 
+import { PRICING } from '@/lib/pricing';
+
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Track page views
@@ -64,14 +66,14 @@ export const trackPaymentStart = (formData: Record<string, unknown>): void => {
       window.gtag("event", "begin_checkout", {
         event_category: "E-commerce",
         event_label: "Payment Initiated",
-        value: 14.90,
+        value: PRICING.current,
         currency: "EUR",
         items: [{
           item_id: "pferde-bewertung",
           item_name: "Professionelle Pferdebewertung",
           category: "AI-Service", 
           quantity: 1,
-          price: 14.90
+          price: PRICING.current
         }],
         // Direct parameters instead of custom_parameters
         horse_breed: formData.rasse || "unknown",
@@ -84,7 +86,7 @@ export const trackPaymentStart = (formData: Record<string, unknown>): void => {
       window.gtag("event", "pferde_payment_started", {
         event_category: "Conversion Funnel",
         event_label: "Payment Process Initiated",
-        value: 14.90,
+        value: PRICING.current,
         currency: "EUR"
       });
       return true;
@@ -125,14 +127,14 @@ export const trackValuationCompleted = (
     // Enhanced E-commerce purchase event
     window.gtag("event", "purchase", {
       transaction_id: sessionId,
-      value: 14.90,
+      value: PRICING.current,
       currency: "EUR",
       items: [{
         item_id: "pferde-bewertung",
         item_name: "Professionelle Pferdebewertung",
         category: "AI-Service",
         quantity: 1,
-        price: 14.90
+        price: PRICING.current
       }],
       // Direct parameters instead of custom_parameters
       bewertung_id: bewertungId,
@@ -144,7 +146,7 @@ export const trackValuationCompleted = (
     window.gtag("event", "pferde_bewertung_completed", {
       event_category: "Conversion",
       event_label: "Horse Valuation Completed Successfully",
-      value: 14.90,
+      value: PRICING.current,
       currency: "EUR",
       // Direct parameters instead of custom_parameters
       bewertung_id: bewertungId,

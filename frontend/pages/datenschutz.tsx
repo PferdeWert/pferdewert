@@ -11,7 +11,7 @@ export default function Datenschutz() {
         <title>Datenschutz | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 DSGVO-konforme Pferdebewertung bei PferdeWert für 14,90€ ➤ Datenschutz garantiert ✓ SSL-verschlüsselt ✓ Keine Datenweitergabe ✓ Jetzt sicher nutzen!"
+          content="🐎 DSGVO-konforme Pferdebewertung bei PferdeWert für ${PRICING_FORMATTED.current} ➤ Datenschutz garantiert ✓ SSL-verschlüsselt ✓ Keine Datenweitergabe ✓ Jetzt sicher nutzen!"
         />
         <meta name="robots" content="noindex, follow" />
       </Head>

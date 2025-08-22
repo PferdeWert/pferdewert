@@ -5,7 +5,7 @@
  * Bei Preisänderungen muss nur diese Datei angepasst werden.
  * 
  * @author PferdeWert.de
- * @version 2.0.0 - Preiserhöhung auf 14,90€
+ * @version 3.0.0 - Preisreduktion auf 9,90€
  */
 
 // ===== PREIS KONFIGURATION =====
@@ -14,13 +14,13 @@ export const PRICING = {
    * Aktueller Hauptpreis für Pferdebewertung
    * Format: Dezimalzahl für Berechnungen 
    */
-  current: 14.90,
+  current: 9.90,
   
   /** 
    * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
    * Soll deutlich höher sein als current price
    */
-  decoy: 39.00,
+  decoy: 29.00,
   
   /** 
    * Historische Preise (für Vergleiche und "war früher X€" Texte)

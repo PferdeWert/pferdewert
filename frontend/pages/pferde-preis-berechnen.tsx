@@ -436,7 +436,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         <title>Pferde Preis berechnen Bayern NRW: 2 Min Bewertung | PferdeWert</title>
-        <meta name="description" content="🐎 Pferde Preis berechnen Bayern & NRW ✓ 115 Bewertungen täglich ✓ KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ Regional optimiert ✓ Jetzt starten!" />
+        <meta name="description" content="🐎 Pferde Preis berechnen Bayern & NRW ✓ 115 Bewertungen täglich ✓ KI-Analyse für ${PRICING_FORMATTED.current} ✓ Sofort-PDF ✓ Regional optimiert ✓ Jetzt starten!" />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="400" />

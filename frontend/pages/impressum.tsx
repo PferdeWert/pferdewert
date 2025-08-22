@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
+import { PRICING_FORMATTED } from "@/lib/pricing";
 
 export default function Impressum() {
   return (
@@ -10,7 +11,7 @@ export default function Impressum() {
         <title>Impressum | PferdeWert.de</title>
         <meta
           name="description"
-          content="🐎 Impressum & Kontakt zu PferdeWert.de ➤ Professionelle Pferdebewertung für 14,90€ ✓ Rechtssichere Angaben ✓ Direkter Kontakt ✓ Deutschland"
+          content={`🐎 Impressum & Kontakt zu PferdeWert.de ➤ Professionelle Pferdebewertung für ${PRICING_FORMATTED.current} ✓ Rechtssichere Angaben ✓ Direkter Kontakt ✓ Deutschland`}
         />
         <meta name="keywords" content="impressum, kontakt, pferdewert, rechtliche angaben, anbieterkennung, deutschland" />
         <meta property="og:title" content="Impressum | PferdeWert.de" />

@@ -91,7 +91,7 @@ export default function PferdVerkaufen() {
         <title>Pferd verkaufen Bayern NRW Baden-Württemberg: Optimaler Preis & schneller Verkauf | PferdeWert</title>
         <meta
          name="description"
-         content="🐎 Pferd verkaufen zum optimalen Preis! KI-Bewertung für 14,90€ ➤ Schneller verkaufen ✓ Keine Wertverluste ✓ Marktgerecht ✓ Jetzt starten!"
+         content="🐎 Pferd verkaufen zum optimalen Preis! KI-Bewertung für ${PRICING_FORMATTED.current} ➤ Schneller verkaufen ✓ Keine Wertverluste ✓ Marktgerecht ✓ Jetzt starten!"
         />
          <meta
          name="keywords"

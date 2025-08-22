@@ -58,7 +58,7 @@ export default function PferdKaufen() {
         <title>Pferd kaufen Bayern NRW: Preis prüfen & günstig verhandeln | PferdeWert</title>
         <meta
          name="description"
-         content="🐎 Pferd kaufen Bayern, NRW & bundesweit! KI-Preischeck für 14,90€ ➤ Regional optimierte Bewertung ✓ Keine Überzahlung ✓ Jetzt prüfen!"
+         content="🐎 Pferd kaufen Bayern, NRW & bundesweit! KI-Preischeck für ${PRICING_FORMATTED.current} ➤ Regional optimierte Bewertung ✓ Keine Überzahlung ✓ Jetzt prüfen!"
         />
          <meta
          name="keywords"
