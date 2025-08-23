@@ -263,7 +263,21 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    
+    // Debug logging für stockmass
+    if (name === "stockmass") {
+      console.log(`[DEBUG] stockmass input - raw value: "${value}", type: ${typeof value}`);
+      
+      // Ensure stockmass is stored as clean number string (no locale formatting)
+      const cleanValue = value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+      if (cleanValue !== value) {
+        console.log(`[DEBUG] stockmass cleaned from "${value}" to "${cleanValue}"`);
+      }
+      setForm(prev => ({ ...prev, [name]: cleanValue }));
+    } else {
+      setForm(prev => ({ ...prev, [name]: value }));
+    }
+    
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: "" }));
@@ -407,6 +421,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     trackPaymentStart(formWithMetrics);
     
     try {
+      // Debug logging vor dem Senden
+      console.log(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
+      console.log(`[DEBUG] Full form object:`, form);
+      
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

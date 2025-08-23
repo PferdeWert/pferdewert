@@ -56,6 +56,11 @@ try {
 
 
 
+    // Debug logging für stockmass
+    if (parsedData.stockmass !== undefined) {
+      info(`[CHECKOUT DEBUG] stockmass received - value: "${parsedData.stockmass}", type: ${typeof parsedData.stockmass}`);
+    }
+
     const validation = BewertungSchema.safeParse(parsedData);
     if (!validation.success) {
       warn("[CHECKOUT] ❌ Validierungsfehler:", validation.error.flatten());
@@ -63,6 +68,9 @@ try {
     }
 
     const bewertungData = validation.data;
+    
+    // Debug logging nach Validierung
+    info(`[CHECKOUT DEBUG] stockmass after validation - value: "${bewertungData.stockmass}", type: ${typeof bewertungData.stockmass}`);
 
     info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
     log("[CHECKOUT] Eingabe:", bewertungData);
