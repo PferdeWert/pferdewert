@@ -26,6 +26,7 @@ const BewertungSchema = z.object({
   standort: z.string().optional(),
   charakter: z.string().optional(), // NEU
   besonderheiten: z.string().optional(), // NEU
+  attribution_source: z.string().optional(), // Marketing-Attribution
   
   // Legacy Support (falls alte Daten gesendet werden)
   verwendungszweck: z.string().optional(),

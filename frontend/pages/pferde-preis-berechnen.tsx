@@ -29,6 +29,7 @@ interface FormState {
   haupteignung: string;  // NEU: ersetzt verwendungszweck
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
+  attribution_source?: string; // Attribution tracking
 }
 
 const initialForm: FormState = {
@@ -44,6 +45,7 @@ const initialForm: FormState = {
   haupteignung: "",
   charakter: "",
   besonderheiten: "",
+  attribution_source: "",
 };
 
 // Field Interface
@@ -55,7 +57,7 @@ interface FormField {
   placeholder?: string;
   fullWidth?: boolean;
   halfWidth?: boolean;
-  options?: string[];
+  options?: string[] | Array<{value: string; label: string}>;
 }
 
 // Step Interface
@@ -178,6 +180,23 @@ const stepData: StepData[] = [
         required: false,
         placeholder: "z.B. 72770",
         halfWidth: true
+      },
+      { 
+        name: "attribution_source", 
+        label: "Wie bist du auf PferdeWert aufmerksam geworden?", 
+        required: false,
+        placeholder: "Bitte auswählen (optional)",
+        halfWidth: true,
+        type: "select",
+        options: [
+          { value: "", label: "Bitte auswählen (optional)" },
+          { value: "google_search", label: "Google Suche" },
+          { value: "instagram", label: "Instagram" },
+          { value: "facebook", label: "Facebook" },
+          { value: "recommendation", label: "Empfehlung von Freunden/Familie" },
+          { value: "equestrian_forum", label: "Pferdeforum oder Community" },
+          { value: "other", label: "Andere Quelle" }
+        ]
       },
     ]
   },
@@ -590,12 +609,23 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                                   : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
                               } focus:outline-none focus:ring-4 focus:ring-amber-100`}
                             >
-                              <option value="">Bitte wählen</option>
-                              {field.options?.map((option) => (
-                                <option key={option} value={option}>
-                                  {option}
-                                </option>
-                              ))}
+                              {field.placeholder && <option value="">{field.placeholder}</option>}
+                              {!field.placeholder && <option value="">Bitte wählen</option>}
+                              {field.options?.map((option) => {
+                                if (typeof option === 'string') {
+                                  return (
+                                    <option key={option} value={option}>
+                                      {option}
+                                    </option>
+                                  );
+                                } else {
+                                  return (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  );
+                                }
+                              })}
                             </select>
                           ) : (
                             <input

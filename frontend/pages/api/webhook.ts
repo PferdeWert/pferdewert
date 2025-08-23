@@ -151,9 +151,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         zuechter,
         standort,
         verwendungszweck,
+        attribution_source,
       } = doc;
 
-      // Prepare data with proper validation
+      // Prepare data with proper validation (ONLY horse data for AI - NO attribution_source!)
       const bewertbareDaten: HorseData = {
         rasse: String(rasse || ''),
         alter: parseInt(String(alter)) || 0,
@@ -241,7 +242,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       info('[WEBHOOK] Saving evaluation to MongoDB');
       const updateResult = await collection.updateOne(
         { _id: doc._id },
-        { $set: { bewertung: rawGpt, status: "fertig", aktualisiert: new Date() } }
+        { 
+          $set: { 
+            bewertung: rawGpt, 
+            status: "fertig", 
+            aktualisiert: new Date(),
+            // Store attribution_source for analytics (not sent to AI)
+            ...(attribution_source && { attribution_source: String(attribution_source) })
+          } 
+        }
       );
 
       info('[WEBHOOK] MongoDB update completed:', { 
@@ -289,6 +298,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
             <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
             <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
+            
+            <hr style="margin: 20px 0; border: 1px solid #eee;">
+            
+            <p><strong>📊 Marketing Attribution (Optional):</strong> ${attribution_source || 'nicht angegeben'}</p>
           `;
 
           // Send admin notification email
