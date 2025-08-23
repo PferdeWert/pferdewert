@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "apify": {
+      "command": "node",
+      "args": ["/tmp/apify-mcp-server/build/index.js"],
+      "env": {
+        "APIFY_API_TOKEN": "HIER_IHREN_APIFY_TOKEN_EINFÜGEN"
+      }
+    }
+  }
+}

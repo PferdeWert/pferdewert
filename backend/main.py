@@ -44,7 +44,7 @@ def get_tokenizer(model_id: str):
 
 ENC = get_tokenizer(MODEL_ID) if OPENAI_KEY else None
 CTX_MAX = 128_000
-MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
+MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 3000))
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logging.info(f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | Model: {MODEL_ID} | Use Claude: {USE_CLAUDE}")
@@ -164,7 +164,7 @@ def ai_valuation(d: BewertungRequest) -> str:
             logging.info("Prompt wird an Claude gesendet...")
             response = claude_client.messages.create(
                 model=CLAUDE_MODEL,
-                max_tokens=1000,
+                max_tokens=3000,
                 temperature=0.0,  # Für maximale Konsistenz
                 system=CLAUDE_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_prompt}]
@@ -337,7 +337,7 @@ def debug_comparison(req: BewertungRequest):
         local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
         claude_response = local_claude_client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=1000,
+            max_tokens=3000,
             temperature=0.0,
             system=CLAUDE_SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_prompt}]
