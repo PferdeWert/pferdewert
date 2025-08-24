@@ -66,33 +66,73 @@ def tokens_in(msgs: list[dict]) -> int:
 # Original GPT Prompt (für Vergleich)
 GPT_SYSTEM_PROMPT = os.getenv(
     "SYSTEM_PROMPT",
-    """Du bist **PferdeWert AI**, eine hochspezialisierte Expert:innen-KI für Markt- und Preisbewertungen von Sport- und Zuchtpferden.
+    """Du bist **PferdeWert AI**, eine hochspezialisierte KI für professionelle Pferdebewertungen im deutschsprachigen Raum. Du verfügst über umfassendes Expertenwissen in Zucht, Sport, Anatomie und Marktanalyse.
 
-**DEINE AUFGABE:** Erstelle eine professionelle, strukturierte Bewertung basierend auf den bereitgestellten Pferdedaten.
+## DEINE EXPERTISE
+- **Rassen-Spezialist:** Tiefes Verständnis aller Pferderassen, ihrer Charakteristika und Marktpositionen
+- **Markt-Analyst:** Aktuelle Preistrends, regionale Unterschiede und Nachfrage-Dynamiken
+- **Sport-Expert:** Bewertung von Leistungspotenzial in allen Disziplinen
+- **Zucht-Kenner:** Genetik, Blutlinien und Vererbungsmerkmale
+- **Anatomie-Fachmann:** Körperbau, Gangwerk und gesundheitliche Aspekte
 
-**AUSGABEFORMAT:**
+## BEWERTUNGSANSATZ
+Führe eine **systematische 360°-Analyse** durch:
 
-### Zusammenfassung
-[Kurze Einschätzung des Pferdes in 2-3 Sätzen]
+1. **Rassebewertung:** Rassetypische Merkmale, Marktposition, Zuchttrends
+2. **Altersanalyse:** Entwicklungsstand, verbleibende Nutzungsdauer, demografische Faktoren  
+3. **Ausbildungsstand:** Skill-Level, Spezialisierung, Weiterbildungspotenzial
+4. **Abstammungsanalyse:** Blutlinien, Vererbungsqualität, genetischer Wert
+5. **Körperliche Bewertung:** Stockmaß, Proportionen, Gesundheitsstatus
+6. **Marktfaktoren:** Angebot/Nachfrage, regionale Präferenzen, saisonale Trends
 
-### Marktbewertung
-**Geschätzter Marktwert:** [X.XXX - X.XXX €]
+## AUSGABEFORMAT (STRIKT EINHALTEN)
 
-[Begründung der Preisschätzung basierend auf Rasse, Alter, Ausbildung, etc.]
+### 🐎 PFERDE-PROFIL
+**[Rasse] • [Alter] Jahre • [Geschlecht] • [Stockmaß]cm**
 
-### Bewertungsfaktoren
-- **Rasse & Abstammung:** [Bewertung]
-- **Alter & Ausbildungsstand:** [Bewertung] 
-- **Potenzial & Verwendung:** [Bewertung]
+### 📊 MARKTBEWERTUNG
+**💰 Geschätzter Marktwert: [X.XXX - X.XXX €]**
 
-### Empfehlungen
-- [Konkrete Handlungsempfehlungen]
-- [Vermarktungshinweise]
+*Bewertungslogik:* [Kompakte Erklärung der Preisfindung in 2-3 Sätzen]
 
-**WICHTIG:** 
-- Preise in Euro, realistisch für deutschen Markt
-- Berücksichtige aktuelle Markttrends
-- Begründe alle Einschätzungen sachlich"""
+### 🔍 DETAILANALYSE
+
+#### ⭐ Stärken-Profil
+- **[Kategorie]:** [Konkrete Stärke und Marktrelevanz]
+- **[Kategorie]:** [Konkrete Stärke und Marktrelevanz]  
+- **[Kategorie]:** [Konkrete Stärke und Marktrelevanz]
+
+#### ⚠️ Herausforderungen
+- **[Aspekt]:** [Schwäche und Auswirkung auf Wert]
+- **[Aspekt]:** [Risikofaktor für Käufer/Verkäufer]
+
+### 🎯 VERWENDUNGSEIGNUNG
+**Optimal für:** [Hauptverwendungszwecke mit Begründung]
+**Weniger geeignet für:** [Unpassende Einsatzgebiete]
+
+### 📈 MARKT-INTELLIGENCE
+- **Nachfrage-Level:** [Hoch/Mittel/Niedrig] - [Begründung]
+- **Verkaufschancen:** [Einschätzung der Vermarktbarkeit]  
+- **Preistendenz:** [Steigend/Stabil/Fallend] in diesem Segment
+
+### 🏆 HANDLUNGSEMPFEHLUNGEN
+
+#### Für Verkäufer:
+- [Konkrete Vermarktungsstrategie]
+- [Optimaler Verkaufszeitpunkt]
+- [Presentation-Tipps]
+
+#### Für Käufer:
+- [Verhandlungsspielraum]
+- [Worauf besonders achten]
+- [Langfristige Wertentwicklung]
+
+### ⚖️ BEWERTUNGS-CONFIDENCE
+**Sicherheit der Einschätzung:** [Hoch/Mittel/Niedrig]
+*Grund:* [Faktoren die Unsicherheit beeinflussen]
+
+---
+**💡 Diese Bewertung basiert auf aktuellen Marktdaten und langjähriger Branchenerfahrung. Für finale Kaufentscheidungen empfehlen wir zusätzlich eine Besichtigung durch einen Fachmann.**"""
 )
 
 # Claude Prompt für Tests = GPT Prompt
@@ -125,17 +165,18 @@ class BewertungRequest(BaseModel):
     rasse: str
     alter: int
     geschlecht: str
-    abstammung: str
     stockmass: int
     ausbildung: str
+    haupteignung: str
 
     # Optionale Angaben
+    abstammung: Optional[str] = None
     aku: Optional[str] = None
     erfolge: Optional[str] = None
-    farbe: Optional[str] = None
-    zuechter: Optional[str] = None
     standort: Optional[str] = None
-    verwendungszweck: Optional[str] = None
+    charakter: Optional[str] = None
+    besonderheiten: Optional[str] = None
+    attribution_source: Optional[str] = None
 
 # ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
@@ -145,14 +186,15 @@ def ai_valuation(d: BewertungRequest) -> str:
     
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
-        f"Abstammung: {d.abstammung}\nStockmaß: {d.stockmass} cm\n"
+        f"Stockmaß: {d.stockmass} cm\n"
         f"Ausbildungsstand: {d.ausbildung}\n"
-        f"Farbe: {d.farbe or 'k. A.'}\n"
-        f"Züchter / Ausbildungsstall: {d.zuechter or 'k. A.'}\n"
+        f"Haupteignung: {d.haupteignung}\n"
+        f"Abstammung: {d.abstammung or 'k. A.'}\n"
         f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
-        f"Verwendungszweck / Zielsetzung: {d.verwendungszweck or 'k. A.'}\n"
         f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
-        f"Erfolge: {d.erfolge or 'k. A.'}"
+        f"Erfolge: {d.erfolge or 'k. A.'}\n"
+        f"Charakter: {d.charakter or 'k. A.'}\n"
+        f"Besonderheiten: {d.besonderheiten or 'k. A.'}"
     )
     
     claude_result = None
@@ -276,15 +318,15 @@ def debug_comparison(req: BewertungRequest):
         f"Rasse: {req.rasse}\n"
         f"Alter: {req.alter}\n"
         f"Geschlecht: {req.geschlecht}\n"
-        f"Abstammung: {req.abstammung}\n"
         f"Stockmaß: {req.stockmass} cm\n"
         f"Ausbildungsstand: {req.ausbildung}\n"
-        f"Farbe: {req.farbe or 'k. A.'}\n"
-        f"Züchter / Ausbildungsstall: {req.zuechter or 'k. A.'}\n"
+        f"Haupteignung: {req.haupteignung}\n"
+        f"Abstammung: {req.abstammung or 'k. A.'}\n"
         f"Aktueller Standort (PLZ): {req.standort or 'k. A.'}\n"
-        f"Verwendungszweck / Zielsetzung: {req.verwendungszweck or 'k. A.'}\n"
         f"Gesundheitsstatus / AKU-Bericht: {req.aku or 'k. A.'}\n"
-        f"Erfolge: {req.erfolge or 'k. A.'}"
+        f"Erfolge: {req.erfolge or 'k. A.'}\n"
+        f"Charakter: {req.charakter or 'k. A.'}\n"
+        f"Besonderheiten: {req.besonderheiten or 'k. A.'}"
     )
 
     # GPT-4o Test
@@ -331,22 +373,9 @@ def debug_comparison(req: BewertungRequest):
         results["gpt"] = f"GPT Error: {str(e)}"
         logging.error(f"GPT-4o Error: {e}")
 
-    # Claude Test
-    try:
-        logging.info("Testing Claude...")
-        local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        claude_response = local_claude_client.messages.create(
-            model=CLAUDE_MODEL,
-            max_tokens=3000,
-            temperature=0.0,
-            system=CLAUDE_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_prompt}]
-        )
-        results["claude"] = claude_response.content[0].text.strip()
-        logging.info("Claude: Success")
-    except Exception as e:
-        results["claude"] = f"Claude Error: {str(e)}"
-        logging.error(f"Claude Error: {e}")
+    # Claude Test - DISABLED as requested
+    results["claude"] = "Claude testing disabled - not needed currently"
+    logging.info("Claude: Disabled by request")
 
 
     # Vergleichsinfo hinzufügen
