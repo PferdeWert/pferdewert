@@ -107,7 +107,7 @@ export default function Ergebnis() {
                 // If processing=true, the evaluation is still being created -> continue retrying
                 if (errorData.processing) {
                   log("[ERGEBNIS] Bewertung wird noch erstellt, weiter versuchen...");
-                  // Continue to retry logic below
+                  // Continue to retry logic below - don't return here
                 } else {
                   // Document truly doesn't exist -> stop immediately
                   error("[ERGEBNIS] Bewertung nicht gefunden - falsche ID oder Dokument existiert nicht");
