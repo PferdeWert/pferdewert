@@ -25,6 +25,7 @@ CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
 CLAUDE_SONNET_MODEL = "claude-sonnet-4-20250514"
 CLAUDE_OPUS_MODEL = "claude-opus-4-1-20250805"
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", CLAUDE_OPUS_MODEL)  # Default to Opus
 # Force Claude usage for testing in staging
 USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"  # Default to true for testing
 
@@ -207,7 +208,7 @@ def ai_valuation(d: BewertungRequest) -> str:
         try:
             logging.info("Prompt wird an Claude gesendet...")
             response = claude_client.messages.create(
-                model=CLAUDE_SONNET_MODEL,
+                model=CLAUDE_MODEL,
                 max_tokens=3000,
                 temperature=0.0,  # Für maximale Konsistenz
                 system=CLAUDE_SYSTEM_PROMPT,
