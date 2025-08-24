@@ -29,7 +29,6 @@ const PDFDownloadLink = dynamic(
 
 
 export default function Ergebnis() {
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -84,8 +83,19 @@ export default function Ergebnis() {
           info(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
           
           let tries = 0;
-          const maxTries = 20; // Increased from 8 to 20 for longer AI processing
+          const maxTries = 12; // Reduced from 20 for faster UX
+          let consecutiveErrors = 0; // Track consecutive failures for circuit breaker
           
+          const getOptimalDelay = (tries: number, consecutiveErrors: number): number => {
+            // Critical first 20 seconds - aggressive attempts for better UX
+            if (tries <= 3) return tries * 1000;        // 1s, 2s, 3s
+            if (tries <= 6) return 3000;                // 3s each (total: ~18s)
+            
+            // After 20s - more conservative backoff
+            const baseDelay = consecutiveErrors > 0 ? 8000 : 5000;
+            return Math.min(30000, baseDelay * Math.pow(1.4, tries - 6));
+          };
+
           const checkBewertung = async () => {
             tries++;
             log(`[ERGEBNIS] Versuch ${tries}/${maxTries} für Bewertung ID: ${bewertungId}`);
@@ -95,8 +105,13 @@ export default function Ergebnis() {
               log(`[ERGEBNIS] API Response Status: ${retryRes.status}`);
               
               if (retryRes.status === 429) {
-                log("[ERGEBNIS] Rate-Limit erreicht, warte länger...");
-                const delay = Math.min(30000, 10000 * Math.pow(2, Math.floor(tries / 3)));
+                // Smart 429 handling with server hint respect
+                const retryAfter = retryRes.headers.get('Retry-After');
+                const delay = retryAfter ? 
+                  Math.max(1000, parseInt(retryAfter) * 1000) : 
+                  Math.min(10000, 2000 + (tries * 1000));
+                
+                log(`[ERGEBNIS] Rate limit - waiting ${delay}ms (Retry-After: ${retryAfter})`);
                 setTimeout(checkBewertung, delay);
                 return;
               }
@@ -105,19 +120,16 @@ export default function Ergebnis() {
                 const errorData = await retryRes.json();
                 log("[ERGEBNIS] 404 Response data:", errorData);
                 
-                // If processing=true, the evaluation is still being created -> continue retrying
                 if (errorData.processing) {
                   log("[ERGEBNIS] ✅ Bewertung wird noch erstellt, weiter versuchen... (processing=true)");
-                  // Continue to retry logic below - don't return here
+                  consecutiveErrors = 0; // Reset error counter on processing response
                 } else {
-                  // Document truly doesn't exist -> stop immediately
                   error("[ERGEBNIS] ❌ Bewertung nicht gefunden - falsche ID oder Dokument existiert nicht");
                   setErrorLoading("Die Bewertung konnte nicht gefunden werden. Bitte kontaktiere uns unter info@pferdewert.de");
                   setLoading(false);
                   return;
                 }
               } else {
-                // Handle successful responses (200, etc.)
                 const retryData = await retryRes.json();
                 log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
                 
@@ -127,32 +139,35 @@ export default function Ergebnis() {
                   setLoading(false);
                   return;
                 }
+                consecutiveErrors = 0; // Reset on successful response
               }
             } catch (err) {
-              error("[ERGEBNIS] Netzwerk-/API-Fehler beim Abrufen der Bewertung:", err);
+              error("[ERGEBNIS] Network error:", err);
+              consecutiveErrors++;
+            }
+
+            // Smart circuit breaker - more lenient early, stricter later
+            if (consecutiveErrors >= 3 && tries >= 6) {
+              warn(`[ERGEBNIS] Circuit breaker: ${consecutiveErrors} errors after ${tries} attempts`);
+              setErrorLoading(
+                "Es gab mehrere Verbindungsprobleme. Bitte aktualisiere die Seite oder kontaktiere uns unter info@pferdewert.de"
+              );
+              setLoading(false);
+              return;
             }
 
             if (tries >= maxTries) {
               warn(`[ERGEBNIS] Bewertung nach ${maxTries} Versuchen nicht verfügbar.`);
               setErrorLoading(
-                "Die Bewertung wird noch erstellt und kann einige Minuten dauern. " +
-                "Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in wenigen Minuten."
+                "Die Bewertung wird noch erstellt. Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in wenigen Minuten."
               );
               setLoading(false);
               return;
             }
             
-            // Progressive backoff: start longer to avoid rate limits
-            let delay;
-            if (tries <= 3) {
-              delay = 15000; // First 3 tries: 15s
-            } else if (tries <= 10) {
-              delay = 30000; // Next 7 tries: 30s  
-            } else {
-              delay = 60000; // Remaining tries: 60s
-            }
-            
-            log(`[ERGEBNIS] 🔄 Plane nächsten Versuch ${tries + 1}/${maxTries} in ${delay}ms...`);
+            // Optimized delay schedule for better UX
+            const delay = getOptimalDelay(tries, consecutiveErrors);
+            log(`[ERGEBNIS] 🔄 Next attempt ${tries + 1}/${maxTries} in ${delay}ms`);
             setTimeout(checkBewertung, delay);
           };
           
@@ -173,12 +188,7 @@ export default function Ergebnis() {
 
     fetchSession();
 
-    return () => {
-      const interval = intervalRef.current;
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
+    // No cleanup needed for setTimeout-based retry logic
   }, [router]);
 
   if (loading || minLoadingTime) return <StripeLoadingScreen />;
