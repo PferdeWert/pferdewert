@@ -24,6 +24,8 @@ interface HorseData {
   farbe?: string;
   zuechter?: string;
   standort?: string;
+  charakter?: string; // NEW: Optional character description
+  besonderheiten?: string; // NEW: Optional special features
   verwendungszweck?: string; // Legacy field kept for backward compatibility
 }
 
@@ -54,12 +56,13 @@ const convertStockmassToNumber = (stockmass: unknown): number => {
     return 0;
   }
   
-  // Convert to centimeters and round to nearest integer
-  const result = Math.round(numValue * 100);
-  if (result < 0 || result > 25000) { // Reasonable limits for horse height in cm
-    warn('[WEBHOOK] Stockmass value out of range, using raw value:', result);
+  // Frontend now stores values in centimeters, no conversion needed
+  const result = Math.round(numValue);
+  if (result < 0 || result > 250) { // Reasonable limits for horse height in cm (e.g., 50-250cm)
+    warn('[WEBHOOK] Stockmass value out of range:', result);
   }
   
+  info('[WEBHOOK] Stockmass converted:', String(stockmass), '→', result);
   return result;
 };
 
@@ -152,6 +155,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         farbe,
         zuechter,
         standort,
+        charakter, // NEW: Character description
+        besonderheiten, // NEW: Special features
         verwendungszweck,
         attribution_source,
       } = doc;
@@ -170,6 +175,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         farbe: farbe ? String(farbe) : undefined,
         zuechter: zuechter ? String(zuechter) : undefined,
         standort: standort ? String(standort) : undefined,
+        charakter: charakter ? String(charakter) : undefined, // NEW: Character description
+        besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // NEW: Special features
         verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined, // Keep for backward compatibility
       };
 
