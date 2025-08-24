@@ -24,7 +24,8 @@ CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 # Model Settings
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-20250514")
-USE_CLAUDE = os.getenv("USE_CLAUDE", "false").lower() == "true"
+# Force Claude usage for testing in staging
+USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"  # Default to true for testing
 
 # Initialize clients
 openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
