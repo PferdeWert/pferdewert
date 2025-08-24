@@ -174,7 +174,7 @@ export default function Ergebnis() {
             if (tries >= maxTries) {
               warn(`[ERGEBNIS] Bewertung nach ${maxTries} Versuchen nicht verfügbar.`);
               setErrorLoading(
-                "Die Bewertung wird noch erstellt. Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in wenigen Minuten."
+                "Die Claude AI-Bewertung dauert bis zu 3 Minuten. Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in 2-3 Minuten."
               );
               setLoading(false);
               return;
@@ -245,9 +245,17 @@ export default function Ergebnis() {
           </div>
         </>
       ) : (
-        <p className="p-10 text-gray-600 text-center text-lg">
-          Die Zahlung hat funktioniert. Deine Bewertung wird gerade erstellt – bitte einen Moment Geduld…
-        </p>
+        <div className="p-10 text-center">
+          <p className="text-gray-600 text-lg mb-4">
+            Die Zahlung hat funktioniert. Deine Claude AI-Bewertung wird gerade erstellt…
+          </p>
+          <p className="text-blue-600 text-base font-medium mb-2">
+            ⏱️ Dauert bis zu 3 Minuten
+          </p>
+          <p className="text-gray-500 text-sm">
+            Du erhältst eine E-Mail, sobald die Bewertung fertig ist.
+          </p>
+        </div>
       )}
     </BewertungLayout>
   </Layout>
