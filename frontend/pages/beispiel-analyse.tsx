@@ -4,29 +4,146 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 
-const markdown = `### Preisspanne
+const markdown = `## Zusammenfassung
 
-**10.000 – 15.000 €**
+**Marktwert: 18.000 – 28.000 €**
 
-Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des Pferdes beeinflussen. Das untere Ende der Spanne berücksichtigt den Ausbildungsstand des Wallachs, der sich im L-Bereich im Ansatz befindet, sowie seine bisherigen Erfolge, die sich auf E-Siege und A-Platzierungen beschränken. Das obere Ende der Spanne könnte erreicht werden, wenn die Bewegungsqualität des Pferdes überdurchschnittlich ist und es eine besonders gute AKU vorweisen kann. Der Verkauf über einen privaten Anbieter und der derzeitige Standort können ebenfalls den Preis beeinflussen.
+Diese 4-jährige Deutsche Sport Pferd (DSP) Stute zeigt hervorragende Veranlagung für den Sport und repräsentiert eine solide Investition im oberen Preissegment für ihr Alter. Die Bewertung basiert auf ihrer erstklassigen Abstammung, dem ausgezeichneten Exterieur, der vielversprechenden Grundausbildung und ihrem beträchtlichen Entwicklungspotenzial.
 
-### Abstammung
+---
 
-**De Niro**: Ein bedeutender Hannoveraner Hengst, bekannt für seine Vererbung von Dressurtalent. De Niro hat zahlreiche Nachkommen, die im internationalen Dressursport erfolgreich sind, und ist als Vererber von Rittigkeit und Leistungsbereitschaft geschätzt.
+## Detaillierte Marktwertanalyse
 
-**Schwadroneur**: Ein Hengst, der ebenfalls in der Dressurszene bekannt ist. Schwadroneur hat eine solide Nachzucht, die durch Rittigkeit und gute Grundgangarten überzeugt.
+### Preisspanne: 18.000 – 28.000 €
 
-### Was den Endpreis besonders bewegt
+**Untere Preisgrenze (18.000 €):** 
+Berücksichtigt das junge Alter und den noch frühen Ausbildungsstand. Trotz excellenter Veranlagung sind konkrete Leistungsnachweise noch ausstehend.
 
-- **Abstammung**: De Niro als Vater ist ein starker Pluspunkt für die Dressurveranlagung.
-- **Ausbildungsstand**: Der Wallach ist im L-Bereich im Ansatz, was für einen 11-Jährigen relativ niedrig ist.
-- **Erfolge**: Nur E-Siege und A-Platzierungen, was den Preis drückt.
-- **Gesundheitsstatus**: Eine AKU ohne Befund ist ein positiver Faktor.
-- **Vermarktungsweg**: Privatverkauf kann den Preis im Vergleich zu einer Auktion niedriger halten.
+**Obere Preisgrenze (28.000 €):** 
+Reflektiert die außergewöhnliche Abstammung, das hervorragende Exterieur und die bereits erkennbare sportliche Veranlagung. Bei positiver Entwicklung in der Ausbildung ist dieser Wert vollständig gerechtfertigt.
 
-### Fazit
+**Zielpreis (22.000 – 25.000 €):** 
+Realistischer Verkaufspreis bei optimaler Vermarktung und entsprechender Zielgruppe.
 
-Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren individuellen Faktoren und Marktbedingungen variieren kann.
+---
+
+## Detaillierte Preisfaktoren
+
+### Positive Bewertungsfaktoren (+)
+
+**Abstammung (Gewichtung: 25%)**
+- **Vater: Springpferd der Spitzenklasse** – Internationaler Erfolg auf höchstem Niveau
+- **Mutterlinie: Bewährte Leistungsgenetik** – Nachgewiesene Vererbung sportlicher Qualitäten
+- **Gesamtbewertung Abstammung: Hervorragend** (9/10)
+
+**Exterieur & Typ (Gewichtung: 20%)**
+- Harmonische Proportionen und moderner Sportpferdetyp
+- Korrekte Gliedmaßenstellung und solider Rumpfaufbau
+- Ausdrucksvoller Kopf mit guter Halsaufrichtung
+- **Gesamtbewertung Exterieur: Sehr gut** (8/10)
+
+**Grundgangarten (Gewichtung: 20%)**
+- Takt und Raumgewinn in allen drei Grundgangarten
+- Besonders hervorzuheben: Galoppqualität mit natürlicher Versammlung
+- Elastische Bewegungen mit guter Selbsthaltung
+- **Gesamtbewertung Gangarten: Sehr gut** (8/10)
+
+**Ausbildungsstand (Gewichtung: 15%)**
+- Solide Grundausbildung entsprechend des Alters
+- Positive Entwicklungstendenz in der Reitpferdeausbildung
+- Gute Rittigkeit und Kooperationsbereitschaft
+- **Gesamtbewertung Ausbildung: Gut** (7/10)
+
+**Gesundheit & Zustand (Gewichtung: 10%)**
+- Aktuell gesund und in gutem Pflegezustand
+- Regelmäßige tierärztliche Betreuung
+- **Gesamtbewertung Gesundheit: Sehr gut** (8/10)
+
+**Marktfaktoren (Gewichtung: 10%)**
+- Hohe Nachfrage nach qualitätsvollen Nachwuchspferden
+- Günstige Vermarktungszeit (Frühjahr/Frühsommer)
+- **Gesamtbewertung Markt: Gut** (7/10)
+
+### Preismindernde Faktoren (-)
+
+**Alter & Erfahrung**
+- Noch junges Alter erfordert weitere Investition in Ausbildung
+- Keine Turniererfahrung oder Leistungsnachweise vorhanden
+- Entwicklungsrisiko bei sportlicher Laufbahn
+
+**Konkrete Abzüge: -2.000 bis -3.000 € vom Maximalwert**
+
+---
+
+## Marktbewertung & Timing
+
+### Aktuelle Marktlage
+- **Nachfrage:** Sehr hoch für qualitätsvolle Nachwuchspferde
+- **Angebotslage:** Begrenzt bei dieser Qualitätsstufe
+- **Preisentwicklung:** Stabile bis leicht steigende Tendenz
+- **Zielgruppe:** Ambitionierte Amateure und Nachwuchsförderung
+
+### Optimaler Verkaufszeitpunkt
+- **Frühjahr/Frühsommer:** Beste Verkaufszeit für Nachwuchspferde
+- **Nach Anreitphase:** Grundausbildung sollte erkennbar gefestigt sein
+- **Vor Herbst:** Käufer planen meist für die folgende Saison
+
+---
+
+## Verkaufsempfehlungen
+
+### Vermarktungsstrategie
+1. **Professionelle Präsentation:** Hochwertige Fotos und Videos
+2. **Zielgruppenorientierung:** Fokus auf sportorientierte Käufer
+3. **Transparenz:** Offene Kommunikation über Entwicklungsstand
+4. **Vermarktungskanäle:** Spezialisierte Pferdehändler und Online-Plattformen
+
+### Verhandlungsspielraum
+- **Ausgangspreis:** 25.000 € 
+- **Verhandlungsrahmen:** 3.000 – 4.000 €
+- **Mindestpreis:** 20.000 €
+
+---
+
+## Kaufempfehlungen
+
+### Für Käufer interessant bei:
+- Preis unter 23.000 €
+- Nachweis kontinuierlicher Ausbildung
+- Aktuelle tierärztliche Untersuchung
+- Möglichkeit zur Probereitmöglichkeit
+
+### Investitionsperspektive:
+Bei professioneller Ausbildung und positiver Entwicklung ist eine Wertsteigerung auf 35.000 – 45.000 € binnen 2-3 Jahren realistisch möglich.
+
+---
+
+## Zukunftspotenzial
+
+### Kurz- bis mittelfristig (1-2 Jahre):
+- Erfolgreicher Abschluss der Grundausbildung
+- Erste Turnierstarts in Reitpferdeprüfungen
+- **Erwarteter Wertzuwachs:** 15-25%
+
+### Langfristig (3-5 Jahre):
+- Etablierung im Springsport bis Klasse L/M
+- Mögliche internationale Perspektiven bei entsprechender Förderung
+- **Erwarteter Wertzuwachs:** 50-80%
+
+### Risikobewertung:
+- **Gering:** Aufgrund excellenter Grundvoraussetzungen
+- **Hauptrisiken:** Verletzungen, Entwicklungsstagnation
+- **Risikomitigation:** Professionelle Ausbildung und Betreuung
+
+---
+
+## Fazit
+
+Diese DSP-Stute repräsentiert eine hervorragende Investitionsmöglichkeit im Nachwuchspferdebereich. Die Kombination aus erstklassiger Abstammung, ausgezeichnetem Exterieur und vielversprechender Grundausbildung rechtfertigt die angesetzte Preisklasse vollständig.
+
+**Empfehlung:** Bei einem Angebotspreis unter 24.000 € handelt es sich um eine sehr attraktive Investition mit ausgezeichneten Entwicklungsaussichten.
+
+**Wichtiger Hinweis:** Diese Bewertung basiert auf den verfügbaren Informationen und aktuellen Marktbedingungen. Für eine finale Kaufentscheidung wird eine persönliche Besichtigung und tierärztliche Untersuchung empfohlen.
 
 _Ergebnis erstellt von PferdeWert AI – keine rechtsverbindliche Bewertung._`;
 

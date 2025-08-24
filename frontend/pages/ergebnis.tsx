@@ -107,7 +107,7 @@ export default function Ergebnis() {
                 // If processing=true, the evaluation is still being created -> continue retrying
                 if (errorData.processing) {
                   log("[ERGEBNIS] Bewertung wird noch erstellt, weiter versuchen...");
-                  // Fall through to continue retrying
+                  // Continue to retry logic below
                 } else {
                   // Document truly doesn't exist -> stop immediately
                   error("[ERGEBNIS] Bewertung nicht gefunden - falsche ID oder Dokument existiert nicht");
@@ -115,10 +115,8 @@ export default function Ergebnis() {
                   setLoading(false);
                   return;
                 }
-              }
-              
-              // Only get retry data if not a 404 error
-              if (retryRes.status !== 404) {
+              } else {
+                // Handle successful responses (200, etc.)
                 const retryData = await retryRes.json();
                 log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
                 
