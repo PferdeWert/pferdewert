@@ -35,6 +35,7 @@ export default function Ergebnis() {
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
+  const [minLoadingTime, setMinLoadingTime] = useState(true);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -47,6 +48,11 @@ export default function Ergebnis() {
       router.replace("/pferde-preis-berechnen");
       return;
     }
+
+    // Mindest-Ladedauer von 4 Sekunden für bessere UX
+    setTimeout(() => {
+      setMinLoadingTime(false);
+    }, 4000);
 
     const fetchSession = async () => {
       try {
@@ -81,22 +87,42 @@ export default function Ergebnis() {
             setText(resultData.bewertung);
           } else {
             let tries = 0;
-            intervalRef.current = setInterval(async () => {
+            const checkBewertung = async () => {
               tries++;
               log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId}`);
-              const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-              const retryData = await retryRes.json();
-
-              if (retryData.bewertung) {
-                clearInterval(intervalRef.current!);
-                setText(retryData.bewertung);
+              
+              try {
+                const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+                
+                if (retryRes.status === 429) {
+                  log("[ERGEBNIS] Rate-Limit erreicht, warte länger...");
+                  // Exponential backoff bei Rate-Limiting
+                  const delay = Math.min(30000, 10000 * Math.pow(2, tries - 1));
+                  setTimeout(checkBewertung, delay);
+                  return;
+                }
+                
+                const retryData = await retryRes.json();
+                if (retryData.bewertung) {
+                  setText(retryData.bewertung);
+                  return;
+                }
+              } catch (err) {
+                error("[ERGEBNIS] Fehler beim Abrufen der Bewertung:", err);
               }
 
-              if (tries >= 10) {
-                clearInterval(intervalRef.current!);
-                warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
+              if (tries >= 8) {
+                warn("[ERGEBNIS] Bewertung auch nach 8 Versuchen nicht verfügbar.");
+                setErrorLoading("Die Bewertung wird noch erstellt. Bitte aktualisiere die Seite in wenigen Minuten.");
+                return;
               }
-            }, 5000);
+              
+              // Exponential backoff: 15s, 20s, 25s, 30s...
+              const delay = 15000 + (tries * 5000);
+              setTimeout(checkBewertung, delay);
+            };
+            
+            checkBewertung();
           }
         } else {
           warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
@@ -113,13 +139,14 @@ export default function Ergebnis() {
     fetchSession();
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      const interval = intervalRef.current;
+      if (interval) {
+        clearInterval(interval);
       }
     };
   }, [router]);
 
-  if (loading) return <StripeLoadingScreen />;
+  if (loading || minLoadingTime) return <StripeLoadingScreen />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 

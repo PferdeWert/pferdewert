@@ -268,8 +268,25 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     if (name === "stockmass") {
       console.log(`[DEBUG] stockmass input - raw value: "${value}", type: ${typeof value}`);
       
-      // Ensure stockmass is stored as clean number string (no locale formatting)
-      const cleanValue = value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+      // FIXED: Proper number parsing that handles decimal formatting
+      let cleanValue = value.trim();
+      
+      // Handle German decimal format (170,0 -> 170) and English (170.0 -> 170)
+      if (cleanValue.includes(',') || cleanValue.includes('.')) {
+        // Parse as float first to handle decimals correctly
+        const parsedFloat = parseFloat(cleanValue.replace(',', '.'));
+        if (!isNaN(parsedFloat)) {
+          // Convert back to integer string (stockmass should be whole cm)
+          cleanValue = Math.round(parsedFloat).toString();
+        } else {
+          // Fallback: remove all non-digits if parsing fails
+          cleanValue = value.replace(/[^0-9]/g, '');
+        }
+      } else {
+        // Simple case: remove non-digits
+        cleanValue = value.replace(/[^0-9]/g, '');
+      }
+      
       if (cleanValue !== value) {
         console.log(`[DEBUG] stockmass cleaned from "${value}" to "${cleanValue}"`);
       }
