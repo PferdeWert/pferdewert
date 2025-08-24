@@ -49,10 +49,10 @@ export default function Ergebnis() {
       return;
     }
 
-    // Mindest-Ladedauer von 4 Sekunden für bessere UX
+    // Mindest-Ladedauer von 6 Sekunden für bessere UX
     setTimeout(() => {
       setMinLoadingTime(false);
-    }, 4000);
+    }, 6000);
 
     const fetchSession = async () => {
       try {
@@ -102,20 +102,32 @@ export default function Ergebnis() {
               }
               
               if (retryRes.status === 404) {
-                error("[ERGEBNIS] Bewertung nicht gefunden - möglicherweise falsche ID");
-                setErrorLoading("Die Bewertung konnte nicht gefunden werden. Bitte kontaktiere uns unter info@pferdewert.de");
-                setLoading(false);
-                return;
+                const errorData = await retryRes.json();
+                
+                // If processing=true, the evaluation is still being created -> continue retrying
+                if (errorData.processing) {
+                  log("[ERGEBNIS] Bewertung wird noch erstellt, weiter versuchen...");
+                  // Fall through to continue retrying
+                } else {
+                  // Document truly doesn't exist -> stop immediately
+                  error("[ERGEBNIS] Bewertung nicht gefunden - falsche ID oder Dokument existiert nicht");
+                  setErrorLoading("Die Bewertung konnte nicht gefunden werden. Bitte kontaktiere uns unter info@pferdewert.de");
+                  setLoading(false);
+                  return;
+                }
               }
               
-              const retryData = await retryRes.json();
-              log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
-              
-              if (retryData.bewertung && retryData.bewertung.trim()) {
-                info("[ERGEBNIS] ✅ Bewertung erfolgreich geladen");
-                setText(retryData.bewertung);
-                setLoading(false);
-                return;
+              // Only get retry data if not a 404 error
+              if (retryRes.status !== 404) {
+                const retryData = await retryRes.json();
+                log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
+                
+                if (retryData.bewertung && retryData.bewertung.trim()) {
+                  info("[ERGEBNIS] ✅ Bewertung erfolgreich geladen");
+                  setText(retryData.bewertung);
+                  setLoading(false);
+                  return;
+                }
               }
             } catch (err) {
               error("[ERGEBNIS] Netzwerk-/API-Fehler beim Abrufen der Bewertung:", err);
