@@ -18,12 +18,13 @@ interface HorseData {
   abstammung: string;
   stockmass: number;
   ausbildung: string;
+  haupteignung: string; // NEW: Required field for backend
   aku?: string;
   erfolge?: string;
   farbe?: string;
   zuechter?: string;
   standort?: string;
-  verwendungszweck?: string;
+  verwendungszweck?: string; // Legacy field kept for backward compatibility
 }
 
 interface BackendResponse {
@@ -145,6 +146,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung,
         stockmass,
         ausbildung,
+        haupteignung, // NEW: Required field for backend
         aku,
         erfolge,
         farbe,
@@ -162,12 +164,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung: String(abstammung || ''),
         stockmass: convertStockmassToNumber(stockmass),
         ausbildung: String(ausbildung || ''),
+        haupteignung: String(haupteignung || verwendungszweck || 'Freizeitreiten'), // NEW: With fallback to legacy field
         aku: aku ? String(aku) : undefined,
         erfolge: erfolge ? String(erfolge) : undefined,
         farbe: farbe ? String(farbe) : undefined,
         zuechter: zuechter ? String(zuechter) : undefined,
         standort: standort ? String(standort) : undefined,
-        verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined,
+        verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined, // Keep for backward compatibility
       };
 
       info('[WEBHOOK] Data prepared for backend API');
