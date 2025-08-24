@@ -23,7 +23,8 @@ CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 # Model Settings
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-20250514")
+CLAUDE_SONNET_MODEL = "claude-sonnet-4-20250514"
+CLAUDE_OPUS_MODEL = "claude-opus-4-1-20250805"
 # Force Claude usage for testing in staging
 USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"  # Default to true for testing
 
@@ -206,7 +207,7 @@ def ai_valuation(d: BewertungRequest) -> str:
         try:
             logging.info("Prompt wird an Claude gesendet...")
             response = claude_client.messages.create(
-                model=CLAUDE_MODEL,
+                model=CLAUDE_SONNET_MODEL,
                 max_tokens=3000,
                 temperature=0.0,  # Für maximale Konsistenz
                 system=CLAUDE_SYSTEM_PROMPT,
@@ -294,26 +295,10 @@ def bewertung(req: BewertungRequest):
 
 @app.post("/api/debug-comparison")
 def debug_comparison(req: BewertungRequest):
-    """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
+    """Debug-Endpoint: Vergleich GPT-4o vs Claude Sonnet 4 vs Claude Opus 4.1"""
     logging.info(f"Debug Comparison Request: {req.dict()}")
     
     results = {}
-    
-    # Test simple prompt first if GPT-5
-    if MODEL_ID.startswith("gpt-5"):
-        logging.info("Testing GPT-5 with simple prompt first...")
-        try:
-            simple_response = openai_client.chat.completions.create(
-                model=MODEL_ID,
-                messages=[{"role": "user", "content": "Hello, please respond with exactly: TEST SUCCESSFUL"}],
-                max_completion_tokens=2000,
-            )
-            simple_content = simple_response.choices[0].message.content if simple_response.choices else None
-            logging.info(f"GPT-5 Simple test result: '{simple_content}'")
-            results["gpt5_simple_test"] = simple_content or "No response"
-        except Exception as e:
-            logging.error(f"GPT-5 Simple test failed: {e}")
-            results["gpt5_simple_test"] = f"Error: {str(e)}"
     
     user_prompt = (
         f"Rasse: {req.rasse}\n"
@@ -331,24 +316,14 @@ def debug_comparison(req: BewertungRequest):
     )
 
     # GPT-4o Test
-    try:
-        logging.info("Testing GPT-4o...")
-        gpt_messages = [
-            {"role": "system", "content": GPT_SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt}
-        ]
-        # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
-        if MODEL_ID.startswith("gpt-5"):
-            token_count = tokens_in(gpt_messages)
-            max_completion = min(2000, CTX_MAX - token_count)  # Increased from MAX_COMPLETION (800) to 2000
-            logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, old_limit={MAX_COMPLETION}")
+    if openai_client:
+        try:
+            logging.info("Testing GPT-4o...")
+            gpt_messages = [
+                {"role": "system", "content": GPT_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ]
             
-            gpt_response = openai_client.chat.completions.create(
-                model=MODEL_ID,
-                messages=gpt_messages,
-                max_completion_tokens=max_completion,
-            )
-        else:
             gpt_response = openai_client.chat.completions.create(
                 model=MODEL_ID,
                 messages=gpt_messages,
@@ -357,34 +332,71 @@ def debug_comparison(req: BewertungRequest):
                 seed=12345,
                 max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
             )
-        
-        # Debug logging for GPT-5 response
-        logging.info(f"GPT Response received, has {len(gpt_response.choices)} choices")
-        if gpt_response.choices and len(gpt_response.choices) > 0:
-            content = gpt_response.choices[0].message.content
-            logging.info(f"Message content type: {type(content)}")
-            logging.info(f"Message content length: {len(content) if content else 'None'}")
-            logging.info(f"Message content: '{content}'")
-            results["gpt"] = content.strip() if content else "GPT-5 returned None content"
-        else:
-            logging.info("No choices in GPT response")
-            results["gpt"] = "GPT-5 returned no choices"
-        logging.info(f"{MODEL_ID}: Success")
-    except Exception as e:
-        results["gpt"] = f"GPT Error: {str(e)}"
-        logging.error(f"GPT-4o Error: {e}")
+            
+            if gpt_response.choices and len(gpt_response.choices) > 0:
+                content = gpt_response.choices[0].message.content
+                results["gpt4o"] = content.strip() if content else "GPT-4o returned None content"
+                logging.info("GPT-4o: Success")
+            else:
+                results["gpt4o"] = "GPT-4o returned no choices"
+        except Exception as e:
+            results["gpt4o"] = f"GPT-4o Error: {str(e)}"
+            logging.error(f"GPT-4o Error: {e}")
+    else:
+        results["gpt4o"] = "GPT-4o: No client available"
 
-    # Claude Test - DISABLED as requested
-    results["claude"] = "Claude testing disabled - not needed currently"
-    logging.info("Claude: Disabled by request")
+    # Claude Sonnet 4 Test
+    if claude_client:
+        try:
+            logging.info("Testing Claude Sonnet 4...")
+            sonnet_response = claude_client.messages.create(
+                model=CLAUDE_SONNET_MODEL,
+                max_tokens=3000,
+                temperature=0.0,
+                system=CLAUDE_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_prompt}]
+            )
+            
+            if sonnet_response.content and sonnet_response.content[0].text:
+                results["claude_sonnet"] = sonnet_response.content[0].text.strip()
+                logging.info("Claude Sonnet 4: Success")
+            else:
+                results["claude_sonnet"] = "Claude Sonnet response had no readable text"
+        except Exception as e:
+            results["claude_sonnet"] = f"Claude Sonnet Error: {e}"
+            logging.error(f"Claude Sonnet Error: {e}")
+    else:
+        results["claude_sonnet"] = "Claude Sonnet: No client available"
 
+    # Claude Opus 4.1 Test
+    if claude_client:
+        try:
+            logging.info("Testing Claude Opus 4.1...")
+            opus_response = claude_client.messages.create(
+                model=CLAUDE_OPUS_MODEL,
+                max_tokens=3000,
+                temperature=0.0,
+                system=CLAUDE_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_prompt}]
+            )
+            
+            if opus_response.content and opus_response.content[0].text:
+                results["claude_opus"] = opus_response.content[0].text.strip()
+                logging.info("Claude Opus 4.1: Success")
+            else:
+                results["claude_opus"] = "Claude Opus response had no readable text"
+        except Exception as e:
+            results["claude_opus"] = f"Claude Opus Error: {e}"
+            logging.error(f"Claude Opus Error: {e}")
+    else:
+        results["claude_opus"] = "Claude Opus: No client available"
 
     # Vergleichsinfo hinzufügen
     results["info"] = {
-        "timestamp": "2025-07-29",
+        "timestamp": "2025-08-24",
         "gpt_model": MODEL_ID,
-        "claude_model": CLAUDE_MODEL,
-        "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
+        "claude_sonnet_model": CLAUDE_SONNET_MODEL,
+        "claude_opus_model": CLAUDE_OPUS_MODEL,
         "test_data": req.dict(),
     }
 
