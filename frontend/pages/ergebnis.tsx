@@ -103,14 +103,15 @@ export default function Ergebnis() {
               
               if (retryRes.status === 404) {
                 const errorData = await retryRes.json();
+                log("[ERGEBNIS] 404 Response data:", errorData);
                 
                 // If processing=true, the evaluation is still being created -> continue retrying
                 if (errorData.processing) {
-                  log("[ERGEBNIS] Bewertung wird noch erstellt, weiter versuchen...");
+                  log("[ERGEBNIS] ✅ Bewertung wird noch erstellt, weiter versuchen... (processing=true)");
                   // Continue to retry logic below - don't return here
                 } else {
                   // Document truly doesn't exist -> stop immediately
-                  error("[ERGEBNIS] Bewertung nicht gefunden - falsche ID oder Dokument existiert nicht");
+                  error("[ERGEBNIS] ❌ Bewertung nicht gefunden - falsche ID oder Dokument existiert nicht");
                   setErrorLoading("Die Bewertung konnte nicht gefunden werden. Bitte kontaktiere uns unter info@pferdewert.de");
                   setLoading(false);
                   return;
@@ -151,7 +152,7 @@ export default function Ergebnis() {
               delay = 60000; // Remaining tries: 60s
             }
             
-            log(`[ERGEBNIS] Warte ${delay}ms bis zum nächsten Versuch...`);
+            log(`[ERGEBNIS] 🔄 Plane nächsten Versuch ${tries + 1}/${maxTries} in ${delay}ms...`);
             setTimeout(checkBewertung, delay);
           };
           
