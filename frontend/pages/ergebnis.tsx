@@ -83,35 +83,49 @@ export default function Ergebnis() {
           info(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
           
           let tries = 0;
-          const maxTries = 12; // Reduced from 20 for faster UX
+          const maxTries = 15; // Increased for longer AI processing times (up to 3+ minutes)
           let consecutiveErrors = 0; // Track consecutive failures for circuit breaker
           
           const getOptimalDelay = (tries: number, consecutiveErrors: number): number => {
-            // Critical first 20 seconds - aggressive attempts for better UX
-            if (tries <= 3) return tries * 1000;        // 1s, 2s, 3s
-            if (tries <= 6) return 3000;                // 3s each (total: ~18s)
+            // OPTIMIZED: Align with actual backend processing times (60-180s typical)
+            // First 60 seconds: Conservative polling to avoid rate limits
+            if (tries <= 2) return 10000;               // 10s, 20s (avoid early 404 spam)
+            if (tries <= 4) return 15000;               // 35s, 50s (backend likely processing)
+            if (tries <= 6) return 20000;               // 70s, 90s (peak processing window)
             
-            // After 20s - more conservative backoff
-            const baseDelay = consecutiveErrors > 0 ? 8000 : 5000;
-            return Math.min(30000, baseDelay * Math.pow(1.4, tries - 6));
+            // After 90s: More frequent checks for completion
+            if (tries <= 8) return 15000;               // 105s, 120s
+            if (tries <= 10) return 10000;              // 130s, 140s
+            
+            // Final attempts: Exponential backoff for errors
+            const baseDelay = consecutiveErrors > 0 ? 25000 : 20000;
+            return Math.min(60000, baseDelay * Math.pow(1.3, tries - 10));
           };
 
+          const startTime = Date.now(); // Track total processing time
+          
           const checkBewertung = async () => {
             tries++;
-            log(`[ERGEBNIS] Versuch ${tries}/${maxTries} für Bewertung ID: ${bewertungId}`);
+            const elapsedTime = Math.round((Date.now() - startTime) / 1000);
+            log(`[ERGEBNIS] Versuch ${tries}/${maxTries} für Bewertung ID: ${bewertungId} (${elapsedTime}s elapsed)`);
             
             try {
               const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
               log(`[ERGEBNIS] API Response Status: ${retryRes.status}`);
               
               if (retryRes.status === 429) {
-                // Smart 429 handling with server hint respect
+                // Enhanced 429 handling - respect server rate limits more aggressively
                 const retryAfter = retryRes.headers.get('Retry-After');
-                const delay = retryAfter ? 
-                  Math.max(1000, parseInt(retryAfter) * 1000) : 
-                  Math.min(10000, 2000 + (tries * 1000));
+                const baseDelay = retryAfter ? 
+                  Math.max(5000, parseInt(retryAfter) * 1000) :  // Minimum 5s even with server hint
+                  Math.max(15000, 5000 + (tries * 2000));       // Escalating delay 15s, 17s, 19s...
                 
-                log(`[ERGEBNIS] Rate limit - waiting ${delay}ms (Retry-After: ${retryAfter})`);
+                // Add jitter to prevent thundering herd
+                const jitter = Math.random() * 2000; // 0-2s random
+                const delay = Math.min(45000, baseDelay + jitter); // Cap at 45s
+                
+                warn(`[ERGEBNIS] Rate limited - backing off ${delay}ms (Retry-After: ${retryAfter})`);
+                consecutiveErrors++; // Count 429s as errors for circuit breaker
                 setTimeout(checkBewertung, delay);
                 return;
               }
@@ -134,7 +148,8 @@ export default function Ergebnis() {
                 log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
                 
                 if (retryData.bewertung && retryData.bewertung.trim()) {
-                  info("[ERGEBNIS] ✅ Bewertung erfolgreich geladen");
+                  const totalTime = Math.round((Date.now() - startTime) / 1000);
+                  info(`[ERGEBNIS] ✅ Bewertung erfolgreich geladen nach ${totalTime}s (${tries} Versuche)`);
                   setText(retryData.bewertung);
                   setLoading(false);
                   return;
