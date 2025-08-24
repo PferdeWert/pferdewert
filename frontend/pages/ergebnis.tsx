@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import BewertungLayout from "@/components/BewertungLayout";
 import dynamic from "next/dynamic";
-import { log, warn, error } from "@/lib/log";
+import { log, warn, error, info } from "@/lib/log";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
