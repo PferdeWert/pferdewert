@@ -43,6 +43,43 @@ export default function Ergebnis() {
     if (!router.isReady) return;
 
     const session_id = router.query.session_id;
+    const bewertung_id = router.query.id;
+    
+    // Direct ObjectId access (for customer support)
+    if (bewertung_id && typeof bewertung_id === "string") {
+      log("[ERGEBNIS] Direct ObjectId access for ID:", bewertung_id);
+      
+      // Skip payment check and minimum loading time for direct access
+      setPaid(true);
+      setMinLoadingTime(false);
+      
+      const loadDirectBewertung = async () => {
+        try {
+          const res = await fetch(`/api/bewertung?id=${bewertung_id}`);
+          const data = await res.json();
+          
+          if (data.bewertung && data.bewertung.trim()) {
+            setText(data.bewertung);
+            setLoading(false);
+          } else if (data.processing) {
+            setErrorLoading("Die Bewertung wird noch erstellt. Bitte versuche es in wenigen Minuten erneut.");
+            setLoading(false);
+          } else {
+            setErrorLoading("Bewertung nicht gefunden oder noch nicht fertig.");
+            setLoading(false);
+          }
+        } catch (err) {
+          error("[ERGEBNIS] Error loading direct bewertung:", err);
+          setErrorLoading("Fehler beim Laden der Bewertung.");
+          setLoading(false);
+        }
+      };
+      
+      loadDirectBewertung();
+      return;
+    }
+    
+    // Original Stripe session flow
     if (!session_id || typeof session_id !== "string") {
       router.replace("/pferde-preis-berechnen");
       return;
@@ -174,7 +211,7 @@ export default function Ergebnis() {
             if (tries >= maxTries) {
               warn(`[ERGEBNIS] Bewertung nach ${maxTries} Versuchen nicht verfügbar.`);
               setErrorLoading(
-                "Die Claude AI-Bewertung dauert bis zu 3 Minuten. Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in 2-3 Minuten."
+                "Die PferdeWert-KI dauert bis zu 3 Minuten. Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in 2-3 Minuten."
               );
               setLoading(false);
               return;
@@ -247,7 +284,7 @@ export default function Ergebnis() {
       ) : (
         <div className="p-10 text-center">
           <p className="text-gray-600 text-lg mb-4">
-            Die Zahlung hat funktioniert. Deine Claude AI-Bewertung wird gerade erstellt…
+            Die Zahlung hat funktioniert. Deine PferdeWert-KI wird gerade erstellt…
           </p>
           <p className="text-blue-600 text-base font-medium mb-2">
             ⏱️ Dauert bis zu 3 Minuten
