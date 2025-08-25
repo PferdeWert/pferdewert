@@ -34,7 +34,7 @@ export default function Ergebnis() {
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
-  const [minLoadingTime, setMinLoadingTime] = useState(true);
+  const [minLoadingTime, setMinLoadingTime] = useState(false); // Start with false, set to true only for Stripe flow
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -45,13 +45,13 @@ export default function Ergebnis() {
     const session_id = router.query.session_id;
     const bewertung_id = router.query.id;
     
-    // Direct ObjectId access (for customer support)
+    // Direct ObjectId access (for customer support and email links)
     if (bewertung_id && typeof bewertung_id === "string") {
       log("[ERGEBNIS] Direct ObjectId access for ID:", bewertung_id);
       
       // Skip payment check and minimum loading time for direct access
       setPaid(true);
-      setMinLoadingTime(false);
+      // minLoadingTime already false, no need to set
       
       const loadDirectBewertung = async () => {
         try {
@@ -122,6 +122,8 @@ export default function Ergebnis() {
       return;
     }
 
+    // Set minimum loading time only for Stripe flow
+    setMinLoadingTime(true);
     // Mindest-Ladedauer von 6 Sekunden für bessere UX
     setTimeout(() => {
       setMinLoadingTime(false);
