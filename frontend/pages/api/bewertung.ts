@@ -144,7 +144,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!result) {
-      console.warn("[BEWERTUNG] ❌ Document not found for ID:", sanitizedId);
+      console.warn("[BEWERTUNG] ❌ Document not found for ID:", idString);
       return res.status(404).json({ error: "Bewertung nicht gefunden" });
     }
 
@@ -162,7 +162,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const response = { bewertung: result.bewertung };
     
     // Cache successful result
-    setCachedBewertung(sanitizedId, response);
+    setCachedBewertung(idString, response);
     
     res.status(200).json(response);
   } catch (err) {
