@@ -366,13 +366,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <h2>Hallo!</h2>
               <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
                   <br> 
-              <p><strong><a href="https://pferdewert.de/ergebnis?id=${doc._id}" 
+              <p><strong><a href="https://www.pferdewert.de/ergebnis?id=${doc._id}" 
                  style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
                  🐴 Zur Bewertung & PDF-Download
               </a></strong></p>
                   <br>
               <p><small>Falls der Button nicht funktioniert:<br>
-              https://pferdewert.de/ergebnis?id=${doc._id}</small></p>
+              https://www.pferdewert.de/ergebnis?id=${doc._id}</small></p>
               
               <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
             `

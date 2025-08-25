@@ -55,22 +55,59 @@ export default function Ergebnis() {
       
       const loadDirectBewertung = async () => {
         try {
+          log("[ERGEBNIS] Fetching direct bewertung from API...");
           const res = await fetch(`/api/bewertung?id=${bewertung_id}`);
+          
+          log("[ERGEBNIS] API Response status:", res.status);
+          
+          if (res.status === 429) {
+            const retryAfter = res.headers.get('Retry-After');
+            const retrySeconds = retryAfter ? parseInt(retryAfter) : 30;
+            warn(`[ERGEBNIS] 429 Rate limit hit for direct access - retrying in ${retrySeconds}s`);
+            
+            // For direct access, try again automatically after rate limit expires
+            setTimeout(() => {
+              info("[ERGEBNIS] Retrying after rate limit cooldown...");
+              loadDirectBewertung();
+            }, (retrySeconds + 1) * 1000);
+            return;
+          }
+          
+          if (!res.ok) {
+            warn("[ERGEBNIS] Non-200 response:", res.status);
+            if (res.status === 404) {
+              setErrorLoading("Diese Bewertung wurde nicht gefunden. Bitte überprüfe den Link oder kontaktiere uns unter info@pferdewert.de");
+            } else if (res.status >= 500) {
+              setErrorLoading("Server-Fehler beim Laden der Bewertung. Bitte versuche es in wenigen Minuten erneut oder kontaktiere uns.");
+            } else {
+              setErrorLoading(`Fehler beim Laden der Bewertung (${res.status}). Bitte kontaktiere uns unter info@pferdewert.de`);
+            }
+            setLoading(false);
+            return;
+          }
+          
           const data = await res.json();
+          log("[ERGEBNIS] API Response data:", { 
+            hasBewertung: !!data.bewertung,
+            processing: data.processing,
+            error: data.error
+          });
           
           if (data.bewertung && data.bewertung.trim()) {
+            info("[ERGEBNIS] ✅ Direct bewertung loaded successfully");
             setText(data.bewertung);
             setLoading(false);
           } else if (data.processing) {
-            setErrorLoading("Die Bewertung wird noch erstellt. Bitte versuche es in wenigen Minuten erneut.");
+            setErrorLoading("Die Bewertung wird noch erstellt. Bitte versuche es in wenigen Minuten erneut oder aktualisiere diese Seite.");
             setLoading(false);
           } else {
-            setErrorLoading("Bewertung nicht gefunden oder noch nicht fertig.");
+            warn("[ERGEBNIS] Bewertung data incomplete:", data);
+            setErrorLoading("Die Bewertung ist noch nicht verfügbar. Bitte versuche es später erneut oder kontaktiere uns unter info@pferdewert.de");
             setLoading(false);
           }
         } catch (err) {
           error("[ERGEBNIS] Error loading direct bewertung:", err);
-          setErrorLoading("Fehler beim Laden der Bewertung.");
+          setErrorLoading("Netzwerk-Fehler beim Laden der Bewertung. Bitte überprüfe deine Internetverbindung oder versuche es später erneut.");
           setLoading(false);
         }
       };
@@ -124,19 +161,21 @@ export default function Ergebnis() {
           let consecutiveErrors = 0; // Track consecutive failures for circuit breaker
           
           const getOptimalDelay = (tries: number, consecutiveErrors: number): number => {
-            // OPTIMIZED: Align with actual backend processing times (60-180s typical)
-            // First 60 seconds: Conservative polling to avoid rate limits
-            if (tries <= 2) return 10000;               // 10s, 20s (avoid early 404 spam)
-            if (tries <= 4) return 15000;               // 35s, 50s (backend likely processing)
-            if (tries <= 6) return 20000;               // 70s, 90s (peak processing window)
+            // OPTIMIZED for 60 req/min rate limit (1s minimum between requests)
+            // With 15 max tries over ~3 minutes, we can be more responsive
             
-            // After 90s: More frequent checks for completion
-            if (tries <= 8) return 15000;               // 105s, 120s
-            if (tries <= 10) return 10000;              // 130s, 140s
+            // First minute: Start quickly, then slow down for backend processing
+            if (tries <= 2) return 10000;               // 10s, 20s (quick initial checks)
+            if (tries <= 4) return 12000;               // 32s, 44s (backend processing time)
+            if (tries <= 6) return 8000;                // 52s, 60s (faster response for quick evaluations)
             
-            // Final attempts: Exponential backoff for errors
-            const baseDelay = consecutiveErrors > 0 ? 25000 : 20000;
-            return Math.min(60000, baseDelay * Math.pow(1.3, tries - 10));
+            // Second minute: Balanced frequency within rate limits
+            if (tries <= 8) return 7000;                // 67s, 74s (8-9s intervals)
+            if (tries <= 10) return 6000;               // 80s, 86s (increase frequency)
+            
+            // Final attempts: Respect rate limits with exponential backoff for errors
+            const baseDelay = consecutiveErrors > 0 ? 12000 : 6000;
+            return Math.min(25000, baseDelay * Math.pow(1.2, tries - 10));
           };
 
           const startTime = Date.now(); // Track total processing time

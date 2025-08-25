@@ -107,7 +107,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
       <View style={styles.header} fixed>
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
-        src={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png` : '/logo.png'}
+        src="/logo.png"
         style={styles.logo}
         />
         <Text style={styles.title}>PferdeWert-Analyse</Text>

@@ -10,8 +10,104 @@ const querySchema = z.object({
   }),
 });
 
+// Simple rate limiting - max 30 requests per minute per IP
+const rateLimiter = new Map<string, { count: number; resetTime: number }>();
+
+// In-memory cache for frequently accessed bewertungen (5 minute TTL)
+interface BewertungResponse {
+  bewertung: string;
+}
+
+const bewertungCache = new Map<string, { data: BewertungResponse; expiry: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+function getCachedBewertung(id: string): BewertungResponse | null {
+  const cached = bewertungCache.get(id);
+  if (cached && Date.now() < cached.expiry) {
+    console.log(`[BEWERTUNG] ✅ Cache hit for ID: ${id}`);
+    return cached.data;
+  }
+  
+  if (cached) {
+    bewertungCache.delete(id); // Remove expired entry
+  }
+  return null;
+}
+
+function setCachedBewertung(id: string, data: BewertungResponse): void {
+  bewertungCache.set(id, {
+    data,
+    expiry: Date.now() + CACHE_TTL
+  });
+  
+  // Cleanup old entries (simple LRU simulation)
+  if (bewertungCache.size > 100) {
+    const oldestKey = bewertungCache.keys().next().value;
+    if (oldestKey) {
+      bewertungCache.delete(oldestKey);
+    }
+  }
+}
+
+function checkRateLimit(ip: string, isDirect: boolean = false): { allowed: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const windowMs = 60000; // 1 minute
+  
+  // Different limits for direct access (email links) vs API polling
+  // AI processing can take 1-3 minutes, need enough requests for polling
+  const maxRequests = isDirect ? 100 : 60; // 60/min for polling during AI processing
+  
+  const clientData = rateLimiter.get(ip);
+  
+  if (!clientData || now > clientData.resetTime) {
+    rateLimiter.set(ip, { count: 1, resetTime: now + windowMs });
+    return { allowed: true };
+  }
+  
+  if (clientData.count >= maxRequests) {
+    const retryAfter = Math.ceil((clientData.resetTime - now) / 1000);
+    return { allowed: false, retryAfter };
+  }
+  
+  clientData.count++;
+  return { allowed: true };
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log("[BEWERTUNG] Request received for ID:", req.query.id);
+  const clientIP = req.headers['x-forwarded-for'] as string || 
+                   req.headers['x-real-ip'] as string || 
+                   req.socket?.remoteAddress || 'unknown';
+  
+  // Detect if this is a direct access (from email link) vs API polling
+  // Direct access typically comes from referer with email domain or no referer
+  const referer = req.headers.referer || req.headers.referrer;
+  const userAgent = req.headers['user-agent'] || '';
+  
+  // Consider it direct access if:
+  // 1. No referer (direct email link click)
+  // 2. Referer is not from our domain (external email client)
+  // 3. User agent suggests email client or mobile app
+  const isDirect = !referer || 
+                   !referer.includes('pferdewert.de') || 
+                   userAgent.includes('Mail') || 
+                   userAgent.includes('Outlook');
+  
+  const rateLimitCheck = checkRateLimit(clientIP, isDirect);
+  if (!rateLimitCheck.allowed) {
+    console.warn(`[BEWERTUNG] Rate limit exceeded for IP: ${clientIP} (direct: ${isDirect})`);
+    res.setHeader('Retry-After', rateLimitCheck.retryAfter!);
+    return res.status(429).json({ 
+      error: "Too many requests", 
+      retryAfter: rateLimitCheck.retryAfter 
+    });
+  }
+  
+  console.log("[BEWERTUNG] Request received for ID:", req.query.id, {
+    clientIP,
+    isDirect,
+    referer,
+    userAgent: userAgent.substring(0, 100) // First 100 chars to avoid log overflow
+  });
   
   const parse = querySchema.safeParse(req.query);
   if (!parse.success) {
@@ -29,6 +125,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
+    // Check cache first
+    const cachedResult = getCachedBewertung(sanitizedId);
+    if (cachedResult) {
+      return res.status(200).json(cachedResult);
+    }
+    
     console.log("[BEWERTUNG] Searching MongoDB for ID:", sanitizedId);
     const collection = await getCollection("bewertungen");
     const result = await collection.findOne({ _id: new ObjectId(sanitizedId) });
@@ -57,7 +159,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     console.log("[BEWERTUNG] ✅ Successfully returning bewertung");
-    res.status(200).json({ bewertung: result.bewertung });
+    const response = { bewertung: result.bewertung };
+    
+    // Cache successful result
+    setCachedBewertung(sanitizedId, response);
+    
+    res.status(200).json(response);
   } catch (err) {
     console.error("[BEWERTUNG] ❌ Fehler beim Laden der Bewertung:", err);
     res.status(500).json({ error: "Fehler beim Laden der Bewertung" });
