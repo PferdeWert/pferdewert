@@ -216,6 +216,17 @@ export default function Ergebnis() {
               setLoading(false);
               return;
             }
+
+            // CRITICAL: Add timeout fallback to prevent infinite loading
+            const elapsedMinutes = Math.round((Date.now() - startTime) / 60000);
+            if (elapsedMinutes >= 5) { // 5 minutes absolute timeout
+              warn(`[ERGEBNIS] Absolute timeout reached after ${elapsedMinutes} minutes`);
+              setErrorLoading(
+                "Die Bewertung dauert länger als erwartet. Bitte aktualisiere die Seite in wenigen Minuten oder kontaktiere uns unter info@pferdewert.de"
+              );
+              setLoading(false);
+              return;
+            }
             
             // Optimized delay schedule for better UX
             const delay = getOptimalDelay(tries, consecutiveErrors);
@@ -287,10 +298,10 @@ export default function Ergebnis() {
             Die Zahlung hat funktioniert. Deine PferdeWert-KI wird gerade erstellt…
           </p>
           <p className="text-blue-600 text-base font-medium mb-2">
-            ⏱️ Dauert bis zu 3 Minuten
+            ⏱️ Dauert 1-3 Minuten
           </p>
           <p className="text-gray-500 text-sm">
-            Du erhältst eine E-Mail, sobald die Bewertung fertig ist.
+            Du erhältst das Ergebnis zusätzlich per E-Mail.
           </p>
         </div>
       )}

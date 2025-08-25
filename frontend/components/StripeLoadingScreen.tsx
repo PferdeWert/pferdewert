@@ -9,7 +9,7 @@ interface StripeLoadingScreenProps {
 export default function StripeLoadingScreen({
   loadingText = "Ihre Pferdebewertung wird erstellt",
   successMessage = "Zahlung erfolgreich!",
-  estimatedTime = "Geschätzte Wartezeit: wenige Sekunden",
+  estimatedTime = "Dauert 1-3 Minuten",
 }: StripeLoadingScreenProps) {
   return (
     <main
@@ -43,8 +43,9 @@ export default function StripeLoadingScreen({
         <h2 className="text-xl md:text-2xl font-serif font-semibold text-brand">
           {loadingText}
         </h2>
-        <div className="text-base text-brand/70">
-          {estimatedTime}
+        <div className="text-base text-brand/70 space-y-2">
+          <div>{estimatedTime}</div>
+          <div className="text-sm">Du erhältst das Ergebnis zusätzlich per E-Mail.</div>
         </div>
       </div>
     </main>
