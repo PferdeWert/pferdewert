@@ -122,18 +122,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: "Invalid ID format" });
   }
 
-  const sanitizedId = id.toString();
+  const idString = id.toString();
 
   try {
     // Check cache first
-    const cachedResult = getCachedBewertung(sanitizedId);
+    const cachedResult = getCachedBewertung(idString);
     if (cachedResult) {
       return res.status(200).json(cachedResult);
     }
     
-    console.log("[BEWERTUNG] Searching MongoDB for ID:", sanitizedId);
+    console.log("[BEWERTUNG] Searching MongoDB for ID:", idString);
     const collection = await getCollection("bewertungen");
-    const result = await collection.findOne({ _id: new ObjectId(sanitizedId) });
+    const result = await collection.findOne({ _id: new ObjectId(idString) });
 
     console.log("[BEWERTUNG] MongoDB result:", {
       found: !!result,
