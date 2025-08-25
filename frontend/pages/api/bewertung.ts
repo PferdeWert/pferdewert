@@ -10,7 +10,7 @@ const querySchema = z.object({
   }),
 });
 
-// Simple rate limiting - max 30 requests per minute per IP
+// Simplified rate limiting - more permissive for loading issues
 const rateLimiter = new Map<string, { count: number; resetTime: number }>();
 
 // In-memory cache for frequently accessed bewertungen (5 minute TTL)
@@ -53,9 +53,8 @@ function checkRateLimit(ip: string, isDirect: boolean = false): { allowed: boole
   const now = Date.now();
   const windowMs = 60000; // 1 minute
   
-  // Different limits for direct access (email links) vs API polling
-  // AI processing can take 1-3 minutes, need enough requests for polling
-  const maxRequests = isDirect ? 100 : 60; // 60/min for polling during AI processing
+  // MUCH more permissive limits to avoid blocking legitimate requests
+  const maxRequests = isDirect ? 200 : 120; // Doubled limits
   
   const clientData = rateLimiter.get(ip);
   
@@ -117,12 +116,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { id } = parse.data;
 
-  // Zusätzliche Sanitization für MongoDB Security
-  const sanitizedId = id.toString().replace(/[^a-fA-F0-9]/g, ''); // Nur hex chars
-  if (sanitizedId.length !== 24) {
-    console.warn("[BEWERTUNG] ❌ Invalid ID format:", sanitizedId);
+  // Simplified ID validation - let MongoDB validate the ObjectId
+  if (!ObjectId.isValid(id)) {
+    console.warn("[BEWERTUNG] ❌ Invalid ObjectId format:", id);
     return res.status(400).json({ error: "Invalid ID format" });
   }
+
+  const sanitizedId = id.toString();
 
   try {
     // Check cache first
