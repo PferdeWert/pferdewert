@@ -293,21 +293,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           const formularFelderHtml = `
             <h3>📋 Eingabedaten des Kunden:</h3>
             
-            <p><strong>Rasse (Pflicht):</strong> ${rasse || 'nicht angegeben'}</p>
-            <p><strong>Alter (Pflicht):</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
-            <p><strong>Geschlecht (Pflicht):</strong> ${geschlecht || 'nicht angegeben'}</p>
-            <p><strong>Stockmaß (Pflicht):</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
-            <p><strong>Abstammung (Pflicht):</strong> ${abstammung || 'nicht angegeben'}</p>
-            <p><strong>Ausbildungsstand (Pflicht):</strong> ${ausbildung || 'nicht angegeben'}</p>
+            <h4>Pflichtfelder:</h4>
+            <p><strong>Rasse:</strong> ${rasse || 'nicht angegeben'}</p>
+            <p><strong>Alter:</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
+            <p><strong>Geschlecht:</strong> ${geschlecht || 'nicht angegeben'}</p>
+            <p><strong>Stockmaß:</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
+            <p><strong>Abstammung:</strong> ${abstammung || 'nicht angegeben'}</p>
+            <p><strong>Ausbildungsstand:</strong> ${ausbildung || 'nicht angegeben'}</p>
+            <p><strong>Haupteignung:</strong> ${haupteignung || 'nicht angegeben'}</p>
             
             <hr style="margin: 20px 0; border: 1px solid #eee;">
             
-            <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
-            <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
-            <p><strong>Farbe (Optional):</strong> ${farbe || 'nicht angegeben'}</p>
-            <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
-            <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
-            <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
+            <h4>Optionale Felder:</h4>
+            <p><strong>Gesundheitsstatus/AKU:</strong> ${aku || 'nicht angegeben'}</p>
+            <p><strong>Erfolge:</strong> ${erfolge || 'nicht angegeben'}</p>
+            <p><strong>Farbe:</strong> ${farbe || 'nicht angegeben'}</p>
+            <p><strong>Standort:</strong> ${standort || 'nicht angegeben'}</p>
+            <p><strong>Züchter:</strong> ${zuechter || 'nicht angegeben'}</p>
+            <p><strong>Charakter:</strong> ${charakter || 'nicht angegeben'}</p>
+            <p><strong>Besonderheiten:</strong> ${besonderheiten || 'nicht angegeben'}</p>
             
             <hr style="margin: 20px 0; border: 1px solid #eee;">
             
