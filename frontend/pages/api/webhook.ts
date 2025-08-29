@@ -138,6 +138,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).end();
       }
 
+      // IDEMPOTENCY CHECK: Prevent duplicate processing of completed evaluations
+      if (doc.status === "fertig") {
+        info('[WEBHOOK] Evaluation already processed for session:', sessionId);
+        info('[WEBHOOK] Document status is already "fertig", skipping duplicate processing');
+        return res.status(200).json({ 
+          success: true, 
+          message: "Evaluation already completed",
+          documentId: doc._id.toString()
+        });
+      }
+
       info('[WEBHOOK] MongoDB document found');
       info('[WEBHOOK] Document ID:', doc._id.toString());
 
