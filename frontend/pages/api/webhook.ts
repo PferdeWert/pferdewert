@@ -21,8 +21,6 @@ interface HorseData {
   haupteignung: string; // NEW: Required field for backend
   aku?: string;
   erfolge?: string;
-  farbe?: string;
-  zuechter?: string;
   standort?: string;
   charakter?: string; // NEW: Optional character description
   besonderheiten?: string; // NEW: Optional special features
@@ -163,11 +161,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         haupteignung, // NEW: Required field for backend
         aku,
         erfolge,
-        farbe,
-        zuechter,
         standort,
         charakter, // NEW: Character description
         besonderheiten, // NEW: Special features
+        // Legacy fields for backward compatibility
         verwendungszweck,
         attribution_source,
       } = doc;
@@ -183,8 +180,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         haupteignung: String(haupteignung || verwendungszweck || 'Freizeitreiten'), // NEW: With fallback to legacy field
         aku: aku ? String(aku) : undefined,
         erfolge: erfolge ? String(erfolge) : undefined,
-        farbe: farbe ? String(farbe) : undefined,
-        zuechter: zuechter ? String(zuechter) : undefined,
         standort: standort ? String(standort) : undefined,
         charakter: charakter ? String(charakter) : undefined, // NEW: Character description
         besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // NEW: Special features
@@ -304,25 +299,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           const formularFelderHtml = `
             <h3>📋 Eingabedaten des Kunden:</h3>
             
-            <h4>Pflichtfelder:</h4>
+            <h4 style="color: #dc2626; margin: 15px 0 10px 0;">🔴 Pflichtfelder:</h4>
             <p><strong>Rasse:</strong> ${rasse || 'nicht angegeben'}</p>
             <p><strong>Alter:</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
             <p><strong>Geschlecht:</strong> ${geschlecht || 'nicht angegeben'}</p>
             <p><strong>Stockmaß:</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
-            <p><strong>Abstammung:</strong> ${abstammung || 'nicht angegeben'}</p>
+            <p><strong>Haupteignung/Disziplin:</strong> ${haupteignung || verwendungszweck || 'nicht angegeben'}</p>
             <p><strong>Ausbildungsstand:</strong> ${ausbildung || 'nicht angegeben'}</p>
-            <p><strong>Haupteignung:</strong> ${haupteignung || 'nicht angegeben'}</p>
             
-            <hr style="margin: 20px 0; border: 1px solid #eee;">
-            
-            <h4>Optionale Felder:</h4>
-            <p><strong>Gesundheitsstatus/AKU:</strong> ${aku || 'nicht angegeben'}</p>
-            <p><strong>Erfolge:</strong> ${erfolge || 'nicht angegeben'}</p>
-            <p><strong>Farbe:</strong> ${farbe || 'nicht angegeben'}</p>
-            <p><strong>Standort:</strong> ${standort || 'nicht angegeben'}</p>
-            <p><strong>Züchter:</strong> ${zuechter || 'nicht angegeben'}</p>
-            <p><strong>Charakter:</strong> ${charakter || 'nicht angegeben'}</p>
+            <h4 style="color: #2563eb; margin: 15px 0 10px 0;">🔵 Optionale Felder:</h4>
+            <p><strong>Turniererfahrung/Erfolge:</strong> ${erfolge || 'nicht angegeben'}</p>
+            <p><strong>Abstammung:</strong> ${abstammung || 'nicht angegeben'}</p>
+            <p><strong>Charakter & Rittigkeit:</strong> ${charakter || 'nicht angegeben'}</p>
+            <p><strong>Gesundheit/AKU:</strong> ${aku || 'nicht angegeben'}</p>
             <p><strong>Besonderheiten:</strong> ${besonderheiten || 'nicht angegeben'}</p>
+            <p><strong>Standort (PLZ):</strong> ${standort || 'nicht angegeben'}</p>
             
             <hr style="margin: 20px 0; border: 1px solid #eee;">
             
