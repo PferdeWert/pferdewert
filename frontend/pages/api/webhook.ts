@@ -3,6 +3,7 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
+import { Collection, Document } from 'mongodb';
 import { Resend } from 'resend';
 import { info, error, warn } from "@/lib/log";
 
@@ -40,6 +41,142 @@ const resend = process.env.RESEND_API_KEY
   : null;
 
 const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com';
+
+// Helper function to send missing emails during retry
+async function sendMissingEmails(
+  collection: Collection, 
+  doc: Document, 
+  session: Stripe.Checkout.Session,
+  adminEmailSent: boolean,
+  customerEmailSent: boolean
+) {
+  const recipientEmails = (process.env.RESEND_TO_EMAIL ?? "")
+    .split(",")
+    .map(email => email.trim())
+    .filter(email => !!email);
+
+  const emailStatusUpdates: Record<string, boolean | Date> = {};
+  
+  // Send admin email if not sent
+  if (!adminEmailSent && recipientEmails.length > 0 && resend) {
+    try {
+      const amount = session.amount_total
+        ? `${(session.amount_total / 100).toFixed(2)} €`
+        : "unbekannt";
+
+      // Extract data for email display
+      const { 
+        rasse, alter, geschlecht, abstammung, stockmass, ausbildung, 
+        haupteignung, aku, erfolge, standort, charakter, besonderheiten, 
+        verwendungszweck, attribution_source, bewertung 
+      } = doc;
+
+      const formularFelderHtml = `
+        <h3>📋 Eingabedaten des Kunden:</h3>
+        
+        <h4 style="color: #dc2626; margin: 15px 0 10px 0;">🔴 Pflichtfelder:</h4>
+        <p><strong>Rasse:</strong> ${rasse || 'nicht angegeben'}</p>
+        <p><strong>Alter:</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
+        <p><strong>Geschlecht:</strong> ${geschlecht || 'nicht angegeben'}</p>
+        <p><strong>Stockmaß:</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
+        <p><strong>Haupteignung/Disziplin:</strong> ${haupteignung || verwendungszweck || 'nicht angegeben'}</p>
+        <p><strong>Ausbildungsstand:</strong> ${ausbildung || 'nicht angegeben'}</p>
+        
+        <h4 style="color: #2563eb; margin: 15px 0 10px 0;">🔵 Optionale Felder:</h4>
+        <p><strong>Turniererfahrung/Erfolge:</strong> ${erfolge || 'nicht angegeben'}</p>
+        <p><strong>Abstammung:</strong> ${abstammung || 'nicht angegeben'}</p>
+        <p><strong>Charakter & Rittigkeit:</strong> ${charakter || 'nicht angegeben'}</p>
+        <p><strong>Gesundheit/AKU:</strong> ${aku || 'nicht angegeben'}</p>
+        <p><strong>Besonderheiten:</strong> ${besonderheiten || 'nicht angegeben'}</p>
+        <p><strong>Standort (PLZ):</strong> ${standort || 'nicht angegeben'}</p>
+        
+        <hr style="margin: 20px 0; border: 1px solid #eee;">
+        
+        <p><strong>Marketing-Quelle:</strong> ${attribution_source || 'nicht angegeben'}</p>
+      `;
+
+      await resend.emails.send({
+        from: "PferdeWert <kauf@pferdewert.de>",
+        to: recipientEmails,
+        subject: `💰 Neuer Kauf auf PferdeWert.de (Retry)`,
+        html: `
+          <h2>🐴 Neue Zahlung bei PferdeWert.de!</h2>
+          
+          <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+            <h3>💳 Zahlungsdetails:</h3>
+            <p><strong>Session ID:</strong> ${session.id}</p>
+            <p><strong>Betrag:</strong> ${amount}</p>
+            <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
+          </div>
+          
+          <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
+            ${formularFelderHtml}
+          </div>
+          
+          <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+            <h3>🤖 KI-Bewertung:</h3>
+            <div style="white-space: pre-wrap; font-family: monospace; background: white; padding: 10px; border-radius: 4px;">
+              ${bewertung || 'Bewertung nicht verfügbar'}
+            </div>
+          </div>
+          
+          <hr style="margin: 30px 0;">
+          <p style="color: #666; font-size: 12px;">
+            Diese E-Mail wurde automatisch von PferdeWert.de generiert (Retry-Versuch).
+          </p>
+        `,
+      });
+      
+      emailStatusUpdates['emailStatus.adminEmailSent'] = true;
+      emailStatusUpdates['emailStatus.adminEmailSentAt'] = new Date();
+      info('[WEBHOOK] Admin retry email sent successfully');
+    } catch (err) {
+      error('[WEBHOOK] Admin retry email failed:', err instanceof Error ? err.message : String(err));
+      throw err; // Re-throw to trigger retry logic
+    }
+  }
+
+  // Send customer email if not sent
+  if (!customerEmailSent && session.customer_details?.email && resend) {
+    try {
+      await resend.emails.send({
+        from: "PferdeWert <info@pferdewert.de>",
+        to: session.customer_details.email,
+        subject: "🐴 Deine Pferdebewertung ist fertig!",
+        html: `
+          <h2>Hallo!</h2>
+          <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
+              <br> 
+          <p><strong><a href="https://www.pferdewert.de/ergebnis?id=${doc._id}" 
+             style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
+             🐴 Zur Bewertung & PDF-Download
+          </a></strong></p>
+              <br>
+          <p><small>Falls der Button nicht funktioniert:<br>
+          https://www.pferdewert.de/ergebnis?id=${doc._id}</small></p>
+          
+          <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
+        `
+      });
+      
+      emailStatusUpdates['emailStatus.customerEmailSent'] = true;
+      emailStatusUpdates['emailStatus.customerEmailSentAt'] = new Date();
+      info('[WEBHOOK] Customer retry email sent successfully');
+    } catch (err) {
+      error('[WEBHOOK] Customer retry email failed:', err instanceof Error ? err.message : String(err));
+      throw err; // Re-throw to trigger retry logic
+    }
+  }
+
+  // Update email status in database if any emails were sent
+  if (Object.keys(emailStatusUpdates).length > 0) {
+    await collection.updateOne(
+      { _id: doc._id },
+      { $set: emailStatusUpdates }
+    );
+    info('[WEBHOOK] Email status updated in database');
+  }
+}
 
 // Utility function to safely convert stockmass with proper validation
 const convertStockmassToNumber = (stockmass: unknown): number => {
@@ -136,14 +273,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).end();
       }
 
-      // IDEMPOTENCY CHECK: Prevent duplicate processing of completed evaluations
+      // ENHANCED IDEMPOTENCY CHECK: Handle both processing and email completion
       if (doc.status === "fertig") {
         info('[WEBHOOK] Evaluation already processed for session:', sessionId);
-        info('[WEBHOOK] Document status is already "fertig", skipping duplicate processing');
+        
+        // Check if emails were successfully sent
+        const emailStatus = doc.emailStatus || {};
+        const adminEmailSent = emailStatus.adminEmailSent || false;
+        const customerEmailSent = emailStatus.customerEmailSent || false;
+        
+        info('[WEBHOOK] Email status check:', { adminEmailSent, customerEmailSent });
+        
+        // If evaluation is complete but emails failed, retry email sending only
+        if (!adminEmailSent || !customerEmailSent) {
+          info('[WEBHOOK] Evaluation complete but emails missing - sending emails only');
+          
+          try {
+            await sendMissingEmails(collection, doc, session, adminEmailSent, customerEmailSent);
+            info('[WEBHOOK] Missing emails sent successfully on retry');
+          } catch (emailErr) {
+            error('[WEBHOOK] Failed to send missing emails on retry:', emailErr instanceof Error ? emailErr.message : String(emailErr));
+          }
+        }
+        
         return res.status(200).json({ 
           success: true, 
           message: "Evaluation already completed",
-          documentId: doc._id.toString()
+          documentId: doc._id.toString(),
+          emailStatus: { adminEmailSent, customerEmailSent }
         });
       }
 
@@ -273,6 +430,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         acknowledged: updateResult.acknowledged,
         modifiedCount: updateResult.modifiedCount 
       });
+      
+      // Initialize email status tracking
+      const emailStatusUpdates: Record<string, boolean | Date> = {};
+
       // Email notification section
       info('[WEBHOOK] Starting email notification process');
       
@@ -353,6 +514,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             `,
           });
 
+          emailStatusUpdates['emailStatus.adminEmailSent'] = true;
+          emailStatusUpdates['emailStatus.adminEmailSentAt'] = new Date();
           info('[WEBHOOK] Admin notification email sent successfully');
         }
       } catch (err) {
@@ -383,6 +546,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
             `
           });
+          emailStatusUpdates['emailStatus.customerEmailSent'] = true;
+          emailStatusUpdates['emailStatus.customerEmailSentAt'] = new Date();
           info('[WEBHOOK] Customer email sent successfully');
         } catch (err) {
           error('[WEBHOOK] Error sending customer email:', err instanceof Error ? err.message : String(err));
@@ -393,6 +558,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
         if (!resend) {
           warn('[WEBHOOK] Resend not available for customer email');
+        }
+      }
+
+      // Update email status in database
+      if (Object.keys(emailStatusUpdates).length > 0) {
+        try {
+          emailStatusUpdates['emailStatus.lastEmailAttempt'] = new Date();
+          await collection.updateOne(
+            { _id: doc._id },
+            { $set: emailStatusUpdates }
+          );
+          info('[WEBHOOK] Email status updated in database', emailStatusUpdates);
+        } catch (err) {
+          error('[WEBHOOK] Error updating email status:', err instanceof Error ? err.message : String(err));
         }
       }
 
