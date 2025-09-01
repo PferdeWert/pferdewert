@@ -3,7 +3,6 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
-import { Collection, Document } from 'mongodb';
 import { Resend } from 'resend';
 import { info, error, warn } from "@/lib/log";
 

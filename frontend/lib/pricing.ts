@@ -141,14 +141,119 @@ export const validatePricing = (): boolean => {
   return true;
 };
 
+// ===== 3-TIER PRICING SYSTEM =====
+
+export type PricingTier = 'basic' | 'standard' | 'premium';
+
+export interface TierConfig {
+  id: PricingTier;
+  displayName: string;
+  price: number;
+  originalPrice?: number;
+  description: string;
+  features: string[];
+  highlights: string[];
+  badge?: string;
+  ctaText: string;
+  stripeId: string;
+  popular?: boolean;
+  deliveryTime: string;
+  reportPages: string;
+}
+
+export const PRICING_TIERS: Record<PricingTier, TierConfig> = {
+  basic: {
+    id: 'basic',
+    displayName: 'PferdeWert Express',
+    price: 14.90,
+    description: 'Schnelle Marktpreis-Schätzung',
+    features: [
+      'Sofortiges Ergebnis',
+      'Nur die Preisspanne, kein Analysebericht',
+    ],
+    highlights: [
+      'Preisspanne in unter 1 Minute',
+    ],
+    ctaText: 'Express-Bewertung starten',
+    stripeId: 'price_basic',
+    deliveryTime: '< 1 Minute',
+    reportPages: '1 Seite',
+  },
+  
+  standard: {
+    id: 'standard',
+    displayName: 'PferdeWert Professional',
+    price: 24.90,
+    originalPrice: 39.90,
+    description: 'Detaillierte Pferdebewertung mit ausführlicher Analyse',
+    features: [
+      'Detaillierte Pferdebewertung',
+      'Ausführlicher PDF-Report',
+      'Verkaufsempfehlungen',
+      'Abstammungsanalyse'
+    ],
+    highlights: [
+      'Ausführlicher Bericht über dein Pferd'
+    ],
+    badge: 'Beliebteste Wahl',
+    ctaText: 'Professional-Analyse starten',
+    stripeId: 'price_standard',
+    popular: true,
+    deliveryTime: '2-3 Minuten',
+    reportPages: '3-5 Seiten',
+  },
+  
+  premium: {
+    id: 'premium',
+    displayName: 'PferdeWert KI-Vision',
+    price: 99.90,
+    description: 'Premium KI-Vision mit Foto-Analyse',
+    features: [
+      'KI-Vision Foto-Analyse',
+      'Detaillierte Exterieur-Bewertung',
+      'Premium PDF-Report',
+    ],
+    highlights: [
+      'Revolutionäre Foto-KI-Technologie',
+    ],
+    ctaText: 'KI-Vision Analyse starten',
+    stripeId: 'price_premium',
+    deliveryTime: '5-10 Minuten',
+    reportPages: '8-12 Seiten',
+  }
+} as const;
+
+export const DEFAULT_TIER: PricingTier = 'standard';
+
+// ===== 3-TIER UTILITY FUNCTIONS =====
+export const getTierConfig = (tier: PricingTier): TierConfig => {
+  return PRICING_TIERS[tier];
+};
+
+export const formatTierPrice = (tier: PricingTier): string => {
+  const config = getTierConfig(tier);
+  return `${config.price.toFixed(2).replace('.', ',')}€`;
+};
+
+export const getTierSavings = (tier: PricingTier): string | null => {
+  const config = getTierConfig(tier);
+  if (!config.originalPrice) return null;
+  const savings = config.originalPrice - config.price;
+  return `${savings.toFixed(2).replace('.', ',')}€`;
+};
+
 // ===== DEVELOPMENT HELPERS =====
 if (process.env.NODE_ENV === 'development') {
   import('@/lib/log').then(({ log }) => {
     log('💰 PferdeWert Pricing Config loaded:', {
-      current: PRICING_FORMATTED.current,
-      decoy: PRICING_FORMATTED.decoy,
-      stripeId: STRIPE_CONFIG.priceId,
-      valid: validatePricing()
+      legacy: {
+        current: PRICING_FORMATTED.current,
+        decoy: PRICING_FORMATTED.decoy,
+        stripeId: STRIPE_CONFIG.priceId,
+        valid: validatePricing()
+      },
+      newTiers: Object.keys(PRICING_TIERS),
+      defaultTier: DEFAULT_TIER
     });
   });
 }
