@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isExamplesDropdownOpen, setIsExamplesDropdownOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -42,6 +43,18 @@ export default function Header() {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isMenuOpen])
 
+  // Click outside to close examples dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isExamplesDropdownOpen && !(event.target as Element).closest('.examples-dropdown')) {
+        setIsExamplesDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isExamplesDropdownOpen])
+
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
       <div className="w-full px-4 lg:px-6 h-16 flex items-center justify-between">
@@ -68,12 +81,56 @@ export default function Header() {
           >
             Über PferdeWert
           </Link>
+          
           <Link
-            href="/beispiel-analyse"
-            className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
+            href="/preise"
+            className="text-gray-700 hover:text-brand-brown font-medium transition-colors"
           >
-            Beispiel-Analyse
+            Preise
           </Link>
+          
+          {/* Examples Dropdown */}
+          <div className="relative examples-dropdown">
+            <button
+              onClick={() => setIsExamplesDropdownOpen(!isExamplesDropdownOpen)}
+              className="text-gray-700 hover:text-brand-brown font-medium transition-colors flex items-center space-x-1"
+            >
+              <span>Beispiel-Analysen</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${isExamplesDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {isExamplesDropdownOpen && (
+              <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                <div className="py-2">
+                  <Link
+                    href="/basic-beispiel"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
+                    onClick={() => setIsExamplesDropdownOpen(false)}
+                  >
+                    <div className="font-medium">PferdeWert Basic</div>
+                    <div className="text-xs text-gray-500">Schnelle Preisspanne - 14,90€</div>
+                  </Link>
+                  <Link
+                    href="/pro-beispiel"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
+                    onClick={() => setIsExamplesDropdownOpen(false)}
+                  >
+                    <div className="font-medium">PferdeWert Pro</div>
+                    <div className="text-xs text-gray-500">Detaillierte KI-Analyse - 19,90€</div>
+                  </Link>
+                  <Link
+                    href="/premium-beispiel"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
+                    onClick={() => setIsExamplesDropdownOpen(false)}
+                  >
+                    <div className="font-medium">PferdeWert Premium</div>
+                    <div className="text-xs text-gray-500">KI-Foto-Analyse Exterieur - 39,90€</div>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+          
           <Link
             href="/pferde-preis-berechnen"
             className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
@@ -126,8 +183,44 @@ export default function Header() {
           >
             Über PferdeWert
           </Link>
+          
+          <Link
+            href="/preise"
+            className="block text-gray-700 hover:text-brand-brown font-medium py-3 px-2 transition-colors border-b border-gray-100"
+            onClick={closeMenu}
+          >
+            Preise
+          </Link>
 
-          {/* Mobile Buttons */}
+          {/* Mobile Examples */}
+          <div className="pt-4 border-t border-gray-200">
+            <div className="mb-3">
+              <div className="px-4 py-2 text-sm font-medium text-gray-500">Beispiel-Analysen</div>
+              <Link
+                href="/basic-beispiel"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
+                onClick={closeMenu}
+              >
+                PferdeWert Basic - 14,90€
+              </Link>
+              <Link
+                href="/pro-beispiel"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
+                onClick={closeMenu}
+              >
+                PferdeWert Pro - 19,90€
+              </Link>
+              <Link
+                href="/premium-beispiel"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
+                onClick={closeMenu}
+              >
+                PferdeWert Premium - 39,90€
+              </Link>
+            </div>
+          </div>
+          
+          {/* Mobile CTA Button */}
           <div className="pt-4 space-y-3 border-t border-gray-200">
             <Link
               href="/pferde-preis-berechnen"
@@ -135,13 +228,6 @@ export default function Header() {
               onClick={closeMenu}
             >
               Jetzt bewerten
-            </Link>
-            <Link
-              href="/beispiel-analyse"
-              className="block w-full text-center border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
-              onClick={closeMenu}
-            >
-              Beispiel-Analyse
             </Link>
           </div>
         </nav>

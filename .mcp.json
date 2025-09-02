@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "mcp-server-playwright",
+      "args": [
+        "--headless"
+      ],
+      "env": {}
+    },
+    "firecrawl": {
+      "command": "firecrawl-mcp",
+      "args": [],
+      "env": {
+        "FIRECRAWL_API_KEY": "<PASTE_YOUR_FIRECRAWL_API_KEY>",
+        "FIRECRAWL_BASE_URL": ""
+      }
+    }
+  }
+}
