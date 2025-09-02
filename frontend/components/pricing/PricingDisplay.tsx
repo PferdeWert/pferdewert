@@ -26,8 +26,8 @@ const TIER_CONFIG = {
     displayName: 'PferdeWert Basic',
     description: 'Schnelle Marktpreis-Schätzung',
     features: [
-      'Sofortiges Ergebnis',
-      'Preisspanne inkl. Erläuterung',
+     'KI-Marktwert-Analyse',
+     'inkl. Preisspannen-Erklärung'
     ],
     highlights: [
       'Preisspanne in unter 1 Minute',
@@ -43,7 +43,6 @@ const TIER_CONFIG = {
       'Alles aus Basic, zusätzlich:',
       'Detaillierte Pferdebewertung',
       'Ausführlicher PDF-Report',
-      'Abstammungsanalyse',
     ],
     highlights: [
       'Ausführlicher Bericht über dein Pferd'
@@ -57,9 +56,8 @@ const TIER_CONFIG = {
     description: 'Premium Foto-Analyse mit Exterieur-Bewertung',
     features: [
       'Alles aus Basic und Pro, zusätzlich:',
-      'Upload von 1-3 Fotos',
-      'Detaillierte Exterieur-Bewertung',
-      'Premium PDF-Report',
+      'Bilder-Upload',
+      'Ausführliche Exterieur-Bewertung',
     ],
     highlights: [
       'KI-Modell für Exterieur-Analyse',
@@ -73,16 +71,18 @@ const TIER_CONFIG = {
 // Mobile content reduction: Max 2 features per tier for 50% content density reduction
 const MOBILE_FEATURES = {
   basic: [
-    'Sofortiges Ergebnis',
-    'Unter 1 Minute'
+    'KI-Marktwert-Analyse',
+    'inkl. Preisspannen-Erklärung'
   ],
   pro: [
-    'Detaillierte KI-Analyse', 
-    'PDF-Report download'
+    'Alles aus Basic, zusätzlich:',
+    'Detaillierte Pferdebewertung',
+    'Ausführlicher PDF-Report',
   ],
   premium: [
-    'Foto-Analyse',
-    'Exterieur-Bewertung'
+    'Alles aus Pro, zusätzlich:',
+    'Bilder-Upload',
+    'Ausführliche Exterieur-Bewertung'
   ]
 } as const;
 
