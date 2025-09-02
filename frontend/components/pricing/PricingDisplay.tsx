@@ -268,7 +268,7 @@ export default function PricingDisplay({
           
           {/* Header Section */}
           <div className="text-center mb-4 md:mb-6">
-            <h3 className="text-sm md:text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-2">
               {config.displayName}
             </h3>
             {/* Description hidden on mobile per UX specs */}
@@ -312,7 +312,7 @@ export default function PricingDisplay({
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-700 text-xs leading-tight">
+                  <span className="text-gray-700 text-sm leading-tight">
                     {feature}
                   </span>
                 </li>
@@ -348,12 +348,12 @@ export default function PricingDisplay({
           {config.highlights && config.highlights.length > 0 && (
             <div className="mb-4 md:mb-6">
               <div className="bg-amber-50 border border-amber-200 rounded-lg md:rounded-2xl p-2 md:p-4">
-                <div className="text-amber-700 text-xs md:text-sm font-semibold mb-1 md:mb-2">
+                <div className="text-amber-700 text-sm md:text-sm font-semibold mb-1 md:mb-2">
                   💡 Highlights
                 </div>
                 <ul className="space-y-0.5 md:space-y-1">
                   {config.highlights.map((highlight, index) => (
-                    <li key={index} className="text-amber-700 text-[10px] md:text-sm leading-tight md:leading-normal">
+                    <li key={index} className="text-amber-700 text-xs md:text-sm leading-tight md:leading-normal">
                       • {highlight}
                     </li>
                   ))}
