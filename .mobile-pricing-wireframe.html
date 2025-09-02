@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Pricing UX Wireframe - PferdeWert.de</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom animations and optimizations */
+    .pricing-scroll-container {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .pricing-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .recommended-pulse {
+      animation: gentle-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes gentle-pulse {
+      0%, 100% { transform: scale(1.08); opacity: 1; }
+      50% { transform: scale(1.12); opacity: 0.95; }
+    }
+
+    .peek-animation {
+      animation: peek-hint 4s ease-in-out infinite;
+    }
+
+    @keyframes peek-hint {
+      0%, 90%, 100% { transform: translateX(0); }
+      5%, 15% { transform: translateX(-3px); }
+      10% { transform: translateX(3px); }
+    }
+
+    .tier-card {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tier-card.center {
+      transform: scale(1.08);
+      z-index: 10;
+    }
+
+    .tier-card.side {
+      transform: scale(0.95);
+      opacity: 0.85;
+    }
+
+    .scroll-fade-left {
+      background: linear-gradient(90deg, 
+        rgba(255, 251, 235, 0.95) 0%, 
+        rgba(255, 251, 235, 0.7) 50%,
+        transparent 100%);
+    }
+
+    .scroll-fade-right {
+      background: linear-gradient(270deg, 
+        rgba(255, 251, 235, 0.95) 0%, 
+        rgba(255, 251, 235, 0.7) 50%,
+        transparent 100%);
+    }
+
+    /* Brand colors */
+    .text-brand-brown { color: #8B4513; }
+    .bg-brand-brown { background-color: #8B4513; }
+    .border-brand-brown { border-color: #8B4513; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-amber-50 to-orange-50/20 min-h-screen">
+  
+  <!-- Header -->
+  <div class="text-center py-8 px-4">
+    <h1 class="text-2xl font-bold text-gray-900 mb-2">
+      Mobile Pricing UX Wireframe
+    </h1>
+    <p class="text-sm text-gray-600">
+      Optimierte 240px Karten mit perfekter Teilsichtbarkeit
+    </p>
+  </div>
+
+  <!-- Key Metrics Display -->
+  <div class="bg-white mx-4 mb-6 p-4 rounded-lg shadow-sm text-xs text-gray-600">
+    <div class="grid grid-cols-3 gap-2 text-center">
+      <div>
+        <div class="font-semibold">Kartengröße</div>
+        <div>240px (64%)</div>
+      </div>
+      <div>
+        <div class="font-semibold">Seitliche Partial</div>
+        <div>65px (17%)</div>
+      </div>
+      <div>
+        <div class="font-semibold">Gesamt sichtbar</div>
+        <div>370px/375px</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Pricing Container -->
+  <div class="relative mx-auto" style="max-width: 375px;">
+    
+    <!-- Scroll Container with optimized measurements -->
+    <div 
+      id="pricingScroller"
+      class="pricing-scroll-container overflow-x-auto overflow-y-hidden -mx-4 px-4 py-8 snap-x snap-mandatory peek-animation"
+      style="scroll-padding-left: 65px;"
+    >
+      
+      <!-- Enhanced Fade Overlays -->
+      <div class="absolute left-0 top-0 bottom-0 w-20 scroll-fade-left z-20 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-20 scroll-fade-right z-20 pointer-events-none"></div>
+
+      <!-- Pricing Cards with optimized 240px + 8px spacing -->
+      <div class="flex space-x-2 min-w-max" style="padding-left: 65px; padding-right: 65px;">
+        
+        <!-- Express Tier - Side Card -->
+        <div class="flex-shrink-0 w-60 min-h-[480px] snap-center">
+          <div class="tier-card side bg-white rounded-2xl border-2 border-gray-200 p-6 h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+            <div class="text-center mb-4">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">PferdeWert Express</h3>
+              <p class="text-xs text-gray-600">Schnelle Preisspanne</p>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="text-3xl font-bold text-gray-900">14,90€</div>
+              <div class="text-xs text-gray-500">einmalig</div>
+            </div>
+            
+            <div class="space-y-3 mb-6 flex-grow">
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Marktpreis-Spanne</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Sofortiges Ergebnis</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">1-2 Minuten</span>
+              </div>
+            </div>
+            
+            <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 rounded-xl transition-colors">
+              Jetzt wählen
+            </button>
+          </div>
+        </div>
+
+        <!-- Standard Tier - CENTER STAGE with enhanced positioning -->
+        <div class="flex-shrink-0 w-60 min-h-[500px] snap-center snap-always relative">
+          <!-- Recommended Badge -->
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-30">
+            <div class="bg-brand-brown text-white px-4 py-1 rounded-full text-xs font-bold recommended-pulse">
+              EMPFOHLEN
+            </div>
+          </div>
+          
+          <div class="tier-card center bg-white rounded-2xl border-2 border-brand-brown p-6 h-full flex flex-col shadow-lg hover:shadow-xl transition-shadow">
+            <div class="text-center mb-4">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">PferdeWert Professional</h3>
+              <p class="text-xs text-gray-600">Detaillierte KI-Analyse</p>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="text-3xl font-bold text-brand-brown">24,90€</div>
+              <div class="text-xs text-gray-500">einmalig</div>
+              <div class="text-xs text-green-600 font-medium mt-1">73% wählen diesen</div>
+            </div>
+            
+            <div class="space-y-3 mb-6 flex-grow">
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Alles aus Express +</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Detaillierte KI-Analyse</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">15+ Seiten PDF-Report</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Marktvergleich</span>
+              </div>
+            </div>
+            
+            <button class="w-full bg-brand-brown hover:bg-orange-700 text-white font-semibold py-3 rounded-xl transition-colors">
+              Jetzt wählen
+            </button>
+          </div>
+        </div>
+
+        <!-- Premium Tier - Side Card -->
+        <div class="flex-shrink-0 w-60 min-h-[480px] snap-center">
+          <div class="tier-card side bg-white rounded-2xl border-2 border-gray-200 p-6 h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+            <div class="text-center mb-4">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">PferdeWert KI-Vision</h3>
+              <p class="text-xs text-gray-600">Premium Foto-Analyse</p>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="text-3xl font-bold text-gray-900">99,90€</div>
+              <div class="text-xs text-gray-500">einmalig</div>
+              <div class="text-xs text-orange-600 font-medium mt-1">Limitiertes Angebot</div>
+            </div>
+            
+            <div class="space-y-3 mb-6 flex-grow">
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Alles aus Professional +</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">KI-Foto Analyse</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">25+ Seiten Vollbericht</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Priorität-Support</span>
+              </div>
+            </div>
+            
+            <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 rounded-xl transition-colors">
+              Jetzt wählen
+            </button>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- Enhanced Mobile Navigation Indicators -->
+    <div class="text-center mt-6">
+      <div class="inline-flex items-center justify-center space-x-3 bg-white/90 backdrop-blur rounded-full px-6 py-3 shadow-sm">
+        <div class="flex space-x-2">
+          <div id="dot1" class="w-2.5 h-2.5 bg-gray-400 rounded-full transition-all duration-300"></div>
+          <div id="dot2" class="w-3 h-3 bg-brand-brown rounded-full transition-all duration-300 shadow-md transform scale-110"></div>
+          <div id="dot3" class="w-2.5 h-2.5 bg-gray-400 rounded-full transition-all duration-300"></div>
+        </div>
+        <span class="text-sm text-gray-700 font-medium ml-1">Wische für weitere Optionen</span>
+        <svg class="w-5 h-5 text-gray-600 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="animation: bounce 2s infinite;">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </div>
+      
+      <!-- Enhanced affordance text -->
+      <p class="text-xs text-gray-500 mt-3 px-4">
+        💡 Du siehst Teile der anderen Angebote - wische horizontal für alle Optionen
+      </p>
+    </div>
+  </div>
+
+  <!-- Implementation Notes -->
+  <div class="mt-12 mx-4 p-6 bg-blue-50 rounded-lg border border-blue-200">
+    <h3 class="text-lg font-bold text-blue-900 mb-3">🔍 UX-Prinzipien in Aktion</h3>
+    <div class="space-y-2 text-sm text-blue-800">
+      <div><strong>Center-Stage Bias:</strong> Standard-Tier ist 8% größer skaliert und visuell hervorgehoben</div>
+      <div><strong>Partielle Sichtbarkeit:</strong> 65px (17%) der Seitenkarten sind sichtbar für Entdeckungseffekt</div>  
+      <div><strong>Social Proof:</strong> "73% wählen diesen" verstärkt die Empfehlung</div>
+      <div><strong>Anker-Effekt:</strong> Premium-Preis (99,90€) macht Standard (24,90€) attraktiver</div>
+      <div><strong>Verknappung:</strong> "Limitiertes Angebot" schafft Dringlichkeit für Premium</div>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced scroll behavior with precise positioning
+    document.addEventListener('DOMContentLoaded', function() {
+      const scroller = document.getElementById('pricingScroller');
+      const dots = [document.getElementById('dot1'), document.getElementById('dot2'), document.getElementById('dot3')];
+      
+      // Optimized scroll positioning (matches concept calculations)
+      const cardWidth = 240;
+      const cardSpacing = 8;
+      const containerPadding = 65;
+      const viewportWidth = 375;
+      
+      // Perfect center position for Standard tier
+      const standardTierStart = containerPadding + cardWidth + cardSpacing;
+      const perfectCenter = standardTierStart + (cardWidth / 2) - (viewportWidth / 2);
+      
+      // Auto-scroll to Standard tier on load
+      setTimeout(() => {
+        scroller.scrollTo({
+          left: perfectCenter,
+          behavior: 'smooth'
+        });
+      }, 500);
+      
+      // Enhanced scroll position tracking
+      scroller.addEventListener('scroll', function() {
+        const scrollLeft = scroller.scrollLeft;
+        
+        // Update dot indicators based on scroll position
+        dots.forEach(dot => {
+          dot.className = 'w-2.5 h-2.5 bg-gray-400 rounded-full transition-all duration-300';
+        });
+        
+        if (scrollLeft < perfectCenter - 50) {
+          dots[0].className = 'w-3 h-3 bg-brand-brown rounded-full transition-all duration-300 shadow-md transform scale-110';
+        } else if (scrollLeft > perfectCenter + 50) {
+          dots[2].className = 'w-3 h-3 bg-brand-brown rounded-full transition-all duration-300 shadow-md transform scale-110';
+        } else {
+          dots[1].className = 'w-3 h-3 bg-brand-brown rounded-full transition-all duration-300 shadow-md transform scale-110';
+        }
+      });
+      
+      // Add touch feedback
+      const tierCards = document.querySelectorAll('.tier-card');
+      tierCards.forEach(card => {
+        card.addEventListener('touchstart', function() {
+          this.style.transform += ' scale(0.98)';
+        });
+        
+        card.addEventListener('touchend', function() {
+          this.style.transform = this.style.transform.replace(' scale(0.98)', '');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

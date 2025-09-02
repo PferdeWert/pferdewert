@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  google-analytics-mcp:
+    build: .
+    container_name: google-analytics-mcp
+    environment:
+      - GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID}
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - GOOGLE_ANALYTICS_PROPERTY_ID=494501563
+# volumes:
+      # - ../../claude-mcp-469908-f82c5b1c0d11.json:/app/credentials.json:ro
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

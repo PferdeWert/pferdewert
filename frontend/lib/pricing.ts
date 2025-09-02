@@ -20,15 +20,7 @@ export const PRICING = {
    * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
    * Soll deutlich höher sein als current price
    */
-  decoy: 29.00,
-  
-  /** 
-   * Historische Preise (für Vergleiche und "war früher X€" Texte)
-   */
-  historical: {
-    launch: 4.90,   // Startpreis 
-    previous: 9.90   // Vorheriger Preis
-  }
+  decoy: 29.00
 } as const;
 
 // ===== FORMATIERTE PREISE =====
@@ -37,22 +29,16 @@ export const PRICING_FORMATTED = {
   current: `${PRICING.current.toFixed(2).replace('.', ',')}€`,
   
   /** Decoy-Preis formatiert */
-  decoy: `${PRICING.decoy.toFixed(0)}€`,
-  
-  /** Historische Preise formatiert */
-  historical: {
-    launch: `${PRICING.historical.launch.toFixed(2).replace('.', ',')}€`,
-    previous: `${PRICING.historical.previous.toFixed(2).replace('.', ',')}€`
-  }
+  decoy: `${PRICING.decoy.toFixed(0)}€`
 } as const;
 
 // ===== STRIPE KONFIGURATION =====
 export const STRIPE_CONFIG = {
   /** 
    * Stripe Price-ID für aktuellen Preis
-   * Automatisch aus Environment-Variable geladen 
+   * MUSS als Environment-Variable STRIPE_PRICE_ID in Vercel gesetzt werden
    */
-  priceId: process.env.STRIPE_PRICE_ID || 'price_1RuFlMKoHsLHy9OTPv9tRBa0',
+  priceId: process.env.STRIPE_PRICE_ID,
   
   /** 
    * Preis in Stripe-Format (Cent-Betrag)
@@ -78,8 +64,6 @@ export const PRICING_TEXTS = {
   /** Sparpotenzial Text */
   savings: `Nur ${PRICING_FORMATTED.current} können dir tausende Euro sparen.`,
   
-  /** Preisvergleich mit Historie */
-  priceComparison: `Früher ${PRICING_FORMATTED.historical.previous}, jetzt ${PRICING_FORMATTED.current}`,
   
   /** Verkaufen-Seite CTA */
   sellCta: `Jetzt Verkaufspreis ermitteln → ${PRICING_FORMATTED.current}`,
@@ -137,123 +121,37 @@ export const toCents = (price: number): number => {
 export const validatePricing = (): boolean => {
   if (PRICING.current <= 0) throw new Error('Current price must be positive');
   if (PRICING.decoy <= PRICING.current) throw new Error('Decoy price must be higher than current price');
-  if (!STRIPE_CONFIG.priceId) throw new Error('Stripe Price ID missing');
+  if (!STRIPE_CONFIG.priceId && process.env.NODE_ENV === 'production') {
+    throw new Error('Stripe Price ID missing');
+  }
   return true;
 };
 
-// ===== 3-TIER PRICING SYSTEM =====
-
-export type PricingTier = 'basic' | 'standard' | 'premium';
-
-export interface TierConfig {
-  id: PricingTier;
-  displayName: string;
-  price: number;
-  originalPrice?: number;
-  description: string;
-  features: string[];
-  highlights: string[];
-  badge?: string;
-  ctaText: string;
-  stripeId: string;
-  popular?: boolean;
-  deliveryTime: string;
-  reportPages: string;
-}
-
-export const PRICING_TIERS: Record<PricingTier, TierConfig> = {
-  basic: {
-    id: 'basic',
-    displayName: 'PferdeWert Express',
-    price: 14.90,
-    description: 'Schnelle Marktpreis-Schätzung',
-    features: [
-      'Sofortiges Ergebnis',
-      'Nur die Preisspanne, kein Analysebericht',
-    ],
-    highlights: [
-      'Preisspanne in unter 1 Minute',
-    ],
-    ctaText: 'Express-Bewertung starten',
-    stripeId: 'price_basic',
-    deliveryTime: '< 1 Minute',
-    reportPages: '1 Seite',
-  },
-  
-  standard: {
-    id: 'standard',
-    displayName: 'PferdeWert Professional',
-    price: 24.90,
-    originalPrice: 39.90,
-    description: 'Detaillierte Pferdebewertung mit ausführlicher Analyse',
-    features: [
-      'Detaillierte Pferdebewertung',
-      'Ausführlicher PDF-Report',
-      'Verkaufsempfehlungen',
-      'Abstammungsanalyse'
-    ],
-    highlights: [
-      'Ausführlicher Bericht über dein Pferd'
-    ],
-    badge: 'Beliebteste Wahl',
-    ctaText: 'Professional-Analyse starten',
-    stripeId: 'price_standard',
-    popular: true,
-    deliveryTime: '2-3 Minuten',
-    reportPages: '3-5 Seiten',
-  },
-  
-  premium: {
-    id: 'premium',
-    displayName: 'PferdeWert KI-Vision',
-    price: 99.90,
-    description: 'Premium KI-Vision mit Foto-Analyse',
-    features: [
-      'KI-Vision Foto-Analyse',
-      'Detaillierte Exterieur-Bewertung',
-      'Premium PDF-Report',
-    ],
-    highlights: [
-      'Revolutionäre Foto-KI-Technologie',
-    ],
-    ctaText: 'KI-Vision Analyse starten',
-    stripeId: 'price_premium',
-    deliveryTime: '5-10 Minuten',
-    reportPages: '8-12 Seiten',
-  }
+// ===== 3-TIER PRICING VARIABLES =====
+export const TIER_PRICES = {
+  basic: 14.90,
+  pro: 19.90,
+  premium: 39.90,
 } as const;
 
-export const DEFAULT_TIER: PricingTier = 'standard';
 
-// ===== 3-TIER UTILITY FUNCTIONS =====
-export const getTierConfig = (tier: PricingTier): TierConfig => {
-  return PRICING_TIERS[tier];
-};
+export const TIER_STRIPE_IDS = {
+  basic: process.env.STRIPE_PRICE_ID_BASIC || '',
+  pro: process.env.STRIPE_PRICE_ID_PRO || '', 
+  premium: process.env.STRIPE_PRICE_ID_PREMIUM || '',
+} as const;
 
-export const formatTierPrice = (tier: PricingTier): string => {
-  const config = getTierConfig(tier);
-  return `${config.price.toFixed(2).replace('.', ',')}€`;
-};
-
-export const getTierSavings = (tier: PricingTier): string | null => {
-  const config = getTierConfig(tier);
-  if (!config.originalPrice) return null;
-  const savings = config.originalPrice - config.price;
-  return `${savings.toFixed(2).replace('.', ',')}€`;
-};
+export type PricingTier = keyof typeof TIER_PRICES;
 
 // ===== DEVELOPMENT HELPERS =====
 if (process.env.NODE_ENV === 'development') {
   import('@/lib/log').then(({ log }) => {
     log('💰 PferdeWert Pricing Config loaded:', {
-      legacy: {
-        current: PRICING_FORMATTED.current,
-        decoy: PRICING_FORMATTED.decoy,
-        stripeId: STRIPE_CONFIG.priceId,
-        valid: validatePricing()
-      },
-      newTiers: Object.keys(PRICING_TIERS),
-      defaultTier: DEFAULT_TIER
+      current: PRICING_FORMATTED.current,
+      decoy: PRICING_FORMATTED.decoy,
+      stripeId: STRIPE_CONFIG.priceId,
+      valid: validatePricing(),
+      tierPrices: TIER_PRICES
     });
   });
 }
