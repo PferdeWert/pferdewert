@@ -409,7 +409,7 @@ export default function PricingDisplay({
   return (
     <div className={`w-full ${className}`}>
       {/* Header Section */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-16 md:mb-20">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
           Wähle deine <span className="text-brand-brown">PferdeWert</span>-Analyse
         </h2>
