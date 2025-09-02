@@ -11,32 +11,31 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import PricingDisplay from '@/components/pricing/PricingDisplay';
-import { type TierConfig } from '@/lib/pricing';
 import { info } from '@/lib/log';
 
 export default function PreiseNeuPage() {
   const router = useRouter();
 
-  const handleTierSelect = (config: TierConfig) => {
+  const handleTierSelect = (data: { tier: string; price: number; stripeId: string; displayName: string }) => {
     
     info('Preise-Neu: Tier selected', { 
-      tier: config.id, 
-      price: config.price,
-      displayName: config.displayName 
+      tier: data.tier, 
+      price: data.price,
+      displayName: data.displayName 
     });
 
     // Analytics tracking
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'pricing_tier_selected', {
-        tier_name: config.id,
-        tier_price: config.price,
+        tier_name: data.tier,
+        tier_price: data.price,
         currency: 'EUR',
         page_location: '/preise-neu'
       });
     }
 
     // Redirect to evaluation form with selected tier
-    router.push(`/bewertung?tier=${config.id}`);
+    router.push(`/bewertung?tier=${data.tier}`);
   };
 
   return (
@@ -45,7 +44,7 @@ export default function PreiseNeuPage() {
         <title>Pferdebewertung Preise - PferdeWert.de | KI-gestützte Pferdebewertung</title>
         <meta 
           name="description" 
-          content="Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (14,90€), Professional (24,90€) oder Premium (99,90€). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report." 
+          content="Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (14,90€), Professional (19,90€) oder Premium (39,90€). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report." 
         />
         <meta name="keywords" content="Pferdebewertung, Pferd bewerten lassen, Pferdewert ermitteln, AI Pferdebewertung, Pferdemarkt, Preise" />
         <meta property="og:title" content="Pferdebewertung Preise - PferdeWert.de" />
@@ -80,14 +79,14 @@ export default function PreiseNeuPage() {
                 {
                   "@type": "Offer", 
                   "name": "PferdeWert Professional",
-                  "price": "24.90",
+                  "price": "19.90",
                   "priceCurrency": "EUR",
                   "description": "Detaillierte KI-Analyse mit ausführlichem Seiten PDF-Report"
                 },
                 {
                   "@type": "Offer",
                   "name": "PferdeWert KI-Vision",
-                  "price": "99.90", 
+                  "price": "39.90", 
                   "priceCurrency": "EUR",
                   "description": "Premium KI-Vision mit Foto-Analyse"
                 }
@@ -212,8 +211,8 @@ export default function PreiseNeuPage() {
                     Was ist der Unterschied zwischen den Tarifen?
                   </h3>
                   <p className="text-gray-600">
-                    Basic gibt eine schnelle Preisspanne, Standard bietet detaillierte AI-Analyse mit 15+ Seiten PDF, 
-                    Premium enthält zusätzlich Foto-Analyse mit AI-Vision und 25+ Seiten ausführlichen Report.
+                    Basic gibt eine schnelle Preisspanne, Pro bietet detaillierte AI-Analyse mit PDF-Report, 
+                    Premium enthält zusätzlich Foto-Analyse mit AI-Vision und ausführlichen Premium-Report.
                   </p>
                 </div>
 

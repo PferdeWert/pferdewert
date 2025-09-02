@@ -134,16 +134,11 @@ export const TIER_PRICES = {
   premium: 39.90,
 } as const;
 
-export const TIER_ORIGINAL_PRICES = {
-  basic: 29.90,
-  pro: 39.90,
-  premium: 59.90,
-} as const;
 
 export const TIER_STRIPE_IDS = {
-  basic: process.env.STRIPE_PRICE_ID_BASIC,
-  pro: process.env.STRIPE_PRICE_ID_PRO, 
-  premium: process.env.STRIPE_PRICE_ID_PREMIUM,
+  basic: process.env.STRIPE_PRICE_ID_BASIC || '',
+  pro: process.env.STRIPE_PRICE_ID_PRO || '', 
+  premium: process.env.STRIPE_PRICE_ID_PREMIUM || '',
 } as const;
 
 export type PricingTier = keyof typeof TIER_PRICES;
