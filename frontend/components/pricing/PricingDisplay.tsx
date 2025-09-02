@@ -377,23 +377,6 @@ export default function PricingDisplay({
             </button>
           </div>
 
-          {/* Highlights - Compact for mobile, expanded for desktop */}
-          {config.highlights && config.highlights.length > 0 && (
-            <div className="mb-12 md:mb-16">
-              <div className="bg-amber-50 border border-amber-200 rounded-lg md:rounded-2xl p-2 md:p-4">
-                <div className="text-amber-700 text-sm md:text-sm font-semibold mb-1 md:mb-2">
-                  💡 Highlights
-                </div>
-                <ul className="space-y-0.5 md:space-y-1">
-                  {config.highlights.map((highlight, index) => (
-                    <li key={index} className="text-amber-700 text-xs md:text-sm leading-tight md:leading-normal">
-                      • {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
 
           {/* CTA Button - pinned to bottom */}
           <div className="mt-auto">
