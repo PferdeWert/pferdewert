@@ -89,20 +89,26 @@ export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd kaufen Bayern, NRW & bundesweit: Marktwert berechnen | PferdeWert</title>
+        <title>Was ist mein Pferd wert? KI‑Pferdebewertung in 2 Minuten | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 Pferdewert berechnen Bayern & NRW ✓ 40.500+ Pferde-Suchen täglich ✓ KI-Bewertung für ${PRICING_FORMATTED.current} ✓ Pferd kaufen & verkaufen ✓ Jetzt starten!"
+          content="Marktwert deines Pferdes online berechnen – KI‑Ergebnis in 2 Minuten. Professionelle Pferdebewertung für Kauf & Verkauf. Schnell, ohne Abo, mit Geld‑zurück‑Garantie."
         />
-        <meta property="og:title" content="Was ist dein Pferd wert? Marktwert in 2 Minuten per KI-Algorithmus | PferdeWert" />
-        <meta property="og:description" content="Professionelle KI-Bewertung in 2 Min ✓ Marktwert sofort berechnen für Kauf/Verkauf oder aus Neugier ✓ Ohne Anmeldung" />
+        <meta property="og:title" content="Was ist mein Pferd wert? KI‑Pferdebewertung | PferdeWert" />
+        <meta property="og:description" content="Pferdewert online berechnen – schnell, transparent und professionell. KI‑gestützte Bewertung für Kauf oder Verkauf, ohne Anmeldung." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/" />
-        <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/og-home-1200x630.jpg" />
+        <meta property="og:image:secure_url" content="https://pferdewert.de/images/og-home-1200x630.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="PferdeWert" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd verkaufen & kaufen: Marktwert mit KI berechnen" />
-        <meta name="twitter:description" content="Marktwert berechnen ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min KI-Analyse" />
-        <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta name="twitter:title" content="KI‑Pferdebewertung: Was ist dein Pferd wert?" />
+        <meta name="twitter:description" content="Marktwert in 2 Minuten berechnen. Transparent, ohne Abo, mit Geld‑zurück‑Garantie." />
+        <meta name="twitter:image" content="https://pferdewert.de/images/og-home-1200x630.jpg" />
+        <meta name="twitter:image:alt" content="PferdeWert – KI‑Pferdebewertung: Was ist dein Pferd wert?" />
         <link rel="canonical" href="https://pferdewert.de/" />
         
         {/* Critical CSS für above-the-fold Content */}
