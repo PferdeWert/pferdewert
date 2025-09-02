@@ -471,7 +471,10 @@ export default function PricingDisplay({
           space-x-2 
           min-w-max
         `}
-        style={{ paddingLeft: `${MOBILE_LAYOUT.CONTAINER_PADDING}px` }}
+        style={{ 
+          paddingLeft: `${MOBILE_LAYOUT.CONTAINER_PADDING}px`,
+          paddingRight: `${MOBILE_LAYOUT.CONTAINER_PADDING}px`
+        }}
         >
           {/* Basic tier */}
           <div 
