@@ -17,6 +17,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { TIER_PRICES, TIER_STRIPE_IDS, type PricingTier } from '@/lib/pricing';
 import { info } from '@/lib/log';
 
@@ -211,6 +212,11 @@ export default function PricingDisplay({
       pro: 'Pro-Beispiel',
       premium: 'Premium-Beispiel'
     };
+    const exampleLinks: Record<PricingTier, string> = {
+      basic: '/beispiel-basic',
+      pro: '/beispiel-pro',
+      premium: '/beispiel-premium'
+    };
     
     // Pro tier is permanently highlighted
     const isPermanentlyHighlighted = tier === 'pro';
@@ -356,8 +362,8 @@ export default function PricingDisplay({
 
           {/* Secondary CTA (Example) - placed above highlights */}
           <div className="mb-12 md:mb-16">
-            <button
-              type="button"
+                        <Link
+              href={exampleLinks[tier]}
               className="
                 btn-secondary
                 w-full md:w-full
@@ -366,14 +372,12 @@ export default function PricingDisplay({
                 py-3 md:py-4
                 text-xs md:text-lg
                 rounded-xl md:rounded-2xl
+                inline-flex items-center justify-center
               "
               aria-label={`${exampleLabels[tier]} ansehen`}
-              onClick={() => {
-                // Ziel-URL/Action folgt später
-              }}
             >
               {exampleLabels[tier]}
-            </button>
+            </Link>
           </div>
 
 
