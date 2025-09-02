@@ -65,7 +65,7 @@ const TIER_CONFIG = {
     highlights: [
       'KI-Modell für Exterieur-Analyse',
     ],
-    ctaText: 'Premium-Bewertung starten',
+    ctaText: 'Premium-Bewertung',
     deliveryTime: 'Bis zu 24 Stunden',
     badge: undefined,
   }
@@ -207,6 +207,11 @@ export default function PricingDisplay({
   }) => {
     const config = TIER_CONFIG[tier];
     const price = TIER_PRICES[tier];
+    const exampleLabels: Record<PricingTier, string> = {
+      basic: 'Basic-Beispiel',
+      pro: 'Pro-Beispiel',
+      premium: 'Premium-Beispiel'
+    };
     
     // Pro tier is permanently highlighted
     const isPermanentlyHighlighted = tier === 'pro';
@@ -265,6 +270,12 @@ export default function PricingDisplay({
 
         {/* Card Content - Mobile optimized padding */}
         <div className="p-4 md:p-8 flex flex-col h-full">
+          {/* Visual normalizer: adjust top spacer depending on badge presence */}
+          {config.badge ? (
+            <div className="h-8 md:h-10" aria-hidden="true" />
+          ) : (
+            <div className="h-6 md:h-8" aria-hidden="true" />
+          )}
           
           {/* Header Section */}
           <div className="text-center mb-4 md:mb-6">
@@ -344,9 +355,31 @@ export default function PricingDisplay({
             </ul>
           </div>
 
+          {/* Secondary CTA (Example) - placed above highlights */}
+          <div className="mb-12 md:mb-16">
+            <button
+              type="button"
+              className="
+                btn-secondary
+                w-full md:w-auto
+                pointer-events-auto
+                px-4 md:px-6
+                py-3 md:py-4
+                text-xs md:text-lg
+                rounded-xl md:rounded-2xl
+              "
+              aria-label={`${exampleLabels[tier]} ansehen`}
+              onClick={() => {
+                // Ziel-URL/Action folgt später
+              }}
+            >
+              {exampleLabels[tier]}
+            </button>
+          </div>
+
           {/* Highlights - Compact for mobile, expanded for desktop */}
           {config.highlights && config.highlights.length > 0 && (
-            <div className="mb-4 md:mb-6">
+            <div className="mb-12 md:mb-16">
               <div className="bg-amber-50 border border-amber-200 rounded-lg md:rounded-2xl p-2 md:p-4">
                 <div className="text-amber-700 text-sm md:text-sm font-semibold mb-1 md:mb-2">
                   💡 Highlights
@@ -375,7 +408,7 @@ export default function PricingDisplay({
                 px-4 md:px-6
                 rounded-xl md:rounded-2xl
                 font-semibold
-                text-xs md:text-lg
+                text-base
                 transition-all
                 duration-200
                 focus:outline-none
