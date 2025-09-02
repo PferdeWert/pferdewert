@@ -90,12 +90,13 @@ const MOBILE_FEATURES = {
 // ===== LAYOUT CONSTANTS =====
 // Mobile UX Optimized: Larger cards for better focus (280px × 468px cards)
 const MOBILE_LAYOUT = {
-  CARD_WIDTH: 280,      // Increased from 200px to 280px for better focus
-  SPACE_BETWEEN: 16,    // Reduced from 25px to keep cards closer for better visibility
-  CONTAINER_PADDING: 48, // Reduced from 65px to ensure side partials are still visible
-  SCALE_FACTOR: 1.08,   // Pro tier scale enhancement
-  MIN_CARD_HEIGHT: 468, // Increased from 430px to 468px (+38px = 1cm) for more content space
-  PRO_ENHANCED_HEIGHT: 488, // Adjusted proportionally (20px difference maintained)
+  CARD_WIDTH: 280,
+  SPACE_BETWEEN: 16,
+  CONTAINER_PADDING: 48,
+  // Remove scaling to keep all cards the same size on mobile for perfect alignment
+  SCALE_FACTOR: 1.0,
+  MIN_CARD_HEIGHT: 468,
+  PRO_ENHANCED_HEIGHT: 468,
 } as const;
 
 const DESKTOP_LAYOUT = {
@@ -139,20 +140,22 @@ export default function PricingDisplay({
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       
-      // Pro card container is now wider to accommodate the scaled card
+      // Pro card width equals other cards on mobile for consistent centering
       const proCardActualWidth = MOBILE_LAYOUT.CARD_WIDTH * MOBILE_LAYOUT.SCALE_FACTOR;
       
       // Position of Pro tier start (middle card) - accounting for wider Pro container
       const proTierStart = MOBILE_LAYOUT.CONTAINER_PADDING + MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
       
-      // Calculate viewport center position
-      const viewportWidth = window.innerWidth || 375;
+      // Calculate viewport center based on the actual scroll container
+      const viewportWidth = container.clientWidth || window.innerWidth || 375;
       const viewportCenter = viewportWidth / 2;
+      // Account for container's own padding-left (e.g., px-4)
+      const containerPaddingLeft = parseInt(window.getComputedStyle(container).paddingLeft || '0', 10) || 0;
       const proCardCenter = proCardActualWidth / 2;
       
       // PRECISION: Optimal scroll position for perfect Pro tier centering
       // Now the Pro card container matches its visual size
-      const optimalScrollLeft = proTierStart + proCardCenter - viewportCenter;
+      const optimalScrollLeft = proTierStart + proCardCenter - viewportCenter - containerPaddingLeft;
       
       // Smooth scroll with momentum for natural feel - slightly delayed for render completion
       setTimeout(() => {
@@ -165,11 +168,12 @@ export default function PricingDisplay({
       // Add scroll event listener to track active card
       const handleScroll = () => {
         const scrollLeft = container.scrollLeft;
-        const viewportWidth = window.innerWidth || 375;
+        const viewportWidth = container.clientWidth || window.innerWidth || 375;
         const cardWidth = MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
+        const containerPaddingLeft = parseInt(window.getComputedStyle(container).paddingLeft || '0', 10) || 0;
         
         // Calculate which card is most centered
-        const centerPosition = scrollLeft + viewportWidth / 2 - MOBILE_LAYOUT.CONTAINER_PADDING;
+        const centerPosition = scrollLeft + viewportWidth / 2 - (MOBILE_LAYOUT.CONTAINER_PADDING - containerPaddingLeft);
         const activeIndex = Math.round(centerPosition / cardWidth);
         
         // Clamp to valid range [0, 2]
@@ -466,7 +470,9 @@ export default function PricingDisplay({
           relative
         " 
         style={{ 
-          scrollPaddingLeft: '2rem',
+          // match scroll padding to visible container padding on both sides for perfect centering
+          scrollPaddingLeft: `${MOBILE_LAYOUT.CONTAINER_PADDING + 16}px`,
+          scrollPaddingRight: `${MOBILE_LAYOUT.CONTAINER_PADDING + 16}px`,
           WebkitOverflowScrolling: 'touch' // Smooth iOS scrolling
         }}
       >
@@ -494,29 +500,18 @@ export default function PricingDisplay({
             />
           </div>
           
-          {/* Pro tier - Enhanced center-stage */}
+          {/* Pro tier - same dimensions as others for equal height/centering */}
           <div 
             className="flex-shrink-0 snap-center snap-always"
             style={{
-              width: `${MOBILE_LAYOUT.CARD_WIDTH * MOBILE_LAYOUT.SCALE_FACTOR}px`,
-              minHeight: `${MOBILE_LAYOUT.PRO_ENHANCED_HEIGHT}px`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+              width: `${MOBILE_LAYOUT.CARD_WIDTH}px`,
+              minHeight: `${MOBILE_LAYOUT.PRO_ENHANCED_HEIGHT}px`
             }}
           >
-            <div
-              style={{
-                width: `${MOBILE_LAYOUT.CARD_WIDTH}px`,
-                transform: `scale(${MOBILE_LAYOUT.SCALE_FACTOR})`,
-                transformOrigin: 'center center'
-              }}
-            >
-              <TierCard
-                tier="pro"
-                cardClassName="h-full shadow-lg"
-              />
-            </div>
+            <TierCard
+              tier="pro"
+              cardClassName="h-full shadow-lg"
+            />
           </div>
           
           {/* Premium tier */}
