@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import PricingDisplay from '@/components/pricing/PricingDisplay';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { TIER_PRICES, formatPrice } from '@/lib/pricing';
 import { info } from '@/lib/log';
 
 export default function PreiseNeuPage() {
@@ -47,7 +48,7 @@ export default function PreiseNeuPage() {
         <title>Pferdebewertung Preise - PferdeWert.de | KI-gestützte Pferdebewertung</title>
         <meta 
           name="description" 
-          content="Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (14,90€), Professional (19,90€) oder Premium (39,90€). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report." 
+          content={`Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (${formatPrice(TIER_PRICES.basic)}), Professional (${formatPrice(TIER_PRICES.pro)}) oder Premium (${formatPrice(TIER_PRICES.premium)}). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report.`} 
         />
         <meta name="keywords" content="Pferdebewertung, Pferd bewerten lassen, Pferdewert ermitteln, AI Pferdebewertung, Pferdemarkt, Preise" />
         <meta property="og:title" content="Pferdebewertung Preise - PferdeWert.de" />
@@ -75,21 +76,21 @@ export default function PreiseNeuPage() {
                 {
                   "@type": "Offer",
                   "name": "PferdeWert Express",
-                  "price": "14.90",
+                  "price": TIER_PRICES.basic.toFixed(2),
                   "priceCurrency": "EUR",
                   "description": "Schnelle Preisspanne ohne detaillierte Analyse"
                 },
                 {
                   "@type": "Offer", 
                   "name": "PferdeWert Professional",
-                  "price": "19.90",
+                  "price": TIER_PRICES.pro.toFixed(2),
                   "priceCurrency": "EUR",
                   "description": "Detaillierte KI-Analyse mit ausführlichem Seiten PDF-Report"
                 },
                 {
                   "@type": "Offer",
                   "name": "PferdeWert KI-Vision",
-                  "price": "39.90", 
+                  "price": TIER_PRICES.premium.toFixed(2), 
                   "priceCurrency": "EUR",
                   "description": "Premium KI-Vision mit Foto-Analyse"
                 }

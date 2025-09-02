@@ -3,10 +3,11 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import { TIER_PRICES, formatPrice } from "@/lib/pricing";
 
-const markdown = `## Premium Bewertung - Vollständige Exterieurbewertung
+const markdown = `
 
-**Vollständige Exterieurbewertung - DSP Wallach, 4 Jahre, Sport/Dressur**
+## **Zusätzlich zur Pro-Analyse erhälst du eine vollständige Exterieurbewertung:**
 
 ---
 
@@ -179,10 +180,10 @@ export default function PremiumBeispiel() {
   return (
     <Layout>
       <Head>
-        <title>Premium Beispiel-Analyse – KI-Vision mit Foto-Analyse | PferdeWert</title>
+        <title>Premium Beispiel-Analyse – KI-Foto-Analyse mit ausführlicher Exterieur-Bewertung | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 Premium Beispiel-Analyse: KI-Vision mit Foto-Analyse für 39,90€ ➤ Vollständiger Premium-Report ✓ Exterieur-Bewertung ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!"
+          content="🐎 Premium Beispiel-Analyse: KI-Foto-Analyse für 39,90€ ➤ Vollständiger Premium-Report ✓ Exterieur-Bewertung ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!"
         />
         <meta property="og:title" content="Premium Beispiel-Analyse – KI-Vision mit Foto-Analyse | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Premium Beispiel-Analyse: Marktwert-Band, Begründung, Tipps und KI-Vision Exterieur-Bewertung." />
@@ -191,13 +192,13 @@ export default function PremiumBeispiel() {
         <link rel="canonical" href="https://pferdewert.de/beispiel-premium" />
       </Head>
 
-      <BewertungLayout title="📝 PferdeWert Premium - KI-Vision mit Foto-Analyse">
+      <BewertungLayout title="📝 PferdeWert Premium">
         <div className="text-center mb-6">
           <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-4">
-            Premium Tarif - 39,90€
+            {`Premium Tarif - ${formatPrice(TIER_PRICES.premium)}`}
           </div>
           <p className="text-lg text-gray-600">
-            Das bekommst du mit unserem Premium-Tarif
+            Das bekommst du mit unserem Premium-Tarif:
           </p>
         </div>
 

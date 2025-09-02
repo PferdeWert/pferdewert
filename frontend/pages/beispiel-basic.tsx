@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import { TIER_PRICES, formatPrice } from "@/lib/pricing";
 
 const markdown = `
 
@@ -31,7 +32,7 @@ export default function BasicBeispiel() {
         <title>Basic Beispiel-Analyse – Schnelle Preisspanne | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 Basic Beispiel-Analyse: Schnelle Preisspanne für 14,90€ ➤ Marktwert-Band ✓ Grundlegende Bewertung ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!"
+          content={`🐎 Basic Beispiel-Analyse: Schnelle Preisspanne für ${formatPrice(TIER_PRICES.basic)} ➤ Marktwert-Band ✓ Grundlegende Bewertung ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!`}
         />
         <meta property="og:title" content="Basic Beispiel-Analyse – Schnelle Preisspanne | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Basic Beispiel-Analyse: Schnelle Marktwert-Band ohne detaillierte Analyse." />
@@ -40,10 +41,10 @@ export default function BasicBeispiel() {
         <link rel="canonical" href="https://pferdewert.de/beispiel-basic" />
       </Head>
 
-      <BewertungLayout title={<><span>📝 PferdeWert Basic -</span><br />Schnelle Preisspanne</>}>
+      <BewertungLayout title="📝 PferdeWert Basic">
         <div className="text-center mb-6">
           <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-4">
-            Basic Tarif - 14,90€
+            {`Basic Tarif - ${formatPrice(TIER_PRICES.basic)}`}
           </div>
           <p className="text-lg text-gray-600">
             Das bekommst du mit unserem Basic-Tarif:
