@@ -183,7 +183,7 @@ export default function PremiumBeispiel() {
         <title>Premium Beispiel-Analyse – KI-Foto-Analyse mit ausführlicher Exterieur-Bewertung | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 Premium Beispiel-Analyse: KI-Foto-Analyse für 39,90€ ➤ Vollständiger Premium-Report ✓ Exterieur-Bewertung ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!"
+          content={`🐎 Premium Beispiel-Analyse: KI-Foto-Analyse für ${formatPrice(TIER_PRICES.premium)} ➤ Vollständiger Premium-Report ✓ Exterieur-Bewertung ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!`}
         />
         <meta property="og:title" content="Premium Beispiel-Analyse – KI-Vision mit Foto-Analyse | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Premium Beispiel-Analyse: Marktwert-Band, Begründung, Tipps und KI-Vision Exterieur-Bewertung." />
