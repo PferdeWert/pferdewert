@@ -101,13 +101,13 @@ export default function PreiseNeuPage() {
         <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50/30 to-gray-100/10">
           <div className="container mx-auto px-4 py-12 md:py-20 lg:py-24">
             <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Transparente Preise für
-                <span className="block text-brand-brown">deine Pferdebewertung</span>
+              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Transparente Preise
+                <span className="block md:inline"> für deine </span>
+                <span className="block md:inline text-brand-brown">Pferdebewertung</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Von der schnellen Marktpreis-Schätzung bis zur Premium KI-Foto Analyse – 
-              wähle die Bewertung, die zu deinen Bedürfnissen passt.
+              Von der schnellen Marktpreis-Schätzung bis zur Premium KI-Foto-Analyse mit ausführlicher Exterieur Bewertung.
               </p>
               
               {/* Key Benefits */}
