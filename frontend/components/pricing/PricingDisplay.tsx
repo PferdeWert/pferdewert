@@ -7,9 +7,9 @@
  * Features:
  * - CSS Grid layout for consistent card heights on desktop
  * - Mobile-first responsive design with horizontal scroll
- * - Standard tier permanently highlighted
+ * - Pro tier permanently highlighted
  * - Badge positioning that breaks container boundaries
- * - Auto-scroll to standard tier on mobile
+ * - Auto-scroll to pro tier on mobile
  * - Professional trust-building design
  * 
  * @author PferdeWert.de
@@ -17,7 +17,79 @@
  */
 
 import { useCallback, useEffect, useRef } from 'react';
-import { PRICING_TIERS, type TierConfig, formatTierPrice, getTierSavings } from '@/lib/pricing';
+import { TIER_PRICES, TIER_ORIGINAL_PRICES, TIER_STRIPE_IDS, type PricingTier } from '@/lib/pricing';
+import { info } from '@/lib/log';
+
+// ===== TIER CONFIGURATION =====
+const TIER_CONFIG = {
+  basic: {
+    displayName: 'PferdeWert Basic',
+    description: 'Schnelle Marktpreis-Schätzung',
+    features: [
+      'Sofortiges Ergebnis',
+      'Preisspanne inkl. Erklärung',
+    ],
+    highlights: [
+      'Preisspanne in unter 1 Minute',
+    ],
+    ctaText: 'Basic-Bewertung starten',
+    deliveryTime: '< 1 Minute',
+    reportPages: 'Keine PDF-Datei',
+    badge: undefined,
+  },
+  pro: {
+    displayName: 'PferdeWert Pro',
+    description: 'Detaillierte Pferdebewertung mit ausführlicher Analyse',
+    features: [
+      'Alles aus Basic, zusätzlich:',
+      'Detaillierte Pferdebewertung',
+      'Ausführlicher PDF-Report',
+      'Abstammungsanalyse',
+      'Zukunftspotential',
+      'und mehr..'
+    ],
+    highlights: [
+      'Ausführlicher Bericht über dein Pferd'
+    ],
+    badge: 'Beliebteste Wahl',
+    ctaText: 'Pro-Bewertung starten',
+    deliveryTime: '2-3 Minuten',
+    reportPages: '3-5 Seiten PDF',
+  },
+  premium: {
+    displayName: 'PferdeWert Premium',
+    description: 'Premium Foto-Analyse mit Exterieur-Bewertung',
+    features: [
+      'Alles aus Basic und Pro',
+      'Upload von 1-3 Fotos',
+      'Detaillierte Exterieur-Bewertung durch ein spezielles KI-Modell',
+      'Premium PDF-Report',
+    ],
+    highlights: [
+      'KI-Modell für Exterieur-Analyse',
+    ],
+    ctaText: 'Premium-Analyse starten',
+    deliveryTime: 'Bis zu 24 Stunden',
+    reportPages: '5-8 Seiten Premium PDF',
+    badge: undefined,
+  }
+} as const;
+
+// Mobile content reduction: Max 2 features per tier for 50% content density reduction
+const MOBILE_FEATURES = {
+  basic: [
+    'Sofortiges Ergebnis',
+    'Unter 1 Minute'
+  ],
+  pro: [
+    'Detaillierte KI-Analyse', 
+    'PDF-Report download'
+  ],
+  premium: [
+    'Foto-Analyse',
+    'Exterieur-Bewertung'
+  ]
+} as const;
 
 // ===== LAYOUT CONSTANTS =====
 // Mobile UX Optimized: 33% viewport reduction (200px × 350px cards)
@@ -25,9 +97,9 @@ const MOBILE_LAYOUT = {
   CARD_WIDTH: 200,      // Optimized from 240px to 200px (40px reduction)
   SPACE_BETWEEN: 25,    // Increased from 8px to 25px for better visual separation
   CONTAINER_PADDING: 65, // px-16 = 64px (calculated for 65px side partials)
-  SCALE_FACTOR: 1.08,   // Standard tier scale enhancement
+  SCALE_FACTOR: 1.08,   // Pro tier scale enhancement
   MIN_CARD_HEIGHT: 350, // Optimized from 520px to 350px (170px reduction)
-  STANDARD_ENHANCED_HEIGHT: 370, // Adjusted proportionally (20px difference maintained)
+  PRO_ENHANCED_HEIGHT: 370, // Adjusted proportionally (20px difference maintained)
 } as const;
 
 const DESKTOP_LAYOUT = {
@@ -37,8 +109,15 @@ const DESKTOP_LAYOUT = {
 } as const;
 
 
+interface TierSelectData {
+  tier: PricingTier;
+  price: number;
+  stripeId: string;
+  displayName: string;
+}
+
 interface PricingDisplayProps {
-  onTierSelect?: (config: TierConfig) => void;
+  onTierSelect?: (data: TierSelectData) => void;
   className?: string;
 }
 
@@ -48,25 +127,31 @@ export default function PricingDisplay({
 }: PricingDisplayProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleTierSelect = useCallback((config: TierConfig) => {
-    onTierSelect?.(config);
+  const handleTierSelect = useCallback((tier: PricingTier) => {
+    const data: TierSelectData = {
+      tier,
+      price: TIER_PRICES[tier],
+      stripeId: TIER_STRIPE_IDS[tier],
+      displayName: TIER_CONFIG[tier].displayName,
+    };
+    onTierSelect?.(data);
   }, [onTierSelect]);
 
-  // Auto-scroll to Standard tier on mobile (UX-optimized for perfect center positioning)
+  // Auto-scroll to Pro tier on mobile (UX-optimized for perfect center positioning)
   useEffect(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       
-      // Position of Standard tier start (middle card)
-      const standardTierStart = MOBILE_LAYOUT.CONTAINER_PADDING + MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
+      // Position of Pro tier start (middle card)
+      const proTierStart = MOBILE_LAYOUT.CONTAINER_PADDING + MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
       
       // Calculate viewport center position
       const viewportWidth = window.innerWidth || 375;
       const viewportCenter = viewportWidth / 2;
       const cardCenter = MOBILE_LAYOUT.CARD_WIDTH / 2;
       
-      // PRECISION: Optimal scroll position for perfect Standard tier centering
-      const optimalScrollLeft = standardTierStart + cardCenter - viewportCenter;
+      // PRECISION: Optimal scroll position for perfect Pro tier centering
+      const optimalScrollLeft = proTierStart + cardCenter - viewportCenter;
       
       // Smooth scroll with momentum for natural feel
       setTimeout(() => {
@@ -78,20 +163,36 @@ export default function PricingDisplay({
     }
   }, []);
 
-  const tiers = Object.values(PRICING_TIERS);
+  const tiers: PricingTier[] = ['basic', 'pro', 'premium'];
+
+  // ===== UTILITY FUNCTIONS =====
+  const formatTierPrice = (tier: PricingTier): string => {
+    return `${TIER_PRICES[tier].toFixed(2).replace('.', ',')}€`;
+  };
+
+  const getTierSavings = (tier: PricingTier): string | null => {
+    const originalPrice = TIER_ORIGINAL_PRICES[tier as keyof typeof TIER_ORIGINAL_PRICES];
+    if (!originalPrice) return null;
+    const savings = originalPrice - TIER_PRICES[tier];
+    return `${savings.toFixed(2).replace('.', ',')}€`;
+  };
 
   // ===== INTERNAL TIER CARD COMPONENT =====
   const TierCard = ({ 
-    config, 
+    tier, 
     cardClassName = ''
   }: {
-    config: TierConfig;
+    tier: PricingTier;
     cardClassName?: string;
   }) => {
-    // Standard tier is permanently highlighted
-    const isPermanentlyHighlighted = config.id === 'standard';
+    const config = TIER_CONFIG[tier];
+    const price = TIER_PRICES[tier];
+    const originalPrice = TIER_ORIGINAL_PRICES[tier as keyof typeof TIER_ORIGINAL_PRICES];
+    
+    // Pro tier is permanently highlighted
+    const isPermanentlyHighlighted = tier === 'pro';
     const shouldShowBorder = isPermanentlyHighlighted;
-    const savings = getTierSavings(config.id);
+    const savings = getTierSavings(tier);
 
     return (
       <div className={`
@@ -141,49 +242,76 @@ export default function PricingDisplay({
           </div>
         )}
 
-        {/* Card Content */}
-        <div className="p-8 flex flex-col h-full">
+        {/* Card Content - Mobile optimized padding */}
+        <div className="p-4 md:p-8 flex flex-col h-full">
           
           {/* Header Section */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-4 md:mb-6">
             <h3 className="text-sm md:text-2xl font-bold text-gray-900 mb-2">
               {config.displayName}
             </h3>
+            {/* Description hidden on mobile per UX specs */}
             <p className="hidden md:block text-gray-600 text-base leading-relaxed mb-4">
               {config.description}
             </p>
             
-            {/* Price Display */}
-            <div className="mb-4">
-              {config.originalPrice && (
+            {/* Price Display - Mobile optimized typography */}
+            <div className="mb-3 md:mb-4">
+              {originalPrice && (
                 <div className="flex items-center justify-center space-x-2 mb-1">
-                  <span className="text-gray-400 line-through text-lg">
-                    {config.originalPrice.toFixed(2).replace('.', ',')}€
+                  <span className="text-gray-400 line-through text-sm md:text-lg">
+                    {originalPrice.toFixed(2).replace('.', ',')}€
                   </span>
                   <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-semibold">
                     -{savings} sparen
                   </span>
                 </div>
               )}
-              <div className="text-5xl font-bold text-gray-900">
-                {formatTierPrice(config.id)}
+              {/* Mobile: 24px (text-2xl), Desktop: 48px (text-5xl) */}
+              <div className="text-2xl md:text-5xl font-bold text-gray-900">
+                {formatTierPrice(tier)}
               </div>
-              <div className="text-gray-500 text-sm mt-1">
+              <div className="text-gray-500 text-xs md:text-sm mt-1">
                 einmalig
               </div>
             </div>
 
-            {/* Delivery Info */}
-            <div className="bg-green-50 text-green-700 text-sm px-3 py-2 rounded-full inline-block">
+            {/* Delivery Info - Mobile optimized */}
+            <div className="bg-green-50 text-green-700 text-xs md:text-sm px-2 md:px-3 py-1.5 md:py-2 rounded-full inline-block">
               ⚡ Ergebnis in: {config.deliveryTime}
             </div>
           </div>
 
-          {/* Features List - takes remaining space */}
-          <div className="flex-1 mb-6">
-            <ul className="space-y-3">
+          {/* Features List - SSR-friendly responsive approach */}
+          <div className="flex-1 mb-4 md:mb-6">
+            {/* Mobile Features - Only visible on mobile */}
+            <ul className="space-y-2 md:space-y-3 block md:hidden">
+              {(MOBILE_FEATURES[tier] || config.features.slice(0, 2)).map((feature, index) => (
+                <li key={`mobile-${index}`} className="flex items-start space-x-2">
+                  <div className="flex-shrink-0 w-4 h-4 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                    <svg 
+                      className="w-2.5 h-2.5 text-green-600" 
+                      fill="currentColor" 
+                      viewBox="0 0 20 20"
+                    >
+                      <path 
+                        fillRule="evenodd" 
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" 
+                        clipRule="evenodd" 
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 text-xs leading-tight">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Desktop Features - Only visible on desktop */}
+            <ul className="space-y-2 md:space-y-3 hidden md:block">
               {config.features.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-3">
+                <li key={`desktop-${index}`} className="flex items-start space-x-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
                     <svg 
                       className="w-4 h-4 text-green-600" 
@@ -226,14 +354,17 @@ export default function PricingDisplay({
           {/* CTA Button - pinned to bottom */}
           <div className="mt-auto">
             <button
-              onClick={() => handleTierSelect(config)}
+              onClick={() => {
+                info('Pricing: Tier selected', { tier, price });
+                handleTierSelect(tier);
+              }}
               className={`
                 w-full
-                py-4
-                px-6
-                rounded-2xl
+                py-3 md:py-4
+                px-4 md:px-6
+                rounded-xl md:rounded-2xl
                 font-semibold
-                text-lg
+                text-xs md:text-lg
                 transition-all
                 duration-200
                 focus:outline-none
@@ -243,18 +374,19 @@ export default function PricingDisplay({
                 transform
                 hover:scale-105
                 active:scale-95
+                min-h-[44px]
                 ${shouldShowBorder
                   ? 'bg-gradient-to-r from-brand-brown to-amber-800 hover:from-amber-800 hover:to-amber-900 text-white focus:ring-amber-300 shadow-lg hover:shadow-xl'
                   : 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white focus:ring-gray-300 shadow-lg hover:shadow-xl'
                 }
               `}
-              aria-label={`${config.displayName} für ${formatTierPrice(config.id)} auswählen`}
+              aria-label={`${config.displayName} für ${formatTierPrice(tier)} auswählen`}
             >
               {config.ctaText}
             </button>
             
-            {/* Trust signal */}
-            <div className="text-center mt-3 text-xs text-gray-500">
+            {/* Micro Trust Signal - Mobile: 20px height, Desktop: normal */}
+            <div className="text-center mt-2 md:mt-3 text-[10px] md:text-xs text-gray-500 h-5 md:h-auto flex items-center justify-center">
               🔒 Sichere Zahlung • 30 Tage Geld-zurück-Garantie
             </div>
           </div>
@@ -287,7 +419,7 @@ export default function PricingDisplay({
       `}>
         {tiers.map((tier) => (
           <div 
-            key={tier.id}
+            key={tier}
             className="
               relative 
               flex 
@@ -299,7 +431,7 @@ export default function PricingDisplay({
             }}
           >
             <TierCard
-              config={tier}
+              tier={tier}
               cardClassName="
                 w-full 
                 h-full 
@@ -374,21 +506,21 @@ export default function PricingDisplay({
             }}
           >
             <TierCard
-              config={PRICING_TIERS.basic}
+              tier="basic"
               cardClassName="h-full"
             />
           </div>
           
-          {/* Standard tier - Enhanced center-stage */}
+          {/* Pro tier - Enhanced center-stage */}
           <div 
             className="flex-shrink-0 snap-center snap-always"
             style={{
               width: `${MOBILE_LAYOUT.CARD_WIDTH}px`,
-              minHeight: `${MOBILE_LAYOUT.STANDARD_ENHANCED_HEIGHT}px`
+              minHeight: `${MOBILE_LAYOUT.PRO_ENHANCED_HEIGHT}px`
             }}
           >
             <TierCard
-              config={PRICING_TIERS.standard}
+              tier="pro"
               cardClassName={`h-full transform scale-[${MOBILE_LAYOUT.SCALE_FACTOR}] shadow-lg`}
             />
           </div>
@@ -402,7 +534,7 @@ export default function PricingDisplay({
             }}
           >
             <TierCard
-              config={PRICING_TIERS.premium}
+              tier="premium"
               cardClassName="h-full"
             />
           </div>
