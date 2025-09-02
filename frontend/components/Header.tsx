@@ -103,7 +103,7 @@ export default function Header() {
               <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                 <div className="py-2">
                   <Link
-                    href="/basic-beispiel"
+                    href="/beispiel-basic"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
@@ -111,7 +111,7 @@ export default function Header() {
                     <div className="text-xs text-gray-500">Schnelle Preisspanne - 14,90€</div>
                   </Link>
                   <Link
-                    href="/pro-beispiel"
+                    href="/beispiel-pro"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
@@ -119,7 +119,7 @@ export default function Header() {
                     <div className="text-xs text-gray-500">Detaillierte KI-Analyse - 19,90€</div>
                   </Link>
                   <Link
-                    href="/premium-beispiel"
+                    href="/beispiel-premium"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
@@ -197,21 +197,21 @@ export default function Header() {
             <div className="mb-3">
               <div className="px-4 py-2 text-sm font-medium text-gray-500">Beispiel-Analysen</div>
               <Link
-                href="/basic-beispiel"
+                href="/beispiel-basic"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >
                 PferdeWert Basic - 14,90€
               </Link>
               <Link
-                href="/pro-beispiel"
+                href="/beispiel-pro"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >
                 PferdeWert Pro - 19,90€
               </Link>
               <Link
-                href="/premium-beispiel"
+                href="/beispiel-premium"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >

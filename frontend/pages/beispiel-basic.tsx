@@ -4,7 +4,9 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 
-const markdown = `## Basic Bewertung - Schnelle Preisspanne
+const markdown = `
+
+## Zusammenfassung
 
 **Geschätzter Marktwert: 12.000 - 16.000 €**
 
@@ -20,31 +22,7 @@ Der Hannoveraner Wallach aus der De Niro x Schwadroneur-Linie zeigt sich als ver
 
 **Obere Preisgrenze (16.000 €):** Die optimistische Schätzung basiert auf der renommierten Abstammung von De Niro, die in der Dressurszene hoch angesehen ist, sowie dem sehr braven Charakter des Wallachs. Diese Faktoren könnten für Käufer:innen, die ein zuverlässiges und gut ausgebildetes Pferd suchen, besonders attraktiv sein.
 
-**Zielpreis (14.000 €):** Ein realistischer Verkaufspreis bei optimaler Vermarktung und Ansprache der richtigen Zielgruppe, die Wert auf einen verlässlichen Partner für den Dressursport legt.
-
----
-
-## Preisfaktoren
-
-- **Rasse & Abstammung:** Hannoveraner mit De Niro-Linie
-- **Alter:** 11 Jahre
-- **Ausbildungsstand:** L-Niveau
-- **Gesundheit:** AKU-Bericht ohne Befund
-- **Charakter:** Sehr brav und verladefromm
-
----
-
-## Verkaufsempfehlung
-
-Das Pferd eignet sich gut für ambitionierte Freizeitreiter oder als Lehrpferd. Der Preis ist gerechtfertigt für ein verlässliches Dressurpferd mit solider Grundausbildung.
-
----
-
-## Fazit
-
-Der Hannoveraner Wallach bietet ein solides Preis-Leistungs-Verhältnis für Käufer, die ein verlässliches und gut ausgebildetes Dressurpferd suchen.
-
-_Ergebnis erstellt durch die PferdeWert-KI – keine rechtsverbindliche Bewertung._`;
+**Zielpreis (14.000 €):** Ein realistischer Verkaufspreis bei optimaler Vermarktung und Ansprache der richtigen Zielgruppe, die Wert auf einen verlässlichen Partner für den Dressursport legt.`;
 
 export default function BasicBeispiel() {
   return (
@@ -58,17 +36,17 @@ export default function BasicBeispiel() {
         <meta property="og:title" content="Basic Beispiel-Analyse – Schnelle Preisspanne | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Basic Beispiel-Analyse: Schnelle Marktwert-Band ohne detaillierte Analyse." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/basic-beispiel" />
-        <link rel="canonical" href="https://pferdewert.de/basic-beispiel" />
+        <meta property="og:url" content="https://pferdewert.de/beispiel-basic" />
+        <link rel="canonical" href="https://pferdewert.de/beispiel-basic" />
       </Head>
 
-      <BewertungLayout title="📝 PferdeWert Basic - Schnelle Preisspanne">
+      <BewertungLayout title={<><span>📝 PferdeWert Basic -</span><br />Schnelle Preisspanne</>}>
         <div className="text-center mb-6">
           <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-4">
             Basic Tarif - 14,90€
           </div>
           <p className="text-lg text-gray-600">
-            Das bekommst du mit unserem Basic-Tarif
+            Das bekommst du mit unserem Basic-Tarif:
           </p>
         </div>
 

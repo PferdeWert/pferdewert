@@ -99,8 +99,8 @@ export default function ProBeispiel() {
         <meta property="og:title" content="Professional Beispiel-Analyse – Detaillierte KI-Analyse | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Professional Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/pro-beispiel" />
-        <link rel="canonical" href="https://pferdewert.de/pro-beispiel" />
+        <meta property="og:url" content="https://pferdewert.de/beispiel-pro" />
+        <link rel="canonical" href="https://pferdewert.de/beispiel-pro" />
       </Head>
 
       <BewertungLayout title="📝 PferdeWert Pro - Detaillierte KI-Analyse">

@@ -187,8 +187,8 @@ export default function PremiumBeispiel() {
         <meta property="og:title" content="Premium Beispiel-Analyse – KI-Vision mit Foto-Analyse | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Premium Beispiel-Analyse: Marktwert-Band, Begründung, Tipps und KI-Vision Exterieur-Bewertung." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/premium-beispiel" />
-        <link rel="canonical" href="https://pferdewert.de/premium-beispiel" />
+        <meta property="og:url" content="https://pferdewert.de/beispiel-premium" />
+        <link rel="canonical" href="https://pferdewert.de/beispiel-premium" />
       </Head>
 
       <BewertungLayout title="📝 PferdeWert Premium - KI-Vision mit Foto-Analyse">
