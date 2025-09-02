@@ -65,7 +65,7 @@ const TIER_CONFIG = {
     highlights: [
       'KI-Modell für Exterieur-Analyse',
     ],
-    ctaText: 'Premium-Analyse starten',
+    ctaText: 'Premium-Bewertung starten',
     deliveryTime: 'Bis zu 24 Stunden',
     badge: undefined,
   }
@@ -88,14 +88,14 @@ const MOBILE_FEATURES = {
 } as const;
 
 // ===== LAYOUT CONSTANTS =====
-// Mobile UX Optimized: 33% viewport reduction (200px × 350px cards)
+// Mobile UX Optimized: Larger cards for better focus (280px × 468px cards)
 const MOBILE_LAYOUT = {
-  CARD_WIDTH: 200,      // Optimized from 240px to 200px (40px reduction)
-  SPACE_BETWEEN: 25,    // Increased from 8px to 25px for better visual separation
-  CONTAINER_PADDING: 65, // px-16 = 64px (calculated for 65px side partials)
+  CARD_WIDTH: 280,      // Increased from 200px to 280px for better focus
+  SPACE_BETWEEN: 16,    // Reduced from 25px to keep cards closer for better visibility
+  CONTAINER_PADDING: 48, // Reduced from 65px to ensure side partials are still visible
   SCALE_FACTOR: 1.08,   // Pro tier scale enhancement
-  MIN_CARD_HEIGHT: 350, // Optimized from 520px to 350px (170px reduction)
-  PRO_ENHANCED_HEIGHT: 370, // Adjusted proportionally (20px difference maintained)
+  MIN_CARD_HEIGHT: 468, // Increased from 430px to 468px (+38px = 1cm) for more content space
+  PRO_ENHANCED_HEIGHT: 488, // Adjusted proportionally (20px difference maintained)
 } as const;
 
 const DESKTOP_LAYOUT = {
@@ -139,7 +139,7 @@ export default function PricingDisplay({
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       
-      // Position of Pro tier start (middle card)
+      // Position of Pro tier start (middle card) - more precise calculation
       const proTierStart = MOBILE_LAYOUT.CONTAINER_PADDING + MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
       
       // Calculate viewport center position
@@ -148,15 +148,16 @@ export default function PricingDisplay({
       const cardCenter = MOBILE_LAYOUT.CARD_WIDTH / 2;
       
       // PRECISION: Optimal scroll position for perfect Pro tier centering
+      // Adjusted for exact center alignment
       const optimalScrollLeft = proTierStart + cardCenter - viewportCenter;
       
-      // Smooth scroll with momentum for natural feel
+      // Smooth scroll with momentum for natural feel - slightly delayed for render completion
       setTimeout(() => {
         container.scrollTo({
           left: Math.max(0, optimalScrollLeft),
           behavior: 'smooth'
         });
-      }, 150);
+      }, 200);
 
       // Add scroll event listener to track active card
       const handleScroll = () => {
@@ -336,16 +337,16 @@ export default function PricingDisplay({
             </ul>
           </div>
 
-          {/* Highlights - Hidden on mobile to save space */}
+          {/* Highlights - Compact for mobile, expanded for desktop */}
           {config.highlights && config.highlights.length > 0 && (
-            <div className="mb-6 hidden md:block">
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
-                <div className="text-amber-700 text-sm font-semibold mb-2">
+            <div className="mb-4 md:mb-6">
+              <div className="bg-amber-50 border border-amber-200 rounded-lg md:rounded-2xl p-2 md:p-4">
+                <div className="text-amber-700 text-xs md:text-sm font-semibold mb-1 md:mb-2">
                   💡 Highlights
                 </div>
-                <ul className="space-y-1">
+                <ul className="space-y-0.5 md:space-y-1">
                   {config.highlights.map((highlight, index) => (
-                    <li key={index} className="text-amber-700 text-sm">
+                    <li key={index} className="text-amber-700 text-[10px] md:text-sm leading-tight md:leading-normal">
                       • {highlight}
                     </li>
                   ))}

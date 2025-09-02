@@ -196,36 +196,40 @@ export default function PreiseNeuPage() {
               </h2>
               
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
+                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
                     Wie schnell erhalte ich meine Bewertung?
-                  </h3>
-                  <p className="text-gray-600">
-                    Basic: unter 1 Minute, Standard: 2-3 Minuten, Premium: 5-10 Minuten. 
-                    Die Bewertung startet sofort nach deiner Zahlung.
-                  </p>
-                </div>
+                  </summary>
+                  <div className="mt-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Basic: unter 1 Minute, Standard: 2-3 Minuten, Premium: 5-10 Minuten. 
+                      Die Bewertung startet sofort nach deiner Zahlung.
+                    </p>
+                  </div>
+                </details>
 
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
+                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
                     Was ist der Unterschied zwischen den Tarifen?
-                  </h3>
-                  <p className="text-gray-600">
-                    Basic gibt eine schnelle Preisspanne, Pro bietet detaillierte AI-Analyse mit PDF-Report, 
-                    Premium enthält zusätzlich Foto-Analyse mit AI-Vision und ausführlichen Premium-Report.
-                  </p>
-                </div>
+                  </summary>
+                  <div className="mt-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Basic gibt eine schnelle Preisspanne, Pro bietet detaillierte AI-Analyse mit PDF-Report, 
+                      Premium enthält zusätzlich Foto-Analyse mit AI-Vision und ausführlichen Premium-Report.
+                    </p>
+                  </div>
+                </details>
 
-                
-
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
+                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
                     Wie funktioniert die Geld-zurück-Garantie?
-                  </h3>
-                  <p className="text-gray-600">
-                    Wenn du nicht zufrieden bist, kannst du innerhalb von 30 Tagen dein Geld zu 100% zurückfordern - ohne Angabe von Gründen.
-                  </p>
-                </div>
+                  </summary>
+                  <div className="mt-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Wenn du nicht zufrieden bist, kannst du innerhalb von 30 Tagen dein Geld zu 100% zurückfordern - ohne Angabe von Gründen.
+                    </p>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
