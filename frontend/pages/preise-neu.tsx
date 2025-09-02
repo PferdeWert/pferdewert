@@ -98,7 +98,7 @@ export default function PreiseNeuPage() {
 
       <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-white via-amber-50/20 to-orange-50/10">
+        <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50/30 to-gray-100/10">
           <div className="container mx-auto px-4 py-12 md:py-20 lg:py-24">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">

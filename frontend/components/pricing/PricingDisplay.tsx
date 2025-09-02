@@ -16,8 +16,8 @@
  * @version 3.0.0 - Merged Architecture (TierCard + PricingCarousel)
  */
 
-import { useCallback, useEffect, useRef } from 'react';
-import { TIER_PRICES, TIER_ORIGINAL_PRICES, TIER_STRIPE_IDS, type PricingTier } from '@/lib/pricing';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { TIER_PRICES, TIER_STRIPE_IDS, type PricingTier } from '@/lib/pricing';
 import { info } from '@/lib/log';
 
 // ===== TIER CONFIGURATION =====
@@ -27,14 +27,13 @@ const TIER_CONFIG = {
     description: 'Schnelle Marktpreis-Schätzung',
     features: [
       'Sofortiges Ergebnis',
-      'Preisspanne inkl. Erklärung',
+      'Preisspanne inkl. Erläuterung',
     ],
     highlights: [
       'Preisspanne in unter 1 Minute',
     ],
     ctaText: 'Basic-Bewertung starten',
     deliveryTime: '< 1 Minute',
-    reportPages: 'Keine PDF-Datei',
     badge: undefined,
   },
   pro: {
@@ -45,7 +44,6 @@ const TIER_CONFIG = {
       'Detaillierte Pferdebewertung',
       'Ausführlicher PDF-Report',
       'Abstammungsanalyse',
-      'Zukunftspotential',
       'und mehr..'
     ],
     highlights: [
@@ -54,13 +52,12 @@ const TIER_CONFIG = {
     badge: 'Beliebteste Wahl',
     ctaText: 'Pro-Bewertung starten',
     deliveryTime: '2-3 Minuten',
-    reportPages: '3-5 Seiten PDF',
   },
   premium: {
     displayName: 'PferdeWert Premium',
     description: 'Premium Foto-Analyse mit Exterieur-Bewertung',
     features: [
-      'Alles aus Basic und Pro',
+      'Alles aus Basic und Pro, zusätzlich:',
       'Upload von 1-3 Fotos',
       'Detaillierte Exterieur-Bewertung durch ein spezielles KI-Modell',
       'Premium PDF-Report',
@@ -70,7 +67,6 @@ const TIER_CONFIG = {
     ],
     ctaText: 'Premium-Analyse starten',
     deliveryTime: 'Bis zu 24 Stunden',
-    reportPages: '5-8 Seiten Premium PDF',
     badge: undefined,
   }
 } as const;
@@ -126,6 +122,7 @@ export default function PricingDisplay({
   className = '' 
 }: PricingDisplayProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeCardIndex, setActiveCardIndex] = useState<number>(1); // Start with Pro tier (index 1)
 
   const handleTierSelect = useCallback((tier: PricingTier) => {
     const data: TierSelectData = {
@@ -160,6 +157,27 @@ export default function PricingDisplay({
           behavior: 'smooth'
         });
       }, 150);
+
+      // Add scroll event listener to track active card
+      const handleScroll = () => {
+        const scrollLeft = container.scrollLeft;
+        const viewportWidth = window.innerWidth || 375;
+        const cardWidth = MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
+        
+        // Calculate which card is most centered
+        const centerPosition = scrollLeft + viewportWidth / 2 - MOBILE_LAYOUT.CONTAINER_PADDING;
+        const activeIndex = Math.round(centerPosition / cardWidth);
+        
+        // Clamp to valid range [0, 2]
+        const clampedIndex = Math.max(0, Math.min(2, activeIndex));
+        setActiveCardIndex(clampedIndex);
+      };
+
+      container.addEventListener('scroll', handleScroll, { passive: true });
+      
+      return () => {
+        container.removeEventListener('scroll', handleScroll);
+      };
     }
   }, []);
 
@@ -170,12 +188,6 @@ export default function PricingDisplay({
     return `${TIER_PRICES[tier].toFixed(2).replace('.', ',')}€`;
   };
 
-  const getTierSavings = (tier: PricingTier): string | null => {
-    const originalPrice = TIER_ORIGINAL_PRICES[tier as keyof typeof TIER_ORIGINAL_PRICES];
-    if (!originalPrice) return null;
-    const savings = originalPrice - TIER_PRICES[tier];
-    return `${savings.toFixed(2).replace('.', ',')}€`;
-  };
 
   // ===== INTERNAL TIER CARD COMPONENT =====
   const TierCard = ({ 
@@ -187,12 +199,10 @@ export default function PricingDisplay({
   }) => {
     const config = TIER_CONFIG[tier];
     const price = TIER_PRICES[tier];
-    const originalPrice = TIER_ORIGINAL_PRICES[tier as keyof typeof TIER_ORIGINAL_PRICES];
     
     // Pro tier is permanently highlighted
     const isPermanentlyHighlighted = tier === 'pro';
     const shouldShowBorder = isPermanentlyHighlighted;
-    const savings = getTierSavings(tier);
 
     return (
       <div className={`
@@ -227,12 +237,15 @@ export default function PricingDisplay({
             from-brand-brown 
             to-amber-800 
             text-white 
-            px-8 
-            py-3 
+            px-3 
+            py-1.5
+            md:px-8 
+            md:py-3 
             rounded-full 
-            text-sm 
+            text-xs
+            md:text-sm 
             font-bold 
-            shadow-2xl
+            shadow-lg
             border-2
             border-white
             whitespace-nowrap
@@ -257,16 +270,6 @@ export default function PricingDisplay({
             
             {/* Price Display - Mobile optimized typography */}
             <div className="mb-3 md:mb-4">
-              {originalPrice && (
-                <div className="flex items-center justify-center space-x-2 mb-1">
-                  <span className="text-gray-400 line-through text-sm md:text-lg">
-                    {originalPrice.toFixed(2).replace('.', ',')}€
-                  </span>
-                  <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-semibold">
-                    -{savings} sparen
-                  </span>
-                </div>
-              )}
               {/* Mobile: 24px (text-2xl), Desktop: 48px (text-5xl) */}
               <div className="text-2xl md:text-5xl font-bold text-gray-900">
                 {formatTierPrice(tier)}
@@ -460,34 +463,6 @@ export default function PricingDisplay({
         " 
         style={{ scrollPaddingLeft: '2rem' }}
       >
-        {/* Enhanced fade overlays for better scroll affordance */}
-        <div className="
-          absolute 
-          left-0 
-          top-0 
-          bottom-0 
-          w-20 
-          bg-gradient-to-r 
-          from-amber-50 
-          via-amber-50/80
-          to-transparent 
-          z-10 
-          pointer-events-none
-        " />
-        
-        <div className="
-          absolute 
-          right-0 
-          top-0 
-          bottom-0 
-          w-20 
-          bg-gradient-to-l 
-          from-amber-50 
-          via-amber-50/80
-          to-transparent 
-          z-10 
-          pointer-events-none
-        " />
 
         {/* UX OPTIMIZED: Cards with perfect partial visibility (64% center + 17% sides) */}
         <div className={`
@@ -539,30 +514,24 @@ export default function PricingDisplay({
             />
           </div>
         </div>
-        
-        {/* Enhanced Mobile Navigation Indicator */}
-        <div className="text-center mt-8">
-          <div className="inline-flex items-center justify-center space-x-3 bg-gray-100 rounded-full px-6 py-3 shadow-sm">
-            <div className="flex space-x-2">
-              <div className="w-2.5 h-2.5 bg-gray-400 rounded-full transition-all duration-300"></div>
-              <div className="w-3 h-3 bg-brand-brown rounded-full animate-pulse shadow-md transform scale-110"></div>
-              <div className="w-2.5 h-2.5 bg-gray-400 rounded-full transition-all duration-300"></div>
-            </div>
-            <span className="text-sm text-gray-700 font-medium ml-1">Wische für weitere Optionen</span>
-            <svg className="w-5 h-5 text-gray-600 ml-1 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-          
-          {/* Additional affordance text for better UX */}
-          <p className="text-xs text-gray-500 mt-3 px-4">
-            💡 Du siehst Teile der anderen Angebote - wische horizontal für alle Optionen
-          </p>
+      </div>
+
+      {/* Minimal Mobile Navigation Indicator */}
+      <div className="md:hidden flex justify-center mt-6">
+        <div className="flex space-x-2">
+          {[0, 1, 2].map((index) => (
+            <div 
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                activeCardIndex === index ? 'bg-brand-brown' : 'bg-gray-300'
+              }`}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Trust Indicators */}
-      <div className="text-center mt-12 space-y-4">
+      {/* Trust Indicators - Hidden on mobile */}
+      <div className="hidden md:block text-center mt-12 space-y-4">
         <div className="flex items-center justify-center space-x-8 text-sm text-gray-600">
           <div className="flex items-center space-x-2">
             <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
