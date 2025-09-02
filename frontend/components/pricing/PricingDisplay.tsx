@@ -139,17 +139,20 @@ export default function PricingDisplay({
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       
-      // Position of Pro tier start (middle card) - more precise calculation
+      // Pro card container is now wider to accommodate the scaled card
+      const proCardActualWidth = MOBILE_LAYOUT.CARD_WIDTH * MOBILE_LAYOUT.SCALE_FACTOR;
+      
+      // Position of Pro tier start (middle card) - accounting for wider Pro container
       const proTierStart = MOBILE_LAYOUT.CONTAINER_PADDING + MOBILE_LAYOUT.CARD_WIDTH + MOBILE_LAYOUT.SPACE_BETWEEN;
       
       // Calculate viewport center position
       const viewportWidth = window.innerWidth || 375;
       const viewportCenter = viewportWidth / 2;
-      const cardCenter = MOBILE_LAYOUT.CARD_WIDTH / 2;
+      const proCardCenter = proCardActualWidth / 2;
       
       // PRECISION: Optimal scroll position for perfect Pro tier centering
-      // Adjusted for exact center alignment
-      const optimalScrollLeft = proTierStart + cardCenter - viewportCenter;
+      // Now the Pro card container matches its visual size
+      const optimalScrollLeft = proTierStart + proCardCenter - viewportCenter;
       
       // Smooth scroll with momentum for natural feel - slightly delayed for render completion
       setTimeout(() => {
@@ -462,19 +465,20 @@ export default function PricingDisplay({
           snap-mandatory
           relative
         " 
-        style={{ scrollPaddingLeft: '2rem' }}
+        style={{ 
+          scrollPaddingLeft: '2rem',
+          WebkitOverflowScrolling: 'touch' // Smooth iOS scrolling
+        }}
       >
 
         {/* UX OPTIMIZED: Cards with perfect partial visibility (64% center + 17% sides) */}
-        <div className={`
-          flex 
-          space-x-2 
-          min-w-max
-        `}
-        style={{ 
-          paddingLeft: `${MOBILE_LAYOUT.CONTAINER_PADDING}px`,
-          paddingRight: `${MOBILE_LAYOUT.CONTAINER_PADDING}px`
-        }}
+        <div 
+          className="flex min-w-max"
+          style={{ 
+            paddingLeft: `${MOBILE_LAYOUT.CONTAINER_PADDING}px`,
+            paddingRight: `${MOBILE_LAYOUT.CONTAINER_PADDING}px`,
+            gap: `${MOBILE_LAYOUT.SPACE_BETWEEN}px`
+          }}
         >
           {/* Basic tier */}
           <div 
@@ -494,14 +498,25 @@ export default function PricingDisplay({
           <div 
             className="flex-shrink-0 snap-center snap-always"
             style={{
-              width: `${MOBILE_LAYOUT.CARD_WIDTH}px`,
-              minHeight: `${MOBILE_LAYOUT.PRO_ENHANCED_HEIGHT}px`
+              width: `${MOBILE_LAYOUT.CARD_WIDTH * MOBILE_LAYOUT.SCALE_FACTOR}px`,
+              minHeight: `${MOBILE_LAYOUT.PRO_ENHANCED_HEIGHT}px`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}
           >
-            <TierCard
-              tier="pro"
-              cardClassName={`h-full transform scale-[${MOBILE_LAYOUT.SCALE_FACTOR}] shadow-lg`}
-            />
+            <div
+              style={{
+                width: `${MOBILE_LAYOUT.CARD_WIDTH}px`,
+                transform: `scale(${MOBILE_LAYOUT.SCALE_FACTOR})`,
+                transformOrigin: 'center center'
+              }}
+            >
+              <TierCard
+                tier="pro"
+                cardClassName="h-full shadow-lg"
+              />
+            </div>
           </div>
           
           {/* Premium tier */}
