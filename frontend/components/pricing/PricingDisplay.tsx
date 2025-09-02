@@ -44,7 +44,6 @@ const TIER_CONFIG = {
       'Detaillierte Pferdebewertung',
       'Ausführlicher PDF-Report',
       'Abstammungsanalyse',
-      'und mehr..'
     ],
     highlights: [
       'Ausführlicher Bericht über dein Pferd'
@@ -59,7 +58,7 @@ const TIER_CONFIG = {
     features: [
       'Alles aus Basic und Pro, zusätzlich:',
       'Upload von 1-3 Fotos',
-      'Detaillierte Exterieur-Bewertung durch ein spezielles KI-Modell',
+      'Detaillierte Exterieur-Bewertung',
       'Premium PDF-Report',
     ],
     highlights: [
@@ -361,7 +360,7 @@ export default function PricingDisplay({
               type="button"
               className="
                 btn-secondary
-                w-full md:w-auto
+                w-full md:w-full
                 pointer-events-auto
                 px-4 md:px-6
                 py-3 md:py-4
