@@ -121,7 +121,9 @@ export const toCents = (price: number): number => {
 export const validatePricing = (): boolean => {
   if (PRICING.current <= 0) throw new Error('Current price must be positive');
   if (PRICING.decoy <= PRICING.current) throw new Error('Decoy price must be higher than current price');
-  if (!STRIPE_CONFIG.priceId) throw new Error('Stripe Price ID missing');
+  if (!STRIPE_CONFIG.priceId && process.env.NODE_ENV === 'production') {
+    throw new Error('Stripe Price ID missing');
+  }
   return true;
 };
 
