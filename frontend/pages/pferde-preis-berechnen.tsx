@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
+import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED } from "../lib/pricing";
 import { 
   trackValuationStart, 
