@@ -4,11 +4,13 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
-import { PRICING_FORMATTED } from "../lib/pricing";
+import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle, ChevronDown } from "lucide-react";
+import { PRICING_FORMATTED, PRICING_TIERS, type PricingTier } from "../lib/pricing";
+import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
 import { 
   trackValuationStart, 
   trackFormProgress, 
@@ -30,6 +32,10 @@ interface FormState {
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
+  // Pricing context
+  selectedTier?: PricingTier; // 'basic' | 'standard' | 'premium'
+  tierPrice?: number;
+  stripeProductId?: string;
 }
 
 const initialForm: FormState = {
@@ -46,6 +52,10 @@ const initialForm: FormState = {
   charakter: "",
   besonderheiten: "",
   attribution_source: "",
+  // pricing fields filled on mount based on URL/session
+  selectedTier: undefined,
+  tierPrice: undefined,
+  stripeProductId: undefined,
 };
 
 // Field Interface
@@ -214,6 +224,7 @@ const stepData: StepData[] = [
 
 export default function PferdePreisBerechnenPage(): React.ReactElement {
   // Alle Hooks MÜSSEN vor jeglichen return-Statements stehen
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -221,13 +232,52 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
+  const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null);
 
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
 
-  // Formular bei Start wiederherstellen + Migration für alte Daten
+  // Tier aus URL/Session lesen + Formular bei Start wiederherstellen (inkl. Migration)
   useEffect(() => {
     if (!isMounted) return;
+
+    // 1) Resolve tier from URL first
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const tierParam = params.get('tier');
+      const normalized = normalizeTierParam(tierParam);
+      const resolved: PricingTier | null = normalized || getSavedTier();
+
+      if (!resolved) {
+        // No tier available → redirect to pricing page
+        router.replace('/preise-neu');
+        return;
+      }
+
+      // Persist for continuity and update state + form pricing fields
+      savePricingTier(resolved);
+      setSelectedTier(resolved);
+
+      const cfg = PRICING_TIERS[resolved];
+      setForm(prev => ({
+        ...prev,
+        selectedTier: resolved,
+        tierPrice: cfg.price,
+        stripeProductId: cfg.stripeId,
+      }));
+
+      // Analytics: record that the form loaded with a selected tier
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'pricing_tier_loaded_on_form', {
+          tier_name: resolved,
+          tier_price: cfg.price,
+          currency: 'EUR',
+          page_location: '/pferde-preis-berechnen'
+        });
+      }
+    } catch {
+      // ignore
+    }
     
     const savedForm = localStorage.getItem(STORAGE_KEY);
     if (savedForm) {
@@ -243,7 +293,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           besonderheiten: parsedForm.besonderheiten || ""
         };
         
-        setForm(migratedForm);
+        setForm(prev => ({ ...migratedForm, selectedTier: prev.selectedTier, tierPrice: prev.tierPrice, stripeProductId: prev.stripeProductId }));
         info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration)");
       } catch (e) {
         warn("Fehler beim Wiederherstellen des Formulars:", e);
@@ -437,6 +487,16 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     const completionTime = calculateFormCompletionTime(formStartTime);
     const formWithMetrics = { ...form, completionTime };
     trackPaymentStart(formWithMetrics);
+    // Analytics: include selected tier details for checkout start
+    if (typeof window !== 'undefined' && window.gtag && selectedTier) {
+      const cfg = PRICING_TIERS[selectedTier];
+      window.gtag('event', 'begin_checkout_tier', {
+        tier_name: selectedTier,
+        tier_price: cfg.price,
+        currency: 'EUR',
+        page_location: '/pferde-preis-berechnen'
+      });
+    }
     
     try {
       // Debug logging vor dem Senden
@@ -579,6 +639,20 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       <section id="wizard-start" className="py-8 lg:py-16">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto wizard-fade-in">
+            {/* Gewählter Tarif Indikator */}
+            {selectedTier && (
+              <div className="mb-6">
+                <div className="bg-brand-brown text-white px-5 py-3 rounded-2xl inline-flex items-center gap-3">
+                  <span className="text-sm opacity-90">Dein Tarif</span>
+                  <strong className="text-base lg:text-lg font-semibold">
+                    {PRICING_TIERS[selectedTier].displayName}
+                  </strong>
+                  <span className="text-sm opacity-90">
+                    ({PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€)
+                  </span>
+                </div>
+              </div>
+            )}
             {/* Step-Indikatoren */}
             <div id="wizard-progress" className="mb-8 sticky top-0 bg-white/90 backdrop-blur-sm z-30 py-4 rounded-2xl">
               <div className="flex items-center justify-center space-x-2 sm:space-x-8">
@@ -634,35 +708,43 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                             {field.required && <span className="text-red-600 ml-1">*</span>}
                           </label>
                           {field.type === "select" ? (
-                            <select
-                              id={field.name}
-                              name={field.name}
-                              value={form[field.name as keyof FormState]}
-                              onChange={handleChange}
-                              className={`w-full p-4 border rounded-2xl transition-all text-lg ${
-                                errors[field.name] 
-                                  ? "border-red-500 bg-red-50" 
-                                  : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
-                              } focus:outline-none focus:ring-4 focus:ring-amber-100`}
-                            >
-                              {field.placeholder && <option value="">{field.placeholder}</option>}
-                              {!field.placeholder && <option value="">Bitte wählen</option>}
-                              {field.options?.map((option) => {
-                                if (typeof option === 'string') {
-                                  return (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  );
-                                } else {
-                                  return (
-                                    <option key={option.value} value={option.value}>
-                                      {option.label}
-                                    </option>
-                                  );
-                                }
-                              })}
-                            </select>
+                            <div className="relative">
+                              <select
+                                id={field.name}
+                                name={field.name}
+                                value={form[field.name as keyof FormState]}
+                                onChange={handleChange}
+                                className={`w-full h-14 px-4 pr-14 border rounded-2xl transition-all text-lg appearance-none cursor-pointer bg-white ${
+                                  errors[field.name]
+                                    ? "border-red-500 bg-red-50"
+                                    : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
+                                } focus:outline-none focus:ring-4 focus:ring-amber-100 ${
+                                  form[field.name as keyof FormState] ? "text-gray-900" : "text-gray-400"
+                                }`}
+                              >
+                                {field.placeholder && <option value="">{field.placeholder}</option>}
+                                {!field.placeholder && <option value="">Bitte wählen</option>}
+                                {field.options?.map((option) => {
+                                  if (typeof option === "string") {
+                                    return (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    );
+                                  } else {
+                                    return (
+                                      <option key={option.value} value={option.value}>
+                                        {option.label}
+                                      </option>
+                                    );
+                                  }
+                                })}
+                              </select>
+                              {/* Custom dropdown indicator to improve discoverability on desktop */}
+                              <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-gray-500">
+                                <ChevronDown className="w-5 h-5" aria-hidden="true" />
+                              </div>
+                            </div>
                           ) : (
                             <input
                               id={field.name}
@@ -676,9 +758,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                               min={field.type === "number" ? (field.name === "alter" ? "0" : field.name === "stockmass" ? "50" : "0") : undefined}
                               max={field.type === "number" ? (field.name === "alter" ? "50" : field.name === "stockmass" ? "250" : undefined) : undefined}
                               placeholder={field.placeholder}
-                              className={`w-full p-4 border rounded-2xl transition-all text-lg ${
-                                errors[field.name] 
-                                  ? "border-red-500 bg-red-50" 
+                              className={`w-full h-14 px-4 border rounded-2xl transition-all text-lg placeholder:text-gray-400 ${
+                                errors[field.name]
+                                  ? "border-red-500 bg-red-50"
                                   : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
                               } focus:outline-none focus:ring-4 focus:ring-amber-100`}
                             />
@@ -785,10 +867,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   {/* Preis */}
                   <div className="text-center mb-8">
                     <p className="text-xl text-gray-700 mb-2">
-                      Die Analyse kostet einmalig
+                      {selectedTier
+                        ? `Die ${PRICING_TIERS[selectedTier].displayName}-Analyse kostet einmalig`
+                        : 'Die Analyse kostet einmalig'}
                     </p>
                     <div className="text-4xl font-black text-brand-brown mb-2">
-                      {PRICING_FORMATTED.current}
+                      {selectedTier
+                        ? `${PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€`
+                        : PRICING_FORMATTED.current}
                     </div>
                     <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
                   </div>

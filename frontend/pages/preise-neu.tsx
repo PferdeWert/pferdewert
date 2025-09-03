@@ -12,6 +12,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import PricingDisplay from '@/components/pricing/PricingDisplay';
 import { type TierConfig } from '@/lib/pricing';
+import { savePricingTier, toTierUrlParam } from '@/lib/pricing-session';
 import { info } from '@/lib/log';
 
 export default function PreiseNeuPage() {
@@ -35,8 +36,12 @@ export default function PreiseNeuPage() {
       });
     }
 
-    // Redirect to evaluation form with selected tier
-    router.push(`/bewertung?tier=${config.id}`);
+    // Persist selection for 30 minutes and redirect with canonical tier param (pro for standard)
+    try {
+      savePricingTier(config.id);
+    } catch {}
+    const tierParam = toTierUrlParam(config.id);
+    router.push(`/pferde-preis-berechnen?tier=${tierParam}`);
   };
 
   return (
