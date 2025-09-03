@@ -147,7 +147,7 @@ const stepData: StepData[] = [
         type: "select",
         required: true,
         options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
-        fullWidth: true
+        halfWidth: true
       },
       {
         name: "erfolge",
