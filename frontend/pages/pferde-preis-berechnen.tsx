@@ -4,11 +4,13 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle } from "lucide-react";
-import { PRICING_FORMATTED } from "../lib/pricing";
+import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle, ChevronDown } from "lucide-react";
+import { PRICING_FORMATTED, PRICING_TIERS, type PricingTier } from "../lib/pricing";
+import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
 import { 
   trackValuationStart, 
   trackFormProgress, 
@@ -30,6 +32,10 @@ interface FormState {
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
+  // Pricing context
+  selectedTier?: PricingTier; // 'basic' | 'standard' | 'premium'
+  tierPrice?: number;
+  stripeProductId?: string;
 }
 
 const initialForm: FormState = {
@@ -46,6 +52,10 @@ const initialForm: FormState = {
   charakter: "",
   besonderheiten: "",
   attribution_source: "",
+  // pricing fields filled on mount based on URL/session
+  selectedTier: undefined,
+  tierPrice: undefined,
+  stripeProductId: undefined,
 };
 
 // Field Interface
@@ -73,7 +83,7 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4 → 3 Schritte
+// Step-Konfiguration (Wizard-Fortschritt) – 3 Formular-Schritte, Checkout außerhalb des Steppers
 const stepData: StepData[] = [
   {
     id: 1,
@@ -83,107 +93,117 @@ const stepData: StepData[] = [
     icon: "🐎",
     iconBg: "bg-amber-100",
     fields: [
-      { 
-        name: "rasse", 
-        label: "Rasse", 
-        required: true, 
+      {
+        name: "rasse",
+        label: "Rasse",
+        required: true,
         placeholder: "z.B. Deutsches Sportpferd, Hannoveraner, Oldenburger",
         fullWidth: true
       },
-      { 
-        name: "alter", 
-        label: "Alter (Jahre)", 
-        type: "number", 
-        required: true, 
+      {
+        name: "alter",
+        label: "Alter (Jahre)",
+        type: "number",
+        required: true,
         placeholder: "8",
         halfWidth: true
       },
-      { 
-        name: "geschlecht", 
-        label: "Geschlecht", 
-        type: "select", 
-        required: true, 
+      {
+        name: "geschlecht",
+        label: "Geschlecht",
+        type: "select",
+        required: true,
         options: ["Stute", "Wallach", "Hengst"],
         halfWidth: true
       },
-      { 
-        name: "stockmass", 
-        label: "Stockmaß (cm)", 
-        type: "number", 
-        required: true, 
+      {
+        name: "stockmass",
+        label: "Stockmaß (cm)",
+        type: "number",
+        required: true,
         placeholder: "165",
         halfWidth: true
-      },
-      { 
-        name: "haupteignung", 
-        label: "Haupteignung / Disziplin", 
-        required: true, 
-        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
-        halfWidth: true
-      },
-      { 
-        name: "ausbildung", 
-        label: "Ausbildungsstand", 
-        type: "select",
-        required: true, 
-        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
-        fullWidth: true
-      },
+      }
     ]
   },
   {
     id: 2,
-    title: "Details",
-    subtitle: "Weitere Informationen",
-    description: "Optionale Details für eine genauere Bewertung",
+    title: "Ausbildung & Disziplin",
+    subtitle: "Ausbildung und sportliche Einordnung",
+    description: "Pflichtangaben zu Disziplin und Ausbildungsstand",
     icon: "🏆",
     iconBg: "bg-blue-100",
     fields: [
-      { 
-        name: "erfolge", 
-        label: "Turniererfahrung / Erfolge", 
+      {
+        name: "haupteignung",
+        label: "Haupteignung / Disziplin",
+        required: true,
+        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
+        halfWidth: true
+      },
+      {
+        name: "ausbildung",
+        label: "Ausbildungsstand",
+        type: "select",
+        required: true,
+        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+        halfWidth: true
+      },
+      {
+        name: "erfolge",
+        label: "Turniererfahrung / Erfolge",
         required: false,
         placeholder: "z.B. A-Dressur platziert, L-Springen teilgenommen",
         fullWidth: true
       },
-      { 
-        name: "abstammung", 
-        label: "Abstammung (Vater x Muttervater)", 
-        required: false, 
+      {
+        name: "abstammung",
+        label: "Abstammung (Vater x Muttervater)",
+        required: false,
         placeholder: "z.B. Cornet Obolensky x Contender",
         fullWidth: true
-      },
-      { 
-        name: "charakter", 
-        label: "Charakter & Rittigkeit", 
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Gesundheit & Kontext",
+    subtitle: "Weitere Informationen",
+    description: "Optionale Details für eine genauere Bewertung",
+    icon: "🩺",
+    iconBg: "bg-purple-100",
+    fields: [
+      {
+        name: "charakter",
+        label: "Charakter & Rittigkeit",
         required: false,
         placeholder: "z.B. sehr brav, brav, normal, sensibel, anspruchsvoll",
         halfWidth: true
       },
-      { 
-        name: "aku", 
-        label: "Gesundheit / AKU", 
+      {
+        name: "aku",
+        label: "Gesundheit / AKU",
         required: false,
         placeholder: "z.B. AKU 2023 ohne Befund, leichte Arthrose",
         halfWidth: true
       },
-      { 
-        name: "besonderheiten", 
-        label: "Besonderheiten", 
+      {
+        name: "besonderheiten",
+        label: "Besonderheiten",
         required: false,
         placeholder: "z.B. verladefromm, geländesicher, anfängertauglich",
         halfWidth: true
       },
-      { 
-        name: "standort", 
-        label: "Standort (PLZ)", 
+      {
+        name: "standort",
+        label: "Standort (PLZ)",
         required: false,
         placeholder: "z.B. 72770",
         halfWidth: true
       },
-      { 
-        name: "attribution_source", 
-        label: "Wie bist du auf PferdeWert aufmerksam geworden?", 
+      {
+        name: "attribution_source",
+        label: "Wie bist du auf PferdeWert aufmerksam geworden?",
         required: false,
         placeholder: "Bitte auswählen (optional)",
         halfWidth: true,
@@ -197,22 +217,14 @@ const stepData: StepData[] = [
           { value: "equestrian_forum", label: "Pferdeforum oder Community" },
           { value: "other", label: "Andere Quelle" }
         ]
-      },
+      }
     ]
-  },
-  {
-    id: 3,
-    title: "Bezahlung",
-    subtitle: "Analyse starten",
-    description: "Nur noch ein Klick zur professionellen Pferdebewertung",
-    icon: "💳",
-    iconBg: "bg-purple-100",
-    fields: []
   }
 ];
 
 export default function PferdePreisBerechnenPage(): React.ReactElement {
   // Alle Hooks MÜSSEN vor jeglichen return-Statements stehen
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -220,13 +232,52 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
+  const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null);
 
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
 
-  // Formular bei Start wiederherstellen + Migration für alte Daten
+  // Tier aus URL/Session lesen + Formular bei Start wiederherstellen (inkl. Migration)
   useEffect(() => {
     if (!isMounted) return;
+
+    // 1) Resolve tier from URL first
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const tierParam = params.get('tier');
+      const normalized = normalizeTierParam(tierParam);
+      const resolved: PricingTier | null = normalized || getSavedTier();
+
+      if (!resolved) {
+        // No tier available → redirect to pricing page
+        router.replace('/preise-neu');
+        return;
+      }
+
+      // Persist for continuity and update state + form pricing fields
+      savePricingTier(resolved);
+      setSelectedTier(resolved);
+
+      const cfg = PRICING_TIERS[resolved];
+      setForm(prev => ({
+        ...prev,
+        selectedTier: resolved,
+        tierPrice: cfg.price,
+        stripeProductId: cfg.stripeId,
+      }));
+
+      // Analytics: record that the form loaded with a selected tier
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'pricing_tier_loaded_on_form', {
+          tier_name: resolved,
+          tier_price: cfg.price,
+          currency: 'EUR',
+          page_location: '/pferde-preis-berechnen'
+        });
+      }
+    } catch {
+      // ignore
+    }
     
     const savedForm = localStorage.getItem(STORAGE_KEY);
     if (savedForm) {
@@ -242,7 +293,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           besonderheiten: parsedForm.besonderheiten || ""
         };
         
-        setForm(migratedForm);
+        setForm(prev => ({ ...migratedForm, selectedTier: prev.selectedTier, tierPrice: prev.tierPrice, stripeProductId: prev.stripeProductId }));
         info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration)");
       } catch (e) {
         warn("Fehler beim Wiederherstellen des Formulars:", e);
@@ -380,8 +431,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const nextStep = (): void => {
     if (validateStep(currentStep)) {
       setCurrentStep(prev => {
-        const next = Math.min(prev + 1, stepData.length);
-        // Track form progress when moving to next step
+        const next = Math.min(prev + 1, stepData.length + 1); // +1 für Checkout-Phase außerhalb des Steppers
+        // Track form progress for form steps only
         const stepName = stepData.find(s => s.id === next)?.title || `Step ${next}`;
         trackFormProgress(next, stepName);
         scrollToFormCard();
@@ -407,9 +458,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       return;
     }
 
-    // Validate all required fields from all steps (now only 2 steps before payment)
+    // Validate all required fields from all form steps (Checkout ist separat)
     const newErrors: { [key: string]: string } = {};
-    stepData.slice(0, 2).forEach(step => {
+    stepData.slice(0, stepData.length).forEach(step => {
       step.fields.forEach((field) => {
         if (field.required && !form[field.name as keyof FormState]) {
           newErrors[field.name] = "Pflichtfeld";
@@ -420,7 +471,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       // Go back to first step with errors
-      for (let i = 0; i < stepData.length - 1; i++) {
+      for (let i = 0; i < stepData.length; i++) {
         const stepFields = stepData[i].fields.map(f => f.name);
         if (stepFields.some(field => newErrors[field])) {
           setCurrentStep(i + 1);
@@ -436,6 +487,16 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     const completionTime = calculateFormCompletionTime(formStartTime);
     const formWithMetrics = { ...form, completionTime };
     trackPaymentStart(formWithMetrics);
+    // Analytics: include selected tier details for checkout start
+    if (typeof window !== 'undefined' && window.gtag && selectedTier) {
+      const cfg = PRICING_TIERS[selectedTier];
+      window.gtag('event', 'begin_checkout_tier', {
+        tier_name: selectedTier,
+        tier_price: cfg.price,
+        currency: 'EUR',
+        page_location: '/pferde-preis-berechnen'
+      });
+    }
     
     try {
       // Debug logging vor dem Senden
@@ -545,6 +606,20 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       <section id="wizard-start" className="py-8 lg:py-16">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto wizard-fade-in">
+            {/* Gewählter Tarif Indikator */}
+            {selectedTier && (
+              <div className="mb-6">
+                <div className="bg-brand-brown text-white px-5 py-3 rounded-2xl inline-flex items-center gap-3">
+                  <span className="text-sm opacity-90">Dein Tarif</span>
+                  <strong className="text-base lg:text-lg font-semibold">
+                    {PRICING_TIERS[selectedTier].displayName}
+                  </strong>
+                  <span className="text-sm opacity-90">
+                    ({PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€)
+                  </span>
+                </div>
+              </div>
+            )}
             {/* Step-Indikatoren */}
             <div id="wizard-progress" className="mb-8 sticky top-0 bg-white/90 backdrop-blur-sm z-30 py-4 rounded-2xl">
               <div className="flex items-center justify-center space-x-2 sm:space-x-8">
@@ -575,7 +650,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
             {/* Hauptkarte */}
             <div id="wizard-card" className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-              {currentStepData && currentStep <= 2 && (
+              {currentStepData && currentStep <= stepData.length && (
                 <>
                   {/* Step Header */}
                   <div className="text-center mb-8">
@@ -600,35 +675,43 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                             {field.required && <span className="text-red-600 ml-1">*</span>}
                           </label>
                           {field.type === "select" ? (
-                            <select
-                              id={field.name}
-                              name={field.name}
-                              value={form[field.name as keyof FormState]}
-                              onChange={handleChange}
-                              className={`w-full p-4 border rounded-2xl transition-all text-lg ${
-                                errors[field.name] 
-                                  ? "border-red-500 bg-red-50" 
-                                  : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
-                              } focus:outline-none focus:ring-4 focus:ring-amber-100`}
-                            >
-                              {field.placeholder && <option value="">{field.placeholder}</option>}
-                              {!field.placeholder && <option value="">Bitte wählen</option>}
-                              {field.options?.map((option) => {
-                                if (typeof option === 'string') {
-                                  return (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  );
-                                } else {
-                                  return (
-                                    <option key={option.value} value={option.value}>
-                                      {option.label}
-                                    </option>
-                                  );
-                                }
-                              })}
-                            </select>
+                            <div className="relative">
+                              <select
+                                id={field.name}
+                                name={field.name}
+                                value={form[field.name as keyof FormState]}
+                                onChange={handleChange}
+                                className={`w-full h-14 px-4 pr-14 border rounded-2xl transition-all text-lg appearance-none cursor-pointer bg-white ${
+                                  errors[field.name]
+                                    ? "border-red-500 bg-red-50"
+                                    : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
+                                } focus:outline-none focus:ring-4 focus:ring-amber-100 ${
+                                  form[field.name as keyof FormState] ? "text-gray-900" : "text-gray-400"
+                                }`}
+                              >
+                                {field.placeholder && <option value="">{field.placeholder}</option>}
+                                {!field.placeholder && <option value="">Bitte wählen</option>}
+                                {field.options?.map((option) => {
+                                  if (typeof option === "string") {
+                                    return (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    );
+                                  } else {
+                                    return (
+                                      <option key={option.value} value={option.value}>
+                                        {option.label}
+                                      </option>
+                                    );
+                                  }
+                                })}
+                              </select>
+                              {/* Custom dropdown indicator to improve discoverability on desktop */}
+                              <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-gray-500">
+                                <ChevronDown className="w-5 h-5" aria-hidden="true" />
+                              </div>
+                            </div>
                           ) : (
                             <input
                               id={field.name}
@@ -642,9 +725,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                               min={field.type === "number" ? (field.name === "alter" ? "0" : field.name === "stockmass" ? "50" : "0") : undefined}
                               max={field.type === "number" ? (field.name === "alter" ? "50" : field.name === "stockmass" ? "250" : undefined) : undefined}
                               placeholder={field.placeholder}
-                              className={`w-full p-4 border rounded-2xl transition-all text-lg ${
-                                errors[field.name] 
-                                  ? "border-red-500 bg-red-50" 
+                              className={`w-full h-14 px-4 border rounded-2xl transition-all text-lg placeholder:text-gray-400 ${
+                                errors[field.name]
+                                  ? "border-red-500 bg-red-50"
                                   : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
                               } focus:outline-none focus:ring-4 focus:ring-amber-100`}
                             />
@@ -676,14 +759,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                       <span className="hidden sm:inline ml-2">Zurück</span>
                     </button>
 
-                    {/* Weiter */}
+                    {/* Weiter / Zur Bezahlung */}
                     <button
                       type="button"
                       onClick={nextStep}
                       className="btn-primary relative px-4 py-3 text-sm md:px-6 md:py-4 md:text-base rounded-2xl hover:scale-105 transition-transform"
-                      aria-label="Zum nächsten Schritt weitergehen"
+                      aria-label={currentStep === stepData.length ? "Zur Bezahlung" : "Zum nächsten Schritt weitergehen"}
                     >
-                      <span className="hidden sm:inline mr-2">Weiter</span>
+                      <span className="hidden sm:inline mr-2">{currentStep === stepData.length ? "Zur Bezahlung" : "Weiter"}</span>
                       <ArrowRight className="w-5 h-5" aria-hidden="true" />
                     </button>
                   </div>
@@ -691,7 +774,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               )}
 
               {/* Bezahlung-Step */}
-              {currentStep === 3 && (
+              {currentStep === stepData.length + 1 && (
                 <form onSubmit={handleSubmit}>
                   {/* Sticky Submit Button auf Mobile */}
                   <div className="fixed bottom-0 left-0 right-0 bg-white shadow-xl px-4 py-4 z-40 md:hidden border-t">
@@ -751,10 +834,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   {/* Preis */}
                   <div className="text-center mb-8">
                     <p className="text-xl text-gray-700 mb-2">
-                      Die Analyse kostet einmalig
+                      {selectedTier
+                        ? `Die ${PRICING_TIERS[selectedTier].displayName}-Analyse kostet einmalig`
+                        : 'Die Analyse kostet einmalig'}
                     </p>
                     <div className="text-4xl font-black text-brand-brown mb-2">
-                      {PRICING_FORMATTED.current}
+                      {selectedTier
+                        ? `${PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€`
+                        : PRICING_FORMATTED.current}
                     </div>
                     <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
                   </div>
