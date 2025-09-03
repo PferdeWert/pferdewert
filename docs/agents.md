@@ -242,7 +242,7 @@ const HorseEvaluationForm: React.FC<HorseEvaluationFormProps> = ({
 # Implement feature following PferdeWert standards
 
 # 2. Self-Validation
-npm run lint && npm run type-check
+npm --prefix frontend run lint && npm --prefix frontend run type-check && npm --prefix frontend run test --if-present
 
 # 3. Agent Review
 "@pferdewert-code-reviewer Please review this implementation before commit"
@@ -343,3 +343,10 @@ Track these metrics to measure agent value:
 - **Development Velocity**: Feature delivery speed increase
 
 Remember: Agents are force multipliers, not replacements for good development practices!
+
+### Pre-Commit Automation
+- Husky pre-commit hook runs automatically:
+  - lint-staged (ESLint + Prettier on staged files)
+  - `npm --prefix frontend run type-check`
+  - `npm --prefix frontend run test --if-present`
+- Recommendation: Keep tests fast and headless; add a `test` script in `frontend/package.json` when tests exist.

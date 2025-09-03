@@ -10,3 +10,8 @@ fi
 if command -v npm >/dev/null 2>&1; then
   npm --prefix frontend run --silent type-check || exit 1
 fi
+
+# 3) Run tests if a test script exists (kept fast by using --if-present)
+if command -v npm >/dev/null 2>&1; then
+  npm --prefix frontend run --silent --if-present test || exit 1
+fi
