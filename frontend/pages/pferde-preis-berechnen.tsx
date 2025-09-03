@@ -73,7 +73,7 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4 → 3 Schritte
+// Step-Konfiguration (Wizard-Fortschritt) – 3 Formular-Schritte, Checkout außerhalb des Steppers
 const stepData: StepData[] = [
   {
     id: 1,
@@ -83,107 +83,117 @@ const stepData: StepData[] = [
     icon: "🐎",
     iconBg: "bg-amber-100",
     fields: [
-      { 
-        name: "rasse", 
-        label: "Rasse", 
-        required: true, 
+      {
+        name: "rasse",
+        label: "Rasse",
+        required: true,
         placeholder: "z.B. Deutsches Sportpferd, Hannoveraner, Oldenburger",
         fullWidth: true
       },
-      { 
-        name: "alter", 
-        label: "Alter (Jahre)", 
-        type: "number", 
-        required: true, 
+      {
+        name: "alter",
+        label: "Alter (Jahre)",
+        type: "number",
+        required: true,
         placeholder: "8",
         halfWidth: true
       },
-      { 
-        name: "geschlecht", 
-        label: "Geschlecht", 
-        type: "select", 
-        required: true, 
+      {
+        name: "geschlecht",
+        label: "Geschlecht",
+        type: "select",
+        required: true,
         options: ["Stute", "Wallach", "Hengst"],
         halfWidth: true
       },
-      { 
-        name: "stockmass", 
-        label: "Stockmaß (cm)", 
-        type: "number", 
-        required: true, 
+      {
+        name: "stockmass",
+        label: "Stockmaß (cm)",
+        type: "number",
+        required: true,
         placeholder: "165",
         halfWidth: true
-      },
-      { 
-        name: "haupteignung", 
-        label: "Haupteignung / Disziplin", 
-        required: true, 
-        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
-        halfWidth: true
-      },
-      { 
-        name: "ausbildung", 
-        label: "Ausbildungsstand", 
-        type: "select",
-        required: true, 
-        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
-        fullWidth: true
-      },
+      }
     ]
   },
   {
     id: 2,
-    title: "Details",
-    subtitle: "Weitere Informationen",
-    description: "Optionale Details für eine genauere Bewertung",
+    title: "Ausbildung & Disziplin",
+    subtitle: "Ausbildung und sportliche Einordnung",
+    description: "Pflichtangaben zu Disziplin und Ausbildungsstand",
     icon: "🏆",
     iconBg: "bg-blue-100",
     fields: [
-      { 
-        name: "erfolge", 
-        label: "Turniererfahrung / Erfolge", 
+      {
+        name: "haupteignung",
+        label: "Haupteignung / Disziplin",
+        required: true,
+        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
+        halfWidth: true
+      },
+      {
+        name: "ausbildung",
+        label: "Ausbildungsstand",
+        type: "select",
+        required: true,
+        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+        fullWidth: true
+      },
+      {
+        name: "erfolge",
+        label: "Turniererfahrung / Erfolge",
         required: false,
         placeholder: "z.B. A-Dressur platziert, L-Springen teilgenommen",
         fullWidth: true
       },
-      { 
-        name: "abstammung", 
-        label: "Abstammung (Vater x Muttervater)", 
-        required: false, 
+      {
+        name: "abstammung",
+        label: "Abstammung (Vater x Muttervater)",
+        required: false,
         placeholder: "z.B. Cornet Obolensky x Contender",
         fullWidth: true
-      },
-      { 
-        name: "charakter", 
-        label: "Charakter & Rittigkeit", 
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Gesundheit & Kontext",
+    subtitle: "Weitere Informationen",
+    description: "Optionale Details für eine genauere Bewertung",
+    icon: "🩺",
+    iconBg: "bg-purple-100",
+    fields: [
+      {
+        name: "charakter",
+        label: "Charakter & Rittigkeit",
         required: false,
         placeholder: "z.B. sehr brav, brav, normal, sensibel, anspruchsvoll",
         halfWidth: true
       },
-      { 
-        name: "aku", 
-        label: "Gesundheit / AKU", 
+      {
+        name: "aku",
+        label: "Gesundheit / AKU",
         required: false,
         placeholder: "z.B. AKU 2023 ohne Befund, leichte Arthrose",
         halfWidth: true
       },
-      { 
-        name: "besonderheiten", 
-        label: "Besonderheiten", 
+      {
+        name: "besonderheiten",
+        label: "Besonderheiten",
         required: false,
         placeholder: "z.B. verladefromm, geländesicher, anfängertauglich",
         halfWidth: true
       },
-      { 
-        name: "standort", 
-        label: "Standort (PLZ)", 
+      {
+        name: "standort",
+        label: "Standort (PLZ)",
         required: false,
         placeholder: "z.B. 72770",
         halfWidth: true
       },
-      { 
-        name: "attribution_source", 
-        label: "Wie bist du auf PferdeWert aufmerksam geworden?", 
+      {
+        name: "attribution_source",
+        label: "Wie bist du auf PferdeWert aufmerksam geworden?",
         required: false,
         placeholder: "Bitte auswählen (optional)",
         halfWidth: true,
@@ -197,17 +207,8 @@ const stepData: StepData[] = [
           { value: "equestrian_forum", label: "Pferdeforum oder Community" },
           { value: "other", label: "Andere Quelle" }
         ]
-      },
+      }
     ]
-  },
-  {
-    id: 3,
-    title: "Bezahlung",
-    subtitle: "Analyse starten",
-    description: "Nur noch ein Klick zur professionellen Pferdebewertung",
-    icon: "💳",
-    iconBg: "bg-purple-100",
-    fields: []
   }
 ];
 
@@ -380,8 +381,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const nextStep = (): void => {
     if (validateStep(currentStep)) {
       setCurrentStep(prev => {
-        const next = Math.min(prev + 1, stepData.length);
-        // Track form progress when moving to next step
+        const next = Math.min(prev + 1, stepData.length + 1); // +1 für Checkout-Phase außerhalb des Steppers
+        // Track form progress for form steps only
         const stepName = stepData.find(s => s.id === next)?.title || `Step ${next}`;
         trackFormProgress(next, stepName);
         scrollToFormCard();
@@ -407,9 +408,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       return;
     }
 
-    // Validate all required fields from all steps (now only 2 steps before payment)
+    // Validate all required fields from all form steps (Checkout ist separat)
     const newErrors: { [key: string]: string } = {};
-    stepData.slice(0, 2).forEach(step => {
+    stepData.slice(0, stepData.length).forEach(step => {
       step.fields.forEach((field) => {
         if (field.required && !form[field.name as keyof FormState]) {
           newErrors[field.name] = "Pflichtfeld";
@@ -420,7 +421,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       // Go back to first step with errors
-      for (let i = 0; i < stepData.length - 1; i++) {
+      for (let i = 0; i < stepData.length; i++) {
         const stepFields = stepData[i].fields.map(f => f.name);
         if (stepFields.some(field => newErrors[field])) {
           setCurrentStep(i + 1);
@@ -608,7 +609,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
             {/* Hauptkarte */}
             <div id="wizard-card" className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-              {currentStepData && currentStep <= 2 && (
+              {currentStepData && currentStep <= stepData.length && (
                 <>
                   {/* Step Header */}
                   <div className="text-center mb-8">
@@ -709,14 +710,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                       <span className="hidden sm:inline ml-2">Zurück</span>
                     </button>
 
-                    {/* Weiter */}
+                    {/* Weiter / Zur Bezahlung */}
                     <button
                       type="button"
                       onClick={nextStep}
                       className="btn-primary relative px-4 py-3 text-sm md:px-6 md:py-4 md:text-base rounded-2xl hover:scale-105 transition-transform"
-                      aria-label="Zum nächsten Schritt weitergehen"
+                      aria-label={currentStep === stepData.length ? "Zur Bezahlung" : "Zum nächsten Schritt weitergehen"}
                     >
-                      <span className="hidden sm:inline mr-2">Weiter</span>
+                      <span className="hidden sm:inline mr-2">{currentStep === stepData.length ? "Zur Bezahlung" : "Weiter"}</span>
                       <ArrowRight className="w-5 h-5" aria-hidden="true" />
                     </button>
                   </div>
@@ -724,7 +725,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               )}
 
               {/* Bezahlung-Step */}
-              {currentStep === 3 && (
+              {currentStep === stepData.length + 1 && (
                 <form onSubmit={handleSubmit}>
                   {/* Sticky Submit Button auf Mobile */}
                   <div className="fixed bottom-0 left-0 right-0 bg-white shadow-xl px-4 py-4 z-40 md:hidden border-t">
