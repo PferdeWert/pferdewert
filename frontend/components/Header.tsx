@@ -109,7 +109,7 @@ export default function Header() {
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
                     <div className="font-medium">PferdeWert Basic</div>
-                    <div className="text-xs text-gray-500">{}</div>
+                    <div className="text-xs text-gray-500">{`Schnelle Preisspanne - ${formatPrice(TIER_PRICES.basic)}`}</div>
                   </Link>
                   <Link
                     href="/beispiel-pro"
@@ -117,7 +117,7 @@ export default function Header() {
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
                     <div className="font-medium">PferdeWert Pro</div>
-                    <div className="text-xs text-gray-500">{}</div>
+                    <div className="text-xs text-gray-500">{`Detaillierte KI-Analyse - ${formatPrice(TIER_PRICES.pro)}`}</div>
                   </Link>
                   <Link
                     href="/beispiel-premium"
@@ -125,7 +125,7 @@ export default function Header() {
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
                     <div className="font-medium">PferdeWert Premium</div>
-                    <div className="text-xs text-gray-500">{}</div>
+                    <div className="text-xs text-gray-500">{`KI-Foto-Analyse Exterieur - ${formatPrice(TIER_PRICES.premium)}`}</div>
                   </Link>
                 </div>
               </div>
@@ -202,21 +202,21 @@ export default function Header() {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >
-                {}
+                {`PferdeWert Basic - ${formatPrice(TIER_PRICES.basic)}`}
               </Link>
               <Link
                 href="/beispiel-pro"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >
-                {}
+                {`PferdeWert Pro - ${formatPrice(TIER_PRICES.pro)}`}
               </Link>
               <Link
                 href="/beispiel-premium"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >
-                {}
+                {`PferdeWert Premium - ${formatPrice(TIER_PRICES.premium)}`}
               </Link>
             </div>
           </div>
