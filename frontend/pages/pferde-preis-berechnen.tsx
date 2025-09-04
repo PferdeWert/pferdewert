@@ -741,7 +741,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
       {/* Note: Animations moved to globals.css for better performance */}
 
-      {/* Hero: Badge oben, darunter H1, darunter Bild */}
+      {/* Hero: Badge oben, darunter H1 - optimiert für schnellen Formular-Zugang */}
       <section id="preise" className="relative overflow-hidden">
         <div className="px-4 lg:px-8 xl:px-12 py-10 lg:py-16">
           <div className="text-center space-y-6">
@@ -769,15 +769,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   </strong>
                   <span className="text-sm opacity-90">
                     ({PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€)
-                  </span>
-                </div>
-              ) : (
-                <div className="bg-amber-100 text-amber-800 border border-amber-200 px-5 py-3 rounded-2xl inline-flex items-center gap-3">
-                  <strong className="text-base lg:text-lg font-semibold">
-                    Paket-Auswahl folgt
-                  </strong>
-                  <span className="text-sm opacity-90">
-                    (nach Formular-Eingabe)
                   </span>
                 </div>
               )}

@@ -311,7 +311,7 @@ export default function TieredPferdeWertHomepage() {
                       Basic-Beispiel ansehen
                     </Link>
                     <Link
-                      href="/preise#basic"
+                      href="/bewerten?tier=basic"
                       className="w-full btn-secondary py-3 inline-block text-center"
                     >
                       Basic wählen
@@ -351,7 +351,7 @@ export default function TieredPferdeWertHomepage() {
                       Pro-Beispiel ansehen
                     </Link>
                     <Link
-                      href="/preise#pro"
+                      href="/bewerten?tier=pro"
                       className="w-full btn-primary py-3 inline-block text-center"
                     >
                       Pro wählen
@@ -385,7 +385,7 @@ export default function TieredPferdeWertHomepage() {
                       Premium-Beispiel ansehen
                     </Link>
                     <Link
-                      href="/preise#premium"
+                      href="/bewerten?tier=premium"
                       className="w-full btn-secondary py-3 inline-block text-center"
                     >
                       Premium wählen
