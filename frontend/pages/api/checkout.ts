@@ -5,7 +5,6 @@ import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
 import { z } from "zod";
-import { STRIPE_CONFIG } from "@/lib/pricing";
 import crypto from "crypto";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);

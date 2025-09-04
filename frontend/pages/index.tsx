@@ -5,10 +5,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import PricingDisplay from "@/components/pricing/PricingDisplay";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram, Zap, Eye, Camera } from "lucide-react";
-import { PRICING_FORMATTED, PRICING_TEXTS, TIER_PRICES, formatPrice } from "../lib/pricing";
+import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Instagram, Zap, Eye, Camera } from "lucide-react";
+import { TIER_PRICES, formatPrice } from "../lib/pricing";
 import { savePricingTier, toTierUrlParam } from "@/lib/pricing-session";
 import { info } from "@/lib/log";
 import { useRouter } from 'next/router';
@@ -111,8 +110,9 @@ export default function TieredPferdeWertHomepage() {
     info('Index-Tiered: Tier selected', { tier });
 
     // Analytics
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'pricing_tier_selected', {
+    if (typeof window !== 'undefined') {
+      const { gtag } = (window as unknown as { gtag?: (...args: unknown[]) => void });
+      gtag?.('event', 'pricing_tier_selected', {
         tier_name: tier,
         tier_price: TIER_PRICES[tier],
         currency: 'EUR',

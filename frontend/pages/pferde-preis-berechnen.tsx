@@ -298,21 +298,30 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     const savedForm = localStorage.getItem(STORAGE_KEY);
     if (savedForm) {
       try {
-        const parsedForm = JSON.parse(savedForm) as FormState & { verwendungszweck?: string; tier?: string };
+        type SavedForm = Partial<FormState> & { verwendungszweck?: string; tier?: string };
+        const parsedForm = JSON.parse(savedForm) as SavedForm;
 
         // Sanitize legacy pricing fields that could force a default checkout
-        // Remove any previously persisted tier information to enable the alternative flow
-        const { tier: _legacyTier, selectedTier: _legacySelectedTier, tierPrice: _legacyTierPrice, stripeProductId: _legacyStripeId, ...rest } = parsedForm as any;
+        const rest: Omit<SavedForm, 'tier' | 'selectedTier' | 'tierPrice' | 'stripeProductId'> = { ...parsedForm };
+        delete (rest as Record<string, unknown>).tier;
+        delete (rest as Record<string, unknown>).selectedTier;
+        delete (rest as Record<string, unknown>).tierPrice;
+        delete (rest as Record<string, unknown>).stripeProductId;
 
         // Migration: verwendungszweck → haupteignung
-        const migratedForm = {
+        const migratedForm: FormState = {
+          ...initialForm,
           ...rest,
-          haupteignung: (rest as any).haupteignung || parsedForm.verwendungszweck || "",
-          charakter: (rest as any).charakter || "",
-          besonderheiten: (rest as any).besonderheiten || "",
-        } as FormState;
+          haupteignung: rest.haupteignung || parsedForm.verwendungszweck || "",
+          charakter: rest.charakter || "",
+          besonderheiten: rest.besonderheiten || "",
+          // ensure pricing fields are not restored from legacy storage
+          selectedTier: undefined,
+          tierPrice: undefined,
+          stripeProductId: undefined,
+        };
 
-        // Important: keep pricing fields from current state (prev) so we don't leak legacy tier values
+        // Keep any pricing context determined during this mount (URL/session)
         setForm(prev => ({
           ...migratedForm,
           selectedTier: prev.selectedTier,
