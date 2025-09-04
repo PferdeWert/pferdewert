@@ -93,18 +93,33 @@ if (!origin) {
 
 info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
-    // Determine Stripe price by selected tier (defaults to standard/current)
+    // Determine Stripe price by selected tier - REQUIRE tier selection for alternative flow
     const pd = parsedData as { selectedTier?: unknown; tier?: unknown };
     const rawSelectedTier: unknown = pd?.selectedTier ?? pd?.tier;
+    
+    // Check if tier is provided - if not, reject the request to force tier selection
+    if (!rawSelectedTier || (typeof rawSelectedTier === 'string' && rawSelectedTier.trim() === '')) {
+      warn("[CHECKOUT] ❌ Kein Tier ausgewählt - Tier-Auswahl erforderlich");
+      return res.status(400).json({ error: "Tier selection required", code: "NO_TIER_SELECTED" });
+    }
+    
     const normalizeTier = (t: unknown): 'basic' | 'pro' | 'premium' => {
       const v = typeof t === 'string' ? t.toLowerCase() : '';
       if (v === 'pro') return 'pro';
       // Backward-compat: treat legacy 'standard' as 'basic'
       if (v === 'standard') return 'basic';
       if (v === 'premium') return 'premium';
-      return 'basic';
+      // No default fallback - tier must be explicitly provided
+      throw new Error(`Invalid tier: ${v}`);
     };
-    const tierId = normalizeTier(rawSelectedTier);
+    
+    let tierId: 'basic' | 'pro' | 'premium';
+    try {
+      tierId = normalizeTier(rawSelectedTier);
+    } catch {
+      warn("[CHECKOUT] ❌ Ungültiger Tier:", rawSelectedTier);
+      return res.status(400).json({ error: "Invalid tier selected", code: "INVALID_TIER" });
+    }
     const PRICE_IDS: Record<'basic' | 'pro' | 'premium', string> = {
       basic: process.env.STRIPE_PRICE_ID_BASIC || 'price_basic',
       pro: process.env.STRIPE_PRICE_ID_PRO || STRIPE_CONFIG.priceId || '',

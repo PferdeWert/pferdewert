@@ -597,7 +597,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         }
         window.location.href = url;
       } else {
-        const errorData = await res.json() as { error?: string };
+        const errorData = await res.json() as { error?: string; code?: string };
+        
+        // Special handling for missing tier selection - show tier modal
+        if (errorData.code === "NO_TIER_SELECTED") {
+          info("[FORM] Checkout rejected - no tier selected, showing tier modal");
+          setShowTierModal(true);
+          return; // Don't show error, just show the modal
+        }
+        
         setErrors({ form: errorData.error || "Fehler beim Starten der Bewertung." });
       }
     } catch (err) {
