@@ -273,20 +273,28 @@ const trackUpsellEvent = (action: string) => {
 
 ## Timeline
 
-**Phase 1 (1-2 Tage):**
-- Backend Response erweitern
-- MongoDB Schema anpassen
-- Basic Analyse-Splitting implementieren
+### 🚀 **MVP (Go-Live Priorität)**
 
-**Phase 2 (2-3 Tage):**
+**Phase 1 - Schlanker 3-Tier MVP (2-3 Tage):**
+- ✅ 3-Tier Pricing Pages bereits implementiert (Traditional + Alternative Flow)
+- Backend: Tier-Parameter in Request/Response
+- Frontend: Tier-Badge und Preis-Display im Formular
+- **KEIN Upselling** - Jeder Tier zeigt vollständige Analyse für bezahlten Preis
+- Basic (14,90€), Pro (19,90€), Premium (39,90€) als separate Kaufoptionen
+- Premium: Manuelle Foto-Upload Lösung (siehe Google Forms Setup unten)
+
+### 📈 **Post-MVP (nach Go-Live)**
+
+**Phase 2 - Upselling Implementation (nach Marktfeedback):**
+- Analyse-Splitting für Basic Tier
 - Upselling UI-Komponenten
 - Payment-Flow für Upgrades
-- Testing & Optimierung
+- A/B Testing zwischen Vollanalyse vs. Upselling-Ansatz
 
-**Phase 3 (Optional, später):**
-- Premium Tier mit Foto-Upload
-- A/B Testing für Cut-Points
-- Conversion-Optimierung
+**Phase 3 - Optimierung:**
+- Automatisierter Premium Foto-Upload
+- Advanced Analytics & Conversion-Optimierung
+- Tier-Empfehlungs-Algorithmus
 
 ## Kritische Entscheidungen
 
@@ -301,10 +309,86 @@ const trackUpsellEvent = (action: string) => {
 - **Technische Probleme**: Fallback auf vollständige Anzeige bei Fehlern
 - **Conversion zu niedrig**: A/B Testing verschiedener Cut-Points
 
-## Nächste Schritte
+## Google Forms Setup für Premium Tier (MVP)
 
-1. Entscheidung über Cut-Point-Strategie
-2. Backend-Anpassungen minimal halten
-3. UI/UX für Upselling-Flow designen
-4. Stripe Webhook für Upgrade-Confirmation
-5. Testing mit verschiedenen Analyse-Beispielen
+### 1. **Form-Erstellung**
+```
+Titel: "PferdeWert Premium - Foto-Upload für Exterieur-Bewertung"
+Beschreibung: "Laden Sie hier Ihre Pferdefotos hoch für die erweiterte Premium-Analyse"
+```
+
+### 2. **Form-Felder**
+```
+1. Name/Kontakt (Pflichtfeld)
+   - Typ: Kurze Antwort
+   
+2. Payment ID (Pflichtfeld) 
+   - Typ: Kurze Antwort
+   - Beschreibung: "Finden Sie in Ihrer Kaufbestätigung oder Browser-URL"
+   
+3. Pferdename (Optional)
+   - Typ: Kurze Antwort
+   
+4. Foto-Upload (Pflichtfeld)
+   - Typ: Datei-Upload
+   - Einstellungen: "Mehrere Dateien zulassen" (max 5)
+   - Beschreibung: "Bitte laden Sie 3-5 aussagekräftige Fotos hoch:
+     • Seitliche Gesamtansicht (Exterieur)
+     • Kopf/Hals von der Seite  
+     • Bewegung (Trab/Galopp wenn vorhanden)
+     • Optional: weitere Detailaufnahmen"
+   
+5. Besondere Wünsche (Optional)
+   - Typ: Absatz
+   - Beschreibung: "Haben Sie spezielle Fragen zur Exterieur-Bewertung?"
+```
+
+### 3. **Form-Einstellungen**
+- ✅ E-Mail-Benachrichtigung bei neuen Antworten
+- ✅ Antworten in Google Sheets sammeln
+- ✅ Bestätigungs-E-Mail an Kunden senden
+
+### 4. **Integration in Website**
+```typescript
+// Nach Premium-Kauf in Success-Seite
+const PREMIUM_UPLOAD_FORM = "https://forms.gle/[DEIN-FORM-LINK]";
+
+<div className="premium-next-steps">
+  <h3>📸 Nächster Schritt: Foto-Upload</h3>
+  <p>Für Ihre Premium-Analyse mit Exterieur-Bewertung:</p>
+  <a href={PREMIUM_UPLOAD_FORM} target="_blank" className="btn-primary">
+    Fotos jetzt hochladen
+  </a>
+</div>
+```
+
+### 5. **E-Mail Templates**
+**Nach Premium-Kauf:**
+```
+Betreff: PferdeWert Premium - Foto-Upload für erweiterte Analyse
+
+Hallo [Name],
+
+vielen Dank für Ihren Premium-Kauf! 
+
+Für die Exterieur-Bewertung benötigen wir noch Fotos Ihres Pferdes.
+Bitte laden Sie diese hier hoch: [FORM-LINK]
+
+Ihre Payment-ID: [PAYMENT-ID]
+
+Die erweiterte Analyse erhalten Sie innerhalb von 2-3 Werktagen.
+```
+
+## Nächste Schritte für MVP
+
+**Sofort (MVP Launch):**
+1. ✅ 3-Tier Flows sind bereits implementiert  
+2. Backend: Tier-Parameter verarbeiten (minimal)
+3. Google Forms für Premium Setup
+4. E-Mail-Templates vorbereiten
+5. Go-Live mit vollständigen Analysen pro Tier
+
+**Post-Launch (Optimierung):**
+1. Markt-Feedback sammeln zu Tier-Verteilung
+2. Entscheidung: Upselling vs. separate Tiers beibehalten
+3. A/B Testing verschiedener Ansätze
