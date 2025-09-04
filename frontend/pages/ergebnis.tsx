@@ -9,6 +9,7 @@ import StripeLoadingScreen from "@/components/StripeLoadingScreen";
 import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
 import { splitAnalysis } from "@/lib/analysisSplitter";
 import { normalizeTierParam } from "@/lib/pricing-session";
+import PremiumUploadScreen from "@/components/PremiumUploadScreen";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -318,7 +319,34 @@ export default function Ergebnis() {
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
-  // Apply Basic gating for display and PDF
+  // Premium MVP: Show upload screen instead of AI analysis
+  if (tier === 'premium') {
+    const handlePremiumUpload = () => {
+      // Track Premium upload engagement
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'premium_upload_initiated', {
+          'event_category': 'Premium',
+          'event_label': 'Dropbox Upload',
+          'session_id': router.query.session_id || 'unknown'
+        });
+        info('[PREMIUM] Tracked upload initiation event');
+      }
+    };
+
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+          <link rel="canonical" href="https://pferdewert.de/ergebnis" />
+        </Head>
+        <BewertungLayout title="PferdeWert – Premium Expertenanalyse">
+          <PremiumUploadScreen onUploadClick={handlePremiumUpload} />
+        </BewertungLayout>
+      </Layout>
+    );
+  }
+
+  // Apply Basic gating for display and PDF (Pro and Basic tiers)
   const { visible: gatedVisible, hasMore } = splitAnalysis(text || '', tier || 'pro');
   const renderText = tier === 'basic' ? gatedVisible : (text || '');
 
