@@ -8,17 +8,18 @@
  * @version 3.1.0 - Preisanpassung auf 14,90€
  */
 
-// ===== PREIS KONFIGURATION =====
+// ===== LEGACY PREIS KONFIGURATION (DEPRECATED) =====
+// WARNUNG: Diese Konstanten sind veraltet und werden durch 3-Tier-Pricing ersetzt
+// Verwende stattdessen TIER_PRICES und PRICING_TIERS für neue Implementierungen
 export const PRICING = {
   /** 
-   * Aktueller Hauptpreis für Pferdebewertung
-   * Format: Dezimalzahl für Berechnungen 
+   * @deprecated Verwende TIER_PRICES.basic stattdessen
+   * NICHT für Preis-Display ohne Tier-Auswahl verwenden!
    */
   current: 14.90,
   
   /** 
-   * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
-   * Soll deutlich höher sein als current price
+   * @deprecated Decoy-Preis für psychologische Preisgestaltung
    */
   decoy: 29.00
 } as const;

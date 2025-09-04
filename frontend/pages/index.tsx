@@ -8,9 +8,7 @@ import Layout from "@/components/Layout";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Instagram, Zap, Eye, Camera } from "lucide-react";
 import { TIER_PRICES, formatPrice } from "../lib/pricing";
-import { savePricingTier, toTierUrlParam } from "@/lib/pricing-session";
 import { info } from "@/lib/log";
-import { useRouter } from 'next/router';
 
 // Consistent bullet point component for better alignment
 const BulletPoint = ({ icon: Icon, children, className = "" }: { 
@@ -40,8 +38,6 @@ interface RealTestimonial {
 }
 
 export default function TieredPferdeWertHomepage() {
-  const router = useRouter();
-  
   // Testimonials data - original from index.tsx
   const realTestimonials: RealTestimonial[] = [
     {
@@ -103,28 +99,6 @@ export default function TieredPferdeWertHomepage() {
       antwort: "Ja, absolut! Falls du nicht zufrieden bist, erstatten wir dir den vollen Betrag zurück. Kein Risiko für dich."
     }
   ];
-
-  // Tier selection handler – übernimmt Logik von Preise-Seite
-  const handleTierSelect = (tier: 'basic' | 'pro' | 'premium') => {
-    // Logging
-    info('Index-Tiered: Tier selected', { tier });
-
-    // Analytics
-    if (typeof window !== 'undefined') {
-      const { gtag } = (window as unknown as { gtag?: (...args: unknown[]) => void });
-      gtag?.('event', 'pricing_tier_selected', {
-        tier_name: tier,
-        tier_price: TIER_PRICES[tier],
-        currency: 'EUR',
-        page_location: '/'
-      });
-    }
-
-    // Auswahl speichern und weiterleiten
-    try { savePricingTier(tier); } catch {}
-    const tierParam = toTierUrlParam(tier);
-    router.push(`/pferde-preis-berechnen?tier=${tierParam}`);
-  };
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -249,15 +223,15 @@ export default function TieredPferdeWertHomepage() {
                   </div>
                 </div>
 
-                {/* NEW: Tier-Aware CTA Buttons */}
+                {/* Main CTA to Pricing Page */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => handleTierSelect('basic')}
+                  <Link
+                    href="/preise"
                     className="btn-primary group text-lg px-8 py-4"
                   >
-                    Schnelle Bewertung ab {formatPrice(TIER_PRICES.basic)}
+                    Jetzt Bewertung wählen
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -337,12 +311,12 @@ export default function TieredPferdeWertHomepage() {
                     <Link href="/beispiel-basic" className="text-sm text-brand-brown hover:underline block mb-4">
                       Basic-Beispiel ansehen
                     </Link>
-                    <button 
-                      onClick={() => handleTierSelect('basic')}
-                      className="w-full btn-secondary py-3"
+                    <Link
+                      href="/preise#basic"
+                      className="w-full btn-secondary py-3 inline-block text-center"
                     >
-                      Basic starten
-                    </button>
+                      Basic wählen
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -377,12 +351,12 @@ export default function TieredPferdeWertHomepage() {
                     <Link href="/beispiel-pro" className="text-sm text-brand-brown hover:underline block mb-4">
                       Pro-Beispiel ansehen
                     </Link>
-                    <button 
-                      onClick={() => handleTierSelect('pro')}
-                      className="w-full btn-primary py-3"
+                    <Link
+                      href="/preise#pro"
+                      className="w-full btn-primary py-3 inline-block text-center"
                     >
-                      Pro starten
-                    </button>
+                      Pro wählen
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -411,12 +385,12 @@ export default function TieredPferdeWertHomepage() {
                     <Link href="/beispiel-premium" className="text-sm text-brand-brown hover:underline block mb-4">
                       Premium-Beispiel ansehen
                     </Link>
-                    <button 
-                      onClick={() => handleTierSelect('premium')}
-                      className="w-full btn-secondary py-3"
+                    <Link
+                      href="/preise#premium"
+                      className="w-full btn-secondary py-3 inline-block text-center"
                     >
-                      Premium starten
-                    </button>
+                      Premium wählen
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -516,12 +490,12 @@ export default function TieredPferdeWertHomepage() {
                 </p>
               </div>
               
-              <button
-                onClick={() => document.getElementById('tier-selection')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link
+                href="/preise"
                 className="btn-primary text-lg px-8 py-4 inline-block"
               >
-                Zur Auswahl
-              </button>
+                Zur Bewertungsauswahl
+              </Link>
               
               <div className="mt-4">
                 <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
@@ -651,12 +625,12 @@ export default function TieredPferdeWertHomepage() {
             </div>
 
             <div className="text-center mt-12">
-              <button
-                onClick={() => document.getElementById('tier-selection')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link
+                href="/preise"
                 className="btn-primary text-lg px-8 py-4"
               >
                 Bewertung auswählen
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -672,34 +646,17 @@ export default function TieredPferdeWertHomepage() {
                 Wähle die passende Bewertung für deine Bedürfnisse und erhalte sofort eine detaillierte Analyse.
               </p>
               
-              {/* Tier Selection Buttons */}
-              <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
-                <button 
-                  onClick={() => handleTierSelect('basic')}
-                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-xl p-4 transition-colors"
+              {/* Main CTA to Pricing */}
+              <div className="mb-8">
+                <Link
+                  href="/preise"
+                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl p-6 transition-colors inline-flex flex-col items-center text-lg font-semibold"
                 >
-                  <div className="text-lg font-semibold">Schnellstart</div>
-                  <div className="text-2xl font-bold">{formatPrice(TIER_PRICES.basic)}</div>
-                  <div className="text-sm opacity-90">Basic starten</div>
-                </button>
-                
-                <button 
-                  onClick={() => handleTierSelect('pro')}
-                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl p-4 transition-colors transform scale-105"
-                >
-                  <div className="text-lg font-semibold">Detailliert</div>
-                  <div className="text-2xl font-bold">{formatPrice(TIER_PRICES.pro)}</div>
-                  <div className="text-sm">Pro starten</div>
-                </button>
-                
-                <button 
-                  onClick={() => handleTierSelect('premium')}
-                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-xl p-4 transition-colors"
-                >
-                  <div className="text-lg font-semibold">Mit Fotos</div>
-                  <div className="text-2xl font-bold">{formatPrice(TIER_PRICES.premium)}</div>
-                  <div className="text-sm opacity-90">Premium starten</div>
-                </button>
+                  <div className="text-xl font-bold mb-2">Bewertung wählen</div>
+                  <div className="text-base opacity-90">
+                    Basic ab {formatPrice(TIER_PRICES.basic)} • Pro ab {formatPrice(TIER_PRICES.pro)} • Premium ab {formatPrice(TIER_PRICES.premium)}
+                  </div>
+                </Link>
               </div>
               
               <p className="text-sm text-brand-light/80">
