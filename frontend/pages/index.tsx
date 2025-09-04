@@ -261,9 +261,9 @@ export default function TieredPferdeWertHomepage() {
                 <span className="font-semibold text-brand-brown">🎯 3 Bewertungsoptionen zur Auswahl:</span>
               </p>
               <p className="text-xl font-bold text-brand-brown mt-2">
-                <span className="inline-block">Basic {formatPrice(TIER_PRICES.basic)} •</span>{' '}
-                <span className="inline-block">Pro {formatPrice(TIER_PRICES.pro)} •</span>{' '}
-                <span className="inline-block">Premium {formatPrice(TIER_PRICES.premium)}</span>
+                <span className="inline-block">Basic {formatPrice(TIER_PRICES.basic)}</span>{' '}
+                <span className="inline-block">• Pro {formatPrice(TIER_PRICES.pro)}</span>{' '}
+                <span className="inline-block">• Premium {formatPrice(TIER_PRICES.premium)}</span>
               </p>
               <p className="text-base text-gray-700 mt-2">
                 Finde die perfekte Analyse für dein Pferd
