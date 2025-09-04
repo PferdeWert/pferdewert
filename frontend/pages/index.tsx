@@ -8,7 +8,6 @@ import Layout from "@/components/Layout";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Instagram, Zap, Eye, Camera } from "lucide-react";
 import { TIER_PRICES, formatPrice } from "../lib/pricing";
-import { info } from "@/lib/log";
 
 // Consistent bullet point component for better alignment
 const BulletPoint = ({ icon: Icon, children, className = "" }: { 

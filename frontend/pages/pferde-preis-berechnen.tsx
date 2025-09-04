@@ -10,7 +10,7 @@ import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import TierSelectionModal from "@/components/TierSelectionModal";
 import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle, ChevronDown, Instagram } from "lucide-react";
-import { PRICING_FORMATTED, PRICING_TIERS, type PricingTier } from "../lib/pricing";
+import { PRICING_TIERS, type PricingTier } from "../lib/pricing";
 import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
 import { 
   trackValuationStart, 
@@ -363,9 +363,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         const migratedForm: FormState = {
           ...initialForm,
           ...rest,
-          haupteignung: rest.haupteignung || parsedForm.verwendungszweck || "",
-          charakter: rest.charakter || "",
-          besonderheiten: rest.besonderheiten || "",
+          haupteignung: (rest.haupteignung as string) || parsedForm.verwendungszweck || "",
+          charakter: (rest.charakter as string) || "",
+          besonderheiten: (rest.besonderheiten as string) || "",
           // ensure pricing fields are not restored from legacy storage
           selectedTier: undefined,
           tierPrice: undefined,
