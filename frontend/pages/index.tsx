@@ -6,22 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Zap, Eye, Camera } from "lucide-react";
+import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Camera } from "lucide-react";
+import PricingDisplay from "@/components/pricing/PricingDisplay";
+import { PricingTier } from "@/lib/pricing";
 import { TIER_PRICES, formatPrice } from "../lib/pricing";
 
-// Consistent bullet point component for better alignment
-const BulletPoint = ({ icon: Icon, children, className = "" }: { 
-  icon: React.ComponentType<{ className?: string }>, 
-  children: React.ReactNode,
-  className?: string 
-}) => (
-  <div className={`flex items-start text-sm leading-5 ${className}`}>
-    <div className="flex-shrink-0 w-4 h-4 mt-0.5 mr-3 flex items-center justify-center">
-      <Icon className="w-4 h-4 text-brand-brown" />
-    </div>
-    <span className="flex-1">{children}</span>
-  </div>
-);
 
 // TypeScript interfaces for testimonials with tier indicators
 interface RealTestimonial {
@@ -275,133 +264,14 @@ export default function TieredPferdeWertHomepage() {
           </div>
         </section>
 
-        {/* NEW: Tier Preview Section */}
+        {/* Optimized Pricing Section */}
         <section id="tier-selection" className="section bg-white">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Welche Bewertung passt zu dir?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Wähle die passende Bewertung für deine Bedürfnisse – Von der schnellen Marktpreis-Schätzung bis zur Premium KI-Foto-Analyse mit ausführlicher Exterieur Bewertung.
-              </p>
-            </div>
-
-            {/* Simplified Tier Cards for Homepage Preview */}
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-              
-              {/* Basic Tier */}
-              <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 text-center hover:border-brand-brown/30 transition-colors h-full flex flex-col">
-                <div className="space-y-4 flex-1 flex flex-col">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Basic</h3>
-                    <div className="text-3xl font-bold text-brand-brown">{formatPrice(TIER_PRICES.basic)}</div>
-                  </div>
-                  
-                  <div className="flex flex-col gap-3 text-left flex-1">
-                    <BulletPoint icon={Zap}>
-                      Schnelle Marktpreis-Einschätzung
-                    </BulletPoint>
-                    <BulletPoint icon={Clock}>
-                      Ergebnis in unter 1 Minute
-                    </BulletPoint>
-                    <BulletPoint icon={CheckCircle}>
-                      Perfekt für schnelle Einschätzung
-                    </BulletPoint>
-                  </div>
-                  
-                  <div className="pt-4 mt-auto">
-                    <Link href="/beispiel-basic" className="text-sm text-brand-brown hover:underline block mb-4">
-                      Basic-Beispiel ansehen
-                    </Link>
-                    <Link
-                      href="/pferde-preis-berechnen?tier=basic"
-                      className="w-full btn-secondary py-3 inline-block text-center"
-                    >
-                      Basic wählen
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Pro Tier - Highlighted */}
-              <div className="bg-white border-2 border-brand-brown rounded-2xl p-6 text-center relative shadow-xl h-full flex flex-col md:-mt-2 md:mb-2">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-brand-brown text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    BELIEBTESTE WAHL
-                  </span>
-                </div>
-                
-                <div className="space-y-4 pt-2 flex-1 flex flex-col">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Pro</h3>
-                    <div className="text-3xl font-bold text-brand-brown">{formatPrice(TIER_PRICES.pro)}</div>
-                  </div>
-                  
-                  <div className="flex flex-col gap-3 text-left flex-1">
-                    <BulletPoint icon={CheckCircle}>
-                      Alles aus Basic, zusätzlich:
-                    </BulletPoint>
-                    <BulletPoint icon={TrendingUp}>
-                      Detaillierte Pferdebewertung
-                    </BulletPoint>
-                    <BulletPoint icon={Clock}>
-                      Ausführlicher PDF-Report
-                    </BulletPoint>
-                  </div>
-                  
-                  <div className="pt-4 mt-auto">
-                    <Link href="/beispiel-pro" className="text-sm text-brand-brown hover:underline block mb-4">
-                      Pro-Beispiel ansehen
-                    </Link>
-                    <Link
-                      href="/pferde-preis-berechnen?tier=pro"
-                      className="w-full btn-primary py-3 inline-block text-center"
-                    >
-                      Pro wählen
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Premium Tier */}
-              <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 text-center hover:border-brand-brown/30 transition-colors h-full flex flex-col">
-                <div className="space-y-4 flex-1 flex flex-col">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Premium</h3>
-                    <div className="text-3xl font-bold text-brand-brown">{formatPrice(TIER_PRICES.premium)}</div>
-                  </div>
-                  
-                  <div className="flex flex-col gap-3 text-left flex-1">
-                    <BulletPoint icon={CheckCircle}>
-                      Alles aus Basic und Pro, zusätzlich:
-                    </BulletPoint>
-                    <BulletPoint icon={Camera}>
-                      Bilder-Upload
-                    </BulletPoint>
-                    <BulletPoint icon={Eye}>
-                      Ausführliche Exterieur-Bewertung
-                    </BulletPoint>
-                  </div>
-                  
-                  <div className="pt-4 mt-auto">
-                    <Link href="/beispiel-premium" className="text-sm text-brand-brown hover:underline block mb-4">
-                      Premium-Beispiel ansehen
-                    </Link>
-                    <Link
-                      href="/pferde-preis-berechnen?tier=premium"
-                      className="w-full btn-secondary py-3 inline-block text-center"
-                    >
-                      Premium wählen
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="text-center mt-12">
-              <p className="text-sm text-gray-600">
-                🔒 Sichere Bezahlung • ⚡ Sofortiges Ergebnis • 💰 30-Tage Geld-zurück-Garantie
-              </p>
-            </div>
+            <PricingDisplay
+              onTierSelect={(data: { tier: PricingTier; price: number; stripeId: string; displayName: string }) => {
+                window.location.href = `/pferde-preis-berechnen?tier=${data.tier}`;
+              }}
+            />
           </div>
         </section>
 
