@@ -214,7 +214,7 @@ export default function TieredPferdeWertHomepage() {
                 {/* Main CTA to Form with Pro tier (most popular) */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/pferde-preis-berechnen?tier=pro"
+                    href="/preise"
                     className="btn-primary group text-lg px-8 py-4"
                   >
                     Jetzt Bewertung wählen
@@ -364,7 +364,7 @@ export default function TieredPferdeWertHomepage() {
               </div>
               
               <Link
-                href="/pferde-preis-berechnen?tier=pro"
+                href="/preise"
                 className="btn-primary text-lg px-8 py-4 inline-block"
               >
                 Jetzt bewerten lassen
@@ -499,7 +499,7 @@ export default function TieredPferdeWertHomepage() {
 
             <div className="text-center mt-12">
               <Link
-                href="/pferde-preis-berechnen?tier=pro"
+                href="/preise"
                 className="btn-primary text-lg px-8 py-4"
               >
                 Jetzt bewerten lassen
@@ -522,7 +522,7 @@ export default function TieredPferdeWertHomepage() {
               {/* Main CTA to Form with Pro tier */}
               <div className="mb-8">
                 <Link
-                  href="/bewerten?tier=pro"
+                  href="/preise"
                   className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl p-6 transition-colors inline-flex flex-col items-center text-lg font-semibold"
                 >
                   <div className="text-xl font-bold mb-2">Jetzt Pro Bewertung starten</div>

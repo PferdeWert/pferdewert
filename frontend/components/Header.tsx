@@ -133,7 +133,7 @@ export default function Header() {
           </div>
           
           <Link
-            href="/pferde-preis-berechnen"
+            href="/preise"
             className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
           >
             Jetzt bewerten
@@ -224,7 +224,7 @@ export default function Header() {
           {/* Mobile CTA Button */}
           <div className="pt-4 space-y-3 border-t border-gray-200">
             <Link
-              href="/pferde-preis-berechnen"
+              href="/preise"
               className="block w-full text-center bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-3 rounded-lg transition-colors font-medium"
               onClick={closeMenu}
             >
