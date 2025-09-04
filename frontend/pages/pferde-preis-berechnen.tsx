@@ -249,7 +249,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       const params = new URLSearchParams(window.location.search);
       const tierParam = params.get('tier');
       const normalized = normalizeTierParam(tierParam);
-      const resolved: PricingTier | null = normalized || getSavedTier();
+      
+      // For Alternative Flow: Only use session storage if there's a tier param in URL
+      // This ensures direct visits to /pferde-preis-berechnen trigger tier selection modal
+      const resolved: PricingTier | null = normalized || (tierParam ? getSavedTier() : null);
 
       // Alternative Flow: Allow form access without tier selection
       // If no tier is available, continue with null tier - selection happens after form completion
@@ -473,6 +476,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     setSelectedTier(tier);
     savePricingTier(tier);
     
+    // CRITICAL FIX: Update the form object with the selected tier
+    // This ensures the tier is included in the API request
+    setForm(prev => ({
+      ...prev,
+      selectedTier: tier,
+      tierPrice: PRICING_TIERS[tier].price,
+      stripeProductId: PRICING_TIERS[tier].stripeId
+    }));
+    
     // Close modal and start loading
     setShowTierModal(false);
     setModalLoading(true);
@@ -693,7 +705,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
             {selectedTier && (
               <div className="mb-6">
                 <div className="bg-brand-brown text-white px-5 py-3 rounded-2xl inline-flex items-center gap-3">
-                  <span className="text-sm opacity-90">Dein Tarif</span>
                   <strong className="text-base lg:text-lg font-semibold">
                     {PRICING_TIERS[selectedTier].displayName}
                   </strong>

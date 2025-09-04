@@ -122,7 +122,7 @@ export default function ProBeispiel() {
 
         <div className="not-prose mt-10 flex justify-center">
           <Link
-            href="/pferde-preis-berechnen"
+            href="/pferde-preis-berechnen?tier=pro"
             className="btn-primary"
           >
             Jetzt Professional Bewertung starten

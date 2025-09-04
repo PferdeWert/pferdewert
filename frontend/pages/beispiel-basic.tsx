@@ -57,7 +57,7 @@ export default function BasicBeispiel() {
 
         <div className="not-prose mt-10 flex justify-center">
           <Link
-            href="/pferde-preis-berechnen"
+            href="/pferde-preis-berechnen?tier=basic"
             className="btn-primary"
           >
             Jetzt Basic Bewertung starten

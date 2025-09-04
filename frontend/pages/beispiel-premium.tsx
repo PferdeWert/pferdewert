@@ -208,7 +208,7 @@ export default function PremiumBeispiel() {
 
         <div className="not-prose mt-10 flex justify-center">
           <Link
-            href="/pferde-preis-berechnen"
+            href="/pferde-preis-berechnen?tier=premium"
             className="btn-primary"
           >
             Jetzt Premium Bewertung starten
