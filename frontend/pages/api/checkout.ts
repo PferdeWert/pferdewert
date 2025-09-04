@@ -121,11 +121,15 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       return res.status(400).json({ error: "Invalid tier selected", code: "INVALID_TIER" });
     }
     const PRICE_IDS: Record<'basic' | 'pro' | 'premium', string> = {
-      basic: process.env.STRIPE_PRICE_ID_BASIC || 'price_basic',
-      pro: process.env.STRIPE_PRICE_ID_PRO || STRIPE_CONFIG.priceId || '',
-      premium: process.env.STRIPE_PRICE_ID_PREMIUM || 'price_premium',
+      basic: process.env.STRIPE_PRICE_ID_BASIC || '',
+      pro: process.env.STRIPE_PRICE_ID_PRO || '',
+      premium: process.env.STRIPE_PRICE_ID_PREMIUM || '',
     };
-    const priceIdForTier = PRICE_IDS[tierId] || STRIPE_CONFIG.priceId || '';
+    const priceIdForTier = PRICE_IDS[tierId];
+    if (!priceIdForTier) {
+      error("[CHECKOUT] ❌ Stripe Price ID fehlt für Tier:", tierId);
+      return res.status(500).json({ error: "Stripe price id not configured for selected tier", code: "PRICE_ID_MISSING" });
+    }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],

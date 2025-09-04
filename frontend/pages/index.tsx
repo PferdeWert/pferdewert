@@ -13,6 +13,20 @@ import { savePricingTier, toTierUrlParam } from "@/lib/pricing-session";
 import { info } from "@/lib/log";
 import { useRouter } from 'next/router';
 
+// Consistent bullet point component for better alignment
+const BulletPoint = ({ icon: Icon, children, className = "" }: { 
+  icon: React.ComponentType<{ className?: string }>, 
+  children: React.ReactNode,
+  className?: string 
+}) => (
+  <div className={`flex items-start text-sm leading-5 ${className}`}>
+    <div className="flex-shrink-0 w-4 h-4 mt-0.5 mr-3 flex items-center justify-center">
+      <Icon className="w-4 h-4 text-brand-brown" />
+    </div>
+    <span className="flex-1">{children}</span>
+  </div>
+);
+
 // TypeScript interfaces for testimonials with tier indicators
 interface RealTestimonial {
   name: string;
@@ -307,19 +321,16 @@ export default function TieredPferdeWertHomepage() {
                     <div className="text-3xl font-bold text-brand-brown">{formatPrice(TIER_PRICES.basic)}</div>
                   </div>
                   
-                  <div className="space-y-3 text-left flex-1">
-                    <div className="flex items-center text-sm">
-                      <Zap className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Schnelle Marktpreis-Einschätzung</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Clock className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Ergebnis in unter 1 Minute</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <CheckCircle className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Perfekt für schnelle Einschätzung</span>
-                    </div>
+                  <div className="flex flex-col gap-3 text-left flex-1">
+                    <BulletPoint icon={Zap}>
+                      Schnelle Marktpreis-Einschätzung
+                    </BulletPoint>
+                    <BulletPoint icon={Clock}>
+                      Ergebnis in unter 1 Minute
+                    </BulletPoint>
+                    <BulletPoint icon={CheckCircle}>
+                      Perfekt für schnelle Einschätzung
+                    </BulletPoint>
                   </div>
                   
                   <div className="pt-4 mt-auto">
@@ -337,7 +348,7 @@ export default function TieredPferdeWertHomepage() {
               </div>
 
               {/* Pro Tier - Highlighted */}
-              <div className="bg-white border-2 border-brand-brown rounded-2xl p-6 text-center relative shadow-xl h-full flex flex-col md:transform md:scale-105">
+              <div className="bg-white border-2 border-brand-brown rounded-2xl p-6 text-center relative shadow-xl h-full flex flex-col md:-mt-2 md:mb-2">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                   <span className="bg-brand-brown text-white px-4 py-1 rounded-full text-sm font-semibold">
                     BELIEBTESTE WAHL
@@ -350,19 +361,16 @@ export default function TieredPferdeWertHomepage() {
                     <div className="text-3xl font-bold text-brand-brown">{formatPrice(TIER_PRICES.pro)}</div>
                   </div>
                   
-                  <div className="space-y-3 text-left flex-1">
-                    <div className="flex items-center text-sm">
-                      <CheckCircle className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Alles aus Basic, zusätzlich:</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <TrendingUp className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Detaillierte Pferdebewertung</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Clock className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Ausführlicher PDF-Report</span>
-                    </div>
+                  <div className="flex flex-col gap-3 text-left flex-1">
+                    <BulletPoint icon={CheckCircle}>
+                      Alles aus Basic, zusätzlich:
+                    </BulletPoint>
+                    <BulletPoint icon={TrendingUp}>
+                      Detaillierte Pferdebewertung
+                    </BulletPoint>
+                    <BulletPoint icon={Clock}>
+                      Ausführlicher PDF-Report
+                    </BulletPoint>
                   </div>
                   
                   <div className="pt-4 mt-auto">
@@ -387,19 +395,16 @@ export default function TieredPferdeWertHomepage() {
                     <div className="text-3xl font-bold text-brand-brown">{formatPrice(TIER_PRICES.premium)}</div>
                   </div>
                   
-                  <div className="space-y-3 text-left flex-1">
-                    <div className="flex items-center text-sm">
-                      <CheckCircle className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Alles aus Basic und Pro, zusätzlich:</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Camera className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Bilder-Upload</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Eye className="w-4 h-4 text-brand-brown mr-2 flex-shrink-0" />
-                      <span>Ausführliche Exterieur-Bewertung</span>
-                    </div>
+                  <div className="flex flex-col gap-3 text-left flex-1">
+                    <BulletPoint icon={CheckCircle}>
+                      Alles aus Basic und Pro, zusätzlich:
+                    </BulletPoint>
+                    <BulletPoint icon={Camera}>
+                      Bilder-Upload
+                    </BulletPoint>
+                    <BulletPoint icon={Eye}>
+                      Ausführliche Exterieur-Bewertung
+                    </BulletPoint>
                   </div>
                   
                   <div className="pt-4 mt-auto">

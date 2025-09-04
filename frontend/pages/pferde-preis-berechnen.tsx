@@ -298,19 +298,28 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     const savedForm = localStorage.getItem(STORAGE_KEY);
     if (savedForm) {
       try {
-        const parsedForm = JSON.parse(savedForm) as FormState;
-        
+        const parsedForm = JSON.parse(savedForm) as FormState & { verwendungszweck?: string; tier?: string };
+
+        // Sanitize legacy pricing fields that could force a default checkout
+        // Remove any previously persisted tier information to enable the alternative flow
+        const { tier: _legacyTier, selectedTier: _legacySelectedTier, tierPrice: _legacyTierPrice, stripeProductId: _legacyStripeId, ...rest } = parsedForm as any;
+
         // Migration: verwendungszweck → haupteignung
-        const legacyForm = parsedForm as FormState & { verwendungszweck?: string };
         const migratedForm = {
-          ...parsedForm,
-          haupteignung: parsedForm.haupteignung || legacyForm.verwendungszweck || "",
-          charakter: parsedForm.charakter || "",
-          besonderheiten: parsedForm.besonderheiten || ""
-        };
-        
-        setForm(prev => ({ ...migratedForm, selectedTier: prev.selectedTier, tierPrice: prev.tierPrice, stripeProductId: prev.stripeProductId }));
-        info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration)");
+          ...rest,
+          haupteignung: (rest as any).haupteignung || parsedForm.verwendungszweck || "",
+          charakter: (rest as any).charakter || "",
+          besonderheiten: (rest as any).besonderheiten || "",
+        } as FormState;
+
+        // Important: keep pricing fields from current state (prev) so we don't leak legacy tier values
+        setForm(prev => ({
+          ...migratedForm,
+          selectedTier: prev.selectedTier,
+          tierPrice: prev.tierPrice,
+          stripeProductId: prev.stripeProductId,
+        }));
+        info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration & Pricing-Feld-Bereinigung)");
       } catch (e) {
         warn("Fehler beim Wiederherstellen des Formulars:", e);
       }

@@ -25,7 +25,7 @@ import { info } from '@/lib/log';
 const TIER_CONFIG = {
   basic: {
     displayName: 'PferdeWert Basic',
-    description: 'Schnelle Marktpreis-Schätzung',
+    description: 'Schnelle Marktpreis-Schätzung, sofortiges Ergebnis',
     features: [
      'KI-Marktwert-Analyse',
      'inkl. Preisspannen-Erklärung'
