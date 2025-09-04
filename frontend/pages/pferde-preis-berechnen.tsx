@@ -34,7 +34,7 @@ interface FormState {
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
   // Pricing context
-  selectedTier?: PricingTier; // 'basic' | 'standard' | 'premium'
+  selectedTier?: PricingTier; // 'basic' | 'pro' | 'premium'
   tierPrice?: number;
   stripeProductId?: string;
 }

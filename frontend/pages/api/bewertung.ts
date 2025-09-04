@@ -8,6 +8,7 @@ const querySchema = z.object({
   id: z.string().refine((val) => ObjectId.isValid(val), {
     message: "Ungültige ObjectId",
   }),
+  token: z.string().min(16).max(128).optional(),
 });
 
 // Simplified rate limiting - more permissive for loading issues
@@ -16,6 +17,7 @@ const rateLimiter = new Map<string, { count: number; resetTime: number }>();
 // In-memory cache for frequently accessed bewertungen (5 minute TTL)
 interface BewertungResponse {
   bewertung: string;
+  tier?: string;
 }
 
 const bewertungCache = new Map<string, { data: BewertungResponse; expiry: number }>();
@@ -114,7 +116,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: "Missing or invalid id", details: parse.error.flatten() });
   }
 
-  const { id } = parse.data;
+  const { id, token } = parse.data;
 
   // Simplified ID validation - let MongoDB validate the ObjectId
   if (!ObjectId.isValid(id)) {
@@ -148,6 +150,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(404).json({ error: "Bewertung nicht gefunden" });
     }
 
+    // Security: If document has a readToken (new docs), require matching token on direct access
+    const requiresToken = Boolean((result as any)?.readToken);
+    if (isDirect && requiresToken) {
+      if (!token || token !== (result as any).readToken) {
+        console.warn("[BEWERTUNG] ❌ Invalid or missing read token for direct access", { id: idString });
+        return res.status(403).json({ error: "Zugriff verweigert" });
+      }
+    }
+
     if (!result.bewertung) {
       console.info("[BEWERTUNG] ⏳ Document found but bewertung field is empty/null");
       return res.status(404).json({ 
@@ -159,14 +170,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     console.log("[BEWERTUNG] ✅ Successfully returning bewertung");
-    const response = { bewertung: result.bewertung };
+    let tier = (result as any)?.current_tier || (result as any)?.purchased_tier || undefined;
+    if (tier === 'standard') tier = 'basic';
+    const response: BewertungResponse = tier 
+      ? { bewertung: result.bewertung, tier }
+      : { bewertung: result.bewertung };
     
     // Cache successful result
     setCachedBewertung(idString, response);
     
-    res.status(200).json(response);
+    return res.status(200).json(response);
   } catch (err) {
     console.error("[BEWERTUNG] ❌ Fehler beim Laden der Bewertung:", err);
-    res.status(500).json({ error: "Fehler beim Laden der Bewertung" });
+    return res.status(500).json({ error: "Fehler beim Laden der Bewertung" });
   }
 }

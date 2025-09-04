@@ -97,7 +97,7 @@ export default function ProBeispiel() {
         <title>Professional Beispiel-Analyse – Detaillierte KI-Analyse | PferdeWert</title>
         <meta
           name="description"
-          content={`🐎 Professional Beispiel-Analyse: Detaillierte KI-Analyse für ${formatPrice(TIER_PRICES.standard)} ➤ Ausführlicher PDF-Report ✓ Begründung & Tipps ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!`}
+          content={`🐎 Professional Beispiel-Analyse: Detaillierte KI-Analyse für ${formatPrice(TIER_PRICES.pro)} ➤ Ausführlicher PDF-Report ✓ Begründung & Tipps ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!`}
         />
         <meta property="og:title" content="Professional Beispiel-Analyse – Detaillierte KI-Analyse | PferdeWert" />
         <meta property="og:description" content="Sieh dir die Professional Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung." />
@@ -109,7 +109,7 @@ export default function ProBeispiel() {
       <BewertungLayout title="📝 PferdeWert Pro">
         <div className="text-center mb-6">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
-            {`Professional Tarif - ${formatPrice(TIER_PRICES.standard)}`}
+            {`Professional Tarif - ${formatPrice(TIER_PRICES.pro)}`}
           </div>
           <p className="text-lg text-gray-600">
             Das bekommst du mit unserem Professional-Tarif:

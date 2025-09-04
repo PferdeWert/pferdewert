@@ -180,6 +180,8 @@ class BewertungRequest(BaseModel):
     charakter: Optional[str] = None
     besonderheiten: Optional[str] = None
     attribution_source: Optional[str] = None
+    # Pricing context (optional; used for tracking only)
+    tier: Optional[str] = None  # "basic" | "pro/standard" | "premium"
 
 # ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
@@ -275,7 +277,11 @@ def bewertung(req: BewertungRequest):
     logging.info(f"Incoming Request: {req.dict()}")
     try:
         ai_text = ai_valuation(req)
-        return {"raw_gpt": ai_text}  # Key-Name bleibt für Frontend-Kompatibilität
+        # Extend response with pricing context for optional downstream usage
+        return {
+            "raw_gpt": ai_text,
+            "tier": req.tier,
+        }  # Key-Name bleibt für Frontend-Kompatibilität
     except Exception as e:
         logging.error(f"AI-Error: {e}")
         return {

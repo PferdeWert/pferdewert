@@ -130,18 +130,18 @@ export const validatePricing = (): boolean => {
 // ===== 3-TIER PRICING VARIABLES =====
 export const TIER_PRICES = {
   basic: 14.90,
-  standard: 19.90,  // internally "standard", displayed as "pro"
+  pro: 19.90,
   premium: 39.90,
 } as const;
 
 
 export const TIER_STRIPE_IDS = {
   basic: process.env.STRIPE_PRICE_ID_BASIC || '',
-  standard: process.env.STRIPE_PRICE_ID_PRO || '',  // uses PRO env var but internal name is standard
+  pro: process.env.STRIPE_PRICE_ID_PRO || '',
   premium: process.env.STRIPE_PRICE_ID_PREMIUM || '',
 } as const;
 
-export type PricingTier = keyof typeof TIER_PRICES;
+export type PricingTier = keyof typeof TIER_PRICES; // 'basic' | 'pro' | 'premium'
 
 // ===== 3-TIER PRICING CONFIGURATION =====
 export const PRICING_TIERS = {
@@ -150,10 +150,10 @@ export const PRICING_TIERS = {
     price: TIER_PRICES.basic,
     stripeId: TIER_STRIPE_IDS.basic
   },
-  standard: {
+  pro: {
     displayName: 'Pro',
-    price: TIER_PRICES.standard,
-    stripeId: TIER_STRIPE_IDS.standard
+    price: TIER_PRICES.pro,
+    stripeId: TIER_STRIPE_IDS.pro
   },
   premium: {
     displayName: 'Premium',

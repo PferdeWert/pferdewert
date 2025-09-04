@@ -40,9 +40,9 @@ export default function PreiseNeuPage() {
 
     // Persist selection for 30 minutes and redirect with canonical tier param (pro for standard)
     try {
-      savePricingTier(data.tier as 'basic' | 'standard' | 'premium');
+      savePricingTier(data.tier as 'basic' | 'pro' | 'premium');
     } catch {}
-    const tierParam = toTierUrlParam(data.tier as 'basic' | 'standard' | 'premium');
+    const tierParam = toTierUrlParam(data.tier as 'basic' | 'pro' | 'premium');
     router.push(`/pferde-preis-berechnen?tier=${tierParam}`);
   };
 
@@ -53,7 +53,7 @@ export default function PreiseNeuPage() {
         <title>Pferdebewertung Preise - PferdeWert.de | KI-gestützte Pferdebewertung</title>
         <meta 
           name="description" 
-          content={`Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (${formatPrice(TIER_PRICES.basic)}), Professional (${formatPrice(TIER_PRICES.standard)}) oder Premium (${formatPrice(TIER_PRICES.premium)}). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report.`} 
+          content={`Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (${formatPrice(TIER_PRICES.basic)}), Pro (${formatPrice(TIER_PRICES.pro)}) oder Premium (${formatPrice(TIER_PRICES.premium)}). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report.`} 
         />
         <meta name="keywords" content="Pferdebewertung, Pferd bewerten lassen, Pferdewert ermitteln, AI Pferdebewertung, Pferdemarkt, Preise" />
         <meta property="og:title" content="Pferdebewertung Preise - PferdeWert.de" />
@@ -87,8 +87,8 @@ export default function PreiseNeuPage() {
                 },
                 {
                   "@type": "Offer", 
-                  "name": "PferdeWert Professional",
-                  "price": TIER_PRICES.standard.toFixed(2),
+                  "name": "PferdeWert Pro",
+                  "price": TIER_PRICES.pro.toFixed(2),
                   "priceCurrency": "EUR",
                   "description": "Detaillierte KI-Analyse mit ausführlichem Seiten PDF-Report"
                 },

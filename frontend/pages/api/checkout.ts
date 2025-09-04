@@ -6,6 +6,7 @@ import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
 import { z } from "zod";
 import { STRIPE_CONFIG } from "@/lib/pricing";
+import crypto from "crypto";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
@@ -95,17 +96,18 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     // Determine Stripe price by selected tier (defaults to standard/current)
     const pd = parsedData as { selectedTier?: unknown; tier?: unknown };
     const rawSelectedTier: unknown = pd?.selectedTier ?? pd?.tier;
-    const normalizeTier = (t: unknown): 'basic' | 'standard' | 'premium' => {
+    const normalizeTier = (t: unknown): 'basic' | 'pro' | 'premium' => {
       const v = typeof t === 'string' ? t.toLowerCase() : '';
-      if (v === 'pro') return 'standard';
-      if (v === 'standard') return 'standard';
+      if (v === 'pro') return 'pro';
+      // Backward-compat: treat legacy 'standard' as 'basic'
+      if (v === 'standard') return 'basic';
       if (v === 'premium') return 'premium';
       return 'basic';
     };
     const tierId = normalizeTier(rawSelectedTier);
-    const PRICE_IDS: Record<'basic' | 'standard' | 'premium', string> = {
+    const PRICE_IDS: Record<'basic' | 'pro' | 'premium', string> = {
       basic: process.env.STRIPE_PRICE_ID_BASIC || 'price_basic',
-      standard: process.env.STRIPE_PRICE_ID_STANDARD || STRIPE_CONFIG.priceId || '',
+      pro: process.env.STRIPE_PRICE_ID_PRO || STRIPE_CONFIG.priceId || '',
       premium: process.env.STRIPE_PRICE_ID_PREMIUM || 'price_premium',
     };
     const priceIdForTier = PRICE_IDS[tierId] || STRIPE_CONFIG.priceId || '';
@@ -121,11 +123,16 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     });
 
     const collection = await getCollection("bewertungen");
+    const readToken = crypto.randomBytes(24).toString("hex");
     await collection.insertOne({
       _id: bewertungId,
       ...bewertungData,
       status: "offen",
       stripeSessionId: session.id,
+      // Persist purchased/current tier early, so direct links can gate content
+      purchased_tier: tierId,
+      current_tier: tierId,
+      readToken,
       erstellt: new Date(),
     });
 

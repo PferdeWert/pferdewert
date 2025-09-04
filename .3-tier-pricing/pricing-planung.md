@@ -4,14 +4,14 @@
 Implementierung eines 3-stufigen Pricing-Modells mit Upselling-Möglichkeiten nach dem Kauf von Tier 1 (Basic).
 
 ## Tier-Struktur
-1. **Basic (14,90€)**: Preisspanne + Erklärung (Anfang der Analyse)
+1. **Basic (14,90€)**: Preisspanne + Erklärung (Absatz Marktwertanalyse der Analyse mit 3 Sub-Überschriften)
 2. **Pro (19,90€)**: Vollständige AI-Analyse mit PDF-Report  
 3. **Premium (39,90€)**: Pro + Foto-Upload + Exterieur-Bewertung
 
 ## Kern-Konzept: Progressive Disclosure mit Upselling
 
 ### Schlanke Lösung ohne Over-Engineering
-Bei Basic-Kauf wird die **vollständige Pro-Analyse** erstellt und in der DB gespeichert, aber nur teilweise angezeigt. Dies ermöglicht sofortiges Upselling ohne weitere AI-Calls. Premium Tier mit Foto Upload machen wir für den MVP manuell. Kunde soll uns Fotos per Mail schicken oder per Dropbox oder Google Docs oder irgend ein einfacher manueller Mechanismus ohne Anpassungen hier im Code (bitte einen Vorschlag machen der möglichst einfach funktioniert) und wir prompten es manuell an eine KI.
+Bei Basic-Kauf wird die **vollständige Pro-Analyse** erstellt und in der DB gespeichert, aber nur teilweise angezeigt. Dies ermöglicht sofortiges Upselling ohne weitere AI-Calls. Premium Tier mit Foto Upload machen wir für den MVP manuell. Wir zeigen beim Ergebnis einen Google Forms Link und verschicken den auch per E-Mail an den Kunden. Auf dem Forms Link muss der Kunde dann möglichst wenig Felder ausfüllen damit wir ihn identifizieren können und dann kann er dort seine Bilder hochladen. und wir prompten es manuell an eine KI.
 
 ## Implementierungsplan
 
@@ -221,20 +221,13 @@ await db.collection('valuations').updateOne(
 const CUT_POINTS = {
   basic: {
     // Nach Preisspanne und grundlegender Erklärung
-    marker: "## Marktübersicht",
+    marker: "## Marktübersicht", // Der Absatz Marktübersicht mit einer Sub-Headline und 3 kleineren Absätzen (Untere Preisgrenze, Obere Preisgrenze und Zielpreis) der muss noch in das Basic Ergebnis mit rein. Was dann nicht mehr zu sehen sein darf in der Basic Analyse: Preisfaktoren im Detail. Bzw. nach MVP in Stufe 2 Upselling können wir das evtl. andeuten.. Aber nicht Schritt 1 MVP.
     fallback: 1500  // Falls Marker nicht gefunden: Zeichen-Limit
   }
 };
 ```
 
-#### Option 2: Zeichen-basiert (Fallback)
-```typescript
-// Einfachste Lösung: Feste Zeichenanzahl
-const BASIC_CHAR_LIMIT = 1500;  // ~300 Wörter
-const basicContent = fullAnalysis.substring(0, BASIC_CHAR_LIMIT);
-```
-
-#### Option 3: Absatz-basiert
+#### Option 2: Absatz-basiert
 ```typescript
 // Zeige erste 3-4 Absätze
 const paragraphs = fullAnalysis.split('\n\n');
@@ -279,22 +272,19 @@ const trackUpsellEvent = (action: string) => {
 - ✅ 3-Tier Pricing Pages bereits implementiert (Traditional + Alternative Flow)
 - Backend: Tier-Parameter in Request/Response
 - Frontend: Tier-Badge und Preis-Display im Formular
-- **KEIN Upselling** - Jeder Tier zeigt vollständige Analyse für bezahlten Preis
-- Basic (14,90€), Pro (19,90€), Premium (39,90€) als separate Kaufoptionen
+- Analyse-Splitting für Basic Tier muss noch implemenitert werden
+- **KEIN Upselling** - Kommt in Step 2 nach MVP Go-Live.
 - Premium: Manuelle Foto-Upload Lösung (siehe Google Forms Setup unten)
 
 ### 📈 **Post-MVP (nach Go-Live)**
 
 **Phase 2 - Upselling Implementation (nach Marktfeedback):**
-- Analyse-Splitting für Basic Tier
 - Upselling UI-Komponenten
 - Payment-Flow für Upgrades
-- A/B Testing zwischen Vollanalyse vs. Upselling-Ansatz
 
 **Phase 3 - Optimierung:**
 - Automatisierter Premium Foto-Upload
 - Advanced Analytics & Conversion-Optimierung
-- Tier-Empfehlungs-Algorithmus
 
 ## Kritische Entscheidungen
 
@@ -322,7 +312,7 @@ Beschreibung: "Laden Sie hier Ihre Pferdefotos hoch für die erweiterte Premium-
 1. Name/Kontakt (Pflichtfeld)
    - Typ: Kurze Antwort
    
-2. Payment ID (Pflichtfeld) 
+2. Payment ID (Pflichtfeld) // das sollte der Kunde nicht raussuchen müssen, mega nervig! will ich nicht haben. Können wir die nicht als UTM Parameter in den Forms Link mitgeben und dann auslesen in Forms oder geht uns das bei Forms verloren?
    - Typ: Kurze Antwort
    - Beschreibung: "Finden Sie in Ihrer Kaufbestätigung oder Browser-URL"
    
@@ -376,7 +366,7 @@ Bitte laden Sie diese hier hoch: [FORM-LINK]
 
 Ihre Payment-ID: [PAYMENT-ID]
 
-Die erweiterte Analyse erhalten Sie innerhalb von 2-3 Werktagen.
+Die erweiterte Analyse erhalten Sie innerhalb von 1-2 Werktagen.
 ```
 
 ## Nächste Schritte für MVP
@@ -392,3 +382,38 @@ Die erweiterte Analyse erhalten Sie innerhalb von 2-3 Werktagen.
 1. Markt-Feedback sammeln zu Tier-Verteilung
 2. Entscheidung: Upselling vs. separate Tiers beibehalten
 3. A/B Testing verschiedener Ansätze
+
+---
+
+## Umsetzungsprotokoll (Branch: `pricing`)
+
+Stand: Automatisierte Ergänzung durch Codex am aktuellen Arbeitstag.
+
+- [x] Basic-Gating implementiert: In der Ergebnisansicht wird im Tier "Basic" nur ein Auszug der Analyse angezeigt. Technisch via `splitAnalysis()` mit robusten Cut-Markern (zuerst `### 🔍 DETAILANALYSE`, dann weitere Headings; Fallback ~1.5k Zeichen).
+- [x] Marker an echte Beispielseiten angepasst: Split erfolgt bevorzugt an `## Preisfaktoren im Detail` (siehe `frontend/pages/beispiel-pro.tsx`), damit der sichtbare Basic-Teil wie in `frontend/pages/beispiel-basic.tsx` endet.
+- [x] Neue Helper-Datei `frontend/lib/analysisSplitter.ts` hinzugefügt (Marker- und Fallback-Logik, nur Basic wird gekürzt).
+- [x] Ergebnis-Seite angepasst (`frontend/pages/ergebnis.tsx`):
+  - Tier wird aus Stripe-Session-Metadaten bzw. aus dem Bewertungs-API-Response gelesen und im State gehalten.
+  - Markdown-Rendering sowie PDF-Export verwenden bei Basic nur den sichtbaren Teil.
+  - Dezenter Hinweis-Block bei Basic, dass Pro den vollständigen Report liefert (ohne Upsell-Flow).
+- [x] Tier-Persistenz in DB ergänzt:
+  - Beim Checkout-Insert werden `purchased_tier` und `current_tier` gespeichert.
+  - Im Webhook-Update werden `current_tier`/`purchased_tier` aus `session.metadata.selectedTier` gesetzt.
+- [x] Bewertungs-API (`frontend/pages/api/bewertung.ts`) erweitert: liefert zusätzlich `tier` (aus `current_tier`/`purchased_tier`) neben `bewertung`, damit Direktlinks ohne Session ebenfalls korrekt kürzen.
+- [x] Backend-Kompatibilität verbessert (`backend/main.py`): optional `tier` und `payment_id` in Request akzeptiert und im Response mit zurückgegeben (Frontend nutzt weiterhin `raw_gpt`).
+- [x] Webhook → Backend: `tier` und `payment_id` werden beim KI-Call mitgeschickt (keine Verhaltensänderung, nur Kontext).
+
+Hinweise:
+- Kein Upsell im MVP aktiviert, nur Kürzung im Basic-Tarif und Hinweistext.
+- Marker-Strategie kann nach ersten echten Analysen feinjustiert werden (z. B. anderer Cut-Point). 
+
+### Nachtrag (Sicherheit & DX) – umgesetzt
+- [x] Read-Token für Direktaufrufe: Bei Checkout wird ein `readToken` pro Bewertung generiert und gespeichert (`frontend/pages/api/checkout.ts`). Email-Link enthält `?id=<ObjectId>&token=<readToken>` (`frontend/pages/api/webhook.ts`).
+- [x] API-Gate für Direktzugriff: `frontend/pages/api/bewertung.ts` erlaubt Direktzugriff nur mit gültigem Token, sofern das Dokument einen Token hat (Bestandsdaten ohne Token bleiben zugänglich).
+- [x] Ergebnis-Seite reicht Token beim Direktzugriff durch (`frontend/pages/ergebnis.tsx`).
+- [x] Backend-Response gehärtet: `payment_id` wird nicht mehr vom Backend zurückgegeben (reduziert unnötige Exposition).
+- [x] TypeScript/Return-Cleanup: Konsistente `return res.status(...).json(...)` im Bewertungs-API.
+
+Offen/Nächste Schritte:
+- [ ] Einfache Backfill-Migration (optional): für Altdaten `readToken` setzen und Nutzerlinks entsprechend aktualisieren (nicht kritisch, da API fallback enthält).
+- [ ] Tier-Namen final einheitlich dokumentieren: intern `basic|standard|premium`, URL-Param `pro` = `standard`.

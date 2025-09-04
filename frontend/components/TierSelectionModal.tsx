@@ -47,7 +47,7 @@ export default function TierSelectionModal({
 
   // Tier recommendation logic based on form data
   const getRecommendedTier = (): PricingTier => {
-    if (!formData) return 'standard'; // Default to Pro
+    if (!formData) return 'pro'; // Default to Pro
 
     // Basic business logic for tier recommendation
     const age = formData.alter ? parseInt(String(formData.alter)) : 0;
@@ -70,8 +70,8 @@ export default function TierSelectionModal({
       return 'basic';
     }
 
-    // Default to Pro/Standard for most cases
-    return 'standard';
+    // Default to Pro for most cases
+    return 'pro';
   };
 
   const recommendedTier = getRecommendedTier();
@@ -94,10 +94,10 @@ export default function TierSelectionModal({
       ]
     },
     {
-      tier: 'standard',
-      displayName: PRICING_TIERS.standard.displayName,
-      price: PRICING_TIERS.standard.price,
-      recommended: recommendedTier === 'standard',
+      tier: 'pro',
+      displayName: PRICING_TIERS.pro.displayName,
+      price: PRICING_TIERS.pro.price,
+      recommended: recommendedTier === 'pro',
       popular: true,
       icon: Star,
       tagline: 'Vollständige Analyse',
