@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
+import TierSelectionModal from "@/components/TierSelectionModal";
 import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle, ChevronDown } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TIERS, type PricingTier } from "../lib/pricing";
 import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
@@ -233,6 +234,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
   const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null);
+  const [showTierModal, setShowTierModal] = useState<boolean>(false);
+  const [modalLoading, setModalLoading] = useState<boolean>(false);
 
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
@@ -248,32 +251,42 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       const normalized = normalizeTierParam(tierParam);
       const resolved: PricingTier | null = normalized || getSavedTier();
 
-      if (!resolved) {
-        // No tier available → redirect to pricing page
-        router.replace('/preise-neu');
-        return;
-      }
+      // Alternative Flow: Allow form access without tier selection
+      // If no tier is available, continue with null tier - selection happens after form completion
 
-      // Persist for continuity and update state + form pricing fields
-      savePricingTier(resolved);
-      setSelectedTier(resolved);
+      if (resolved) {
+        // Existing flow: user has pre-selected a tier
+        savePricingTier(resolved);
+        setSelectedTier(resolved);
 
-      const cfg = PRICING_TIERS[resolved];
-      setForm(prev => ({
-        ...prev,
-        selectedTier: resolved,
-        tierPrice: cfg.price,
-        stripeProductId: cfg.stripeId,
-      }));
+        const cfg = PRICING_TIERS[resolved];
+        setForm(prev => ({
+          ...prev,
+          selectedTier: resolved,
+          tierPrice: cfg.price,
+          stripeProductId: cfg.stripeId,
+        }));
 
-      // Analytics: record that the form loaded with a selected tier
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'pricing_tier_loaded_on_form', {
-          tier_name: resolved,
-          tier_price: cfg.price,
-          currency: 'EUR',
-          page_location: '/pferde-preis-berechnen'
-        });
+        // Analytics: record that the form loaded with a selected tier
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'pricing_tier_loaded_on_form', {
+            tier_name: resolved,
+            tier_price: cfg.price,
+            currency: 'EUR',
+            page_location: '/pferde-preis-berechnen'
+          });
+        }
+      } else {
+        // Alternative flow: no tier pre-selected, allow form access
+        setSelectedTier(null);
+        // Analytics: track alternative flow entry
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'alternative_flow_started', {
+            event_category: 'Conversion Funnel',
+            event_label: 'Form Accessed Without Tier',
+            page_location: '/pferde-preis-berechnen'
+          });
+        }
       }
     } catch {
       // ignore
@@ -317,7 +330,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     
     // Debug logging für stockmass
     if (name === "stockmass") {
-      console.log(`[DEBUG] stockmass input - raw value: "${value}", type: ${typeof value}`);
+      info(`[DEBUG] stockmass input - raw value: "${value}", type: ${typeof value}`);
       
       // FIXED: Proper number parsing that handles decimal formatting
       let cleanValue = value.trim();
@@ -339,7 +352,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       }
       
       if (cleanValue !== value) {
-        console.log(`[DEBUG] stockmass cleaned from "${value}" to "${cleanValue}"`);
+        info(`[DEBUG] stockmass cleaned from "${value}" to "${cleanValue}"`);
       }
       setForm(prev => ({ ...prev, [name]: cleanValue }));
     } else {
@@ -449,8 +462,44 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
+  /**
+   * Handles tier selection from the modal (alternative flow)
+   * Saves the selected tier and re-submits the form for checkout
+   */
+  const handleTierSelect = async (tier: PricingTier) => {
+    info(`Tier selected from modal: ${tier}`);
+    
+    // Save selected tier
+    setSelectedTier(tier);
+    savePricingTier(tier);
+    
+    // Close modal and start loading
+    setShowTierModal(false);
+    setModalLoading(true);
+    
+    // Track tier selection from modal
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'tier_selected_from_modal', {
+        event_category: 'Conversion Funnel',
+        event_label: `Alternative Flow - ${tier} Selected`,
+        tier_name: tier,
+        tier_price: PRICING_TIERS[tier].price,
+        page_location: '/pferde-preis-berechnen'
+      });
+    }
+    
+    // Small delay for UI feedback, then proceed to checkout
+    setTimeout(() => {
+      setModalLoading(false);
+      // Re-trigger form submission now that tier is selected - call without event parameter
+      handleSubmitInternal();
+    }, 500);
+  };
+
+  /**
+   * Internal submit handler for reuse from tier selection
+   */
+  const handleSubmitInternal = async (): Promise<void> => {
     setErrors({});
 
     if (!consent) {
@@ -481,6 +530,23 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       return;
     }
 
+    // Alternative flow: If no tier is selected, show tier selection modal first
+    if (!selectedTier) {
+      info('No tier selected, showing tier selection modal');
+      setShowTierModal(true);
+      
+      // Analytics: track tier modal shown
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'tier_selection_modal_shown', {
+          event_category: 'Conversion Funnel',
+          event_label: 'Alternative Flow - Modal Displayed',
+          page_location: '/pferde-preis-berechnen'
+        });
+      }
+      
+      return;
+    }
+
     setLoading(true);
     
     // Track payment initiation with form completion time
@@ -500,8 +566,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     
     try {
       // Debug logging vor dem Senden
-      console.log(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
-      console.log(`[DEBUG] Full form object:`, form);
+      info(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
+      info(`[DEBUG] Full form object:`, form);
       
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -531,6 +597,23 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       setErrors({ form: message });
     } finally {
       setLoading(false);
+    }
+  };
+
+  /**
+   * Main form submit handler - handles both flows
+   */
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    await handleSubmitInternal();
+  };
+
+  /**
+   * Handler to close the tier selection modal
+   */
+  const handleModalClose = () => {
+    if (!modalLoading) {
+      setShowTierModal(false);
     }
   };
 
@@ -982,6 +1065,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           </div>
         </div>
       </section>
+
+      {/* Tier Selection Modal for Alternative Flow */}
+      <TierSelectionModal
+        open={showTierModal}
+        onClose={handleModalClose}
+        onTierSelect={handleTierSelect}
+        formData={form as unknown as Record<string, unknown>}
+        loading={modalLoading}
+      />
     </Layout>
   );
 }
