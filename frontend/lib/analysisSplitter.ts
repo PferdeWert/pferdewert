@@ -1,7 +1,7 @@
 // frontend/lib/analysisSplitter.ts
 // Splits a full analysis into a visible and hidden part based on tier.
 
-export type Tier = 'basic' | 'standard' | 'premium';
+export type Tier = 'basic' | 'pro' | 'premium';
 
 export interface SplitResult {
   visible: string;

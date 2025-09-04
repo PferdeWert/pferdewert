@@ -1,7 +1,7 @@
 ---
 name: pferdewert-ux-designer
 description: Use this agent when you need UI/UX design expertise for PferdeWert.de, including conversion optimization, mobile experience improvements, form flow enhancements, visual design updates, accessibility improvements, or user journey analysis. Examples: <example>Context: User wants to improve the horse valuation form completion rate. user: 'Our horse valuation form has a high abandonment rate on mobile devices. Can you help optimize it?' assistant: 'I'll use the pferdewert-ux-designer agent to analyze the current form UX and create mobile-optimized improvements focused on conversion.'</example> <example>Context: User notices poor performance on the pricing page. user: 'The pricing page isn't converting well. Users seem confused about our different valuation options.' assistant: 'Let me launch the pferdewert-ux-designer agent to review the pricing page design and create a clearer, more conversion-focused layout.'</example> <example>Context: User wants to integrate testimonials better. user: 'We have great Instagram testimonials but they're not prominently displayed. How can we better showcase social proof?' assistant: 'I'll use the pferdewert-ux-designer agent to design an effective testimonials integration that builds trust and drives conversions.'</example>
-model: opus
+model: inherit
 color: purple
 ---
 

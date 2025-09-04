@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getCollection } from "@/lib/mongo";
 import { ObjectId } from "mongodb";
 import { z } from "zod";
+import { info, warn, error } from "@/lib/log";
 
 const querySchema = z.object({
   id: z.string().refine((val) => ObjectId.isValid(val), {
@@ -20,13 +21,24 @@ interface BewertungResponse {
   tier?: string;
 }
 
+// Database document shape for bewertung collection
+interface BewertungDocument {
+  _id: ObjectId;
+  bewertung?: string;
+  status?: string;
+  readToken?: string;
+  current_tier?: string;
+  purchased_tier?: string;
+  [key: string]: unknown;
+}
+
 const bewertungCache = new Map<string, { data: BewertungResponse; expiry: number }>();
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 function getCachedBewertung(id: string): BewertungResponse | null {
   const cached = bewertungCache.get(id);
   if (cached && Date.now() < cached.expiry) {
-    console.log(`[BEWERTUNG] ✅ Cache hit for ID: ${id}`);
+    info(`[BEWERTUNG] ✅ Cache hit for ID: ${id}`);
     return cached.data;
   }
   
@@ -95,7 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
   const rateLimitCheck = checkRateLimit(clientIP, isDirect);
   if (!rateLimitCheck.allowed) {
-    console.warn(`[BEWERTUNG] Rate limit exceeded for IP: ${clientIP} (direct: ${isDirect})`);
+    warn(`[BEWERTUNG] Rate limit exceeded for IP: ${clientIP} (direct: ${isDirect})`);
     res.setHeader('Retry-After', rateLimitCheck.retryAfter!);
     return res.status(429).json({ 
       error: "Too many requests", 
@@ -103,7 +115,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
   
-  console.log("[BEWERTUNG] Request received for ID:", req.query.id, {
+  info("[BEWERTUNG] Request received for ID:", req.query.id, {
     clientIP,
     isDirect,
     referer,
@@ -112,7 +124,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
   const parse = querySchema.safeParse(req.query);
   if (!parse.success) {
-    console.warn("[BEWERTUNG] ❌ Validation failed:", parse.error.flatten());
+    warn("[BEWERTUNG] ❌ Validation failed:", parse.error.flatten());
     return res.status(400).json({ error: "Missing or invalid id", details: parse.error.flatten() });
   }
 
@@ -120,7 +132,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   // Simplified ID validation - let MongoDB validate the ObjectId
   if (!ObjectId.isValid(id)) {
-    console.warn("[BEWERTUNG] ❌ Invalid ObjectId format:", id);
+    warn("[BEWERTUNG] ❌ Invalid ObjectId format:", id);
     return res.status(400).json({ error: "Invalid ID format" });
   }
 
@@ -133,11 +145,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(200).json(cachedResult);
     }
     
-    console.log("[BEWERTUNG] Searching MongoDB for ID:", idString);
+    info("[BEWERTUNG] Searching MongoDB for ID:", idString);
     const collection = await getCollection("bewertungen");
-    const result = await collection.findOne({ _id: new ObjectId(idString) });
+    const result = await collection.findOne({ _id: new ObjectId(idString) }) as BewertungDocument | null;
 
-    console.log("[BEWERTUNG] MongoDB result:", {
+    info("[BEWERTUNG] MongoDB result:", {
       found: !!result,
       hasFields: result ? Object.keys(result) : [],
       hasBewertung: !!(result?.bewertung),
@@ -146,21 +158,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!result) {
-      console.warn("[BEWERTUNG] ❌ Document not found for ID:", idString);
+      warn("[BEWERTUNG] ❌ Document not found for ID:", idString);
       return res.status(404).json({ error: "Bewertung nicht gefunden" });
     }
 
     // Security: If document has a readToken (new docs), require matching token on direct access
-    const requiresToken = Boolean((result as any)?.readToken);
+    const requiresToken = Boolean(result?.readToken);
     if (isDirect && requiresToken) {
-      if (!token || token !== (result as any).readToken) {
-        console.warn("[BEWERTUNG] ❌ Invalid or missing read token for direct access", { id: idString });
+      if (!token || token !== result.readToken) {
+        warn("[BEWERTUNG] ❌ Invalid or missing read token for direct access", { id: idString });
         return res.status(403).json({ error: "Zugriff verweigert" });
       }
     }
 
     if (!result.bewertung) {
-      console.info("[BEWERTUNG] ⏳ Document found but bewertung field is empty/null");
+      info("[BEWERTUNG] ⏳ Document found but bewertung field is empty/null");
       return res.status(404).json({ 
         error: "Bewertung wird noch erstellt", 
         status: result.status || "unknown",
@@ -169,9 +181,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    console.log("[BEWERTUNG] ✅ Successfully returning bewertung");
-    let tier = (result as any)?.current_tier || (result as any)?.purchased_tier || undefined;
-    if (tier === 'standard') tier = 'basic';
+    info("[BEWERTUNG] ✅ Successfully returning bewertung");
+    let tier = result?.current_tier || result?.purchased_tier || undefined;
+    if (tier === 'standard') tier = 'pro';
     const response: BewertungResponse = tier 
       ? { bewertung: result.bewertung, tier }
       : { bewertung: result.bewertung };
@@ -181,7 +193,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     return res.status(200).json(response);
   } catch (err) {
-    console.error("[BEWERTUNG] ❌ Fehler beim Laden der Bewertung:", err);
+    error("[BEWERTUNG] ❌ Fehler beim Laden der Bewertung:", err);
     return res.status(500).json({ error: "Fehler beim Laden der Bewertung" });
   }
 }

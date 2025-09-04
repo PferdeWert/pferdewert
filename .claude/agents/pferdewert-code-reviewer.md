@@ -1,8 +1,7 @@
 ---
 name: pferdewert-code-reviewer
 description: Use this agent when you need to review code changes in the PferdeWert.de platform, particularly after implementing new features, fixing bugs, or making significant modifications to the Next.js frontend or FastAPI backend. Examples: <example>Context: User has just implemented a new horse valuation form component. user: 'I've just finished implementing the new horse breed selection component with improved validation. Here's the code:' [code snippet] assistant: 'Let me use the pferdewert-code-reviewer agent to thoroughly review this new component for PferdeWert-specific best practices, TypeScript compliance, and mobile responsiveness.' <commentary>Since the user has written new code for the PferdeWert platform, use the pferdewert-code-reviewer agent to ensure it meets the project's specific coding standards, security requirements, and performance guidelines.</commentary></example> <example>Context: User has modified payment processing logic. user: 'I've updated the Stripe webhook handler to better handle failed payments' assistant: 'I'll use the pferdewert-code-reviewer agent to review these critical payment changes for security compliance and proper error handling.' <commentary>Payment-related code changes require careful review for security, DSGVO compliance, and proper error handling patterns specific to PferdeWert.</commentary></example>
-tools: *
-model: sonnet
+model: inherit
 color: orange
 ---
 

@@ -42,14 +42,12 @@ export function getPricingTier(): PricingTier | null {
 export function normalizeTierParam(param: string | null): PricingTier | null {
   if (!param) return null;
   const v = String(param).toLowerCase();
-  if (v === 'pro') return 'standard';
-  if (v === 'basic' || v === 'standard' || v === 'premium') return v as PricingTier;
+  if (v === 'basic' || v === 'pro' || v === 'premium') return v as PricingTier;
   return null;
 }
 
-// Convert internal tier id to canonical URL param (pro for standard)
+// Convert internal tier id to canonical URL param
 export function toTierUrlParam(tier: PricingTier): 'basic' | 'pro' | 'premium' {
-  if (tier === 'standard') return 'pro';
   return tier;
 }
 

@@ -31,6 +31,12 @@ interface BackendResponse {
   raw_gpt?: string;
 }
 
+interface BewertungDocument {
+  _id: unknown;
+  readToken?: string;
+  [key: string]: unknown;
+}
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
@@ -207,7 +213,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       info('[WEBHOOK] Calling backend API for evaluation');
       let tierForBackend = session?.metadata?.selectedTier ? String(session.metadata.selectedTier) : undefined;
-      if (tierForBackend === 'standard') tierForBackend = 'basic';
+      if (tierForBackend === 'standard') tierForBackend = 'pro';
       const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -271,8 +277,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             aktualisiert: new Date(),
             // Persist tier information for gating on result page
             ...(session?.metadata?.selectedTier && { 
-              current_tier: String(session.metadata.selectedTier) === 'standard' ? 'basic' : String(session.metadata.selectedTier),
-              purchased_tier: String(session.metadata.selectedTier) === 'standard' ? 'basic' : String(session.metadata.selectedTier)
+              current_tier: String(session.metadata.selectedTier) === 'standard' ? 'pro' : String(session.metadata.selectedTier),
+              purchased_tier: String(session.metadata.selectedTier) === 'standard' ? 'pro' : String(session.metadata.selectedTier)
             }),
             // Store attribution_source for analytics (not sent to AI)
             ...(attribution_source && { attribution_source: String(attribution_source) })
@@ -385,13 +391,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <h2>Hallo!</h2>
               <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
                   <br> 
-              <p><strong><a href="https://www.pferdewert.de/ergebnis?id=${doc._id}${(doc as any).readToken ? `&token=${(doc as any).readToken}` : ''}" 
+              <p><strong><a href="https://www.pferdewert.de/ergebnis?id=${doc._id}${(doc as BewertungDocument).readToken ? `&token=${(doc as BewertungDocument).readToken}` : ''}" 
                  style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
                  🐴 Zur Bewertung & PDF-Download
               </a></strong></p>
                   <br>
               <p><small>Falls der Button nicht funktioniert:<br>
-              https://www.pferdewert.de/ergebnis?id=${doc._id}${(doc as any).readToken ? `&token=${(doc as any).readToken}` : ''}</small></p>
+              https://www.pferdewert.de/ergebnis?id=${doc._id}${(doc as BewertungDocument).readToken ? `&token=${(doc as BewertungDocument).readToken}` : ''}</small></p>
               
               <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
             `
