@@ -105,10 +105,10 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     const tierId = normalizeTier(rawSelectedTier);
     const PRICE_IDS: Record<'basic' | 'standard' | 'premium', string> = {
       basic: process.env.STRIPE_PRICE_ID_BASIC || 'price_basic',
-      standard: process.env.STRIPE_PRICE_ID_STANDARD || STRIPE_CONFIG.priceId,
+      standard: process.env.STRIPE_PRICE_ID_STANDARD || STRIPE_CONFIG.priceId || '',
       premium: process.env.STRIPE_PRICE_ID_PREMIUM || 'price_premium',
     };
-    const priceIdForTier = PRICE_IDS[tierId] || STRIPE_CONFIG.priceId;
+    const priceIdForTier = PRICE_IDS[tierId] || STRIPE_CONFIG.priceId || '';
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],

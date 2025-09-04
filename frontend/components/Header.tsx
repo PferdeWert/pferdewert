@@ -117,7 +117,7 @@ export default function Header() {
                     onClick={() => setIsExamplesDropdownOpen(false)}
                   >
                     <div className="font-medium">PferdeWert Pro</div>
-                    <div className="text-xs text-gray-500">{`Detaillierte KI-Analyse - ${formatPrice(TIER_PRICES.pro)}`}</div>
+                    <div className="text-xs text-gray-500">{`Detaillierte KI-Analyse - ${formatPrice(TIER_PRICES.standard)}`}</div>
                   </Link>
                   <Link
                     href="/beispiel-premium"
@@ -209,7 +209,7 @@ export default function Header() {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                 onClick={closeMenu}
               >
-                {`PferdeWert Pro - ${formatPrice(TIER_PRICES.pro)}`}
+                {`PferdeWert Pro - ${formatPrice(TIER_PRICES.standard)}`}
               </Link>
               <Link
                 href="/beispiel-premium"

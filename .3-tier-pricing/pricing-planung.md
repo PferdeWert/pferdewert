@@ -11,7 +11,7 @@ Implementierung eines 3-stufigen Pricing-Modells mit Upselling-Möglichkeiten na
 ## Kern-Konzept: Progressive Disclosure mit Upselling
 
 ### Schlanke Lösung ohne Over-Engineering
-Bei Basic-Kauf wird die **vollständige Pro-Analyse** erstellt und in der DB gespeichert, aber nur teilweise angezeigt. Dies ermöglicht sofortiges Upselling ohne weitere AI-Calls. Premium mit Foto Upload machen wir für den MVP manuell. Kunde soll uns Fotos per Mail schicken oder so und wir prompten es manuell an eine KI.
+Bei Basic-Kauf wird die **vollständige Pro-Analyse** erstellt und in der DB gespeichert, aber nur teilweise angezeigt. Dies ermöglicht sofortiges Upselling ohne weitere AI-Calls. Premium Tier mit Foto Upload machen wir für den MVP manuell. Kunde soll uns Fotos per Mail schicken oder per Dropbox oder Google Docs oder irgend ein einfacher manueller Mechanismus ohne Anpassungen hier im Code (bitte einen Vorschlag machen der möglichst einfach funktioniert) und wir prompten es manuell an eine KI.
 
 ## Implementierungsplan
 

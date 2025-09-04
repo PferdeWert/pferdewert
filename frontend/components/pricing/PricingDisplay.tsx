@@ -37,7 +37,7 @@ const TIER_CONFIG = {
     deliveryTime: '< 1 Minute',
     badge: undefined,
   },
-  pro: {
+  standard: {
     displayName: 'PferdeWert Pro',
     description: 'Detaillierte Pferdebewertung mit ausführlicher Analyse',
     features: [
@@ -56,7 +56,7 @@ const TIER_CONFIG = {
     displayName: 'PferdeWert Premium',
     description: 'Premium Foto-Analyse mit Exterieur-Bewertung',
     features: [
-      'Alles aus Basic und Pro, zusätzlich:',
+      'Alles aus Basic und Standard, zusätzlich:',
       'Bilder-Upload',
       'Ausführliche Exterieur-Bewertung',
     ],
@@ -75,7 +75,7 @@ const MOBILE_FEATURES = {
     'KI-Marktwert-Analyse',
     'inkl. Preisspannen-Erklärung'
   ],
-  pro: [
+  standard: [
     'Alles aus Basic, zusätzlich:',
     'Detaillierte Pferdebewertung',
     'Ausführlicher PDF-Report',
@@ -189,7 +189,7 @@ export default function PricingDisplay({
     }
   }, []);
 
-  const tiers: PricingTier[] = ['basic', 'pro', 'premium'];
+  const tiers: PricingTier[] = ['basic', 'standard', 'premium'];
 
   // ===== UTILITY FUNCTIONS =====
   const formatTierPrice = (tier: PricingTier): string => {
@@ -209,17 +209,17 @@ export default function PricingDisplay({
     const price = TIER_PRICES[tier];
     const exampleLabels: Record<PricingTier, string> = {
       basic: 'Basic-Beispiel',
-      pro: 'Pro-Beispiel',
+      standard: 'Pro-Beispiel',
       premium: 'Premium-Beispiel'
     };
     const exampleLinks: Record<PricingTier, string> = {
       basic: '/beispiel-basic',
-      pro: '/beispiel-pro',
+      standard: '/beispiel-pro',
       premium: '/beispiel-premium'
     };
     
-    // Pro tier is permanently highlighted
-    const isPermanentlyHighlighted = tier === 'pro';
+    // Standard tier (displayed as Pro) is permanently highlighted
+    const isPermanentlyHighlighted = tier === 'standard';
     const shouldShowBorder = isPermanentlyHighlighted;
 
     return (
@@ -528,7 +528,7 @@ export default function PricingDisplay({
             }}
           >
             <TierCard
-              tier="pro"
+              tier="standard"
               cardClassName="h-full shadow-lg"
             />
           </div>

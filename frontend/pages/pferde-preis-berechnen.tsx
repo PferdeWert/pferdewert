@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle, ChevronDown } from "lucide-react";
+import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle, ChevronDown } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TIERS, type PricingTier } from "../lib/pricing";
 import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
 import { 
@@ -299,7 +299,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         warn("Fehler beim Wiederherstellen des Formulars:", e);
       }
     }
-  }, [isMounted]);
+  }, [isMounted, router]);
 
   // Throttled localStorage save to reduce performance impact
   useEffect(() => {
