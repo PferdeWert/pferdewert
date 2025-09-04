@@ -723,7 +723,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         <title>Pferde Preis berechnen: 2 Min Bewertung | PferdeWert</title>
-        <meta name="description" content="🐎 Pferde Preis berechnen ✓ KI-Analyse für ${PRICING_FORMATTED.current} ✓ Sofort-PDF ✓ Jetzt starten!" />
+        <meta name="description" content="🐎 Pferde Preis berechnen ✓ KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ Jetzt starten!" />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="400" />
@@ -762,7 +762,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           <div className="max-w-4xl mx-auto wizard-fade-in">
             {/* Gewählter Tarif Indikator */}
             <div className="mb-6">
-              {selectedTier ? (
+              {selectedTier && (
                 <div className="bg-brand-brown text-white px-5 py-3 rounded-2xl inline-flex items-center gap-3">
                   <strong className="text-base lg:text-lg font-semibold">
                     {PRICING_TIERS[selectedTier].displayName}
