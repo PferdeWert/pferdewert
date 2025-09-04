@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Instagram, Zap, Eye, Camera } from "lucide-react";
+import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Zap, Eye, Camera } from "lucide-react";
 import { TIER_PRICES, formatPrice } from "../lib/pricing";
 
 // Consistent bullet point component for better alignment
@@ -261,7 +261,9 @@ export default function TieredPferdeWertHomepage() {
                 <span className="font-semibold text-brand-brown">🎯 3 Bewertungsoptionen zur Auswahl:</span>
               </p>
               <p className="text-xl font-bold text-brand-brown mt-2">
-                Basic {formatPrice(TIER_PRICES.basic)} • Pro {formatPrice(TIER_PRICES.pro)} • Premium {formatPrice(TIER_PRICES.premium)}
+                <span className="inline-block">Basic {formatPrice(TIER_PRICES.basic)} •</span>{' '}
+                <span className="inline-block">Pro {formatPrice(TIER_PRICES.pro)} •</span>{' '}
+                <span className="inline-block">Premium {formatPrice(TIER_PRICES.premium)}</span>
               </p>
               <p className="text-base text-gray-700 mt-2">
                 Finde die perfekte Analyse für dein Pferd
@@ -279,7 +281,7 @@ export default function TieredPferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Welche Bewertung passt zu dir?</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Wähle die passende Bewertung für deine Bedürfnisse – von schneller Markteinschätzung bis zur umfassenden Analyse
+                Wähle die passende Bewertung für deine Bedürfnisse – Von der schnellen Marktpreis-Schätzung bis zur Premium KI-Foto-Analyse mit ausführlicher Exterieur Bewertung.
               </p>
             </div>
 
@@ -471,7 +473,9 @@ export default function TieredPferdeWertHomepage() {
                           className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors py-2 px-3 rounded-lg hover:bg-brand-light/50"
                           aria-label={`${testimonial.name} auf Instagram folgen`}
                         >
-                          <Instagram className="w-4 h-4" />
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fillRule="evenodd" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.621 5.367 11.988 11.988 11.988s11.988-5.367 11.988-11.988C24.005 5.367 18.638.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.229 14.891 3.741 13.74 3.741 12.443s.488-2.449 1.385-3.324c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.897.875 1.385 2.027 1.385 3.324s-.488 2.448-1.385 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.297c-.314 0-.569-.255-.569-.569s.255-.569.569-.569.569.255.569.569-.255.569-.569.569zm-7.83 7.83c-.975 0-1.849-.379-2.517-1.047-.668-.668-1.047-1.542-1.047-2.517s.379-1.849 1.047-2.517c.668-.668 1.542-1.047 2.517-1.047s1.849.379 2.517 1.047c.668.668 1.047 1.542 1.047 2.517s-.379 1.849-1.047 2.517c-.668.668-1.542 1.047-2.517 1.047z" clipRule="evenodd" />
+                          </svg>
                           @{testimonial.instagramHandle}
                         </a>
                       )}
