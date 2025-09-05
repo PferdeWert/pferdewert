@@ -23,25 +23,27 @@ STRIPE_PRICE_ID_BASIC=...
 STRIPE_PRICE_ID_PRO=...
 STRIPE_PRICE_ID_PREMIUM=...
 ```
-- Premium (manuell): Google Form für Foto-Upload erstellen und in Success-Page + E-Mail verlinken
+- Premium (manuell): Dropbox Link für Foto-Upload erstellen und in Success-Page + E-Mail verlinken
 - Analytics-Events prüfen: `pricing_tier_loaded_on_form`, `tier_selection_modal_shown`, `tier_selected_from_modal`, `begin_checkout_tier`
 - Deploy: Branch `pricing` → `main` mergen; `npm run sitemap`; push
 
 ---
 
 ## 📈 Business Logic (MVP)
-- Basic (€14.90): Preisspanne + Marktübersicht (~30%); Cut bei „## Preisfaktoren im Detail“
-- Pro (€19.90): Vollständige AI-Analyse + PDF
-- Premium (€39.90): Pro + Foto-Upload + Exterieur; MVP: manueller Google-Forms-Workflow
+- Basic (€14.90): Preisspanne + Marktübersicht (~30% der Analyse); Cut bei „## Preisfaktoren im Detail“
+- Pro (€19.90): Vollständige AI-Analyse
+- Premium (€39.90): Pro + Foto-Upload + Exterieur-Bewertung; MVP: manueller Foto-Upload-Workflow
 
 ---
 
 ## 🔄 Nächste Schritte (Post-MVP)
-- Step 2 – Alternative UX Flow & Upselling
-  - Alternative Flow: TierSelectionModal + direct form entry ohne Tier-Preselection (komplett re-implementieren)
+- Step 2 – Upselling
+  
   - Basic → Pro Upgrade-Angebote nach Ergebnisansicht
   - Optional: günstiger Upgrade-Preis statt Neukauf
   - E-Mail‑basierte Upsell-Triggers
+evtl. in step 2: 
+  - Alternative Flow: TierSelectionModal + direct form entry ohne Tier-Preselection (komplett re-implementieren)
 - Step 3 – Automatisierung Tier 3
   - Direkter Foto-Upload im Produkt
   - Vision‑AI Auswertung und automatisierter Report

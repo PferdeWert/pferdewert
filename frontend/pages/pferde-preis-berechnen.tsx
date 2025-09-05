@@ -280,14 +280,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     }
   ];
 
-  // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
-  const STORAGE_KEY = "PW_bewertungForm";
-
-  // Tier aus URL/Session lesen + Formular bei Start wiederherstellen (inkl. Migration)
+  // Initialize tier from URL parameters only
   useEffect(() => {
     if (!isMounted) return;
 
-    // 1) Resolve tier from URL first
+    // Resolve tier from URL parameter only
     try {
       const params = new URLSearchParams(window.location.search);
       const tierParam = params.get('tier');
@@ -329,62 +326,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       router.replace('/preise');
       return;
     }
-    
-    const savedForm = localStorage.getItem(STORAGE_KEY);
-    if (savedForm) {
-      try {
-        type SavedForm = Partial<FormState> & { verwendungszweck?: string; tier?: string };
-        const parsedForm = JSON.parse(savedForm) as SavedForm;
-
-        // Sanitize ALL legacy pricing/tier fields that could force a default checkout
-        const LEGACY_PRICING_FIELDS = [
-          'tier', 'selectedTier', 'tierPrice', 'stripeProductId', 
-          'pricing', 'priceFormatted', 'current', 'decoy',
-          'PRICING', 'PRICING_FORMATTED', 'TIER_PRICES'
-        ] as const;
-        
-        const rest: Record<string, unknown> = { ...parsedForm };
-        LEGACY_PRICING_FIELDS.forEach(field => {
-          delete rest[field];
-        });
-
-        // Migration: verwendungszweck → haupteignung
-        const migratedForm: FormState = {
-          ...initialForm,
-          ...rest,
-          haupteignung: (rest.haupteignung as string) || parsedForm.verwendungszweck || "",
-          charakter: (rest.charakter as string) || "",
-          besonderheiten: (rest.besonderheiten as string) || "",
-          // ensure pricing fields are not restored from legacy storage
-          selectedTier: undefined,
-          tierPrice: undefined,
-          stripeProductId: undefined,
-        };
-
-        // Keep any pricing context determined during this mount (URL/session)
-        setForm(prev => ({
-          ...migratedForm,
-          selectedTier: prev.selectedTier,
-          tierPrice: prev.tierPrice,
-          stripeProductId: prev.stripeProductId,
-        }));
-        info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration & Pricing-Feld-Bereinigung)");
-      } catch (e) {
-        warn("Fehler beim Wiederherstellen des Formulars:", e);
-      }
-    }
-  }, [isMounted, router]);
-
-  // Throttled localStorage save to reduce performance impact
-  useEffect(() => {
-    if (!isMounted) return;
-    
-    const saveTimer = setTimeout(() => {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
-    }, 500); // Throttle saves to every 500ms
-
-    return () => clearTimeout(saveTimer);
-  }, [form, isMounted]);
+  }, [isMounted, router, selectedTier]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
@@ -581,20 +523,31 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       info(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
       info(`[DEBUG] Full form object:`, form);
       
+      // Validate that a tier is selected - NO dangerous fallback
+      const currentTier = form.selectedTier || selectedTier;
+      if (!currentTier) {
+        error('[CHECKOUT] ❌ Kein Tier ausgewählt - kann nicht fortfahren');
+        setErrors({ form: "Fehler: Kein Preispaket ausgewählt. Bitte gehe zurück zu /preise und wähle ein Paket." });
+        return;
+      }
+      
+      const formWithTier = {
+        ...form,
+        selectedTier: currentTier
+      };
+      
+      info(`[DEBUG] Form with tier:`, { selectedTier: formWithTier.selectedTier });
+      
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: JSON.stringify(form) }),
+        body: JSON.stringify({ text: JSON.stringify(formWithTier) }),
       });
 
       if (res.ok) {
         const data = await res.json() as { url: string };
         const { url } = data;
-        // Formular aus localStorage löschen bei erfolgreicher Einreichung
-        if (isMounted) {
-          localStorage.removeItem(STORAGE_KEY);
-          // Form successfully submitted - localStorage cleared
-        }
+        // Form successfully submitted - redirect to Stripe
         window.location.href = url;
       } else {
         const errorData = await res.json() as { error?: string; code?: string };

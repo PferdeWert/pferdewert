@@ -4,6 +4,8 @@ Ziel: Käufer von Basic bzw. Pro maximal friktionsfrei zum Upgrade bewegen. Der 
 
 ---
 
+Als erstes nach dem Formular die Möglichkeit geben nochmal den Tier zu wechseln, evtl machen da schin welche Upselling!
+
 ## 1) Ziele & Prinzipien
 - Einfach: Minimal-invasiv, ohne Over‑Engineering; bestehende Flows wiederverwenden.
 - Friktionsarm: 1–2 Klicks vom Ergebnis zur Zahlung, sofortige Freischaltung.
