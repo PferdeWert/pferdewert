@@ -92,23 +92,8 @@ if (!origin) {
 
 info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
-    // Determine Stripe price by selected tier (defaults to standard/current)
-    const pd = parsedData as { selectedTier?: unknown; tier?: unknown };
-    const rawSelectedTier: unknown = pd?.selectedTier ?? pd?.tier;
-    const normalizeTier = (t: unknown): 'basic' | 'standard' | 'premium' => {
-      const v = typeof t === 'string' ? t.toLowerCase() : '';
-      if (v === 'pro') return 'standard';
-      if (v === 'standard') return 'standard';
-      if (v === 'premium') return 'premium';
-      return 'basic';
-    };
-    const tierId = normalizeTier(rawSelectedTier);
-    const PRICE_IDS: Record<'basic' | 'standard' | 'premium', string> = {
-      basic: process.env.STRIPE_PRICE_ID_BASIC || 'price_basic',
-      standard: process.env.STRIPE_PRICE_ID_STANDARD || STRIPE_CONFIG.priceId,
-      premium: process.env.STRIPE_PRICE_ID_PREMIUM || 'price_premium',
-    };
-    const priceIdForTier = PRICE_IDS[tierId] || STRIPE_CONFIG.priceId;
+    // Use standard pricing for main branch (single pricing at 14,90€)
+    const priceIdForTier = STRIPE_CONFIG.priceId;
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],
@@ -117,7 +102,7 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       allow_promotion_codes: true,
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/pferde-preis-berechnen?abgebrochen=1`,
-      metadata: { bewertungId: bewertungId.toHexString(), selectedTier: tierId },
+      metadata: { bewertungId: bewertungId.toHexString() },
     });
 
     const collection = await getCollection("bewertungen");

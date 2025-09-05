@@ -49,10 +49,10 @@ export const PRICING_FORMATTED = {
 // ===== STRIPE KONFIGURATION =====
 export const STRIPE_CONFIG = {
   /** 
-   * Stripe Price-ID für aktuellen Preis
+   * Stripe Price-ID für aktuellen Preis (14,90€ für main branch)
    * Automatisch aus Environment-Variable geladen 
    */
-  priceId: process.env.STRIPE_PRICE_ID || 'price_1RuFlMKoHsLHy9OTPv9tRBa0',
+  priceId: process.env.STRIPE_PRICE_ID || 'price_1S3ep6KoHsLHy9OTPydrStzq',
   
   /** 
    * Preis in Stripe-Format (Cent-Betrag)
