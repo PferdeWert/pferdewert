@@ -59,9 +59,7 @@ export default function PremiumUploadScreen({ onUploadClick }: PremiumUploadScre
               Ihre persönliche Expertenanalyse
             </h2>
             <p className="text-blue-800 text-sm leading-relaxed">
-              Für Ihre detaillierte Premium-Analyse benötigen wir hochwertige Fotos Ihres Pferdes. 
-              Ein Pferdeexperte wird Ihre Bilder persönlich auswerten und eine individuelle 
-              Bewertung erstellen.
+              Für Ihre detaillierte Premium-Analyse benötigen wir möglichst hochwertige Fotos Ihres Pferdes. 
             </p>
           </div>
         </div>
@@ -80,7 +78,7 @@ export default function PremiumUploadScreen({ onUploadClick }: PremiumUploadScre
             </div>
             <div className="flex-1">
               <p className="text-gray-700 text-sm">
-                <strong>Fotos hochladen:</strong> Laden Sie 5-10 hochwertige Fotos Ihres Pferdes über den Dropbox-Link hoch
+                <strong>Fotos hochladen:</strong> Laden Sie 1-5 möglichst hochwertige Fotos Ihres Pferdes über den Link hoch.
               </p>
             </div>
           </div>
@@ -91,7 +89,7 @@ export default function PremiumUploadScreen({ onUploadClick }: PremiumUploadScre
             </div>
             <div className="flex-1">
               <p className="text-gray-700 text-sm">
-                <strong>Expertenanalyse:</strong> Unser Pferdeexperte erstellt eine detaillierte, persönliche Bewertung
+                <strong>PferdeWert-Analyse:</strong> Wir erstellen mithilfe der PferdeWert-KI eine detaillierte Exterieur-Analyse.
               </p>
             </div>
           </div>
@@ -115,11 +113,11 @@ export default function PremiumUploadScreen({ onUploadClick }: PremiumUploadScre
           Tipps für optimale Fotos:
         </h4>
         <ul className="text-xs text-amber-800 space-y-1">
-          <li>• Seitliche Ganzkörperaufnahme (Profil)</li>
-          <li>• Frontale Ansicht von vorne</li>
-          <li>• Rückansicht</li>
-          <li>• Kopfdetail (seitlich und frontal)</li>
-          <li>• Beine und Hufe in guter Beleuchtung</li>
+          <li>Seitliche Ganzkörperaufnahme (Profil)</li>
+          <li>Frontale Ansicht von vorne</li>
+          <li>Rückansicht</li>
+          <li>Kopfdetail (seitlich und frontal)</li>
+          <li>Beine und Hufe in guter Beleuchtung</li>
         </ul>
       </div>
 

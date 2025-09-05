@@ -349,7 +349,7 @@ export default function Ergebnis() {
   }
 
   // Simple tier-based content gating
-  const { visible: renderText, hasMore } = splitAnalysis(text || '', tier || 'pro');
+  const { visible: renderText } = splitAnalysis(text || '', tier || 'pro');
   const pdfContent = renderText;
 
   return (
