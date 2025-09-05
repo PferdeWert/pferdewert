@@ -5,8 +5,8 @@ Stand: 4. September 2025 – PRODUCTION READY ✅
 
 ### Implementiert (Essentials)
 - 3 Tiers (Basic €14.90, Pro €19.90, Premium €39.90)
-- **MVP Flow**: Homepage CTA → /preise → Tier Selection → Form (proven flow)
-- Alternative Flow: Direct form entry (POSTPONED to Step 2 post-MVP)
+- **MVP Flow**: Homepage CTA → /preise → Tier Selection → Form (proven flow, enforced)
+- ~~Alternative Flow~~ (REMOVED from MVP - postponed to Step 2 post-MVP)
 - Session-Persistenz (30min TTL) und sichere Read-Tokens
 - Content-Gating für Basic (marker-basiert)
 - Stripe Checkout + Webhooks; Mongo: `purchased_tier`/`current_tier`
@@ -38,7 +38,7 @@ STRIPE_PRICE_ID_PREMIUM=...
 
 ## 🔄 Nächste Schritte (Post-MVP)
 - Step 2 – Alternative UX Flow & Upselling
-  - Alternative Flow: Direct form entry ohne Tier-Preselection implementieren
+  - Alternative Flow: TierSelectionModal + direct form entry ohne Tier-Preselection (komplett re-implementieren)
   - Basic → Pro Upgrade-Angebote nach Ergebnisansicht
   - Optional: günstiger Upgrade-Preis statt Neukauf
   - E-Mail‑basierte Upsell-Triggers
