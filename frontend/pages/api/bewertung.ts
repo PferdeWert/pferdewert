@@ -91,17 +91,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                    req.headers['x-real-ip'] as string || 
                    req.socket?.remoteAddress || 'unknown';
   
-  // Detect if this is a direct access (from email link) vs API polling
-  // Direct access typically comes from referer with email domain or no referer
-  const referer = req.headers.referer || req.headers.referrer;
+  // Detect same-origin requests vs direct access (from email links)
+  const refererRaw = req.headers.referer || req.headers.referrer;
+  const referer = Array.isArray(refererRaw) ? refererRaw[0] : refererRaw;
   const userAgent = req.headers['user-agent'] || '';
   
-  // Consider it direct access if:
+  // Get current request host (handles Vercel previews)
+  const requestHost = (req.headers['x-forwarded-host'] as string) || 
+                      (req.headers.host as string) || 
+                      'unknown';
+  
+  // Parse referer host for comparison
+  let refererHost = 'none';
+  let isSameOrigin = false;
+  
+  if (referer) {
+    try {
+      const refererUrl = new URL(referer);
+      refererHost = refererUrl.hostname;
+      isSameOrigin = refererHost === requestHost;
+    } catch {
+      refererHost = 'invalid';
+    }
+  }
+  
+  // Consider it direct access ONLY if:
   // 1. No referer (direct email link click)
-  // 2. Referer is not from our domain (external email client)
-  // 3. User agent suggests email client or mobile app
+  // 2. Different host (external referer) 
+  // 3. User agent suggests email client
   const isDirect = !referer || 
-                   !referer.includes('pferdewert.de') || 
+                   !isSameOrigin || 
                    userAgent.includes('Mail') || 
                    userAgent.includes('Outlook');
   
@@ -117,6 +136,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
   info("[BEWERTUNG] Request received for ID:", req.query.id, {
     clientIP,
+    requestHost,
+    refererHost,
+    isSameOrigin,
     isDirect,
     referer,
     userAgent: userAgent.substring(0, 100) // First 100 chars to avoid log overflow
