@@ -365,11 +365,7 @@ export default function Ergebnis() {
           <div className="prose prose-lg max-w-full">
             <ReactMarkdown>{renderText}</ReactMarkdown>
           </div>
-          {tier === 'basic' && hasMore && (
-            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl text-center text-amber-800">
-              <p className="text-sm">Upgrade für die komplette Analyse und erweiterte Markteinblicke.</p>
-            </div>
-          )}
+          {/* Post-MVP: Upsell-Hinweis vorerst entfernt */}
           <div className="mt-8 flex justify-center sm:mt-10">
             <PDFDownloadLink
               document={<PferdeWertPDF markdownData={pdfContent} />}
