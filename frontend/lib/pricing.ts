@@ -20,15 +20,7 @@ export const PRICING = {
    * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
    * Soll deutlich höher sein als current price
    */
-  decoy: 29.00,
-  
-  /** 
-   * Historische Preise (für Vergleiche und "war früher X€" Texte)
-   */
-  historical: {
-    launch: 4.90,   // Startpreis 
-    previous: 9.90   // Vorheriger Preis
-  }
+  decoy: 29.00
 } as const;
 
 // ===== FORMATIERTE PREISE =====
@@ -37,13 +29,7 @@ export const PRICING_FORMATTED = {
   current: `${PRICING.current.toFixed(2).replace('.', ',')}€`,
   
   /** Decoy-Preis formatiert */
-  decoy: `${PRICING.decoy.toFixed(0)}€`,
-  
-  /** Historische Preise formatiert */
-  historical: {
-    launch: `${PRICING.historical.launch.toFixed(2).replace('.', ',')}€`,
-    previous: `${PRICING.historical.previous.toFixed(2).replace('.', ',')}€`
-  }
+  decoy: `${PRICING.decoy.toFixed(0)}€`
 } as const;
 
 // ===== STRIPE KONFIGURATION =====
@@ -52,7 +38,7 @@ export const STRIPE_CONFIG = {
    * Stripe Price-ID für aktuellen Preis (14,90€ für main branch)
    * Automatisch aus Environment-Variable geladen 
    */
-  priceId: process.env.STRIPE_PRICE_ID || 'price_1S3ep6KoHsLHy9OTPydrStzq',
+  priceId: process.env.STRIPE_PRICE_ID!,
   
   /** 
    * Preis in Stripe-Format (Cent-Betrag)
@@ -77,9 +63,6 @@ export const PRICING_TEXTS = {
   
   /** Sparpotenzial Text */
   savings: `Nur ${PRICING_FORMATTED.current} können dir tausende Euro sparen.`,
-  
-  /** Preisvergleich mit Historie */
-  priceComparison: `Früher ${PRICING_FORMATTED.historical.previous}, jetzt ${PRICING_FORMATTED.current}`,
   
   /** Verkaufen-Seite CTA */
   sellCta: `Jetzt Verkaufspreis ermitteln → ${PRICING_FORMATTED.current}`,
@@ -246,14 +229,10 @@ export const getTierSavings = (tier: PricingTier): string | null => {
 if (process.env.NODE_ENV === 'development') {
   import('@/lib/log').then(({ log }) => {
     log('💰 PferdeWert Pricing Config loaded:', {
-      legacy: {
-        current: PRICING_FORMATTED.current,
-        decoy: PRICING_FORMATTED.decoy,
-        stripeId: STRIPE_CONFIG.priceId,
-        valid: validatePricing()
-      },
-      newTiers: Object.keys(PRICING_TIERS),
-      defaultTier: DEFAULT_TIER
+      current: PRICING_FORMATTED.current,
+      decoy: PRICING_FORMATTED.decoy,
+      stripeId: STRIPE_CONFIG.priceId,
+      valid: validatePricing()
     });
   });
 }
