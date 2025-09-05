@@ -182,8 +182,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     info("[BEWERTUNG] ✅ Successfully returning bewertung");
-    let tier = result?.current_tier || result?.purchased_tier || undefined;
-    if (tier === 'standard') tier = 'pro';
+    const tier = result?.current_tier || result?.purchased_tier || undefined;
     const response: BewertungResponse = tier 
       ? { bewertung: result.bewertung, tier }
       : { bewertung: result.bewertung };

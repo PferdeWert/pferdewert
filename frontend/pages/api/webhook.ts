@@ -212,8 +212,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       info('[WEBHOOK] Calling backend API for evaluation');
-      let tierForBackend = session?.metadata?.selectedTier ? String(session.metadata.selectedTier) : undefined;
-      if (tierForBackend === 'standard') tierForBackend = 'pro';
+      const tierForBackend = session?.metadata?.selectedTier ? String(session.metadata.selectedTier) : undefined;
       const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -277,8 +276,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             aktualisiert: new Date(),
             // Persist tier information for gating on result page
             ...(session?.metadata?.selectedTier && { 
-              current_tier: String(session.metadata.selectedTier) === 'standard' ? 'pro' : String(session.metadata.selectedTier),
-              purchased_tier: String(session.metadata.selectedTier) === 'standard' ? 'pro' : String(session.metadata.selectedTier)
+              current_tier: String(session.metadata.selectedTier),
+              purchased_tier: String(session.metadata.selectedTier)
             }),
             // Store attribution_source for analytics (not sent to AI)
             ...(attribution_source && { attribution_source: String(attribution_source) })
@@ -290,6 +289,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         acknowledged: updateResult.acknowledged,
         modifiedCount: updateResult.modifiedCount 
       });
+
+      // Validate that tier update was successful
+      if (session?.metadata?.selectedTier && updateResult.modifiedCount === 0) {
+        warn('[WEBHOOK] Tier information may not have been saved correctly', {
+          sessionId,
+          selectedTier: session.metadata.selectedTier,
+          documentId: doc._id.toString()
+        });
+      }
       
 
       // Email notification section

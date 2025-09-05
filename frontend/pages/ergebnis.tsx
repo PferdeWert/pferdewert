@@ -7,9 +7,9 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
 import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
-import { splitAnalysis } from "@/lib/analysisSplitter";
 import { normalizeTierParam } from "@/lib/pricing-session";
 import PremiumUploadScreen from "@/components/PremiumUploadScreen";
+import { splitAnalysis, type Tier } from "@/lib/analysisSplitter";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -34,7 +34,7 @@ const PDFDownloadLink = dynamic(
 export default function Ergebnis() {
   const router = useRouter();
   const [text, setText] = useState<string>("");
-  const [tier, setTier] = useState<"basic" | "pro" | "premium" | null>(null);
+  const [tier, setTier] = useState<Tier | null>(null);
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
@@ -102,8 +102,9 @@ export default function Ergebnis() {
           if (data.bewertung && data.bewertung.trim()) {
             info("[ERGEBNIS] ✅ Direct bewertung loaded successfully");
             // Store tier if available for gating
-            if (data.tier && (data.tier === 'basic' || data.tier === 'pro' || data.tier === 'premium')) {
-              setTier(data.tier);
+            if (data.tier) {
+              const validTier = data.tier as Tier;
+              setTier(validTier);
             }
             setText(data.bewertung);
             setLoading(false);
@@ -245,8 +246,9 @@ export default function Ergebnis() {
                   const totalTime = Math.round((Date.now() - startTime) / 1000);
                   info(`[ERGEBNIS] ✅ Bewertung erfolgreich geladen nach ${totalTime}s (${tries} Versuche)`);
                   // Keep tier if present from retry response
-                  if (retryData.tier && (retryData.tier === 'basic' || retryData.tier === 'pro' || retryData.tier === 'premium')) {
-                    setTier(retryData.tier);
+                  if (retryData.tier) {
+                    const validTier = retryData.tier as Tier;
+                    setTier(validTier);
                   }
                   setText(retryData.bewertung);
                   setLoading(false);
@@ -346,9 +348,9 @@ export default function Ergebnis() {
     );
   }
 
-  // Apply Basic gating for display and PDF (Pro and Basic tiers)
-  const { visible: gatedVisible, hasMore } = splitAnalysis(text || '', tier || 'pro');
-  const renderText = tier === 'basic' ? gatedVisible : (text || '');
+  // Simple tier-based content gating
+  const { visible: renderText, hasMore } = splitAnalysis(text || '', tier || 'pro');
+  const pdfContent = renderText;
 
   return (
     <Layout>
@@ -365,12 +367,12 @@ export default function Ergebnis() {
           </div>
           {tier === 'basic' && hasMore && (
             <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl text-center text-amber-800">
-              <p className="text-sm">Hinweis: Im Basic-Tarif zeigen wir einen Auszug der Analyse. Mit Pro erhältst du den vollständigen Report.</p>
+              <p className="text-sm">Upgrade für die komplette Analyse und erweiterte Markteinblicke.</p>
             </div>
           )}
           <div className="mt-8 flex justify-center sm:mt-10">
             <PDFDownloadLink
-              document={<PferdeWertPDF markdownData={renderText} />}
+              document={<PferdeWertPDF markdownData={pdfContent} />}
               fileName="PferdeWert-Analyse.pdf"
             >
               {({ loading }: { loading: boolean }) => (

@@ -67,6 +67,15 @@ export const toCents = (price: number): number => {
 };
 
 /**
+ * Validiert ob ein Stripe Price ID das korrekte Format hat
+ * @param stripeId Die zu validierende Stripe Price ID
+ * @returns true wenn gültig, sonst false
+ */
+export const isValidStripePriceId = (stripeId: string): boolean => {
+  return stripeId.startsWith('price_') && stripeId.length > 6;
+};
+
+/**
  * Validiert ob alle Tier-Preise korrekt konfiguriert sind
  * @returns true wenn gültig, sonst Error
  */
@@ -76,8 +85,11 @@ export const validatePricing = (): boolean => {
   });
   
   if (process.env.NODE_ENV === 'production') {
-    Object.values(TIER_STRIPE_IDS).forEach(stripeId => {
-      if (!stripeId) throw new Error('All Stripe Price IDs must be set in production');
+    Object.entries(TIER_STRIPE_IDS).forEach(([tier, stripeId]) => {
+      if (!stripeId) throw new Error(`Stripe Price ID for tier '${tier}' must be set in production`);
+      if (!isValidStripePriceId(stripeId)) {
+        throw new Error(`Stripe Price ID for tier '${tier}' has invalid format. Must start with 'price_'`);
+      }
     });
   }
   
