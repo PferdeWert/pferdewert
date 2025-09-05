@@ -1,7 +1,7 @@
 /**
  * Preise-Neu Page - 3-Tier Pricing Display
  * 
- * Mobile-first pricing page with carousel implementation and standard tier highlighting.
+ * Mobile-first pricing page with carousel implementation and pro tier highlighting.
  * Uses existing components with brand-brown design system.
  * 
  * @author PferdeWert.de
@@ -38,7 +38,7 @@ export default function PreiseNeuPage() {
       });
     }
 
-    // Persist selection for 30 minutes and redirect with canonical tier param (pro for standard)
+    // Persist selection for 30 minutes and redirect with canonical tier param (legacy 'standard' → 'pro')
     try {
       savePricingTier(data.tier as 'basic' | 'pro' | 'premium');
     } catch {}
@@ -211,7 +211,7 @@ export default function PreiseNeuPage() {
                   </summary>
                   <div className="mt-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Basic: unter 1 Minute, Standard: 2-3 Minuten, Premium: 5-10 Minuten. 
+                      Basic: unter 1 Minute, Pro: 2-3 Minuten, Premium: 5-10 Minuten. 
                       Die Bewertung startet sofort nach deiner Zahlung.
                     </p>
                   </div>

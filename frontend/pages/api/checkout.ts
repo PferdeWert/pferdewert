@@ -119,11 +119,12 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     }
     
     const normalizeTier = (t: unknown): 'basic' | 'pro' | 'premium' => {
-      const v = typeof t === 'string' ? t.toLowerCase() : '';
+      const v = typeof t === 'string' ? t.toLowerCase().trim() : '';
+      if (v === 'basic') return 'basic';
       if (v === 'pro') return 'pro';
-      // Backward-compat: treat legacy 'standard' as 'basic'
-      if (v === 'standard') return 'basic';
       if (v === 'premium') return 'premium';
+      // Backward-compat: map legacy 'standard' explicitly to 'pro'
+      if (v === 'standard') return 'pro';
       // No default fallback - tier must be explicitly provided
       throw new Error(`Invalid tier: ${v}`);
     };

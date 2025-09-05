@@ -539,7 +539,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       
       // Validate tier against allowed values
       const normalizedTier = currentTier.toLowerCase().trim();
-      const validTiers = ['basic', 'pro', 'premium', 'standard']; // include legacy 'standard'
+      const validTiers = ['basic', 'pro', 'premium'];
       if (!validTiers.includes(normalizedTier)) {
         error('[CHECKOUT] ❌ Ungültiger Tier-Wert', { 
           currentTier, 
