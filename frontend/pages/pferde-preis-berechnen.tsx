@@ -523,20 +523,45 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       info(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
       info(`[DEBUG] Full form object:`, form);
       
-      // Validate that a tier is selected - NO dangerous fallback
+      // Enhanced tier validation with multiple fallback checks
       const currentTier = form.selectedTier || selectedTier;
-      if (!currentTier) {
-        error('[CHECKOUT] ❌ Kein Tier ausgewählt - kann nicht fortfahren');
+      
+      // Comprehensive tier validation
+      if (!currentTier || typeof currentTier !== 'string' || currentTier.trim() === '') {
+        error('[CHECKOUT] ❌ Kein Tier ausgewählt - kann nicht fortfahren', { 
+          formTier: form.selectedTier, 
+          stateTier: selectedTier,
+          currentTier 
+        });
         setErrors({ form: "Fehler: Kein Preispaket ausgewählt. Bitte gehe zurück zu /preise und wähle ein Paket." });
+        return;
+      }
+      
+      // Validate tier against allowed values
+      const normalizedTier = currentTier.toLowerCase().trim();
+      const validTiers = ['basic', 'pro', 'premium', 'standard']; // include legacy 'standard'
+      if (!validTiers.includes(normalizedTier)) {
+        error('[CHECKOUT] ❌ Ungültiger Tier-Wert', { 
+          currentTier, 
+          normalizedTier, 
+          validTiers 
+        });
+        setErrors({ form: "Fehler: Ungültiges Preispaket. Bitte gehe zurück zu /preise und wähle ein gültiges Paket." });
         return;
       }
       
       const formWithTier = {
         ...form,
-        selectedTier: currentTier
+        selectedTier: currentTier.trim(), // Ensure no whitespace issues
+        // Include tier also as 'tier' for backward compatibility
+        tier: currentTier.trim()
       };
       
-      info(`[DEBUG] Form with tier:`, { selectedTier: formWithTier.selectedTier });
+      info(`[DEBUG] Form with tier:`, { 
+        selectedTier: formWithTier.selectedTier,
+        tier: formWithTier.tier,
+        originalTier: currentTier
+      });
       
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -544,13 +569,28 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         body: JSON.stringify({ text: JSON.stringify(formWithTier) }),
       });
 
+      // Enhanced response handling with detailed error logging
       if (res.ok) {
         const data = await res.json() as { url: string };
         const { url } = data;
+        info(`[CHECKOUT] ✅ Successful response, redirecting to Stripe:`, { url });
         // Form successfully submitted - redirect to Stripe
         window.location.href = url;
       } else {
-        const errorData = await res.json() as { error?: string; code?: string };
+        // Log the full error response for debugging
+        error(`[CHECKOUT] ❌ HTTP ${res.status} ${res.statusText}`, {
+          status: res.status,
+          statusText: res.statusText,
+          headers: Object.fromEntries(res.headers.entries())
+        });
+        
+        let errorData: { error?: string; code?: string } = {};
+        try {
+          errorData = await res.json() as { error?: string; code?: string };
+          error('[CHECKOUT] Error response data:', errorData);
+        } catch (jsonErr) {
+          error('[CHECKOUT] Failed to parse error response as JSON:', jsonErr);
+        }
         
         // Special handling for missing tier selection
         if (errorData.code === "NO_TIER_SELECTED") {
@@ -559,7 +599,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           return;
         }
         
-        setErrors({ form: errorData.error || "Fehler beim Starten der Bewertung." });
+        // Special handling for invalid tier
+        if (errorData.code === "INVALID_TIER") {
+          error("[FORM] Checkout rejected - invalid tier, redirecting to pricing page");
+          window.location.href = '/preise';
+          return;
+        }
+        
+        const errorMessage = errorData.error || `Fehler beim Starten der Bewertung (HTTP ${res.status}).`;
+        setErrors({ form: errorMessage });
       }
     } catch (err) {
       const message =

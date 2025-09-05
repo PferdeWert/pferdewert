@@ -61,6 +61,13 @@ try {
       info(`[CHECKOUT DEBUG] stockmass received - value: "${parsedData.stockmass}", type: ${typeof parsedData.stockmass}`);
     }
 
+    // Debug: Log the raw parsed data INCLUDING tier information
+    info(`[CHECKOUT DEBUG] Raw parsedData received:`, {
+      ...parsedData,
+      selectedTier: parsedData.selectedTier || parsedData.tier || 'NOT_PROVIDED',
+      keys: Object.keys(parsedData)
+    });
+
     const validation = BewertungSchema.safeParse(parsedData);
     if (!validation.success) {
       warn("[CHECKOUT] ❌ Validierungsfehler:", validation.error.flatten());
@@ -96,6 +103,15 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     const pd = parsedData as { selectedTier?: unknown; tier?: unknown };
     const rawSelectedTier: unknown = pd?.selectedTier ?? pd?.tier;
     
+    // Enhanced debugging for tier processing
+    info(`[CHECKOUT DEBUG] Tier processing:`, {
+      selectedTier: pd?.selectedTier,
+      tier: pd?.tier,
+      rawSelectedTier,
+      rawSelectedTierType: typeof rawSelectedTier,
+      isEmpty: !rawSelectedTier || (typeof rawSelectedTier === 'string' && rawSelectedTier.trim() === '')
+    });
+    
     // Check if tier is provided - if not, reject the request to force tier selection
     if (!rawSelectedTier || (typeof rawSelectedTier === 'string' && rawSelectedTier.trim() === '')) {
       warn("[CHECKOUT] ❌ Kein Tier ausgewählt - Tier-Auswahl erforderlich");
@@ -115,8 +131,16 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     let tierId: 'basic' | 'pro' | 'premium';
     try {
       tierId = normalizeTier(rawSelectedTier);
-    } catch {
-      warn("[CHECKOUT] ❌ Ungültiger Tier:", rawSelectedTier);
+      info(`[CHECKOUT DEBUG] Tier successfully normalized:`, {
+        from: rawSelectedTier,
+        to: tierId
+      });
+    } catch (normalizeError) {
+      warn("[CHECKOUT] ❌ Ungültiger Tier:", {
+        rawSelectedTier,
+        error: normalizeError,
+        type: typeof rawSelectedTier
+      });
       return res.status(400).json({ error: "Invalid tier selected", code: "INVALID_TIER" });
     }
     const PRICE_IDS: Record<'basic' | 'pro' | 'premium', string> = {
@@ -129,6 +153,30 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       error("[CHECKOUT] ❌ Stripe Price ID fehlt für Tier:", tierId);
       return res.status(500).json({ error: "Stripe price id not configured for selected tier", code: "PRICE_ID_MISSING" });
     }
+
+    // Validate Stripe key/price compatibility
+    const isTestKey = process.env.STRIPE_SECRET_KEY?.startsWith('sk_test_');
+    const isTestPrice = priceIdForTier.includes('_test_') || !priceIdForTier.startsWith('price_1R');
+    
+    if (isTestKey && !isTestPrice) {
+      error("[CHECKOUT] ❌ Stripe Konfigurationsfehler: Test-Key mit Live-Price-ID", {
+        tier: tierId,
+        priceId: priceIdForTier,
+        keyType: 'test',
+        priceType: 'live'
+      });
+      return res.status(500).json({ 
+        error: "Stripe configuration mismatch: test key with live price", 
+        code: "STRIPE_CONFIG_MISMATCH" 
+      });
+    }
+
+    info(`[CHECKOUT] ✅ Stripe-Konfiguration validiert:`, {
+      tier: tierId,
+      priceId: priceIdForTier,
+      keyMode: isTestKey ? 'test' : 'live',
+      priceMode: isTestPrice ? 'test' : 'live'
+    });
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],
@@ -157,8 +205,29 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
     res.status(200).json({ url: session.url });
   } catch (_err: unknown) {
-  error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
-  res.status(500).json({ error: "Interner Serverfehler" });
-}
+    error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
+    
+    // Check if it's a Stripe error
+    if (_err && typeof _err === 'object' && 'type' in _err) {
+      const stripeErr = _err as { type: string; code?: string; param?: string };
+      if (stripeErr.type === 'StripeInvalidRequestError') {
+        warn("[CHECKOUT] 🔴 Stripe-spezifischer Fehler:", {
+          type: stripeErr.type,
+          code: stripeErr.code,
+          param: stripeErr.param
+        });
+        
+        if (stripeErr.code === 'resource_missing') {
+          return res.status(500).json({ 
+            error: "Stripe Konfigurationsfehler: Price ID ungültig", 
+            code: "STRIPE_PRICE_NOT_FOUND",
+            details: "Die konfigurierte Stripe Price ID existiert nicht im aktuellen Modus"
+          });
+        }
+      }
+    }
+    
+    res.status(500).json({ error: "Interner Serverfehler" });
+  }
 
 }
