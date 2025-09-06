@@ -7,7 +7,12 @@ import { log, info, warn, error } from "@/lib/log";
 import { z } from "zod";
 import crypto from "crypto";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+// Safe Stripe initialization with existence check
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeKey) {
+  throw new Error('STRIPE_SECRET_KEY environment variable is required');
+}
+const stripe = new Stripe(stripeKey);
 
 // Schema entspricht backend.BewertungRequest - OPTIMIERT
 const BewertungSchema = z.object({
@@ -144,11 +149,20 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       });
       return res.status(400).json({ error: "Invalid tier selected", code: "INVALID_TIER" });
     }
+    // Safe Stripe Price ID configuration - no empty string fallbacks
     const PRICE_IDS: Record<'basic' | 'pro' | 'premium', string> = {
-      basic: process.env.STRIPE_PRICE_ID_BASIC || '',
-      pro: process.env.STRIPE_PRICE_ID_PRO || '',
-      premium: process.env.STRIPE_PRICE_ID_PREMIUM || '',
+      basic: process.env.STRIPE_PRICE_ID_BASIC!,
+      pro: process.env.STRIPE_PRICE_ID_PRO!,
+      premium: process.env.STRIPE_PRICE_ID_PREMIUM!,
     };
+
+    // Validate Price IDs at runtime (double-check after env validation)
+    Object.entries(PRICE_IDS).forEach(([tier, priceId]) => {
+      if (!priceId || (!priceId.startsWith('price_') && !priceId.includes('_test_'))) {
+        error(`[CHECKOUT] ❌ Invalid STRIPE_PRICE_ID for ${tier}:`, priceId);
+        throw new Error(`Invalid Stripe Price ID for tier ${tier}: ${priceId}`);
+      }
+    });
     const priceIdForTier = PRICE_IDS[tierId];
     if (!priceIdForTier) {
       error("[CHECKOUT] ❌ Stripe Price ID fehlt für Tier:", tierId);

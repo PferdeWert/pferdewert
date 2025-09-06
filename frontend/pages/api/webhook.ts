@@ -37,7 +37,12 @@ interface BewertungDocument {
   [key: string]: unknown;
 }
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+// Safe Stripe initialization with existence check
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeKey) {
+  throw new Error('STRIPE_SECRET_KEY environment variable is required');
+}
+const stripe = new Stripe(stripeKey);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
 // Resend sicher initialisieren
@@ -143,15 +148,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).end();
       }
 
-      // Simple idempotency check - if already processed, skip completely
-      if (doc.status === "fertig") {
-        info('[WEBHOOK] Evaluation already processed for session:', sessionId);
+      // Enhanced idempotency check - prevent duplicate processing and emails
+      if (doc.status === "fertig" || doc.status === "verarbeitung" || doc.emails_sent === true) {
+        info('[WEBHOOK] Evaluation already processed or in progress for session:', sessionId, 'Status:', doc.status, 'Emails sent:', doc.emails_sent);
         return res.status(200).json({ 
           success: true, 
-          message: "Evaluation already completed",
+          message: "Evaluation already completed or in progress",
           documentId: doc._id.toString()
         });
       }
+
+      // Immediately mark as processing to prevent concurrent webhook execution
+      info('[WEBHOOK] Marking document as processing to prevent duplicates');
+      await collection.updateOne(
+        { _id: doc._id },
+        { 
+          $set: { 
+            status: "verarbeitung",
+            webhook_event_id: event.id, // Track Stripe event ID for additional idempotency
+            processing_started: new Date()
+          } 
+        }
+      );
 
       info('[WEBHOOK] MongoDB document found');
       info('[WEBHOOK] Document ID:', doc._id.toString());
@@ -273,6 +291,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           $set: { 
             bewertung: rawGpt, 
             status: "fertig", 
+            emails_sent: true, // Track that emails were sent to prevent duplicates
             aktualisiert: new Date(),
             // Persist tier information for gating on result page
             ...(session?.metadata?.selectedTier && { 
