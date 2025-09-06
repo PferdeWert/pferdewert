@@ -322,6 +322,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             ? `${(session.amount_total / 100).toFixed(2)} €`
             : "unbekannt";
 
+          // Determine purchased tier display name
+          const tierRaw = session?.metadata?.selectedTier ? String(session.metadata.selectedTier) : undefined;
+          const tierDisplay = tierRaw
+            ? (tierRaw.toLowerCase() === 'basic' ? 'Basic' : tierRaw.toLowerCase() === 'pro' ? 'Pro' : tierRaw.toLowerCase() === 'premium' ? 'Premium' : tierRaw)
+            : 'unbekannt';
+
           // Create formatted HTML for form fields (without sensitive data in logs)
           const formularFelderHtml = `
             <h3>📋 Eingabedaten des Kunden:</h3>
@@ -358,6 +364,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
                 <h3>💳 Zahlungsdetails:</h3>
                 <p><strong>Session ID:</strong> ${sessionId}</p>
+                <p><strong>Tier:</strong> ${tierDisplay}</p>
                 <p><strong>Betrag:</strong> ${amount}</p>
                 <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
               </div>
