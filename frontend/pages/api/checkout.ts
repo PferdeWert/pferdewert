@@ -191,29 +191,28 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       return res.status(500).json({ error: "Stripe price id not configured for selected tier", code: "PRICE_ID_MISSING" });
     }
 
-    // Validate Stripe key/price compatibility
-    const isTestKey = process.env.STRIPE_SECRET_KEY?.startsWith('sk_test_');
-    const isTestPrice = priceIdForTier.includes('_test_') || !priceIdForTier.startsWith('price_1R');
-    
-    if (isTestKey && !isTestPrice) {
-      error("[CHECKOUT] ❌ Stripe Konfigurationsfehler: Test-Key mit Live-Price-ID", {
-        tier: tierId,
-        priceId: priceIdForTier,
-        keyType: 'test',
-        priceType: 'live'
-      });
-      return res.status(500).json({ 
-        error: "Stripe configuration mismatch: test key with live price", 
-        code: "STRIPE_CONFIG_MISMATCH" 
-      });
-    }
-
-    info(`[CHECKOUT] ✅ Stripe-Konfiguration validiert:`, {
+    // Light logging of Stripe key type for observability (no brittle mode checks)
+    const keyMode = process.env.STRIPE_SECRET_KEY?.startsWith('sk_test_') ? 'test' : 'live';
+    info(`[CHECKOUT] ✅ Stripe-Konfiguration geprüft:`, {
       tier: tierId,
       priceId: priceIdForTier,
-      keyMode: isTestKey ? 'test' : 'live',
-      priceMode: isTestPrice ? 'test' : 'live'
+      keyMode
     });
+
+    // Proactively verify that the price exists for the current key/account
+    try {
+      await stripeClient.prices.retrieve(priceIdForTier);
+    } catch (priceErr) {
+      warn('[CHECKOUT] ❌ Preis-ID nicht gefunden oder nicht im aktuellen Modus verfügbar', {
+        tier: tierId,
+        priceId: priceIdForTier,
+        error: priceErr instanceof Error ? priceErr.message : String(priceErr)
+      });
+      return res.status(500).json({
+        error: 'Stripe Konfigurationsfehler: Price ID ungültig oder falscher Modus',
+        code: 'STRIPE_PRICE_NOT_FOUND'
+      });
+    }
 
     const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],

@@ -50,46 +50,29 @@ export function validateEnvironment(exitOnFailure = false): void {
  * Validates Stripe key/price compatibility to prevent test/live mode mismatches
  * @param exitOnFailure - If true, calls process.exit(1) on validation failure (default: false)
  */
-export function validateStripeConfiguration(exitOnFailure = false): void {
+export function validateStripeConfiguration(_exitOnFailure = false): void {
+  // Note: Price IDs do not encode test/live mode in a reliable way.
+  // We only perform light sanity checks here to avoid false negatives.
   const stripeKey = process.env.STRIPE_SECRET_KEY;
   const basicPriceId = process.env.STRIPE_PRICE_ID_BASIC;
-  
+
   if (!stripeKey || !basicPriceId) {
-    const errorMessage = 'Stripe key and price IDs must be validated first';
-    if (exitOnFailure) {
-      process.exit(1);
-    }
+    const errorMessage = 'Stripe key and price IDs must be present before validation';
     throw new Error(errorMessage);
   }
-  
-  const isTestKey = stripeKey.startsWith('sk_test_');
-  const isTestPrice = basicPriceId.includes('_test_') || !basicPriceId.startsWith('price_1R');
-  
-  if (isTestKey && !isTestPrice) {
-    const errorMessage = 'Stripe configuration mismatch: test key with live price IDs';
-    error('[ENV-VALIDATION] ❌ Stripe configuration mismatch:', {
-      keyMode: 'test',
-      priceMode: 'live'
-    });
-    if (exitOnFailure) {
-      process.exit(1);
-    }
-    throw new Error(errorMessage);
+
+  // Warn on unexpected key prefix, but do not fail hard.
+  const hasValidKeyPrefix = stripeKey.startsWith('sk_test_') || stripeKey.startsWith('sk_live_');
+  if (!hasValidKeyPrefix) {
+    error('[ENV-VALIDATION] ⚠️ Unexpected STRIPE_SECRET_KEY format (expected sk_test_ or sk_live_)');
   }
-  
-  if (!isTestKey && isTestPrice) {
-    const errorMessage = 'Stripe configuration mismatch: live key with test price IDs';
-    error('[ENV-VALIDATION] ❌ Stripe configuration mismatch:', {
-      keyMode: 'live', 
-      priceMode: 'test'
-    });
-    if (exitOnFailure) {
-      process.exit(1);
-    }
-    throw new Error(errorMessage);
+
+  // Basic format check for price IDs (must start with 'price_').
+  if (!basicPriceId.startsWith('price_')) {
+    error('[ENV-VALIDATION] ⚠️ STRIPE_PRICE_ID_BASIC does not look like a Stripe price ID:', basicPriceId);
   }
-  
-  console.info('[ENV-VALIDATION] ✅ Stripe configuration compatibility validated');
+
+  console.info('[ENV-VALIDATION] ✅ Stripe configuration sanity checks passed');
 }
 
 /**
@@ -130,11 +113,14 @@ export function validateStripeEnvironment(): { isValid: boolean; error?: string 
     };
   }
   
+  // Perform only lightweight configuration sanity checks to avoid false mismatches
   try {
     validateStripeConfiguration(false);
-    return { isValid: true };
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown Stripe validation error';
-    return { isValid: false, error: errorMessage };
+  } catch (err) {
+    // Don't block requests on soft validation; return a warning but allow runtime handling
+    const errorMessage = err instanceof Error ? err.message : 'Unknown Stripe validation warning';
+    return { isValid: true, error: errorMessage };
   }
+
+  return { isValid: true };
 }
