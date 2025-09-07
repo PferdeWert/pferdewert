@@ -5,6 +5,7 @@ import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
 import { Resend } from 'resend';
 import { info, error, warn } from "@/lib/log";
+import { validateStripeEnvironment } from "@/lib/env-validation";
 
 export const config = {
   api: { bodyParser: false },
@@ -37,13 +38,30 @@ interface BewertungDocument {
   [key: string]: unknown;
 }
 
-// Safe Stripe initialization with existence check
-const stripeKey = process.env.STRIPE_SECRET_KEY;
-if (!stripeKey) {
-  throw new Error('STRIPE_SECRET_KEY environment variable is required');
-}
-const stripe = new Stripe(stripeKey);
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+// Conditional Stripe initialization - only initialize if environment is valid
+let stripe: Stripe | null = null;
+
+// Initialize Stripe only if environment is properly configured
+const initializeStripe = (): Stripe => {
+  if (stripe) return stripe;
+  
+  const stripeKey = process.env.STRIPE_SECRET_KEY;
+  if (!stripeKey) {
+    throw new Error('STRIPE_SECRET_KEY environment variable is required');
+  }
+  
+  stripe = new Stripe(stripeKey);
+  return stripe;
+};
+
+// Webhook secret will be validated at runtime
+const getWebhookSecret = (): string => {
+  const secret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (!secret) {
+    throw new Error('STRIPE_WEBHOOK_SECRET environment variable is required');
+  }
+  return secret;
+};
 
 // Resend sicher initialisieren
 const resend = process.env.RESEND_API_KEY 
@@ -82,6 +100,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   info('[WEBHOOK] Webhook request received');
   info('[WEBHOOK] Method:', req.method);
   info('[WEBHOOK] URL:', req.url);
+
+  // Runtime validation - only runs when webhook is called, not during build
+  const envValidation = validateStripeEnvironment();
+  if (!envValidation.isValid) {
+    error("[WEBHOOK] ❌ Stripe environment validation failed:", envValidation.error);
+    return res.status(500).json({ 
+      error: "Server configuration error",
+      details: envValidation.error 
+    });
+  }
   
   // Log headers without sensitive data
   const safeHeaders = {
@@ -96,6 +124,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).end("Method Not Allowed");
   }
 
+  // Initialize services now that environment is validated
+  const stripeClient = initializeStripe();
+  const endpointSecret = getWebhookSecret();
+  
   info('[WEBHOOK] Webhook secret status:', endpointSecret ? 'configured' : 'missing');
 
   const buf = await buffer(req);
@@ -108,7 +140,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     info('[WEBHOOK] Constructing event from webhook payload');
-    event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
+    event = stripeClient.webhooks.constructEvent(buf, sig, endpointSecret);
     info('[WEBHOOK] Event constructed successfully, type:', event.type);
   } catch (err) {
     error('[WEBHOOK] Signature verification failed');

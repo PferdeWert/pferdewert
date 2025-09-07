@@ -4,15 +4,25 @@ import Stripe from "stripe";
 import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
+import { validateStripeEnvironment } from "@/lib/env-validation";
 import { z } from "zod";
 import crypto from "crypto";
 
-// Safe Stripe initialization with existence check
-const stripeKey = process.env.STRIPE_SECRET_KEY;
-if (!stripeKey) {
-  throw new Error('STRIPE_SECRET_KEY environment variable is required');
-}
-const stripe = new Stripe(stripeKey);
+// Conditional Stripe initialization - only initialize if environment is valid
+let stripe: Stripe | null = null;
+
+// Initialize Stripe only if environment is properly configured
+const initializeStripe = (): Stripe => {
+  if (stripe) return stripe;
+  
+  const stripeKey = process.env.STRIPE_SECRET_KEY;
+  if (!stripeKey) {
+    throw new Error('STRIPE_SECRET_KEY environment variable is required');
+  }
+  
+  stripe = new Stripe(stripeKey);
+  return stripe;
+};
 
 // Schema entspricht backend.BewertungRequest - OPTIMIERT
 const BewertungSchema = z.object({
@@ -43,7 +53,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Runtime validation - only runs when API is called, not during build
+  const envValidation = validateStripeEnvironment();
+  if (!envValidation.isValid) {
+    error("[CHECKOUT] ❌ Stripe environment validation failed:", envValidation.error);
+    return res.status(500).json({ 
+      error: "Server configuration error",
+      details: envValidation.error 
+    });
+  }
+
   try {
+    // Initialize Stripe now that environment is validated
+    const stripeClient = initializeStripe();
     const { text } = req.body;
 
     if (!text || typeof text !== "string") {
@@ -193,7 +215,7 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       priceMode: isTestPrice ? 'test' : 'live'
     });
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],
       line_items: [{ price: priceIdForTier, quantity: 1 }],
       mode: "payment",

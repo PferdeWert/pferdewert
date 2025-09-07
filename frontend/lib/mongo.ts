@@ -3,7 +3,8 @@ import { MongoClient, Db, Collection, Document } from "mongodb";
 const uri = process.env.MONGODB_URI;
 
 if (!uri) {
-  throw new Error("❌ Bitte setze MONGODB_URI in deiner .env.local Datei");
+  // During build time, this is not critical - only throw error when actually connecting
+  console.warn("⚠️  MONGODB_URI not set - database connection will fail at runtime");
 }
 
 let cachedClient: MongoClient | null = null;
@@ -40,6 +41,11 @@ export async function getCollection<T extends Document = Document>(
   collectionName: string
 ): Promise<Collection<T>> {
   
+  // Fail early if no URI is available (runtime error, not build-time)
+  if (!uri) {
+    throw new Error("❌ MONGODB_URI not set in environment variables");
+  }
+  
   // Check if existing connection is healthy
   if (await isConnectionHealthy()) {
     return cachedDb!.collection<T>(collectionName);
@@ -48,7 +54,7 @@ export async function getCollection<T extends Document = Document>(
   try {
     console.log("🔄 Creating new MongoDB connection...");
     
-    const client = new MongoClient(uri as string, {
+    const client = new MongoClient(uri, {
       maxPoolSize: 5, // Limit connection pool size for serverless
       serverSelectionTimeoutMS: 5000, // 5s timeout for connection
       socketTimeoutMS: 45000, // 45s socket timeout (under Vercel 10min limit)

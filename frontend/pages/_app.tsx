@@ -4,18 +4,9 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import { JSX } from "react";
-import { validateEnvironment, validateStripeConfiguration } from "@/lib/env-validation";
 
-// Validate environment on server startup (API routes only)
-if (typeof window === "undefined") {
-  try {
-    validateEnvironment();
-    validateStripeConfiguration();
-  } catch (error) {
-    console.error("❌ Environment validation failed:", error);
-    process.exit(1); // Fail fast on missing env vars
-  }
-}
+// Environment validation moved to API routes to prevent build failures
+// The validation now happens at runtime when API routes are actually called
 
 // Dynamic import for better performance - loads only when needed
 const SimpleCookieConsent = dynamic(() => import("@/components/SimpleCookieConsent"), {
