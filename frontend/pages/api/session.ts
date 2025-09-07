@@ -3,6 +3,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { z } from "zod";
+import { info, warn, error } from "@/lib/log";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
@@ -14,8 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const parse = querySchema.safeParse(req.query);
 
   if (!parse.success) {
-    console.warn("[SESSION] ⚠️ Ungültige session_id:", parse.error.flatten());
-    return res.status(400).json({ error: "Missing or invalid session_id", details: parse.error.flatten() });
+    warn("[SESSION] ⚠️ Ungültige session_id:", parse.error.flatten());
+    return res.status(400).json({ error: "Ungültige oder fehlende Session-ID", details: parse.error.flatten() });
   }
 
   const { session_id } = parse.data;
@@ -25,10 +26,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       expand: ["payment_intent", "customer"],
     });
 
-    console.info("[SESSION] ✅ Stripe-Session erfolgreich geladen:", session.id);
+    info("[SESSION] ✅ Stripe-Session erfolgreich geladen:", session.id);
     return res.status(200).json({ session });
   } catch (err) {
-    console.error("[SESSION] ❌ Fehler beim Laden der Stripe-Session:", err);
+    error("[SESSION] ❌ Fehler beim Laden der Stripe-Session:", err);
     return res.status(500).json({ error: "Fehler beim Laden der Stripe-Session" });
   }
 }

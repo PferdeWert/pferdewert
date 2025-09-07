@@ -1,9 +1,10 @@
 import { MongoClient, Db, Collection, Document } from "mongodb";
+import { info, warn, error } from "@/lib/log";
 
 const uri = process.env.MONGODB_URI;
 
 if (!uri) {
-  throw new Error("❌ Bitte setze MONGODB_URI in deiner .env.local Datei");
+  warn("⚠️  MONGODB_URI not set - database connection will fail at runtime");
 }
 
 let cachedClient: MongoClient | null = null;
@@ -17,16 +18,31 @@ export async function getCollection<T extends Document = Document>(
   }
 
   try {
-    const client = new MongoClient(uri as string); // TypeScript-sicher
+    info("🔄 Creating new MongoDB connection...");
+    
+    const client = new MongoClient(uri as string, {
+      maxPoolSize: 5, // Limit connection pool size for serverless
+      serverSelectionTimeoutMS: 5000, // 5s timeout for connection
+      socketTimeoutMS: 45000, // 45s socket timeout (under Vercel 10min limit)
+      maxIdleTimeMS: 30000, // Close idle connections after 30s
+      connectTimeoutMS: 10000, // 10s connection timeout
+    });
+    
     await client.connect();
     const db = client.db(); // Optional: db("pferdewert") falls festgelegt
 
     cachedClient = client;
     cachedDb = db;
-
+    
+    info("✅ MongoDB connection established successfully");
     return db.collection<T>(collectionName);
   } catch (err) {
-    console.error("❌ Fehler bei MongoDB Verbindung:", err);
-    throw err;
+    error("❌ MongoDB connection error:", err);
+    
+    // Clean up any partial connections
+    cachedClient = null;
+    cachedDb = null;
+    
+    throw new Error(`MongoDB connection failed: ${err instanceof Error ? err.message : 'Unknown error'}`);
   }
 }
