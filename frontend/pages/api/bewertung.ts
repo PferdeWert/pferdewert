@@ -129,7 +129,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     warn(`[BEWERTUNG] Rate limit exceeded for IP: ${clientIP} (direct: ${isDirect})`);
     res.setHeader('Retry-After', rateLimitCheck.retryAfter!);
     return res.status(429).json({ 
-      error: "Too many requests", 
+      error: "Zu viele Anfragen", 
       retryAfter: rateLimitCheck.retryAfter 
     });
   }
@@ -147,7 +147,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const parse = querySchema.safeParse(req.query);
   if (!parse.success) {
     warn("[BEWERTUNG] ❌ Validation failed:", parse.error.flatten());
-    return res.status(400).json({ error: "Missing or invalid id", details: parse.error.flatten() });
+    return res.status(400).json({ error: "Ungültige oder fehlende ID", details: parse.error.flatten() });
   }
 
   const { id, token } = parse.data;
@@ -155,7 +155,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Simplified ID validation - let MongoDB validate the ObjectId
   if (!ObjectId.isValid(id)) {
     warn("[BEWERTUNG] ❌ Invalid ObjectId format:", id);
-    return res.status(400).json({ error: "Invalid ID format" });
+    return res.status(400).json({ error: "Ungültiges ID-Format" });
   }
 
   const idString = id.toString();

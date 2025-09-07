@@ -1,10 +1,11 @@
 import { MongoClient, Db, Collection, Document } from "mongodb";
+import { info, warn, error } from "@/lib/log";
 
 const uri = process.env.MONGODB_URI;
 
 if (!uri) {
   // During build time, this is not critical - only throw error when actually connecting
-  console.warn("⚠️  MONGODB_URI not set - database connection will fail at runtime");
+  warn("⚠️  MONGODB_URI not set - database connection will fail at runtime");
 }
 
 let cachedClient: MongoClient | null = null;
@@ -28,7 +29,7 @@ async function isConnectionHealthy(): Promise<boolean> {
     lastHealthCheck = now;
     return true;
   } catch (err) {
-    console.warn("❌ MongoDB health check failed:", err);
+    warn("❌ MongoDB health check failed:", err);
     // Reset cached connections
     cachedClient = null;
     cachedDb = null;
@@ -52,7 +53,7 @@ export async function getCollection<T extends Document = Document>(
   }
 
   try {
-    console.log("🔄 Creating new MongoDB connection...");
+    info("🔄 Creating new MongoDB connection...");
     
     const client = new MongoClient(uri, {
       maxPoolSize: 5, // Limit connection pool size for serverless
@@ -72,11 +73,11 @@ export async function getCollection<T extends Document = Document>(
     cachedDb = db;
     lastHealthCheck = Date.now();
     
-    console.log("✅ MongoDB connection established successfully");
+    info("✅ MongoDB connection established successfully");
     return db.collection<T>(collectionName);
     
   } catch (err) {
-    console.error("❌ Fehler bei MongoDB Verbindung:", err);
+    error("❌ MongoDB connection error:", err);
     
     // Clean up any partial connections
     cachedClient = null;
