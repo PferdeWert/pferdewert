@@ -11,9 +11,11 @@ const markdown = `
 
 ---
 
+# Vollständige Exterieurbewertung - Hannoveraner Wallach, 11 Jahre
+
 ## Gesamteindruck & Typ
 
-Dieser 4-jährige DSP-Wallach präsentiert sich als kräftiger, substanzieller Typ mit deutlich mehr Masse als das vorherige Pferd. Das schwarze/dunkelbbraune Pferd zeigt einen robusten, bodenständigen Charakter und steht sicher auf seinen Beinen. Der Gesamteindruck ist der eines soliden, verlässlichen Sportpferdes.
+Dieser 11-jährige Hannoveraner Wallach präsentiert sich als erwachsenes, voll entwickeltes Sportpferd mit klassischen Hannoveraner Merkmalen. Das Pferd zeigt eine gute Grundkondition und steht ruhig und gelassen. Der Gesamteindruck ist der eines erfahrenen, etablierten Reitpferdes im besten Alter.
 
 ---
 
@@ -21,158 +23,191 @@ Dieser 4-jährige DSP-Wallach präsentiert sich als kräftiger, substanzieller T
 
 **Beurteilung:**
 
-- **Kompakteres Format:** Deutlich quadratischeres Format als das erste Pferd
-- **Kräftiger Körperbau:** Mehr Substanz und Tiefe im Rumpf
-- **Gedrungener Typ:** Weniger elegant, dafür kraftvoller wirkend
+- **Klassisches Rechteckformat:** Typisch hannoveranische Proportionen
+- **Ausgewogene Größenverhältnisse:** Harmonische Verteilung von Vor-, Mittel- und Hinterhand
+- **Reife Entwicklung:** Vollständig ausgewachsener, erwachsener Körperbau
 
-**Rahmen-Score: 7/10**
+**Rahmen-Score: 7.5/10**
 
 ---
 
 ## Kopf & Hals
 
 **Kopf:**
-- Ausdrucksvoller, kräftiger Kopf mit geradem Profil
-- Aufmerksame Ohrenstellung zeigt gutes Temperament
-- Proportional passend zum kräftigen Körperbau
+
+- Typischer Hannoveraner Kopf mit geradem bis leicht konkavem Profil
+- Ausdrucksvolle, aufmerksame Augen
+- Gut proportionierte Nüstern und Maul
+- Edle, aber nicht übertrieben feine Züge
 
 **Hals:**
-- **Kritischer Punkt:** Relativ kurzer, kräftiger Hals
-- Guter Aufsatz, aber weniger elegant als bei Dressurpferden erwünscht
-- Muskulös, aber könnte länger sein für optimale Dressurveranlagung
 
-**Kopf/Hals-Score: 6.5/10**
+- Mittellanger Hals mit ausreichender Länge für Dressurarbeit
+- Guter Aufsatz am Widerrist
+- Leichte Unterhalsbemuskelung sichtbar (typisch für ältere Pferde)
+- Oberlinie zeigt natürliche Aufwölbung
+
+**Kopf/Hals-Score: 7/10**
 
 ---
 
 ## Rumpf & Oberlinie
 
 **Widerrist & Rücken:**
-- Gut ausgeprägter Widerrist
-- Kurze, stabile Rückenlinie - vorteilhaft für Tragkraft
-- Gute Tiefe im Rumpf
+
+- Ausreichend ausgeprägter Widerrist
+- Mittellange Rückenlinie, stabil wirkend
+- Gute Verbindung zwischen Widerrist und Rücken
+- Altersgemäße Bemuskelung erkennbar
 
 **Kruppe:**
-- Kräftige, gut bemuskelte Kruppe
-- Leicht abfallend, gute Winkelung
-- Zeigt bereits für 4-jähriges Pferd gute Entwicklung
 
-**Rumpf-Score: 7.5/10**
+- Klassische Hannoveraner Kruppe, leicht abfallend
+- Gute Länge und Breite
+- Solide Bemuskelung für 11-jähriges Pferd
+- Korrekte Schweifstellung
+
+**Rumpf-Score: 7/10**
 
 ---
 
 ## Gliedmaßen-Bewertung
 
 **Vorderhand:**
-- **Sehr positiv:** Starke, korrekte Vorderbeine
-- Kräftige Röhrbeine mit gutem Knochenumfang
-- Stabile Fesselstellung
-- Trockene Gelenke
+
+- Korrekte Stellung der Vorderbeine
+- Ausreichender Knochenumfang
+- Trockene Gelenke ohne sichtbare Verdickungen
+- Stabile, korrekte Fesselstellung
 
 **Hinterhand:**
-- Kraftvolle Hinterhand mit guter Winkelung
-- Sprunggelenke korrekt gestellt
-- Kräftige Oberschenkel- und Unterschenkelmuskulatur
-- Solides Fundament
 
-**Gliedmaßen-Score: 8.5/10**
+- Solide Hinterhandstellung
+- Sprunggelenke korrekt gewinkelt
+- Gute Unterschenkellänge
+- Kräftige, aber nicht übermäßig entwickelte Muskulatur
+
+**Gliedmaßen-Score: 7.5/10**
 
 ---
 
 ## Fundamentqualität
 
-**Hervorragend:** Sehr stabiles, korrektes Fundament
-- Kräftige Hufe in guter Proportion
+- **Solides Fundament:** Korrekte Stellung ohne Auffälligkeiten
+- Proportional angemessene Hufe
 - Keine sichtbaren Stellungsfehler
-- Robust und belastbar wirkend
+- Für 11-jähriges Pferd sehr guter Zustand
 
-**Fundament-Score: 9/10**
-
----
-
-## Auswirkungen auf Wert & Potential
-
-**Positive Wertfaktoren (+)**
-
-- **Exzellentes Fundament:** Hervorragende Basis für langfristige sportliche Nutzung
-- **Substanz & Kraft:** Ideal für kraftvolle Dressurbewegungen und Tragkraft
-- **Robuste Konstitution:** Verspricht Langlebigkeit und Gesundheit
-- **Korrekte Gliedmaßen:** Minimiert Verletzungsrisiko
-
-**Herausforderungen (-)**
-
-- **Kompakter Hals:** Weniger ideal für klassische Dressuraufrichtung
-- **Weniger Eleganz:** Nicht der moderne, edle Dressurtyp
-- **Quadratisches Format:** Weniger typisch für Dressursport
+**Fundament-Score: 8/10**
 
 ---
 
-## Marktpositionierung
+## Alters- und rassenspezifische Bewertung
 
-Dieses Pferd eignet sich besonders für:
+### Besonderheiten bei 11-jährigem Pferd
 
-- Robuste Dressurarbeit bis mittleres Niveau
-- Vielseitigkeit (Dressur + leichtes Springen)
-- Amateur-/Freizeitsport mit hohen Ansprüchen an Verlässlichkeit
+**Positive Aspekte:**
+
+- **Vollständige Reife:** Körperliche Entwicklung abgeschlossen
+- **Erfahrung:** Etabliertes Reitpferd im besten Arbeitsalter
+- **Stabilität:** Weniger Verletzungsrisiko als bei jungen Pferden
+
+**Zu beachtende Punkte:**
+
+- Leichte Altersspuren in der Bemuskelung normal
+- Evtl. beginnende Abnutzungserscheinungen möglich
+
+### Hannoveraner-typische Merkmale
+
+✅ **Erfüllt:** Klassische Proportionen, solider Körperbau  
+✅ **Erfüllt:** Hannoveranischer Kopftyp  
+✅ **Erfüllt:** Robuste, sportliche Konstitution
 
 ---
 
 ## Werteinschätzung & Marktpotential
 
-**Exterieur-basierte Werteinschätzung**
+### Exterieur-basierte Werteinschätzung
 
-**Basierend auf dem Exterieur: 8.000 - 14.000 €**
+**Basierend auf dem Exterieur: 8.000 - 15.000 €**
 
 **Begründung:**
-- Das hervorragende Fundament und die robuste Konstitution rechtfertigen eine solide Preispositionierung
-- Der weniger elegante Typ für Dressur drückt den Preis gegenüber modernen Dressurlinien
-- Sehr gutes Preis-Leistungs-Verhältnis für praktisch orientierte Käufer
+
+- **Alter als Faktor:** 11 Jahre = etabliertes Reitpferd, aber nicht mehr im Peak-Wert-Alter
+- **Hannoveraner Bonus:** Beliebte, bewährte Rasse mit stabilem Marktwert
+- **Solide Qualität:** Keine groben Mängel, aber auch keine außergewöhnlichen Highlights
+- **Praxistauglichkeit:** Ideal für erfahrene Amateure und semi-professionelle Nutzung
 
 ---
 
 ## Potential-Einschätzung
 
-**Dressursport: ⭐⭐⭐ (3/5)**
-- Solide Basis, aber begrenzt durch Körperbau
-- Potential bis L-/M-Niveau realistisch
+**Dressursport: ⭐⭐⭐⭐ (4/5)**
 
-**Vielseitigkeit: ⭐⭐⭐⭐⭐ (5/5)**
-- Idealer Typ für vielseitige Nutzung
-- Kraft und Substanz für verschiedene Disziplinen
+- Klassische Hannoveraner Eignung für Dressur
+- Geeignet bis M-Niveau mit entsprechender Ausbildung
+- Etabliertes Alter = weniger Überraschungen
 
 **Freizeitsport: ⭐⭐⭐⭐⭐ (5/5)**
-- Perfekt für anspruchsvolle Freizeitreiter
-- Verlässlichkeit und Robustheit
 
----
+- Ideales Alter für verlässliche Freizeitpartnerschaft
+- Ruhiges, erwachsenes Temperament erwartbar
+- Hannoveraner Robustheit
 
-## Vergleich zum ersten Pferd
+**Turniersport: ⭐⭐⭐ (3/5)**
 
-- **Erstes Pferd (elegant):** Höheres Dressurpotential, eleganter Typ, höherer Preis
-- **Dieses Pferd (robust):** Praktischer Allrounder, sehr gutes Fundament, solidere Investition
-
----
-
-## Empfehlungen für Wertoptimierung
-
-- **Vielseitigkeitstraining:** Verschiedene Disziplinen anbieten
-- **Zielgruppe:** Amateur- und Freizeitreiter ansprechen
-- **Stärken betonen:** Robustheit, Verlässlichkeit, Gesundheit hervorheben
-- **Preispositionierung:** Als "ehrliches Arbeitspferd" mit Qualität vermarkten
+- Abhängig von bisheriger Ausbildung und Gesundheit
+- Noch mehrere Jahre aktive Nutzung möglich
 
 ---
 
 ## Marktpositionierung
 
-Dieses Pferd sollte als solides, verlässliches Sportpferd für pragmatische Reiter vermarktet werden, die Wert auf Substanz und Langlebigkeit legen.
+### Zielgruppe:
 
-**Gesamtbewertung Exterieur: 7,5/10** - Ein sehr solides, robustes Pferd mit exzellentem Fundament, ideal für vielseitige Nutzung und langfristige Partnerschaft.
+- Ambitionierte Amateure, die ein verlässliches Pferd suchen
+- Wiedereinsteiger, die Erfahrung schätzen
+- Semi-professionelle Reiter für mittleres Niveau
+
+### Verkaufsargumente:
+
+- "Erwachsenes, verlässliches Pferd"
+- "Hannoveraner Qualität"
+- "Ideales Alter für sofortige Nutzung"
 
 ---
 
+## Empfehlungen für Wertoptimierung
+
+- **Gesundheitscheck:** Aktuelle AKU zur Wertabsicherung
+- **Ausbildungsnachweis:** Bisherige Erfolge und Ausbildungsstand dokumentieren
+- **Zielgruppenmarketing:** An erfahrene Reiter vermarkten
+- **Ehrliche Präsentation:** Alter als Vorteil (Erfahrung) verkaufen
+
+---
+
+## Vergleich zu jüngeren Pferden
+
+### Vorteile gegenüber 4-Jährigen:
+
+- Sofort einsetzbar
+- Charakter etabliert
+- Weniger Ausbildungsrisiko
+- Kalkulierbare Eigenschaften
+
+### Nachteile:
+
+- Geringere Wertsteigerung möglich
+- Begrenzte verbleibende Nutzungsdauer
+- Evtl. Abnutzungserscheinungen
+
+---
+
+**Gesamtbewertung Exterieur: 7,3/10** - Ein solider, klassischer Hannoveraner im besten Nutzungsalter, ideal für praktisch orientierte Käufer, die Verlässlichkeit und Erfahrung schätzen.
+
 ## Fazit
 
-Während das erste Pferd mehr "Glamour" hatte, bietet dieses Pferd mehr Substanz und praktischen Nutzen - zwei verschiedene Marktansätze für unterschiedliche Käufertypen.
+Dieses Pferd repräsentiert den "goldenen Mittelweg" - nicht mehr die Unbekannte eines jungen Pferdes, aber auch noch nicht die Einschränkungen eines Seniors. Perfekt für Käufer, die sofort ein einsatzbereites, verlässliches Sportpferd suchen.
 
 _Ergebnis erstellt durch die PferdeWert-KI mit KI-Vision Foto-Analyse – keine rechtsverbindliche Bewertung._`;
 

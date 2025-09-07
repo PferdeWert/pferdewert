@@ -41,27 +41,13 @@ export default function PremiumUploadScreen({ onUploadClick }: PremiumUploadScre
 
       {/* Expert Analysis Information */}
       <div className="bg-blue-50 rounded-xl p-6 mb-8 border border-blue-100">
-        <div className="flex items-start space-x-3">
-          <div className="flex-shrink-0">
-            <svg 
-              className="w-6 h-6 text-blue-600 mt-1" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div className="flex-1">
-            <h2 className="text-lg font-semibold text-blue-900 mb-2">
-              Ihre persönliche Expertenanalyse
-            </h2>
-            <p className="text-blue-800 text-sm leading-relaxed">
-              Für Ihre detaillierte Premium-Analyse benötigen wir möglichst hochwertige Fotos Ihres Pferdes. 
-            </p>
-          </div>
+        <div>
+          <h2 className="text-lg font-semibold text-blue-900 mb-2">
+            Ihre persönliche Expertenanalyse
+          </h2>
+          <p className="text-blue-800 text-sm leading-relaxed">
+            Für Ihre detaillierte Premium-Analyse benötigen wir möglichst hochwertige Fotos Ihres Pferdes. 
+          </p>
         </div>
       </div>
 

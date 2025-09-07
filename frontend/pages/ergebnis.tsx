@@ -50,7 +50,7 @@ export default function Ergebnis() {
     const bewertung_id = router.query.id;
     const token = router.query.token;
     
-    // Direct ObjectId access (for customer support and email links)
+    // Direct ObjectId access (for customer support and email links) or test mode
     if (bewertung_id && typeof bewertung_id === "string") {
       log("[ERGEBNIS] Direct ObjectId access for ID:", bewertung_id);
       
@@ -62,7 +62,14 @@ export default function Ergebnis() {
         try {
           log("[ERGEBNIS] Fetching direct bewertung from API...");
           const tokenParam = token && typeof token === 'string' ? `&token=${encodeURIComponent(token)}` : '';
-          const res = await fetch(`/api/bewertung?id=${bewertung_id}${tokenParam}`);
+          
+          // Use test API in development for test IDs
+          const isTestId = bewertung_id === 'test' || bewertung_id.startsWith('test-');
+          const apiEndpoint = isTestId && process.env.NODE_ENV === 'development' 
+            ? `/api/test-bewertung?tier=${router.query.tier || 'pro'}`
+            : `/api/bewertung?id=${bewertung_id}${tokenParam}`;
+          
+          const res = await fetch(apiEndpoint);
           
           log("[ERGEBNIS] API Response status:", res.status);
           
