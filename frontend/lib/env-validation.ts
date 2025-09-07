@@ -50,7 +50,7 @@ export function validateEnvironment(exitOnFailure = false): void {
  * Validates Stripe key/price compatibility to prevent test/live mode mismatches
  * @param exitOnFailure - If true, calls process.exit(1) on validation failure (default: false)
  */
-export function validateStripeConfiguration(_exitOnFailure = false): void {
+export function validateStripeConfiguration(): void {
   // Note: Price IDs do not encode test/live mode in a reliable way.
   // We only perform light sanity checks here to avoid false negatives.
   const stripeKey = process.env.STRIPE_SECRET_KEY;
@@ -83,7 +83,7 @@ export function validateStripeConfiguration(_exitOnFailure = false): void {
 export function validateRuntimeEnvironment(): { isValid: boolean; error?: string } {
   try {
     validateEnvironment(false);
-    validateStripeConfiguration(false);
+    validateStripeConfiguration();
     return { isValid: true };
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown validation error';
@@ -115,7 +115,7 @@ export function validateStripeEnvironment(): { isValid: boolean; error?: string 
   
   // Perform only lightweight configuration sanity checks to avoid false mismatches
   try {
-    validateStripeConfiguration(false);
+    validateStripeConfiguration();
   } catch (err) {
     // Don't block requests on soft validation; return a warning but allow runtime handling
     const errorMessage = err instanceof Error ? err.message : 'Unknown Stripe validation warning';
