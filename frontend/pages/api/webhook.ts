@@ -31,7 +31,18 @@ interface BackendResponse {
   raw_gpt?: string;
 }
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+interface BewertungDocument {
+  _id: unknown;
+  readToken?: string;
+  [key: string]: unknown;
+}
+
+// Safe Stripe initialization with existence check
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeKey) {
+  throw new Error('STRIPE_SECRET_KEY environment variable is required');
+}
+const stripe = new Stripe(stripeKey);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
 // Resend sicher initialisieren
@@ -137,15 +148,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).end();
       }
 
-      // Simple idempotency check - if already processed, skip completely
-      if (doc.status === "fertig") {
-        info('[WEBHOOK] Evaluation already processed for session:', sessionId);
+      // Enhanced idempotency check - prevent duplicate processing and emails
+      if (doc.status === "fertig" || doc.status === "verarbeitung" || doc.emails_sent === true) {
+        info('[WEBHOOK] Evaluation already processed or in progress for session:', sessionId, 'Status:', doc.status, 'Emails sent:', doc.emails_sent);
         return res.status(200).json({ 
           success: true, 
-          message: "Evaluation already completed",
+          message: "Evaluation already completed or in progress",
           documentId: doc._id.toString()
         });
       }
+
+      // Immediately mark as processing to prevent concurrent webhook execution
+      info('[WEBHOOK] Marking document as processing to prevent duplicates');
+      await collection.updateOne(
+        { _id: doc._id },
+        { 
+          $set: { 
+            status: "verarbeitung",
+            webhook_event_id: event.id, // Track Stripe event ID for additional idempotency
+            processing_started: new Date()
+          } 
+        }
+      );
 
       info('[WEBHOOK] MongoDB document found');
       info('[WEBHOOK] Document ID:', doc._id.toString());
@@ -206,10 +230,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       info('[WEBHOOK] Calling backend API for evaluation');
+      const tierForBackend = session?.metadata?.selectedTier ? String(session.metadata.selectedTier) : undefined;
       const response = await fetch(`${BACKEND_URL}/api/bewertung`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bewertbareDaten),
+        body: JSON.stringify({
+          ...bewertbareDaten,
+          tier: tierForBackend,
+          payment_id: String(doc._id),
+        }),
       });
 
       info('[WEBHOOK] Backend API response status:', response.status);
@@ -262,7 +291,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           $set: { 
             bewertung: rawGpt, 
             status: "fertig", 
+            emails_sent: true, // Track that emails were sent to prevent duplicates
             aktualisiert: new Date(),
+            // Persist tier information for gating on result page
+            ...(session?.metadata?.selectedTier && { 
+              current_tier: String(session.metadata.selectedTier),
+              purchased_tier: String(session.metadata.selectedTier)
+            }),
             // Store attribution_source for analytics (not sent to AI)
             ...(attribution_source && { attribution_source: String(attribution_source) })
           } 
@@ -273,6 +308,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         acknowledged: updateResult.acknowledged,
         modifiedCount: updateResult.modifiedCount 
       });
+
+      // Validate that tier update was successful
+      if (session?.metadata?.selectedTier && updateResult.modifiedCount === 0) {
+        warn('[WEBHOOK] Tier information may not have been saved correctly', {
+          sessionId,
+          selectedTier: session.metadata.selectedTier,
+          documentId: doc._id.toString()
+        });
+      }
       
 
       // Email notification section
@@ -296,6 +340,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           const amount = session.amount_total
             ? `${(session.amount_total / 100).toFixed(2)} €`
             : "unbekannt";
+
+          // Determine purchased tier display name
+          const tierRaw = session?.metadata?.selectedTier ? String(session.metadata.selectedTier) : undefined;
+          const tierDisplay = tierRaw
+            ? (tierRaw.toLowerCase() === 'basic' ? 'Basic' : tierRaw.toLowerCase() === 'pro' ? 'Pro' : tierRaw.toLowerCase() === 'premium' ? 'Premium' : tierRaw)
+            : 'unbekannt';
 
           // Create formatted HTML for form fields (without sensitive data in logs)
           const formularFelderHtml = `
@@ -333,6 +383,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
                 <h3>💳 Zahlungsdetails:</h3>
                 <p><strong>Session ID:</strong> ${sessionId}</p>
+                <p><strong>Tier:</strong> ${tierDisplay}</p>
                 <p><strong>Betrag:</strong> ${amount}</p>
                 <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
               </div>
@@ -374,13 +425,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <h2>Hallo!</h2>
               <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
                   <br> 
-              <p><strong><a href="https://www.pferdewert.de/ergebnis?id=${doc._id}" 
+              <p><strong><a href="https://www.pferdewert.de/ergebnis?id=${doc._id}${(doc as BewertungDocument).readToken ? `&token=${(doc as BewertungDocument).readToken}` : ''}" 
                  style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
                  🐴 Zur Bewertung & PDF-Download
               </a></strong></p>
                   <br>
               <p><small>Falls der Button nicht funktioniert:<br>
-              https://www.pferdewert.de/ergebnis?id=${doc._id}</small></p>
+              https://www.pferdewert.de/ergebnis?id=${doc._id}${(doc as BewertungDocument).readToken ? `&token=${(doc as BewertungDocument).readToken}` : ''}</small></p>
               
               <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
             `

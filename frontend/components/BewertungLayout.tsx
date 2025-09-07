@@ -1,9 +1,9 @@
 // components/BewertungLayout.tsx
 
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export type BewertungLayoutProps = {
-  title: string;
+  title: React.ReactNode;
   children: ReactNode;
 };
 

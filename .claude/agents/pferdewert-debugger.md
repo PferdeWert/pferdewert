@@ -1,8 +1,7 @@
 ---
 name: pferdewert-debugger
 description: Use this agent when encountering errors, bugs, or performance issues in the PferdeWert.de platform. This includes frontend React/Next.js errors, backend FastAPI issues, MongoDB connection problems, Stripe payment failures, AI integration timeouts, or any system instability. Examples: <example>Context: User is experiencing a Stripe payment failure on the horse valuation checkout page. user: "Users are getting an error when trying to purchase premium valuations. The checkout page loads but payment fails with a 500 error." assistant: "I'll use the pferdewert-debugger agent to investigate this Stripe payment integration issue and identify the root cause."</example> <example>Context: The AI horse valuation is timing out for users. user: "The horse valuation form is hanging and users aren't getting results back. It seems to timeout after 30 seconds." assistant: "Let me launch the pferdewert-debugger agent to analyze this AI integration timeout issue and implement a solution."</example> <example>Context: Mobile users are reporting rendering issues on the valuation form. user: "Several users reported that the horse breed dropdown isn't working on mobile devices." assistant: "I'll use the pferdewert-debugger agent to investigate this mobile-specific frontend issue and fix the responsive behavior."</example>
-tools: *
-model: sonnet
+model: inherit
 color: red
 ---
 

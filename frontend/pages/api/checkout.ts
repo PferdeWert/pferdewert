@@ -5,9 +5,14 @@ import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
 import { z } from "zod";
-import { STRIPE_CONFIG } from "@/lib/pricing";
+import crypto from "crypto";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+// Safe Stripe initialization with existence check
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeKey) {
+  throw new Error('STRIPE_SECRET_KEY environment variable is required');
+}
+const stripe = new Stripe(stripeKey);
 
 // Schema entspricht backend.BewertungRequest - OPTIMIERT
 const BewertungSchema = z.object({
@@ -61,6 +66,13 @@ try {
       info(`[CHECKOUT DEBUG] stockmass received - value: "${parsedData.stockmass}", type: ${typeof parsedData.stockmass}`);
     }
 
+    // Debug: Log the raw parsed data INCLUDING tier information
+    info(`[CHECKOUT DEBUG] Raw parsedData received:`, {
+      ...parsedData,
+      selectedTier: parsedData.selectedTier || parsedData.tier || 'NOT_PROVIDED',
+      keys: Object.keys(parsedData)
+    });
+
     const validation = BewertungSchema.safeParse(parsedData);
     if (!validation.success) {
       warn("[CHECKOUT] ❌ Validierungsfehler:", validation.error.flatten());
@@ -92,8 +104,94 @@ if (!origin) {
 
 info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
-    // Use standard pricing for main branch (single pricing at 14,90€)
-    const priceIdForTier = STRIPE_CONFIG.priceId;
+    // Determine Stripe price by selected tier - REQUIRE tier selection for alternative flow
+    const pd = parsedData as { selectedTier?: unknown; tier?: unknown };
+    const rawSelectedTier: unknown = pd?.selectedTier ?? pd?.tier;
+    
+    // Enhanced debugging for tier processing
+    info(`[CHECKOUT DEBUG] Tier processing:`, {
+      selectedTier: pd?.selectedTier,
+      tier: pd?.tier,
+      rawSelectedTier,
+      rawSelectedTierType: typeof rawSelectedTier,
+      isEmpty: !rawSelectedTier || (typeof rawSelectedTier === 'string' && rawSelectedTier.trim() === '')
+    });
+    
+    // Check if tier is provided - if not, reject the request to force tier selection
+    if (!rawSelectedTier || (typeof rawSelectedTier === 'string' && rawSelectedTier.trim() === '')) {
+      warn("[CHECKOUT] ❌ Kein Tier ausgewählt - Tier-Auswahl erforderlich");
+      return res.status(400).json({ error: "Tier selection required", code: "NO_TIER_SELECTED" });
+    }
+    
+    const normalizeTier = (t: unknown): 'basic' | 'pro' | 'premium' => {
+      const v = typeof t === 'string' ? t.toLowerCase().trim() : '';
+      if (v === 'basic') return 'basic';
+      if (v === 'pro') return 'pro';
+      if (v === 'premium') return 'premium';
+      // Backward-compat: map legacy 'standard' explicitly to 'pro'
+      if (v === 'standard') return 'pro';
+      // No default fallback - tier must be explicitly provided
+      throw new Error(`Invalid tier: ${v}`);
+    };
+    
+    let tierId: 'basic' | 'pro' | 'premium';
+    try {
+      tierId = normalizeTier(rawSelectedTier);
+      info(`[CHECKOUT DEBUG] Tier successfully normalized:`, {
+        from: rawSelectedTier,
+        to: tierId
+      });
+    } catch (normalizeError) {
+      warn("[CHECKOUT] ❌ Ungültiger Tier:", {
+        rawSelectedTier,
+        error: normalizeError,
+        type: typeof rawSelectedTier
+      });
+      return res.status(400).json({ error: "Invalid tier selected", code: "INVALID_TIER" });
+    }
+    // Safe Stripe Price ID configuration - no empty string fallbacks
+    const PRICE_IDS: Record<'basic' | 'pro' | 'premium', string> = {
+      basic: process.env.STRIPE_PRICE_ID_BASIC!,
+      pro: process.env.STRIPE_PRICE_ID_PRO!,
+      premium: process.env.STRIPE_PRICE_ID_PREMIUM!,
+    };
+
+    // Validate Price IDs at runtime (double-check after env validation)
+    Object.entries(PRICE_IDS).forEach(([tier, priceId]) => {
+      if (!priceId || (!priceId.startsWith('price_') && !priceId.includes('_test_'))) {
+        error(`[CHECKOUT] ❌ Invalid STRIPE_PRICE_ID for ${tier}:`, priceId);
+        throw new Error(`Invalid Stripe Price ID for tier ${tier}: ${priceId}`);
+      }
+    });
+    const priceIdForTier = PRICE_IDS[tierId];
+    if (!priceIdForTier) {
+      error("[CHECKOUT] ❌ Stripe Price ID fehlt für Tier:", tierId);
+      return res.status(500).json({ error: "Stripe price id not configured for selected tier", code: "PRICE_ID_MISSING" });
+    }
+
+    // Validate Stripe key/price compatibility
+    const isTestKey = process.env.STRIPE_SECRET_KEY?.startsWith('sk_test_');
+    const isTestPrice = priceIdForTier.includes('_test_') || !priceIdForTier.startsWith('price_1R');
+    
+    if (isTestKey && !isTestPrice) {
+      error("[CHECKOUT] ❌ Stripe Konfigurationsfehler: Test-Key mit Live-Price-ID", {
+        tier: tierId,
+        priceId: priceIdForTier,
+        keyType: 'test',
+        priceType: 'live'
+      });
+      return res.status(500).json({ 
+        error: "Stripe configuration mismatch: test key with live price", 
+        code: "STRIPE_CONFIG_MISMATCH" 
+      });
+    }
+
+    info(`[CHECKOUT] ✅ Stripe-Konfiguration validiert:`, {
+      tier: tierId,
+      priceId: priceIdForTier,
+      keyMode: isTestKey ? 'test' : 'live',
+      priceMode: isTestPrice ? 'test' : 'live'
+    });
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],
@@ -102,23 +200,49 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       allow_promotion_codes: true,
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/pferde-preis-berechnen?abgebrochen=1`,
-      metadata: { bewertungId: bewertungId.toHexString() },
+      metadata: { bewertungId: bewertungId.toHexString(), selectedTier: tierId },
     });
 
     const collection = await getCollection("bewertungen");
+    const readToken = crypto.randomBytes(24).toString("hex");
     await collection.insertOne({
       _id: bewertungId,
       ...bewertungData,
       status: "offen",
       stripeSessionId: session.id,
+      // Persist purchased/current tier early, so direct links can gate content
+      purchased_tier: tierId,
+      current_tier: tierId,
+      readToken,
       erstellt: new Date(),
     });
 
     info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
     res.status(200).json({ url: session.url });
   } catch (_err: unknown) {
-  error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
-  res.status(500).json({ error: "Interner Serverfehler" });
-}
+    error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
+    
+    // Check if it's a Stripe error
+    if (_err && typeof _err === 'object' && 'type' in _err) {
+      const stripeErr = _err as { type: string; code?: string; param?: string };
+      if (stripeErr.type === 'StripeInvalidRequestError') {
+        warn("[CHECKOUT] 🔴 Stripe-spezifischer Fehler:", {
+          type: stripeErr.type,
+          code: stripeErr.code,
+          param: stripeErr.param
+        });
+        
+        if (stripeErr.code === 'resource_missing') {
+          return res.status(500).json({ 
+            error: "Stripe Konfigurationsfehler: Price ID ungültig", 
+            code: "STRIPE_PRICE_NOT_FOUND",
+            details: "Die konfigurierte Stripe Price ID existiert nicht im aktuellen Modus"
+          });
+        }
+      }
+    }
+    
+    res.status(500).json({ error: "Interner Serverfehler" });
+  }
 
 }

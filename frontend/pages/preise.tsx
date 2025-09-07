@@ -1,7 +1,7 @@
 /**
  * Preise-Neu Page - 3-Tier Pricing Display
  * 
- * Mobile-first pricing page with carousel implementation and standard tier highlighting.
+ * Mobile-first pricing page with carousel implementation and pro tier highlighting.
  * Uses existing components with brand-brown design system.
  * 
  * @author PferdeWert.de
@@ -11,46 +11,49 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import PricingDisplay from '@/components/pricing/PricingDisplay';
-import { type TierConfig } from '@/lib/pricing';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { TIER_PRICES, formatPrice } from '@/lib/pricing';
 import { savePricingTier, toTierUrlParam } from '@/lib/pricing-session';
 import { info } from '@/lib/log';
 
 export default function PreiseNeuPage() {
   const router = useRouter();
 
-  const handleTierSelect = (config: TierConfig) => {
+  const handleTierSelect = (data: { tier: string; price: number; stripeId: string; displayName: string }) => {
     
     info('Preise-Neu: Tier selected', { 
-      tier: config.id, 
-      price: config.price,
-      displayName: config.displayName 
+      tier: data.tier, 
+      price: data.price,
+      displayName: data.displayName 
     });
 
     // Analytics tracking
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'pricing_tier_selected', {
-        tier_name: config.id,
-        tier_price: config.price,
+        tier_name: data.tier,
+        tier_price: data.price,
         currency: 'EUR',
         page_location: '/preise-neu'
       });
     }
 
-    // Persist selection for 30 minutes and redirect with canonical tier param (pro for standard)
+    // Persist selection for 30 minutes and redirect with canonical tier param (legacy 'standard' → 'pro')
     try {
-      savePricingTier(config.id);
+      savePricingTier(data.tier as 'basic' | 'pro' | 'premium');
     } catch {}
-    const tierParam = toTierUrlParam(config.id);
+    const tierParam = toTierUrlParam(data.tier as 'basic' | 'pro' | 'premium');
     router.push(`/pferde-preis-berechnen?tier=${tierParam}`);
   };
 
   return (
     <>
+      <Header />
       <Head>
         <title>Pferdebewertung Preise - PferdeWert.de | KI-gestützte Pferdebewertung</title>
         <meta 
           name="description" 
-          content="Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (14,90€), Professional (24,90€) oder Premium (99,90€). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report." 
+          content={`Transparente Preise für professionelle Pferdebewertung. Wähle Deine Pferdebewertung: Basic (${formatPrice(TIER_PRICES.basic)}), Pro (${formatPrice(TIER_PRICES.pro)}) oder Premium (${formatPrice(TIER_PRICES.premium)}). KI-Analyse mit sofortiger Bewertung und detailliertem PDF-Report.`} 
         />
         <meta name="keywords" content="Pferdebewertung, Pferd bewerten lassen, Pferdewert ermitteln, AI Pferdebewertung, Pferdemarkt, Preise" />
         <meta property="og:title" content="Pferdebewertung Preise - PferdeWert.de" />
@@ -78,21 +81,21 @@ export default function PreiseNeuPage() {
                 {
                   "@type": "Offer",
                   "name": "PferdeWert Express",
-                  "price": "14.90",
+                  "price": TIER_PRICES.basic.toFixed(2),
                   "priceCurrency": "EUR",
                   "description": "Schnelle Preisspanne ohne detaillierte Analyse"
                 },
                 {
                   "@type": "Offer", 
-                  "name": "PferdeWert Professional",
-                  "price": "24.90",
+                  "name": "PferdeWert Pro",
+                  "price": TIER_PRICES.pro.toFixed(2),
                   "priceCurrency": "EUR",
                   "description": "Detaillierte KI-Analyse mit ausführlichem Seiten PDF-Report"
                 },
                 {
                   "@type": "Offer",
                   "name": "PferdeWert KI-Vision",
-                  "price": "99.90", 
+                  "price": TIER_PRICES.premium.toFixed(2), 
                   "priceCurrency": "EUR",
                   "description": "Premium KI-Vision mit Foto-Analyse"
                 }
@@ -104,16 +107,16 @@ export default function PreiseNeuPage() {
 
       <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-white via-amber-50/20 to-orange-50/10">
+        <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50/30 to-gray-100/10">
           <div className="container mx-auto px-4 py-12 md:py-20 lg:py-24">
             <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Transparente Preise für
-                <span className="block text-brand-brown">deine Pferdebewertung</span>
+              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Transparente Preise
+                <span className="block md:inline"> für deine </span>
+                <span className="block md:inline text-brand-brown">Pferdebewertung</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Von der schnellen Marktpreis-Schätzung bis zur Premium KI-Foto Analyse – 
-              wähle die Bewertung, die zu deinen Bedürfnissen passt.
+              Von der schnellen Marktpreis-Schätzung bis zur Premium KI-Foto-Analyse mit ausführlicher Exterieur Bewertung.
               </p>
               
               {/* Key Benefits */}
@@ -202,36 +205,40 @@ export default function PreiseNeuPage() {
               </h2>
               
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
+                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
                     Wie schnell erhalte ich meine Bewertung?
-                  </h3>
-                  <p className="text-gray-600">
-                    Basic: unter 1 Minute, Standard: 2-3 Minuten, Premium: 5-10 Minuten. 
-                    Die Bewertung startet sofort nach deiner Zahlung.
-                  </p>
-                </div>
+                  </summary>
+                  <div className="mt-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Basic: unter 1 Minute, Pro: 2-3 Minuten, Premium: 5-10 Minuten. 
+                      Die Bewertung startet sofort nach deiner Zahlung.
+                    </p>
+                  </div>
+                </details>
 
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
+                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
                     Was ist der Unterschied zwischen den Tarifen?
-                  </h3>
-                  <p className="text-gray-600">
-                    Basic gibt eine schnelle Preisspanne, Standard bietet detaillierte AI-Analyse mit 15+ Seiten PDF, 
-                    Premium enthält zusätzlich Foto-Analyse mit AI-Vision und 25+ Seiten ausführlichen Report.
-                  </p>
-                </div>
+                  </summary>
+                  <div className="mt-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Basic gibt eine schnelle Preisspanne, Pro bietet detaillierte AI-Analyse mit PDF-Report, 
+                      Premium enthält zusätzlich Foto-Analyse mit AI-Vision und ausführlichen Premium-Report.
+                    </p>
+                  </div>
+                </details>
 
-                
-
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
+                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
                     Wie funktioniert die Geld-zurück-Garantie?
-                  </h3>
-                  <p className="text-gray-600">
-                    Wenn du nicht zufrieden bist, kannst du innerhalb von 30 Tagen dein Geld zu 100% zurückfordern - ohne Angabe von Gründen.
-                  </p>
-                </div>
+                  </summary>
+                  <div className="mt-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Wenn du nicht zufrieden bist, kannst du innerhalb von 30 Tagen dein Geld zu 100% zurückfordern - ohne Angabe von Gründen.
+                    </p>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
@@ -258,6 +265,7 @@ export default function PreiseNeuPage() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

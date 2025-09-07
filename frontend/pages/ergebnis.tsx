@@ -7,6 +7,9 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
 import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
+import { normalizeTierParam } from "@/lib/pricing-session";
+import PremiumUploadScreen from "@/components/PremiumUploadScreen";
+import { splitAnalysis, type Tier } from "@/lib/analysisSplitter";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -31,6 +34,7 @@ const PDFDownloadLink = dynamic(
 export default function Ergebnis() {
   const router = useRouter();
   const [text, setText] = useState<string>("");
+  const [tier, setTier] = useState<Tier | null>(null);
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
@@ -44,6 +48,7 @@ export default function Ergebnis() {
 
     const session_id = router.query.session_id;
     const bewertung_id = router.query.id;
+    const token = router.query.token;
     
     // Direct ObjectId access (for customer support and email links)
     if (bewertung_id && typeof bewertung_id === "string") {
@@ -56,7 +61,8 @@ export default function Ergebnis() {
       const loadDirectBewertung = async () => {
         try {
           log("[ERGEBNIS] Fetching direct bewertung from API...");
-          const res = await fetch(`/api/bewertung?id=${bewertung_id}`);
+          const tokenParam = token && typeof token === 'string' ? `&token=${encodeURIComponent(token)}` : '';
+          const res = await fetch(`/api/bewertung?id=${bewertung_id}${tokenParam}`);
           
           log("[ERGEBNIS] API Response status:", res.status);
           
@@ -95,6 +101,11 @@ export default function Ergebnis() {
           
           if (data.bewertung && data.bewertung.trim()) {
             info("[ERGEBNIS] ✅ Direct bewertung loaded successfully");
+            // Store tier if available for gating
+            if (data.tier) {
+              const validTier = data.tier as Tier;
+              setTier(validTier);
+            }
             setText(data.bewertung);
             setLoading(false);
           } else if (data.processing) {
@@ -157,6 +168,12 @@ export default function Ergebnis() {
         
         if (bewertungId) {
           info(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
+          // Capture tier from session metadata for gating (Stripe flow)
+          const selectedTierRaw = data.session.metadata?.selectedTier as string | undefined;
+          if (selectedTierRaw) {
+            const norm = normalizeTierParam(selectedTierRaw);
+            setTier(norm || null);
+          }
           
           let tries = 0;
           const maxTries = 15; // Increased for longer AI processing times (up to 3+ minutes)
@@ -228,6 +245,11 @@ export default function Ergebnis() {
                 if (retryData.bewertung && retryData.bewertung.trim()) {
                   const totalTime = Math.round((Date.now() - startTime) / 1000);
                   info(`[ERGEBNIS] ✅ Bewertung erfolgreich geladen nach ${totalTime}s (${tries} Versuche)`);
+                  // Keep tier if present from retry response
+                  if (retryData.tier) {
+                    const validTier = retryData.tier as Tier;
+                    setTier(validTier);
+                  }
                   setText(retryData.bewertung);
                   setLoading(false);
                   return;
@@ -299,6 +321,37 @@ export default function Ergebnis() {
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
+  // Premium MVP: Show upload screen instead of AI analysis
+  if (tier === 'premium') {
+    const handlePremiumUpload = () => {
+      // Track Premium upload engagement
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'premium_upload_initiated', {
+          'event_category': 'Premium',
+          'event_label': 'Dropbox Upload',
+          'session_id': router.query.session_id || 'unknown'
+        });
+        info('[PREMIUM] Tracked upload initiation event');
+      }
+    };
+
+    return (
+      <Layout>
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+          <link rel="canonical" href="https://pferdewert.de/ergebnis" />
+        </Head>
+        <BewertungLayout title="PferdeWert – Premium Expertenanalyse">
+          <PremiumUploadScreen onUploadClick={handlePremiumUpload} />
+        </BewertungLayout>
+      </Layout>
+    );
+  }
+
+  // Simple tier-based content gating
+  const { visible: renderText } = splitAnalysis(text || '', tier || 'pro');
+  const pdfContent = renderText;
+
   return (
     <Layout>
     <Head>
@@ -310,11 +363,12 @@ export default function Ergebnis() {
       {text ? (
         <>
           <div className="prose prose-lg max-w-full">
-            <ReactMarkdown>{text}</ReactMarkdown>
+            <ReactMarkdown>{renderText}</ReactMarkdown>
           </div>
+          {/* Post-MVP: Upsell-Hinweis vorerst entfernt */}
           <div className="mt-8 flex justify-center sm:mt-10">
             <PDFDownloadLink
-              document={<PferdeWertPDF markdownData={text} />}
+              document={<PferdeWertPDF markdownData={pdfContent} />}
               fileName="PferdeWert-Analyse.pdf"
             >
               {({ loading }: { loading: boolean }) => (

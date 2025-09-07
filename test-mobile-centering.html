@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Pricing Cards Centering Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            padding: 20px 0;
+        }
+        
+        .viewport {
+            width: 390px;
+            height: 600px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .viewport::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: red;
+            z-index: 100;
+            pointer-events: none;
+        }
+        
+        .scroll-container {
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .cards-wrapper {
+            display: flex;
+            min-width: max-content;
+            padding-left: 48px;
+            padding-right: 48px;
+            gap: 16px;
+            height: 100%;
+            align-items: center;
+        }
+        
+        .card {
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            background: #fff;
+            border: 2px solid #8B4513;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card-basic, .card-premium {
+            width: 280px;
+            min-height: 450px;
+        }
+        
+        .card-pro-container {
+            width: 302.4px; /* 280 * 1.08 */
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: center;
+        }
+        
+        .card-pro {
+            width: 280px;
+            min-height: 450px;
+            transform: scale(1.08);
+            transform-origin: center center;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
+        }
+        
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .card .price {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 200;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #A0522D;
+        }
+    </style>
+</head>
+<body>
+    <div class="info" id="info">
+        Scroll Position: <span id="scrollPos">0</span>px<br>
+        Pro Card Center: <span id="proCenter">-</span>px<br>
+        Viewport Center: 195px<br>
+        Offset: <span id="offset">-</span>px
+    </div>
+    
+    <div class="controls">
+        <button onclick="scrollToCard(0)">Basic</button>
+        <button onclick="scrollToCard(1)">Pro (Centered)</button>
+        <button onclick="scrollToCard(2)">Premium</button>
+    </div>
+    
+    <div class="viewport">
+        <div class="scroll-container" id="scrollContainer">
+            <div class="cards-wrapper">
+                <!-- Basic Card -->
+                <div class="card card-basic">
+                    <h3>Basic</h3>
+                    <div class="price">14,90€</div>
+                    <p>Width: 280px</p>
+                    <p>Scale: 1.0x</p>
+                </div>
+                
+                <!-- Pro Card with container -->
+                <div class="card-pro-container">
+                    <div class="card card-pro">
+                        <h3>Professional</h3>
+                        <div class="price">19,90€</div>
+                        <p>Width: 280px</p>
+                        <p>Scale: 1.08x</p>
+                        <p>Container: 302.4px</p>
+                    </div>
+                </div>
+                
+                <!-- Premium Card -->
+                <div class="card card-premium">
+                    <h3>Premium</h3>
+                    <div class="price">39,90€</div>
+                    <p>Width: 280px</p>
+                    <p>Scale: 1.0x</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const scrollContainer = document.getElementById('scrollContainer');
+        const info = document.getElementById('info');
+        const scrollPosEl = document.getElementById('scrollPos');
+        const proCenterEl = document.getElementById('proCenter');
+        const offsetEl = document.getElementById('offset');
+        
+        // Constants matching the React component
+        const CARD_WIDTH = 280;
+        const SPACE_BETWEEN = 16;
+        const CONTAINER_PADDING = 48;
+        const SCALE_FACTOR = 1.08;
+        
+        function updateInfo() {
+            const scrollLeft = scrollContainer.scrollLeft;
+            scrollPosEl.textContent = Math.round(scrollLeft);
+            
+            // Pro card container is wider to match visual size
+            const proCardActualWidth = CARD_WIDTH * SCALE_FACTOR;
+            const proTierStart = CONTAINER_PADDING + CARD_WIDTH + SPACE_BETWEEN;
+            const proCardCenter = proTierStart + (proCardActualWidth / 2);
+            
+            const viewportCenter = 195; // 390 / 2
+            const currentProCenter = proCardCenter - scrollLeft;
+            
+            proCenterEl.textContent = Math.round(currentProCenter);
+            offsetEl.textContent = Math.round(currentProCenter - viewportCenter);
+        }
+        
+        function scrollToCard(index) {
+            if (index === 1) {
+                // Scroll to center the Pro card
+                const proCardActualWidth = CARD_WIDTH * SCALE_FACTOR;
+                const proTierStart = CONTAINER_PADDING + CARD_WIDTH + SPACE_BETWEEN;
+                const viewportWidth = 390;
+                const viewportCenter = viewportWidth / 2;
+                const proCardCenter = proCardActualWidth / 2;
+                
+                const optimalScrollLeft = proTierStart + proCardCenter - viewportCenter;
+                
+                scrollContainer.scrollTo({
+                    left: Math.max(0, optimalScrollLeft),
+                    behavior: 'smooth'
+                });
+            } else if (index === 0) {
+                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                scrollContainer.scrollTo({ left: 9999, behavior: 'smooth' });
+            }
+        }
+        
+        scrollContainer.addEventListener('scroll', updateInfo);
+        
+        // Auto-scroll to Pro card on load
+        setTimeout(() => {
+            scrollToCard(1);
+        }, 500);
+        
+        updateInfo();
+    </script>
+</body>
+</html>

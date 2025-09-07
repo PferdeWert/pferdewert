@@ -4,7 +4,12 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { z } from "zod";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+// Safe Stripe initialization with existence check
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeKey) {
+  throw new Error('STRIPE_SECRET_KEY environment variable is required');
+}
+const stripe = new Stripe(stripeKey);
 
 const querySchema = z.object({
   session_id: z.string().min(10, "Ungültige Session-ID"),

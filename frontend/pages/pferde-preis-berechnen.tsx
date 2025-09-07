@@ -4,10 +4,13 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle, ChevronDown } from "lucide-react";
+import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle, ChevronDown, Instagram } from "lucide-react";
+import { PRICING_TIERS, type PricingTier } from "../lib/pricing";
+import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
 import { 
   trackValuationStart, 
   trackFormProgress, 
@@ -29,6 +32,22 @@ interface FormState {
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
+  // Pricing context
+  selectedTier?: PricingTier; // 'basic' | 'pro' | 'premium'
+  tierPrice?: number;
+  stripeProductId?: string;
+}
+
+interface RealTestimonial {
+  name: string;
+  location: string;
+  role: string;
+  photo: string;
+  instagramHandle?: string;
+  quote: string;
+  verifiedDate: string;
+  rating: number;
+  tier?: 'basic' | 'pro' | 'premium'; // NEW: Tier indicator
 }
 
 const initialForm: FormState = {
@@ -45,6 +64,10 @@ const initialForm: FormState = {
   charakter: "",
   besonderheiten: "",
   attribution_source: "",
+  // pricing fields filled on mount based on URL/session
+  selectedTier: undefined,
+  tierPrice: undefined,
+  stripeProductId: undefined,
 };
 
 // Field Interface
@@ -213,6 +236,7 @@ const stepData: StepData[] = [
 
 export default function PferdePreisBerechnenPage(): React.ReactElement {
   // Alle Hooks MÜSSEN vor jeglichen return-Statements stehen
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -220,53 +244,96 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
+  const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null);
 
-  // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
-  const STORAGE_KEY = "PW_bewertungForm";
-
-  // Formular bei Start wiederherstellen (inkl. Migration)
-  useEffect(() => {
-    if (!isMounted) return;
-    
-    const savedForm = localStorage.getItem(STORAGE_KEY);
-    if (savedForm) {
-      try {
-        const parsedForm = JSON.parse(savedForm) as FormState;
-        
-        // Migration: verwendungszweck → haupteignung
-        const legacyForm = parsedForm as FormState & { verwendungszweck?: string };
-        const migratedForm = {
-          ...parsedForm,
-          haupteignung: parsedForm.haupteignung || legacyForm.verwendungszweck || "",
-          charakter: parsedForm.charakter || "",
-          besonderheiten: parsedForm.besonderheiten || ""
-        };
-        
-        setForm(migratedForm);
-        info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration)");
-      } catch (e) {
-        warn("Fehler beim Wiederherstellen des Formulars:", e);
-      }
+  // Real testimonials data - from index.tsx
+  const realTestimonials: RealTestimonial[] = [
+    {
+      name: "Miriam F.",
+      location: "Deutschland",
+      role: "Ambitionierte Freizeitreiterin (Dressur)",
+      photo: "/images/testimonials/miriam-customer-64.webp",
+      instagramHandle: "herzenspferd_felino",
+      quote: "Nach einem Jahr gemeinsamer Zeit war ich neugierig, wie mein Pferd aktuell bewertet wird. Die Bewertung über PferdeWert war für mich eine tolle Möglichkeit, eine realistische Einschätzung zu bekommen – unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung. Besonders gut: Es wird nicht nur pauschal bewertet, sondern auch individuell auf Abstammung und Gesundheitsstatus eingegangen.",
+      verifiedDate: "2024-01-15",
+      rating: 5
+    },
+    {
+      name: "Eva T.",
+      location: "Deutschland",
+      role: "Besitzerin von Fürstiano",
+      photo: "/images/testimonials/eva-customer-64.webp",
+      instagramHandle: "die_rappenschmiede",
+      quote: "Nach einer Verletzung von Fürstiano war ich unsicher über seinen aktuellen Marktwert. Die PferdeWert-Analyse war super einfach auszufüllen und das Ergebnis kam sofort. Besonders hilfreich fand ich die detaillierte Aufschlüsselung der Bewertungsfaktoren - das hat mir wirklich geholfen, die Situation realistisch einzuschätzen. Auch wenn für mich mein Pferd unbezahlbar bleibt, war es interessant zu wissen, wo er marktmäßig steht.",
+      verifiedDate: "2024-12-20",
+      rating: 5
+    },
+    {
+      name: "Denise B.",
+      location: "Deutschland", 
+      role: "von energy_emotion",
+      photo: "/images/testimonials/denise-customer-64.webp",
+      instagramHandle: "energy_emotion",
+      quote: "Auch wenn ein Verkauf meiner beiden Stuten nicht in Frage kommt, war ich neugierig, wo ihr aktueller Marktwert liegt. Die Bewertung bei PferdeWert war überraschend einfach – ein paar Fragen zur Abstammung, zu eventuellen Krankheitsbildern, Ausbildung und Turniererfolgen, das war's. Keine 10 Minuten später hatte ich eine detaillierte Analyse zu beiden Pferden. Perfekt für alle, die vor einem Pferdekauf oder Pferdeverkauf stehen oder einfach so wissen möchten, was ihre Pferde wert sind.",
+      verifiedDate: "2025-01-12",
+      rating: 5
     }
-  }, [isMounted]);
+  ];
 
-  // Throttled localStorage save to reduce performance impact
+  // Initialize tier from URL parameters only
   useEffect(() => {
     if (!isMounted) return;
-    
-    const saveTimer = setTimeout(() => {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
-    }, 500); // Throttle saves to every 500ms
 
-    return () => clearTimeout(saveTimer);
-  }, [form, isMounted]);
+    // Resolve tier from URL parameter only
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const tierParam = params.get('tier');
+      const normalized = normalizeTierParam(tierParam);
+      
+      // Try to get tier from URL parameter or session storage
+      const resolved: PricingTier | null = normalized || getSavedTier();
+
+      if (resolved) {
+        // User has pre-selected a tier - allow form access
+        savePricingTier(resolved);
+        setSelectedTier(resolved);
+
+        const cfg = PRICING_TIERS[resolved];
+        setForm(prev => ({
+          ...prev,
+          selectedTier: resolved,
+          tierPrice: cfg.price,
+          stripeProductId: cfg.stripeId,
+        }));
+
+        // Analytics: record that the form loaded with a selected tier
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'pricing_tier_loaded_on_form', {
+            tier_name: resolved,
+            tier_price: cfg.price,
+            currency: 'EUR',
+            page_location: '/pferde-preis-berechnen'
+          });
+        }
+      } else {
+        // Protection: No tier selected - redirect to /preise
+        info('[FORM] No tier selected, redirecting to /preise');
+        router.replace('/preise');
+        return;
+      }
+    } catch {
+      // Fallback: redirect to /preise on any error
+      router.replace('/preise');
+      return;
+    }
+  }, [isMounted, router, selectedTier]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
     
     // Debug logging für stockmass
     if (name === "stockmass") {
-      console.log(`[DEBUG] stockmass input - raw value: "${value}", type: ${typeof value}`);
+      info(`[DEBUG] stockmass input - raw value: "${value}", type: ${typeof value}`);
       
       // FIXED: Proper number parsing that handles decimal formatting
       let cleanValue = value.trim();
@@ -288,7 +355,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       }
       
       if (cleanValue !== value) {
-        console.log(`[DEBUG] stockmass cleaned from "${value}" to "${cleanValue}"`);
+        info(`[DEBUG] stockmass cleaned from "${value}" to "${cleanValue}"`);
       }
       setForm(prev => ({ ...prev, [name]: cleanValue }));
     } else {
@@ -398,8 +465,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
+
+  /**
+   * Internal submit handler for reuse from tier selection
+   */
+  const handleSubmitInternal = async (): Promise<void> => {
     setErrors({});
 
     if (!consent) {
@@ -430,16 +500,19 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       return;
     }
 
+
     setLoading(true);
     
     // Track payment initiation with form completion time
     const completionTime = calculateFormCompletionTime(formStartTime);
     const formWithMetrics = { ...form, completionTime };
     trackPaymentStart(formWithMetrics);
-    // Analytics for checkout start
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'begin_checkout', {
-        value: 14.90,
+    // Analytics: include selected tier details for checkout start
+    if (typeof window !== 'undefined' && window.gtag && selectedTier) {
+      const cfg = PRICING_TIERS[selectedTier];
+      window.gtag('event', 'begin_checkout_tier', {
+        tier_name: selectedTier,
+        tier_price: cfg.price,
         currency: 'EUR',
         page_location: '/pferde-preis-berechnen'
       });
@@ -447,27 +520,94 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     
     try {
       // Debug logging vor dem Senden
-      console.log(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
-      console.log(`[DEBUG] Full form object:`, form);
+      info(`[DEBUG] Form submission - stockmass value: "${form.stockmass}", typeof: ${typeof form.stockmass}`);
+      info(`[DEBUG] Full form object:`, form);
+      
+      // Enhanced tier validation with multiple fallback checks
+      const currentTier = form.selectedTier || selectedTier;
+      
+      // Comprehensive tier validation
+      if (!currentTier || typeof currentTier !== 'string' || currentTier.trim() === '') {
+        error('[CHECKOUT] ❌ Kein Tier ausgewählt - kann nicht fortfahren', { 
+          formTier: form.selectedTier, 
+          stateTier: selectedTier,
+          currentTier 
+        });
+        setErrors({ form: "Fehler: Kein Preispaket ausgewählt. Bitte gehe zurück zu /preise und wähle ein Paket." });
+        return;
+      }
+      
+      // Validate tier against allowed values
+      const normalizedTier = currentTier.toLowerCase().trim();
+      const validTiers = ['basic', 'pro', 'premium'];
+      if (!validTiers.includes(normalizedTier)) {
+        error('[CHECKOUT] ❌ Ungültiger Tier-Wert', { 
+          currentTier, 
+          normalizedTier, 
+          validTiers 
+        });
+        setErrors({ form: "Fehler: Ungültiges Preispaket. Bitte gehe zurück zu /preise und wähle ein gültiges Paket." });
+        return;
+      }
+      
+      const formWithTier = {
+        ...form,
+        selectedTier: currentTier.trim(), // Ensure no whitespace issues
+        // Include tier also as 'tier' for backward compatibility
+        tier: currentTier.trim()
+      };
+      
+      info(`[DEBUG] Form with tier:`, { 
+        selectedTier: formWithTier.selectedTier,
+        tier: formWithTier.tier,
+        originalTier: currentTier
+      });
       
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: JSON.stringify(form) }),
+        body: JSON.stringify({ text: JSON.stringify(formWithTier) }),
       });
 
+      // Enhanced response handling with detailed error logging
       if (res.ok) {
         const data = await res.json() as { url: string };
         const { url } = data;
-        // Formular aus localStorage löschen bei erfolgreicher Einreichung
-        if (isMounted) {
-          localStorage.removeItem(STORAGE_KEY);
-          // Form successfully submitted - localStorage cleared
-        }
+        info(`[CHECKOUT] ✅ Successful response, redirecting to Stripe:`, { url });
+        // Form successfully submitted - redirect to Stripe
         window.location.href = url;
       } else {
-        const errorData = await res.json() as { error?: string };
-        setErrors({ form: errorData.error || "Fehler beim Starten der Bewertung." });
+        // Log the full error response for debugging
+        error(`[CHECKOUT] ❌ HTTP ${res.status} ${res.statusText}`, {
+          status: res.status,
+          statusText: res.statusText,
+          headers: Object.fromEntries(res.headers.entries())
+        });
+        
+        let errorData: { error?: string; code?: string } = {};
+        try {
+          errorData = await res.json() as { error?: string; code?: string };
+          error('[CHECKOUT] Error response data:', errorData);
+        } catch (jsonErr) {
+          error('[CHECKOUT] Failed to parse error response as JSON:', jsonErr);
+        }
+        
+        // Special handling for missing tier selection
+        if (errorData.code === "NO_TIER_SELECTED") {
+          info("[FORM] Checkout rejected - no tier selected, redirecting to pricing page");
+          window.location.href = '/preise';
+          return;
+        }
+        
+        // Special handling for invalid tier
+        if (errorData.code === "INVALID_TIER") {
+          error("[FORM] Checkout rejected - invalid tier, redirecting to pricing page");
+          window.location.href = '/preise';
+          return;
+        }
+        
+        const errorMessage = errorData.error || `Fehler beim Starten der Bewertung (HTTP ${res.status}).`;
+        setErrors({ form: errorMessage });
       }
     } catch (err) {
       const message =
@@ -480,6 +620,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       setLoading(false);
     }
   };
+
+  /**
+   * Main form submit handler - handles both flows
+   */
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    await handleSubmitInternal();
+  };
+
 
   const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setConsent(e.target.checked);
@@ -497,8 +646,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferde Preis berechnen Bayern NRW: 2 Min Bewertung | PferdeWert</title>
-        <meta name="description" content="🐎 Pferde Preis berechnen Bayern & NRW ✓ 115 Bewertungen täglich ✓ KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ Regional optimiert ✓ Jetzt starten!" />
+        <title>Pferde Preis berechnen: 2 Min Bewertung | PferdeWert</title>
+        <meta name="description" content="🐎 Pferde Preis berechnen ✓ KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ Jetzt starten!" />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="400" />
@@ -516,76 +665,38 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
       {/* Note: Animations moved to globals.css for better performance */}
 
-      {/* Hero-Bereich mit fullWidth Layout wie index.tsx */}
+      {/* Hero: Badge oben, darunter H1 - optimiert für schnellen Formular-Zugang */}
       <section id="preise" className="relative overflow-hidden">
-        <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text-Bereich - Links mit fade-in */}
-            <div className="space-y-8 hero-fade-in-left">
-              <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                  🐎 Professionelle Pferdebewertung
-                </div>
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Pferd analysieren
-                </h1>
-                
-                {/* Preisbanner mit neuem Design */}
-                <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 border-2 border-amber-300 p-6 rounded-2xl shadow-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-2xl">🔥</span>
-                    <p className="text-xl font-bold text-gray-800">
-                      Nur <span className="text-3xl text-red-600 font-black">14,90€</span>
-                      <span className="line-through text-gray-500 text-lg ml-3">statt 29,90€</span>
-                    </p>
-                  </div>
-                  <p className="text-sm text-gray-600 font-medium">Exklusiv in der Sommer-Aktion!</p>
-                </div>
-
-                {/* Features mit Icons */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Shield className="w-5 h-5 text-brand-brown flex-shrink-0" />
-                    <span className="font-medium">Komplett anonym – keine Anmeldung nötig</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Clock className="w-5 h-5 text-brand-brown flex-shrink-0" />
-                    <span className="font-medium">Ergebnis in unter 2 Minuten</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-brand-brown flex-shrink-0" />
-                    <span className="font-medium">Detaillierte PDF-Analyse</span>
-                  </div>
-                </div>
-              </div>
+        <div className="px-4 lg:px-8 xl:px-12 py-10 lg:py-16">
+          <div className="text-center space-y-6">
+            {/* Badge */}
+            <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
+              🐎 Professionelle Pferdebewertung
             </div>
-
-            {/* Bild-Bereich - Rechts mit fade-in */}
-            <div className="relative hero-fade-in-right">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/result.webp"
-                  width={600}
-                  height={400}
-                  alt="Deutsches Sportpferd für KI-Pferdebewertung"
-                  className="w-full h-auto"
-                  priority
-                  sizes="(max-width: 480px) 400px, (max-width: 768px) 500px, (max-width: 1200px) 600px, 600px"
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-            </div>
+            {/* H1 */}
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              Pferd bewerten
+            </h1>
           </div>
         </div>
       </section>
-
       {/* Wizard-Bereich mit fullWidth Layout und fade-in */}
       <section id="wizard-start" className="py-8 lg:py-16">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto wizard-fade-in">
+            {/* Gewählter Tarif Indikator */}
+            <div className="mb-6">
+              {selectedTier && (
+                <div className="bg-brand-brown text-white px-5 py-3 rounded-2xl inline-flex items-center gap-3">
+                  <strong className="text-base lg:text-lg font-semibold">
+                    {PRICING_TIERS[selectedTier].displayName}
+                  </strong>
+                  <span className="text-sm opacity-90">
+                    ({PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€)
+                  </span>
+                </div>
+              )}
+            </div>
             {/* Step-Indikatoren */}
             <div id="wizard-progress" className="mb-8 sticky top-0 bg-white/90 backdrop-blur-sm z-30 py-4 rounded-2xl">
               <div className="flex items-center justify-center space-x-2 sm:space-x-8">
@@ -800,10 +911,20 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   {/* Preis */}
                   <div className="text-center mb-8">
                     <p className="text-xl text-gray-700 mb-2">
-                      Die Analyse kostet einmalig
+                      {selectedTier
+                        ? `Die ${PRICING_TIERS[selectedTier].displayName}-Analyse kostet einmalig`
+                        : 'Die Analyse kostet einmalig'}
                     </p>
-                    <div className="text-4xl font-black text-brand-brown mb-2">
-                      14,90€
+                    <div className="text-4xl font-black mb-2">
+                      {selectedTier ? (
+                        <span className="text-brand-brown">
+                          {`${PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€`}
+                        </span>
+                      ) : (
+                        <span className="text-gray-500">
+                          ab 14,90€
+                        </span>
+                      )}
                     </div>
                     <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
                   </div>
@@ -819,8 +940,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         Einen Moment – deine Analyse wird vorbereitet…
                       </div>
-                    ) : (
+                    ) : selectedTier ? (
                       "Jetzt kostenpflichtig analysieren"
+                    ) : (
+                      "Paket auswählen & analysieren"
                     )}
                   </button>
 
@@ -887,63 +1010,86 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         </div>
       </section>
 
-      {/* Social Proof mit fullWidth Layout */}
-      <section id="vorteile" className="bg-gradient-to-br from-gray-50 to-blue-50 py-16 lg:py-24">
-        <div className="px-4 lg:px-8 xl:px-12">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-12">
-              Das sagen unsere Kunden
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Testimonial 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                  Ich wollte mein Pferd verkaufen und war unsicher beim Preis. Die Bewertung hat mir sehr geholfen eine Einschätzung zu bekommen und ich konnte mein Pferd auch zu dem empfohlenen Preis verkaufen!
-                </blockquote>
-                <cite className="text-sm text-gray-600 font-semibold not-italic">
-                  - Sarah M., Freizeitreiterin
-                </cite>
-              </div>
+      {/* Enhanced Testimonials Section with Real Customer Reviews */}
+      <section id="vorteile" className="section bg-brand-light/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
+            <p className="text-xl text-gray-600">
+              Erfahrungen von Pferdebesitzern mit unseren verschiedenen Bewertungsarten
+            </p>
+          </div>
 
-              {/* Testimonial 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
+          {/* Testimonials with tier badges */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+            {realTestimonials.map((testimonial, index) => (
+              <div key={index} className="flex">
+                <div className="bg-white rounded-xl p-6 shadow-xl border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
+                  
+                  {/* Quote mark */}
+                  <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
+                    &quot;
+                  </div>
+                  
+                  {/* Customer info with tier badge */}
+                  <div className="flex items-start mb-4 ml-6 min-h-[80px]">
+                    <div className="relative w-16 mr-4 flex-shrink-0">
+                      <Image
+                        src={testimonial.photo}
+                        alt={`${testimonial.name} Profilbild`}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 pt-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                        {testimonial.tier && (
+                          <span className={`tier-badge tier-${testimonial.tier}`}>
+                            {testimonial.tier}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-600 leading-snug">{testimonial.role}</div>
+                      <div className="text-xs text-gray-500">{testimonial.location}</div>
+                    </div>
+                  </div>
+                  
+                  {/* Rating */}
+                  <div className="flex mb-4 ml-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
+                    ))}
+                  </div>
+                  
+                  {/* Quote */}
+                  <blockquote className="text-gray-700 mb-6 ml-6 leading-relaxed flex-grow text-sm">
+                    {testimonial.quote}
+                  </blockquote>
+                  
+                  {/* Instagram link */}
+                  <div className="ml-6 mt-auto min-h-[48px] flex items-center">
+                    {testimonial.instagramHandle && (
+                      <a
+                        href={`https://instagram.com/${testimonial.instagramHandle}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors py-2 px-3 rounded-lg hover:bg-brand-light/50"
+                        aria-label={`${testimonial.name} auf Instagram folgen`}
+                      >
+                        <Instagram className="w-4 h-4" />
+                        @{testimonial.instagramHandle}
+                      </a>
+                    )}
+                  </div>
                 </div>
-                <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                  Vor dem Pferdekauf wollte ich wissen, ob der angegebene Preis fair ist. Die PferdeWert-Analyse war sehr detailliert und hat mir bei der Preisverhandlung sehr geholfen.
-                </blockquote>
-                <cite className="text-sm text-gray-600 font-semibold not-italic">
-                  - Michael K., Hobbyreiter
-                </cite>
               </div>
-
-              {/* Testimonial 3 */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                  Ich besitze ein Pferd und wollte einfach nur aus Neugier den aktuellen Marktwert wissen. Super interessant was PferdeWert als Ergebnis bereitstellt, vor allem auch die Analyse der Abstammung fand ich sehr spannend!
-                </blockquote>
-                <cite className="text-sm text-gray-600 font-semibold not-italic">
-                  - Anna L., Pferdebesitzerin
-                </cite>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
     </Layout>
   );
 }

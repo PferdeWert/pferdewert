@@ -1,99 +1,26 @@
 /**
- * Zentrale Preiskonfiguration für PferdeWert.de
+ * Zentrale Preiskonfiguration für PferdeWert.de - 3-Tier Pricing
  * 
  * Diese Datei ist die EINZIGE Quelle für alle Preisangaben in der Anwendung.
  * Bei Preisänderungen muss nur diese Datei angepasst werden.
  * 
  * @author PferdeWert.de
- * @version 3.1.0 - Preisanpassung auf 14,90€
+ * @version 4.0.0 - 3-Tier Pricing System
  */
 
-// ===== PREIS KONFIGURATION =====
-export const PRICING = {
-  /** 
-   * Aktueller Hauptpreis für Pferdebewertung
-   * Format: Dezimalzahl für Berechnungen 
-   */
-  current: 14.90,
-  
-  /** 
-   * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
-   * Soll deutlich höher sein als current price
-   */
-  decoy: 29.00
+// ===== 3-TIER PRICING PRICES =====
+export const TIER_PRICES = {
+  basic: 14.90,
+  pro: 19.90,
+  premium: 39.90,
 } as const;
 
-// ===== FORMATIERTE PREISE =====
-export const PRICING_FORMATTED = {
-  /** Aktueller Preis formatiert für deutsche Anzeige */
-  current: `${PRICING.current.toFixed(2).replace('.', ',')}€`,
-  
-  /** Decoy-Preis formatiert */
-  decoy: `${PRICING.decoy.toFixed(0)}€`
+// ===== STRIPE CONFIGURATION =====
+export const TIER_STRIPE_IDS = {
+  basic: process.env.STRIPE_PRICE_ID_BASIC || '',
+  pro: process.env.STRIPE_PRICE_ID_PRO || '',
+  premium: process.env.STRIPE_PRICE_ID_PREMIUM || '',
 } as const;
-
-// ===== STRIPE KONFIGURATION =====
-export const STRIPE_CONFIG = {
-  /** 
-   * Stripe Price-ID für aktuellen Preis (14,90€ für main branch)
-   * Automatisch aus Environment-Variable geladen 
-   */
-  priceId: process.env.STRIPE_PRICE_ID!,
-  
-  /** 
-   * Preis in Stripe-Format (Cent-Betrag)
-   * Automatisch berechnet aus PRICING.current 
-   */
-  amountCents: Math.round(PRICING.current * 100),
-  
-  /** Währung */
-  currency: 'EUR'
-} as const;
-
-// ===== TEXT TEMPLATES =====
-export const PRICING_TEXTS = {
-  /** Standard CTA Button Text */
-  ctaButton: `Jetzt ${PRICING_FORMATTED.current}-Analyse starten`,
-  
-  /** Mobile Sticky Button */
-  mobileButton: `Jetzt Pferd bewerten → ${PRICING_FORMATTED.current}`,
-  
-  /** FAQ Antwort Text */
-  faqAnswer: `Unsere umfassende Preisanalyse kostet aktuell ${PRICING_FORMATTED.current} (Einführungspreis), anstatt regulär ${PRICING_FORMATTED.decoy}.`,
-  
-  /** Sparpotenzial Text */
-  savings: `Nur ${PRICING_FORMATTED.current} können dir tausende Euro sparen.`,
-  
-  /** Verkaufen-Seite CTA */
-  sellCta: `Jetzt Verkaufspreis ermitteln → ${PRICING_FORMATTED.current}`,
-  
-  /** Marketing Copy - Warum so günstig */
-  whyAffordable: `Warum kostet die Bewertung nur ${PRICING_FORMATTED.current}?`
-} as const;
-
-// ===== SCHEMA.ORG STRUCTURED DATA =====
-export const SCHEMA_PRICING = {
-  /** Preis für Schema.org Markup (immer mit Punkt als Dezimaltrennzeichen) */
-  price: PRICING.current.toFixed(2),
-  
-  /** Währung für Schema.org */
-  priceCurrency: "EUR",
-  
-  /** Vollständiges Schema.org Offer Object */
-  offer: {
-    "@type": "Offer",
-    "price": PRICING.current.toFixed(2),
-    "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2025-01-09"
-  }
-} as const;
-
-// ===== TYPESCRIPT TYPES =====
-export type PricingConfig = typeof PRICING;
-export type PricingTexts = typeof PRICING_TEXTS;
-export type StripeConfig = typeof STRIPE_CONFIG;
-
 // ===== UTILITY FUNCTIONS =====
 /**
  * Formatiert einen Preis für deutsche Anzeige
@@ -103,6 +30,31 @@ export type StripeConfig = typeof STRIPE_CONFIG;
 export const formatPrice = (price: number): string => {
   return `${price.toFixed(2).replace('.', ',')}€`;
 };
+
+// ===== TYPESCRIPT TYPES =====
+export type PricingTier = keyof typeof TIER_PRICES; // 'basic' | 'pro' | 'premium'
+
+// ===== 3-TIER PRICING CONFIGURATION =====
+export const PRICING_TIERS = {
+  basic: {
+    displayName: 'Basic',
+    price: TIER_PRICES.basic,
+    stripeId: TIER_STRIPE_IDS.basic,
+    formatted: formatPrice(TIER_PRICES.basic)
+  },
+  pro: {
+    displayName: 'Pro', 
+    price: TIER_PRICES.pro,
+    stripeId: TIER_STRIPE_IDS.pro,
+    formatted: formatPrice(TIER_PRICES.pro)
+  },
+  premium: {
+    displayName: 'Premium',
+    price: TIER_PRICES.premium,
+    stripeId: TIER_STRIPE_IDS.premium,
+    formatted: formatPrice(TIER_PRICES.premium)
+  }
+} as const;
 
 /**
  * Konvertiert Preis in Stripe-Cent-Format
@@ -114,124 +66,92 @@ export const toCents = (price: number): number => {
 };
 
 /**
- * Validiert ob alle Preise korrekt konfiguriert sind
+ * Validiert ob ein Stripe Price ID das korrekte Format hat
+ * @param stripeId Die zu validierende Stripe Price ID
+ * @returns true wenn gültig, sonst false
+ */
+export const isValidStripePriceId = (stripeId: string): boolean => {
+  return stripeId.startsWith('price_') && stripeId.length > 6;
+};
+
+/**
+ * Validiert ob alle Tier-Preise korrekt konfiguriert sind
  * @returns true wenn gültig, sonst Error
  */
 export const validatePricing = (): boolean => {
-  if (PRICING.current <= 0) throw new Error('Current price must be positive');
-  if (PRICING.decoy <= PRICING.current) throw new Error('Decoy price must be higher than current price');
-  if (!STRIPE_CONFIG.priceId) throw new Error('Stripe Price ID missing');
+  Object.values(TIER_PRICES).forEach(price => {
+    if (price <= 0) throw new Error('All tier prices must be positive');
+  });
+  
+  if (process.env.NODE_ENV === 'production') {
+    Object.entries(TIER_STRIPE_IDS).forEach(([tier, stripeId]) => {
+      if (!stripeId) throw new Error(`Stripe Price ID for tier '${tier}' must be set in production`);
+      if (!isValidStripePriceId(stripeId)) {
+        throw new Error(`Stripe Price ID for tier '${tier}' has invalid format. Must start with 'price_'`);
+      }
+    });
+  }
+  
   return true;
 };
 
-// ===== 3-TIER PRICING SYSTEM =====
-
-export type PricingTier = 'basic' | 'standard' | 'premium';
-
-export interface TierConfig {
-  id: PricingTier;
-  displayName: string;
-  price: number;
-  originalPrice?: number;
-  description: string;
-  features: string[];
-  highlights: string[];
-  badge?: string;
-  ctaText: string;
-  stripeId: string;
-  popular?: boolean;
-  deliveryTime: string;
-  reportPages: string;
-}
-
-export const PRICING_TIERS: Record<PricingTier, TierConfig> = {
-  basic: {
-    id: 'basic',
-    displayName: 'PferdeWert Express',
-    price: 14.90,
-    description: 'Schnelle Marktpreis-Schätzung',
-    features: [
-      'Sofortiges Ergebnis',
-      'Nur die Preisspanne, kein Analysebericht',
-    ],
-    highlights: [
-      'Preisspanne in unter 1 Minute',
-    ],
-    ctaText: 'Express-Bewertung starten',
-    stripeId: 'price_basic',
-    deliveryTime: '< 1 Minute',
-    reportPages: '1 Seite',
-  },
-  
-  standard: {
-    id: 'standard',
-    displayName: 'PferdeWert Professional',
-    price: 24.90,
-    originalPrice: 39.90,
-    description: 'Detaillierte Pferdebewertung mit ausführlicher Analyse',
-    features: [
-      'Detaillierte Pferdebewertung',
-      'Ausführlicher PDF-Report',
-      'Verkaufsempfehlungen',
-      'Abstammungsanalyse'
-    ],
-    highlights: [
-      'Ausführlicher Bericht über dein Pferd'
-    ],
-    badge: 'Beliebteste Wahl',
-    ctaText: 'Professional-Analyse starten',
-    stripeId: 'price_standard',
-    popular: true,
-    deliveryTime: '2-3 Minuten',
-    reportPages: '3-5 Seiten',
-  },
-  
-  premium: {
-    id: 'premium',
-    displayName: 'PferdeWert KI-Vision',
-    price: 99.90,
-    description: 'Premium KI-Vision mit Foto-Analyse',
-    features: [
-      'KI-Vision Foto-Analyse',
-      'Detaillierte Exterieur-Bewertung',
-      'Premium PDF-Report',
-    ],
-    highlights: [
-      'Revolutionäre Foto-KI-Technologie',
-    ],
-    ctaText: 'KI-Vision Analyse starten',
-    stripeId: 'price_premium',
-    deliveryTime: '5-10 Minuten',
-    reportPages: '8-12 Seiten',
-  }
-} as const;
-
-export const DEFAULT_TIER: PricingTier = 'standard';
-
-// ===== 3-TIER UTILITY FUNCTIONS =====
-export const getTierConfig = (tier: PricingTier): TierConfig => {
+/**
+ * Holt Tier-Konfiguration für spezifischen Tier
+ * @param tier Der gewünschte Pricing Tier
+ * @returns Tier-Konfiguration
+ */
+export const getTierConfig = (tier: PricingTier) => {
   return PRICING_TIERS[tier];
 };
 
-export const formatTierPrice = (tier: PricingTier): string => {
-  const config = getTierConfig(tier);
-  return `${config.price.toFixed(2).replace('.', ',')}€`;
+/**
+ * Holt den formatierten Preis für einen Tier
+ * @param tier Der gewünschte Pricing Tier
+ * @returns Formatierter Preis-String
+ */
+export const getTierPrice = (tier: PricingTier): string => {
+  return PRICING_TIERS[tier].formatted;
 };
 
-export const getTierSavings = (tier: PricingTier): string | null => {
-  const config = getTierConfig(tier);
-  if (!config.originalPrice) return null;
-  const savings = config.originalPrice - config.price;
-  return `${savings.toFixed(2).replace('.', ',')}€`;
-};
+// ===== BACKWARD COMPATIBILITY EXPORTS =====
+// Diese Exporte sind für die Übergangszeit, bis alle Dateien auf das neue System umgestellt sind
+export const PRICING = {
+  current: TIER_PRICES.basic,
+  decoy: TIER_PRICES.premium
+} as const;
+
+export const PRICING_FORMATTED = {
+  current: formatPrice(TIER_PRICES.basic),
+  decoy: formatPrice(TIER_PRICES.premium)
+} as const;
+
+export const PRICING_TEXTS = {
+  ctaButton: `Jetzt ${formatPrice(TIER_PRICES.basic)}-Analyse starten`,
+  mobileButton: `Jetzt Pferd bewerten → ${formatPrice(TIER_PRICES.basic)}`,
+  faqAnswer: `Unsere umfassende Preisanalyse kostet aktuell ${formatPrice(TIER_PRICES.basic)} (Einführungspreis), anstatt regulär ${formatPrice(TIER_PRICES.premium)}.`,
+  savings: `Nur ${formatPrice(TIER_PRICES.basic)} können dir tausende Euro sparen.`,
+  sellCta: `Jetzt Verkaufspreis ermitteln → ${formatPrice(TIER_PRICES.basic)}`,
+  whyAffordable: `Warum kostet die Bewertung nur ${formatPrice(TIER_PRICES.basic)}?`
+} as const;
+
+export const SCHEMA_PRICING = {
+  price: TIER_PRICES.basic.toFixed(2),
+  priceCurrency: "EUR",
+  offer: {
+    "@type": "Offer",
+    "price": TIER_PRICES.basic.toFixed(2),
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-01-09"
+  }
+} as const;
 
 // ===== DEVELOPMENT HELPERS =====
 if (process.env.NODE_ENV === 'development') {
   import('@/lib/log').then(({ log }) => {
-    log('💰 PferdeWert Pricing Config loaded:', {
-      current: PRICING_FORMATTED.current,
-      decoy: PRICING_FORMATTED.decoy,
-      stripeId: STRIPE_CONFIG.priceId,
+    log('💰 PferdeWert 3-Tier Pricing Config loaded:', {
+      tierPrices: TIER_PRICES,
+      stripeIds: TIER_STRIPE_IDS,
       valid: validatePricing()
     });
   });

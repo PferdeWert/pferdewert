@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "mcp-server-playwright",
+      "args": [
+        "--headless"
+      ],
+      "env": {}
+    },
+    "firecrawl": {
+      "command": "firecrawl-mcp",
+      "args": [],
+      "env": {
+        "FIRECRAWL_API_KEY": "<PASTE_YOUR_FIRECRAWL_API_KEY>",
+        "FIRECRAWL_BASE_URL": ""
+      }
+    },
+    "zilliz": {
+      "command": "npx",
+      "args": [
+        "@zilliz/claude-context-mcp@latest"
+      ],
+      "env": {
+        "MILVUS_TOKEN": "<SET_IN_ENVIRONMENT>",
+        "ZILLIZ_CLOUD_URI": "<SET_IN_ENVIRONMENT>"
+      }
+    }
+  }
+}

@@ -1,14 +1,18 @@
-// pages/index.tsx
+// pages/index-tiered.tsx - Test implementation of 3-tier homepage design
+// Based on wireframe: .3-tier-pricing/homepage-wireframe.md
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram } from "lucide-react";
-import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
+import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle, Camera } from "lucide-react";
+import PricingDisplay from "@/components/pricing/PricingDisplay";
+import { PricingTier } from "@/lib/pricing";
+import { TIER_PRICES, formatPrice } from "../lib/pricing";
 
-// TypeScript interfaces for testimonials
+
+// TypeScript interfaces for testimonials with tier indicators
 interface RealTestimonial {
   name: string;
   location: string;
@@ -18,13 +22,11 @@ interface RealTestimonial {
   quote: string;
   verifiedDate: string;
   rating: number;
+  tier?: 'basic' | 'pro' | 'premium'; // NEW: Tier indicator
 }
 
-
-export default function PferdeWertHomepage() {
-  // Preise aus zentraler Konfiguration (importiert)
-
-  // Testimonials data
+export default function TieredPferdeWertHomepage() {
+  // Testimonials data - original from index.tsx
   const realTestimonials: RealTestimonial[] = [
     {
       name: "Miriam F.",
@@ -58,27 +60,27 @@ export default function PferdeWertHomepage() {
     }
   ];
 
-  // FAQ Data
+  // Enhanced FAQ with tier-specific questions
   const faqItems = [
+    {
+      frage: "Welche Bewertung passt zu mir?",
+      antwort: "Basic (€14,90) für schnelle Marktwert-Einschätzung, Pro (€19,90) für detaillierte Analyse mit Auswertung, Premium (€39,90) für umfassende Bewertung mit professioneller Foto-Analyse."
+    },
+    {
+      frage: "Was ist der Unterschied zwischen den Bewertungen?",
+      antwort: "Basic: Schnelle Marktpreis-Einschätzung in 1-2 Min. Pro: Detaillierte Analyse mit Begründung in 2-3 Min. Premium: Umfassende Bewertung mit Exterior-Analyse bis zu 24h."
+    },
+    {
+      frage: "Kann ich später upgraden?",
+      antwort: "Ja, du kannst jederzeit auf Pro oder Premium upgraden und zahlst nur die Differenz. Deine bereits eingegebenen Daten werden dabei übernommen."
+    },
     {
       frage: "Was ist mein Pferd wert?",
       antwort: "Unser KI-Modell analysiert Verkaufsdaten, Rasse, Alter, Ausbildung, Gesundheitsstatus und mehr – so erhältst du eine realistische Preisspanne für dein Pferd, sofort und ohne Anmeldung."
     },
     {
-      frage: "Wie kann ich den Preis für mein Pferd berechnen?",
-      antwort: "Einfach das Online-Formular ausfüllen und unser KI-System ermittelt in unter 2 Minuten eine fundierte Preisspanne – ideal zur Vorbereitung für Verkauf oder Kauf."
-    },
-    {
       frage: "Wie funktioniert die KI-basierte Bewertung?",
       antwort: "Unsere KI analysiert über 50.000 Verkaufsdaten, berücksichtigt Rasse, Alter, Ausbildungsstand, Gesundheit und aktuelle Markttrends für eine präzise Bewertung."
-    },
-    {
-      frage: "Ist die Bewertung für Käufer und Verkäufer geeignet?",
-      antwort: "Ja! Verkäufer erhalten eine realistische Preiseinschätzung, Käufer können überprüfen ob ein Angebot fair ist und haben starke Argumente für Verhandlungen."
-    },
-    {
-      frage: PRICING_TEXTS.whyAffordable,
-      antwort: `Das ist unser Launch-Angebot als neues Startup. Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei ${PRICING_FORMATTED.decoy}.`
     },
     {
       frage: "Erhalte ich eine Geld-zurück-Garantie?",
@@ -89,23 +91,19 @@ export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd kaufen Bayern, NRW & bundesweit: Marktwert berechnen | PferdeWert</title>
+        <title>Was ist mein Pferd wert? KI‑Pferdebewertung | PferdeWert</title>
         <meta
           name="description"
-          content="🐎 Pferdewert berechnen Bayern & NRW ✓ 40.500+ Pferde-Suchen täglich ✓ KI-Bewertung für ${PRICING_FORMATTED.current} ✓ Pferd kaufen & verkaufen ✓ Jetzt starten!"
+          content="Marktwert deines Pferdes online berechnen – 3 Bewertungsoptionen zur Auswahl. Basic €14,90, Pro €19,90, Premium €39,90. KI‑Ergebnis in 2 Minuten."
         />
-        <meta property="og:title" content="Was ist dein Pferd wert? Marktwert in 2 Minuten per KI-Algorithmus | PferdeWert" />
-        <meta property="og:description" content="Professionelle KI-Bewertung in 2 Min ✓ Marktwert sofort berechnen für Kauf/Verkauf oder aus Neugier ✓ Ohne Anmeldung" />
+        <meta property="og:title" content="Was ist mein Pferd wert? KI‑Pferdebewertung | PferdeWert" />
+        <meta property="og:description" content="Pferdewert online berechnen – 3 Bewertungsoptionen zur Auswahl. Basic, Pro oder Premium. KI‑gestützte Bewertung für Kauf oder Verkauf." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/" />
-        <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd verkaufen & kaufen: Marktwert mit KI berechnen" />
-        <meta name="twitter:description" content="Marktwert berechnen ✓ Faire Preise erkennen ✓ Überzahlung vermeiden ✓ 2 Min KI-Analyse" />
-        <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/og-home-1200x630.jpg" />
         <link rel="canonical" href="https://pferdewert.de/" />
         
-        {/* Critical CSS für above-the-fold Content */}
+        {/* Critical CSS for above-the-fold content */}
         <style dangerouslySetInnerHTML={{
           __html: `
             .hero-fade-in-left,.hero-fade-in-right{opacity:1;transform:none}
@@ -119,10 +117,14 @@ export default function PferdeWertHomepage() {
             .btn-primary:hover{background-color:#7A3F12}
             .btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.75rem 1.5rem;border:1px solid #8B4513;color:#8B4513;background:#fff;font-weight:700;border-radius:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);transition:all 0.3s;text-decoration:none}
             .btn-secondary:hover{background-color:#f9fafb}
+            .tier-badge{font-size:0.75rem;padding:0.25rem 0.5rem;border-radius:0.5rem;font-weight:600;text-transform:uppercase}
+            .tier-basic{background-color:#e5e7eb;color:#374151}
+            .tier-pro{background-color:#fbbf24;color:#92400e}
+            .tier-premium{background-color:#8B4513;color:#fff}
           `
         }} />
 
-        {/* Structured Data für SEO */}
+        {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -131,7 +133,7 @@ export default function PferdeWertHomepage() {
               "@type": "WebSite",
               "name": "PferdeWert",
               "url": "https://pferdewert.de/",
-              "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung",
+              "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung mit 3 Bewertungsoptionen",
               "publisher": {
                 "@type": "Organization",
                 "name": "PferdeWert",
@@ -160,52 +162,13 @@ export default function PferdeWertHomepage() {
           }}
         />
 
-        {/* LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "PferdeWert",
-              "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung",
-              "url": "https://pferdewert.de",
-              "logo": "https://pferdewert.de/images/logo.png",
-              "image": "https://pferdewert.de/images/blossi-shooting.webp",
-              "priceRange": "€",
-              "areaServed": {
-                "@type": "Country",
-                "name": "Deutschland"
-              },
-              "serviceArea": {
-                "@type": "Country", 
-                "name": "Deutschland"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Pferdebewertung Services",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "KI-basierte Pferdebewertung",
-                      "description": "Professionelle Bewertung des Marktwerts von Pferden mittels künstlicher Intelligenz"
-                    }
-                  }
-                ]
-              }
-            })
-          }}
-        />
-
-        {/* Review Schema für Trust-Signale */}
+        {/* Review Schema for Trust Signals */}
         <HomepageReviewSchema />
       </Head>
 
       <main className="min-h-screen">
 
-        {/* Hero Section */}
+        {/* Hero Section - Enhanced with tier awareness */}
         <section id="bewertung" className="relative overflow-hidden">
           <div className="container mx-auto px-4 py-12 lg:py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -220,8 +183,7 @@ export default function PferdeWertHomepage() {
                     <span className="text-brand-brown">Pferdebewertung</span>
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Entwickelt von Reitern für Reiter – präzise, transparent, vertrauenswürdig. Erhalte eine
-                    professionelle KI-basierte Bewertung deines Pferdes in nur 2 Minuten.
+                    Entwickelt von Reitern für Reiter – präzise, transparent, vertrauenswürdig.
                   </p>
                 </div>
 
@@ -249,90 +211,82 @@ export default function PferdeWertHomepage() {
                   </div>
                 </div>
 
-                {/* CTA Buttons */}
+                {/* Main CTA to Form with Pro tier (most popular) */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/pferde-preis-berechnen"
+                    href="/preise"
                     className="btn-primary group text-lg px-8 py-4"
                   >
-                    Jetzt Pferdewert berechnen
+                    Jetzt Bewertung wählen
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <Link
-                    href="/beispiel-analyse"
-                    className="btn-secondary text-lg px-8 py-4"
-                  >
-                    Beispielanalyse ansehen
                   </Link>
                 </div>
               </div>
 
               {/* Right Image */}
               <div className="relative hero-fade-in-right">
-                <div className="relative hero-fade-in-right">
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-brown/20 to-brand-gold/20 rounded-3xl blur-3xl"></div>
-                  <Image
-                    src="/images/blossi-shooting.webp"
-                    alt="Unser Pferd Blossom beim Photoshooting - Professionelle Pferdebewertung Beispiel"
-                    width={600}
-                    height={600}
-                    sizes="(min-width: 1024px) 600px, (min-width: 768px) 80vw, 90vw"
-                    className="relative rounded-3xl shadow-2xl object-cover"
-                    priority
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bvND+0532KzGVhZQAAAAD//Z"
-                  />
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-brown/20 to-brand-gold/20 rounded-3xl blur-3xl"></div>
+                <Image
+                  src="/images/blossi-shooting.webp"
+                  alt="Unser Pferd Blossom beim Photoshooting - Professionelle Pferdebewertung Beispiel"
+                  width={600}
+                  height={600}
+                  sizes="(min-width: 1024px) 600px, (min-width: 768px) 80vw, 90vw"
+                  className="relative rounded-3xl shadow-2xl object-cover"
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bvND+0532KzGVhZQAAAAD//Z"
+                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Special Offer Banner */}
+        {/* Enhanced Special Offer Banner with 3-tier introduction */}
         <section id="preise" className="bg-gradient-to-r from-brand-gold/20 to-brand-brown/20 border-y border-brand-brown/20">
           <div className="container mx-auto px-4 py-6">
             <div className="text-center">
               <p className="text-lg">
-                <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
-                <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – exklusiv in der Sommer-Aktion!
+                <span className="font-semibold text-brand-brown">🎯 3 Bewertungsoptionen zur Auswahl:</span>
+              </p>
+              <p className="text-xl font-bold text-brand-brown mt-2">
+                <span className="inline-block">Basic {formatPrice(TIER_PRICES.basic)}</span>{' '}
+                <span className="inline-block">• Pro {formatPrice(TIER_PRICES.pro)}</span>{' '}
+                <span className="inline-block">• Premium {formatPrice(TIER_PRICES.premium)}</span>
+              </p>
+              <p className="text-base text-gray-700 mt-2">
+                Finde die perfekte Analyse für dein Pferd
               </p>
               <p className="text-sm text-gray-600 mt-2">
-                Keine versteckten Kosten • Einmalzahlung • Direkt online starten
+                Keine versteckten Kosten • Einmalzahlung • Sofort starten
               </p>
             </div>
           </div>
         </section>
 
-{/* CTA Section direkt darunter */}
-<section className="bg-white py-12 px-4">
-  <div className="container mx-auto text-center">
-    <Link
-      href="/pferde-preis-berechnen"
-      className="btn-primary px-8 py-4 text-lg"
-    >
-      Jetzt Pferdewert berechnen
-    </Link>
-    
-    <p className="text-sm text-gray-600 mt-4">
-      Sichere Bezahlung • Sofortiges Ergebnis • Keine Abos
-    </p>
-  </div>
-</section>
+        {/* Optimized Pricing Section */}
+        <section id="tier-selection" className="section bg-white">
+          <div className="container mx-auto px-4">
+            <PricingDisplay
+              onTierSelect={(data: { tier: PricingTier; price: number; stripeId: string; displayName: string }) => {
+                window.location.href = `/pferde-preis-berechnen?tier=${data.tier}`;
+              }}
+            />
+          </div>
+        </section>
 
-        {/* Testimonials Section */}
+        {/* Enhanced Testimonials Section with Tier Indicators */}
         <section className="section bg-brand-light/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
               <p className="text-xl text-gray-600">
-                Erfahrungen von Pferdebesitzern und Reitern
+                Erfahrungen von Pferdebesitzern mit unseren verschiedenen Bewertungsoptionen
               </p>
             </div>
 
-            {/* Optimized grid layout for 3 testimonials */}
+            {/* Testimonials with tier badges */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-              {/* Real Testimonials with Photos */}
               {realTestimonials.map((testimonial, index) => (
                 <div key={index} className="flex">
                   <div className="bg-white rounded-xl p-6 shadow-xl border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
@@ -342,7 +296,7 @@ export default function PferdeWertHomepage() {
                       &quot;
                     </div>
                     
-                    {/* Customer info with consistent height */}
+                    {/* Customer info with tier badge */}
                     <div className="flex items-start mb-4 ml-6 min-h-[80px]">
                       <div className="relative w-16 mr-4 flex-shrink-0">
                         <Image
@@ -354,7 +308,14 @@ export default function PferdeWertHomepage() {
                         />
                       </div>
                       <div className="flex-1 pt-1">
-                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                          {testimonial.tier && (
+                            <span className={`tier-badge tier-${testimonial.tier}`}>
+                              {testimonial.tier}
+                            </span>
+                          )}
+                        </div>
                         <div className="text-sm text-gray-600 leading-snug">{testimonial.role}</div>
                         <div className="text-xs text-gray-500">{testimonial.location}</div>
                       </div>
@@ -367,12 +328,12 @@ export default function PferdeWertHomepage() {
                       ))}
                     </div>
                     
-                    {/* Quote - grows to fill available space */}
+                    {/* Quote */}
                     <blockquote className="text-gray-700 mb-6 ml-6 leading-relaxed flex-grow text-sm">
                       {testimonial.quote}
                     </blockquote>
                     
-                    {/* Instagram link - always at bottom with consistent height */}
+                    {/* Instagram link */}
                     <div className="ml-6 mt-auto min-h-[48px] flex items-center">
                       {testimonial.instagramHandle && (
                         <a
@@ -382,7 +343,9 @@ export default function PferdeWertHomepage() {
                           className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors py-2 px-3 rounded-lg hover:bg-brand-light/50"
                           aria-label={`${testimonial.name} auf Instagram folgen`}
                         >
-                          <Instagram className="w-4 h-4" />
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fillRule="evenodd" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.621 5.367 11.988 11.988 11.988s11.988-5.367 11.988-11.988C24.005 5.367 18.638.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.229 14.891 3.741 13.74 3.741 12.443s.488-2.449 1.385-3.324c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.897.875 1.385 2.027 1.385 3.324s-.488 2.448-1.385 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.297c-.314 0-.569-.255-.569-.569s.255-.569.569-.569.569.255.569.569-.255.569-.569.569zm-7.83 7.83c-.975 0-1.849-.379-2.517-1.047-.668-.668-1.047-1.542-1.047-2.517s.379-1.849 1.047-2.517c.668-.668 1.542-1.047 2.517-1.047s1.849.379 2.517 1.047c.668.668 1.047 1.542 1.047 2.517s-.379 1.849-1.047 2.517c-.668.668-1.542 1.047-2.517 1.047z" clipRule="evenodd" />
+                          </svg>
                           @{testimonial.instagramHandle}
                         </a>
                       )}
@@ -394,17 +357,17 @@ export default function PferdeWertHomepage() {
 
             {/* Enhanced Call-to-Action */}
             <div className="text-center mt-16">
-              <div className="mb-4">
-                <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Bewertungen für Pferdebesitzer und Pferdekäufer
+              <div className="mb-6">
+                <p className="text-lg text-gray-700 font-medium mb-4">
+                  Finde deine passende Bewertung
                 </p>
               </div>
               
               <Link
-                href="/pferde-preis-berechnen"
+                href="/preise"
                 className="btn-primary text-lg px-8 py-4 inline-block"
               >
-                Jetzt Pferdewert berechnen
+                Jetzt bewerten lassen
               </Link>
               
               <div className="mt-4">
@@ -417,7 +380,7 @@ export default function PferdeWertHomepage() {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Enhanced Features Section with Tier Organization */}
         <section id="vorteile" className="section bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
@@ -427,54 +390,89 @@ export default function PferdeWertHomepage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: <Clock className="w-8 h-8 text-brand-brown" />,
-                  title: "Blitzschnell",
-                  description: "Professionelle Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
-                },
-                {
-                  icon: <Shield className="w-8 h-8 text-brand-brown" />,
-                  title: "100% Transparent",
-                  description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung aller Faktoren.",
-                },
-                {
-                  icon: <Award className="w-8 h-8 text-brand-brown" />,
-                  title: "Expertenwissen",
-                  description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
-                },
-                {
-                  icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
-                  title: "Marktgerecht",
-                  description: "Aktuelle Marktpreise und Trends fließen in jede Bewertung mit ein.",
-                },
-                {
-                  icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
-                  title: "Geld-zurück-Garantie",
-                  description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
-                },
-                {
-                  icon: <Users className="w-8 h-8 text-brand-brown" />,
-                  title: "Vertrauenswürdig",
-                  description: "Professionelle Bewertungen für Pferdebesitzer deutschlandweit.",
-                },
-              ].map((feature, index) => (
-                <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
-                  <div className="p-8 text-center">
-                    <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      {feature.icon}
+            {/* Universal Benefits (All Tiers) */}
+            <div className="mb-12">
+              <h3 className="text-xl font-semibold text-gray-700 mb-6 text-center">In allen Bewertungsoptionen enthalten:</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: <Clock className="w-8 h-8 text-brand-brown" />,
+                    title: "Blitzschnell",
+                    description: "Professionelle Bewertung ohne Wartezeit, ohne Terminvereinbarung.",
+                    tier: "Basic+"
+                  },
+                  {
+                    icon: <Shield className="w-8 h-8 text-brand-brown" />,
+                    title: "100% Transparent",
+                    description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung.",
+                    tier: "Basic+"
+                  },
+                  {
+                    icon: <Award className="w-8 h-8 text-brand-brown" />,
+                    title: "Expertenwissen",
+                    description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
+                    tier: "Basic+"
+                  },
+                ].map((feature, index) => (
+                  <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
+                    <div className="p-8 text-center">
+                      <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        {feature.icon}
+                      </div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        {feature.title}
+                        <span className="text-xs text-gray-500 ml-2">({feature.tier})</span>
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Advanced Benefits */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-700 mb-6 text-center">Erweiterte Features:</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
+                    title: "Detaillierte Analyse",
+                    description: "Umfassende Marktanalyse mit Begründung aller Bewertungsfaktoren.",
+                    tier: "Pro+"
+                  },
+                  {
+                    icon: <Camera className="w-8 h-8 text-brand-brown" />,
+                    title: "Foto-Analyse",
+                    description: "Professionelle Exterior-Bewertung anhand deiner Pferdefotos.",
+                    tier: "Nur Premium"
+                  },
+                  {
+                    icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
+                    title: "Geld-zurück-Garantie",
+                    description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
+                    tier: "Alle Tiers"
+                  },
+                ].map((feature, index) => (
+                  <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
+                    <div className="p-8 text-center">
+                      <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        {feature.icon}
+                      </div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        {feature.title}
+                        <span className="text-xs text-gray-500 ml-2">({feature.tier})</span>
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* Enhanced FAQ Section */}
         <section className="section bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
@@ -501,35 +499,41 @@ export default function PferdeWertHomepage() {
 
             <div className="text-center mt-12">
               <Link
-                href="/pferde-preis-berechnen"
+                href="/preise"
                 className="btn-primary text-lg px-8 py-4"
               >
-                Jetzt Pferdewert berechnen
+                Jetzt bewerten lassen
               </Link>
             </div>
           </div>
         </section>
 
-
-        {/* Final CTA Section */}
+        {/* Final CTA Section - Tier Selection */}
         <section className="section bg-gradient-to-r from-brand-brown to-brand-brownDark">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 Bereit für deine professionelle Pferdebewertung?
               </h2>
               <p className="text-xl text-brand-light mb-8">
-                Starte jetzt und erhalte in wenigen Minuten eine detaillierte, professionelle Bewertung deines
-                Pferdes.
+                Wähle die passende Bewertung für deine Bedürfnisse und erhalte sofort eine detaillierte Analyse.
               </p>
-              <Link
-                href="/pferde-preis-berechnen"
-                className="inline-flex items-center justify-center px-12 py-4 text-xl font-semibold bg-white text-brand-brown hover:bg-brand-light transition-colors rounded-xl shadow-lg"
-              >
-                {PRICING_TEXTS.ctaButton}
-              </Link>
-              <p className="text-sm text-brand-light/80 mt-4">
-                Launch-Angebot – danach regulärer Preis von {PRICING_FORMATTED.decoy}
+              
+              {/* Main CTA to Form with Pro tier */}
+              <div className="mb-8">
+                <Link
+                  href="/preise"
+                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl p-6 transition-colors inline-flex flex-col items-center text-lg font-semibold"
+                >
+                  <div className="text-xl font-bold mb-2">Jetzt Pro Bewertung starten</div>
+                  <div className="text-base opacity-90">
+                    Nur {formatPrice(TIER_PRICES.pro)} • Detaillierte Analyse mit PDF-Report
+                  </div>
+                </Link>
+              </div>
+              
+              <p className="text-sm text-brand-light/80">
+                Launch-Angebot – Preise steigen ab März 2025
               </p>
             </div>
           </div>
