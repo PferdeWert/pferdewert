@@ -259,10 +259,14 @@ export default function Ergebnis() {
                 if (retryData.bewertung && retryData.bewertung.trim()) {
                   const totalTime = Math.round((Date.now() - startTime) / 1000);
                   info(`[ERGEBNIS] ✅ Bewertung erfolgreich geladen nach ${totalTime}s (${tries} Versuche)`);
-                  // Keep tier if present from retry response
+                  // Keep tier from response but never downgrade from a higher session tier
                   if (retryData.tier) {
                     const validTier = retryData.tier as Tier;
-                    setTier(validTier);
+                    setTier((prev) => {
+                      if (!prev) return validTier;
+                      const rank: Record<Tier, number> = { basic: 1, pro: 2, premium: 3 };
+                      return rank[validTier] > rank[prev] ? validTier : prev;
+                    });
                   }
                   setText(retryData.bewertung);
                   setLoading(false);
@@ -372,6 +376,7 @@ export default function Ergebnis() {
     if (current === 'pro') return 'premium';
     return null;
   };
+
 
   const formatPrice = (n: number) => `${n.toFixed(2).replace('.', ',')}€`;
   const diffPrice = (from: Tier, to: Tier): string => {
