@@ -194,17 +194,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).end();
       }
 
-      // Enhanced idempotency check - prevent duplicate processing and emails
-      if (doc.status === "fertig" || doc.status === "verarbeitung" || doc.emails_sent === true) {
-        info('[WEBHOOK] Evaluation already processed or in progress for session:', sessionId, 'Status:', doc.status, 'Emails sent:', doc.emails_sent);
-        return res.status(200).json({ 
-          success: true, 
-          message: "Evaluation already completed or in progress",
-          documentId: doc._id.toString()
-        });
-      }
-
-      // If this is an upgrade session, only bump the tier and exit early (no AI call, no emails)
+      // If this is an upgrade session, always bump the tier and exit early (no AI call, no emails)
       if (session?.metadata?.mode === 'upgrade' && session?.metadata?.selectedTier) {
         const newTier = String(session.metadata.selectedTier);
         info('[WEBHOOK] Upgrade session detected – updating tier only', { newTier, sessionId });
@@ -220,6 +210,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           }
         );
         return res.status(200).json({ success: true, upgraded: true, tier: newTier });
+      }
+
+      // Enhanced idempotency check - prevent duplicate processing and emails (ONLY initial purchase flow)
+      if (doc.status === "fertig" || doc.status === "verarbeitung" || doc.emails_sent === true) {
+        info('[WEBHOOK] Evaluation already processed or in progress for session:', sessionId, 'Status:', doc.status, 'Emails sent:', doc.emails_sent);
+        return res.status(200).json({ 
+          success: true, 
+          message: "Evaluation already completed or in progress",
+          documentId: doc._id.toString()
+        });
       }
 
       // Immediately mark as processing to prevent concurrent webhook execution (initial purchase)
