@@ -1,7 +1,6 @@
 // frontend/pages/pferde-preis-berechnen.tsx - Modernes Design basierend auf index.tsx
 
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -11,6 +10,7 @@ import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle, ChevronDown, Instagram } from "lucide-react";
 import { PRICING_TIERS, type PricingTier } from "../lib/pricing";
 import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
+import TierSelectionCheckout from "@/components/checkout/TierSelectionCheckout";
 import { 
   trackValuationStart, 
   trackFormProgress, 
@@ -241,7 +241,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState<boolean>(false);
-  const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
   const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null);
@@ -469,13 +468,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   /**
    * Internal submit handler for reuse from tier selection
    */
-  const handleSubmitInternal = async (): Promise<void> => {
+  const handleSubmitInternal = async (opts?: { overrideTier?: PricingTier }): Promise<void> => {
     setErrors({});
 
-    if (!consent) {
-      setErrors({ form: "Bitte bestätige den Verzicht auf dein Widerrufsrecht." });
-      return;
-    }
 
     // Validate all required fields from all form steps (Checkout ist separat)
     const newErrors: { [key: string]: string } = {};
@@ -508,10 +503,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     const formWithMetrics = { ...form, completionTime };
     trackPaymentStart(formWithMetrics);
     // Analytics: include selected tier details for checkout start
-    if (typeof window !== 'undefined' && window.gtag && selectedTier) {
-      const cfg = PRICING_TIERS[selectedTier];
+    if (typeof window !== 'undefined' && window.gtag && (opts?.overrideTier || selectedTier)) {
+      const tierForAnalytics = (opts?.overrideTier || selectedTier)!;
+      const cfg = PRICING_TIERS[tierForAnalytics];
       window.gtag('event', 'begin_checkout_tier', {
-        tier_name: selectedTier,
+        tier_name: tierForAnalytics,
         tier_price: cfg.price,
         currency: 'EUR',
         page_location: '/pferde-preis-berechnen'
@@ -524,7 +520,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       info(`[DEBUG] Full form object:`, form);
       
       // Enhanced tier validation with multiple fallback checks
-      const currentTier = form.selectedTier || selectedTier;
+      // Prefer explicitly provided tier to avoid async state race conditions
+      const currentTier = opts?.overrideTier || form.selectedTier || selectedTier;
       
       // Comprehensive tier validation
       if (!currentTier || typeof currentTier !== 'string' || currentTier.trim() === '') {
@@ -621,18 +618,34 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     }
   };
 
+
   /**
-   * Main form submit handler - handles both flows
+   * Handler for tier payment from TierSelectionCheckout component
    */
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
-    await handleSubmitInternal();
+  const handleTierPayment = async (newTier: PricingTier, price: number): Promise<void> => {
+    // Update tier selection
+    setSelectedTier(newTier);
+    setForm(prev => ({ 
+      ...prev, 
+      selectedTier: newTier,
+      tierPrice: price,
+      stripeProductId: PRICING_TIERS[newTier].stripeId
+    }));
+    
+    // Save tier selection to session storage
+    savePricingTier(newTier);
+    
+    info('Tier payment initiated from checkout component', {
+      tier: newTier,
+      price,
+      stripeId: PRICING_TIERS[newTier].stripeId
+    });
+    
+    // Proceed with payment using explicitly selected tier to avoid stale state
+    await handleSubmitInternal({ overrideTier: newTier });
   };
 
 
-  const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setConsent(e.target.checked);
-  };
 
   const currentStepData = stepData.find(s => s.id === currentStep);
 
@@ -850,138 +863,46 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                 </>
               )}
 
-              {/* Bezahlung-Step */}
+              {/* Bezahlung-Step with Tier Selection */}
               {currentStep === stepData.length + 1 && (
-                <form onSubmit={handleSubmit}>
-                  {/* Sticky Submit Button auf Mobile */}
-                  <div className="fixed bottom-0 left-0 right-0 bg-white shadow-xl px-4 py-4 z-40 md:hidden border-t">
-                    <button
-                      type="submit"
-                      disabled={loading || !consent}
-                      className="w-full bg-brand-brown hover:bg-brand-brownDark text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {loading ? (
-                        <div className="flex items-center justify-center gap-3">
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Wird vorbereitet…
-                        </div>
-                      ) : (
-                        "Jetzt kostenpflichtig analysieren"
-                      )}
-                    </button>
-                  </div>
-
-                  <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl">💳</span>
-                    </div>
-                    <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
-                      Analyse starten
-                    </h2>
-                    <p className="text-gray-600 text-lg">
-                      Nur noch ein Klick zur professionellen Pferdebewertung
-                    </p>
-                  </div>
-
-                  {/* Einverständnis */}
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 mb-6">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={consent}
-                        onChange={handleConsentChange}
-                        className="mt-1 w-5 h-5 text-brand-brown border-gray-300 rounded focus:ring-brand-brown focus:ring-2"
-                        required
-                      />
-                      <span className="text-sm text-gray-700 leading-relaxed">
-                        Ich stimme ausdrücklich zu, dass die Analyse sofort beginnt, und bestätige mein Erlöschen des Widerrufsrechts gemäß § 356 Abs. 5 BGB.
-                      </span>
-                    </label>
-                  </div>
-
-                  {/* Fehleranzeige */}
+                <>
+                  <TierSelectionCheckout
+                    initialTier={selectedTier || 'pro'}
+                    onProceedToPayment={handleTierPayment}
+                    isLoading={loading}
+                  />
+                  
+                  {/* Error Display */}
                   {errors.form && (
-                    <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 mb-6">
+                    <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 mb-6 max-w-4xl mx-auto">
                       <p className="text-red-700 font-medium text-center">
                         {errors.form}
                       </p>
                     </div>
                   )}
 
-                  {/* Preis */}
-                  <div className="text-center mb-8">
-                    <p className="text-xl text-gray-700 mb-2">
-                      {selectedTier
-                        ? `Die ${PRICING_TIERS[selectedTier].displayName}-Analyse kostet einmalig`
-                        : 'Die Analyse kostet einmalig'}
-                    </p>
-                    <div className="text-4xl font-black mb-2">
-                      {selectedTier ? (
-                        <span className="text-brand-brown">
-                          {`${PRICING_TIERS[selectedTier].price.toFixed(2).replace('.', ',')}€`}
-                        </span>
-                      ) : (
-                        <span className="text-gray-500">
-                          ab 14,90€
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
-                  </div>
-                  
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={loading || !consent}
-                    className="w-full bg-brand-brown hover:bg-brand-brownDark text-white py-4 rounded-2xl font-bold text-xl shadow-xl hover:shadow-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed hidden md:block hover:scale-105"
-                  >
-                    {loading ? (
-                      <div className="flex items-center justify-center gap-3">
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Einen Moment – deine Analyse wird vorbereitet…
-                      </div>
-                    ) : selectedTier ? (
-                      "Jetzt kostenpflichtig analysieren"
-                    ) : (
-                      "Paket auswählen & analysieren"
-                    )}
-                  </button>
-
                   {loading && (
-                    <p className="text-sm text-gray-500 text-center mt-4">
-                      Bitte einen Moment Geduld – du wirst zur sicheren Zahlung bei Stripe weitergeleitet…
-                    </p>
+                    <div className="text-center mt-6 max-w-4xl mx-auto">
+                      <p className="text-sm text-gray-500">
+                        Bitte einen Moment Geduld – du wirst zur sicheren Zahlung bei Stripe weitergeleitet…
+                      </p>
+                    </div>
                   )}
 
-                  {/* Legal Info */}
-                  <div className="text-center mt-6 space-y-2">
-                    <p className="text-xs text-gray-500">
-                      Du wirst zur sicheren Bezahlung weitergeleitet.
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere{" "}
-                      <Link href="/agb" className="underline hover:text-gray-700 transition-colors">
-                        AGB
-                      </Link>.
-                    </p>
-                  </div>
-
                   {/* Navigation */}
-                  <div className="flex justify-start mt-8 pt-6 border-t border-gray-100">
+                  <div className="flex justify-start mt-8 pt-6 border-t border-gray-100 max-w-4xl mx-auto">
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-2xl font-medium transition-all"
+                      disabled={loading}
+                      className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-2xl font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       aria-label="Zum vorherigen Schritt zurückgehen"
                     >
                       <ArrowLeft className="w-4 h-4" aria-hidden="true" />
                       Zurück
                     </button>
                   </div>
-                  
-                  {/* Abstand für Sticky-Button auf Mobile */} 
-                  <div className="h-32 md:hidden" />
-                </form>
+                </>
               )}
             </div>
           </div>
