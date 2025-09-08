@@ -468,7 +468,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   /**
    * Internal submit handler for reuse from tier selection
    */
-  const handleSubmitInternal = async (): Promise<void> => {
+  const handleSubmitInternal = async (opts?: { overrideTier?: PricingTier }): Promise<void> => {
     setErrors({});
 
 
@@ -503,10 +503,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     const formWithMetrics = { ...form, completionTime };
     trackPaymentStart(formWithMetrics);
     // Analytics: include selected tier details for checkout start
-    if (typeof window !== 'undefined' && window.gtag && selectedTier) {
-      const cfg = PRICING_TIERS[selectedTier];
+    if (typeof window !== 'undefined' && window.gtag && (opts?.overrideTier || selectedTier)) {
+      const tierForAnalytics = (opts?.overrideTier || selectedTier)!;
+      const cfg = PRICING_TIERS[tierForAnalytics];
       window.gtag('event', 'begin_checkout_tier', {
-        tier_name: selectedTier,
+        tier_name: tierForAnalytics,
         tier_price: cfg.price,
         currency: 'EUR',
         page_location: '/pferde-preis-berechnen'
@@ -519,7 +520,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       info(`[DEBUG] Full form object:`, form);
       
       // Enhanced tier validation with multiple fallback checks
-      const currentTier = form.selectedTier || selectedTier;
+      // Prefer explicitly provided tier to avoid async state race conditions
+      const currentTier = opts?.overrideTier || form.selectedTier || selectedTier;
       
       // Comprehensive tier validation
       if (!currentTier || typeof currentTier !== 'string' || currentTier.trim() === '') {
@@ -639,8 +641,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       stripeId: PRICING_TIERS[newTier].stripeId
     });
     
-    // Proceed with payment
-    await handleSubmitInternal();
+    // Proceed with payment using explicitly selected tier to avoid stale state
+    await handleSubmitInternal({ overrideTier: newTier });
   };
 
 

@@ -9,8 +9,9 @@
  */
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { TIER_PRICES, PRICING_TIERS, formatPrice, type PricingTier } from '@/lib/pricing';
-import { savePricingTier, getPricingTier } from '@/lib/pricing-session';
+import { savePricingTier, getPricingTier, toTierUrlParam } from '@/lib/pricing-session';
 import { info } from '@/lib/log';
 
 interface TierSelectionCheckoutProps {
@@ -85,6 +86,7 @@ export default function TierSelectionCheckout({
   onProceedToPayment,
   isLoading = false
 }: TierSelectionCheckoutProps) {
+  const router = useRouter();
   const [selectedTier, setSelectedTier] = useState<PricingTier>(initialTier);
   const [consentAccepted, setConsentAccepted] = useState(false);
   const [currentPrice, setCurrentPrice] = useState(TIER_PRICES[initialTier]);
@@ -106,6 +108,17 @@ export default function TierSelectionCheckout({
     
     // Persist selection
     savePricingTier(tier);
+
+    // Reflect selected tier in URL for clarity (preserve existing params like UTM)
+    try {
+      router.replace(
+        { pathname: router.pathname, query: { ...router.query, tier: toTierUrlParam(tier) } },
+        undefined,
+        { shallow: true }
+      );
+    } catch {
+      // ignore router errors
+    }
     
     // Analytics tracking
     if (typeof window !== 'undefined' && window.gtag) {
