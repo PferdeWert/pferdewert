@@ -3,6 +3,7 @@ import { buffer } from "micro";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { getCollection } from "@/lib/mongo";
+import { ObjectId } from "mongodb";
 import { Resend } from 'resend';
 import { info, error, warn } from "@/lib/log";
 import { validateStripeEnvironment } from "@/lib/env-validation";
@@ -173,10 +174,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       info('[WEBHOOK] Searching for MongoDB document');
       const collection = await getCollection("bewertungen");
-      const doc = await collection.findOne({ stripeSessionId: sessionId });
+      let doc = await collection.findOne({ stripeSessionId: sessionId });
+
+      // If not found by sessionId, this may be an upgrade session (difference pricing)
+      if (!doc && session?.metadata?.mode === 'upgrade' && session?.metadata?.bewertungId) {
+        const upgradeDocId = session.metadata.bewertungId;
+        info('[WEBHOOK] Trying upgrade mode lookup by bewertungId', { upgradeDocId });
+        if (upgradeDocId) {
+          try {
+            doc = await collection.findOne({ _id: new ObjectId(String(upgradeDocId)) });
+          } catch (idErr) {
+            warn('[WEBHOOK] Invalid bewertungId in upgrade metadata', { upgradeDocId });
+          }
+        }
+      }
 
       if (!doc) {
-        error('[WEBHOOK] No evaluation found for session ID:', sessionId);
+        error('[WEBHOOK] No evaluation found for session:', { sessionId, upgradeMode: session?.metadata?.mode });
         return res.status(404).end();
       }
 
@@ -190,7 +204,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
       }
 
-      // Immediately mark as processing to prevent concurrent webhook execution
+      // If this is an upgrade session, only bump the tier and exit early (no AI call, no emails)
+      if (session?.metadata?.mode === 'upgrade' && session?.metadata?.selectedTier) {
+        const newTier = String(session.metadata.selectedTier);
+        info('[WEBHOOK] Upgrade session detected – updating tier only', { newTier, sessionId });
+        await collection.updateOne(
+          { _id: doc._id },
+          {
+            $set: {
+              current_tier: newTier,
+              purchased_tier: newTier,
+              last_upgrade_session_id: sessionId,
+              aktualisiert: new Date()
+            },
+            $push: {
+              payments: {
+                payment_id: sessionId,
+                mode: 'upgrade',
+                upgrade_from: session?.metadata?.upgrade_from || null,
+                upgrade_to: newTier,
+                ts: new Date()
+              }
+            }
+          }
+        );
+        return res.status(200).json({ success: true, upgraded: true, tier: newTier });
+      }
+
+      // Immediately mark as processing to prevent concurrent webhook execution (initial purchase)
       info('[WEBHOOK] Marking document as processing to prevent duplicates');
       await collection.updateOne(
         { _id: doc._id },

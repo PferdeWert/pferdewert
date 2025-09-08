@@ -10,6 +10,7 @@ import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
 import { normalizeTierParam } from "@/lib/pricing-session";
 import PremiumUploadScreen from "@/components/PremiumUploadScreen";
 import { splitAnalysis, type Tier } from "@/lib/analysisSplitter";
+import { TIER_PRICES } from "@/lib/pricing";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -39,6 +40,9 @@ export default function Ergebnis() {
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
   const [minLoadingTime, setMinLoadingTime] = useState(false); // Start with false, set to true only for Stripe flow
+  const [bewertungId, setBewertungId] = useState<string | null>(null);
+  const [readToken, setReadToken] = useState<string | null>(null);
+  const [upgradeError, setUpgradeError] = useState<string | null>(null);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -57,6 +61,8 @@ export default function Ergebnis() {
       // Skip payment check and minimum loading time for direct access
       setPaid(true);
       // minLoadingTime already false, no need to set
+      setBewertungId(bewertung_id);
+      if (token && typeof token === 'string') setReadToken(token);
       
       const loadDirectBewertung = async () => {
         try {
@@ -175,6 +181,7 @@ export default function Ergebnis() {
         
         if (bewertungId) {
           info(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
+          setBewertungId(bewertungId);
           // Capture tier from session metadata for gating (Stripe flow)
           const selectedTierRaw = data.session.metadata?.selectedTier as string | undefined;
           if (selectedTierRaw) {
@@ -356,8 +363,69 @@ export default function Ergebnis() {
   }
 
   // Simple tier-based content gating
-  const { visible: renderText } = splitAnalysis(text || '', tier || 'pro');
+  const { visible: renderText, hidden: hiddenText, hasMore } = splitAnalysis(text || '', tier || 'pro');
   const pdfContent = renderText;
+
+  // Upsell helpers
+  const nextTier = (current: Tier | null): Tier | null => {
+    if (current === 'basic') return 'pro';
+    if (current === 'pro') return 'premium';
+    return null;
+  };
+
+  const formatPrice = (n: number) => `${n.toFixed(2).replace('.', ',')}€`;
+  const diffPrice = (from: Tier, to: Tier): string => {
+    // MVP business rules for upgrade pricing display
+    if (from === 'basic' && to === 'pro') return '4,90€';
+    if (from === 'pro' && to === 'premium') return '17,90€';
+    // Fallback (should rarely be used)
+    const fromPrice = TIER_PRICES[from];
+    const toPrice = TIER_PRICES[to];
+    const diff = Math.max(0, toPrice - fromPrice);
+    return formatPrice(diff);
+  };
+
+  const startUpgrade = async (to: Tier) => {
+    if (!bewertungId || !tier) return;
+    try {
+      // Analytics: begin checkout upgrade
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'begin_checkout_upgrade', {
+          from_tier: tier,
+          to_tier: to
+        });
+      }
+      const res = await fetch('/api/upgrade-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bewertungId, fromTier: tier, targetTier: to, readToken })
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        warn('[ERGEBNIS] Upgrade checkout failed', err);
+        setUpgradeError('Upgrade nicht möglich. Prüfe bitte Test-Variablen in .env.local (Upgrade-Preis-IDs) oder versuche es später erneut.');
+        return;
+      }
+      const data = await res.json();
+      if (data?.url) {
+        window.location.href = data.url as string;
+      }
+    } catch (err) {
+      error('[ERGEBNIS] Error starting upgrade checkout', err);
+      setUpgradeError('Netzwerkfehler beim Starten des Upgrades. Bitte versuche es erneut.');
+    }
+  };
+
+  const previewFromHidden = (hidden: string): string => {
+    if (!hidden) return '';
+    const limit = 500;
+    if (hidden.length <= limit) return hidden;
+    // Try to cut at next paragraph boundary after ~400 chars
+    const soft = 380;
+    const idx = hidden.indexOf('\n\n', soft);
+    const cut = idx > -1 && idx < 650 ? idx : limit;
+    return hidden.substring(0, cut).trim() + '\n\n…';
+  };
 
   return (
     <Layout>
@@ -372,8 +440,8 @@ export default function Ergebnis() {
           <div className="prose prose-lg max-w-full">
             <ReactMarkdown>{renderText}</ReactMarkdown>
           </div>
-          {/* Post-MVP: Upsell-Hinweis vorerst entfernt */}
-          <div className="mt-8 flex justify-center sm:mt-10">
+          {/* PDF first to clarify it matches the purchased analysis */}
+          <div className="mt-6 flex justify-center sm:mt-8">
             <PDFDownloadLink
               document={<PferdeWertPDF markdownData={pdfContent} />}
               fileName="PferdeWert-Analyse.pdf"
@@ -393,6 +461,66 @@ export default function Ergebnis() {
               )}
             </PDFDownloadLink>
           </div>
+
+          {/* Simple Upsell CTAs for Basic and Pro */}
+          {(() => {
+            const to = nextTier(tier);
+            if (!to) return null;
+            // Basic → Pro: prominent card between analysis and PDF
+            if (tier === 'basic') {
+              return (
+                <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                      <div className="font-semibold text-amber-900">Vollständige Analyse freischalten</div>
+                      <div className="text-amber-800 text-sm">Sieh alle Detailabschnitte und erhalte den vollständigen Bericht.</div>
+                    </div>
+                    <button
+                      className="btn-primary"
+                      onClick={() => startUpgrade(to)}
+                    >
+                      Jetzt auf Pro upgraden – nur {diffPrice('basic','pro')}
+                    </button>
+                  </div>
+                  {upgradeError && (
+                    <div className="mt-3 text-sm text-red-700">
+                      {upgradeError}
+                    </div>
+                  )}
+                  {hasMore && hiddenText && (
+                    <div className="mt-5 rounded-xl bg-white/70 border border-amber-200 p-4">
+                      <div className="text-xs font-semibold text-amber-900 mb-2">Vorschau der weiteren Analyse</div>
+                      <div className="prose prose-sm max-w-none text-amber-900">
+                        <ReactMarkdown>{previewFromHidden(hiddenText)}</ReactMarkdown>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            // Pro → Premium: compact banner
+            if (tier === 'pro') {
+              return (
+                <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="text-sm text-blue-900">
+                    Premium Foto-Analyse mit Exterieur-Bewertung freischalten.
+                  </div>
+                  <button
+                    className="btn-secondary"
+                    onClick={() => startUpgrade(to)}
+                  >
+                    Premium aktivieren – {diffPrice('pro','premium')}
+                  </button>
+                  {upgradeError && (
+                    <div className="mt-2 text-xs text-red-700">
+                      {upgradeError}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return null;
+          })()}
         </>
       ) : (
         <div className="p-10 text-center">
