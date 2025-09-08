@@ -1,0 +1,52 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",
+    "dev": "cross-env PORT=3000 next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "fix-order": "node scripts/fix-order.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs"
+  },
+  "dependencies": {
+    "@next/third-parties": "^15.4.6",
+    "@react-pdf/renderer": "^4.3.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "dotenv": "^17.2.1",
+    "jspdf": "^3.0.1",
+    "lucide-react": "^0.525.0",
+    "micro": "^10.0.1",
+    "mongodb": "^6.17.0",
+    "next": "15.3.4",
+    "openai": "^5.6.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "resend": "^4.6.0",
+    "stripe": "^18.2.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/jspdf": "^1.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/styled-jsx": "^2.2.9",
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
+    "cssnano": "^7.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.3",
+    "ts-node": "^10.9.2",
+    "typescript": "5.8.3"
+  }
+}

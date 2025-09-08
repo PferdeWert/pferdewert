@@ -1,0 +1,53 @@
+import React from "react";
+
+interface StripeLoadingScreenProps {
+  loadingText?: string;
+  successMessage?: string;
+  estimatedTime?: string;
+}
+
+export default function StripeLoadingScreen({
+  loadingText = "Ihre Pferdebewertung wird erstellt",
+  successMessage = "Zahlung erfolgreich!",
+  estimatedTime = "Dauert 1-3 Minuten",
+}: StripeLoadingScreenProps) {
+  return (
+    <main
+      className="bg-brand-light min-h-screen flex flex-col items-center justify-center p-8 text-center space-y-12"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+    >
+      <div className="space-y-6 max-w-2xl">
+        <h1 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+          🎉 {successMessage}
+        </h1>
+        <p className="text-xl md:text-2xl text-brand">
+          Vielen Dank für Ihr Vertrauen in{" "}
+          <span className="font-bold text-brand-brown">
+            PferdeWert.de
+          </span>
+        </p>
+        
+        {/* ✅ SHIMMER PROGRESS BAR - Durchschimmer-Effekt von links nach rechts */}
+        <div className="w-full max-w-md mx-auto pt-4" aria-label="Fortschrittsanzeige">
+          <div className="w-full h-4 bg-white/50 rounded-full overflow-hidden shadow-inner relative">
+            <div className="h-full w-full bg-brand-brown rounded-full relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent shimmer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-4 max-w-xl">
+        <h2 className="text-xl md:text-2xl font-serif font-semibold text-brand">
+          {loadingText}
+        </h2>
+        <div className="text-base text-brand/70 space-y-2">
+          <div>{estimatedTime}</div>
+          <div className="text-sm">Du erhältst das Ergebnis zusätzlich per E-Mail.</div>
+        </div>
+      </div>
+    </main>
+  );
+}

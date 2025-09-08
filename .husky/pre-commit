@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 1) Run lint-staged for fast, staged-only ESLint/Prettier
+if command -v npx >/dev/null 2>&1; then
+  npx lint-staged || exit 1
+fi
+
+# 2) Type-check the frontend (prevents committing broken types)
+if command -v npm >/dev/null 2>&1; then
+  npm --prefix frontend run --silent type-check || exit 1
+fi
+
+# 3) Run tests if a test script exists (kept fast by using --if-present)
+if command -v npm >/dev/null 2>&1; then
+  npm --prefix frontend run --silent --if-present test || exit 1
+fi

@@ -1,0 +1,250 @@
+/* frontend/styles/globals.css */
+
+/* ===== Tailwind CSS Import ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ===== Farbvariablen für Light/Dark Mode ===== */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ===== Fonts als CSS-Variablen (optional, für Custom-Use) ===== */
+:root {
+  --font-sans: 'Lato', Arial, Helvetica, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;  /* Bleibt für Logo */
+  --font-heading: 'Merriweather', Georgia, serif;     /* Neu für Headlines */
+}
+
+/* ===== Global Styles ===== */
+
+/* Improved scroll behavior for mobile UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations for ueber-pferdewert page */
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+/* Wizard-specific scroll margins for mobile navigation */
+#wizard-card {
+  scroll-margin-top: 5rem;
+}
+
+@media (max-width: 767px) {
+  #wizard-card {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* Desktop: Synchrone Animationen für einheitlichen Effekt */
+@media (min-width: 768px) {
+  .hero-fade-in-left {
+    animation: fadeInLeft 1s ease 0.2s both;
+  }
+
+  .hero-fade-in-right {
+    animation: fadeInRight 1s ease 0.2s both;  /* Gleicher Delay wie links */
+  }
+}
+
+/* Mobile: Keine Animationen für maximale Performance */
+@media (max-width: 767px) {
+  .hero-fade-in-left,
+  .hero-fade-in-right {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Desktop: Section Fade-In Animation */
+@media (min-width: 768px) {
+  .section-fade-in {
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+  
+  .wizard-fade-in {
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+}
+
+/* Mobile: Keine Section Animation */
+@media (max-width: 767px) {
+  .section-fade-in,
+  .wizard-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@keyframes fadeInLeft {
+  from { 
+    opacity: 0; 
+    transform: translateX(-10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes fadeInRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-in-left,
+  .hero-fade-in-right,
+  .section-fade-in,
+  .progress-slide {
+    animation: none;
+  }
+}
+
+/* ===== Loading Screen Animations ===== */
+@keyframes shimmer {
+  0% { 
+    transform: translateX(-100%); 
+  }
+  100% { 
+    transform: translateX(200%); 
+  }
+}
+
+.shimmer {
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* ===== End animations ===== */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Improve form field UX on desktop */
+/* Remove number input spinners for a cleaner look (desktop browsers) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/* Headlines: Playfair Display */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);  /* Statt var(--font-serif) */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+/* Buttons und starke Hervorhebungen: Lato fett */
+button, .btn, strong, b {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Optional: Grundreset für Bilder und Links */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Optional: Ausrichtung von Listen, Blockquotes, usw. anpassen */
+ul, ol {
+  padding-left: 1.25em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+blockquote {
+  font-style: italic;
+  color: #666;
+  border-left: 4px solid #eee;
+  margin: 1em 0;
+  padding-left: 1em;
+}
+
+/* ===== Section Spacing Utility ===== */
+.section {
+  @apply py-24 lg:py-32;
+}
+
+/* Abstand zwischen Hero und erstem Content-Block */
+#bewertung + section {
+  @apply mt-16 lg:mt-24;
+}
+
+/* Genereller Abstand zwischen Sections */
+section + section {
+  @apply mt-0;
+}
+
+/* ===== Globale Button-Varianten ===== */
+
+/* Überarbeitet – Hauptaktion (z.B. Weiter) */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-brown text-white font-bold rounded-2xl shadow-md hover:bg-brand-brownDark transition-all text-base tracking-wide;
+}
+
+/* Überarbeitet – Nebenaktion (z.B. Zurück) */
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-brand-brown text-brand-brown font-bold rounded-2xl bg-white hover:bg-gray-50 shadow-sm transition-all text-base tracking-wide;
+}
+
+/* Kompakte Variante – kombinierbar mit primary/secondary */
+.btn-sm {
+  @apply text-sm px-4 py-2;
+}
+
+/* Icon-Buttons – für Aktionen wie "Schließen" oder "Löschen" */
+.btn-icon {
+  @apply p-3 rounded-full w-10 h-10 flex items-center justify-center;
+}
