@@ -389,8 +389,8 @@ export default function Ergebnis() {
     if (!bewertungId || !tier) return;
     try {
       // Analytics: begin checkout upgrade
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'begin_checkout_upgrade', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'begin_checkout_upgrade', {
           from_tier: tier,
           to_tier: to
         });

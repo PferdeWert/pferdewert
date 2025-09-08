@@ -183,7 +183,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (upgradeDocId) {
           try {
             doc = await collection.findOne({ _id: new ObjectId(String(upgradeDocId)) });
-          } catch (idErr) {
+          } catch {
             warn('[WEBHOOK] Invalid bewertungId in upgrade metadata', { upgradeDocId });
           }
         }
@@ -216,15 +216,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               purchased_tier: newTier,
               last_upgrade_session_id: sessionId,
               aktualisiert: new Date()
-            },
-            $push: {
-              payments: {
-                payment_id: sessionId,
-                mode: 'upgrade',
-                upgrade_from: session?.metadata?.upgrade_from || null,
-                upgrade_to: newTier,
-                ts: new Date()
-              }
             }
           }
         );
