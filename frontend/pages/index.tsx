@@ -214,10 +214,10 @@ export default function TieredPferdeWertHomepage() {
                 {/* Main CTA to Form with Pro tier (most popular) */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/preise"
+                    href="/preise#tier-selection"
                     className="btn-primary group text-lg px-8 py-4"
                   >
-                    Jetzt Bewertung wählen
+                    Jetzt Tarif wählen
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -519,22 +519,15 @@ export default function TieredPferdeWertHomepage() {
                 Wähle die passende Bewertung für deine Bedürfnisse und erhalte sofort eine detaillierte Analyse.
               </p>
               
-              {/* Main CTA to Form with Pro tier */}
+              {/* Main CTA to Pricing */}
               <div className="mb-8">
                 <Link
-                  href="/preise"
-                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl p-6 transition-colors inline-flex flex-col items-center text-lg font-semibold"
+                  href="/preise#tier-selection"
+                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl px-8 py-4 transition-colors inline-flex items-center text-lg font-semibold"
                 >
-                  <div className="text-xl font-bold mb-2">Jetzt Pro Bewertung starten</div>
-                  <div className="text-base opacity-90">
-                    Nur {formatPrice(TIER_PRICES.pro)} • Detaillierte Analyse mit PDF-Report
-                  </div>
+                  Jetzt Tarif wählen
                 </Link>
               </div>
-              
-              <p className="text-sm text-brand-light/80">
-                Launch-Angebot – Preise steigen ab März 2025
-              </p>
             </div>
           </div>
         </section>
