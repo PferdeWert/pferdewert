@@ -367,8 +367,8 @@ export default function PferdVerkaufen() {
             </h2>
             
             <div className="space-y-4">
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200" open>
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
+              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-all group" open>
+                <summary className="text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Wie finde ich den richtigen Verkaufspreis für mein Pferd?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -376,8 +376,8 @@ export default function PferdVerkaufen() {
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
+              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Wie schnell verkauft sich ein Pferd zum richtigen Preis?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -385,8 +385,8 @@ export default function PferdVerkaufen() {
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
+              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Was passiert, wenn ich mein Pferd zu teuer anbiete?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -394,8 +394,8 @@ export default function PferdVerkaufen() {
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
+              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Kann ich die Bewertung für Verhandlungen nutzen?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">
@@ -403,8 +403,8 @@ export default function PferdVerkaufen() {
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
+              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Was kostet die Verkaufspreis-Analyse?
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed">

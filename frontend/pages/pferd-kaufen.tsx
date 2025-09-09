@@ -297,8 +297,8 @@ export default function PferdKaufen() {
             </h2>
             
             <div className="space-y-6">
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
+              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="select-none text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?
                 </summary>
                 <p className="mt-4 text-gray-700">
@@ -307,8 +307,8 @@ export default function PferdKaufen() {
                 </p>
               </details>
 
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
+              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="select-none text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Wie kann mir die Bewertung beim Verhandeln helfen?
                 </summary>
                 <p className="mt-4 text-gray-700">
@@ -317,8 +317,8 @@ export default function PferdKaufen() {
                 </p>
               </details>
 
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
+              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="select-none text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Wann sollte ich eine Bewertung machen lassen?
                 </summary>
                 <p className="mt-4 text-gray-700">
@@ -327,8 +327,8 @@ export default function PferdKaufen() {
                 </p>
               </details>
 
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
+              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-all group">
+                <summary className="select-none text-lg font-semibold text-gray-800 group-hover:text-brand-brown transition-colors">
                   Was ist, wenn der Verkäufer deutlich mehr verlangt?
                 </summary>
                 <p className="mt-4 text-gray-700">

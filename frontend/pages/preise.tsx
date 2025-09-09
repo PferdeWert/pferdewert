@@ -205,8 +205,8 @@ export default function PreiseNeuPage() {
               </h2>
               
               <div className="space-y-6">
-                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
-                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6 cursor-pointer hover:bg-brand-light/70 transition-all group">
+                  <summary className="text-lg font-semibold text-brand group-hover:text-brand-brown transition-colors">
                     Wie schnell erhalte ich meine Bewertung?
                   </summary>
                   <div className="mt-4">
@@ -217,8 +217,8 @@ export default function PreiseNeuPage() {
                   </div>
                 </details>
 
-                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
-                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6 cursor-pointer hover:bg-brand-light/70 transition-all group">
+                  <summary className="text-lg font-semibold text-brand group-hover:text-brand-brown transition-colors">
                     Was ist der Unterschied zwischen den Tarifen?
                   </summary>
                   <div className="mt-4">
@@ -229,8 +229,8 @@ export default function PreiseNeuPage() {
                   </div>
                 </details>
 
-                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
-                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
+                <details className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6 cursor-pointer hover:bg-brand-light/70 transition-all group">
+                  <summary className="text-lg font-semibold text-brand group-hover:text-brand-brown transition-colors">
                     Wie funktioniert die Geld-zurück-Garantie?
                   </summary>
                   <div className="mt-4">
@@ -258,9 +258,6 @@ export default function PreiseNeuPage() {
               className="inline-flex items-center bg-white text-brand-brown px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg"
             >
               Jetzt Tarif wählen
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
             </button>
           </div>
         </section>

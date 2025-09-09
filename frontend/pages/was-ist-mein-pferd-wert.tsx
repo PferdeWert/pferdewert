@@ -349,8 +349,8 @@ export default function WasIstMeinPferdWert() {
 
             <div className="space-y-6">
               {faqItems.map((item, index) => (
-                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200" open={item.isOpen}>
-                  <summary className="cursor-pointer p-6 text-lg font-semibold text-brand hover:text-brand-brown transition">
+                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 cursor-pointer hover:bg-brand-light/70 transition-all group" open={item.isOpen}>
+                  <summary className="p-6 text-lg font-semibold text-brand group-hover:text-brand-brown transition">
                     {item.frage}
                   </summary>
                   <div className="px-6 pb-6">

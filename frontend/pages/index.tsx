@@ -484,8 +484,8 @@ export default function TieredPferdeWertHomepage() {
 
             <div className="max-w-4xl mx-auto space-y-6">
               {faqItems.map((item, index) => (
-                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
-                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
+                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6 cursor-pointer hover:bg-brand-light/70 transition-all group">
+                  <summary className="text-lg font-semibold text-brand group-hover:text-brand-brown transition-colors">
                     {item.frage}
                   </summary>
                   <div className="mt-4">
