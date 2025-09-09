@@ -236,7 +236,7 @@ export default function PricingDisplay({
         h-full
         pointer-events-none
         ${shouldShowBorder 
-          ? 'border-2 border-brand-brown shadow-lg' 
+          ? 'border-2 border-brand-brown shadow-lg hover:shadow-xl hover:scale-[1.01]' 
           : 'border-2 border-gray-200 hover:border-gray-300 hover:shadow-xl hover:scale-[1.01]'
         }
         ${cardClassName}
