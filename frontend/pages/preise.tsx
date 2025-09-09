@@ -255,7 +255,7 @@ export default function PreiseNeuPage() {
             </p>
             <button
               onClick={() => document.querySelector('[data-analytics-component="pricing-carousel"]')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center bg-white text-brand-brown px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg"
+              className="inline-flex items-center bg-white text-brand-brown px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-brand-brown hover:text-white hover:shadow-xl hover:scale-105 transition-all duration-200 shadow-lg transform active:scale-95"
             >
               Jetzt Tarif wählen
             </button>
