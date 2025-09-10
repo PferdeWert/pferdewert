@@ -8,7 +8,7 @@ import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Star, ArrowRight, ArrowLeft, Shield, CheckCircle, ChevronDown, Instagram } from "lucide-react";
-import { PRICING_TIERS, type PricingTier } from "../lib/pricing";
+import { PRICING_TIERS, type PricingTier, TIER_PRICES, formatPrice } from "../lib/pricing";
 import { savePricingTier, getPricingTier as getSavedTier, normalizeTierParam } from "@/lib/pricing-session";
 import TierSelectionCheckout from "@/components/checkout/TierSelectionCheckout";
 import { 
@@ -660,7 +660,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         <title>Pferde Preis berechnen: 2 Min Bewertung | PferdeWert</title>
-        <meta name="description" content="🐎 Pferde Preis berechnen ✓ KI-Analyse für 14,90€ ✓ Sofort-PDF ✓ Jetzt starten!" />
+        <meta name="description" content={`🐎 Pferde Preis berechnen ✓ KI-Analyse ab ${formatPrice(TIER_PRICES.basic)} ✓ Sofort-PDF ✓ Jetzt starten!`} />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="400" />

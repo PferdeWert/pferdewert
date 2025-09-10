@@ -64,7 +64,7 @@ export default function TieredPferdeWertHomepage() {
   const faqItems = [
     {
       frage: "Welche Bewertung passt zu mir?",
-      antwort: "Basic (€14,90) für schnelle Marktwert-Einschätzung, Pro (€19,90) für detaillierte Analyse mit Auswertung, Premium (€39,90) für umfassende Bewertung mit professioneller Foto-Analyse."
+      antwort: `Basic (${formatPrice(TIER_PRICES.basic)}) für schnelle Marktwert-Einschätzung, Pro (${formatPrice(TIER_PRICES.pro)}) für detaillierte Analyse mit Auswertung, Premium (${formatPrice(TIER_PRICES.premium)}) für umfassende Bewertung mit professioneller Foto-Analyse.`
     },
     {
       frage: "Was ist der Unterschied zwischen den Bewertungen?",
@@ -94,7 +94,7 @@ export default function TieredPferdeWertHomepage() {
         <title>Was ist mein Pferd wert? KI‑Pferdebewertung | PferdeWert</title>
         <meta
           name="description"
-          content="Marktwert deines Pferdes online berechnen – 3 Bewertungsoptionen zur Auswahl. Basic €14,90, Pro €19,90, Premium €39,90. KI‑Ergebnis in 2 Minuten."
+          content={`Marktwert deines Pferdes online berechnen – 3 Bewertungsoptionen zur Auswahl. Basic ${formatPrice(TIER_PRICES.basic)}, Pro ${formatPrice(TIER_PRICES.pro)}, Premium ${formatPrice(TIER_PRICES.premium)}. KI‑Ergebnis in 2 Minuten.`}
         />
         <meta property="og:title" content="Was ist mein Pferd wert? KI‑Pferdebewertung | PferdeWert" />
         <meta property="og:description" content="Pferdewert online berechnen – 3 Bewertungsoptionen zur Auswahl. Basic, Pro oder Premium. KI‑gestützte Bewertung für Kauf oder Verkauf." />
@@ -214,10 +214,10 @@ export default function TieredPferdeWertHomepage() {
                 {/* Main CTA to Form with Pro tier (most popular) */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/preise"
+                    href="/preise#tier-selection"
                     className="btn-primary group text-lg px-8 py-4"
                   >
-                    Jetzt Bewertung wählen
+                    Jetzt Tarif wählen
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -519,22 +519,15 @@ export default function TieredPferdeWertHomepage() {
                 Wähle die passende Bewertung für deine Bedürfnisse und erhalte sofort eine detaillierte Analyse.
               </p>
               
-              {/* Main CTA to Form with Pro tier */}
+              {/* Main CTA to Pricing */}
               <div className="mb-8">
                 <Link
-                  href="/preise"
-                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl p-6 transition-colors inline-flex flex-col items-center text-lg font-semibold"
+                  href="/preise#tier-selection"
+                  className="bg-white text-brand-brown hover:bg-brand-light border-2 border-white rounded-xl px-8 py-4 transition-colors inline-flex items-center text-lg font-semibold"
                 >
-                  <div className="text-xl font-bold mb-2">Jetzt Pro Bewertung starten</div>
-                  <div className="text-base opacity-90">
-                    Nur {formatPrice(TIER_PRICES.pro)} • Detaillierte Analyse mit PDF-Report
-                  </div>
+                  Jetzt Tarif wählen
                 </Link>
               </div>
-              
-              <p className="text-sm text-brand-light/80">
-                Launch-Angebot – Preise steigen ab März 2025
-              </p>
             </div>
           </div>
         </section>

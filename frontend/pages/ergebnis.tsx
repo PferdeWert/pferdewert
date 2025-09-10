@@ -380,10 +380,7 @@ export default function Ergebnis() {
 
   const formatPrice = (n: number) => `${n.toFixed(2).replace('.', ',')}€`;
   const diffPrice = (from: Tier, to: Tier): string => {
-    // MVP business rules for upgrade pricing display
-    if (from === 'basic' && to === 'pro') return '4,90€';
-    if (from === 'pro' && to === 'premium') return '17,90€';
-    // Fallback (should rarely be used)
+    // Calculate upgrade price difference dynamically from pricing.ts
     const fromPrice = TIER_PRICES[from];
     const toPrice = TIER_PRICES[to];
     const diff = Math.max(0, toPrice - fromPrice);
