@@ -10,7 +10,7 @@ import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
 import { normalizeTierParam } from "@/lib/pricing-session";
 import PremiumUploadScreen from "@/components/PremiumUploadScreen";
 import { splitAnalysis, type Tier } from "@/lib/analysisSplitter";
-import { TIER_PRICES } from "@/lib/pricing";
+import { TIER_PRICES, UPGRADE_PRICES } from "@/lib/pricing";
 
 // Optimized dynamic imports - loaded only when needed
 const ReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -380,7 +380,14 @@ export default function Ergebnis() {
 
   const formatPrice = (n: number) => `${n.toFixed(2).replace('.', ',')}€`;
   const diffPrice = (from: Tier, to: Tier): string => {
-    // Calculate upgrade price difference dynamically from pricing.ts
+    // Use predefined upgrade prices from pricing.ts
+    if (from === 'basic' && to === 'pro') {
+      return formatPrice(UPGRADE_PRICES.basicToPro);
+    }
+    if (from === 'pro' && to === 'premium') {
+      return formatPrice(UPGRADE_PRICES.proToPremium);
+    }
+    // Fallback calculation (should rarely be used)
     const fromPrice = TIER_PRICES[from];
     const toPrice = TIER_PRICES[to];
     const diff = Math.max(0, toPrice - fromPrice);

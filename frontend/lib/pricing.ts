@@ -15,6 +15,12 @@ export const TIER_PRICES = {
   premium: 39.90,
 } as const;
 
+// ===== UPGRADE PRICES =====
+export const UPGRADE_PRICES = {
+  basicToPro: 4.90,     // Upgrade von Basic zu Pro
+  proToPremium: 17.90,  // Upgrade von Pro zu Premium
+} as const;
+
 // ===== STRIPE CONFIGURATION =====
 export const TIER_STRIPE_IDS = {
   basic: process.env.STRIPE_PRICE_ID_BASIC || '',
