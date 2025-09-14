@@ -84,6 +84,21 @@ if (!origin) {
 
 info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
 
+    // Proaktive Prüfung: Existiert die Preis-ID im aktuellen Stripe-Account?
+    try {
+      await stripe.prices.retrieve(STRIPE_CONFIG.priceId);
+      info("[CHECKOUT] ✅ Stripe-Preis-ID validiert:", STRIPE_CONFIG.priceId);
+    } catch (priceErr) {
+      warn("[CHECKOUT] ❌ Preis-ID nicht gefunden oder nicht verfügbar", {
+        priceId: STRIPE_CONFIG.priceId,
+        error: priceErr instanceof Error ? priceErr.message : String(priceErr)
+      });
+      return res.status(500).json({
+        error: "Stripe Konfigurationsfehler: Preis-ID ungültig",
+        code: "STRIPE_PRICE_NOT_FOUND"
+      });
+    }
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "klarna", "paypal"],
       line_items: [{ price: STRIPE_CONFIG.priceId, quantity: 1 }],
