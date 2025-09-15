@@ -41,30 +41,35 @@ const resend = process.env.RESEND_API_KEY
 
 const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com';
 
-// Simple in-memory cache to prevent duplicate webhook processing
-const processingCache = new Map<string, number>();
-const PROCESSING_TIMEOUT = 5 * 60 * 1000; // 5 minutes
+// Database-based atomic idempotency to prevent duplicate webhook processing
+const checkAndMarkWebhookProcessed = async (sessionId: string): Promise<boolean> => {
+  try {
+    const webhooksCollection = await getCollection("webhook_processing");
 
-const isProcessingOrRecent = (sessionId: string): boolean => {
-  const now = Date.now();
-  const processingTime = processingCache.get(sessionId);
+    // Atomic operation: insert only if doesn't exist
+    const result = await webhooksCollection.findOneAndUpdate(
+      { sessionId: sessionId },
+      {
+        $setOnInsert: {
+          sessionId: sessionId,
+          processedAt: new Date(),
+          status: "processing"
+        }
+      },
+      {
+        upsert: true,
+        returnDocument: "before" // Returns null if inserted (new), document if already existed
+      }
+    );
 
-  if (processingTime && (now - processingTime) < PROCESSING_TIMEOUT) {
+    // If result is null, this is the first time processing this session
+    // If result exists, it was already processed
+    return result === null;
+  } catch (err) {
+    error('[WEBHOOK] Database idempotency check failed:', err instanceof Error ? err.message : String(err));
+    // Fallback to allow processing on database errors
     return true;
   }
-
-  // Clean old entries
-  for (const [key, time] of processingCache.entries()) {
-    if ((now - time) > PROCESSING_TIMEOUT) {
-      processingCache.delete(key);
-    }
-  }
-
-  return false;
-};
-
-const markAsProcessing = (sessionId: string): void => {
-  processingCache.set(sessionId, Date.now());
 };
 
 // Utility function to safely convert stockmass with proper validation
@@ -144,14 +149,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     info('[WEBHOOK] Payment completed successfully');
     info('[WEBHOOK] Session ID:', sessionId);
 
-    // Check for duplicate processing
-    if (isProcessingOrRecent(sessionId)) {
-      warn('[WEBHOOK] Session already being processed or recently completed, skipping:', sessionId);
-      return res.status(200).json({ message: "Session already processed or in progress" });
+    // Atomic check and mark as processing to prevent duplicates
+    const isFirstTime = await checkAndMarkWebhookProcessed(sessionId);
+    if (!isFirstTime) {
+      warn('[WEBHOOK] Session already processed, skipping duplicate webhook:', sessionId);
+      return res.status(200).json({ message: "Session already processed" });
     }
 
-    // Mark as processing to prevent duplicates
-    markAsProcessing(sessionId);
+    info('[WEBHOOK] Processing session for first time:', sessionId);
     
     // Log session metadata without sensitive customer data
     const safeMetadata = session.metadata ? {
@@ -418,6 +423,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       }
 
+      // Mark webhook as completed successfully
+      try {
+        const webhooksCollection = await getCollection("webhook_processing");
+        await webhooksCollection.updateOne(
+          { sessionId: sessionId },
+          {
+            $set: {
+              status: "completed",
+              completedAt: new Date()
+            }
+          }
+        );
+        info('[WEBHOOK] Marked session as completed:', sessionId);
+      } catch (updateErr) {
+        warn('[WEBHOOK] Failed to mark as completed:', updateErr instanceof Error ? updateErr.message : String(updateErr));
+      }
+
       return res.status(200).end("Done");
     } catch (err) {
       error('[WEBHOOK] Error processing evaluation:', {
@@ -425,11 +447,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         stack: err instanceof Error ? err.stack : undefined,
         sessionId: sessionId
       });
-      
+
+      // Mark webhook as failed for debugging
+      try {
+        const webhooksCollection = await getCollection("webhook_processing");
+        await webhooksCollection.updateOne(
+          { sessionId: sessionId },
+          {
+            $set: {
+              status: "failed",
+              failedAt: new Date(),
+              error: err instanceof Error ? err.message : String(err)
+            }
+          }
+        );
+      } catch (updateErr) {
+        warn('[WEBHOOK] Failed to mark as failed:', updateErr instanceof Error ? updateErr.message : String(updateErr));
+      }
+
       // IMPORTANT: Always return 200 to prevent Stripe retries
       // Error is logged but we prevent webhook retry loops
-      return res.status(200).json({ 
-        success: false, 
+      return res.status(200).json({
+        success: false,
         error: "Webhook processing failed but acknowledged",
         details: err instanceof Error ? err.message : "Unknown error"
       });
