@@ -12,6 +12,12 @@ const querySchema = z.object({
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Only accept GET requests
+  if (req.method !== 'GET') {
+    warn("[BEWERTUNG] ❌ Invalid method:", req.method);
+    return res.status(405).json({ error: "Method not allowed. Only GET requests are supported." });
+  }
+
   const parse = querySchema.safeParse(req.query);
   if (!parse.success) {
     warn("[BEWERTUNG] ❌ Validation failed:", parse.error.flatten());
