@@ -12,13 +12,10 @@ const querySchema = z.object({
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Only accept GET requests - POST requests should go to backend
+  // This endpoint handles GET requests for retrieving evaluations
   if (req.method !== 'GET') {
-    warn("[BEWERTUNG] ❌ Invalid method:", req.method, "- POST requests should go to backend");
-    return res.status(405).json({
-      error: "Method not allowed. POST requests should be sent to backend /api/bewertung endpoint.",
-      hint: "Frontend endpoint only accepts GET requests for retrieving evaluations by ID"
-    });
+    warn("[BEWERTUNG] ❌ Invalid method:", req.method);
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   const parse = querySchema.safeParse(req.query);
