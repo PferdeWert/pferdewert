@@ -319,26 +319,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           // Create formatted HTML for form fields (without sensitive data in logs)
           const formularFelderHtml = `
             <h3>📋 Eingabedaten des Kunden:</h3>
-            
+
             <p><strong>Rasse (Pflicht):</strong> ${rasse || 'nicht angegeben'}</p>
             <p><strong>Alter (Pflicht):</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
             <p><strong>Geschlecht (Pflicht):</strong> ${geschlecht || 'nicht angegeben'}</p>
             <p><strong>Stockmaß (Pflicht):</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
             <p><strong>Abstammung (Pflicht):</strong> ${abstammung || 'nicht angegeben'}</p>
             <p><strong>Ausbildungsstand (Pflicht):</strong> ${ausbildung || 'nicht angegeben'}</p>
-            
+            <p><strong>Haupteignung (Pflicht):</strong> ${doc.haupteignung || 'nicht angegeben'}</p>
+
             <hr style="margin: 20px 0; border: 1px solid #eee;">
-            
+
             <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
             <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
-            <p><strong>Farbe (Optional):</strong> ${farbe || 'nicht angegeben'}</p>
             <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
-            <p><strong>Züchter (Optional):</strong> ${zuechter || 'nicht angegeben'}</p>
-            <p><strong>Verwendungszweck (Optional):</strong> ${verwendungszweck || 'nicht angegeben'}</p>
-            
+            <p><strong>Charakter (Optional):</strong> ${doc.charakter || 'nicht angegeben'}</p>
+            <p><strong>Besonderheiten (Optional):</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
+
             <hr style="margin: 20px 0; border: 1px solid #eee;">
-            
-            <p><strong>📊 Marketing Attribution (Optional):</strong> ${attribution_source || 'nicht angegeben'}</p>
+
+            <p><strong>📊 Marketing Quelle (Optional):</strong> ${attribution_source || 'nicht angegeben'}</p>
           `;
 
           // Send admin notification email
