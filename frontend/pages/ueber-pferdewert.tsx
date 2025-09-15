@@ -196,7 +196,7 @@ export default function UeberUns() {
           {
             icon: Award,
             title: "Kompetenz",
-            description: "Unser KI-Modell analysiert Preisfaktoren – für eine fundierte Einschätzung deines Pferdes."
+            description: "Unser KI-Modell analysiert Preisfaktoren – für eine fundierte Bewertung deines Pferdes."
           }
         ].map((item, index) => (
           <div key={index} className="bg-white rounded-2xl border border-brand-gold/20 hover:shadow-2xl hover:translate-y-1 transition-transform shadow-sm p-6">

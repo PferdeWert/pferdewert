@@ -37,7 +37,7 @@ export default function PferdKaufen() {
     {
       schritt: "1",
       title: "Preis vorab prüfen",
-      description: "Gib die Daten des Pferdes in unsere KI-Bewertung ein und erhalte eine objektive Preiseinschätzung."
+      description: "Gib die Daten des Pferdes in unsere KI-Bewertung ein und erhalte eine objektive Preisbewertung."
     },
     {
       schritt: "2", 
@@ -55,10 +55,10 @@ export default function PferdKaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd kaufen Bayern NRW: Preis prüfen & günstig verhandeln | PferdeWert</title>
+        <title>Pferd kaufen: Faire Preise erkennen & günstig verhandeln | PferdeWert</title>
         <meta
          name="description"
-         content="🐎 Pferd kaufen Bayern, NRW & bundesweit! KI-Preischeck für ${PRICING_FORMATTED.current} ➤ Regional optimierte Bewertung ✓ Keine Überzahlung ✓ Jetzt prüfen!"
+         content="Pferd kaufen deutschlandweit - KI-Preischeck für 14,90€ - Faire Preise erkennen und gezielt verhandeln - Keine Überzahlung beim Pferdekauf"
         />
          <meta
          name="keywords"
@@ -117,7 +117,7 @@ export default function PferdKaufen() {
               <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">🎯 Perfekt für Pferdekäufer:</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>✓ Objektive Preiseinschätzung vor Besichtigung</li>
+                  <li>✓ Objektive Preisbewertung vor Besichtigung</li>
                   <li>✓ Verhandlungsgrundlage mit Marktdaten</li>
                   <li>✓ Überteuerte Angebote sofort erkennen</li>
                 </ul>
@@ -309,7 +309,7 @@ export default function PferdKaufen() {
                 <div className="px-6 pb-6">
                   <p className="text-gray-700">
                     Ja, absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest.
-                    Du erhältst eine objektive Preiseinschätzung, die dir bei der Verhandlung hilft.
+                    Du erhältst eine objektive Preisbewertung, die dir bei der Verhandlung hilft.
                   </p>
                 </div>
               </details>
