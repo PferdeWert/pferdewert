@@ -20,7 +20,7 @@ export const PRICING = {
    * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
    * Soll deutlich höher sein als current price
    */
-  decoy: 29.00,
+  decoy: 39.00,
   
   /** 
    * Historische Preise (für Vergleiche und "war früher X€" Texte)
