@@ -65,24 +65,41 @@ export default function Ergebnis() {
 
           if (resultData.bewertung) {
             setText(resultData.bewertung);
+            setLoading(false);
           } else {
             let tries = 0;
-            intervalRef.current = setInterval(async () => {
+            const pollForResult = () => {
               tries++;
-              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId}`);
-              const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-              const retryData = await retryRes.json();
+              const delay = Math.min(5000 + (tries - 1) * 2000, 15000); // Progressive delay: 5s, 7s, 9s, ... max 15s
 
-              if (retryData.bewertung) {
-                clearInterval(intervalRef.current!);
-                setText(retryData.bewertung);
-              }
+              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId} (Delay: ${delay}ms)`);
 
-              if (tries >= 10) {
-                clearInterval(intervalRef.current!);
-                warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
-              }
-            }, 5000);
+              intervalRef.current = setTimeout(async () => {
+                try {
+                  const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+                  const retryData = await retryRes.json();
+
+                  if (retryData.bewertung) {
+                    setText(retryData.bewertung);
+                    setLoading(false);
+                  } else if (tries < 10) {
+                    pollForResult();
+                  } else {
+                    warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
+                    setLoading(false);
+                  }
+                } catch (pollError) {
+                  error("[ERGEBNIS] Fehler beim Polling:", pollError);
+                  if (tries < 10) {
+                    pollForResult();
+                  } else {
+                    setLoading(false);
+                  }
+                }
+              }, delay);
+            };
+
+            pollForResult();
           }
         } else {
           warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
@@ -91,8 +108,6 @@ export default function Ergebnis() {
         error("[ERGEBNIS] Fehler beim Laden der Session:", err);
         setErrorLoading("Beim Laden der Bewertung ist ein Fehler aufgetreten. Bitte versuche es später erneut oder kontaktiere uns.");
         setLoading(false);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -100,7 +115,7 @@ export default function Ergebnis() {
 
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        clearTimeout(intervalRef.current);
       }
     };
   }, [router]);
