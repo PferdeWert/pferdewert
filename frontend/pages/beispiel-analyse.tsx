@@ -4,31 +4,88 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 
-const markdown = `### Preisspanne
+const markdown = `## Zusammenfassung
 
-**10.000 – 15.000 €**
+**Geschätzter Marktwert: 12.000 - 16.000 €**
 
-Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des Pferdes beeinflussen. Das untere Ende der Spanne berücksichtigt den Ausbildungsstand des Wallachs, der sich im L-Bereich im Ansatz befindet, sowie seine bisherigen Erfolge, die sich auf E-Siege und A-Platzierungen beschränken. Das obere Ende der Spanne könnte erreicht werden, wenn die Bewegungsqualität des Pferdes überdurchschnittlich ist und es eine besonders gute AKU vorweisen kann. Der Verkauf über einen privaten Anbieter und der derzeitige Standort können ebenfalls den Preis beeinflussen.
+Der Hannoveraner Wallach aus der De Niro x Schwadroneur-Linie zeigt sich als verlässliches Dressurpferd mit solider Grundausbildung auf L-Niveau. Trotz seiner begrenzten Turniererfolge bietet er aufgrund seines guten Charakters und seiner Verladefrommheit ein attraktives Angebot für ambitionierte Freizeitreiter:innen oder als Lehrpferd.
 
-### Abstammung
+---
 
-**De Niro**: Ein bedeutender Hannoveraner Hengst, bekannt für seine Vererbung von Dressurtalent. De Niro hat zahlreiche Nachkommen, die im internationalen Dressursport erfolgreich sind, und ist als Vererber von Rittigkeit und Leistungsbereitschaft geschätzt.
+## Marktwertanalyse
 
-**Schwadroneur**: Ein Hengst, der ebenfalls in der Dressurszene bekannt ist. Schwadroneur hat eine solide Nachzucht, die durch Rittigkeit und gute Grundgangarten überzeugt.
+### Detaillierte Preisspannen-Erklärung:
 
-### Was den Endpreis besonders bewegt
+**Untere Preisgrenze (12.000 €):** Diese konservative Schätzung berücksichtigt den begrenzten Turniererfolg und das Alter des Pferdes, das sich bereits über dem optimalen Verkaufsalter für junge Dressurpferde befindet. Der solide Ausbildungsstand und der gute Gesundheitszustand rechtfertigen jedoch diesen Mindestpreis.
 
-- **Abstammung**: De Niro als Vater ist ein starker Pluspunkt für die Dressurveranlagung.
-- **Ausbildungsstand**: Der Wallach ist im L-Bereich im Ansatz, was für einen 11-Jährigen relativ niedrig ist.
-- **Erfolge**: Nur E-Siege und A-Platzierungen, was den Preis drückt.
-- **Gesundheitsstatus**: Eine AKU ohne Befund ist ein positiver Faktor.
-- **Vermarktungsweg**: Privatverkauf kann den Preis im Vergleich zu einer Auktion niedriger halten.
+**Obere Preisgrenze (16.000 €):** Die optimistische Schätzung basiert auf der renommierten Abstammung von De Niro, die in der Dressurszene hoch angesehen ist, sowie dem sehr braven Charakter des Wallachs. Diese Faktoren könnten für Käufer:innen, die ein zuverlässiges und gut ausgebildetes Pferd suchen, besonders attraktiv sein.
 
-### Fazit
+**Zielpreis (14.000 €):** Ein realistischer Verkaufspreis bei optimaler Vermarktung und Ansprache der richtigen Zielgruppe, die Wert auf einen verlässlichen Partner für den Dressursport legt.
 
-Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren individuellen Faktoren und Marktbedingungen variieren kann.
+---
 
-_Ergebnis erstellt von PferdeWert AI – keine rechtsverbindliche Bewertung._`;
+## Preisfaktoren im Detail
+
+### Aufschlüsselung der wertbestimmenden Eigenschaften:
+
+- **Rasse & Abstammung:** Die Hannoveraner-Rasse ist bekannt für ihre Eignung im Dressursport. Die Abstammung von De Niro, einem der führenden Dressurvererber, steigert den Wert, auch wenn die Erfolge des Wallachs selbst begrenzt sind.
+
+- **Alter & Entwicklungsstand:** Mit 11 Jahren ist der Wallach im besten Alter für den Dressursport, jedoch nicht mehr im optimalen Verkaufsalter für junge Talente. Dies beeinflusst den Preis leicht negativ.
+
+- **Ausbildungsstand:** Der Ausbildungsstand auf L-Niveau ist solide, jedoch nicht herausragend. Potenzial für weitere Ausbildungsschritte ist vorhanden, was den Wert stabilisiert.
+
+- **Gesundheit & Kondition:** Der AKU-Bericht ohne Befund ist ein positiver Faktor, der den Wert unterstützt.
+
+- **Erfolge & Leistungsnachweis:** Die bisherigen Erfolge sind begrenzt auf einen E-Sieg und A-Platzierungen, was den Preis nicht signifikant erhöht.
+
+- **Besondere Eigenschaften:** Der sehr brave Charakter und die Verladefrommheit sind wertsteigernde Eigenschaften.
+
+---
+
+## Markteinschätzung & Timing
+
+- **Aktuelle Marktlage:** Die Nachfrage nach gut ausgebildeten, verlässlichen Dressurpferden ist stabil. Der Markt für Freizeit- und Lehrpferde ist ebenfalls robust.
+
+- **Regionale Faktoren:** Der Standort in der Region Stuttgart (PLZ 70619) bietet Zugang zu einem breiten Käufer:innenkreis, was den Verkauf erleichtert.
+
+- **Optimaler Verkaufszeitpunkt:** Der Herbst ist eine gute Zeit für den Verkauf, da viele Reiter:innen nach neuen Pferden für die kommende Saison suchen.
+
+---
+
+## Verkaufsempfehlungen
+
+### Wertsteigerungspotenzial:
+
+- Weiteres Training auf M-Niveau könnte den Wert steigern.
+- Teilnahme an kleineren Turnieren zur Verbesserung der Erfolgsbilanz.
+- Professionelle Fotos und Videos für die Vermarktung nutzen.
+- Präsentation auf Online-Plattformen und in regionalen Reitvereinen.
+
+---
+
+## Kaufberatung
+
+### Wichtige Kaufaspekte:
+
+- Beim Probereiten auf den braven Charakter und die Rittigkeit achten.
+- Die Preisspanne ist gerechtfertigt, wenn der Fokus auf einem verlässlichen Freizeit- oder Lehrpferd liegt.
+- Das Preis-Leistungs-Verhältnis ist gut, wenn der Käufer Wert auf Abstammung und Charakter legt.
+
+---
+
+## Zukunftspotenzial
+
+- In den nächsten 2-5 Jahren könnte der Wallach durch gezielte Ausbildung und Turnierteilnahmen im Amateurbereich erfolgreich sein.
+- Eignet sich gut für den Freizeit- und Lehrbetrieb, weniger für den Spitzensport.
+- Weitere Erfolge im Amateurbereich sind realistisch, wenn kontinuierlich trainiert wird.
+
+---
+
+## Fazit
+
+Der Hannoveraner Wallach bietet ein solides Preis-Leistungs-Verhältnis für Käufer:innen, die ein verlässliches und gut ausgebildetes Dressurpferd suchen. Der Wert ist ein Orientierungswert und kann je nach Vermarktung und Käufer:inneninteresse variieren.
+
+_Ergebnis erstellt durch die PferdeWert-KI – keine rechtsverbindliche Bewertung._`;
 
 export default function BeispielAnalyse() {
   return (
