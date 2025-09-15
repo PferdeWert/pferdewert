@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import BewertungLayout from "@/components/BewertungLayout";
 import dynamic from "next/dynamic";
-import { log, warn, error } from "@/lib/log";
+import { log, warn, error, info } from "@/lib/log";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
@@ -29,12 +29,12 @@ const PDFDownloadLink = dynamic(
 
 
 export default function Ergebnis() {
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
+  const [minLoadingTime, setMinLoadingTime] = useState(true);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -47,6 +47,11 @@ export default function Ergebnis() {
       router.replace("/pferde-preis-berechnen");
       return;
     }
+
+    // Mindest-Ladedauer von 4 Sekunden für bessere UX
+    setTimeout(() => {
+      setMinLoadingTime(false);
+    }, 4000);
 
     const fetchSession = async () => {
       try {
@@ -74,7 +79,7 @@ export default function Ergebnis() {
         // Track the main conversion event
         trackValuationCompleted(sessionId, bewertungId || "unknown", paymentMethod);
         if (bewertungId) {
-          log(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
+          info(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
           
           let tries = 0;
           const maxTries = 20; // Increased for longer AI processing
@@ -90,7 +95,7 @@ export default function Ergebnis() {
               if (retryRes.status === 429) {
                 log("[ERGEBNIS] Rate-Limit erreicht, warte länger...");
                 const delay = Math.min(30000, 10000 * Math.pow(2, Math.floor(tries / 3)));
-                intervalRef.current = setTimeout(checkBewertung, delay);
+                setTimeout(checkBewertung, delay);
                 return;
               }
               
@@ -105,7 +110,7 @@ export default function Ergebnis() {
               log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
               
               if (retryData.bewertung && retryData.bewertung.trim()) {
-                log("[ERGEBNIS] ✅ Bewertung erfolgreich geladen");
+                info("[ERGEBNIS] ✅ Bewertung erfolgreich geladen");
                 setText(retryData.bewertung);
                 setLoading(false);
                 return;
@@ -135,7 +140,7 @@ export default function Ergebnis() {
             }
             
             log(`[ERGEBNIS] Warte ${delay}ms bis zum nächsten Versuch...`);
-            intervalRef.current = setTimeout(checkBewertung, delay);
+            setTimeout(checkBewertung, delay);
           };
           
           // Start checking immediately
@@ -156,13 +161,11 @@ export default function Ergebnis() {
     fetchSession();
 
     return () => {
-      if (intervalRef.current) {
-        clearTimeout(intervalRef.current);
-      }
+      // Cleanup function - no intervals to clear as we use setTimeout directly
     };
   }, [router]);
 
-  if (loading) return <StripeLoadingScreen />;
+  if (loading || minLoadingTime) return <StripeLoadingScreen />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
