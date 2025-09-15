@@ -63,13 +63,13 @@ async function sendCustomerEmail(documentId, customerEmail) {
         <h2>Hallo!</h2>
         <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
             <br> 
-        <p><strong><a href="https://pferdewert.de/ergebnis?session_id=${doc.stripeSessionId}" 
+        <p><strong><a href="https://pferdewert.de/ergebnis?id=${doc._id}" 
            style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
            🐴 Zur Bewertung & PDF-Download
         </a></strong></p>
             <br>
         <p><small>Falls der Button nicht funktioniert:<br>
-        https://pferdewert.de/ergebnis?session_id=${doc.stripeSessionId}</small></p>
+        https://pferdewert.de/ergebnis?id=${doc._id}</small></p>
         
         <p>Entschuldige die Verzögerung - aufgrund eines technischen Problems wurde deine Bewertung mit einiger Verspätung erstellt.</p>
         

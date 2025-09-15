@@ -90,76 +90,69 @@ export default function Ergebnis() {
 
     const fetchSession = async () => {
       try {
-        log("[ERGEBNIS] Lade Session für ID:", session_id);
+        log("[ERGEBNIS] Starte DB-Load über session_id (bevor Stripe):", session_id);
 
+        // 1) Versuche zuerst DB über session_id (vermeidet Stripe 429 bei Refresh)
+        let fbData: any = null;
+        try {
+          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
+          try { fbData = await fb.json(); } catch {}
+        } catch {}
+
+        const startPollingById = (id: string) => {
+          let tries = 0;
+          const poll = () => {
+            tries++;
+            const delay = Math.min(5000 + (tries - 1) * 2000, 15000);
+            log(`[ERGEBNIS] Polling Versuch ${tries} für Bewertung ID: ${id} (Delay: ${delay}ms)`);
+            intervalRef.current = setTimeout(async () => {
+              try {
+                const r = await fetch(`/api/bewertung?id=${id}`);
+                if (r.ok) {
+                  const d = await r.json();
+                  if (d?.bewertung) {
+                    setText(d.bewertung);
+                    setLoading(false);
+                    return;
+                  }
+                }
+              } catch {}
+              if (tries < 10) poll(); else setLoading(false);
+            }, delay);
+          };
+          poll();
+        };
+
+        if (fbData && fbData.id) {
+          setPaid(true);
+          setBewertungId(fbData.id);
+          if (typeof fbData.bewertung === "string" && fbData.bewertung.trim()) {
+            log("[ERGEBNIS] ✅ Bewertung via DB (session_id) geladen");
+            setText(fbData.bewertung);
+            setLoading(false);
+            return;
+          }
+          // Bewertung existiert noch nicht -> Polling starten
+          startPollingById(fbData.id);
+          return;
+        }
+
+        // 2) Stripe-Session prüfen (Fallback)
+        log("[ERGEBNIS] DB-Load fehlgeschlagen oder kein Dokument – rufe Stripe-Session auf");
         const res = await fetch(`/api/session?session_id=${session_id}`);
-        log("[ERGEBNIS] HTTP Status Code:", res.status);
+        log("[ERGEBNIS] Stripe HTTP Status Code:", res.status);
 
         if (!res.ok) {
-          warn("[ERGEBNIS] Session API nicht erreichbar oder Fehler. Versuche DB-Fallback über session_id...");
-          // Fallback: direkt aus DB per session_id laden
-          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
-          if (fb.ok) {
-            const fbData = await fb.json();
-            setPaid(true);
-            if (fbData?.id) setBewertungId(fbData.id);
-            if (fbData?.bewertung && typeof fbData.bewertung === "string") {
-              log("[ERGEBNIS] ✅ Bewertung via Fallback geladen");
-              setText(fbData.bewertung);
-              setLoading(false);
-              return;
-            } else {
-              // Polling über ID, wenn vorhanden
-              if (fbData?.id) {
-                let tries = 0;
-                const poll = async () => {
-                  tries++;
-                  const delay = Math.min(5000 + (tries - 1) * 2000, 15000);
-                  intervalRef.current = setTimeout(async () => {
-                    try {
-                      const r = await fetch(`/api/bewertung?id=${fbData.id}`);
-                      if (r.ok) {
-                        const d = await r.json();
-                        if (d?.bewertung) {
-                          setText(d.bewertung);
-                          setLoading(false);
-                          return;
-                        }
-                      }
-                    } catch {}
-                    if (tries < 10) poll(); else setLoading(false);
-                  }, delay);
-                };
-                poll();
-                return;
-              }
-            }
-          }
-
+          warn("[ERGEBNIS] Stripe-Session nicht erreichbar. Kein DB-Dokument gefunden. Zeige Fehler an.");
           setErrorLoading("Es gab ein Problem beim Laden deiner Bewertung. Bitte öffne den Link später erneut oder schreibe uns an info@pferdewert.de – wir helfen sofort.");
           setLoading(false);
           return;
         }
 
         const data = await res.json();
-        log("[ERGEBNIS] API-Response:", data);
+        log("[ERGEBNIS] Stripe API-Response:", { hasSession: !!data?.session, payment_status: data?.session?.payment_status, hasMetadata: !!data?.session?.metadata });
 
-        if (!data?.session?.payment_status) {
-          warn("[ERGEBNIS] Session geladen, aber payment_status fehlt – versuche DB-Fallback.");
-          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
-          if (fb.ok) {
-            const fbData = await fb.json();
-            setPaid(true);
-            if (fbData?.id) setBewertungId(fbData.id);
-            if (fbData?.bewertung) {
-              setText(fbData.bewertung);
-              setLoading(false);
-              return;
-            }
-          }
-        }
-
-        if (data.session.payment_status !== "paid") {
+        if (data?.session?.payment_status !== "paid") {
           warn("[ERGEBNIS] Zahlung nicht erfolgt. Redirect nach /pferde-preis-berechnen");
           router.replace("/pferde-preis-berechnen");
           return;
@@ -185,18 +178,16 @@ export default function Ergebnis() {
             setText(resultData.bewertung);
             setLoading(false);
           } else {
+            // Polling
             let tries = 0;
             const pollForResult = () => {
               tries++;
-              const delay = Math.min(5000 + (tries - 1) * 2000, 15000); // Progressive delay: 5s, 7s, 9s, ... max 15s
-
+              const delay = Math.min(5000 + (tries - 1) * 2000, 15000);
               log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungIdFromSession} (Delay: ${delay}ms)`);
-
               intervalRef.current = setTimeout(async () => {
                 try {
                   const retryRes = await fetch(`/api/bewertung?id=${bewertungIdFromSession}`);
                   const retryData = await retryRes.json();
-
                   if (retryData.bewertung) {
                     setText(retryData.bewertung);
                     setLoading(false);
@@ -216,20 +207,25 @@ export default function Ergebnis() {
                 }
               }, delay);
             };
-
             pollForResult();
           }
         } else {
-          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden. Versuche Fallback über session_id...");
-          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
-          if (fb.ok) {
-            const fbData = await fb.json();
-            if (fbData?.id) setBewertungId(fbData.id);
-            if (fbData?.bewertung) {
-              setText(fbData.bewertung);
-              setLoading(false);
+          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten. Versuche erneut DB über session_id...");
+          try {
+            const fb2 = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
+            let fbData2: any = null;
+            try { fbData2 = await fb2.json(); } catch {}
+            if (fbData2 && fbData2.id) {
+              setBewertungId(fbData2.id);
+              if (fbData2.bewertung) {
+                setText(fbData2.bewertung);
+                setLoading(false);
+                return;
+              }
+              startPollingById(fbData2.id);
+              return;
             }
-          }
+          } catch {}
         }
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Laden der Session:", err);
