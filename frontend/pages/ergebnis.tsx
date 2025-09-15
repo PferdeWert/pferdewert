@@ -1,40 +1,24 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
-import dynamic from "next/dynamic";
-import { log, warn, error, info } from "@/lib/log";
+import PferdeWertPDF from "@/components/PferdeWertPDF";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { log, warn, error } from "@/lib/log";
 import Head from "next/head";
 import Layout from "@/components/Layout";
+import { trackPDFDownload } from "@/lib/analytics";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
-import { trackValuationCompleted, trackPDFDownload } from "@/lib/analytics";
-
-// Optimized dynamic imports - loaded only when needed
-const ReactMarkdown = dynamic(() => import("react-markdown"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-200 h-96 rounded"></div>,
-});
-
-const PferdeWertPDF = dynamic(() => import("@/components/PferdeWertPDF"), {
-  ssr: false,
-});
-
-const PDFDownloadLink = dynamic(
-  () => import("@react-pdf/renderer").then((mod) => ({ default: mod.PDFDownloadLink })),
-  {
-    ssr: false,
-    loading: () => <button className="btn-primary">PDF wird vorbereitet...</button>,
-  }
-);
 
 
 
 export default function Ergebnis() {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
-  const [minLoadingTime, setMinLoadingTime] = useState(true);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -47,11 +31,6 @@ export default function Ergebnis() {
       router.replace("/pferde-preis-berechnen");
       return;
     }
-
-    // Mindest-Ladedauer von 4 Sekunden für bessere UX
-    setTimeout(() => {
-      setMinLoadingTime(false);
-    }, 4000);
 
     const fetchSession = async () => {
       try {
@@ -71,101 +50,62 @@ export default function Ergebnis() {
 
         setPaid(true);
 
-        // Enhanced GA4 conversion tracking
-        const bewertungId = data.session.metadata?.bewertungId;
-        const sessionId = session_id;
-        const paymentMethod = data.session.payment_method_types?.[0] || "unknown";
-        
-        // Track the main conversion event
-        trackValuationCompleted(sessionId, bewertungId || "unknown", paymentMethod);
-        if (bewertungId) {
-          info(`[ERGEBNIS] Lade Bewertung für ID: ${bewertungId}`);
-          
-          let tries = 0;
-          const maxTries = 20; // Increased for longer AI processing
-          
-          const checkBewertung = async () => {
-            tries++;
-            log(`[ERGEBNIS] Versuch ${tries}/${maxTries} für Bewertung ID: ${bewertungId}`);
-            
-            try {
-              const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
-              log(`[ERGEBNIS] API Response Status: ${retryRes.status}`);
-              
-              if (retryRes.status === 429) {
-                log("[ERGEBNIS] Rate-Limit erreicht, warte länger...");
-                const delay = Math.min(30000, 10000 * Math.pow(2, Math.floor(tries / 3)));
-                setTimeout(checkBewertung, delay);
-                return;
-              }
-              
-              if (retryRes.status === 404) {
-                error("[ERGEBNIS] Bewertung nicht gefunden - möglicherweise falsche ID");
-                setErrorLoading("Die Bewertung konnte nicht gefunden werden. Bitte kontaktiere uns unter info@pferdewert.de");
-                setLoading(false);
-                return;
-              }
-              
-              const retryData = await retryRes.json();
-              log("[ERGEBNIS] Response data:", { hasBewertung: !!retryData.bewertung, error: retryData.error });
-              
-              if (retryData.bewertung && retryData.bewertung.trim()) {
-                info("[ERGEBNIS] ✅ Bewertung erfolgreich geladen");
-                setText(retryData.bewertung);
-                setLoading(false);
-                return;
-              }
-            } catch (err) {
-              error("[ERGEBNIS] Netzwerk-/API-Fehler beim Abrufen der Bewertung:", err);
-            }
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "conversion", {
+            event_category: "Bewertung",
+            event_label: "PDF freigeschaltet",
+            value: 1,
+          });
+        }
 
-            if (tries >= maxTries) {
-              warn(`[ERGEBNIS] Bewertung nach ${maxTries} Versuchen nicht verfügbar.`);
-              setErrorLoading(
-                "Die Bewertung wird noch erstellt und kann einige Minuten dauern. " +
-                "Du erhältst eine E-Mail, sobald sie fertig ist, oder aktualisiere diese Seite in wenigen Minuten."
-              );
-              setLoading(false);
-              return;
-            }
-            
-            // Progressive backoff: start longer to avoid rate limits
-            let delay;
-            if (tries <= 3) {
-              delay = 15000; // First 3 tries: 15s
-            } else if (tries <= 10) {
-              delay = 30000; // Next 7 tries: 30s  
-            } else {
-              delay = 60000; // Remaining tries: 60s
-            }
-            
-            log(`[ERGEBNIS] Warte ${delay}ms bis zum nächsten Versuch...`);
-            setTimeout(checkBewertung, delay);
-          };
-          
-          // Start checking immediately
-          checkBewertung();
+        const bewertungId = data.session.metadata?.bewertungId;
+        if (bewertungId) {
+          const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+          const resultData = await resultRes.json();
+
+          if (resultData.bewertung) {
+            setText(resultData.bewertung);
+          } else {
+            let tries = 0;
+            intervalRef.current = setInterval(async () => {
+              tries++;
+              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId}`);
+              const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+              const retryData = await retryRes.json();
+
+              if (retryData.bewertung) {
+                clearInterval(intervalRef.current!);
+                setText(retryData.bewertung);
+              }
+
+              if (tries >= 10) {
+                clearInterval(intervalRef.current!);
+                warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
+              }
+            }, 5000);
+          }
         } else {
-          error("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
-          setErrorLoading("Fehler: Bewertungs-ID nicht gefunden. Bitte kontaktiere uns unter info@pferdewert.de");
-          setLoading(false);
+          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
         }
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Laden der Session:", err);
         setErrorLoading("Beim Laden der Bewertung ist ein Fehler aufgetreten. Bitte versuche es später erneut oder kontaktiere uns.");
         setLoading(false);
+      } finally {
+        setLoading(false);
       }
-      // Note: loading state is managed individually in each code path above
     };
 
     fetchSession();
 
     return () => {
-      // Cleanup function - no intervals to clear as we use setTimeout directly
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
   }, [router]);
 
-  if (loading || minLoadingTime) return <StripeLoadingScreen />;
+  if (loading) return <StripeLoadingScreen estimatedTime="Geschätzte Wartezeit: 1-3 Minuten" />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
@@ -182,14 +122,14 @@ export default function Ergebnis() {
           <div className="prose prose-lg max-w-full">
             <ReactMarkdown>{text}</ReactMarkdown>
           </div>
-          <div className="mt-8 flex justify-center sm:mt-10">
+          <div className="mt-8">
             <PDFDownloadLink
               document={<PferdeWertPDF markdownData={text} />}
               fileName="PferdeWert-Analyse.pdf"
             >
-              {({ loading }: { loading: boolean }) => (
-                <button 
-                  className="btn-primary"
+              {({ loading }) => (
+                <button
+                  className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
                   onClick={() => {
                     if (!loading) {
                       const bewertungId = router.query.session_id as string;
@@ -197,7 +137,7 @@ export default function Ergebnis() {
                     }
                   }}
                 >
-                  {loading ? "Lade PDF..." : "Als PDF herunterladen"}
+                  {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
                 </button>
               )}
             </PDFDownloadLink>
