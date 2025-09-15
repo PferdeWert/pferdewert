@@ -158,9 +158,12 @@ class BewertungRequest(BaseModel):
     stockmass: int
     ausbildung: str
 
-    # Optionale Angaben (erweitert um abstammung und haupteignung)
+    # Optionale Angaben (erweitert um abstammung, haupteignung und Marketing-Quelle)
     abstammung: Optional[str] = None
     haupteignung: Optional[str] = None
+    # Marketing-/Quelle-Felder: akzeptieren, aber NICHT im Prompt verwenden
+    quelle: Optional[str] = None
+    attribution_source: Optional[str] = None
     aku: Optional[str] = None
     erfolge: Optional[str] = None
     farbe: Optional[str] = None
@@ -169,8 +172,8 @@ class BewertungRequest(BaseModel):
     verwendungszweck: Optional[str] = None
 
     class Config:
-        # Unerwartete Felder ignorieren, um 422 bei zusätzlichen Feldern zu vermeiden
-        extra = "ignore"
+        # Unbekannte Felder verbieten → striktes Schema
+        extra = "forbid"
 
 # ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
