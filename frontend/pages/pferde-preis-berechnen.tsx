@@ -118,7 +118,7 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4 → 3 Schritte
+// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4-Schritt Wizard gemäß UX-Plan
 const stepData: StepData[] = [
   {
     id: 1,
@@ -128,107 +128,117 @@ const stepData: StepData[] = [
     icon: "🐎",
     iconBg: "bg-amber-100",
     fields: [
-      { 
-        name: "rasse", 
-        label: "Rasse", 
-        required: true, 
+      {
+        name: "rasse",
+        label: "Rasse",
+        required: true,
         placeholder: "z.B. Deutsches Sportpferd, Hannoveraner, Oldenburger",
         fullWidth: true
       },
-      { 
-        name: "alter", 
-        label: "Alter (Jahre)", 
-        type: "number", 
-        required: true, 
+      {
+        name: "alter",
+        label: "Alter (Jahre)",
+        type: "number",
+        required: true,
         placeholder: "8",
         halfWidth: true
       },
-      { 
-        name: "geschlecht", 
-        label: "Geschlecht", 
-        type: "select", 
-        required: true, 
+      {
+        name: "geschlecht",
+        label: "Geschlecht",
+        type: "select",
+        required: true,
         options: ["Stute", "Wallach", "Hengst"],
         halfWidth: true
       },
-      { 
-        name: "stockmass", 
-        label: "Stockmaß (cm)", 
-        type: "number", 
-        required: true, 
+      {
+        name: "stockmass",
+        label: "Stockmaß (cm)",
+        type: "number",
+        required: true,
         placeholder: "165",
         halfWidth: true
-      },
-      { 
-        name: "haupteignung", 
-        label: "Haupteignung / Disziplin", 
-        required: true, 
-        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
-        halfWidth: true
-      },
-      { 
-        name: "ausbildung", 
-        label: "Ausbildungsstand", 
-        type: "select",
-        required: true, 
-        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
-        fullWidth: true
-      },
+      }
     ]
   },
   {
     id: 2,
-    title: "Details",
-    subtitle: "Weitere Informationen",
-    description: "Optionale Details für eine genauere Bewertung",
+    title: "Fähigkeiten",
+    subtitle: "Ausbildung & Verwendung",
+    description: "Wofür ist dein Pferd ausgebildet?",
     icon: "🏆",
     iconBg: "bg-blue-100",
     fields: [
-      { 
-        name: "erfolge", 
-        label: "Turniererfahrung / Erfolge", 
+      {
+        name: "haupteignung",
+        label: "Haupteignung / Disziplin",
+        required: true,
+        placeholder: "z.B. Freizeit, Dressur, Springen, Vielseitigkeit",
+        halfWidth: true
+      },
+      {
+        name: "ausbildung",
+        label: "Ausbildungsstand",
+        type: "select",
+        required: true,
+        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+        halfWidth: true
+      },
+      {
+        name: "erfolge",
+        label: "Turniererfahrung / Erfolge",
         required: false,
         placeholder: "z.B. A-Dressur platziert, L-Springen teilgenommen",
         fullWidth: true
       },
-      { 
-        name: "abstammung", 
-        label: "Abstammung (Vater x Muttervater)", 
-        required: false, 
+      {
+        name: "abstammung",
+        label: "Abstammung (Vater x Muttervater)",
+        required: false,
         placeholder: "z.B. Cornet Obolensky x Contender",
         fullWidth: true
-      },
-      { 
-        name: "charakter", 
-        label: "Charakter & Rittigkeit", 
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Details",
+    subtitle: "Charakter & Gesundheit",
+    description: "Weitere Details für eine genauere Bewertung",
+    icon: "❤️",
+    iconBg: "bg-green-100",
+    fields: [
+      {
+        name: "charakter",
+        label: "Charakter & Rittigkeit",
         required: false,
         placeholder: "z.B. sehr brav, brav, normal, sensibel, anspruchsvoll",
-        halfWidth: true
+        fullWidth: true
       },
-      { 
-        name: "aku", 
-        label: "Gesundheit / AKU", 
+      {
+        name: "aku",
+        label: "Gesundheit / AKU",
         required: false,
         placeholder: "z.B. AKU 2023 ohne Befund, leichte Arthrose",
-        halfWidth: true
+        fullWidth: true
       },
-      { 
-        name: "besonderheiten", 
-        label: "Besonderheiten", 
+      {
+        name: "besonderheiten",
+        label: "Besonderheiten",
         required: false,
         placeholder: "z.B. verladefromm, geländesicher, anfängertauglich",
-        halfWidth: true
+        fullWidth: true
       },
-      { 
-        name: "standort", 
-        label: "Standort (PLZ)", 
+      {
+        name: "standort",
+        label: "Standort (PLZ)",
         required: false,
         placeholder: "z.B. 72770",
         halfWidth: true
       },
-      { 
-        name: "attribution_source", 
-        label: "Wie bist du auf PferdeWert aufmerksam geworden?", 
+      {
+        name: "attribution_source",
+        label: "Wie bist du auf PferdeWert aufmerksam geworden?",
         required: false,
         placeholder: "Bitte auswählen (optional)",
         halfWidth: true,
@@ -242,12 +252,12 @@ const stepData: StepData[] = [
           { value: "equestrian_forum", label: "Pferdeforum oder Community" },
           { value: "other", label: "Andere Quelle" }
         ]
-      },
+      }
     ]
   },
   {
-    id: 3,
-    title: "Bezahlung",
+    id: 4,
+    title: "Checkout",
     subtitle: "Analyse starten",
     description: "Nur noch ein Klick zur professionellen Pferdebewertung",
     icon: "💳",
@@ -421,9 +431,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       return;
     }
 
-    // Validate all required fields from all steps (now only 2 steps before payment)
+    // Validate all required fields from all steps (now 3 steps before payment)
     const newErrors: { [key: string]: string } = {};
-    stepData.slice(0, 2).forEach(step => {
+    stepData.slice(0, 3).forEach(step => {
       step.fields.forEach((field) => {
         if (field.required && !form[field.name as keyof FormState]) {
           newErrors[field.name] = "Pflichtfeld";
@@ -499,8 +509,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferde Preis berechnen Bayern NRW: 2 Min Bewertung | PferdeWert</title>
-        <meta name="description" content="🐎 Pferde Preis berechnen Bayern & NRW ✓ 115 Bewertungen täglich ✓ KI-Analyse für ${PRICING_FORMATTED.current} ✓ Sofort-PDF ✓ Regional optimiert ✓ Jetzt starten!" />
+        <title>Pferde Preis berechnen: KI-Bewertung in 2 Minuten | PferdeWert</title>
+        <meta name="description" content="Pferde Preis berechnen deutschlandweit - KI-Analyse in 2 Minuten - 115 tägliche Bewertungen - Sofort-PDF mit detaillierter Marktanalyse - Jetzt starten" />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="400" />
@@ -618,7 +628,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
             {/* Hauptkarte */}
             <div id="wizard-card" className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-              {currentStepData && currentStep <= 2 && (
+              {currentStepData && currentStep <= 3 && (
                 <>
                   {/* Step Header */}
                   <div className="text-center mb-8">
@@ -734,7 +744,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               )}
 
               {/* Bezahlung-Step */}
-              {currentStep === 3 && (
+              {currentStep === 4 && (
                 <form onSubmit={handleSubmit}>
                   {/* Sticky Submit Button auf Mobile */}
                   <div className="fixed bottom-0 left-0 right-0 bg-white shadow-xl px-4 py-4 z-40 md:hidden border-t">
