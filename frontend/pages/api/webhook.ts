@@ -10,14 +10,15 @@ export const config = {
   api: { bodyParser: false },
 };
 
-// Type definitions for better type safety
-interface HorseData {
+// Backend data structure matches deployed backend schema (haupteignung required)
+interface BackendRequestData {
   rasse: string;
   alter: number;
   geschlecht: string;
-  abstammung: string;
+  abstammung?: string;
   stockmass: number;
   ausbildung: string;
+  haupteignung: string; // Required field in deployed backend
   aku?: string;
   erfolge?: string;
   farbe?: string;
@@ -154,14 +155,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         attribution_source,
       } = doc;
 
-      // Prepare data with proper validation (ONLY horse data for AI - NO attribution_source!)
-      const bewertbareDaten: HorseData = {
+      // Prepare data with proper validation matching deployed backend schema
+      const bewertbareDaten: BackendRequestData = {
         rasse: String(rasse || ''),
         alter: parseInt(String(alter)) || 0,
         geschlecht: String(geschlecht || ''),
-        abstammung: String(abstammung || ''),
+        abstammung: abstammung ? String(abstammung) : undefined,
         stockmass: convertStockmassToNumber(stockmass),
         ausbildung: String(ausbildung || ''),
+        haupteignung: String(verwendungszweck || ausbildung || 'Sport'), // Map verwendungszweck to required haupteignung
         aku: aku ? String(aku) : undefined,
         erfolge: erfolge ? String(erfolge) : undefined,
         farbe: farbe ? String(farbe) : undefined,
