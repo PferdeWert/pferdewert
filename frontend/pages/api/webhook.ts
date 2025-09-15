@@ -385,6 +385,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       if (customerEmail && resend) {
         try {
+          const directLink = `https://pferdewert.de/ergebnis?id=${doc._id.toString()}`;
           await resend.emails.send({
             from: "PferdeWert <info@pferdewert.de>",
             to: customerEmail,
@@ -393,13 +394,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <h2>Hallo!</h2>
               <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
                   <br> 
-              <p><strong><a href="https://pferdewert.de/ergebnis?session_id=${sessionId}" 
+              <p><strong><a href="${directLink}" 
                  style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
                  🐴 Zur Bewertung & PDF-Download
               </a></strong></p>
                   <br>
               <p><small>Falls der Button nicht funktioniert:<br>
-              https://pferdewert.de/ergebnis?session_id=${sessionId}</small></p>
+              ${directLink}</small></p>
               
               <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
             `

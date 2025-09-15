@@ -19,6 +19,7 @@ export default function Ergebnis() {
   const [loading, setLoading] = useState(true);
   const [paid, setPaid] = useState(false);
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
+  const [bewertungId, setBewertungId] = useState<string | null>(null);
 
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
@@ -27,6 +28,61 @@ export default function Ergebnis() {
     if (!router.isReady) return;
 
     const session_id = router.query.session_id;
+    const bewertung_id = router.query.id;
+
+    // Check if we have either a session_id (Stripe flow) or bewertung_id (direct link)
+    if ((!session_id || typeof session_id !== "string") && (!bewertung_id || typeof bewertung_id !== "string")) {
+      router.replace("/pferde-preis-berechnen");
+      return;
+    }
+
+    // Handle direct ObjectId access (email links)
+    if (bewertung_id && typeof bewertung_id === "string") {
+      log("[ERGEBNIS] Direct ObjectId access for ID:", bewertung_id);
+      setPaid(true); // Skip payment check for direct access
+      setBewertungId(bewertung_id);
+
+      const loadDirectBewertung = async () => {
+        try {
+          log("[ERGEBNIS] Fetching direct bewertung from API...");
+          const res = await fetch(`/api/bewertung?id=${bewertung_id}`);
+          log("[ERGEBNIS] API Response status:", res.status);
+
+          if (!res.ok) {
+            if (res.status === 404) {
+              setErrorLoading("Diese Bewertung wurde nicht gefunden. Bitte überprüfe den Link oder kontaktiere uns unter info@pferdewert.de");
+            } else if (res.status >= 500) {
+              setErrorLoading("Server-Fehler beim Laden der Bewertung. Bitte versuche es in wenigen Minuten erneut oder kontaktiere uns.");
+            } else {
+              setErrorLoading(`Fehler beim Laden der Bewertung (${res.status}). Bitte kontaktiere uns unter info@pferdewert.de`);
+            }
+            setLoading(false);
+            return;
+          }
+
+          const data = await res.json();
+          log("[ERGEBNIS] API Response data:", { hasBewertung: !!data.bewertung });
+
+          if (data.bewertung && data.bewertung.trim()) {
+            log("[ERGEBNIS] ✅ Direct bewertung loaded successfully");
+            setText(data.bewertung);
+            setLoading(false);
+          } else {
+            setErrorLoading("Die Bewertung ist noch nicht verfügbar. Bitte versuche es später erneut oder kontaktiere uns unter info@pferdewert.de");
+            setLoading(false);
+          }
+        } catch (err) {
+          error("[ERGEBNIS] Error loading direct bewertung:", err);
+          setErrorLoading("Netzwerk-Fehler beim Laden der Bewertung. Bitte überprüfe deine Internetverbindung oder versuche es später erneut.");
+          setLoading(false);
+        }
+      };
+
+      loadDirectBewertung();
+      return;
+    }
+
+    // Original Stripe session flow
     if (!session_id || typeof session_id !== "string") {
       router.replace("/pferde-preis-berechnen");
       return;
@@ -39,10 +95,71 @@ export default function Ergebnis() {
         const res = await fetch(`/api/session?session_id=${session_id}`);
         log("[ERGEBNIS] HTTP Status Code:", res.status);
 
+        if (!res.ok) {
+          warn("[ERGEBNIS] Session API nicht erreichbar oder Fehler. Versuche DB-Fallback über session_id...");
+          // Fallback: direkt aus DB per session_id laden
+          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
+          if (fb.ok) {
+            const fbData = await fb.json();
+            setPaid(true);
+            if (fbData?.id) setBewertungId(fbData.id);
+            if (fbData?.bewertung && typeof fbData.bewertung === "string") {
+              log("[ERGEBNIS] ✅ Bewertung via Fallback geladen");
+              setText(fbData.bewertung);
+              setLoading(false);
+              return;
+            } else {
+              // Polling über ID, wenn vorhanden
+              if (fbData?.id) {
+                let tries = 0;
+                const poll = async () => {
+                  tries++;
+                  const delay = Math.min(5000 + (tries - 1) * 2000, 15000);
+                  intervalRef.current = setTimeout(async () => {
+                    try {
+                      const r = await fetch(`/api/bewertung?id=${fbData.id}`);
+                      if (r.ok) {
+                        const d = await r.json();
+                        if (d?.bewertung) {
+                          setText(d.bewertung);
+                          setLoading(false);
+                          return;
+                        }
+                      }
+                    } catch {}
+                    if (tries < 10) poll(); else setLoading(false);
+                  }, delay);
+                };
+                poll();
+                return;
+              }
+            }
+          }
+
+          setErrorLoading("Es gab ein Problem beim Laden deiner Bewertung. Bitte öffne den Link später erneut oder schreibe uns an info@pferdewert.de – wir helfen sofort.");
+          setLoading(false);
+          return;
+        }
+
         const data = await res.json();
         log("[ERGEBNIS] API-Response:", data);
 
-        if (!data?.session?.payment_status || data.session.payment_status !== "paid") {
+        if (!data?.session?.payment_status) {
+          warn("[ERGEBNIS] Session geladen, aber payment_status fehlt – versuche DB-Fallback.");
+          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
+          if (fb.ok) {
+            const fbData = await fb.json();
+            setPaid(true);
+            if (fbData?.id) setBewertungId(fbData.id);
+            if (fbData?.bewertung) {
+              setText(fbData.bewertung);
+              setLoading(false);
+              return;
+            }
+          }
+        }
+
+        if (data.session.payment_status !== "paid") {
           warn("[ERGEBNIS] Zahlung nicht erfolgt. Redirect nach /pferde-preis-berechnen");
           router.replace("/pferde-preis-berechnen");
           return;
@@ -58,9 +175,10 @@ export default function Ergebnis() {
           });
         }
 
-        const bewertungId = data.session.metadata?.bewertungId;
-        if (bewertungId) {
-          const resultRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+        const bewertungIdFromSession = data.session.metadata?.bewertungId;
+        if (bewertungIdFromSession) {
+          setBewertungId(bewertungIdFromSession);
+          const resultRes = await fetch(`/api/bewertung?id=${bewertungIdFromSession}`);
           const resultData = await resultRes.json();
 
           if (resultData.bewertung) {
@@ -72,11 +190,11 @@ export default function Ergebnis() {
               tries++;
               const delay = Math.min(5000 + (tries - 1) * 2000, 15000); // Progressive delay: 5s, 7s, 9s, ... max 15s
 
-              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungId} (Delay: ${delay}ms)`);
+              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungIdFromSession} (Delay: ${delay}ms)`);
 
               intervalRef.current = setTimeout(async () => {
                 try {
-                  const retryRes = await fetch(`/api/bewertung?id=${bewertungId}`);
+                  const retryRes = await fetch(`/api/bewertung?id=${bewertungIdFromSession}`);
                   const retryData = await retryRes.json();
 
                   if (retryData.bewertung) {
@@ -102,7 +220,16 @@ export default function Ergebnis() {
             pollForResult();
           }
         } else {
-          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden.");
+          warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten gefunden. Versuche Fallback über session_id...");
+          const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
+          if (fb.ok) {
+            const fbData = await fb.json();
+            if (fbData?.id) setBewertungId(fbData.id);
+            if (fbData?.bewertung) {
+              setText(fbData.bewertung);
+              setLoading(false);
+            }
+          }
         }
       } catch (err) {
         error("[ERGEBNIS] Fehler beim Laden der Session:", err);
@@ -147,7 +274,6 @@ export default function Ergebnis() {
                   className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
                   onClick={() => {
                     if (!loading) {
-                      const bewertungId = router.query.session_id as string;
                       trackPDFDownload(bewertungId || "unknown");
                     }
                   }}
