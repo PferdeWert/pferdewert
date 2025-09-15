@@ -30,8 +30,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const collection = await getCollection("bewertungen");
     const result = await collection.findOne({ _id: new ObjectId(id) });
 
-    if (!result || !result.bewertung) {
-      return res.status(404).json({ error: "Bewertung nicht gefunden" });
+    warn("[BEWERTUNG] 🔍 Debug - Gefundenes Dokument:", {
+      id,
+      found: !!result,
+      hasBewertung: !!(result?.bewertung),
+      status: result?.status,
+      bewertungLength: result?.bewertung?.length || 0,
+      keys: result ? Object.keys(result) : []
+    });
+
+    if (!result) {
+      return res.status(404).json({ error: "Bewertung nicht gefunden - Dokument existiert nicht" });
+    }
+
+    if (!result.bewertung) {
+      return res.status(404).json({
+        error: "Bewertung nicht gefunden - bewertung Feld fehlt",
+        status: result.status,
+        debug: {
+          hasStatus: !!result.status,
+          hasStripeSessionId: !!result.stripeSessionId,
+          fields: Object.keys(result)
+        }
+      });
     }
 
     res.status(200).json({ bewertung: result.bewertung });
