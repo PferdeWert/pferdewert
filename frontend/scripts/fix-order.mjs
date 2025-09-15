@@ -20,7 +20,7 @@ async function fixFailedOrder(documentId) {
     await client.connect();
     console.log('✅ Connected to MongoDB');
     
-    const db = client.db('test');
+    const db = client.db('pferdewert');
     const collection = db.collection('bewertungen');
     
     // Find the document
