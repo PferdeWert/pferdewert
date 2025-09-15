@@ -28,7 +28,9 @@ Der Hannoveraner Wallach aus der De Niro x Schwadroneur-Linie zeigt sich als ver
 
 ### Aufschlüsselung der wertbestimmenden Eigenschaften:
 
-- **Rasse & Abstammung:** Die Hannoveraner-Rasse ist bekannt für ihre Eignung im Dressursport. Die Abstammung von De Niro, einem der führenden Dressurvererber, steigert den Wert, auch wenn die Erfolge des Wallachs selbst begrenzt sind.
+- **Rasse:** Hannoveraner sind die führende deutsche Warmblutrasse im Dressursport. Die Zuchtrichtung garantiert Rittigkeit, Leistungsbereitschaft und solides Temperament. Dies rechtfertigt einen Preisaufschlag von etwa 15-20% gegenüber weniger etablierten Rassen.
+
+- **Abstammung:** DeNiro (De Niro - Donnerhall) ist ein Ausnahmevererber der modernen Dressurpferdezucht. Als Bundeschampion und Weltmeister der jungen Dressurpferde prägte er die hannoveranische Zucht nachhaltig. Seine Nachkommen zeichnen sich durch überdurchschnittliche Bewegungsqualität, Rittigkeit und Arbeitseinstellung aus. DeNiro-Nachkommen sind regelmäßig in höheren Klassen erfolgreich, viele erreichen Grand Prix-Niveau. Die Mutterlinie ist nicht angegeben, doch allein die Vaterseite verleiht dem Pferd züchterische Substanz und rechtfertigt einen Mehrwert von 3.000-4.000 € gegenüber durchschnittlich gezogenen Pferden.
 
 - **Alter & Entwicklungsstand:** Mit 11 Jahren ist der Wallach im besten Alter für den Dressursport, jedoch nicht mehr im optimalen Verkaufsalter für junge Talente. Dies beeinflusst den Preis leicht negativ.
 
