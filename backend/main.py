@@ -374,117 +374,119 @@ def bewertung(req: BewertungRequest):
 # allow attackers to abuse the AI services and access sensitive model interactions.
 # Uncomment only for local development/testing purposes with proper access controls.
 
-@app.post("/api/debug-comparison")
-def debug_comparison(req: BewertungRequest):
-    """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
-    logging.info(f"Debug Comparison Request: {req.dict()}")
-    
-    results = {}
-    
-    # Test simple prompt first if GPT-5
-    if MODEL_ID.startswith("gpt-5"):
-        logging.info("Testing GPT-5 with simple prompt first...")
-        try:
-            simple_response = openai_client.chat.completions.create(
-                model=MODEL_ID,
-                messages=[{"role": "user", "content": "Hello, please respond with exactly: TEST SUCCESSFUL"}],
-                max_completion_tokens=2000,
-            )
-            simple_content = simple_response.choices[0].message.content if simple_response.choices else None
-            logging.info(f"GPT-5 Simple test result: '{simple_content}'")
-            results["gpt5_simple_test"] = simple_content or "No response"
-        except Exception as e:
-            logging.error(f"GPT-5 Simple test failed: {e}")
-            results["gpt5_simple_test"] = f"Error: {str(e)}"
-    
-    user_prompt = (
-        f"Rasse: {req.rasse}\n"
-        f"Alter: {req.alter}\n"
-        f"Geschlecht: {req.geschlecht}\n"
-        f"Abstammung: {req.abstammung}\n"
-        f"Stockmaß: {req.stockmass} cm\n"
-        f"Ausbildungsstand: {req.ausbildung}\n"
-        f"Farbe: {req.farbe or 'k. A.'}\n"
-        f"Züchter / Ausbildungsstall: {req.zuechter or 'k. A.'}\n"
-        f"Aktueller Standort (PLZ): {req.standort or 'k. A.'}\n"
-        f"Verwendungszweck / Zielsetzung: {req.verwendungszweck or 'k. A.'}\n"
-        f"Gesundheitsstatus / AKU-Bericht: {req.aku or 'k. A.'}\n"
-        f"Erfolge: {req.erfolge or 'k. A.'}"
-    )
-
-    # GPT-4o Test
-    try:
-        logging.info("Testing GPT-4o...")
-        gpt_messages = [
-            {"role": "system", "content": GPT_SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt}
-        ]
-        # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
-        if MODEL_ID.startswith("gpt-5"):
-            token_count = tokens_in(gpt_messages)
-            max_completion = min(2000, CTX_MAX - token_count)  # Increased from MAX_COMPLETION (800) to 2000
-            logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, old_limit={MAX_COMPLETION}")
-            
-            gpt_response = openai_client.chat.completions.create(
-                model=MODEL_ID,
-                messages=gpt_messages,
-                max_completion_tokens=max_completion,
-            )
-        else:
-            gpt_response = openai_client.chat.completions.create(
-                model=MODEL_ID,
-                messages=gpt_messages,
-                temperature=0.0,
-                top_p=0.8,
-                seed=12345,
-                max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
-            )
-        
-        # Debug logging for GPT-5 response
-        logging.info(f"GPT Response received, has {len(gpt_response.choices)} choices")
-        if gpt_response.choices and len(gpt_response.choices) > 0:
-            content = gpt_response.choices[0].message.content
-            logging.info(f"Message content type: {type(content)}")
-            logging.info(f"Message content length: {len(content) if content else 'None'}")
-            logging.info(f"Message content: '{content}'")
-            results["gpt"] = content.strip() if content else "GPT-5 returned None content"
-        else:
-            logging.info("No choices in GPT response")
-            results["gpt"] = "GPT-5 returned no choices"
-        logging.info(f"{MODEL_ID}: Success")
-    except Exception as e:
-        results["gpt"] = f"GPT Error: {str(e)}"
-        logging.error(f"GPT-4o Error: {e}")
-
-    # Claude Test
-    try:
-        logging.info("Testing Claude...")
-        local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        claude_response = call_claude_with_retry(
-            client=local_claude_client,
-            model=CLAUDE_MODEL,
-            max_tokens=1000,
-            temperature=0.0,
-            system=CLAUDE_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_prompt}]
-        )
-        results["claude"] = claude_response.content[0].text.strip()
-        logging.info("Claude: Success")
-    except Exception as e:
-        results["claude"] = f"Claude Error: {str(e)}"
-        logging.error(f"Claude Error: {e}")
-
-
-    # Vergleichsinfo hinzufügen
-    results["info"] = {
-        "timestamp": "2025-07-29",
-        "gpt_model": MODEL_ID,
-        "claude_model": CLAUDE_MODEL,
-        "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
-        "test_data": req.dict(),
-    }
-
-    return results
+# EMERGENCY DISABLED: This endpoint was causing massive Claude API spam
+# @app.post("/api/debug-comparison")
+# def debug_comparison(req: BewertungRequest):
+#     """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
+#     logging.info(f"Debug Comparison Request: {req.dict()}")
+#
+#     results = {}
+#
+#     # Test simple prompt first if GPT-5
+#     if MODEL_ID.startswith("gpt-5"):
+#         logging.info("Testing GPT-5 with simple prompt first...")
+#         try:
+#             simple_response = openai_client.chat.completions.create(
+#                 model=MODEL_ID,
+#                 messages=[{"role": "user", "content": "Hello, please respond with exactly: TEST SUCCESSFUL"}],
+#                 max_completion_tokens=2000,
+#             )
+#             simple_content = simple_response.choices[0].message.content if simple_response.choices else None
+#             logging.info(f"GPT-5 Simple test result: '{simple_content}'")
+#             results["gpt5_simple_test"] = simple_content or "No response"
+#         except Exception as e:
+#             logging.error(f"GPT-5 Simple test failed: {e}")
+#             results["gpt5_simple_test"] = f"Error: {str(e)}"
+#
+#     user_prompt = (
+#         f"Rasse: {req.rasse}\n"
+#         f"Alter: {req.alter}\n"
+#         f"Geschlecht: {req.geschlecht}\n"
+#         f"Abstammung: {req.abstammung}\n"
+#         f"Stockmaß: {req.stockmass} cm\n"
+#         f"Ausbildungsstand: {req.ausbildung}\n"
+#         f"Farbe: {req.farbe or 'k. A.'}\n"
+#         f"Züchter / Ausbildungsstall: {req.zuechter or 'k. A.'}\n"
+#         f"Aktueller Standort (PLZ): {req.standort or 'k. A.'}\n"
+#         f"Verwendungszweck / Zielsetzung: {req.verwendungszweck or 'k. A.'}\n"
+#         f"Gesundheitsstatus / AKU-Bericht: {req.aku or 'k. A.'}\n"
+#         f"Erfolge: {req.erfolge or 'k. A.'}"
+#     )
+#
+#     # GPT-4o Test
+#     try:
+#         logging.info("Testing GPT-4o...")
+#         gpt_messages = [
+#             {"role": "system", "content": GPT_SYSTEM_PROMPT},
+#             {"role": "user", "content": user_prompt}
+#         ]
+#         # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
+#         if MODEL_ID.startswith("gpt-5"):
+#             token_count = tokens_in(gpt_messages)
+#             max_completion = min(2000, CTX_MAX - token_count)  # Increased from MAX_COMPLETION (800) to 2000
+#             logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, old_limit={MAX_COMPLETION}")
+#
+#             gpt_response = openai_client.chat.completions.create(
+#                 model=MODEL_ID,
+#                 messages=gpt_messages,
+#                 max_completion_tokens=max_completion,
+#             )
+#         else:
+#             gpt_response = openai_client.chat.completions.create(
+#                 model=MODEL_ID,
+#                 messages=gpt_messages,
+#                 temperature=0.0,
+#                 top_p=0.8,
+#                 seed=12345,
+#                 max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
+#             )
+#
+#         # Debug logging for GPT-5 response
+#         logging.info(f"GPT Response received, has {len(gpt_response.choices)} choices")
+#         if gpt_response.choices and len(gpt_response.choices) > 0:
+#             content = gpt_response.choices[0].message.content
+#             logging.info(f"Message content type: {type(content)}")
+#             logging.info(f"Message content length: {len(content) if content else 'None'}")
+#             logging.info(f"Message content: '{content}'")
+#             results["gpt"] = content.strip() if content else "GPT-5 returned None content"
+#         else:
+#             logging.info("No choices in GPT response")
+#             results["gpt"] = "GPT-5 returned no choices"
+#         logging.info(f"{MODEL_ID}: Success")
+#     except Exception as e:
+#         results["gpt"] = f"GPT Error: {str(e)}"
+#         logging.error(f"GPT-4o Error: {e}")
+#
+#     # Claude Test
+#     try:
+#         logging.info("Testing Claude...")
+#         local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+#         claude_response = call_claude_with_retry(
+#             client=local_claude_client,
+#             model=CLAUDE_MODEL,
+#             max_tokens=1000,
+#             temperature=0.0,
+#             system=CLAUDE_SYSTEM_PROMPT,
+#             messages=[{"role": "user", "content": user_prompt}]
+#         )
+#         results["claude"] = claude_response.content[0].text.strip()
+#         logging.info("Claude: Success")
+#     except Exception as e:
+#         results["claude"] = f"Claude Error: {str(e)}"
+#         logging.error(f"Claude Error: {e}")
+#
+#
+#     # Vergleichsinfo hinzufügen
+#     results["info"] = {
+#         "timestamp": "2025-07-29",
+#         "gpt_model": MODEL_ID,
+#         "claude_model": CLAUDE_MODEL,
+#         "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
+#         "test_data": req.dict(),
+#     }
+#
+#     return results
+    pass  # Endpoint completely disabled
 
 # ───────────────────────────────
 #  Health Check
