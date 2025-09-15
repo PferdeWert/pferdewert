@@ -21,6 +21,13 @@ export default function Ergebnis() {
   const [errorLoading, setErrorLoading] = useState<string | null>(null);
   const [bewertungId, setBewertungId] = useState<string | null>(null);
 
+  type BewertungBySessionResponse = {
+    id?: string;
+    bewertung?: string;
+    status?: string | null;
+    error?: string;
+  };
+
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
 
@@ -93,7 +100,7 @@ export default function Ergebnis() {
         log("[ERGEBNIS] Starte DB-Load über session_id (bevor Stripe):", session_id);
 
         // 1) Versuche zuerst DB über session_id (vermeidet Stripe 429 bei Refresh)
-        let fbData: any = null;
+        let fbData: BewertungBySessionResponse | null = null;
         try {
           const fb = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
           try { fbData = await fb.json(); } catch {}
@@ -213,7 +220,7 @@ export default function Ergebnis() {
           warn("[ERGEBNIS] Keine bewertungId in Session-Metadaten. Versuche erneut DB über session_id...");
           try {
             const fb2 = await fetch(`/api/bewertung-by-session?session_id=${session_id}`);
-            let fbData2: any = null;
+            let fbData2: BewertungBySessionResponse | null = null;
             try { fbData2 = await fb2.json(); } catch {}
             if (fbData2 && fbData2.id) {
               setBewertungId(fbData2.id);
