@@ -16,11 +16,40 @@ import random
 import uuid
 
 import tiktoken  # Token-Zähler
+from collections import deque
+from threading import Lock
 
 # ───────────────────────────────
 #  Rate Limiting & Konfiguration
 # ───────────────────────────────
 load_dotenv()
+
+# Emergency Rate Limiter for Claude API to prevent spam
+class EmergencyRateLimiter:
+    def __init__(self, max_requests_per_minute=15):
+        self.max_requests = max_requests_per_minute
+        self.requests = deque()
+        self.lock = Lock()
+
+    def wait_if_needed(self):
+        with self.lock:
+            now = time.time()
+            # Remove requests older than 1 minute
+            while self.requests and now - self.requests[0] > 60:
+                self.requests.popleft()
+
+            # If we're at the limit, wait
+            if len(self.requests) >= self.max_requests:
+                sleep_time = 60 - (now - self.requests[0]) + 1
+                if sleep_time > 0:
+                    logging.warning(f"EMERGENCY RATE LIMIT: Claude API limit reached, sleeping for {sleep_time:.1f}s")
+                    time.sleep(sleep_time)
+
+            # Record this request
+            self.requests.append(now)
+
+# Initialize emergency rate limiter for Claude
+claude_rate_limiter = EmergencyRateLimiter(max_requests_per_minute=15)
 
 
 # API Keys
@@ -59,9 +88,12 @@ logging.info(
 )
 
 def call_claude_with_retry(client, model, max_tokens, temperature, system, messages, max_retries=3):
-    """Call Claude API with exponential backoff for 529 errors."""
+    """Call Claude API with emergency rate limiting and exponential backoff for 529 errors."""
     for attempt in range(max_retries):
         try:
+            # Apply emergency rate limiting before each request
+            claude_rate_limiter.wait_if_needed()
+
             return client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
