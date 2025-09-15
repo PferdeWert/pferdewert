@@ -41,6 +41,32 @@ const resend = process.env.RESEND_API_KEY
 
 const BACKEND_URL = process.env.BACKEND_URL || 'https://pferdewert-api.onrender.com';
 
+// Simple in-memory cache to prevent duplicate webhook processing
+const processingCache = new Map<string, number>();
+const PROCESSING_TIMEOUT = 5 * 60 * 1000; // 5 minutes
+
+const isProcessingOrRecent = (sessionId: string): boolean => {
+  const now = Date.now();
+  const processingTime = processingCache.get(sessionId);
+
+  if (processingTime && (now - processingTime) < PROCESSING_TIMEOUT) {
+    return true;
+  }
+
+  // Clean old entries
+  for (const [key, time] of processingCache.entries()) {
+    if ((now - time) > PROCESSING_TIMEOUT) {
+      processingCache.delete(key);
+    }
+  }
+
+  return false;
+};
+
+const markAsProcessing = (sessionId: string): void => {
+  processingCache.set(sessionId, Date.now());
+};
+
 // Utility function to safely convert stockmass with proper validation
 const convertStockmassToNumber = (stockmass: unknown): number => {
   if (stockmass === null || stockmass === undefined || stockmass === '') {
@@ -117,6 +143,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     info('[WEBHOOK] Payment completed successfully');
     info('[WEBHOOK] Session ID:', sessionId);
+
+    // Check for duplicate processing
+    if (isProcessingOrRecent(sessionId)) {
+      warn('[WEBHOOK] Session already being processed or recently completed, skipping:', sessionId);
+      return res.status(200).json({ message: "Session already processed or in progress" });
+    }
+
+    // Mark as processing to prevent duplicates
+    markAsProcessing(sessionId);
     
     // Log session metadata without sensitive customer data
     const safeMetadata = session.metadata ? {

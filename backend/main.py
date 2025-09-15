@@ -13,11 +13,40 @@ import time
 import random
 
 import tiktoken  # Token-Zähler
+from collections import deque
+from threading import Lock
 
 # ───────────────────────────────
-#  Initialisierung & Konfiguration
+#  Rate Limiting & Konfiguration
 # ───────────────────────────────
 load_dotenv()
+
+# Simple rate limiting for Claude requests
+class SimpleRateLimiter:
+    def __init__(self, max_requests_per_minute=10):
+        self.max_requests = max_requests_per_minute
+        self.requests = deque()
+        self.lock = Lock()
+
+    def wait_if_needed(self):
+        with self.lock:
+            now = time.time()
+            # Remove requests older than 1 minute
+            while self.requests and now - self.requests[0] > 60:
+                self.requests.popleft()
+
+            # If we're at the limit, wait
+            if len(self.requests) >= self.max_requests:
+                sleep_time = 60 - (now - self.requests[0]) + 1
+                if sleep_time > 0:
+                    logging.warning(f"Rate limit reached, sleeping for {sleep_time:.1f}s")
+                    time.sleep(sleep_time)
+
+            # Record this request
+            self.requests.append(now)
+
+# Initialize rate limiter
+claude_rate_limiter = SimpleRateLimiter(max_requests_per_minute=8)  # Conservative limit
 
 # API Keys
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
@@ -52,9 +81,12 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logging.info(f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | Model: {MODEL_ID} | Use Claude: {USE_CLAUDE}")
 
 def call_claude_with_retry(client, model, max_tokens, temperature, system, messages, max_retries=3):
-    """Call Claude API with exponential backoff for 529 errors."""
+    """Call Claude API with rate limiting and exponential backoff for 529 errors."""
     for attempt in range(max_retries):
         try:
+            # Apply rate limiting before each request
+            claude_rate_limiter.wait_if_needed()
+
             return client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
@@ -150,15 +182,16 @@ app.add_middleware(
 #  Request-Schema
 # ───────────────────────────────
 class BewertungRequest(BaseModel):
-    # Pflichtfelder
+    # Pflichtfelder (abstammung wird optional, um aktuelles Frontend nicht zu brechen)
     rasse: str
     alter: int
     geschlecht: str
-    abstammung: str
     stockmass: int
     ausbildung: str
 
-    # Optionale Angaben
+    # Optionale Angaben (erweitert um abstammung und haupteignung)
+    abstammung: Optional[str] = None
+    haupteignung: Optional[str] = None
     aku: Optional[str] = None
     erfolge: Optional[str] = None
     farbe: Optional[str] = None
@@ -166,27 +199,37 @@ class BewertungRequest(BaseModel):
     standort: Optional[str] = None
     verwendungszweck: Optional[str] = None
 
+    class Config:
+        # Unerwartete Felder ignorieren, um 422 bei zusätzlichen Feldern zu vermeiden
+        extra = "ignore"
+
 # ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
 # ───────────────────────────────
 def ai_valuation(d: BewertungRequest) -> str:
     """Hauptfunktion: Claude für Kunde, GPT parallel für Vergleich"""
     
+    # Bevorzugt vorhandenen Verwendungszweck, sonst Mapping von haupteignung
+    mapped_verwendungszweck = d.verwendungszweck or (d.haupteignung if hasattr(d, "haupteignung") else None)
+
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
-        f"Abstammung: {d.abstammung}\nStockmaß: {d.stockmass} cm\n"
+        f"Abstammung: {d.abstammung or 'k. A.'}\nStockmaß: {d.stockmass} cm\n"
         f"Ausbildungsstand: {d.ausbildung}\n"
         f"Farbe: {d.farbe or 'k. A.'}\n"
         f"Züchter / Ausbildungsstall: {d.zuechter or 'k. A.'}\n"
         f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
-        f"Verwendungszweck / Zielsetzung: {d.verwendungszweck or 'k. A.'}\n"
+        f"Verwendungszweck / Zielsetzung: {mapped_verwendungszweck or 'k. A.'}\n"
         f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
     )
     
     claude_result = None
     gpt_result = None
-    
+
+    # Environment variable to control parallel processing during high load
+    USE_PARALLEL_PROCESSING = os.getenv("USE_PARALLEL_PROCESSING", "true").lower() == "true"
+
     # 1. Claude für Kunde (Hauptergebnis)
     if USE_CLAUDE and claude_client:
         try:
@@ -199,26 +242,31 @@ def ai_valuation(d: BewertungRequest) -> str:
                 system=CLAUDE_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_prompt}]
             )
-            
+
             # Robustes Parsing der Claude-Antwort
             if response.content and response.content[0].text:
                 claude_result = response.content[0].text.strip()
                 logging.info("✅ Claude-Bewertung erfolgreich erstellt")
             else:
                 raise ValueError("Claude-Antwort hat kein lesbares Textfeld")
-                
+
         except Exception as e:
             logging.error(f"❌ Claude Error: {e} - Fallback zu OpenAI")
-    
-    # 2. GPT parallel für Vergleich (läuft immer wenn verfügbar)
-    if openai_client:
+
+    # 2. GPT für Vergleich (nur wenn parallel processing enabled oder Claude failed)
+    run_gpt = USE_PARALLEL_PROCESSING or not claude_result
+    if openai_client and run_gpt:
         try:
-            logging.info("Prompt wird parallel an GPT gesendet...")
+            if USE_PARALLEL_PROCESSING:
+                logging.info("Prompt wird parallel an GPT gesendet...")
+            else:
+                logging.info("Claude failed, using GPT as fallback...")
+
             messages = [
                 {"role": "system", "content": GPT_SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ]
-            
+
             rsp = openai_client.chat.completions.create(
                 model=MODEL_ID,
                 messages=messages,
@@ -228,9 +276,11 @@ def ai_valuation(d: BewertungRequest) -> str:
                 max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(messages)),
             )
             gpt_result = rsp.choices[0].message.content.strip()
-            logging.info("✅ GPT-Bewertung für Vergleich erstellt")
+            logging.info("✅ GPT-Bewertung erstellt")
         except Exception as e:
             logging.error(f"❌ GPT Error: {e}")
+    elif not USE_PARALLEL_PROCESSING and claude_result:
+        logging.info("🚀 Parallel processing disabled - skipping GPT to reduce API load")
     
     # 3. GPT-Vergleich per E-Mail senden (wenn beide verfügbar)
     if gpt_result:
