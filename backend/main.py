@@ -4,13 +4,16 @@ import logging
 from typing import Optional
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
 import anthropic
 import time
 import random
+import uuid
 
 import tiktoken  # Token-Zähler
 
@@ -50,7 +53,10 @@ CTX_MAX = 128_000
 MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logging.info(f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | Model: {MODEL_ID} | Use Claude: {USE_CLAUDE}")
+logging.info(
+    f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | "
+    f"OpenAI model: {MODEL_ID} | Claude model: {CLAUDE_MODEL} | Use Claude: {USE_CLAUDE}"
+)
 
 def call_claude_with_retry(client, model, max_tokens, temperature, system, messages, max_retries=3):
     """Call Claude API with exponential backoff for 529 errors."""
@@ -147,6 +153,68 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Request ID middleware for better log correlation
+@app.middleware("http")
+async def add_request_id(request: Request, call_next):
+    req_id = request.headers.get("X-Request-ID") or str(uuid.uuid4())[:8]
+    request.state.request_id = req_id
+    logging.info(f"[{req_id}] ⇢ {request.method} {request.url.path}")
+    try:
+        response = await call_next(request)
+    except Exception as e:
+        logging.exception(f"[{req_id}] ✖ Unhandled error: {e}")
+        raise
+    response.headers["X-Request-ID"] = req_id
+    logging.info(f"[{req_id}] ⇠ {request.method} {request.url.path} → {response.status_code}")
+    return response
+
+# Centralized validation error logging with helpful hints
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    req_id = getattr(request.state, "request_id", "-")
+    try:
+        raw_body = await request.body()
+        body_text = raw_body.decode("utf-8", errors="ignore")
+        if len(body_text) > 2000:
+            body_text = body_text[:2000] + "...(truncated)"
+    except Exception:
+        body_text = "<unavailable>"
+
+    errors = exc.errors()
+    unknown_fields = []
+    missing_fields = []
+    other_errors = []
+    for e in errors:
+        loc = e.get("loc", [])
+        msg = e.get("msg", "")
+        etype = e.get("type", "")
+        path = ".".join(map(str, loc))
+        if etype.endswith("extra"):
+            field = str(loc[1]) if len(loc) > 1 else path
+            unknown_fields.append(field)
+        elif msg == "field required" or etype == "value_error.missing":
+            field = str(loc[1]) if len(loc) > 1 else path
+            missing_fields.append(field)
+        else:
+            other_errors.append({"loc": path, "msg": msg, "type": etype})
+
+    logging.warning(
+        f"[{req_id}] 422 Validation at {request.url.path} | "
+        f"missing={missing_fields} unknown={unknown_fields} other={other_errors} | body={body_text}"
+    )
+
+    return JSONResponse(
+        status_code=422,
+        content={
+            "detail": errors,
+            "hint": {
+                "missing_fields": missing_fields,
+                "unknown_fields": unknown_fields,
+                "request_id": req_id,
+            },
+        },
+    )
+
 # ───────────────────────────────
 #  Request-Schema
 # ───────────────────────────────
@@ -224,6 +292,11 @@ def ai_valuation(d: BewertungRequest) -> str:
 
         except Exception as e:
             logging.error(f"❌ Claude Error: {e} - Fallback zu OpenAI")
+    else:
+        if not USE_CLAUDE:
+            logging.info("⏭️  Skipping Claude: USE_CLAUDE=false")
+        elif not claude_client:
+            logging.info("⏭️  Skipping Claude: ANTHROPIC_API_KEY missing or client not initialized")
 
     # 2. GPT für Vergleich (nur wenn parallel processing enabled oder Claude failed)
     run_gpt = USE_PARALLEL_PROCESSING or not claude_result
