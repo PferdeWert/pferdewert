@@ -13,40 +13,12 @@ import time
 import random
 
 import tiktoken  # Token-Zähler
-from collections import deque
-from threading import Lock
 
 # ───────────────────────────────
 #  Rate Limiting & Konfiguration
 # ───────────────────────────────
 load_dotenv()
 
-# Simple rate limiting for Claude requests
-class SimpleRateLimiter:
-    def __init__(self, max_requests_per_minute=10):
-        self.max_requests = max_requests_per_minute
-        self.requests = deque()
-        self.lock = Lock()
-
-    def wait_if_needed(self):
-        with self.lock:
-            now = time.time()
-            # Remove requests older than 1 minute
-            while self.requests and now - self.requests[0] > 60:
-                self.requests.popleft()
-
-            # If we're at the limit, wait
-            if len(self.requests) >= self.max_requests:
-                sleep_time = 60 - (now - self.requests[0]) + 1
-                if sleep_time > 0:
-                    logging.warning(f"Rate limit reached, sleeping for {sleep_time:.1f}s")
-                    time.sleep(sleep_time)
-
-            # Record this request
-            self.requests.append(now)
-
-# Initialize rate limiter
-claude_rate_limiter = SimpleRateLimiter(max_requests_per_minute=8)  # Conservative limit
 
 # API Keys
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
@@ -81,12 +53,9 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logging.info(f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | Model: {MODEL_ID} | Use Claude: {USE_CLAUDE}")
 
 def call_claude_with_retry(client, model, max_tokens, temperature, system, messages, max_retries=3):
-    """Call Claude API with rate limiting and exponential backoff for 529 errors."""
+    """Call Claude API with exponential backoff for 529 errors."""
     for attempt in range(max_retries):
         try:
-            # Apply rate limiting before each request
-            claude_rate_limiter.wait_if_needed()
-
             return client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
