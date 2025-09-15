@@ -598,15 +598,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       <section id="wizard-start" className="py-8 lg:py-16">
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto wizard-fade-in">
-            {/* Step-Indikatoren */}
+            {/* Step-Indikatoren - Nur 3 Wizard-Schritte anzeigen (ohne Checkout) */}
             <div id="wizard-progress" className="mb-8 sticky top-0 bg-white/90 backdrop-blur-sm z-30 py-4 rounded-2xl">
               <div className="flex items-center justify-center space-x-2 sm:space-x-8">
-                {stepData.map((step, index) => (
+                {stepData.slice(0, 3).map((step, index) => (
                   <div key={step.id} className="flex items-center">
                     <div className={`
                       w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300
-                      ${currentStep >= step.id 
-                        ? 'bg-brand-brown text-white shadow-lg' 
+                      ${currentStep >= step.id
+                        ? 'bg-brand-brown text-white shadow-lg'
                         : 'bg-gray-200 text-gray-500'}
                     `}>
                       {step.id}
@@ -616,7 +616,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                     }`}>
                       {step.title}
                     </span>
-                    {index < stepData.length - 1 && (
+                    {index < 2 && (
                       <div className={`ml-2 w-4 sm:ml-4 sm:w-8 h-0.5 transition-colors ${
                         currentStep > step.id ? 'bg-brand-brown' : 'bg-gray-200'
                       }`} />
