@@ -9,6 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
 import anthropic
+import time
+import random
 
 import tiktoken  # Token-Zähler
 
@@ -48,6 +50,33 @@ MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logging.info(f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | Model: {MODEL_ID} | Use Claude: {USE_CLAUDE}")
+
+def call_claude_with_retry(client, model, max_tokens, temperature, system, messages, max_retries=3):
+    """Call Claude API with exponential backoff for 529 errors."""
+    for attempt in range(max_retries):
+        try:
+            return client.messages.create(
+                model=model,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                system=system,
+                messages=messages
+            )
+        except anthropic.APIError as e:
+            if e.status_code == 529 and attempt < max_retries - 1:  # Overloaded error
+                wait_time = (2 ** attempt) + random.uniform(0, 1)  # Exponential backoff with jitter
+                logging.warning(f"Claude overloaded (529), retrying in {wait_time:.2f}s (attempt {attempt + 1}/{max_retries})")
+                time.sleep(wait_time)
+                continue
+            else:
+                # Re-raise for non-529 errors or final attempt
+                raise e
+        except Exception as e:
+            # Re-raise non-API errors immediately
+            raise e
+
+    # This shouldn't be reached but just in case
+    raise Exception("Max retries exceeded")
 
 def tokens_in(msgs: list[dict]) -> int:
     """Hilfsfunktion: zählt Tokens in OpenAI-Messages."""
@@ -162,7 +191,8 @@ def ai_valuation(d: BewertungRequest) -> str:
     if USE_CLAUDE and claude_client:
         try:
             logging.info("Prompt wird an Claude gesendet...")
-            response = claude_client.messages.create(
+            response = call_claude_with_retry(
+                client=claude_client,
                 model=CLAUDE_MODEL,
                 max_tokens=1000,
                 temperature=0.0,  # Für maximale Konsistenz
@@ -335,7 +365,8 @@ def debug_comparison(req: BewertungRequest):
     try:
         logging.info("Testing Claude...")
         local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        claude_response = local_claude_client.messages.create(
+        claude_response = call_claude_with_retry(
+            client=local_claude_client,
             model=CLAUDE_MODEL,
             max_tokens=1000,
             temperature=0.0,
