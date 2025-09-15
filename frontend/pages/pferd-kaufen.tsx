@@ -297,44 +297,72 @@ export default function PferdKaufen() {
             </h2>
             
             <div className="space-y-6">
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
-                  Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?
+              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?</span>
+                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-700">
-                  Ja, absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest. 
-                  Du erhältst eine objektive Preiseinschätzung, die dir bei der Verhandlung hilft.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-700">
+                    Ja, absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest.
+                    Du erhältst eine objektive Preiseinschätzung, die dir bei der Verhandlung hilft.
+                  </p>
+                </div>
               </details>
 
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
-                  Wie kann mir die Bewertung beim Verhandeln helfen?
+              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Wie kann mir die Bewertung beim Verhandeln helfen?</span>
+                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-700">
-                  Die Bewertung zeigt dir eine realistische Preisspanne basierend auf Marktdaten. 
-                  So weißt du, ob ein Angebot fair ist und hast Argumente für deine Preisvorstellung.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-700">
+                    Die Bewertung zeigt dir eine realistische Preisspanne basierend auf Marktdaten.
+                    So weißt du, ob ein Angebot fair ist und hast Argumente für deine Preisvorstellung.
+                  </p>
+                </div>
               </details>
 
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
-                  Wann sollte ich eine Bewertung machen lassen?
+              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Wann sollte ich eine Bewertung machen lassen?</span>
+                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-700">
-                  Am besten vor der ersten Besichtigung. So gehst du informiert zum Verkäufer 
-                  und kannst gezielt nachfragen, falls der Preis nicht zum Marktwert passt.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-700">
+                    Am besten vor der ersten Besichtigung. So gehst du informiert zum Verkäufer
+                    und kannst gezielt nachfragen, falls der Preis nicht zum Marktwert passt.
+                  </p>
+                </div>
               </details>
 
-              <details className="rounded-xl border border-gray-200 p-6 bg-gray-50">
-                <summary className="cursor-pointer select-none text-lg font-semibold text-gray-800">
-                  Was ist, wenn der Verkäufer deutlich mehr verlangt?
+              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Was ist, wenn der Verkäufer deutlich mehr verlangt?</span>
+                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-700">
-                  Das kann verschiedene Gründe haben: Besondere Qualitäten, emotionaler Wert oder unrealistische Preisvorstellung. 
-                  Die Bewertung hilft dir zu entscheiden, ob der Aufpreis gerechtfertigt ist.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-700">
+                    Das kann verschiedene Gründe haben: Besondere Qualitäten, emotionaler Wert oder unrealistische Preisvorstellung.
+                    Die Bewertung hilft dir zu entscheiden, ob der Aufpreis gerechtfertigt ist.
+                  </p>
+                </div>
               </details>
             </div>
           </div>

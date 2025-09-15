@@ -349,9 +349,19 @@ export default function WasIstMeinPferdWert() {
 
             <div className="space-y-6">
               {faqItems.map((item, index) => (
-                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200" open={item.isOpen}>
-                  <summary className="cursor-pointer p-6 text-lg font-semibold text-brand hover:text-brand-brown transition">
-                    {item.frage}
+                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 cursor-pointer hover:bg-brand-light/70 transition-colors" open={item.isOpen}>
+                  <summary className="p-6 text-lg font-semibold text-brand hover:text-brand-brown transition list-none [&::-webkit-details-marker]:hidden">
+                    <div className="flex items-center justify-between w-full">
+                      <span>{item.frage}</span>
+                      <svg
+                        className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-gray-700 leading-relaxed">

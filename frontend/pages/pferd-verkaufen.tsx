@@ -367,49 +367,84 @@ export default function PferdVerkaufen() {
             </h2>
             
             <div className="space-y-4">
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200" open>
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
-                  Wie finde ich den richtigen Verkaufspreis für mein Pferd?
+              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors" open>
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Wie finde ich den richtigen Verkaufspreis für mein Pferd?</span>
+                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">
-                  Der optimale Verkaufspreis hängt von vielen Faktoren ab: Rasse, Alter, Ausbildungsstand, Gesundheit und aktuelle Marktlage. Unsere KI-Analyse berücksichtigt alle diese Faktoren und gibt dir eine fundierte Preisspanne basierend auf aktuellen Verkaufsdaten.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    Der optimale Verkaufspreis hängt von vielen Faktoren ab: Rasse, Alter, Ausbildungsstand, Gesundheit und aktuelle Marktlage. Unsere KI-Analyse berücksichtigt alle diese Faktoren und gibt dir eine fundierte Preisspanne basierend auf aktuellen Verkaufsdaten.
+                  </p>
+                </div>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
-                  Wie schnell verkauft sich ein Pferd zum richtigen Preis?
+              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Wie schnell verkauft sich ein Pferd zum richtigen Preis?</span>
+                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">
-                  Pferde mit realistischer Preisgestaltung verkaufen sich durchschnittlich 3x schneller. Während überteuerte Pferde oft monatelang inseriert bleiben, finden fair bepreiste Pferde meist binnen 4-8 Wochen neue Besitzer.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    Pferde mit realistischer Preisgestaltung verkaufen sich durchschnittlich 3x schneller. Während überteuerte Pferde oft monatelang inseriert bleiben, finden fair bepreiste Pferde meist binnen 4-8 Wochen neue Besitzer.
+                  </p>
+                </div>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
-                  Was passiert, wenn ich mein Pferd zu teuer anbiete?
+              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Was passiert, wenn ich mein Pferd zu teuer anbiete?</span>
+                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">
-                  Überteuerte Pferde generieren weniger Anfragen und verkaufen sich deutlich langsamer. Oft müssen Verkäufer nach Monaten den Preis reduzieren - dann aber unter Zeitdruck und mit weniger Verhandlungsspielraum.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    Überteuerte Pferde generieren weniger Anfragen und verkaufen sich deutlich langsamer. Oft müssen Verkäufer nach Monaten den Preis reduzieren - dann aber unter Zeitdruck und mit weniger Verhandlungsspielraum.
+                  </p>
+                </div>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
-                  Kann ich die Bewertung für Verhandlungen nutzen?
+              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Kann ich die Bewertung für Verhandlungen nutzen?</span>
+                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">
-                  Absolut! Die professionelle Bewertung gibt dir Sicherheit bei Preisverhandlungen. Du kannst objektiv argumentieren und weißt genau, welche Untergrenze fair ist.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    Absolut! Die professionelle Bewertung gibt dir Sicherheit bei Preisverhandlungen. Du kannst objektiv argumentieren und weißt genau, welche Untergrenze fair ist.
+                  </p>
+                </div>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <summary className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-brand-brown">
-                  Was kostet die Verkaufspreis-Analyse?
+              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="flex items-center justify-between w-full">
+                    <span>Was kostet die Verkaufspreis-Analyse?</span>
+                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">
-                  Die umfassende Preisanalyse kostet aktuell nur {PRICING_FORMATTED.current} (statt regulär {PRICING_FORMATTED.decoy}). Eine Investition, die sich beim Verkauf um ein Vielfaches auszahlt - bereits 100€ mehr Verkaufspreis rechtfertigen die Analyse.
-                </p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    Die umfassende Preisanalyse kostet aktuell nur {PRICING_FORMATTED.current} (statt regulär {PRICING_FORMATTED.decoy}). Eine Investition, die sich beim Verkauf um ein Vielfaches auszahlt - bereits 100€ mehr Verkaufspreis rechtfertigen die Analyse.
+                  </p>
+                </div>
               </details>
             </div>
           </div>

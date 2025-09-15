@@ -28,11 +28,18 @@ export default function Ergebnis() {
     error?: string;
   };
 
+  const addJitter = (ms: number) => ms + Math.floor(Math.random() * 1000); // +0..1000ms
+
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
 
   useEffect(() => {
     if (!router.isReady) return;
+
+    // Gentle polling schedule with jitter, covering up to ~2 minutes
+    const POLLING_SCHEDULE_MS = [
+      10000, 20000, 30000, 45000, 60000, 80000, 100000, 120000,
+    ];
 
     const session_id = router.query.session_id;
     const bewertung_id = router.query.id;
@@ -107,11 +114,15 @@ export default function Ergebnis() {
         } catch {}
 
         const startPollingById = (id: string) => {
-          let tries = 0;
+          let index = 0;
           const poll = () => {
-            tries++;
-            const delay = Math.min(5000 + (tries - 1) * 2000, 15000);
-            log(`[ERGEBNIS] Polling Versuch ${tries} für Bewertung ID: ${id} (Delay: ${delay}ms)`);
+            if (index >= POLLING_SCHEDULE_MS.length) {
+              warn("[ERGEBNIS] Polling beendet – keine Bewertung gefunden");
+              setLoading(false);
+              return;
+            }
+            const delay = addJitter(POLLING_SCHEDULE_MS[index++]);
+            log(`[ERGEBNIS] Polling (T${index}/${POLLING_SCHEDULE_MS.length}) für ID: ${id} in ${delay}ms`);
             intervalRef.current = setTimeout(async () => {
               try {
                 const r = await fetch(`/api/bewertung?id=${id}`);
@@ -124,7 +135,7 @@ export default function Ergebnis() {
                   }
                 }
               } catch {}
-              if (tries < 10) poll(); else setLoading(false);
+              poll();
             }, delay);
           };
           poll();
@@ -185,33 +196,31 @@ export default function Ergebnis() {
             setText(resultData.bewertung);
             setLoading(false);
           } else {
-            // Polling
-            let tries = 0;
+            // Polling mit identischem Schedule
+            let index = 0;
             const pollForResult = () => {
-              tries++;
-              const delay = Math.min(5000 + (tries - 1) * 2000, 15000);
-              log(`[ERGEBNIS] Wiederholungsversuch ${tries} für Bewertung ID: ${bewertungIdFromSession} (Delay: ${delay}ms)`);
+              if (index >= POLLING_SCHEDULE_MS.length) {
+                warn("[ERGEBNIS] Polling beendet – Bewertung nicht verfügbar");
+                setLoading(false);
+                return;
+              }
+              const delay = addJitter(POLLING_SCHEDULE_MS[index++]);
+              log(`[ERGEBNIS] Wiederholungsversuch T${index}/${POLLING_SCHEDULE_MS.length} für ID: ${bewertungIdFromSession} (Delay: ${delay}ms)`);
               intervalRef.current = setTimeout(async () => {
                 try {
                   const retryRes = await fetch(`/api/bewertung?id=${bewertungIdFromSession}`);
-                  const retryData = await retryRes.json();
-                  if (retryData.bewertung) {
-                    setText(retryData.bewertung);
-                    setLoading(false);
-                  } else if (tries < 10) {
-                    pollForResult();
-                  } else {
-                    warn("[ERGEBNIS] Bewertung auch nach 10 Versuchen nicht verfügbar.");
-                    setLoading(false);
+                  if (retryRes.ok) {
+                    const retryData = await retryRes.json();
+                    if (retryData.bewertung) {
+                      setText(retryData.bewertung);
+                      setLoading(false);
+                      return;
+                    }
                   }
                 } catch (pollError) {
                   error("[ERGEBNIS] Fehler beim Polling:", pollError);
-                  if (tries < 10) {
-                    pollForResult();
-                  } else {
-                    setLoading(false);
-                  }
                 }
+                pollForResult();
               }, delay);
             };
             pollForResult();

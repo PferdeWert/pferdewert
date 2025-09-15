@@ -486,11 +486,21 @@ export default function PferdeWertHomepage() {
 
             <div className="max-w-4xl mx-auto space-y-6">
               {faqItems.map((item, index) => (
-                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 p-6">
-                  <summary className="cursor-pointer text-lg font-semibold text-brand hover:text-brand-brown transition-colors">
-                    {item.frage}
+                <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 cursor-pointer hover:bg-brand-light/70 transition-colors">
+                  <summary className="p-6 text-lg font-semibold text-brand hover:text-brand-brown transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <div className="flex items-center justify-between w-full">
+                      <span>{item.frage}</span>
+                      <svg
+                        className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </summary>
-                  <div className="mt-4">
+                  <div className="px-6 pb-6">
                     <p className="text-gray-700 leading-relaxed">
                       {item.antwort}
                     </p>
