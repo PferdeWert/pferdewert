@@ -283,14 +283,14 @@ export default function Ergebnis() {
             >
               {({ loading }) => (
                 <button
-                  className="rounded-2xl bg-brand-green px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-green/80 transition"
+                  className="rounded-2xl bg-brand-brown px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-brown/80 transition"
                   onClick={() => {
                     if (!loading) {
                       trackPDFDownload(bewertungId || "unknown");
                     }
                   }}
                 >
-                  {loading ? "Lade PDF..." : "🧞 PDF herunterladen"}
+                  {loading ? "Lade PDF..." : "PDF herunterladen"}
                 </button>
               )}
             </PDFDownloadLink>
