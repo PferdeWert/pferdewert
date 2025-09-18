@@ -49,7 +49,7 @@ def get_tokenizer(model_id: str):
 
 ENC = get_tokenizer(MODEL_ID) if OPENAI_KEY else None
 CTX_MAX = 128_000
-MAX_COMPLETION = int(os.getenv("PFERDEWERT_MAX_COMPLETION", 800))
+MAX_COMPLETION = 4000
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logging.info(
