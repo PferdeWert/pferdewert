@@ -273,11 +273,11 @@ def ai_valuation(d: BewertungRequest) -> str:
     # 1. Claude für Kunde (Hauptergebnis)
     if USE_CLAUDE and claude_client:
         try:
-            logging.info("Prompt wird an Claude gesendet...")
+            logging.info(f"Prompt wird an Claude gesendet (Modell: {CLAUDE_MODEL}, max_tokens: 2500)...")
             response = call_claude_with_retry(
                 client=claude_client,
                 model=CLAUDE_MODEL,
-                max_tokens=1000,
+                max_tokens=2500,
                 temperature=0.0,  # Für maximale Konsistenz
                 system=CLAUDE_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_prompt}]
