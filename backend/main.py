@@ -28,6 +28,7 @@ CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 # Model Settings
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
+# Use Claude Opus 4.1 as default; override via CLAUDE_MODEL in env
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805")
 USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"
 
