@@ -34,11 +34,15 @@ USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"
 
 # Initialize clients
 openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
-# Disable HTTP logging for Anthropic SDK to reduce log spam
+# Disable HTTP logging and internal retries for Anthropic SDK
 import httpx
 claude_client = anthropic.Anthropic(
     api_key=CLAUDE_KEY,
-    http_client=httpx.Client(event_hooks={"request": [], "response": []})
+    max_retries=0,  # Disable internal retries (we handle them manually)
+    http_client=httpx.Client(
+        event_hooks={"request": [], "response": []},
+        timeout=60.0
+    )
 ) if CLAUDE_KEY else None
 
 # Token counting
@@ -58,6 +62,10 @@ CTX_MAX = 128_000
 MAX_COMPLETION = 4000
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+# Disable HTTP request logging from various libraries
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("anthropic").setLevel(logging.WARNING)
+logging.getLogger("openai").setLevel(logging.WARNING)
 logging.info(
     f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | "
     f"OpenAI model: {MODEL_ID} | Claude model: {CLAUDE_MODEL} | Use Claude: {USE_CLAUDE}"
