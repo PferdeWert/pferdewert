@@ -91,23 +91,23 @@ const convertStockmassToNumber = (stockmass: unknown): number => {
 
   // Heuristics:
   // - 1.0–2.5 => meters (e.g., 1.65) → cm
-  // - 80–220 => centimeters already (e.g., 165)
+  // - 50–250 => centimeters already (e.g., 165)
   // - 1000–3000 => likely millimeters (e.g., 1650) → divide by 10
   // - 3000–30000 => likely mistaken scaling (e.g., 16500) → divide by 100
   // Fallback → 0 with warning
   if (hasMetersUnit || (numValue >= 1.0 && numValue <= 2.5)) {
     return Math.round(numValue * 100);
   }
-  if (numValue >= 80 && numValue <= 220) {
+  if (numValue >= 50 && numValue <= 250) {
     return Math.round(numValue);
   }
   if (numValue >= 1000 && numValue <= 3000) {
     const cm = Math.round(numValue / 10);
-    if (cm >= 80 && cm <= 220) return cm;
+    if (cm >= 50 && cm <= 250) return cm;
   }
   if (numValue >= 3000 && numValue <= 30000) {
     const cm = Math.round(numValue / 100);
-    if (cm >= 80 && cm <= 220) return cm;
+    if (cm >= 50 && cm <= 250) return cm;
   }
 
   warn('[WEBHOOK] Stockmass value out of expected range, using 0:', numValue);

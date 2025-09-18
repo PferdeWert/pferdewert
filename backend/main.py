@@ -32,6 +32,10 @@ MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805")
 USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"
 
+# Logging Settings
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+AI_DEBUG = os.getenv("AI_DEBUG", "false").lower() == "true"
+
 # Initialize clients
 openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
 # Disable HTTP logging and internal retries for Anthropic SDK
@@ -40,8 +44,7 @@ claude_client = anthropic.Anthropic(
     api_key=CLAUDE_KEY,
     max_retries=0,  # Disable internal retries (we handle them manually)
     http_client=httpx.Client(
-        event_hooks={"request": [], "response": []},
-        timeout=60.0
+        event_hooks={"request": [], "response": []}
     )
 ) if CLAUDE_KEY else None
 
@@ -61,11 +64,16 @@ ENC = get_tokenizer(MODEL_ID) if OPENAI_KEY else None
 CTX_MAX = 128_000
 MAX_COMPLETION = 4000
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-# Disable HTTP request logging from various libraries
+logging.basicConfig(level=getattr(logging, LOG_LEVEL), format="%(levelname)s: %(message)s")
+
+# Configure library logging based on environment
 logging.getLogger("httpx").setLevel(logging.WARNING)
-logging.getLogger("anthropic").setLevel(logging.WARNING)
-logging.getLogger("openai").setLevel(logging.WARNING)
+if AI_DEBUG or LOG_LEVEL == "DEBUG":
+    logging.getLogger("anthropic").setLevel(logging.INFO)
+    logging.getLogger("openai").setLevel(logging.INFO)
+else:
+    logging.getLogger("anthropic").setLevel(logging.WARNING)
+    logging.getLogger("openai").setLevel(logging.WARNING)
 logging.info(
     f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | "
     f"OpenAI model: {MODEL_ID} | Claude model: {CLAUDE_MODEL} | Use Claude: {USE_CLAUDE}"
@@ -92,10 +100,18 @@ def call_claude_with_retry(client, model, max_tokens, temperature, system, messa
                 time.sleep(wait_time)
                 continue
             else:
-                # Re-raise for non-529 errors or final attempt
+                # Preserve error context for debugging while keeping production logs clean
+                if AI_DEBUG or LOG_LEVEL == "DEBUG":
+                    logging.error(f"Claude API error on attempt {attempt + 1}: {e.status_code} - {e.message}")
+                else:
+                    logging.error(f"Claude API error: {e.status_code}")
                 raise e
         except Exception as e:
-            # Re-raise non-API errors immediately
+            # Preserve context for non-API errors
+            if AI_DEBUG or LOG_LEVEL == "DEBUG":
+                logging.error(f"Unexpected error calling Claude: {type(e).__name__}: {str(e)}")
+            else:
+                logging.error(f"Unexpected error calling Claude: {type(e).__name__}")
             raise e
 
     # This shouldn't be reached but just in case
