@@ -125,14 +125,14 @@ export default function WasIstMeinPferdWert() {
     <Layout>
       <>
         <Head>
-          <title>Was ist mein Pferd wert Bayern NRW? Professionelle Bewertung | PferdeWert</title>
+          <title>Was ist mein Pferd wert? Professionelle Bewertung in 2 Minuten | PferdeWert</title>
           <meta
             name="description"
-            content="🐎 Pferdebewertung Bayern & NRW: Was ist mein Pferd wert? KI-Analyse für ${PRICING_FORMATTED.current} ✓ Sofort-PDF ✓ 32+ Bewertungen täglich ✓ Jetzt Marktwert ermitteln!"
+            content="Was ist mein Pferd wert? KI-gestützte Pferdebewertung deutschlandweit - Sofort-PDF mit detaillierter Marktanalyse - 32+ Bewertungen täglich - Professionelle Wertermittlung"
           />
-          <meta name="keywords" content="was ist mein pferd wert bayern, pferd wert nrw, pferdebewertung baden württemberg, pferd wert ermitteln, marktwert pferd regional, pferde preis berechnen" />
+          <meta name="keywords" content="was ist mein pferd wert, pferd wert ermitteln, pferdebewertung, marktwert pferd, pferde preis berechnen, pferdewert deutschland" />
           <meta property="og:title" content="Was ist mein Pferd wert? Professionelle Pferdebewertung | PferdeWert.de" />
-          <meta property="og:description" content="🐎 Was ist mein Pferd wert? KI-Pferdebewertung für nur ${PRICING_FORMATTED.current} ✓ Ohne Anmeldung ✓ Sofort als PDF ✓ Jetzt Marktwert ermitteln!" />
+          <meta property="og:description" content="Was ist mein Pferd wert? KI-Pferdebewertung deutschlandweit - Ohne Anmeldung - Sofort als PDF - Jetzt Marktwert ermitteln" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://pferdewert.de/was-ist-mein-pferd-wert" />
           <meta property="og:image" content="https://pferdewert.de/images/blossi-3.jpg" />

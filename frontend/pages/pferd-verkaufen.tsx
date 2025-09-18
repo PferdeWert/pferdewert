@@ -88,10 +88,10 @@ export default function PferdVerkaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd verkaufen Bayern NRW Baden-Württemberg: Optimaler Preis & schneller Verkauf | PferdeWert</title>
+        <title>Pferd verkaufen: Optimaler Preis & schneller Verkauf | PferdeWert</title>
         <meta
          name="description"
-         content="🐎 Pferd verkaufen zum optimalen Preis! KI-Bewertung für ${PRICING_FORMATTED.current} ➤ Schneller verkaufen ✓ Keine Wertverluste ✓ Marktgerecht ✓ Jetzt starten!"
+         content="Pferd verkaufen zum optimalen Preis - KI-Bewertung für marktgerechte Preisfindung - Schneller verkaufen ohne Wertverluste - Professionelle Verkaufsberatung"
         />
          <meta
          name="keywords"

@@ -72,26 +72,46 @@ const checkAndMarkWebhookProcessed = async (sessionId: string): Promise<boolean>
   }
 };
 
-// Utility function to safely convert stockmass with proper validation
+// Utility function to safely convert stockmass to centimeters with robust heuristics
 const convertStockmassToNumber = (stockmass: unknown): number => {
   if (stockmass === null || stockmass === undefined || stockmass === '') {
     warn('[WEBHOOK] Stockmass is empty or null, defaulting to 0');
     return 0;
   }
-  
-  const numValue = parseFloat(String(stockmass));
+
+  const raw = String(stockmass).trim().toLowerCase();
+  const numValue = parseFloat(raw.replace(/cm|m/g, '').trim());
   if (isNaN(numValue)) {
-    warn('[WEBHOOK] Invalid stockmass value, defaulting to 0:', String(stockmass));
+    warn('[WEBHOOK] Invalid stockmass value, defaulting to 0:', raw);
     return 0;
   }
-  
-  // Convert to centimeters and round to nearest integer
-  const result = Math.round(numValue * 100);
-  if (result < 0 || result > 25000) { // Reasonable limits for horse height in cm
-    warn('[WEBHOOK] Stockmass value out of range, using raw value:', result);
+
+  // If explicit unit "m" (and not "cm") is present, treat as meters
+  const hasMetersUnit = /(^|\s|\b)m(\b|\s|$)/.test(raw) && !/cm/.test(raw);
+
+  // Heuristics:
+  // - 1.0–2.5 => meters (e.g., 1.65) → cm
+  // - 80–220 => centimeters already (e.g., 165)
+  // - 1000–3000 => likely millimeters (e.g., 1650) → divide by 10
+  // - 3000–30000 => likely mistaken scaling (e.g., 16500) → divide by 100
+  // Fallback → 0 with warning
+  if (hasMetersUnit || (numValue >= 1.0 && numValue <= 2.5)) {
+    return Math.round(numValue * 100);
   }
-  
-  return result;
+  if (numValue >= 80 && numValue <= 220) {
+    return Math.round(numValue);
+  }
+  if (numValue >= 1000 && numValue <= 3000) {
+    const cm = Math.round(numValue / 10);
+    if (cm >= 80 && cm <= 220) return cm;
+  }
+  if (numValue >= 3000 && numValue <= 30000) {
+    const cm = Math.round(numValue / 100);
+    if (cm >= 80 && cm <= 220) return cm;
+  }
+
+  warn('[WEBHOOK] Stockmass value out of expected range, using 0:', numValue);
+  return 0;
 };
 
 

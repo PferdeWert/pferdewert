@@ -28,13 +28,18 @@ CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 # Model Settings
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
-# Use Claude Opus 4.1 as default; override via CLAUDE_MODEL in env
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805")
+# Default: Claude 3 Opus (stable). Can be overridden via CLAUDE_MODEL env.
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-3-opus-20240229")
 USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"
 
 # Initialize clients
 openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
-claude_client = anthropic.Anthropic(api_key=CLAUDE_KEY) if CLAUDE_KEY else None
+# Disable HTTP logging for Anthropic SDK to reduce log spam
+import httpx
+claude_client = anthropic.Anthropic(
+    api_key=CLAUDE_KEY,
+    http_client=httpx.Client(event_hooks={"request": [], "response": []})
+) if CLAUDE_KEY else None
 
 # Token counting
 def get_tokenizer(model_id: str):
@@ -73,7 +78,9 @@ def call_claude_with_retry(client, model, max_tokens, temperature, system, messa
         except anthropic.APIError as e:
             if e.status_code == 529 and attempt < max_retries - 1:  # Overloaded error
                 wait_time = (3 ** attempt) + random.uniform(0, 2)  # Aggressiverer exponential backoff für Opus
-                logging.warning(f"Claude overloaded (529), retrying in {wait_time:.2f}s (attempt {attempt + 1}/{max_retries})")
+                # Only log on first retry to reduce spam
+                if attempt == 0:
+                    logging.warning(f"Claude overloaded (529), retrying {max_retries-1} times with backoff")
                 time.sleep(wait_time)
                 continue
             else:
@@ -274,7 +281,7 @@ def ai_valuation(d: BewertungRequest) -> str:
     # 1. Claude für Kunde (Hauptergebnis)
     if USE_CLAUDE and claude_client:
         try:
-            logging.info(f"Prompt wird an Claude gesendet (Modell: {CLAUDE_MODEL}, max_tokens: 2500)...")
+            logging.info(f"Analysing with {CLAUDE_MODEL}...")
             response = call_claude_with_retry(
                 client=claude_client,
                 model=CLAUDE_MODEL,
