@@ -309,7 +309,7 @@ def ai_valuation(d: BewertungRequest) -> str:
             response = call_claude_with_retry(
                 client=claude_client,
                 model=CLAUDE_MODEL,
-                max_tokens=2500,
+                max_tokens=3000,
                 temperature=0.0,  # Für maximale Konsistenz
                 system=CLAUDE_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_prompt}],
