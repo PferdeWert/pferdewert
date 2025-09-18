@@ -28,8 +28,8 @@ CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 # Model Settings
 MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
-# Default: Claude 3 Opus (stable). Can be overridden via CLAUDE_MODEL env.
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-3-opus-20240229")
+# Default to Claude Opus 4.1; override via CLAUDE_MODEL env
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805")
 USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"
 
 # Initialize clients
