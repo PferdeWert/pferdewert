@@ -72,7 +72,7 @@ def call_claude_with_retry(client, model, max_tokens, temperature, system, messa
             )
         except anthropic.APIError as e:
             if e.status_code == 529 and attempt < max_retries - 1:  # Overloaded error
-                wait_time = (2 ** attempt) + random.uniform(0, 1)  # Exponential backoff with jitter
+                wait_time = (3 ** attempt) + random.uniform(0, 2)  # Aggressiverer exponential backoff für Opus
                 logging.warning(f"Claude overloaded (529), retrying in {wait_time:.2f}s (attempt {attempt + 1}/{max_retries})")
                 time.sleep(wait_time)
                 continue
@@ -281,7 +281,8 @@ def ai_valuation(d: BewertungRequest) -> str:
                 max_tokens=2500,
                 temperature=0.0,  # Für maximale Konsistenz
                 system=CLAUDE_SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": user_prompt}]
+                messages=[{"role": "user", "content": user_prompt}],
+                max_retries=5  # Mehr Retries für Opus wegen höherer Overload-Rate
             )
 
             # Robustes Parsing der Claude-Antwort
