@@ -21,7 +21,7 @@ export default function UeberUns() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://pferdewert.de/favicon.svg" />
         <meta property="twitter:image" content="https://pferdewert.de/favicon.svg" />
-        <link rel="canonical" href="https://pferdewert.de/ueber-uns" />
+        <link rel="canonical" href="https://pferdewert.de/ueber-pferdewert" />
       </Head>
 
       <div className="flex-1">

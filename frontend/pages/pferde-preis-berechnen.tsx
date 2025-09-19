@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
+import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle, Instagram } from "lucide-react";
 import { PRICING_FORMATTED } from "../lib/pricing";
 import { 
@@ -524,6 +525,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         
         {/* Review Schema für Service-Seite */}
         <ServiceReviewSchema />
+
+        {/* Service Schema für strukturierte Daten */}
+        <ServicePageSchema />
       </Head>
 
       {/* Note: Animations moved to globals.css for better performance */}

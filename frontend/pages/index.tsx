@@ -73,8 +73,36 @@ export default function PferdeWertHomepage() {
       antwort: "Unsere KI analysiert über 50.000 Verkaufsdaten, berücksichtigt Rasse, Alter, Ausbildungsstand, Gesundheit und aktuelle Markttrends für eine präzise Bewertung."
     },
     {
+      frage: "Welche Faktoren beeinflussen den Pferdewert am meisten?",
+      antwort: "Die wichtigsten Faktoren sind: Rasse und Abstammung, Alter des Pferdes, Ausbildungsstand und Turniererfolge, Gesundheitszustand, Charakter und Reitbarkeit sowie aktuelle Marktnachfrage. Premium-Rassen und gut ausgebildete Sportpferde erzielen meist höhere Preise."
+    },
+    {
       frage: "Ist die Bewertung für Käufer und Verkäufer geeignet?",
       antwort: "Ja! Verkäufer erhalten eine realistische Preisbewertung, Käufer können überprüfen, ob ein Angebot fair ist und haben starke Argumente für Verhandlungen."
+    },
+    {
+      frage: "Kann ich auch Fohlen und Jungpferde bewerten lassen?",
+      antwort: "Ja, unser System bewertet Pferde ab 6 Monaten. Bei jungen Pferden fließen vor allem Abstammung, Rasse, Gesundheit und Entwicklungspotenzial in die Bewertung ein. Je älter das Pferd, desto mehr Gewicht haben Ausbildung und Turniererfolge."
+    },
+    {
+      frage: "Wie genau ist die KI-Bewertung im Vergleich zu einem Gutachter?",
+      antwort: "Unsere KI-Bewertung erreicht eine Genauigkeit von über 85% und liegt damit sehr nah an professionellen Gutachten. Der Vorteil: Du erhältst das Ergebnis sofort, kostengünstig und basierend auf aktuellsten Marktdaten. Für offizielle Zwecke empfehlen wir zusätzlich einen zertifizierten Gutachter."
+    },
+    {
+      frage: "Berücksichtigt die Bewertung regionale Preisunterschiede?",
+      antwort: "Ja, definitiv! Unsere KI analysiert regionale Marktdaten und berücksichtigt, dass Pferde in Bayern, NRW oder anderen Bundesländern unterschiedliche Preise erzielen können. Auch die Nähe zu Reitzentren und die lokale Nachfrage fließen in die Bewertung ein."
+    },
+    {
+      frage: "Was passiert, wenn mein Pferd Gesundheitsprobleme hat?",
+      antwort: "Gesundheitsprobleme werden transparent in der Bewertung berücksichtigt. Du gibst den Gesundheitsstatus ehrlich an und unsere KI passt den Wert entsprechend an. Kleinere Probleme haben weniger Einfluss als chronische Erkrankungen oder Operationen."
+    },
+    {
+      frage: "Kann ich mehrere Pferde gleichzeitig bewerten lassen?",
+      antwort: "Derzeit ist eine Bewertung pro Durchgang möglich. Für jedes weitere Pferd startest du einfach eine neue Bewertung. Bei größeren Beständen kontaktiere uns gerne für individuelle Lösungen."
+    },
+    {
+      frage: "Wie aktuell sind die Marktdaten in der Bewertung?",
+      antwort: "Unsere Datenbank wird kontinuierlich aktualisiert. Wir analysieren laufend aktuelle Verkäufe, Auktionsergebnisse und Markttrends. So reflektiert jede Bewertung die neuesten Entwicklungen des deutschen Pferdemarktes."
     },
     {
       frage: PRICING_TEXTS.whyAffordable,
@@ -176,7 +204,7 @@ export default function PferdeWertHomepage() {
               "name": "PferdeWert",
               "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung",
               "url": "https://pferdewert.de",
-              "logo": "https://pferdewert.de/images/logo.png",
+              "logo": "https://pferdewert.de/logo.webp",
               "image": "https://pferdewert.de/images/blossi-shooting.webp",
               "priceRange": "€",
               "areaServed": {

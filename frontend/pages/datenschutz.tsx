@@ -14,6 +14,7 @@ export default function Datenschutz() {
           content="🐎 DSGVO-konforme Pferdebewertung bei PferdeWert für ${PRICING_FORMATTED.current} ➤ Datenschutz garantiert ✓ SSL-verschlüsselt ✓ Keine Datenweitergabe ✓ Jetzt sicher nutzen!"
         />
         <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://pferdewert.de/datenschutz" />
       </Head>
       <h1>Datenschutzerklärung</h1>
 
