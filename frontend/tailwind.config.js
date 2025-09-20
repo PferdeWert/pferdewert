@@ -27,9 +27,9 @@ module.exports = {
       },
       fontSize: {
         base: ['clamp(1rem, 1.5vw, 1.125rem)', { lineHeight: '1.6' }],
-        h1: ['clamp(2rem, 5vw, 3rem)', { lineHeight: '1.2' }],
-        h2: ['clamp(1.5rem, 4vw, 2.25rem)', { lineHeight: '1.3' }],
-        h3: ['clamp(1.25rem, 3vw, 1.75rem)', { lineHeight: '1.4' }],
+        h1: ['clamp(2.25rem, 5.5vw, 3.75rem)', { lineHeight: '1', letterSpacing: '-0.025em' }],
+        h2: ['clamp(1.75rem, 4.5vw, 3rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+        h3: ['clamp(1.35rem, 3vw, 2rem)', { lineHeight: '1.3' }],
         button: ['clamp(0.95rem, 2vw, 1.125rem)', { letterSpacing: '0.02em' }],
       },
       borderRadius: {

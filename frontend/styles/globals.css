@@ -23,7 +23,7 @@
 :root {
   --font-sans: 'Lato', Arial, Helvetica, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;  /* Bleibt für Logo */
-  --font-heading: 'Merriweather', Georgia, serif;     /* Neu für Headlines */
+  --font-heading: 'Playfair Display', Georgia, serif; /* Headlines gem. Design System */
 }
 
 /* ===== Global Styles ===== */

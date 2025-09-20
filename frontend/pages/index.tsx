@@ -249,7 +249,7 @@ export default function PferdeWertHomepage() {
                   <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
                     🏆 #1 Online Pferdebewertung
                   </div>
-                  <h1 className="text-h1 font-bold text-gray-900 leading-tight">
+                  <h1 className="text-h1 font-bold text-gray-900">
                     Was ist mein <span className="text-brand-brown">Pferd wert?</span><br />
                     Deutschlands #1 Pferdebewertung online
                   </h1>

@@ -33,22 +33,7 @@ export default function Document() {
           crossOrigin="anonymous"
         />
         
-        {/* Merriweather für Headlines - with swap for fast loading */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
-          media="print"
-          onLoad={(e: React.SyntheticEvent<HTMLLinkElement>) => {
-            const target = e.currentTarget;
-            target.media = 'all';
-          }}
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
-          />
-        </noscript>
+        {/* Local Playfair Display wird via preload eingebunden */}
       </Head>
       <body className="antialiased">
         <noscript>

@@ -216,7 +216,7 @@ export default function WasIstMeinPferdWert() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             {/* Content */}
             <div className="order-2 md:order-1">
-              <h1 className="text-h1 font-bold text-gray-900 mb-4 leading-tight">
+              <h1 className="text-h1 font-bold text-gray-900 mb-4">
                 Was ist mein Pferd wert? KI-Pferdebewertung für Deutschland
               </h1>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
