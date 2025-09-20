@@ -402,7 +402,7 @@ const AKUVerstehen: NextPage = () => {
                         <ul className="space-y-1 text-sm">
                           <li>• Kaufpreis unter 5.000€</li>
                           <li>• Freizeitpferd</li>
-                          <li>• Älteres Pferd (>15 Jahre)</li>
+                          <li>• Älteres Pferd (&gt;15 Jahre)</li>
                           <li>• Budget begrenzt</li>
                         </ul>
                       </div>
@@ -557,8 +557,8 @@ const AKUVerstehen: NextPage = () => {
               <div className="bg-green-50 rounded-lg p-6 border border-green-200">
                 <h3 className="font-bold text-green-800 mb-3">💡 Expertenrat</h3>
                 <p className="text-sm text-green-700">
-                  "Eine AKU ist eine Investition in die Sicherheit. Die Kosten amortisieren sich schnell,
-                  wenn dadurch teure Folgekosten vermieden werden."
+                  &ldquo;Eine AKU ist eine Investition in die Sicherheit. Die Kosten amortisieren sich schnell,
+                  wenn dadurch teure Folgekosten vermieden werden.&rdquo;
                 </p>
                 <div className="mt-3 text-xs text-green-600">
                   - Dr. Veterinärwesen, Fachtierarzt für Pferde

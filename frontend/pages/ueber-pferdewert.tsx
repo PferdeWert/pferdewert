@@ -562,7 +562,7 @@ export default function UeberUns() {
                         <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
+                    <p className="text-gray-700 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
                     <div className="border-t pt-4">
                       <div className="font-semibold text-gray-900">{testimonial.name}</div>
                       <div className="text-sm text-gray-600">{testimonial.location} • {testimonial.horse}</div>

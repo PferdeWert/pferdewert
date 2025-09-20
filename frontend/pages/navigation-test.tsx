@@ -1,6 +1,7 @@
 // pages/navigation-test.tsx
 import Head from "next/head";
-import HeaderNew from "@/components/HeaderNew";
+import Link from "next/link";
+import Header from "@/components/Header";
 
 export default function NavigationTest() {
   return (
@@ -10,7 +11,7 @@ export default function NavigationTest() {
         <meta name="description" content="Test page for new navigation" />
       </Head>
 
-      <HeaderNew />
+      <Header />
 
       <main className="min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-8">
@@ -86,12 +87,12 @@ export default function NavigationTest() {
               </div>
 
               <div className="mt-8 text-center">
-                <a
+                <Link
                   href="/pferde-preis-berechnen"
                   className="inline-block bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium"
                 >
                   Navigation testen → Tool aufrufen
-                </a>
+                </Link>
               </div>
             </div>
           </div>

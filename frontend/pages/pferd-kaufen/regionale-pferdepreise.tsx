@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ChevronRightIcon, MapPinIcon, TrendingUpIcon, StarIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { ChevronRight, MapPin, TrendingUp, Star, CheckCircle } from 'lucide-react';
 
 // Regional price data with market insights
 const regionalData = [
@@ -188,17 +188,17 @@ const marketInsights = [
   {
     title: 'Regionale Preisunterschiede',
     description: 'Norddeutschland zeigt höhere Preise aufgrund etablierter Zuchttraditionen, während ostdeutsche Bundesländer günstigere Alternativen bieten.',
-    icon: TrendingUpIcon
+    icon: TrendingUp
   },
   {
     title: 'Saisonale Schwankungen',
     description: 'Pferdepreise erreichen typischerweise im Frühjahr (März-Mai) und Herbst (September-Oktober) ihre Höchststände.',
-    icon: MapPinIcon
+    icon: MapPin
   },
   {
     title: 'Rassenspezifische Märkte',
     description: 'Warmblüter dominieren in allen Regionen, aber lokale Rassen wie Haflinger in Bayern oder Holsteiner in Schleswig-Holstein haben regionale Schwerpunkte.',
-    icon: StarIcon
+    icon: Star
   }
 ];
 
@@ -390,11 +390,11 @@ export default function RegionalePferdepreise() {
               <Link href="/" className="text-green-600 hover:text-green-800 transition-colors">
                 PferdeWert
               </Link>
-              <ChevronRightIcon className="h-4 w-4 text-gray-400" />
+              <ChevronRight className="h-4 w-4 text-gray-400" />
               <Link href="/pferd-kaufen" className="text-green-600 hover:text-green-800 transition-colors">
                 Pferd kaufen
               </Link>
-              <ChevronRightIcon className="h-4 w-4 text-gray-400" />
+              <ChevronRight className="h-4 w-4 text-gray-400" />
               <span className="text-gray-700 font-medium">Regionale Pferdepreise</span>
             </nav>
           </div>
@@ -412,15 +412,15 @@ export default function RegionalePferdepreise() {
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm">
                 <div className="bg-white/20 px-4 py-2 rounded-full">
-                  <MapPinIcon className="h-5 w-5 inline mr-2" />
+                  <MapPin className="h-5 w-5 inline mr-2" />
                   16 Bundesländer
                 </div>
                 <div className="bg-white/20 px-4 py-2 rounded-full">
-                  <TrendingUpIcon className="h-5 w-5 inline mr-2" />
+                  <TrendingUp className="h-5 w-5 inline mr-2" />
                   Aktuelle Marktdaten 2024
                 </div>
                 <div className="bg-white/20 px-4 py-2 rounded-full">
-                  <StarIcon className="h-5 w-5 inline mr-2" />
+                  <Star className="h-5 w-5 inline mr-2" />
                   Experteneinschätzungen
                 </div>
               </div>
@@ -532,7 +532,7 @@ export default function RegionalePferdepreise() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-green-700 mb-4">
-                  <CheckCircleIcon className="h-6 w-6 inline mr-2" />
+                  <CheckCircle className="h-6 w-6 inline mr-2" />
                   Günstigste Regionen
                 </h3>
                 <div className="space-y-3">
@@ -550,7 +550,7 @@ export default function RegionalePferdepreise() {
 
               <div>
                 <h3 className="text-xl font-semibold text-red-700 mb-4">
-                  <TrendingUpIcon className="h-6 w-6 inline mr-2" />
+                  <TrendingUp className="h-6 w-6 inline mr-2" />
                   Teuerste Regionen
                 </h3>
                 <div className="space-y-3">
@@ -581,15 +581,15 @@ export default function RegionalePferdepreise() {
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
                     <span>Ostdeutsche Bundesländer bieten das beste Preis-Leistungs-Verhältnis</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
                     <span>Mecklenburg-Vorpommern und Brandenburg haben traditionell starke Zuchtlinien</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
                     <span>Wintermonate bieten zusätzliche Preisvorteile</span>
                   </li>
                 </ul>
@@ -601,15 +601,15 @@ export default function RegionalePferdepreise() {
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <CheckCircleIcon className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
                     <span>Niedersachsen als Zentrum der deutschen Warmblut-Zucht</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircleIcon className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
                     <span>Schleswig-Holstein für erstklassige Springpferde</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircleIcon className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
                     <span>Hamburg und NRW für sport-orientierte Disziplinen</span>
                   </li>
                 </ul>

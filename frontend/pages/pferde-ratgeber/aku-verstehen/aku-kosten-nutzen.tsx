@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 interface ROICalculation {
   akuCost: number
@@ -22,46 +22,44 @@ interface RegionalPricing {
   additionalCosts: string[]
 }
 
+const REGIONAL_PRICING: RegionalPricing[] = [
+  {
+    region: 'Deutschland (Durchschnitt)',
+    classI: { min: 150, max: 300 },
+    classII: { min: 400, max: 800 },
+    classIII: { min: 800, max: 2000 },
+    additionalCosts: ['Anfahrt: 50-150€', 'Sedierung: 50-100€']
+  },
+  {
+    region: 'Bayern',
+    classI: { min: 180, max: 350 },
+    classII: { min: 450, max: 900 },
+    classIII: { min: 900, max: 2200 },
+    additionalCosts: ['Anfahrt: 60-180€', 'Sedierung: 60-120€', 'Wochenende: +20%']
+  },
+  {
+    region: 'Nordrhein-Westfalen',
+    classI: { min: 160, max: 320 },
+    classII: { min: 420, max: 820 },
+    classIII: { min: 820, max: 2100 },
+    additionalCosts: ['Anfahrt: 50-140€', 'Sedierung: 50-110€']
+  },
+  {
+    region: 'Norddeutschland',
+    classI: { min: 140, max: 280 },
+    classII: { min: 380, max: 750 },
+    classIII: { min: 750, max: 1900 },
+    additionalCosts: ['Anfahrt: 40-120€', 'Sedierung: 45-95€']
+  }
+]
+
 const AKUKostenNutzen: NextPage = () => {
   const [horseValue, setHorseValue] = useState<number>(15000)
   const [selectedClass, setSelectedClass] = useState<string>('II')
   const [selectedRegion, setSelectedRegion] = useState<string>('deutschland')
   const [roiData, setROIData] = useState<ROICalculation | null>(null)
-  const [showAdvancedCalculator, setShowAdvancedCalculator] = useState<boolean>(false)
-
-  const regionalPricing: RegionalPricing[] = [
-    {
-      region: 'Deutschland (Durchschnitt)',
-      classI: { min: 150, max: 300 },
-      classII: { min: 400, max: 800 },
-      classIII: { min: 800, max: 2000 },
-      additionalCosts: ['Anfahrt: 50-150€', 'Sedierung: 50-100€']
-    },
-    {
-      region: 'Bayern',
-      classI: { min: 180, max: 350 },
-      classII: { min: 450, max: 900 },
-      classIII: { min: 900, max: 2200 },
-      additionalCosts: ['Anfahrt: 60-180€', 'Sedierung: 60-120€', 'Wochenende: +20%']
-    },
-    {
-      region: 'Nordrhein-Westfalen',
-      classI: { min: 160, max: 320 },
-      classII: { min: 420, max: 820 },
-      classIII: { min: 820, max: 2100 },
-      additionalCosts: ['Anfahrt: 50-140€', 'Sedierung: 50-110€']
-    },
-    {
-      region: 'Norddeutschland',
-      classI: { min: 140, max: 280 },
-      classII: { min: 380, max: 750 },
-      classIII: { min: 750, max: 1900 },
-      additionalCosts: ['Anfahrt: 40-120€', 'Sedierung: 45-95€']
-    }
-  ]
-
-  const calculateROI = (akuClass: string, horseVal: number, region: string): ROICalculation => {
-    const regionData = regionalPricing.find(r => r.region.toLowerCase().includes(region)) || regionalPricing[0]
+  const calculateROI = useCallback((akuClass: string, horseVal: number, region: string): ROICalculation => {
+    const regionData = REGIONAL_PRICING.find(r => r.region.toLowerCase().includes(region)) || REGIONAL_PRICING[0]
 
     let akuCost: number
     switch (akuClass) {
@@ -92,11 +90,11 @@ const AKUKostenNutzen: NextPage = () => {
       roiRatio,
       breakEvenRisk
     }
-  }
+  }, [])
 
   useEffect(() => {
     setROIData(calculateROI(selectedClass, horseValue, selectedRegion))
-  }, [horseValue, selectedClass, selectedRegion])
+  }, [calculateROI, horseValue, selectedClass, selectedRegion])
 
   const costComparisonData = [
     {
@@ -414,7 +412,7 @@ const AKUKostenNutzen: NextPage = () => {
                 <h2 className="text-3xl font-bold text-brand-brown mb-6">🗺️ Regionale Preisunterschiede in Deutschland</h2>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  {regionalPricing.map((region, index) => (
+                  {REGIONAL_PRICING.map((region, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-xl font-bold text-gray-800 mb-4">{region.region}</h3>
 
@@ -514,7 +512,7 @@ const AKUKostenNutzen: NextPage = () => {
                     <h3 className="text-xl font-bold text-yellow-800 mb-3">⚠️ Wann ist die AKU grenzwertig?</h3>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>Pferdewert unter 3.000€:</strong> AKU kann 10-20% des Wertes kosten</li>
-                      <li>• <strong>Sehr alte Pferde (>20 Jahre):</strong> Altersbedingte Abnutzung normal</li>
+                      <li>• <strong>Sehr alte Pferde (&gt;20 Jahre):</strong> Altersbedingte Abnutzung normal</li>
                       <li>• <strong>Notfallkäufe:</strong> Zeitdruck verhindert gründliche AKU</li>
                       <li>• <strong>Bekannte Vorerkrankungen:</strong> Kaufentscheidung bereits mit Risiko getroffen</li>
                     </ul>
@@ -535,7 +533,7 @@ const AKUKostenNutzen: NextPage = () => {
                   <h3 className="font-bold text-amber-800 mb-3">🎯 Entscheidungsmatrix:</h3>
                   <div className="text-amber-700 text-sm space-y-2">
                     <p><strong>Break-Even-Formel:</strong> AKU lohnt sich wenn: (Pferdewert × Krankheitsrisiko%) ≥ AKU-Kosten</p>
-                    <p><strong>Beispiel:</strong> 15.000€ Pferd × 25% Risiko = 3.750€ > 600€ AKU-Kosten → <span className="text-green-600 font-bold">Lohnt sich!</span></p>
+                    <p><strong>Beispiel:</strong> 15.000€ Pferd × 25% Risiko = 3.750€ &gt; 600€ AKU-Kosten → <span className="text-green-600 font-bold">Lohnt sich!</span></p>
                     <p><strong>Sicherheitspuffer:</strong> Experten empfehlen AKU bereits ab 50% des Break-Even-Punktes</p>
                   </div>
                 </div>
@@ -605,8 +603,8 @@ const AKUKostenNutzen: NextPage = () => {
               <div className="bg-green-50 rounded-lg p-6 border border-green-200">
                 <h3 className="font-bold text-green-800 mb-3">🎯 Finanz-Experten-Tipp</h3>
                 <p className="text-sm text-green-700 mb-3">
-                  "Betrachten Sie die AKU als Versicherungsprämie. Bei einem ROI von 5x oder höher ist es
-                  eine der besten Investitionen im Pferdesport."
+                  &ldquo;Betrachten Sie die AKU als Versicherungsprämie. Bei einem ROI von 5x oder höher ist es
+                  eine der besten Investitionen im Pferdesport.&rdquo;
                 </p>
                 <div className="text-xs text-green-600">
                   - Pferdesport-Finanzberater

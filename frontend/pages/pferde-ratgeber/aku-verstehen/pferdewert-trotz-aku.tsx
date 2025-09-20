@@ -875,7 +875,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold text-green-700 mb-4">✅ Do's - Das sollten Sie tun</h3>
+                <h3 className="text-xl font-bold text-green-700 mb-4">✅ Do&rsquo;s - Das sollten Sie tun</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start space-x-3">
                     <span className="text-green-600 text-xl">•</span>
@@ -909,13 +909,13 @@ const PferdewertTrotzAku: NextPage = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-red-700 mb-4">❌ Don'ts - Das sollten Sie vermeiden</h3>
+                <h3 className="text-xl font-bold text-red-700 mb-4">❌ Don&rsquo;ts - Das sollten Sie vermeiden</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start space-x-3">
                     <span className="text-red-600 text-xl">•</span>
                     <div>
                       <span className="font-medium">Befunde ignorieren:</span>
-                      <p className="text-sm text-gray-600">Auch "geringfügige" Befunde können relevant werden</p>
+                      <p className="text-sm text-gray-600">Auch &quot;geringfügige&quot; Befunde können relevant werden</p>
                     </div>
                   </li>
                   <li className="flex items-start space-x-3">

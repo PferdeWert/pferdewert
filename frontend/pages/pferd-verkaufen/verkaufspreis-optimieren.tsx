@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   TrendingUp,
@@ -8,17 +7,12 @@ import {
   Calculator,
   Award,
   CheckCircle,
-  DollarSign,
   Users,
-  Clock,
   Star,
   ArrowRight,
-  Lightbulb,
   BarChart3,
   Shield,
-  Camera,
-  FileText,
-  MapPin
+  Camera
 } from 'lucide-react';
 
 const VerkaufspreisOptimierenPage: NextPage = () => {
@@ -221,7 +215,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
       },
       {
         "@type": "FAQPage",
-        "mainEntity": faqItems.map((item, index) => ({
+        "mainEntity": faqItems.map((item) => ({
           "@type": "Question",
           "name": item.frage,
           "acceptedAnswer": {

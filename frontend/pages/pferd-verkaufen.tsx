@@ -3,7 +3,7 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Euro, Clock, Users, Star, MapPin, FileText, Camera, Info, Heart } from "lucide-react";
+import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Euro, Users, Star, MapPin, FileText, Camera, Info, Heart } from "lucide-react";
 import { PRICING_TEXTS, PRICING_FORMATTED } from "../lib/pricing";
 
 export default function PferdVerkaufen() {
@@ -1405,7 +1405,7 @@ export default function PferdVerkaufen() {
               <div className="grid md:grid-cols-2 gap-8">
                 <blockquote className="bg-white p-6 rounded-lg shadow-sm">
                   <p className="text-gray-700 italic mb-4">
-                    "Als Pferdewirt FN nutze ich PferdeWert.de regelmäßig für Einschätzungen. Die Bewertungen sind sehr realitätsnah und berücksichtigen alle relevanten Faktoren des deutschen Pferdemarkts."
+                    &ldquo;Als Pferdewirt FN nutze ich PferdeWert.de regelmäßig für Einschätzungen. Die Bewertungen sind sehr realitätsnah und berücksichtigen alle relevanten Faktoren des deutschen Pferdemarkts.&rdquo;
                   </p>
                   <footer className="text-sm text-gray-600">
                     <strong>Michael Weber</strong> - Pferdewirt FN, Gestüt Sonnenhof Bayern
@@ -1414,7 +1414,7 @@ export default function PferdVerkaufen() {
 
                 <blockquote className="bg-white p-6 rounded-lg shadow-sm">
                   <p className="text-gray-700 italic mb-4">
-                    "Die präzisen Bewertungen haben mir geholfen, meine Pferde zum optimalen Preis zu verkaufen. Besonders die regionalen Marktdaten für NRW sind sehr wertvoll."
+                    &ldquo;Die präzisen Bewertungen haben mir geholfen, meine Pferde zum optimalen Preis zu verkaufen. Besonders die regionalen Marktdaten für NRW sind sehr wertvoll.&rdquo;
                   </p>
                   <footer className="text-sm text-gray-600">
                     <strong>Dr. Sarah Müller</strong> - Tierärztin & Züchterin, Münsterland

@@ -683,8 +683,8 @@ export default function PferdewertBerechnen() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-2xl p-8 text-white">
               <blockquote className="text-xl italic mb-6">
-                "Eine professionelle Pferdebewertung ist der erste Schritt zu einem erfolgreichen Verkauf.
-                Der PferdeWert-Kalkulator bietet eine solide Grundlage für realistische Preisvorstellungen."
+                &ldquo;Eine professionelle Pferdebewertung ist der erste Schritt zu einem erfolgreichen Verkauf.
+                Der PferdeWert-Kalkulator bietet eine solide Grundlage für realistische Preisvorstellungen.&rdquo;
               </blockquote>
               <div className="flex items-center">
                 <div>

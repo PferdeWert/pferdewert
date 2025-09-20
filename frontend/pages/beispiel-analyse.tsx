@@ -90,50 +90,48 @@ Der Hannoveraner Wallach bietet ein solides Preis-Leistungs-Verhältnis für Kä
 
 _Ergebnis erstellt durch die PferdeWert-KI – keine rechtsverbindliche Bewertung._`;
 
+const metaDescription = `🐎 Beispiel-Analyse: Pferdebewertung für ${PRICING_FORMATTED.current} ➤ Detailliertes PDF mit Preisspanne ✓ Begründung & Tipps ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Beispiel-Analyse Pferd",
+  "description": "Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung.",
+  "image": "https://pferdewert.de/images/result.webp",
+  "url": "https://pferdewert.de/beispiel-analyse",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert"
+  }
+};
+
 export default function BeispielAnalyse() {
   return (
     <Layout>
       <Head>
-  <title>Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert</title>
-  <meta
-  name="description"
-  content="🐎 Beispiel-Analyse: Pferdebewertung für ${PRICING_FORMATTED.current} ➤ Detailliertes PDF mit Preisspanne ✓ Begründung & Tipps ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!"
-/>
+        <title>Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert</title>
+        <meta name="description" content={metaDescription} />
 
+        {/* Open Graph */}
+        <meta property="og:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
+        <meta property="og:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung. Transparenz & Fairness im Pferdemarkt." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
+        <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
 
-  {/* Open Graph */}
-  <meta property="og:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
-  <meta property="og:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung. Transparenz & Fairness im Pferdemarkt." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
-  <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
+        <meta name="twitter:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung." />
+        <meta name="twitter:image" content="https://pferdewert.de/images/result.webp" />
 
-  {/* Twitter Card */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
-  <meta name="twitter:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung." />
-  <meta name="twitter:image" content="https://pferdewert.de/images/result.webp" />
-
-  {/* Strukturierte Daten */}
-  <script type="application/ld+json">
-    {`
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Beispiel-Analyse Pferd",
-      "description": "Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung.",
-      "image": "https://pferdewert.de/images/result.webp",
-      "url": "https://pferdewert.de/beispiel-analyse",
-      "publisher": {
-        "@type": "Organization",
-        "name": "PferdeWert"
-      }
-    }
-    `}
-  </script>
-  <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
-
-</Head>
+        {/* Strukturierte Daten */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
+      </Head>
 
 
       <BewertungLayout title="📝 Beispiel-Analyse">
