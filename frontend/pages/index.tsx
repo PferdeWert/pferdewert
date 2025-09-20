@@ -105,8 +105,20 @@ export default function PferdeWertHomepage() {
       antwort: "Unsere Datenbank wird kontinuierlich aktualisiert. Wir analysieren laufend aktuelle Verkäufe, Auktionsergebnisse und Markttrends. So reflektiert jede Bewertung die neuesten Entwicklungen des deutschen Pferdemarktes."
     },
     {
+      frage: "Was kostet eine Pferdebewertung normalerweise?",
+      antwort: "Professionelle Pferdegutachten kosten normalerweise zwischen 200-500€. Unsere KI-Bewertung bietet dir eine vergleichbare Einschätzung für nur einen Bruchteil der Kosten."
+    },
+    {
+      frage: "Wie unterscheiden sich Pferdepreise nach Rassen?",
+      antwort: "Die Rasse beeinflusst den Preis erheblich: Warmblüter für den Sport (15.000-50.000€+), Haflingers und Fjordpferde (8.000-20.000€), Quarter Horses (10.000-25.000€). Seltene Rassen oder Championlinien können deutlich höhere Preise erzielen."
+    },
+    {
+      frage: "Wann ist der beste Zeitpunkt für eine Pferdebewertung?",
+      antwort: "Vor dem Verkauf: um einen realistischen Preis festzulegen. Vor dem Kauf: um Verhandlungsspielraum zu erkennen. Bei Versicherung: für korrekte Deckungssummen. Bei Erbschaft oder Scheidung: für faire Vermögensaufteilung."
+    },
+    {
       frage: PRICING_TEXTS.whyAffordable,
-      antwort: `Das ist unser Launch-Angebot als neues Startup. Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei ${PRICING_FORMATTED.decoy}.`
+      antwort: `Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei ${PRICING_FORMATTED.decoy}.`
     },
     {
       frage: "Erhalte ich eine Geld-zurück-Garantie?",
@@ -117,26 +129,37 @@ export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd kaufen Preis berechnen | KI-Pferdebewertung online | PferdeWert</title>
+        <title>Pferdepreis berechnen ✓ Online Pferdebewertung | PferdeWert.de</title>
         <meta
           name="description"
-          content="Pferd kaufen Preis berechnen ✓ KI-Pferdebewertung online in 2 Min ✓ Für Käufer & Verkäufer ✓ Transparente Marktpreise ohne Anmeldung ✓ Jetzt starten!"
+          content="Ermitteln Sie den Wert Ihres Pferdes mit KI-gestützter Bewertung. Präzise Pferdepreis Berechnung für faire Marktpreise. Jetzt kostenlos testen!"
         />
+        {/* Additional SEO meta tags */}
+        <meta name="keywords" content="pferde preis, pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdepreise, was ist mein pferd wert" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="language" content="de" />
+        <meta name="geo.region" content="DE" />
+        <meta name="geo.country" content="Deutschland" />
+        <meta name="author" content="PferdeWert.de" />
+
         {/* Open Graph */}
-        <meta property="og:title" content="Pferd kaufen Preis berechnen | KI-Pferdebewertung online | PferdeWert" />
-        <meta property="og:description" content="Pferd kaufen Preis berechnen ✓ KI-Pferdebewertung online in 2 Min ✓ Transparente Marktpreise ohne Anmeldung ✓ Jetzt starten!" />
+        <meta property="og:title" content="Pferdepreis berechnen ✓ Online Pferdebewertung | PferdeWert.de" />
+        <meta property="og:description" content="Ermitteln Sie den Wert Ihres Pferdes mit KI-gestützter Bewertung. Präzise Pferdepreis Berechnung für faire Marktpreise. Jetzt kostenlos testen!" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/" />
-        <meta property="og:site_name" content="PferdeWert" />
+        <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
         <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
-        <meta property="og:image:alt" content="PferdeWert – KI-Pferdebewertung" />
+        <meta property="og:image:alt" content="Pferdepreis berechnen - Online Pferdebewertung von PferdeWert.de" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd kaufen Preis berechnen | KI-Pferdebewertung online" />
-        <meta name="twitter:description" content="Pferd kaufen Preis berechnen ✓ KI-Pferdebewertung online in 2 Min ✓ Transparente Marktpreise ohne Anmeldung" />
+        <meta name="twitter:title" content="Pferdepreis berechnen ✓ Online Pferdebewertung | PferdeWert.de" />
+        <meta name="twitter:description" content="Ermitteln Sie den Wert Ihres Pferdes mit KI-gestützter Bewertung. Präzise Pferdepreis Berechnung für faire Marktpreise." />
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
-        <meta name="twitter:image:alt" content="PferdeWert – KI-Pferdebewertung" />
+        <meta name="twitter:image:alt" content="Pferdepreis berechnen - Online Pferdebewertung von PferdeWert.de" />
         <link rel="canonical" href="https://pferdewert.de/" />
         
         {/* Critical CSS für above-the-fold Content */}
@@ -163,13 +186,29 @@ export default function PferdeWertHomepage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "PferdeWert",
+              "name": "PferdeWert.de",
+              "alternateName": "PferdeWert",
               "url": "https://pferdewert.de/",
-              "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung",
+              "description": "Pferdepreis berechnen und ermitteln: Deutschlands führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung",
               "publisher": {
                 "@type": "Organization",
-                "name": "PferdeWert",
-                "url": "https://pferdewert.de"
+                "name": "PferdeWert.de",
+                "url": "https://pferdewert.de",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://pferdewert.de/logo.webp"
+                }
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://pferdewert.de/pferde-preis-berechnen?query={search_term_string}",
+                "query-input": "required name=search_term_string"
+              },
+              "mainEntity": {
+                "@type": "Service",
+                "name": "Pferdepreis berechnen",
+                "description": "Online Pferdebewertung mit KI-gestützter Pferdepreis Berechnung",
+                "serviceType": "Pferdebewertung"
               }
             })
           }}
@@ -201,8 +240,9 @@ export default function PferdeWertHomepage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "PferdeWert",
-              "description": "Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung",
+              "name": "PferdeWert.de",
+              "alternateName": "PferdeWert",
+              "description": "Pferdepreis berechnen: Deutschlands führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung",
               "url": "https://pferdewert.de",
               "logo": "https://pferdewert.de/logo.webp",
               "image": "https://pferdewert.de/images/blossi-shooting.webp",
@@ -212,19 +252,28 @@ export default function PferdeWertHomepage() {
                 "name": "Deutschland"
               },
               "serviceArea": {
-                "@type": "Country", 
+                "@type": "Country",
                 "name": "Deutschland"
               },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Pferdebewertung Services",
+                "name": "Pferdepreis Services",
                 "itemListElement": [
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "KI-basierte Pferdebewertung",
-                      "description": "Professionelle Bewertung des Marktwerts von Pferden mittels künstlicher Intelligenz"
+                      "name": "Pferdepreis berechnen",
+                      "description": "Online Pferdebewertung mit KI-gestützter Pferdepreis Berechnung für faire Marktpreise. Ermitteln Sie den Wert Ihres Pferdes in 2 Minuten.",
+                      "provider": {
+                        "@type": "Organization",
+                        "name": "PferdeWert.de"
+                      },
+                      "category": "Pferdebewertung",
+                      "areaServed": {
+                        "@type": "Country",
+                        "name": "Deutschland"
+                      }
                     }
                   }
                 ]
@@ -250,11 +299,11 @@ export default function PferdeWertHomepage() {
                     🏆 #1 Online Pferdebewertung
                   </div>
                   <h1 className="text-h1 font-bold text-gray-900">
-                    Was ist mein <span className="text-brand-brown">Pferd wert?</span>
+                    <span className="text-brand-brown">Pferdepreis</span> berechnen: Wie viel ist mein Pferd wert?
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Entwickelt von Reitern für Reiter – präzise, transparent, vertrauenswürdig. Erhalte eine
-                    professionelle KI-basierte Bewertung deines Pferdes in nur 2 Minuten.
+                    Du fragst dich "Wie viel ist mein Pferd wert?" Unsere KI-Pferdebewertung gibt dir eine
+                    präzise Antwort in nur 2 Minuten. Entwickelt von Reitern für Reiter – transparent und vertrauenswürdig.
                   </p>
                 </div>
 
@@ -429,7 +478,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mt-16">
               <div className="mb-4">
                 <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Bewertungen für Pferdebesitzer und Pferdekäufer
+                  Professionelle Pferdepreis-Bewertungen für Pferdebesitzer und Pferdekäufer
                 </p>
               </div>
               
@@ -469,7 +518,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Aktuelle Marktpreise</h3>
                 <p className="text-gray-600">
-                  Realistische Pferd kaufen Preise basierend auf über 50.000 Verkaufsdaten aus Deutschland
+                  Realistische Pferdepreis-Daten basierend auf über 50.000 Verkaufsdaten aus Deutschland
                 </p>
               </div>
 
@@ -479,7 +528,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Schutz vor Überzahlung</h3>
                 <p className="text-gray-600">
-                  Objektive Pferdebewertung online hilft dir, faire Pferd kaufen Preise zu erkennen
+                  Objektive Pferdepreis-Bewertung online hilft dir, faire Pferdekauf-Preise zu erkennen
                 </p>
               </div>
 
@@ -489,7 +538,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Verhandlungssicherheit</h3>
                 <p className="text-gray-600">
-                  Mit fundierter Pferdebewertung online optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
+                  Mit fundierter Pferdepreis-Bewertung online optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
                 </p>
               </div>
             </div>
@@ -511,7 +560,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Professionelle Pferdebewertung basierend auf jahrelanger Expertise und modernster KI-Technologie
+                Professionelle Pferdepreis-Bewertung basierend auf jahrelanger Expertise und modernster KI-Technologie
               </p>
             </div>
 
@@ -520,7 +569,7 @@ export default function PferdeWertHomepage() {
                 {
                   icon: <Clock className="w-8 h-8 text-brand-brown" />,
                   title: "Blitzschnell",
-                  description: "Professionelle Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
+                  description: "Professionelle Pferdepreis-Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
                 },
                 {
                   icon: <Shield className="w-8 h-8 text-brand-brown" />,
@@ -535,7 +584,7 @@ export default function PferdeWertHomepage() {
                 {
                   icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
                   title: "Marktgerecht",
-                  description: "Aktuelle Marktpreise und Trends fließen in jede Bewertung mit ein.",
+                  description: "Aktuelle Pferdepreise und Markttrends fließen in jede Pferdepreis-Bewertung mit ein.",
                 },
                 {
                   icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
@@ -545,7 +594,7 @@ export default function PferdeWertHomepage() {
                 {
                   icon: <Users className="w-8 h-8 text-brand-brown" />,
                   title: "Vertrauenswürdig",
-                  description: "Professionelle Bewertungen für Pferdebesitzer deutschlandweit.",
+                  description: "Professionelle Pferdepreis-Bewertungen für Pferdebesitzer deutschlandweit.",
                 },
               ].map((feature, index) => (
                 <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
@@ -568,7 +617,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Häufige Fragen</h2>
               <p className="text-xl text-gray-600">
-                Alles was du über unsere Pferdebewertung wissen möchtest
+                Alles was du über Pferdepreis berechnen und Pferdebewertung wissen möchtest
               </p>
             </div>
 
@@ -616,7 +665,7 @@ export default function PferdeWertHomepage() {
                 Pferdebewertung für alle Lebenslagen
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ob Kauf, Verkauf oder einfach aus Neugier – unsere KI-Bewertung unterstützt dich bei allen Entscheidungen rund um deinen Pferdewert
+                Ob Pferdepreis ermitteln, Verkauf oder einfach aus Neugier – unsere KI-Bewertung unterstützt dich bei allen Entscheidungen rund um deinen Pferdewert
               </p>
             </div>
 
@@ -628,7 +677,7 @@ export default function PferdeWertHomepage() {
                     <CheckCircle className="w-8 h-8 text-blue-600" />
                   </div>
                   <h3 className="text-h3 font-bold text-gray-900 mb-2">Für Pferdekäufer</h3>
-                  <p className="text-gray-600">Sichere Kaufentscheidungen treffen</p>
+                  <p className="text-gray-600">Pferdepreis ermitteln für sichere Kaufentscheidungen</p>
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -659,12 +708,12 @@ export default function PferdeWertHomepage() {
                     <TrendingUp className="w-8 h-8 text-green-600" />
                   </div>
                   <h3 className="text-h3 font-bold text-gray-900 mb-2">Für Pferdeverkäufer</h3>
-                  <p className="text-gray-600">Optimalen Verkaufspreis ermitteln</p>
+                  <p className="text-gray-600">Pferdepreis berechnen für optimalen Verkaufserfolg</p>
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Marktgerechten Verkaufspreis bestimmen</span>
+                    <span className="text-gray-700">Marktgerechten Pferdepreis bestimmen</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -691,7 +740,7 @@ export default function PferdeWertHomepage() {
                   💡 Neugierig auf den aktuellen Marktwert deines Pferdes?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Erfahre mit unserer <Link href="/was-ist-mein-pferd-wert" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Marktwert – 
+                  Erfahre mit unserer <Link href="/was-ist-mein-pferd-wert" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
                   egal ob aus Neugier, für Versicherung oder zukünftige Planung.
                 </p>
                 <Link 
@@ -713,8 +762,8 @@ export default function PferdeWertHomepage() {
                 Bereit für deine professionelle Pferdebewertung?
               </h2>
               <p className="text-xl text-brand-light mb-8">
-                Starte jetzt und erhalte in wenigen Minuten eine detaillierte, professionelle Bewertung deines
-                Pferdes.
+                Starte jetzt und erhalte in wenigen Minuten eine detaillierte Pferdepreis-Bewertung mit
+                professioneller Pferdewert-Ermittlung.
               </p>
               <Link
                 href="/pferde-preis-berechnen"
