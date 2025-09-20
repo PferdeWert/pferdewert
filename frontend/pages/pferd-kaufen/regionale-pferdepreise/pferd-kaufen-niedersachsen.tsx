@@ -981,7 +981,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* FAQ */}
         <section id="faq" className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900 text-center">Häufige Fragen zum Pferdekauf in Niedersachsen</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900 text-center">Häufige Fragen zum Pferdekauf in Niedersachsen</h2>
 
             <div className="space-y-6">
               <div className="bg-gray-50 rounded-lg p-6">

@@ -404,7 +404,7 @@ export default function RegionalePferdepreise() {
         <div className="bg-gradient-to-r from-green-600 to-green-700 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-h1 font-bold mb-6">
                 Regionale Pferdepreise Deutschland 2024
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-green-100 max-w-4xl mx-auto">
@@ -431,7 +431,7 @@ export default function RegionalePferdepreise() {
         {/* Market Insights */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-gray-900 mb-4">
               Regionale Markteinblicke
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -459,7 +459,7 @@ export default function RegionalePferdepreise() {
 
           {/* Regional Price Overview */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-h2 font-bold text-gray-900 mb-8 text-center">
               Pferdepreise nach Bundesländern
             </h2>
 
@@ -525,7 +525,7 @@ export default function RegionalePferdepreise() {
 
           {/* Price Comparison Chart Info */}
           <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-8 mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-h2 font-bold text-gray-900 mb-6 text-center">
               Preisvergleich der Regionen
             </h2>
 
@@ -570,7 +570,7 @@ export default function RegionalePferdepreise() {
 
           {/* Expert Tips */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-h2 font-bold text-gray-900 mb-8 text-center">
               Expertenempfehlungen für den regionalen Pferdekauf
             </h2>
 
@@ -619,7 +619,7 @@ export default function RegionalePferdepreise() {
 
           {/* FAQ Section */}
           <div className="bg-gray-50 rounded-xl p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-h2 font-bold text-gray-900 mb-8 text-center">
               Häufig gestellte Fragen zu regionalen Pferdepreisen
             </h2>
 
@@ -641,7 +641,7 @@ export default function RegionalePferdepreise() {
         {/* CTA Section */}
         <div className="bg-green-600 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-h2 font-bold mb-4">
               Bereit für Ihren Pferdekauf?
             </h2>
             <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">

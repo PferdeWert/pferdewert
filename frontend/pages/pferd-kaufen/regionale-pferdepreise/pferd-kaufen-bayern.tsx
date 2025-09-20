@@ -607,7 +607,7 @@ export default function PferdKaufenBayern() {
 
           {/* CTA Section */}
           <section className="bg-gradient-to-r from-green-600 to-blue-600 rounded-lg p-8 text-white text-center">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-h2 font-bold mb-4">
               Ihr Traumpferd in Bayern finden
             </h2>
             <p className="text-lg mb-6 max-w-2xl mx-auto">
