@@ -16,8 +16,21 @@ Disallow: /_next/
 # Allow important crawlable content
 Allow: /pferde-preis-berechnen
 Allow: /pferd-kaufen
-Allow: /was-ist-mein-pferd-wert
 Allow: /pferd-verkaufen
+Allow: /pferde-ratgeber
+Allow: /pferd-verkaufen/verkaufspreis-optimieren
+Allow: /pferd-verkaufen/pferdewert-berechnen
+Allow: /pferd-kaufen/regionale-pferdepreise
+Allow: /pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern
+Allow: /pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw
+Allow: /pferd-kaufen/regionale-pferdepreise/pferd-kaufen-niedersachsen
+Allow: /pferd-kaufen/regionale-pferdepreise/pferd-kaufen-hessen
+Allow: /pferde-ratgeber/aku-verstehen
+Allow: /pferde-ratgeber/aku-verstehen/aku-kosten-nutzen
+Allow: /pferde-ratgeber/aku-verstehen/pferdewert-trotz-aku
+Allow: /pferde-ratgeber/aku-verstehen/aku-befunde-interpretieren
+Allow: /pferde-ratgeber/aku-verstehen/aku-ablauf-kosten
+Allow: /was-ist-mein-pferd-wert
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
 Allow: /agb

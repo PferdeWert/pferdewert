@@ -266,40 +266,139 @@ export default function Ergebnis() {
   return (
     <Layout>
     <Head>
+      <title>Professionelle Pferdebewertung - Ihr Ergebnis | PferdeWert.de</title>
+      <meta name="description" content="Ihre detaillierte KI-basierte Pferdebewertung ist fertig. Professioneller Bewertungsbericht mit Marktwertanalyse zum sofortigen Download als PDF." />
       <meta name="robots" content="noindex, nofollow" />
       <link rel="canonical" href="https://pferdewert.de/ergebnis" />
+
+      {/* Structured Data for Analysis Report */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Report",
+            "name": "Professionelle Pferdebewertung",
+            "description": "KI-basierte Marktwertanalyse für Pferde mit detailliertem Bewertungsbericht",
+            "author": {
+              "@type": "Organization",
+              "name": "PferdeWert.de",
+              "url": "https://pferdewert.de"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "PferdeWert.de",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://pferdewert.de/logo.png"
+              }
+            },
+            "dateCreated": new Date().toISOString(),
+            "about": {
+              "@type": "Service",
+              "name": "Pferdebewertung",
+              "serviceType": "Marktwertanalyse"
+            }
+          })
+        }}
+      />
     </Head>
 
     <BewertungLayout title="PferdeWert – Ergebnis der Pferdebewertung">
       {text ? (
         <>
-          <div className="prose prose-lg max-w-full">
-            <ReactMarkdown>{text}</ReactMarkdown>
+          {/* Trust Indicators Section */}
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+            <div className="flex items-center space-x-2 mb-2">
+              <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+              <h3 className="text-sm font-semibold text-green-800">Analyse abgeschlossen</h3>
+            </div>
+            <p className="text-sm text-green-700">
+              Ihre professionelle Pferdebewertung wurde erfolgreich erstellt.
+              Der Bericht basiert auf KI-Analyse von über 10.000 Pferdedaten und aktuellen Markttrends.
+            </p>
           </div>
-          <div className="mt-8">
+
+          {/* Main Content */}
+          <article className="prose prose-lg max-w-full">
+            <ReactMarkdown>{text}</ReactMarkdown>
+          </article>
+
+          {/* Methodology & Trust Section */}
+          <div className="mt-8 mb-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 className="text-lg font-semibold text-blue-900 mb-3">Über diese Bewertung</h3>
+            <div className="text-sm text-blue-800 space-y-2">
+              <p><strong>Methodik:</strong> KI-basierte Analyse mit Dual-AI-System (GPT & Claude)</p>
+              <p><strong>Datengrundlage:</strong> Über 10.000 Pferdedaten und aktuelle Marktpreise</p>
+              <p><strong>Aktualisierung:</strong> Bewertungsmodell wird monatlich aktualisiert</p>
+              <p><strong>Verwendung:</strong> Orientierungswert für Kauf, Verkauf und Versicherung</p>
+            </div>
+          </div>
+
+          {/* Download Section */}
+          <div className="mt-8 text-center">
             <PDFDownloadLink
               document={<PferdeWertPDF markdownData={text} />}
               fileName="PferdeWert-Analyse.pdf"
             >
               {({ loading }) => (
                 <button
-                  className="rounded-2xl bg-brand-brown px-6 py-3 font-bold text-white shadow-soft hover:bg-brand-brown/80 transition"
+                  className="rounded-2xl bg-brand-brown px-8 py-4 font-bold text-white shadow-soft hover:bg-brand-brown/80 transition"
                   onClick={() => {
                     if (!loading) {
                       trackPDFDownload(bewertungId || "unknown");
                     }
                   }}
                 >
-                  {loading ? "Lade PDF..." : "PDF herunterladen"}
+                  {loading ? "Lade PDF..." : "📄 Vollständige Analyse als PDF herunterladen"}
                 </button>
               )}
             </PDFDownloadLink>
+            <p className="mt-3 text-sm text-gray-600">
+              Professioneller Bewertungsbericht zum Archivieren und Weiterleiten
+            </p>
+          </div>
+
+          {/* Next Steps Section */}
+          <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Nächste Schritte</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="space-y-2">
+                <h4 className="font-medium text-gray-800">Für Verkäufer:</h4>
+                <ul className="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Bewertung bei Inseraten angeben</li>
+                  <li>PDF an interessierte Käufer senden</li>
+                  <li>Preisverhandlungen professionell führen</li>
+                </ul>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-medium text-gray-800">Für Käufer:</h4>
+                <ul className="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Faire Preisverhandlung ermöglichen</li>
+                  <li>Marktwert als Orientierung nutzen</li>
+                  <li>Versicherungswert bestimmen</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </>
       ) : (
-        <p className="p-10 text-gray-600 text-center text-lg">
-          Die Zahlung hat funktioniert. Deine Bewertung wird gerade erstellt – bitte einen Moment Geduld…
-        </p>
+        <div className="text-center py-12">
+          <div className="animate-pulse mb-4">
+            <div className="w-16 h-16 bg-brand-brown rounded-full mx-auto mb-4 flex items-center justify-center">
+              <div className="w-8 h-8 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Ihre Pferdebewertung wird erstellt</h3>
+          <p className="text-gray-600 mb-4">
+            Unsere KI analysiert gerade die Daten Ihres Pferdes und erstellt einen detaillierten Bewertungsbericht.
+          </p>
+          <div className="text-sm text-gray-500">
+            <p>✓ Zahlung erfolgreich verarbeitet</p>
+            <p>⏳ Analyse läuft (geschätzte Dauer: 1-3 Minuten)</p>
+            <p>📧 Bei Fragen: info@pferdewert.de</p>
+          </div>
+        </div>
       )}
     </BewertungLayout>
   </Layout>

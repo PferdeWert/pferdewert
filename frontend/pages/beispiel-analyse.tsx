@@ -3,6 +3,7 @@ import Layout from "@/components/Layout"; // Neu: Layout mit Footer
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import { PRICING_FORMATTED } from "@/lib/pricing";
 
 const markdown = `## Zusammenfassung
 

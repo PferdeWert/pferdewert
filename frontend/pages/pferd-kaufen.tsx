@@ -55,14 +55,14 @@ export default function PferdKaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd kaufen: Faire Preise erkennen & günstig verhandeln | PferdeWert</title>
+        <title>Pferd kaufen: Preis prüfen & günstig verhandeln | Deutschland 2024</title>
         <meta
          name="description"
-         content="Pferd kaufen deutschlandweit - KI-Preischeck für 14,90€ - Faire Preise erkennen und gezielt verhandeln - Keine Überzahlung beim Pferdekauf"
+         content="Pferd kaufen in Deutschland ✓ KI-Preischeck für 14,90€ ✓ Faire Pferde Preise in Bayern, NRW & bundesweit ✓ Pferdekauf Tipps & Verhandlungshilfe"
         />
          <meta
          name="keywords"
-         content="pferd kaufen bayern, pferd kaufen nrw, pferd kaufen baden württemberg, pferdekauf deutschland, faire preise, verhandlungshilfe, pferd kaufen preis"
+         content="pferd kaufen, pferd kaufen bayern, pferd kaufen nrw, pferd kaufen preis, pferdekauf tipps, pferde preise, pferdekauf deutschland, verhandlungshilfe pferdekauf"
         />
 
         {/* Open Graph */}
@@ -78,25 +78,106 @@ export default function PferdKaufen() {
         <meta name="twitter:description" content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min" />
          <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
          
-          {/* Structured Data für SEO */}
+          {/* Enhanced Structured Data für SEO */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "name": "Pferd kaufen: Faire Preise erkennen",
-                "description": "Erkenne faire Preise mit KI-Bewertung und vermeide Überzahlung beim Pferdekauf",
-                "url": "https://pferdewert.de/pferd-kaufen",
-                "mainEntity": {
-                  "@type": "Service", 
-                  "name": "Pferdebewertung für Käufer",
-                  "provider": {
-                    "@type": "Organization",
-                    "name": "PferdeWert"
+              __html: JSON.stringify([
+                {
+                  "@context": "https://schema.org",
+                  "@type": "WebPage",
+                  "name": "Pferd kaufen: Faire Preise erkennen",
+                  "description": "Erkenne faire Preise mit KI-Bewertung und vermeide Überzahlung beim Pferdekauf",
+                  "url": "https://pferdewert.de/pferd-kaufen",
+                  "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pferdewert.de"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Pferd kaufen",
+                        "item": "https://pferdewert.de/pferd-kaufen"
+                      }
+                    ]
+                  },
+                  "mainEntity": {
+                    "@type": "Service",
+                    "name": "Pferdebewertung für Käufer",
+                    "description": "KI-gestützte Pferdebewertung für faire Kaufpreise",
+                    "provider": {
+                      "@type": "Organization",
+                      "name": "PferdeWert",
+                      "url": "https://pferdewert.de"
+                    },
+                    "offers": {
+                      "@type": "Offer",
+                      "price": "14.90",
+                      "priceCurrency": "EUR",
+                      "description": "Einmalige KI-Pferdebewertung"
+                    }
                   }
+                },
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja, absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest. Du erhältst eine objektive Preisbewertung, die dir bei der Verhandlung hilft."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Wie kann mir die Bewertung beim Verhandeln helfen?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Die Bewertung zeigt dir eine realistische Preisspanne basierend auf Marktdaten. So weißt du, ob ein Angebot fair ist und hast Argumente für deine Preisvorstellung."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Wann sollte ich eine Bewertung machen lassen?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Am besten vor der ersten Besichtigung. So gehst du informiert zum Verkäufer und kannst gezielt nachfragen, falls der Preis nicht zum Marktwert passt."
+                      }
+                    }
+                  ]
+                },
+                {
+                  "@context": "https://schema.org",
+                  "@type": "HowTo",
+                  "name": "Pferd kaufen: So erkennst du faire Preise",
+                  "description": "Schritt-für-Schritt Anleitung für den Pferdekauf mit fairer Preisbewertung",
+                  "step": [
+                    {
+                      "@type": "HowToStep",
+                      "name": "Preis vorab prüfen",
+                      "text": "Gib die Daten des Pferdes in unsere KI-Bewertung ein und erhalte eine objektive Preisbewertung.",
+                      "url": "https://pferdewert.de/pferde-preis-berechnen"
+                    },
+                    {
+                      "@type": "HowToStep",
+                      "name": "Besichtigung planen",
+                      "text": "Mit der Marktkenntnis gehst du selbstbewusst zur Besichtigung und kannst gezielte Fragen stellen."
+                    },
+                    {
+                      "@type": "HowToStep",
+                      "name": "Verhandeln mit Fakten",
+                      "text": "Nutze die Bewertung als Verhandlungsgrundlage und kaufe zum fairen Preis."
+                    }
+                  ]
                 }
-              })
+              ])
             }}
           />
           <link rel="canonical" href="https://pferdewert.de/pferd-kaufen" />
@@ -107,7 +188,7 @@ export default function PferdKaufen() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div className="order-2 md:order-1">
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                Pferd kaufen: So erkennst du faire Preise
+                Pferd kaufen in Deutschland: Preis prüfen & richtig verhandeln
               </h1>
               <p className="text-xl text-gray-700 mb-6">
                 Vermeide Überzahlung mit objektiver KI-Bewertung. 
@@ -177,6 +258,101 @@ export default function PferdKaufen() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pferd kaufen Preis & Pferdekauf Tipps Section */}
+        <section className="bg-white py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              Pferd kaufen Preis: Was kostet ein Pferd wirklich?
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Pferd kaufen Preis */}
+              <div className="bg-blue-50 rounded-xl p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                  💰 Pferde Preise in Deutschland 2024
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Freizeitpferd</span>
+                      <span className="text-blue-600 font-bold">2.000 - 8.000€</span>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Turnierpferd (A/L)</span>
+                      <span className="text-blue-600 font-bold">8.000 - 25.000€</span>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Sportpferd (M/S)</span>
+                      <span className="text-blue-600 font-bold">25.000 - 100.000€+</span>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Jungpferd (roh)</span>
+                      <span className="text-blue-600 font-bold">3.000 - 15.000€</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-600 mt-4">
+                  *Preise variieren je nach Region, Rasse und Ausbildungsstand
+                </p>
+              </div>
+
+              {/* Pferdekauf Tipps */}
+              <div className="bg-green-50 rounded-xl p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                  🎯 Die 7 wichtigsten Pferdekauf Tipps
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">1</span>
+                    <span className="text-gray-700"><strong>Preis vorab prüfen:</strong> KI-Bewertung vor Besichtigung</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">2</span>
+                    <span className="text-gray-700"><strong>AKU mitbringen:</strong> Tierarztcheck ist Pflicht</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">3</span>
+                    <span className="text-gray-700"><strong>Proberitt vereinbaren:</strong> Charakter testen</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">4</span>
+                    <span className="text-gray-700"><strong>Papiere prüfen:</strong> Abstammung & Impfpass</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">5</span>
+                    <span className="text-gray-700"><strong>Regional vergleichen:</strong> Bayern vs. NRW Preise</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">6</span>
+                    <span className="text-gray-700"><strong>Verhandlungsspielraum:</strong> 10-15% sind normal</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">7</span>
+                    <span className="text-gray-700"><strong>Kaufvertrag aufsetzen:</strong> Rechtsschutz wichtig</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 max-w-4xl mx-auto">
+                <h4 className="font-semibold text-gray-900 mb-3">💡 Insider-Tipp für Pferdekäufer</h4>
+                <p className="text-gray-700">
+                  Die meisten Überzahlungen passieren bei Pferden zwischen 8.000-15.000€.
+                  In diesem Preissegment schwanken die Bewertungen am stärksten.
+                  Unsere KI-Analyse gibt dir hier die größte Sicherheit.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -380,20 +556,40 @@ export default function PferdKaufen() {
               So kaufst du deutschlandweit zum fairen Preis.
             </p>
             
-            {/* Bundesländer Grid */}
+            {/* Bundesländer Grid mit Internal Links */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Pferdekauf in allen Bundesländern</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Pferdekauf in allen Bundesländern - Regionale Preise</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                 {[
-                  "NRW", "Bayern", "Niedersachsen", "Baden-Württemberg", "Hessen", 
-                  "Sachsen", "Thüringen", "Brandenburg", "Schleswig-Holstein", 
-                  "Sachsen-Anhalt", "Saarland", "Mecklenburg-Vorpommern", "Berlin", "Hamburg", "Bremen"
+                  { name: "NRW", slug: "nordrhein-westfalen" },
+                  { name: "Bayern", slug: "bayern" },
+                  { name: "Niedersachsen", slug: "niedersachsen" },
+                  { name: "Baden-Württemberg", slug: "baden-wuerttemberg" },
+                  { name: "Hessen", slug: "hessen" },
+                  { name: "Sachsen", slug: "sachsen" },
+                  { name: "Thüringen", slug: "thueringen" },
+                  { name: "Brandenburg", slug: "brandenburg" },
+                  { name: "Schleswig-Holstein", slug: "schleswig-holstein" },
+                  { name: "Sachsen-Anhalt", slug: "sachsen-anhalt" },
+                  { name: "Saarland", slug: "saarland" },
+                  { name: "Mecklenburg-Vorpommern", slug: "mecklenburg-vorpommern" },
+                  { name: "Berlin", slug: "berlin" },
+                  { name: "Hamburg", slug: "hamburg" },
+                  { name: "Bremen", slug: "bremen" }
                 ].map(bundesland => (
-                  <div key={bundesland} className="bg-white border border-gray-200 rounded-lg p-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors">
-                    <span className="font-medium">Pferd kaufen {bundesland}</span>
-                  </div>
+                  <Link
+                    key={bundesland.name}
+                    href={`/pferd-kaufen/regionale-pferdepreise/${bundesland.slug}`}
+                    className="bg-white border border-gray-200 rounded-lg p-3 text-sm text-gray-700 hover:bg-blue-50 hover:border-blue-300 transition-colors block text-center"
+                  >
+                    <span className="font-medium">Pferd kaufen {bundesland.name}</span>
+                    <div className="text-xs text-blue-600 mt-1">→ Regionale Preise</div>
+                  </Link>
                 ))}
               </div>
+              <p className="text-sm text-gray-600 mt-4 text-center">
+                Klicke auf dein Bundesland für detaillierte Preisinformationen und regionale Marktanalysen
+              </p>
             </div>
 
             {/* Rassen Grid */}

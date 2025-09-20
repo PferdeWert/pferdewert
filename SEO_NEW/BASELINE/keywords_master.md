@@ -77,17 +77,3 @@
 📁 PferdeWert_P2_Weekly (12 Keywords)
 📁 PferdeWert_P3_Monthly (10 Keywords)
 ```
-
-### GSC Alerts
-- Position Drop ≥3 für P1 Keywords
-- Neue Rankings Top 50
-- CTR-Änderungen ≥5%
-
-### Success Metrics
-- **30 Tage:** +1.005€/Monat durch Quick Wins
-- **90 Tage:** 250 Klicks/Monat
-- **180 Tage:** 400 Klicks/Monat (+484%)
-
----
-
-**💡 Focus:** Top 30 Keywords mit klarem Revenue-Impact statt 50 Keywords ohne Prioritätenfokus.
