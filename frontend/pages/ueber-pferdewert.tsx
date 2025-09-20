@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import Layout from "@/components/Layout"
+import { PRICING_FORMATTED } from "@/lib/pricing"
 import { Award, Heart, Shield, Users, Zap, Target, Star } from "lucide-react"
 
 export default function UeberUns() {
@@ -11,7 +12,7 @@ export default function UeberUns() {
         <title>Über PferdeWert.de | KI-Experten für Pferdebewertung & Marktwertanalyse</title>
         <meta
           name="description"
-          content="🐎 PferdeWert.de Team: Pferdefamilie mit KI-Expertise für präzise Pferdebewertungen ab 19€ ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ Deutschlands #1 Online-Pferdebewertung ✓"
+          content={`🐎 PferdeWert.de Team: Pferdefamilie mit KI-Expertise für präzise Pferdebewertungen ab ${PRICING_FORMATTED.current} ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ Deutschlands #1 Online-Pferdebewertung ✓`}
         />
         <meta name="keywords" content="pferdebewertung experte, pferde sachverständiger, pferdewert team, ki pferdebewertung, online pferdegutachter" />
         <meta property="og:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
@@ -91,67 +92,6 @@ export default function UeberUns() {
             })
           }}
         />
-
-        {/* FAQ Schema Markup for Enhanced SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "Wie genau ist die KI-Pferdebewertung von PferdeWert.de?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Unsere KI-Bewertung erreicht eine Genauigkeit von 95% bei der Marktwertbestimmung. Das System analysiert über 50 Faktoren und basiert auf tausenden realen Verkaufsdaten aus dem deutschen Pferdemarkt. Die Abweichung liegt meist unter 10% vom tatsächlichen Verkaufspreis."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Wer steht hinter PferdeWert.de und welche Qualifikationen haben Sie?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "PferdeWert.de wurde von einer Pferdefamilie mit über 20 Jahren Reiterfahrung und KI-Expertise entwickelt. Unser Team kombiniert langjährige Pferdeerfahrung mit modernster Technologie. Wir selbst sind aktive Reiter und kennen die Herausforderungen des Pferdemarkts aus eigener Erfahrung."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Wie unterscheidet sich PferdeWert.de von traditionellen Pferdegutachtern?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Traditionelle Gutachter kosten 300-500€ und benötigen Wochen. Unsere KI-Bewertung kostet nur 19€, liefert sofortige Ergebnisse und ist objektiv. Wir ersetzen nicht den Gutachter bei Versicherungsfällen, bieten aber eine schnelle, kostengünstige Marktbewertung für Kauf/Verkauf."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Für welche Pferderassen funktioniert die Bewertung?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Unsere KI bewertet alle gängigen Rassen im deutschen Markt: Deutsche Warmblüter (Hannoveraner, Oldenburger, etc.), Vollblüter, Kaltblüter, Ponys und Spezialrassen. Das System wurde mit Daten aller relevanten Rassen trainiert und berücksichtigt rassenspezifische Marktfaktoren."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Ist die Pferdebewertung rechtlich bindend oder versicherungsrelevant?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Nein, unsere Bewertung dient der Marktorientierung bei Kauf/Verkauf und ist nicht rechtlich bindend. Für Versicherungen, Scheidungen oder Erbfälle benötigen Sie einen vereidigten Sachverständigen. Wir bieten eine marktbasierte Werteinschätzung für private Transaktionen."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Wie aktuell sind die Marktdaten, die in die Bewertung einfließen?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Unsere KI wird monatlich mit den neuesten Verkaufsdaten aktualisiert. Wir überwachen kontinuierlich Preisveränderungen im deutschen Pferdemarkt und passen unsere Algorithmen entsprechend an. So bleiben unsere Bewertungen immer marktaktuell."
-                  }
-                }
-              ]
-            })
-          }}
-        />
       </Head>
 
       <div className="flex-1">
@@ -227,8 +167,8 @@ export default function UeberUns() {
                   <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
                     <h4 className="text-lg font-semibold text-brand-brown mb-3">🤖 KI & Technologie</h4>
                     <p className="text-gray-700">
-                      Mehrjährige Erfahrung in der Entwicklung und Anwendung von KI-Modellen für Marktanalysen.
-                      Spezialisierung auf maschinelles Lernen für Preisvorhersagen im Tiermarkt.
+                      Erfahrung in der Entwicklung und Anwendung von KI-Modellen für Marktanalysen.
+                      Spezialisierung auf Preisvorhersagen im Pferdemarkt.
                     </p>
                   </div>
                   <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
@@ -241,8 +181,7 @@ export default function UeberUns() {
                   <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
                     <h4 className="text-lg font-semibold text-brand-brown mb-3">📊 Datenanalyse</h4>
                     <p className="text-gray-700">
-                      Expertise in statistischer Analyse und Datenmodellierung.
-                      Kontinuierliche Validierung unserer KI-Modelle gegen reale Marktdaten.
+                      Expertise in der Datenanalyse. Kontinuierliche Validierung unserer KI-Modelle gegen reale Marktdaten.
                     </p>
                   </div>
                   <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
@@ -314,40 +253,6 @@ export default function UeberUns() {
                   </p>
                 </div>
               </div>
-
-              {/* Entwicklungsprozess */}
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Unser wissenschaftlicher Entwicklungsprozess</h3>
-                <div className="grid md:grid-cols-3 gap-8">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-brand-brown rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-bold text-xl">1</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Datensammlung</h4>
-                    <p className="text-sm text-gray-600">
-                      Analyse von über 10.000 realen Pferdekäufen und -verkäufen in Deutschland
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-brand-brown rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-bold text-xl">2</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">KI-Modell Training</h4>
-                    <p className="text-sm text-gray-600">
-                      Entwicklung und Training spezialisierter Machine Learning Algorithmen
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-brand-brown rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-bold text-xl">3</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Validierung</h4>
-                    <p className="text-sm text-gray-600">
-                      Kontinuierliche Überprüfung der Genauigkeit gegen reale Marktpreise
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -356,7 +261,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-white section-fade-in" id="mission">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-h2 font-bold text-gray-900 mb-8">Unsere Mission als Pferdebewertungs-Experten</h2>
+              <h2 className="text-h2 font-bold text-gray-900 mb-8">Unsere Mission</h2>
 
               {/* Hauptmission */}
               <div className="space-y-8 mb-12">
@@ -405,7 +310,7 @@ export default function UeberUns() {
                     <Target className="w-6 h-6 text-brand-brown mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-brand-brown mb-1">Kostengünstig</h4>
-                      <p className="text-sm text-gray-700">Ab 19€ statt mehrere hundert Euro für klassische Gutachten</p>
+                    <p className="text-sm text-gray-700">Ab {PRICING_FORMATTED.current} statt mehrere hundert Euro für klassische Gutachten</p>
                     </div>
                   </div>
                 </div>
@@ -552,7 +457,7 @@ export default function UeberUns() {
                     name: "Lisa H.",
                     location: "Baden-Württemberg",
                     horse: "Deutsches Reitpony",
-                    text: "Super einfach zu bedienen und das Ergebnis kam sofort. Für 19€ bekommt man eine professionelle Bewertung, für die man beim Sachverständigen 300€+ bezahlen würde.",
+                    text: `Super einfach zu bedienen und das Ergebnis kam sofort. Für ${PRICING_FORMATTED.current} bekommt man eine professionelle Bewertung, für die man beim Sachverständigen 300€+ bezahlen würde.`,
                     rating: 5
                   }
                 ].map((testimonial, index) => (
@@ -590,24 +495,6 @@ export default function UeberUns() {
               <p className="text-xl text-gray-600 mb-8">
                 Erhalte jetzt den Marktwert deines Pferdes – KI-gestützt, wissenschaftlich fundiert, in 2 Minuten
               </p>
-
-              <div className="bg-white rounded-2xl p-6 mb-8 inline-block shadow-lg">
-                <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-green-600" />
-                    <span>SSL-verschlüsselt</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-blue-600" />
-                    <span>Sofortiges Ergebnis</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-amber-600" />
-                    <span>Wissenschaftlich validiert</span>
-                  </div>
-                </div>
-              </div>
-
               <Link
                 href="/pferde-preis-berechnen"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold bg-brand-brown hover:bg-brand-brownDark text-white transition-colors rounded-2xl shadow-lg mb-4"
@@ -616,66 +503,8 @@ export default function UeberUns() {
               </Link>
 
               <p className="text-sm text-gray-500">
-                Nur 19€ • Sofortiges Ergebnis • Kein Abo • 95% Kundenzufriedenheit
+                Nur {PRICING_FORMATTED.current} • Sofortiges Ergebnis • Kein Abo • 95% Kundenzufriedenheit
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section with Schema Markup */}
-        <section className="py-12 lg:py-20 bg-gray-50 section-fade-in" id="faq">
-          <div className="px-4 lg:px-8 xl:px-12">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-h2 font-bold text-gray-900 text-center mb-4">
-                Häufig gestellte Fragen zu PferdeWert.de
-              </h2>
-              <p className="text-center max-w-2xl mx-auto text-gray-700 mb-12">
-                Alles was Sie über unsere KI-gestützte Pferdebewertung wissen müssen
-              </p>
-
-              <div className="space-y-6">
-                {[
-                  {
-                    question: "Wie genau ist die KI-Pferdebewertung von PferdeWert.de?",
-                    answer: "Unsere KI-Bewertung erreicht eine Genauigkeit von 95% bei der Marktwertbestimmung. Das System analysiert über 50 Faktoren und basiert auf tausenden realen Verkaufsdaten aus dem deutschen Pferdemarkt. Die Abweichung liegt meist unter 10% vom tatsächlichen Verkaufspreis."
-                  },
-                  {
-                    question: "Wer steht hinter PferdeWert.de und welche Qualifikationen haben Sie?",
-                    answer: "PferdeWert.de wurde von einer Pferdefamilie mit über 20 Jahren Reiterfahrung und KI-Expertise entwickelt. Unser Team kombiniert langjährige Pferdeerfahrung mit modernster Technologie. Wir selbst sind aktive Reiter und kennen die Herausforderungen des Pferdemarkts aus eigener Erfahrung."
-                  },
-                  {
-                    question: "Wie unterscheidet sich PferdeWert.de von traditionellen Pferdegutachtern?",
-                    answer: "Traditionelle Gutachter kosten 300-500€ und benötigen Wochen. Unsere KI-Bewertung kostet nur 19€, liefert sofortige Ergebnisse und ist objektiv. Wir ersetzen nicht den Gutachter bei Versicherungsfällen, bieten aber eine schnelle, kostengünstige Marktbewertung für Kauf/Verkauf."
-                  },
-                  {
-                    question: "Für welche Pferderassen funktioniert die Bewertung?",
-                    answer: "Unsere KI bewertet alle gängigen Rassen im deutschen Markt: Deutsche Warmblüter (Hannoveraner, Oldenburger, etc.), Vollblüter, Kaltblüter, Ponys und Spezialrassen. Das System wurde mit Daten aller relevanten Rassen trainiert und berücksichtigt rassenspezifische Marktfaktoren."
-                  },
-                  {
-                    question: "Ist die Pferdebewertung rechtlich bindend oder versicherungsrelevant?",
-                    answer: "Nein, unsere Bewertung dient der Marktorientierung bei Kauf/Verkauf und ist nicht rechtlich bindend. Für Versicherungen, Scheidungen oder Erbfälle benötigen Sie einen vereidigten Sachverständigen. Wir bieten eine marktbasierte Werteinschätzung für private Transaktionen."
-                  },
-                  {
-                    question: "Wie aktuell sind die Marktdaten, die in die Bewertung einfließen?",
-                    answer: "Unsere KI wird monatlich mit den neuesten Verkaufsdaten aktualisiert. Wir überwachen kontinuierlich Preisveränderungen im deutschen Pferdemarkt und passen unsere Algorithmen entsprechend an. So bleiben unsere Bewertungen immer marktaktuell."
-                  }
-                ].map((faq, index) => (
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-12 text-center">
-                <p className="text-gray-600 mb-4">Weitere Fragen?</p>
-                <Link
-                  href="/kontakt"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-brown hover:bg-brand-brownDark text-white rounded-lg transition-colors"
-                >
-                  Kontaktieren Sie uns
-                </Link>
-              </div>
             </div>
           </div>
         </section>
