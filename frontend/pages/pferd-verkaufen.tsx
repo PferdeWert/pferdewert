@@ -511,7 +511,7 @@ export default function PferdVerkaufen() {
         <section className="bg-[#fdf9f4] py-20 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div className="order-2 md:order-1">
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-h1 font-bold text-gray-900 mb-6">
                 Pferd verkaufen Bayern & NRW: So erzielst du den optimalen Preis
               </h1>
               <p className="text-xl text-gray-700 mb-6">
@@ -573,7 +573,7 @@ export default function PferdVerkaufen() {
         {/* Warum optimale Preisgestaltung wichtig ist */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               Warum der richtige Preis beim Pferdeverkauf Bayern & NRW entscheidend ist
             </h2>
 
@@ -582,7 +582,7 @@ export default function PferdVerkaufen() {
                 <div key={index} className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-4">
                     {tipp.icon}
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text-h3 font-semibold text-gray-800">
                       {tipp.title}
                     </h3>
                   </div>
@@ -598,7 +598,7 @@ export default function PferdVerkaufen() {
         {/* Regionale Marktanalyse - Deutschland */}
         <section className="bg-gray-50 py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-6">
               Pferdemarkt Deutschland: Regionale Unterschiede verstehen
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -611,7 +611,7 @@ export default function PferdVerkaufen() {
                 <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                   <div className="flex items-center gap-3 mb-4">
                     <MapPin className="w-6 h-6 text-brand-brown" />
-                    <h3 className="text-xl font-semibold text-gray-800">{region.region}</h3>
+                    <h3 className="text-h3 font-semibold text-gray-800">{region.region}</h3>
                   </div>
 
                   <div className="space-y-3">
@@ -646,7 +646,7 @@ export default function PferdVerkaufen() {
             </div>
 
             <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">💡 Insider-Tipp für Verkäufer Bayern & NRW</h3>
+              <h3 className="text-h3 font-semibold text-blue-900 mb-3">💡 Insider-Tipp für Verkäufer Bayern & NRW</h3>
               <p className="text-blue-800 leading-relaxed mb-4">
                 Berücksichtige bei der Preisgestaltung nicht nur deine Region, sondern auch angrenzende Bundesländer.
                 Ein Pferd aus Bayern kann durchaus von Käufern aus Baden-Württemberg oder Österreich interessant sein -
@@ -681,7 +681,7 @@ export default function PferdVerkaufen() {
         {/* Verkaufsstrategien für verschiedene Pferdetypen */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-6">
               Die richtige Verkaufsstrategie für jeden Pferdetyp in Deutschland
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -694,7 +694,7 @@ export default function PferdVerkaufen() {
                 <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
                   <div className="grid md:grid-cols-4 gap-6">
                     <div>
-                      <h3 className="text-lg font-semibold text-brand-brown mb-2">
+                      <h3 className="text-h3 font-semibold text-brand-brown mb-2">
                         {strategie.strategie}
                       </h3>
                       <p className="text-sm text-gray-600">Verkaufsstrategie</p>
@@ -733,7 +733,7 @@ export default function PferdVerkaufen() {
         {/* Verkaufsplattformen Vergleich */}
         <section className="bg-gray-50 py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-6">
               Die besten Verkaufsplattformen für Pferde
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -744,7 +744,7 @@ export default function PferdVerkaufen() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {verkaufsplattformen.map((plattform, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">{plattform.plattform}</h3>
+                  <h3 className="text-h3 font-semibold text-gray-800 mb-4">{plattform.plattform}</h3>
 
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between items-center">
@@ -773,7 +773,7 @@ export default function PferdVerkaufen() {
             </div>
 
             <div className="mt-12 bg-green-50 rounded-xl p-6 border border-green-200">
-              <h3 className="text-lg font-semibold text-green-900 mb-3">🎯 Unser Verkaufs-Tipp</h3>
+              <h3 className="text-h3 font-semibold text-green-900 mb-3">🎯 Unser Verkaufs-Tipp</h3>
               <p className="text-green-800 leading-relaxed">
                 Nutze mehrere Plattformen gleichzeitig für maximale Reichweite. Kombiniere große Online-Portale
                 mit lokalen Netzwerken. Eine professionelle Pferdebewertung von PferdeWert hilft dir dabei,
@@ -788,7 +788,7 @@ export default function PferdVerkaufen() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Diese Verkaufsfehler kosten dich Geld
               </h2>
               <p className="text-lg text-gray-600">
@@ -838,7 +838,7 @@ export default function PferdVerkaufen() {
         {/* So verkaufst du erfolgreich - 3 Schritte */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               So verkaufst du dein Pferd erfolgreich
             </h2>
 
@@ -848,7 +848,7 @@ export default function PferdVerkaufen() {
                   <div className="w-16 h-16 bg-brand-brown rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="text-white font-bold text-xl">{schritt.schritt}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                  <h3 className="text-h3 font-semibold text-gray-800 mb-4">
                     {schritt.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -873,7 +873,7 @@ export default function PferdVerkaufen() {
         {/* Der richtige Verkaufszeitpunkt */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-6">
               Wann ist der beste Zeitpunkt, ein Pferd zu verkaufen?
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -885,7 +885,7 @@ export default function PferdVerkaufen() {
               {verkaufszeitpunkte.map((zeitpunkt, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-gray-800">{zeitpunkt.monat}</h3>
+                    <h3 className="text-h3 font-semibold text-gray-800">{zeitpunkt.monat}</h3>
                     <span className={`px-3 py-1 text-sm font-medium rounded-full ${
                       zeitpunkt.verkaufschancen === 'Sehr gut' ? 'bg-green-100 text-green-700' :
                       zeitpunkt.verkaufschancen === 'Gut' ? 'bg-blue-100 text-blue-700' :
@@ -911,7 +911,7 @@ export default function PferdVerkaufen() {
             </div>
 
             <div className="mt-12 bg-blue-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">📅 Timing-Strategie</h3>
+              <h3 className="text-h3 font-semibold text-blue-900 mb-3">📅 Timing-Strategie</h3>
               <p className="text-blue-800 leading-relaxed">
                 Wenn möglich, plane deinen Pferdeverkauf für das Frühjahr (März-Mai). In dieser Zeit ist die Nachfrage
                 am höchsten und Käufer sind bereit, faire Preise zu zahlen. Vermeide Wintermonate, außer bei
@@ -924,7 +924,7 @@ export default function PferdVerkaufen() {
         {/* Vollständige Dokumentation - Checkliste */}
         <section className="bg-gray-50 py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-6">
               Verkaufsdokumentation: Diese Unterlagen brauchst du
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -938,7 +938,7 @@ export default function PferdVerkaufen() {
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <FileText className="w-6 h-6 text-brand-brown flex-shrink-0" />
-                      <h3 className="text-lg font-semibold text-gray-800">
+                      <h3 className="text-h3 font-semibold text-gray-800">
                         {item.dokument}
                       </h3>
                     </div>
@@ -958,7 +958,7 @@ export default function PferdVerkaufen() {
             </div>
 
             <div className="mt-12 bg-green-50 rounded-xl p-6 border border-green-200">
-              <h3 className="text-lg font-semibold text-green-900 mb-3">💡 Profi-Tipp</h3>
+              <h3 className="text-h3 font-semibold text-green-900 mb-3">💡 Profi-Tipp</h3>
               <p className="text-green-800 leading-relaxed">
                 Erstelle eine digitale Mappe mit allen Dokumenten als PDF. Das erleichtert den Versand an Interessenten
                 und wirkt sehr professionell. Eine lückenlose Dokumentation kann den Verkaufspreis um 10-20% steigern.
@@ -970,7 +970,7 @@ export default function PferdVerkaufen() {
         {/* Besichtigungstermine erfolgreich gestalten */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-6">
               Besichtigungstermine: So überzeugst du Kaufinteressenten
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -986,7 +986,7 @@ export default function PferdVerkaufen() {
                       <span className="text-white font-bold text-sm">{index + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                      <h3 className="text-h3 font-semibold text-gray-800 mb-2">
                         {tipp.tipp}
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
@@ -1000,7 +1000,7 @@ export default function PferdVerkaufen() {
 
             <div className="mt-12 text-center">
               <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
-                <h3 className="text-lg font-semibold text-orange-900 mb-3">⚠️ Wichtiger Hinweis</h3>
+                <h3 className="text-h3 font-semibold text-orange-900 mb-3">⚠️ Wichtiger Hinweis</h3>
                 <p className="text-orange-800 leading-relaxed">
                   Nutze die professionelle Pferdebewertung von PferdeWert während des Besichtigungstermins als
                   objektive Grundlage für Preisverhandlungen. Das schafft Vertrauen und zeigt deine Seriosität.
@@ -1013,7 +1013,7 @@ export default function PferdVerkaufen() {
         {/* Erfolgsfaktoren beim Pferdeverkauf */}
         <section className="bg-[#fdf9f4] py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-4">
               Diese Faktoren entscheiden über deinen Verkaufserfolg
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
@@ -1025,7 +1025,7 @@ export default function PferdVerkaufen() {
               {erfolgsfaktoren.map((faktor, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text-h3 font-semibold text-gray-800">
                       {faktor.title}
                     </h3>
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${
@@ -1048,7 +1048,7 @@ export default function PferdVerkaufen() {
         {/* Professionelle Pferdefotografie für den Verkauf */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-4">
               Professionelle Fotos: Dein Pferd optimal in Szene setzen
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -1065,7 +1065,7 @@ export default function PferdVerkaufen() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg font-semibold text-gray-800">
+                        <h3 className="text-h3 font-semibold text-gray-800">
                           {tipp.aufnahme}
                         </h3>
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
@@ -1086,7 +1086,7 @@ export default function PferdVerkaufen() {
             </div>
 
             <div className="mt-12 bg-blue-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3 flex items-center gap-2">
+              <h3 className="text-h3 font-semibold text-blue-900 mb-3 flex items-center gap-2">
                 <Info className="w-5 h-5" />
                 Profi-Tipp für bessere Verkaufschancen
               </h3>
@@ -1102,7 +1102,7 @@ export default function PferdVerkaufen() {
         {/* Verhandlungsstrategien beim Pferdeverkauf */}
         <section className="bg-[#fdf9f4] py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-4">
               Verhandlungsstrategien: So erzielst du den optimalen Preis
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -1118,7 +1118,7 @@ export default function PferdVerkaufen() {
                       <span className="text-white font-bold">{index + 1}</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                      <h3 className="text-h3 font-semibold text-gray-800 mb-3">
                         {strategie.situation}
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1143,7 +1143,7 @@ export default function PferdVerkaufen() {
 
             <div className="mt-12 text-center">
               <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-semibold text-yellow-900 mb-3">💰 Verhandlungs-Grundregel</h3>
+                <h3 className="text-h3 font-semibold text-yellow-900 mb-3">💰 Verhandlungs-Grundregel</h3>
                 <p className="text-yellow-800 leading-relaxed">
                   Basiere deine Preisvorstellung immer auf objektiven Daten. Mit der PferdeWert-Analyse hast du
                   eine professionelle Grundlage für alle Verhandlungen und wirkst seriös und gut vorbereitet.
@@ -1156,7 +1156,7 @@ export default function PferdVerkaufen() {
         {/* Spezielle Verkaufssituationen meistern */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-4">
               Spezielle Verkaufssituationen erfolgreich meistern
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -1168,7 +1168,7 @@ export default function PferdVerkaufen() {
               {spezielleVerkaufssituationen.map((situation, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="mb-4">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    <h3 className="text-h3 font-semibold text-gray-800 mb-2">
                       {situation.situation}
                     </h3>
                     <div className="w-full bg-gray-200 rounded-full h-1">
@@ -1213,7 +1213,7 @@ export default function PferdVerkaufen() {
 
             <div className="mt-12">
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
-                <h3 className="text-lg font-semibold text-purple-900 mb-3 flex items-center gap-2">
+                <h3 className="text-h3 font-semibold text-purple-900 mb-3 flex items-center gap-2">
                   <Heart className="w-5 h-5" />
                   Ehrlichkeit zahlt sich aus
                 </h3>
@@ -1230,7 +1230,7 @@ export default function PferdVerkaufen() {
         {/* CTA Section - Verkaufs-spezifisch */}
         <section className="bg-gradient-to-r from-brand-brown to-brand-brownDark py-16 px-6 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-h1 font-bold mb-6">
               Verkaufe dein Pferd zum optimalen Preis
             </h2>
             <p className="text-xl mb-8 text-orange-100">
@@ -1262,13 +1262,13 @@ export default function PferdVerkaufen() {
         {/* FAQ Section - verkaufsspezifisch */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               Häufig gestellte Fragen zum Pferdeverkauf in Bayern & NRW
             </h2>
             
             <div className="space-y-4">
               <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors" open>
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Wie finde ich den richtigen Verkaufspreis für mein Pferd?</span>
                     <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1290,7 +1290,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Wie schnell verkauft sich ein Pferd zum richtigen Preis?</span>
                     <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1306,7 +1306,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Was passiert, wenn ich mein Pferd zu teuer anbiete?</span>
                     <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1322,7 +1322,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Kann ich die Bewertung für Verhandlungen nutzen?</span>
                     <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1338,7 +1338,7 @@ export default function PferdVerkaufen() {
               </details>
 
               <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Was kostet die Verkaufspreis-Analyse?</span>
                     <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1360,7 +1360,7 @@ export default function PferdVerkaufen() {
         <section className="py-16 bg-white border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Vertraue auf 15+ Jahre Erfahrung im Pferdemarkt Bayern & Deutschland
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -1375,7 +1375,7 @@ export default function PferdVerkaufen() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">50.000+ Bewertungen</h3>
+                <h3 className="text-h3 font-semibold text-gray-900 mb-2">50.000+ Bewertungen</h3>
                 <p className="text-gray-600">Datengrundlage aus verifizierten Pferdeverkäufen seit 2009</p>
               </div>
 
@@ -1385,7 +1385,7 @@ export default function PferdVerkaufen() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Geprüfte Expertise</h3>
+                <h3 className="text-h3 font-semibold text-gray-900 mb-2">Geprüfte Expertise</h3>
                 <p className="text-gray-600">Entwickelt mit Tierärzten, Zuchtverbänden und Reitlehrern</p>
               </div>
 
@@ -1395,7 +1395,7 @@ export default function PferdVerkaufen() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Präzise Algorithmen</h3>
+                <h3 className="text-h3 font-semibold text-gray-900 mb-2">Präzise Algorithmen</h3>
                 <p className="text-gray-600">KI-System mit 94% Genauigkeit bei Marktpreisvorhersagen</p>
               </div>
             </div>

@@ -216,7 +216,7 @@ export default function WasIstMeinPferdWert() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             {/* Content */}
             <div className="order-2 md:order-1">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+              <h1 className="text-h1 font-bold text-gray-900 mb-4 leading-tight">
                 Was ist mein Pferd wert? KI-Pferdebewertung für Deutschland
               </h1>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
@@ -266,7 +266,7 @@ export default function WasIstMeinPferdWert() {
                 <div className="w-16 h-16 bg-brand-accent/10 rounded-full flex items-center justify-center mb-4">
                   <TrendingUp className="w-8 h-8 text-brand-accent" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-h3 font-semibold text-gray-800 mb-2">
                   Marktbasierte Daten
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -278,7 +278,7 @@ export default function WasIstMeinPferdWert() {
                 <div className="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-4">
                   <Shield className="w-8 h-8 text-brand-green" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-h3 font-semibold text-gray-800 mb-2">
                   Professionelle Methodik
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -290,7 +290,7 @@ export default function WasIstMeinPferdWert() {
                 <div className="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center mb-4">
                   <Clock className="w-8 h-8 text-brand-gold" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-h3 font-semibold text-gray-800 mb-2">
                   Sofort verfügbar
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -304,7 +304,7 @@ export default function WasIstMeinPferdWert() {
         {/* Bewertungsfaktoren */}
         <section className="bg-brand-light/50 py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-4">
               Pferdebewertung: Diese Faktoren bestimmen den Marktwert Ihres Pferdes
             </h2>
             <p className="text-lg text-gray-600 text-center mb-8 max-w-3xl mx-auto">
@@ -314,7 +314,7 @@ export default function WasIstMeinPferdWert() {
 
             {/* Neue Methodologie-Sektion */}
             <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 mb-12 max-w-4xl mx-auto">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">
+              <h3 className="text-h3 font-semibold text-gray-800 mb-4 text-center">
                 Unsere wissenschaftliche Bewertungsmethodik
               </h3>
               <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
@@ -337,7 +337,7 @@ export default function WasIstMeinPferdWert() {
               {bewertungsfaktoren.map((faktor, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 hover:shadow-md transition-shadow">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text-h3 font-semibold text-gray-800">
                       {faktor.title}
                     </h3>
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${
@@ -360,7 +360,7 @@ export default function WasIstMeinPferdWert() {
         {/* CTA Section - Verbesserte Kontraste */}
         <section className="bg-gradient-to-r from-brand-brown to-brand-brownDark py-16 px-6 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            <h2 className="text-h2 font-bold mb-6 text-white">
               Finden Sie jetzt heraus, was Ihr Pferd wirklich wert ist
             </h2>
             <p className="text-xl mb-8 text-gray-100">
@@ -384,14 +384,14 @@ export default function WasIstMeinPferdWert() {
         {/* FAQ - Erstes Element geöffnet */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-brand mb-12">
+            <h2 className="text-h2 font-bold text-center text-brand mb-12">
               Häufige Fragen zur Pferdebewertung
             </h2>
 
             <div className="space-y-6">
               {faqItems.map((item, index) => (
                 <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 cursor-pointer hover:bg-brand-light/70 transition-colors" open={item.isOpen}>
-                  <summary className="p-6 text-lg font-semibold text-brand hover:text-brand-brown transition list-none [&::-webkit-details-marker]:hidden">
+                  <summary className="p-6 text-h3 font-semibold text-brand hover:text-brand-brown transition list-none [&::-webkit-details-marker]:hidden">
                     <div className="flex items-center justify-between w-full">
                       <span>{item.frage}</span>
                       <svg
@@ -427,7 +427,7 @@ export default function WasIstMeinPferdWert() {
         {/* Regionale Pferdebewertung Sektion */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-4">
               Pferdebewertung in Deutschland: Regional angepasste Marktpreise
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
@@ -437,7 +437,7 @@ export default function WasIstMeinPferdWert() {
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Bayern & Baden-Württemberg</h3>
+                <h3 className="text-h3 font-semibold text-gray-800 mb-4">Bayern & Baden-Württemberg</h3>
                 <div className="space-y-2 text-sm text-gray-700">
                   <p><strong>Durchschnittspreis Sportpferd:</strong> 8.500 - 25.000€</p>
                   <p><strong>Freizeitpferd:</strong> 3.000 - 12.000€</p>
@@ -446,7 +446,7 @@ export default function WasIstMeinPferdWert() {
               </div>
 
               <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 text-center">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">NRW & Niedersachsen</h3>
+                <h3 className="text-h3 font-semibold text-gray-800 mb-4">NRW & Niedersachsen</h3>
                 <div className="space-y-2 text-sm text-gray-700">
                   <p><strong>Durchschnittspreis Sportpferd:</strong> 7.000 - 22.000€</p>
                   <p><strong>Freizeitpferd:</strong> 2.500 - 10.000€</p>
@@ -455,7 +455,7 @@ export default function WasIstMeinPferdWert() {
               </div>
 
               <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Ostdeutschland</h3>
+                <h3 className="text-h3 font-semibold text-gray-800 mb-4">Ostdeutschland</h3>
                 <div className="space-y-2 text-sm text-gray-700">
                   <p><strong>Durchschnittspreis Sportpferd:</strong> 5.000 - 18.000€</p>
                   <p><strong>Freizeitpferd:</strong> 2.000 - 8.000€</p>
@@ -465,7 +465,7 @@ export default function WasIstMeinPferdWert() {
             </div>
 
             <div className="text-center bg-brand-light/50 rounded-xl p-8">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              <h3 className="text-h3 font-semibold text-gray-800 mb-4">
                 🎯 Ihre Vorteile bei der regionalen Pferdebewertung
               </h3>
               <div className="grid md:grid-cols-2 gap-6 text-left">
@@ -493,7 +493,7 @@ export default function WasIstMeinPferdWert() {
         {/* Cross-linking Section - Erweitert */}
         <section className="bg-gray-50 py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+            <h3 className="text-h2 font-bold text-center text-gray-900 mb-8">
               Weitere Services für Pferdebesitzer
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
@@ -515,7 +515,7 @@ export default function WasIstMeinPferdWert() {
         {/* Testimonials */}
         <section className="bg-brand-light/50 py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-brand mb-12">
+            <h2 className="text-h2 font-bold text-center text-brand mb-12">
               Das sagen Pferdebesitzer über unsere Bewertungen
             </h2>
             

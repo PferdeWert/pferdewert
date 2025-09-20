@@ -10,6 +10,7 @@ import Breadcrumbs from "./Breadcrumbs"
 export default function HeaderUnified() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
   const router = useRouter()
 
   const toggleMenu = () => {
@@ -18,6 +19,13 @@ export default function HeaderUnified() {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+    setMobileExpandedSection(null)
+  }
+
+  const toggleMobileSection = (sectionLabel: string) => {
+    setMobileExpandedSection(
+      mobileExpandedSection === sectionLabel ? null : sectionLabel
+    )
   }
 
   // Body scroll lock für Mobile-Menü
@@ -147,7 +155,7 @@ export default function HeaderUnified() {
 
                   {/* Dropdown Menu */}
                   {item.dropdown && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg py-2 mt-1 border border-gray-200">
+                    <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-200">
                       {item.dropdown.map((subItem) => (
                         <Link
                           key={subItem.href}
@@ -229,68 +237,89 @@ export default function HeaderUnified() {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-16 bg-black bg-opacity-50 z-40"
+          className="md:hidden fixed inset-0 top-16 bg-black bg-opacity-30 z-40"
           onClick={closeMenu}
         />
       )}
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Kompakte Variante */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        className={`md:hidden fixed top-16 right-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-bl-lg transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
           visibility: isMenuOpen ? 'visible' : 'hidden',
-          pointerEvents: isMenuOpen ? 'auto' : 'none'
+          pointerEvents: isMenuOpen ? 'auto' : 'none',
+          maxHeight: 'calc(100vh - 4rem)'
         }}
       >
         <nav className="h-full flex flex-col">
-          {/* Navigation Links mit Accordion */}
+          {/* Navigation Links mit Progressive Disclosure */}
           <div className="flex-1 overflow-y-auto px-4 py-6">
             {navigationItems.map((item) => (
-              <div key={item.href} className="mb-4">
-                <Link
-                  href={item.href}
-                  className="block text-gray-900 font-medium py-2 text-base"
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
-                {item.dropdown && (
-                  <div className="ml-4 space-y-1 mt-2">
-                    {item.dropdown.slice(0, 3).map((subItem) => (
-                      <Link
-                        key={subItem.href}
-                        href={subItem.href}
-                        className="block text-gray-600 hover:text-brand-brown py-1 text-sm"
-                        onClick={closeMenu}
-                      >
-                        {subItem.label}
-                      </Link>
-                    ))}
+              <div key={item.href} className="mb-3">
+                {item.dropdown ? (
+                  // Kategorie mit Dropdown - aufklappbar
+                  <div>
+                    <button
+                      className="w-full flex items-center justify-between text-gray-900 font-medium py-3 text-base"
+                      onClick={() => toggleMobileSection(item.label)}
+                      aria-expanded={mobileExpandedSection === item.label}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          mobileExpandedSection === item.label ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+
+                    {/* Aufklappbarer Bereich */}
+                    {mobileExpandedSection === item.label && (
+                      <div className="ml-4 space-y-1 mt-2 pb-2">
+                        <Link
+                          href={item.href}
+                          className="block text-brand-brown hover:text-brand-brownDark py-2 text-sm font-medium"
+                          onClick={closeMenu}
+                        >
+                          {item.label} Übersicht
+                        </Link>
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="block text-gray-600 hover:text-brand-brown py-1 text-sm"
+                            onClick={closeMenu}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
+                ) : (
+                  // Direkter Link (Über uns)
+                  <Link
+                    href={item.href}
+                    className="block text-gray-900 font-medium py-3 text-base"
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}
-
-            <Link
-              href="/ueber-pferdewert"
-              className="block text-gray-700 font-medium py-2 text-base border-t border-gray-200 mt-4 pt-4"
-              onClick={closeMenu}
-            >
-              Über PferdeWert
-            </Link>
           </div>
 
           {/* Secondary CTA am unteren Rand */}
-          <div className="border-t border-gray-200 p-4 bg-gray-50">
+          <div className="border-t border-gray-200 p-4 bg-gray-50 rounded-bl-lg">
             <Link
               href="/beispiel-analyse"
-              className="block w-full text-center border-2 border-brand-brown text-brand-brown px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors font-medium"
+              className="block w-full text-center border-2 border-brand-brown text-brand-brown px-4 py-2.5 rounded-lg hover:bg-amber-50 transition-colors font-medium text-sm"
               onClick={closeMenu}
             >
-              Beispiel-Analyse ansehen
+              Beispiel-Analyse
             </Link>
           </div>
         </nav>

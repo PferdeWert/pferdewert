@@ -187,7 +187,7 @@ export default function PferdKaufen() {
         <section className="bg-[#fdf9f4] py-20 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div className="order-2 md:order-1">
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-h1 font-bold text-gray-900 mb-6">
                 Pferd kaufen in Deutschland: Preis prüfen & richtig verhandeln
               </h1>
               <p className="text-xl text-gray-700 mb-6">
@@ -240,7 +240,7 @@ export default function PferdKaufen() {
         {/* Warum Preisbewertung beim Kauf wichtig ist */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               Warum Preisbewertung beim Pferdekauf?
             </h2>
             
@@ -250,7 +250,7 @@ export default function PferdKaufen() {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     {tipp.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-h3 font-semibold text-gray-900 mb-4">
                     {tipp.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -265,14 +265,14 @@ export default function PferdKaufen() {
         {/* Pferd kaufen Preis & Pferdekauf Tipps Section */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               Pferd kaufen Preis: Was kostet ein Pferd wirklich?
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Pferd kaufen Preis */}
               <div className="bg-blue-50 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h3 className="text-h2 font-semibold text-gray-900 mb-6">
                   💰 Pferde Preise in Deutschland 2024
                 </h3>
                 <div className="space-y-4">
@@ -308,7 +308,7 @@ export default function PferdKaufen() {
 
               {/* Pferdekauf Tipps */}
               <div className="bg-green-50 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h3 className="text-h2 font-semibold text-gray-900 mb-6">
                   🎯 Die 7 wichtigsten Pferdekauf Tipps
                 </h3>
                 <div className="space-y-4">
@@ -474,7 +474,7 @@ export default function PferdKaufen() {
             
             <div className="space-y-6">
               <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?</span>
                     <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -491,7 +491,7 @@ export default function PferdKaufen() {
               </details>
 
               <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Wie kann mir die Bewertung beim Verhandeln helfen?</span>
                     <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -508,7 +508,7 @@ export default function PferdKaufen() {
               </details>
 
               <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Wann sollte ich eine Bewertung machen lassen?</span>
                     <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -525,7 +525,7 @@ export default function PferdKaufen() {
               </details>
 
               <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
                   <div className="flex items-center justify-between w-full">
                     <span>Was ist, wenn der Verkäufer deutlich mehr verlangt?</span>
                     <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -547,7 +547,7 @@ export default function PferdKaufen() {
 {/* Regional & Rassen SEO Section */}
         <section className="bg-[#fdf9f4] py-16 px-6">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-h2 font-bold text-gray-900 mb-6">
               Pferd kaufen in deiner Region
             </h2>
             <p className="text-gray-700 mb-8 max-w-3xl mx-auto">
@@ -558,7 +558,7 @@ export default function PferdKaufen() {
             
             {/* Bundesländer Grid mit Internal Links */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Pferdekauf in allen Bundesländern - Regionale Preise</h3>
+              <h3 className="text-h3 font-semibold text-gray-800 mb-4">Pferdekauf in allen Bundesländern - Regionale Preise</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                 {[
                   { name: "NRW", slug: "nordrhein-westfalen" },
@@ -594,7 +594,7 @@ export default function PferdKaufen() {
 
             {/* Rassen Grid */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Beliebte Pferderassen richtig bewerten</h3>
+              <h3 className="text-h3 font-semibold text-gray-800 mb-4">Beliebte Pferderassen richtig bewerten</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {[
                   { rasse: "Warmblut", emoji: "🐎" },
@@ -630,7 +630,7 @@ export default function PferdKaufen() {
         {/* Call-to-Action für Käufer */}
         <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">
+            <h2 className="text-h2 font-bold text-white mb-6">
               Bereit für den smarteren Pferdekauf?
             </h2>
             <p className="text-xl text-blue-100 mb-8">

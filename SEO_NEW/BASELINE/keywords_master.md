@@ -69,11 +69,3 @@
 
 ---
 
-## 🎯 Monitoring Setup
-
-### Ahrefs Lite Gruppen
-```
-📁 PferdeWert_P1_Daily (8 Keywords)
-📁 PferdeWert_P2_Weekly (12 Keywords)
-📁 PferdeWert_P3_Monthly (10 Keywords)
-```
