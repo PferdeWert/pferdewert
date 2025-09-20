@@ -78,6 +78,10 @@ export default function HeaderUnified() {
         { label: "Krisensituationen", href: "/pferde-ratgeber/krisensituationen" },
       ]
     },
+    {
+      label: "Über uns",
+      href: "/ueber-pferdewert",
+    },
   ]
 
   // Breadcrumb Items generieren
