@@ -305,7 +305,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
           <div className="absolute inset-0 bg-black opacity-20"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-h1 font-bold mb-6">
                 Verkaufspreis optimieren
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-amber-100 max-w-3xl mx-auto">
@@ -360,7 +360,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <section id="strategien" className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Bewährte Preisoptimierungsstrategien
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -397,7 +397,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Preisfaktoren und ihre Gewichtung
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -437,7 +437,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Verkaufsplattform strategisch wählen
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -485,7 +485,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <section className="py-16 bg-red-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Häufige Fehler vermeiden
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -515,7 +515,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         {/* Call-to-Action */}
         <section className="py-16 bg-gradient-to-r from-amber-600 to-orange-600 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-h2 font-bold mb-6">
               Starten Sie Ihre Preisoptimierung heute
             </h2>
             <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
@@ -539,7 +539,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Häufig gestellte Fragen
               </h2>
               <p className="text-xl text-gray-600">
@@ -567,7 +567,7 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Weiterführende Informationen
               </h2>
             </div>

@@ -50,7 +50,7 @@ const PferdeRatgeber: NextPage = () => {
         <div className="container mx-auto px-4 py-12">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-6">
+            <h1 className="text-h1 font-bold text-brand-brown mb-6">
               Pferde-Ratgeber
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">

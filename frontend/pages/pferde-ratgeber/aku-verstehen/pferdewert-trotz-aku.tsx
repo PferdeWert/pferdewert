@@ -464,7 +464,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* Hero Section */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-6">
+            <h1 className="text-h1 font-bold text-brand-brown mb-6">
               Pferdewert trotz AKU-Befunden berechnen
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
@@ -475,17 +475,17 @@ const PferdewertTrotzAku: NextPage = () => {
             {/* Key Benefits */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 shadow-md border border-amber-100">
-                <div className="text-3xl mb-3">🧮</div>
+                <div className="text-h2 mb-3">🧮</div>
                 <h3 className="font-bold text-brand-brown mb-2">Präzise Berechnung</h3>
                 <p className="text-gray-600 text-sm">Wertminderung nach AKU-Klassen und individuellen Faktoren</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-md border border-amber-100">
-                <div className="text-3xl mb-3">⚖️</div>
+                <div className="text-h2 mb-3">⚖️</div>
                 <h3 className="font-bold text-brand-brown mb-2">Risikobewertung</h3>
                 <p className="text-gray-600 text-sm">Umfassende Einschätzung von Folgekosten und Gesundheitsrisiken</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-md border border-amber-100">
-                <div className="text-3xl mb-3">✅</div>
+                <div className="text-h2 mb-3">✅</div>
                 <h3 className="font-bold text-brand-brown mb-2">Kaufentscheidung</h3>
                 <p className="text-gray-600 text-sm">Datenbasierte Empfehlungen für informierte Entscheidungen</p>
               </div>
@@ -494,7 +494,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* Interactive Calculator Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 border border-amber-100" id="wertminderungs-rechner">
-            <h2 className="text-3xl font-bold text-brand-brown mb-6 text-center">
+            <h2 className="text-h2 font-bold text-brand-brown mb-6 text-center">
               Interaktiver Wertminderungs-Rechner
             </h2>
 
@@ -675,7 +675,7 @@ const PferdewertTrotzAku: NextPage = () => {
                   <div>
                     <h4 className="font-bold mb-4">Gesamtbewertung</h4>
                     <div className="bg-white border-2 border-brand-brown rounded-lg p-6 text-center">
-                      <div className="text-4xl font-bold text-brand-brown mb-2">
+                      <div className="text-h2 font-bold text-brand-brown mb-2">
                         {gesamtbewertung.toFixed(1)}/10
                       </div>
                       <div className="mb-4">
@@ -711,7 +711,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* AKU Classes Comparison Table */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 border border-amber-100" id="aku-klassen">
-            <h2 className="text-3xl font-bold text-brand-brown mb-6">
+            <h2 className="text-h2 font-bold text-brand-brown mb-6">
               AKU-Klassen im Vergleich
             </h2>
 
@@ -757,7 +757,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* Usage-specific Guidance */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 border border-amber-100" id="verwendungszweck">
-            <h2 className="text-3xl font-bold text-brand-brown mb-6">
+            <h2 className="text-h2 font-bold text-brand-brown mb-6">
               Verwendungszweck-spezifische Bewertung
             </h2>
 
@@ -806,7 +806,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* Risk Assessment and Follow-up Costs */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 border border-amber-100">
-            <h2 className="text-3xl font-bold text-brand-brown mb-6">
+            <h2 className="text-h2 font-bold text-brand-brown mb-6">
               Risikobewertung und Folgekosten
             </h2>
 
@@ -869,7 +869,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* Expert Tips */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 border border-amber-100">
-            <h2 className="text-3xl font-bold text-brand-brown mb-6">
+            <h2 className="text-h2 font-bold text-brand-brown mb-6">
               Expertenrat für den Pferdekauf mit AKU-Befunden
             </h2>
 
@@ -946,7 +946,7 @@ const PferdewertTrotzAku: NextPage = () => {
 
           {/* FAQ Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 border border-amber-100" id="faq">
-            <h2 className="text-3xl font-bold text-brand-brown mb-6">
+            <h2 className="text-h2 font-bold text-brand-brown mb-6">
               Häufig gestellte Fragen (FAQ)
             </h2>
 
@@ -967,7 +967,7 @@ const PferdewertTrotzAku: NextPage = () => {
           {/* CTA Section */}
           <div className="text-center">
             <div className="bg-gradient-to-r from-brand-brown to-brand-brownDark rounded-lg p-8 text-white">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-h2 font-bold mb-4">
                 Brauchen Sie eine professionelle Pferdebewertung?
               </h2>
               <p className="text-xl mb-6 opacity-90">

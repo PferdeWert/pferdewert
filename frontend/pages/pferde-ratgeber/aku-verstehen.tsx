@@ -186,7 +186,7 @@ const AKUVerstehen: NextPage = () => {
         <div className="container mx-auto px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-6">
+            <h1 className="text-h1 font-bold text-brand-brown mb-6">
               AKU verstehen: Der komplette Ratgeber zur Ankaufsuntersuchung
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -236,7 +236,7 @@ const AKUVerstehen: NextPage = () => {
               {/* Grundlagen Section */}
               {activeTab === 'grundlagen' && (
                 <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                  <h2 className="text-3xl font-bold text-brand-brown mb-6">Was ist eine AKU beim Pferd?</h2>
+                  <h2 className="text-h2 font-bold text-brand-brown mb-6">Was ist eine AKU beim Pferd?</h2>
 
                   <div className="prose max-w-none">
                     <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -282,13 +282,13 @@ const AKUVerstehen: NextPage = () => {
               {/* Kosten Section */}
               {activeTab === 'kosten' && (
                 <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                  <h2 className="text-3xl font-bold text-brand-brown mb-6">AKU Kosten: Was kostet eine Ankaufsuntersuchung?</h2>
+                  <h2 className="text-h2 font-bold text-brand-brown mb-6">AKU Kosten: Was kostet eine Ankaufsuntersuchung?</h2>
 
                   <div className="grid md:grid-cols-3 gap-6 mb-8">
                     {akuClasses.map((akuClass) => (
                       <div key={akuClass.class} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                         <div className="text-center mb-4">
-                          <div className="text-3xl font-bold text-brand-brown mb-2">Klasse {akuClass.class}</div>
+                          <div className="text-h2 font-bold text-brand-brown mb-2">Klasse {akuClass.class}</div>
                           <h3 className="text-xl font-bold text-gray-800 mb-2">{akuClass.title}</h3>
                           <div className="text-2xl font-bold text-green-600 mb-2">{akuClass.cost}</div>
                           <div className="text-sm text-gray-600">Dauer: {akuClass.duration}</div>
@@ -344,7 +344,7 @@ const AKUVerstehen: NextPage = () => {
               {/* Klassen Section */}
               {activeTab === 'klassen' && (
                 <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                  <h2 className="text-3xl font-bold text-brand-brown mb-6">AKU-Klassen: Welche AKU ist die richtige?</h2>
+                  <h2 className="text-h2 font-bold text-brand-brown mb-6">AKU-Klassen: Welche AKU ist die richtige?</h2>
 
                   <div className="mb-8">
                     <p className="text-lg text-gray-700 mb-6">
@@ -432,7 +432,7 @@ const AKUVerstehen: NextPage = () => {
               {/* Kostenrechner Section */}
               {activeTab === 'rechner' && (
                 <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                  <h2 className="text-3xl font-bold text-brand-brown mb-6">AKU-Kostenrechner</h2>
+                  <h2 className="text-h2 font-bold text-brand-brown mb-6">AKU-Kostenrechner</h2>
 
                   <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mb-8">
                     <h3 className="font-bold text-amber-800 mb-4">Berechnen Sie die voraussichtlichen AKU-Kosten</h3>
@@ -475,7 +475,7 @@ const AKUVerstehen: NextPage = () => {
                     {estimatedCost > 0 && (
                       <div className="mt-6 p-4 bg-white rounded border border-amber-300">
                         <h4 className="font-bold text-brand-brown mb-2">Geschätzte AKU-Kosten:</h4>
-                        <div className="text-3xl font-bold text-green-600">{estimatedCost}€</div>
+                        <div className="text-h2 font-bold text-green-600">{estimatedCost}€</div>
                         <p className="text-sm text-gray-600 mt-2">
                           *Richtwert basierend auf durchschnittlichen Marktpreisen. Tatsächliche Kosten können variieren.
                         </p>
@@ -594,7 +594,7 @@ const AKUVerstehen: NextPage = () => {
 
           {/* FAQ Section */}
           <section className="mt-12 bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-            <h2 className="text-3xl font-bold text-brand-brown mb-8">Häufig gestellte Fragen zur AKU</h2>
+            <h2 className="text-h2 font-bold text-brand-brown mb-8">Häufig gestellte Fragen zur AKU</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {faqItems.map((faq, index) => (

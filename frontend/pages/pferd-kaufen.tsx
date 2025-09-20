@@ -360,7 +360,7 @@ export default function PferdKaufen() {
         {/* So funktioniert's für Käufer */}
         <section className="bg-[#fdf9f4] py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               So kaufst du zum fairen Preis
             </h2>
             
@@ -427,7 +427,7 @@ export default function PferdKaufen() {
         {/* Erfolgsgeschichten von Käufern */}
         <section className="bg-[#fdf9f4] py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               Erfolgreiche Käufer berichten
             </h2>
             
@@ -468,7 +468,7 @@ export default function PferdKaufen() {
         {/* FAQ für Käufer */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
               Häufige Fragen von Pferdekäufern
             </h2>
             

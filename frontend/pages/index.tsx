@@ -250,8 +250,7 @@ export default function PferdeWertHomepage() {
                     🏆 #1 Online Pferdebewertung
                   </div>
                   <h1 className="text-h1 font-bold text-gray-900">
-                    Was ist mein <span className="text-brand-brown">Pferd wert?</span><br />
-                    Deutschlands #1 Pferdebewertung online
+                    Was ist mein <span className="text-brand-brown">Pferd wert?</span>
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
                     Entwickelt von Reitern für Reiter – präzise, transparent, vertrauenswürdig. Erhalte eine

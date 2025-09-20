@@ -232,7 +232,7 @@ const PferdKaufenNRW: React.FC = () => {
         <section className="bg-gradient-to-r from-green-800 to-green-600 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-h1 font-bold mb-6">
                 Pferd kaufen in Nordrhein-Westfalen
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-green-100">
@@ -258,7 +258,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* Einleitung */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Der NRW Pferdemarkt: Tradition trifft Innovation
                 </h2>
                 <div className="prose prose-lg max-w-none">
@@ -279,7 +279,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* Preisübersicht */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Aktuelle Pferdepreise in NRW 2024/2025
                 </h2>
                 <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -342,7 +342,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* Regionale Zentren */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Die wichtigsten Pferdezentren in NRW
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -427,7 +427,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* Westfälische Warmblüter */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Westfälische Warmblüter - Das Aushängeschild von NRW
                 </h2>
                 <div className="bg-white rounded-lg shadow-md p-8">
@@ -466,7 +466,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* Marktplätze und Verkaufsstätten */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Wo Pferde in NRW kaufen? Die besten Adressen
                 </h2>
 
@@ -560,7 +560,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* Kaufberatung */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Pferdekauf in NRW - Praktische Tipps
                 </h2>
 
@@ -647,7 +647,7 @@ const PferdKaufenNRW: React.FC = () => {
 
               {/* FAQ */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h2 font-bold text-gray-900 mb-6">
                   Häufige Fragen zum Pferdekauf in NRW
                 </h2>
                 <div className="space-y-4">

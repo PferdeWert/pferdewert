@@ -229,7 +229,7 @@ const AKUKostenNutzen: NextPage = () => {
         <div className="container mx-auto px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-6">
+            <h1 className="text-h1 font-bold text-brand-brown mb-6">
               AKU Kosten-Nutzen-Analyse: Lohnt sich die Ankaufsuntersuchung?
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
@@ -246,19 +246,19 @@ const AKUKostenNutzen: NextPage = () => {
           {/* ROI Quick Stats */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             <div className="bg-white rounded-lg shadow-lg p-6 border border-amber-100 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">4.7-21.9x</div>
+              <div className="text-h2 font-bold text-green-600 mb-2">4.7-21.9x</div>
               <div className="text-sm text-gray-600">Typischer ROI</div>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 border border-amber-100 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">2-5%</div>
+              <div className="text-h2 font-bold text-blue-600 mb-2">2-5%</div>
               <div className="text-sm text-gray-600">Break-Even Risiko</div>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 border border-amber-100 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">15-35%</div>
+              <div className="text-h2 font-bold text-purple-600 mb-2">15-35%</div>
               <div className="text-sm text-gray-600">Tatsächliches Risiko</div>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 border border-amber-100 text-center">
-              <div className="text-3xl font-bold text-red-600 mb-2">95%</div>
+              <div className="text-h2 font-bold text-red-600 mb-2">95%</div>
               <div className="text-sm text-gray-600">Empfehlungsrate</div>
             </div>
           </div>
@@ -269,7 +269,7 @@ const AKUKostenNutzen: NextPage = () => {
 
               {/* Interactive ROI Calculator */}
               <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                <h2 className="text-3xl font-bold text-brand-brown mb-6">🧮 Interaktiver ROI-Rechner</h2>
+                <h2 className="text-h2 font-bold text-brand-brown mb-6">🧮 Interaktiver ROI-Rechner</h2>
 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div>
@@ -357,7 +357,7 @@ const AKUKostenNutzen: NextPage = () => {
 
               {/* Kosten-Vergleichstabelle */}
               <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                <h2 className="text-3xl font-bold text-brand-brown mb-6">💰 Kosten-Nutzen-Vergleich nach Pferdewert</h2>
+                <h2 className="text-h2 font-bold text-brand-brown mb-6">💰 Kosten-Nutzen-Vergleich nach Pferdewert</h2>
 
                 <div className="overflow-x-auto">
                   <table className="w-full table-auto border-collapse">
@@ -409,7 +409,7 @@ const AKUKostenNutzen: NextPage = () => {
 
               {/* Regionale Preisunterschiede */}
               <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                <h2 className="text-3xl font-bold text-brand-brown mb-6">🗺️ Regionale Preisunterschiede in Deutschland</h2>
+                <h2 className="text-h2 font-bold text-brand-brown mb-6">🗺️ Regionale Preisunterschiede in Deutschland</h2>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {REGIONAL_PRICING.map((region, index) => (
@@ -470,7 +470,7 @@ const AKUKostenNutzen: NextPage = () => {
 
               {/* Break-Even-Analyse */}
               <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                <h2 className="text-3xl font-bold text-brand-brown mb-6">⚖️ Break-Even-Analyse: Ab wann lohnt sich die AKU?</h2>
+                <h2 className="text-h2 font-bold text-brand-brown mb-6">⚖️ Break-Even-Analyse: Ab wann lohnt sich die AKU?</h2>
 
                 <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 mb-6">
                   <h3 className="text-xl font-bold text-gray-800 mb-4">Wissenschaftliche Basis der Berechnung</h3>
@@ -654,7 +654,7 @@ const AKUKostenNutzen: NextPage = () => {
 
           {/* FAQ Section */}
           <section className="mt-12 bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-            <h2 className="text-3xl font-bold text-brand-brown mb-8">❓ Häufige Fragen zur AKU Kosten-Nutzen-Analyse</h2>
+            <h2 className="text-h2 font-bold text-brand-brown mb-8">❓ Häufige Fragen zur AKU Kosten-Nutzen-Analyse</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">

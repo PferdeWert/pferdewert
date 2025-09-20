@@ -203,7 +203,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         <section className="bg-gradient-to-r from-brown-800 to-brown-600 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-h1 font-bold mb-6">
                 Pferd kaufen in Niedersachsen: Der ultimative Guide 2025
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-brown-100">
@@ -245,7 +245,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Marktüberblick Niedersachsen */}
         <section id="marktueberblick" className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Niedersachsens Pferdemarkt: Deutschlands Herz der Pferdezucht</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Niedersachsens Pferdemarkt: Deutschlands Herz der Pferdezucht</h2>
 
             <div className="grid lg:grid-cols-3 gap-8 mb-12">
               <div className="lg:col-span-2">
@@ -311,7 +311,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Preistabelle */}
         <section id="preistabelle" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Aktuelle Pferdepreise in Niedersachsen 2025</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Aktuelle Pferdepreise in Niedersachsen 2025</h2>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
               <p className="text-blue-800 font-medium">
@@ -406,7 +406,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Zuchtgebiete */}
         <section id="zuchtgebiete" className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Die wichtigsten Zuchtgebiete Niedersachsens</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Die wichtigsten Zuchtgebiete Niedersachsens</h2>
 
             <div className="grid lg:grid-cols-2 gap-8">
               <div className="space-y-6">
@@ -484,7 +484,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Seriöse Händler */}
         <section id="haendler" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Seriöse Pferdehändler in Niedersachsen finden</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Seriöse Pferdehändler in Niedersachsen finden</h2>
 
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-8">
@@ -584,7 +584,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Auktionen */}
         <section id="auktionen" className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Pferdeauktionen & Verkaufsmärkte in Niedersachsen</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Pferdeauktionen & Verkaufsmärkte in Niedersachsen</h2>
 
             <div className="grid lg:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -690,7 +690,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Kaufprozess */}
         <section id="kaufprozess" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Der Pferdekauf in Niedersachsen: Schritt für Schritt</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Der Pferdekauf in Niedersachsen: Schritt für Schritt</h2>
 
             <div className="grid lg:grid-cols-12 gap-8">
               <div className="lg:col-span-8">
@@ -844,7 +844,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Transport */}
         <section id="transport" className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">Transport & Logistik in Niedersachsen</h2>
+            <h2 className="text-h2 font-bold mb-8 text-gray-900">Transport & Logistik in Niedersachsen</h2>
 
             <div className="grid lg:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -1063,7 +1063,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         {/* Call-to-Action */}
         <section className="py-16 bg-brown-800 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Bereit für Ihren Pferdekauf in Niedersachsen?</h2>
+            <h2 className="text-h2 font-bold mb-4">Bereit für Ihren Pferdekauf in Niedersachsen?</h2>
             <p className="text-xl mb-8 text-brown-100">
               Nutzen Sie unsere AI-gestützte Bewertung für eine fundierte Kaufentscheidung
             </p>

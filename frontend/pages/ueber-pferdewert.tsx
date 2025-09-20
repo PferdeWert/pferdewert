@@ -168,7 +168,7 @@ export default function UeberUns() {
                     <Heart className="w-4 h-4 mr-2" />
                     #1 Online Pferdebewertung
                   </div>
-                  <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  <h1 className="text-h1 font-bold text-gray-900 leading-tight">
                     Über uns
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
@@ -204,7 +204,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-white section-fade-in" id="wer-wir-sind">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8">Wer wir sind</h2>
+              <h2 className="text-h2 font-bold text-gray-900 mb-8">Wer wir sind</h2>
 
               {/* Unsere Familie */}
               <div className="mb-12">
@@ -281,7 +281,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-gray-50 section-fade-in" id="entstehung">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8">Wie PferdeWert entstand</h2>
+              <h2 className="text-h2 font-bold text-gray-900 mb-8">Wie PferdeWert entstand</h2>
 
               {/* Die Entstehungsgeschichte */}
               <div className="space-y-8 mb-12">
@@ -356,7 +356,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-white section-fade-in" id="mission">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8">Unsere Mission als Pferdebewertungs-Experten</h2>
+              <h2 className="text-h2 font-bold text-gray-900 mb-8">Unsere Mission als Pferdebewertungs-Experten</h2>
 
               {/* Hauptmission */}
               <div className="space-y-8 mb-12">
@@ -441,7 +441,7 @@ export default function UeberUns() {
 <section className="py-12 lg:py-20 bg-gray-50 section-fade-in" id="werte">
   <div className="px-4 lg:px-8 xl:px-12">
     <div className="max-w-6xl mx-auto">
-      <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 text-center mb-6">Was uns wichtig ist</h2>
+      <h2 className="text-h2 font-bold text-gray-900 text-center mb-6">Was uns wichtig ist</h2>
       <p className="text-center max-w-2xl mx-auto text-gray-700 mb-8">
         Unsere Werte leiten uns bei jedem Schritt – von der Entwicklung unseres KI-Pferdebewertungsmodells bis zur fairen Preisgestaltung bei PferdeWert.
       </p>
@@ -525,7 +525,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-white section-fade-in" id="testimonials">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 text-center mb-4">
                 Das sagen unsere Kunden über PferdeWert.de
               </h2>
               <p className="text-center max-w-2xl mx-auto text-gray-700 mb-12">
@@ -584,7 +584,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 section-fade-in" id="cta">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-h2 font-bold text-gray-900 mb-6">
                 Bereit für deine professionelle Pferdebewertung?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
@@ -626,7 +626,7 @@ export default function UeberUns() {
         <section className="py-12 lg:py-20 bg-gray-50 section-fade-in" id="faq">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 text-center mb-4">
                 Häufig gestellte Fragen zu PferdeWert.de
               </h2>
               <p className="text-center max-w-2xl mx-auto text-gray-700 mb-12">

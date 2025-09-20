@@ -1428,7 +1428,7 @@ export default function PferdVerkaufen() {
         {/* Final Call-to-Action */}
         <section className="py-20 bg-gradient-to-r from-brand-brown to-amber-700 text-white">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-h2 font-bold mb-6">
               Starte jetzt deine erfolgreiche Pferdeverkauf in Bayern & NRW
             </h2>
             <p className="text-xl mb-8 opacity-90">

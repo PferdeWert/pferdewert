@@ -275,9 +275,9 @@ export default function PferdewertBerechnen() {
                 </div>
               </div>
 
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-h1 font-bold text-gray-900 mb-6">
                 Pferdewert berechnen
-                <span className="block text-amber-600 text-3xl lg:text-5xl mt-2">
+                <span className="block text-amber-600 text-h2 mt-2">
                   Kostenloser KI-Kalkulator
                 </span>
               </h1>
@@ -627,7 +627,7 @@ export default function PferdewertBerechnen() {
         <section className="py-16 bg-amber-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 mb-4">
                 Unsere Bewertungsmethodik
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -699,7 +699,7 @@ export default function PferdewertBerechnen() {
         {/* FAQ Section */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            <h2 className="text-h2 font-bold text-gray-900 text-center mb-12">
               Häufig gestellte Fragen zur Pferdewert-Berechnung
             </h2>
 
@@ -770,7 +770,7 @@ export default function PferdewertBerechnen() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-amber-600 to-amber-700">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-h2 font-bold text-white mb-4">
               Bereit für den Verkauf Ihres Pferdes?
             </h2>
             <p className="text-xl text-amber-100 mb-8">

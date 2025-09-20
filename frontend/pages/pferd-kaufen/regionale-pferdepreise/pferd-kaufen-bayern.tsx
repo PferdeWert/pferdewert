@@ -248,7 +248,7 @@ export default function PferdKaufenBayern() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h1 className="text-4xl font-bold text-gray-800 mb-4">
+                <h1 className="text-h1 font-bold text-gray-800 mb-4">
                   Pferd kaufen Bayern
                   <span className="block text-2xl text-green-600 mt-2">
                     Ihr Guide für den bayerischen Pferdemarkt
@@ -293,7 +293,7 @@ export default function PferdKaufenBayern() {
 
           {/* Regionale Preisübersicht */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Pferdepreise Bayern nach Rassen & Disziplinen
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -413,7 +413,7 @@ export default function PferdKaufenBayern() {
 
           {/* Bayerische Zuchtgebiete */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Bayerische Zuchtgebiete & ihre Spezialitäten
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -442,7 +442,7 @@ export default function PferdKaufenBayern() {
 
           {/* Verkaufsmärkte & Veranstaltungen */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Wichtige Verkaufsmärkte & Veranstaltungen in Bayern
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -464,7 +464,7 @@ export default function PferdKaufenBayern() {
 
           {/* Regionale Besonderheiten */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Besonderheiten des bayerischen Pferdemarkts
             </h2>
             <div className="bg-white rounded-lg shadow-md p-8">
@@ -517,7 +517,7 @@ export default function PferdKaufenBayern() {
 
           {/* Transport & Logistik */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Transport & Logistik in Bayern
             </h2>
             <div className="bg-white rounded-lg shadow-md p-8">
@@ -555,7 +555,7 @@ export default function PferdKaufenBayern() {
 
           {/* Rechtliche Aspekte */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Rechtliche Aspekte beim Pferdekauf in Bayern
             </h2>
             <div className="bg-white rounded-lg shadow-md p-8">
@@ -592,7 +592,7 @@ export default function PferdKaufenBayern() {
 
           {/* FAQ Bayern */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-h2 font-bold text-gray-800 mb-6">
               Häufige Fragen zum Pferdekauf in Bayern
             </h2>
             <div className="space-y-4">
