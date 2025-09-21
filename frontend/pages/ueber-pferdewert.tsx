@@ -333,7 +333,7 @@ export default function UeberUns() {
           {
             icon: Award,
             title: "Fachliche Kompetenz",
-            description: "Unser KI-Modell analysiert über 50 Preisfaktoren – für eine fundierte, wissenschaftlich belegte Bewertung deines Pferdes durch Experten entwickelt."
+            description: "Wir verbinden fundiertes Branchenwissen mit datengetriebener Analyse, damit jede Bewertung nachvollziehbar und praxisnah bleibt."
           }
         ].map((item, index) => (
           <div key={index} className="bg-white rounded-2xl border border-brand-gold/20 hover:shadow-2xl hover:translate-y-1 transition-transform shadow-sm p-6">

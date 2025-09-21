@@ -77,13 +77,9 @@ export default function HeaderUnified() {
     },
     {
       label: "Ratgeber",
-      href: "/pferde-ratgeber",
+      href: "#",
       dropdown: [
-        { label: "AKU verstehen", href: "/pferde-ratgeber/aku-verstehen" },
-        { label: "AKU Befunde interpretieren", href: "/pferde-ratgeber/aku-verstehen/aku-befunde-interpretieren" },
-        { label: "Pferdebewertung Grundlagen", href: "/pferde-ratgeber/pferdebewertung-grundlagen" },
-        { label: "Markttrends", href: "/pferde-ratgeber/markttrends" },
-        { label: "Krisensituationen", href: "/pferde-ratgeber/krisensituationen" },
+        { label: "AKU Ratgeber", href: "/aku-pferd" },
       ]
     },
     {

@@ -2191,7 +2191,7 @@ const AKUPferdKosten: NextPage = () => {
                         </p>
                         <button
                           onClick={() => {
-                            window.gtag('event', 'click', {
+                            window.gtag?.('event', 'click', {
                               event_category: 'CTA',
                               event_label: 'AKU Class Guide - Decision Matrix CTA',
                               value: 1
@@ -2512,7 +2512,7 @@ const AKUPferdKosten: NextPage = () => {
                 </p>
                 <button
                   onClick={() => {
-                    window.gtag('event', 'click', {
+                    window.gtag?.('event', 'click', {
                       event_category: 'CTA',
                       event_label: 'Who Pays AKU Section - Cost Clarity CTA',
                       value: 1
@@ -2647,7 +2647,7 @@ const AKUPferdKosten: NextPage = () => {
                   <div className="pt-4 border-t border-gray-200">
                     <button
                       onClick={() => {
-                        window.gtag('event', 'click', {
+                        window.gtag?.('event', 'click', {
                           event_category: 'CTA',
                           event_label: `Horse Type Section - ${horseType.title} CTA`,
                           value: 1
@@ -2722,7 +2722,7 @@ const AKUPferdKosten: NextPage = () => {
               <div className="text-center">
                 <button
                   onClick={() => {
-                    window.gtag('event', 'click', {
+                    window.gtag?.('event', 'click', {
                       event_category: 'CTA',
                       event_label: 'Cost Ratio Section - Smart Alternative CTA',
                       value: 1
@@ -2924,7 +2924,7 @@ const AKUPferdKosten: NextPage = () => {
 
                 <button
                   onClick={() => {
-                    window.gtag('event', 'click', {
+                    window.gtag?.('event', 'click', {
                       event_category: 'CTA',
                       event_label: 'Cost Saving Section - Best Alternative CTA',
                       value: 1

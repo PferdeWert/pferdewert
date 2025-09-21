@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { NextPage } from 'next';
 import { useState, useEffect, useCallback } from 'react';
 import { info } from '@/lib/log';
@@ -369,12 +370,12 @@ const DressurpferdKaufen: NextPage = () => {
                 >
                   Preis-Rechner starten
                 </button>
-                <a
+                <Link
                   href="/was-ist-mein-pferd-wert"
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
                 >
                   Kostenlose Bewertung
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -392,7 +393,7 @@ const DressurpferdKaufen: NextPage = () => {
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {dressurLevels.map((level, index) => (
+                {dressurLevels.map((level) => (
                   <div
                     key={level.level}
                     className={`bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-lg border-2 transition-all duration-300 cursor-pointer ${
@@ -483,12 +484,12 @@ const DressurpferdKaufen: NextPage = () => {
                         Für {selectedLevel} in Ihrer Budget-Range finden Sie passende Pferde.
                         Nutzen Sie unsere KI-Bewertung für eine präzise Marktanalyse und faire Preiseinschätzung.
                       </p>
-                      <a
+                      <Link
                         href="/was-ist-mein-pferd-wert"
                         className="inline-block mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                       >
                         Jetzt Pferd bewerten lassen
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -509,7 +510,7 @@ const DressurpferdKaufen: NextPage = () => {
               </p>
 
               <div className="grid md:grid-cols-2 gap-8">
-                {bewertungskriterien.map((kriterium, index) => (
+                {bewertungskriterien.map((kriterium) => (
                   <div key={kriterium.kategorie} className="bg-white p-6 rounded-xl shadow-lg">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-xl font-bold text-gray-800">{kriterium.kategorie}</h3>
@@ -547,7 +548,7 @@ const DressurpferdKaufen: NextPage = () => {
               </p>
 
               <div className="grid lg:grid-cols-3 gap-8">
-                {regionaleMaerkte.map((markt, index) => (
+                {regionaleMaerkte.map((markt) => (
                   <div key={markt.bundesland} className="bg-gradient-to-br from-amber-50 to-white p-6 rounded-xl shadow-lg border border-amber-200">
                     <h3 className="text-xl font-bold text-gray-800 mb-2">{markt.bundesland}</h3>
                     <div className="bg-amber-100 text-amber-800 px-3 py-2 rounded-lg text-center font-bold mb-4">
@@ -666,18 +667,18 @@ const DressurpferdKaufen: NextPage = () => {
                 Nutzen Sie unsere KI-gestützte Analyse für eine präzise Marktbewertung Ihres Wunsch-Dressurpferdes
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/was-ist-mein-pferd-wert"
                   className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors shadow-lg"
                 >
                   Kostenlose Bewertung starten
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/beispiel-analyse"
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
                 >
                   Beispiel-Analyse ansehen
-                </a>
+                </Link>
               </div>
             </div>
           </div>

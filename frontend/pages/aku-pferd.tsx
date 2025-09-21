@@ -149,7 +149,7 @@ const AKUPferd: NextPage = () => {
     <>
       <Head>
         {/* Basic Meta Tags */}
-        <title>AKU Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber</title>
+        <title>AKU beim Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber</title>
         <meta name="description" content="AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung." />
         <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku kosten, aku klassen, aku befunde, tierarzt aku, pferdekauf aku, aku ratgeber, aku guide, pferdewert aku" />
         <meta name="author" content="PferdeWert.de" />
@@ -209,11 +209,11 @@ const AKUPferd: NextPage = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                AKU Pferd: Der komplette Ratgeber zur Ankaufsuntersuchung
+                Die Ankaufsuntersuchung (AKU) beim Pferdekauf
               </h1>
               <p className="text-xl mb-8 text-amber-100 leading-relaxed">
-                Alles was Sie über die Ankaufsuntersuchung beim Pferdekauf wissen müssen:
-                <strong> Kosten, Ablauf, AKU-Klassen und Befunde</strong> verständlich erklärt.
+                Ihr kompletter Ratgeber: Alles über
+                <strong> Kosten, Ablauf, AKU-Klassen und Befunde</strong> der Ankaufsuntersuchung beim Pferd verständlich erklärt.
               </p>
               <div className="flex flex-wrap justify-center gap-6 text-sm">
                 <div className="flex items-center space-x-2">
@@ -265,20 +265,45 @@ const AKUPferd: NextPage = () => {
         </section>
 
         <div className="container mx-auto px-4 py-12">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
-
-              {/* AKU Grundlagen */}
-              {activeSection === 'basics' && (
+          {/* Full Width Main Content */}
+          <div className="max-w-5xl mx-auto">
+                {/* AKU Grundlagen */}
+                {activeSection === 'basics' && (
                 <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
                   <h2 className="text-3xl font-bold text-brand-brown mb-6">Was ist eine AKU beim Pferd?</h2>
 
                   <div className="prose max-w-none">
-                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                       Die <strong>Ankaufsuntersuchung (AKU)</strong> ist eine tierärztliche Untersuchung vor dem Pferdekauf.
                       Sie dient dazu, den Gesundheitszustand des Pferdes objektiv zu bewerten und potenzielle Risiken aufzudecken.
                     </p>
+
+                    {/* Quick Facts - Full Width */}
+                    <div className="bg-amber-50 rounded-lg p-6 border border-amber-200 mb-8">
+                      <h3 className="font-bold text-brand-brown mb-4 text-xl">📋 AKU Quick Facts</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        <div className="text-center">
+                          <div className="font-medium text-brand-brown">Kosten Klasse I</div>
+                          <div className="text-2xl font-bold text-gray-700">150-300€</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-medium text-brand-brown">Kosten Klasse II</div>
+                          <div className="text-2xl font-bold text-gray-700">400-800€</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-medium text-brand-brown">Dauer</div>
+                          <div className="text-2xl font-bold text-gray-700">1-4 Std</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-medium text-brand-brown">Gültigkeit</div>
+                          <div className="text-2xl font-bold text-gray-700">2-4 Wochen</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-medium text-brand-brown">Röntgenbilder</div>
+                          <div className="text-2xl font-bold text-gray-700">2-20+</div>
+                        </div>
+                      </div>
+                    </div>
 
                     <h3 className="text-2xl font-bold text-brand-brown mb-4">Warum ist eine AKU wichtig?</h3>
 
@@ -348,7 +373,7 @@ const AKUPferd: NextPage = () => {
                   </p>
 
                   <div className="space-y-8">
-                    {akuClasses.map((akuClass, index) => (
+                    {akuClasses.map((akuClass) => (
                       <div key={akuClass.class} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
                           <div>
@@ -386,7 +411,7 @@ const AKUPferd: NextPage = () => {
                         <ul className="space-y-1 text-sm text-amber-700">
                           <li>• Kaufpreis unter 5.000€</li>
                           <li>• Freizeitpferd</li>
-                          <li>• Älteres Pferd (>15 Jahre)</li>
+                          <li>• Älteres Pferd (&gt;15 Jahre)</li>
                           <li>• Begrenztem Budget</li>
                         </ul>
                       </div>
@@ -832,96 +857,33 @@ const AKUPferd: NextPage = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Call-to-Action Section */}
+                  <div className="bg-gradient-to-r from-brand-brown/5 to-amber-50 rounded-lg p-8 border border-brand-brown/20 mt-8">
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold text-brand-brown mb-4">🎯 Pferdewert nach AKU ermitteln</h3>
+                      <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+                        Sie haben bereits eine AKU durchführen lassen? Nutzen Sie unsere KI-gestützte Bewertung,
+                        um den fairen Marktwert Ihres Pferdes basierend auf den AKU-Ergebnissen zu ermitteln.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link
+                          href="/pferde-preis-berechnen"
+                          className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg"
+                        >
+                          Jetzt Pferdewert berechnen
+                        </Link>
+                        <Link
+                          href="/pferde-ratgeber"
+                          className="border border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg"
+                        >
+                          Mehr Pferde-Ratgeber
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </section>
               )}
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Quick Facts */}
-              <div className="bg-white rounded-lg shadow-lg p-6 border border-amber-100">
-                <h3 className="font-bold text-brand-brown mb-4">📋 AKU Quick Facts</h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Kosten Klasse I:</span>
-                    <span className="font-medium">150-300€</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Kosten Klasse II:</span>
-                    <span className="font-medium">400-800€</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Dauer:</span>
-                    <span className="font-medium">1-4 Stunden</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Gültigkeit:</span>
-                    <span className="font-medium">2-4 Wochen</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Röntgenaufnahmen:</span>
-                    <span className="font-medium">2-20+ Bilder</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Box */}
-              <div className="bg-brand-brown/5 rounded-lg p-6 border border-brand-brown/20">
-                <h3 className="font-bold text-brand-brown mb-3">🎯 Pferd bewerten lassen</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Sie haben bereits eine AKU und möchten den fairen Marktwert Ihres Pferdes ermitteln?
-                </p>
-                <Link
-                  href="/pferde-preis-berechnen"
-                  className="block w-full bg-brand-brown hover:bg-brand-brownDark text-white text-center py-3 rounded-lg transition-colors font-medium"
-                >
-                  Jetzt Pferdewert berechnen
-                </Link>
-              </div>
-
-              {/* Expert Tip */}
-              <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
-                <h3 className="font-bold text-blue-800 mb-3">💡 Expertenrat</h3>
-                <p className="text-sm text-blue-700">
-                  "Eine AKU ist eine Investition in die Sicherheit. Die Kosten amortisieren sich schnell,
-                  wenn dadurch teure Folgekosten vermieden werden."
-                </p>
-                <div className="mt-3 text-xs text-blue-600">
-                  - Dr. Veterinärwesen, Fachtierarzt für Pferde
-                </div>
-              </div>
-
-              {/* Related Articles */}
-              <div className="bg-white rounded-lg shadow-lg p-6 border border-amber-100">
-                <h3 className="font-bold text-brand-brown mb-4">📚 Verwandte Artikel</h3>
-                <div className="space-y-3">
-                  <Link
-                    href="/aku-pferd-kosten"
-                    className="block text-sm text-brand-brown hover:text-brand-brownDark hover:underline"
-                  >
-                    → AKU Pferd Kosten 2025
-                  </Link>
-                  <Link
-                    href="/aku-pferd-ablauf"
-                    className="block text-sm text-brand-brown hover:text-brand-brownDark hover:underline"
-                  >
-                    → AKU Pferd Ablauf
-                  </Link>
-                  <Link
-                    href="/aku-pferd-klassen"
-                    className="block text-sm text-brand-brown hover:text-brand-brownDark hover:underline"
-                  >
-                    → AKU Pferd Klassen erklärt
-                  </Link>
-                  <Link
-                    href="/pferde-ratgeber/aku-verstehen"
-                    className="block text-sm text-brand-brown hover:text-brand-brownDark hover:underline"
-                  >
-                    → Detaillierter AKU Guide
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* FAQ Section */}
@@ -935,6 +897,64 @@ const AKUPferd: NextPage = () => {
                   <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* Related Articles Section */}
+          <section className="mt-12 bg-white rounded-lg shadow-lg p-8 border border-amber-100">
+            <h2 className="text-3xl font-bold text-brand-brown mb-8 text-center">📚 Weiterführende Artikel</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link
+                href="/aku-pferd-kosten"
+                className="group bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-lg border border-amber-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <div className="text-2xl mb-3">💰</div>
+                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
+                  AKU Pferd Kosten 2025
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Aktuelle Preise und Kostenübersicht für Ankaufsuntersuchungen
+                </p>
+              </Link>
+
+              <Link
+                href="/aku-pferd-ablauf"
+                className="group bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <div className="text-2xl mb-3">🔍</div>
+                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
+                  AKU Pferd Ablauf
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Schritt-für-Schritt Guide durch die Ankaufsuntersuchung
+                </p>
+              </Link>
+
+              <Link
+                href="/aku-pferd-klassen"
+                className="group bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <div className="text-2xl mb-3">📊</div>
+                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
+                  AKU Pferd Klassen
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Unterschiede zwischen Klasse I und II Untersuchungen
+                </p>
+              </Link>
+
+              <Link
+                href="/pferde-ratgeber/aku-verstehen"
+                className="group bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg border border-purple-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <div className="text-2xl mb-3">🎓</div>
+                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
+                  AKU Detailguide
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Umfassender Ratgeber für Pferdebesitzer
+                </p>
+              </Link>
             </div>
           </section>
 

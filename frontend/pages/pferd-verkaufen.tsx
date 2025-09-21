@@ -1,5 +1,5 @@
 // pages/pferd-verkaufen.tsx
-import { useState, Fragment } from 'react';
+import { Fragment } from 'react';
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { NextPage } from 'next';
 import { useState, useEffect, useCallback } from 'react';
 import { info } from '@/lib/log';
@@ -381,12 +382,12 @@ const SpringpferdKaufen: NextPage = () => {
                 >
                   Springpferd-Filter starten
                 </button>
-                <a
+                <Link
                   href="/was-ist-mein-pferd-wert"
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors"
                 >
                   Kostenlose Bewertung
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -404,7 +405,7 @@ const SpringpferdKaufen: NextPage = () => {
               </p>
 
               <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {springKlassen.map((klasse, index) => (
+                {springKlassen.map((klasse) => (
                   <div
                     key={klasse.hoehe}
                     className={`bg-gradient-to-br from-green-50 to-white p-6 rounded-xl shadow-lg border-2 transition-all duration-300 cursor-pointer ${
@@ -511,12 +512,12 @@ const SpringpferdKaufen: NextPage = () => {
                         Für {selectedKlasse} in Ihrer Budget-Range finden Sie passende Springpferde.
                         Nutzen Sie unsere KI-Bewertung für eine präzise Marktanalyse und faire Preiseinschätzung.
                       </p>
-                      <a
+                      <Link
                         href="/was-ist-mein-pferd-wert"
                         className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
                       >
                         Springpferd bewerten lassen
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -537,7 +538,7 @@ const SpringpferdKaufen: NextPage = () => {
               </p>
 
               <div className="grid md:grid-cols-2 gap-8">
-                {bewertungskriterien.map((kriterium, index) => (
+                {bewertungskriterien.map((kriterium) => (
                   <div key={kriterium.kategorie} className="bg-white p-6 rounded-xl shadow-lg">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-xl font-bold text-gray-800">{kriterium.kategorie}</h3>
@@ -588,7 +589,7 @@ const SpringpferdKaufen: NextPage = () => {
               </p>
 
               <div className="grid lg:grid-cols-2 gap-8">
-                {zuchtrichtungen.map((zucht, index) => (
+                {zuchtrichtungen.map((zucht) => (
                   <div key={zucht.richtung} className="bg-gradient-to-br from-amber-50 to-white p-6 rounded-xl shadow-lg border border-amber-200">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-xl font-bold text-gray-800">{zucht.richtung}</h3>
@@ -708,18 +709,18 @@ const SpringpferdKaufen: NextPage = () => {
                 Nutzen Sie unsere KI-gestützte Analyse für eine präzise Marktbewertung Ihres Wunsch-Springpferdes
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/was-ist-mein-pferd-wert"
                   className="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors shadow-lg"
                 >
                   Kostenlose Bewertung starten
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/beispiel-analyse"
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors"
                 >
                   Beispiel-Analyse ansehen
-                </a>
+                </Link>
               </div>
             </div>
           </div>

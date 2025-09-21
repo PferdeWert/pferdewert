@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowRight, Shield, Star, MapPin, TrendingUp, Users, Award, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 // Regionale Preisdaten für Hessen (beispielhafte Struktur)
 const hessenPferdepreise = {

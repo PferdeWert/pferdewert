@@ -578,7 +578,7 @@ const AkuPferdKlassen: NextPage = () => {
               <div className="space-y-6">
                 <div className="bg-gray-50 rounded-lg p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Was bedeutet AKU-Klasse 1 beim Pferd?</h3>
-                  <p className="text-gray-700">AKU-Klasse 1 bedeutet 'ohne Befund' - das Pferd ist gesund und der Kauf wird uneingeschränkt empfohlen. Diese Klasse erhalten etwa 15% aller untersuchten Pferde.</p>
+                  <p className="text-gray-700">AKU-Klasse 1 bedeutet &lsquo;ohne Befund&rsquo; - das Pferd ist gesund und der Kauf wird uneingeschränkt empfohlen. Diese Klasse erhalten etwa 15% aller untersuchten Pferde.</p>
                 </div>
 
                 <div className="bg-gray-50 rounded-lg p-6">

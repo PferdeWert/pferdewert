@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Shield, Star, MapPin, TrendingUp, Users, Award, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 // Regionale Preisdaten für Schleswig-Holstein (beispielhafte Struktur)
 const schleswigHolsteinPferdepreise = {
@@ -98,7 +97,6 @@ const faqSchleswigHolstein = [
 ];
 
 export default function PferdKaufenSchleswigHolstein() {
-  const [isLoading, setIsLoading] = useState(false);
 
   const breadcrumbItems = [
     { label: 'Home', href: '/' },

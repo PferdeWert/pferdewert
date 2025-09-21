@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Shield, Star, MapPin, TrendingUp, Users, Award, CheckCircle } from 'lucide-react';
 
 // Regionale Preisdaten für Bayern (beispielhafte Struktur)
 const bayernPferdepreise = {

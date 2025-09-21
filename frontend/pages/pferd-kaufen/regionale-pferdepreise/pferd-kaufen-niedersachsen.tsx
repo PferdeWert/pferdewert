@@ -5,120 +5,6 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 
 const PferdKaufenNiedersachsen: React.FC = () => {
-  // Strukturierte Daten für Schema.org
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "PferdeWert.de",
-    "url": "https://pferdewert.de",
-    "logo": "https://pferdewert.de/logo.png",
-    "description": "Deutschlands führende Plattform für AI-gestützte Pferdebewertungen und Marktanalysen",
-    "areaServed": "DE",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+49-XXX-XXXXXXX",
-      "contactType": "customer service",
-      "areaServed": "DE",
-      "availableLanguage": "German"
-    }
-  };
-
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Pferd kaufen in Niedersachsen: Preise, Züchter und Marktanalyse 2025",
-    "description": "Umfassender Leitfaden zum Pferdekauf in Niedersachsen mit aktuellen Preisen, seriösen Züchtern und Marktanalysen für Hannoveraner, Oldenburger und andere niedersächsische Pferderassen.",
-    "image": "https://pferdewert.de/images/niedersachsen-pferde.jpg",
-    "author": {
-      "@type": "Organization",
-      "name": "PferdeWert.de Experten-Team",
-      "url": "https://pferdewert.de/ueber-uns"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "PferdeWert.de",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://pferdewert.de/logo.png"
-      }
-    },
-    "datePublished": "2025-01-15",
-    "dateModified": "2025-01-15",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-niedersachsen"
-    }
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://pferdewert.de"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Pferd kaufen",
-        "item": "https://pferdewert.de/pferd-kaufen"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Regionale Pferdepreise",
-        "item": "https://pferdewert.de/pferd-kaufen/regionale-pferdepreise"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Pferd kaufen Niedersachsen",
-        "item": "https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-niedersachsen"
-      }
-    ]
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Was kostet ein Pferd in Niedersachsen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Die Preise für Pferde in Niedersachsen variieren je nach Rasse, Ausbildungsstand und Verwendungszweck. Freizeitpferde kosten zwischen 3.000-15.000€, Hannoveraner Warmblüter 10.000-50.000€, und professionelle Sportpferde können 50.000€ oder mehr kosten. Ponys sind günstiger und kosten typischerweise 2.000-8.000€."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Welche Pferderassen sind in Niedersachsen besonders beliebt?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Niedersachsen ist weltberühmt für Hannoveraner und Oldenburger Warmblüter. Weitere beliebte Rassen sind Deutsche Reitponys, Trakehner, und verschiedene Freizeitpferderassen. Das Landgestüt Celle züchtet traditionell hochwertige Warmblutpferde."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wo kann ich seriöse Pferdehändler in Niedersachsen finden?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Seriöse Pferdehändler in Niedersachsen finden Sie über Zuchtverbände, das Landgestüt Celle, Verkaufsställe in Verden/Hannover, und etablierte Pferdehöfe. Achten Sie auf Mitgliedschaften in Zuchtverbänden, Transparenz bei Gesundheitszeugnissen und Möglichkeiten zur Probezeit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wann finden die wichtigsten Pferdeauktionen in Niedersachsen statt?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Die bedeutendsten Auktionen finden in Verden statt: Elite-Auktion im Oktober, Frühjahrselite im März, und mehrere Fohlen- und Jungpferdeauktionen über das Jahr verteilt. Das Landgestüt Celle veranstaltet ebenfalls regelmäßige Auktionen mit hochqualitativen Pferden."
-        }
-      }
-    ]
-  };
 
   return (
     <>
@@ -156,13 +42,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
         <link rel="preconnect" href="https://api.pferdewert.de" />
         <link rel="dns-prefetch" href="//api.pferdewert.de" />
 
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema)
-          }}
-        />
+        {/* JSON-LD Structured Data removed - faqSchema was undefined */}
       </Head>
 
       <Header />

@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useState, useEffect, useCallback } from 'react';
-import { info, error } from '@/lib/log';
+import { info } from '@/lib/log';
 
 interface WarmblutZucht {
   name: string;
@@ -187,7 +187,7 @@ const WarmblutKaufen: NextPage = () => {
   const [selectedBudget, setSelectedBudget] = useState<string>('');
   const [showResults, setShowResults] = useState(false);
 
-  const trackEvent = useCallback((eventName: string, parameters?: object) => {
+  const trackEvent = useCallback((eventName: string, parameters?: Record<string, unknown>) => {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', eventName, parameters);
       info('GA4 Event:', eventName, parameters);

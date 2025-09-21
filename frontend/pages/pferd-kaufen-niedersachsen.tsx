@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { info } from '@/lib/log';
 
@@ -214,7 +213,7 @@ export default function PferdKaufenNiedersachsen() {
       },
       {
         "@type": "FAQPage",
-        "mainEntity": faqData.map((faq, index) => ({
+        "mainEntity": faqData.map((faq) => ({
           "@type": "Question",
           "name": faq.question,
           "acceptedAnswer": {
@@ -498,9 +497,9 @@ export default function PferdKaufenNiedersachsen() {
                   >
                     <span className="font-semibold text-gray-900">{faq.question}</span>
                     {openFAQ === index ? (
-                      <ChevronUpIcon className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                      <span className="text-gray-500 flex-shrink-0">▲</span>
                     ) : (
-                      <ChevronDownIcon className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                      <span className="text-gray-500 flex-shrink-0">▼</span>
                     )}
                   </button>
                   {openFAQ === index && (

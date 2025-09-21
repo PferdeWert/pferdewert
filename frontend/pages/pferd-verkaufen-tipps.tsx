@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, TrendingUp, Calculator, Euro, Star, AlertTriangle, FileText, Camera, Users, Target, Lightbulb, Clock, ArrowRight } from "lucide-react";
-import { PRICING_TEXTS, PRICING_FORMATTED } from "../lib/pricing";
+import { CheckCircle, TrendingUp, Calculator, Star, AlertTriangle, FileText, Camera, Users, Target, Lightbulb, Clock, ArrowRight } from "lucide-react";
 
 export default function PferdVerkaufenTipps() {
   const profiTipps = [

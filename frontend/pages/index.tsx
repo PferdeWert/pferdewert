@@ -316,7 +316,7 @@ export default function PferdeWertHomepage() {
                     <span className="text-brand-brown">Pferdepreis</span> berechnen: Wie viel ist mein Pferd wert?
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Du fragst dich "Wie viel ist mein Pferd wert?" Unsere KI-Pferdebewertung gibt dir eine
+                    Du fragst dich &ldquo;Wie viel ist mein Pferd wert?&rdquo; Unsere KI-Pferdebewertung gibt dir eine
                     präzise Antwort in nur 2 Minuten. Entwickelt von Reitern für Reiter – transparent und vertrauenswürdig.
                   </p>
                 </div>

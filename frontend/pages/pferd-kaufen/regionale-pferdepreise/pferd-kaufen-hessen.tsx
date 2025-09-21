@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '@/components/Layout';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import RegionalHorseCard from '@/components/RegionalHorseCard';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { info } from '@/lib/log';
 
 // Hessen-spezifische Pferdepreise nach Rasse und Disziplin
@@ -138,51 +136,7 @@ const faqHessen = [
 ];
 
 // SEO Configuration - Hessen Page
-const seoConfig = {
-  title: 'Pferd kaufen Hessen - Marktpreise & Bewertung 2025 | PferdeWert',
-  description: 'Pferdekauf in Hessen: Aktuelle Marktpreise, Zuchtgebiete und Kaufberatung. Professionelle Bewertung für das Herz Deutschlands - von Frankfurt bis Kassel.',
-  keywords: 'pferd kaufen hessen, pferdekauf hessen, pferdepreise hessen, pferdemarkt hessen, hannoveraner hessen, reitpferd kaufen hessen, pferdebewertung hessen, gestüt hessen, pferdehandel hessen, warmblüter hessen',
-  canonicalUrl: 'https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-hessen',
-  ogImage: 'https://pferdewert.de/images/pferd-kaufen-hessen.webp'
-};
 
-// Structured Data für Hessen
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Pferd kaufen in Hessen - Marktpreise und Kaufberatung',
-  description: seoConfig.description,
-  image: seoConfig.ogImage,
-  url: seoConfig.canonicalUrl,
-  datePublished: '2024-01-15',
-  dateModified: '2024-12-20',
-  author: {
-    '@type': 'Organization',
-    name: 'PferdeWert',
-    url: 'https://pferdewert.de'
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'PferdeWert',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://pferdewert.de/images/logo.png'
-    }
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': seoConfig.canonicalUrl
-  },
-  about: {
-    '@type': 'Place',
-    name: 'Hessen',
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 50.6520,
-      longitude: 9.1624
-    }
-  }
-};
 
 export default function PferdKaufen() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -252,14 +206,37 @@ export default function PferdKaufen() {
         {/* Breadcrumbs */}
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <Breadcrumbs
-              items={[
-                { label: 'Startseite', href: '/' },
-                { label: 'Pferd kaufen', href: '/pferd-kaufen' },
-                { label: 'Regionale Preise', href: '/pferd-kaufen/regionale-pferdepreise' },
-                { label: 'Hessen', href: '/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-hessen' }
-              ]}
-            />
+            <nav className="flex" aria-label="Breadcrumb">
+              <ol className="flex items-center space-x-4">
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-gray-500">
+                    Startseite
+                  </Link>
+                </li>
+                <li>
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mx-2">/</span>
+                    <Link href="/pferd-kaufen" className="text-gray-400 hover:text-gray-500">
+                      Pferd kaufen
+                    </Link>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mx-2">/</span>
+                    <Link href="/pferd-kaufen/regionale-pferdepreise" className="text-gray-400 hover:text-gray-500">
+                      Regionale Preise
+                    </Link>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mx-2">/</span>
+                    <span className="text-gray-900">Hessen</span>
+                  </div>
+                </li>
+              </ol>
+            </nav>
           </div>
         </div>
 
@@ -276,12 +253,12 @@ export default function PferdKaufen() {
                 von Frankfurt bis Kassel
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/pferde-preis-berechnen"
                   className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors"
                 >
                   Pferdewert berechnen
-                </a>
+                </Link>
                 <a
                   href="#preise"
                   className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
@@ -352,11 +329,27 @@ export default function PferdKaufen() {
 
             <div className="grid gap-8">
               {Object.entries(hessenPferdepreise).map(([key, breed]) => (
-                <RegionalHorseCard
-                  key={key}
-                  breed={breed}
-                  region="Hessen"
-                />
+                <div key={key} className="bg-white rounded-lg shadow-md p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {breed.name}
+                  </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {Object.entries(breed.disciplines).map(([discipline, prices]) => (
+                      <div key={discipline} className="bg-gray-50 rounded-lg p-4">
+                        <h4 className="font-semibold text-gray-900 mb-2 capitalize">
+                          {discipline}
+                        </h4>
+                        <div className="space-y-1 text-sm text-gray-600">
+                          <p>Min: {prices.min.toLocaleString('de-DE')} €</p>
+                          <p>Max: {prices.max.toLocaleString('de-DE')} €</p>
+                          <p className="font-medium text-blue-600">
+                            Ø {prices.avg.toLocaleString('de-DE')} €
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
 
@@ -364,12 +357,12 @@ export default function PferdKaufen() {
               <p className="text-gray-600 mb-6">
                 Möchten Sie den genauen Wert Ihres Pferdes erfahren?
               </p>
-              <a
+              <Link
                 href="/pferde-preis-berechnen"
                 className="btn-primary"
               >
                 Kostenlosen Pferdewert berechnen
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -491,9 +484,9 @@ export default function PferdKaufen() {
                   >
                     <span className="font-medium text-gray-900">{faq.question}</span>
                     {expandedFaq === index ? (
-                      <ChevronUpIcon className="h-5 w-5 text-gray-500" />
+                      <span className="text-gray-500">▲</span>
                     ) : (
-                      <ChevronDownIcon className="h-5 w-5 text-gray-500" />
+                      <span className="text-gray-500">▼</span>
                     )}
                   </button>
                   {expandedFaq === index && (
@@ -517,12 +510,12 @@ export default function PferdKaufen() {
               Erhalten Sie eine professionelle Einschätzung des Marktwerts Ihres Pferdes
               durch unsere KI-gestützte Bewertung.
             </p>
-            <a
+            <Link
               href="/pferde-preis-berechnen"
               className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors inline-block"
             >
               Jetzt kostenlos bewerten lassen
-            </a>
+            </Link>
           </div>
         </section>
       </div>
