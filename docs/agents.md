@@ -198,6 +198,58 @@ const HorseEvaluationForm: React.FC<HorseEvaluationFormProps> = ({
 - ✅ Horizontal scaling capabilities
 - ✅ Monitoring and observability integration
 
+### pferdewert-seo-writer
+**Purpose**: SEO content creation and optimization for PferdeWert.de
+
+**Core Capabilities**:
+- SEO-optimized content creation (1000-2500 words)
+- Keyword-focused article structuring with H1-H6 hierarchy
+- Horse industry expertise integration
+- German equestrian market knowledge
+- SERP competitor analysis and content gaps
+- Internal linking strategy for PferdeWert.de
+- FAQ and People Also Ask integration
+- Meta descriptions and title tag optimization
+
+**When to Use**:
+```bash
+# Content Outline Creation
+"Create SEO content outline for 'Pferd kaufen Bayern' with 8 H2 sections and FAQ"
+
+# Full Article Writing
+"Write comprehensive guide on horse valuation targeting 'Pferdewert berechnen' keyword"
+
+# Content Optimization
+"Optimize existing horse breed page for better SERP rankings and user engagement"
+
+# Competitor Content Analysis
+"Analyze top 5 competitors for 'Warmblut kaufen' and identify content gaps"
+```
+
+**Content Standards Agent Follows**:
+- ✅ Keyword density optimization (1-2% primary, semantic variations)
+- ✅ Structured content hierarchy (H1 > H2 > H3 logical flow)
+- ✅ Internal linking to relevant PferdeWert.de pages
+- ✅ Horse industry authenticity and expertise demonstration
+- ✅ German equestrian terminology and regional specifics
+- ✅ User intent alignment (informational, commercial, transactional)
+- ✅ SERP feature optimization (Featured Snippets, People Also Ask)
+- ✅ Readability optimization for target audience
+
+**Example Content Output**:
+```markdown
+# Pferd kaufen in Bayern: Der ultimative Ratgeber 2025
+
+## H2: Die besten Regionen in Bayern für den Pferdekauf
+### H3: München und Umgebung - Warmblut-Zentrum
+### H3: Franken - Traditionale Zucht
+
+## H2: Preise und Bewertung beim Pferdekauf
+[Internal Link: PferdeWert.de Bewertung nutzen]
+
+## FAQ: Häufige Fragen zum Pferdekauf in Bayern
+```
+
 ### pferdewert-business-analyst
 **Purpose**: SEO analytics, pricing strategy, and business intelligence
 
