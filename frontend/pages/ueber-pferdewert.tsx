@@ -159,59 +159,6 @@ export default function UeberUns() {
                   </p>
                 </div>
               </div>
-
-              {/* Unsere Expertise */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Unsere Expertise als Pferdebewertungs-Experten</h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
-                    <h4 className="text-lg font-semibold text-brand-brown mb-3">🤖 KI & Technologie</h4>
-                    <p className="text-gray-700">
-                      Erfahrung in der Entwicklung und Anwendung von KI-Modellen für Marktanalysen.
-                      Spezialisierung auf Preisvorhersagen im Pferdemarkt.
-                    </p>
-                  </div>
-                  <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
-                    <h4 className="text-lg font-semibold text-brand-brown mb-3">🐎 Pferdemarkt-Kenntnisse</h4>
-                    <p className="text-gray-700">
-                      Langjährige praktische Erfahrung als Pferdebesitzer, Käufer und Verkäufer.
-                      Tiefes Verständnis der Preisfaktoren und Marktdynamiken im deutschen Pferdemarkt.
-                    </p>
-                  </div>
-                  <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
-                    <h4 className="text-lg font-semibold text-brand-brown mb-3">📊 Datenanalyse</h4>
-                    <p className="text-gray-700">
-                      Expertise in der Datenanalyse. Kontinuierliche Validierung unserer KI-Modelle gegen reale Marktdaten.
-                    </p>
-                  </div>
-                  <div className="bg-brand-gold/10 p-6 rounded-xl border border-brand-gold/20">
-                    <h4 className="text-lg font-semibold text-brand-brown mb-3">🎯 Markttransparenz</h4>
-                    <p className="text-gray-700">
-                      Mission: Den oft intransparenten Pferdemarkt durch objektive,
-                      datenbasierte Bewertungen fairer und zugänglicher zu gestalten.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Warum uns vertrauen */}
-              <div className="bg-gray-50 p-8 rounded-2xl">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Warum Pferdebesitzer uns vertrauen</h3>
-                <div className="grid sm:grid-cols-3 gap-6 text-center">
-                  <div>
-                    <div className="text-3xl font-bold text-brand-brown mb-2">500+</div>
-                    <p className="text-sm text-gray-600">Pferdebewertungen durchgeführt</p>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-brand-brown mb-2">95%</div>
-                    <p className="text-sm text-gray-600">Zufriedenheitsrate unserer Kunden</p>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-brand-brown mb-2">2 Min</div>
-                    <p className="text-sm text-gray-600">Durchschnittliche Bewertungszeit</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
