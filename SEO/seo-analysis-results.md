@@ -8,29 +8,23 @@
 
 ---
 
-## Prozess 0: SEO Unternehmensbeschreibung erstellen
+## Prozess 0: SEO Unternehmensbeschreibung (EINMALIG ERSTELLT)
+
+### Status: ✅ ABGESCHLOSSEN
+Das Company Profile wurde bereits erstellt und wird von allen Content-Prozessen wiederverwendet.
 
 ### Zweck
 Nutzbaren Keyword-Filter auf Basis des Webauftritts formulieren und Unternehmensprofil für SEO-Arbeit definieren.
 
-### Schritte mit Claude Code
-1. **Firecrawl Website-Analyse**: `firecrawl_scrape` für Homepage und Hauptseiten
-2. **Content-Extraktion**: H1, USP, Dienstleistungen, Zielgruppen erfassen
-3. **Claude Profil-Erstellung**: Unternehmensprofil, Alleinstellungsmerkmale, Kernzielgruppen
-4. **Keyword-Filter ableiten**: Ausschluss- und Einschlusskriterien definieren
-5. **Speicherung**: Unternehmensprofil in `SEO/SEO-CONTENT/{keyword}/company-profile-{date}.md`
-
-### Input/Output
-- **Input**: Domain, bestehende Unternehmensinfos
-- **Output**: Strukturiertes Unternehmensprofil, Keyword-Filter-Kriterien
-
-### Ablage-Struktur
+### Verfügbare Assets
 ```
 SEO/company/
-├── company-profile-{date}.md
-├── keyword-filters-{date}.json
-└── brand-exclusions-{date}.json
+├── company-profile-{date}.md      # ✅ Erstellt
+├── keyword-filters-{date}.json    # ✅ Erstellt
+└── brand-exclusions-{date}.json   # ✅ Erstellt
 ```
+
+**Verwendung**: Alle Content-Prozesse (1,2,3,6) laden automatisch das existierende Company Profile.
 
 ---
 
@@ -40,15 +34,15 @@ SEO/company/
 Generierung und Verfeinerung von Seed Keywords mit regionalem Fokus für deutsche Pferdemärkte.
 
 ### Schritte mit Claude Code
-1. **Company Profile laden**: Existierende `SEO/company/company-profile-{date}.md` verwenden
+1. **Company Profile laden**: ✅ Existierende `SEO/company/company-profile-{date}.md` verwenden
 2. **Keyword-Filter anwenden**: Ausschlusskriterien aus Company Profile beachten
 3. **Seed Keyword Brainstorming**: Claude generiert Keywords basierend auf Content-Fokus aus Profil
 4. **DataForSEO Keyword Ideas**: `dataforseo_labs_google_keyword_ideas` für Keyword-Expansion
 5. **Regionale Anpassung**: Keywords für definierte Regionen aus Company Profile erweitern
-6. **Speicherung**: Ergebnisse in `SEO/keywords/seed-keywords-{date}.json` ablegen
+6. **Speicherung**: Ergebnisse in `SEO/SEO-CONTENT/{keyword}/seed-keywords-{date}.json` ablegen
 
 ### Input/Output
-- **Input**: Existierendes Company Profile, Target Keyword
+- **Input**: ✅ Bereits vorhandenes Company Profile aus `SEO/company/`, Target Keyword
 - **Output**: JSON-Datei mit strukturierten Seed Keywords inkl. Search Volume
 
 ### Ablage-Struktur
@@ -67,7 +61,7 @@ SEO/SEO-CONTENT/{keyword}/
 Umfassende Keyword-Recherche durch Expansion der Seed Keywords mit SEO-Daten und AI-Analyse.
 
 ### Schritte mit Claude Code
-1. **Company Profile & Seeds laden**: `SEO/company/company-profile-{date}.md` + Seed Keywords
+1. **Company Profile & Seeds laden**: ✅ `SEO/company/company-profile-{date}.md` + Seed Keywords aus Prozess 1
 2. **Multi-API Keyword Research**:
    - `dataforseo_labs_google_keyword_ideas`
    - `dataforseo_labs_google_related_keywords`
@@ -97,7 +91,7 @@ SEO/SEO-CONTENT/{keyword}/
 Automatische Erstellung umfassender Content-Outlines basierend auf Keyword-Analyse und Competitor Research.
 
 ### Schritte mit Claude Code
-1. **Company Profile & Target Keyword laden**: Company Profile + Keywords aus Prozess 2
+1. **Company Profile & Target Keyword laden**: ✅ Existierendes `SEO/company/company-profile-{date}.md` + Keywords aus Prozess 2
 2. **Competitor Analysis**:
    - `firecrawl_search` für Top 10 Competitors
    - `firecrawl_scrape` für Heading-Extraktion
@@ -108,7 +102,7 @@ Automatische Erstellung umfassender Content-Outlines basierend auf Keyword-Analy
 7. **Speicherung**: Outline als Markdown-Datei
 
 ### Input/Output
-- **Input**: Company Profile, Target Keywords aus Prozess 2, SERP Data
+- **Input**: ✅ Bereits vorhandenes Company Profile aus `SEO/company/`, Target Keywords aus Prozess 2, SERP Data
 - **Output**: Content Outline (H1-H3), FAQ-Fragen, Competitor-Analyse
 
 ### Ablage-Struktur
@@ -185,7 +179,7 @@ SEO/SEO-CONTENT/{keyword}/
 Automatisierte Erstellung suchoptimierter Artikel basierend auf SERP-Analyse und Keyword-Research.
 
 ### Schritte mit Claude Code
-1. **Company Profile & Content-Brief laden**: Company Profile + Outline aus Prozess 3
+1. **Company Profile & Content-Brief laden**: ✅ Existierendes `SEO/company/company-profile-{date}.md` + Outline aus Prozess 3
 2. **SERP Analysis**: Top 20 Ergebnisse mit `dataforseo_serp_organic_live_advanced`
 3. **Content Research**: `firecrawl_scrape` für Top-Performer Content
 4. **Competitive Analysis**: Claude analysiert Content-Gaps basierend auf USPs
@@ -195,7 +189,7 @@ Automatisierte Erstellung suchoptimierter Artikel basierend auf SERP-Analyse und
 8. **Quality Check**: Review gegen Company Profile Standards
 
 ### Input/Output
-- **Input**: Company Profile, Content Outline aus Prozess 3, SERP Competitor Data
+- **Input**: ✅ Bereits vorhandenes Company Profile aus `SEO/company/`, Content Outline aus Prozess 3, SERP Competitor Data
 - **Output**: Brand-optimierter SEO-Artikel (Markdown), Meta-Daten, Internal Links
 
 ### Ablage-Struktur
@@ -211,12 +205,20 @@ SEO/SEO-CONTENT/{keyword}/
 
 ## Prozess-Orchestrierung
 
+### Content-Erstellung Workflow (Pro Keyword-Artikel)
+**Prozesse 1→2→3→6**: Keyword Research → Analyse → Outline → Content Creation
+- **Input**: Target Keyword + ✅ Bereits erstelltes Company Profile
+- **Output**: Vollständiger SEO-Artikel mit Meta-Daten
+
+### Periodische Maintenance (Unabhängig)
+**Prozess 4 - Technical SEO Audit**: Quartalsweise Site Health Check
+**Prozess 5 - Rank Tracking**: Tägliches/wöchentliches Performance Monitoring
+
 ### Workflow-Integration
 1. **Weekly Keyword Review**: Prozess 1-2 für neue Opportunities
-2. **Monthly Content Planning**: Prozess 3 für Content-Pipeline
-3. **Quarterly Technical Audit**: Prozess 4 für Site Health
-4. **Daily Rank Monitoring**: Prozess 5 für Performance Tracking
-5. **Bi-weekly Content Creation**: Prozess 6 für regelmäßige Veröffentlichungen
+2. **Content Creation Pipeline**: Prozess 1→2→3→6 für jeden neuen Artikel
+3. **Quarterly Technical Audit**: Prozess 4 für Site Health (unabhängig)
+4. **Weekly Rank Monitoring**: Prozess 5 für Performance Tracking (unabhängig)
 
 ### File-Management
 - Alle Prozesse nutzen einheitliche JSON/MD-Struktur
@@ -233,103 +235,45 @@ SEO/SEO-CONTENT/{keyword}/
 
 ## Agenten-basierte Ausführungsstrategie
 
-### Problem-Analyse
-- **Context-Overflow**: Komplexer SEO-Prozess übersteigt Token-Limits
-- **Sequenzielle Abhängigkeiten**: 6 Hauptprozesse mit 3-7 Einzelschritten
-- **Datenpersistenz**: Zwischenergebnisse müssen zwischen Agenten übertragen werden
+### Vereinfachte SEO-Content-Pipeline
 
-### Agenten-Ketten-Strategie
+Mit dem spezialisierten `seo-content-writer` Agent wird der komplexe 6-Agent-Chain durch einen fokussierten Ansatz ersetzt:
 
-#### **Agent 1: Process-Coordination** (pferdewert-frontend-dev)
+#### **Agent: SEO Content Writer** (seo-content-writer)
 ```
-Input: target_keyword (z.B. "pferd kaufen bayern")
+Input: target_keyword + ✅ Company Profile aus SEO/company/
+Umfang: Komplette Prozess-Kette 1→2→3→6 in einem Agent
 Actions:
-├── Erstelle Ordnerstruktur: SEO/SEO-CONTENT/{keyword}/
-├── Initialisiere: {keyword}-process.md mit Tracking-Header
-├── Setup: Prozess-Metadaten und Timestamps
-└── Übergabe: keyword + folder_path an Agent 2
+├── Lade Company Profile: SEO/company/company-profile-{date}.md
+├── Keyword Research: dataforseo_labs_google_keyword_ideas + related + suggestions
+├── SERP Analysis: dataforseo_serp_organic_live_advanced (Top 10)
+├── Competitor Research: firecrawl_scrape für Content-Extraktion
+├── Intent-Klassifizierung: Nach Company Profile Ausschlusskriterien
+├── Content-Outline: H1-H3 Struktur + FAQ-Sektion
+├── SEO-Artikel: Vollständiger deutscher Text (1000-2500 Wörter)
+├── Meta-Optimierung: Title, Description, Schema Markup
+├── Internal Links: Integration PferdeWert.de Seiten
+└── Output: Kompletter SEO-Artikel + Meta-Assets
 ```
 
-#### **Agent 2: Data-Collection** (general-purpose)
-```
-Input: target_keyword + DataForSEO/Firecrawl APIs
-Actions:
-├── Keyword Research: dataforseo_labs_google_keyword_ideas
-├── Related Keywords: dataforseo_labs_google_related_keywords
-├── SERP Analysis: dataforseo_serp_organic_live_advanced
-├── Speichere Rohdaten: {keyword}-raw-data.json
-└── Übergabe: raw_data_file an Agent 3
-```
+### Vereinfachtes File-Management
 
-#### **Agent 3: Keyword-Analysis** (pferdewert-frontend-dev)
-```
-Input: {keyword}-raw-data.json
-Actions:
-├── AI-Filterung: Entfernung irrelevanter Keywords
-├── Intent-Klassifizierung: Commercial/Informational/Navigational
-├── Priority-Scoring: Relevanz für PferdeWert (1-4)
-├── Regional-Mapping: Bayern/NRW/Niedersachsen spezifisch
-├── Speichere: {keyword}-keywords-analyzed.json
-└── Übergabe: analyzed_keywords an Agent 4
-```
-
-#### **Agent 4: Competitor-Research** (general-purpose)
-```
-Input: target_keyword + analyzed_keywords
-Actions:
-├── SERP Top 10: dataforseo_serp_organic_live_advanced
-├── Content Scraping: firecrawl_scrape für Top-Performer
-├── Heading-Extraktion: H1-H3 Strukturen erfassen
-├── Content-Gap-Analyse: Fehlende Themen identifizieren
-├── Speichere: {keyword}-competitors-raw.json
-└── Übergabe: competitor_data an Agent 5
-```
-
-#### **Agent 5: Content-Outline-Generation** (pferdewert-ux-designer)
-```
-Input: analyzed_keywords + competitor_data
-Actions:
-├── AI-Outline-Erstellung: H1 + 5-8 H2 + H3 Struktur
-├── Content-Gap-Integration: Unique Angles identifizieren
-├── FAQ-Generierung: People Also Ask Integration
-├── Internal-Link-Mapping: PferdeWert.de relevante Links
-├── Word-Count-Target: 1000-2500 Wörter definieren
-├── Speichere: {keyword}-outline.md
-└── Übergabe: content_outline an Agent 6
-```
-
-#### **Agent 6: Final-Content-Creation** (pferdewert-business-analyst)
-```
-Input: content_outline + alle vorherigen Analysen
-Actions:
-├── AI-Artikel-Generierung: Vollständiger deutscher SEO-Text
-├── On-Page-Optimierung: Keyword-Density 1-2%, Meta-Tags
-├── Schema-Markup: JSON-LD für Structured Data
-├── Internal-Links: Integration bestehender PferdeWert-Seiten
-├── Meta-Assets: Title, Description, Open Graph
-├── Speichere: {keyword}-article.md + {keyword}-meta.json
-└── Process Complete: Update {keyword}-process.md
-```
-
-### Zwischenspeicher-Management
-
-#### **Kritische Dateien pro Agent:**
+#### **Output-Struktur pro Keyword:**
 ```
 SEO/SEO-CONTENT/{keyword}/
-├── {keyword}-process.md          # Agent 1: Process Tracking
-├── {keyword}-raw-data.json       # Agent 2: API Rohdaten
-├── {keyword}-keywords-analyzed.json  # Agent 3: AI-gefilterte Keywords
-├── {keyword}-competitors-raw.json    # Agent 4: Competitor Intelligence
-├── {keyword}-outline.md             # Agent 5: Content-Struktur
-├── {keyword}-article.md             # Agent 6: Finaler Artikel
-└── {keyword}-meta.json              # Agent 6: Meta-Assets
+├── {keyword}-research-{date}.json    # Keyword + SERP Daten
+├── {keyword}-competitors-{date}.json # Competitor Analysis
+├── {keyword}-outline-{date}.md       # Content-Struktur
+├── {keyword}-article-{date}.md       # Finaler SEO-Artikel
+└── {keyword}-meta-{date}.json        # Meta-Tags + Schema
 ```
 
-#### **Context-Overflow-Vermeidung:**
-- **Daten-Chunking**: Jeder Agent lädt nur relevante Input-Dateien
-- **Sequenzielle Übergabe**: Keine parallelen API-Calls in einem Agent
-- **Persistente Zwischenspeicherung**: Wiederaufnahme bei Unterbrechungen möglich
-- **Spezialisierte Agents**: Content-Agents nur für AI-intensive Tasks
+### Vorteile der SEO-Content-Writer Strategie
+- **Einheitlicher Kontext**: Alle Entscheidungen basieren auf Company Profile
+- **Konsistente Tonalität**: Durchgängiger Schreibstil nach Brand Guidelines
+- **Optimierte Token-Nutzung**: Keine Context-Übergaben zwischen Agenten
+- **E-E-A-T Integration**: Expertise, Authoritativeness, Trustworthiness in einem Agent
+- **Schnellere Execution**: Kompletter Artikel in einem Durchlauf
 
 ### Praktische Ausführung
 

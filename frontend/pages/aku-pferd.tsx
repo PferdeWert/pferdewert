@@ -37,6 +37,22 @@ const AKUPferd: NextPage = () => {
     {
       question: "Wie lange ist eine AKU gültig?",
       answer: "Eine AKU ist in der Regel 2-4 Wochen gültig. Bei längeren Zeiträumen sollte eine neue Untersuchung durchgeführt werden, da sich der Gesundheitszustand des Pferdes ändern kann."
+    },
+    {
+      question: "Was passiert bei negativen AKU-Befunden?",
+      answer: "AKU-Befunde sind nicht automatisch ein Grund für Kaufabbruch, sondern bilden die Grundlage für objektive Preisverhandlungen. Je nach Schweregrad können Preisreduktionen oder spezielle Verwendungsvereinbarungen getroffen werden."
+    },
+    {
+      question: "Welche AKU bei welchem Kaufpreis?",
+      answer: "Bis 5.000€: Kleine AKU (Klasse I-II). Von 5.000-15.000€: Große AKU mit Röntgen (Klasse II). Über 15.000€: Umfassende AKU mit Spezialuntersuchungen (Klasse III-V). Die Investition sollte 2-5% des Kaufpreises betragen."
+    },
+    {
+      question: "Wie beeinflusst eine AKU den Versicherungsschutz?",
+      answer: "Viele Pferdeversicherungen verlangen eine aktuelle AKU als Nachweis des Gesundheitszustands. Ohne AKU können Versicherungsanträge abgelehnt oder Prämienzuschläge verlangt werden. Eine saubere AKU sichert bessere Konditionen."
+    },
+    {
+      question: "Sind AKU-Befunde zwischen Tierärzten übertragbar?",
+      answer: "AKU-Protokolle sind zwischen Tierärzten übertragbar, aber Interpretationen können variieren. Bei unklaren Befunden ist eine Zweitmeinung sinnvoll. Röntgenbilder sollten immer im digitalen Format übergeben werden für bessere Vergleichbarkeit."
     }
   ]
 
@@ -459,6 +475,360 @@ const AKUPferd: NextPage = () => {
                           <li>• Röntgenqualität</li>
                           <li>• Zweitmeinung bei Unsicherheit</li>
                         </ul>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {/* Ablauf & Dauer */}
+              {activeSection === 'process' && (
+                <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
+                  <h2 className="text-3xl font-bold text-brand-brown mb-6">AKU Ablauf: Wie läuft eine Ankaufsuntersuchung ab?</h2>
+
+                  <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-8">
+                    <h3 className="font-bold text-blue-800 mb-4">📋 Vorbereitung der AKU</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-blue-800 mb-3">Vor der Untersuchung:</h4>
+                        <ul className="space-y-2 text-blue-700 text-sm">
+                          <li>• Tierarzt-Termin vereinbaren</li>
+                          <li>• AKU-Klasse festlegen</li>
+                          <li>• Gesundheitspass und Impfausweis bereithalten</li>
+                          <li>• Vorbesitzer über vergangene Krankheiten/Verletzungen informieren</li>
+                          <li>• Bei Bedarf: Sedierung organisieren</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-800 mb-3">Was mitbringen:</h4>
+                        <ul className="space-y-2 text-blue-700 text-sm">
+                          <li>• Führstrick und Halfter</li>
+                          <li>• Vorhandene Röntgenbilder</li>
+                          <li>• Medikamentenliste</li>
+                          <li>• Versicherungsunterlagen</li>
+                          <li>• Notizblock für Fragen</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-8">
+                    <h3 className="text-2xl font-bold text-brand-brown">Schritt-für-Schritt Ablauf:</h3>
+
+                    <div className="grid gap-6">
+                      <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-2">Anamnese & Vorbesprechung (15-30 Min.)</h4>
+                          <p className="text-gray-600 text-sm mb-2">
+                            Der Tierarzt bespricht mit Ihnen die Krankengeschichte, bisherige Verletzungen und den beabsichtigten Verwendungszweck.
+                          </p>
+                          <ul className="text-xs text-gray-500 space-y-1">
+                            <li>• Alter, Rasse, Abstammung des Pferdes</li>
+                            <li>• Bisherige medizinische Behandlungen</li>
+                            <li>• Sportliche Nutzung und Leistungsstand</li>
+                            <li>• Bekannte Problembereiche</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-2">Klinische Allgemeinuntersuchung (30-45 Min.)</h4>
+                          <p className="text-gray-600 text-sm mb-2">
+                            Gründliche Untersuchung aller Körpersysteme im Ruhezustand.
+                          </p>
+                          <ul className="text-xs text-gray-500 space-y-1">
+                            <li>• Herz-Kreislauf-System (Abhören, Puls)</li>
+                            <li>• Atemwege (Lunge, Nüstern)</li>
+                            <li>• Augen (Sehvermögen, Reflexe)</li>
+                            <li>• Ohren, Maul, Zähne</li>
+                            <li>• Lymphknoten und Hautuntersuchung</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-2">Bewegungsanalyse (20-30 Min.)</h4>
+                          <p className="text-gray-600 text-sm mb-2">
+                            Beurteilung des Gangbildes und der Bewegungsqualität in verschiedenen Gangarten.
+                          </p>
+                          <ul className="text-xs text-gray-500 space-y-1">
+                            <li>• Schritt und Trab an der Hand</li>
+                            <li>• Bewegung auf gerader Strecke</li>
+                            <li>• Wendungen und Kreise</li>
+                            <li>• Beurteilung von Takt und Gleichmäßigkeit</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-2">Flexionsproben (15-20 Min.)</h4>
+                          <p className="text-gray-600 text-sm mb-2">
+                            Gezielte Belastungstests der Gelenke zur Aufdeckung von Lahmheiten.
+                          </p>
+                          <ul className="text-xs text-gray-500 space-y-1">
+                            <li>• Beugeprobe der Vorderbeine</li>
+                            <li>• Beugeprobe der Hinterbeine</li>
+                            <li>• Spat-Test bei Bedarf</li>
+                            <li>• Auswertung der Reaktionen</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">5</div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-2">Röntgenuntersuchung (30-90 Min.)</h4>
+                          <p className="text-gray-600 text-sm mb-2">
+                            Bildgebende Diagnostik je nach gewählter AKU-Klasse.
+                          </p>
+                          <ul className="text-xs text-gray-500 space-y-1">
+                            <li>• Klasse I: 2-4 Standardaufnahmen</li>
+                            <li>• Klasse II: 8-10 erweiterte Aufnahmen</li>
+                            <li>• Klasse III-V: Vollständiger Röntgen-TÜV</li>
+                            <li>• Sofortige Auswertung vor Ort</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">6</div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-2">Zusatzuntersuchungen (bei Bedarf)</h4>
+                          <p className="text-gray-600 text-sm mb-2">
+                            Je nach AKU-Klasse und Befunden weitere diagnostische Maßnahmen.
+                          </p>
+                          <ul className="text-xs text-gray-500 space-y-1">
+                            <li>• Ultraschalluntersuchung (Sehnen, Bänder)</li>
+                            <li>• Endoskopie der Atemwege</li>
+                            <li>• Blutuntersuchung</li>
+                            <li>• Spezielle Röntgenaufnahmen</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start space-x-4 p-6 bg-green-50 rounded-lg border border-green-200">
+                        <div className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">7</div>
+                        <div>
+                          <h4 className="font-bold text-green-800 mb-2">Befundbesprechung & Protokoll (15-30 Min.)</h4>
+                          <p className="text-green-700 text-sm mb-2">
+                            Ausführliche Erläuterung aller Befunde und Übergabe des schriftlichen Protokolls.
+                          </p>
+                          <ul className="text-xs text-green-600 space-y-1">
+                            <li>• Detaillierte Befunderklärung</li>
+                            <li>• Kaufempfehlung ja/nein</li>
+                            <li>• Prognose und Risikobewertung</li>
+                            <li>• Schriftliches AKU-Protokoll</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mt-8">
+                    <h3 className="font-bold text-amber-800 mb-4">⏰ Zeitaufwand nach AKU-Klasse</h3>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="bg-white p-4 rounded border border-amber-300">
+                        <h4 className="font-semibold text-amber-800 mb-2">Klasse I (Kleine AKU)</h4>
+                        <div className="text-2xl font-bold text-amber-700 mb-1">1-2 Stunden</div>
+                        <div className="text-xs text-amber-600">Basis-Untersuchung mit wenigen Röntgenaufnahmen</div>
+                      </div>
+                      <div className="bg-white p-4 rounded border border-amber-300">
+                        <h4 className="font-semibold text-amber-800 mb-2">Klasse II (Große AKU)</h4>
+                        <div className="text-2xl font-bold text-amber-700 mb-1">2-4 Stunden</div>
+                        <div className="text-xs text-amber-600">Erweiterte Untersuchung mit mehr Röntgenbildern</div>
+                      </div>
+                      <div className="bg-white p-4 rounded border border-amber-300">
+                        <h4 className="font-semibold text-amber-800 mb-2">Klasse III-V</h4>
+                        <div className="text-2xl font-bold text-amber-700 mb-1">4+ Stunden</div>
+                        <div className="text-xs text-amber-600">Komplette Untersuchung, oft über mehrere Termine</div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {/* Befunde verstehen */}
+              {activeSection === 'findings' && (
+                <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
+                  <h2 className="text-3xl font-bold text-brand-brown mb-6">AKU Befunde verstehen: Was bedeuten die Ergebnisse?</h2>
+
+                  <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-8">
+                    <h3 className="font-bold text-blue-800 mb-4">📊 AKU-Bewertungssystem</h3>
+                    <p className="text-blue-700 mb-4">
+                      AKU-Befunde werden in der Regel in verschiedene Kategorien eingeteilt, die das Risiko für zukünftige Probleme bewerten.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-blue-800 mb-3">Befundkategorien:</h4>
+                        <ul className="space-y-2 text-blue-700 text-sm">
+                          <li><strong>Kategorie I:</strong> Ohne besonderen Befund</li>
+                          <li><strong>Kategorie II:</strong> Geringfügige Befunde</li>
+                          <li><strong>Kategorie III:</strong> Mäßige Befunde mit Risiko</li>
+                          <li><strong>Kategorie IV:</strong> Deutliche Befunde</li>
+                          <li><strong>Kategorie V:</strong> Hochgradige Befunde</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-800 mb-3">Risikobewertung:</h4>
+                        <ul className="space-y-2 text-blue-700 text-sm">
+                          <li><strong>Niedrig:</strong> Normale Abnutzung</li>
+                          <li><strong>Gering:</strong> Überwachung empfohlen</li>
+                          <li><strong>Mäßig:</strong> Regelmäßige Kontrollen nötig</li>
+                          <li><strong>Hoch:</strong> Eingeschränkte Nutzung</li>
+                          <li><strong>Sehr hoch:</strong> Kaufempfehlung negativ</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-8">
+                    <h3 className="text-2xl font-bold text-brand-brown">Häufige Befunde und ihre Bedeutung:</h3>
+
+                    <div className="grid gap-6">
+                      <div className="p-6 bg-green-50 rounded-lg border border-green-200">
+                        <h4 className="font-bold text-green-800 mb-3 flex items-center">
+                          <span className="mr-2">✅</span> Kategorie I: Ohne besonderen Befund
+                        </h4>
+                        <p className="text-green-700 mb-3">
+                          Das Pferd zeigt keine auffälligen Befunde und gilt als gesund für den geplanten Verwendungszweck.
+                        </p>
+                        <div className="text-sm text-green-600">
+                          <strong>Empfehlung:</strong> Kauf uneingeschränkt empfohlen. Normales Nutzungsrisiko.
+                        </div>
+                      </div>
+
+                      <div className="p-6 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <h4 className="font-bold text-yellow-800 mb-3 flex items-center">
+                          <span className="mr-2">⚠️</span> Kategorie II: Geringfügige Befunde
+                        </h4>
+                        <p className="text-yellow-700 mb-3">
+                          Leichte Veränderungen, die bei älteren Pferden oder bei intensiver Nutzung normal sind.
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                          <div>
+                            <strong className="text-yellow-800">Beispiele:</strong>
+                            <ul className="text-yellow-700 mt-1 space-y-1">
+                              <li>• Leichte Gelenkveränderungen</li>
+                              <li>• Kleine Überbeine</li>
+                              <li>• Geringfügige Zahnprobleme</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <strong className="text-yellow-800">Empfehlung:</strong>
+                            <div className="text-yellow-700 mt-1">
+                              Kauf in der Regel empfohlen. Regelmäßige Kontrollen sinnvoll.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="p-6 bg-orange-50 rounded-lg border border-orange-200">
+                        <h4 className="font-bold text-orange-800 mb-3 flex items-center">
+                          <span className="mr-2">🟡</span> Kategorie III: Mäßige Befunde
+                        </h4>
+                        <p className="text-orange-700 mb-3">
+                          Veränderungen, die eine Einschränkung der Nutzung zur Folge haben könnten.
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                          <div>
+                            <strong className="text-orange-800">Beispiele:</strong>
+                            <ul className="text-orange-700 mt-1 space-y-1">
+                              <li>• Mäßige Spat-Veränderungen</li>
+                              <li>• Sehnenverdickungen</li>
+                              <li>• Leichte Atemwegsauffälligkeiten</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <strong className="text-orange-800">Empfehlung:</strong>
+                            <div className="text-orange-700 mt-1">
+                              Kauf nach Abwägung möglich. Verwendungszweck überdenken.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="p-6 bg-red-50 rounded-lg border border-red-200">
+                        <h4 className="font-bold text-red-800 mb-3 flex items-center">
+                          <span className="mr-2">🔴</span> Kategorie IV-V: Deutliche bis hochgradige Befunde
+                        </h4>
+                        <p className="text-red-700 mb-3">
+                          Ausgeprägte Veränderungen, die eine erhebliche Einschränkung oder ein hohes Risiko darstellen.
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                          <div>
+                            <strong className="text-red-800">Beispiele:</strong>
+                            <ul className="text-red-700 mt-1 space-y-1">
+                              <li>• Hochgradige Arthrosen</li>
+                              <li>• Chronische Lahmheiten</li>
+                              <li>• Schwere Atemwegserkrankungen</li>
+                              <li>• Bedeutende Herzbefunde</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <strong className="text-red-800">Empfehlung:</strong>
+                            <div className="text-red-700 mt-1">
+                              Kauf meist nicht empfohlen. Nur bei speziellen Verwendungszwecken.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 mt-8">
+                    <h3 className="font-bold text-purple-800 mb-4">🔍 Das AKU-Protokoll richtig lesen</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-purple-800 mb-3">Wichtige Protokoll-Teile:</h4>
+                        <ul className="space-y-2 text-purple-700 text-sm">
+                          <li>• <strong>Zusammenfassung:</strong> Gesamtbewertung des Tierarztes</li>
+                          <li>• <strong>Einzelbefunde:</strong> Detaillierte Untersuchungsergebnisse</li>
+                          <li>• <strong>Röntgenbewertung:</strong> Bildgebende Diagnostik</li>
+                          <li>• <strong>Prognose:</strong> Einschätzung der weiteren Entwicklung</li>
+                          <li>• <strong>Empfehlung:</strong> Kaufempfehlung ja/nein/bedingt</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-purple-800 mb-3">Wichtige Fragen an den Tierarzt:</h4>
+                        <ul className="space-y-2 text-purple-700 text-sm">
+                          <li>• Wie entwickeln sich die gefundenen Veränderungen?</li>
+                          <li>• Welche Nutzungseinschränkungen bestehen?</li>
+                          <li>• Sind regelmäßige Behandlungen nötig?</li>
+                          <li>• Wie hoch sind mögliche Folgekosten?</li>
+                          <li>• Sollte eine Zweitmeinung eingeholt werden?</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mt-8">
+                    <h3 className="font-bold text-amber-800 mb-4">💡 Tipps für die Befundinterpretation</h3>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="bg-white p-4 rounded border border-amber-300">
+                        <h4 className="font-semibold text-amber-800 mb-2">Zweitmeinung</h4>
+                        <p className="text-xs text-amber-700">
+                          Bei unklaren oder schwerwiegenden Befunden sollten Sie eine zweite tierärztliche Meinung einholen.
+                        </p>
+                      </div>
+                      <div className="bg-white p-4 rounded border border-amber-300">
+                        <h4 className="font-semibold text-amber-800 mb-2">Verwendungszweck</h4>
+                        <p className="text-xs text-amber-700">
+                          Bewerten Sie Befunde immer im Kontext des geplanten Verwendungszwecks des Pferdes.
+                        </p>
+                      </div>
+                      <div className="bg-white p-4 rounded border border-amber-300">
+                        <h4 className="font-semibold text-amber-800 mb-2">Nachverhandlung</h4>
+                        <p className="text-xs text-amber-700">
+                          AKU-Befunde können als Grundlage für Preisverhandlungen genutzt werden.
+                        </p>
                       </div>
                     </div>
                   </div>

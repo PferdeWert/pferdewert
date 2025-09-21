@@ -1,0 +1,83 @@
+{
+  "page": "/aku-pferd-kosten",
+  "seo": {
+    "title": "AKU Pferd Kosten 2025 - Preise & was zahlen? | PferdeWert Ratgeber",
+    "description": "AKU Kosten beim Pferdekauf: Aktuelle Preise, Umfang der Untersuchung und wer zahlt. Alle Infos zu Ankaufsuntersuchung-Kosten.",
+    "keywords": "aku pferd kosten, ankaufsuntersuchung pferd kosten, aku kosten 2025, pferd kaufen aku, tierarzt kosten pferd",
+    "canonicalUrl": "https://pferdewert.de/aku-pferd-kosten"
+  },
+  "openGraph": {
+    "title": "AKU Pferd Kosten 2025 - Alle Preise & Infos zur Ankaufsuntersuchung",
+    "description": "Was kostet eine AKU beim Pferdekauf? Von 150€ bis 2.500€ - alle Preise, wer zahlt und wie Sie Kosten sparen können.",
+    "image": "/images/aku-pferd-kosten-og.jpg",
+    "type": "article"
+  },
+  "schemaMarkup": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AKU Pferd Kosten 2025 - Alles über Preise der Ankaufsuntersuchung",
+    "description": "Umfassender Guide zu AKU-Kosten beim Pferdekauf: Preise, regionale Unterschiede, Kostentragung und Spartipps.",
+    "author": {
+      "@type": "Organization",
+      "name": "PferdeWert.de",
+      "url": "https://pferdewert.de"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PferdeWert.de",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pferdewert.de/images/logo.png"
+      }
+    },
+    "datePublished": "2025-01-20",
+    "dateModified": "2025-01-20",
+    "mainEntityOfPage": "https://pferdewert.de/aku-pferd-kosten",
+    "articleSection": "Pferde Ratgeber",
+    "keywords": ["AKU Kosten", "Ankaufsuntersuchung", "Pferdekauf", "Tierarztkosten"],
+    "about": {
+      "@type": "Thing",
+      "name": "Ankaufsuntersuchung Pferd",
+      "description": "Veterinärmedizinische Untersuchung beim Pferdekauf"
+    }
+  },
+  "internalLinks": [
+    {
+      "url": "/aku-pferd",
+      "anchor": "AKU beim Pferd",
+      "context": "Grundlagen der Ankaufsuntersuchung"
+    },
+    {
+      "url": "/aku-pferd-ablauf",
+      "anchor": "AKU Ablauf",
+      "context": "Wie läuft eine AKU ab"
+    },
+    {
+      "url": "/aku-pferd-klassen",
+      "anchor": "AKU Klassen",
+      "context": "Bewertungsklassen der AKU"
+    },
+    {
+      "url": "/pferd-kaufen",
+      "anchor": "Pferd kaufen",
+      "context": "Ratgeber zum Pferdekauf"
+    },
+    {
+      "url": "/pferde-preis-berechnen",
+      "anchor": "Pferdewert berechnen",
+      "context": "KI-gestützte Pferdebewertung"
+    },
+    {
+      "url": "/was-ist-mein-pferd-wert",
+      "anchor": "Was ist mein Pferd wert",
+      "context": "Kostenlose Pferdebewertung"
+    }
+  ],
+  "content": {
+    "wordCount": 1900,
+    "readingTime": "8-10 Minuten",
+    "contentType": "Ratgeber",
+    "targetAudience": "Pferdekäufer, Pferdebesitzer",
+    "language": "de-DE"
+  }
+}
