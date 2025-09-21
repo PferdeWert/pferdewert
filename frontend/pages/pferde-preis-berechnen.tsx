@@ -540,7 +540,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
             <div className="space-y-8 hero-fade-in-left">
               <div className="space-y-4">
                 <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                  🐎 Professionelle Pferdebewertung
+                  🏆 #1 Online Pferdebewertung
                 </div>
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Pferd analysieren
