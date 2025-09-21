@@ -3,7 +3,6 @@ import Layout from "@/components/Layout"; // Neu: Layout mit Footer
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
-import { PRICING_FORMATTED } from "@/lib/pricing";
 
 const markdown = `## Zusammenfassung
 
@@ -90,51 +89,96 @@ Der Hannoveraner Wallach bietet ein solides Preis-Leistungs-Verhältnis für Kä
 
 _Ergebnis erstellt durch die PferdeWert-KI – keine rechtsverbindliche Bewertung._`;
 
-const metaDescription = `🐎 Beispiel-Analyse: Pferdebewertung für ${PRICING_FORMATTED.current} ➤ Detailliertes PDF mit Preisspanne ✓ Begründung & Tipps ✓ Transparent & nachvollziehbar ✓ Jetzt ansehen!`;
+// SEO Configuration - Page 4/22: Beispiel-Analyse
+const seoConfig = {
+  title: "Pferdebewertung Beispiel - So funktioniert unsere KI-Analyse | PferdeWert",
+  description: "Sehen Sie eine echte Pferdebewertung im Detail. Beispiel-Analyse zeigt, wie unsere KI den Wert Ihres Pferdes ermittelt. Transparent und nachvollziehbar.",
+  keywords: "pferdebewertung beispiel, pferdewert beispiel analyse, ki pferdebewertung demonstration, pferdemarkt bewertung beispiel, pferdepreis berechnen beispiel, pferd schätzen lassen beispiel, marktwert pferd beispiel, pferdegutachten beispiel, equine valuation example",
+  canonicalUrl: "https://pferdewert.de/beispiel-analyse",
+  ogImage: "https://pferdewert.de/images/result.webp"
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Beispiel-Analyse Pferd",
-  "description": "Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung.",
-  "image": "https://pferdewert.de/images/result.webp",
-  "url": "https://pferdewert.de/beispiel-analyse",
+  "headline": "Pferdebewertung Beispiel - KI-Analyse Demonstration",
+  "description": seoConfig.description,
+  "image": seoConfig.ogImage,
+  "url": seoConfig.canonicalUrl,
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-12-20",
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert",
+    "url": "https://pferdewert.de"
+  },
   "publisher": {
     "@type": "Organization",
-    "name": "PferdeWert"
-  }
+    "name": "PferdeWert",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/images/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": seoConfig.canonicalUrl
+  },
+  "keywords": seoConfig.keywords
 };
 
 export default function BeispielAnalyse() {
   return (
     <Layout>
       <Head>
-        <title>Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert</title>
-        <meta name="description" content={metaDescription} />
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
-        <meta property="og:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung. Transparenz & Fairness im Pferdemarkt." />
+        {/* Primary Meta Tags */}
+        <title>Pferdebewertung Beispiel Bayern: KI-Analyse Demo | PferdeWert</title>
+        <meta
+          name="description"
+          content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!"
+        />
+        <meta
+          name="keywords"
+          content="pferdebewertung beispiel bayern, pferdewert beispiel analyse, ki pferdebewertung demonstration, pferdemarkt bewertung beispiel, pferdepreis berechnen beispiel"
+        />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Pferdebewertung Beispiel Bayern: KI-Analyse Demo | PferdeWert" />
+        <meta property="og:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
         <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
+        <meta property="og:locale" content="de_DE" />
 
-        {/* Twitter Card */}
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Beispiel-Analyse Pferd – So sieht dein Ergebnis aus | PferdeWert" />
-        <meta name="twitter:description" content="Sieh dir die Beispiel-Analyse: Marktwert-Band, Begründung und Tipps zur Preisoptimierung." />
+        <meta name="twitter:title" content="Pferdebewertung Beispiel Bayern: KI-Analyse Demo | PferdeWert" />
+        <meta name="twitter:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
         <meta name="twitter:image" content="https://pferdewert.de/images/result.webp" />
 
-        {/* Strukturierte Daten */}
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
+
+        {/* Performance Optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://api.pferdewert.de" />
+        <link rel="dns-prefetch" href="//api.pferdewert.de" />
+
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
       </Head>
 
 
-      <BewertungLayout title="📝 Beispiel-Analyse">
+      <BewertungLayout title="📝 Pferdebewertung Beispiel - Detaillierte KI-Analyse">
         <div className="prose prose-blue max-w-none">
           <ReactMarkdown>{markdown}</ReactMarkdown>
         </div>

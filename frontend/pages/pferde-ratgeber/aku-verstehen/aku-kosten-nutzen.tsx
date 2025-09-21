@@ -191,12 +191,12 @@ const AKUKostenNutzen: NextPage = () => {
   return (
     <>
       <Head>
-        <title>AKU Kosten-Nutzen-Analyse: Lohnt sich die Ankaufsuntersuchung? ROI-Rechner 2025 | PferdeWert.de</title>
+        <title>AKU Pferd Kosten 2025 - Preise & was zahlen? | PferdeWert Ratgeber</title>
         <meta
           name="description"
-          content="✓ AKU Kosten-Nutzen-Analyse 2025: ROI-Rechner, Break-Even-Punkt und finanzielle Bewertung. Lohnt sich die Ankaufsuntersuchung? Kosten vs. Risiko erklärt."
+          content="AKU Kosten beim Pferdekauf: Aktuelle Preise, Umfang der Untersuchung und wer zahlt. Alle Infos zu Ankaufsuntersuchung-Kosten."
         />
-        <meta name="keywords" content="AKU Kosten Nutzen, AKU lohnt sich, AKU ROI, Ankaufsuntersuchung Kosten, AKU Break Even, AKU Kostenrechner, AKU zu teuer" />
+        <meta name="keywords" content="aku pferd kosten, ankaufsuntersuchung kosten, aku preise 2025, tierarzt kosten pferd, pferd kaufen aku kosten, aku was kostet, pferdekauf untersuchung kosten" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/aku-verstehen/aku-kosten-nutzen" />
 
         {/* Open Graph */}

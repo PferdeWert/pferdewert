@@ -123,50 +123,40 @@ const PferdKaufenNiedersachsen: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Pferd kaufen Niedersachsen: Preise, Züchter & Hannoveraner 2025 | PferdeWert.de</title>
-        <meta name="description" content="Pferd kaufen in Niedersachsen ✓ Aktuelle Preise für Hannoveraner & Oldenburger ✓ Seriöse Züchter in Celle, Verden & Hannover ✓ Marktanalyse 2025 ✓ AI-Bewertung" />
-        <meta name="keywords" content="pferd kaufen niedersachsen, hannoveraner kaufen, oldenburger pferd kaufen, pferdepreise niedersachsen, pferdehändler niedersachsen, landgestüt celle, verden auktion, freizeitpferd niedersachsen, dressurpferd kaufen" />
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
 
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Pferd kaufen Niedersachsen: Preise, Züchter & Hannoveraner 2025" />
-        <meta property="og:description" content="Umfassender Guide zum Pferdekauf in Niedersachsen mit aktuellen Preisen, seriösen Züchtern und AI-gestützter Bewertung. Hannoveraner, Oldenburger & mehr." />
-        <meta property="og:image" content="https://pferdewert.de/images/niedersachsen-pferde-social.jpg" />
+        {/* Primary Meta Tags */}
+        <title>Pferd kaufen Niedersachsen & Bayern: Hannoveraner Celle Verden 2024 | PferdeWert.de</title>
+        <meta name="description" content="Pferd kaufen Niedersachsen & Bayern: Hannoveraner Celle Verden ✓ Aktuelle Preise 3.000€-80.000€ ✓ Hannover, Oldenburg, Osnabrück, Braunschweig ✓ Jetzt informieren!" />
+        <meta name="keywords" content="pferd kaufen niedersachsen bayern, hannoveraner celle verden, pferdepreise hannover oldenburg osnabrück braunschweig, pferdemarkt landgestüt auktionen" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Pferd kaufen Niedersachsen & Bayern: Hannoveraner Celle Verden 2024 | PferdeWert.de" />
+        <meta property="og:description" content="Pferd kaufen Niedersachsen & Bayern: Hannoveraner Celle Verden ✓ Aktuelle Preise 3.000€-80.000€ ✓ Hannover, Oldenburg, Osnabrück, Braunschweig ✓ Jetzt informieren!" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-niedersachsen" />
-        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-niedersachsen.webp" />
         <meta property="og:locale" content="de_DE" />
 
-        {/* Twitter Card */}
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd kaufen Niedersachsen: Preise & Züchter 2025" />
-        <meta name="twitter:description" content="Aktueller Guide zum Pferdekauf in Niedersachsen mit Preisen für Hannoveraner, Oldenburger und seriösen Züchtern." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/niedersachsen-pferde-social.jpg" />
+        <meta name="twitter:title" content="Pferd kaufen Niedersachsen & Bayern: Hannoveraner Celle Verden 2024 | PferdeWert.de" />
+        <meta name="twitter:description" content="Pferd kaufen Niedersachsen & Bayern: Hannoveraner Celle Verden ✓ Aktuelle Preise 3.000€-80.000€ ✓ Hannover, Oldenburg, Osnabrück, Braunschweig ✓ Jetzt informieren!" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-niedersachsen.webp" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-niedersachsen" />
 
-        {/* Hreflang für andere Bundesländer */}
-        <link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern" />
-        <link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw" />
+        {/* Performance Optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://api.pferdewert.de" />
+        <link rel="dns-prefetch" href="//api.pferdewert.de" />
 
-        {/* Schema.org Markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema)
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(articleSchema)
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema)
-          }}
-        />
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -204,7 +194,7 @@ const PferdKaufenNiedersachsen: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-h1 font-bold mb-6">
-                Pferd kaufen in Niedersachsen: Der ultimative Guide 2025
+                Pferd kaufen Niedersachsen - Preisanalyse & Beratung
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-brown-100">
                 Hannoveraner, Oldenburger & mehr: Aktuelle Preise, seriöse Züchter und AI-gestützte Marktanalysen

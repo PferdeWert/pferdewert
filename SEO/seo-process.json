@@ -1,0 +1,294 @@
+{
+  "seo_process": {
+    "description": "Comprehensive SEO article generation process combining all N8N workflows",
+    "version": "1.0",
+    "created": "2025-09-21",
+    "input": {
+      "required": ["target_keyword"],
+      "optional": ["regional_focus", "client_website", "content_type"]
+    },
+    "output_structure": {
+      "keyword_folder": "SEO/SEO-CONTENT/{keyword}/",
+      "files": {
+        "process_tracking": "{keyword}-process.md",
+        "keyword_research": "{keyword}-keywords.json",
+        "competitor_analysis": "{keyword}-competitors.json",
+        "content_outline": "{keyword}-outline.md",
+        "technical_seo": "{keyword}-technical.json",
+        "final_article": "{keyword}-article.md",
+        "meta_assets": "{keyword}-meta.json"
+      },
+      "sections": [
+        "process_metadata",
+        "company_profile_creation",
+        "keyword_research_results",
+        "competitor_analysis",
+        "content_outline",
+        "technical_seo_check",
+        "final_article"
+      ]
+    },
+    "api_integrations": {
+      "dataforseo": {
+        "endpoints": [
+          "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+          "https://api.dataforseo.com/v3/dataforseo_labs/google/related_keywords/live",
+          "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_suggestions/live",
+          "https://api.dataforseo.com/v3/dataforseo_labs/google/top_searches/live",
+          "https://api.dataforseo.com/v3/dataforseo_labs/google/ranked_keywords/live",
+          "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+          "https://api.dataforseo.com/v3/on_page/instant_pages"
+        ],
+        "location": "Germany",
+        "language": "de"
+      },
+      "firecrawl": {
+        "endpoints": [
+          "https://api.firecrawl.dev/v1/scrape",
+          "https://api.firecrawl.dev/v1/map",
+          "https://api.firecrawl.dev/v1/search"
+        ],
+        "use_cases": [
+          "competitor_content_scraping",
+          "website_mapping",
+          "content_extraction",
+          "competitor_serp_analysis"
+        ],
+        "benefits": {
+          "competitor_analysis": "Extract heading structures (H1-H3) and content gaps from top ranking pages",
+          "content_research": "Scrape top performer content for competitive intelligence and angle identification",
+          "website_mapping": "Map complete website structures for internal linking opportunities",
+          "serp_scraping": "Alternative to DataForSEO for content extraction from SERP URLs"
+        }
+      },
+      "ai_models": {
+        "primary": "Claude Code Content Writer Agent",
+        "description": "All AI tasks handled by Claude Code's built-in content writer agent"
+      }
+    },
+    "process_steps": [
+      {
+        "step": 0,
+        "name": "SEO Company Description Creation",
+        "based_on": ["Trigger 1 from SEO_2_Prozess.md"],
+        "actions": [
+          {
+            "action": "website_analysis",
+            "description": "Use Firecrawl to analyze homepage and main pages",
+            "apis": ["firecrawl_scrape"],
+            "targets": ["homepage", "main_service_pages", "about_page"],
+            "extraction_focus": "H1, USP, services, target groups"
+          },
+          {
+            "action": "content_extraction",
+            "description": "Extract key business information and unique selling propositions",
+            "ai_processing": "Claude Code Content Writer Agent: Identify core services, target audience, competitive advantages",
+            "data_points": ["company_mission", "service_portfolio", "target_demographics", "unique_value_props"]
+          },
+          {
+            "action": "profile_creation",
+            "description": "Generate comprehensive company profile for SEO purposes",
+            "ai_analysis": "Claude Code Content Writer Agent: Create structured business profile with core competencies",
+            "output": "Company profile with market positioning and core service areas"
+          },
+          {
+            "action": "keyword_filter_derivation",
+            "description": "Define inclusion and exclusion criteria for keyword research",
+            "focus": "Brand exclusions, irrelevant sectors, competitive positioning",
+            "storage": "Save filters to SEO/company/keyword-filters-{date}.json"
+          },
+          {
+            "action": "company_profile_storage",
+            "description": "Store structured company profile for future SEO processes",
+            "storage_path": "SEO/company/company-profile-{date}.md",
+            "format": "Markdown with structured sections"
+          }
+        ]
+      },
+      {
+        "step": 1,
+        "name": "Keyword Research & Analysis",
+        "based_on": ["File 1", "File 2"],
+        "actions": [
+          {
+            "action": "expand_seed_keywords",
+            "description": "Use DataForSEO APIs to expand target keyword",
+            "apis": ["keyword_ideas", "related_keywords", "keyword_suggestions", "top_searches"],
+            "ai_processing": "Claude Code Content Writer Agent: Filter branded keywords, categorize by search intent, assign priority scores",
+            "storage": "Save to {keyword}-keywords.json"
+          },
+          {
+            "action": "regional_analysis",
+            "description": "Analyze regional search patterns for German market",
+            "focus": "DACH region optimization"
+          },
+          {
+            "action": "keyword_clustering",
+            "description": "Group keywords by semantic similarity and search intent",
+            "output": "Primary keyword + 10-15 secondary keywords"
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "name": "Competitor Analysis",
+        "based_on": ["File 4"],
+        "actions": [
+          {
+            "action": "serp_analysis",
+            "description": "Analyze top 10 SERP results for target keyword",
+            "apis": ["serp_organic_live"],
+            "data_points": ["content_length", "heading_structure", "key_topics", "domain_authority"]
+          },
+          {
+            "action": "content_scraping",
+            "description": "Extract competitor content using Firecrawl",
+            "focus": "Heading structure (H1-H3), content gaps, unique angles"
+          },
+          {
+            "action": "competitive_intelligence",
+            "description": "Identify content opportunities and gaps",
+            "ai_analysis": "Claude Code Content Writer Agent: Find underserved topics and content angles",
+            "storage": "Save to {keyword}-competitors.json"
+          }
+        ]
+      },
+      {
+        "step": 3,
+        "name": "Content Outline Generation",
+        "based_on": ["File 4"],
+        "actions": [
+          {
+            "action": "generate_outline",
+            "description": "Create comprehensive German article outline",
+            "structure": "H1 (main keyword) + 5-8 H2 sections + H3 subsections",
+            "word_target": "1000-2500 words for top 3 ranking potential"
+          },
+          {
+            "action": "people_also_ask",
+            "description": "Integrate PAA questions from DataForSEO",
+            "implementation": "FAQ section with relevant questions",
+            "storage": "Include in {keyword}-outline.md"
+          },
+          {
+            "action": "internal_linking",
+            "description": "Identify internal linking opportunities",
+            "source": "Client website analysis"
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "name": "Technical SEO Check",
+        "based_on": ["File 5"],
+        "actions": [
+          {
+            "action": "onpage_analysis",
+            "description": "Analyze client website technical SEO",
+            "apis": ["onpage_instant_pages"],
+            "metrics": ["page_speed", "mobile_optimization", "schema_markup", "meta_tags"]
+          },
+          {
+            "action": "optimization_recommendations",
+            "description": "Generate technical improvements for article page",
+            "focus": "Core Web Vitals, structured data, meta optimization",
+            "storage": "Save to {keyword}-technical.json"
+          }
+        ]
+      },
+      {
+        "step": 5,
+        "name": "Content Creation",
+        "based_on": ["File 7"],
+        "actions": [
+          {
+            "action": "article_writing",
+            "description": "Claude Code Content Writer Agent: Generate complete SEO-optimized German article",
+            "specifications": {
+              "length": "1000-2500 words",
+              "language": "German",
+              "tone": "Expert but accessible",
+              "keyword_density": "1-2% for primary keyword",
+              "structure": "H1 + multiple H2/H3 sections + FAQ"
+            },
+            "storage": "Save to {keyword}-article.md"
+          },
+          {
+            "action": "on_page_assets",
+            "description": "Claude Code Content Writer Agent: Generate meta title, description, and structured data",
+            "formats": ["JSON-LD schema", "Open Graph tags", "Twitter Cards"],
+            "storage": "Save to {keyword}-meta.json"
+          },
+          {
+            "action": "internal_linking_integration",
+            "description": "Claude Code Content Writer Agent: Embed relevant internal links throughout content",
+            "integration": "Include in {keyword}-article.md"
+          }
+        ]
+      },
+      {
+        "step": 6,
+        "name": "Quality Assurance & Tracking Setup",
+        "based_on": ["File 6"],
+        "actions": [
+          {
+            "action": "rank_tracking_setup",
+            "description": "Prepare keywords for daily rank monitoring",
+            "storage": "Save tracking setup to {keyword}-process.md"
+          },
+          {
+            "action": "performance_benchmarks",
+            "description": "Set baseline metrics for article performance tracking"
+          }
+        ]
+      }
+    ],
+    "execution_workflow": {
+      "trigger": "keyword_input",
+      "parallel_processing": [
+        "keyword_research",
+        "competitor_analysis"
+      ],
+      "sequential_steps": [
+        "outline_generation",
+        "technical_seo_check",
+        "content_creation",
+        "quality_assurance"
+      ],
+      "output_generation": "keyword_specific_folder_with_all_files"
+    },
+    "quality_metrics": {
+      "content_length": "1000-2500 words",
+      "keyword_optimization": "Primary keyword in H1, H2, first paragraph",
+      "readability": "German language, expert but accessible tone",
+      "technical_seo": "Schema markup, optimized meta tags, internal links",
+      "competitive_advantage": "Unique angle based on competitor gap analysis"
+    },
+    "file_templates": {
+      "keyword_folder_structure": {
+        "folder_path": "SEO/SEO-CONTENT/{keyword}/",
+        "process_file": {
+          "filename": "{keyword}-process.md",
+          "header": "# SEO Content Generation Process\n## Target Keyword: {keyword}\n## Date: {timestamp}\n## Process ID: {process_id}",
+          "sections": [
+            "## 1. Keyword Research Results (saved to {keyword}-keywords.json)",
+            "## 2. Competitor Analysis (saved to {keyword}-competitors.json)",
+            "## 3. Content Outline (saved to {keyword}-outline.md)",
+            "## 4. Technical SEO Recommendations (saved to {keyword}-technical.json)",
+            "## 5. Final Article (saved to {keyword}-article.md)",
+            "## 6. Meta Assets (saved to {keyword}-meta.json)",
+            "## 7. Performance Tracking Setup"
+          ]
+        },
+        "file_descriptions": {
+          "keywords": "Expanded keyword research with search volume, CPC, intent classification",
+          "competitors": "Top 10 SERP analysis, content gaps, competitive intelligence",
+          "outline": "Comprehensive German article structure with H1-H3 headings and FAQ",
+          "technical": "OnPage SEO recommendations, Core Web Vitals, schema markup",
+          "article": "Complete 1000-2500 word SEO-optimized German article",
+          "meta": "Meta title, description, Open Graph tags, JSON-LD structured data"
+        }
+      }
+    }
+  }
+}

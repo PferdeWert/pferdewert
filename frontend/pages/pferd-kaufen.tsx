@@ -55,28 +55,44 @@ export default function PferdKaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd kaufen: Preis prüfen & günstig verhandeln | Deutschland 2024</title>
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
+
+        {/* Primary Meta Tags */}
+        <title>Pferd kaufen Bayern: Preis prüfen & günstig verhandeln | PferdeWert</title>
         <meta
          name="description"
-         content="Pferd kaufen in Deutschland ✓ KI-Preischeck für 14,90€ ✓ Faire Pferde Preise in Bayern, NRW & bundesweit ✓ Pferdekauf Tipps & Verhandlungshilfe"
+         content="Pferd kaufen Bayern & NRW: KI-Preischeck schützt vor Überzahlung. Faire Preise erkennen ✓ Verhandlungshilfe ✓ 40.500+ erfolgreiche Käufer deutschlandweit."
         />
-         <meta
+        <meta
          name="keywords"
-         content="pferd kaufen, pferd kaufen bayern, pferd kaufen nrw, pferd kaufen preis, pferdekauf tipps, pferde preise, pferdekauf deutschland, verhandlungshilfe pferdekauf"
+         content="pferd kaufen bayern, pferd kaufen nrw, pferd kaufen deutschland, pferdekauf tipps, pferde preise, verhandlungshilfe pferdekauf, pferdemarkt bayern"
         />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Pferd kaufen Bayern NRW: Preis prüfen & günstig verhandeln | PferdeWert" />
-        <meta property="og:description" content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min" />
-         <meta property="og:type" content="website" />
-         <meta property="og:url" content="https://pferdewert.de/pferd-kaufen" />
-         <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Pferd kaufen Bayern: Preis prüfen & günstig verhandeln | PferdeWert" />
+        <meta property="og:description" content="Pferd kaufen Bayern & NRW: KI-Preischeck schützt vor Überzahlung. Faire Preise erkennen ✓ Verhandlungshilfe ✓ 40.500+ erfolgreiche Käufer deutschlandweit." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pferdewert.de/pferd-kaufen" />
+        <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+        <meta property="og:locale" content="de_DE" />
 
-        {/* Twitter Card */}
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-         <meta name="twitter:title" content="Pferd kaufen – Preis prüfen & günstig verhandeln | PferdeWert" />
-        <meta name="twitter:description" content="Pferd kaufen? Nutze den Pferdepreis-Rechner und finde faire Angebote in NRW, Bayern & deutschlandweit ✓ Keine Überzahlung ✓ Sofort-Analyse in 2 Min" />
-         <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+        <meta name="twitter:title" content="Pferd kaufen Bayern: Preis prüfen & günstig verhandeln | PferdeWert" />
+        <meta name="twitter:description" content="Pferd kaufen Bayern & NRW: KI-Preischeck schützt vor Überzahlung. Faire Preise erkennen ✓ Verhandlungshilfe ✓ 40.500+ erfolgreiche Käufer deutschlandweit." />
+        <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-hero.webp" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://pferdewert.de/pferd-kaufen" />
+
+        {/* Performance Optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://api.pferdewert.de" />
+        <link rel="dns-prefetch" href="//api.pferdewert.de" />
          
           {/* Enhanced Structured Data für SEO */}
           <script
@@ -180,7 +196,6 @@ export default function PferdKaufen() {
               ])
             }}
           />
-          <link rel="canonical" href="https://pferdewert.de/pferd-kaufen" />
         </Head>
 
         {/* Hero-Bereich für Käufer */}

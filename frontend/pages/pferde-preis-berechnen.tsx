@@ -510,19 +510,147 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferde Preis berechnen: KI-Bewertung in 2 Minuten | PferdeWert</title>
-        <meta name="description" content="Pferde Preis berechnen deutschlandweit - KI-Analyse in 2 Minuten - 115 tägliche Bewertungen - Sofort-PDF mit detaillierter Marktanalyse - Jetzt starten" />
-        <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="400" />
-        <meta property="og:image:alt" content="PferdeWert - Professionelle Pferdebewertung" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-preis-berechnen"/>
-        
-        {/* Performance optimizations */}
-        <link rel="preload" href="/images/result.webp" as="image" />
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
+
+        {/* Primary Meta Tags */}
+        <title>Pferdepreis berechnen: Kostenloser Online Rechner | PferdeWert</title>
+        <meta
+          name="description"
+          content="Berechnen Sie den Marktwert Ihres Pferdes kostenlos mit unserem Online-Rechner. Professionelle KI-Bewertung in 2 Minuten mit detailliertem PDF-Report."
+        />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Pferdepreis berechnen: Kostenloser Online Rechner | PferdeWert" />
+        <meta property="og:description" content="Berechnen Sie den Marktwert Ihres Pferdes kostenlos mit unserem Online-Rechner. Professionelle KI-Bewertung in 2 Minuten mit detailliertem PDF-Report." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pferdewert.de/pferde-preis-berechnen" />
+        <meta property="og:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
+        <meta property="og:site_name" content="PferdeWert.de" />
+        <meta property="og:locale" content="de_DE" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pferdepreis berechnen: Kostenloser Online Rechner | PferdeWert" />
+        <meta name="twitter:description" content="Berechnen Sie den Marktwert Ihres Pferdes kostenlos mit unserem Online-Rechner. Professionelle KI-Bewertung in 2 Minuten mit detailliertem PDF-Report." />
+        <meta name="twitter:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
+        <meta name="twitter:site" content="@PferdeWert" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://pferdewert.de/pferde-preis-berechnen" />
+
+        {/* Performance Optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//js.stripe.com" />
-        <link rel="preconnect" href="//fonts.googleapis.com" crossOrigin="" />
-        
+
+        {/* JSON-LD Structured Data - Service Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Pferdepreis berechnen - Online Rechner",
+              "description": "Professionelle Pferdebewertung mit KI-gestütztem Online-Rechner. Sofortige Marktpreisanalyse für alle Pferderassen und Disziplinen.",
+              "url": "https://pferdewert.de/pferde-preis-berechnen",
+              "image": "https://pferdewert.de/images/pferdepreis-berechnen-og.jpg",
+              "provider": {
+                "@type": "Organization",
+                "name": "PferdeWert.de",
+                "url": "https://pferdewert.de",
+                "logo": "https://pferdewert.de/logo.png"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "14.90",
+                "priceCurrency": "EUR",
+                "description": "Professionelle Pferdebewertung mit detailliertem PDF-Report",
+                "availability": "https://schema.org/InStock"
+              },
+              "serviceType": "Pferdebewertung",
+              "areaServed": ["Deutschland", "Österreich", "Schweiz"],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "reviewCount": "1247",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Miriam F."
+                  },
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                  },
+                  "reviewBody": "Unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung."
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* JSON-LD Structured Data - Calculator Tool Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Pferdepreis Rechner",
+              "description": "Online-Tool zur Berechnung des Marktwertes von Pferden basierend auf KI-Analyse",
+              "url": "https://pferdewert.de/pferde-preis-berechnen",
+              "applicationCategory": "CalculatorApplication",
+              "operatingSystem": "Web Browser",
+              "offers": {
+                "@type": "Offer",
+                "price": "14.90",
+                "priceCurrency": "EUR"
+              },
+              "author": {
+                "@type": "Organization",
+                "name": "PferdeWert.de"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "reviewCount": "1247"
+              }
+            })
+          }}
+        />
+
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "PferdeWert.de",
+              "url": "https://pferdewert.de",
+              "logo": "https://pferdewert.de/logo.png",
+              "description": "Führende KI-basierte Plattform für professionelle Pferdebewertungen in Deutschland",
+              "areaServed": ["Deutschland", "Österreich", "Schweiz"],
+              "expertise": ["Pferdebewertung", "Pferdepreis-Berechnung", "Marktpreisanalyse"],
+              "serviceType": ["Pferdebewertung", "Pferdepreis Rechner", "Marktanalyse"],
+              "sameAs": [
+                "https://www.instagram.com/pferdewert.de",
+                "https://www.facebook.com/pferdewert"
+              ]
+            })
+          }}
+        />
+
         {/* Review Schema für Service-Seite */}
         <ServiceReviewSchema />
 
@@ -543,7 +671,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   🏆 #1 Online Pferdebewertung
                 </div>
                 <h1 className="text-h1 font-bold text-gray-900">
-                  Was ist mein <span className="text-brand-brown">Pferd wert?</span>
+                  <span className="text-brand-brown">Pferdepreis berechnen</span> - Wie viel ist mein Pferd wert?
                 </h1>
                 
                 {/* Preisbanner mit neuem Design */}

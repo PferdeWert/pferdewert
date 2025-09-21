@@ -159,49 +159,46 @@ const PferdKaufenNRW: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Pferd kaufen in NRW - Preise & Märkte in Nordrhein-Westfalen | PferdeWert.de</title>
-        <meta name="description" content="Pferde kaufen in NRW: Aktuelle Preise für Westfälische Warmblüter, Springpferde & Dressurpferde. Regionale Märkte in Westfalen, Rheinland & Münsterland. ✓ Expertenberatung ✓ Marktanalyse" />
-        <meta name="keywords" content="pferd kaufen nrw, westfälische warmblüter, pferdepreise nordrhein-westfalen, münsterland pferde, springpferde nrw, dressurpferde westfalen, pferdekauf aachen, pferde rheinland kaufen" />
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="PferdeWert.de" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
+
+        {/* Primary Meta Tags */}
+        <title>Pferd kaufen NRW & Bayern: Westfälische Warmblüter Münsterland 2024 | PferdeWert.de</title>
+        <meta
+          name="description"
+          content="Pferd kaufen NRW & Bayern: Westfälische Warmblüter Münsterland ✓ Aktuelle Preise 8.000€-55.000€ ✓ Düsseldorf, Köln, Dortmund, Aachen ✓ Jetzt informieren!"
+        />
+        <meta
+          name="keywords"
+          content="pferd kaufen nrw bayern, westfälische warmblüter münsterland, pferdepreise düsseldorf köln dortmund aachen, pferdemarkt westfalen rheinland"
+        />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Pferd kaufen in NRW - Preise & Märkte in Nordrhein-Westfalen" />
-        <meta property="og:description" content="Pferde kaufen in NRW: Aktuelle Preise für Westfälische Warmblüter, Springpferde & Dressurpferde. Regionale Märkte in Westfalen, Rheinland & Münsterland." />
-        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Pferd kaufen NRW & Bayern: Westfälische Warmblüter Münsterland 2024 | PferdeWert.de" />
+        <meta property="og:description" content="Pferd kaufen NRW & Bayern: Westfälische Warmblüter Münsterland ✓ Aktuelle Preise 8.000€-55.000€ ✓ Düsseldorf, Köln, Dortmund, Aachen ✓ Jetzt informieren!" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw" />
-        <meta property="og:site_name" content="PferdeWert.de" />
+        <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-nrw.webp" />
         <meta property="og:locale" content="de_DE" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd kaufen in NRW - Preise & Märkte in Nordrhein-Westfalen" />
-        <meta name="twitter:description" content="Pferde kaufen in NRW: Aktuelle Preise für Westfälische Warmblüter, Springpferde & Dressurpferde. Regionale Märkte in Westfalen, Rheinland & Münsterland." />
+        <meta name="twitter:title" content="Pferd kaufen NRW & Bayern: Westfälische Warmblüter Münsterland 2024 | PferdeWert.de" />
+        <meta name="twitter:description" content="Pferd kaufen NRW & Bayern: Westfälische Warmblüter Münsterland ✓ Aktuelle Preise 8.000€-55.000€ ✓ Düsseldorf, Köln, Dortmund, Aachen ✓ Jetzt informieren!" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-nrw.webp" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw" />
 
-        {/* Hreflang */}
-        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw" />
+        {/* Performance Optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://api.pferdewert.de" />
+        <link rel="dns-prefetch" href="//api.pferdewert.de" />
 
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessStructuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
-        />
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
@@ -233,15 +230,15 @@ const PferdKaufenNRW: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-h1 font-bold mb-6">
-                Pferd kaufen in Nordrhein-Westfalen
+                Pferd kaufen NRW - Marktpreise & Bewertung
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-green-100">
-                Westfälische Warmblüter, Springpferde & Dressurpferde aus NRW
+                Faire Marktpreise mit KI-Analyse für Ihren Pferdekauf in Nordrhein-Westfalen
               </p>
               <div className="bg-white/10 backdrop-blur rounded-lg p-6 max-w-4xl mx-auto">
                 <p className="text-lg leading-relaxed">
-                  Nordrhein-Westfalen ist das Herz der deutschen Pferdezucht. Entdecken Sie aktuelle Preise,
-                  regionale Märkte und Expertenwissen für Ihren Pferdekauf in NRW - von Westfälischen Warmblütern
+                  Nordrhein-Westfalen ist das Herz der deutschen Pferdezucht. Ermitteln Sie mit unserer KI-Analyse
+                  faire Marktpreise für Ihren Pferdekauf in NRW. Transparente Bewertung von Westfälischen Warmblütern
                   bis zu Turnierpferden aus dem Münsterland.
                 </p>
               </div>

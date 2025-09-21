@@ -1,4 +1,5 @@
 // pages/pferd-verkaufen.tsx
+import { useState, Fragment } from 'react';
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Link from "next/link";
@@ -326,28 +327,51 @@ export default function PferdVerkaufen() {
     <Layout>
       <>
         <Head>
-        <title>Pferd verkaufen Bayern NRW: Optimaler Preis & schneller Verkauf | PferdeWert</title>
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
+
+        {/* Primary Meta Tags */}
+        <title>Pferd verkaufen Bayern: Optimaler Preis durch KI-Bewertung | PferdeWert</title>
         <meta
          name="description"
-         content="Pferd verkaufen Bayern, NRW & ganz Deutschland ✓ KI-Bewertung für optimalen Verkaufspreis ✓ 3x schneller verkaufen ✓ Marktgerechte Preisfindung ohne Wertverluste"
+         content="Pferd verkaufen Bayern & NRW: Professionelle KI-Bewertung für optimalen Verkaufspreis. 3x schnellerer Verkauf durch realistische Preisgestaltung. Jetzt Marktwert ermitteln!"
         />
          <meta
          name="keywords"
-         content="pferd verkaufen, pferd verkaufen bayern, pferd verkaufen nrw, pferd schnell verkaufen, verkaufspreis pferd, pferd verkaufen preis, pferdewert verkauf"
+         content="pferd verkaufen bayern, pferd verkaufen nrw, pferd verkaufen deutschland, verkaufspreis pferd ermitteln, pferdewert verkauf, pferdeverkauf beratung, pferd optimal verkaufen tipps"
         />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Pferd verkaufen Bayern NRW: Optimaler Preis & schneller Verkauf | PferdeWert" />
-        <meta property="og:description" content="Pferd verkaufen? Ermittle den optimalen Verkaufspreis mit KI-Bewertung ✓ Schneller verkaufen ✓ Faire Preise ✓ Keine Wertverluste" />
-         <meta property="og:type" content="website" />
-         <meta property="og:url" content="https://pferdewert.de/pferd-verkaufen" />
-         <meta property="og:image" content="https://pferdewert.de/images/pferd-verkaufen-hero.webp" />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Pferd verkaufen Bayern: Optimaler Preis durch KI-Bewertung | PferdeWert" />
+        <meta property="og:description" content="Pferd verkaufen Bayern & NRW: Professionelle KI-Bewertung für optimalen Verkaufspreis. 3x schnellerer Verkauf durch realistische Preisgestaltung. Jetzt Marktwert ermitteln!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pferdewert.de/pferd-verkaufen" />
+        <meta property="og:image" content="https://pferdewert.de/images/pferd-verkaufen-bayern-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Pferd verkaufen Bayern - Optimaler Preis durch KI-Bewertung" />
+        <meta property="og:site_name" content="PferdeWert.de" />
+        <meta property="og:locale" content="de_DE" />
 
-        {/* Twitter Card */}
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-         <meta name="twitter:title" content="Pferd verkaufen – Optimaler Preis & schneller Verkauf | PferdeWert" />
-        <meta name="twitter:description" content="Pferd verkaufen? Ermittle den optimalen Verkaufspreis mit KI-Bewertung ✓ Schneller verkaufen ✓ Faire Preise ✓ Keine Wertverluste" />
-         <meta name="twitter:image" content="https://pferdewert.de/images/pferd-verkaufen-hero.webp" />
+        <meta name="twitter:title" content="Pferd verkaufen Bayern: Optimaler Preis durch KI-Bewertung | PferdeWert" />
+        <meta name="twitter:description" content="Pferd verkaufen Bayern & NRW: Professionelle KI-Bewertung für optimalen Verkaufspreis. 3x schnellerer Verkauf durch realistische Preisgestaltung. Jetzt Marktwert ermitteln!" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/pferd-verkaufen-bayern-hero.jpg" />
+        <meta name="twitter:image:alt" content="Pferd verkaufen Bayern - Optimaler Preis durch KI-Bewertung" />
+        <meta name="twitter:site" content="@PferdeWert" />
+        <meta name="twitter:creator" content="@PferdeWert" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://pferdewert.de/pferd-verkaufen" />
+
+        {/* Performance Optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://api.pferdewert.de" />
+        <link rel="dns-prefetch" href="//api.pferdewert.de" />
          
           {/* Structured Data für SEO */}
           <script
@@ -507,19 +531,19 @@ export default function PferdVerkaufen() {
           <link rel="canonical" href="https://pferdewert.de/pferd-verkaufen" />
         </Head>
 
-        {/* Hero-Bereich für Verkäufer */}
-        <section className="bg-[#fdf9f4] py-20 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        {/* Hero-Bereich für Verkäufer - Mobile-First Responsive */}
+        <section className="bg-[#fdf9f4] py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-center">
             <div className="order-2 md:order-1">
-              <h1 className="text-h1 font-bold text-gray-900 mb-6">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Pferd verkaufen Bayern & NRW: So erzielst du den optimalen Preis
               </h1>
-              <p className="text-xl text-gray-700 mb-6">
-                Verkaufe schneller und zum fairen Preis mit professioneller KI-Bewertung. 
-                Keine Wertverluste durch falshe Preisgestaltung.
+              <p className="text-lg sm:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+                Verkaufe schneller und zum fairen Preis mit professioneller KI-Bewertung.
+                Keine Wertverluste durch falsche Preisgestaltung.
               </p>
               
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3 mb-6 sm:mb-8">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                   <span className="text-gray-700">Optimaler Verkaufspreis in 2 Minuten</span>
@@ -534,7 +558,7 @@ export default function PferdVerkaufen() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link
                   href="/pferde-preis-berechnen"
                   className="btn-primary"

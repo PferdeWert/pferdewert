@@ -149,12 +149,12 @@ const AKUVerstehen: NextPage = () => {
   return (
     <>
       <Head>
-        <title>AKU Pferd verstehen: Ankaufsuntersuchung Kosten, Ablauf & Befunde 2025 | PferdeWert.de</title>
+        <title>AKU Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber</title>
         <meta
           name="description"
-          content="✓ AKU Pferd verstehen: Kosten (150-2000€), Ablauf, Klassen I-V und Befunde der Ankaufsuntersuchung. Expertenratgeber für Pferdekäufer 2025."
+          content="AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung."
         />
-        <meta name="keywords" content="AKU Pferd, Ankaufsuntersuchung Pferd, AKU Kosten, AKU Klassen, AKU Befunde, Tierarzt AKU, Pferdekauf AKU" />
+        <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku kosten, aku klassen, aku befunde, tierarzt aku, pferdekauf aku, aku ratgeber, aku guide, pferdewert aku" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/aku-verstehen" />
 
         {/* Open Graph */}

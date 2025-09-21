@@ -38,10 +38,6 @@ const PAGE_CONFIG = {
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
 
-  // Rechtliches (niedrige Priorität, aber indexiert)
-  '/agb': { priority: '0.3', changefreq: 'yearly' },
-  '/datenschutz': { priority: '0.3', changefreq: 'yearly' },
-  '/impressum': { priority: '0.3', changefreq: 'yearly' },
 };
 
 // Seiten die NICHT indexiert werden sollen

@@ -33,9 +33,6 @@ Allow: /pferde-ratgeber/aku-verstehen/aku-ablauf-kosten
 Allow: /was-ist-mein-pferd-wert
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
-Allow: /agb
-Allow: /datenschutz
-Allow: /impressum
 
 # Sitemap location
 Sitemap: https://pferdewert.de/sitemap.xml

@@ -145,18 +145,31 @@ export default function WasIstMeinPferdWert() {
     <Layout>
       <>
         <Head>
-          <title>Was ist mein Pferd wert? KI-Pferdebewertung für Deutschland 2025 | PferdeWert</title>
+          <title>Wie viel ist mein Pferd wert? KI-Bewertung in 5 Minuten | PferdeWert</title>
           <meta
             name="description"
-            content="Was ist mein Pferd wert? ✓ KI-Pferdebewertung für Bayern, NRW & ganz Deutschland ✓ Sofort-PDF ✓ Marktwert ermitteln ✓ Pferd schätzen lassen ✓ Kostenlose Erstberatung"
+            content="Finden Sie heraus, wie viel Ihr Pferd wert ist. Professionelle AI-Bewertung basierend auf Alter, Rasse, Training und Marktdaten. Jetzt bewerten lassen!"
           />
-          <meta name="keywords" content="was ist mein pferd wert, pferdebewertung deutschland, pferd schätzen lassen, marktwert pferd berechnen, pferdewert ermitteln bayern nrw, pferde preis schätzen, online pferdebewertung kostenlos" />
-          <meta property="og:title" content="Was ist mein Pferd wert? Professionelle Pferdebewertung | PferdeWert.de" />
-          <meta property="og:description" content="Was ist mein Pferd wert? KI-Pferdebewertung deutschlandweit - Ohne Anmeldung - Sofort als PDF - Jetzt Marktwert ermitteln" />
+          <meta name="keywords" content="wie viel ist mein pferd wert, pferdebewertung, pferd wert ermitteln, was kostet mein pferd, pferdewert berechnen, marktwert pferd, pferde bewertung online, pferdeschätzung deutschland" />
+          <meta name="robots" content="index, follow" />
+          <meta name="language" content="de" />
+          <meta name="geo.region" content="DE" />
+          <meta name="geo.country" content="Deutschland" />
+          <meta property="og:title" content="Wie viel ist mein Pferd wert? KI-Bewertung in 5 Minuten | PferdeWert" />
+          <meta property="og:description" content="Finden Sie heraus, wie viel Ihr Pferd wert ist. Professionelle AI-Bewertung basierend auf Alter, Rasse, Training und Marktdaten. Jetzt bewerten lassen!" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://pferdewert.de/was-ist-mein-pferd-wert" />
           <meta property="og:image" content="https://pferdewert.de/images/blossi-3.jpg" />
+          <meta property="og:locale" content="de_DE" />
+          <meta property="og:site_name" content="PferdeWert.de" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Wie viel ist mein Pferd wert? KI-Bewertung in 5 Minuten" />
+          <meta name="twitter:description" content="Professionelle AI-Bewertung basierend auf Alter, Rasse, Training und Marktdaten. Jetzt bewerten lassen!" />
+          <meta name="twitter:image" content="https://pferdewert.de/images/blossi-3.jpg" />
           <link rel="canonical" href="https://pferdewert.de/was-ist-mein-pferd-wert" />
+          <meta name="author" content="PferdeWert.de" />
+          <meta name="publisher" content="PferdeWert.de" />
+          <meta name="theme-color" content="#3B82F6" />
           
           {/* Strukturierte Daten für Rich Snippets */}
           <script
@@ -217,7 +230,7 @@ export default function WasIstMeinPferdWert() {
             {/* Content */}
             <div className="order-2 md:order-1">
               <h1 className="text-h1 font-bold text-gray-900 mb-4">
-                Was ist mein Pferd wert? KI-Pferdebewertung für Deutschland
+                <span className="text-brand-brown">Wie viel ist mein Pferd wert?</span> KI-Bewertung in 5 Minuten
               </h1>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                 <strong>Pferdewert ermitteln</strong> mit modernster KI-Technologie. <strong>Pferd schätzen lassen</strong> für <strong>Bayern, NRW und ganz Deutschland</strong>. Ob für <strong>Verkauf</strong>, <strong>Kauf</strong> oder <strong>Versicherung</strong> – erhalten Sie eine fundierte <strong>Pferdebewertung</strong> basierend auf tausenden aktuellen Marktdaten.

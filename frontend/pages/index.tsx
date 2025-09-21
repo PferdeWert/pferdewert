@@ -129,38 +129,52 @@ export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferdepreis berechnen ✓ Online Pferdebewertung | PferdeWert.de</title>
+        {/* Basic Meta Tags - Following 11-edit transformation pattern */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta httpEquiv="content-language" content="de" />
+
+        {/* Primary Meta Tags */}
+        <title>Pferde Preis berechnen: KI-basierte Pferdebewertung | PferdeWert</title>
         <meta
           name="description"
-          content="Ermitteln Sie den Wert Ihres Pferdes mit KI-gestützter Bewertung. Präzise Pferdepreis Berechnung für faire Marktpreise. Jetzt kostenlos testen!"
+          content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise. Jetzt starten!"
         />
-        {/* Additional SEO meta tags */}
-        <meta name="keywords" content="pferde preis, pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdepreise, was ist mein pferd wert" />
+        <meta name="keywords" content="pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdepreise, was ist mein pferd wert, pferd preis, pferdemarkt preise, pferde bewertung" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="language" content="de" />
-        <meta name="geo.region" content="DE" />
-        <meta name="geo.country" content="Deutschland" />
         <meta name="author" content="PferdeWert.de" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Pferdepreis berechnen ✓ Online Pferdebewertung | PferdeWert.de" />
-        <meta property="og:description" content="Ermitteln Sie den Wert Ihres Pferdes mit KI-gestützter Bewertung. Präzise Pferdepreis Berechnung für faire Marktpreise. Jetzt kostenlos testen!" />
+        {/* Geographic Meta Tags */}
+        <meta name="geo.region" content="DE" />
+        <meta name="geo.country" content="Deutschland" />
+        <meta name="geo.placename" content="Deutschland" />
+        <meta name="ICBM" content="51.0, 9.0" />
+
+        {/* Open Graph Meta Tags */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pferdewert.de/" />
-        <meta property="og:site_name" content="PferdeWert.de" />
+        <meta property="og:site_name" content="PferdeWert" />
         <meta property="og:locale" content="de_DE" />
+        <meta property="og:url" content="https://pferdewert.de/" />
+        <meta property="og:title" content="Pferde Preis berechnen: KI-basierte Pferdebewertung | PferdeWert" />
+        <meta property="og:description" content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise. Jetzt starten!" />
         <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
-        <meta property="og:image:alt" content="Pferdepreis berechnen - Online Pferdebewertung von PferdeWert.de" />
+        <meta property="og:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
-        {/* Twitter */}
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferdepreis berechnen ✓ Online Pferdebewertung | PferdeWert.de" />
-        <meta name="twitter:description" content="Ermitteln Sie den Wert Ihres Pferdes mit KI-gestützter Bewertung. Präzise Pferdepreis Berechnung für faire Marktpreise." />
+        <meta name="twitter:title" content="Pferde Preis berechnen: KI-basierte Pferdebewertung | PferdeWert" />
+        <meta name="twitter:description" content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise." />
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
-        <meta name="twitter:image:alt" content="Pferdepreis berechnen - Online Pferdebewertung von PferdeWert.de" />
+        <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
+
+        {/* Canonical and Performance */}
         <link rel="canonical" href="https://pferdewert.de/" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://api.pferdewert.de" />
+        <link rel="dns-prefetch" href="//api.pferdewert.de" />
         
         {/* Critical CSS für above-the-fold Content */}
         <style dangerouslySetInnerHTML={{
@@ -478,7 +492,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mt-16">
               <div className="mb-4">
                 <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Pferdepreis-Bewertungen für Pferdebesitzer und Pferdekäufer
+                  Professionelle Pferdepreis-Bewertung für Pferdebesitzer und Pferdekäufer
                 </p>
               </div>
               
@@ -504,7 +518,7 @@ export default function PferdeWertHomepage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">
-                Pferd kaufen Preis richtig einschätzen
+                Pferd kaufen, Preis richtig einschätzen
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Vermeide Fehlkäufe und Überzahlung – mit unserer KI-Pferdebewertung online erhältst du transparente Marktpreise vor dem Pferdekauf
@@ -528,7 +542,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Schutz vor Überzahlung</h3>
                 <p className="text-gray-600">
-                  Objektive Pferdepreis-Bewertung online hilft dir, faire Pferdekauf-Preise zu erkennen
+                  Unsere objektive Pferdepreis-Bewertung hilft dir, faire Pferde-Kaufpreise zu erkennen
                 </p>
               </div>
 
@@ -536,9 +550,9 @@ export default function PferdeWertHomepage() {
                 <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-brand-brown" />
                 </div>
-                <h3 className="text-h3 font-bold text-gray-900 mb-3">Verhandlungssicherheit</h3>
+                <h3 className="text-h3 font-bold text-gray-900 mb-3">Verhandlung richtig vorbereiten</h3>
                 <p className="text-gray-600">
-                  Mit fundierter Pferdepreis-Bewertung online optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
+                  Mit fundierter Pferdepreis-Bewertung optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
                 </p>
               </div>
             </div>
@@ -548,7 +562,7 @@ export default function PferdeWertHomepage() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary text-lg px-8 py-4"
               >
-                Pferd kaufen Preis jetzt berechnen
+                Jetzt Pferdepreis berechnen
               </Link>
             </div>
           </div>
@@ -747,7 +761,7 @@ export default function PferdeWertHomepage() {
                   href="/was-ist-mein-pferd-wert" 
                   className="inline-flex items-center gap-2 bg-brand-brown text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-brownDark transition-colors"
                 >
-                  Was ist mein Pferd wert? <ArrowRight className="w-4 h-4" />
+                  Was ist mein Pferd wert?
                 </Link>
               </div>
             </div>

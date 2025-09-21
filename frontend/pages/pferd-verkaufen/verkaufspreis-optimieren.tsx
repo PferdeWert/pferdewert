@@ -248,10 +248,10 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Verkaufspreis optimieren - Maximaler Erlös beim Pferdeverkauf | PferdeWert.de</title>
+        <title>Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert</title>
         <meta
           name="description"
-          content="Professionelle Strategien zur Verkaufspreisoptimierung: Marktanalyse, Bewertung, Timing und Präsentation für maximale Erlöse beim Pferdeverkauf. Expertentipps für Deutschland."
+          content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat."
         />
         <meta
           name="keywords"
@@ -262,8 +262,8 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
         <link rel="canonical" href="https://pferdewert.de/pferd-verkaufen/verkaufspreis-optimieren" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Verkaufspreis optimieren - Maximaler Erlös beim Pferdeverkauf" />
-        <meta property="og:description" content="Professionelle Strategien zur Verkaufspreisoptimierung für maximale Erlöse beim Pferdeverkauf. Marktanalyse, Bewertung und Präsentationstipps." />
+        <meta property="og:title" content="Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert" />
+        <meta property="og:description" content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat." />
         <meta property="og:url" content="https://pferdewert.de/pferd-verkaufen/verkaufspreis-optimieren" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://pferdewert.de/images/verkaufspreis-optimierung-og.jpg" />
@@ -271,8 +271,8 @@ const VerkaufspreisOptimierenPage: NextPage = () => {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Verkaufspreis optimieren - Maximaler Erlös beim Pferdeverkauf" />
-        <meta name="twitter:description" content="Professionelle Strategien zur Verkaufspreisoptimierung für maximale Erlöse beim Pferdeverkauf." />
+        <meta name="twitter:title" content="Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert" />
+        <meta name="twitter:description" content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat." />
         <meta name="twitter:image" content="https://pferdewert.de/images/verkaufspreis-optimierung-twitter.jpg" />
 
         {/* Structured Data */}

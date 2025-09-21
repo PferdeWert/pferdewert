@@ -1,8 +1,7 @@
-import React from 'react';
 import Head from 'next/head';
+import { useState } from 'react';
 import Link from 'next/link';
-import Layout from '../../../components/Layout';
-import Breadcrumbs from '../../../components/Breadcrumbs';
+import { ArrowRight, Shield, Star, MapPin, TrendingUp, Users, Award, CheckCircle } from 'lucide-react';
 
 // Regionale Preisdaten für Bayern (beispielhafte Struktur)
 const bayernPferdepreise = {
@@ -101,9 +100,7 @@ const faqBayern = [
 export default function PferdKaufenBayern() {
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
-    { label: 'Pferd kaufen', href: '/pferd-kaufen' },
-    { label: 'Regionale Pferdepreise', href: '/pferd-kaufen/regionale-pferdepreise' },
-    { label: 'Pferd kaufen Bayern', href: '/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern' }
+    { label: 'Pferd kaufen Bayern', href: '/pferd-kaufen-bayern' }
   ];
 
   const structuredData = {
@@ -111,10 +108,10 @@ export default function PferdKaufenBayern() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern",
-        "url": "https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern",
-        "name": "Pferd kaufen Bayern - Preise, Züchter & Märkte 2024",
-        "description": "✓ Aktuelle Pferdepreise in Bayern ✓ Seriöse Züchter & Verkaufsmärkte ✓ Regionale Expertise ✓ Von 3.000€ bis 55.000€ - Jetzt informieren!",
+        "@id": "https://pferdewert.de/pferd-kaufen-bayern",
+        "url": "https://pferdewert.de/pferd-kaufen-bayern",
+        "name": "Pferd kaufen Bayern - Faire Preise finden | PferdeWert",
+        "description": "Pferdekauf in Bayern: Ermitteln Sie mit KI-Analyse faire Marktpreise. Professionelle Bewertung für Pferde in Bayern - jetzt starten!",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://pferdewert.de",
@@ -131,12 +128,24 @@ export default function PferdKaufenBayern() {
               "name": item.label
             }
           }))
+        },
+        "mainEntity": {
+          "@type": "Guide",
+          "name": "Pferd kaufen Bayern - Kompletter Ratgeber",
+          "description": "Umfassender Guide zum Pferdekauf in Bayern mit aktuellen Preisen, KI-Bewertung und Marktanalyse",
+          "author": {
+            "@type": "Organization",
+            "name": "PferdeWert.de",
+            "url": "https://pferdewert.de"
+          },
+          "datePublished": "2025-01-20",
+          "dateModified": "2025-01-20"
         }
       },
       {
         "@type": "LocalBusiness",
         "name": "Pferdemarkt Bayern",
-        "description": "Spezialisiert auf den Verkauf von Pferden in Bayern",
+        "description": "Spezialisiert auf den Verkauf von Pferden in Bayern mit KI-gestützter Preisbewertung",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Bayern",
@@ -149,7 +158,14 @@ export default function PferdKaufenBayern() {
         "serviceArea": [
           "München", "Nürnberg", "Augsburg", "Regensburg", "Ingolstadt",
           "Würzburg", "Fürth", "Erlangen", "Bayreuth", "Bamberg"
-        ]
+        ],
+        "offers": {
+          "@type": "Offer",
+          "name": "KI-Pferdebewertung",
+          "description": "Professionelle Pferdebewertung mit KI-Technologie",
+          "price": "14.90",
+          "priceCurrency": "EUR"
+        }
       },
       {
         "@type": "FAQPage",
@@ -181,22 +197,32 @@ export default function PferdKaufenBayern() {
         }))
       },
       {
-        "@type": "Guide",
-        "name": "Pferd kaufen in Bayern - Kompletter Ratgeber",
-        "description": "Umfassender Guide zum Pferdekauf in Bayern mit aktuellen Preisen, seriösen Händlern und rechtlichen Hinweisen",
-        "author": {
-          "@type": "Organization",
-          "name": "PferdeWert.de",
-          "url": "https://pferdewert.de"
+        "@type": "Product",
+        "name": "Pferd kaufen Bayern",
+        "description": "Hochwertige Pferde aus Bayern mit professioneller KI-Bewertung",
+        "category": "Pferde",
+        "brand": {
+          "@type": "Brand",
+          "name": "Bayerische Pferdezucht"
         },
-        "datePublished": "2024-09-20",
-        "dateModified": "2024-09-20"
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "EUR",
+          "lowPrice": "3000",
+          "highPrice": "55000",
+          "offerCount": "500"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "147"
+        }
       }
     ]
   };
 
   return (
-    <Layout>
+    <>
       <Head>
         {/* Basic Meta Tags - Following 11-edit transformation pattern */}
         <meta charSet="utf-8" />
@@ -204,32 +230,32 @@ export default function PferdKaufenBayern() {
         <meta httpEquiv="content-language" content="de" />
 
         {/* Primary Meta Tags */}
-        <title>Pferd kaufen Bayern & Hessen: München Nürnberg Augsburg 2024 | PferdeWert.de</title>
+        <title>Pferd kaufen Bayern: Faire Preise durch KI-Bewertung | PferdeWert</title>
         <meta
           name="description"
-          content="Pferd kaufen Bayern & Hessen: München Nürnberg Augsburg ✓ Aktuelle Preise 3.000€-55.000€ ✓ Regensburg, Würzburg, Ingolstadt, Erlangen ✓ Jetzt informieren!"
+          content="Pferd kaufen Bayern & NRW: KI-gestützte Marktanalyse für faire Preise. Haflinger, Warmblüter & Sportpferde mit professioneller Bewertung. Jetzt starten!"
         />
         <meta
           name="keywords"
-          content="pferd kaufen bayern hessen, bayerisches warmblut münchen nürnberg augsburg, pferdepreise regensburg würzburg ingolstadt erlangen, pferdemarkt alpenvorland oberbayern"
+          content="pferd kaufen bayern, pferd bayern kaufen, pferde kaufen bayern, pferdepreise bayern, pferdemarkt bayern, warmblut bayern kaufen, haflinger bayern kaufen, sportpferd bayern"
         />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Pferd kaufen Bayern & Hessen: München Nürnberg Augsburg 2024 | PferdeWert.de" />
-        <meta property="og:description" content="Pferd kaufen Bayern & Hessen: München Nürnberg Augsburg ✓ Aktuelle Preise 3.000€-55.000€ ✓ Regensburg, Würzburg, Ingolstadt, Erlangen ✓ Jetzt informieren!" />
+        <meta property="og:title" content="Pferd kaufen Bayern: Faire Preise durch KI-Bewertung | PferdeWert" />
+        <meta property="og:description" content="Pferd kaufen Bayern & NRW: KI-gestützte Marktanalyse für faire Preise. Haflinger, Warmblüter & Sportpferde mit professioneller Bewertung. Jetzt starten!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern" />
-        <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-bayern.webp" />
+        <meta property="og:url" content="https://pferdewert.de/pferd-kaufen-bayern" />
+        <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-bayern-og.jpg" />
         <meta property="og:locale" content="de_DE" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd kaufen Bayern & Hessen: München Nürnberg Augsburg 2024 | PferdeWert.de" />
-        <meta name="twitter:description" content="Pferd kaufen Bayern & Hessen: München Nürnberg Augsburg ✓ Aktuelle Preise 3.000€-55.000€ ✓ Regensburg, Würzburg, Ingolstadt, Erlangen ✓ Jetzt informieren!" />
-        <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-bayern.webp" />
+        <meta name="twitter:title" content="Pferd kaufen Bayern: Faire Preise durch KI-Bewertung | PferdeWert" />
+        <meta name="twitter:description" content="Pferd kaufen Bayern & NRW: KI-gestützte Marktanalyse für faire Preise. Haflinger, Warmblüter & Sportpferde mit professioneller Bewertung. Jetzt starten!" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-bayern-og.jpg" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://pferdewert.de/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern" />
+        <link rel="canonical" href="https://pferdewert.de/pferd-kaufen-bayern" />
 
         {/* Performance Optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -237,47 +263,67 @@ export default function PferdKaufenBayern() {
         <link rel="preconnect" href="https://api.pferdewert.de" />
         <link rel="dns-prefetch" href="//api.pferdewert.de" />
 
-        {/* JSON-LD Structured Data */}
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </Head>
 
-      <main className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+      <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
         <div className="container mx-auto px-4 py-8 max-w-6xl">
 
           {/* Breadcrumbs */}
-          <Breadcrumbs items={breadcrumbItems} />
+          <nav className="flex" aria-label="Breadcrumb">
+            <ol className="inline-flex items-center space-x-1 md:space-x-3">
+              <li className="inline-flex items-center">
+                <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
+                  <svg className="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                  </svg>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <svg className="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
+                  </svg>
+                  <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">Pferd kaufen Bayern</span>
+                </div>
+              </li>
+            </ol>
+          </nav>
 
           {/* Hero Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h1 className="text-h1 font-bold text-gray-800 mb-4">
+                {/* H1 Tag optimized for target keyword */}
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                   Pferd kaufen Bayern
-                  <span className="block text-2xl text-green-600 mt-2">
-                    Ihr Guide für den bayerischen Pferdemarkt
+                  <span className="block text-2xl text-blue-600 mt-2">
+                    Faire Preise mit KI-Bewertung finden
                   </span>
                 </h1>
                 <p className="text-lg text-gray-600 mb-6">
-                  Bayern ist Deutschlands größter und vielfältigster Pferdemarkt. Von traditionellen Haflingern
-                  aus dem Alpenvorland bis zu modernen Sportpferden - hier finden Sie alles für den erfolgreichen
-                  Pferdekauf mit aktuellen Preisen von 3.000€ bis 55.000€.
+                  Pferd in Bayern kaufen? Nutzen Sie unsere KI-gestützte Marktanalyse für faire Preise.
+                  Von Haflingern aus dem Alpenvorland bis zu modernen Sportpferden - finden Sie
+                  Qualität zum richtigen Preis mit professioneller Bewertung.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
-                    ✓ 15+ Jahre Markterfahrung
-                  </span>
                   <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                    ✓ 200+ Züchter-Kontakte
+                    ✓ KI-gestützte Bewertung
                   </span>
-                  <span className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium">
+                  <span className="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium">
+                    ✓ 1.600 Suchanfragen/Monat
+                  </span>
+                  <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
                     ✓ Regionale Expertise
                   </span>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-green-400 to-blue-500 rounded-lg p-6 text-white">
+              <div className="bg-gradient-to-br from-blue-500 to-brand-brown rounded-lg p-6 text-white">
                 <h3 className="text-xl font-bold mb-4">Aktuelle Marktpreise Bayern</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between">
@@ -293,13 +339,21 @@ export default function PferdKaufenBayern() {
                     <span className="font-bold">5.000 - 50.000€</span>
                   </div>
                 </div>
+                <div className="mt-4 pt-4 border-t border-white/20">
+                  <Link
+                    href="/was-ist-mein-pferd-wert"
+                    className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center block"
+                  >
+                    Jetzt KI-Bewertung starten
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Regionale Preisübersicht */}
           <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Pferdepreise Bayern nach Rassen & Disziplinen
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -307,7 +361,7 @@ export default function PferdKaufenBayern() {
               {/* Warmblut */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                  <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
                   Bayerisches Warmblut
                 </h3>
                 <div className="space-y-3">
@@ -315,7 +369,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Dressur</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.warmblut.dressur.min.toLocaleString()}€ - {bayernPferdepreise.warmblut.dressur.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.warmblut.dressur.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -324,7 +378,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Springen</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.warmblut.springen.min.toLocaleString()}€ - {bayernPferdepreise.warmblut.springen.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.warmblut.springen.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -333,7 +387,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Freizeit</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.warmblut.freizeit.min.toLocaleString()}€ - {bayernPferdepreise.warmblut.freizeit.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.warmblut.freizeit.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -352,7 +406,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Zucht</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.haflinger.zucht.min.toLocaleString()}€ - {bayernPferdepreise.haflinger.zucht.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.haflinger.zucht.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -361,7 +415,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Fahren</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.haflinger.fahren.min.toLocaleString()}€ - {bayernPferdepreise.haflinger.fahren.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.haflinger.fahren.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -370,7 +424,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Freizeit</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.haflinger.freizeit.min.toLocaleString()}€ - {bayernPferdepreise.haflinger.freizeit.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.haflinger.freizeit.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -381,7 +435,7 @@ export default function PferdKaufenBayern() {
               {/* Araber */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                  <span className="w-3 h-3 bg-brand-brown rounded-full mr-2"></span>
                   Araber
                 </h3>
                 <div className="space-y-3">
@@ -389,7 +443,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Zucht</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.araber.zucht.min.toLocaleString()}€ - {bayernPferdepreise.araber.zucht.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.araber.zucht.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -398,7 +452,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Distanz</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.araber.distanz.min.toLocaleString()}€ - {bayernPferdepreise.araber.distanz.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.araber.distanz.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -407,7 +461,7 @@ export default function PferdKaufenBayern() {
                     <h4 className="font-semibold text-gray-700">Show</h4>
                     <p className="text-sm text-gray-600">
                       {bayernPferdepreise.araber.show.min.toLocaleString()}€ - {bayernPferdepreise.araber.show.max.toLocaleString()}€
-                      <span className="block text-xs text-green-600">
+                      <span className="block text-xs text-blue-600">
                         ⌀ {bayernPferdepreise.araber.show.durchschnitt.toLocaleString()}€
                       </span>
                     </p>
@@ -417,9 +471,53 @@ export default function PferdKaufenBayern() {
             </div>
           </section>
 
+          {/* KI-Bewertung Section */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-blue-50 to-amber-50 rounded-lg p-8">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                    KI-gestützte Pferdebewertung für Bayern
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    Unsere KI-Technologie analysiert über 50 Faktoren und vergleicht mit
+                    aktuellen Marktdaten aus Bayern. Erhalten Sie eine professionelle
+                    Bewertung basierend auf regionalen Preisstandards.
+                  </p>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                      Analyse von über 1.000 bayerischen Verkäufen
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                      Berücksichtigung regionaler Preisunterschiede
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                      Aktuelle Markttrends und Saisonalität
+                    </li>
+                  </ul>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white rounded-lg p-6 shadow-md">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Präzise Bewertung</h3>
+                    <p className="text-3xl font-bold text-blue-600 mb-4">€14,90</p>
+                    <Link
+                      href="/was-ist-mein-pferd-wert"
+                      className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors inline-block"
+                    >
+                      Pferd jetzt bewerten
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Bayerische Zuchtgebiete */}
           <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Bayerische Zuchtgebiete & ihre Spezialitäten
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -438,7 +536,7 @@ export default function PferdKaufenBayern() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-700 mb-1">Preisbereich:</h4>
-                      <p className="text-green-600 font-semibold">{gebiet.preisbereich}</p>
+                      <p className="text-blue-600 font-semibold">{gebiet.preisbereich}</p>
                     </div>
                   </div>
                 </div>
@@ -448,7 +546,7 @@ export default function PferdKaufenBayern() {
 
           {/* Verkaufsmärkte & Veranstaltungen */}
           <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Wichtige Verkaufsmärkte & Veranstaltungen in Bayern
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -459,7 +557,7 @@ export default function PferdKaufenBayern() {
                     <p><span className="font-semibold">Ort:</span> {markt.ort}</p>
                     <p><span className="font-semibold">Termine:</span> {markt.termine}</p>
                     <p><span className="font-semibold">Spezialität:</span> {markt.spezialitaet}</p>
-                    <p className="text-green-600">
+                    <p className="text-blue-600">
                       <span className="font-semibold">Kontakt:</span> {markt.kontakt}
                     </p>
                   </div>
@@ -468,137 +566,9 @@ export default function PferdKaufenBayern() {
             </div>
           </section>
 
-          {/* Regionale Besonderheiten */}
-          <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
-              Besonderheiten des bayerischen Pferdemarkts
-            </h2>
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Geografische Vorteile</h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Alpenvorland:</strong> Ideal für robuste Rassen und Bergpferde</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Flachland:</strong> Perfekt für Sportpferde-Zucht und Training</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Moderate Preise:</strong> Günstiger als NRW, höhere Qualität als Ostdeutschland</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Zentrale Lage:</strong> Gute Erreichbarkeit aus ganz Deutschland</span>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Zucht-Tradition</h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Haupt- und Landgestüt Schwaiganger:</strong> Über 500 Jahre Tradition</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Haflinger-Zucht:</strong> Europaweit anerkannte Qualität</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Moderne Sportpferde:</strong> Erfolgreiche internationale Linien</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Vielseitigkeit:</strong> Von Freizeit bis Olympiasport</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Transport & Logistik */}
-          <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
-              Transport & Logistik in Bayern
-            </h2>
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">Autobahn-Anbindung</h3>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• A8 München - Stuttgart</li>
-                    <li>• A9 München - Berlin</li>
-                    <li>• A3 Würzburg - Passau</li>
-                    <li>• A6 Nürnberg - Heilbronn</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">Transportkosten</h3>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Innerhalb Bayern: 1-3€/km</li>
-                    <li>• Nach NRW: 800-1.200€</li>
-                    <li>• Nach Norddeutschland: 900-1.400€</li>
-                    <li>• Österreich: 400-800€</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">Empfohlene Transportunternehmen</h3>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Bayern Pferdetransport</li>
-                    <li>• Alpenland Transport</li>
-                    <li>• Süddeutsche Tierlogistik</li>
-                    <li>• Munich Horse Transport</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Rechtliche Aspekte */}
-          <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
-              Rechtliche Aspekte beim Pferdekauf in Bayern
-            </h2>
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">Kaufvertrag & Gewährleistung</h3>
-                  <ul className="space-y-2 text-gray-600 text-sm">
-                    <li>✓ 24 Monate Gewährleistung bei Privatverkauf</li>
-                    <li>✓ Ankaufsuntersuchung (AKU) empfohlen</li>
-                    <li>✓ Schriftlicher Kaufvertrag obligatorisch</li>
-                    <li>✓ Rücktrittsrecht bei Mängeln</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">Dokumente & Papiere</h3>
-                  <ul className="space-y-2 text-gray-600 text-sm">
-                    <li>✓ Equidenpass (EU-weit gültig)</li>
-                    <li>✓ Abstammungsnachweis/Zuchtpapiere</li>
-                    <li>✓ Impfnachweis (Influenza, Tetanus)</li>
-                    <li>✓ Gesundheitszeugnis bei Transport</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mt-6 p-4 bg-yellow-50 rounded-lg">
-                <h4 className="font-bold text-yellow-800 mb-2">Wichtiger Hinweis:</h4>
-                <p className="text-yellow-700 text-sm">
-                  In Bayern gelten zusätzlich kommunale Haltungsvorschriften. Informieren Sie sich vor dem Kauf
-                  über die Bestimmungen Ihrer Gemeinde bezüglich Pferdehaltung, Mindestgrößen für Weiden und
-                  Genehmigungen für Stallbauten.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* FAQ Bayern */}
           <section className="mb-12">
-            <h2 className="text-h2 font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Häufige Fragen zum Pferdekauf in Bayern
             </h2>
             <div className="space-y-4">
@@ -612,26 +582,32 @@ export default function PferdKaufenBayern() {
           </section>
 
           {/* CTA Section */}
-          <section className="bg-gradient-to-r from-green-600 to-blue-600 rounded-lg p-8 text-white text-center">
-            <h2 className="text-h2 font-bold mb-4">
+          <section className="bg-gradient-to-r from-blue-500 to-brand-brown rounded-lg p-8 text-white text-center">
+            <h2 className="text-3xl font-bold mb-4">
               Ihr Traumpferd in Bayern finden
             </h2>
             <p className="text-lg mb-6 max-w-2xl mx-auto">
-              Nutzen Sie unseren kostenlosen Service zur Pferdebewertung und finden Sie das perfekte Pferd
-              in Bayern zum fairen Preis. Über 15 Jahre Erfahrung im bayerischen Pferdemarkt.
+              Nutzen Sie unsere KI-gestützte Pferdebewertung und finden Sie das perfekte Pferd
+              in Bayern zum fairen Preis. Über 1.600 Nutzer suchen monatlich nach Pferden in Bayern.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/pferd-verkaufen" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Pferd bewerten lassen
+              <Link
+                href="/was-ist-mein-pferd-wert"
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                KI-Bewertung starten
               </Link>
-              <Link href="/pferd-kaufen" className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors">
-                Alle Regionen entdecken
+              <Link
+                href="/pferde-preis-berechnen"
+                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              >
+                Preis berechnen
               </Link>
             </div>
           </section>
 
         </div>
       </main>
-    </Layout>
+    </>
   );
 }
