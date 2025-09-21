@@ -58,7 +58,7 @@ export default function PferdKaufen() {
         <title>Pferd kaufen: Faire Preise erkennen & günstig verhandeln | PferdeWert</title>
         <meta
          name="description"
-         content="Pferd kaufen deutschlandweit - KI-Preischeck für 14,90€ - Faire Preise erkennen und gezielt verhandeln - Keine Überzahlung beim Pferdekauf"
+         content={`Pferd kaufen deutschlandweit - KI-Preischeck für ${PRICING_FORMATTED.current} - Faire Preise erkennen und gezielt verhandeln - Keine Überzahlung beim Pferdekauf`}
         />
          <meta
          name="keywords"
