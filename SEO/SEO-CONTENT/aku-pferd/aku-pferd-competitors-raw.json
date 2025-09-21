@@ -1,0 +1,173 @@
+{
+  "keyword": "aku pferd",
+  "analysis_date": "2025-01-21",
+  "total_competitors_scraped": 3,
+  "failed_scrapes": 5,
+  "competitors": [
+    {
+      "domain": "allianz.de",
+      "url": "https://www.allianz.de/auto-versicherung/pferde-versicherung/ankaufsuntersuchung/",
+      "position": 1,
+      "title": "Ankaufsuntersuchung beim Pferd",
+      "perspective": "Insurance company",
+      "heading_structure": {
+        "h1": "Ankaufsuntersuchung beim Pferd",
+        "h2": [
+          "Was ist eine Ankaufsuntersuchung beim Pferd?",
+          "Welche Arten der Ankaufsuntersuchung gibt es?",
+          "Was kostet eine Ankaufsuntersuchung?",
+          "Wer führt eine Ankaufsuntersuchung durch?",
+          "Wie läuft eine Ankaufsuntersuchung ab?"
+        ],
+        "h3": []
+      },
+      "key_content_points": [
+        "Cost range: 100-1500 EUR",
+        "Kleine AKU: clinical examination only",
+        "Große AKU: clinical + x-ray examination",
+        "Standard 18 x-ray images",
+        "Insurance liability aspects",
+        "Procedure timeline and steps"
+      ],
+      "unique_angles": [
+        "Insurance perspective on AKU",
+        "Liability considerations",
+        "Insurance coverage details"
+      ]
+    },
+    {
+      "domain": "pferdepraxis-roedig.de",
+      "url": "https://www.pferdepraxis-roedig.de/ankaufsuntersuchung/",
+      "position": 4,
+      "title": "Ankaufsuntersuchung",
+      "perspective": "Veterinary practice",
+      "heading_structure": {
+        "h1": "Ankaufsuntersuchung",
+        "h2": [
+          "Klinische Untersuchung",
+          "Röntgen",
+          "Ergebnis/Gutachten"
+        ],
+        "h3": [
+          "Untersuchung in Ruhe",
+          "Untersuchung in Bewegung",
+          "Flexionsprobe/Beugeprobe"
+        ]
+      },
+      "key_content_points": [
+        "Detailed clinical examination process",
+        "X-ray examination details",
+        "Professional veterinary report",
+        "Movement assessment protocols",
+        "Flexion tests explained"
+      ],
+      "unique_angles": [
+        "Technical veterinary details",
+        "Step-by-step examination process",
+        "Professional practice perspective"
+      ]
+    },
+    {
+      "domain": "pferde-klinik.de",
+      "url": "https://www.pferde-klinik.de/kaufuntersuchung",
+      "position": 5,
+      "title": "Kaufuntersuchung",
+      "perspective": "Veterinary clinic",
+      "heading_structure": {
+        "h1": "Kaufuntersuchung",
+        "h2": [
+          "Das Wichtigste vorab",
+          "Allgemeine Hinweise zur Kaufuntersuchung"
+        ],
+        "h3": []
+      },
+      "key_content_points": [
+        "Pre-examination important points",
+        "General guidance for buyers",
+        "Clinic-specific procedures",
+        "Downloadable forms available",
+        "Professional clinic approach"
+      ],
+      "unique_angles": [
+        "Clinic operational perspective",
+        "Form templates and documentation",
+        "Buyer preparation guidance"
+      ]
+    }
+  ],
+  "failed_competitors": [
+    {
+      "domain": "magazine.clipmyhorse.tv",
+      "url": "https://magazine.clipmyhorse.tv/aku-ankaufsuntersuchung-pferd-kosten/",
+      "error": "Page moved - 'This page has trotted off'"
+    },
+    {
+      "domain": "equiva.com",
+      "url": "https://www.equiva.com/de/de/blog/detail/ankaufsuntersuchung-beim-pferd/",
+      "error": "404 error"
+    },
+    {
+      "domain": "vetpix.at",
+      "url": "https://www.vetpix.at/ankaufsuntersuchung-aku-beim-pferd/",
+      "error": "404 error"
+    },
+    {
+      "domain": "hippovets.ch",
+      "url": "https://www.hippovets.ch/ratgeber/ankaufsuntersuchung",
+      "error": "DNS resolution failed"
+    },
+    {
+      "domain": "st-georg.de",
+      "url": "https://www.st-georg.de/news/wissen/ankaufsuntersuchung-beim-pferd-alle-infos-zur-aku/",
+      "error": "Redirected to hooforia.com - no AKU content"
+    }
+  ],
+  "content_gap_analysis": {
+    "common_themes": [
+      "Cost information (100-1500 EUR)",
+      "Types of AKU (Kleine vs Große)",
+      "Clinical examination process",
+      "X-ray packages (18 standard images)",
+      "Legal/insurance aspects",
+      "Procedure timeline"
+    ],
+    "missing_opportunities": [
+      {
+        "gap": "Economic Value Perspective",
+        "description": "How AKU results affect horse pricing and market value",
+        "pferdewert_angle": "Integrate AKU findings with valuation algorithms"
+      },
+      {
+        "gap": "Data-Driven Insights",
+        "description": "Statistics on common AKU issues, breed-specific considerations",
+        "pferdewert_angle": "Leverage database for AKU outcome patterns"
+      },
+      {
+        "gap": "Buyer Decision Support",
+        "description": "AKU checklists, interpretation guides for pricing decisions",
+        "pferdewert_angle": "AKU-informed buying recommendations"
+      },
+      {
+        "gap": "Integration with Valuation",
+        "description": "How AKU affects horse valuation methodology",
+        "pferdewert_angle": "Before/after AKU price adjustments in valuation tool"
+      }
+    ]
+  },
+  "competitive_advantages": [
+    "Most competitors focus on medical/procedural aspects",
+    "Limited economic/valuation perspective in existing content",
+    "Opportunity to be the authoritative source for AKU-pricing connections",
+    "Data-driven insights missing from current market leaders"
+  ],
+  "recommended_content_strategy": {
+    "primary_focus": "AKU als Wertbestimmungsfaktor",
+    "secondary_angles": [
+      "Kosten-Nutzen-Analyse verschiedener AKU-Typen",
+      "Regionale Preisunterschiede bei AKU",
+      "AKU-Ergebnisse richtig interpretieren für Preisverhandlungen",
+      "Datenbasierte AKU-Statistiken nach Rassen"
+    ],
+    "unique_positioning": "Der einzige Service, der AKU-Ergebnisse direkt in Pferdebewertung integriert"
+  }
+}

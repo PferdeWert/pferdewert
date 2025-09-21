@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "target_keyword": "aku pferd",
+    "search_engine": "google",
+    "location": "Germany",
+    "language": "de",
+    "collection_date": "2025-09-21",
+    "agent": "Agent 2 - Data Collection",
+    "people_also_ask_click_depth": 2
+  },
+  "serp_results": {
+    "organic_results": [
+      {
+        "type": "organic",
+        "rank_group": 1,
+        "rank_absolute": 1,
+        "position": "left",
+        "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]",
+        "domain": "www.pferdebetrieb.de",
+        "title": "AKU beim Pferd: Alles zur Ankaufsuntersuchung | Pferdebetrieb",
+        "url": "https://www.pferdebetrieb.de/ratgeber/aku-beim-pferd/",
+        "cache_url": null,
+        "related_search_url": null,
+        "breadcrumb": "www.pferdebetrieb.de › ratgeber › aku-beim-pferd",
+        "is_image": false,
+        "is_video": false,
+        "is_featured_snippet": false,
+        "is_malicious": false,
+        "description": "Die Ankaufsuntersuchung (AKU) beim Pferd ist eine wichtige tierärztliche Untersuchung vor dem Kauf. Hier erfahren Sie alles über Ablauf, Kosten und Klassen.",
+        "pre_snippet": null,
+        "extended_snippet": null,
+        "amp_version": false,
+        "rating": null,
+        "highlighted": [
+          "AKU",
+          "Pferd",
+          "Ankaufsuntersuchung"
+        ],
+        "links": null,
+        "faq": null,
+        "extended_people_also_search": null,
+        "about_this_result": {
+          "type": "organic_about_this_result",
+          "url": "https://www.pferdebetrieb.de/ratgeber/aku-beim-pferd/",
+          "source": null,
+          "source_info": "Pferdebetrieb ist eine führende Plattform für Pferdebesitzer und bietet umfassende Informationen zu allen Aspekten der Pferdehaltung.",
+          "source_url": null,
+          "language": "de",
+          "location": "Germany",
+          "search_terms": [
+            "aku pferd"
+          ]
+        },
+        "main_domain": "pferdebetrieb.de",
+        "relative_url": "/ratgeber/aku-beim-pferd/",
+        "etv": 180.5,
+        "impressions_etv": 900,
+        "estimated_paid_traffic_cost": 32.4,
+        "rank_changes": {
+          "previous_rank_absolute": null,
+          "is_new": false,
+          "is_up": false,
+          "is_down": false
+        }
+      },
+      {
+        "type": "organic",
+        "rank_group": 2,
+        "rank_absolute": 2,
+        "position": "left",
+        "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[2]/div[1]",
+        "domain": "www.tierarzt-rueckert.de",
+        "title": "Ankaufsuntersuchung beim Pferd - Was Sie wissen müssen",
+        "url": "https://www.tierarzt-rueckert.de/blog/details.php?Kunde=1489&Modul=3&ID=21234",
+        "cache_url": null,
+        "related_search_url": null,
+        "breadcrumb": "www.tierarzt-rueckert.de › blog › details",
+        "is_image": false,
+        "is_video": false,
+        "is_featured_snippet": false,
+        "is_malicious": false,
+        "description": "Die Ankaufsuntersuchung (AKU) ist eine tierärztliche Untersuchung, die vor dem Kauf eines Pferdes durchgeführt wird. Sie umfasst verschiedene Klassen...",
+        "pre_snippet": null,
+        "extended_snippet": null,
+        "amp_version": false,
+        "rating": null,
+        "highlighted": [
+          "Ankaufsuntersuchung",
+          "Pferd",
+          "AKU"
+        ],
+        "links": null,
+        "faq": null,
+        "extended_people_also_search": null,
+        "about_this_result": {
+          "type": "organic_about_this_result",
+          "url": "https://www.tierarzt-rueckert.de/blog/details.php?Kunde=1489&Modul=3&ID=21234",
+          "source": null,
+          "source_info": "Dr. Rückert ist ein erfahrener Tierarzt mit Spezialisierung auf Pferdemedizin.",
+          "source_url": null,
+          "language": "de",
+          "location": "Germany",
+          "search_terms": [
+            "aku pferd"
+          ]
+        },
+        "main_domain": "tierarzt-rueckert.de",
+        "relative_url": "/blog/details.php?Kunde=1489&Modul=3&ID=21234",
+        "etv": 129.6,
+        "impressions_etv": 648,
+        "estimated_paid_traffic_cost": 23.3,
+        "rank_changes": {
+          "previous_rank_absolute": null,
+          "is_new": false,
+          "is_up": false,
+          "is_down": false
+        }
+      }
+    ],
+    "people_also_ask": [
+      {
+        "type": "people_also_ask",
+        "rank_group": 3,
+        "rank_absolute": 3,
+        "position": "left",
+        "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[3]",
+        "items": [
+          {
+            "type": "people_also_ask_element",
+            "title": "Was kostet eine AKU beim Pferd?",
+            "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]",
+            "expanded_element": [
+              {
+                "type": "people_also_ask_expanded_element",
+                "featured_title": null,
+                "url": "https://www.pferde.de/magazin/gesundheit/ankaufsuntersuchung-kosten/",
+                "domain": "www.pferde.de",
+                "title": "Ankaufsuntersuchung beim Pferd: Kosten und Ablauf",
+                "description": "Die Kosten für eine Ankaufsuntersuchung beim Pferd variieren je nach Klasse. Eine kleine AKU (Klasse I) kostet etwa 150-250 Euro, eine große AKU (Klasse II) zwischen 300-600 Euro.",
+                "timestamp": null
+              }
+            ]
+          },
+          {
+            "type": "people_also_ask_element",
+            "title": "Welche AKU Klassen gibt es beim Pferd?",
+            "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]",
+            "expanded_element": [
+              {
+                "type": "people_also_ask_expanded_element",
+                "featured_title": null,
+                "url": "https://www.fn-dokr.de/aku-klassen/",
+                "domain": "www.fn-dokr.de",
+                "title": "AKU-Klassen: Die verschiedenen Stufen der Ankaufsuntersuchung",
+                "description": "Es gibt fünf AKU-Klassen: Klasse I (klinische Untersuchung), Klasse II (zusätzlich Röntgen), Klasse III (Blutuntersuchung), Klasse IV (weitere Röntgenaufnahmen), Klasse V (umfassende Untersuchung).",
+                "timestamp": null
+              }
+            ]
+          },
+          {
+            "type": "people_also_ask_element",
+            "title": "Wie läuft eine AKU beim Pferd ab?",
+            "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]",
+            "expanded_element": [
+              {
+                "type": "people_also_ask_expanded_element",
+                "featured_title": null,
+                "url": "https://www.cavallo.de/medizin/ankaufsuntersuchung-pferd-ablauf/",
+                "domain": "www.cavallo.de",
+                "title": "Ankaufsuntersuchung beim Pferd: So läuft die AKU ab",
+                "description": "Die AKU beginnt mit einer allgemeinen klinischen Untersuchung, gefolgt von Bewegungstest, Flexionsprobe und je nach Klasse Röntgenaufnahmen oder Blutuntersuchungen.",
+                "timestamp": null
+              }
+            ]
+          },
+          {
+            "type": "people_also_ask_element",
+            "title": "Wer bezahlt die AKU beim Pferdekauf?",
+            "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/span[1]",
+            "expanded_element": [
+              {
+                "type": "people_also_ask_expanded_element",
+                "featured_title": null,
+                "url": "https://www.ehorses.de/magazin/ankaufsuntersuchung-wer-zahlt/",
+                "domain": "www.ehorses.de",
+                "title": "Ankaufsuntersuchung: Wer trägt die Kosten?",
+                "description": "Normalerweise trägt der Käufer die Kosten für die Ankaufsuntersuchung. Dies sollte jedoch vor dem Kauf geklärt werden, da es auch andere Vereinbarungen geben kann.",
+                "timestamp": null
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "ai_overview": {
+      "type": "ai_overview",
+      "rank_group": 1,
+      "rank_absolute": 1,
+      "position": "left",
+      "xpath": "/html[1]/body[1]/div[6]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]",
+      "title": "AKU beim Pferd - Ankaufsuntersuchung",
+      "text": "Die Ankaufsuntersuchung (AKU) beim Pferd ist eine wichtige tierärztliche Untersuchung vor dem Kauf eines Pferdes. Sie hilft dabei, den Gesundheitszustand des Tieres zu bewerten und mögliche Risiken zu identifizieren.\n\n**Klassen der AKU:**\n- Klasse I: Klinische Untersuchung ohne Röntgen\n- Klasse II: Klinische Untersuchung mit Röntgenaufnahmen\n- Klasse III: Zusätzliche Blutuntersuchung\n- Klasse IV: Erweiterte Röntgenaufnahmen\n- Klasse V: Umfassende Untersuchung mit allen verfügbaren Methoden\n\n**Kosten:** Je nach Klasse zwischen 150€ (Klasse I) und 800€ (Klasse V)\n\n**Ablauf:** Allgemeine Untersuchung, Bewegungstest, Flexionsprobe, ggf. Röntgen und Blutentnahme",
+      "images": [],
+      "links": [
+        {
+          "type": "link",
+          "title": "Mehr zur AKU",
+          "url": "https://www.pferdebetrieb.de/ratgeber/aku-beim-pferd/",
+          "description": "Umfassender Ratgeber zur Ankaufsuntersuchung"
+        }
+      ]
+    },
+    "total_results_count": 142000,
+    "items_count": 10,
+    "spell": null,
+    "refinement_chips": null
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "agent": "Agent 3 - Keyword Analysis",
+    "target_keyword": "aku pferd",
+    "analysis_date": "2025-09-21",
+    "total_keywords_analyzed": 6,
+    "keywords_filtered": 0,
+    "quality_gate_passed": true
+  },
+  "analysis_methodology": {
+    "ai_filtering": "Removed keywords not related to horse purchase examinations (AKU/Ankaufsuntersuchung)",
+    "intent_classification": "Commercial Intent (CI), Informational Intent (II), Navigational Intent (NI)",
+    "priority_scoring": "1-4 scale for PferdeWert.de relevance (1=highest priority)",
+    "regional_mapping": "Identified regional variations for German horse markets"
+  },
+  "filtered_keywords": [
+    {
+      "keyword": "aku pferd",
+      "search_volume": 1000,
+      "competition": 0.31,
+      "competition_level": "LOW",
+      "cpc": 0.18,
+      "intent_classification": "II",
+      "intent_description": "Informational - Users seeking general information about horse purchase examinations",
+      "priority_score": 1,
+      "priority_reasoning": "Primary target keyword, high volume, perfect alignment with PferdeWert.de's horse purchase consultation services",
+      "relevance_to_pferdewert": "VERY_HIGH",
+      "business_impact": "Core keyword for establishing authority in horse purchase guidance and AKU education",
+      "regional_relevance": "NATIONAL",
+      "content_opportunity": "Comprehensive AKU guide positioning PferdeWert.de as expert resource",
+      "conversion_potential": "HIGH",
+      "user_journey_stage": "AWARENESS_CONSIDERATION"
+    },
+    {
+      "keyword": "aku untersuchung pferd",
+      "search_volume": 720,
+      "competition": 0.28,
+      "competition_level": "LOW",
+      "cpc": 0.22,
+      "intent_classification": "II",
+      "intent_description": "Informational - Users seeking detailed information about AKU examination process",
+      "priority_score": 1,
+      "priority_reasoning": "High-volume informational keyword with strong commercial potential, directly related to horse purchasing decisions",
+      "relevance_to_pferdewert": "VERY_HIGH",
+      "business_impact": "Essential for capturing users researching purchase examination process before buying",
+      "regional_relevance": "NATIONAL",
+      "content_opportunity": "Detailed examination process guide with PferdeWert.de valuation integration",
+      "conversion_potential": "HIGH",
+      "user_journey_stage": "CONSIDERATION"
+    },
+    {
+      "keyword": "aku pferd kosten",
+      "search_volume": 480,
+      "competition": 0.25,
+      "competition_level": "LOW",
+      "cpc": 0.15,
+      "intent_classification": "CI",
+      "intent_description": "Commercial - Users researching costs before purchasing AKU services",
+      "priority_score": 1,
+      "priority_reasoning": "High commercial intent, cost-focused searches indicate purchase readiness, excellent conversion potential",
+      "relevance_to_pferdewert": "VERY_HIGH",
+      "business_impact": "Critical for capturing price-conscious buyers, opportunity to showcase value proposition",
+      "regional_relevance": "NATIONAL",
+      "regional_variations": {
+        "bayern": "Higher AKU costs due to premium horse market",
+        "niedersachsen": "Standard costs, high volume horse trade region",
+        "nrw": "Competitive pricing, urban horse ownership"
+      },
+      "content_opportunity": "Cost breakdown guide with PferdeWert.de consultation value positioning",
+      "conversion_potential": "VERY_HIGH",
+      "user_journey_stage": "CONSIDERATION_PURCHASE"
+    },
+    {
+      "keyword": "aku pferd ablauf",
+      "search_volume": 320,
+      "competition": 0.22,
+      "competition_level": "LOW",
+      "cpc": 0.12,
+      "intent_classification": "II",
+      "intent_description": "Informational - Users wanting to understand the AKU examination process and timeline",
+      "priority_score": 2,
+      "priority_reasoning": "Medium volume with strong educational value, supports main funnel content",
+      "relevance_to_pferdewert": "HIGH",
+      "business_impact": "Supports user education and trust building in horse purchase process",
+      "regional_relevance": "NATIONAL",
+      "content_opportunity": "Step-by-step AKU process guide with PferdeWert.de preparation tips",
+      "conversion_potential": "MEDIUM",
+      "user_journey_stage": "CONSIDERATION"
+    },
+    {
+      "keyword": "aku pferd klassen",
+      "search_volume": 260,
+      "competition": 0.18,
+      "competition_level": "LOW",
+      "cpc": 0.10,
+      "intent_classification": "II",
+      "intent_description": "Informational - Users seeking to understand AKU classification system and grades",
+      "priority_score": 2,
+      "priority_reasoning": "Educational keyword supporting comprehensive AKU understanding, lower volume but high expertise value",
+      "relevance_to_pferdewert": "HIGH",
+      "business_impact": "Establishes expertise and helps users understand examination results",
+      "regional_relevance": "NATIONAL",
+      "content_opportunity": "AKU classification guide with interpretation help and valuation impact",
+      "conversion_potential": "MEDIUM",
+      "user_journey_stage": "CONSIDERATION_EDUCATION"
+    },
+    {
+      "keyword": "aku pferd tierarzt",
+      "search_volume": 210,
+      "competition": 0.30,
+      "competition_level": "LOW",
+      "cpc": 0.25,
+      "intent_classification": "NI",
+      "intent_description": "Navigational - Users looking for veterinarians who perform AKU examinations",
+      "priority_score": 3,
+      "priority_reasoning": "Lower volume, higher competition, but valuable for local referral content",
+      "relevance_to_pferdewert": "MEDIUM",
+      "business_impact": "Opportunity for veterinarian partnerships and local market presence",
+      "regional_relevance": "REGIONAL",
+      "regional_variations": {
+        "bayern": "Premium veterinary services, specialized AKU centers",
+        "niedersachsen": "Traditional horse country with established vet networks",
+        "nrw": "Urban areas with limited specialized equine vets"
+      },
+      "content_opportunity": "Veterinarian finder with AKU specialization and PferdeWert.de partnerships",
+      "conversion_potential": "LOW_MEDIUM",
+      "user_journey_stage": "ACTION"
+    }
+  ],
+  "intent_distribution": {
+    "informational": 4,
+    "commercial": 1,
+    "navigational": 1,
+    "total": 6
+  },
+  "priority_distribution": {
+    "priority_1": 3,
+    "priority_2": 2,
+    "priority_3": 1,
+    "priority_4": 0
+  },
+  "regional_analysis": {
+    "national_keywords": ["aku pferd", "aku untersuchung pferd", "aku pferd kosten", "aku pferd ablauf", "aku pferd klassen"],
+    "regional_variations": {
+      "bayern": {
+        "market_characteristics": "Premium horse market, higher examination standards, elevated costs",
+        "content_adjustments": "Emphasize quality and thorough examination value"
+      },
+      "niedersachsen": {
+        "market_characteristics": "Traditional horse trading region, high volume, standard procedures",
+        "content_adjustments": "Focus on efficiency and traditional breeding expertise"
+      },
+      "nrw": {
+        "market_characteristics": "Urban horse ownership, recreational focus, cost-conscious",
+        "content_adjustments": "Emphasize accessibility and value for recreational horse owners"
+      }
+    }
+  },
+  "business_alignment": {
+    "pferdewert_services": {
+      "horse_valuation": "AKU results directly impact horse valuation assessments",
+      "purchase_consultation": "AKU guidance is core to purchase decision support",
+      "market_intelligence": "AKU standards vary by region and affect pricing"
+    },
+    "conversion_opportunities": {
+      "aku_cost_content": "Redirect cost concerns to comprehensive valuation service value",
+      "process_education": "Build trust through expert guidance, leading to consultation bookings",
+      "classification_interpretation": "Position as expert service for AKU result analysis"
+    }
+  },
+  "quality_metrics": {
+    "total_monthly_searches": 2990,
+    "average_competition": 0.244,
+    "average_cpc": 0.169,
+    "high_priority_keywords": 3,
+    "commercial_intent_keywords": 1,
+    "conversion_ready_keywords": 1
+  }
+}

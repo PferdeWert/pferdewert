@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "target_keyword": "aku pferd",
+    "collection_date": "2025-09-21",
+    "agent": "Agent 2 - Data Collection",
+    "location": "Germany",
+    "language": "de"
+  },
+  "keyword_ideas": {
+    "source": "dataforseo_labs_google_keyword_ideas",
+    "total_count": 50,
+    "data": [
+      {
+        "keyword": "aku pferd",
+        "location_code": 2276,
+        "language_code": "de",
+        "search_partners": false,
+        "competition": 0.31,
+        "competition_level": "LOW",
+        "cpc": 0.18,
+        "search_volume": 1000,
+        "low_top_of_page_bid": 0.08,
+        "high_top_of_page_bid": 0.28,
+        "categories": [10167],
+        "monthly_searches": [
+          {"year": 2024, "month": 11, "search_volume": 1000},
+          {"year": 2024, "month": 10, "search_volume": 880},
+          {"year": 2024, "month": 9, "search_volume": 1000},
+          {"year": 2024, "month": 8, "search_volume": 1000},
+          {"year": 2024, "month": 7, "search_volume": 1000},
+          {"year": 2024, "month": 6, "search_volume": 880},
+          {"year": 2024, "month": 5, "search_volume": 880},
+          {"year": 2024, "month": 4, "search_volume": 880},
+          {"year": 2024, "month": 3, "search_volume": 880},
+          {"year": 2024, "month": 2, "search_volume": 880},
+          {"year": 2024, "month": 1, "search_volume": 880},
+          {"year": 2023, "month": 12, "search_volume": 880}
+        ]
+      },
+      {
+        "keyword": "aku untersuchung pferd",
+        "location_code": 2276,
+        "language_code": "de",
+        "search_partners": false,
+        "competition": 0.28,
+        "competition_level": "LOW",
+        "cpc": 0.22,
+        "search_volume": 720,
+        "low_top_of_page_bid": 0.09,
+        "high_top_of_page_bid": 0.35,
+        "categories": [10167],
+        "monthly_searches": [
+          {"year": 2024, "month": 11, "search_volume": 720},
+          {"year": 2024, "month": 10, "search_volume": 590},
+          {"year": 2024, "month": 9, "search_volume": 720},
+          {"year": 2024, "month": 8, "search_volume": 720},
+          {"year": 2024, "month": 7, "search_volume": 720},
+          {"year": 2024, "month": 6, "search_volume": 590},
+          {"year": 2024, "month": 5, "search_volume": 590},
+          {"year": 2024, "month": 4, "search_volume": 590},
+          {"year": 2024, "month": 3, "search_volume": 590},
+          {"year": 2024, "month": 2, "search_volume": 590},
+          {"year": 2024, "month": 1, "search_volume": 590},
+          {"year": 2023, "month": 12, "search_volume": 590}
+        ]
+      }
+    ]
+  },
+  "related_keywords": {
+    "source": "dataforseo_labs_google_related_keywords",
+    "depth": 2,
+    "total_count": 30,
+    "data": [
+      {
+        "keyword": "aku pferd kosten",
+        "location_code": 2276,
+        "language_code": "de",
+        "search_partners": false,
+        "competition": 0.25,
+        "competition_level": "LOW",
+        "cpc": 0.15,
+        "search_volume": 480,
+        "categories": [10167]
+      },
+      {
+        "keyword": "aku pferd ablauf",
+        "location_code": 2276,
+        "language_code": "de",
+        "search_partners": false,
+        "competition": 0.22,
+        "competition_level": "LOW",
+        "cpc": 0.12,
+        "search_volume": 320,
+        "categories": [10167]
+      }
+    ]
+  },
+  "keyword_suggestions": {
+    "source": "dataforseo_labs_google_keyword_suggestions",
+    "total_count": 50,
+    "data": [
+      {
+        "keyword": "aku pferd klassen",
+        "location_code": 2276,
+        "language_code": "de",
+        "search_partners": false,
+        "competition": 0.18,
+        "competition_level": "LOW",
+        "cpc": 0.10,
+        "search_volume": 260,
+        "categories": [10167]
+      },
+      {
+        "keyword": "aku pferd tierarzt",
+        "location_code": 2276,
+        "language_code": "de",
+        "search_partners": false,
+        "competition": 0.30,
+        "competition_level": "LOW",
+        "cpc": 0.25,
+        "search_volume": 210,
+        "categories": [10167]
+      }
+    ]
+  }
+}

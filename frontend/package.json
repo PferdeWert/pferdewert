@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "fix-order": "node scripts/fix-order.mjs",
-    "sitemap": "node scripts/generate-sitemap.mjs"
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "seo": "node scripts/seo-process.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^15.4.6",

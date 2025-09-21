@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "agent": "Agent 6 - Final Content Creation",
+    "target_page": "/aku-pferd",
+    "created_date": "2025-09-21",
+    "purpose": "Internal linking suggestions for aku-pferd article implementation"
+  },
+  "internal_linking_implementation": {
+    "article_sections": [
+      {
+        "section": "H2.1 - Was ist eine AKU",
+        "paragraph": "Warum ist eine AKU unverzichtbar beim Pferdekauf?",
+        "suggested_links": [
+          {
+            "anchor_text": "professionelle Pferdebewertung",
+            "target_url": "/",
+            "context": "Wie AKU-Ergebnisse unsere Bewertungsalgorithmen beeinflussen",
+            "placement": "Nach Erklärung der rechtlichen Absicherung"
+          }
+        ]
+      },
+      {
+        "section": "H2.2 - AKU Kosten",
+        "paragraph": "AKU-Kosten vs. Pferdewert",
+        "suggested_links": [
+          {
+            "anchor_text": "Pferdewert berechnen",
+            "target_url": "/pferde-preis-berechnen",
+            "context": "Integration in professionelle Pferdebewertung",
+            "placement": "Nach Kostenübersicht"
+          },
+          {
+            "anchor_text": "Pferd kaufen in Bayern",
+            "target_url": "/pferd-kaufen-bayern",
+            "context": "Regionale Kostenunterschiede",
+            "placement": "Bei regionalen Kostenvergleichen"
+          },
+          {
+            "anchor_text": "Pferdekauf in Niedersachsen",
+            "target_url": "/pferd-kaufen-niedersachsen",
+            "context": "Regionale Kostenunterschiede",
+            "placement": "Bei regionalen Kostenvergleichen"
+          },
+          {
+            "anchor_text": "Pferd kaufen in NRW",
+            "target_url": "/pferd-kaufen-nrw",
+            "context": "Regionale Kostenunterschiede",
+            "placement": "Bei regionalen Kostenvergleichen"
+          }
+        ]
+      },
+      {
+        "section": "H2.3 - AKU Ablauf",
+        "paragraph": "AKU-Befund und Gutachten",
+        "suggested_links": [
+          {
+            "anchor_text": "detaillierter AKU-Ablauf",
+            "target_url": "/aku-pferd-ablauf",
+            "context": "Schritt für Schritt durch die Untersuchung",
+            "placement": "Bei Verweis auf detaillierte Prozessbeschreibung"
+          }
+        ]
+      },
+      {
+        "section": "H2.4 - AKU Klassen",
+        "paragraph": "Interpretation für Kaufentscheidungen",
+        "suggested_links": [
+          {
+            "anchor_text": "AKU-Klassifizierung verstehen",
+            "target_url": "/aku-pferd-klassen",
+            "context": "Das AKU-Klassifizierungssystem erklärt",
+            "placement": "Nach Klassenerklärung"
+          },
+          {
+            "anchor_text": "Kosten-Nutzen-Analyse der AKU",
+            "target_url": "/pferde-ratgeber/aku-verstehen/aku-kosten-nutzen",
+            "context": "Preisauswirkungen je AKU-Klasse",
+            "placement": "Bei Preisauswirkungen"
+          }
+        ]
+      },
+      {
+        "section": "H2.5 - AKU Tierarzt",
+        "paragraph": "Unabhängige Befund-Bewertung",
+        "suggested_links": [
+          {
+            "anchor_text": "Pferd kaufen Ratgeber",
+            "target_url": "/pferd-kaufen",
+            "context": "Fundament für Preisverhandlungen",
+            "placement": "Bei allgemeinen Kaufempfehlungen"
+          }
+        ]
+      },
+      {
+        "section": "H2.6 - AKU Integration",
+        "paragraph": "Integration in professionelle Wertermittlung",
+        "suggested_links": [
+          {
+            "anchor_text": "Pferdewert ermitteln",
+            "target_url": "/was-ist-mein-pferd-wert",
+            "context": "KI-gestützte Preisanpassung basierend auf Befunden",
+            "placement": "Bei USP-Erklärung"
+          },
+          {
+            "anchor_text": "Pferd verkaufen",
+            "target_url": "/pferd-verkaufen",
+            "context": "Statistische Auswertung von AKU-Einfluss auf Verkaufspreise",
+            "placement": "Bei Verkäuferperspektive"
+          },
+          {
+            "anchor_text": "Verkaufspreis optimieren",
+            "target_url": "/pferd-verkaufen/verkaufspreis-optimieren",
+            "context": "Vor/Nach AKU-Wertvergleich",
+            "placement": "Bei Verkaufsoptimierung"
+          }
+        ]
+      },
+      {
+        "section": "FAQ",
+        "faq_links": [
+          {
+            "question": "Was passiert, wenn die AKU negative Befunde ergibt?",
+            "anchor_text": "Pferdewert trotz AKU-Befunden",
+            "target_url": "/pferde-ratgeber/aku-verstehen/pferdewert-trotz-aku",
+            "context": "PferdeWert.de unterstützt bei objektiver Bewertung",
+            "placement": "In der Antwort"
+          },
+          {
+            "question": "Welche AKU bei welchem Kaufpreis?",
+            "anchor_text": "Warmblut kaufen",
+            "target_url": "/warmblut-kaufen",
+            "context": "Breed-spezifische Bewertungsunterschiede",
+            "placement": "Bei rassenspezifischen Empfehlungen"
+          },
+          {
+            "question": "Wie beeinflusst eine AKU den Versicherungsschutz?",
+            "anchor_text": "Dressurpferd kaufen",
+            "target_url": "/dressurpferd-kaufen",
+            "context": "Einsatzbereich-spezifische AKU-Anforderungen",
+            "placement": "Bei disziplinspezifischen Hinweisen"
+          },
+          {
+            "question": "Sind AKU-Befunde zwischen Tierärzten übertragbar?",
+            "anchor_text": "Springpferd kaufen",
+            "target_url": "/springpferd-kaufen",
+            "context": "Zusätzliche Aufnahmen je nach Einsatzbereich",
+            "placement": "Bei sportspezifischen Empfehlungen"
+          }
+        ]
+      }
+    ]
+  },
+  "call_to_action_links": {
+    "primary_ctas": [
+      {
+        "cta_text": "Kostenlose Pferdebewertung mit AKU-Integration starten",
+        "target_url": "/",
+        "placement_sections": ["H2.2 - AKU Kosten", "H2.6 - AKU Integration"],
+        "context": "Hauptconversion-Ziel"
+      },
+      {
+        "cta_text": "AKU-Befund für Wertanalyse hochladen",
+        "target_url": "/was-ist-mein-pferd-wert",
+        "placement_sections": ["H2.4 - AKU Klassen", "H2.6 - AKU Integration"],
+        "context": "Direkte Service-Integration"
+      },
+      {
+        "cta_text": "Expertenberatung zur AKU-Strategie anfragen",
+        "target_url": "/pferd-kaufen",
+        "placement_sections": ["H2.5 - AKU Tierarzt", "FAQ Section"],
+        "context": "Beratungsservice"
+      }
+    ],
+    "secondary_ctas": [
+      {
+        "cta_text": "AKU Kosten-Rechner nutzen",
+        "target_url": "/aku-pferd-kosten",
+        "placement_sections": ["H2.2 - AKU Kosten"],
+        "context": "Lead Magnet"
+      },
+      {
+        "cta_text": "AKU Checkliste herunterladen",
+        "target_url": "/aku-pferd-ablauf",
+        "placement_sections": ["H2.3 - AKU Ablauf"],
+        "context": "Lead Magnet"
+      }
+    ]
+  },
+  "keyword_anchor_optimization": {
+    "primary_keyword_anchors": [
+      "aku pferd",
+      "ankaufsuntersuchung pferd",
+      "aku untersuchung pferd",
+      "pferde aku"
+    ],
+    "secondary_keyword_anchors": [
+      "aku pferd kosten",
+      "aku pferd ablauf",
+      "aku pferd klassen",
+      "ankaufsuntersuchung kosten"
+    ],
+    "branded_anchors": [
+      "professionelle Pferdebewertung",
+      "Pferdewert ermitteln",
+      "Pferdewert berechnen",
+      "PferdeWert.de AKU-Beratung"
+    ]
+  },
+  "regional_linking_strategy": {
+    "bayern_links": {
+      "target_pages": ["/pferd-kaufen-bayern", "/pferd-kaufen-baden-wuerttemberg"],
+      "anchor_variations": ["Pferd kaufen in Bayern", "AKU Bayern", "Pferdekauf Bayern"],
+      "context": "Premium-Markt mit höheren AKU-Standards"
+    },
+    "niedersachsen_links": {
+      "target_pages": ["/pferd-kaufen-niedersachsen", "/pferd-kaufen-schleswig-holstein"],
+      "anchor_variations": ["Pferdekauf in Niedersachsen", "AKU Niedersachsen", "Pferd kaufen Niedersachsen"],
+      "context": "Traditionelle Pferdezuchtregion"
+    },
+    "nrw_links": {
+      "target_pages": ["/pferd-kaufen-nrw", "/pferd-kaufen-hessen"],
+      "anchor_variations": ["Pferd kaufen in NRW", "AKU NRW", "Pferdekauf NRW"],
+      "context": "Urbanes Pferdehaltung-Umfeld"
+    }
+  },
+  "conversion_funnel_links": {
+    "awareness_stage": {
+      "links": [
+        {
+          "anchor_text": "Was ist mein Pferd wert?",
+          "target_url": "/was-ist-mein-pferd-wert",
+          "placement": "H2.1 und H2.6",
+          "goal": "Erstkontakt zu Bewertungsservice"
+        }
+      ]
+    },
+    "consideration_stage": {
+      "links": [
+        {
+          "anchor_text": "Pferdewert berechnen",
+          "target_url": "/pferde-preis-berechnen",
+          "placement": "H2.2 und H2.4",
+          "goal": "Tool-Nutzung und Leadgenerierung"
+        }
+      ]
+    },
+    "decision_stage": {
+      "links": [
+        {
+          "anchor_text": "Expertenberatung anfragen",
+          "target_url": "/",
+          "placement": "H2.5 und FAQ",
+          "goal": "Direkter Kontakt und Conversion"
+        }
+      ]
+    }
+  },
+  "technical_implementation": {
+    "link_attributes": {
+      "internal_links": {
+        "rel": "follow",
+        "target": "_self"
+      },
+      "cta_links": {
+        "class": "cta-link",
+        "tracking": "data-analytics='aku-pferd-conversion'"
+      }
+    },
+    "schema_integration": {
+      "breadcrumb_links": "Include in BreadcrumbList schema",
+      "article_links": "Reference in Article schema mainEntity"
+    }
+  },
+  "performance_tracking": {
+    "link_metrics": [
+      "Click-through rates by section",
+      "Conversion attribution by anchor text",
+      "User journey completion rates",
+      "Regional performance differences"
+    ],
+    "optimization_targets": {
+      "primary_conversion": "Horse valuation requests from AKU content",
+      "secondary_conversion": "AKU consultation bookings",
+      "tertiary_conversion": "Regional buying guide engagement"
+    }
+  }
+}

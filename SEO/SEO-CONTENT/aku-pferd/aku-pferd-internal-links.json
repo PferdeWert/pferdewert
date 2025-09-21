@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "agent": "Agent 5 - Content Outline Generation",
+    "target_page": "/aku-pferd",
+    "strategy": "Internal linking optimization for conversion funnel",
+    "created_date": "2025-09-21",
+    "total_internal_links": 24
+  },
+  "internal_linking_strategy": {
+    "outbound_links": [
+      {
+        "section": "H2.1 - Was ist eine AKU",
+        "target_url": "/",
+        "anchor_text": "professionelle Pferdebewertung",
+        "context": "Wie AKU-Ergebnisse unsere Bewertungsalgorithmen beeinflussen",
+        "intent": "Primary conversion funnel entry",
+        "priority": "HIGH"
+      },
+      {
+        "section": "H2.2 - AKU Kosten",
+        "target_url": "/pferde-preis-berechnen",
+        "anchor_text": "Pferdewert berechnen",
+        "context": "Integration in professionelle Pferdebewertung",
+        "intent": "Cost-conscious users to valuation service",
+        "priority": "HIGH"
+      },
+      {
+        "section": "H2.2 - Regionale Kosten",
+        "target_url": "/pferd-kaufen-bayern",
+        "anchor_text": "Pferd kaufen in Bayern",
+        "context": "Regionale Kostenunterschiede (Bayern vs. Niedersachsen vs. NRW)",
+        "intent": "Regional targeting",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.2 - Regionale Kosten",
+        "target_url": "/pferd-kaufen-niedersachsen",
+        "anchor_text": "Pferdekauf in Niedersachsen",
+        "context": "Regionale Kostenunterschiede (Bayern vs. Niedersachsen vs. NRW)",
+        "intent": "Regional targeting",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.2 - Regionale Kosten",
+        "target_url": "/pferd-kaufen-nrw",
+        "anchor_text": "Pferd kaufen in NRW",
+        "context": "Regionale Kostenunterschiede (Bayern vs. Niedersachsen vs. NRW)",
+        "intent": "Regional targeting",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.3 - AKU Ablauf",
+        "target_url": "/aku-pferd-ablauf",
+        "anchor_text": "detaillierter AKU-Ablauf",
+        "context": "Schritt für Schritt durch die Untersuchung",
+        "intent": "Deep-dive content for informed users",
+        "priority": "HIGH"
+      },
+      {
+        "section": "H2.4 - AKU Klassen",
+        "target_url": "/aku-pferd-klassen",
+        "anchor_text": "AKU-Klassifizierung verstehen",
+        "context": "Das AKU-Klassifizierungssystem erklärt",
+        "intent": "Educational content expansion",
+        "priority": "HIGH"
+      },
+      {
+        "section": "H2.4 - Preisauswirkungen",
+        "target_url": "/pferde-ratgeber/aku-verstehen/aku-kosten-nutzen",
+        "anchor_text": "Kosten-Nutzen-Analyse der AKU",
+        "context": "Preisauswirkungen je AKU-Klasse",
+        "intent": "Existing ratgeber content integration",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.6 - Integration",
+        "target_url": "/was-ist-mein-pferd-wert",
+        "anchor_text": "Pferdewert ermitteln",
+        "context": "KI-gestützte Preisanpassung basierend auf Befunden",
+        "intent": "Primary conversion target",
+        "priority": "HIGH"
+      },
+      {
+        "section": "FAQ - Preisabschläge",
+        "target_url": "/pferde-ratgeber/aku-verstehen/pferdewert-trotz-aku",
+        "anchor_text": "Pferdewert trotz AKU-Befunden",
+        "context": "PferdeWert.de unterstützt bei der objektiven Bewertung von Preisabschlägen",
+        "intent": "Problem-solution content",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.1 - Kaufentscheidungen",
+        "target_url": "/pferd-kaufen",
+        "anchor_text": "Pferd kaufen Ratgeber",
+        "context": "Fundament für Preisverhandlungen",
+        "intent": "General buying guidance",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.6 - Verkaufspreise",
+        "target_url": "/pferd-verkaufen",
+        "anchor_text": "Pferd verkaufen",
+        "context": "Statistische Auswertung von AKU-Einfluss auf Verkaufspreise",
+        "intent": "Seller perspective integration",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "H2.6 - Verkaufsoptimierung",
+        "target_url": "/pferd-verkaufen/verkaufspreis-optimieren",
+        "anchor_text": "Verkaufspreis optimieren",
+        "context": "Vor/Nach AKU-Wertvergleich",
+        "intent": "Seller conversion funnel",
+        "priority": "MEDIUM"
+      },
+      {
+        "section": "FAQ - Warmblut",
+        "target_url": "/warmblut-kaufen",
+        "anchor_text": "Warmblut kaufen",
+        "context": "Breed-spezifische Bewertungsunterschiede",
+        "intent": "Breed-specific targeting",
+        "priority": "LOW"
+      },
+      {
+        "section": "FAQ - Dressurpferde",
+        "target_url": "/dressurpferd-kaufen",
+        "anchor_text": "Dressurpferd kaufen",
+        "context": "Einsatzbereich-spezifische AKU-Anforderungen",
+        "intent": "Discipline-specific targeting",
+        "priority": "LOW"
+      },
+      {
+        "section": "FAQ - Springpferde",
+        "target_url": "/springpferd-kaufen",
+        "anchor_text": "Springpferd kaufen",
+        "context": "Zusätzliche Aufnahmen je nach Einsatzbereich",
+        "intent": "Discipline-specific targeting",
+        "priority": "LOW"
+      }
+    ],
+    "inbound_links": [
+      {
+        "source_page": "/pferd-kaufen",
+        "anchor_text": "AKU beim Pferdekauf",
+        "context": "Vor dem Pferdekauf ist eine Ankaufsuntersuchung unverzichtbar",
+        "priority": "HIGH"
+      },
+      {
+        "source_page": "/",
+        "anchor_text": "AKU-Pferd Ratgeber",
+        "context": "Professionelle Beratung zur Ankaufsuntersuchung",
+        "priority": "HIGH"
+      },
+      {
+        "source_page": "/pferde-ratgeber/aku-verstehen",
+        "anchor_text": "kompletter AKU-Leitfaden",
+        "context": "Umfassende Informationen zur Ankaufsuntersuchung",
+        "priority": "HIGH"
+      },
+      {
+        "source_page": "/pferd-kaufen-bayern",
+        "anchor_text": "AKU in Bayern",
+        "context": "Regionale Besonderheiten der Ankaufsuntersuchung",
+        "priority": "MEDIUM"
+      },
+      {
+        "source_page": "/pferd-kaufen-niedersachsen",
+        "anchor_text": "AKU in Niedersachsen",
+        "context": "Regionale AKU-Standards und Kosten",
+        "priority": "MEDIUM"
+      },
+      {
+        "source_page": "/pferd-kaufen-nrw",
+        "anchor_text": "AKU in NRW",
+        "context": "Ankaufsuntersuchung in Nordrhein-Westfalen",
+        "priority": "MEDIUM"
+      },
+      {
+        "source_page": "/warmblut-kaufen",
+        "anchor_text": "AKU beim Warmblut",
+        "context": "Breed-spezifische AKU-Anforderungen",
+        "priority": "MEDIUM"
+      },
+      {
+        "source_page": "/dressurpferd-kaufen",
+        "anchor_text": "AKU für Dressurpferde",
+        "context": "Spezielle AKU-Anforderungen für Dressurpferde",
+        "priority": "MEDIUM"
+      },
+      {
+        "source_page": "/springpferd-kaufen",
+        "anchor_text": "AKU für Springpferde",
+        "context": "AKU-Besonderheiten beim Springpferdekauf",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "conversion_funnel_integration": {
+    "awareness_stage": {
+      "primary_targets": ["/", "/was-ist-mein-pferd-wert"],
+      "messaging": "Discover how AKU results affect horse valuation",
+      "cta": "Kostenlose Pferdebewertung starten"
+    },
+    "consideration_stage": {
+      "primary_targets": ["/pferde-preis-berechnen", "/aku-pferd-ablauf"],
+      "messaging": "Professional AKU interpretation and pricing impact",
+      "cta": "AKU-Befund für Wertanalyse hochladen"
+    },
+    "decision_stage": {
+      "primary_targets": ["/pferd-kaufen", "/pferd-verkaufen"],
+      "messaging": "Make informed buying/selling decisions with expert support",
+      "cta": "Expertenberatung anfragen"
+    }
+  },
+  "keyword_optimization": {
+    "primary_anchor_variations": [
+      "aku pferd",
+      "ankaufsuntersuchung pferd",
+      "aku untersuchung pferd",
+      "pferde aku",
+      "aku pferd kosten",
+      "aku pferd ablauf",
+      "aku pferd klassen"
+    ],
+    "long_tail_anchors": [
+      "professionelle Pferdebewertung mit AKU",
+      "AKU-Ergebnisse in Pferdebewertung",
+      "Pferdewert trotz AKU-Befunden",
+      "AKU-bewusste Pferdebewertung",
+      "Ankaufsuntersuchung Kostenvergleich"
+    ]
+  },
+  "technical_implementation": {
+    "schema_markup": [
+      "FAQ Schema for question section",
+      "Article Schema for main content",
+      "BreadcrumbList Schema for navigation"
+    ],
+    "internal_link_attributes": {
+      "follow": true,
+      "title_attributes": true,
+      "descriptive_anchors": true,
+      "contextual_placement": true
+    }
+  },
+  "regional_link_strategy": {
+    "bayern": {
+      "target_pages": ["/pferd-kaufen-bayern", "/pferd-kaufen-baden-wuerttemberg"],
+      "focus": "Premium market positioning and high-value AKU standards"
+    },
+    "niedersachsen": {
+      "target_pages": ["/pferd-kaufen-niedersachsen", "/pferd-kaufen-schleswig-holstein"],
+      "focus": "Traditional breeding region expertise"
+    },
+    "nrw_hessen": {
+      "target_pages": ["/pferd-kaufen-nrw", "/pferd-kaufen-hessen"],
+      "focus": "Urban horse ownership and recreational focus"
+    }
+  },
+  "performance_tracking": {
+    "link_metrics": [
+      "Internal link click-through rates",
+      "Page depth and user journey completion",
+      "Conversion attribution by traffic source",
+      "Regional performance by link target"
+    ],
+    "optimization_targets": {
+      "primary_conversions": "Horse valuation requests from AKU content",
+      "secondary_conversions": "AKU consultation bookings",
+      "tertiary_conversions": "Regional buying guide engagement"
+    }
+  }
+}

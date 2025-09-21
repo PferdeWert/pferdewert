@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "agent": "Agent 3 - Keyword Analysis",
+    "content_strategy": "AKU Pferd Content Hub",
+    "target_audience": "German horse buyers and sellers",
+    "business_objective": "Drive conversions through AKU expertise and valuation services",
+    "creation_date": "2025-09-21"
+  },
+  "content_hub_structure": {
+    "pillar_page": {
+      "url": "/aku-pferd",
+      "title": "AKU Pferd: Vollständiger Leitfaden zur Ankaufsuntersuchung",
+      "primary_keyword": "aku pferd",
+      "secondary_keywords": ["aku untersuchung pferd", "pferde aku"],
+      "content_type": "PILLAR_CONTENT",
+      "word_count_target": 2500,
+      "purpose": "Comprehensive guide establishing PferdeWert.de as AKU authority",
+      "conversion_goals": [
+        "Horse valuation report purchases",
+        "AKU consultation bookings",
+        "Newsletter signups"
+      ],
+      "user_journey_stage": "AWARENESS_CONSIDERATION"
+    },
+    "cluster_pages": [
+      {
+        "url": "/aku-pferd-kosten",
+        "title": "AKU Pferd Kosten: Preise, Faktoren und Spartipps 2024",
+        "primary_keyword": "aku pferd kosten",
+        "content_type": "CLUSTER_CONTENT",
+        "word_count_target": 1500,
+        "priority": 1,
+        "purpose": "Cost-focused content with high commercial intent",
+        "conversion_goals": [
+          "Valuation report purchases (cost comparison)",
+          "AKU cost calculator lead magnet"
+        ],
+        "user_journey_stage": "CONSIDERATION_PURCHASE",
+        "internal_links_to": ["/aku-pferd", "/pferd-kaufen"],
+        "regional_variations": true
+      },
+      {
+        "url": "/aku-pferd-ablauf",
+        "title": "AKU Pferd Ablauf: Schritt-für-Schritt Anleitung zur Ankaufsuntersuchung",
+        "primary_keyword": "aku pferd ablauf",
+        "content_type": "CLUSTER_CONTENT",
+        "word_count_target": 1200,
+        "priority": 2,
+        "purpose": "Process education building trust and expertise",
+        "conversion_goals": [
+          "AKU preparation consultation",
+          "Post-AKU valuation services"
+        ],
+        "user_journey_stage": "CONSIDERATION",
+        "internal_links_to": ["/aku-pferd", "/aku-pferd-kosten"],
+        "regional_variations": false
+      },
+      {
+        "url": "/aku-pferd-klassen",
+        "title": "AKU Pferd Klassen: Bewertungssystem und Interpretation der Ergebnisse",
+        "primary_keyword": "aku pferd klassen",
+        "content_type": "CLUSTER_CONTENT",
+        "word_count_target": 1000,
+        "priority": 2,
+        "purpose": "Technical expertise content for result interpretation",
+        "conversion_goals": [
+          "AKU result interpretation service",
+          "Horse valuation based on AKU results"
+        ],
+        "user_journey_stage": "CONSIDERATION_EDUCATION",
+        "internal_links_to": ["/aku-pferd", "/aku-pferd-ablauf"],
+        "regional_variations": false
+      }
+    ]
+  },
+  "content_themes": {
+    "primary_themes": [
+      {
+        "theme": "AKU Cost Transparency",
+        "keywords": ["aku pferd kosten"],
+        "content_angle": "Comprehensive cost breakdown with regional variations and value justification",
+        "pferdewert_positioning": "Position valuation service as cost-effective complement to AKU"
+      },
+      {
+        "theme": "AKU Process Education",
+        "keywords": ["aku pferd ablauf", "aku untersuchung pferd"],
+        "content_angle": "Step-by-step guidance building confidence in horse purchasing decisions",
+        "pferdewert_positioning": "Expert consultation for AKU preparation and result interpretation"
+      },
+      {
+        "theme": "AKU Classification Mastery",
+        "keywords": ["aku pferd klassen"],
+        "content_angle": "Technical expertise in understanding and interpreting AKU results",
+        "pferdewert_positioning": "Professional AKU result analysis and valuation impact assessment"
+      }
+    ]
+  },
+  "conversion_strategy": {
+    "lead_magnets": [
+      {
+        "title": "AKU Kosten-Rechner",
+        "description": "Regionaler Kostenvergleich für Ankaufsuntersuchungen",
+        "target_keywords": ["aku pferd kosten"],
+        "conversion_type": "EMAIL_CAPTURE",
+        "placement": "aku-pferd-kosten page"
+      },
+      {
+        "title": "AKU Checkliste für Pferdekäufer",
+        "description": "Vollständige Vorbereitung auf die Ankaufsuntersuchung",
+        "target_keywords": ["aku pferd ablauf"],
+        "conversion_type": "EMAIL_CAPTURE",
+        "placement": "aku-pferd-ablauf page"
+      }
+    ],
+    "service_integration": [
+      {
+        "service": "Horse Valuation Report",
+        "integration_points": [
+          "AKU result interpretation section",
+          "Cost-benefit analysis vs. AKU costs",
+          "Pre-purchase valuation recommendation"
+        ],
+        "cta_placements": ["After cost breakdown", "Within process timeline", "At classification explanation"]
+      },
+      {
+        "service": "Purchase Consultation",
+        "integration_points": [
+          "AKU veterinarian recommendations",
+          "Result interpretation guidance",
+          "Purchase decision support"
+        ],
+        "cta_placements": ["Veterinarian finder section", "Complex case scenarios", "Regional variation explanations"]
+      }
+    ]
+  },
+  "internal_linking_strategy": {
+    "hub_connections": {
+      "from_pillar": [
+        "Link to /pferd-kaufen for broader purchase guidance",
+        "Link to /was-ist-mein-pferd-wert for valuation services",
+        "Link to each cluster page for detailed topics"
+      ],
+      "to_pillar": [
+        "From /pferd-kaufen as AKU section",
+        "From homepage as expert resource",
+        "From regional horse buying pages"
+      ]
+    },
+    "cluster_interconnection": [
+      "Cost page links to process and classification for context",
+      "Process page links to cost considerations and result interpretation",
+      "Classification page links back to process understanding and cost implications"
+    ]
+  },
+  "regional_content_variations": {
+    "bayern": {
+      "cost_adjustments": "15-20% higher AKU costs, premium veterinary services",
+      "process_notes": "Stricter examination standards for high-value horses",
+      "market_context": "Traditional breeding regions with established procedures"
+    },
+    "niedersachsen": {
+      "cost_adjustments": "Standard national pricing, competitive market",
+      "process_notes": "Efficient examination processes, high volume handling",
+      "market_context": "Horse trade center with experienced professionals"
+    },
+    "nrw": {
+      "cost_adjustments": "Urban premium for limited specialized veterinarians",
+      "process_notes": "Focus on recreational horse suitability assessments",
+      "market_context": "Urban horse ownership with cost-consciousness"
+    }
+  },
+  "technical_seo_specifications": {
+    "schema_markup": [
+      "FAQ schema for common AKU questions",
+      "HowTo schema for AKU process steps",
+      "LocalBusiness schema for regional variations"
+    ],
+    "meta_descriptions": {
+      "pillar": "Alles über AKU Pferd: Kosten, Ablauf, Klassen. Professioneller Leitfaden zur Ankaufsuntersuchung mit Expertenberatung von PferdeWert.de",
+      "cost_page": "AKU Pferd Kosten 2024: Preise vergleichen, Faktoren verstehen, Spartipps nutzen. Kostenloser Rechner und Expertenberatung.",
+      "process_page": "AKU Pferd Ablauf: Schritt-für-Schritt Anleitung zur Ankaufsuntersuchung. Vorbereitung, Durchführung, Ergebnisse verstehen.",
+      "classification_page": "AKU Pferd Klassen erklärt: Bewertungssystem verstehen, Ergebnisse interpretieren, Kaufentscheidung treffen."
+    },
+    "h1_tags": {
+      "pillar": "AKU Pferd: Der vollständige Leitfaden zur Ankaufsuntersuchung",
+      "cost_page": "AKU Pferd Kosten: Preise, Faktoren und Spartipps 2024",
+      "process_page": "AKU Pferd Ablauf: Schritt-für-Schritt Anleitung",
+      "classification_page": "AKU Pferd Klassen: Bewertungssystem verstehen"
+    }
+  },
+  "performance_targets": {
+    "organic_traffic": {
+      "3_month": "500+ monthly sessions from AKU keywords",
+      "6_month": "1200+ monthly sessions from AKU keywords",
+      "12_month": "2000+ monthly sessions from AKU keywords"
+    },
+    "conversion_metrics": {
+      "lead_generation": "15+ email captures per month from AKU content",
+      "service_sales": "5+ valuation reports per month from AKU traffic",
+      "consultation_bookings": "3+ consultation bookings per month"
+    },
+    "serp_rankings": {
+      "aku pferd": "Top 5 position within 6 months",
+      "aku pferd kosten": "Top 3 position within 4 months",
+      "aku pferd ablauf": "Top 5 position within 4 months"
+    }
+  }
+}

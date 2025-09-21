@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "agent": "Agent 6 - Final Content Creation",
+    "target_keyword": "aku pferd",
+    "page_url": "/aku-pferd",
+    "language": "de",
+    "market": "Germany",
+    "created_date": "2025-09-21",
+    "content_type": "SEO_PILLAR_CONTENT"
+  },
+  "seo_tags": {
+    "meta_title": "AKU Pferd: Leitfaden zur Ankaufsuntersuchung | PferdeWert",
+    "meta_title_length": 55,
+    "meta_description": "✓ AKU Pferd Kosten, Ablauf & Klassen erklärt ✓ Wie AKU-Ergebnisse den Pferdewert beeinflussen ✓ Expertenberatung für kluge Kaufentscheidungen bei PferdeWert.de",
+    "meta_description_length": 158,
+    "canonical_url": "https://pferdewert.de/aku-pferd",
+    "og_title": "AKU Pferd: Der umfassende Leitfaden zur Ankaufsuntersuchung",
+    "og_description": "Alles über AKU beim Pferdekauf: Kosten, Ablauf, Klassen und wie AKU-Befunde den Pferdewert beeinflussen. Expertenberatung von PferdeWert.de.",
+    "og_image": "/images/aku-pferd-guide.jpg",
+    "og_type": "article"
+  },
+  "structured_data": {
+    "article_schema": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AKU Pferd: Der umfassende Leitfaden zur Ankaufsuntersuchung für Pferdekäufer",
+      "description": "Kompletter Ratgeber zur Ankaufsuntersuchung beim Pferdekauf mit Kosten, Ablauf, Klassifizierung und Integration in die Pferdebewertung",
+      "author": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "url": "https://pferdewert.de"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/logo.png"
+        }
+      },
+      "datePublished": "2025-09-21",
+      "dateModified": "2025-09-21",
+      "mainEntityOfPage": "https://pferdewert.de/aku-pferd",
+      "image": "https://pferdewert.de/images/aku-pferd-guide.jpg",
+      "keywords": "aku pferd, ankaufsuntersuchung pferd, aku untersuchung pferd, pferde aku, aku pferd kosten, aku pferd ablauf, aku pferd klassen"
+    },
+    "faq_schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ist eine AKU beim Pferdekauf Pflicht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rechtlich ist eine AKU nicht verpflichtend, aber dringend empfohlen für den Käuferschutz. Verzicht kann bei späteren Problemen zu rechtlichen Nachteilen führen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet eine AKU beim Pferd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AKU-Kosten variieren je nach Umfang: Kleine AKU 150-400€, Große AKU 400-800€, Spezielle AKU 800-1.500€. Regional gibt es Unterschiede."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert eine AKU-Untersuchung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kleine AKU dauert 2-3 Stunden, Große AKU mit Röntgen 4-6 Stunden inklusive Befunderstellung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was bedeuten die AKU-Klassen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AKU-Klassen bewerten Befunde: Klasse I (keine Befunde), Klasse II (geringfügig), Klasse III (mäßig), Klasse IV (deutliche Befunde)."
+          }
+        }
+      ]
+    }
+  },
+  "keyword_targeting": {
+    "primary_keyword": "aku pferd",
+    "target_density": "1.5%",
+    "secondary_keywords": [
+      "aku untersuchung pferd",
+      "pferde ankaufsuntersuchung",
+      "aku kosten",
+      "ankaufsuntersuchung kosten",
+      "aku pferd ablauf",
+      "aku pferd klassen"
+    ],
+    "long_tail_keywords": [
+      "aku pferd kosten 2024",
+      "ankaufsuntersuchung pferd bayern",
+      "aku untersuchung ablauf",
+      "pferdekauf aku notwendig",
+      "aku befund pferd interpretation"
+    ]
+  },
+  "regional_targeting": {
+    "primary_regions": ["Bayern", "Niedersachsen", "Nordrhein-Westfalen"],
+    "regional_keywords": [
+      "aku pferd bayern",
+      "aku pferd niedersachsen",
+      "aku pferd nrw",
+      "ankaufsuntersuchung kosten bayern"
+    ]
+  },
+  "competitive_positioning": {
+    "unique_value_props": [
+      "Integration von AKU-Ergebnissen in Pferdebewertung",
+      "Datenbasierte Preisanalyse nach AKU-Befunden",
+      "Regionale Kostenvergleiche und Marktanalyse",
+      "KI-gestützte Interpretation von AKU-Ergebnissen"
+    ],
+    "content_differentiators": [
+      "Wirtschaftliche Perspektive auf AKU-Investition",
+      "Statistische Auswertung von AKU-Einfluss auf Verkaufspreise",
+      "Integration mit professioneller Pferdebewertung",
+      "Predictive Analytics für Folgekosten"
+    ]
+  },
+  "conversion_optimization": {
+    "primary_ctas": [
+      "Kostenlose Pferdebewertung mit AKU-Integration starten",
+      "AKU-Befund für Wertanalyse hochladen",
+      "Expertenberatung zur AKU-Strategie anfragen"
+    ],
+    "lead_magnets": [
+      "AKU Kosten-Rechner (regionaler Vergleich)",
+      "AKU Checkliste für Pferdekäufer",
+      "AKU-Klassen Bewertungsguide"
+    ]
+  },
+  "technical_seo": {
+    "readability_score": "80+ Flesch Reading Ease",
+    "word_count": "2400 words",
+    "heading_structure": "H1(1) + H2(6) + H3(18)",
+    "internal_links": 24,
+    "external_links": 3,
+    "image_alt_tags": [
+      "AKU Pferd Untersuchung Ablauf",
+      "AKU Kosten Vergleich Deutschland",
+      "Pferdewert Integration AKU Ergebnisse"
+    ]
+  },
+  "performance_targets": {
+    "organic_traffic": {
+      "3_months": "500+ sessions from AKU keywords",
+      "6_months": "1200+ sessions from AKU keywords",
+      "12_months": "2000+ sessions from AKU keywords"
+    },
+    "serp_rankings": {
+      "aku pferd": "Top 5 within 6 months",
+      "aku pferd kosten": "Top 3 within 4 months",
+      "aku untersuchung pferd": "Top 5 within 4 months"
+    },
+    "conversion_metrics": {
+      "email_signups": "15+ per month from AKU content",
+      "valuation_requests": "5+ per month from AKU traffic",
+      "consultation_bookings": "3+ per month"
+    }
+  }
+}
