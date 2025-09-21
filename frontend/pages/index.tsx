@@ -298,17 +298,11 @@ export default function PferdeWertHomepage() {
                   <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
                     🏆 #1 Online Pferdebewertung
                   </div>
-<<<<<<< HEAD
-                  <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                    Deutschlands führende Plattform für{" "}
-                    <span className="text-brand-brown">Pferdebewertung</span>
-=======
                   <h1 className="text-h1 font-bold text-gray-900">
                     <span className="text-brand-brown">Pferdepreis</span> berechnen: Wie viel ist mein Pferd wert?
->>>>>>> bd9298a (feat(seo): optimize index page for "Pferdepreis" keywords)
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Du fragst dich "Wie viel ist mein Pferd wert?" Unsere KI-Pferdebewertung gibt dir eine
+                    Du fragst dich &quot;Wie viel ist mein Pferd wert?&quot; Unsere KI-Pferdebewertung gibt dir eine
                     präzise Antwort in nur 2 Minuten. Entwickelt von Reitern für Reiter – transparent und vertrauenswürdig.
                   </p>
                 </div>
@@ -505,8 +499,6 @@ export default function PferdeWertHomepage() {
           </div>
         </section>
 
-<<<<<<< HEAD
-=======
         {/* Pferd kaufen Preis Section - High-value keyword targeting */}
         <section id="pferd-kaufen-preis" className="section bg-brand-light/30">
           <div className="container mx-auto px-4">
@@ -561,8 +553,6 @@ export default function PferdeWertHomepage() {
             </div>
           </div>
         </section>
-
->>>>>>> bd9298a (feat(seo): optimize index page for "Pferdepreis" keywords)
         {/* Features Section */}
         <section id="vorteile" className="section bg-white">
           <div className="container mx-auto px-4">
@@ -685,13 +675,8 @@ export default function PferdeWertHomepage() {
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-blue-600" />
                   </div>
-<<<<<<< HEAD
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Für Pferdekäufer</h3>
-                  <p className="text-gray-600">Sichere Kaufentscheidungen treffen</p>
-=======
                   <h3 className="text-h3 font-bold text-gray-900 mb-2">Für Pferdekäufer</h3>
                   <p className="text-gray-600">Pferdepreis ermitteln für sichere Kaufentscheidungen</p>
->>>>>>> bd9298a (feat(seo): optimize index page for "Pferdepreis" keywords)
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -721,13 +706,8 @@ export default function PferdeWertHomepage() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="w-8 h-8 text-green-600" />
                   </div>
-<<<<<<< HEAD
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Für Pferdeverkäufer</h3>
-                  <p className="text-gray-600">Optimalen Verkaufspreis ermitteln</p>
-=======
                   <h3 className="text-h3 font-bold text-gray-900 mb-2">Für Pferdeverkäufer</h3>
                   <p className="text-gray-600">Pferdepreis berechnen für optimalen Verkaufserfolg</p>
->>>>>>> bd9298a (feat(seo): optimize index page for "Pferdepreis" keywords)
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
