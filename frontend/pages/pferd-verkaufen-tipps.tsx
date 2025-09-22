@@ -199,7 +199,7 @@ export default function PferdVerkaufenTipps() {
             name="description"
             content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat."
           />
-          <meta name="keywords" content="pferd verkaufen tipps, pferde verkaufen, pferdeverkauf tipps, pferd verkaufen preis, pferd erfolgreich verkaufen" />
+          <meta name="keywords" content="pferd verkaufen tipps, pferd verkaufen, pferdeverkauf, pferdemarkt, pferdebewertung, pferd richtig verkaufen, pferdeverkauf tipps, pferdemarkt deutschland" />
           <meta name="author" content="PferdeWert.de" />
           <meta name="subject" content="Pferde Verkauf Tipps und Beratung" />
           <meta name="topic" content="Pferdeverkauf Beratung" />
@@ -435,7 +435,11 @@ export default function PferdVerkaufenTipps() {
               </h1>
               <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                 Profi-Tipps von Experten: Wie du dein Pferd schneller und zum optimalen Preis verkaufst.
-                Von der Preisfindung bis zur erfolgreichen Verhandlung.
+                Von der Preisfindung bis zur erfolgreichen Verhandlung. Mit der{' '}
+                <Link href="/" className="text-brand-brown hover:text-brand-brown-dark font-semibold underline">
+                  KI-basierten Pferdebewertung von PferdeWert
+                </Link>{' '}
+                startest du optimal in den Verkaufsprozess.
               </p>
 
               <div className="space-y-3 mb-8">
@@ -532,8 +536,12 @@ export default function PferdVerkaufenTipps() {
               <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 max-w-4xl mx-auto">
                 <h3 className="text-xl font-semibold text-blue-900 mb-3">🎯 Der wichtigste aller Tipps</h3>
                 <p className="text-blue-800 leading-relaxed">
-                  Beginne immer mit einer professionellen Marktbewertung. Sie ist die Grundlage für alle anderen Tipps
-                  und verhindert die beiden häufigsten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige
+                  Beginne immer mit einer professionellen Marktbewertung. Mit{' '}
+                  <Link href="/" className="text-blue-900 hover:text-blue-700 font-semibold underline">
+                    PferdeWert
+                  </Link>{' '}
+                  erhältst du die Grundlage für alle anderen Tipps
+                  und verhinderst die beiden häufigsten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige
                   Preise (= Wertverlust von tausenden Euro).
                 </p>
               </div>
@@ -582,11 +590,11 @@ export default function PferdVerkaufenTipps() {
 
             <div className="mt-12 text-center">
               <Link
-                href="/pferde-preis-berechnen"
+                href="/"
                 className="btn-primary inline-flex items-center gap-2"
               >
                 <Calculator className="w-5 h-5" />
-                Jetzt professionellen Marktwert ermitteln
+                Jetzt professionellen Marktwert mit PferdeWert ermitteln
               </Link>
             </div>
           </div>
@@ -826,11 +834,11 @@ export default function PferdVerkaufenTipps() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link
-                href="/pferde-preis-berechnen"
+                href="/"
                 className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
               >
                 <Calculator className="w-5 h-5" />
-                Tipp 1 umsetzen: Marktwert ermitteln
+                Jetzt Pferdewert ermitteln und optimal verkaufen →
               </Link>
               <Link
                 href="/pferd-verkaufen"
@@ -876,7 +884,11 @@ export default function PferdVerkaufenTipps() {
                   <p className="text-gray-600 leading-relaxed">
                     Die professionelle Marktwertermittlung ist der wichtigste Tipp. Sie verhindert die beiden häufigsten
                     und teuersten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige Preise (= Wertverlust).
-                    Alle anderen Tipps bauen auf der richtigen Preisgrundlage auf.
+                    Eine{' '}
+                    <Link href="/" className="text-brand-brown hover:text-brown-700 font-semibold underline">
+                      KI-basierte Bewertung von PferdeWert
+                    </Link>{' '}
+                    liefert diese Grundlage präzise und alle anderen Tipps bauen darauf auf.
                   </p>
                 </div>
               </details>

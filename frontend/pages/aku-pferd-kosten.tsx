@@ -343,9 +343,9 @@ const AKUPferdKosten: NextPage = () => {
 
       <Header />
 
-      <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <main className="min-h-screen bg-brand-light">
         {/* Breadcrumb Navigation */}
-        <div className="container mx-auto px-4 pt-4">
+        <div className="px-4 lg:px-8 xl:px-12 pt-4">
           <nav className="text-sm text-gray-600 mb-4" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-brand-brown">Home</Link>
             <span className="mx-2" aria-hidden="true">›</span>
@@ -355,60 +355,58 @@ const AKUPferdKosten: NextPage = () => {
           </nav>
         </div>
 
-        <div className="container mx-auto px-4 py-6 lg:py-8">
-          {/* Hero Section - Optimized for mobile */}
-          <div className="text-center mb-8 lg:mb-12">
-            <h1 className="text-2xl md:text-3xl lg:text-h1 font-bold text-brand-brown mb-4 lg:mb-6 leading-tight">
+        <div className="px-4 lg:px-8 xl:px-12 py-6 lg:py-8">
+          {/* Article Header */}
+          <header className="max-w-4xl mx-auto mb-12">
+            <h1 className="text-h1 font-serif font-bold text-brand mb-6 leading-tight">
               AKU Pferd Kosten 2025 - Alles über Preise der Ankaufsuntersuchung
             </h1>
-            <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6 px-2">
+            <p className="text-xl text-brand/80 leading-relaxed mb-8">
               Die Ankaufsuntersuchung (AKU) ist ein entscheidender Schritt beim Pferdekauf, doch viele Interessenten sind unsicher über die damit verbundenen Kosten. Als Deutschlands #1 Online Pferdebewertung erklären wir Ihnen transparent alle Aspekte der AKU-Kosten und helfen Ihnen, die richtige Entscheidung für Ihren Pferdekauf zu treffen.
             </p>
 
-            {/* Enhanced CTA and Trust Signal */}
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-xl p-4 lg:p-6 max-w-2xl mx-auto mb-6">
-              <p className="text-blue-800 font-semibold text-sm lg:text-base mb-3">
-                💡 2025 Preisüberblick: Von 150€ (Kleine AKU) bis 2.500€ (Premium AKU) - alle Kosten transparent erklärt!
-              </p>
-              <Link href="/pferde-preis-berechnen" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm lg:text-base">
+            {/* Key Insights Box */}
+            <div className="bg-brand-light border-l-4 border-brand-brown p-6 rounded-r-lg mb-8">
+              <h3 className="font-bold text-brand mb-3">Wichtigste Erkenntnisse 2025:</h3>
+              <ul className="space-y-2 text-brand/80">
+                <li>• AKU-Kosten: 150€ (Kleine AKU) bis 2.500€ (Premium AKU)</li>
+                <li>• Standard AKU (Klasse II): 400-800€ für die meisten Sportpferde</li>
+                <li>• Normalerweise zahlt der Käufer die Untersuchungskosten</li>
+                <li>• Regionale Preisunterschiede bis zu 30% möglich</li>
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mb-8">
+              <Link
+                href="/pferde-preis-berechnen"
+                className="inline-block bg-brand-brown hover:bg-brand-brownDark text-white font-bold py-4 px-8 rounded-lg transition-colors duration-200"
+              >
                 Jetzt kostenlosen Pferdewert ermitteln →
               </Link>
+              <p className="text-sm text-brand/60 mt-3">1000+ Bewertungen • KI-gestützte Analyse • Kostenlose Erstberatung</p>
             </div>
+          </header>
 
-            {/* Trust badges - Mobile optimized */}
-            <div className="flex flex-wrap justify-center items-center gap-4 text-xs lg:text-sm text-gray-500">
-              <div className="flex items-center gap-1">
-                <span className="text-green-500">✓</span>
-                <span>1000+ Bewertungen</span>
+          {/* Key Statistics */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center p-6 bg-white border border-brand-light rounded-lg">
+                <div className="text-2xl font-bold text-brand-brown mb-2">400-800€</div>
+                <div className="text-sm text-brand/70">Standard AKU (Klasse II)</div>
               </div>
-              <div className="flex items-center gap-1">
-                <span className="text-green-500">✓</span>
-                <span>KI-gestützte Analyse</span>
+              <div className="text-center p-6 bg-white border border-brand-light rounded-lg">
+                <div className="text-2xl font-bold text-brand-brown mb-2">2-5%</div>
+                <div className="text-sm text-brand/70">Vom Pferdewert</div>
               </div>
-              <div className="flex items-center gap-1">
-                <span className="text-green-500">✓</span>
-                <span>Kostenlose Erstberatung</span>
+              <div className="text-center p-6 bg-white border border-brand-light rounded-lg">
+                <div className="text-2xl font-bold text-brand-brown mb-2">150-2000€</div>
+                <div className="text-sm text-brand/70">Gesamtspanne aller Klassen</div>
               </div>
-            </div>
-          </div>
-
-          {/* Quick Stats - Mobile first grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 mb-8 lg:mb-12">
-            <div className="bg-white rounded-lg shadow-lg p-4 lg:p-6 border border-amber-100 text-center hover:shadow-xl transition-shadow duration-200">
-              <div className="text-xl lg:text-h2 font-bold text-blue-600 mb-1 lg:mb-2">400-800€</div>
-              <div className="text-xs lg:text-sm text-gray-600">Standard AKU (Klasse II)</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-4 lg:p-6 border border-amber-100 text-center hover:shadow-xl transition-shadow duration-200">
-              <div className="text-xl lg:text-h2 font-bold text-green-600 mb-1 lg:mb-2">2-5%</div>
-              <div className="text-xs lg:text-sm text-gray-600">Vom Pferdewert</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-4 lg:p-6 border border-amber-100 text-center hover:shadow-xl transition-shadow duration-200">
-              <div className="text-xl lg:text-h2 font-bold text-purple-600 mb-1 lg:mb-2">150-2000€</div>
-              <div className="text-xs lg:text-sm text-gray-600">Gesamtspanne aller Klassen</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-4 lg:p-6 border border-amber-100 text-center hover:shadow-xl transition-shadow duration-200">
-              <div className="text-xl lg:text-h2 font-bold text-orange-600 mb-1 lg:mb-2">Käufer</div>
-              <div className="text-xs lg:text-sm text-gray-600">Zahlt normalerweise</div>
+              <div className="text-center p-6 bg-white border border-brand-light rounded-lg">
+                <div className="text-2xl font-bold text-brand-brown mb-2">Käufer</div>
+                <div className="text-sm text-brand/70">Zahlt normalerweise</div>
+              </div>
             </div>
           </div>
 
@@ -417,145 +415,162 @@ const AKUPferdKosten: NextPage = () => {
             <div className="lg:col-span-2 space-y-8">
 
               {/* Cost Overview Section */}
-              <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                <h2 className="text-h2 font-bold text-brand-brown mb-6">💰 Was kostet eine AKU beim Pferd?</h2>
+              <section className="bg-white rounded-lg shadow-soft p-8 border border-brand-light">
+                <h2 className="text-h2 font-bold text-brand mb-6">Was kostet eine AKU beim Pferd?</h2>
 
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-brand/80 mb-8 leading-relaxed">
                   Die Kosten einer Ankaufsuntersuchung variieren je nach Umfang und Region erheblich. Im Jahr 2025 können Sie mit folgenden Preisen rechnen:
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-4 lg:gap-6 mb-8">
-                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 lg:p-6 border border-green-200 hover:shadow-lg transition-shadow duration-200">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-lg lg:text-xl font-bold text-green-800">Kleine AKU</h3>
-                      <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Basis</span>
+                <div className="space-y-6 mb-8">
+                  {/* Basic AKU */}
+                  <div className="border-l-4 border-brand-gold bg-brand-light/30 p-6 rounded-r-lg">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-xl font-bold text-brand">Kleine AKU (Klasse 1-2)</h3>
+                      <span className="bg-brand-gold/20 text-brand px-3 py-1 rounded-full text-sm font-medium">Basis</span>
                     </div>
-                    <div className="text-2xl lg:text-3xl font-bold text-green-600 mb-3">150 - 300€</div>
-                    <ul className="text-sm text-green-700 space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-500 mt-0.5">⏰</span>
-                        <span><strong>Dauer:</strong> 1-2 Stunden</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-500 mt-0.5">🔍</span>
-                        <span><strong>Umfang:</strong> Allgemeine Untersuchung</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-500 mt-0.5">🏃</span>
-                        <span><strong>Test:</strong> Schritt und Trab</span>
-                      </li>
-                    </ul>
-                    <div className="mt-4 pt-3 border-t border-green-200">
-                      <p className="text-xs text-green-600 font-medium">Ideal für Freizeitpferde bis 5.000€</p>
+                    <div className="flex items-baseline gap-3 mb-4">
+                      <span className="text-3xl font-bold text-brand-brown">150 - 300€</span>
+                      <span className="text-brand/70">• 1-2 Stunden</span>
                     </div>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 lg:p-6 border border-blue-200 hover:shadow-lg transition-shadow duration-200 relative">
-                    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">BELIEBT</span>
-                    </div>
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-lg lg:text-xl font-bold text-blue-800">Große AKU</h3>
-                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Standard</span>
-                    </div>
-                    <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-3">600 - 1.200€</div>
-                    <ul className="text-sm text-blue-700 space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">⏰</span>
-                        <span><strong>Dauer:</strong> 3-5 Stunden</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">🔍</span>
-                        <span><strong>Umfang:</strong> Vollständige Untersuchung</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">📡</span>
-                        <span><strong>Diagnostik:</strong> Röntgen, Ultraschall</span>
-                      </li>
-                    </ul>
-                    <div className="mt-4 pt-3 border-t border-blue-200">
-                      <p className="text-xs text-blue-600 font-medium">Ideal für Sportpferde bis 25.000€</p>
+                    <div className="grid md:grid-cols-2 gap-4 text-sm text-brand/80">
+                      <div>
+                        <p className="font-medium mb-2">Untersuchungsumfang:</p>
+                        <ul className="space-y-1">
+                          <li>• Allgemeine klinische Untersuchung</li>
+                          <li>• Bewegungsanalyse (Schritt, Trab)</li>
+                          <li>• Grundlegende Herzuntersuchung</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-medium mb-2 text-brand-brown">Geeignet für:</p>
+                        <p>Freizeitpferde bis 5.000€ Kaufpreis</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 lg:p-6 border border-purple-200 hover:shadow-lg transition-shadow duration-200">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-lg lg:text-xl font-bold text-purple-800">Premium AKU</h3>
-                      <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">Komplett</span>
+                  {/* Standard AKU */}
+                  <div className="border-l-4 border-brand-accent bg-brand-light/50 p-6 rounded-r-lg relative">
+                    <div className="absolute -top-2 right-4">
+                      <span className="bg-brand-brown text-white text-xs font-bold px-3 py-1 rounded-full">BELIEBT</span>
                     </div>
-                    <div className="text-2xl lg:text-3xl font-bold text-purple-600 mb-3">1.000 - 2.500€</div>
-                    <ul className="text-sm text-purple-700 space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-purple-500 mt-0.5">⏰</span>
-                        <span><strong>Dauer:</strong> Ganztägig</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-purple-500 mt-0.5">🔬</span>
-                        <span><strong>Umfang:</strong> Alle Untersuchungen</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-purple-500 mt-0.5">🏥</span>
-                        <span><strong>Extra:</strong> MRT, CT, Labor</span>
-                      </li>
-                    </ul>
-                    <div className="mt-4 pt-3 border-t border-purple-200">
-                      <p className="text-xs text-purple-600 font-medium">Ideal für hochwertige Sport-/Zuchtpferde</p>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-xl font-bold text-brand">Große AKU (Klasse 3)</h3>
+                      <span className="bg-brand-accent/20 text-brand px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                    </div>
+                    <div className="flex items-baseline gap-3 mb-4">
+                      <span className="text-3xl font-bold text-brand-brown">600 - 1.200€</span>
+                      <span className="text-brand/70">• 3-5 Stunden</span>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4 text-sm text-brand/80">
+                      <div>
+                        <p className="font-medium mb-2">Untersuchungsumfang:</p>
+                        <ul className="space-y-1">
+                          <li>• Vollständige klinische Untersuchung</li>
+                          <li>• Röntgenaufnahmen der Gliedmaßen</li>
+                          <li>• Flexionsprobe und Bewegungsanalyse</li>
+                          <li>• Ultraschall bei Bedarf</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-medium mb-2 text-brand-brown">Geeignet für:</p>
+                        <p>Sportpferde bis 25.000€ Kaufpreis</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Premium AKU */}
+                  <div className="border-l-4 border-brand-green bg-brand-light/30 p-6 rounded-r-lg">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-xl font-bold text-brand">Premium AKU (Klasse 4-5)</h3>
+                      <span className="bg-brand-green/20 text-brand px-3 py-1 rounded-full text-sm font-medium">Komplett</span>
+                    </div>
+                    <div className="flex items-baseline gap-3 mb-4">
+                      <span className="text-3xl font-bold text-brand-brown">1.000 - 2.500€</span>
+                      <span className="text-brand/70">• Ganztägig</span>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4 text-sm text-brand/80">
+                      <div>
+                        <p className="font-medium mb-2">Untersuchungsumfang:</p>
+                        <ul className="space-y-1">
+                          <li>• Alle Standarduntersuchungen</li>
+                          <li>• Erweiterte Bildgebung (MRT, CT)</li>
+                          <li>• Laboruntersuchungen</li>
+                          <li>• Spezialisierte Diagnostik</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-medium mb-2 text-brand-brown">Geeignet für:</p>
+                        <p>Hochwertige Sport- und Zuchtpferde</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </section>
 
               {/* Factors Affecting Cost */}
-              <section className="bg-white rounded-lg shadow-lg p-8 border border-amber-100">
-                <h2 className="text-h2 font-bold text-brand-brown mb-6">🔍 Faktoren, die die AKU-Kosten beeinflussen</h2>
+              <section className="bg-white rounded-lg shadow-soft p-8 border border-brand-light">
+                <h2 className="text-h2 font-bold text-brand mb-6">Faktoren, die die AKU-Kosten beeinflussen</h2>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">📍 Regionale Preisunterschiede</h3>
-                    <p className="text-gray-600 mb-4">Die AKU-Kosten variieren erheblich zwischen den Bundesländern:</p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• <strong>Bayern:</strong> Durchschnittlich 10-15% höhere Kosten aufgrund der starken Pferdesport-Tradition</li>
-                      <li>• <strong>Nordrhein-Westfalen:</strong> Mittleres Preisniveau, große Auswahl an Tierärzten</li>
-                      <li>• <strong>Niedersachsen:</strong> Konkurrenzfähige Preise durch hohe Tierarztdichte</li>
-                      <li>• <strong>Baden-Württemberg:</strong> Leicht überdurchschnittliche Kosten</li>
-                      <li>• <strong>Hessen:</strong> Durchschnittliche Preise mit regionalen Schwankungen</li>
-                      <li>• <strong>Schleswig-Holstein:</strong> Moderate Kosten, spezialisierte Pferdekliniken</li>
+                    <h3 className="text-xl font-bold text-brand mb-4">Regionale Preisunterschiede</h3>
+                    <p className="text-brand/70 mb-4">Die AKU-Kosten variieren erheblich zwischen den Bundesländern:</p>
+                    <ul className="space-y-3 text-brand/80">
+                      <li className="border-l-2 border-brand-gold/30 pl-3">
+                        <strong className="text-brand">Bayern:</strong> Durchschnittlich 10-15% höhere Kosten aufgrund der starken Pferdesport-Tradition
+                      </li>
+                      <li className="border-l-2 border-brand-gold/30 pl-3">
+                        <strong className="text-brand">Nordrhein-Westfalen:</strong> Mittleres Preisniveau, große Auswahl an Tierärzten
+                      </li>
+                      <li className="border-l-2 border-brand-gold/30 pl-3">
+                        <strong className="text-brand">Niedersachsen:</strong> Konkurrenzfähige Preise durch hohe Tierarztdichte
+                      </li>
+                      <li className="border-l-2 border-brand-gold/30 pl-3">
+                        <strong className="text-brand">Baden-Württemberg:</strong> Leicht überdurchschnittliche Kosten
+                      </li>
+                      <li className="border-l-2 border-brand-gold/30 pl-3">
+                        <strong className="text-brand">Hessen:</strong> Durchschnittliche Preise mit regionalen Schwankungen
+                      </li>
+                      <li className="border-l-2 border-brand-gold/30 pl-3">
+                        <strong className="text-brand">Schleswig-Holstein:</strong> Moderate Kosten, spezialisierte Pferdekliniken
+                      </li>
                     </ul>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">🔬 Untersuchungsumfang bestimmt den Preis</h3>
+                    <h3 className="text-xl font-bold text-brand mb-4">Untersuchungsumfang bestimmt den Preis</h3>
 
                     <div className="space-y-4">
-                      <div className="border-l-4 border-green-500 pl-4">
-                        <h4 className="font-semibold text-green-800">Basisuntersuchung (AKU Klasse 1-2)</h4>
-                        <ul className="text-sm text-gray-600 mt-1">
+                      <div className="border-l-4 border-brand-gold bg-brand-light/30 p-4 rounded-r-lg">
+                        <h4 className="font-semibold text-brand">Basisuntersuchung (AKU Klasse 1-2)</h4>
+                        <ul className="text-sm text-brand/70 mt-2 space-y-1">
                           <li>• Allgemeine klinische Untersuchung</li>
                           <li>• Bewegungsanalyse an der Hand</li>
                           <li>• Grundlegende Herzuntersuchung</li>
                         </ul>
-                        <div className="font-bold text-green-600 mt-2">Kosten: 150-400€</div>
+                        <div className="font-bold text-brand-brown mt-3">Kosten: 150-400€</div>
                       </div>
 
-                      <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-semibold text-blue-800">Standarduntersuchung (AKU Klasse 3)</h4>
-                        <ul className="text-sm text-gray-600 mt-1">
+                      <div className="border-l-4 border-brand-accent bg-brand-light/30 p-4 rounded-r-lg">
+                        <h4 className="font-semibold text-brand">Standarduntersuchung (AKU Klasse 3)</h4>
+                        <ul className="text-sm text-brand/70 mt-2 space-y-1">
                           <li>• Röntgenaufnahmen der Gliedmaßen</li>
                           <li>• Flexionsprobe</li>
                           <li>• Erweiterte Bewegungsanalyse</li>
                         </ul>
-                        <div className="font-bold text-blue-600 mt-2">Kosten: 500-800€</div>
+                        <div className="font-bold text-brand-brown mt-3">Kosten: 500-800€</div>
                       </div>
 
-                      <div className="border-l-4 border-purple-500 pl-4">
-                        <h4 className="font-semibold text-purple-800">Umfassende Untersuchung (AKU Klasse 4-5)</h4>
-                        <ul className="text-sm text-gray-600 mt-1">
+                      <div className="border-l-4 border-brand-green bg-brand-light/30 p-4 rounded-r-lg">
+                        <h4 className="font-semibold text-brand">Umfassende Untersuchung (AKU Klasse 4-5)</h4>
+                        <ul className="text-sm text-brand/70 mt-2 space-y-1">
                           <li>• Vollständige Röntgendiagnostik</li>
                           <li>• Ultraschalluntersuchungen</li>
                           <li>• Endoskopie der Atemwege</li>
                           <li>• Blutuntersuchung</li>
                         </ul>
-                        <div className="font-bold text-purple-600 mt-2">Kosten: 800-2.500€</div>
+                        <div className="font-bold text-brand-brown mt-3">Kosten: 800-2.500€</div>
                       </div>
                     </div>
                   </div>
@@ -563,29 +578,31 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Interactive Cost Calculator */}
-              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-amber-100 relative overflow-hidden" id="step1">
+              <section className="bg-white rounded-lg shadow-soft p-4 md:p-8 border border-brand-light relative overflow-hidden" id="step1">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-green-50 rounded-full -translate-y-16 translate-x-16 opacity-60"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-50 to-orange-50 rounded-full translate-y-12 -translate-x-12 opacity-60"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/50 rounded-full -translate-y-16 translate-x-16 opacity-60"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-light/50 rounded-full translate-y-12 -translate-x-12 opacity-60"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-                      <span className="text-2xl">🧮</span>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      </svg>
                     </div>
-                    <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand-brown mb-2">AKU Kostenrechner 2025</h2>
-                    <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+                    <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand mb-2">AKU Kostenrechner 2025</h2>
+                    <p className="text-brand/70 text-sm md:text-base max-w-2xl mx-auto">
                       Berechnen Sie schnell und einfach die Kosten für Ihre Ankaufsuntersuchung
                     </p>
                   </div>
 
                   <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-3 md:gap-6 mb-8">
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-300 transition-colors duration-200">
+                    <div className="bg-brand-light/30 rounded-lg p-4 border border-brand-light hover:border-brand-accent/30 transition-colors duration-200">
                       <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                          <span className="text-blue-600 font-bold text-sm">1</span>
+                        <div className="w-8 h-8 bg-brand-accent/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-brand-accent font-bold text-sm">1</span>
                         </div>
-                        <label className="block text-gray-700 font-semibold text-sm md:text-base" htmlFor="horse-value">
+                        <label className="block text-brand font-semibold text-sm md:text-base" htmlFor="horse-value">
                           Pferdewert (€)
                         </label>
                       </div>
@@ -594,27 +611,27 @@ const AKUPferdKosten: NextPage = () => {
                         type="number"
                         value={horseValue}
                         onChange={(e) => setHorseValue(parseInt(e.target.value) || 0)}
-                        className="w-full p-4 md:p-3 text-lg md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-white min-h-[48px]"
+                        className="w-full p-4 md:p-3 text-lg md:text-base border border-brand-light rounded-lg focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all duration-200 bg-white min-h-[48px]"
                         placeholder="z.B. 15000"
                         aria-describedby="horse-value-help"
                         min="0"
                         max="100000"
                         step="1000"
                       />
-                      <div id="horse-value-help" className="text-xs md:text-sm text-gray-500 mt-2 flex items-center">
-                        <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div id="horse-value-help" className="text-xs md:text-sm text-brand/60 mt-2 flex items-center">
+                        <svg className="w-4 h-4 mr-1 text-brand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Geschätzter Marktwert des Pferdes
                       </div>
                     </div>
 
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-300 transition-colors duration-200" id="step2">
+                    <div className="bg-brand-light/30 rounded-lg p-4 border border-brand-light hover:border-brand-green/30 transition-colors duration-200" id="step2">
                       <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                          <span className="text-green-600 font-bold text-sm">2</span>
+                        <div className="w-8 h-8 bg-brand-green/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-brand-green font-bold text-sm">2</span>
                         </div>
-                        <label className="block text-gray-700 font-semibold text-sm md:text-base" htmlFor="aku-class">
+                        <label className="block text-brand font-semibold text-sm md:text-base" htmlFor="aku-class">
                           AKU-Klasse
                         </label>
                       </div>
@@ -622,7 +639,7 @@ const AKUPferdKosten: NextPage = () => {
                         id="aku-class"
                         value={selectedClass}
                         onChange={(e) => setSelectedClass(e.target.value)}
-                        className="w-full p-4 md:p-3 text-lg md:text-base border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-white min-h-[48px] appearance-none bg-no-repeat bg-right-2 bg-[length:20px] cursor-pointer"
+                        className="w-full p-4 md:p-3 text-lg md:text-base border border-brand-light rounded-lg focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all duration-200 bg-white min-h-[48px] appearance-none bg-no-repeat bg-right-2 bg-[length:20px] cursor-pointer"
                         style={{
                           backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e")`
                         }}
@@ -631,20 +648,20 @@ const AKUPferdKosten: NextPage = () => {
                         <option value="II">Klasse II (Standard) - €250-400</option>
                         <option value="III-V">Klasse III-V (Umfassend) - €400+</option>
                       </select>
-                      <div className="text-xs md:text-sm text-gray-500 mt-2 flex items-center">
-                        <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="text-xs md:text-sm text-brand/60 mt-2 flex items-center">
+                        <svg className="w-4 h-4 mr-1 text-brand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Umfang der Untersuchung
                       </div>
                     </div>
 
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-300 transition-colors duration-200" id="step3">
+                    <div className="bg-brand-light/30 rounded-lg p-4 border border-brand-light hover:border-brand-gold/30 transition-colors duration-200" id="step3">
                       <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mr-3">
-                          <span className="text-amber-600 font-bold text-sm">3</span>
+                        <div className="w-8 h-8 bg-brand-gold/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-brand-gold font-bold text-sm">3</span>
                         </div>
-                        <label className="block text-gray-700 font-semibold text-sm md:text-base" htmlFor="region">
+                        <label className="block text-brand font-semibold text-sm md:text-base" htmlFor="region">
                           Region
                         </label>
                       </div>
@@ -652,7 +669,7 @@ const AKUPferdKosten: NextPage = () => {
                         id="region"
                         value={selectedRegion}
                         onChange={(e) => setSelectedRegion(e.target.value)}
-                        className="w-full p-4 md:p-3 text-lg md:text-base border border-gray-300 rounded-lg focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all duration-200 bg-white min-h-[48px] appearance-none bg-no-repeat bg-right-2 bg-[length:20px] cursor-pointer"
+                        className="w-full p-4 md:p-3 text-lg md:text-base border border-brand-light rounded-lg focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-200 bg-white min-h-[48px] appearance-none bg-no-repeat bg-right-2 bg-[length:20px] cursor-pointer"
                         style={{
                           backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e")`
                         }}
@@ -662,8 +679,8 @@ const AKUPferdKosten: NextPage = () => {
                         <option value="nordrhein">Nordrhein-Westfalen</option>
                         <option value="norddeutschland">Norddeutschland</option>
                       </select>
-                      <div className="text-xs md:text-sm text-gray-500 mt-2 flex items-center">
-                        <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="text-xs md:text-sm text-brand/60 mt-2 flex items-center">
+                        <svg className="w-4 h-4 mr-1 text-brand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
@@ -677,10 +694,10 @@ const AKUPferdKosten: NextPage = () => {
                   <button
                     onClick={trackCalculation}
                     disabled={isCalculating}
-                    className={`w-full md:w-auto min-w-[280px] px-8 py-4 rounded-xl transition-all duration-300 font-bold text-lg mb-6 shadow-lg ${
+                    className={`w-full md:w-auto min-w-[280px] px-8 py-4 rounded-xl transition-all duration-300 font-bold text-lg mb-6 shadow-soft ${
                       isCalculating
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 hover:shadow-xl transform hover:scale-105 active:scale-95'
+                        ? 'bg-brand/40 cursor-not-allowed'
+                        : 'bg-brand-brown hover:bg-brand-brownDark hover:shadow-lg transform hover:scale-105 active:scale-95'
                     } text-white`}
                   >
                     {isCalculating ? (
@@ -700,14 +717,14 @@ const AKUPferdKosten: NextPage = () => {
                       </span>
                     )}
                   </button>
-                  <p className="text-xs text-gray-500 mb-6">
+                  <p className="text-xs text-brand/60 mb-6">
                     ✓ Kostenlos ✓ Sofortiges Ergebnis ✓ Keine Anmeldung
                   </p>
                 </div>
 
                 {costCalculation && (
                   <div
-                    className={`bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-xl p-6 md:p-8 border-2 border-blue-200 shadow-xl transition-all duration-700 ease-out ${
+                    className={`bg-white rounded-xl p-6 md:p-8 border-2 border-brand-accent/30 shadow-soft transition-all duration-700 ease-out ${
                       animateResults
                         ? 'opacity-100 transform translate-y-0'
                         : 'opacity-0 transform translate-y-4'
@@ -715,19 +732,19 @@ const AKUPferdKosten: NextPage = () => {
                     id="step4"
                   >
                     <div className="text-center mb-6">
-                      <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-full mb-4 transition-all duration-500 ${
+                      <div className={`inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 transition-all duration-500 ${
                         animateResults ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
                       }`}>
                         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      <h3 className={`text-xl md:text-2xl font-bold text-gray-800 mb-2 transition-all duration-500 ${
+                      <h3 className={`text-xl md:text-2xl font-bold text-brand mb-2 transition-all duration-500 ${
                         animateResults ? 'opacity-100 transform translate-x-0' : 'opacity-0 transform translate-x-4'
                       }`}>
                         Ihre AKU-Kostenberechnung
                       </h3>
-                      <p className={`text-gray-600 transition-all duration-500 delay-100 ${
+                      <p className={`text-brand/70 transition-all duration-500 delay-100 ${
                         animateResults ? 'opacity-100 transform translate-x-0' : 'opacity-0 transform translate-x-4'
                       }`}>
                         Hier sind die geschätzten Kosten für Ihre Ankaufsuntersuchung
@@ -735,17 +752,17 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* Main cost display */}
-                    <div className={`bg-white rounded-xl p-6 shadow-lg mb-6 border border-gray-200 transition-all duration-500 delay-200 ${
+                    <div className={`bg-brand-light/50 rounded-xl p-6 shadow-soft mb-6 border border-brand-light transition-all duration-500 delay-200 ${
                       animateResults ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-95'
                     }`}>
                       <div className="text-center">
-                        <div className="text-sm text-gray-500 mb-2">Geschätzte Gesamtkosten</div>
-                        <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
+                        <div className="text-sm text-brand/60 mb-2">Geschätzte Gesamtkosten</div>
+                        <div className="text-4xl md:text-5xl font-bold text-brand-green mb-2">
                           {costCalculation.totalCost.toLocaleString()}€
                         </div>
                         <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                          costCalculation.percentageOfValue <= 5 ? 'bg-green-100 text-green-800' :
-                          costCalculation.percentageOfValue <= 8 ? 'bg-orange-100 text-orange-800' : 'bg-red-100 text-red-800'
+                          costCalculation.percentageOfValue <= 5 ? 'bg-brand-green/20 text-brand-green' :
+                          costCalculation.percentageOfValue <= 8 ? 'bg-brand-gold/30 text-brand-brown' : 'bg-brand-brown/20 text-brand-brown'
                         }`}>
                           {costCalculation.percentageOfValue <= 5 ? '✓ Optimal' :
                            costCalculation.percentageOfValue <= 8 ? '⚠ Angemessen' : '⚡ Kritisch'}
@@ -756,50 +773,50 @@ const AKUPferdKosten: NextPage = () => {
 
                     {/* Cost breakdown */}
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-6">
-                      <div className={`bg-blue-50 rounded-lg p-4 border border-blue-200 transition-all duration-500 delay-300 ${
+                      <div className={`bg-brand-accent/10 rounded-lg p-4 border border-brand-accent/30 transition-all duration-500 delay-300 ${
                         animateResults ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
                       }`}>
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-blue-700 font-medium flex items-center">
+                          <span className="text-brand-accent font-medium flex items-center">
                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                             Basis AKU-Kosten
                           </span>
-                          <span className="font-bold text-blue-600 text-lg">{costCalculation.basePrice.toLocaleString()}€</span>
+                          <span className="font-bold text-brand-accent text-lg">{costCalculation.basePrice.toLocaleString()}€</span>
                         </div>
-                        <div className="text-xs text-blue-600">Klasse {costCalculation.akuClass} • {selectedRegion}</div>
+                        <div className="text-xs text-brand-accent/80">Klasse {costCalculation.akuClass} • {selectedRegion}</div>
                       </div>
 
-                      <div className={`bg-orange-50 rounded-lg p-4 border border-orange-200 transition-all duration-500 delay-400 ${
+                      <div className={`bg-brand-gold/20 rounded-lg p-4 border border-brand-gold/40 transition-all duration-500 delay-400 ${
                         animateResults ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
                       }`}>
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-orange-700 font-medium flex items-center">
+                          <span className="text-brand-brown font-medium flex items-center">
                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             Zusatzkosten
                           </span>
-                          <span className="font-bold text-orange-600 text-lg">{costCalculation.additionalCosts.toLocaleString()}€</span>
+                          <span className="font-bold text-brand-brown text-lg">{costCalculation.additionalCosts.toLocaleString()}€</span>
                         </div>
-                        <div className="text-xs text-orange-600">Durchschnittlich ~30% extra</div>
+                        <div className="text-xs text-brand-brown/80">Durchschnittlich ~30% extra</div>
                       </div>
                     </div>
 
                     {/* Assessment and CTA */}
-                    <div className={`bg-white rounded-lg p-4 md:p-6 border border-gray-200 transition-all duration-500 delay-500 ${
+                    <div className={`bg-brand-light/30 rounded-lg p-4 md:p-6 border border-brand-light transition-all duration-500 delay-500 ${
                       animateResults ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-95'
                     }`}>
                       <div className="text-center mb-4">
-                        <p className="text-gray-700 mb-4">
+                        <p className="text-brand/80 mb-4">
                           <strong>Experteneinschätzung:</strong> Bei {costCalculation.percentageOfValue.toFixed(1)}% des Pferdewerts liegen Sie
                           {costCalculation.percentageOfValue <= 5 ? ' im optimalen Bereich' :
                            costCalculation.percentageOfValue <= 8 ? ' im angemessenen Bereich' : ' über der empfohlenen Grenze von 8%'}.
                         </p>
 
-                        <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-lg p-4 text-white mb-4">
-                          <h4 className="font-bold mb-2">💡 Unser Tipp</h4>
+                        <div className="bg-brand-brown rounded-lg p-4 text-white mb-4">
+                          <h4 className="font-bold mb-2">Unser Tipp</h4>
                           <p className="text-sm">
                             Lassen Sie vor dem Kauf auch den fairen Marktwert Ihres Traumpferdes ermitteln -
                             so sind Sie optimal für Preisverhandlungen gerüstet!
@@ -808,7 +825,7 @@ const AKUPferdKosten: NextPage = () => {
 
                         <Link
                           href="/pferde-preis-berechnen"
-                          className="inline-flex items-center justify-center w-full md:w-auto min-w-[280px] px-6 py-4 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+                          className="inline-flex items-center justify-center w-full md:w-auto min-w-[280px] px-6 py-4 bg-brand-brown hover:bg-brand-brownDark text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-soft"
                           onClick={() => {
                             if (typeof window !== 'undefined' && window.gtag) {
                               window.gtag('event', 'click', {
@@ -824,7 +841,7 @@ const AKUPferdKosten: NextPage = () => {
                           </svg>
                           Jetzt Pferdewert berechnen
                         </Link>
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-brand/60 mt-2">
                           ✓ KI-gestützte Bewertung ✓ Marktdaten-basiert ✓ Sofortiges Ergebnis
                         </p>
                       </div>
@@ -855,24 +872,24 @@ const AKUPferdKosten: NextPage = () => {
                 >
                   <div
                     id="detailed-breakdown"
-                    className={`bg-gray-50 rounded-lg p-6 transition-all duration-500 ease-out ${
+                    className={`bg-brand-light/30 rounded-lg p-6 transition-all duration-500 ease-out ${
                       showDetailedBreakdown
                         ? 'transform translate-y-0 scale-100'
                         : 'transform -translate-y-2 scale-95'
                     }`}
                   >
-                    <h4 className={`font-bold text-gray-800 mb-4 transition-all duration-300 delay-100 ${
+                    <h4 className={`font-bold text-brand mb-4 transition-all duration-300 delay-100 ${
                       showDetailedBreakdown
                         ? 'opacity-100 transform translate-y-0'
                         : 'opacity-0 transform translate-y-2'
                     }`}>
-                      🔍 Detaillierte Kostenaufschlüsselung
+                      Detaillierte Kostenaufschlüsselung
                     </h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       {COST_BREAKDOWN.map((item, index) => (
                         <div
                           key={index}
-                          className={`border border-gray-200 rounded p-4 bg-white transition-all duration-300 ease-out hover:shadow-md hover:scale-105 ${
+                          className={`border border-brand-light rounded p-4 bg-white transition-all duration-300 ease-out hover:shadow-soft hover:scale-105 ${
                             showDetailedBreakdown
                               ? 'opacity-100 transform translate-y-0'
                               : 'opacity-0 transform translate-y-4'
@@ -882,17 +899,17 @@ const AKUPferdKosten: NextPage = () => {
                           }}
                         >
                           <div className="flex justify-between items-start mb-2">
-                            <h5 className="font-semibold text-gray-800">{item.category}</h5>
+                            <h5 className="font-semibold text-brand">{item.category}</h5>
                             <span className={`text-xs px-2 py-1 rounded transition-colors duration-200 ${
-                              item.necessity === 'required' ? 'bg-red-100 text-red-800' :
-                              item.necessity === 'situational' ? 'bg-yellow-100 text-yellow-800' :
-                              'bg-green-100 text-green-800'
+                              item.necessity === 'required' ? 'bg-brand-brown/20 text-brand-brown' :
+                              item.necessity === 'situational' ? 'bg-brand-gold/30 text-brand-brown' :
+                              'bg-brand-green/20 text-brand-green'
                             }`}>
                               {item.necessity === 'required' ? 'Pflicht' :
                                item.necessity === 'situational' ? 'Situativ' : 'Optional'}
                             </span>
                           </div>
-                          <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+                          <p className="text-sm text-brand/70 mb-2">{item.description}</p>
                           <div className="font-bold text-brand-brown">{item.priceRange}</div>
                         </div>
                       ))}
@@ -902,32 +919,35 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Regional Price Comparison */}
-              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-amber-100 relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-accent relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-50 to-amber-50 rounded-full -translate-y-12 -translate-x-12 opacity-60"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-green-50 to-blue-50 rounded-full translate-y-16 translate-x-16 opacity-60"></div>
+                <div className="absolute top-0 left-0 w-24 h-24 bg-brand-light/30 rounded-full -translate-y-12 -translate-x-12 opacity-60"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-light/30 rounded-full translate-y-16 translate-x-16 opacity-60"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-amber-500 rounded-full mb-4">
-                      <span className="text-2xl">🗺️</span>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
                     </div>
-                    <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand-brown mb-2">Regionale Preisunterschiede Deutschland</h2>
-                    <p className="text-gray-600 text-sm md:text-base">Finden Sie die günstigsten AKU-Preise in Ihrer Region</p>
+                    <h2 className="text-xl md:text-2xl lg:text-h2 font-serif font-bold text-brand mb-2">Regionale Preisunterschiede Deutschland</h2>
+                    <p className="text-brand/60 text-sm md:text-base">Finden Sie die günstigsten AKU-Preise in Ihrer Region</p>
                   </div>
 
                   <div className="space-y-4 md:space-y-6">
                     {REGIONAL_PRICING.map((region, index) => (
-                      <div key={index} className="bg-gradient-to-r from-gray-50 to-blue-50 border border-gray-200 rounded-xl p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-300">
+                      <div key={index} className="bg-white border border-brand-light/50 rounded-xl p-4 md:p-6 hover:shadow-soft transition-all duration-300 hover:border-brand-accent/30">
                         {/* Region Header */}
                         <div className="flex items-center justify-between mb-4 md:mb-6">
-                          <h3 className="text-lg md:text-xl font-bold text-gray-800 flex items-center">
-                            <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500 text-white rounded-full text-sm font-bold mr-3">
+                          <h3 className="text-lg md:text-xl font-serif font-bold text-brand flex items-center">
+                            <span className="inline-flex items-center justify-center w-8 h-8 bg-brand-accent text-white rounded-full text-sm font-bold mr-3">
                               {index + 1}
                             </span>
                             {region.region}
                           </h3>
-                          <div className="hidden md:flex items-center text-xs text-gray-500 bg-white px-3 py-1 rounded-full">
+                          <div className="hidden md:flex items-center text-xs text-brand/50 bg-brand-light/30 px-3 py-1 rounded-full">
                             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -938,47 +958,47 @@ const AKUPferdKosten: NextPage = () => {
 
                         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                           {/* AKU Prices Card */}
-                          <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-gray-100">
+                          <div className="bg-brand-light/20 rounded-lg p-4 md:p-5 shadow-soft border border-brand-light/50">
                             <div className="flex items-center mb-3">
-                              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <div className="w-8 h-8 bg-brand-green/20 rounded-full flex items-center justify-center mr-3">
+                                <svg className="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                                 </svg>
                               </div>
-                              <h4 className="font-semibold text-gray-800 text-sm md:text-base">AKU-Preise nach Klassen</h4>
+                              <h4 className="font-semibold text-brand text-sm md:text-base">AKU-Preise nach Klassen</h4>
                             </div>
 
                             <div className="space-y-3">
-                              <div className="flex justify-between items-center p-2 bg-gray-50 rounded text-sm">
-                                <span className="text-gray-600 font-medium">Klasse I (Basis)</span>
-                                <span className="font-bold text-green-600">{region.classI.min}-{region.classI.max}€</span>
+                              <div className="flex justify-between items-center p-2 bg-brand-light/30 rounded text-sm">
+                                <span className="text-brand/70 font-medium">Klasse I (Basis)</span>
+                                <span className="font-bold text-brand-green">{region.classI.min}-{region.classI.max}€</span>
                               </div>
-                              <div className="flex justify-between items-center p-2 bg-blue-50 rounded text-sm">
-                                <span className="text-gray-600 font-medium">Klasse II (Standard)</span>
-                                <span className="font-bold text-blue-600">{region.classII.min}-{region.classII.max}€</span>
+                              <div className="flex justify-between items-center p-2 bg-brand-accent/10 rounded text-sm">
+                                <span className="text-brand/70 font-medium">Klasse II (Standard)</span>
+                                <span className="font-bold text-brand-accent">{region.classII.min}-{region.classII.max}€</span>
                               </div>
-                              <div className="flex justify-between items-center p-2 bg-amber-50 rounded text-sm">
-                                <span className="text-gray-600 font-medium">Klasse III-V (Premium)</span>
-                                <span className="font-bold text-amber-600">{region.classIII.min}-{region.classIII.max}€</span>
+                              <div className="flex justify-between items-center p-2 bg-brand-gold/20 rounded text-sm">
+                                <span className="text-brand/70 font-medium">Klasse III-V (Premium)</span>
+                                <span className="font-bold text-brand-brown">{region.classIII.min}-{region.classIII.max}€</span>
                               </div>
                             </div>
                           </div>
 
                           {/* Additional Costs Card */}
-                          <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-gray-100">
+                          <div className="bg-brand-light/20 rounded-lg p-4 md:p-5 shadow-soft border border-brand-light/50">
                             <div className="flex items-center mb-3">
-                              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-3">
-                                <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <div className="w-8 h-8 bg-brand-gold/30 rounded-full flex items-center justify-center mr-3">
+                                <svg className="w-4 h-4 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
                               </div>
-                              <h4 className="font-semibold text-gray-800 text-sm md:text-base">Zusatzkosten</h4>
+                              <h4 className="font-semibold text-brand text-sm md:text-base">Zusatzkosten</h4>
                             </div>
 
-                            <ul className="text-xs md:text-sm text-gray-600 space-y-2">
+                            <ul className="text-xs md:text-sm text-brand/60 space-y-2">
                               {region.additionalCosts.map((cost, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <span className="inline-block w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                  <span className="inline-block w-1.5 h-1.5 bg-brand-gold rounded-full mt-2 mr-2 flex-shrink-0"></span>
                                   <span>{cost}</span>
                                 </li>
                               ))}
@@ -987,16 +1007,16 @@ const AKUPferdKosten: NextPage = () => {
                         </div>
 
                         {/* Price Factors */}
-                        <div className="mt-4 bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg border border-gray-200">
+                        <div className="mt-4 bg-brand-light/30 p-4 rounded-lg border border-brand-light/50">
                           <div className="flex items-center mb-2">
-                            <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                              <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-6 h-6 bg-brand-accent/20 rounded-full flex items-center justify-center mr-2">
+                              <svg className="w-3 h-3 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                               </svg>
                             </div>
-                            <h4 className="font-semibold text-gray-800 text-sm">Preisfaktoren:</h4>
+                            <h4 className="font-semibold text-brand text-sm">Preisfaktoren:</h4>
                           </div>
-                          <div className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                          <div className="text-xs md:text-sm text-brand/60 leading-relaxed">
                             {region.priceFactors.join(' • ')}
                           </div>
                         </div>
@@ -1005,37 +1025,39 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Money-Saving Tips */}
-                  <div className="mt-6 md:mt-8 bg-gradient-to-r from-yellow-50 to-amber-50 p-4 md:p-6 rounded-xl border-2 border-yellow-200 shadow-lg">
+                  <div className="mt-6 md:mt-8 bg-white p-4 md:p-6 rounded-xl border-l-4 border-brand-gold shadow-soft">
                     <div className="text-center mb-4 md:mb-6">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-full mb-3">
-                        <span className="text-xl">💡</span>
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-gold rounded-full mb-3">
+                        <svg className="w-6 h-6 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
                       </div>
-                      <h3 className="font-bold text-yellow-800 text-lg md:text-xl">Spartipps für AKU-Kosten</h3>
-                      <p className="text-yellow-700 text-sm mt-1">Sparen Sie bis zu 40% bei Ihrer Ankaufsuntersuchung</p>
+                      <h3 className="font-serif font-bold text-brand text-lg md:text-xl">Spartipps für AKU-Kosten</h3>
+                      <p className="text-brand/60 text-sm mt-1">Sparen Sie bis zu 40% bei Ihrer Ankaufsuntersuchung</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                       {/* Price Comparison Tips */}
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-yellow-200">
+                      <div className="bg-brand-light/20 rounded-lg p-4 md:p-5 shadow-soft border border-brand-light/50">
                         <div className="flex items-center mb-3">
-                          <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-8 h-8 bg-brand-green/20 rounded-full flex items-center justify-center mr-3">
+                            <svg className="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                           </div>
-                          <h4 className="font-semibold text-yellow-800 text-sm md:text-base">Preisvergleich lohnt sich</h4>
+                          <h4 className="font-semibold text-brand text-sm md:text-base">Preisvergleich lohnt sich</h4>
                         </div>
-                        <ul className="space-y-2 text-yellow-700 text-xs md:text-sm">
+                        <ul className="space-y-2 text-brand/60 text-xs md:text-sm">
                           <li className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                            <span className="inline-block w-1.5 h-1.5 bg-brand-green rounded-full mt-2 mr-2 flex-shrink-0"></span>
                             <span>Mindestens 3 Tierarztpraxen anfragen</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                            <span className="inline-block w-1.5 h-1.5 bg-brand-green rounded-full mt-2 mr-2 flex-shrink-0"></span>
                             <span>Pauschalpakete verhandeln</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                            <span className="inline-block w-1.5 h-1.5 bg-brand-green rounded-full mt-2 mr-2 flex-shrink-0"></span>
                             <span>Gruppenrabatte bei mehreren Pferden</span>
                           </li>
                           <li className="flex items-start">
@@ -1046,16 +1068,16 @@ const AKUPferdKosten: NextPage = () => {
                       </div>
 
                       {/* Hidden Costs Tips */}
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-yellow-200">
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-gray-200">
                         <div className="flex items-center mb-3">
                           <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
                             <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                             </svg>
                           </div>
-                          <h4 className="font-semibold text-yellow-800 text-sm md:text-base">Versteckte Kosten vermeiden</h4>
+                          <h4 className="font-semibold text-gray-800 text-sm md:text-base">Versteckte Kosten vermeiden</h4>
                         </div>
-                        <ul className="space-y-2 text-yellow-700 text-xs md:text-sm">
+                        <ul className="space-y-2 text-gray-600 text-xs md:text-sm">
                           <li className="flex items-start">
                             <span className="inline-block w-1.5 h-1.5 bg-red-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                             <span>Anfahrtskosten vorab klären</span>
@@ -1077,12 +1099,12 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* CTA within savings section */}
-                    <div className="mt-4 md:mt-6 text-center bg-white rounded-lg p-4 border border-yellow-300">
-                      <p className="text-yellow-800 text-sm mb-3">
+                    <div className="mt-4 md:mt-6 text-center bg-white rounded-lg p-4 border border-gray-200">
+                      <p className="text-gray-800 text-sm mb-3">
                         <strong>Tipp:</strong> Nutzen Sie unseren kostenlosen Pferdewert-Rechner für eine realistische Preiseinschätzung vor der AKU
                       </p>
                       <Link href="/pferde-preis-berechnen"
-                            className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-yellow-500 to-amber-500 text-white rounded-lg font-semibold text-sm md:text-base hover:from-yellow-600 hover:to-amber-600 transition-all duration-300 hover:shadow-lg transform hover:scale-105 active:scale-95">
+                            className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 bg-blue-600 text-white rounded-lg font-semibold text-sm md:text-base hover:bg-blue-700 transition-all duration-300 hover:shadow-lg transform hover:scale-105 active:scale-95">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
@@ -1094,136 +1116,138 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Who Pays Section */}
-              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-amber-100 relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-accent relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-green-50 to-blue-50 rounded-full -translate-y-14 translate-x-14 opacity-60"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-50 to-green-50 rounded-full translate-y-12 -translate-x-12 opacity-60"></div>
+                <div className="absolute top-0 right-0 w-28 h-28 bg-brand-light/30 rounded-full -translate-y-14 translate-x-14 opacity-60"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-light/30 rounded-full translate-y-12 -translate-x-12 opacity-60"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-full mb-4">
-                      <span className="text-2xl">💸</span>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
                     </div>
-                    <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand-brown mb-2">Wer zahlt die AKU-Kosten?</h2>
-                    <p className="text-gray-600 text-sm md:text-base">Verstehen Sie die Kostentragung bei Ankaufsuntersuchungen</p>
+                    <h2 className="text-xl md:text-2xl lg:text-h2 font-serif font-bold text-brand mb-2">Wer zahlt die AKU-Kosten?</h2>
+                    <p className="text-brand/60 text-sm md:text-base">Verstehen Sie die Kostentragung bei Ankaufsuntersuchungen</p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                     {/* Standard: Buyer Pays Card */}
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 md:p-6 border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-green hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-green-800">Standard: Käufer zahlt</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-green">Standard: Käufer zahlt</h3>
                       </div>
-                      <ul className="space-y-3 text-gray-700">
+                      <ul className="space-y-3 text-brand/70">
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Normalfall:</strong> Käufer trägt alle AKU-Kosten</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Eigeninteresse:</strong> Käufer will Gesundheitsstatus wissen</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Rechtslage:</strong> Kein Anspruch gegen Verkäufer</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Verhandlungsbasis:</strong> Bei hochwertigen Pferden möglich</span>
                         </li>
                       </ul>
                     </div>
 
                     {/* Exceptions: Seller Participates Card */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 md:p-6 border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-accent hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-blue-800">Ausnahmen: Verkäufer beteiligt</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-accent">Ausnahmen: Verkäufer beteiligt</h3>
                       </div>
-                      <ul className="space-y-3 text-gray-700">
+                      <ul className="space-y-3 text-brand/70">
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Verkaufsvereinbarung:</strong> Explizite Kostenteilung</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Gewährleistung:</strong> Bei versprochener Gesundheit</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Professionelle Händler:</strong> Oft als Service</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Auktionshäuser:</strong> Meist im Kaufpreis enthalten</span>
                         </li>
                       </ul>
                     </div>
 
                     {/* Negotiating Cost Sharing Card */}
-                    <div className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-4 md:p-6 border-2 border-amber-200 hover:shadow-lg transition-all duration-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-gold hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center mr-3">
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center mr-3">
+                          <svg className="w-5 h-5 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16l3-3m-3 3l-3-3" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-amber-800">Kostenteilung verhandeln</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-gold">Kostenteilung verhandeln</h3>
                       </div>
-                      <ul className="space-y-3 text-gray-700">
+                      <ul className="space-y-3 text-brand/70">
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>50/50 Teilung:</strong> Bei beidseitigem Interesse</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Verkäufer zahlt Basis:</strong> Käufer Zusatzuntersuchungen</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Erfolgsabhängig:</strong> Käufer nur bei positivem Befund</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Im Kaufpreis:</strong> Verkäufer erhöht Preis entsprechend</span>
                         </li>
                       </ul>
                     </div>
 
                     {/* Common Misunderstandings Card */}
-                    <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-4 md:p-6 border-2 border-red-200 hover:shadow-lg transition-all duration-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-brown hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-brown rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-red-800">Häufige Missverständnisse</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-brown">Häufige Missverständnisse</h3>
                       </div>
-                      <ul className="space-y-3 text-gray-700">
+                      <ul className="space-y-3 text-brand/70">
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Versicherung zahlt nicht:</strong> AKU ist Käuferrisiko</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Finanzierung verlangt AKU:</strong> Käufer muss zahlen</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Züchter-Garantie:</strong> Ersetzt keine AKU</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Nachverhandlung schwierig:</strong> Vorab klären</span>
                         </li>
                       </ul>
@@ -1231,71 +1255,73 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Checklist Section */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 md:p-6 rounded-xl border-2 border-blue-200 shadow-lg">
+                  <div className="bg-brand-light/30 p-4 md:p-6 rounded-xl border-l-4 border-brand-accent shadow-soft">
                     <div className="text-center mb-4 md:mb-6">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full mb-3">
-                        <span className="text-xl">📋</span>
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-brown rounded-full mb-3">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
                       </div>
-                      <h3 className="font-bold text-blue-800 text-lg md:text-xl">Checkliste Kostenvereinbarung</h3>
-                      <p className="text-blue-700 text-sm mt-1">Wichtige Punkte für klare Absprachen</p>
+                      <h3 className="font-serif font-bold text-brand text-lg md:text-xl">Checkliste Kostenvereinbarung</h3>
+                      <p className="text-brand/60 text-sm mt-1">Wichtige Punkte für klare Absprachen</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                       {/* Pre-clarification Card */}
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-blue-200">
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-accent">
                         <div className="flex items-center mb-3">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                            <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-8 h-8 bg-brand-light rounded-full flex items-center justify-center mr-3">
+                            <svg className="w-4 h-4 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                           </div>
-                          <h4 className="font-semibold text-blue-800 text-sm md:text-base">Vorab schriftlich klären</h4>
+                          <h4 className="font-semibold text-brand text-sm md:text-base">Vorab schriftlich klären</h4>
                         </div>
-                        <ul className="space-y-2 text-blue-700 text-xs md:text-sm">
+                        <ul className="space-y-2 text-brand/70 text-xs md:text-sm">
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Wer zahlt Basis-AKU?</span>
                           </li>
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Wer zahlt Zusatzuntersuchungen?</span>
                           </li>
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Wer zahlt bei negativem Befund?</span>
                           </li>
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Anfahrtskosten geregelt?</span>
                           </li>
                         </ul>
                       </div>
 
                       {/* Cost Sharing Notes Card */}
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-blue-200">
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-green">
                         <div className="flex items-center mb-3">
-                          <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-8 h-8 bg-brand-light rounded-full flex items-center justify-center mr-3">
+                            <svg className="w-4 h-4 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                             </svg>
                           </div>
-                          <h4 className="font-semibold text-blue-800 text-sm md:text-base">Bei Kostenteilung beachten</h4>
+                          <h4 className="font-semibold text-brand text-sm md:text-base">Bei Kostenteilung beachten</h4>
                         </div>
-                        <ul className="space-y-2 text-blue-700 text-xs md:text-sm">
+                        <ul className="space-y-2 text-brand/70 text-xs md:text-sm">
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Schriftliche Vereinbarung</span>
                           </li>
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Abrechnungsmodalitäten</span>
                           </li>
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Tierarzt-Direktabrechnung</span>
                           </li>
                           <li className="flex items-center">
-                            <input type="checkbox" className="mr-2 rounded" />
+                            <input type="checkbox" className="mr-2 rounded text-brand-brown focus:ring-brand-brown" />
                             <span>Zahlungsfrist definiert</span>
                           </li>
                         </ul>
@@ -1303,12 +1329,12 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* CTA within checklist section */}
-                    <div className="mt-4 md:mt-6 text-center bg-white rounded-lg p-4 border border-blue-300">
-                      <p className="text-blue-800 text-sm mb-3">
+                    <div className="mt-4 md:mt-6 text-center bg-white rounded-lg p-4 border-l-2 border-brand-gold shadow-sm">
+                      <p className="text-brand text-sm mb-3">
                         <strong>Empfehlung:</strong> Vor der AKU sollten Sie den Pferdewert realistisch einschätzen können
                       </p>
                       <Link href="/pferde-preis-berechnen"
-                            className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg font-semibold text-sm md:text-base hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 hover:shadow-lg transform hover:scale-105 active:scale-95">
+                            className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 bg-brand-brown text-white rounded-lg font-semibold text-sm md:text-base hover:bg-brand-brownDark transition-all duration-300 shadow-soft hover:shadow-lg transform hover:scale-105 active:scale-95">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
@@ -1320,49 +1346,51 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Cost Saving Tips Section */}
-              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-amber-100 relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-gold relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-full -translate-y-16 -translate-x-16 opacity-70"></div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-green-50 to-blue-50 rounded-full translate-y-12 translate-x-12 opacity-60"></div>
+                <div className="absolute top-0 left-0 w-32 h-32 bg-brand-light/30 rounded-full -translate-y-16 -translate-x-16 opacity-70"></div>
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-brand-light/20 rounded-full translate-y-12 translate-x-12 opacity-60"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-full mb-4">
-                      <span className="text-2xl">💰</span>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-gold rounded-full mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
                     </div>
-                    <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand-brown mb-2">Kostensparen bei der Ankaufsuntersuchung</h2>
-                    <p className="text-gray-600 text-sm md:text-base">Sparen Sie bis zu 40% bei der AKU - ohne Kompromisse bei der Qualität</p>
+                    <h2 className="text-xl md:text-2xl lg:text-h2 font-serif font-bold text-brand mb-2">Kostensparen bei der Ankaufsuntersuchung</h2>
+                    <p className="text-brand/60 text-sm md:text-base">Sparen Sie bis zu 40% bei der AKU - ohne Kompromisse bei der Qualität</p>
                   </div>
 
                   <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
                     {/* Veterinarian Selection Card */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 md:p-6 border-2 border-blue-200 hover:shadow-lg transition-all duration-300 hover:border-blue-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-accent hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-blue-800">Tierarzt-Auswahl strategisch planen</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-accent">Tierarzt-Auswahl strategisch planen</h3>
                       </div>
 
                       <div className="space-y-3">
                         {[
-                          { icon: "💡", title: "Lokale Tierärzte", desc: "Oft 20-30% günstiger als spezialisierte Pferdekliniken", saving: "20-30%" },
-                          { icon: "👥", title: "Gruppentermine", desc: "Mehrere Untersuchungen am selben Tag", saving: "10-15%" },
-                          { icon: "📋", title: "Vergleichsangebote", desc: "Kostenvoranschläge von 3-4 verschiedenen Praxen", saving: "15-25%" },
-                          { icon: "📍", title: "Standortwahl", desc: "Tierärzte in ländlichen Gebieten oft preiswerter", saving: "10-20%" }
+                          { title: "Lokale Tierärzte", desc: "Oft 20-30% günstiger als spezialisierte Pferdekliniken", saving: "20-30%" },
+                          { title: "Gruppentermine", desc: "Mehrere Untersuchungen am selben Tag", saving: "10-15%" },
+                          { title: "Vergleichsangebote", desc: "Kostenvoranschläge von 3-4 verschiedenen Praxen", saving: "15-25%" },
+                          { title: "Standortwahl", desc: "Tierärzte in ländlichen Gebieten oft preiswerter", saving: "10-20%" }
                         ].map((tip, index) => (
-                          <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
+                          <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm border-l-2 border-brand-accent/30 hover:shadow-soft transition-shadow">
                             <div className="flex items-start justify-between">
                               <div className="flex items-start flex-1">
-                                <span className="text-xl mr-3 mt-0.5">{tip.icon}</span>
+                                <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div className="flex-1">
-                                  <h4 className="font-semibold text-blue-800 text-sm md:text-base">{tip.title}</h4>
-                                  <p className="text-gray-600 text-xs md:text-sm mt-1">{tip.desc}</p>
+                                  <h4 className="font-semibold text-brand-accent text-sm md:text-base">{tip.title}</h4>
+                                  <p className="text-brand/60 text-xs md:text-sm mt-1">{tip.desc}</p>
                                 </div>
                               </div>
-                              <span className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full ml-2 whitespace-nowrap">
+                              <span className="bg-brand-green/10 text-brand-green text-xs font-bold px-2 py-1 rounded-full ml-2 whitespace-nowrap">
                                 -{tip.saving}
                               </span>
                             </div>
@@ -1372,33 +1400,33 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* Examination Scope Card */}
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 md:p-6 border-2 border-green-200 hover:shadow-lg transition-all duration-300 hover:border-green-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-green hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-green-800">Untersuchungsumfang anpassen</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-green">Untersuchungsumfang anpassen</h3>
                       </div>
 
                       <div className="space-y-3">
                         {[
-                          { icon: "🎯", title: "Risikobasiert", desc: "Umfang je nach Kaufpreis und Verwendungszweck wählen", saving: "25-40%" },
-                          { icon: "📈", title: "Stufenweise Untersuchung", desc: "Bei niedrigem Kaufpreis mit Basisuntersuchung beginnen", saving: "30-50%" },
-                          { icon: "🔬", title: "Fokussierte Diagnostik", desc: "Nur relevante Bereiche für geplanten Einsatz untersuchen", saving: "20-35%" },
-                          { icon: "🏥", title: "Klinik vs. Hoftermin", desc: "Hofbesuche vermeiden Transportkosten", saving: "50-150€" }
+                          { title: "Risikobasiert", desc: "Umfang je nach Kaufpreis und Verwendungszweck wählen", saving: "25-40%" },
+                          { title: "Stufenweise Untersuchung", desc: "Bei niedrigem Kaufpreis mit Basisuntersuchung beginnen", saving: "30-50%" },
+                          { title: "Fokussierte Diagnostik", desc: "Nur relevante Bereiche für geplanten Einsatz untersuchen", saving: "20-35%" },
+                          { title: "Klinik vs. Hoftermin", desc: "Hofbesuche vermeiden Transportkosten", saving: "50-150€" }
                         ].map((tip, index) => (
-                          <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                          <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm border-l-2 border-brand-green/30 hover:shadow-soft transition-shadow">
                             <div className="flex items-start justify-between">
                               <div className="flex items-start flex-1">
-                                <span className="text-xl mr-3 mt-0.5">{tip.icon}</span>
+                                <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div className="flex-1">
-                                  <h4 className="font-semibold text-green-800 text-sm md:text-base">{tip.title}</h4>
-                                  <p className="text-gray-600 text-xs md:text-sm mt-1">{tip.desc}</p>
+                                  <h4 className="font-semibold text-brand-green text-sm md:text-base">{tip.title}</h4>
+                                  <p className="text-brand/60 text-xs md:text-sm mt-1">{tip.desc}</p>
                                 </div>
                               </div>
-                              <span className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full ml-2 whitespace-nowrap">
+                              <span className="bg-brand-green/10 text-brand-green text-xs font-bold px-2 py-1 rounded-full ml-2 whitespace-nowrap">
                                 -{tip.saving}
                               </span>
                             </div>
@@ -1409,20 +1437,22 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Hidden Costs Warning */}
-                  <div className="mt-6 md:mt-8 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-4 md:p-6 border-2 border-yellow-200 shadow-lg">
+                  <div className="mt-6 md:mt-8 bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-brown shadow-soft">
                     <div className="flex items-center mb-4">
-                      <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-brand-brown rounded-full flex items-center justify-center mr-3">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 19c-.77.833.192 2.5 1.732 2.5z" />
                         </svg>
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-yellow-800">Versteckte Kosten vermeiden</h3>
+                      <h3 className="text-lg md:text-xl font-serif font-bold text-brand-brown">Versteckte Kosten vermeiden</h3>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-yellow-100">
-                        <h4 className="font-semibold text-yellow-800 mb-3 flex items-center">
-                          <span className="text-lg mr-2">⚠️</span>
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-brown/30">
+                        <h4 className="font-semibold text-brand-brown mb-3 flex items-center">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 19c-.77.833.192 2.5 1.732 2.5z" />
+                          </svg>
                           Zusatzkosten bedenken:
                         </h4>
                         <div className="space-y-2">
@@ -1432,20 +1462,22 @@ const AKUPferdKosten: NextPage = () => {
                             { cost: "Nachuntersuchungen", range: "€€€", desc: "Bei unklaren Befunden weitere Kosten" },
                             { cost: "Sedierung", range: "30-80€", desc: "Nicht immer im Grundpreis enthalten" }
                           ].map((item, index) => (
-                            <div key={index} className="flex justify-between items-center p-2 bg-yellow-50 rounded text-sm">
+                            <div key={index} className="flex justify-between items-center p-2 bg-brand-light/30 rounded text-sm">
                               <div>
-                                <span className="font-medium text-yellow-800">{item.cost}:</span>
-                                <span className="text-yellow-700 ml-1 text-xs">{item.desc}</span>
+                                <span className="font-medium text-brand-brown">{item.cost}:</span>
+                                <span className="text-brand/60 ml-1 text-xs">{item.desc}</span>
                               </div>
-                              <span className="font-bold text-red-600">{item.range}</span>
+                              <span className="font-bold text-brand-brown">{item.range}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border border-yellow-100">
-                        <h4 className="font-semibold text-yellow-800 mb-3 flex items-center">
-                          <span className="text-lg mr-2">📋</span>
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-accent/30">
+                        <h4 className="font-semibold text-brand-accent mb-3 flex items-center">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                          </svg>
                           Transparente Kostenaufstellung fordern:
                         </h4>
                         <div className="space-y-2">
@@ -1456,8 +1488,8 @@ const AKUPferdKosten: NextPage = () => {
                             "Zahlungsmodalitäten vorab klären"
                           ].map((item, index) => (
                             <label key={index} className="flex items-center cursor-pointer">
-                              <input type="checkbox" className="mr-2 rounded text-yellow-600 focus:ring-yellow-500" />
-                              <span className="text-yellow-700 text-xs md:text-sm">{item}</span>
+                              <input type="checkbox" className="mr-2 rounded text-brand-accent focus:ring-brand-accent" />
+                              <span className="text-brand/70 text-xs md:text-sm">{item}</span>
                             </label>
                           ))}
                         </div>
@@ -1466,32 +1498,34 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Smart Tip with CTA */}
-                  <div className="mt-6 md:mt-8 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-4 md:p-6 border-2 border-blue-200 shadow-lg relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-100 to-green-100 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
+                  <div className="mt-6 md:mt-8 bg-brand-light/30 rounded-xl p-4 md:p-6 border-l-4 border-brand-gold shadow-soft relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-brand-light/20 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
 
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center">
-                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center mr-3">
-                            <span className="text-white text-lg">🎯</span>
+                          <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center mr-3">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
                           </div>
-                          <h4 className="text-lg md:text-xl font-bold text-gray-800">KI-Bewertung als Spartipp</h4>
+                          <h4 className="text-lg md:text-xl font-serif font-bold text-brand">KI-Bewertung als Spartipp</h4>
                         </div>
-                        <span className="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                        <span className="bg-brand-green/10 text-brand-green text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
                           Nur 14,90€
                         </span>
                       </div>
 
-                      <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-                        Nutzen Sie unsere <strong className="text-blue-700">KI-gestützte Pferdebewertung</strong> für nur 14,90€, um bereits vor der AKU
+                      <p className="text-brand/70 text-sm md:text-base leading-relaxed mb-4">
+                        Nutzen Sie unsere <strong className="text-brand-accent">KI-gestützte Pferdebewertung</strong> für nur 14,90€, um bereits vor der AKU
                         eine präzise Einschätzung des Pferdewertes zu erhalten. So können Sie die angemessene Investition
-                        in die Ankaufsuntersuchung fundiert planen und <strong className="text-green-700">bis zu 500€ sparen</strong>.
+                        in die Ankaufsuntersuchung fundiert planen und <strong className="text-brand-green">bis zu 500€ sparen</strong>.
                       </p>
 
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Link
                           href="/was-ist-mein-pferd-wert"
-                          className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base min-h-[48px]"
+                          className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 bg-brand-brown text-white font-semibold rounded-lg hover:bg-brand-brownDark transition-all duration-300 shadow-soft hover:shadow-lg text-sm md:text-base min-h-[48px] transform hover:scale-105 active:scale-95"
                           onClick={() => {
                             if (typeof window !== 'undefined' && window.gtag) {
                               window.gtag('event', 'cost_saving_tip_click', {
@@ -1507,8 +1541,8 @@ const AKUPferdKosten: NextPage = () => {
                           Jetzt Risiko vorab einschätzen
                         </Link>
 
-                        <div className="flex items-center text-xs md:text-sm text-gray-500">
-                          <svg className="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-center text-xs md:text-sm text-brand/50">
+                          <svg className="w-4 h-4 mr-1 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           Sofortige Bewertung • Geld-zurück-Garantie
@@ -1520,31 +1554,35 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Tax Aspects Section */}
-              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-purple-100 relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-accent relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-50 to-indigo-50 rounded-full -translate-y-16 translate-x-16 opacity-70"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-50 to-purple-50 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/30 rounded-full -translate-y-16 translate-x-16 opacity-70"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-light/20 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full mb-4">
-                      <span className="text-2xl">📊</span>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent rounded-full mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
                     </div>
-                    <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand-brown mb-2">Steuerliche Aspekte der AKU-Kosten</h2>
-                    <p className="text-gray-600 text-sm md:text-base">So nutzen Sie AKU-Kosten optimal für Ihre Steuererklärung</p>
+                    <h2 className="text-xl md:text-2xl lg:text-h2 font-serif font-bold text-brand mb-2">Steuerliche Aspekte der AKU-Kosten</h2>
+                    <p className="text-brand/60 text-sm md:text-base">So nutzen Sie AKU-Kosten optimal für Ihre Steuererklärung</p>
                   </div>
 
                   {/* Main comparison cards */}
                   <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                     {/* Commercial horse keeping card */}
-                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 md:p-6 border border-green-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-green shadow-soft hover:shadow-soft transition-all duration-300">
                       <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                          <span className="text-xl">✅</span>
+                        <div className="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
                         </div>
                         <div>
-                          <h3 className="text-lg md:text-xl font-bold text-green-800">Gewerbliche Pferdehaltung</h3>
-                          <div className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
+                          <h3 className="text-lg md:text-xl font-serif font-bold text-brand-green">Gewerbliche Pferdehaltung</h3>
+                          <div className="bg-brand-green/10 text-brand-green text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
                             Voll absetzbar
                           </div>
                         </div>
@@ -1552,29 +1590,26 @@ const AKUPferdKosten: NextPage = () => {
 
                       <div className="space-y-3 mb-4">
                         {[
-                          { icon: "💼", title: "Betriebsausgaben", desc: "AKU-Kosten voll absetzbar" },
-                          { icon: "📅", title: "Verkauf binnen Jahresfrist", desc: "Vollständig abziehbar" },
-                          { icon: "📋", title: "Dokumentation erforderlich", desc: "Belege für Steuererklärung" },
-                          { icon: "💰", title: "Umsatzsteuer beachten", desc: "Je nach Tierarzt-Status" }
+                          { title: "Betriebsausgaben", desc: "AKU-Kosten voll absetzbar" },
+                          { title: "Verkauf binnen Jahresfrist", desc: "Vollständig abziehbar" },
+                          { title: "Dokumentation erforderlich", desc: "Belege für Steuererklärung" },
+                          { title: "Umsatzsteuer beachten", desc: "Je nach Tierarzt-Status" }
                         ].map((item, index) => (
-                          <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                            <div className="flex items-start">
-                              <span className="text-lg mr-3 flex-shrink-0">{item.icon}</span>
-                              <div className="min-w-0 flex-1">
-                                <div className="font-semibold text-green-800 text-sm md:text-base">{item.title}</div>
-                                <div className="text-green-700 text-xs md:text-sm leading-relaxed">{item.desc}</div>
-                              </div>
-                            </div>
+                          <div key={index} className="bg-white rounded-lg p-3 shadow-sm border-l-2 border-brand-green/30 hover:shadow-soft transition-shadow">
+                            <div className="font-semibold text-brand-green text-sm md:text-base">{item.title}</div>
+                            <div className="text-brand-green/70 text-xs md:text-sm leading-relaxed">{item.desc}</div>
                           </div>
                         ))}
                       </div>
 
-                      <div className="bg-gradient-to-r from-green-100 to-emerald-100 p-4 rounded-lg border border-green-200">
+                      <div className="bg-brand-green/10 p-4 rounded-lg border-l-2 border-brand-green">
                         <div className="flex items-start">
-                          <span className="text-lg mr-2 flex-shrink-0">💡</span>
+                          <svg className="w-5 h-5 text-brand-green mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
                           <div>
-                            <p className="text-sm text-green-800 font-semibold mb-1">Steuer-Tipp</p>
-                            <p className="text-xs md:text-sm text-green-700 leading-relaxed">
+                            <p className="text-sm text-brand-green font-semibold mb-1">Steuer-Tipp</p>
+                            <p className="text-xs md:text-sm text-brand-green/70 leading-relaxed">
                               Bei gewerblicher Zucht oder Handel können AKU-Kosten die Steuerlast erheblich reduzieren.
                             </p>
                           </div>
@@ -1583,14 +1618,16 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* Private horse keeping card */}
-                    <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-4 md:p-6 border border-red-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-brown shadow-soft hover:shadow-soft transition-all duration-300">
                       <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                          <span className="text-xl">❌</span>
+                        <div className="w-12 h-12 bg-brand-brown rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
                         </div>
                         <div>
-                          <h3 className="text-lg md:text-xl font-bold text-red-800">Private Pferdehaltung</h3>
-                          <div className="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
+                          <h3 className="text-lg md:text-xl font-serif font-bold text-brand-brown">Private Pferdehaltung</h3>
+                          <div className="bg-brand-brown/10 text-brand-brown text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
                             Nicht absetzbar
                           </div>
                         </div>
@@ -1598,29 +1635,26 @@ const AKUPferdKosten: NextPage = () => {
 
                       <div className="space-y-3 mb-4">
                         {[
-                          { icon: "🚫", title: "Nicht absetzbar", desc: "Grundsätzlich private Ausgaben" },
-                          { icon: "⚖️", title: "Ausnahme", desc: "Nachweis einer Einkunftserzielungsabsicht" },
-                          { icon: "👨‍💼", title: "Professionelle Beratung", desc: "Bei Grenzfällen empfohlen" },
-                          { icon: "💸", title: "Keine Vorsteuer", desc: "Bruttokosten relevant" }
+                          { title: "Nicht absetzbar", desc: "Grundsätzlich private Ausgaben" },
+                          { title: "Ausnahme", desc: "Nachweis einer Einkunftserzielungsabsicht" },
+                          { title: "Professionelle Beratung", desc: "Bei Grenzfällen empfohlen" },
+                          { title: "Keine Vorsteuer", desc: "Bruttokosten relevant" }
                         ].map((item, index) => (
-                          <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-red-100 hover:shadow-md transition-shadow">
-                            <div className="flex items-start">
-                              <span className="text-lg mr-3 flex-shrink-0">{item.icon}</span>
-                              <div className="min-w-0 flex-1">
-                                <div className="font-semibold text-red-800 text-sm md:text-base">{item.title}</div>
-                                <div className="text-red-700 text-xs md:text-sm leading-relaxed">{item.desc}</div>
-                              </div>
-                            </div>
+                          <div key={index} className="bg-white rounded-lg p-3 shadow-sm border-l-2 border-brand-brown/30 hover:shadow-soft transition-shadow">
+                            <div className="font-semibold text-brand-brown text-sm md:text-base">{item.title}</div>
+                            <div className="text-brand-brown/70 text-xs md:text-sm leading-relaxed">{item.desc}</div>
                           </div>
                         ))}
                       </div>
 
-                      <div className="bg-gradient-to-r from-red-100 to-pink-100 p-4 rounded-lg border border-red-200">
+                      <div className="bg-brand-brown/10 p-4 rounded-lg border-l-2 border-brand-brown">
                         <div className="flex items-start">
-                          <span className="text-lg mr-2 flex-shrink-0">⚠️</span>
+                          <svg className="w-5 h-5 text-brand-brown mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
                           <div>
-                            <p className="text-sm text-red-800 font-semibold mb-1">Wichtiger Hinweis</p>
-                            <p className="text-xs md:text-sm text-red-700 leading-relaxed">
+                            <p className="text-sm text-brand-brown font-semibold mb-1">Wichtiger Hinweis</p>
+                            <p className="text-xs md:text-sm text-brand-brown/70 leading-relaxed">
                               Hobbyreiter können AKU-Kosten normalerweise nicht von der Steuer absetzen.
                             </p>
                           </div>
@@ -1630,22 +1664,26 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Commercial classification guide */}
-                  <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-4 md:p-6 border border-amber-200 shadow-lg">
+                  <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-gold shadow-soft">
                     <div className="flex items-center mb-4 md:mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                        <span className="text-xl">📋</span>
+                      <div className="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
                       </div>
                       <div>
-                        <h3 className="text-lg md:text-xl font-bold text-amber-800">Steuerliche Abgrenzung</h3>
-                        <p className="text-amber-700 text-xs md:text-sm">Wann ist es gewerblich?</p>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-gold">Steuerliche Abgrenzung</h3>
+                        <p className="text-brand-gold/70 text-xs md:text-sm">Wann ist es gewerblich?</p>
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                       {/* Commercial indicators */}
-                      <div className="bg-white rounded-lg p-4 shadow-sm border border-amber-100">
-                        <h4 className="font-bold text-amber-800 mb-3 flex items-center">
-                          <span className="text-lg mr-2">🏢</span>
+                      <div className="bg-white rounded-lg p-4 shadow-sm border-l-2 border-brand-gold/30">
+                        <h4 className="font-serif font-bold text-brand-gold mb-3 flex items-center">
+                          <svg className="w-5 h-5 text-brand-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
                           Indizien für Gewerblichkeit
                         </h4>
                         <div className="space-y-2">
@@ -1657,17 +1695,19 @@ const AKUPferdKosten: NextPage = () => {
                             "Turniereinsatz mit Preisgeld"
                           ].map((item, index) => (
                             <div key={index} className="flex items-start">
-                              <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                              <span className="text-amber-700 text-xs md:text-sm leading-relaxed">{item}</span>
+                              <div className="w-2 h-2 bg-brand-gold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                              <span className="text-brand-gold/70 text-xs md:text-sm leading-relaxed">{item}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
                       {/* Tax optimization tips */}
-                      <div className="bg-white rounded-lg p-4 shadow-sm border border-amber-100">
-                        <h4 className="font-bold text-amber-800 mb-3 flex items-center">
-                          <span className="text-lg mr-2">🎯</span>
+                      <div className="bg-white rounded-lg p-4 shadow-sm border-l-2 border-brand-gold/30">
+                        <h4 className="font-serif font-bold text-brand-gold mb-3 flex items-center">
+                          <svg className="w-5 h-5 text-brand-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                          </svg>
                           Steueroptimierung bei Gewerbebetrieb
                         </h4>
                         <div className="space-y-2">
@@ -1678,8 +1718,8 @@ const AKUPferdKosten: NextPage = () => {
                             "Bei Investitionsabzugsbeträgen berücksichtigen"
                           ].map((item, index) => (
                             <div key={index} className="flex items-start">
-                              <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                              <span className="text-amber-700 text-xs md:text-sm leading-relaxed">{item}</span>
+                              <div className="w-2 h-2 bg-brand-gold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                              <span className="text-brand-gold/70 text-xs md:text-sm leading-relaxed">{item}</span>
                             </div>
                           ))}
                         </div>
@@ -1687,11 +1727,11 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* CTA section for tax-conscious users */}
-                    <div className="mt-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg p-4 text-white">
+                    <div className="mt-6 bg-brand-brown rounded-lg p-4 text-white">
                       <div className="flex flex-col md:flex-row items-center justify-between">
                         <div className="text-center md:text-left mb-4 md:mb-0">
-                          <h4 className="font-bold text-lg mb-1">Kosten sparen vor der AKU</h4>
-                          <p className="text-purple-100 text-sm">Mit unserer KI-Bewertung Risiken vorab erkennen</p>
+                          <h4 className="font-serif font-bold text-lg mb-1">Kosten sparen vor der AKU</h4>
+                          <p className="text-white/80 text-sm">Mit unserer KI-Bewertung Risiken vorab erkennen</p>
                         </div>
                         <button
                           onClick={() => {
@@ -1705,7 +1745,7 @@ const AKUPferdKosten: NextPage = () => {
                             // Scroll to calculator
                             document.getElementById('kostenrechner')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className="bg-white text-purple-600 font-bold py-3 px-6 rounded-lg hover:bg-purple-50 transition-colors shadow-lg flex items-center min-h-[48px] min-w-[48px] text-sm md:text-base whitespace-nowrap"
+                          className="bg-white text-brand-brown font-bold py-3 px-6 rounded-lg hover:bg-brand-light transition-colors shadow-soft flex items-center min-h-[48px] min-w-[48px] text-sm md:text-base whitespace-nowrap"
                         >
                           Jetzt bewerten für 14,90€
                           <span className="ml-2">→</span>
@@ -1717,14 +1757,12 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Modern Alternatives Section */}
-              <section className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-xl p-4 md:p-8 border border-blue-200 relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-brand-green/20 relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -translate-y-20 -translate-x-20 opacity-60"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-purple-100 to-blue-100 rounded-full translate-y-16 translate-x-16 opacity-40"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-10">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mb-4 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green rounded-full mb-4 shadow-lg">
                       <span className="text-3xl">🚀</span>
                     </div>
                     <h2 className="text-xl md:text-2xl lg:text-h2 font-bold text-brand-brown mb-3">Moderne Alternativen zur klassischen AKU</h2>
@@ -1734,13 +1772,13 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Digital Pre-Examination Highlight */}
-                  <div className="bg-white rounded-xl shadow-lg p-4 md:p-8 border border-blue-300 mb-6 md:mb-8">
+                  <div className="bg-brand-light rounded-xl shadow-lg p-4 md:p-8 border border-brand-green/20 mb-6 md:mb-8">
                     <div className="text-center mb-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full mb-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent rounded-full mb-4">
                         <span className="text-2xl">💻</span>
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-blue-800 mb-2">Digitale Voruntersuchung</h3>
-                      <p className="text-blue-600 text-sm md:text-base">KI-gestützte Risikoeinschätzung in wenigen Minuten</p>
+                      <h3 className="text-lg md:text-xl font-bold text-brand-brown mb-2">Digitale Voruntersuchung</h3>
+                      <p className="text-gray-600 text-sm md:text-base">KI-gestützte Risikoeinschätzung in wenigen Minuten</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -1748,7 +1786,7 @@ const AKUPferdKosten: NextPage = () => {
                       <div className="space-y-4">
                         <p className="text-gray-700 text-sm md:text-base leading-relaxed">
                           Mit fortschrittlicher KI-Technologie können heute bereits
-                          <strong className="text-blue-800"> präzise Pferdebewertungen</strong> online durchgeführt werden.
+                          <strong className="text-brand-brown"> präzise Pferdebewertungen</strong> online durchgeführt werden.
                           Unsere KI-Analyse berücksichtigt über 50 Bewertungskriterien und
                           kann Ihnen helfen, das Risiko vor einer kostspieligen AKU einzuschätzen.
                         </p>
@@ -1760,11 +1798,11 @@ const AKUPferdKosten: NextPage = () => {
                             { icon: "🛡️", title: "30 Tage Geld-zurück-Garantie", desc: "Risikofrei testen" },
                             { icon: "💎", title: "Wissenschaftlich fundiert", desc: "Veterinärmedizinisch validiert" }
                           ].map((feature, index) => (
-                            <div key={index} className="flex items-center bg-blue-50 rounded-lg p-3 border border-blue-100">
+                            <div key={index} className="flex items-center bg-brand-light rounded-lg p-3 border border-brand-green/20">
                               <span className="text-lg mr-3 flex-shrink-0">{feature.icon}</span>
                               <div className="min-w-0 flex-1">
-                                <div className="font-semibold text-blue-800 text-sm md:text-base">{feature.title}</div>
-                                <div className="text-blue-600 text-xs md:text-sm">{feature.desc}</div>
+                                <div className="font-semibold text-brand-brown text-sm md:text-base">{feature.title}</div>
+                                <div className="text-gray-600 text-xs md:text-sm">{feature.desc}</div>
                               </div>
                             </div>
                           ))}
@@ -1772,19 +1810,19 @@ const AKUPferdKosten: NextPage = () => {
                       </div>
 
                       {/* Right column - cost comparison highlight */}
-                      <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-4 md:p-6 border border-green-200 shadow-inner">
-                        <h4 className="font-bold text-green-800 mb-4 text-center flex items-center justify-center">
+                      <div className="bg-brand-light rounded-xl p-4 md:p-6 border border-brand-green/20 shadow-inner">
+                        <h4 className="font-bold text-brand-brown mb-4 text-center flex items-center justify-center">
                           <span className="text-lg mr-2">💰</span>
                           Kosten-Nutzen-Vergleich
                         </h4>
 
                         <div className="space-y-4">
-                          <div className="bg-white rounded-lg p-4 shadow-sm border border-green-100">
+                          <div className="bg-white rounded-lg p-4 shadow-sm border border-brand-green/20">
                             <div className="flex justify-between items-center">
                               <span className="text-gray-600 text-sm md:text-base">Online-Bewertung:</span>
                               <div className="text-right">
-                                <span className="font-bold text-blue-600 text-lg md:text-xl">14,90€</span>
-                                <div className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded-full mt-1">
+                                <span className="font-bold text-brand-gold text-lg md:text-xl">14,90€</span>
+                                <div className="bg-brand-gold/10 text-brand-brown text-xs font-bold px-2 py-1 rounded-full mt-1">
                                   Sofort verfügbar
                                 </div>
                               </div>
@@ -1803,12 +1841,12 @@ const AKUPferdKosten: NextPage = () => {
                             </div>
                           </div>
 
-                          <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg p-4 text-white shadow-lg">
+                          <div className="bg-brand-green rounded-lg p-4 text-white shadow-lg">
                             <div className="flex justify-between items-center">
-                              <span className="font-medium text-green-100">Ihre Ersparnis:</span>
+                              <span className="font-medium text-white/90">Ihre Ersparnis:</span>
                               <div className="text-right">
                                 <span className="font-bold text-2xl">bis 98%</span>
-                                <div className="text-green-100 text-xs">
+                                <div className="text-white/80 text-xs">
                                   = bis zu 1.985€ gespart
                                 </div>
                               </div>
@@ -1829,7 +1867,7 @@ const AKUPferdKosten: NextPage = () => {
                             // Scroll to calculator
                             document.getElementById('kostenrechner')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg mt-4 flex items-center justify-center min-h-[48px] text-sm md:text-base"
+                          className="w-full bg-brand-brown hover:bg-brand-brownDark text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg mt-4 flex items-center justify-center min-h-[48px] text-sm md:text-base"
                         >
                           <span className="mr-2">🚀</span>
                           Jetzt KI-Bewertung starten
@@ -1840,24 +1878,24 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Staged Examination Concept */}
-                  <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 border border-green-200">
+                  <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 border border-brand-green/20">
                     <div className="text-center mb-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mb-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green rounded-full mb-4">
                         <span className="text-2xl">📋</span>
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-green-800 mb-2">Gestufte Untersuchungskonzepte</h3>
-                      <p className="text-green-600 text-sm md:text-base">Smart investieren - von digital zu physisch</p>
+                      <h3 className="text-lg md:text-xl font-bold text-brand-brown mb-2">Gestufte Untersuchungskonzepte</h3>
+                      <p className="text-gray-600 text-sm md:text-base">Smart investieren - von digital zu physisch</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-4 mb-6">
                       {/* Stage 1 - Online */}
-                      <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-300 shadow-md hover:shadow-lg transition-shadow">
+                      <div className="bg-brand-light rounded-lg p-4 border border-brand-green/20 shadow-md hover:shadow-lg transition-shadow">
                         <div className="text-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                          <div className="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-2">
                             <span className="text-white font-bold text-lg">1</span>
                           </div>
-                          <div className="text-lg font-bold text-green-600">Online-Bewertung</div>
-                          <div className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
+                          <div className="text-lg font-bold text-brand-brown">Online-Bewertung</div>
+                          <div className="bg-brand-green/10 text-brand-green text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
                             Empfohlen
                           </div>
                         </div>
@@ -1869,25 +1907,25 @@ const AKUPferdKosten: NextPage = () => {
                             "Sofortige Verfügbarkeit"
                           ].map((item, index) => (
                             <div key={index} className="flex items-start text-xs md:text-sm text-gray-700">
-                              <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                              <span className="w-1.5 h-1.5 bg-brand-green rounded-full mt-2 mr-2 flex-shrink-0"></span>
                               {item}
                             </div>
                           ))}
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-green-600">14,90€</div>
-                          <div className="text-xs text-green-700">Einmalig</div>
+                          <div className="text-2xl font-bold text-brand-gold">14,90€</div>
+                          <div className="text-xs text-gray-600">Einmalig</div>
                         </div>
                       </div>
 
                       {/* Stage 2 - Basic examination */}
-                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-300 shadow-md hover:shadow-lg transition-shadow">
+                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
                         <div className="text-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                          <div className="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center mx-auto mb-2">
                             <span className="text-white font-bold text-lg">2</span>
                           </div>
-                          <div className="text-lg font-bold text-blue-600">Basisuntersuchung</div>
-                          <div className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
+                          <div className="text-lg font-bold text-gray-700">Basisuntersuchung</div>
+                          <div className="bg-gray-100 text-gray-700 text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
                             Bei positivem Befund
                           </div>
                         </div>
@@ -1899,25 +1937,25 @@ const AKUPferdKosten: NextPage = () => {
                             "Terminabhängig"
                           ].map((item, index) => (
                             <div key={index} className="flex items-start text-xs md:text-sm text-gray-700">
-                              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                              <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                               {item}
                             </div>
                           ))}
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-blue-600">200-400€</div>
-                          <div className="text-xs text-blue-700">Je nach Umfang</div>
+                          <div className="text-2xl font-bold text-gray-700">200-400€</div>
+                          <div className="text-xs text-gray-600">Je nach Umfang</div>
                         </div>
                       </div>
 
                       {/* Stage 3 - Full AKU */}
-                      <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-300 shadow-md hover:shadow-lg transition-shadow">
+                      <div className="bg-white rounded-lg p-4 border border-brand-brown/20 shadow-md hover:shadow-lg transition-shadow">
                         <div className="text-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                          <div className="w-12 h-12 bg-brand-brown rounded-full flex items-center justify-center mx-auto mb-2">
                             <span className="text-white font-bold text-lg">3</span>
                           </div>
-                          <div className="text-lg font-bold text-purple-600">Vollständige AKU</div>
-                          <div className="bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
+                          <div className="text-lg font-bold text-brand-brown">Vollständige AKU</div>
+                          <div className="bg-brand-light text-brand-brown text-xs font-bold px-2 py-1 rounded-full mt-1 inline-block">
                             Bei Kaufentscheidung
                           </div>
                         </div>
@@ -1929,21 +1967,21 @@ const AKUPferdKosten: NextPage = () => {
                             "Höchste Kosten"
                           ].map((item, index) => (
                             <div key={index} className="flex items-start text-xs md:text-sm text-gray-700">
-                              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                              <span className="w-1.5 h-1.5 bg-brand-brown rounded-full mt-2 mr-2 flex-shrink-0"></span>
                               {item}
                             </div>
                           ))}
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-purple-600">400-2000€</div>
-                          <div className="text-xs text-purple-700">Komplett</div>
+                          <div className="text-2xl font-bold text-brand-brown">400-2000€</div>
+                          <div className="text-xs text-gray-600">Komplett</div>
                         </div>
                       </div>
                     </div>
 
                     {/* Benefits explanation */}
-                    <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 md:p-6 border border-green-200">
-                      <h4 className="font-bold text-green-800 mb-4 text-center flex items-center justify-center">
+                    <div className="bg-brand-light rounded-lg p-4 md:p-6 border border-brand-green/20">
+                      <h4 className="font-bold text-brand-brown mb-4 text-center flex items-center justify-center">
                         <span className="text-lg mr-2">💡</span>
                         Warum das gestufte Konzept funktioniert
                       </h4>
@@ -1954,11 +1992,11 @@ const AKUPferdKosten: NextPage = () => {
                           { icon: "⏰", title: "Zeitersparnis", desc: "Ungeeignete Pferde werden vorab aussortiert" },
                           { icon: "💪", title: "Verhandlungsstärke", desc: "Mit Fachwissen in die AKU gehen" }
                         ].map((benefit, index) => (
-                          <div key={index} className="flex items-start bg-white rounded-lg p-3 shadow-sm border border-green-100">
+                          <div key={index} className="flex items-start bg-white rounded-lg p-3 shadow-sm border border-brand-green/10">
                             <span className="text-lg mr-3 flex-shrink-0">{benefit.icon}</span>
                             <div className="min-w-0 flex-1">
-                              <div className="font-semibold text-green-800 text-sm md:text-base">{benefit.title}</div>
-                              <div className="text-green-700 text-xs md:text-sm leading-relaxed">{benefit.desc}</div>
+                              <div className="font-semibold text-brand-brown text-sm md:text-base">{benefit.title}</div>
+                              <div className="text-gray-600 text-xs md:text-sm leading-relaxed">{benefit.desc}</div>
                             </div>
                           </div>
                         ))}
@@ -1978,7 +2016,7 @@ const AKUPferdKosten: NextPage = () => {
                             // Scroll to calculator
                             document.getElementById('kostenrechner')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className="bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold py-3 px-8 rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-h-[48px] text-sm md:text-base"
+                          className="bg-brand-brown text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-brownDark transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-h-[48px] text-sm md:text-base"
                         >
                           <span className="mr-2">🎯</span>
                           Stufe 1 jetzt starten
@@ -1992,9 +2030,7 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* AKU Class Guide */}
-              <section className="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl p-4 md:p-8 border border-gray-200 relative overflow-hidden">
-                {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-30 -mr-16 -mt-16"></div>
+              <section className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-brand-green/20 relative overflow-hidden">
 
                 <h2 className="text-2xl md:text-3xl font-bold text-brand-brown mb-6 relative z-10">🎯 Welche AKU-Klasse für welchen Pferdewert?</h2>
 
@@ -2009,7 +2045,7 @@ const AKUPferdKosten: NextPage = () => {
                         color: "green",
                         icon: "🌟",
                         badge: "Empfohlen",
-                        badgeStyle: "bg-green-500 text-white",
+                        badgeStyle: "bg-brand-green text-white",
                         features: [
                           { icon: "💰", text: "Pferdewert: bis 5.000€", highlight: false },
                           { icon: "🔍", text: "Grunduntersuchung", highlight: false },
@@ -2026,7 +2062,7 @@ const AKUPferdKosten: NextPage = () => {
                         color: "blue",
                         icon: "🏆",
                         badge: "Standard",
-                        badgeStyle: "bg-blue-500 text-white",
+                        badgeStyle: "bg-brand-accent text-white",
                         features: [
                           { icon: "💰", text: "Pferdewert: 5.000-25.000€", highlight: true },
                           { icon: "🔍", text: "Erweiterte Untersuchung", highlight: false },
@@ -2043,7 +2079,7 @@ const AKUPferdKosten: NextPage = () => {
                         color: "purple",
                         icon: "👑",
                         badge: "Premium",
-                        badgeStyle: "bg-gradient-to-r from-purple-500 to-pink-500 text-white",
+                        badgeStyle: "bg-brand-brown text-white",
                         features: [
                           { icon: "💰", text: "Pferdewert: ab 25.000€", highlight: true },
                           { icon: "🔍", text: "Umfassende Diagnostik", highlight: false },
@@ -2054,33 +2090,33 @@ const AKUPferdKosten: NextPage = () => {
                         percentage: "2-4% vom Pferdewert"
                       }
                     ].map((akuClass, index) => (
-                      <div key={index} className={`bg-gradient-to-br from-${akuClass.color}-50 to-white rounded-xl p-4 md:p-6 border border-${akuClass.color}-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
+                      <div key={index} className="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         {/* Header */}
                         <div className="text-center mb-4 md:mb-6">
                           <div className="flex justify-center items-center mb-3">
-                            <div className={`w-16 h-16 bg-gradient-to-br from-${akuClass.color}-500 to-${akuClass.color}-600 rounded-full flex items-center justify-center text-2xl mr-4 shadow-lg`}>
+                            <div className="w-16 h-16 bg-brand-brown rounded-full flex items-center justify-center text-2xl mr-4 shadow-lg text-white">
                               {akuClass.icon}
                             </div>
                             <div>
-                              <div className={`text-2xl md:text-3xl font-bold text-${akuClass.color}-600 mb-1`}>Klasse {akuClass.class}</div>
+                              <div className="text-2xl md:text-3xl font-bold text-brand-brown mb-1">Klasse {akuClass.class}</div>
                               <div className={`${akuClass.badgeStyle} text-xs font-bold px-3 py-1 rounded-full shadow`}>
                                 {akuClass.badge}
                               </div>
                             </div>
                           </div>
-                          <div className={`text-lg md:text-xl font-bold text-${akuClass.color}-700 mb-1`}>{akuClass.cost}</div>
+                          <div className="text-lg md:text-xl font-bold text-brand-brown mb-1">{akuClass.cost}</div>
                           <div className="text-sm text-gray-600">{akuClass.percentage}</div>
                         </div>
 
                         {/* Title */}
-                        <h4 className={`font-bold text-${akuClass.color}-800 mb-4 text-center text-lg md:text-xl`}>{akuClass.title}</h4>
+                        <h4 className="font-bold text-brand-brown mb-4 text-center text-lg md:text-xl">{akuClass.title}</h4>
 
                         {/* Features */}
                         <div className="space-y-3 mb-6">
                           {akuClass.features.map((feature, featureIndex) => (
-                            <div key={featureIndex} className={`flex items-center p-3 rounded-lg ${feature.highlight ? `bg-${akuClass.color}-100 border border-${akuClass.color}-200` : 'bg-white border border-gray-100'} shadow-sm hover:shadow-md transition-shadow`}>
+                            <div key={featureIndex} className={`flex items-center p-3 rounded-lg ${feature.highlight ? 'bg-brand-light border border-brand-brown/20' : 'bg-white border border-gray-100'} shadow-sm hover:shadow-md transition-shadow`}>
                               <span className="text-lg mr-3 flex-shrink-0">{feature.icon}</span>
-                              <span className={`text-sm ${feature.highlight ? `text-${akuClass.color}-800 font-semibold` : 'text-gray-700'}`}>
+                              <span className={`text-sm ${feature.highlight ? 'text-brand-brown font-semibold' : 'text-gray-700'}`}>
                                 {feature.text}
                               </span>
                             </div>
@@ -2088,7 +2124,7 @@ const AKUPferdKosten: NextPage = () => {
                         </div>
 
                         {/* Recommendation */}
-                        <div className={`text-xs text-${akuClass.color}-700 bg-${akuClass.color}-100 p-3 rounded-lg border border-${akuClass.color}-200 text-center`}>
+                        <div className="text-xs text-brand-brown bg-brand-light p-3 rounded-lg border border-brand-brown/20 text-center">
                           <strong>💡 {akuClass.recommendation}</strong>
                         </div>
                       </div>
@@ -2096,12 +2132,12 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Interactive Decision Matrix */}
-                  <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-4 md:p-6 rounded-xl border border-amber-200 shadow-lg">
+                  <div className="bg-brand-light p-4 md:p-6 rounded-xl border border-brand-gold/30 shadow-lg">
                     <div className="flex items-center mb-4 md:mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <div className="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                         <span className="text-xl">📊</span>
                       </div>
-                      <h3 className="font-bold text-amber-800 text-lg md:text-xl">Entscheidungsmatrix: Optimale AKU-Klasse finden</h3>
+                      <h3 className="font-bold text-brand-brown text-lg md:text-xl">Entscheidungsmatrix: Optimale AKU-Klasse finden</h3>
                     </div>
 
                     {/* Mobile-friendly table */}
@@ -2109,32 +2145,32 @@ const AKUPferdKosten: NextPage = () => {
                       <div className="hidden md:block">
                         <table className="w-full text-sm">
                           <thead>
-                            <tr className="border-b-2 border-amber-300 bg-gradient-to-r from-amber-100 to-yellow-100">
-                              <th className="text-left py-3 px-2 font-bold text-amber-800">Pferdewert</th>
-                              <th className="text-left py-3 px-2 font-bold text-amber-800">Verwendung</th>
-                              <th className="text-left py-3 px-2 font-bold text-amber-800">AKU-Klasse</th>
-                              <th className="text-left py-3 px-2 font-bold text-amber-800">Kosten</th>
-                              <th className="text-left py-3 px-2 font-bold text-amber-800">% vom Wert</th>
+                            <tr className="border-b-2 border-brand-gold/30 bg-brand-light">
+                              <th className="text-left py-3 px-2 font-bold text-brand-brown">Pferdewert</th>
+                              <th className="text-left py-3 px-2 font-bold text-brand-brown">Verwendung</th>
+                              <th className="text-left py-3 px-2 font-bold text-brand-brown">AKU-Klasse</th>
+                              <th className="text-left py-3 px-2 font-bold text-brand-brown">Kosten</th>
+                              <th className="text-left py-3 px-2 font-bold text-brand-brown">% vom Wert</th>
                             </tr>
                           </thead>
-                          <tbody className="text-amber-700">
+                          <tbody className="text-gray-700">
                             {[
                               { value: "bis 3.000€", usage: "Hobby/Freizeit", class: "I (optional)", cost: "150-300€", percent: "5-10%", color: "green" },
                               { value: "3.000-8.000€", usage: "Freizeit/leichter Sport", class: "I-II", cost: "200-500€", percent: "3-8%", color: "blue" },
                               { value: "8.000-25.000€", usage: "Sport/Turnier", class: "II", cost: "400-800€", percent: "2-5%", color: "blue" },
                               { value: "ab 25.000€", usage: "Leistungssport/Zucht", class: "III-V", cost: "800-2000€", percent: "2-4%", color: "purple" }
                             ].map((row, index) => (
-                              <tr key={index} className={`border-b border-amber-200 hover:bg-gradient-to-r hover:from-${row.color}-50 hover:to-amber-50 transition-colors`}>
+                              <tr key={index} className="border-b border-gray-200 hover:bg-brand-light/50 transition-colors">
                                 <td className="py-3 px-2 font-semibold">{row.value}</td>
                                 <td className="py-3 px-2">{row.usage}</td>
                                 <td className="py-3 px-2">
-                                  <span className={`bg-${row.color}-100 text-${row.color}-800 px-2 py-1 rounded-full text-xs font-bold`}>
+                                  <span className="bg-brand-light text-brand-brown px-2 py-1 rounded-full text-xs font-bold border border-brand-gold/30">
                                     {row.class}
                                   </span>
                                 </td>
                                 <td className="py-3 px-2 font-semibold">{row.cost}</td>
                                 <td className="py-3 px-2">
-                                  <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs font-bold">
+                                  <span className="bg-brand-gold/20 text-brand-brown px-2 py-1 rounded-full text-xs font-bold">
                                     {row.percent}
                                   </span>
                                 </td>
@@ -2152,7 +2188,7 @@ const AKUPferdKosten: NextPage = () => {
                           { value: "8.000-25.000€", usage: "Sport/Turnier", class: "II", cost: "400-800€", percent: "2-5%", color: "blue", icon: "🏆" },
                           { value: "ab 25.000€", usage: "Leistungssport/Zucht", class: "III-V", cost: "800-2000€", percent: "2-4%", color: "purple", icon: "👑" }
                         ].map((item, index) => (
-                          <div key={index} className={`bg-gradient-to-r from-${item.color}-50 to-white p-4 rounded-lg border border-${item.color}-200 shadow-md`}>
+                          <div key={index} className="bg-white p-4 rounded-lg border border-gray-200 shadow-md">
                             <div className="flex items-center mb-3">
                               <span className="text-2xl mr-3">{item.icon}</span>
                               <div>
@@ -2163,7 +2199,7 @@ const AKUPferdKosten: NextPage = () => {
                             <div className="grid grid-cols-3 gap-2 text-center">
                               <div>
                                 <div className="text-xs text-gray-500">AKU-Klasse</div>
-                                <div className={`bg-${item.color}-100 text-${item.color}-800 px-2 py-1 rounded text-xs font-bold`}>
+                                <div className="bg-brand-light text-brand-brown px-2 py-1 rounded text-xs font-bold border border-brand-gold/30">
                                   {item.class}
                                 </div>
                               </div>
@@ -2173,7 +2209,7 @@ const AKUPferdKosten: NextPage = () => {
                               </div>
                               <div>
                                 <div className="text-xs text-gray-500">% vom Wert</div>
-                                <div className="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                <div className="bg-brand-gold/20 text-brand-brown px-2 py-1 rounded text-xs font-bold">
                                   {item.percent}
                                 </div>
                               </div>
@@ -2184,10 +2220,10 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* CTA within decision matrix */}
-                    <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+                    <div className="mt-6 p-4 bg-brand-light rounded-lg border border-brand-gold/30">
                       <div className="text-center">
                         <p className="text-sm text-gray-700 mb-3">
-                          <strong>💡 Smarter Ansatz:</strong> Nutzen Sie unsere KI-Bewertung für nur <span className="text-blue-600 font-bold">14,90€</span> und sparen Sie bis zu <span className="text-green-600 font-bold">98%</span> der AKU-Kosten!
+                          <strong>💡 Smarter Ansatz:</strong> Nutzen Sie unsere KI-Bewertung für nur <span className="text-brand-accent font-bold">14,90€</span> und sparen Sie bis zu <span className="text-brand-green font-bold">98%</span> der AKU-Kosten!
                         </p>
                         <button
                           onClick={() => {
@@ -2198,7 +2234,7 @@ const AKUPferdKosten: NextPage = () => {
                             });
                             document.getElementById('kostenrechner')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                          className="w-full md:w-auto bg-brand-brown text-white font-bold py-3 px-6 rounded-lg hover:bg-brand-brownDark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                         >
                           🚀 KI-Bewertung jetzt starten
                         </button>
@@ -2330,9 +2366,9 @@ const AKUPferdKosten: NextPage = () => {
           </div>
 
           {/* Who Pays for AKU Section - Enhanced UX */}
-          <section className="mt-12 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-xl p-6 md:p-8 border border-amber-100">
+          <section className="mt-12 bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-200">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-4 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 shadow-lg">
                 <span className="text-2xl text-white">💳</span>
               </div>
               <h2 className="text-h2 font-bold text-brand-brown mb-4">Wer zahlt die AKU beim Pferdekauf?</h2>
@@ -2362,14 +2398,14 @@ const AKUPferdKosten: NextPage = () => {
                   highlight: true
                 }
               ].map((paymentCase, index) => (
-                <div key={index} className={`bg-gradient-to-br from-${paymentCase.color}-50 to-white rounded-xl p-6 md:p-8 border border-${paymentCase.color}-200 shadow-lg ${paymentCase.highlight ? 'ring-2 ring-blue-300 ring-opacity-50' : ''}`}>
+                <div key={index} className={`bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg ${paymentCase.highlight ? 'ring-2 ring-brand-accent ring-opacity-50' : ''}`}>
                   <div className="flex items-start gap-4 mb-6">
-                    <div className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-${paymentCase.color}-500 to-${paymentCase.color}-600 rounded-full flex items-center justify-center shadow-lg`}>
+                    <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-brand-brown rounded-full flex items-center justify-center shadow-lg">
                       <span className="text-lg md:text-xl text-white">{paymentCase.icon}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`text-lg md:text-xl font-bold text-${paymentCase.color}-800 mb-2`}>{paymentCase.title}</h3>
-                      <div className={`inline-block bg-${paymentCase.color}-100 text-${paymentCase.color}-700 text-xs font-medium px-3 py-1 rounded-full mb-3`}>
+                      <h3 className="text-lg md:text-xl font-bold text-brand-brown mb-2">{paymentCase.title}</h3>
+                      <div className="inline-block bg-brand-light text-brand-brown text-xs font-medium px-3 py-1 rounded-full mb-3">
                         {paymentCase.subtitle}
                       </div>
                       <p className="text-gray-700 leading-relaxed mb-6">{paymentCase.description}</p>
@@ -2396,14 +2432,14 @@ const AKUPferdKosten: NextPage = () => {
               ))}
 
               {/* Exception Cases */}
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 md:p-8 border border-amber-200 shadow-lg">
+              <div className="bg-brand-light rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-brand-brown rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-lg md:text-xl text-white">⚡</span>
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-bold text-amber-800 mb-1">Ausnahmen und Sondervereinbarungen</h3>
-                    <p className="text-amber-700 text-sm">Etwa 5% aller Fälle - individuelle Vereinbarungen möglich</p>
+                    <h3 className="text-lg md:text-xl font-bold text-brand-brown mb-1">Ausnahmen und Sondervereinbarungen</h3>
+                    <p className="text-brand-brown text-sm">Etwa 5% aller Fälle - individuelle Vereinbarungen möglich</p>
                   </div>
                 </div>
 
@@ -2431,15 +2467,15 @@ const AKUPferdKosten: NextPage = () => {
                       badge: "Versteckte Kosten"
                     }
                   ].map((exception, index) => (
-                    <div key={index} className="bg-white rounded-lg p-4 md:p-6 border border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 group">
+                    <div key={index} className="bg-white rounded-lg p-4 md:p-6 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 group">
                       <div className="text-center mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-amber-200 to-amber-300 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-200">
+                        <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-200">
                           <span className="text-lg">{exception.icon}</span>
                         </div>
-                        <div className="bg-amber-100 text-amber-700 text-xs font-medium px-2 py-1 rounded-full inline-block mb-2">
+                        <div className="bg-brand-light text-brand-brown text-xs font-medium px-2 py-1 rounded-full inline-block mb-2">
                           {exception.badge}
                         </div>
-                        <h4 className="font-bold text-amber-700 mb-3">{exception.title}</h4>
+                        <h4 className="font-bold text-brand-brown mb-3">{exception.title}</h4>
                       </div>
                       <p className="text-sm text-gray-700 leading-relaxed">{exception.description}</p>
                     </div>
@@ -2448,9 +2484,9 @@ const AKUPferdKosten: NextPage = () => {
               </div>
 
               {/* Legal Aspects - Enhanced */}
-              <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 md:p-8 border border-red-200 shadow-lg">
+              <div className="bg-red-50 rounded-xl p-6 md:p-8 border border-red-200 shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-lg md:text-xl text-white">⚖️</span>
                   </div>
                   <div>
@@ -2483,16 +2519,16 @@ const AKUPferdKosten: NextPage = () => {
                       priority: "Standard"
                     }
                   ].map((legal, index) => (
-                    <div key={index} className="bg-white rounded-lg p-4 md:p-6 border border-red-300 shadow-md hover:shadow-lg transition-all duration-300 group">
+                    <div key={index} className="bg-white rounded-lg p-4 md:p-6 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 group">
                       <div className="flex items-start gap-3 mb-4">
-                        <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-red-200 to-red-300 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                        <div className="flex-shrink-0 w-10 h-10 bg-brand-light rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                           <span className="text-base">{legal.icon}</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="bg-red-100 text-red-700 text-xs font-medium px-2 py-1 rounded-full inline-block mb-2">
+                          <div className="bg-brand-light text-brand-brown text-xs font-medium px-2 py-1 rounded-full inline-block mb-2">
                             {legal.priority}
                           </div>
-                          <h4 className="font-bold text-red-800 mb-2">{legal.title}</h4>
+                          <h4 className="font-bold text-brand-brown mb-2">{legal.title}</h4>
                         </div>
                       </div>
                       <p className="text-sm text-gray-700 leading-relaxed">{legal.description}</p>
@@ -2503,10 +2539,10 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* Cost Clarity CTA */}
-            <div className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 md:p-8 text-white text-center shadow-lg">
+            <div className="mt-8 bg-brand-brown rounded-xl p-6 md:p-8 text-white text-center shadow-lg">
               <div className="max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold mb-3">💡 Kosten im Voraus kalkulieren?</h3>
-                <p className="text-blue-100 mb-6 leading-relaxed">
+                <p className="text-white/90 mb-6 leading-relaxed">
                   Bevor Sie sich für eine teure AKU entscheiden, ermitteln Sie den realistischen Marktwert Ihres Wunschpferdes.
                   <strong> Unsere KI-Bewertung kostet nur 14,90€</strong> und hilft bei der Entscheidung.
                 </p>
@@ -2519,7 +2555,7 @@ const AKUPferdKosten: NextPage = () => {
                     });
                     window.location.href = '/pferde-preis-berechnen';
                   }}
-                  className="w-full md:w-auto bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-2"
+                  className="w-full md:w-auto bg-white text-brand-brown font-bold py-4 px-8 rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-2"
                 >
                   <span className="text-lg">🚀</span>
                   KI-Bewertung für 14,90€ starten
@@ -2529,9 +2565,9 @@ const AKUPferdKosten: NextPage = () => {
           </section>
 
           {/* Cost by Horse Types Section - Enhanced UX */}
-          <section className="mt-12 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-xl p-6 md:p-8 border border-blue-100">
+          <section className="mt-12 bg-brand-light rounded-xl shadow-xl p-6 md:p-8 border border-gray-200">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 shadow-lg">
                 <span className="text-2xl text-white">🐎</span>
               </div>
               <h2 className="text-h2 font-bold text-brand-brown mb-4">AKU-Kosten nach Pferdetypen</h2>
@@ -2598,15 +2634,15 @@ const AKUPferdKosten: NextPage = () => {
               ].map((horseType, index) => (
                 <div
                   key={index}
-                  className={`group bg-gradient-to-br from-${horseType.color}-50 to-white rounded-xl p-6 md:p-8 border border-${horseType.color}-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${horseType.highlight ? 'ring-2 ring-blue-400 ring-opacity-50 scale-105' : ''}`}
+                  className={`group bg-brand-light rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${horseType.highlight ? 'ring-2 ring-brand-accent ring-opacity-50 scale-105' : ''}`}
                 >
                   <div className="text-center mb-6">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-${horseType.color}-400 to-${horseType.color}-600 rounded-full mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <span className="text-2xl text-white">{horseType.icon}</span>
                     </div>
-                    <h3 className={`text-xl font-bold text-${horseType.color}-800 mb-2`}>{horseType.title}</h3>
+                    <h3 className="text-xl font-bold text-brand-brown mb-2">{horseType.title}</h3>
                     <p className="text-sm text-gray-600 mb-2">{horseType.subtitle}</p>
-                    <div className={`inline-block bg-${horseType.color}-100 text-${horseType.color}-700 text-xs font-medium px-3 py-1 rounded-full`}>
+                    <div className="inline-block bg-brand-light text-brand-brown text-xs font-medium px-3 py-1 rounded-full">
                       {horseType.popularity}
                     </div>
                   </div>
@@ -2617,20 +2653,20 @@ const AKUPferdKosten: NextPage = () => {
                         <span className="text-sm font-medium text-gray-600">Empfohlene AKU:</span>
                         <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Standard</span>
                       </div>
-                      <div className={`font-bold text-${horseType.color}-700 text-sm`}>{horseType.akuClass}</div>
+                      <div className="font-bold text-brand-brown text-sm">{horseType.akuClass}</div>
                     </div>
 
                     <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-medium text-gray-600">Durchschnittskosten:</span>
-                        <span className="text-xs bg-amber-100 text-amber-600 px-2 py-1 rounded">Preisspanne</span>
+                        <span className="text-xs bg-brand-light text-brand-brown px-2 py-1 rounded">Preisspanne</span>
                       </div>
-                      <div className={`font-bold text-${horseType.color}-700 text-lg`}>{horseType.priceRange}</div>
+                      <div className="font-bold text-brand-brown text-lg">{horseType.priceRange}</div>
                     </div>
 
                     <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                       <div className="text-sm font-medium text-gray-600 mb-2">Untersuchungsfokus:</div>
-                      <div className={`font-bold text-${horseType.color}-700 text-sm`}>{horseType.focus}</div>
+                      <div className="font-bold text-brand-brown text-sm">{horseType.focus}</div>
                     </div>
                   </div>
 
@@ -2654,7 +2690,7 @@ const AKUPferdKosten: NextPage = () => {
                         });
                         window.location.href = '/pferde-preis-berechnen';
                       }}
-                      className={`w-full bg-gradient-to-r from-${horseType.color}-500 to-${horseType.color}-600 text-white font-bold py-3 px-4 rounded-lg hover:from-${horseType.color}-600 hover:to-${horseType.color}-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-2 text-sm`}
+                      className="w-full bg-brand-brown text-white font-bold py-3 px-4 rounded-lg hover:bg-brand-brownDark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-2 text-sm"
                     >
                       <span className="text-base">{horseType.icon}</span>
                       Bewertung für nur 14,90€
@@ -2665,14 +2701,14 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* Value-Cost Ratio - Enhanced */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 md:p-8 border border-amber-200 shadow-lg">
+            <div className="bg-brand-light rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg">
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-4 shadow-lg">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-brand-brown rounded-full mb-4 shadow-lg">
                   <span className="text-xl text-white">📊</span>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-amber-800 mb-3">AKU-Kosten und Pferdewert-Verhältnis</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-brown mb-3">AKU-Kosten und Pferdewert-Verhältnis</h3>
                 <p className="text-gray-700 max-w-3xl mx-auto">
-                  Mit unserer <strong className="text-amber-700">KI-gestützten Pferdebewertung</strong> können Sie bereits vor der AKU den realistischen
+                  Mit unserer <strong className="text-brand-brown">KI-gestützten Pferdebewertung</strong> können Sie bereits vor der AKU den realistischen
                   Marktwert ermitteln und so die angemessene Investition in die Ankaufsuntersuchung planen.
                 </p>
               </div>
@@ -2704,13 +2740,13 @@ const AKUPferdKosten: NextPage = () => {
                 ].map((range, index) => (
                   <div
                     key={index}
-                    className={`bg-white p-4 md:p-6 rounded-xl border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${range.highlight ? 'border-amber-300 ring-2 ring-amber-200' : 'border-amber-200'}`}
+                    className={`bg-white p-4 md:p-6 rounded-xl border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${range.highlight ? 'border-brand-accent ring-2 ring-brand-accent ring-opacity-20' : 'border-gray-200'}`}
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">{range.icon}</div>
-                      <div className="font-bold text-amber-700 text-lg mb-1">Kaufpreis {range.priceRange}</div>
+                      <div className="font-bold text-brand-brown text-lg mb-1">Kaufpreis {range.priceRange}</div>
                       <div className="text-sm text-gray-600 mb-1">AKU-Kosten {range.akuCost}</div>
-                      <div className="text-xs text-amber-600 font-medium bg-amber-100 px-2 py-1 rounded-full inline-block mb-2">
+                      <div className="text-xs text-brand-brown font-medium bg-brand-light px-2 py-1 rounded-full inline-block mb-2">
                         {range.percentage}
                       </div>
                       <div className="text-xs text-gray-500">{range.description}</div>
@@ -2729,7 +2765,7 @@ const AKUPferdKosten: NextPage = () => {
                     });
                     window.location.href = '/pferde-preis-berechnen';
                   }}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 px-8 rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-3 mx-auto text-lg"
+                  className="bg-brand-brown text-white font-bold py-4 px-8 rounded-xl hover:bg-brand-brownDark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-3 mx-auto text-lg"
                 >
                   <span className="text-xl">🚀</span>
                   Jetzt smarte Alternative für 14,90€ nutzen
@@ -2740,15 +2776,15 @@ const AKUPferdKosten: NextPage = () => {
           </section>
 
           {/* Cost Saving Tips Section - Enhanced UX */}
-          <section className="mt-12 bg-gradient-to-br from-white to-green-50 rounded-xl shadow-xl p-6 md:p-8 border border-green-100">
+          <section className="mt-12 bg-brand-light rounded-xl shadow-xl p-6 md:p-8 border border-gray-200">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 shadow-lg">
                 <span className="text-2xl text-white">💰</span>
               </div>
               <h2 className="text-h2 font-bold text-brand-brown mb-4">Kostensparen bei der Ankaufsuntersuchung</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Clevere Strategien um AKU-Kosten zu reduzieren, ohne die Qualität der Untersuchung zu beeinträchtigen.
-                <strong className="text-green-600"> Oder nutzen Sie unsere moderne KI-Alternative für nur 14,90€.</strong>
+                <strong className="text-brand-brown"> Oder nutzen Sie unsere moderne KI-Alternative für nur 14,90€.</strong>
               </p>
             </div>
 
@@ -2811,13 +2847,13 @@ const AKUPferdKosten: NextPage = () => {
               ].map((tipCategory, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-br from-${tipCategory.color}-50 to-white rounded-xl p-6 md:p-8 border border-${tipCategory.color}-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+                  className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="text-center mb-6">
-                    <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-${tipCategory.color}-400 to-${tipCategory.color}-600 rounded-full mb-4 shadow-lg`}>
+                    <div className="inline-flex items-center justify-center w-14 h-14 bg-brand-brown rounded-full mb-4 shadow-lg">
                       <span className="text-xl text-white">{tipCategory.icon}</span>
                     </div>
-                    <h3 className={`text-xl font-bold text-${tipCategory.color}-800 mb-2`}>{tipCategory.title}</h3>
+                    <h3 className="text-xl font-bold text-brand-DEFAULT mb-2">{tipCategory.title}</h3>
                     <p className="text-sm text-gray-600 mb-2">{tipCategory.subtitle}</p>
                   </div>
 
@@ -2831,7 +2867,7 @@ const AKUPferdKosten: NextPage = () => {
                           <div className="flex-grow">
                             <div className="font-bold text-gray-800 text-sm mb-1">{tip.title}</div>
                             <div className="text-gray-600 text-sm mb-2">{tip.description}</div>
-                            <div className={`inline-block bg-${tipCategory.color}-100 text-${tipCategory.color}-700 text-xs font-medium px-2 py-1 rounded-full`}>
+                            <div className="inline-block bg-brand-light text-brand-brown text-xs font-medium px-2 py-1 rounded-full border border-brand-brown/20">
                               💰 {tip.savings}
                             </div>
                           </div>
@@ -2845,12 +2881,12 @@ const AKUPferdKosten: NextPage = () => {
 
             {/* Hidden Costs Warning & Transparency */}
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border border-amber-200 shadow-lg">
+              <div className="bg-brand-light rounded-xl p-6 border border-gray-200 shadow-lg">
                 <div className="text-center mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-3 shadow-lg">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-brown rounded-full mb-3 shadow-lg">
                     <span className="text-lg text-white">🚨</span>
                   </div>
-                  <h3 className="text-lg font-bold text-amber-800 mb-2">Versteckte Kosten vermeiden</h3>
+                  <h3 className="text-lg font-bold text-brand-DEFAULT mb-2">Versteckte Kosten vermeiden</h3>
                 </div>
 
                 <div className="space-y-3">
@@ -2861,23 +2897,23 @@ const AKUPferdKosten: NextPage = () => {
                     { cost: "Nachuntersuchungen", amount: "200-500€", detail: "Bei unklaren Befunden" },
                     { cost: "Befundübermittlung", amount: "meist 0€", detail: "Digital oder postalisch" }
                   ].map((hiddenCost, index) => (
-                    <div key={index} className="flex items-center justify-between bg-white p-3 rounded-lg border border-amber-200 text-sm">
+                    <div key={index} className="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200 text-sm">
                       <div>
                         <div className="font-medium text-gray-800">{hiddenCost.cost}</div>
                         <div className="text-xs text-gray-600">{hiddenCost.detail}</div>
                       </div>
-                      <div className="font-bold text-amber-700">{hiddenCost.amount}</div>
+                      <div className="font-bold text-brand-brown">{hiddenCost.amount}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border border-purple-200 shadow-lg">
+              <div className="bg-brand-light rounded-xl p-6 border border-gray-200 shadow-lg">
                 <div className="text-center mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full mb-3 shadow-lg">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-brown rounded-full mb-3 shadow-lg">
                     <span className="text-lg text-white">📝</span>
                   </div>
-                  <h3 className="text-lg font-bold text-purple-800 mb-2">Transparente Kostenaufstellung</h3>
+                  <h3 className="text-lg font-bold text-brand-DEFAULT mb-2">Transparente Kostenaufstellung</h3>
                 </div>
 
                 <div className="space-y-3">
@@ -2887,8 +2923,8 @@ const AKUPferdKosten: NextPage = () => {
                     "Zusatzleistungen klar definieren lassen",
                     "Schriftliche Kostenbestätigung verlangen"
                   ].map((transparency, index) => (
-                    <div key={index} className="flex items-start gap-3 bg-white p-3 rounded-lg border border-purple-200 text-sm">
-                      <span className="text-purple-600 mt-0.5">✓</span>
+                    <div key={index} className="flex items-start gap-3 bg-white p-3 rounded-lg border border-gray-200 text-sm">
+                      <span className="text-brand-brown mt-0.5">✓</span>
                       <span className="text-gray-700">{transparency}</span>
                     </div>
                   ))}
@@ -2897,13 +2933,13 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* Best Alternative Highlight */}
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-6 md:p-8 text-white shadow-xl">
+            <div className="bg-brand-brown rounded-xl p-6 md:p-8 text-white shadow-xl">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-4">
                   <span className="text-2xl">🚀</span>
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3">Die beste Kostenspar-Alternative</h3>
-                <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                <p className="text-brand-light/90 mb-6 max-w-2xl mx-auto">
                   Statt komplizierte Kosteneinsparungen bei der AKU zu planen - nutzen Sie direkt unsere
                   <strong className="text-white"> KI-gestützte Pferdebewertung für nur 14,90€.</strong>
                 </p>
@@ -2917,7 +2953,7 @@ const AKUPferdKosten: NextPage = () => {
                     <div key={index} className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
                       <div className="text-2xl mb-2">{benefit.icon}</div>
                       <div className="font-bold text-sm mb-1">{benefit.title}</div>
-                      <div className="text-xs text-blue-200">{benefit.desc}</div>
+                      <div className="text-xs text-brand-light/80">{benefit.desc}</div>
                     </div>
                   ))}
                 </div>
@@ -2931,20 +2967,20 @@ const AKUPferdKosten: NextPage = () => {
                     });
                     window.location.href = '/pferde-preis-berechnen';
                   }}
-                  className="bg-white text-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-3 mx-auto text-lg"
+                  className="bg-white text-brand-brown font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-h-[48px] flex items-center justify-center gap-3 mx-auto text-lg"
                 >
                   <span className="text-xl">💡</span>
                   Jetzt KI-Bewertung für 14,90€ starten
-                  <span className="text-sm bg-blue-100 text-blue-600 px-2 py-1 rounded ml-2">statt bis zu 2.500€</span>
+                  <span className="text-sm bg-brand-light text-brand-brown px-2 py-1 rounded ml-2">statt bis zu 2.500€</span>
                 </button>
               </div>
             </div>
           </section>
 
           {/* Modern Alternatives Section - Enhanced UX */}
-          <section className="mt-12 bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-6 md:p-8 border border-blue-100">
+          <section className="mt-12 bg-brand-light rounded-xl shadow-xl p-6 md:p-8 border border-gray-200">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 shadow-lg">
                 <span className="text-2xl text-white">🚀</span>
               </div>
               <h2 className="text-h2 font-bold text-brand-brown mb-4">Moderne Alternativen zur klassischen AKU</h2>
@@ -2954,7 +2990,7 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* Primary KI Alternative Highlight */}
-            <div className="mb-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
+            <div className="mb-8 bg-brand-brown rounded-xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/5 rounded-full"></div>
               <div className="relative z-10">
@@ -2965,7 +3001,7 @@ const AKUPferdKosten: NextPage = () => {
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold">KI-Powered Digitale Pferdebewertung</h3>
                     <div className="flex items-center mt-1">
-                      <span className="bg-green-400 text-green-900 px-3 py-1 rounded-full text-sm font-bold mr-2">
+                      <span className="bg-brand-green text-white px-3 py-1 rounded-full text-sm font-bold mr-2">
                         99% günstiger
                       </span>
                       <span className="bg-white/20 px-3 py-1 rounded-full text-sm">
@@ -2984,7 +3020,7 @@ const AKUPferdKosten: NextPage = () => {
                     <div key={index} className="bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm">
                       <div className="text-2xl mb-2">{feature.icon}</div>
                       <div className="font-bold text-sm">{feature.title}</div>
-                      <div className="text-xs text-blue-100">{feature.desc}</div>
+                      <div className="text-xs text-brand-light/80">{feature.desc}</div>
                     </div>
                   ))}
                 </div>
@@ -2999,7 +3035,7 @@ const AKUPferdKosten: NextPage = () => {
                     }
                     window.location.href = '/pferde-preis-berechnen'
                   }}
-                  className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg min-h-[48px] w-full md:w-auto"
+                  className="bg-white text-brand-brown hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg min-h-[48px] w-full md:w-auto"
                 >
                   Jetzt KI-Bewertung für 14,90€ starten
                   <span className="block text-sm font-normal mt-1 opacity-90">30 Tage Geld-zurück-Garantie</span>
@@ -3008,14 +3044,14 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* Stepped Approach Section */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 md:p-8 border border-green-100 shadow-lg mb-8">
+            <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-sm mb-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                <div className="w-12 h-12 bg-brand-green rounded-lg flex items-center justify-center mr-4 shadow-lg">
                   <span className="text-xl text-white">📊</span>
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-green-800">Gestufte Untersuchungskonzepte</h3>
-                  <p className="text-green-600 text-sm">Smart sparen mit dem 3-Stufen-Modell</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-brand-green">Gestufte Untersuchungskonzepte</h3>
+                  <p className="text-brand-green text-sm">Smart sparen mit dem 3-Stufen-Modell</p>
                 </div>
               </div>
 
@@ -3050,20 +3086,20 @@ const AKUPferdKosten: NextPage = () => {
                     color: "purple"
                   }
                 ].map((step, index) => (
-                  <div key={index} className={`relative group bg-white rounded-xl p-4 md:p-6 border-2 border-${step.color}-200 hover:border-${step.color}-300 transition-all duration-300 hover:shadow-lg ${step.popular ? 'ring-2 ring-green-400 ring-opacity-50' : ''}`}>
+                  <div key={index} className={`relative group bg-white rounded-xl p-4 md:p-6 border-2 ${step.color === 'green' ? 'border-brand-green hover:border-brand-green' : step.color === 'blue' ? 'border-brand-accent hover:border-brand-accent' : 'border-brand-brown hover:border-brand-brown'} transition-all duration-300 hover:shadow-lg ${step.popular ? 'ring-2 ring-brand-green ring-opacity-50' : ''}`}>
                     {step.popular && (
-                      <div className="absolute -top-3 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                      <div className="absolute -top-3 left-4 bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold">
                         Beliebteste Option
                       </div>
                     )}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className={`w-10 h-10 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 rounded-lg flex items-center justify-center mr-4 text-white`}>
+                        <div className={`w-10 h-10 ${step.color === 'green' ? 'bg-brand-green' : step.color === 'blue' ? 'bg-brand-accent' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-4 text-white`}>
                           {step.icon}
                         </div>
                         <div>
                           <div className="flex items-center">
-                            <span className={`font-bold text-${step.color}-600 mr-3 text-lg`}>{step.stage}:</span>
+                            <span className={`font-bold ${step.color === 'green' ? 'text-brand-green' : step.color === 'blue' ? 'text-brand-accent' : 'text-brand-brown'} mr-3 text-lg`}>{step.stage}:</span>
                             <span className="font-bold text-gray-800">{step.title}</span>
                           </div>
                           <p className="text-sm text-gray-600 mt-1">{step.description}</p>
@@ -3071,7 +3107,7 @@ const AKUPferdKosten: NextPage = () => {
                       </div>
                       <div className="text-right">
                         <div className="font-bold text-lg text-gray-800">{step.price}</div>
-                        <div className={`text-xs bg-${step.color}-100 text-${step.color}-600 px-2 py-1 rounded-full`}>
+                        <div className={`text-xs ${step.color === 'green' ? 'bg-green-50 text-brand-green' : step.color === 'blue' ? 'bg-blue-50 text-brand-accent' : 'bg-amber-50 text-brand-brown'} px-2 py-1 rounded-full`}>
                           {step.savings}
                         </div>
                       </div>
@@ -3082,12 +3118,12 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* Smart Buyer Tips */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 md:p-8 border border-amber-100 shadow-lg">
+            <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-sm">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                <div className="w-12 h-12 bg-brand-gold rounded-lg flex items-center justify-center mr-4 shadow-lg">
                   <span className="text-xl text-white">💡</span>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-amber-800">Profi-Tipps für kostenbewusste Pferdekäufer</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-brown">Profi-Tipps für kostenbewusste Pferdekäufer</h3>
               </div>
 
               <div className="grid lg:grid-cols-3 gap-6">
@@ -3125,16 +3161,16 @@ const AKUPferdKosten: NextPage = () => {
                 ].map((category, index) => (
                   <div key={index} className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                     <div className="flex items-center mb-4">
-                      <div className={`w-10 h-10 bg-gradient-to-br from-${category.color}-500 to-${category.color}-600 rounded-lg flex items-center justify-center mr-3 text-white`}>
+                      <div className={`w-10 h-10 ${category.color === 'green' ? 'bg-brand-green' : category.color === 'blue' ? 'bg-brand-accent' : category.color === 'amber' ? 'bg-brand-gold' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-3 text-white`}>
                         {category.icon}
                       </div>
                       <h4 className="font-bold text-gray-800 text-lg">{category.title}</h4>
                     </div>
                     <div className="space-y-3">
                       {category.tips.map((tip, tipIndex) => (
-                        <div key={tipIndex} className={`flex items-start p-3 rounded-lg transition-colors ${tip.highlight ? 'bg-blue-50 border border-blue-200' : 'hover:bg-gray-50'}`}>
+                        <div key={tipIndex} className={`flex items-start p-3 rounded-lg transition-colors ${tip.highlight ? 'bg-blue-50 border border-brand-accent' : 'hover:bg-gray-50'}`}>
                           <span className="text-lg mr-3 flex-shrink-0">{tip.icon}</span>
-                          <span className={`text-sm ${tip.highlight ? 'text-blue-800 font-medium' : 'text-gray-700'}`}>
+                          <span className={`text-sm ${tip.highlight ? 'text-brand-accent font-medium' : 'text-gray-700'}`}>
                             {tip.text}
                           </span>
                         </div>
@@ -3146,9 +3182,9 @@ const AKUPferdKosten: NextPage = () => {
 
               {/* Bottom CTA */}
               <div className="mt-8 text-center">
-                <div className="bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl p-6 text-white shadow-xl">
+                <div className="bg-brand-accent rounded-xl p-6 text-white shadow-xl">
                   <h4 className="text-lg font-bold mb-2">Starten Sie smart mit unserer KI-Bewertung</h4>
-                  <p className="text-amber-100 text-sm mb-4">Risiko minimieren, Kosten sparen, bessere Entscheidungen treffen</p>
+                  <p className="text-blue-100 text-sm mb-4">Risiko minimieren, Kosten sparen, bessere Entscheidungen treffen</p>
                   <button
                     onClick={() => {
                       if (typeof window !== 'undefined' && window.gtag) {
@@ -3169,9 +3205,9 @@ const AKUPferdKosten: NextPage = () => {
           </section>
 
           {/* FAQ Section - Enhanced UX */}
-          <section className="mt-12 bg-gradient-to-br from-white to-purple-50 rounded-xl shadow-xl p-6 md:p-8 border border-purple-100">
+          <section className="mt-12 bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-200">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full mb-4 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent rounded-full mb-4 shadow-lg">
                 <span className="text-2xl text-white">❓</span>
               </div>
               <h2 className="text-h2 font-bold text-brand-brown mb-4">Häufige Fragen zu AKU-Kosten</h2>
@@ -3242,7 +3278,7 @@ const AKUPferdKosten: NextPage = () => {
               ].map((faq, index) => (
                 <div key={index} className={`group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 ${faq.highlight ? 'ring-2 ring-blue-400 ring-opacity-50' : ''}`}>
                   <div className="flex items-start mb-4">
-                    <div className={`w-10 h-10 bg-gradient-to-br from-${faq.color}-500 to-${faq.color}-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-lg`}>
+                    <div className={`w-10 h-10 ${faq.color === 'blue' ? 'bg-brand-accent' : faq.color === 'green' ? 'bg-brand-green' : faq.color === 'amber' ? 'bg-brand-gold' : faq.color === 'purple' ? 'bg-brand-accent' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-lg`}>
                       <span className="text-white text-lg">{faq.icon}</span>
                     </div>
                     <h3 className="font-bold text-gray-800 text-lg leading-tight">{faq.question}</h3>
@@ -3273,7 +3309,7 @@ const AKUPferdKosten: NextPage = () => {
             </div>
 
             {/* FAQ Highlight CTA */}
-            <div className="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl p-6 md:p-8 text-white shadow-xl text-center">
+            <div className="bg-blue-600 rounded-xl p-6 md:p-8 text-white shadow-xl text-center">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">🤖</span>
@@ -3322,18 +3358,18 @@ const AKUPferdKosten: NextPage = () => {
           </section>
 
           {/* Conclusion Section - Enhanced UX */}
-          <section className="mt-12 bg-gradient-to-br from-white to-amber-50 rounded-xl shadow-xl p-6 md:p-8 border border-amber-100 relative overflow-hidden">
+          <section className="mt-12 bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-200 relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-amber-200/20 rounded-full"></div>
             <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-amber-300/10 rounded-full"></div>
 
             <div className="relative z-10">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full mb-4 shadow-lg">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-gold rounded-full mb-4 shadow-lg">
                   <span className="text-2xl text-white">✅</span>
                 </div>
                 <h2 className="text-h2 font-bold text-brand-brown mb-4">Fazit: Investition in Sicherheit beim Pferdekauf</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
+                <div className="w-24 h-1 bg-brand-gold mx-auto rounded-full"></div>
               </div>
 
               {/* Key Benefits Grid */}
@@ -3361,9 +3397,9 @@ const AKUPferdKosten: NextPage = () => {
                     highlight: "100% Transparenz"
                   }
                 ].map((benefit, index) => (
-                  <div key={index} className={`group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-${benefit.color}-100 hover:border-${benefit.color}-300`}>
+                  <div key={index} className={`group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${benefit.color === 'blue' ? 'border-blue-100 hover:border-blue-300' : benefit.color === 'green' ? 'border-green-100 hover:border-green-300' : benefit.color === 'purple' ? 'border-purple-100 hover:border-purple-300' : 'border-gray-100 hover:border-gray-300'}`}>
                     <div className="text-center">
-                      <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-600 rounded-full mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`inline-flex items-center justify-center w-12 h-12 ${benefit.color === 'blue' ? 'bg-brand-accent' : benefit.color === 'green' ? 'bg-brand-green' : benefit.color === 'purple' ? 'bg-brand-accent' : 'bg-brand-brown'} rounded-full mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
                         <span className="text-xl text-white">{benefit.icon}</span>
                       </div>
                       <h3 className="font-bold text-brand-brown mb-2">{benefit.title}</h3>
@@ -3377,7 +3413,7 @@ const AKUPferdKosten: NextPage = () => {
               </div>
 
               {/* Smart Strategy Tip */}
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-6 md:p-8 text-white shadow-xl mb-8 relative overflow-hidden">
+              <div className="bg-blue-600 rounded-xl p-6 md:p-8 text-white shadow-xl mb-8 relative overflow-hidden">
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/5 rounded-full"></div>
                 <div className="relative z-10">
@@ -3449,13 +3485,13 @@ const AKUPferdKosten: NextPage = () => {
 
               <div className="relative z-10">
                 <div className="mb-8">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-6 shadow-xl">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-gold rounded-full mb-6 shadow-xl">
                     <span className="text-3xl text-white">🚀</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     Starten Sie jetzt Ihre kostenlose Pferdebewertung
                   </h2>
-                  <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6"></div>
+                  <div className="w-32 h-1 bg-brand-gold mx-auto rounded-full mb-6"></div>
                   <p className="text-amber-100 text-lg leading-relaxed max-w-3xl mx-auto">
                     Gehen Sie mit maximaler Sicherheit in Ihren nächsten Pferdekauf! Ermitteln Sie den fairen
                     Marktwert vor der kostspieligen AKU-Investition.

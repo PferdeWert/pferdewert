@@ -1,0 +1,159 @@
+{
+  "target_keyword": "aku pferd kosten",
+  "research_date": "2025-09-22",
+  "company_profile": "SEO/company/company-profile-2025-09-21.md",
+  "keyword_data": {
+    "primary_keyword": {
+      "keyword": "aku pferd kosten",
+      "search_volume": 260,
+      "cpc": 0.89,
+      "competition_level": "LOW",
+      "competition_index": 19,
+      "intent": "informational",
+      "priority": 1
+    },
+    "keyword_ideas": [
+      {
+        "keyword": "aku pferd",
+        "search_volume": 880,
+        "cpc": 1.2,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "ankaufsuntersuchung pferd kosten",
+        "search_volume": 210,
+        "cpc": 0.95,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "kleine aku pferd preis",
+        "search_volume": 90,
+        "cpc": 0.78,
+        "competition_level": "LOW",
+        "intent": "commercial"
+      },
+      {
+        "keyword": "große aku pferd kosten",
+        "search_volume": 110,
+        "cpc": 1.05,
+        "competition_level": "LOW",
+        "intent": "commercial"
+      },
+      {
+        "keyword": "wer zahlt aku pferd",
+        "search_volume": 170,
+        "cpc": 0.65,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "aku kosten tierarzt",
+        "search_volume": 140,
+        "cpc": 1.1,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "ankaufsuntersuchung pferd ablauf",
+        "search_volume": 320,
+        "cpc": 0.85,
+        "competition_level": "LOW",
+        "intent": "informational"
+      }
+    ],
+    "related_keywords": [
+      {
+        "keyword": "aku pferd klassen",
+        "search_volume": 480,
+        "cpc": 1.15,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "pferd kaufen aku",
+        "search_volume": 390,
+        "cpc": 1.8,
+        "competition_level": "MEDIUM",
+        "intent": "commercial"
+      },
+      {
+        "keyword": "tierarzt kosten pferd",
+        "search_volume": 720,
+        "cpc": 1.35,
+        "competition_level": "MEDIUM",
+        "intent": "informational"
+      },
+      {
+        "keyword": "pferdekauf aku",
+        "search_volume": 200,
+        "cpc": 1.65,
+        "competition_level": "LOW",
+        "intent": "commercial"
+      }
+    ],
+    "long_tail_keywords": [
+      {
+        "keyword": "was kostet eine aku beim pferd",
+        "search_volume": 50,
+        "cpc": 0.72,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "aku pferd kosten 2024",
+        "search_volume": 30,
+        "cpc": 0.68,
+        "competition_level": "LOW",
+        "intent": "informational"
+      },
+      {
+        "keyword": "ankaufsuntersuchung pferd preis deutschland",
+        "search_volume": 40,
+        "cpc": 0.85,
+        "competition_level": "LOW",
+        "intent": "commercial"
+      }
+    ]
+  },
+  "content_opportunities": {
+    "primary_intent": "informational",
+    "secondary_intent": "commercial",
+    "content_gaps": [
+      "Regionale Kostenunterschiede",
+      "Kostenteilung zwischen Käufer und Verkäufer",
+      "Spartipps für AKU-Kosten",
+      "Vergleich kleine vs. große AKU",
+      "Zeitpunkt der AKU im Kaufprozess"
+    ],
+    "target_sections": [
+      "AKU Kosten Übersicht 2025",
+      "Faktoren die Kosten beeinflussen",
+      "Regionale Preisunterschiede",
+      "Wer zahlt die AKU-Kosten",
+      "Kosten sparen bei der AKU",
+      "AKU-Klassen und Preise",
+      "FAQ zu AKU-Kosten"
+    ]
+  },
+  "semantic_clusters": [
+    {
+      "cluster": "Kosten & Preise",
+      "keywords": ["aku pferd kosten", "ankaufsuntersuchung pferd kosten", "kleine aku pferd preis", "große aku pferd kosten", "aku kosten tierarzt"]
+    },
+    {
+      "cluster": "Kaufprozess",
+      "keywords": ["pferd kaufen aku", "pferdekauf aku", "wer zahlt aku pferd"]
+    },
+    {
+      "cluster": "AKU Grundlagen",
+      "keywords": ["aku pferd", "aku pferd klassen", "ankaufsuntersuchung pferd ablauf"]
+    }
+  ],
+  "competitive_landscape": {
+    "difficulty_score": "LOW",
+    "opportunity_score": "HIGH",
+    "content_strategy": "Umfassender Ratgeber mit Kostentransparenz und regionalen Unterschieden"
+  }
+}

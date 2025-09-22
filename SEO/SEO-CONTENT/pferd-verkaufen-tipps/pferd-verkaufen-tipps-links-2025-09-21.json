@@ -1,0 +1,106 @@
+{
+  "internal_links": {
+    "primary_service_links": [
+      {
+        "url": "/",
+        "anchor_text": "KI-basierte Pferdebewertung von PferdeWert",
+        "context": "Hauptservice-Verweis in der Einleitung",
+        "seo_value": "high",
+        "placement": "introduction"
+      },
+      {
+        "url": "/",
+        "anchor_text": "PferdeWert",
+        "context": "Service-Erwähnung bei professioneller Bewertung",
+        "seo_value": "high",
+        "placement": "bewertung_section"
+      },
+      {
+        "url": "/",
+        "anchor_text": "KI-basierte Bewertung von PferdeWert",
+        "context": "FAQ-Antwort Pferdewert",
+        "seo_value": "medium",
+        "placement": "faq_section"
+      },
+      {
+        "url": "/",
+        "anchor_text": "Jetzt Pferdewert ermitteln und optimal verkaufen →",
+        "context": "Call-to-Action im Fazit",
+        "seo_value": "high",
+        "placement": "conclusion_cta"
+      }
+    ],
+    "supporting_content_links": [
+      {
+        "url": "/aku-pferd-kosten",
+        "anchor_text": "AKU-Untersuchung",
+        "context": "Gesundheitszustand und Verkaufspreis-Optimierung",
+        "seo_value": "medium",
+        "placement": "bewertungskriterien"
+      },
+      {
+        "url": "/ueber-pferdewert",
+        "anchor_text": "Über PferdeWert",
+        "context": "Firmeninformationen und Expertise",
+        "seo_value": "low",
+        "placement": "optional_footer"
+      }
+    ],
+    "potential_future_links": [
+      {
+        "url": "/pferd-kaufen-tipps",
+        "anchor_text": "Pferd kaufen Tipps",
+        "context": "Gegenpart zum Verkaufen - wenn Artikel existiert",
+        "seo_value": "medium",
+        "note": "Erstelle entsprechenden Artikel für Käufer-Perspektive"
+      },
+      {
+        "url": "/pferdebewertung-kriterien",
+        "anchor_text": "Bewertungskriterien für Pferde",
+        "context": "Detaillierte Erklärung der Bewertungsfaktoren",
+        "seo_value": "high",
+        "note": "Technischer Deep-Dive Artikel zu Bewertungsmethodik"
+      },
+      {
+        "url": "/pferdemarkt-deutschland",
+        "anchor_text": "Pferdemarkt Deutschland",
+        "context": "Marktanalyse und regionale Unterschiede",
+        "seo_value": "medium",
+        "note": "Marktanalyse-Artikel mit Statistiken"
+      }
+    ]
+  },
+  "link_strategy": {
+    "keyword_distribution": {
+      "pferd_verkaufen": 3,
+      "pferdebewertung": 4,
+      "aku_untersuchung": 1,
+      "pferdewert": 5
+    },
+    "anchor_text_variation": {
+      "exact_match": 2,
+      "partial_match": 4,
+      "branded": 3,
+      "generic": 1
+    },
+    "link_placement_strategy": {
+      "contextual_relevance": "high",
+      "user_value": "primary_focus",
+      "seo_benefit": "secondary_focus",
+      "natural_flow": "essential"
+    }
+  },
+  "technical_implementation": {
+    "link_attributes": {
+      "internal_links": "no special attributes needed",
+      "primary_cta": "possible tracking parameters",
+      "footer_links": "rel='nofollow' if purely navigational"
+    },
+    "seo_best_practices": [
+      "Links in ersten 100 Wörtern haben höchstes SEO-Gewicht",
+      "Contextual relevance wichtiger als Keyword-Dichte",
+      "Natürlicher Textfluss vor SEO-Optimierung",
+      "Verschiedene Anchor-Texte für gleiche Ziel-URL verwenden"
+    ]
+  }
+}

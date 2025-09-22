@@ -1,0 +1,123 @@
+{
+  "analysis_date": "2025-09-22",
+  "target_keyword": "aku pferd kosten",
+  "serp_analysis": {
+    "ai_overview": {
+      "visible": true,
+      "content": "AKU-Kosten variieren zwischen 100-2000 EUR je nach Umfang",
+      "sources": ["tierklinik-telgte.com", "pferd.de", "equimo.de"]
+    },
+    "total_competitors_found": 10,
+    "successful_content_extraction": 1,
+    "failed_extractions": 6
+  },
+  "competitor_analysis": [
+    {
+      "domain": "tierklinik-telgte.com",
+      "url": "https://www.tierklinik-telgte.com/pferde/ankaufsuntersuchung/",
+      "position": 3,
+      "title": "Ankaufsuntersuchung - Tierklinik Telgte",
+      "extraction_status": "success",
+      "content_summary": {
+        "main_topic": "Ankaufsuntersuchung für Pferde",
+        "key_points": [
+          "Umfassende veterinärmedizinische Untersuchung",
+          "Verschiedene Untersuchungsklassen verfügbar",
+          "Professionelle Durchführung durch Fachtierärzte",
+          "Detaillierte Dokumentation der Befunde"
+        ],
+        "target_audience": "Pferdekäufer und -verkäufer",
+        "content_type": "Fachliche Informationsseite",
+        "word_count_estimate": 800
+      }
+    },
+    {
+      "domain": "pferd.de",
+      "url": "https://www.pferd.de/magazin/pferdegesundheit/ankaufsuntersuchung/aku-kosten",
+      "position": 4,
+      "title": "AKU Kosten - Was kostet eine Ankaufsuntersuchung?",
+      "extraction_status": "failed",
+      "error": "404 Not Found"
+    },
+    {
+      "domain": "juraforum.de",
+      "url": "https://www.juraforum.de/ratgeber/tierrecht/ankaufsuntersuchung-pferd",
+      "position": 5,
+      "title": "Ankaufsuntersuchung Pferd - Rechte und Pflichten",
+      "extraction_status": "failed",
+      "error": "404 Not Found"
+    },
+    {
+      "domain": "pferdewiki.de",
+      "url": "https://www.pferdewiki.de/aku-ankaufsuntersuchung",
+      "position": 6,
+      "title": "AKU - Ankaufsuntersuchung beim Pferd",
+      "extraction_status": "failed",
+      "error": "404 Not Found"
+    },
+    {
+      "domain": "pferde-magazin.info",
+      "url": "https://www.pferde-magazin.info/gesundheit/ankaufsuntersuchung/",
+      "position": 7,
+      "title": "Ankaufsuntersuchung beim Pferdekauf",
+      "extraction_status": "failed",
+      "error": "404 Not Found"
+    },
+    {
+      "domain": "pferdemagazin.de",
+      "url": "https://www.pferdemagazin.de/aku-ankaufsuntersuchung-pferd-kosten",
+      "position": 8,
+      "title": "AKU Ankaufsuntersuchung Pferd Kosten",
+      "extraction_status": "failed",
+      "error": "Irrelevant content - generic magazine homepage"
+    },
+    {
+      "domain": "equimo.de",
+      "url": "https://www.equimo.de/ratgeber/aku-ankaufsuntersuchung-pferd",
+      "position": 9,
+      "title": "AKU Ankaufsuntersuchung beim Pferd - Ratgeber",
+      "extraction_status": "failed",
+      "error": "Request timeout after 60000ms"
+    }
+  ],
+  "content_gaps_identified": [
+    "Konkrete Preisangaben für verschiedene AKU-Klassen",
+    "Regionale Kostenunterschiede in Deutschland",
+    "Vergleich kleine vs. große AKU",
+    "Wer trägt die Kosten - Käufer oder Verkäufer",
+    "Spartipps für AKU-Kosten",
+    "Zeitpunkt der AKU im Kaufprozess",
+    "Nachverhandlungen bei negativen AKU-Befunden"
+  ],
+  "competitive_insights": {
+    "strength_areas": [
+      "Fachliche Expertise durch Tierärzte",
+      "Umfassende Untersuchungsklassen",
+      "Professionelle Dokumentation"
+    ],
+    "content_opportunities": [
+      "Preistransparenz und Kostenkalkulator",
+      "Regionale Preisvergleiche",
+      "Praktische Spartipps",
+      "Rechtliche Aspekte der Kostentragung",
+      "Integration mit PferdeWert.de Bewertung"
+    ]
+  },
+  "recommended_content_strategy": {
+    "positioning": "Umfassender Ratgeber mit Preistransparenz",
+    "unique_angles": [
+      "Kostenkalkulator basierend auf PferdeWert.de Daten",
+      "Regionale Preisunterschiede Deutschland",
+      "Integration mit Pferdewert-Bewertung",
+      "Praktische Spartipps aus Expertensicht"
+    ],
+    "content_length_target": "1800-2200 Wörter",
+    "internal_linking_opportunities": [
+      "/aku-pferd",
+      "/aku-pferd-ablauf",
+      "/aku-pferd-klassen",
+      "/pferd-kaufen",
+      "/pferde-preis-berechnen"
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert",
+    "description": "Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat.",
+    "keywords": "pferd verkaufen tipps, pferd verkaufen, pferdeverkauf, pferdemarkt, pferdebewertung, pferd richtig verkaufen, pferdeverkauf tipps, pferdemarkt deutschland",
+    "canonical": "https://pferdewert.de/pferd-verkaufen-tipps",
+    "robots": "index, follow",
+    "author": "PferdeWert.de",
+    "publishedTime": "2025-09-21",
+    "modifiedTime": "2025-09-21"
+  },
+  "openGraph": {
+    "type": "article",
+    "title": "Pferd verkaufen: Die besten Tipps für optimalen Preis",
+    "description": "Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat.",
+    "url": "https://pferdewert.de/pferd-verkaufen-tipps",
+    "siteName": "PferdeWert.de",
+    "image": "https://pferdewert.de/images/pferd-verkaufen-tipps-og.jpg",
+    "imageAlt": "Professionelle Tipps zum Pferdeverkauf - Optimal präsentiertes Pferd",
+    "locale": "de_DE"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@pferdewert",
+    "title": "Pferd verkaufen: Die besten Tipps für optimalen Preis",
+    "description": "Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis mit Expertenrat.",
+    "image": "https://pferdewert.de/images/pferd-verkaufen-tipps-twitter.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Pferd verkaufen: Die besten Tipps für optimalen Preis",
+        "description": "Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat.",
+        "author": {
+          "@type": "Organization",
+          "name": "PferdeWert.de",
+          "url": "https://pferdewert.de"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "PferdeWert.de",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://pferdewert.de/logo.png"
+          }
+        },
+        "datePublished": "2025-09-21",
+        "dateModified": "2025-09-21",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://pferdewert.de/pferd-verkaufen-tipps"
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/images/pferd-verkaufen-tipps.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "articleSection": "Pferdemarkt",
+        "keywords": "pferd verkaufen tipps, pferd verkaufen, pferdeverkauf, pferdemarkt, pferdebewertung",
+        "wordCount": 1847
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie viel ist mein Pferd wert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Wert hängt von vielen Faktoren ab: Rasse, Alter, Ausbildung, Gesundheit und aktuelle Marktlage. Eine professionelle Bewertung durch PferdeWert gibt Ihnen in nur 2 Minuten eine objektive Einschätzung basierend auf aktuellen Marktdaten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wann ist der beste Zeitpunkt zum Verkaufen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Frühjahr (März-Mai) ist optimal. Reiter planen die neue Saison und investieren gern in neue Sportpartner. Vermeiden Sie Ferienzeiten und Wintermonate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche Papiere brauche ich?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Abstammungsnachweis, Impfpass, aktuelle tierärztliche Untersuchungen, Turnierurkunden und einen rechtsgültigen Kaufvertrag. Bei wertvollen Pferden ist eine aktuelle AKU-Untersuchung empfehlenswert."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie finde ich seriöse Käufer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nutzen Sie etablierte Verkaufsplattformen, führen Sie ausführliche Gespräche und bestehen Sie auf persönliche Besichtigung. Seriöse Käufer stellen detaillierte Fragen und interessieren sich für das Wohlergehen des Pferdes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was mache ich bei Mängeln am Pferd?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Seien Sie transparent und ehrlich. Bekannte Mängel müssen angegeben werden. Oft ist ein angepasster Preis besser als spätere rechtliche Probleme. Eine ehrliche Kommunikation schafft Vertrauen."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "url": "https://pferdewert.de",
+        "logo": "https://pferdewert.de/logo.png",
+        "description": "Deutschlands führende Plattform für AI-basierte Pferdebewertung. Präzise, transparente und vertrauenswürdige Pferdebewertungen in nur 2 Minuten.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": "German"
+        },
+        "sameAs": [
+          "https://www.facebook.com/pferdewert",
+          "https://www.instagram.com/pferdewert"
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "KI-basierte Pferdebewertung",
+        "description": "Professionelle Pferdebewertung mit künstlicher Intelligenz in nur 2 Minuten für 19,90€",
+        "provider": {
+          "@type": "Organization",
+          "name": "PferdeWert.de"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "19.90",
+          "priceCurrency": "EUR",
+          "description": "AI-basierte Pferdebewertung mit Geld-zurück-Garantie"
+        }
+      }
+    ]
+  }
+}
