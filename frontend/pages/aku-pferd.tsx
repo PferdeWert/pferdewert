@@ -6,13 +6,10 @@ import RatgeberHeader from '../components/RatgeberHeader'
 import InfoBox from '../components/InfoBox'
 import ContentSection from '../components/ContentSection'
 import CTAButton from '../components/CTAButton'
+import FAQ from '../components/FAQ'
 import Link from 'next/link'
 import { useState } from 'react'
-
-interface FAQItem {
-  question: string
-  answer: string
-}
+import { FAQItem } from '../types/faq.types'
 
 const AKUPferd: NextPage = () => {
   const [activeSection, setActiveSection] = useState<string>('basics')
@@ -164,7 +161,7 @@ const AKUPferd: NextPage = () => {
     <>
       <Head>
         {/* Basic Meta Tags */}
-        <title>AKU Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber</title>
+        <title>AKU Pferd: Die Ankaufsuntersuchung | PferdeWert Ratgeber</title>
         <meta name="description" content="AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung." />
         <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku kosten, aku klassen, aku befunde, tierarzt aku, pferdekauf aku, aku ratgeber, aku guide, pferdewert aku" />
         <meta name="author" content="PferdeWert.de" />
@@ -181,7 +178,7 @@ const AKUPferd: NextPage = () => {
         <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/aku-pferd" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="AKU Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber" />
+        <meta property="og:title" content="AKU Pferd: Die Ankaufsuntersuchung | PferdeWert Ratgeber" />
         <meta property="og:description" content="AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pferdewert.de/aku-pferd" />
@@ -189,7 +186,7 @@ const AKUPferd: NextPage = () => {
 
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AKU Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber" />
+        <meta name="twitter:title" content="AKU Pferd: Die Ankaufsuntersuchung | PferdeWert Ratgeber" />
         <meta name="twitter:description" content="AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung." />
 
         {/* Preconnect for Performance */}
@@ -220,12 +217,12 @@ const AKUPferd: NextPage = () => {
 
       <main className="min-h-screen bg-white">
         <RatgeberHeader
-          title="Die Ankaufsuntersuchung (AKU) beim Pferdekauf"
+          title="AKU Pferd: Die Ankaufsuntersuchung"
           subtitle="Ihr kompletter Ratgeber: Alles über Kosten, Ablauf, AKU-Klassen und Befunde der Ankaufsuntersuchung beim Pferd verständlich erklärt."
           category="Pferdekauf"
           readTime="12 min Lesezeit"
           publishDate="22. September 2024"
-          heroImage="/images/ratgeber/aku-pferd-hero.webp"
+          heroImage="/images/blossi-shooting.webp"
           expertBadge={true}
         />
 
@@ -951,18 +948,12 @@ const AKUPferd: NextPage = () => {
                         Sie haben bereits eine AKU durchführen lassen? Nutzen Sie unsere KI-gestützte Bewertung,
                         um den fairen Marktwert Ihres Pferdes basierend auf den AKU-Ergebnissen zu ermitteln.
                       </p>
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <div className="flex justify-center">
                         <CTAButton
                           type="primary"
                           text="Jetzt Pferdewert berechnen"
                           href="/pferde-preis-berechnen"
                           trackingEvent="aku_pferd_cta_main_valuation"
-                        />
-                        <CTAButton
-                          type="secondary"
-                          text="Mehr Pferde-Ratgeber"
-                          href="/pferde-ratgeber"
-                          trackingEvent="aku_pferd_cta_more_guides"
                         />
                       </div>
                     </div>
@@ -972,18 +963,12 @@ const AKUPferd: NextPage = () => {
           </div>
 
           {/* FAQ Section */}
-          <section id="faq" className="mt-12 bg-white rounded-lg shadow-lg p-8 border border-brand-brown/20">
-            <h2 className="text-3xl font-bold text-brand-brown mb-8">Häufig gestellte Fragen zur AKU beim Pferd</h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {faqItems.map((faq, index) => (
-                <div key={index} className="border border-brand-brown/20 rounded-lg p-6">
-                  <h3 className="font-bold text-brand-default mb-3">{faq.question}</h3>
-                  <p className="text-brand-default/80 text-sm leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <div className="mt-12">
+            <FAQ
+              faqs={faqItems}
+              sectionTitle="Häufig gestellte Fragen zur AKU beim Pferd"
+            />
+          </div>
 
           {/* Related Articles Section */}
           <section className="mt-12 bg-white rounded-lg shadow-lg p-8 border border-brand-brown/20">
