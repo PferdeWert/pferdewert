@@ -14,7 +14,7 @@ export const PRICING = {
    * Aktueller Hauptpreis für Pferdebewertung
    * Format: Dezimalzahl für Berechnungen 
    */
-  current: 19.90,
+  current: 14.90,
   
   /** 
    * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
