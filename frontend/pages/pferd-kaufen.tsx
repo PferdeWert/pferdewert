@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Users } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
+import FAQ from "@/components/FAQ";
+import { FAQItem } from "@/types/faq.types";
 
 export default function PferdKaufen() {
   const kauftipps = [
@@ -33,6 +35,25 @@ export default function PferdKaufen() {
     "Unrealistische Erfolgsangaben für das Alter"
   ];
 
+  const kaufFAQs: FAQItem[] = [
+    {
+      question: "Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?",
+      answer: "Ja, unsere KI-Bewertung ist perfekt dafür geeignet! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest, und du erhältst eine objektive Markteinschätzung. So erkennst du sofort, ob der Verkaufspreis angemessen ist oder ob Verhandlungsspielraum besteht."
+    },
+    {
+      question: "Wie kann mir die Bewertung beim Verhandeln helfen?",
+      answer: "Die Bewertung gibt dir eine fundierte Verhandlungsgrundlage. Du siehst den geschätzten Marktwert und eine realistische Preisspanne. Mit diesen objektiven Daten kannst du selbstbewusst verhandeln und begründen, warum ein Preis zu hoch oder angemessen ist."
+    },
+    {
+      question: "Wann sollte ich eine Bewertung machen lassen?",
+      answer: "Am besten **vor** der ersten Besichtigung. So gehst du bereits informiert zum Verkäufer und verschwendest keine Zeit mit überteuerten Angeboten. Du kannst auch mehrere interessante Pferde vorab bewerten lassen, um die besten Kandidaten zu identifizieren."
+    },
+    {
+      question: "Was ist, wenn der Verkäufer deutlich mehr verlangt?",
+      answer: "Das kommt häufiger vor, als du denkst. Mit unserer Bewertung hast du objektive Argumente in der Hand. Entweder der Verkäufer geht im Preis runter, oder du erkennst rechtzeitig, dass es kein gutes Geschäft wäre. Beides spart dir Geld und Zeit."
+    }
+  ];
+
   const kaufschritte = [
     {
       schritt: "1",
@@ -40,7 +61,7 @@ export default function PferdKaufen() {
       description: "Gib die Daten des Pferdes in unsere KI-Bewertung ein und erhalte eine objektive Preisbewertung."
     },
     {
-      schritt: "2", 
+      schritt: "2",
       title: "Besichtigung planen",
       description: "Mit der Marktkenntnis gehst du selbstbewusst zur Besichtigung und kannst gezielte Fragen stellen."
     },
@@ -483,79 +504,10 @@ export default function PferdKaufen() {
         {/* FAQ für Käufer */}
         <section className="bg-white py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
-              Häufige Fragen von Pferdekäufern
-            </h2>
-            
-            <div className="space-y-6">
-              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Kann ich die Bewertung auch für Pferde nutzen, die ich kaufen möchte?</span>
-                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-700">
-                    Ja, absolut! Gib einfach die Daten des Pferdes ein, das du kaufen möchtest.
-                    Du erhältst eine objektive Preisbewertung, die dir bei der Verhandlung hilft.
-                  </p>
-                </div>
-              </details>
-
-              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Wie kann mir die Bewertung beim Verhandeln helfen?</span>
-                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-700">
-                    Die Bewertung zeigt dir eine realistische Preisspanne basierend auf Marktdaten.
-                    So weißt du, ob ein Angebot fair ist und hast Argumente für deine Preisvorstellung.
-                  </p>
-                </div>
-              </details>
-
-              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Wann sollte ich eine Bewertung machen lassen?</span>
-                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-700">
-                    Am besten vor der ersten Besichtigung. So gehst du informiert zum Verkäufer
-                    und kannst gezielt nachfragen, falls der Preis nicht zum Marktwert passt.
-                  </p>
-                </div>
-              </details>
-
-              <details className="rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Was ist, wenn der Verkäufer deutlich mehr verlangt?</span>
-                    <svg className="w-5 h-5 text-gray-600 transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-700">
-                    Das kann verschiedene Gründe haben: Besondere Qualitäten, emotionaler Wert oder unrealistische Preisvorstellung.
-                    Die Bewertung hilft dir zu entscheiden, ob der Aufpreis gerechtfertigt ist.
-                  </p>
-                </div>
-              </details>
-            </div>
+            <FAQ
+              faqs={kaufFAQs}
+              sectionTitle="Häufige Fragen von Pferdekäufern"
+            />
           </div>
         </section>
 

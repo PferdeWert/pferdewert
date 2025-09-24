@@ -5,7 +5,9 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, AlertTriangle, Calculator, Shield, TrendingUp, Euro, Users, Star, MapPin, FileText, Camera, Info, Heart } from "lucide-react";
-import { PRICING_TEXTS, PRICING_FORMATTED } from "../lib/pricing";
+import { PRICING_TEXTS } from "../lib/pricing";
+import FAQ from "@/components/FAQ";
+import { FAQItem } from "@/types/faq.types";
 
 export default function PferdVerkaufen() {
   const verkaufstipps = [
@@ -104,6 +106,29 @@ export default function PferdVerkaufen() {
     "Pferd ohne Marktkenntnis inserieren",
     "Bei ersten Verhandlungen zu schnell nachgeben",
     "Wichtige Verkaufsargumente nicht kommunizieren"
+  ];
+
+  const verkaufFAQs: FAQItem[] = [
+    {
+      question: "Wie finde ich den richtigen Verkaufspreis für mein Pferd?",
+      answer: "Der optimale Verkaufspreis liegt in einer realistischen Spanne basierend auf aktuellen Marktdaten. Unsere AI-Analyse berücksichtigt über 15 Faktoren wie Alter, Ausbildungsstand, Erfolge und regionale Preisunterschiede. Ein zu hoher Preis führt zu wenigen Anfragen, ein zu niedriger Preis kostet Sie unnötig Geld."
+    },
+    {
+      question: "Wie schnell verkauft sich ein Pferd zum richtigen Preis?",
+      answer: "Bei einem marktgerechten Preis erhalten Sie meist innerhalb der ersten 2-4 Wochen die ersten seriösen Anfragen. Sportpferde mit guter Ausbildung verkaufen sich oft schneller als Freizeitpferde. Ein realistischer Preis sorgt für mehr Besichtigungen und schnellere Verkaufsabschlüsse."
+    },
+    {
+      question: "Was passiert, wenn ich mein Pferd zu teuer anbiete?",
+      answer: "Überteuerte Pferde bleiben oft monatelang unverkauft. Potentielle Käufer sehen sofort, wenn der Preis unrealistisch ist. Nach einigen Wochen ohne Anfragen müssen Sie den Preis reduzieren – dann wirkt das Pferd wie ein \"Ladenhüter\" und Sie erzielen oft weniger als bei einem von Anfang an fairen Preis."
+    },
+    {
+      question: "Kann ich die Bewertung für Verhandlungen nutzen?",
+      answer: "Ja, unsere detaillierte Bewertung ist Ihr stärkstes Verhandlungsargument. Sie zeigt Interessenten transparent, wie sich der Preis zusammensetzt und welche Faktoren den Wert Ihres Pferdes ausmachen. Das schafft Vertrauen und reduziert langwierige Preisdiskussionen."
+    },
+    {
+      question: "Was kostet die Verkaufspreis-Analyse?",
+      answer: "Die professionelle Bewertung kostet 14,90€ und zahlt sich meist schon aus, wenn Sie dadurch nur 100€ mehr Verkaufspreis erzielen. Verglichen mit dem Risiko, Ihr Pferd mehrere tausend Euro unter Wert zu verkaufen, ist das eine sehr sinnvolle Investition in einen erfolgreichen Verkauf."
+    }
   ];
 
   const verkaufsschritte = [
@@ -1284,99 +1309,12 @@ export default function PferdVerkaufen() {
         </section>
 
         {/* FAQ Section - verkaufsspezifisch */}
-        <section className="bg-white py-16 px-6">
+        <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-h2 font-bold text-center text-gray-900 mb-12">
-              Häufig gestellte Fragen zum Pferdeverkauf in Bayern & NRW
-            </h2>
-            
-            <div className="space-y-4">
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors" open>
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Wie finde ich den richtigen Verkaufspreis für mein Pferd?</span>
-                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Der optimale Verkaufspreis hängt von vielen Faktoren ab: Rasse, Alter, Ausbildungsstand, Gesundheit und aktuelle Marktlage. Unsere KI-Analyse berücksichtigt alle diese Faktoren und gibt dir eine fundierte Preisspanne basierend auf aktuellen Verkaufsdaten.
-                    <Link href="/pferde-preis-berechnen" className="text-blue-600 underline hover:text-blue-800">
-                      Jetzt kostenlose Bewertung starten
-                    </Link> oder informiere dich über{" "}
-                    <Link href="/pferde-ratgeber" className="text-blue-600 underline hover:text-blue-800">
-                      weitere Verkaufstipps in unserem Ratgeber
-                    </Link>.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Wie schnell verkauft sich ein Pferd zum richtigen Preis?</span>
-                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Pferde mit realistischer Preisgestaltung verkaufen sich durchschnittlich 3x schneller. Während überteuerte Pferde oft monatelang inseriert bleiben, finden fair bepreiste Pferde meist binnen 4-8 Wochen neue Besitzer.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Was passiert, wenn ich mein Pferd zu teuer anbiete?</span>
-                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Überteuerte Pferde generieren weniger Anfragen und verkaufen sich deutlich langsamer. Oft müssen Verkäufer nach Monaten den Preis reduzieren - dann aber unter Zeitdruck und mit weniger Verhandlungsspielraum.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Kann ich die Bewertung für Verhandlungen nutzen?</span>
-                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Absolut! Die professionelle Bewertung gibt dir Sicherheit bei Preisverhandlungen. Du kannst objektiv argumentieren und weißt genau, welche Untergrenze fair ist.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-h3 font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Was kostet die Verkaufspreis-Analyse?</span>
-                    <svg className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Die umfassende Preisanalyse kostet aktuell nur {PRICING_FORMATTED.current} (statt regulär {PRICING_FORMATTED.decoy}). Eine Investition, die sich beim Verkauf um ein Vielfaches auszahlt - bereits 100€ mehr Verkaufspreis rechtfertigen die Analyse.
-                  </p>
-                </div>
-              </details>
-            </div>
+            <FAQ
+              faqs={verkaufFAQs}
+              sectionTitle="Häufig gestellte Fragen zum Pferdeverkauf in Bayern & NRW"
+            />
           </div>
         </section>
 

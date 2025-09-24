@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import Layout from "@/components/Layout"
+import FAQ from "@/components/FAQ"
 import { PRICING_FORMATTED } from "@/lib/pricing"
 import { Award, Heart, Shield, Users, Zap, Target, Star } from "lucide-react"
 
@@ -428,6 +429,45 @@ export default function UeberUns() {
                   ⭐ 4.8/5 Sterne Durchschnittsbewertung • Über 500 zufriedene Kunden
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-12 lg:py-16 bg-white">
+          <div className="px-4 lg:px-8 xl:px-12">
+            <div className="max-w-4xl mx-auto">
+              <FAQ
+                faqs={[
+                  {
+                    question: "Wer steht hinter PferdeWert.de?",
+                    answer: "PferdeWert.de wurde von einem Team aus Pferdeexperten und KI-Entwicklern entwickelt. Unser Gründer Benjamin Reder kombiniert jahrelange Erfahrung im Pferdesport mit modernster Technologie, um objektive und präzise Pferdebewertungen zu ermöglichen."
+                  },
+                  {
+                    question: "Wie funktioniert die KI-gestützte Bewertung?",
+                    answer: "Unsere KI analysiert über 50 verschiedene Faktoren wie Rasse, Alter, Ausbildungsstand, Gesundheitszustand und regionale Marktdaten. Das System wurde mit tausenden von Pferdetransaktionen trainiert und wird kontinuierlich von Experten validiert."
+                  },
+                  {
+                    question: "Ist PferdeWert.de wirklich unabhängig?",
+                    answer: "Ja, absolut. Wir sind ein unabhängiges Unternehmen ohne Verbindungen zu Händlern oder Verkäufern. Unsere Bewertungen basieren ausschließlich auf objektiven Daten und Marktanalysen – nicht auf kommerziellen Interessen."
+                  },
+                  {
+                    question: "Wie aktuell sind die Marktdaten?",
+                    answer: "Unsere Marktdaten werden täglich aktualisiert. Wir analysieren kontinuierlich Verkaufspreise, Markttrends und regionale Unterschiede, um sicherzustellen, dass unsere Bewertungen immer den aktuellen Markt widerspiegeln."
+                  },
+                  {
+                    question: "Kann ich mehrere Pferde bewerten lassen?",
+                    answer: "Ja, gerne! Jede Bewertung kostet 14,90€. Es gibt keine Mengenbegrenzung und jede Bewertung wird individuell und unabhängig durchgeführt. Für gewerbliche Nutzer bieten wir auf Anfrage auch Paketlösungen an.",
+                    highlight: true
+                  },
+                  {
+                    question: "Was unterscheidet PferdeWert von anderen Bewertungstools?",
+                    answer: "PferdeWert kombiniert wissenschaftliche Methoden mit praktischer Pferdeerfahrung. Unser duales KI-System (GPT + Claude) sorgt für besonders präzise Ergebnisse, während unsere Experten die Algorithmen kontinuierlich optimieren."
+                  }
+                ]}
+                sectionTitle="Häufige Fragen über PferdeWert"
+                className="mb-8"
+              />
             </div>
           </div>
         </section>

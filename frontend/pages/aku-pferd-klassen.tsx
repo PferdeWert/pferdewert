@@ -2,6 +2,8 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useState, useEffect, useCallback } from 'react';
 import { info } from '@/lib/log';
+import FAQ from '../components/FAQ';
+import { FAQItem } from '../types/faq.types';
 
 interface AKUKlasse {
   nummer: number;
@@ -233,52 +235,28 @@ const AkuPferdKlassen: NextPage = () => {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Was bedeutet AKU-Klasse 1 beim Pferd?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AKU-Klasse 1 bedeutet 'ohne Befund' - das Pferd ist gesund und der Kauf wird uneingeschränkt empfohlen. Diese Klasse erhalten etwa 15% aller untersuchten Pferde."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Sollte man ein Pferd mit AKU-Klasse 3 kaufen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bei AKU-Klasse 3 sollten Sie den Verwendungszweck beachten. Für Freizeitreiten oft noch geeignet, für Hochleistungssport kritisch zu betrachten. Holen Sie eine Zweitmeinung ein."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie häufig ist AKU-Klasse 4 bei Pferden?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Etwa 20% der untersuchten Pferde erhalten AKU-Klasse 4. Diese Pferde haben deutliche Befunde und der Kauf wird meist nicht empfohlen, außer für sehr spezielle Verwendungszwecke."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Kann sich eine AKU-Klasse im Laufe der Zeit ändern?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ja, AKU-Klassen können sich verschlechtern (z.B. durch Alter oder Verletzungen) oder in seltenen Fällen auch verbessern (bei vorübergehenden Befunden). Regelmäßige Nachuntersuchungen sind sinnvoll."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was kostet eine AKU je nach gewünschter Klasse?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Die Kosten steigen mit der AKU-Klasse: Klasse 1 ca. 200-300€, Klasse 2-3 ca. 400-600€, Klasse 4-5 ca. 800-1.500€ je nach Umfang der Röntgenaufnahmen."
-        }
-      }
-    ]
-  };
+  const faqItems: FAQItem[] = [
+    {
+      question: "Was bedeutet AKU-Klasse 1 beim Pferd?",
+      answer: "AKU-Klasse 1 bedeutet 'ohne Befund' - das Pferd ist gesund und der Kauf wird uneingeschränkt empfohlen. Diese Klasse erhalten etwa 15% aller untersuchten Pferde."
+    },
+    {
+      question: "Sollte man ein Pferd mit AKU-Klasse 3 kaufen?",
+      answer: "Bei AKU-Klasse 3 sollten Sie den Verwendungszweck beachten. Für Freizeitreiten oft noch geeignet, für Hochleistungssport kritisch zu betrachten. Holen Sie eine Zweitmeinung ein."
+    },
+    {
+      question: "Wie häufig ist AKU-Klasse 4 bei Pferden?",
+      answer: "Etwa 20% der untersuchten Pferde erhalten AKU-Klasse 4. Diese Pferde haben deutliche Befunde und der Kauf wird meist nicht empfohlen, außer für sehr spezielle Verwendungszwecke."
+    },
+    {
+      question: "Kann sich eine AKU-Klasse im Laufe der Zeit ändern?",
+      answer: "Ja, AKU-Klassen können sich verschlechtern (z.B. durch Alter oder Verletzungen) oder in seltenen Fällen auch verbessern (bei vorübergehenden Befunden). Regelmäßige Nachuntersuchungen sind sinnvoll."
+    },
+    {
+      question: "Was kostet eine AKU je nach gewünschter Klasse?",
+      answer: "Die Kosten steigen mit der AKU-Klasse: Klasse 1 ca. 200-300€, Klasse 2-3 ca. 400-600€, Klasse 4-5 ca. 800-1.500€ je nach Umfang der Röntgenaufnahmen."
+    }
+  ];
 
   return (
     <>
@@ -324,10 +302,6 @@ const AkuPferdKlassen: NextPage = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </Head>
 
@@ -571,31 +545,10 @@ const AkuPferdKlassen: NextPage = () => {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-                Häufige Fragen zu AKU-Klassen
-              </h2>
-
-              <div className="space-y-6">
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Was bedeutet AKU-Klasse 1 beim Pferd?</h3>
-                  <p className="text-gray-700">AKU-Klasse 1 bedeutet &lsquo;ohne Befund&rsquo; - das Pferd ist gesund und der Kauf wird uneingeschränkt empfohlen. Diese Klasse erhalten etwa 15% aller untersuchten Pferde.</p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Sollte man ein Pferd mit AKU-Klasse 3 kaufen?</h3>
-                  <p className="text-gray-700">Bei AKU-Klasse 3 sollten Sie den Verwendungszweck beachten. Für Freizeitreiten oft noch geeignet, für Hochleistungssport kritisch zu betrachten. Holen Sie eine Zweitmeinung ein.</p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Wie häufig ist AKU-Klasse 4 bei Pferden?</h3>
-                  <p className="text-gray-700">Etwa 20% der untersuchten Pferde erhalten AKU-Klasse 4. Diese Pferde haben deutliche Befunde und der Kauf wird meist nicht empfohlen, außer für sehr spezielle Verwendungszwecke.</p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Kann sich eine AKU-Klasse im Laufe der Zeit ändern?</h3>
-                  <p className="text-gray-700">Ja, AKU-Klassen können sich verschlechtern (z.B. durch Alter oder Verletzungen) oder in seltenen Fällen auch verbessern (bei vorübergehenden Befunden). Regelmäßige Nachuntersuchungen sind sinnvoll.</p>
-                </div>
-              </div>
+              <FAQ
+                faqs={faqItems}
+                sectionTitle="Häufige Fragen zu AKU-Klassen"
+              />
             </div>
           </div>
         </section>

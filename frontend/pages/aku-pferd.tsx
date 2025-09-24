@@ -1,28 +1,26 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import RatgeberHeader from '../components/RatgeberHeader'
 import InfoBox from '../components/InfoBox'
 import ContentSection from '../components/ContentSection'
 import CTAButton from '../components/CTAButton'
 import FAQ from '../components/FAQ'
 import Link from 'next/link'
-import { useState } from 'react'
+import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 import { FAQItem } from '../types/faq.types'
+import { useState } from 'react'
 
 const AKUPferd: NextPage = () => {
-  const [activeSection, setActiveSection] = useState<string>('basics')
+  const [activeSection, setActiveSection] = useState('basics')
 
   const sections = [
-    { id: 'basics', title: 'Grundlagen der AKU', icon: '📋' },
-    { id: 'types', title: 'AKU-Klassen im Detail', icon: '🔍' },
-    { id: 'process', title: 'Ablauf & Vorbereitung', icon: '⚕️' },
-    { id: 'findings', title: 'Befunde & Bewertung', icon: '📊' },
-    { id: 'costs', title: 'Kosten & Wirtschaftlichkeit', icon: '💰' },
-    { id: 'legal', title: 'Rechtliche Aspekte', icon: '⚖️' },
-    { id: 'tips', title: 'Expertentipps', icon: '💡' },
-    { id: 'faq', title: 'Häufige Fragen', icon: '❓' }
+    { id: 'basics', title: 'AKU Grundlagen', icon: '📋' },
+    { id: 'classes', title: 'AKU-Klassen', icon: '📊' },
+    { id: 'costs', title: 'Kosten', icon: '💰' },
+    { id: 'process', title: 'Ablauf & Dauer', icon: '⏱️' },
+    { id: 'findings', title: 'Befunde verstehen', icon: '🔍' }
   ]
 
   const faqItems: FAQItem[] = [
@@ -216,18 +214,80 @@ const AKUPferd: NextPage = () => {
       <Header />
 
       <main className="min-h-screen bg-white">
-        <RatgeberHeader
-          title="AKU Pferd: Die Ankaufsuntersuchung"
-          subtitle="Ihr kompletter Ratgeber: Alles über Kosten, Ablauf, AKU-Klassen und Befunde der Ankaufsuntersuchung beim Pferd verständlich erklärt."
-          category="Pferdekauf"
-          readTime="12 min Lesezeit"
-          publishDate="22. September 2024"
-          heroImage="/images/blossi-shooting.webp"
-          expertBadge={true}
-        />
+        {/* Hero Section - Clean Text Only Design */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center space-y-6">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 text-sm text-gray-700 bg-[#f4f1ec] px-3 py-1 rounded-full">
+                <Award className="h-4 w-4" />
+                Pferde-Ratgeber
+              </div>
+
+              {/* Main Heading */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 text-balance">
+                AKU Pferd: Die Ankaufsuntersuchung
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-xl md:text-2xl text-gray-700 text-pretty max-w-3xl mx-auto leading-relaxed">
+                Ihr kompletter Ratgeber: Alles über Kosten, Ablauf, AKU-Klassen und Befunde der
+                Ankaufsuntersuchung beim Pferd verständlich erklärt.
+              </p>
+
+              {/* Article Meta */}
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
+                  12 min Lesezeit
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  24. September 2025
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="h-4 w-4" />
+                  Experten-Ratgeber
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <Link
+                  href="/pferde-preis-berechnen"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#92400e] hover:bg-[#78350f] text-white font-bold rounded-xl transition-all shadow-lg"
+                >
+                  Pferdewert jetzt berechnen
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <button
+                  onClick={() => document.getElementById('inhaltsverzeichnis')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] font-medium rounded-xl transition-all"
+                >
+                  Zum Inhalt
+                  <ChevronDown className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Hero Image Section */}
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <Image
+              src="/images/blossi-shooting.webp"
+              alt="AKU Pferd: Ankaufsuntersuchung beim Pferd - Tierarzt untersucht Pferd"
+              width={1200}
+              height={600}
+              className="w-full h-[400px] md:h-[500px] object-cover rounded-lg shadow-lg"
+              priority
+            />
+          </div>
+        </section>
 
         {/* Table of Contents Navigation */}
-        <section className="bg-brand-light/50 border-b border-brand-gold/20 sticky top-0 z-10 backdrop-blur-sm">
+        <section id="inhaltsverzeichnis" className="bg-white/95 border-b border-brand-gold/20 sticky top-0 z-10 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="py-4 md:py-6">
               <h2 className="font-heading text-lg md:text-xl font-bold text-brand-default mb-3 md:mb-4 text-center">
@@ -796,30 +856,30 @@ const AKUPferd: NextPage = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-8">
-                    <h3 className="text-2xl font-bold text-brand-brown">Häufige Befunde und ihre Bedeutung:</h3>
+                  <div className="space-y-6 md:space-y-8">
+                    <h3 className="text-xl md:text-2xl font-bold text-brand-brown">Häufige Befunde und ihre Bedeutung:</h3>
 
-                    <div className="grid gap-6">
-                      <div className="p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center">
+                    <div className="grid gap-4 md:gap-6">
+                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
+                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
                           <span className="mr-2">✅</span> Kategorie I: Ohne besonderen Befund
                         </h4>
-                        <p className="text-brand-default/80 mb-3">
+                        <p className="text-brand-default/80 mb-3 text-sm md:text-base">
                           Das Pferd zeigt keine auffälligen Befunde und gilt als gesund für den geplanten Verwendungszweck.
                         </p>
-                        <div className="text-sm text-brand-default/70">
+                        <div className="text-xs md:text-sm text-brand-default/70">
                           <strong>Empfehlung:</strong> Kauf uneingeschränkt empfohlen. Normales Nutzungsrisiko.
                         </div>
                       </div>
 
-                      <div className="p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center">
+                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
+                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
                           <span className="mr-2">⚠️</span> Kategorie II: Geringfügige Befunde
                         </h4>
-                        <p className="text-brand-default/80 mb-3">
+                        <p className="text-brand-default/80 mb-3 text-sm md:text-base">
                           Leichte Veränderungen, die bei älteren Pferden oder bei intensiver Nutzung normal sind.
                         </p>
-                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                           <div>
                             <strong className="text-brand-brown">Beispiele:</strong>
                             <ul className="text-brand-default/80 mt-1 space-y-1">
@@ -837,14 +897,14 @@ const AKUPferd: NextPage = () => {
                         </div>
                       </div>
 
-                      <div className="p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center">
+                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
+                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
                           <span className="mr-2">🟡</span> Kategorie III: Mäßige Befunde
                         </h4>
-                        <p className="text-brand-default/80 mb-3">
+                        <p className="text-brand-default/80 mb-3 text-sm md:text-base">
                           Veränderungen, die eine Einschränkung der Nutzung zur Folge haben könnten.
                         </p>
-                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                           <div>
                             <strong className="text-brand-brown">Beispiele:</strong>
                             <ul className="text-brand-default/80 mt-1 space-y-1">
@@ -862,14 +922,14 @@ const AKUPferd: NextPage = () => {
                         </div>
                       </div>
 
-                      <div className="p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center">
+                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
+                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
                           <span className="mr-2">🔴</span> Kategorie IV-V: Deutliche bis hochgradige Befunde
                         </h4>
-                        <p className="text-brand-default/80 mb-3">
+                        <p className="text-brand-default/80 mb-3 text-xs md:text-sm">
                           Ausgeprägte Veränderungen, die eine erhebliche Einschränkung oder ein hohes Risiko darstellen.
                         </p>
-                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                           <div>
                             <strong className="text-brand-brown">Beispiele:</strong>
                             <ul className="text-brand-default/80 mt-1 space-y-1">
@@ -970,86 +1030,154 @@ const AKUPferd: NextPage = () => {
             />
           </div>
 
-          {/* Related Articles Section */}
-          <section className="mt-12 bg-white rounded-lg shadow-lg p-8 border border-brand-brown/20">
-            <h2 className="text-3xl font-bold text-brand-brown mb-8 text-center">📚 Weiterführende Artikel</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Link
-                href="/aku-pferd-kosten"
-                className="group bg-white p-6 rounded-lg border border-brand-brown/20 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                <div className="text-2xl mb-3">💰</div>
-                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
-                  AKU Pferd Kosten 2025
-                </h3>
-                <p className="text-sm text-brand-default/80">
-                  Aktuelle Preise und Kostenübersicht für Ankaufsuntersuchungen
+          {/* Related Articles Section - V0 Grid Layout */}
+          <section className="py-20 px-6">
+            <div className="max-w-7xl mx-auto">
+              {/* Sektion Header - Minimaler Text, klare Struktur */}
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-serif font-bold text-foreground mb-4">📚 Weiterführende Artikel</h2>
+                <p className="text-lg text-brand-default max-w-2xl mx-auto">
+                  Vertiefen Sie Ihr Wissen über Ankaufsuntersuchungen beim Pferd
                 </p>
-              </Link>
+              </div>
 
-              <Link
-                href="/aku-pferd-ablauf"
-                className="group bg-gradient-to-br from-brand-light to-brand-light/50 p-6 rounded-lg border border-brand-brown/20 hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                <div className="text-2xl mb-3">🔍</div>
-                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
-                  AKU Pferd Ablauf
-                </h3>
-                <p className="text-sm text-brand-default/80">
-                  Schritt-für-Schritt Guide durch die Ankaufsuntersuchung
-                </p>
-              </Link>
+              {/* Artikel Grid - Optimale Bild-Text-Verteilung */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="group hover:shadow-lg transition-all duration-300 border border-border bg-card rounded-lg">
+                  <div className="p-0">
+                    {/* Bild Platzierung: Oben, 4:3 Format für Konsistenz */}
+                    <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
+                      <img
+                        src="/images/aku-kosten-calculator.jpg"
+                        alt="AKU Pferd Kosten 2025"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    {/* Kategorie Badge */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xs font-medium bg-muted text-brand-default px-2 py-1 rounded">
+                        Kosten & Preise
+                      </span>
+                      <span className="text-xs text-brand-default">8 Min.</span>
+                    </div>
 
-              <Link
-                href="/aku-pferd-klassen"
-                className="group bg-gradient-to-br from-brand-green/10 to-brand-green/5 p-6 rounded-lg border border-brand-green/20 hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                <div className="text-2xl mb-3">📊</div>
-                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
-                  AKU Pferd Klassen
-                </h3>
-                <p className="text-sm text-brand-default/80">
-                  Unterschiede zwischen Klasse I und II Untersuchungen
-                </p>
-              </Link>
+                    {/* Titel - Fokus auf Lesbarkeit */}
+                    <h3 className="text-xl font-serif mb-3 text-balance group-hover:text-primary transition-colors">
+                      AKU Pferd Kosten 2025
+                    </h3>
 
-              <Link
-                href="/pferde-ratgeber/aku-verstehen"
-                className="group bg-white p-6 rounded-lg border border-brand-brown/20 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                <div className="text-2xl mb-3">🎓</div>
-                <h3 className="font-bold text-brand-brown mb-2 group-hover:text-brand-brownDark">
-                  AKU Detailguide
-                </h3>
-                <p className="text-sm text-brand-default/80">
-                  Umfassender Ratgeber für Pferdebesitzer
-                </p>
-              </Link>
+                    {/* Beschreibung - Optimale Textlänge für Scanbarkeit */}
+                    <p className="text-brand-default text-sm leading-relaxed mb-4 text-pretty">
+                      Aktuelle Preise und detaillierte Kostenübersicht für alle AKU-Klassen beim Pferdekauf
+                    </p>
+
+                    {/* CTA Button */}
+                    <Link href="/aku-pferd-kosten">
+                      <button className="w-full group-hover:bg-[#92400e] group-hover:text-white transition-colors bg-transparent border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] h-9 px-3 rounded-md text-sm font-medium">
+                        Artikel lesen
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="group hover:shadow-lg transition-all duration-300 border border-border bg-card rounded-lg">
+                  <div className="p-0">
+                    <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
+                      <img
+                        src="/images/aku-ablauf-timeline.jpg"
+                        alt="AKU Pferd Ablauf"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xs font-medium bg-muted text-brand-default px-2 py-1 rounded">
+                        Ablauf & Dauer
+                      </span>
+                      <span className="text-xs text-brand-default">12 Min.</span>
+                    </div>
+                    <h3 className="text-xl font-serif mb-3 text-balance group-hover:text-primary transition-colors">
+                      AKU Pferd Ablauf
+                    </h3>
+                    <p className="text-brand-default text-sm leading-relaxed mb-4 text-pretty">
+                      Schritt-für-Schritt Guide durch die gesamte Ankaufsuntersuchung vom Termin bis zum Protokoll
+                    </p>
+                    <Link href="/aku-pferd-ablauf">
+                      <button className="w-full group-hover:bg-[#92400e] group-hover:text-white transition-colors bg-transparent border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] h-9 px-3 rounded-md text-sm font-medium">
+                        Artikel lesen
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="group hover:shadow-lg transition-all duration-300 border border-border bg-card rounded-lg">
+                  <div className="p-0">
+                    <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
+                      <img
+                        src="/images/aku-klassen-comparison.jpg"
+                        alt="AKU Pferd Klassen"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xs font-medium bg-muted text-brand-default px-2 py-1 rounded">
+                        Klassen & Umfang
+                      </span>
+                      <span className="text-xs text-brand-default">10 Min.</span>
+                    </div>
+                    <h3 className="text-xl font-serif mb-3 text-balance group-hover:text-primary transition-colors">
+                      AKU Pferd Klassen
+                    </h3>
+                    <p className="text-brand-default text-sm leading-relaxed mb-4 text-pretty">
+                      Detaillierte Unterschiede zwischen Klasse I und II Untersuchungen mit Entscheidungshilfe
+                    </p>
+                    <Link href="/aku-pferd-klassen">
+                      <button className="w-full group-hover:bg-[#92400e] group-hover:text-white transition-colors bg-transparent border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] h-9 px-3 rounded-md text-sm font-medium">
+                        Artikel lesen
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Final CTA */}
-          <section className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-brand-brown to-brand-brownDark text-white rounded-lg p-8">
-              <h2 className="text-3xl font-bold mb-4">
+          {/* Final CTA - v0 Design Pattern */}
+          <section className="py-20 bg-muted/30">
+            <div className="max-w-4xl mx-auto px-6 text-center">
+              {/* Feature-Bild für emotionale Verbindung */}
+              <div className="mb-12">
+                <img
+                  src="/happy-horse-owner-with-horse--professional-consult.jpg"
+                  alt="Professionelle Pferdeberatung mit AKU-Expertise"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                />
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 text-balance">
                 Bereit für eine professionelle Pferdebewertung?
               </h2>
-              <p className="text-white mb-6 max-w-2xl mx-auto">
+
+              <p className="text-lg text-brand-default mb-8 max-w-2xl mx-auto text-pretty">
                 Nutzen Sie unsere KI-gestützte Bewertung für eine objektive Einschätzung.
-                Berücksichtigt AKU-Befunde und aktuelle Marktdaten.
+                Berücksichtigt AKU-Befunde und aktuelle Marktdaten für präzise Ergebnisse.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <Link
-                  href="/pferde-preis-berechnen"
-                  className="bg-white text-brand-brown hover:bg-brand-light px-6 py-3 rounded-lg transition-colors font-medium"
-                >
-                  Pferdewert berechnen
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/pferde-preis-berechnen">
+                  <button className="px-8 py-3 bg-[#92400e] hover:bg-[#78350f] text-white rounded-lg transition-colors font-medium text-lg">
+                    Pferdewert berechnen
+                  </button>
                 </Link>
-                <Link
-                  href="/was-ist-mein-pferd-wert"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-brown px-6 py-3 rounded-lg transition-colors font-medium"
-                >
-                  Pferd bewerten lassen
+                <Link href="/was-ist-mein-pferd-wert">
+                  <button className="px-8 py-3 border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] rounded-lg transition-colors font-medium text-lg">
+                    Pferd bewerten lassen
+                  </button>
                 </Link>
               </div>
             </div>

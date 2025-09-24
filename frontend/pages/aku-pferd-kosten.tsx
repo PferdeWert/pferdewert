@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import FAQ from '../components/FAQ'
 import Link from 'next/link'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { info } from '@/lib/log'
@@ -3206,107 +3207,45 @@ const AKUPferdKosten: NextPage = () => {
 
           {/* FAQ Section - Enhanced UX */}
           <section className="mt-12 bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-200">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent rounded-full mb-4 shadow-lg">
-                <span className="text-2xl text-white">❓</span>
-              </div>
-              <h2 className="text-h2 font-bold text-brand-brown mb-4">Häufige Fragen zu AKU-Kosten</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Alle wichtigen Antworten rund um Kosten, Ablauf und Alternativen zur Ankaufsuntersuchung
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-6 md:gap-8 mb-8">
-              {[
+            <FAQ
+              sectionTitle="Häufige Fragen zu AKU-Kosten"
+              faqs={[
                 {
-                  icon: "💰",
                   question: "Wie viel kostet eine AKU beim Pferdekauf?",
-                  answer: "Die Kosten variieren zwischen 150 Euro (Basisuntersuchung) und 2.500 Euro (Komplettuntersuchung). Der Durchschnitt liegt bei 600-800 Euro für eine Standarduntersuchung mit Röntgenbildern.",
-                  color: "blue",
-                  highlight: false
+                  answer: "Die Kosten variieren zwischen 150 Euro (Basisuntersuchung) und 2.500 Euro (Komplettuntersuchung). Der Durchschnitt liegt bei 600-800 Euro für eine Standarduntersuchung mit Röntgenbildern."
                 },
                 {
-                  icon: "🤝",
                   question: "Wer bezahlt die Ankaufsuntersuchung - Käufer oder Verkäufer?",
-                  answer: "Üblicherweise trägt der Käufer die AKU-Kosten, da er das Interesse an der Untersuchung hat. Sondervereinbarungen sind jedoch möglich und sollten vorab schriftlich vereinbart werden.",
-                  color: "green",
-                  highlight: false
+                  answer: "Üblicherweise trägt der Käufer die AKU-Kosten, da er das Interesse an der Untersuchung hat. Sondervereinbarungen sind jedoch möglich und sollten vorab schriftlich vereinbart werden."
                 },
                 {
-                  icon: "📊",
                   question: "Kann ich AKU-Kosten von der Steuer absetzen?",
-                  answer: "Bei gewerblicher Pferdehaltung sind AKU-Kosten als Betriebsausgaben absetzbar. Private Pferdebesitzer können die Kosten normalerweise nicht steuerlich geltend machen.",
-                  color: "amber",
-                  highlight: false
+                  answer: "Bei gewerblicher Pferdehaltung sind AKU-Kosten als Betriebsausgaben absetzbar. Private Pferdebesitzer können die Kosten normalerweise nicht steuerlich geltend machen."
                 },
                 {
-                  icon: "⚠️",
                   question: "Was passiert, wenn die AKU negativ ausfällt?",
-                  answer: "Die Untersuchungskosten entstehen trotzdem und müssen bezahlt werden. Daher sollte vorher vereinbart werden, was bei negativem Befund geschieht - oft wird der Kaufvertrag dann hinfällig.",
-                  color: "red",
-                  highlight: false
+                  answer: "Die Untersuchungskosten entstehen trotzdem und müssen bezahlt werden. Daher sollte vorher vereinbart werden, was bei negativem Befund geschieht - oft wird der Kaufvertrag dann hinfällig."
                 },
                 {
-                  icon: "🗺️",
                   question: "Sind AKU-Kosten in verschiedenen Regionen unterschiedlich?",
-                  answer: "Ja, es gibt deutliche regionale Preisunterschiede. Bayern und Baden-Württemberg haben tendenziell höhere Kosten, während Niedersachsen durch die hohe Tierarztdichte konkurrenzfähige Preise bietet.",
-                  color: "purple",
-                  highlight: false
+                  answer: "Ja, es gibt deutliche regionale Preisunterschiede. Bayern und Baden-Württemberg haben tendenziell höhere Kosten, während Niedersachsen durch die hohe Tierarztdichte konkurrenzfähige Preise bietet."
                 },
                 {
-                  icon: "💡",
                   question: "Welche Untersuchung ist für mein Budget angemessen?",
-                  answer: "Als Faustregel gelten 3-8% des Kaufpreises als angemessene AKU-Investition. Bei einem 10.000-Euro-Pferd sind also 500-800 Euro für eine Standarduntersuchung gerechtfertigt.",
-                  color: "indigo",
-                  highlight: false
+                  answer: "Als Faustregel gelten 3-8% des Kaufpreises als angemessene AKU-Investition. Bei einem 10.000-Euro-Pferd sind also 500-800 Euro für eine Standarduntersuchung gerechtfertigt."
                 },
                 {
-                  icon: "🚀",
                   question: "Kann ich AKU-Kosten sparen, ohne Risiken einzugehen?",
-                  answer: "Ja, durch strategische Tierarzt-Auswahl, angepassten Untersuchungsumfang und moderne Online-Voruntersuchungen. Unsere KI-Bewertung hilft dabei, das Risiko vorab einzuschätzen.",
-                  color: "blue",
-                  highlight: true,
-                  cta: "KI-Bewertung jetzt testen"
+                  answer: "Ja, durch strategische Tierarzt-Auswahl, angepassten Untersuchungsumfang und moderne Online-Voruntersuchungen. Unsere **KI-Bewertung** hilft dabei, das Risiko vorab einzuschätzen.",
+                  highlight: true
                 },
                 {
-                  icon: "📅",
                   question: "Was kostet eine AKU am Wochenende oder Feiertag?",
                   answer: "Notfall- und Wochenendzuschläge betragen meist 20-50% der normalen Kosten. Planen Sie AKU-Termine daher bevorzugt unter der Woche.",
-                  color: "orange",
                   highlight: false
                 }
-              ].map((faq, index) => (
-                <div key={index} className={`group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 ${faq.highlight ? 'ring-2 ring-blue-400 ring-opacity-50' : ''}`}>
-                  <div className="flex items-start mb-4">
-                    <div className={`w-10 h-10 ${faq.color === 'blue' ? 'bg-brand-accent' : faq.color === 'green' ? 'bg-brand-green' : faq.color === 'amber' ? 'bg-brand-gold' : faq.color === 'purple' ? 'bg-brand-accent' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-lg`}>
-                      <span className="text-white text-lg">{faq.icon}</span>
-                    </div>
-                    <h3 className="font-bold text-gray-800 text-lg leading-tight">{faq.question}</h3>
-                  </div>
-
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {faq.answer}
-                  </p>
-
-                  {faq.highlight && faq.cta && (
-                    <button
-                      onClick={() => {
-                        if (typeof window !== 'undefined' && window.gtag) {
-                          window.gtag('event', 'cta_click', {
-                            event_category: 'engagement',
-                            event_label: 'faq_ki_bewertung'
-                          })
-                        }
-                        window.location.href = '/pferde-preis-berechnen'
-                      }}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:scale-105 min-h-[48px] w-full"
-                    >
-                      {faq.cta} - nur 14,90€
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
+              ]}
+            />
 
             {/* FAQ Highlight CTA */}
             <div className="bg-blue-600 rounded-xl p-6 md:p-8 text-white shadow-xl text-center">

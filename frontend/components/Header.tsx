@@ -57,29 +57,17 @@ export default function HeaderUnified() {
     {
       label: "Pferd kaufen",
       href: "/pferd-kaufen",
-      dropdown: [
-        { label: "Pferdewert ermitteln", href: "/pferd-kaufen/pferdewert-ermitteln" },
-        { label: "Kaufberatung", href: "/pferd-kaufen/kaufberatung" },
-        { label: "Regionale Preise", href: "/pferd-kaufen/regionale-pferdepreise" },
-        { label: "Pferde in Bayern", href: "/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern" },
-        { label: "Pferde in NRW", href: "/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw" },
-      ]
     },
     {
       label: "Pferd verkaufen",
       href: "/pferd-verkaufen",
-      dropdown: [
-        { label: "Pferdewert berechnen", href: "/pferd-verkaufen/pferdewert-berechnen" },
-        { label: "Verkaufstipps", href: "/pferd-verkaufen/verkaufstipps" },
-        { label: "Verkaufspreis optimieren", href: "/pferd-verkaufen/verkaufspreis-optimieren" },
-        { label: "Verkaufsberatung", href: "/pferd-verkaufen/verkaufsberatung" },
-      ]
     },
     {
       label: "Ratgeber",
-      href: "#",
+      href: "/pferde-ratgeber",
       dropdown: [
-        { label: "AKU Ratgeber", href: "/aku-pferd" },
+        { label: "AKU Pferd", href: "/aku-pferd" },
+        { label: "AKU Pferd Kosten", href: "/aku-pferd-kosten" },
       ]
     },
     {
@@ -258,29 +246,31 @@ export default function HeaderUnified() {
                 {item.dropdown ? (
                   // Kategorie mit Dropdown - aufklappbar
                   <div>
-                    <button
-                      className="w-full flex items-center justify-between text-gray-900 font-medium py-3 text-base"
-                      onClick={() => toggleMobileSection(item.label)}
-                      aria-expanded={mobileExpandedSection === item.label}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${
-                          mobileExpandedSection === item.label ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
+                    <div className="w-full flex items-center justify-between py-3">
+                      <Link
+                        href={item.href}
+                        className="flex-1 text-gray-900 font-medium text-base"
+                        onClick={closeMenu}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        className="p-1 text-gray-700 hover:text-brand-brown"
+                        onClick={() => toggleMobileSection(item.label)}
+                        aria-expanded={mobileExpandedSection === item.label}
+                        aria-label={`${item.label} Untermenü ${mobileExpandedSection === item.label ? 'schließen' : 'öffnen'}`}
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform ${
+                            mobileExpandedSection === item.label ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                    </div>
 
                     {/* Aufklappbarer Bereich */}
                     {mobileExpandedSection === item.label && (
                       <div className="ml-4 space-y-1 mt-2 pb-2">
-                        <Link
-                          href={item.href}
-                          className="block text-brand-brown hover:text-brand-brownDark py-2 text-sm font-medium"
-                          onClick={closeMenu}
-                        >
-                          {item.label} Übersicht
-                        </Link>
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.href}

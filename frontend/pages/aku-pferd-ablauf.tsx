@@ -2,6 +2,8 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useState, useEffect, useCallback } from 'react';
 import { info } from '@/lib/log';
+import FAQ from '../components/FAQ';
+import { FAQItem } from '../types/faq.types';
 
 interface TimelineStep {
   id: string;
@@ -334,52 +336,28 @@ const AkuPferdAblauf: NextPage = () => {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Wie lange dauert eine AKU beim Pferd?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Eine komplette Ankaufsuntersuchung dauert je nach Klasse 2-4 Stunden. AKU Klasse 1 benötigt etwa 2 Stunden, während AKU Klasse 5 mit umfangreichem Röntgen bis zu 4 Stunden dauern kann."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was passiert bei der AKU Beugeprobe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bei der Beugeprobe werden die Gelenke 30-60 Sekunden stark gebeugt und das Pferd anschließend sofort im Trab vorgeführt. So können versteckte Lahmheiten oder Gelenkprobleme erkannt werden."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wann werden Röntgenbilder bei der AKU gemacht?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Röntgenaufnahmen sind je nach AKU-Klasse unterschiedlich: Klasse 1-2 meist ohne Röntgen, Klasse 3-4 mit ausgewählten Aufnahmen, Klasse 5 mit umfangreichem Röntgenprogramm aller wichtigen Strukturen."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Kann die AKU auch bei schlechtem Wetter durchgeführt werden?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Die meisten AKU-Schritte sind wetterunabhängig möglich. Bei starkem Regen sollte die Trabvorführung jedoch verschoben werden, da rutschiger Boden die Sicherheit gefährdet und das Gangbild verfälscht."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was bedeuten die AKU-Klassen 1-5?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AKU-Klassen bewerten die Befunde: Klasse 1 = ohne Befund (Kauf empfohlen), Klasse 2 = geringfügige Befunde, Klasse 3 = mäßige Befunde, Klasse 4 = deutliche Befunde (meist nicht empfohlen), Klasse 5 = hochgradige Befunde (Kauf nicht empfohlen)."
-        }
-      }
-    ]
-  };
+  const faqItems: FAQItem[] = [
+    {
+      question: "Wie lange dauert eine AKU beim Pferd?",
+      answer: "Eine komplette Ankaufsuntersuchung dauert je nach Klasse 2-4 Stunden. AKU Klasse 1 benötigt etwa 2 Stunden, während AKU Klasse 5 mit umfangreichem Röntgen bis zu 4 Stunden dauern kann."
+    },
+    {
+      question: "Was passiert bei der AKU Beugeprobe?",
+      answer: "Bei der Beugeprobe werden die Gelenke 30-60 Sekunden stark gebeugt und das Pferd anschließend sofort im Trab vorgeführt. So können versteckte Lahmheiten oder Gelenkprobleme erkannt werden."
+    },
+    {
+      question: "Wann werden Röntgenbilder bei der AKU gemacht?",
+      answer: "Röntgenaufnahmen sind je nach AKU-Klasse unterschiedlich: Klasse 1-2 meist ohne Röntgen, Klasse 3-4 mit ausgewählten Aufnahmen, Klasse 5 mit umfangreichem Röntgenprogramm aller wichtigen Strukturen."
+    },
+    {
+      question: "Kann die AKU auch bei schlechtem Wetter durchgeführt werden?",
+      answer: "Die meisten AKU-Schritte sind wetterunabhängig möglich. Bei starkem Regen sollte die Trabvorführung jedoch verschoben werden, da rutschiger Boden die Sicherheit gefährdet und das Gangbild verfälscht."
+    },
+    {
+      question: "Was bedeuten die AKU-Klassen 1-5?",
+      answer: "AKU-Klassen bewerten die Befunde: Klasse 1 = ohne Befund (Kauf empfohlen), Klasse 2 = geringfügige Befunde, Klasse 3 = mäßige Befunde, Klasse 4 = deutliche Befunde (meist nicht empfohlen), Klasse 5 = hochgradige Befunde (Kauf nicht empfohlen)."
+    }
+  ];
 
   return (
     <>
@@ -425,10 +403,6 @@ const AkuPferdAblauf: NextPage = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </Head>
 
@@ -669,31 +643,10 @@ const AkuPferdAblauf: NextPage = () => {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-                Häufige Fragen zum AKU-Ablauf
-              </h2>
-
-              <div className="space-y-6">
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Wie lange dauert eine AKU beim Pferd?</h3>
-                  <p className="text-gray-700">Eine komplette Ankaufsuntersuchung dauert je nach Klasse 2-4 Stunden. AKU Klasse 1 benötigt etwa 2 Stunden, während AKU Klasse 5 mit umfangreichem Röntgen bis zu 4 Stunden dauern kann.</p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Was passiert bei der AKU Beugeprobe?</h3>
-                  <p className="text-gray-700">Bei der Beugeprobe werden die Gelenke 30-60 Sekunden stark gebeugt und das Pferd anschließend sofort im Trab vorgeführt. So können versteckte Lahmheiten oder Gelenkprobleme erkannt werden.</p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Wann werden Röntgenbilder bei der AKU gemacht?</h3>
-                  <p className="text-gray-700">Röntgenaufnahmen sind je nach AKU-Klasse unterschiedlich: Klasse 1-2 meist ohne Röntgen, Klasse 3-4 mit ausgewählten Aufnahmen, Klasse 5 mit umfangreichem Röntgenprogramm aller wichtigen Strukturen.</p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">Kann die AKU auch bei schlechtem Wetter durchgeführt werden?</h3>
-                  <p className="text-gray-700">Die meisten AKU-Schritte sind wetterunabhängig möglich. Bei starkem Regen sollte die Trabvorführung jedoch verschoben werden, da rutschiger Boden die Sicherheit gefährdet und das Gangbild verfälscht.</p>
-                </div>
-              </div>
+              <FAQ
+                faqs={faqItems}
+                sectionTitle="Häufige Fragen zum AKU-Ablauf"
+              />
             </div>
           </div>
         </section>
