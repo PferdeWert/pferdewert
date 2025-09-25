@@ -494,7 +494,7 @@ const AKUPferd: NextPage = () => {
               </div>
 
               {/* Kosten */}
-              <div id="costs" className="bg-[#f8f8f6] border border-[#e8e8e4] rounded-lg p-5 md:p-8 space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40">
+              <div id="costs" className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900">
                   {numberedTitle('costs', 'AKU Kosten')}
                 </h2>
@@ -626,7 +626,7 @@ const AKUPferd: NextPage = () => {
               {/* Befunde verstehen */}
               <section
                 id="findings"
-                className="bg-[#f8f8f6] border border-[#e8e8e4] rounded-lg p-5 md:p-8 space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40"
+                className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40"
               >
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900">
                     {numberedTitle('findings', 'AKU-Befunde verstehen')}
@@ -815,7 +815,7 @@ const AKUPferd: NextPage = () => {
               {/* AKU-Tierarzt finden */}
               <section
                 id="tierarzt"
-                className="bg-[#f8f8f6] border border-[#e8e8e4] rounded-lg p-5 md:p-8 space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40"
+                className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40"
               >
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900">
                   {numberedTitle('tierarzt', 'AKU-Tierarzt finden')}
@@ -909,7 +909,7 @@ const AKUPferd: NextPage = () => {
               {/* Marktwert & Daten */}
               <section
                 id="valuation"
-                className="bg-[#f8f8f6] border border-[#e8e8e4] rounded-lg p-5 md:p-8 space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40"
+                className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40"
               >
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900">
                   {numberedTitle('valuation', 'AKU-Ergebnisse in der Pferdebewertung')}
