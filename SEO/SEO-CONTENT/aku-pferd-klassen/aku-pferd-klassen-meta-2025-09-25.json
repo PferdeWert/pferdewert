@@ -1,0 +1,203 @@
+{
+  "metaTags": {
+    "title": "AKU Pferd: o.b.B. und Risiko-Bewertung verstehen | PferdeWert Ratgeber",
+    "description": "AKU Ankaufsuntersuchung beim Pferd: Was bedeuten o.b.B. (ohne besonderen Befund) und Risiko-Einschätzung? Verstehen Sie die neuen AKU-Ergebnisse.",
+    "keywords": "aku pferd, ankaufsuntersuchung pferd, aku kosten, aku obb ohne besonderen befund, aku ergebnisse interpretieren, pferdekauf aku, aku risiko bewertung",
+    "canonical": "https://pferdewert.de/pferde-ratgeber/aku-pferd-klassen",
+    "robots": "index, follow"
+  },
+
+  "openGraph": {
+    "type": "article",
+    "title": "AKU Pferd: o.b.B. und Risiko-Bewertung beim Pferdekauf verstehen",
+    "description": "AKU Ankaufsuntersuchung richtig interpretieren: o.b.B. (ohne besonderen Befund) vs. Risiko-Befunde. Aktuelle AKU-Standards seit 2018 erklärt.",
+    "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd-klassen",
+    "siteName": "PferdeWert.de",
+    "image": "https://pferdewert.de/images/aku-pferd-bewertung-guide.jpg",
+    "imageAlt": "AKU Pferd o.b.B. und Risiko-Bewertung - Moderne Ankaufsuntersuchung"
+  },
+
+  "twitterCard": {
+    "card": "summary_large_image",
+    "title": "AKU Pferd: o.b.B. und Risiko-Bewertung verstehen",
+    "description": "Moderne AKU-Bewertung beim Pferdekauf: o.b.B. und Risiko-Befunde richtig interpretieren.",
+    "image": "https://pferdewert.de/images/aku-pferd-bewertung-guide.jpg"
+  },
+
+  "structuredData": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AKU Pferd: o.b.B. und Risiko-Bewertung - Was bedeutet das für den Pferdewert?",
+      "description": "Umfassender Ratgeber zur AKU beim Pferd: o.b.B. (ohne besonderen Befund) vs. Risiko-Befunde verstehen. Moderne Ankaufsuntersuchung seit 2018 erklärt.",
+      "author": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "url": "https://pferdewert.de"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/logo.png"
+        }
+      },
+      "datePublished": "2025-09-25",
+      "dateModified": "2025-09-25",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://pferdewert.de/pferde-ratgeber/aku-pferd-klassen"
+      },
+      "articleSection": "Pferde Ratgeber",
+      "keywords": ["AKU Pferd", "Ankaufsuntersuchung", "AKU o.b.B.", "AKU Risiko", "Pferdekauf", "Pferdewert"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was kostet eine AKU beim Pferd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die AKU Kosten liegen zwischen 200-1.500 Euro, abhängig vom Untersuchungsumfang. Eine kleine AKU kostet 200-400 Euro, eine große AKU mit Röntgen und Zusatzuntersuchungen 800-1.500 Euro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wer zahlt die AKU beim Pferdekauf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standardmäßig zahlt der Käufer die AKU, da er das Untersuchungsergebnis für seine Kaufentscheidung benötigt. Bei teuren Pferden wird die Kostenteilung manchmal vereinbart."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was bedeutet o.b.B. bei der AKU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "o.b.B. (ohne besonderen Befund) bedeutet, dass bei der Ankaufsuntersuchung keine klinisch relevanten Abweichungen festgestellt wurden. Das Pferd gilt als gesundheitlich unbedenklich für die vorgesehene Nutzung ohne Preisabschlag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was bedeuten Risiko-Befunde in der AKU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Risiko-Befunde bedeuten, dass Veränderungen gefunden wurden, die das Risiko für zukünftige Probleme erhöhen. Die Auswirkung auf Nutzung und Preis hängt von Art, Schweregrad und Lokalisation des Befundes ab."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann man ein Pferd ohne AKU kaufen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ein Pferdekauf ohne AKU ist rechtlich möglich, aber mit erheblichen Risiken verbunden: keine Gewährleistungsrechte, unkalkulierbare Folgekosten und schwierige Beweisführung bei Streitigkeiten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert eine AKU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine kleine AKU dauert 1-2 Stunden, eine große AKU 3-6 Stunden (über mehrere Termine verteilt). Die Ergebnisse werden sofort vor Ort besprochen, das schriftliche Gutachten folgt innerhalb von 1-3 Tagen."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pferdewert.de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pferde Ratgeber",
+          "item": "https://pferdewert.de/pferde-ratgeber"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AKU Pferd Klassen",
+          "item": "https://pferdewert.de/pferde-ratgeber/aku-pferd-klassen"
+        }
+      ]
+    }
+  ],
+
+  "internalLinks": [
+    {
+      "anchor": "Pferdebewertung",
+      "url": "/",
+      "context": "Moderne KI-basierte Bewertung"
+    },
+    {
+      "anchor": "Pferde Ratgeber",
+      "url": "/pferde-ratgeber",
+      "context": "Weitere hilfreiche Artikel zum Pferdekauf"
+    },
+    {
+      "anchor": "kostenlose Pferdebewertung",
+      "url": "/#bewertung",
+      "context": "Lassen Sie Ihr Pferd noch heute bewerten"
+    },
+    {
+      "anchor": "Pferdekauf Ratgeber",
+      "url": "/pferde-ratgeber/pferdekauf-guide",
+      "context": "Kompletter Leitfaden zum Pferdekauf"
+    },
+    {
+      "anchor": "Pferdewert berechnen",
+      "url": "/#rechner",
+      "context": "AI-basierte Pferdewertermittlung"
+    }
+  ],
+
+  "technicalSEO": {
+    "hreflang": [
+      {
+        "lang": "de",
+        "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd-klassen"
+      },
+      {
+        "lang": "de-DE",
+        "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd-klassen"
+      }
+    ],
+    "alternateFormats": [],
+    "lastModified": "2025-09-25T10:00:00+01:00",
+    "contentLanguage": "de-DE",
+    "geoTargeting": "DE"
+  },
+
+  "performance": {
+    "criticalCSS": [
+      "typography",
+      "layout-grid",
+      "hero-section",
+      "navigation"
+    ],
+    "lazyLoadImages": true,
+    "preloadFonts": [
+      "/fonts/inter-regular.woff2",
+      "/fonts/inter-semibold.woff2"
+    ]
+  },
+
+  "analytics": {
+    "goalEvents": [
+      "aku_article_read_complete",
+      "pferdewert_cta_click",
+      "faq_interaction"
+    ],
+    "contentCategory": "SEO-Ratgeber",
+    "contentTags": ["AKU", "Pferdekauf", "Ankaufsuntersuchung", "Ratgeber"]
+  }
+}
