@@ -971,7 +971,7 @@ const AKUPferd: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🎯</span>
                     <div>
@@ -991,7 +991,7 @@ const AKUPferd: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">✅</span>
                     <div>
