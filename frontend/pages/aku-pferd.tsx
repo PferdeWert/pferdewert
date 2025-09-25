@@ -265,7 +265,7 @@ const AKUPferd: NextPage = () => {
 
       <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
         {/* Hero Section - Clean Text Only Design */}
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center space-y-6">
               {/* Badge */}
