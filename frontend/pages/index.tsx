@@ -786,7 +786,7 @@ export default function PferdeWertHomepage() {
                 Jetzt Pferdewert berechnen
               </Link>
               <p className="text-sm text-brand-light/80 mt-4">
-                Launch-Angebot – danach regulärer Preis von {PRICING_FORMATTED.decoy}
+
               </p>
             </div>
           </div>

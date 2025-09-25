@@ -15,23 +15,20 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   highlight = false,
   id
 }) => {
+  const sectionClasses = highlight
+    ? 'bg-[#fcf8f1] border border-[#eadfcd] rounded-3xl px-6 md:px-10 py-10 shadow-sm'
+    : 'py-10'
+
   return (
-    <section
-      id={id}
-      className={`py-8 ${highlight ? 'bg-brand-light border-l-4 border-brand-gold px-6 rounded-r-lg' : ''}`}
-    >
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center space-x-3 mb-6">
-          {icon && (
-            <div className="text-2xl">
-              {icon}
-            </div>
-          )}
-          <h2 className="font-heading text-2xl font-bold text-brand-default">
+    <section id={id} className={`relative ${sectionClasses}`}>
+      <div className="w-full">
+        <div className="flex items-center gap-3 mb-6">
+          {icon && <div className="text-2xl text-[#8c5a1f]">{icon}</div>}
+          <h2 className="font-serif text-3xl md:text-[2.125rem] font-bold text-gray-900">
             {title}
           </h2>
         </div>
-        <div className="prose prose-lg max-w-none text-brand-default leading-relaxed">
+        <div className="space-y-5 text-lg leading-relaxed text-gray-700">
           {content}
         </div>
       </div>

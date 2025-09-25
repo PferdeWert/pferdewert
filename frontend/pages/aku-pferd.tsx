@@ -10,18 +10,71 @@ import FAQ from '../components/FAQ'
 import Link from 'next/link'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 import { FAQItem } from '../types/faq.types'
-import { useState } from 'react'
 
 const AKUPferd: NextPage = () => {
-  const [activeSection, setActiveSection] = useState('basics')
-
   const sections = [
-    { id: 'basics', title: 'AKU Grundlagen', icon: '📋' },
-    { id: 'classes', title: 'AKU-Klassen', icon: '📊' },
-    { id: 'costs', title: 'Kosten', icon: '💰' },
-    { id: 'process', title: 'Ablauf & Dauer', icon: '⏱️' },
-    { id: 'findings', title: 'Befunde verstehen', icon: '🔍' }
+    { id: 'basics', title: 'AKU Grundlagen' },
+    { id: 'classes', title: 'AKU-Klassen' },
+    { id: 'costs', title: 'AKU Kosten' },
+    { id: 'process', title: 'Ablauf & Dauer' },
+    { id: 'findings', title: 'Befunde verstehen' },
+    { id: 'tierarzt', title: 'AKU-Tierarzt finden' },
+    { id: 'valuation', title: 'Marktwert & Daten' }
   ]
+
+  const getSectionNumber = (sectionId: string) => {
+    const index = sections.findIndex(section => section.id === sectionId)
+    return index === -1 ? undefined : index + 1
+  }
+
+  const numberedTitle = (sectionId: string, title: string) => {
+    const number = getSectionNumber(sectionId)
+    return number ? `${number}. ${title}` : title
+  }
+
+  const relatedArticles = [
+    {
+      href: '/aku-pferd-kosten',
+      image: '/images/aku-kosten-calculator.jpg',
+      title: 'AKU Pferd Kosten 2025',
+      badge: 'Kosten & Preise',
+      readTime: '8 Min.',
+      description: 'Aktuelle Preise und detaillierte Kostenübersicht für alle AKU-Klassen beim Pferdekauf.'
+    },
+    {
+      href: '/aku-pferd-ablauf',
+      image: '/images/aku-ablauf-timeline.jpg',
+      title: 'AKU Pferd Ablauf',
+      badge: 'Ablauf & Dauer',
+      readTime: '12 Min.',
+      description: 'Schritt-für-Schritt durch die gesamte Ankaufsuntersuchung vom Termin bis zum Protokoll.'
+    },
+    {
+      href: '/aku-pferd-klassen',
+      image: '/images/aku-klassen-comparison.jpg',
+      title: 'AKU Pferd Klassen',
+      badge: 'Klassen & Umfang',
+      readTime: '10 Min.',
+      description: 'Entscheidungshilfe zu Umfang und Nutzen der AKU-Klassen I bis V.'
+    }
+  ]
+
+  const scrollToSection = (sectionId: string) => {
+    requestAnimationFrame(() => {
+      if (typeof window === 'undefined') return
+      const target = document.getElementById(sectionId)
+      if (!target) return
+
+      const header = document.querySelector('header')
+      const toc = document.getElementById('inhaltsverzeichnis')
+      const headerHeight = header instanceof HTMLElement ? header.offsetHeight : 0
+      const tocHeight = toc instanceof HTMLElement ? toc.offsetHeight : 0
+      const offset = headerHeight + tocHeight + 24
+
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({ top: targetPosition - offset, behavior: 'smooth' })
+    })
+  }
 
   const faqItems: FAQItem[] = [
     {
@@ -286,46 +339,41 @@ const AKUPferd: NextPage = () => {
           </div>
         </section>
 
-        {/* Table of Contents Navigation */}
-        <section id="inhaltsverzeichnis" className="bg-white/95 border-b border-brand-gold/20 sticky top-0 z-10 backdrop-blur-sm">
+        {/* Table of Contents - static text block */}
+        <nav id="inhaltsverzeichnis" aria-label="Inhaltsverzeichnis" className="py-12">
           <div className="container mx-auto px-4">
-            <div className="py-4 md:py-6">
-              <h2 className="font-heading text-lg md:text-xl font-bold text-brand-default mb-3 md:mb-4 text-center">
-                📋 Inhaltsverzeichnis
-              </h2>
-              <div className="flex flex-wrap justify-center gap-1 md:gap-2 max-w-4xl mx-auto">
-                {sections.map(section => (
-                  <button
-                    key={section.id}
-                    onClick={() => {
-                      const element = document.getElementById(section.id)
-                      element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                      setActiveSection(section.id)
-                    }}
-                    className={`px-3 py-2 md:px-4 md:py-3 rounded-lg transition-all duration-300 font-medium text-xs md:text-sm min-h-[44px] ${
-                      activeSection === section.id
-                        ? 'bg-brand-brown text-white shadow-lg transform scale-105'
-                        : 'bg-white text-brand-default/80 hover:bg-brand-gold/10 hover:text-brand-brown border border-brand-light'
-                    }`}
-                  >
-                    <span className="flex items-center space-x-1 md:space-x-2">
-                      <span className="text-sm md:text-base">{section.icon}</span>
-                      <span className="hidden sm:inline">{section.title}</span>
-                      <span className="sm:hidden text-xs">{section.title.split(' ')[0]}</span>
-                    </span>
-                  </button>
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-serif text-xl md:text-2xl font-semibold text-gray-900 mb-4">Inhaltsverzeichnis</h2>
+              <ol className="space-y-2 text-gray-700 text-base md:text-lg list-none pl-0">
+                {sections.map((section, index) => (
+                  <li key={section.id} className="leading-relaxed">
+                    <a
+                      href={`#${section.id}`}
+                      onClick={event => {
+                        event.preventDefault()
+                        scrollToSection(section.id)
+                      }}
+                      className="flex items-center gap-3 hover:text-[#92400e] transition-colors"
+                    >
+                      <span className="font-semibold">{index + 1}.</span>
+                      <span>{section.title}</span>
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </div>
-        </section>
+        </nav>
 
         <div className="container mx-auto px-4 py-8 md:py-12">
-          {/* Full Width Main Content */}
-          <div className="max-w-5xl mx-auto">
+          {/* Article Content */}
+          <article className="max-w-5xl mx-auto space-y-16">
                 {/* AKU Grundlagen */}
-                {activeSection === 'basics' && (
-                  <div id="basics" className="space-y-8">
+                <div id="basics" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                    {numberedTitle('basics', 'AKU Grundlagen')}
+                  </h2>
+
                     <ContentSection
                       title="Was ist eine AKU beim Pferd?"
                       icon="📋"
@@ -341,25 +389,25 @@ const AKUPferd: NextPage = () => {
                             title="AKU Quick Facts"
                             content={
                               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                                <div className="text-center">
-                                  <div className="font-medium text-brand-brown">Kosten Klasse I</div>
-                                  <div className="text-2xl font-bold text-brand-default">150-300€</div>
+                                <div className="text-center space-y-1">
+                                  <div className="text-sm font-medium text-[#8c5a1f] uppercase tracking-wide">Kosten Klasse I</div>
+                                  <div className="text-2xl font-bold text-gray-900">150-300€</div>
                                 </div>
-                                <div className="text-center">
-                                  <div className="font-medium text-brand-brown">Kosten Klasse II</div>
-                                  <div className="text-2xl font-bold text-brand-default">400-800€</div>
+                                <div className="text-center space-y-1">
+                                  <div className="text-sm font-medium text-[#8c5a1f] uppercase tracking-wide">Kosten Klasse II</div>
+                                  <div className="text-2xl font-bold text-gray-900">400-800€</div>
                                 </div>
-                                <div className="text-center">
-                                  <div className="font-medium text-brand-brown">Dauer</div>
-                                  <div className="text-2xl font-bold text-brand-default">1-4 Std</div>
+                                <div className="text-center space-y-1">
+                                  <div className="text-sm font-medium text-[#8c5a1f] uppercase tracking-wide">Dauer</div>
+                                  <div className="text-2xl font-bold text-gray-900">1-4 Std</div>
                                 </div>
-                                <div className="text-center">
-                                  <div className="font-medium text-brand-brown">Gültigkeit</div>
-                                  <div className="text-2xl font-bold text-brand-default">2-4 Wochen</div>
+                                <div className="text-center space-y-1">
+                                  <div className="text-sm font-medium text-[#8c5a1f] uppercase tracking-wide">Gültigkeit</div>
+                                  <div className="text-2xl font-bold text-gray-900">2-4 Wochen</div>
                                 </div>
-                                <div className="text-center">
-                                  <div className="font-medium text-brand-brown">Röntgenbilder</div>
-                                  <div className="text-2xl font-bold text-brand-default">2-20+</div>
+                                <div className="text-center space-y-1">
+                                  <div className="text-sm font-medium text-[#8c5a1f] uppercase tracking-wide">Röntgenbilder</div>
+                                  <div className="text-2xl font-bold text-gray-900">2-20+</div>
                                 </div>
                               </div>
                             }
@@ -430,14 +478,16 @@ const AKUPferd: NextPage = () => {
                         </div>
                       }
                     />
-                  </div>
-                )}
+                </div>
 
               {/* AKU-Klassen */}
-              {activeSection === 'classes' && (
-                <div className="space-y-8">
+              <div id="classes" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                  {numberedTitle('classes', 'AKU-Klassen')}
+                </h2>
+
                   <ContentSection
-                    title="AKU-Klassen: Welche AKU ist die richtige?"
+                    title="Welche AKU ist die richtige?"
                     icon="📊"
                     content={
                       <>
@@ -456,11 +506,11 @@ const AKUPferd: NextPage = () => {
                                 <div className="space-y-4">
                                   <div className="flex flex-col md:flex-row md:items-start md:justify-between">
                                     <div>
-                                      <p className="text-brand-default mb-2">{akuClass.suitable}</p>
+                                      <p className="text-gray-700 mb-2">{akuClass.suitable}</p>
                                     </div>
                                     <div className="text-right mt-2 md:mt-0">
                                       <div className="text-2xl font-bold text-brand-brown">{akuClass.cost}</div>
-                                      <div className="text-sm text-brand-default/70">{akuClass.duration}</div>
+                                      <div className="text-sm text-gray-500">{akuClass.duration}</div>
                                     </div>
                                   </div>
 
@@ -470,7 +520,7 @@ const AKUPferd: NextPage = () => {
                                       {akuClass.includes.map((item, idx) => (
                                         <div key={idx} className="flex items-start">
                                           <span className="text-brand-green mr-2 mt-1">✓</span>
-                                          <span className="text-brand-default">{item}</span>
+                                          <span className="text-gray-700">{item}</span>
                                         </div>
                                       ))}
                                     </div>
@@ -528,14 +578,16 @@ const AKUPferd: NextPage = () => {
                       </div>
                     }
                   />
-                </div>
-              )}
+              </div>
 
               {/* Kosten */}
-              {activeSection === 'costs' && (
-                <div id="costs" className="space-y-8">
+              <div id="costs" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                  {numberedTitle('costs', 'AKU Kosten')}
+                </h2>
+
                   <ContentSection
-                    title="AKU Kosten: Was kostet eine Ankaufsuntersuchung?"
+                    title="Was kostet eine Ankaufsuntersuchung?"
                     icon="💰"
                     content={
                       <>
@@ -553,7 +605,7 @@ const AKUPferd: NextPage = () => {
                               content={
                                 <div className="text-center">
                                   <div className="text-2xl md:text-3xl font-bold text-brand-green mb-2">{akuClass.cost}</div>
-                                  <div className="text-xs md:text-sm text-brand-default/70">Dauer: {akuClass.duration}</div>
+                                  <div className="text-xs md:text-sm text-gray-500">Dauer: {akuClass.duration}</div>
                                 </div>
                               }
                             />
@@ -572,7 +624,7 @@ const AKUPferd: NextPage = () => {
                           type="tip"
                           title="Preisbestimmende Faktoren"
                           content={
-                            <ul className="space-y-2 text-brand-default text-sm md:text-base">
+                            <ul className="space-y-2 text-gray-700 text-sm md:text-base">
                               <li>• Umfang der Untersuchung (AKU-Klasse)</li>
                               <li>• Anzahl der Röntgenaufnahmen</li>
                               <li>• Zusatzuntersuchungen (Ultraschall, Endoskopie)</li>
@@ -585,7 +637,7 @@ const AKUPferd: NextPage = () => {
                           type="warning"
                           title="Mögliche Zusatzkosten"
                           content={
-                            <ul className="space-y-2 text-brand-default text-sm md:text-base">
+                            <ul className="space-y-2 text-gray-700 text-sm md:text-base">
                               <li>• Anfahrt Tierarzt: 50-150€</li>
                               <li>• Sedierung bei unruhigen Pferden: 50-100€</li>
                               <li>• Zweitbefundung: 200-500€</li>
@@ -608,7 +660,7 @@ const AKUPferd: NextPage = () => {
                           type="tip"
                           title="Kosten sparen"
                           content={
-                            <ul className="space-y-2 text-brand-default text-sm md:text-base">
+                            <ul className="space-y-2 text-gray-700 text-sm md:text-base">
                               <li>• Mehrere Angebote einholen</li>
                               <li>• Werktags statt am Wochenende</li>
                               <li>• AKU beim Verkäufer vor Ort</li>
@@ -620,7 +672,7 @@ const AKUPferd: NextPage = () => {
                           type="expert"
                           title="Nicht sparen bei"
                           content={
-                            <ul className="space-y-2 text-brand-default text-sm md:text-base">
+                            <ul className="space-y-2 text-gray-700 text-sm md:text-base">
                               <li>• Qualifikation des Tierarztes</li>
                               <li>• Umfang der Untersuchung</li>
                               <li>• Röntgenqualität</li>
@@ -631,12 +683,14 @@ const AKUPferd: NextPage = () => {
                       </div>
                     }
                   />
-                </div>
-              )}
+              </div>
 
               {/* Ablauf & Dauer */}
-              {activeSection === 'process' && (
-                <div id="process" className="space-y-8">
+              <div id="process" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                  {numberedTitle('process', 'Ablauf & Dauer')}
+                </h2>
+
                   <ContentSection
                     title="Der AKU-Ablauf im Detail"
                     icon="⏱️"
@@ -654,7 +708,7 @@ const AKUPferd: NextPage = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                               <div>
                                 <h4 className="font-semibold text-brand-brown mb-3">Vor der Untersuchung:</h4>
-                                <ul className="space-y-2 text-brand-default text-sm md:text-base">
+                                <ul className="space-y-2 text-gray-700 text-sm md:text-base">
                                   <li>• Tierarzt-Termin vereinbaren</li>
                                   <li>• AKU-Klasse festlegen</li>
                                   <li>• Gesundheitspass und Impfausweis bereithalten</li>
@@ -664,7 +718,7 @@ const AKUPferd: NextPage = () => {
                               </div>
                               <div>
                                 <h4 className="font-semibold text-brand-brown mb-3">Was mitbringen:</h4>
-                                <ul className="space-y-2 text-brand-default text-sm md:text-base">
+                                <ul className="space-y-2 text-gray-700 text-sm md:text-base">
                                   <li>• Führstrick und Halfter</li>
                                   <li>• Vorhandene Röntgenbilder</li>
                                   <li>• Medikamentenliste</li>
@@ -686,11 +740,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
                         <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Anamnese & Vorbesprechung (15-30 Min.)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Anamnese & Vorbesprechung (15-30 Min.)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Der Tierarzt bespricht mit Ihnen die Krankengeschichte, bisherige Verletzungen und den beabsichtigten Verwendungszweck.
                           </p>
-                          <ul className="text-xs md:text-sm text-brand-default/70 space-y-1">
+                          <ul className="text-xs md:text-sm text-gray-500 space-y-1">
                             <li>• Alter, Rasse, Abstammung des Pferdes</li>
                             <li>• Bisherige medizinische Behandlungen</li>
                             <li>• Sportliche Nutzung und Leistungsstand</li>
@@ -702,11 +756,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
                         <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Klinische Allgemeinuntersuchung (30-45 Min.)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Klinische Allgemeinuntersuchung (30-45 Min.)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Gründliche Untersuchung aller Körpersysteme im Ruhezustand.
                           </p>
-                          <ul className="text-xs md:text-sm text-brand-default/70 space-y-1">
+                          <ul className="text-xs md:text-sm text-gray-500 space-y-1">
                             <li>• Herz-Kreislauf-System (Abhören, Puls)</li>
                             <li>• Atemwege (Lunge, Nüstern)</li>
                             <li>• Augen (Sehvermögen, Reflexe)</li>
@@ -719,11 +773,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
                         <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Bewegungsanalyse (20-30 Min.)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Bewegungsanalyse (20-30 Min.)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Beurteilung des Gangbildes und der Bewegungsqualität in verschiedenen Gangarten.
                           </p>
-                          <ul className="text-xs md:text-sm text-brand-default/70 space-y-1">
+                          <ul className="text-xs md:text-sm text-gray-500 space-y-1">
                             <li>• Schritt und Trab an der Hand</li>
                             <li>• Bewegung auf gerader Strecke</li>
                             <li>• Wendungen und Kreise</li>
@@ -735,11 +789,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
                         <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Flexionsproben (15-20 Min.)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Flexionsproben (15-20 Min.)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Gezielte Belastungstests der Gelenke zur Aufdeckung von Lahmheiten.
                           </p>
-                          <ul className="text-xs md:text-sm text-brand-default/70 space-y-1">
+                          <ul className="text-xs md:text-sm text-gray-500 space-y-1">
                             <li>• Beugeprobe der Vorderbeine</li>
                             <li>• Beugeprobe der Hinterbeine</li>
                             <li>• Spat-Test bei Bedarf</li>
@@ -751,11 +805,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
                         <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">5</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Röntgenuntersuchung (30-90 Min.)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Röntgenuntersuchung (30-90 Min.)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Bildgebende Diagnostik je nach gewählter AKU-Klasse.
                           </p>
-                          <ul className="text-xs text-brand-default/70 space-y-1">
+                          <ul className="text-xs text-gray-500 space-y-1">
                             <li>• Klasse I: 2-4 Standardaufnahmen</li>
                             <li>• Klasse II: 8-10 erweiterte Aufnahmen</li>
                             <li>• Klasse III-V: Vollständiger Röntgen-TÜV</li>
@@ -767,11 +821,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
                         <div className="bg-brand-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">6</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Zusatzuntersuchungen (bei Bedarf)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Zusatzuntersuchungen (bei Bedarf)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Je nach AKU-Klasse und Befunden weitere diagnostische Maßnahmen.
                           </p>
-                          <ul className="text-xs md:text-sm text-brand-default/70 space-y-1">
+                          <ul className="text-xs md:text-sm text-gray-500 space-y-1">
                             <li>• Ultraschalluntersuchung (Sehnen, Bänder)</li>
                             <li>• Endoskopie der Atemwege</li>
                             <li>• Blutuntersuchung</li>
@@ -783,11 +837,11 @@ const AKUPferd: NextPage = () => {
                       <div className="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-brand-gold/10 rounded-lg border border-brand-gold">
                         <div className="bg-brand-gold text-brand-brown rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">7</div>
                         <div>
-                          <h4 className="font-bold text-brand-default mb-2 text-sm md:text-base">Befundbesprechung & Protokoll (15-30 Min.)</h4>
-                          <p className="text-brand-default/80 text-xs md:text-sm mb-2">
+                          <h4 className="font-bold text-gray-700 mb-2 text-sm md:text-base">Befundbesprechung & Protokoll (15-30 Min.)</h4>
+                          <p className="text-gray-600 text-xs md:text-sm mb-2">
                             Ausführliche Erläuterung aller Befunde und Übergabe des schriftlichen Protokolls.
                           </p>
-                          <ul className="text-xs md:text-sm text-brand-default/70 space-y-1">
+                          <ul className="text-xs md:text-sm text-gray-500 space-y-1">
                             <li>• Detaillierte Befunderklärung</li>
                             <li>• Kaufempfehlung ja/nein</li>
                             <li>• Prognose und Risikobewertung</li>
@@ -804,53 +858,54 @@ const AKUPferd: NextPage = () => {
                       <div className="bg-white p-3 md:p-4 rounded border border-brand-brown/20 shadow-sm">
                         <h4 className="font-semibold text-brand-brown mb-2 text-sm md:text-base">Klasse I (Kleine AKU)</h4>
                         <div className="text-xl md:text-2xl font-bold text-brand-brown mb-1">1-2 Stunden</div>
-                        <div className="text-xs md:text-sm text-brand-default/70">Basis-Untersuchung mit wenigen Röntgenaufnahmen</div>
+                        <div className="text-xs md:text-sm text-gray-500">Basis-Untersuchung mit wenigen Röntgenaufnahmen</div>
                       </div>
                       <div className="bg-white p-3 md:p-4 rounded border border-brand-brown/20 shadow-sm">
                         <h4 className="font-semibold text-brand-brown mb-2 text-sm md:text-base">Klasse II (Große AKU)</h4>
                         <div className="text-xl md:text-2xl font-bold text-brand-brown mb-1">2-4 Stunden</div>
-                        <div className="text-xs md:text-sm text-brand-default/70">Erweiterte Untersuchung mit mehr Röntgenbildern</div>
+                        <div className="text-xs md:text-sm text-gray-500">Erweiterte Untersuchung mit mehr Röntgenbildern</div>
                       </div>
                       <div className="bg-white p-3 md:p-4 rounded border border-brand-brown/20 shadow-sm">
                         <h4 className="font-semibold text-brand-brown mb-2 text-sm md:text-base">Klasse III-V</h4>
                         <div className="text-xl md:text-2xl font-bold text-brand-brown mb-1">4+ Stunden</div>
-                        <div className="text-xs md:text-sm text-brand-default/70">Komplette Untersuchung, oft über mehrere Termine</div>
+                        <div className="text-xs md:text-sm text-gray-500">Komplette Untersuchung, oft über mehrere Termine</div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
+              </div>
 
               {/* Befunde verstehen */}
-              {activeSection === 'findings' && (
-                <section id="findings" className="bg-white rounded-lg shadow-lg p-4 md:p-8 border border-brand-brown/20">
-                  <h2 className="text-2xl md:text-3xl font-bold text-brand-brown mb-4 md:mb-6">AKU Befunde verstehen: Was bedeuten die Ergebnisse?</h2>
+              <section
+                id="findings"
+                className="bg-white rounded-lg shadow-lg p-4 md:p-8 border border-brand-brown/20 scroll-mt-32 lg:scroll-mt-40"
+              >
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
+                    {numberedTitle('findings', 'AKU-Befunde verstehen')}
+                  </h2>
 
                   <div className="bg-white p-4 md:p-6 rounded-lg border border-brand-brown/20 shadow-sm mb-6 md:mb-8">
                     <h3 className="font-bold text-brand-brown mb-4 text-base md:text-lg">📊 AKU-Bewertungssystem</h3>
-                    <p className="text-brand-default/70 mb-4 text-sm md:text-base">
-                      AKU-Befunde werden in der Regel in verschiedene Kategorien eingeteilt, die das Risiko für zukünftige Probleme bewerten.
+                    <p className="text-gray-500 mb-4 text-sm md:text-base">
+                      AKU-Befunde werden nach dem aktuellen Standard in zwei Hauptkategorien eingeteilt:
+                      MB (Mit Befund/Mängelbefund) und OB (Ohne Befund). Diese vereinfachte Klassifizierung
+                      bietet eine klare Bewertungsgrundlage für die Kaufentscheidung.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       <div>
                         <h4 className="font-semibold text-brand-brown mb-3 text-sm md:text-base">Befundkategorien:</h4>
-                        <ul className="space-y-2 text-brand-default text-xs md:text-sm">
-                          <li><strong>Kategorie I:</strong> Ohne besonderen Befund</li>
-                          <li><strong>Kategorie II:</strong> Geringfügige Befunde</li>
-                          <li><strong>Kategorie III:</strong> Mäßige Befunde mit Risiko</li>
-                          <li><strong>Kategorie IV:</strong> Deutliche Befunde</li>
-                          <li><strong>Kategorie V:</strong> Hochgradige Befunde</li>
+                        <ul className="space-y-2 text-gray-700 text-xs md:text-sm">
+                          <li><strong>OB (Ohne Befund):</strong> Keine relevanten Befunde festgestellt</li>
+                          <li><strong>MB (Mit Befund):</strong> Medizinische Befunde vorhanden - Details werden spezifiziert</li>
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-brand-default mb-3 text-sm md:text-base">Risikobewertung:</h4>
-                        <ul className="space-y-2 text-brand-default/80 text-xs md:text-sm">
-                          <li><strong>Niedrig:</strong> Normale Abnutzung</li>
-                          <li><strong>Gering:</strong> Überwachung empfohlen</li>
-                          <li><strong>Mäßig:</strong> Regelmäßige Kontrollen nötig</li>
-                          <li><strong>Hoch:</strong> Eingeschränkte Nutzung</li>
-                          <li><strong>Sehr hoch:</strong> Kaufempfehlung negativ</li>
+                        <h4 className="font-semibold text-gray-700 mb-3 text-sm md:text-base">Bewertung:</h4>
+                        <ul className="space-y-2 text-gray-600 text-xs md:text-sm">
+                          <li><strong>OB:</strong> Keine Preisauswirkung - Kaufempfehlung positiv</li>
+                          <li><strong>MB:</strong> Preisauswirkung abhängig von Art und Schwere der Befunde</li>
+                          <li><strong>Detailbeschreibung:</strong> Entscheidend für Werteinschätzung</li>
+                          <li><strong>Verwendungszweck:</strong> Relevanz der Befunde bewerten</li>
                         </ul>
                       </div>
                     </div>
@@ -860,89 +915,59 @@ const AKUPferd: NextPage = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-brand-brown">Häufige Befunde und ihre Bedeutung:</h3>
 
                     <div className="grid gap-4 md:gap-6">
-                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
-                          <span className="mr-2">✅</span> Kategorie I: Ohne besonderen Befund
+                      <div className="p-4 md:p-6 bg-white rounded-lg border border-green-200 shadow-sm">
+                        <h4 className="font-bold text-green-700 mb-3 flex items-center text-sm md:text-base">
+                          <span className="mr-2">✅</span> OB (Ohne Befund)
                         </h4>
-                        <p className="text-brand-default/80 mb-3 text-sm md:text-base">
-                          Das Pferd zeigt keine auffälligen Befunde und gilt als gesund für den geplanten Verwendungszweck.
+                        <p className="text-gray-600 mb-3 text-sm md:text-base">
+                          Das Pferd zeigt keine veterinärmedizinischen Auffälligkeiten und gilt als gesund für den geplanten Verwendungszweck.
+                          Der AKU-Befund stellt keine Einschränkungen oder Risiken fest.
                         </p>
-                        <div className="text-xs md:text-sm text-brand-default/70">
-                          <strong>Empfehlung:</strong> Kauf uneingeschränkt empfohlen. Normales Nutzungsrisiko.
+                        <div className="text-xs md:text-sm text-gray-500">
+                          <strong>Empfehlung:</strong> Kauf uneingeschränkt empfohlen. Normales Nutzungsrisiko für die geplante Verwendung.
                         </div>
                       </div>
 
-                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
-                          <span className="mr-2">⚠️</span> Kategorie II: Geringfügige Befunde
+                      <div className="p-4 md:p-6 bg-white rounded-lg border border-orange-200 shadow-sm">
+                        <h4 className="font-bold text-orange-700 mb-3 flex items-center text-sm md:text-base">
+                          <span className="mr-2">⚠️</span> MB (Mit Befund / Mängelbefund)
                         </h4>
-                        <p className="text-brand-default/80 mb-3 text-sm md:text-base">
-                          Leichte Veränderungen, die bei älteren Pferden oder bei intensiver Nutzung normal sind.
+                        <p className="text-gray-600 mb-3 text-sm md:text-base">
+                          Es wurden veterinärmedizinische Auffälligkeiten oder Veränderungen festgestellt, die das Nutzungsrisiko
+                          beeinflussen können. Die Schwere und Bedeutung der Befunde wird im Protokoll detailliert beschrieben.
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
-                          <div>
-                            <strong className="text-brand-brown">Beispiele:</strong>
-                            <ul className="text-brand-default/80 mt-1 space-y-1">
-                              <li>• Leichte Gelenkveränderungen</li>
-                              <li>• Kleine Überbeine</li>
-                              <li>• Geringfügige Zahnprobleme</li>
-                            </ul>
-                          </div>
-                          <div>
-                            <strong className="text-brand-brown">Empfehlung:</strong>
-                            <div className="text-brand-default/80 mt-1">
-                              Kauf in der Regel empfohlen. Regelmäßige Kontrollen sinnvoll.
+
+                        <div className="mt-4 space-y-4">
+                          <div className="bg-gray-50 p-3 rounded-md">
+                            <h5 className="font-semibold text-orange-700 mb-2 text-xs md:text-sm">Häufige MB-Befunde:</h5>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+                              <div>
+                                <strong className="text-gray-700">Bewegungsapparat:</strong>
+                                <ul className="text-gray-600 mt-1 space-y-1">
+                                  <li>• Gelenkveränderungen (Spat, Arthrose)</li>
+                                  <li>• Sehnenschäden oder -verdickungen</li>
+                                  <li>• Überbeine</li>
+                                  <li>• Stellungsanomalien</li>
+                                </ul>
+                              </div>
+                              <div>
+                                <strong className="text-gray-700">Weitere Bereiche:</strong>
+                                <ul className="text-gray-600 mt-1 space-y-1">
+                                  <li>• Atemwegsauffälligkeiten</li>
+                                  <li>• Herzgeräusche</li>
+                                  <li>• Augenveränderungen</li>
+                                  <li>• Zahnprobleme</li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
 
-                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
-                          <span className="mr-2">🟡</span> Kategorie III: Mäßige Befunde
-                        </h4>
-                        <p className="text-brand-default/80 mb-3 text-sm md:text-base">
-                          Veränderungen, die eine Einschränkung der Nutzung zur Folge haben könnten.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
-                          <div>
-                            <strong className="text-brand-brown">Beispiele:</strong>
-                            <ul className="text-brand-default/80 mt-1 space-y-1">
-                              <li>• Mäßige Spat-Veränderungen</li>
-                              <li>• Sehnenverdickungen</li>
-                              <li>• Leichte Atemwegsauffälligkeiten</li>
-                            </ul>
-                          </div>
-                          <div>
-                            <strong className="text-brand-brown">Empfehlung:</strong>
-                            <div className="text-brand-default/80 mt-1">
-                              Kauf nach Abwägung möglich. Verwendungszweck überdenken.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="p-4 md:p-6 bg-white rounded-lg border border-brand-brown/20 shadow-sm">
-                        <h4 className="font-bold text-brand-brown mb-3 flex items-center text-sm md:text-base">
-                          <span className="mr-2">🔴</span> Kategorie IV-V: Deutliche bis hochgradige Befunde
-                        </h4>
-                        <p className="text-brand-default/80 mb-3 text-xs md:text-sm">
-                          Ausgeprägte Veränderungen, die eine erhebliche Einschränkung oder ein hohes Risiko darstellen.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
-                          <div>
-                            <strong className="text-brand-brown">Beispiele:</strong>
-                            <ul className="text-brand-default/80 mt-1 space-y-1">
-                              <li>• Hochgradige Arthrosen</li>
-                              <li>• Chronische Lahmheiten</li>
-                              <li>• Schwere Atemwegserkrankungen</li>
-                              <li>• Bedeutende Herzbefunde</li>
-                            </ul>
-                          </div>
-                          <div>
-                            <strong className="text-brand-brown">Empfehlung:</strong>
-                            <div className="text-brand-default/80 mt-1">
-                              Kauf meist nicht empfohlen. Nur bei speziellen Verwendungszwecken.
+                          <div className="bg-orange-50 p-3 rounded-md">
+                            <strong className="text-orange-700 text-xs md:text-sm">Empfehlung:</strong>
+                            <div className="text-gray-600 mt-1 text-xs md:text-sm">
+                              Die Kaufentscheidung sollte individuell unter Berücksichtigung der spezifischen Befunde,
+                              des geplanten Verwendungszwecks und nach Rücksprache mit dem untersuchenden Tierarzt getroffen werden.
+                              Eine Zweitmeinung kann bei unklaren Befunden sinnvoll sein.
                             </div>
                           </div>
                         </div>
@@ -955,7 +980,7 @@ const AKUPferd: NextPage = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-semibold text-brand-brown mb-3">Wichtige Protokoll-Teile:</h4>
-                        <ul className="space-y-2 text-brand-default/70 text-sm">
+                        <ul className="space-y-2 text-gray-500 text-sm">
                           <li>• <strong>Zusammenfassung:</strong> Gesamtbewertung des Tierarztes</li>
                           <li>• <strong>Einzelbefunde:</strong> Detaillierte Untersuchungsergebnisse</li>
                           <li>• <strong>Röntgenbewertung:</strong> Bildgebende Diagnostik</li>
@@ -965,7 +990,7 @@ const AKUPferd: NextPage = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-brand-brown mb-3">Wichtige Fragen an den Tierarzt:</h4>
-                        <ul className="space-y-2 text-brand-default/70 text-sm">
+                        <ul className="space-y-2 text-gray-500 text-sm">
                           <li>• Wie entwickeln sich die gefundenen Veränderungen?</li>
                           <li>• Welche Nutzungseinschränkungen bestehen?</li>
                           <li>• Sind regelmäßige Behandlungen nötig?</li>
@@ -981,19 +1006,19 @@ const AKUPferd: NextPage = () => {
                     <div className="grid md:grid-cols-3 gap-6">
                       <div className="bg-white p-4 rounded border border-brand-brown/20 shadow-sm">
                         <h4 className="font-semibold text-brand-brown mb-2">Zweitmeinung</h4>
-                        <p className="text-xs text-brand-default/80">
+                        <p className="text-xs text-gray-600">
                           Bei unklaren oder schwerwiegenden Befunden sollten Sie eine zweite tierärztliche Meinung einholen.
                         </p>
                       </div>
                       <div className="bg-white p-4 rounded border border-brand-brown/20 shadow-sm">
                         <h4 className="font-semibold text-brand-brown mb-2">Verwendungszweck</h4>
-                        <p className="text-xs text-brand-default/80">
+                        <p className="text-xs text-gray-600">
                           Bewerten Sie Befunde immer im Kontext des geplanten Verwendungszwecks des Pferdes.
                         </p>
                       </div>
                       <div className="bg-white p-4 rounded border border-brand-brown/20 shadow-sm">
                         <h4 className="font-semibold text-brand-brown mb-2">Nachverhandlung</h4>
-                        <p className="text-xs text-brand-default/80">
+                        <p className="text-xs text-gray-600">
                           AKU-Befunde können als Grundlage für Preisverhandlungen genutzt werden.
                         </p>
                       </div>
@@ -1004,7 +1029,7 @@ const AKUPferd: NextPage = () => {
                   <div className="bg-white rounded-lg p-8 border border-brand-brown/20 shadow-sm mt-8">
                     <div className="text-center">
                       <h3 className="text-2xl font-bold text-brand-brown mb-4">🎯 Pferdewert nach AKU ermitteln</h3>
-                      <p className="text-brand-default/80 mb-6 max-w-2xl mx-auto">
+                      <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                         Sie haben bereits eine AKU durchführen lassen? Nutzen Sie unsere KI-gestützte Bewertung,
                         um den fairen Marktwert Ihres Pferdes basierend auf den AKU-Ergebnissen zu ermitteln.
                       </p>
@@ -1018,165 +1043,245 @@ const AKUPferd: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                </section>
-              )}
-          </div>
+              </section>
+
+              {/* AKU-Tierarzt finden */}
+              <div id="tierarzt" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                  {numberedTitle('tierarzt', 'AKU-Tierarzt finden')}
+                </h2>
+
+                <ContentSection
+                  title="Qualitätskriterien für AKU-Spezialisten"
+                  content={
+                    <>
+                      <p className="text-lg mb-6">
+                        Die Aussagekraft einer Ankaufsuntersuchung steht und fällt mit dem untersuchenden Tierarzt. Suchen Sie
+                        gezielt nach Spezialisten, die regelmäßig AKUs durchführen und über moderne Diagnostik verfügen.
+                      </p>
+                      <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                        <li><strong>Spezialisierung:</strong> Zusatzqualifikation in Kaufuntersuchungen und mindestens 100 AKUs pro Jahr.</li>
+                        <li><strong>Technik:</strong> Digitale Röntgen- und Ultraschallgeräte für hochauflösende Befunde.</li>
+                        <li><strong>Dokumentation:</strong> Standardisierte Protokolle mit klaren Befundbeschreibungen und Prognosen.</li>
+                        <li><strong>Reputation:</strong> Empfehlungen von Reitvereinen, Zuchtverbänden und Pferdekäufern vor Ort.</li>
+                      </ul>
+                    </>
+                  }
+                />
+
+                <ContentSection
+                  title="Regionale Schwerpunkte in Deutschland"
+                  content={
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                      <InfoBox
+                        type="expert"
+                        title="Bayern"
+                        content={
+                          <p className="text-sm md:text-base">
+                            Warmblut-Zentren mit hochspezialisierten Praxen und besonders detaillierten Gutachten – ideal für
+                            Sport- und Zuchtpferde.
+                          </p>
+                        }
+                      />
+                      <InfoBox
+                        type="tip"
+                        title="Niedersachsen"
+                        content={
+                          <p className="text-sm md:text-base">
+                            Größte Dichte an AKU-Tierärzten. Generationenlange Erfahrung mit unterschiedlichen Warmblutlinien
+                            und deren typischen Befundmustern.
+                          </p>
+                        }
+                      />
+                      <InfoBox
+                        type="warning"
+                        title="Nordrhein-Westfalen"
+                        content={
+                          <p className="text-sm md:text-base">
+                            Fokus auf Freizeit- und Schulpferde. Angebote sind oftmals flexibel und auf städtische Pferdehalter
+                            zugeschnitten.
+                          </p>
+                        }
+                      />
+                    </div>
+                  }
+                />
+
+                <ContentSection
+                  title="Zweitmeinung & Qualitätssicherung"
+                  content={
+                    <>
+                      <p className="text-lg mb-4">
+                        Bei widersprüchlichen Befunden oder hochpreisigen Pferden lohnt sich eine unabhängige Zweitmeinung. So
+                        stellen Sie sicher, dass keine relevanten Risiken übersehen werden.
+                      </p>
+                      <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                        <li>• Zweitmeinung anfordern, wenn Befunde zu einem Kaufabbruch führen würden.</li>
+                        <li>• Digitale Röntgenbilder erleichtern die externe Bewertung.</li>
+                        <li>• PferdeWert.de bietet eine neutrale Befundanalyse als zusätzliche Entscheidungshilfe.</li>
+                      </ul>
+                    </>
+                  }
+                />
+              </div>
+
+              {/* Marktwert & Daten */}
+              <div id="valuation" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                  {numberedTitle('valuation', 'AKU-Ergebnisse in der Pferdebewertung')}
+                </h2>
+
+                <ContentSection
+                  title="Wie Befunde den Marktwert beeinflussen"
+                  content={
+                    <>
+                      <p className="text-lg mb-6">
+                        Unsere Auswertung von über 1.000 Verkäufen zeigt, wie stark AKU-Ergebnisse die Preisfindung prägen.
+                        Befunde werden je nach Schweregrad und Verwendungszweck sehr unterschiedlich bewertet.
+                      </p>
+                      <InfoBox
+                        type="cost"
+                        title="Typische Preiswirkungen"
+                        content={
+                          <ul className="space-y-2 text-sm md:text-base">
+                            <li><strong>Geringfügige Befunde:</strong> 3–8 % Preisabschlag, oft verhandelbar.</li>
+                            <li><strong>Moderate Befunde:</strong> 8–18 % Wertminderung, Einsatzgebiet kritisch prüfen.</li>
+                            <li><strong>Deutliche Befunde:</strong> 18–35 % Abschlag, ggf. Kaufabbruch empfehlen.</li>
+                          </ul>
+                        }
+                      />
+                      <p className="text-gray-700 text-sm md:text-base">
+                        Warmblüter reagieren sensibler auf Befunde als Robustrassen, regionale Märkte unterscheiden sich ebenfalls
+                        um bis zu zehn Prozentpunkten in der Akzeptanz.
+                      </p>
+                    </>
+                  }
+                />
+
+                <ContentSection
+                  title="Integration in die Wertermittlung von PferdeWert.de"
+                  content={
+                    <>
+                      <p className="text-lg mb-4">
+                        Als einzige Plattform in Deutschland verknüpfen wir AKU-Gutachten direkt mit unserer KI-gestützten
+                        Marktwertermittlung. So erhalten Sie eine transparente, datenbasierte Einschätzung.
+                      </p>
+                      <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                        <li>• <strong>KI-Analyse:</strong> Automatische Verarbeitung kompletter Gutachten in Echtzeit.</li>
+                        <li>• <strong>Vor/Nach-Vergleich:</strong> Sehen Sie sofort, wie sich der Wert nach der AKU verändert.</li>
+                        <li>• <strong>Nachvollziehbarkeit:</strong> Jede Preisänderung wird mit den relevanten Befunden begründet.</li>
+                      </ul>
+                    </>
+                  }
+                />
+
+                <ContentSection
+                  title="Datenbasierte Kaufberatung"
+                  content={
+                    <>
+                      <p className="text-lg mb-4">
+                        Machine-Learning-Modelle erkennen Muster, Kombinationen und Folgekosten, die in herkömmlichen Gutachten
+                        oft verborgen bleiben. So treffen Sie Kaufentscheidungen auf Basis belastbarer Prognosen.
+                      </p>
+                      <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                        <li>• Predictive Analytics zu Folgekosten einzelner Befunde.</li>
+                        <li>• Risikoanalyse für kritische Befundkombinationen.</li>
+                        <li>• Ableitung von Therapie- und Versicherungsstrategien aus Marktdaten.</li>
+                      </ul>
+                    </>
+                  }
+                />
+
+                <p className="text-lg text-gray-700">
+                  <strong>Fazit:</strong> Die AKU ist weit mehr als eine Formalität – sie ermöglicht eine fundierte, datenbasierte
+                  Kaufentscheidung. Kombiniert mit den Marktwert-Analysen von PferdeWert.de gewinnen Sie Sicherheit bei Preis,
+                  Risiko und zukünftiger Nutzung.
+                </p>
+              </div>
+          </article>
 
           {/* FAQ Section */}
-          <div className="mt-12">
+          <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
             <FAQ
               faqs={faqItems}
               sectionTitle="Häufig gestellte Fragen zur AKU beim Pferd"
             />
-          </div>
+          </section>
 
-          {/* Related Articles Section - V0 Grid Layout */}
-          <section className="py-20 px-6">
-            <div className="max-w-7xl mx-auto">
-              {/* Sektion Header - Minimaler Text, klare Struktur */}
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-serif font-bold text-foreground mb-4">📚 Weiterführende Artikel</h2>
-                <p className="text-lg text-brand-default max-w-2xl mx-auto">
-                  Vertiefen Sie Ihr Wissen über Ankaufsuntersuchungen beim Pferd
+          {/* Related Articles Section - Warm Neutral Panel */}
+          <section id="related" className="py-16 px-6 mt-16 bg-[#f7f1e8] rounded-3xl scroll-mt-32 lg:scroll-mt-40">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-14">
+                <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
+                  {numberedTitle('related', 'Weiterführende Artikel')}
+                </h2>
+                <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                  Vertiefen Sie Ihr Wissen über Ankaufsuntersuchungen beim Pferd.
                 </p>
               </div>
 
-              {/* Artikel Grid - Optimale Bild-Text-Verteilung */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="group hover:shadow-lg transition-all duration-300 border border-border bg-card rounded-lg">
-                  <div className="p-0">
-                    {/* Bild Platzierung: Oben, 4:3 Format für Konsistenz */}
-                    <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
+                {relatedArticles.map(article => (
+                  <div
+                    key={article.href}
+                    className="group bg-white rounded-3xl border border-[#e7e0d4] overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
                       <img
-                        src="/images/aku-kosten-calculator.jpg"
-                        alt="AKU Pferd Kosten 2025"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                  </div>
-                  <div className="p-6">
-                    {/* Kategorie Badge */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-medium bg-muted text-brand-default px-2 py-1 rounded">
-                        Kosten & Preise
-                      </span>
-                      <span className="text-xs text-brand-default">8 Min.</span>
-                    </div>
+                    <div className="p-6 flex flex-col h-full">
+                      <div className="flex items-center gap-2 mb-3 text-xs font-medium text-gray-600">
+                        <span className="px-3 py-1 bg-[#f2e6d8] text-[#8c5a1f] rounded-full">{article.badge}</span>
+                        <span>{article.readTime}</span>
+                      </div>
 
-                    {/* Titel - Fokus auf Lesbarkeit */}
-                    <h3 className="text-xl font-serif mb-3 text-balance group-hover:text-primary transition-colors">
-                      AKU Pferd Kosten 2025
-                    </h3>
+                      <h3 className="text-xl font-serif font-semibold text-gray-900 mb-3 group-hover:text-[#92400e] transition-colors">
+                        {article.title}
+                      </h3>
 
-                    {/* Beschreibung - Optimale Textlänge für Scanbarkeit */}
-                    <p className="text-brand-default text-sm leading-relaxed mb-4 text-pretty">
-                      Aktuelle Preise und detaillierte Kostenübersicht für alle AKU-Klassen beim Pferdekauf
-                    </p>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6 text-pretty flex-1">
+                        {article.description}
+                      </p>
 
-                    {/* CTA Button */}
-                    <Link href="/aku-pferd-kosten">
-                      <button className="w-full group-hover:bg-[#92400e] group-hover:text-white transition-colors bg-transparent border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] h-9 px-3 rounded-md text-sm font-medium">
-                        Artikel lesen
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="group hover:shadow-lg transition-all duration-300 border border-border bg-card rounded-lg">
-                  <div className="p-0">
-                    <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
-                      <img
-                        src="/images/aku-ablauf-timeline.jpg"
-                        alt="AKU Pferd Ablauf"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
+                      <Link href={article.href} className="w-full">
+                        <button className="w-full h-10 px-3 rounded-lg border border-[#92400e] text-[#92400e] font-medium text-sm transition-colors group-hover:bg-[#92400e] group-hover:text-white hover:bg-[#92400e] hover:text-white">
+                          Artikel lesen
+                        </button>
+                      </Link>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-medium bg-muted text-brand-default px-2 py-1 rounded">
-                        Ablauf & Dauer
-                      </span>
-                      <span className="text-xs text-brand-default">12 Min.</span>
-                    </div>
-                    <h3 className="text-xl font-serif mb-3 text-balance group-hover:text-primary transition-colors">
-                      AKU Pferd Ablauf
-                    </h3>
-                    <p className="text-brand-default text-sm leading-relaxed mb-4 text-pretty">
-                      Schritt-für-Schritt Guide durch die gesamte Ankaufsuntersuchung vom Termin bis zum Protokoll
-                    </p>
-                    <Link href="/aku-pferd-ablauf">
-                      <button className="w-full group-hover:bg-[#92400e] group-hover:text-white transition-colors bg-transparent border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] h-9 px-3 rounded-md text-sm font-medium">
-                        Artikel lesen
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="group hover:shadow-lg transition-all duration-300 border border-border bg-card rounded-lg">
-                  <div className="p-0">
-                    <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
-                      <img
-                        src="/images/aku-klassen-comparison.jpg"
-                        alt="AKU Pferd Klassen"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-medium bg-muted text-brand-default px-2 py-1 rounded">
-                        Klassen & Umfang
-                      </span>
-                      <span className="text-xs text-brand-default">10 Min.</span>
-                    </div>
-                    <h3 className="text-xl font-serif mb-3 text-balance group-hover:text-primary transition-colors">
-                      AKU Pferd Klassen
-                    </h3>
-                    <p className="text-brand-default text-sm leading-relaxed mb-4 text-pretty">
-                      Detaillierte Unterschiede zwischen Klasse I und II Untersuchungen mit Entscheidungshilfe
-                    </p>
-                    <Link href="/aku-pferd-klassen">
-                      <button className="w-full group-hover:bg-[#92400e] group-hover:text-white transition-colors bg-transparent border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] h-9 px-3 rounded-md text-sm font-medium">
-                        Artikel lesen
-                      </button>
-                    </Link>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </section>
 
-          {/* Final CTA - v0 Design Pattern */}
-          <section className="py-20 bg-muted/30">
-            <div className="max-w-4xl mx-auto px-6 text-center">
-              {/* Feature-Bild für emotionale Verbindung */}
-              <div className="mb-12">
-                <img
-                  src="/happy-horse-owner-with-horse--professional-consult.jpg"
-                  alt="Professionelle Pferdeberatung mit AKU-Expertise"
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
-                />
-              </div>
+          {/* Final CTA - warm neutral block */}
+          <section id="cta" className="py-20 mt-16 scroll-mt-32 lg:scroll-mt-40">
+            <div className="max-w-5xl mx-auto px-6">
+              <div className="bg-[#fdf7f1] border border-[#eadfcd] rounded-3xl p-10 md:p-14 shadow-sm text-center">
+                <div className="mb-10">
+                  <img
+                    src="/happy-horse-owner-with-horse--professional-consult.jpg"
+                    alt="Professionelle Pferdeberatung mit AKU-Expertise"
+                    className="w-full max-w-2xl mx-auto rounded-2xl shadow-lg"
+                  />
+                </div>
 
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 text-balance">
-                Bereit für eine professionelle Pferdebewertung?
-              </h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-5 text-balance">
+                  {numberedTitle('cta', 'Professionelle Bewertung & Beratung')}
+                </h2>
 
-              <p className="text-lg text-brand-default mb-8 max-w-2xl mx-auto text-pretty">
-                Nutzen Sie unsere KI-gestützte Bewertung für eine objektive Einschätzung.
-                Berücksichtigt AKU-Befunde und aktuelle Marktdaten für präzise Ergebnisse.
-              </p>
+                <p className="text-lg text-gray-700 mb-10 max-w-2xl mx-auto text-pretty">
+                  Nutzen Sie unsere KI-gestützte Analyse für eine objektive Einschätzung inklusive AKU-Befunden und aktueller Marktdaten.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/pferde-preis-berechnen">
-                  <button className="px-8 py-3 bg-[#92400e] hover:bg-[#78350f] text-white rounded-lg transition-colors font-medium text-lg">
+                  <button className="px-10 py-4 bg-[#92400e] hover:bg-[#78350f] text-white rounded-xl transition-colors font-semibold text-lg shadow-md">
                     Pferdewert berechnen
-                  </button>
-                </Link>
-                <Link href="/was-ist-mein-pferd-wert">
-                  <button className="px-8 py-3 border border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] rounded-lg transition-colors font-medium text-lg">
-                    Pferd bewerten lassen
                   </button>
                 </Link>
               </div>
