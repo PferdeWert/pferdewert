@@ -18,7 +18,6 @@ module.exports = {
         brand: {
           DEFAULT: "#4e463b",      // Dunkelbraun – Texte, Grundfarbe
           light: "#f8f8f6",        // Helles Beige – Flächen
-          accent: "#3068d6",       // Modernes Blau – Links/Buttons
           green: "#406243",        // Waldgrün – Akzent
           gold: "#f6c36a",         // Amber/Gold – Highlights
           brown: "#92400e",        // Haupt-CTA wie im Header

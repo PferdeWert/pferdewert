@@ -17,7 +17,7 @@ export default function PferdVerkaufen() {
       description: "Lass den Marktwert professionell bewerten, bevor du inserierst. So verkaufst du weder zu teuer noch zu günstig."
     },
     {
-      icon: <TrendingUp className="w-6 h-6 text-brand-accent" />,
+      icon: <TrendingUp className="w-6 h-6 text-brand-green" />,
       title: "Schneller verkaufen",
       description: "Der richtige Preis führt zu mehr Anfragen und schnellerem Verkauf. Vermeide monatelanges Inserieren."
     },

@@ -276,8 +276,8 @@ export default function WasIstMeinPferdWert() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 bg-brand-accent/10 rounded-full flex items-center justify-center mb-4">
-                  <TrendingUp className="w-8 h-8 text-brand-accent" />
+                <div className="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-4">
+                  <TrendingUp className="w-8 h-8 text-brand-green" />
                 </div>
                 <h3 className="text-h3 font-semibold text-gray-800 mb-2">
                   Marktbasierte Daten

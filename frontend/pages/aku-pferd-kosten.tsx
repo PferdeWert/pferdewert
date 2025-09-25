@@ -451,13 +451,13 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Standard AKU */}
-                  <div className="border-l-4 border-brand-accent bg-brand-light/50 p-6 rounded-r-lg relative">
+                  <div className="border-l-4 border-brand-green bg-brand-light/50 p-6 rounded-r-lg relative">
                     <div className="absolute -top-2 right-4">
                       <span className="bg-brand-brown text-white text-xs font-bold px-3 py-1 rounded-full">BELIEBT</span>
                     </div>
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-xl font-bold text-brand">Große AKU (Klasse 3)</h3>
-                      <span className="bg-brand-accent/20 text-brand px-3 py-1 rounded-full text-sm font-medium">Standard</span>
+                      <span className="bg-brand-green/20 text-brand px-3 py-1 rounded-full text-sm font-medium">Standard</span>
                     </div>
                     <div className="flex items-baseline gap-3 mb-4">
                       <span className="text-3xl font-bold text-brand-brown">600 - 1.200€</span>
@@ -553,7 +553,7 @@ const AKUPferdKosten: NextPage = () => {
                         <div className="font-bold text-brand-brown mt-3">Kosten: 150-400€</div>
                       </div>
 
-                      <div className="border-l-4 border-brand-accent bg-brand-light/30 p-4 rounded-r-lg">
+                      <div className="border-l-4 border-brand-green bg-brand-light/30 p-4 rounded-r-lg">
                         <h4 className="font-semibold text-brand">Standarduntersuchung (AKU Klasse 3)</h4>
                         <ul className="text-sm text-brand/70 mt-2 space-y-1">
                           <li>• Röntgenaufnahmen der Gliedmaßen</li>
@@ -598,10 +598,10 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-3 md:gap-6 mb-8">
-                    <div className="bg-brand-light/30 rounded-lg p-4 border border-brand-light hover:border-brand-accent/30 transition-colors duration-200">
+                    <div className="bg-brand-light/30 rounded-lg p-4 border border-brand-light hover:border-brand-green/30 transition-colors duration-200">
                       <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 bg-brand-accent/20 rounded-full flex items-center justify-center mr-3">
-                          <span className="text-brand-accent font-bold text-sm">1</span>
+                        <div className="w-8 h-8 bg-brand-green/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-brand-green font-bold text-sm">1</span>
                         </div>
                         <label className="block text-brand font-semibold text-sm md:text-base" htmlFor="horse-value">
                           Pferdewert (€)
@@ -612,7 +612,7 @@ const AKUPferdKosten: NextPage = () => {
                         type="number"
                         value={horseValue}
                         onChange={(e) => setHorseValue(parseInt(e.target.value) || 0)}
-                        className="w-full p-4 md:p-3 text-lg md:text-base border border-brand-light rounded-lg focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all duration-200 bg-white min-h-[48px]"
+                        className="w-full p-4 md:p-3 text-lg md:text-base border border-brand-light rounded-lg focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all duration-200 bg-white min-h-[48px]"
                         placeholder="z.B. 15000"
                         aria-describedby="horse-value-help"
                         min="0"
@@ -725,7 +725,7 @@ const AKUPferdKosten: NextPage = () => {
 
                 {costCalculation && (
                   <div
-                    className={`bg-white rounded-xl p-6 md:p-8 border-2 border-brand-accent/30 shadow-soft transition-all duration-700 ease-out ${
+                    className={`bg-white rounded-xl p-6 md:p-8 border-2 border-brand-green/30 shadow-soft transition-all duration-700 ease-out ${
                       animateResults
                         ? 'opacity-100 transform translate-y-0'
                         : 'opacity-0 transform translate-y-4'
@@ -774,19 +774,19 @@ const AKUPferdKosten: NextPage = () => {
 
                     {/* Cost breakdown */}
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-6">
-                      <div className={`bg-brand-accent/10 rounded-lg p-4 border border-brand-accent/30 transition-all duration-500 delay-300 ${
+                      <div className={`bg-brand-green/10 rounded-lg p-4 border border-brand-green/30 transition-all duration-500 delay-300 ${
                         animateResults ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
                       }`}>
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-brand-accent font-medium flex items-center">
+                          <span className="text-brand-green font-medium flex items-center">
                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                             Basis AKU-Kosten
                           </span>
-                          <span className="font-bold text-brand-accent text-lg">{costCalculation.basePrice.toLocaleString()}€</span>
+                          <span className="font-bold text-brand-green text-lg">{costCalculation.basePrice.toLocaleString()}€</span>
                         </div>
-                        <div className="text-xs text-brand-accent/80">Klasse {costCalculation.akuClass} • {selectedRegion}</div>
+                        <div className="text-xs text-brand-green/80">Klasse {costCalculation.akuClass} • {selectedRegion}</div>
                       </div>
 
                       <div className={`bg-brand-gold/20 rounded-lg p-4 border border-brand-gold/40 transition-all duration-500 delay-400 ${
@@ -920,7 +920,7 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Regional Price Comparison */}
-              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-accent relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-green relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-24 h-24 bg-brand-light/30 rounded-full -translate-y-12 -translate-x-12 opacity-60"></div>
                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-light/30 rounded-full translate-y-16 translate-x-16 opacity-60"></div>
@@ -939,11 +939,11 @@ const AKUPferdKosten: NextPage = () => {
 
                   <div className="space-y-4 md:space-y-6">
                     {REGIONAL_PRICING.map((region, index) => (
-                      <div key={index} className="bg-white border border-brand-light/50 rounded-xl p-4 md:p-6 hover:shadow-soft transition-all duration-300 hover:border-brand-accent/30">
+                      <div key={index} className="bg-white border border-brand-light/50 rounded-xl p-4 md:p-6 hover:shadow-soft transition-all duration-300 hover:border-brand-green/30">
                         {/* Region Header */}
                         <div className="flex items-center justify-between mb-4 md:mb-6">
                           <h3 className="text-lg md:text-xl font-serif font-bold text-brand flex items-center">
-                            <span className="inline-flex items-center justify-center w-8 h-8 bg-brand-accent text-white rounded-full text-sm font-bold mr-3">
+                            <span className="inline-flex items-center justify-center w-8 h-8 bg-brand-green text-white rounded-full text-sm font-bold mr-3">
                               {index + 1}
                             </span>
                             {region.region}
@@ -974,9 +974,9 @@ const AKUPferdKosten: NextPage = () => {
                                 <span className="text-brand/70 font-medium">Klasse I (Basis)</span>
                                 <span className="font-bold text-brand-green">{region.classI.min}-{region.classI.max}€</span>
                               </div>
-                              <div className="flex justify-between items-center p-2 bg-brand-accent/10 rounded text-sm">
+                              <div className="flex justify-between items-center p-2 bg-brand-green/10 rounded text-sm">
                                 <span className="text-brand/70 font-medium">Klasse II (Standard)</span>
-                                <span className="font-bold text-brand-accent">{region.classII.min}-{region.classII.max}€</span>
+                                <span className="font-bold text-brand-green">{region.classII.min}-{region.classII.max}€</span>
                               </div>
                               <div className="flex justify-between items-center p-2 bg-brand-gold/20 rounded text-sm">
                                 <span className="text-brand/70 font-medium">Klasse III-V (Premium)</span>
@@ -1010,8 +1010,8 @@ const AKUPferdKosten: NextPage = () => {
                         {/* Price Factors */}
                         <div className="mt-4 bg-brand-light/30 p-4 rounded-lg border border-brand-light/50">
                           <div className="flex items-center mb-2">
-                            <div className="w-6 h-6 bg-brand-accent/20 rounded-full flex items-center justify-center mr-2">
-                              <svg className="w-3 h-3 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-6 h-6 bg-brand-green/20 rounded-full flex items-center justify-center mr-2">
+                              <svg className="w-3 h-3 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                               </svg>
                             </div>
@@ -1117,7 +1117,7 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Who Pays Section */}
-              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-accent relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-green relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-28 h-28 bg-brand-light/30 rounded-full -translate-y-14 translate-x-14 opacity-60"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-light/30 rounded-full translate-y-12 -translate-x-12 opacity-60"></div>
@@ -1165,30 +1165,30 @@ const AKUPferdKosten: NextPage = () => {
                     </div>
 
                     {/* Exceptions: Seller Participates Card */}
-                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-accent hover:shadow-soft transition-all duration-300 shadow-sm">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-green hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-accent">Ausnahmen: Verkäufer beteiligt</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-green">Ausnahmen: Verkäufer beteiligt</h3>
                       </div>
                       <ul className="space-y-3 text-brand/70">
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Verkaufsvereinbarung:</strong> Explizite Kostenteilung</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Gewährleistung:</strong> Bei versprochener Gesundheit</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Professionelle Händler:</strong> Oft als Service</span>
                         </li>
                         <li className="flex items-start text-sm md:text-base">
-                          <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span><strong>Auktionshäuser:</strong> Meist im Kaufpreis enthalten</span>
                         </li>
                       </ul>
@@ -1256,7 +1256,7 @@ const AKUPferdKosten: NextPage = () => {
                   </div>
 
                   {/* Checklist Section */}
-                  <div className="bg-brand-light/30 p-4 md:p-6 rounded-xl border-l-4 border-brand-accent shadow-soft">
+                  <div className="bg-brand-light/30 p-4 md:p-6 rounded-xl border-l-4 border-brand-green shadow-soft">
                     <div className="text-center mb-4 md:mb-6">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-brown rounded-full mb-3">
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1269,7 +1269,7 @@ const AKUPferdKosten: NextPage = () => {
 
                     <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                       {/* Pre-clarification Card */}
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-accent">
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-green">
                         <div className="flex items-center mb-3">
                           <div className="w-8 h-8 bg-brand-light rounded-full flex items-center justify-center mr-3">
                             <svg className="w-4 h-4 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1365,14 +1365,14 @@ const AKUPferdKosten: NextPage = () => {
 
                   <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
                     {/* Veterinarian Selection Card */}
-                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-accent hover:shadow-soft transition-all duration-300 shadow-sm">
+                    <div className="bg-white rounded-xl p-4 md:p-6 border-l-4 border-brand-green hover:shadow-soft transition-all duration-300 shadow-sm">
                       <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                           </svg>
                         </div>
-                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-accent">Tierarzt-Auswahl strategisch planen</h3>
+                        <h3 className="text-lg md:text-xl font-serif font-bold text-brand-green">Tierarzt-Auswahl strategisch planen</h3>
                       </div>
 
                       <div className="space-y-3">
@@ -1382,12 +1382,12 @@ const AKUPferdKosten: NextPage = () => {
                           { title: "Vergleichsangebote", desc: "Kostenvoranschläge von 3-4 verschiedenen Praxen", saving: "15-25%" },
                           { title: "Standortwahl", desc: "Tierärzte in ländlichen Gebieten oft preiswerter", saving: "10-20%" }
                         ].map((tip, index) => (
-                          <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm border-l-2 border-brand-accent/30 hover:shadow-soft transition-shadow">
+                          <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm border-l-2 border-brand-green/30 hover:shadow-soft transition-shadow">
                             <div className="flex items-start justify-between">
                               <div className="flex items-start flex-1">
-                                <span className="inline-block w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span className="inline-block w-2 h-2 bg-brand-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div className="flex-1">
-                                  <h4 className="font-semibold text-brand-accent text-sm md:text-base">{tip.title}</h4>
+                                  <h4 className="font-semibold text-brand-green text-sm md:text-base">{tip.title}</h4>
                                   <p className="text-brand/60 text-xs md:text-sm mt-1">{tip.desc}</p>
                                 </div>
                               </div>
@@ -1474,8 +1474,8 @@ const AKUPferdKosten: NextPage = () => {
                         </div>
                       </div>
 
-                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-accent/30">
-                        <h4 className="font-semibold text-brand-accent mb-3 flex items-center">
+                      <div className="bg-white rounded-lg p-4 md:p-5 shadow-sm border-l-2 border-brand-green/30">
+                        <h4 className="font-semibold text-brand-green mb-3 flex items-center">
                           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                           </svg>
@@ -1489,7 +1489,7 @@ const AKUPferdKosten: NextPage = () => {
                             "Zahlungsmodalitäten vorab klären"
                           ].map((item, index) => (
                             <label key={index} className="flex items-center cursor-pointer">
-                              <input type="checkbox" className="mr-2 rounded text-brand-accent focus:ring-brand-accent" />
+                              <input type="checkbox" className="mr-2 rounded text-brand-green focus:ring-brand-green" />
                               <span className="text-brand/70 text-xs md:text-sm">{item}</span>
                             </label>
                           ))}
@@ -1518,7 +1518,7 @@ const AKUPferdKosten: NextPage = () => {
                       </div>
 
                       <p className="text-brand/70 text-sm md:text-base leading-relaxed mb-4">
-                        Nutzen Sie unsere <strong className="text-brand-accent">KI-gestützte Pferdebewertung</strong> für nur 14,90€, um bereits vor der AKU
+                        Nutzen Sie unsere <strong className="text-brand-green">KI-gestützte Pferdebewertung</strong> für nur 14,90€, um bereits vor der AKU
                         eine präzise Einschätzung des Pferdewertes zu erhalten. So können Sie die angemessene Investition
                         in die Ankaufsuntersuchung fundiert planen und <strong className="text-brand-green">bis zu 500€ sparen</strong>.
                       </p>
@@ -1555,14 +1555,14 @@ const AKUPferdKosten: NextPage = () => {
               </section>
 
               {/* Tax Aspects Section */}
-              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-accent relative overflow-hidden">
+              <section className="bg-white rounded-xl shadow-soft p-4 md:p-8 border-l-4 border-brand-green relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/30 rounded-full -translate-y-16 translate-x-16 opacity-70"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-light/20 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
 
                 <div className="relative z-10">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent rounded-full mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green rounded-full mb-4">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
@@ -1775,7 +1775,7 @@ const AKUPferdKosten: NextPage = () => {
                   {/* Digital Pre-Examination Highlight */}
                   <div className="bg-brand-light rounded-xl shadow-lg p-4 md:p-8 border border-brand-green/20 mb-6 md:mb-8">
                     <div className="text-center mb-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent rounded-full mb-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green rounded-full mb-4">
                         <span className="text-2xl">💻</span>
                       </div>
                       <h3 className="text-lg md:text-xl font-bold text-brand-brown mb-2">Digitale Voruntersuchung</h3>
@@ -2063,7 +2063,7 @@ const AKUPferdKosten: NextPage = () => {
                         color: "blue",
                         icon: "🏆",
                         badge: "Standard",
-                        badgeStyle: "bg-brand-accent text-white",
+                        badgeStyle: "bg-brand-green text-white",
                         features: [
                           { icon: "💰", text: "Pferdewert: 5.000-25.000€", highlight: true },
                           { icon: "🔍", text: "Erweiterte Untersuchung", highlight: false },
@@ -2224,7 +2224,7 @@ const AKUPferdKosten: NextPage = () => {
                     <div className="mt-6 p-4 bg-brand-light rounded-lg border border-brand-gold/30">
                       <div className="text-center">
                         <p className="text-sm text-gray-700 mb-3">
-                          <strong>💡 Smarter Ansatz:</strong> Nutzen Sie unsere KI-Bewertung für nur <span className="text-brand-accent font-bold">14,90€</span> und sparen Sie bis zu <span className="text-brand-green font-bold">98%</span> der AKU-Kosten!
+                          <strong>💡 Smarter Ansatz:</strong> Nutzen Sie unsere KI-Bewertung für nur <span className="text-brand-green font-bold">14,90€</span> und sparen Sie bis zu <span className="text-brand-green font-bold">98%</span> der AKU-Kosten!
                         </p>
                         <button
                           onClick={() => {
@@ -2399,7 +2399,7 @@ const AKUPferdKosten: NextPage = () => {
                   highlight: true
                 }
               ].map((paymentCase, index) => (
-                <div key={index} className={`bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg ${paymentCase.highlight ? 'ring-2 ring-brand-accent ring-opacity-50' : ''}`}>
+                <div key={index} className={`bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg ${paymentCase.highlight ? 'ring-2 ring-brand-green ring-opacity-50' : ''}`}>
                   <div className="flex items-start gap-4 mb-6">
                     <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-brand-brown rounded-full flex items-center justify-center shadow-lg">
                       <span className="text-lg md:text-xl text-white">{paymentCase.icon}</span>
@@ -2635,7 +2635,7 @@ const AKUPferdKosten: NextPage = () => {
               ].map((horseType, index) => (
                 <div
                   key={index}
-                  className={`group bg-brand-light rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${horseType.highlight ? 'ring-2 ring-brand-accent ring-opacity-50 scale-105' : ''}`}
+                  className={`group bg-brand-light rounded-xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${horseType.highlight ? 'ring-2 ring-brand-green ring-opacity-50 scale-105' : ''}`}
                 >
                   <div className="text-center mb-6">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-brown rounded-full mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -2741,7 +2741,7 @@ const AKUPferdKosten: NextPage = () => {
                 ].map((range, index) => (
                   <div
                     key={index}
-                    className={`bg-white p-4 md:p-6 rounded-xl border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${range.highlight ? 'border-brand-accent ring-2 ring-brand-accent ring-opacity-20' : 'border-gray-200'}`}
+                    className={`bg-white p-4 md:p-6 rounded-xl border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${range.highlight ? 'border-brand-green ring-2 ring-brand-green ring-opacity-20' : 'border-gray-200'}`}
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">{range.icon}</div>
@@ -3087,7 +3087,7 @@ const AKUPferdKosten: NextPage = () => {
                     color: "purple"
                   }
                 ].map((step, index) => (
-                  <div key={index} className={`relative group bg-white rounded-xl p-4 md:p-6 border-2 ${step.color === 'green' ? 'border-brand-green hover:border-brand-green' : step.color === 'blue' ? 'border-brand-accent hover:border-brand-accent' : 'border-brand-brown hover:border-brand-brown'} transition-all duration-300 hover:shadow-lg ${step.popular ? 'ring-2 ring-brand-green ring-opacity-50' : ''}`}>
+                  <div key={index} className={`relative group bg-white rounded-xl p-4 md:p-6 border-2 ${step.color === 'green' ? 'border-brand-green hover:border-brand-green' : step.color === 'blue' ? 'border-brand-green hover:border-brand-green' : 'border-brand-brown hover:border-brand-brown'} transition-all duration-300 hover:shadow-lg ${step.popular ? 'ring-2 ring-brand-green ring-opacity-50' : ''}`}>
                     {step.popular && (
                       <div className="absolute -top-3 left-4 bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold">
                         Beliebteste Option
@@ -3095,12 +3095,12 @@ const AKUPferdKosten: NextPage = () => {
                     )}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className={`w-10 h-10 ${step.color === 'green' ? 'bg-brand-green' : step.color === 'blue' ? 'bg-brand-accent' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-4 text-white`}>
+                        <div className={`w-10 h-10 ${step.color === 'green' ? 'bg-brand-green' : step.color === 'blue' ? 'bg-brand-green' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-4 text-white`}>
                           {step.icon}
                         </div>
                         <div>
                           <div className="flex items-center">
-                            <span className={`font-bold ${step.color === 'green' ? 'text-brand-green' : step.color === 'blue' ? 'text-brand-accent' : 'text-brand-brown'} mr-3 text-lg`}>{step.stage}:</span>
+                            <span className={`font-bold ${step.color === 'green' ? 'text-brand-green' : step.color === 'blue' ? 'text-brand-green' : 'text-brand-brown'} mr-3 text-lg`}>{step.stage}:</span>
                             <span className="font-bold text-gray-800">{step.title}</span>
                           </div>
                           <p className="text-sm text-gray-600 mt-1">{step.description}</p>
@@ -3108,7 +3108,7 @@ const AKUPferdKosten: NextPage = () => {
                       </div>
                       <div className="text-right">
                         <div className="font-bold text-lg text-gray-800">{step.price}</div>
-                        <div className={`text-xs ${step.color === 'green' ? 'bg-green-50 text-brand-green' : step.color === 'blue' ? 'bg-blue-50 text-brand-accent' : 'bg-amber-50 text-brand-brown'} px-2 py-1 rounded-full`}>
+                        <div className={`text-xs ${step.color === 'green' ? 'bg-green-50 text-brand-green' : step.color === 'blue' ? 'bg-blue-50 text-brand-green' : 'bg-amber-50 text-brand-brown'} px-2 py-1 rounded-full`}>
                           {step.savings}
                         </div>
                       </div>
@@ -3162,16 +3162,16 @@ const AKUPferdKosten: NextPage = () => {
                 ].map((category, index) => (
                   <div key={index} className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                     <div className="flex items-center mb-4">
-                      <div className={`w-10 h-10 ${category.color === 'green' ? 'bg-brand-green' : category.color === 'blue' ? 'bg-brand-accent' : category.color === 'amber' ? 'bg-brand-gold' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-3 text-white`}>
+                      <div className={`w-10 h-10 ${category.color === 'green' ? 'bg-brand-green' : category.color === 'blue' ? 'bg-brand-green' : category.color === 'amber' ? 'bg-brand-gold' : 'bg-brand-brown'} rounded-lg flex items-center justify-center mr-3 text-white`}>
                         {category.icon}
                       </div>
                       <h4 className="font-bold text-gray-800 text-lg">{category.title}</h4>
                     </div>
                     <div className="space-y-3">
                       {category.tips.map((tip, tipIndex) => (
-                        <div key={tipIndex} className={`flex items-start p-3 rounded-lg transition-colors ${tip.highlight ? 'bg-blue-50 border border-brand-accent' : 'hover:bg-gray-50'}`}>
+                        <div key={tipIndex} className={`flex items-start p-3 rounded-lg transition-colors ${tip.highlight ? 'bg-blue-50 border border-brand-green' : 'hover:bg-gray-50'}`}>
                           <span className="text-lg mr-3 flex-shrink-0">{tip.icon}</span>
-                          <span className={`text-sm ${tip.highlight ? 'text-brand-accent font-medium' : 'text-gray-700'}`}>
+                          <span className={`text-sm ${tip.highlight ? 'text-brand-green font-medium' : 'text-gray-700'}`}>
                             {tip.text}
                           </span>
                         </div>
@@ -3183,7 +3183,7 @@ const AKUPferdKosten: NextPage = () => {
 
               {/* Bottom CTA */}
               <div className="mt-8 text-center">
-                <div className="bg-brand-accent rounded-xl p-6 text-white shadow-xl">
+                <div className="bg-brand-green rounded-xl p-6 text-white shadow-xl">
                   <h4 className="text-lg font-bold mb-2">Starten Sie smart mit unserer KI-Bewertung</h4>
                   <p className="text-blue-100 text-sm mb-4">Risiko minimieren, Kosten sparen, bessere Entscheidungen treffen</p>
                   <button
@@ -3338,7 +3338,7 @@ const AKUPferdKosten: NextPage = () => {
                 ].map((benefit, index) => (
                   <div key={index} className={`group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${benefit.color === 'blue' ? 'border-blue-100 hover:border-blue-300' : benefit.color === 'green' ? 'border-green-100 hover:border-green-300' : benefit.color === 'purple' ? 'border-purple-100 hover:border-purple-300' : 'border-gray-100 hover:border-gray-300'}`}>
                     <div className="text-center">
-                      <div className={`inline-flex items-center justify-center w-12 h-12 ${benefit.color === 'blue' ? 'bg-brand-accent' : benefit.color === 'green' ? 'bg-brand-green' : benefit.color === 'purple' ? 'bg-brand-accent' : 'bg-brand-brown'} rounded-full mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`inline-flex items-center justify-center w-12 h-12 ${benefit.color === 'blue' ? 'bg-brand-green' : benefit.color === 'green' ? 'bg-brand-green' : benefit.color === 'purple' ? 'bg-brand-green' : 'bg-brand-brown'} rounded-full mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
                         <span className="text-xl text-white">{benefit.icon}</span>
                       </div>
                       <h3 className="font-bold text-brand-brown mb-2">{benefit.title}</h3>
