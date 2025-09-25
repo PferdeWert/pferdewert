@@ -251,25 +251,30 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 #  Request-Schema
 # ───────────────────────────────
 class BewertungRequest(BaseModel):
-    # Pflichtfelder (abstammung wird optional, um aktuelles Frontend nicht zu brechen)
+    # Pflichtfelder
     rasse: str
     alter: int
     geschlecht: str
     stockmass: int
     ausbildung: str
 
-    # Optionale Angaben (erweitert um abstammung, haupteignung und Marketing-Quelle)
+    # Optionale Angaben (aktuell verwendet im Frontend)
     abstammung: Optional[str] = None
-    haupteignung: Optional[str] = None
+    haupteignung: Optional[str] = None  # Ersetzt verwendungszweck
+    aku: Optional[str] = None
+    erfolge: Optional[str] = None
+    standort: Optional[str] = None
+    charakter: Optional[str] = None  # NEU: Frontend-Feld
+    besonderheiten: Optional[str] = None  # NEU: Frontend-Feld
+
     # Marketing-/Quelle-Felder: akzeptieren, aber NICHT im Prompt verwenden
     quelle: Optional[str] = None
     attribution_source: Optional[str] = None
-    aku: Optional[str] = None
-    erfolge: Optional[str] = None
-    farbe: Optional[str] = None
-    zuechter: Optional[str] = None
-    standort: Optional[str] = None
-    verwendungszweck: Optional[str] = None
+
+    # DEPRECATED: Felder werden für Legacy-Support akzeptiert, aber nicht verwendet
+    farbe: Optional[str] = None  # OBSOLET
+    zuechter: Optional[str] = None  # OBSOLET
+    verwendungszweck: Optional[str] = None  # OBSOLET - ersetzt durch haupteignung
 
     class Config:
         # Unbekannte Felder verbieten → striktes Schema
@@ -280,20 +285,17 @@ class BewertungRequest(BaseModel):
 # ───────────────────────────────
 def ai_valuation(d: BewertungRequest) -> str:
     """Hauptfunktion: Claude für Kunde, GPT parallel für Vergleich"""
-    
-    # Bevorzugt vorhandenen Verwendungszweck, sonst Mapping von haupteignung
-    mapped_verwendungszweck = d.verwendungszweck or (d.haupteignung if hasattr(d, "haupteignung") else None)
 
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
         f"Abstammung: {d.abstammung or 'k. A.'}\nStockmaß: {d.stockmass} cm\n"
         f"Ausbildungsstand: {d.ausbildung}\n"
-        f"Farbe: {d.farbe or 'k. A.'}\n"
-        f"Züchter / Ausbildungsstall: {d.zuechter or 'k. A.'}\n"
+        f"Haupteignung / Disziplin: {d.haupteignung or 'k. A.'}\n"
         f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
-        f"Verwendungszweck / Zielsetzung: {mapped_verwendungszweck or 'k. A.'}\n"
         f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
+        + (f"\nCharakter & Rittigkeit: {d.charakter}" if hasattr(d, 'charakter') and d.charakter else "")
+        + (f"\nBesonderheiten: {d.besonderheiten}" if hasattr(d, 'besonderheiten') and d.besonderheiten else "")
     )
     
     claude_result = None
