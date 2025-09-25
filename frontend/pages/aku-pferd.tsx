@@ -442,55 +442,61 @@ const AKUPferd: NextPage = () => {
                   {numberedTitle('classes', 'AKU-Klassen')}
                 </h2>
 
-                  <ContentSection
-                    title="Welche AKU ist die richtige?"
-                    icon="📊"
-                    content={
-                      <>
-                        <p className="text-lg mb-6 text-gray-700">
-                          Der Umfang der Ankaufsuntersuchung richtet sich nach Kaufpreis und Einsatzgebiet. Für Freizeitpferde reicht
-                          meist die klinische Basisuntersuchung, während Sport- und Zuchtpferde zusätzliche Röntgen- und Spezialaufnahmen
-                          benötigen.
-                        </p>
-                        <div className="space-y-6">
-                          {akuClasses.map((akuClass) => (
-                            <div key={akuClass.class} className="border border-[#eadfcd] rounded-2xl p-5 md:p-6 space-y-2">
-                              <h3 className="font-serif text-2xl text-gray-900">
-                                AKU Klasse {akuClass.class}: {akuClass.title}
-                              </h3>
-                              <p className="text-gray-700 text-base md:text-lg">
-                                Geeignet für: {akuClass.suitable}. Zeitaufwand: {akuClass.duration}. Kostenrahmen: {akuClass.cost}.
-                              </p>
-                              <p className="text-gray-700 text-base">
-                                Typischer Umfang: {akuClass.includes.join(', ')}.
-                              </p>
-                            </div>
-                          ))}
+                <div className="py-6 md:py-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="text-2xl text-[#8c5a1f]">📊</div>
+                    <h3 className="font-serif text-2xl md:text-3xl lg:text-[2.125rem] font-bold text-gray-900">
+                      Welche AKU ist die richtige?
+                    </h3>
+                  </div>
+                  <div className="space-y-4 md:space-y-5 text-base md:text-lg leading-7 md:leading-relaxed text-gray-700">
+                    <p className="text-lg mb-6 text-gray-700">
+                      Der Umfang der Ankaufsuntersuchung richtet sich nach Kaufpreis und Einsatzgebiet. Für Freizeitpferde reicht
+                      meist die klinische Basisuntersuchung, während Sport- und Zuchtpferde zusätzliche Röntgen- und Spezialaufnahmen
+                      benötigen.
+                    </p>
+                    <div className="space-y-6">
+                      {akuClasses.map((akuClass) => (
+                        <div key={akuClass.class} className="border border-[#eadfcd] rounded-2xl p-5 md:p-6 space-y-2">
+                          <h4 className="font-serif text-2xl text-gray-900">
+                            AKU Klasse {akuClass.class}: {akuClass.title}
+                          </h4>
+                          <p className="text-gray-700 text-base md:text-lg">
+                            Geeignet für: {akuClass.suitable}. Zeitaufwand: {akuClass.duration}. Kostenrahmen: {akuClass.cost}.
+                          </p>
+                          <p className="text-gray-700 text-base">
+                            Typischer Umfang: {akuClass.includes.join(', ')}.
+                          </p>
                         </div>
-                      </>
-                    }
-                  />
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
-                  <ContentSection
-                    title="Entscheidungshilfe: Welche AKU-Klasse wählen?"
-                    icon="🎯"
-                    content={
-                      <div className="space-y-4 text-gray-700 text-base md:text-lg">
-                        <p>
-                          <strong>Klasse I</strong> (kleine AKU) eignet sich für Freizeitpferde bis etwa 5.000&nbsp;€. Sie liefert eine solide
-                          Basisbewertung und ist ideal, wenn Erfahrung und Budget begrenzt sind.
-                        </p>
-                        <p>
-                          <strong>Klasse II</strong> (große AKU) empfiehlt sich für Sport- und Ausbildungspferde zwischen 5.000 und 25.000&nbsp;€.
-                          Erweiterte Röntgenbilder und Bewegungsanalysen zeigen, ob das Pferd den geplanten Einsatz langfristig erfüllen kann.
-                        </p>
-                        <p>
-                          <strong>Klasse III-V</strong> mit Spezialuntersuchungen ist bei hochpreisigen Pferden, Zuchttieren oder ambitionierten
-                          Turnierzielen sinnvoll. Je genauer das Profil, desto geringer das Risiko späterer Leistungseinbußen.
-                        </p>
-                      </div>
-                    }
-                  />
+                <div className="py-6 md:py-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="text-2xl text-[#8c5a1f]">🎯</div>
+                    <h3 className="font-serif text-2xl md:text-3xl lg:text-[2.125rem] font-bold text-gray-900">
+                      Entscheidungshilfe: Welche AKU-Klasse wählen?
+                    </h3>
+                  </div>
+                  <div className="space-y-4 md:space-y-5 text-base md:text-lg leading-7 md:leading-relaxed text-gray-700">
+                    <div className="space-y-4 text-gray-700 text-base md:text-lg">
+                      <p>
+                        <strong>Klasse I</strong> (kleine AKU) eignet sich für Freizeitpferde bis etwa 5.000&nbsp;€. Sie liefert eine solide
+                        Basisbewertung und ist ideal, wenn Erfahrung und Budget begrenzt sind.
+                      </p>
+                      <p>
+                        <strong>Klasse II</strong> (große AKU) empfiehlt sich für Sport- und Ausbildungspferde zwischen 5.000 und 25.000&nbsp;€.
+                        Erweiterte Röntgenbilder und Bewegungsanalysen zeigen, ob das Pferd den geplanten Einsatz langfristig erfüllen kann.
+                      </p>
+                      <p>
+                        <strong>Klasse III-V</strong> mit Spezialuntersuchungen ist bei hochpreisigen Pferden, Zuchttieren oder ambitionierten
+                        Turnierzielen sinnvoll. Je genauer das Profil, desto geringer das Risiko späterer Leistungseinbußen.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Kosten */}
@@ -632,7 +638,7 @@ const AKUPferd: NextPage = () => {
                     {numberedTitle('findings', 'AKU-Befunde verstehen')}
                   </h2>
 
-                  <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <div className="flex items-start space-x-3">
                       <span className="text-xl md:text-2xl flex-shrink-0 mt-1">📊</span>
                       <div>
@@ -729,7 +735,7 @@ const AKUPferd: NextPage = () => {
                     </div>
                   </div>
 
-                  <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <div className="flex items-start space-x-3">
                       <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🔍</span>
                       <div>
@@ -821,7 +827,7 @@ const AKUPferd: NextPage = () => {
                   {numberedTitle('tierarzt', 'AKU-Tierarzt finden')}
                 </h2>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">👨‍⚕️</span>
                     <div>
@@ -842,7 +848,7 @@ const AKUPferd: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🗺️</span>
                     <div className="flex-1">
@@ -885,7 +891,7 @@ const AKUPferd: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🔍</span>
                     <div>
@@ -915,7 +921,7 @@ const AKUPferd: NextPage = () => {
                   {numberedTitle('valuation', 'AKU-Ergebnisse in der Pferdebewertung')}
                 </h2>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">📈</span>
                     <div>
@@ -945,7 +951,7 @@ const AKUPferd: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#f5f5f3] border border-[#e8e8e4] rounded-lg p-5 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start space-x-3">
                     <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🤖</span>
                     <div>
@@ -1008,8 +1014,8 @@ const AKUPferd: NextPage = () => {
             />
           </section>
 
-          {/* Related Articles Section - Warm Neutral Panel */}
-          <section id="related" className="py-8 md:py-16 px-4 md:px-6 mt-16 bg-[#f7f1e8] rounded-2xl md:rounded-3xl scroll-mt-32 lg:scroll-mt-40">
+          {/* Related Articles Section */}
+          <section id="related" className="py-8 md:py-16 px-4 md:px-6 mt-16 scroll-mt-32 lg:scroll-mt-40">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-8 md:mb-14">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3 md:mb-4">
