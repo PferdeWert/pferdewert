@@ -310,14 +310,14 @@ const AKUPferd: NextPage = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link
                   href="/pferde-preis-berechnen"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#92400e] hover:bg-[#78350f] text-white font-bold rounded-xl transition-all shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#8B4513] hover:bg-[#6B3410] text-white font-bold rounded-xl transition-all shadow-lg"
                 >
                   Pferdewert jetzt berechnen
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <button
                   onClick={() => document.getElementById('inhaltsverzeichnis')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#92400e] hover:bg-[#92400e] hover:text-white text-[#92400e] font-medium rounded-xl transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-medium rounded-xl transition-all"
                 >
                   Zum Inhalt
                   <ChevronDown className="w-5 h-5" />
@@ -355,7 +355,7 @@ const AKUPferd: NextPage = () => {
                         event.preventDefault()
                         scrollToSection(section.id)
                       }}
-                      className="flex items-center gap-3 hover:text-[#92400e] transition-colors"
+                      className="flex items-center gap-3 hover:text-[#8B4513] transition-colors"
                     >
                       <span className="font-semibold">{index + 1}.</span>
                       <span>{section.title}</span>
@@ -805,10 +805,10 @@ const AKUPferd: NextPage = () => {
                       </p>
                       <div className="flex justify-center">
                         <CTAButton
-                          type="primary"
                           text="Jetzt Pferdewert berechnen"
                           href="/pferde-preis-berechnen"
                           trackingEvent="aku_pferd_cta_main_valuation"
+                          type="primary"
                         />
                       </div>
                     </div>
@@ -1013,7 +1013,7 @@ const AKUPferd: NextPage = () => {
 
           {/* Related Articles Section - Warm Neutral Panel */}
           <section id="related" className="py-8 md:py-16 px-4 md:px-6 mt-16 bg-[#f7f1e8] rounded-2xl md:rounded-3xl scroll-mt-32 lg:scroll-mt-40">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="text-center mb-8 md:mb-14">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3 md:mb-4">
                   {numberedTitle('related', 'Weiterführende Artikel')}
@@ -1042,7 +1042,7 @@ const AKUPferd: NextPage = () => {
                         <span className="text-xs">{article.readTime}</span>
                       </div>
 
-                      <h3 className="text-lg md:text-xl font-serif font-semibold text-gray-900 mb-3 group-hover:text-[#92400e] transition-colors leading-snug">
+                      <h3 className="text-lg md:text-xl font-serif font-semibold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors leading-snug">
                         {article.title}
                       </h3>
 
@@ -1051,7 +1051,7 @@ const AKUPferd: NextPage = () => {
                       </p>
 
                       <Link href={article.href} className="w-full">
-                        <button className="w-full min-h-[44px] h-10 md:h-10 px-3 rounded-lg border border-[#92400e] text-[#92400e] font-medium text-sm transition-colors group-hover:bg-[#92400e] group-hover:text-white hover:bg-[#92400e] hover:text-white touch-manipulation">
+                        <button className="w-full min-h-[44px] h-10 md:h-10 px-3 rounded-lg border border-[#8B4513] text-[#8B4513] font-medium text-sm transition-colors group-hover:bg-[#8B4513] group-hover:text-white hover:bg-[#8B4513] hover:text-white touch-manipulation">
                           Artikel lesen
                         </button>
                       </Link>
@@ -1075,7 +1075,7 @@ const AKUPferd: NextPage = () => {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4 md:mb-5 text-balance">
-                  {numberedTitle('cta', 'Professionelle Bewertung & Beratung')}
+                  {numberedTitle('cta', 'Professionelle Pferdebewertung')}
                 </h2>
 
                 <p className="text-base sm:text-lg text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed">
@@ -1083,8 +1083,8 @@ const AKUPferd: NextPage = () => {
                 </p>
 
                 <Link href="/pferde-preis-berechnen">
-                  <button className="min-h-[44px] px-8 md:px-10 py-3 md:py-4 bg-[#92400e] hover:bg-[#78350f] text-white rounded-xl transition-colors font-semibold text-base md:text-lg shadow-md touch-manipulation">
-                    Pferdewert berechnen
+                  <button className="min-h-[44px] px-8 md:px-10 py-3 md:py-4 bg-[#8B4513] hover:bg-[#6B3410] text-white rounded-xl transition-colors font-semibold text-base md:text-lg shadow-md touch-manipulation">
+                    Jetzt Pferdewert berechnen
                   </button>
                 </Link>
               </div>

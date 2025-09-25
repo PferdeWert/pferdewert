@@ -1,9 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 import { FAQProps, FAQItem } from '../types/faq.types';
 
 const FAQ: React.FC<FAQProps> = ({
   faqs,
-  sectionTitle = "Häufig gestellte Fragen",
+  sectionTitle = "Häufige Fragen",
   withSchema = true,
   className = ""
 }) => {
@@ -34,23 +35,28 @@ const FAQ: React.FC<FAQProps> = ({
   return (
     <>
       {generateSchema()}
-      <section className={`section bg-white ${className}`}>
-        <div className="container mx-auto px-4">
+      {/* Verbesserter Hintergrund mit Design System Farben */}
+      <section className={`section bg-gradient-to-b from-white to-brand-light/30 ${className}`}>
+        <div className="container mx-auto px-4 max-w-5xl"> {/* Einheitliche Container-Klasse */}
           {sectionTitle && (
             <div className="text-center mb-16">
-              <h2 className="text-h2 font-bold text-gray-900 mb-4">{sectionTitle}</h2>
+              <h2 className="text-h2 font-serif text-brand mb-4">{sectionTitle}</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Alles was du über Pferdepreis berechnen und Pferdebewertung wissen möchtest
+              </p>
             </div>
           )}
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="space-y-4"> {/* Reduzierter Abstand für bessere Dichte */}
             {faqs.map((faq: FAQItem, index: number) => (
               <details
                 key={index}
-                className="bg-brand-light/50 rounded-2xl border border-gray-200 transition-all duration-200 hover:shadow-lg hover:border-brand-gold/30"
+                className="bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-200 hover:shadow-soft hover:border-brand-green/30 group"
               >
-                <summary className="p-6 text-lg font-semibold text-gray-900 cursor-pointer flex justify-between items-center list-none">
-                  <span className="flex-1">{faq.question}</span>
+                <summary className="p-6 text-lg font-semibold text-brand cursor-pointer flex justify-between items-center list-none">
+                  <span className="flex-1 font-serif">{faq.question}</span>
+                  {/* Verbessertes Icon mit Design System Farben */}
                   <svg
-                    className="w-5 h-5 text-brand-gold transition-transform duration-200 details-chevron"
+                    className="w-5 h-5 text-brand-green transition-all duration-200 group-open:rotate-180 group-hover:text-brand-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -59,10 +65,23 @@ const FAQ: React.FC<FAQProps> = ({
                   </svg>
                 </summary>
                 <div className="px-6 pb-6">
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  {/* Verbesserte Antwort-Darstellung */}
+                  <div className="pt-4 border-t border-brand-green/10">
+                    <p className="text-gray-700 leading-relaxed font-sans">{faq.answer}</p>
+                  </div>
                 </div>
               </details>
             ))}
+          </div>
+
+          {/* CTA nach FAQ gemäß Design System */}
+          <div className="text-center mt-16">
+            <Link
+              href="/pferde-preis-berechnen"
+              className="btn-primary"
+            >
+              Jetzt Pferdewert berechnen
+            </Link>
           </div>
         </div>
       </section>
