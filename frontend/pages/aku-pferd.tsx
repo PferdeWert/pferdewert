@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 import InfoBox from '../components/InfoBox'
 import ContentSection from '../components/ContentSection'
 import CTAButton from '../components/CTAButton'
@@ -264,9 +263,7 @@ const AKUPferd: NextPage = () => {
         />
       </Head>
 
-      <Header />
-
-      <main className="min-h-screen bg-white">
+      <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
         {/* Hero Section - Clean Text Only Design */}
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 max-w-4xl">
@@ -1091,9 +1088,7 @@ const AKUPferd: NextPage = () => {
             </div>
           </section>
         </div>
-      </main>
-
-      <Footer />
+      </Layout>
     </>
   )
 }
