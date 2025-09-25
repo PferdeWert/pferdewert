@@ -28,19 +28,19 @@ Der Pferdekauf ist eine erhebliche finanzielle Investition, bei der versteckte G
 
 Die Kosten einer AKU beim Pferd variieren erheblich je nach Umfang der Untersuchung und regionalen Gegebenheiten. Hier ist eine detaillierte Übersicht der verschiedenen AKU-Klassen und ihrer typischen Kostenbereiche:
 
-**Kleine AKU (Klasse I - II): 150-400 EUR**
+**Kleine AKU (Basisprogramm): 150-400 EUR**
 - Klinische Untersuchung in Ruhe und Bewegung
 - Flexionsprobe der Gliedmaßen
 - Grundlegende Herz-Kreislauf-Untersuchung
 - Augen- und Zahnkontrolle
 
-**Große AKU (Klasse III - IV): 400-800 EUR**
+**Große AKU (mit Röntgen): 400-800 EUR**
 - Alle Komponenten der kleinen AKU
 - Röntgenuntersuchung (18 Standardaufnahmen)
 - Erweiterte Bewegungsanalyse
 - Detaillierte Dokumentation mit Gutachten
 
-**Spezielle AKU (Klasse V): 800-1.500 EUR**
+**Spezielle AKU (erweiterte Diagnostik): 800-1.500 EUR**
 - Umfassende Diagnostik mit zusätzlichen Röntgenaufnahmen
 - Blutuntersuchung auf spezifische Parameter
 - Ultraschalluntersuchung bei Bedarf
@@ -50,11 +50,11 @@ Die Kosten einer AKU beim Pferd variieren erheblich je nach Umfang der Untersuch
 
 Die Entscheidung für den Umfang der AKU sollte sich am geplanten Verwendungszweck und dem Kaufpreis orientieren. Unsere Datenanalyse bei PferdeWert.de zeigt klare Empfehlungen:
 
-**Kaufpreis bis 5.000 EUR**: Eine kleine AKU (Klasse I-II) ist in der Regel ausreichend. Das Kosten-Nutzen-Verhältnis ist bei einer umfangreichen Untersuchung oft ungünstig, da die AKU-Kosten einen zu hohen Anteil am Kaufpreis ausmachen würden.
+**Kaufpreis bis 5.000 EUR**: Eine kleine AKU (Basisprogramm) ist in der Regel ausreichend. Das Kosten-Nutzen-Verhältnis ist bei einer umfangreichen Untersuchung oft ungünstig, da die AKU-Kosten einen zu hohen Anteil am Kaufpreis ausmachen würden.
 
 **Kaufpreis 5.000-15.000 EUR**: Eine große AKU mit Röntgenuntersuchung ist empfehlenswert. In diesem Preissegment können versteckte Probleme erhebliche finanzielle Auswirkungen haben. Die [Pferdewert berechnen](pferde-preis-berechnen) Funktion zeigt Ihnen, wie sich verschiedene Befunde auf den Marktwert auswirken.
 
-**Kaufpreis über 15.000 EUR**: Eine umfassende AKU der Klasse IV oder V ist unabdingbar. Bei hochwertigen Sport- oder Zuchtpferden können einzelne Befunde den Wert um mehrere tausend Euro beeinflussen.
+**Kaufpreis über 15.000 EUR**: Eine umfassende AKU mit erweiteter Diagnostik ist unabdingbar. Bei hochwertigen Sport- oder Zuchtpferden können einzelne Befunde den Wert um mehrere tausend Euro beeinflussen.
 
 **Regionale Kostenunterschiede** zeigen sich deutlich zwischen den Bundesländern:
 - [Pferd kaufen in Bayern](/pferd-kaufen-bayern): 10-20% höhere AKU-Kosten durch Spezialisierung auf Warmblüter
@@ -65,10 +65,11 @@ Die Entscheidung für den Umfang der AKU sollte sich am geplanten Verwendungszwe
 
 Als einziger Anbieter in Deutschland integriert PferdeWert.de AKU-Befunde systematisch in die Marktwertermittlung. Unsere Algorithmen berücksichtigen nicht nur das Vorhandensein von Befunden, sondern auch deren statistische Auswirkung auf Verkaufspreise:
 
-**Klasse I (ohne Befunde)**: Kein Wertabschlag, oft sogar Wertsteigerung durch dokumentierte Gesundheit
-**Klasse II (geringfügige Befunde)**: 2-5% Wertminderung je nach Befund und Verwendungszweck
-**Klasse III (mäßige Befunde)**: 5-15% Preisabschlag, abhängig von der Lokalisation
-**Klasse IV (deutliche Befunde)**: 15-30% Wertminderung, teilweise Kaufabbruch empfohlen
+**OB (Ohne Befund)**: Kein Wertabschlag, oft sogar Wertsteigerung durch dokumentierte Gesundheit
+**MB (Mit Befund)**: Je nach Art und Schwere des Befunds 2-30% Wertminderung
+- Geringfügige Befunde: 2-5% Preisabschlag
+- Moderate Befunde: 5-15% Wertminderung
+- Deutliche Befunde: 15-30% Preisabschlag, teilweise Kaufabbruch empfohlen
 
 Diese datenbasierte Bewertung hilft Ihnen, realistische Preisvorstellungen zu entwickeln und fundierte Verhandlungen zu führen.
 
@@ -123,13 +124,9 @@ Das abschließende Gutachten fasst alle Untersuchungsergebnisse strukturiert zus
 
 Das standardisierte AKU-Klassensystem hilft bei der einheitlichen Bewertung von Untersuchungsbefunden. Jede Klasse definiert spezifische Kriterien und Prognosen für die zukünftige Verwendbarkeit des Pferdes.
 
-**Klasse I - Keine Befunde**: Das Pferd zeigt keinerlei Auffälligkeiten in der klinischen Untersuchung und den Röntgenaufnahmen. Diese Klassifizierung ist selten und wertet ein Pferd oft auf, da dokumentierte Gesundheit im heutigen Markt einen Vorteil darstellt.
+**OB (Ohne Befund)**: Das Pferd zeigt keinerlei veterinärmedizinische Auffälligkeiten in der klinischen Untersuchung und den Röntgenaufnahmen. Diese Klassifizierung ist das optimale Ergebnis und wertet ein Pferd auf, da dokumentierte Gesundheit im heutigen Markt einen klaren Vorteil darstellt.
 
-**Klasse II - Geringfügige Befunde**: Kleine, klinisch unbedeutende Veränderungen ohne Auswirkung auf die Leistungsfähigkeit. Beispiele sind leichte Gefäßzeichnungen oder minimale Knochenumbauvorgänge, die bei der Mehrzahl aller Pferde auftreten.
-
-**Klasse III - Mäßige Befunde**: Deutlichere Veränderungen, die möglicherweise Auswirkungen auf die Leistung haben können. Diese Befunde erfordern eine sorgfältige Abwägung zwischen Verwendungszweck und Befundschwere.
-
-**Klasse IV - Deutliche Befunde**: Ausgeprägte Veränderungen mit wahrscheinlichen Auswirkungen auf die sportliche Nutzung. Ein Kauf sollte nur nach sorgfältiger Risiko-Nutzen-Abwägung erfolgen.
+**MB (Mit Befund / Mängelbefund)**: Es wurden veterinärmedizinische Auffälligkeiten oder Veränderungen festgestellt, die das Nutzungsrisiko beeinflussen können. Die Schwere und Bedeutung der Befunde wird im Protokoll detailliert beschrieben und erfordert eine individuelle Bewertung je nach geplantem Verwendungszweck.
 
 Unser [AKU-Klassifizierung verstehen](/aku-pferd-klassen) Ratgeber bietet detaillierte Informationen zu spezifischen Befunden und deren Interpretation.
 
@@ -189,7 +186,7 @@ Bei unklaren oder widersprüchlichen Befunden kann eine Zweitmeinung wertvoll se
 
 Als Deutschlands erste datengetriebene Pferdebewertungsplattform haben wir bei PferdeWert.de umfangreiche Analysen zur Auswirkung von AKU-Befunden auf Verkaufspreise durchgeführt. Unsere Erkenntnisse basieren auf der Auswertung von über 1.000 Verkäufen mit dokumentierten AKU-Ergebnissen.
 
-**Statistische Preisauswirkungen**: Unsere Daten zeigen, dass selbst geringfügige AKU-Befunde (Klasse II) den Verkaufspreis um durchschnittlich 3-8% reduzieren. Mäßige Befunde (Klasse III) führen zu Preisabschlägen von 8-18%, während deutliche Befunde (Klasse IV) oft Reduktionen von 18-35% zur Folge haben.
+**Statistische Preisauswirkungen**: Unsere Daten zeigen, dass AKU-Befunde (MB) je nach Schwere den Verkaufspreis um durchschnittlich 3-35% reduzieren. Geringfügige Befunde führen zu Preisabschlägen von 3-8%, moderate Befunde zu Reduktionen von 8-18%, während schwerwiegende Befunde oft Preisabschläge von 18-35% zur Folge haben.
 
 **Breed-spezifische Bewertungsunterschiede**: Warmblüter reagieren empfindlicher auf AKU-Befunde als Robustrassen. Ein identischer Röntgenbefund führt bei einem Oldenburger zu einem höheren Preisabschlag als bei einem Haflinger, da die Erwartungen an die sportliche Leistungsfähigkeit unterschiedlich sind.
 
@@ -223,7 +220,7 @@ Rechtlich ist eine AKU beim Pferdekauf nicht verpflichtend, wird aber von allen 
 
 ### Wie lange dauert eine komplette AKU-Untersuchung?
 
-Die Dauer einer AKU variiert erheblich je nach Umfang: Eine kleine AKU (Klasse I-II) dauert typischerweise 2-3 Stunden, während eine große AKU mit Röntgenuntersuchung 4-6 Stunden in Anspruch nimmt. Hinzu kommt die Zeit für die Befunderstellung und Gutachtenerstellung, die weitere 1-2 Tage dauern kann. Bei umfangreichen AKUs der Klasse IV oder V sollten Sie einen ganzen Tag einplanen.
+Die Dauer einer AKU variiert erheblich je nach Umfang: Eine kleine AKU (Basisprogramm) dauert typischerweise 2-3 Stunden, während eine große AKU mit Röntgenuntersuchung 4-6 Stunden in Anspruch nimmt. Hinzu kommt die Zeit für die Befunderstellung und Gutachtenerstellung, die weitere 1-2 Tage dauern kann. Bei umfangreichen AKUs mit erweiterter Diagnostik sollten Sie einen ganzen Tag einplanen.
 
 ### Was passiert, wenn die AKU negative Befunde ergibt?
 
@@ -239,7 +236,7 @@ Für optimale Aussagekraft sollte eine AKU nicht älter als 4 Wochen sein. Bei w
 
 ### Welche AKU bei welchem Kaufpreis?
 
-Die Wahl der AKU-Klasse sollte sich am Kaufpreis und Verwendungszweck orientieren. Unsere Empfehlungen basieren auf Kosten-Nutzen-Analysen: Bis 5.000€ ist eine kleine AKU (Klasse I-II) meist ausreichend. Von 5.000-15.000€ empfehlen wir eine große AKU mit Röntgenuntersuchung. Über 15.000€ sollte eine erweiterte AKU mit Spezialaufnahmen durchgeführt werden. Bei Turnierpferden oder Zuchttieren können auch niedrigere Kaufpreise eine umfangreichere AKU rechtfertigen.
+Die Wahl des AKU-Umfangs sollte sich am Kaufpreis und Verwendungszweck orientieren. Unsere Empfehlungen basieren auf Kosten-Nutzen-Analysen: Bis 5.000€ ist eine kleine AKU (Basisprogramm) meist ausreichend. Von 5.000-15.000€ empfehlen wir eine große AKU mit Röntgenuntersuchung. Über 15.000€ sollte eine erweiterte AKU mit Spezialaufnahmen durchgeführt werden. Bei Turnierpferden oder Zuchttieren können auch niedrigere Kaufpreise eine umfangreichere AKU rechtfertigen.
 
 ### Sind AKU-Befunde zwischen Tierärzten übertragbar?
 
