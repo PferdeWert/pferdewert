@@ -26,7 +26,6 @@ interface BackendRequestData {
   standort?: string;
   charakter?: string; // New optional field
   besonderheiten?: string; // New optional field
-  verwendungszweck?: string;
 }
 
 interface BackendResponse {
@@ -214,9 +213,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         farbe,
         zuechter,
         standort,
-        charakter,           // MISSING: Extract charakter field
-        besonderheiten,      // MISSING: Extract besonderheiten field
-        verwendungszweck,    // Legacy field for fallback
+        charakter,           // Extract charakter field
+        besonderheiten,      // Extract besonderheiten field
         attribution_source,
       } = doc;
 
@@ -228,7 +226,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung: abstammung ? String(abstammung) : undefined,
         stockmass: convertStockmassToNumber(stockmass),
         ausbildung: String(ausbildung || ''),
-        haupteignung: String(haupteignung || verwendungszweck || 'Sport'), // Use actual haupteignung field, fallback to legacy
+        haupteignung: String(haupteignung || 'Sport'),
         aku: aku ? String(aku) : undefined,
         erfolge: erfolge ? String(erfolge) : undefined,
         farbe: farbe ? String(farbe) : undefined,
@@ -236,7 +234,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort: standort ? String(standort) : undefined,
         charakter: charakter ? String(charakter) : undefined, // New optional field
         besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
-        verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined,
       };
 
       info('[WEBHOOK] Data prepared for backend API');
