@@ -282,19 +282,17 @@ class BewertungRequest(BaseModel):
 def ai_valuation(d: BewertungRequest) -> dict:
     """Hauptfunktion: Claude für Kunde, GPT parallel für Vergleich"""
     
-    # Bevorzugt vorhandenen Verwendungszweck, sonst Mapping von haupteignung
-    mapped_verwendungszweck = d.verwendungszweck or (d.haupteignung if hasattr(d, "haupteignung") else None)
 
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
         f"Abstammung: {d.abstammung or 'k. A.'}\nStockmaß: {d.stockmass} cm\n"
         f"Ausbildungsstand: {d.ausbildung}\n"
-        f"Farbe: {d.farbe or 'k. A.'}\n"
-        f"Züchter / Ausbildungsstall: {d.zuechter or 'k. A.'}\n"
+        f"Haupteignung / Disziplin: {d.haupteignung or 'k. A.'}\n"
         f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
-        f"Verwendungszweck / Zielsetzung: {mapped_verwendungszweck or 'k. A.'}\n"
         f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
+        + (f"\nCharakter & Rittigkeit: {d.charakter}" if hasattr(d, 'charakter') and d.charakter else "")
+        + (f"\nBesonderheiten: {d.besonderheiten}" if hasattr(d, 'besonderheiten') and d.besonderheiten else "")
     )
     
     claude_result = None
