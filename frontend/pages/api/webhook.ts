@@ -24,6 +24,8 @@ interface BackendRequestData {
   farbe?: string;
   zuechter?: string;
   standort?: string;
+  charakter?: string; // New optional field
+  besonderheiten?: string; // New optional field
   verwendungszweck?: string;
 }
 
@@ -198,7 +200,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       info('[WEBHOOK] MongoDB document found');
       info('[WEBHOOK] Document ID:', doc._id.toString());
 
-      // Extract data with type safety
+      // Extract data with type safety - COMPLETE SCHEMA
       const {
         rasse,
         alter,
@@ -206,12 +208,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung,
         stockmass,
         ausbildung,
+        haupteignung,        // CRITICAL: Extract haupteignung from database
         aku,
         erfolge,
         farbe,
         zuechter,
         standort,
-        verwendungszweck,
+        charakter,           // MISSING: Extract charakter field
+        besonderheiten,      // MISSING: Extract besonderheiten field
+        verwendungszweck,    // Legacy field for fallback
         attribution_source,
       } = doc;
 
@@ -223,12 +228,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung: abstammung ? String(abstammung) : undefined,
         stockmass: convertStockmassToNumber(stockmass),
         ausbildung: String(ausbildung || ''),
-        haupteignung: String(verwendungszweck || ausbildung || 'Sport'), // Map verwendungszweck to required haupteignung
+        haupteignung: String(haupteignung || verwendungszweck || 'Sport'), // Use actual haupteignung field, fallback to legacy
         aku: aku ? String(aku) : undefined,
         erfolge: erfolge ? String(erfolge) : undefined,
         farbe: farbe ? String(farbe) : undefined,
         zuechter: zuechter ? String(zuechter) : undefined,
         standort: standort ? String(standort) : undefined,
+        charakter: charakter ? String(charakter) : undefined, // New optional field
+        besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
         verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined,
       };
 
