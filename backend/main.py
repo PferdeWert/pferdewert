@@ -283,8 +283,16 @@ class BewertungRequest(BaseModel):
 # ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
 # ───────────────────────────────
-def ai_valuation(d: BewertungRequest) -> str:
-    """Hauptfunktion: Claude für Kunde, GPT parallel für Vergleich"""
+def ai_valuation(d: BewertungRequest) -> dict:
+    """Hauptfunktion: Claude für Kunde, GPT parallel für Vergleich
+
+    Returns:
+        dict: {
+            "raw_gpt": str,  # The evaluation text (kept for backward compatibility)
+            "ai_model": str,  # "claude" or "gpt"
+            "ai_model_version": str  # The model version used
+        }
+    """
 
     user_prompt = (
         f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
@@ -297,7 +305,7 @@ def ai_valuation(d: BewertungRequest) -> str:
         + (f"\nCharakter & Rittigkeit: {d.charakter}" if hasattr(d, 'charakter') and d.charakter else "")
         + (f"\nBesonderheiten: {d.besonderheiten}" if hasattr(d, 'besonderheiten') and d.besonderheiten else "")
     )
-    
+
     claude_result = None
     gpt_result = None
 
@@ -361,26 +369,40 @@ def ai_valuation(d: BewertungRequest) -> str:
             logging.error(f"❌ GPT Error: {e}")
     elif not USE_PARALLEL_PROCESSING and claude_result:
         logging.info("🚀 Parallel processing disabled - skipping GPT to reduce API load")
-    
+
     # 3. GPT-Vergleich per E-Mail senden (wenn beide verfügbar)
     if gpt_result:
         # send_gpt_comparison_mail(d, gpt_result)  # Temporär deaktiviert
         logging.info("📧 GPT-Vergleichsmail temporär deaktiviert")
-    
+
     # 4. Ergebnis zurückgeben: Claude bevorzugt, GPT als Fallback
+    fallback_text = (
+        "Wir arbeiten gerade an unserem KI-Modell, "
+        "bitte schicke uns eine E-Mail an info@pferdewert.de "
+        "und wir melden uns, sobald das Modell wieder online ist."
+    )
+
     if claude_result:
         logging.info("✅ Claude-Ergebnis wird an Kunde gesendet")
-        return claude_result
+        return {
+            "raw_gpt": claude_result,
+            "ai_model": "claude",
+            "ai_model_version": CLAUDE_MODEL
+        }
     elif gpt_result:
         logging.info("⚠️ Claude nicht verfügbar - GPT-Fallback wird an Kunde gesendet")
-        return gpt_result
+        return {
+            "raw_gpt": gpt_result,
+            "ai_model": "gpt",
+            "ai_model_version": MODEL_ID
+        }
     else:
         logging.error("❌ Beide AI-Services nicht verfügbar")
-        return (
-            "Wir arbeiten gerade an unserem KI-Modell, "
-            "bitte schicke uns eine E-Mail an info@pferdewert.de "
-            "und wir melden uns, sobald das Modell wieder online ist."
-        )
+        return {
+            "raw_gpt": fallback_text,
+            "ai_model": "fallback",
+            "ai_model_version": "none"
+        }
 
 # ───────────────────────────────
 #  API-Endpoint
@@ -389,8 +411,9 @@ def ai_valuation(d: BewertungRequest) -> str:
 def bewertung(req: BewertungRequest):
     logging.info(f"Incoming Request: {req.dict()}")
     try:
-        ai_text = ai_valuation(req)
-        return {"raw_gpt": ai_text}  # Key-Name bleibt für Frontend-Kompatibilität
+        ai_result = ai_valuation(req)
+        # ai_valuation now returns a dict with raw_gpt, ai_model, ai_model_version
+        return ai_result
     except Exception as e:
         logging.error(f"AI-Error: {e}")
         return {
@@ -398,7 +421,9 @@ def bewertung(req: BewertungRequest):
                 "Wir arbeiten gerade an unserem KI-Modell, "
                 "bitte schicke uns eine E-Mail an info@pferdewert.de "
                 "und wir melden uns, sobald das Modell wieder online ist."
-            )
+            ),
+            "ai_model": "error",
+            "ai_model_version": "none"
         }
 
 # ───────────────────────────────

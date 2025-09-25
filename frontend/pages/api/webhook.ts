@@ -29,6 +29,8 @@ interface BackendRequestData {
 
 interface BackendResponse {
   raw_gpt?: string;
+  ai_model?: string;
+  ai_model_version?: string;
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
@@ -291,27 +293,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       const rawGpt = gptResponse?.raw_gpt;
+      const aiModel = gptResponse?.ai_model;
+      const aiModelVersion = gptResponse?.ai_model_version;
 
       if (!rawGpt) {
         error('[WEBHOOK] No AI response in backend response');
         error('[WEBHOOK] Expected raw_gpt field, got keys:', Object.keys(gptResponse));
-        return res.status(200).json({ 
+        return res.status(200).json({
           error: "No AI response received",
           received: Object.keys(gptResponse)
         });
       }
 
       info('[WEBHOOK] Saving evaluation to MongoDB');
+      info(`[WEBHOOK] AI Model used: ${aiModel} (${aiModelVersion})`);
+
       const updateResult = await collection.updateOne(
         { _id: doc._id },
-        { 
-          $set: { 
-            bewertung: rawGpt, 
-            status: "fertig", 
+        {
+          $set: {
+            bewertung: rawGpt,
+            status: "fertig",
             aktualisiert: new Date(),
+            // AI model tracking fields
+            ...(aiModel && { ai_model: aiModel }),
+            ...(aiModelVersion && { ai_model_version: aiModelVersion }),
             // Store attribution_source for analytics (not sent to AI)
             ...(attribution_source && { attribution_source: String(attribution_source) })
-          } 
+          }
         }
       );
 
