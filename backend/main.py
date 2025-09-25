@@ -267,9 +267,10 @@ class BewertungRequest(BaseModel):
     attribution_source: Optional[str] = None
     aku: Optional[str] = None
     erfolge: Optional[str] = None
-    farbe: Optional[str] = None
-    zuechter: Optional[str] = None
     standort: Optional[str] = None
+    charakter: Optional[str] = None
+    besonderheiten: Optional[str] = None
+    # Legacy Support (falls alte Daten gesendet werden)
     verwendungszweck: Optional[str] = None
 
     class Config:
@@ -291,8 +292,8 @@ def ai_valuation(d: BewertungRequest) -> dict:
         f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
         f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
         f"Erfolge: {d.erfolge or 'k. A.'}"
-        + (f"\nCharakter & Rittigkeit: {d.charakter}" if hasattr(d, 'charakter') and d.charakter else "")
-        + (f"\nBesonderheiten: {d.besonderheiten}" if hasattr(d, 'besonderheiten') and d.besonderheiten else "")
+        + (f"\nCharakter & Rittigkeit: {d.charakter}" if d.charakter else "")
+        + (f"\nBesonderheiten: {d.besonderheiten}" if d.besonderheiten else "")
     )
     
     claude_result = None
