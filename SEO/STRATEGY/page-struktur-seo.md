@@ -86,13 +86,13 @@
 
 ## 📚 Pferde-Ratgeber
 
-### AKU Pferd (/aku-pferd)
+### AKU Pferd (/aku-pferd) (content ready)
 - **Ziel-Keyword**: aku pferd
 - **Suchvolumen**: 4.400/Monat
 - **Meta-Titel**: AKU Pferd - Ankaufsuntersuchung erklärt | PferdeWert Ratgeber
 - **Meta-Description**: AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung.
 
-### AKU Pferd Kosten (/aku-pferd-kosten)
+### AKU Pferd Kosten (/aku-pferd-kosten) (content ready)
 - **Ziel-Keyword**: aku pferd kosten
 - **Suchvolumen**: 1.000/Monat
 - **Meta-Titel**: AKU Pferd Kosten 2025 - Preise & was zahlen? | PferdeWert Ratgeber
@@ -199,3 +199,49 @@
 ### Spezialisierte Services
 - Dressur-/Springpferd Pages für Zielgruppen-Segmentierung
 - Verkaufen-Sektion für Seller-Journey
+
+---
+
+## 🧭 Navigation & Menü-Strategie
+
+### Vereinfachte Menü-Struktur
+**Empfohlene Haupt-Navigation:**
+```
+PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
+```
+
+### Ratgeber-Dropdown (Alle Haupt-Inhalte)
+- **AKU Pferd** - Hauptartikel (4.400 Suchanfragen)
+- **Pferd kaufen** - Guide/Ratgeber-Format
+- **Pferd verkaufen** - Guide/Ratgeber-Format
+- **Weitere Ratgeber-Artikel** - Nach Bedarf
+
+**Änderungen zur aktuellen Navigation:**
+- **Entfernt:** "Pferd kaufen" und "Pferd verkaufen" als separate Menüpunkte
+- **Verschoben:** Diese Inhalte in den Ratgeber-Dropdown als Guides
+- **Behalten:** Bewährte Reihenfolge und Struktur der anderen Menüpunkte
+
+### Landingpage-Strategie
+**NICHT ins Menü:**
+- Lokale Pages (Bayern, NRW, etc.)
+- Sub-Artikel (AKU Kosten, AKU Ablauf, etc.)
+- Spezial-Kategorien (Dressur, Spring)
+
+**Zweck:** Diese Pages ziehen Traffic AUF die Hauptseite, nicht umgekehrt
+
+### Interne Verlinkung
+**Von Landingpages ZU Hauptservices:**
+- Lokale LPs → /pferde-preis-berechnen
+- Sub-Artikel → /aku-pferd (Hauptartikel)
+- Kategorie-LPs → /was-ist-mein-pferd-wert
+
+**Homepage CTAs bleiben prominent:**
+- Direkte Verlinkung zu Service-Seiten
+- Bei Bedarf Weiterleitung zu Ratgeber für Details
+
+### Vorteile dieser Strategie
+- **Cleanes Menü** - Übersichtlich, nutzerorientiert
+- **Vollerer Ratgeber** - Wirkt autoritärer und professioneller
+- **Bessere UX** - Alles an einem logischen Ort
+- **SEO-Optimiert** - Landingpages als reine Traffic-Generatoren
+- **Flexibel** - Neue Artikel einfach hinzufügbar

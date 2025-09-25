@@ -55,20 +55,12 @@ export default function HeaderUnified() {
   // Navigation Struktur
   const navigationItems = [
     {
-      label: "Pferd kaufen",
-      href: "/pferd-kaufen",
-    },
-    {
-      label: "Pferd verkaufen",
-      href: "/pferd-verkaufen",
-    },
-    {
       label: "Ratgeber",
       href: "/pferde-ratgeber",
       dropdown: [
         { label: "AKU Pferd", href: "/aku-pferd" },
-        { label: "AKU Pferd Kosten", href: "/aku-pferd-kosten" },
-        { label: "AKU Pferd Ablauf", href: "/aku-pferd-ablauf" },
+        { label: "Pferd kaufen", href: "/pferd-kaufen" },
+        { label: "Pferd verkaufen", href: "/pferd-verkaufen" },
       ]
     },
     {

@@ -17,48 +17,21 @@ const PferdeRatgeber: NextPage = () => {
     },
     {
       id: 2,
-      titel: "Pferdehaltung für Anfänger",
-      beschreibung: "Alles was Sie über artgerechte Pferdehaltung wissen müssen. Von der Stallwahl bis zur täglichen Pflege – ein umfassender Leitfaden für Einsteiger.",
-      kategorie: "Haltung",
-      lesezeit: "8 Min.",
-      bild: "/horse-in-stable--professional-care.jpg",
-      link: "#",
-    },
-    {
-      id: 3,
-      titel: "Pferdegesundheit erkennen",
-      beschreibung: "Lernen Sie die wichtigsten Anzeichen für Gesundheitsprobleme bei Pferden zu erkennen und wann Sie einen Tierarzt konsultieren sollten.",
-      kategorie: "Gesundheit",
-      lesezeit: "12 Min.",
-      bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "#",
-    },
-    {
-      id: 4,
-      titel: "Richtige Fütterung im Winter",
-      beschreibung: "Wie Sie Ihr Pferd optimal durch die kalte Jahreszeit bringen. Fütterungstipps, Nährstoffbedarf und häufige Fehler vermeiden.",
-      kategorie: "Fütterung",
-      lesezeit: "6 Min.",
-      bild: "/horse-eating-hay-in-winter-stable.jpg",
-      link: "#",
-    },
-    {
-      id: 5,
-      titel: "Pferdekauf: Worauf achten?",
-      beschreibung: "Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte und Tipps für die richtige Entscheidung.",
+      titel: "Pferd kaufen - Der komplette Ratgeber",
+      beschreibung: "Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.",
       kategorie: "Kauf & Verkauf",
-      lesezeit: "15 Min.",
+      lesezeit: "18 Min.",
       bild: "/person-evaluating-horse-for-purchase.jpg",
       link: "/pferd-kaufen",
     },
     {
-      id: 6,
-      titel: "Pferdetraining Grundlagen",
-      beschreibung: "Effektive Trainingsmethoden für Pferd und Reiter. Aufbau von Vertrauen, Grundkommandos und sichere Übungen für den Alltag.",
-      kategorie: "Training",
-      lesezeit: "10 Min.",
-      bild: "/horse-training-session-with-rider.jpg",
-      link: "#",
+      id: 3,
+      titel: "Pferd verkaufen - Erfolgreich & Optimal",
+      beschreibung: "Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.",
+      kategorie: "Kauf & Verkauf",
+      lesezeit: "16 Min.",
+      bild: "/happy-horse-owner-with-horse--professional-consult.jpg",
+      link: "/pferd-verkaufen",
     },
   ]
 
@@ -68,9 +41,9 @@ const PferdeRatgeber: NextPage = () => {
         <title>Pferde-Ratgeber | Expertenwissen für Pferdebesitzer | PferdeWert.de</title>
         <meta
           name="description"
-          content="Umfassender Pferde-Ratgeber mit Expertenwissen zu AKU, Pferdebewertung, Markttrends und mehr. Praktische Informationen für Pferdebesitzer."
+          content="Die drei wichtigsten Pferde-Ratgeber: AKU Pferd, Pferd kaufen und Pferd verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
         />
-        <meta name="keywords" content="Pferde Ratgeber, AKU, Pferdebewertung, Markttrends, Pferdeinformationen" />
+        <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber" />
       </Head>
 
@@ -90,7 +63,7 @@ const PferdeRatgeber: NextPage = () => {
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-h1 font-serif font-bold text-brand mb-6">Pferde-Ratgeber</h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-              Wertvolles Wissen und praktische Tipps für Pferdeliebhaber – von der Haltung bis zur Gesundheit Ihres Pferdes.
+              Ihr Expertenleitfaden für Pferdekauf und -verkauf – mit professioneller AKU-Beratung und Bewertungstipps.
             </p>
           </div>
         </section>
@@ -99,9 +72,9 @@ const PferdeRatgeber: NextPage = () => {
         <section id="artikel-grid" className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Unsere Ratgeber-Artikel</h2>
+              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Unsere Hauptratgeber</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Expertenwissen für jeden Pferdeliebhaber – praxisnah und verständlich erklärt
+                Die drei wichtigsten Ratgeber für Pferdekauf und -verkauf – kompakt und praxisnah erklärt
               </p>
             </div>
 

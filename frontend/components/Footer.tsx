@@ -17,16 +17,6 @@ export default function Footer() {
             </Link>
           </li>
           <li>
-            <Link href="/pferd-verkaufen" className="hover:underline">
-              Pferd verkaufen
-            </Link>
-          </li>
-          <li>
-            <Link href="/pferd-kaufen" className="hover:underline">
-              Pferd kaufen
-            </Link>
-          </li>
-          <li>
             <Link href="/beispiel-analyse" className="hover:underline">
               Beispiel-Analyse
             </Link>
