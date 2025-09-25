@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
 import { info } from '@/lib/log';
 import FAQ from '../components/FAQ';
@@ -368,7 +369,7 @@ const AkuPferdAblauf: NextPage = () => {
         <nav className="bg-white border-b border-gray-200 py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center text-sm text-gray-600 space-x-2">
-              <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
+              <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
               <span>›</span>
               <a href="/ratgeber" className="hover:text-blue-600 transition-colors">Ratgeber</a>
               <span>›</span>
