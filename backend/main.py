@@ -92,11 +92,12 @@ def call_claude_with_retry(client, model, max_tokens, temperature, system, messa
                 messages=messages
             )
         except anthropic.APIError as e:
-            if e.status_code == 529 and attempt < max_retries - 1:  # Overloaded error
+            # Retry both 529 (overloaded) and 503 (upstream errors)
+            if e.status_code in [529, 503] and attempt < max_retries - 1:
                 wait_time = (3 ** attempt) + random.uniform(0, 2)  # Aggressiverer exponential backoff für Opus
                 # Only log on first retry to reduce spam
                 if attempt == 0:
-                    logging.warning(f"Claude overloaded (529), retrying {max_retries-1} times with backoff")
+                    logging.warning(f"Claude overloaded ({e.status_code}), retrying {max_retries-1} times with backoff")
                 time.sleep(wait_time)
                 continue
             else:
@@ -278,7 +279,7 @@ class BewertungRequest(BaseModel):
 # ───────────────────────────────
 #  AI Bewertung (Claude + GPT parallel)
 # ───────────────────────────────
-def ai_valuation(d: BewertungRequest) -> str:
+def ai_valuation(d: BewertungRequest) -> dict:
     """Hauptfunktion: Claude für Kunde, GPT parallel für Vergleich"""
     
     # Bevorzugt vorhandenen Verwendungszweck, sonst Mapping von haupteignung
@@ -310,10 +311,10 @@ def ai_valuation(d: BewertungRequest) -> str:
                 client=claude_client,
                 model=CLAUDE_MODEL,
                 max_tokens=3000,
-                temperature=0.0,  # Für maximale Konsistenz
+                temperature=0.3,  # Für realistischere Bewertungen
                 system=CLAUDE_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_prompt}],
-                max_retries=5  # Mehr Retries für Opus wegen höherer Overload-Rate
+                max_retries=7  # Mehr Retries für Opus wegen 503/529 Errors
             )
 
             # Robustes Parsing der Claude-Antwort
@@ -348,7 +349,7 @@ def ai_valuation(d: BewertungRequest) -> str:
             rsp = openai_client.chat.completions.create(
                 model=MODEL_ID,
                 messages=messages,
-                temperature=0.0,  # Auch GPT konsistent machen
+                temperature=0.3,  # Für realistischere Bewertungen
                 top_p=0.8,
                 seed=12345,  # Reproduzierbarkeit
                 max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(messages)),
@@ -368,17 +369,30 @@ def ai_valuation(d: BewertungRequest) -> str:
     # 4. Ergebnis zurückgeben: Claude bevorzugt, GPT als Fallback
     if claude_result:
         logging.info("✅ Claude-Ergebnis wird an Kunde gesendet")
-        return claude_result
+        return {
+            "bewertung": claude_result,
+            "model": "claude",
+            "model_version": CLAUDE_MODEL
+        }
     elif gpt_result:
         logging.info("⚠️ Claude nicht verfügbar - GPT-Fallback wird an Kunde gesendet")
-        return gpt_result
+        return {
+            "bewertung": gpt_result,
+            "model": "gpt",
+            "model_version": MODEL_ID
+        }
     else:
         logging.error("❌ Beide AI-Services nicht verfügbar")
-        return (
+        fallback_msg = (
             "Wir arbeiten gerade an unserem KI-Modell, "
             "bitte schicke uns eine E-Mail an info@pferdewert.de "
             "und wir melden uns, sobald das Modell wieder online ist."
         )
+        return {
+            "bewertung": fallback_msg,
+            "model": "fallback",
+            "model_version": "none"
+        }
 
 # ───────────────────────────────
 #  API-Endpoint
@@ -387,8 +401,12 @@ def ai_valuation(d: BewertungRequest) -> str:
 def bewertung(req: BewertungRequest):
     logging.info(f"Incoming Request: {req.dict()}")
     try:
-        ai_text = ai_valuation(req)
-        return {"raw_gpt": ai_text}  # Key-Name bleibt für Frontend-Kompatibilität
+        ai_result = ai_valuation(req)
+        return {
+            "raw_gpt": ai_result["bewertung"],  # Key-Name bleibt für Frontend-Kompatibilität
+            "model": ai_result["model"],
+            "model_version": ai_result["model_version"]
+        }
     except Exception as e:
         logging.error(f"AI-Error: {e}")
         return {
@@ -396,7 +414,9 @@ def bewertung(req: BewertungRequest):
                 "Wir arbeiten gerade an unserem KI-Modell, "
                 "bitte schicke uns eine E-Mail an info@pferdewert.de "
                 "und wir melden uns, sobald das Modell wieder online ist."
-            )
+            ),
+            "model": "error",
+            "model_version": "none"
         }
 
 # ───────────────────────────────
