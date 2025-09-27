@@ -29,7 +29,8 @@ interface BackendRequestData {
 }
 
 interface BackendResponse {
-  raw_gpt?: string;
+  ai_response?: string;
+  ai_model?: string;
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
@@ -215,7 +216,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort,
         charakter,           // Extract charakter field
         besonderheiten,      // Extract besonderheiten field
-        attribution_source,
       } = doc;
 
       // Prepare data with proper validation matching deployed backend schema
@@ -288,17 +288,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       let gptResponse: BackendResponse;
       try {
         gptResponse = await response.json();
-        info('[WEBHOOK] AI evaluation received:', gptResponse?.raw_gpt ? 'Success' : 'Missing response');
+        info('[WEBHOOK] AI evaluation received:', gptResponse?.ai_response ? 'Success' : 'Missing response');
       } catch (jsonError) {
         error('[WEBHOOK] JSON parse error:', jsonError instanceof Error ? jsonError.message : String(jsonError));
         return res.status(200).json({ error: "Invalid JSON response from backend" });
       }
 
-      const rawGpt = gptResponse?.raw_gpt;
+      const aiResponse = gptResponse?.ai_response;
 
-      if (!rawGpt) {
+      if (!aiResponse) {
         error('[WEBHOOK] No AI response in backend response');
-        error('[WEBHOOK] Expected raw_gpt field, got keys:', Object.keys(gptResponse));
+        error('[WEBHOOK] Expected ai_response field, got keys:', Object.keys(gptResponse));
         return res.status(200).json({ 
           error: "No AI response received",
           received: Object.keys(gptResponse)
@@ -308,14 +308,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       info('[WEBHOOK] Saving evaluation to MongoDB');
       const updateResult = await collection.updateOne(
         { _id: doc._id },
-        { 
-          $set: { 
-            bewertung: rawGpt, 
-            status: "fertig", 
-            aktualisiert: new Date(),
-            // Store attribution_source for analytics (not sent to AI)
-            ...(attribution_source && { attribution_source: String(attribution_source) })
-          } 
+        {
+          $set: {
+            bewertung: aiResponse,
+            status: "fertig",
+            aktualisiert: new Date()
+          }
         }
       );
 
@@ -366,8 +364,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p><strong>Besonderheiten (Optional):</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
 
             <hr style="margin: 20px 0; border: 1px solid #eee;">
-
-            <p><strong>📊 Marketing Quelle (Optional):</strong> ${attribution_source || 'nicht angegeben'}</p>
           `;
 
           // Send admin notification email
@@ -392,7 +388,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                 <h3>🤖 KI-Bewertung:</h3>
                 <div style="white-space: pre-wrap; font-family: monospace; background: white; padding: 10px; border-radius: 4px;">
-                  ${rawGpt}
+                  ${aiResponse}
                 </div>
               </div>
               

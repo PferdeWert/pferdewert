@@ -21,12 +21,12 @@ interface HorseData {
   abstammung: string;
   stockmass: number;
   ausbildung: string;
+  haupteignung?: string;
   aku?: string;
   erfolge?: string;
-  farbe?: string;
-  zuechter?: string;
   standort?: string;
-  verwendungszweck?: string;
+  charakter?: string;
+  besonderheiten?: string;
 }
 
 interface MongoDocument {
@@ -38,12 +38,12 @@ interface MongoDocument {
   abstammung: string;
   stockmass: number | string;
   ausbildung: string;
+  haupteignung?: string;
   aku?: string;
   erfolge?: string;
-  farbe?: string;
-  zuechter?: string;
   standort?: string;
-  verwendungszweck?: string;
+  charakter?: string;
+  besonderheiten?: string;
   bewertung?: string;
   status?: string;
   aktualisiert?: Date;
@@ -89,12 +89,12 @@ async function fixFailedOrder(documentId: string): Promise<void> {
       abstammung: doc.abstammung,
       stockmass: Math.round(parseFloat(String(doc.stockmass)) * 100) || 0, // Convert to cm*100
       ausbildung: doc.ausbildung,
+      haupteignung: doc.haupteignung, // Use haupteignung directly (not verwendungszweck)
       aku: doc.aku,
       erfolge: doc.erfolge,
-      farbe: doc.farbe,
-      zuechter: doc.zuechter,
       standort: doc.standort,
-      verwendungszweck: doc.verwendungszweck,
+      charakter: doc.charakter,
+      besonderheiten: doc.besonderheiten,
     };
     
     console.log('🤖 Calling AI evaluation API with data:', {
@@ -115,21 +115,21 @@ async function fixFailedOrder(documentId: string): Promise<void> {
     }
     
     const gptResponse = await response.json();
-    const rawGpt = gptResponse?.raw_gpt;
+    const aiResponse = gptResponse?.ai_response;
     
-    if (!rawGpt) {
+    if (!aiResponse) {
       throw new Error('No AI evaluation received from backend');
     }
     
     console.log('✅ AI evaluation received');
-    console.log('Preview:', rawGpt.substring(0, 200) + '...');
+    console.log('Preview:', aiResponse.substring(0, 200) + '...');
     
     // Update document in MongoDB
     const updateResult = await collection.updateOne(
       { _id: objectId },
       { 
         $set: { 
-          bewertung: rawGpt, 
+          bewertung: aiResponse, 
           status: 'fertig', 
           aktualisiert: new Date() 
         } 
