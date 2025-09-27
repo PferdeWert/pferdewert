@@ -1,0 +1,1 @@
+# AI Clients Module for PferdeWert OpenRouter Integration

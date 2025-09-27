@@ -41,4 +41,4 @@ def test_bewertung_endpoint(mock_create):
     response = client.post("/api/bewertung", json=payload)
     assert response.status_code == 200
     data = response.json()
-    assert data["raw_gpt"] == "Mocked response"
+    assert data["ai_response"] == "Mocked response"
