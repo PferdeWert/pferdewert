@@ -224,6 +224,27 @@ if (denyButton) {
           }
         }
 
+        // DataFa.st Analytics - Only load after consent
+        if (granted && typeof window !== 'undefined') {
+          // Load DataFa.st script dynamically after consent
+          if (!document.querySelector('[data-website-id="68d59a9dcb0e8d111148811a"]')) {
+            const datafastScript = document.createElement('script');
+            datafastScript.defer = true;
+            datafastScript.setAttribute('data-website-id', '68d59a9dcb0e8d111148811a');
+            datafastScript.setAttribute('data-domain', 'Pferdewert.de');
+            datafastScript.src = 'https://datafa.st/js/script.js';
+            document.head.appendChild(datafastScript);
+
+            // Initialize datafast function
+            window.datafast = window.datafast || function(...args) {
+              window.datafast!.q = window.datafast!.q || [];
+              window.datafast!.q.push(args);
+            };
+
+            console.log('📊 DataFa.st tracking enabled after consent');
+          }
+        }
+
         if (granted) {
           console.log('✅ Analytics enabled - User accepted cookies');
         } else {

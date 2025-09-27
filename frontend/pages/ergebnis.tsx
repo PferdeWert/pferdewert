@@ -196,6 +196,15 @@ export default function Ergebnis() {
           });
         }
 
+        // DataFa.st revenue tracking
+        if (typeof window !== "undefined" && window.datafast) {
+          window.datafast("payment", {
+            amount: 14.90,
+            currency: "EUR",
+            transaction_id: session_id,
+          });
+        }
+
         const bewertungIdFromSession = data.session.metadata?.bewertungId;
         if (bewertungIdFromSession) {
           setBewertungId(bewertungIdFromSession);

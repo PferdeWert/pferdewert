@@ -49,6 +49,7 @@ export default function Document() {
             href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
           />
         </noscript>
+
       </Head>
       <body className="antialiased">
         <noscript>

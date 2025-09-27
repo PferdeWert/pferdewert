@@ -6,6 +6,10 @@ declare global {
     };
     showCookieSettings?: () => void;
     gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
+    datafast?: {
+      q?: unknown[];
+      (...args: unknown[]): void;
+    };
   }
 }
 
