@@ -38,6 +38,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Development bypass für Rate Limiting Tests
+  if (process.env.NODE_ENV === "development" && req.body.skipPayment) {
+    warn("[CHECKOUT] 🚧 DEV MODE: Skipping payment for testing");
+    return res.status(200).json({ url: "/ergebnis?id=test-bypass" });
+  }
+
   try {
     const { text } = req.body;
 
