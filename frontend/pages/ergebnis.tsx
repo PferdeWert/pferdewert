@@ -36,9 +36,10 @@ export default function Ergebnis() {
   useEffect(() => {
     if (!router.isReady) return;
 
-    // Gentle polling schedule with jitter, covering up to ~2 minutes
+    // Optimized polling schedule with jitter, covering up to ~2 minutes
+    // Reduces wait time from ~31s to ~15s with only 3 requests in first 30s
     const POLLING_SCHEDULE_MS = [
-      10000, 20000, 30000, 45000, 60000, 80000, 100000, 120000,
+      8000, 15000, 25000, 40000, 60000, 80000, 100000, 120000,
     ];
 
     const session_id = router.query.session_id;
