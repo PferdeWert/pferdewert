@@ -68,7 +68,7 @@ class OpenRouterClient:
         self,
         model: str,
         messages: List[Dict[str, str]],
-        max_tokens: int = 4000,
+        max_tokens: int = 10000,
         temperature: float = 0.3,
         top_p: float = 0.8,
         stream: bool = False,

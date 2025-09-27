@@ -10,7 +10,7 @@ from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
 
 from .openrouter_client import OpenRouterClient, OpenRouterError, ModelResponse
-from config.models import ModelManager, ModelConfig, ModelTier
+from config.models import ModelManager, ModelConfig
 
 # Legacy client imports (for fallback)
 import openai
@@ -147,7 +147,7 @@ class AIService:
                         content=response.content,
                         model=model_config.name,
                         model_version=model_config.openrouter_id,
-                        tier=model_config.tier.value,
+                        tier="openrouter",
                         usage=response.usage
                     )
 
