@@ -8,7 +8,8 @@ declare global {
     gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
     datafast?: {
       q?: unknown[];
-      (...args: unknown[]): void;
+      (event: 'payment', data: { amount: number; currency: string; transaction_id: string }): void;
+      (event: string, data?: Record<string, unknown>): void;
     };
   }
 }
