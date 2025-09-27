@@ -285,6 +285,8 @@ class BewertungRequest(BaseModel):
     besonderheiten: Optional[str] = None
     # Legacy Support (falls alte Daten gesendet werden)
     verwendungszweck: Optional[str] = None
+    # Payment tracking field (not used in AI prompt)
+    payment_id: Optional[str] = None
 
     class Config:
         # Unbekannte Felder verbieten → striktes Schema
