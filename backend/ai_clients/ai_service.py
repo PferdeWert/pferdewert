@@ -143,6 +143,7 @@ class AIService:
                     )
 
                     logging.info(f"✅ Stage {i} successful: {model_config.name}")
+
                     return AIServiceResponse(
                         content=response.content,
                         model=model_config.name,
@@ -174,7 +175,8 @@ class AIService:
                 )
 
                 content = response.choices[0].message.content.strip()
-                logging.info("✅ Stage 4a successful: Legacy GPT-4o")
+                logging.info(f"✅ Stage 4a successful: Legacy GPT-4o")
+
                 return AIServiceResponse(
                     content=content,
                     model="GPT-4o",
@@ -199,7 +201,8 @@ class AIService:
                 )
 
                 content = response.content[0].text.strip()
-                logging.info("✅ Stage 4b successful: Legacy Claude")
+                logging.info(f"✅ Stage 4b successful: Legacy Claude")
+
                 return AIServiceResponse(
                     content=content,
                     model="Claude",
