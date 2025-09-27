@@ -73,6 +73,19 @@ try {
     info("[CHECKOUT] ✅ Eingabedaten validiert und geparst.");
     log("[CHECKOUT] Eingabe:", bewertungData);
 
+    // Extract DataFast cookies for revenue attribution
+    const datafastVisitorId = req.cookies['df_visitor_id'] || req.cookies['datafast_visitor_id'] || '';
+    const datafastSessionId = req.cookies['df_session_id'] || req.cookies['datafast_session_id'] || '';
+
+    if (datafastVisitorId || datafastSessionId) {
+      info("[CHECKOUT] 📊 DataFast cookies found:", {
+        visitor_id: datafastVisitorId ? 'present' : 'missing',
+        session_id: datafastSessionId ? 'present' : 'missing'
+      });
+    } else {
+      info("[CHECKOUT] 📊 No DataFast cookies found for attribution");
+    }
+
     const bewertungId = new ObjectId();    // Generiere eine neue Bewertung-ID
     info("[CHECKOUT] 🆕 Neue Bewertung-ID generiert:", bewertungId.toHexString()); // Logging der Bewertung-ID
 
@@ -112,7 +125,12 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       allow_promotion_codes: true,
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/pferde-preis-berechnen?abgebrochen=1`,
-      metadata: { bewertungId: bewertungId.toHexString() },
+      metadata: {
+        bewertungId: bewertungId.toHexString(),
+        // DataFast revenue attribution cookies
+        datafast_visitor_id: datafastVisitorId,
+        datafast_session_id: datafastSessionId,
+      },
     });
 
     const collection = await getCollection("bewertungen");
