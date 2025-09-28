@@ -164,7 +164,7 @@ export default function PferdeWertHomepage() {
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferde Preis berechnen: KI-basierte Pferdebewertung | PferdeWert" />
+        <meta name="twitter:title" content="Pferde Preis berechnen ✓ KI-basierte Pferdebewertung | PferdeWert" />
         <meta name="twitter:description" content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise." />
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
@@ -492,7 +492,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mt-16">
               <div className="mb-4">
                 <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Pferdepreis-Bewertung für Pferdebesitzer und Pferdekäufer
+                  Professionelle Pferdepreis-Bewertungen für Pferdebesitzer und Pferdekäufer
                 </p>
               </div>
               
@@ -542,7 +542,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Schutz vor Überzahlung</h3>
                 <p className="text-gray-600">
-                  Unsere objektive Pferdepreis-Bewertung hilft dir, faire Pferde-Kaufpreise zu erkennen
+                  Unsere objektive Pferdepreis-Bewertung online hilft dir, faire Pferdekauf-Preise zu erkennen
                 </p>
               </div>
 
@@ -552,7 +552,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Verhandlung richtig vorbereiten</h3>
                 <p className="text-gray-600">
-                  Mit fundierter Pferdepreis-Bewertung optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
+                  Mit fundierter Pferdepreis-Bewertung online optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
                 </p>
               </div>
             </div>

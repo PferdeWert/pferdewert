@@ -9,6 +9,7 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import { trackPDFDownload } from "@/lib/analytics";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
+import { PRICING } from "@/lib/pricing";
 
 
 
@@ -36,9 +37,10 @@ export default function Ergebnis() {
   useEffect(() => {
     if (!router.isReady) return;
 
-    // Gentle polling schedule with jitter, covering up to ~2 minutes
+    // Optimized polling schedule with jitter, covering up to ~2 minutes
+    // Reduces wait time from ~31s to ~15s with only 3 requests in first 30s
     const POLLING_SCHEDULE_MS = [
-      10000, 20000, 30000, 45000, 60000, 80000, 100000, 120000,
+      8000, 15000, 25000, 40000, 60000, 80000, 100000, 120000,
     ];
 
     const session_id = router.query.session_id;
@@ -65,6 +67,8 @@ export default function Ergebnis() {
           if (!res.ok) {
             if (res.status === 404) {
               setErrorLoading("Diese Bewertung wurde nicht gefunden. Bitte überprüfe den Link oder kontaktiere uns unter info@pferdewert.de");
+            } else if (res.status === 429) {
+              setErrorLoading("Zu viele Anfragen. Bitte warte einen Moment und lade die Seite neu.");
             } else if (res.status >= 500) {
               setErrorLoading("Server-Fehler beim Laden der Bewertung. Bitte versuche es in wenigen Minuten erneut oder kontaktiere uns.");
             } else {
@@ -133,6 +137,13 @@ export default function Ergebnis() {
                     setLoading(false);
                     return;
                   }
+                } else if (r.status === 429) {
+                  // Rate limited - wait longer before next attempt
+                  warn("[ERGEBNIS] Rate limited, extending delay");
+                  index = Math.max(index - 1, 0); // Don't advance index
+                  const extendedDelay = Math.min(delay * 2, 300000); // Max 5 minutes
+                  setTimeout(poll, extendedDelay);
+                  return;
                 }
               } catch {}
               poll();
@@ -183,6 +194,15 @@ export default function Ergebnis() {
             event_category: "Bewertung",
             event_label: "PDF freigeschaltet",
             value: 1,
+          });
+        }
+
+        // DataFa.st revenue tracking
+        if (typeof window !== "undefined" && window.datafast) {
+          window.datafast("payment", {
+            amount: PRICING.current,
+            currency: "EUR",
+            transaction_id: session_id,
           });
         }
 

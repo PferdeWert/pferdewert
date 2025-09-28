@@ -5,7 +5,7 @@
  * Bei Preisänderungen muss nur diese Datei angepasst werden.
  * 
  * @author PferdeWert.de
- * @version 3.2.0 - Preisanpassung auf 19,90€
+ * @version 3.3.0 - Preisanpassung auf 14,90€
  */
 
 // ===== PREIS KONFIGURATION =====
@@ -27,7 +27,7 @@ export const PRICING = {
    */
   historical: {
     launch: 4.90,   // Startpreis 
-    previous: 9.90   // Vorheriger Preis
+    previous: 19.90   // Vorheriger Preis
   }
 } as const;
 

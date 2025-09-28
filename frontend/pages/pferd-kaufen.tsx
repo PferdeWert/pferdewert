@@ -85,7 +85,7 @@ export default function PferdKaufen() {
         <title>Pferd kaufen Bayern: Preis prüfen & günstig verhandeln | PferdeWert</title>
         <meta
          name="description"
-         content="Pferd kaufen Bayern & NRW: KI-Preischeck schützt vor Überzahlung. Faire Preise erkennen ✓ Verhandlungshilfe ✓ 40.500+ erfolgreiche Käufer deutschlandweit."
+         content={`Pferd kaufen deutschlandweit - KI-Preischeck für ${PRICING_FORMATTED.current} - Faire Preise erkennen und gezielt verhandeln - Keine Überzahlung beim Pferdekauf`}
         />
         <meta
          name="keywords"

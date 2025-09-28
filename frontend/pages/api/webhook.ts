@@ -24,13 +24,13 @@ interface BackendRequestData {
   farbe?: string;
   zuechter?: string;
   standort?: string;
-  verwendungszweck?: string;
+  charakter?: string; // New optional field
+  besonderheiten?: string; // New optional field
 }
 
 interface BackendResponse {
-  raw_gpt?: string;
+  ai_response?: string;
   ai_model?: string;
-  ai_model_version?: string;
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
@@ -200,7 +200,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       info('[WEBHOOK] MongoDB document found');
       info('[WEBHOOK] Document ID:', doc._id.toString());
 
-      // Extract data with type safety
+      // Extract data with type safety - COMPLETE SCHEMA
       const {
         rasse,
         alter,
@@ -208,13 +208,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung,
         stockmass,
         ausbildung,
+        haupteignung,        // CRITICAL: Extract haupteignung from database
         aku,
         erfolge,
         farbe,
         zuechter,
         standort,
-        verwendungszweck,
-        attribution_source,
+        charakter,           // Extract charakter field
+        besonderheiten,      // Extract besonderheiten field
       } = doc;
 
       // Prepare data with proper validation matching deployed backend schema
@@ -225,13 +226,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         abstammung: abstammung ? String(abstammung) : undefined,
         stockmass: convertStockmassToNumber(stockmass),
         ausbildung: String(ausbildung || ''),
-        haupteignung: String(verwendungszweck || ausbildung || 'Sport'), // Map verwendungszweck to required haupteignung
+        haupteignung: String(haupteignung || 'Sport'),
         aku: aku ? String(aku) : undefined,
         erfolge: erfolge ? String(erfolge) : undefined,
         farbe: farbe ? String(farbe) : undefined,
         zuechter: zuechter ? String(zuechter) : undefined,
         standort: standort ? String(standort) : undefined,
-        verwendungszweck: verwendungszweck ? String(verwendungszweck) : undefined,
+        charakter: charakter ? String(charakter) : undefined, // New optional field
+        besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
       };
 
       info('[WEBHOOK] Data prepared for backend API');
@@ -286,19 +288,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       let gptResponse: BackendResponse;
       try {
         gptResponse = await response.json();
-        info('[WEBHOOK] AI evaluation received:', gptResponse?.raw_gpt ? 'Success' : 'Missing response');
+        info('[WEBHOOK] AI evaluation received:', gptResponse?.ai_response ? 'Success' : 'Missing response');
       } catch (jsonError) {
         error('[WEBHOOK] JSON parse error:', jsonError instanceof Error ? jsonError.message : String(jsonError));
         return res.status(200).json({ error: "Invalid JSON response from backend" });
       }
 
-      const rawGpt = gptResponse?.raw_gpt;
+      const aiResponse = gptResponse?.ai_response;
       const aiModel = gptResponse?.ai_model;
       const aiModelVersion = gptResponse?.ai_model_version;
 
-      if (!rawGpt) {
+      if (!aiResponse) {
         error('[WEBHOOK] No AI response in backend response');
-        error('[WEBHOOK] Expected raw_gpt field, got keys:', Object.keys(gptResponse));
+        error('[WEBHOOK] Expected ai_response field, got keys:', Object.keys(gptResponse));
         return res.status(200).json({
           error: "No AI response received",
           received: Object.keys(gptResponse)
@@ -312,7 +314,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         { _id: doc._id },
         {
           $set: {
-            bewertung: rawGpt,
+            bewertung: aiResponse,
             status: "fertig",
             aktualisiert: new Date(),
             // AI model tracking fields
@@ -371,8 +373,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p><strong>Besonderheiten (Optional):</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
 
             <hr style="margin: 20px 0; border: 1px solid #eee;">
-
-            <p><strong>📊 Marketing Quelle (Optional):</strong> ${attribution_source || 'nicht angegeben'}</p>
           `;
 
           // Send admin notification email
@@ -397,7 +397,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                 <h3>🤖 KI-Bewertung:</h3>
                 <div style="white-space: pre-wrap; font-family: monospace; background: white; padding: 10px; border-radius: 4px;">
-                  ${rawGpt}
+                  ${aiResponse}
                 </div>
               </div>
               

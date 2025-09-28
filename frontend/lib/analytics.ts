@@ -1,9 +1,22 @@
 // frontend/lib/analytics.ts
-// GA4 Analytics Configuration for PferdeWert.de
+// GA4 Analytics Configuration for PferdeWert.de + DataFast Custom Events
 
 import { PRICING } from '@/lib/pricing';
+import { info, warn } from '@/lib/log';
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
+
+// DataFast Custom Events Helper
+const sendDataFastEvent = (eventName: string, eventData: Record<string, unknown> = {}): void => {
+  if (typeof window !== "undefined" && window.datafast) {
+    try {
+      window.datafast(eventName, eventData);
+      info(`📊 [DataFast] Event tracked: ${eventName}`, eventData);
+    } catch (error) {
+      warn(`📊 [DataFast] Failed to track ${eventName}:`, error);
+    }
+  }
+};
 
 // Track page views
 export const trackPageView = (url: string): void => {
@@ -25,6 +38,13 @@ export const trackFormProgress = (stepNumber: number, stepName: string): void =>
       non_interaction: false
     });
   }
+
+  // DataFast Custom Event
+  sendDataFastEvent("form_step_completed", {
+    step_number: stepNumber,
+    step_name: stepName,
+    form_type: "horse_valuation"
+  });
 };
 
 // Track when user starts the valuation process
@@ -48,6 +68,13 @@ export const trackValuationStart = (): void => {
   } else {
     console.warn("🎯 [GA4] trackValuationStart called but gtag not available");
   }
+
+  // DataFast Custom Event
+  sendDataFastEvent("valuation_started", {
+    timestamp: new Date().toISOString(),
+    page_url: typeof window !== "undefined" ? window.location.href : "",
+    user_agent: typeof window !== "undefined" ? navigator.userAgent : ""
+  });
 };
 
 // Track payment initiation (begin_checkout)
@@ -89,6 +116,17 @@ export const trackPaymentStart = (formData: Record<string, unknown>): void => {
         value: PRICING.current,
         currency: "EUR"
       });
+
+      // DataFast Custom Event
+      sendDataFastEvent("payment_initiated", {
+        value: PRICING.current,
+        currency: "EUR",
+        horse_breed: formData.rasse || "unknown",
+        horse_age: formData.alter || "unknown",
+        horse_discipline: formData.haupteignung || "unknown",
+        completion_time: formData.completionTime || 0
+      });
+
       return true;
     }
     return false;
@@ -153,6 +191,16 @@ export const trackValuationCompleted = (
       session_id: sessionId,
       completion_timestamp: new Date().toISOString()
     });
+
+    // DataFast Custom Event
+    sendDataFastEvent("valuation_completed", {
+      transaction_id: sessionId,
+      bewertung_id: bewertungId,
+      value: PRICING.current,
+      currency: "EUR",
+      payment_method: paymentMethod || "unknown",
+      completion_timestamp: new Date().toISOString()
+    });
   }
 };
 
@@ -207,6 +255,14 @@ export const trackFormAbandonment = (lastCompletedStep: number, totalSteps: numb
       page_url: window.location.href
     });
   }
+
+  // DataFast Custom Event
+  sendDataFastEvent("form_abandoned", {
+    exit_point: lastCompletedStep,
+    total_steps: totalSteps,
+    completion_percentage: Math.round((lastCompletedStep / totalSteps) * 100),
+    page_url: typeof window !== "undefined" ? window.location.href : ""
+  });
 };
 
 // Track regional keyword performance (for SEO insights)
