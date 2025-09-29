@@ -31,6 +31,7 @@ interface BackendRequestData {
 interface BackendResponse {
   ai_response?: string;
   ai_model?: string;
+  ai_model_version?: string;
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
@@ -216,6 +217,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort,
         charakter,           // Extract charakter field
         besonderheiten,      // Extract besonderheiten field
+        attribution_source,  // Marketing attribution data
       } = doc;
 
       // Prepare data with proper validation matching deployed backend schema
@@ -298,6 +300,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const aiModel = gptResponse?.ai_model;
       const aiModelVersion = gptResponse?.ai_model_version;
 
+      const attributionSource = attribution_source || session.metadata?.attribution_source;
+
       if (!aiResponse) {
         error('[WEBHOOK] No AI response in backend response');
         error('[WEBHOOK] Expected ai_response field, got keys:', Object.keys(gptResponse));
@@ -321,7 +325,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             ...(aiModel && { ai_model: aiModel }),
             ...(aiModelVersion && { ai_model_version: aiModelVersion }),
             // Store attribution_source for analytics (not sent to AI)
-            ...(attribution_source && { attribution_source: String(attribution_source) })
+            ...(attributionSource && { attribution_source: String(attributionSource) })
           }
         }
       );

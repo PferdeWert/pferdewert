@@ -5,8 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { info } from '@/lib/log';
 import FAQ from '../components/FAQ';
 import InfoBox from '../components/InfoBox';
-import ContentSection from '../components/ContentSection';
-import CTASection from '../components/CTASection';
+import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { FAQItem } from '../types/faq.types';
 
 interface PhaseData {
@@ -411,8 +410,9 @@ const AkuPferdAblauf: NextPage = () => {
         </section>
 
         {/* Content Introduction */}
-        <ContentSection>
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Die Ankaufsuntersuchung verstehen
@@ -451,8 +451,9 @@ const AkuPferdAblauf: NextPage = () => {
               title="Wichtiger Hinweis vor der AKU"
               content="Wählen Sie immer einen erfahrenen Tierarzt, der nicht der Haustierarzt des Verkäufers ist. Eine unabhängige Beurteilung ist für Ihre Sicherheit beim Pferdekauf entscheidend."
             />
+            </div>
           </div>
-        </ContentSection>
+        </section>
 
         {/* AKU Phases Section */}
         <section id="phases-section" className="py-16 bg-[#fcfaf6]">
@@ -557,7 +558,7 @@ const AkuPferdAblauf: NextPage = () => {
 
         {/* AKU Classes Section */}
         <section id="klassen-section" className="py-16 bg-white">
-          <ContentSection>
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -596,12 +597,12 @@ const AkuPferdAblauf: NextPage = () => {
                 content="Neben den Grundkosten können Anfahrtskosten, Wochenendzuschläge und spezielle Untersuchungen (Endoskopie, erweiterte Röntgendiagnostik) zusätzliche Kosten verursachen. Klären Sie alle Kostenpunkte vorab transparent ab."
               />
             </div>
-          </ContentSection>
+          </div>
         </section>
 
         {/* Warning Section */}
         <section className="py-16 bg-amber-50">
-          <ContentSection>
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <InfoBox
                 type="warning"
@@ -622,7 +623,7 @@ const AkuPferdAblauf: NextPage = () => {
                 }
               />
             </div>
-          </ContentSection>
+          </div>
         </section>
 
         {/* FAQ Section */}
@@ -638,14 +639,15 @@ const AkuPferdAblauf: NextPage = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <CTASection
+        <RatgeberFinalCTA
+          image={{
+            src: '/images/blossi-shooting.webp',
+            alt: 'Pferdebewertung vor der AKU'
+          }}
           title="Bewerten Sie Ihr Pferd vor der AKU"
-          description="Unsere KI-gestützte Pferdebewertung für nur 14,90€ gibt Ihnen vorab wichtige Erkenntnisse über den Marktwert und hilft bei der Vorbereitung auf die Ankaufsuntersuchung."
-          buttonText="Pferd jetzt bewerten - nur 14,90€"
-          buttonLink="/"
-          backgroundColor="bg-gradient-to-r from-[#4e463b] to-[#5a4b3b]"
-          buttonColor="bg-[#f6c36a] hover:bg-[#f3c27b] text-[#4e463b]"
+          description="Unsere KI-gestützte Pferdebewertung für nur 14,90€ liefert Ihnen vorab wichtige Erkenntnisse über den Marktwert und unterstützt Sie bei der Vorbereitung auf die Ankaufsuntersuchung."
+          ctaHref="/pferde-preis-berechnen"
+          ctaLabel="Pferd jetzt bewerten - nur 14,90€"
         />
       </div>
     </>

@@ -1,142 +1,100 @@
-Aktualisierter Style Guide für die Erstellung einer Ratgeberseite auf pferdewert.de
-Ziel: Erstelle aus dem bereitgestellten Text (Content) eine visuell ansprechende, gut lesbare und auf die Conversion zum KI-Service ausgerichtete Ratgeberseite.
+## Ratgeber Designsystem (SEO & Content)
 
-1. Grundstruktur des Artikels:
+Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukünftigen Ratgeberseiten.
 
-Titel (H 
-1
-​
- ): Der Haupttitel des Artikels.
+### 1. Seitenaufbau
+1. **Hero**
+   - Hintergrund: `bg-gradient-to-b from-brand-light to-white`.
+   - Optionales Badge (`Award` Icon) mit `bg-brand-light` und `text-brand/80`.
+   - Haupttitel in Playfair Display, `text-brand`.
+   - Subheadline `text-brand/80` (max. 2–3 Sätze).
+   - Metadaten (Lesezeit, Datum, Kategorie) als Icon-Row in `text-brand/70`.
+   - Primär-CTA: `bg-brand-brown` → Hover `bg-brand-brownDark`, Sekundär-CTA: Outline mit `border-brand-brown`.
+2. **Hero Image**
+   - `next/image` mit `priority`, 4:3 Zuschnitt, `rounded-xl` + `shadow-lg`.
+3. **Inhaltsverzeichnis**
+   - Überschrift `text-brand`, Links `text-brand/80`, Hover `text-brand-brown`.
+4. **Content Body**
+   - Abschnittstitel `text-brand`.
+   - `ContentSection` für thematische Blöcke, Icons als Emoji oder Brand-SVGs.
+   - Infokarten und Tabellen in Beige-Boxen (siehe Farben).
+5. **FAQ + Related Articles + Final CTA** am Ende der Seite.
 
-Metadaten: Direkt unter dem Titel, in kleinerer Schrift: Name des Autors, Veröffentlichungsdatum und geschätzte Lesezeit.
+### 2. Typografie
+- Headings: Playfair Display (`font-serif`).
+- Fließtext & UI-Elemente: Lato (`font-sans`).
+- Basisgrößen: `text-base` (Body), `text-xl+` für wichtige Absätze.
+- Blockquotes: Playfair Display kursiv, linke Border in `brand-green`.
 
-Einleitung: Ein kurzer, einleitender Absatz.
+### 3. Farb- & Boxsystem
+- Grundfläche: `#f8f8f6` (Tailwind `brand.light`).
+- Primärtext: `#4e463b` (`brand`).
+- Akzentgrün: `#406243` (`brand.green`).
+- CTA Braun: `#92400e` + Hover `#78350f`.
+- **Highlight-Boxen (Standard)**
+  - Hintergrund `#fdf7f1`.
+  - Border `#e0c9aa`.
+  - Überschriften `text-brand-brown`.
+  - Schatten `shadow-soft` (Tailwind Config).
+- **InfoBox**
+  - Default Style: `type="cost"` (liefert exakt obige Farben).
+  - Für Regionlisten etc. `icon="📍"` nutzen, um farblich konsistent zu bleiben.
 
-Hauptinhalt: Der restliche Text, strukturiert nach den folgenden Regeln.
+### 4. Komponenten-Richtlinien
+- **RatgeberHero / RatgeberHeroImage**: Standard-Hero mit Badge, Meta-Row und CTA-Buttons; Bilder immer via `RatgeberHeroImage`.
+- **RatgeberTableOfContents**: Nutzt `sections`-Array `{ id, title }` + `onNavigate` (scroll helper).
+- **ContentSection**: Für inhaltliche Blöcke mit Icon (z. B. `icon="⚖️"`).
+- **RatgeberHighlightBox**: Beige Karten (`bg-[#fdf7f1]`) inkl. optionalem Icon und Titel; nutzen statt manueller `div`-Styles.
+- **RatgeberInfoTiles**: Für Zeit-/Kennzahlen-Grids mit gleichmäßigen Karten.
+- **RatgeberRegionGrid**: Drei InfoBoxen (`type="cost"`) mit 📍-Icon für regionale Schwerpunktlisten.
+- **CTAButton**: Vorhandene Varianten verwenden (`type="primary" | "secondary"`).
+- **FAQ**: Immer unter `id="faq"`, Schema-Daten via Komponente automatisch.
+- **RatgeberRelatedArticles**: Max. drei Einträge; bei <3 Artikeln automatisch mittig ausgerichtet (`md:w-[320px]`). Datenstruktur `{ href, image, title, badge, readTime, description }`.
+- **RatgeberFinalCTA**: Abschluss-CTA mit Bild + Button "Jetzt Pferdewert berechnen".
+- **ArticleMetadata** (falls genutzt): direkt unter H1 platzieren.
 
-2. Textformatierung und Lesbarkeit:
+### 5. Content-Guidelines
+- Absätze: max. 3–4 Sätze, `leading-relaxed`.
+- Zwischenüberschriften alle 4–6 Absätze einbauen (`text-3xl` → `text-2xl`).
+- Listen als `<ol>`/`<ul>`; Keywords fett hervorheben.
+- Blockquotes für Key-Statements.
+- Tabellen vermeiden → stattdessen `grid` mit Highlight-Boxen.
 
-Absätze: Halte Absätze kurz, idealerweise nur 3-4 Sätze lang, um Textwände zu vermeiden.[8, 11]
+### 6. Media & Assets
+- Bilder nur via `next/image` + `sizes` Attribut.
+- Formate: `.webp` bevorzugen.
+- Emotionale, authentische Pferde-/Menschen-Bilder (kein Stock-Look).
+- Videos eingebettet, keine Autoplay.
 
-Überschriften: Gliedere den Text großzügig mit Zwischenüberschriften (H 
-2
-​
- ,H 
-3
-​
-  etc.), um eine klare, scannbare Struktur zu schaffen.[8, 11]
+### 7. CTA & Conversion
+- Abschluss-CTA immer eigene Beige-Box (`#fdf7f1` + `#e0c9aa`).
+- Headline `text-brand`, Subtext `text-brand/80`.
+- Button immer: `Jetzt Pferdewert berechnen` (`CTAButton type="primary"`).
+- Optional sekundärer Link (Analyse-Beispiel) als Outline-Button.
 
-Listen: Wandle Aufzählungen oder schrittweise Anleitungen immer in nummerierte Listen oder Bullet Points um.[8]
-
-Hervorhebungen: Setze wichtige Kernaussagen oder Zitate visuell vom Rest des Textes ab, indem du sie als Blockquote formatierst.
-
-3. Typografie (Schriftarten):
-
-Überschriften (H 
-1
-​
- ,H 
-2
-​
- ,H 
-3
-​
- ,H 
-4
-​
- ): Verwende Playfair Display.
-
-Fließtext, Listen, Links, Buttons: Verwende Lato.
-
-Blockquotes: Verwende Playfair Display (kursiv).
-
-4. Farbpalette (HEX-Codes):
-
-Hintergrund: Helles Beige (#f8f8f6).
-
-Haupttext (Fließtext, Überschriften): Dunkelbraun (#4e463b).
-
-Links und sekundäre Akzente (z.B. H 
-3
-​
- -Überschriften, Blockquote-Ränder): Waldgrün (#406243).
-
-Haupt-Call-to-Action-Button (am Ende des Artikels): Hintergrund Braun (#92400e), Text Weiß (#FFFFFF).
-
-Grafische Highlights (nicht für Text): Amber/Gold (#f6c36a).
-
-5. Visuelle Elemente (Bilder & Videos):
-
-Bildsprache: Verwende ausschließlich hochwertige, authentische und emotionale Bilder von Pferden und Menschen. Vermeide gestellte Stockfotos.[10]
-
-Platzierung: Füge Bilder passend zum Kontext ein, um lange Textblöcke aufzulockern.[11]
-
-Videos: Wenn Videos im Content erwähnt werden, bette sie direkt in die Seite ein. Wichtig: Videos dürfen niemals automatisch abgespielt werden.[8]
-
-6. Primärer Call-to-Action (CTA):
-
-Platzierung: Am Ende jedes Artikels.
-
-Struktur: Der CTA besteht aus zwei Teilen:
-
-Kontextbezogene Überschrift/Frage: Eine Frage, die direkt an den Artikelinhalt anknüpft.
-
-Beispiel: "Willst du wissen, wie ein bestimmter AKU-Befund sich auf den Wert deines Pferdes auswirkt?"
-
-Einheitlicher Button: Ein Button mit dem festen Text:
-
-Jetzt Pferdewert berechnen
-
-## 7. Verfügbare Komponenten
-
-### ArticleMetadata
-**Verwendung**: Anzeige von Artikel-Metadaten direkt unter dem Haupttitel
-**Eigenschaften**:
-- Autor-Information mit User-Icon
-- Veröffentlichungsdatum (deutsches Datumsformat)
-- Geschätzte Lesezeit mit Clock-Icon
-- Responsive Design mit flexiblem Layout
-
+### 8. Code-Snippets & Beispiele
 ```tsx
-<ArticleMetadata
-  author="Dr. Sarah Müller"
-  publishedDate="2024-01-15"
-  readTime="8 Min. Lesezeit"
+// Highlight-Box
+<RatgeberHighlightBox title="AKU Klasse I" icon="📋">
+  <p>Geeignet für Freizeitpferde bis 5.000 €.</p>
+  <p>Typischer Umfang: Klinische Untersuchung, Basisröntgen.</p>
+</RatgeberHighlightBox>
+
+// Regionale Infos
+<RatgeberRegionGrid
+  regions={[
+    { title: 'Bayern', description: 'Warmblut-Zentren mit hochspezialisierten Praxen.' },
+    { title: 'Niedersachsen', description: 'Größte Dichte an AKU-Tierärzten.' },
+    { title: 'Nordrhein-Westfalen', description: 'Fokus auf Freizeit- und Schulpferde.' }
+  ]}
+/>
+
+// Related Articles
+<RatgeberRelatedArticles
+  title="Weiterführende Artikel"
+  articles={akuRelatedArticles}
+  description="Vertiefen Sie Ihr Wissen über die AKU."
 />
 ```
 
-### Blockquote
-**Verwendung**: Hervorhebung wichtiger Zitate oder Kernaussagen
-**Design**:
-- Playfair Display (kursiv) für den Text
-- Waldgrüne linke Randbegrenzung (#406243)
-- Quote-Icon als visueller Akzent
-- Optionale Autor-Attribution
-
-```tsx
-<Blockquote author="Tierarzt Prof. Schmid">
-  "Ein gründliche AKU-Untersuchung ist das Fundament einer jeden seriösen Pferdebewertung."
-</Blockquote>
-```
-
-### RelatedArticles
-**Verwendung**: Anzeige verwandter Artikel am Ende jeder Ratgeberseite
-**Features**:
-- Grid-Layout (1-3 Spalten je nach Bildschirmgröße)
-- Hover-Effekte mit sanften Übergängen
-- Badge-System für Kategorisierung
-- Integrierte Lesezeit-Anzeige
-- Responsive Bilddarstellung
-
-```tsx
-<RelatedArticles
-  sectionTitle="Weitere hilfreiche Ratgeber"
-  articles={relatedArticlesData}
-/>
-```
-
-### Bereits vorhandene Komponenten
-- **FAQ**: Erweiterbarer FAQ-Bereich mit Schema.org Integration
-- **ContentSection**: Strukturierte Inhaltsblöcke mit optionalen Icons
-- **CTAButton**: Verschiedene Button-Stile (primary, secondary, expert)
-- **InfoBox**: Hervorhebungsboxen (tip, warning, expert, cost)
+Diese Vorgaben sind verbindlich für alle SEO-Ratgeberseiten. Änderungen am Design nur nach Abstimmung mit dem Design-Team vornehmen.
