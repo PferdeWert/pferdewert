@@ -1,63 +1,17 @@
 // pages/index.tsx
 import React from "react";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram } from "lucide-react";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
-
-// TypeScript interfaces for testimonials
-interface RealTestimonial {
-  name: string;
-  location: string;
-  role: string;
-  photo: string;
-  instagramHandle?: string;
-  quote: string;
-  verifiedDate: string;
-  rating: number;
-}
 
 
 export default function PferdeWertHomepage() {
   // Preise aus zentraler Konfiguration (importiert)
-
-  // Testimonials data
-  const realTestimonials: RealTestimonial[] = [
-    {
-      name: "Miriam F.",
-      location: "Deutschland",
-      role: "Ambitionierte Freizeitreiterin (Dressur)",
-      photo: "/images/testimonials/miriam-customer-64.webp",
-      instagramHandle: "herzenspferd_felino",
-      quote: "Nach einem Jahr gemeinsamer Zeit war ich neugierig, wie mein Pferd aktuell bewertet wird. Die Bewertung über PferdeWert war für mich eine tolle Möglichkeit, eine realistische Einschätzung zu bekommen – unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung. Besonders gut: Es wird nicht nur pauschal bewertet, sondern auch individuell auf Abstammung und Gesundheitsstatus eingegangen.",
-      verifiedDate: "2024-01-15",
-      rating: 5
-    },
-    {
-      name: "Eva T.",
-      location: "Deutschland",
-      role: "Besitzerin von Fürstiano",
-      photo: "/images/testimonials/eva-customer-64.webp",
-      instagramHandle: "die_rappenschmiede",
-      quote: "Nach einer Verletzung von Fürstiano war ich unsicher über seinen aktuellen Marktwert. Die PferdeWert-Analyse war super einfach auszufüllen und das Ergebnis kam sofort. Besonders hilfreich fand ich die detaillierte Aufschlüsselung der Bewertungsfaktoren - das hat mir wirklich geholfen, die Situation realistisch einzuschätzen. Auch wenn für mich mein Pferd unbezahlbar bleibt, war es interessant zu wissen, wo er marktmäßig steht.",
-      verifiedDate: "2024-12-20",
-      rating: 5
-    },
-    {
-      name: "Denise B.",
-      location: "Deutschland", 
-      role: "von energy_emotion",
-      photo: "/images/testimonials/denise-customer-64.webp",
-      instagramHandle: "energy_emotion",
-      quote: "Auch wenn ein Verkauf meiner beiden Stuten nicht in Frage kommt, war ich neugierig, wo ihr aktueller Marktwert liegt. Die Bewertung bei PferdeWert war überraschend einfach – ein paar Fragen zur Abstammung, zu eventuellen Krankheitsbildern, Ausbildung und Turniererfolgen, das war's. Keine 10 Minuten später hatte ich eine detaillierte Analyse zu beiden Pferden. Perfekt für alle, die vor einem Pferdekauf oder Pferdeverkauf stehen oder einfach so wissen möchten, was ihre Pferde wert sind.",
-      verifiedDate: "2025-01-12",
-      rating: 5
-    }
-  ];
 
   // FAQ Data
   const faqItems = [
@@ -398,101 +352,7 @@ export default function PferdeWertHomepage() {
 </section>
 
         {/* Testimonials Section */}
-        <section className="section bg-brand-light/50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-h2 font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
-              <p className="text-xl text-gray-600">
-                Erfahrungen von Pferdebesitzern und Reitern
-              </p>
-            </div>
-
-            {/* Optimized grid layout for 3 testimonials */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-              {/* Real Testimonials with Photos */}
-              {realTestimonials.map((testimonial, index) => (
-                <div key={index} className="flex">
-                  <div className="bg-white rounded-xl p-6 shadow-xl border-l-4 border-brand-brown relative flex flex-col w-full h-auto">
-                    
-                    {/* Quote mark */}
-                    <div className="absolute -left-1 top-6 text-4xl text-brand-brown font-serif leading-none">
-                      &quot;
-                    </div>
-                    
-                    {/* Customer info with consistent height */}
-                    <div className="flex items-start mb-4 ml-6 min-h-[80px]">
-                      <div className="relative w-16 mr-4 flex-shrink-0">
-                        <Image
-                          src={testimonial.photo}
-                          alt={`${testimonial.name} Profilbild`}
-                          width={64}
-                          height={64}
-                          className="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 pt-1">
-                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                        <div className="text-sm text-gray-600 leading-snug">{testimonial.role}</div>
-                        <div className="text-xs text-gray-500">{testimonial.location}</div>
-                      </div>
-                    </div>
-                    
-                    {/* Rating */}
-                    <div className="flex mb-4 ml-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-brand-gold fill-current" />
-                      ))}
-                    </div>
-                    
-                    {/* Quote - grows to fill available space */}
-                    <blockquote className="text-gray-700 mb-6 ml-6 leading-relaxed flex-grow text-sm">
-                      {testimonial.quote}
-                    </blockquote>
-                    
-                    {/* Instagram link - always at bottom with consistent height */}
-                    <div className="ml-6 mt-auto min-h-[48px] flex items-center">
-                      {testimonial.instagramHandle && (
-                        <a
-                          href={`https://instagram.com/${testimonial.instagramHandle}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-brown transition-colors py-2 px-3 rounded-lg hover:bg-brand-light/50"
-                          aria-label={`${testimonial.name} auf Instagram folgen`}
-                        >
-                          <Instagram className="w-4 h-4" />
-                          @{testimonial.instagramHandle}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Enhanced Call-to-Action */}
-            <div className="text-center mt-16">
-              <div className="mb-4">
-                <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Pferdepreis-Bewertungen für Pferdebesitzer und Pferdekäufer
-                </p>
-              </div>
-              
-              <Link
-                href="/pferde-preis-berechnen"
-                className="btn-primary text-lg px-8 py-4 inline-block"
-              >
-                Jetzt Pferdewert berechnen
-              </Link>
-              
-              <div className="mt-4">
-                <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  30 Tage Geld-zurück-Garantie
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* Pferd kaufen Preis Section - High-value keyword targeting */}
         <section id="pferd-kaufen-preis" className="section bg-brand-light/30">
@@ -688,8 +548,8 @@ export default function PferdeWertHomepage() {
                     <span className="text-gray-700">Objektive Bewertung vor der Besichtigung</span>
                   </li>
                 </ul>
-                <Link 
-                  href="/pferd-kaufen" 
+                <Link
+                  href="/pferde-ratgeber/pferd-kaufen"
                   className="block w-full text-center bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Pferd kaufen in Bayern & NRW →
@@ -719,8 +579,8 @@ export default function PferdeWertHomepage() {
                     <span className="text-gray-700">Verhandlungssicherheit mit professioneller Bewertung</span>
                   </li>
                 </ul>
-                <Link 
-                  href="/pferd-verkaufen" 
+                <Link
+                  href="/pferde-ratgeber/pferd-verkaufen"
                   className="block w-full text-center bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                 >
                   Pferd verkaufen in Bayern & NRW →
@@ -735,11 +595,11 @@ export default function PferdeWertHomepage() {
                   💡 Neugierig auf den aktuellen Marktwert deines Pferdes?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Erfahre mit unserer <Link href="/was-ist-mein-pferd-wert" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
+                  Erfahre mit unserer <Link href="/pferde-preis-berechnen" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
                   egal ob aus Neugier, für Versicherung oder zukünftige Planung.
                 </p>
-                <Link 
-                  href="/was-ist-mein-pferd-wert" 
+                <Link
+                  href="/pferde-preis-berechnen"
                   className="inline-flex items-center gap-2 bg-brand-brown text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-brownDark transition-colors"
                 >
                   Was ist mein Pferd wert?
