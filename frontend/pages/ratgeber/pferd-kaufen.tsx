@@ -216,7 +216,7 @@ const PferdKaufen: NextPage = () => {
           category="Pferdekauf"
           primaryCTA={{
             text: 'Jetzt Pferdewert berechnen',
-            href: '/bewertung'
+            href: '/pferde-preis-berechnen'
           }}
           secondaryCTA={{
             text: 'Zum Inhalt',
@@ -305,7 +305,7 @@ const PferdKaufen: NextPage = () => {
               zu bezahlen. Mit PferdeWert.de können Sie in nur 2 Minuten den fairen Marktwert eines Pferdes berechnen
               lassen – basierend auf modernster KI-Technologie und aktuellen Marktdaten.
             </p>
-            <CTAButton type="primary" href="/bewertung">
+            <CTAButton type="primary" href="/pferde-preis-berechnen">
               Jetzt Pferdewert berechnen
             </CTAButton>
           </div>
@@ -359,7 +359,7 @@ const PferdKaufen: NextPage = () => {
                   💡 <strong>Kritischer Tipp:</strong> Bevor Sie in Kaufverhandlungen gehen, sollten Sie wissen,
                   ob der angebotene Preis fair ist.
                 </p>
-                <Link href="/bewertung" className="text-brand-brown hover:underline font-medium">
+                <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">
                   Mit der AI-Bewertung von PferdeWert.de erhalten Sie in 2 Minuten eine objektive Einschätzung →
                 </Link>
               </div>
@@ -445,7 +445,7 @@ const PferdKaufen: NextPage = () => {
               </ul>
               <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
                 <p className="text-sm text-brand/90">
-                  <strong>⚠️ Warnung:</strong> Ein „Anfängerpferd" ist nicht dasselbe wie ein günstiges oder
+                  <strong>⚠️ Warnung:</strong> Ein &quot;Anfängerpferd&quot; ist nicht dasselbe wie ein günstiges oder
                   altes Pferd. Viele günstige Angebote sind problembehaftet – schwierig im Umgang, gesundheitlich
                   angeschlagen oder unzureichend ausgebildet.
                 </p>
@@ -508,7 +508,7 @@ const PferdKaufen: NextPage = () => {
                 AI-Bewertung, um den fairen Marktwert zu ermitteln. Ein realistischer Preis ist oft ein Indikator
                 für die Qualität des Angebots – unrealistisch günstige Preise sollten Sie stutzig machen.
               </p>
-              <CTAButton type="primary" href="/bewertung">
+              <CTAButton type="primary" href="/pferde-preis-berechnen">
                 Jetzt Pferdewert berechnen
               </CTAButton>
             </div>
@@ -710,7 +710,7 @@ const PferdKaufen: NextPage = () => {
                 </ul>
               </div>
 
-              <CTAButton type="primary" href="/bewertung">
+              <CTAButton type="primary" href="/pferde-preis-berechnen">
                 Jetzt Pferdewert berechnen – nur 19,90€
               </CTAButton>
               <p className="text-sm text-brand/70 mt-3 italic">
@@ -780,7 +780,7 @@ const PferdKaufen: NextPage = () => {
               <div>
                 <p className="font-semibold text-brand-brown mb-2">Nachteile:</p>
                 <ul className="space-y-1 text-brand/90 text-sm list-disc list-inside">
-                  <li>Keine Gewährleistung („gekauft wie gesehen")</li>
+                  <li>Keine Gewährleistung (&quot;gekauft wie gesehen&quot;)</li>
                   <li>AKU auf eigene Kosten</li>
                   <li>Verhandlungsgeschick erforderlich</li>
                   <li>Keine rechtliche Absicherung bei Mängeln</li>
@@ -790,7 +790,7 @@ const PferdKaufen: NextPage = () => {
                 <p className="text-sm text-brand/90">
                   💡 <strong>Faire Preisfindung beim Privatkauf:</strong> Private Verkäufer haben oft
                   unrealistische Preisvorstellungen.{' '}
-                  <Link href="/bewertung" className="text-brand-brown hover:underline font-medium">
+                  <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">
                     Nutzen Sie die PferdeWert.de AI-Bewertung für klares Preiswissen →
                   </Link>
                 </p>
@@ -819,7 +819,7 @@ const PferdKaufen: NextPage = () => {
             title="Pferd kaufen mit Verstand statt Emotion"
             description="Der Kauf eines Pferdes ist eine bedeutende Entscheidung – finanziell, zeitlich und emotional. Mit PferdeWert.de haben Sie einen verlässlichen Partner für faire Pferdebewertung an Ihrer Seite. Unsere KI-Technologie verschafft Ihnen Preistransparenz und Verhandlungssicherheit in nur 2 Minuten."
             buttonText="Jetzt Pferdewert berechnen"
-            buttonHref="/bewertung"
+            buttonHref="/pferde-preis-berechnen"
             imageSrc="/images/cta/pferd-bewertung-final.jpg"
             imageAlt="AI-Pferdebewertung in 2 Minuten"
           />
