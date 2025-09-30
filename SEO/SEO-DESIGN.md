@@ -68,6 +68,8 @@ Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukü
 - Videos eingebettet, keine Autoplay.
 
 ### 7. CTA & Conversion
+- **WICHTIG**: Alle CTAs verlinken zu `/pferde-preis-berechnen` (NICHT `/bewertung`!)
+- **Standard CTA-Text**: `"Jetzt Pferdewert berechnen"` (nur bei thematischer Passung leicht anpassen)
 - Abschluss-CTA immer eigene Beige-Box (`#fdf7f1` + `#e0c9aa`).
 - Headline `text-brand`, Subtext `text-brand/80`.
 - Button immer: `Jetzt Pferdewert berechnen` (`CTAButton type="primary"`).
