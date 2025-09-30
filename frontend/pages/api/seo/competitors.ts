@@ -30,9 +30,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const [backlinks, metrics] = await Promise.all([
         client.getBacklinks(domain),
         client.getDomainMetrics(domain)
-      ]);
-      results.backlinks = backlinks.tasks?.[0]?.result;
-      results.domainMetrics = metrics.tasks?.[0]?.result;
+      ]) as Array<{ tasks?: Array<{ result?: unknown }> }>;
+      results.backlinks = backlinks?.tasks?.[0]?.result;
+      results.domainMetrics = metrics?.tasks?.[0]?.result;
     }
 
     res.status(200).json({

@@ -1,12 +1,12 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck } from 'lucide-react';
 import Layout from '../../components/Layout';
 import RatgeberHero from '../../components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '../../components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '../../components/ratgeber/RatgeberTableOfContents';
-import ContentSection from '../../components/ratgeber/ContentSection';
+import ContentSection from '../../components/ContentSection';
 import RatgeberHighlightBox from '../../components/ratgeber/RatgeberHighlightBox';
 import RatgeberInfoTiles from '../../components/ratgeber/RatgeberInfoTiles';
 import RatgeberRegionGrid from '../../components/ratgeber/RatgeberRegionGrid';
@@ -17,6 +17,21 @@ import CTAButton from '../../components/CTAButton';
 import { PRICING_FORMATTED } from '../../lib/pricing';
 
 const PferdVerkaufen: NextPage = () => {
+  const heroMetaItems = [
+    {
+      icon: <TrendingUp className="h-4 w-4" />,
+      label: "Marktpreis-Analyse"
+    },
+    {
+      icon: <Shield className="h-4 w-4" />,
+      label: "Rechtssichere Abwicklung"
+    },
+    {
+      icon: <FileCheck className="h-4 w-4" />,
+      label: "Verkaufscheckliste"
+    }
+  ]
+
   const sections = [
     { id: 'wert-ermitteln', title: 'Pferdewert ermitteln' },
     { id: 'emotionale-faktoren', title: 'Emotionale Faktoren' },
@@ -51,12 +66,12 @@ const PferdVerkaufen: NextPage = () => {
   };
 
   const preisbeispieleTiles = [
-    { label: 'Freizeitpferd (gut)', value: '2.500€ – 6.000€' },
-    { label: 'Turnierpferd L-Niveau', value: '8.000€ – 20.000€' },
-    { label: 'Jungpferd (3-4 Jahre)', value: '1.500€ – 5.000€' },
-    { label: 'Rentner (20+ Jahre)', value: '500€ – 2.000€' },
-    { label: 'Zuchtpferd m. Erfolg', value: '10.000€ – 50.000€+' },
-    { label: 'Spezialpferd (Western)', value: '5.000€ – 15.000€' }
+    { title: 'Freizeitpferd (gut)', value: '2.500€ – 6.000€', description: 'Gut ausgebildete Freizeitpferde mit solider Grundausbildung' },
+    { title: 'Turnierpferd L-Niveau', value: '8.000€ – 20.000€', description: 'Turniererprobte Pferde mit L-Platzierungen' },
+    { title: 'Jungpferd (3-4 Jahre)', value: '1.500€ – 5.000€', description: 'Junge Pferde am Beginn der Ausbildung' },
+    { title: 'Rentner (20+ Jahre)', value: '500€ – 2.000€', description: 'Erfahrene Pferde im fortgeschrittenen Alter' },
+    { title: 'Zuchtpferd m. Erfolg', value: '10.000€ – 50.000€+', description: 'Erfolgreiche Zuchtstuten und -hengste' },
+    { title: 'Spezialpferd (Western)', value: '5.000€ – 15.000€', description: 'Spezialisierte Western-Reitpferde' }
   ];
 
   const regionalRegions = [
@@ -80,7 +95,7 @@ const PferdVerkaufen: NextPage = () => {
       image: '/images/dino-1.webp',
       title: 'Pferdewert ermitteln: 5 Methoden im Vergleich',
       badge: 'Bewertung',
-      readTime: 8,
+      readTime: '8 min',
       description: 'Wie ermitteln Sie den fairen Marktwert eines Pferdes? Vergleich klassischer Methoden vs. moderne AI-Bewertung.'
     },
     {
@@ -88,7 +103,7 @@ const PferdVerkaufen: NextPage = () => {
       image: '/images/dino-1.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
       badge: 'Kaufberatung',
-      readTime: 11,
+      readTime: '11 min',
       description: 'Umfassender Ratgeber zum Pferdekauf mit Preisübersicht, Checkliste, Anfänger-Tipps und AI-Bewertung für faire Preise.'
     },
     {
@@ -96,7 +111,7 @@ const PferdVerkaufen: NextPage = () => {
       image: '/images/dino-1.webp',
       title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
       badge: 'Kaufsicherheit',
-      readTime: 12,
+      readTime: '12 min',
       description: 'Alles zur Ankaufsuntersuchung: Welche AKU-Klasse brauchen Sie? Was wird untersucht? Kompletter Ratgeber für Pferdekäufer.'
     }
   ];
@@ -316,23 +331,22 @@ const PferdVerkaufen: NextPage = () => {
 
       <div className="bg-gradient-to-b from-amber-50 to-white">
         <RatgeberHero
-          badge="Verkaufsratgeber"
+          badgeLabel="Verkaufsratgeber"
+          badgeIcon={<BookOpen className="h-4 w-4" />}
           title="Pferd verkaufen zum optimalen Preis – Der ultimative Ratgeber 2025"
           subtitle="Sie möchten Ihr Pferd verkaufen und einen fairen Preis erzielen? Der Pferdeverkauf ist emotional und komplex zugleich. Dieser Ratgeber führt Sie Schritt für Schritt durch den gesamten Prozess: von der professionellen Bewertung über die Plattformwahl bis zur rechtssicheren Übergabe. Vermeiden Sie die häufigsten Fehler, die Sie tausende Euro kosten können."
-          readTime={15}
-          lastUpdated="09.01.2025"
-          category="Pferdeverkauf"
-          primaryCTA={{
-            text: 'Jetzt Verkaufspreis berechnen',
-            href: '/pferde-preis-berechnen'
+          metaItems={heroMetaItems}
+          primaryCta={{
+            href: "/pferde-preis-berechnen",
+            label: "Jetzt Verkaufspreis berechnen",
+            icon: <Calculator className="h-5 w-5" />
           }}
-          secondaryCTA={{
-            text: 'Zum Inhalt',
+          secondaryCta={{
+            label: "Zum Inhalt",
             onClick: scrollToContent,
             icon: <ChevronDown className="h-5 w-5" />
           }}
         />
-
         <RatgeberHeroImage
           src="/images/dino-1.webp"
           alt="Erfolgreicher Pferdeverkauf mit zufriedenem Verkäufer und neuem Besitzer"
@@ -372,7 +386,7 @@ const PferdVerkaufen: NextPage = () => {
             Spitzensportpferde. Eine grobe Orientierung:
           </p>
 
-          <RatgeberInfoTiles tiles={preisbeispieleTiles} />
+          <RatgeberInfoTiles headline="Preisbeispiele nach Pferdetyp" tiles={preisbeispieleTiles} />
 
           <div className="mt-8 space-y-6">
             <RatgeberHighlightBox title="Die 5 wichtigsten Preisfaktoren" icon="📊">
@@ -420,9 +434,7 @@ const PferdVerkaufen: NextPage = () => {
                   <li>✓ <strong>Risikofrei:</strong> 30 Tage Geld-zurück-Garantie</li>
                 </ul>
               </div>
-              <CTAButton type="primary" href="/pferde-preis-berechnen">
-                Jetzt Verkaufspreis berechnen – nur {PRICING_FORMATTED.current}
-              </CTAButton>
+              <CTAButton type="primary" href="/pferde-preis-berechnen" text={`Jetzt Verkaufspreis berechnen – nur ${PRICING_FORMATTED.current}`} />
               <p className="text-sm text-brand/70 mt-3 italic">
                 Von Reitern entwickelt. Über 10.000 erfolgreiche Bewertungen.
               </p>
@@ -770,9 +782,7 @@ const PferdVerkaufen: NextPage = () => {
                 sie nach aktuellen Marktdaten. Das Ergebnis: eine objektive, nachvollziehbare Preisempfehlung
                 in nur 2 Minuten.
               </p>
-              <CTAButton type="primary" href="/pferde-preis-berechnen">
-                Jetzt fairen Verkaufspreis ermitteln – {PRICING_FORMATTED.current}
-              </CTAButton>
+              <CTAButton type="primary" href="/pferde-preis-berechnen" text={`Jetzt fairen Verkaufspreis ermitteln – ${PRICING_FORMATTED.current}`} />
             </div>
           </div>
         </ContentSection>
@@ -1154,12 +1164,7 @@ const PferdVerkaufen: NextPage = () => {
                   = 1.085€ Nettogewinn</strong>
                 </p>
               </div>
-              <CTAButton type="primary" href="/pferde-preis-berechnen">
-                Jetzt Verkaufspreis optimieren – {PRICING_FORMATTED.current}
-              </CTAButton>
-              <p className="text-sm text-brand/70 mt-3 italic">
-                30 Tage Geld-zurück-Garantie. Keine versteckten Kosten.
-              </p>
+              <CTAButton type="primary" href="/pferde-preis-berechnen" text={`Jetzt Verkaufspreis optimieren – ${PRICING_FORMATTED.current}`} />
             </div>
           </div>
         </ContentSection>
@@ -1411,7 +1416,7 @@ const PferdVerkaufen: NextPage = () => {
 
         {/* FAQ */}
         <div id="faq" className="mt-16">
-          <FAQ items={faqItems} />
+          <FAQ sectionTitle="Häufig gestellte Fragen zum Pferdeverkauf" faqs={faqItems} />
         </div>
 
         {/* Related Articles */}
@@ -1428,10 +1433,12 @@ const PferdVerkaufen: NextPage = () => {
           <RatgeberFinalCTA
             title="Verkaufen Sie Ihr Pferd zum optimalen Preis"
             description={`Der Verkauf eines Pferdes ist komplex und emotional zugleich. Mit PferdeWert.de haben Sie einen verlässlichen Partner für faire Pferdebewertung an Ihrer Seite. Unsere KI-Technologie verschafft Ihnen Preistransparenz und Verhandlungssicherheit in nur 2 Minuten – für nur ${PRICING_FORMATTED.current}. Vermeiden Sie Über- oder Unterbewertung und verkaufen Sie zum fairen Marktwert.`}
-            buttonText="Jetzt Verkaufspreis berechnen"
-            buttonHref="/pferde-preis-berechnen"
-            imageSrc="/person-evaluating-horse-for-purchase.webp"
-            imageAlt="KI-gestützte Pferdebewertung in 2 Minuten"
+            image={{
+              src: "/person-evaluating-horse-for-purchase.webp",
+              alt: "KI-gestützte Pferdebewertung in 2 Minuten"
+            }}
+            ctaHref="/pferde-preis-berechnen"
+            ctaLabel="Jetzt Verkaufspreis berechnen"
           />
         </div>
       </div>

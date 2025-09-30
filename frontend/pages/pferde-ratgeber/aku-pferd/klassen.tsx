@@ -1,14 +1,12 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import { ClipboardList, ShieldAlert, CheckCircle } from "lucide-react"
+import { ClipboardList, ShieldAlert, CheckCircle, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
 import FAQ from "@/components/FAQ"
-import ContentSection from "@/components/ContentSection"
 import RatgeberHero from "@/components/ratgeber/RatgeberHero"
 import RatgeberHeroImage from "@/components/ratgeber/RatgeberHeroImage"
 import RatgeberHighlightBox from "@/components/ratgeber/RatgeberHighlightBox"
-import RatgeberInfoTiles from "@/components/ratgeber/RatgeberInfoTiles"
 import RatgeberRelatedArticles from "@/components/ratgeber/RatgeberRelatedArticles"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
@@ -163,7 +161,7 @@ const AkuPferdKlassen: NextPage = () => {
           <title>AKU Pferd Klassen: Bedeutung & Entscheidungshilfe | PferdeWert</title>
           <meta
             name="description"
-            content="AKU-Klassen 1–5 einfach erklärt: Bedeutung, Risiko, Verwendungszweck und Kaufempfehlung für jede Befundklasse." 
+            content="AKU-Klassen 1–5 einfach erklärt: Bedeutung, Risiko, Verwendungszweck und Kaufempfehlung für jede Befundklasse."
           />
         </Head>
 
@@ -180,7 +178,7 @@ const AkuPferdKlassen: NextPage = () => {
           }}
           secondaryCta={{
             label: "Zum Inhalt",
-            icon: <ShieldAlert className="h-5 w-5" />,
+            icon: <ChevronDown className="h-5 w-5" />,
             onClick: handleScrollToToc
           }}
         />
@@ -197,17 +195,16 @@ const AkuPferdKlassen: NextPage = () => {
           <article className="max-w-5xl mx-auto space-y-16">
             <section id="overview" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Warum AKU-Klassen wichtig sind</h2>
-              <ContentSection
-                icon={<ClipboardList className="h-6 w-6" />}
-                title="Befunde richtig einordnen"
-                content={
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    Nach jeder Ankaufsuntersuchung werden Befunde in Klassen eingestuft – von OB (ohne Befund) bis hin zu hochgradigen
-                    Einschränkungen. Sie helfen dir, Risiken einzuschätzen, Preise fair zu verhandeln und den Einsatz deines zukünftigen
-                    Pferdes realistisch zu planen.
-                  </p>
-                }
-              />
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Befunde richtig einordnen
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Nach jeder Ankaufsuntersuchung werden Befunde in Klassen eingestuft – von OB (ohne Befund) bis hin zu hochgradigen
+                Einschränkungen. Sie helfen dir, Risiken einzuschätzen, Preise fair zu verhandeln und den Einsatz deines zukünftigen
+                Pferdes realistisch zu planen.
+              </p>
+
               <RatgeberHighlightBox title="Darum lohnt sich das Verständnis" icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   <li>• Kaufentscheidungen auf Faktenbasis treffen</li>
@@ -219,15 +216,34 @@ const AkuPferdKlassen: NextPage = () => {
 
             <section id="klassen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Die fünf AKU-Klassen im Vergleich</h2>
-              <RatgeberInfoTiles
-                headline="Klassen, Risiko & Empfehlung"
-                tiles={classTiles.map((klasse) => ({
-                  title: klasse.title,
-                  value: klasse.risk,
-                  description: `${klasse.description} · Empfehlung: ${klasse.recommendation}`
-                }))}
-              />
-              <RatgeberHighlightBox title="Kosten je nach Befund" icon="💰">
+
+              <h3 className="text-2xl font-serif font-bold text-brand mb-6">
+                Klassen, Risiko & Empfehlung
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {classTiles.map((klasse) => (
+                  <div key={klasse.title} className="bg-white rounded-lg border border-gray-200 p-6 space-y-3">
+                    <h4 className="text-xl font-serif font-bold text-brand">
+                      {klasse.title}
+                    </h4>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-600">Risiko:</span>
+                      <span className="text-lg font-bold text-brand-brown">{klasse.risk}</span>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-sm">
+                      {klasse.description}
+                    </p>
+                    <div className="pt-2 border-t border-gray-200">
+                      <p className="text-sm text-gray-600">
+                        <strong className="text-brand">Empfehlung:</strong> {klasse.recommendation}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <RatgeberHighlightBox title="Kosten je nach Befund" icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Die Klassifizierung beeinflusst den empfohlenen AKU-Umfang: Während Klassen 1–2 meist mit der kleinen bzw. großen AKU
                   abgedeckt sind, erfordern Klassen 3–5 zusätzliche Diagnostik und Budget für Nachuntersuchungen.
@@ -237,6 +253,7 @@ const AkuPferdKlassen: NextPage = () => {
 
             <section id="entscheidung" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Entscheidungshilfe nach Klasse</h2>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 {decisionTiles.map((tile) => (
                   <RatgeberHighlightBox key={tile.title} title={tile.title} icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />} padding="p-6">
@@ -244,18 +261,16 @@ const AkuPferdKlassen: NextPage = () => {
                   </RatgeberHighlightBox>
                 ))}
               </div>
-              <ContentSection
-                icon={<CheckCircle className="h-6 w-6" />}
-                title="So gehst du nach der AKU weiter vor"
-                content={
-                  <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
-                    <li>• Bewertung gemeinsam mit dem Tierarzt durchsprechen und dokumentieren</li>
-                    <li>• Bei Klassen 3–5 Einsatzgebiet, Versicherung und Training anpassen</li>
-                    <li>• Befunde als Argument für Preisverhandlungen nutzen</li>
-                    <li>• Bei Unklarheiten eine unabhängige Zweitmeinung einholen</li>
-                  </ul>
-                }
-              />
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                So gehst du nach der AKU weiter vor
+              </h3>
+              <ul className="space-y-2 text-gray-700 text-base leading-relaxed">
+                <li>• Bewertung gemeinsam mit dem Tierarzt durchsprechen und dokumentieren</li>
+                <li>• Bei Klassen 3–5 Einsatzgebiet, Versicherung und Training anpassen</li>
+                <li>• Befunde als Argument für Preisverhandlungen nutzen</li>
+                <li>• Bei Unklarheiten eine unabhängige Zweitmeinung einholen</li>
+              </ul>
             </section>
           </article>
 

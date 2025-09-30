@@ -1,15 +1,12 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import { Calculator, Wallet, PiggyBank, MapPin } from "lucide-react"
+import { Calculator, Wallet, PiggyBank, MapPin, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
-import ContentSection from "@/components/ContentSection"
 import FAQ from "@/components/FAQ"
 import RatgeberHero from "@/components/ratgeber/RatgeberHero"
 import RatgeberHeroImage from "@/components/ratgeber/RatgeberHeroImage"
 import RatgeberHighlightBox from "@/components/ratgeber/RatgeberHighlightBox"
-import RatgeberInfoTiles from "@/components/ratgeber/RatgeberInfoTiles"
-import RatgeberRegionGrid from "@/components/ratgeber/RatgeberRegionGrid"
 import RatgeberRelatedArticles from "@/components/ratgeber/RatgeberRelatedArticles"
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
@@ -176,7 +173,7 @@ const AkuPferdKosten: NextPage = () => {
           }}
           secondaryCta={{
             label: "Zum Inhalt",
-            icon: <Wallet className="h-5 w-5" />,
+            icon: <ChevronDown className="h-5 w-5" />,
             onClick: handleScrollToToc
           }}
         />
@@ -193,16 +190,15 @@ const AkuPferdKosten: NextPage = () => {
           <article className="max-w-5xl mx-auto space-y-16">
             <section id="overview" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">AKU Kosten im Überblick</h2>
-              <ContentSection
-                icon={<Calculator className="h-6 w-6" />}
-                title="Womit du rechnen solltest"
-                content={
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    Die Kosten der Ankaufsuntersuchung setzen sich aus dem gewählten Umfang (AKU-Klasse) und zusätzlichen Leistungen
-                    wie Röntgen, Labor und Anfahrt zusammen. Plane je nach Kaufpreis und Anspruch 2–5 % des Kaufpreises ein.
-                  </p>
-                }
-              />
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Womit du rechnen solltest
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Die Kosten der Ankaufsuntersuchung setzen sich aus dem gewählten Umfang (AKU-Klasse) und zusätzlichen Leistungen
+                wie Röntgen, Labor und Anfahrt zusammen. Plane je nach Kaufpreis und Anspruch 2–5 % des Kaufpreises ein.
+              </p>
+
               <RatgeberHighlightBox title="Kostenfaktoren" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   <li>• Umfang der Bildgebung (Anzahl und Art der Röntgenaufnahmen)</li>
@@ -215,7 +211,27 @@ const AkuPferdKosten: NextPage = () => {
 
             <section id="klassen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Kosten pro AKU-Klasse</h2>
-              <RatgeberInfoTiles headline="Preisrahmen je Klasse" tiles={classCosts} />
+
+              <h3 className="text-2xl font-serif font-bold text-brand mb-6">
+                Preisrahmen je Klasse
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {classCosts.map((cost) => (
+                  <div key={cost.title} className="bg-white rounded-lg border border-gray-200 p-6 space-y-3">
+                    <h4 className="text-xl font-serif font-bold text-brand">
+                      {cost.title}
+                    </h4>
+                    <p className="text-2xl font-bold text-brand-brown">
+                      {cost.value}
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      {cost.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
               <RatgeberHighlightBox title="Faustregel" icon={<Calculator className="h-5 w-5 text-brand-brown" />}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Freizeitpferde bis 5.000 € kommen mit Klasse II aus. Für hochwertige Sport- oder Zuchtpferde solltest du Klasse III
@@ -226,6 +242,7 @@ const AkuPferdKosten: NextPage = () => {
 
             <section id="zusatzkosten" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Zusatzkosten & Faktoren</h2>
+
               <RatgeberHighlightBox title="Typische Zusatzkosten" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   {extraCosts.map((item) => (
@@ -233,31 +250,39 @@ const AkuPferdKosten: NextPage = () => {
                   ))}
                 </ul>
               </RatgeberHighlightBox>
-              <ContentSection
-                icon={<PiggyBank className="h-6 w-6" />}
-                title="Was beeinflusst die Rechnung?"
-                content={
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    Je spezialisierter die Praxis und je umfangreicher die Diagnostik, desto höher die Kosten. Kläre im Vorfeld, ob
-                    du sämtliche Zusatzleistungen wirklich benötigst – und lass dir die Preisstruktur transparent erklären.
-                  </p>
-                }
-              />
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Was beeinflusst die Rechnung?
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Je spezialisierter die Praxis und je umfangreicher die Diagnostik, desto höher die Kosten. Kläre im Vorfeld, ob
+                du sämtliche Zusatzleistungen wirklich benötigst – und lass dir die Preisstruktur transparent erklären.
+              </p>
             </section>
 
             <section id="regionen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Regionale Preisunterschiede</h2>
-              <RatgeberRegionGrid
-                regions={regionen.map((region) => ({
-                  title: region.title,
-                  description: region.description,
-                  icon: <MapPin className="h-5 w-5 text-brand-brown" />
-                }))}
-              />
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {regionen.map((region) => (
+                  <div key={region.title} className="bg-white rounded-lg border border-gray-200 p-6 space-y-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <MapPin className="h-5 w-5 text-brand-brown" />
+                      <h4 className="text-xl font-serif font-bold text-brand">
+                        {region.title}
+                      </h4>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">
+                      {region.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <section id="spartipps" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Spartipps & Budgetplanung</h2>
+
               <RatgeberHighlightBox title="So sparst du bei der AKU" icon={<PiggyBank className="h-5 w-5 text-brand-brown" />}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   {savingsTips.map((tip) => (

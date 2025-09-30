@@ -4,7 +4,7 @@ import { getDataForSEOClient } from '../../../lib/dataforseo';
 /**
  * SERP Results API
  * POST /api/seo/serp
- * Body: { keyword: string, depth?: number }
+ * Body: { keyword: string }
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const client = getDataForSEOClient();
-    const result = await client.getSERPResults(keyword);
+    const result = await client.getSERPResults(keyword) as { tasks?: Array<{ result?: unknown }> };
 
     res.status(200).json({
       keyword,

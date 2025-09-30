@@ -34,18 +34,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       client.getRelatedKeywords(keyword),
       client.getCompetitors(keyword),
       client.getSearchVolumeTrends(keyword)
-    ]);
+    ]) as Array<{ tasks?: Array<{ result?: unknown }> }>;
 
     res.status(200).json({
       keyword,
       timestamp: new Date().toISOString(),
       data: {
-        keywordData: keywordData.tasks?.[0]?.result,
-        suggestions: suggestions.tasks?.[0]?.result,
-        serpResults: serpResults.tasks?.[0]?.result,
-        relatedKeywords: relatedKeywords.tasks?.[0]?.result,
-        competitors: competitors.tasks?.[0]?.result,
-        trends: trends.tasks?.[0]?.result
+        keywordData: keywordData?.tasks?.[0]?.result,
+        suggestions: suggestions?.tasks?.[0]?.result,
+        serpResults: serpResults?.tasks?.[0]?.result,
+        relatedKeywords: relatedKeywords?.tasks?.[0]?.result,
+        competitors: competitors?.tasks?.[0]?.result,
+        trends: trends?.tasks?.[0]?.result
       }
     });
   } catch (error) {

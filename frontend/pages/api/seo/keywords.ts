@@ -29,12 +29,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       requests.push(client.getRelatedKeywords(keyword));
     }
 
-    const results = await Promise.all(requests);
+    const results = await Promise.all(requests) as Array<{ tasks?: Array<{ result?: unknown }> }>;
 
     res.status(200).json({
       keyword,
-      keywordData: results[0].tasks?.[0]?.result,
-      suggestions: results[1].tasks?.[0]?.result,
+      keywordData: results[0]?.tasks?.[0]?.result,
+      suggestions: results[1]?.tasks?.[0]?.result,
       relatedKeywords: includeRelated ? results[2]?.tasks?.[0]?.result : null
     });
   } catch (error) {
