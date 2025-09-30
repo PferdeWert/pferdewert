@@ -641,7 +641,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       {/* Hero-Bereich mit fullWidth Layout wie index.tsx */}
       <HeroSection
         badge="🏆 #1 Online Pferdebewertung"
-        headline="Jetzt deinen Pferdepreis berechnen"
+        headline="Pferdepreis jetzt berechnen"
         highlightedWord="Pferdepreis"
         image="/images/result.webp"
         imageAlt="Deutsches Sportpferd für KI-Pferdebewertung"
