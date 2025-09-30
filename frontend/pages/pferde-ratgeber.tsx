@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Link from 'next/link'
 
 const PferdeRatgeber: NextPage = () => {
@@ -13,7 +13,7 @@ const PferdeRatgeber: NextPage = () => {
       kategorie: "Kauf & Verkauf",
       lesezeit: "15 Min.",
       bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "/aku-pferd",
+      link: "/pferde-ratgeber/aku-pferd",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const PferdeRatgeber: NextPage = () => {
       kategorie: "Kauf & Verkauf",
       lesezeit: "18 Min.",
       bild: "/person-evaluating-horse-for-purchase.jpg",
-      link: "/pferd-kaufen",
+      link: "/pferde-ratgeber/pferd-kaufen",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const PferdeRatgeber: NextPage = () => {
       kategorie: "Kauf & Verkauf",
       lesezeit: "16 Min.",
       bild: "/happy-horse-owner-with-horse--professional-consult.jpg",
-      link: "/pferd-verkaufen",
+      link: "/pferde-ratgeber/pferd-verkaufen",
     },
   ]
 

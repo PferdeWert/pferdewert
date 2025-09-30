@@ -141,7 +141,7 @@ export const wasKostetPferdFaqItems = [
 // Related Articles
 export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
   {
-    href: '/aku-pferd',
+    href: '/pferde-ratgeber/aku-pferd',
     image: '/images/blossi-shooting.webp',
     title: 'AKU Pferd: Ankaufsuntersuchung',
     badge: 'Pferde-Ratgeber',
@@ -149,7 +149,7 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
     description: 'Alles über Kosten, Ablauf und Befunde der Ankaufsuntersuchung beim Pferdekauf.'
   },
   {
-    href: '/pferd-kaufen',
+    href: '/pferde-ratgeber/pferd-kaufen',
     image: '/person-evaluating-horse-for-purchase.webp',
     title: 'Pferd kaufen: Der komplette Ratgeber',
     badge: 'Pferde-Ratgeber',
@@ -157,7 +157,7 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
     description: 'Checkliste, Tipps und Kaufberatung für Ihren erfolgreichen Pferdekauf.'
   },
   {
-    href: '/pferd-verkaufen',
+    href: '/pferde-ratgeber/pferd-verkaufen',
     image: '/happy-horse-owner-with-horse--professional-consult.jpg',
     title: 'Pferd verkaufen: Optimaler Preis',
     badge: 'Pferde-Ratgeber',

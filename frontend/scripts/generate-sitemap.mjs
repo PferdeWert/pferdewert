@@ -11,30 +11,19 @@ const PAGE_CONFIG = {
   '/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
 
   // Hub-Seiten (hohe Priorität)
-  '/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
-  '/pferd-verkaufen': { priority: '0.8', changefreq: 'monthly' },
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
-  // Hub-Page Unterseiten (hohe Priorität)
-  '/pferd-verkaufen/verkaufspreis-optimieren': { priority: '0.8', changefreq: 'monthly' },
-  '/pferd-verkaufen/pferdewert-berechnen': { priority: '0.8', changefreq: 'monthly' },
-
-  // Regionale Seiten (wichtig für lokale SEO)
-  '/pferd-kaufen/regionale-pferdepreise': { priority: '0.7', changefreq: 'monthly' },
-  '/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-bayern': { priority: '0.7', changefreq: 'monthly' },
-  '/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-nrw': { priority: '0.7', changefreq: 'monthly' },
-  '/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-niedersachsen': { priority: '0.7', changefreq: 'monthly' },
-  '/pferd-kaufen/regionale-pferdepreise/pferd-kaufen-hessen': { priority: '0.7', changefreq: 'monthly' },
-
   // Ratgeber-Artikel (SEO-relevanter Content)
-  '/pferde-ratgeber/aku-verstehen': { priority: '0.6', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-verstehen/aku-kosten-nutzen': { priority: '0.6', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-verstehen/pferdewert-trotz-aku': { priority: '0.6', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-verstehen/aku-befunde-interpretieren': { priority: '0.6', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-verstehen/aku-ablauf-kosten': { priority: '0.6', changefreq: 'monthly' },
+  '/pferde-ratgeber/pferd-kaufen': { priority: '0.7', changefreq: 'monthly' },
+  '/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd': { priority: '0.7', changefreq: 'monthly' },
+  '/pferde-ratgeber/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
+  '/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps': { priority: '0.7', changefreq: 'monthly' },
+  '/pferde-ratgeber/aku-pferd': { priority: '0.7', changefreq: 'monthly' },
+  '/pferde-ratgeber/aku-pferd/ablauf': { priority: '0.6', changefreq: 'monthly' },
+  '/pferde-ratgeber/aku-pferd/klassen': { priority: '0.6', changefreq: 'monthly' },
+  '/pferde-ratgeber/aku-pferd/kosten': { priority: '0.6', changefreq: 'monthly' },
 
   // Content-Seiten (mittlere Priorität)
-  '/was-ist-mein-pferd-wert': { priority: '0.8', changefreq: 'monthly' },
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
 

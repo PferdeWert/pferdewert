@@ -1,6 +1,6 @@
 ## Ratgeber Designsystem (SEO & Content)
 
-Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukünftigen Ratgeberseiten.
+**Design-Philosophie: Text First** – Ratgeberseiten sind Blog-Artikel mit semantischem HTML als Basis. Boxen werden nur sparsam für strategische Zwecke eingesetzt (max. 2-4 pro Artikel).
 
 ### 1. Seitenaufbau
 1. **Hero**
@@ -14,10 +14,14 @@ Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukü
    - `next/image` mit `priority`, 4:3 Zuschnitt, `rounded-xl` + `shadow-lg`.
 3. **Inhaltsverzeichnis**
    - Überschrift `text-brand`, Links `text-brand/80`, Hover `text-brand-brown`.
-4. **Content Body**
-   - Abschnittstitel `text-brand`.
-   - `ContentSection` für thematische Blöcke, Icons als Emoji oder Brand-SVGs.
-   - Infokarten und Tabellen in Beige-Boxen (siehe Farben).
+4. **Content Body (TEXT FIRST!)**
+   - **Basis: Semantisches HTML** – Nutze `<h2>`, `<h3>`, `<h4>`, `<p>`, `<ul>`, `<ol>` für Content-Struktur.
+   - **Boxen nur strategisch**: Max. 2-4 `RatgeberHighlightBox` pro Artikel für:
+     - Conversion-CTAs (AI-Bewertungs-Angebot)
+     - Kritische Warnungen (Sicherheitshinweise, rechtliche Risiken)
+     - Zusammenfassungen wichtiger Checklisten
+   - **Keine Box-Inflation**: NICHT jeden Absatz in Boxen packen!
+   - Abschnittstitel `text-brand`, Fließtext `text-gray-700 leading-relaxed`.
 5. **FAQ + Related Articles + Final CTA** am Ende der Seite.
 
 ### 2. Typografie
@@ -31,14 +35,15 @@ Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukü
 - Primärtext: `#4e463b` (`brand`).
 - Akzentgrün: `#406243` (`brand.green`).
 - CTA Braun: `#92400e` + Hover `#78350f`.
-- **Highlight-Boxen (Standard)**
+- **Highlight-Boxen (sparsam einsetzen!)**
   - Hintergrund `#fdf7f1`.
   - Border `#e0c9aa`.
   - Überschriften `text-brand-brown`.
   - Schatten `shadow-soft` (Tailwind Config).
-- **InfoBox**
-  - Default Style: `type="cost"` (liefert exakt obige Farben).
-  - Für Regionlisten etc. `icon="📍"` nutzen, um farblich konsistent zu bleiben.
+  - **Max. 2-4 Boxen pro Artikel** – nur für CTAs, Warnungen, wichtige Checklisten.
+- **InfoBox** (veraltet – vermeiden!)
+  - Nicht mehr verwenden. Nutze stattdessen semantisches HTML mit `<div>`, `<ul>`, `<p>`.
+  - Alte `icon` Props verursachen Rendering-Probleme.
 
 ### 4. Komponenten-Richtlinien
 - **RatgeberHero / RatgeberHeroImage**: Standard-Hero mit Badge, Meta-Row und CTA-Buttons; Bilder immer via `RatgeberHeroImage`.

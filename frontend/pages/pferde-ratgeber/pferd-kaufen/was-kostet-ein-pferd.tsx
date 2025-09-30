@@ -156,7 +156,7 @@ const WasKostetEinPferd: NextPage = () => {
 
         {/* Prefetch for Core Pages */}
         <link rel="prefetch" href="/pferde-preis-berechnen" />
-        <link rel="prefetch" href="/pferd-kaufen" />
+        <link rel="prefetch" href="/pferde-ratgeber/pferd-kaufen" />
 
         {/* JSON-LD Structured Data */}
         <script
@@ -539,7 +539,7 @@ const WasKostetEinPferd: NextPage = () => {
                     </ul>
                     <p className="text-lg text-gray-700 mt-4">
                       Mehr Details finden Sie in unserem{' '}
-                      <Link href="/aku-pferd" className="text-brand-brown font-semibold hover:text-brand-brownDark">
+                      <Link href="/pferde-ratgeber/aku-pferd" className="text-brand-brown font-semibold hover:text-brand-brownDark">
                         umfassenden AKU-Ratgeber
                       </Link>.
                     </p>

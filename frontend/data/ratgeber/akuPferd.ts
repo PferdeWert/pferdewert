@@ -28,7 +28,7 @@ export interface AkuRegionItem {
 
 export const akuRelatedArticles: RatgeberRelatedArticle[] = [
   {
-    href: '/aku-pferd-ablauf',
+    href: '/pferde-ratgeber/aku-pferd/ablauf',
     image: '/veterinarian-examining-horse-health-check.jpg',
     title: 'AKU Ablauf verstehen',
     badge: 'AKU Guide',
@@ -36,7 +36,7 @@ export const akuRelatedArticles: RatgeberRelatedArticle[] = [
     description: 'Von Vorbereitung bis Befund – so läuft die Ankaufsuntersuchung Schritt für Schritt ab.'
   },
   {
-    href: '/aku-pferd-klassen',
+    href: '/pferde-ratgeber/aku-pferd/klassen',
     image: '/horse-in-stable--professional-care.jpg',
     title: 'AKU Klassen erklärt',
     badge: 'AKU Guide',
@@ -44,7 +44,7 @@ export const akuRelatedArticles: RatgeberRelatedArticle[] = [
     description: 'Welche Befunde bedeuten was? Klassen 1–5 mit Risiko- und Kaufempfehlungen.'
   },
   {
-    href: '/aku-pferd-kosten',
+    href: '/pferde-ratgeber/aku-pferd/kosten',
     image: '/person-evaluating-horse-for-purchase.jpg',
     title: 'AKU Kosten 2025',
     badge: 'Kosten & Preise',

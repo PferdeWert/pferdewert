@@ -119,7 +119,7 @@ const faqItems: FAQItem[] = [
 
 const relatedArticles = [
   {
-    href: "/aku-pferd",
+    href: "/pferde-ratgeber/aku-pferd",
     image: "/images/blossi-shooting.webp",
     title: "AKU Pferd Überblick",
     badge: "AKU Guide",
@@ -127,7 +127,7 @@ const relatedArticles = [
     description: "Das komplette Grundwissen zu Ablauf, Klassen, Kosten und Befunden der AKU."
   },
   {
-    href: "/aku-pferd-ablauf",
+    href: "/pferde-ratgeber/aku-pferd/ablauf",
     image: "/veterinarian-examining-horse-health-check.jpg",
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
@@ -135,7 +135,7 @@ const relatedArticles = [
     description: "Von Vorbereitung bis Befund: So läuft die Ankaufsuntersuchung Schritt für Schritt ab."
   },
   {
-    href: "/aku-pferd-klassen",
+    href: "/pferde-ratgeber/aku-pferd/klassen",
     image: "/horse-in-stable--professional-care.jpg",
     title: "AKU Klassen erklärt",
     badge: "AKU Guide",

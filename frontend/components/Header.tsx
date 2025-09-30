@@ -58,9 +58,9 @@ export default function HeaderUnified() {
       label: "Ratgeber",
       href: "/pferde-ratgeber",
       dropdown: [
-        { label: "AKU Pferd", href: "/aku-pferd" },
-        { label: "Pferd kaufen", href: "/pferd-kaufen" },
-        { label: "Pferd verkaufen", href: "/pferd-verkaufen" },
+        { label: "AKU Pferd", href: "/pferde-ratgeber/aku-pferd" },
+        { label: "Pferd kaufen", href: "/pferde-ratgeber/pferd-kaufen" },
+        { label: "Pferd verkaufen", href: "/pferde-ratgeber/pferd-verkaufen" },
       ]
     },
     {

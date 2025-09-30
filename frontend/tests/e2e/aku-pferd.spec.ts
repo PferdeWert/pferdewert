@@ -9,7 +9,7 @@ test.describe('AKU Pferd Weiterführende Artikel', () => {
 
     await relatedArticle.click()
 
-    await expect(page).toHaveURL(/\/aku-pferd-ablauf$/)
+    await expect(page).toHaveURL(/\/pferde-ratgeber\/aku-pferd\/ablauf$/)
     await expect(page.getByRole('heading', { name: /AKU Ablauf/i })).toBeVisible()
   })
 })

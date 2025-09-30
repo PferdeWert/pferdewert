@@ -210,7 +210,7 @@ const relatedArticles = [
     description: "Kompletter Einstieg in Kosten, Ablauf und Befunde der Ankaufsuntersuchung."
   },
   {
-    href: "/aku-pferd-klassen",
+    href: "/pferde-ratgeber/aku-pferd/klassen",
     image: "/horse-in-stable--professional-care.webp",
     title: "AKU Klassen verstehen",
     badge: "AKU Guide",
@@ -218,7 +218,7 @@ const relatedArticles = [
     description: "Welcher Umfang ist sinnvoll? Kosten, Nutzen und Entscheidungshilfen für jede Klasse."
   },
   {
-    href: "/aku-pferd-kosten",
+    href: "/pferde-ratgeber/aku-pferd/kosten",
     image: "/person-evaluating-horse-for-purchase.webp",
     title: "AKU Kosten 2025",
     badge: "Kosten & Preise",

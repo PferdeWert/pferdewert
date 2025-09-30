@@ -167,7 +167,6 @@ const AKUPferd: NextPage = () => {
 
         {/* Prefetch for Core Pages */}
         <link rel="prefetch" href="/pferde-preis-berechnen" />
-        <link rel="prefetch" href="/was-ist-mein-pferd-wert" />
 
         {/* JSON-LD Structured Data */}
         <script

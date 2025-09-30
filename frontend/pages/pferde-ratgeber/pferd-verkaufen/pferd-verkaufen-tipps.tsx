@@ -1,13 +1,13 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import RatgeberHero from '../components/ratgeber/RatgeberHero';
-import RatgeberHeroImage from '../components/ratgeber/RatgeberHeroImage';
-import RatgeberTableOfContents from '../components/ratgeber/RatgeberTableOfContents';
-import ContentSection from '../components/ContentSection';
-import RatgeberHighlightBox from '../components/ratgeber/RatgeberHighlightBox';
-import RatgeberRelatedArticles from '../components/ratgeber/RatgeberRelatedArticles';
-import RatgeberFinalCTA from '../components/ratgeber/RatgeberFinalCTA';
-import FAQ from '../components/FAQ';
+import RatgeberHero from '@/components/ratgeber/RatgeberHero';
+import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
+import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
+import ContentSection from '@/components/ContentSection';
+import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
+import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
+import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
+import FAQ from '@/components/FAQ';
 
 const PferdVerkaufenTipps: NextPage = () => {
   const sections = [
@@ -241,7 +241,7 @@ const PferdVerkaufenTipps: NextPage = () => {
       description: 'KI-gestützte Bewertung für einen realistischen Verkaufspreis.'
     },
     {
-      href: '/aku-pferd',
+      href: '/pferde-ratgeber/aku-pferd',
       image: '/images/dino-1.webp',
       title: 'AKU beim Pferd verstehen',
       badge: 'Gesundheit',

@@ -77,7 +77,7 @@ const PferdVerkaufen: NextPage = () => {
   const relatedArticles = [
     {
       href: '/ratgeber/pferdewert-ermitteln',
-      image: '/images/ratgeber/pferdewert-hero.jpg',
+      image: '/images/dino-1.webp',
       title: 'Pferdewert ermitteln: 5 Methoden im Vergleich',
       badge: 'Bewertung',
       readTime: 8,
@@ -85,7 +85,7 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       href: '/ratgeber/pferd-kaufen',
-      image: '/images/ratgeber/pferd-kaufen-hero.jpg',
+      image: '/images/dino-1.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
       badge: 'Kaufberatung',
       readTime: 11,
@@ -93,7 +93,7 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       href: '/ratgeber/aku-pferd',
-      image: '/images/ratgeber/aku-pferd-hero.jpg',
+      image: '/images/dino-1.webp',
       title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
       badge: 'Kaufsicherheit',
       readTime: 12,
@@ -141,7 +141,7 @@ const PferdVerkaufen: NextPage = () => {
     '@type': 'Article',
     headline: 'Pferd verkaufen zum optimalen Preis – Der ultimative Ratgeber 2025',
     description: `Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust. Plattformvergleich, Preisfindung, rechtliche Tipps.`,
-    image: 'https://pferdewert.de/images/ratgeber/pferd-verkaufen-hero.jpg',
+    image: 'https://pferdewert.de/images/dino-1.webp',
     author: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
@@ -285,7 +285,7 @@ const PferdVerkaufen: NextPage = () => {
         <meta property="og:url" content="https://pferdewert.de/ratgeber/pferd-verkaufen" />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
-        <meta property="og:image" content="https://pferdewert.de/images/og/pferd-verkaufen-ratgeber.jpg" />
+        <meta property="og:image" content="https://pferdewert.de/images/dino-1.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -334,7 +334,7 @@ const PferdVerkaufen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/pferd-verkaufen-hero.jpg"
+          src="/images/dino-1.webp"
           alt="Erfolgreicher Pferdeverkauf mit zufriedenem Verkäufer und neuem Besitzer"
         />
       </div>
@@ -1203,24 +1203,24 @@ const PferdVerkaufen: NextPage = () => {
                 </li>
                 <li>
                   <strong className="text-brand">2. Nutzen Sie professionelle Bewertung als Verhandlungsgrundlage:</strong>
-                  {' '}"Ich habe eine professionelle KI-Bewertung machen lassen, die den fairen Marktwert bei 8.200€
-                  sieht. Ich bin bereit, für 8.000€ zu verkaufen." – Das schafft Vertrauen und signalisiert, dass
+                  {' '}&quot;Ich habe eine professionelle KI-Bewertung machen lassen, die den fairen Marktwert bei 8.200€
+                  sieht. Ich bin bereit, für 8.000€ zu verkaufen.&quot; – Das schafft Vertrauen und signalisiert, dass
                   Sie Ihre Hausaufgaben gemacht haben.
                 </li>
                 <li>
                   <strong className="text-brand">3. Verhandeln Sie nicht am Telefon:</strong> Geben Sie keine
-                  Rabatte vor der Besichtigung. "Der Preis ist verhandelbar nach der Besichtigung" ist eine
+                  Rabatte vor der Besichtigung. &quot;Der Preis ist verhandelbar nach der Besichtigung&quot; ist eine
                   professionelle Antwort.
                 </li>
                 <li>
                   <strong className="text-brand">4. Warten Sie mit Gegenangeboten:</strong> Wenn der Käufer
-                  ein niedriges Angebot macht, fragen Sie: "Wie kommen Sie auf diesen Preis?" Oft korrigieren
+                  ein niedriges Angebot macht, fragen Sie: &quot;Wie kommen Sie auf diesen Preis?&quot; Oft korrigieren
                   Käufer sich selbst nach oben.
                 </li>
                 <li>
                   <strong className="text-brand">5. Nutzen Sie Interesse als Hebel:</strong> Wenn Sie mehrere
-                  Interessenten haben, kommunizieren Sie das subtil: "Es gibt noch einen weiteren Termin
-                  morgen." Das erhöht die Bereitschaft des Käufers, Ihren Preis zu akzeptieren.
+                  Interessenten haben, kommunizieren Sie das subtil: &quot;Es gibt noch einen weiteren Termin
+                  morgen.&quot; Das erhöht die Bereitschaft des Käufers, Ihren Preis zu akzeptieren.
                 </li>
               </ol>
             </RatgeberHighlightBox>
@@ -1229,32 +1229,32 @@ const PferdVerkaufen: NextPage = () => {
               <div className="space-y-4">
                 <div>
                   <p className="font-semibold text-brand mb-2">
-                    Trick 1: "Ich habe nur X€ zur Verfügung"
+                    Trick 1: &quot;Ich habe nur X€ zur Verfügung&quot;
                   </p>
                   <p className="text-brand/90 mb-2">
-                    <strong>Gegenstrategie:</strong> "Ich verstehe Ihre Budgetsituation. Leider liegt der
+                    <strong>Gegenstrategie:</strong> &quot;Ich verstehe Ihre Budgetsituation. Leider liegt der
                     faire Marktwert bei Y€, wie diese professionelle Bewertung zeigt. Ich kann nicht unter
-                    Z€ gehen."
+                    Z€ gehen.&quot;
                   </p>
                 </div>
                 <div>
                   <p className="font-semibold text-brand mb-2">
-                    Trick 2: "Das Pferd hat aber Problem X" (künstlich aufblasen kleiner Mängel)
+                    Trick 2: &quot;Das Pferd hat aber Problem X&quot; (künstlich aufblasen kleiner Mängel)
                   </p>
                   <p className="text-brand/90 mb-2">
-                    <strong>Gegenstrategie:</strong> Bleiben Sie sachlich. "Ja, das ist korrekt und wurde im
+                    <strong>Gegenstrategie:</strong> Bleiben Sie sachlich. &quot;Ja, das ist korrekt und wurde im
                     Preis bereits berücksichtigt. Ein vergleichbares Pferd ohne diesen Befund würde 1.000€
-                    mehr kosten."
+                    mehr kosten.&quot;
                   </p>
                 </div>
                 <div>
                   <p className="font-semibold text-brand mb-2">
-                    Trick 3: "Ich kenne jemanden, der ein ähnliches Pferd für viel weniger gekauft hat"
+                    Trick 3: &quot;Ich kenne jemanden, der ein ähnliches Pferd für viel weniger gekauft hat&quot;
                   </p>
                   <p className="text-brand/90 mb-2">
-                    <strong>Gegenstrategie:</strong> "Das mag sein. Jedes Pferd ist individuell. Mein Pferd
+                    <strong>Gegenstrategie:</strong> &quot;Das mag sein. Jedes Pferd ist individuell. Mein Pferd
                     hat diese spezifischen Qualitäten [nennen Sie konkrete Vorteile]. Wenn Sie ein günstigeres
-                    Pferd finden, das besser passt, verstehe ich das natürlich."
+                    Pferd finden, das besser passt, verstehe ich das natürlich.&quot;
                   </p>
                 </div>
               </div>
@@ -1314,7 +1314,7 @@ const PferdVerkaufen: NextPage = () => {
                   <p className="text-brand/90 mb-2">
                     Bei Verkäufen zwischen Privatpersonen kann die gesetzliche Gewährleistung (Mängelrechte)
                     ausgeschlossen werden. Das erfolgt durch Klausel im Kaufvertrag wie:
-                    "Der Verkauf erfolgt unter Ausschluss jeglicher Gewährleistung."
+                    &quot;Der Verkauf erfolgt unter Ausschluss jeglicher Gewährleistung.&quot;
                   </p>
                   <p className="text-brand/90 text-sm">
                     <strong>Aber Achtung:</strong> Arglistig verschwiegene Mängel können trotzdem zu Schadensersatz
@@ -1430,7 +1430,7 @@ const PferdVerkaufen: NextPage = () => {
             description={`Der Verkauf eines Pferdes ist komplex und emotional zugleich. Mit PferdeWert.de haben Sie einen verlässlichen Partner für faire Pferdebewertung an Ihrer Seite. Unsere KI-Technologie verschafft Ihnen Preistransparenz und Verhandlungssicherheit in nur 2 Minuten – für nur ${PRICING_FORMATTED.current}. Vermeiden Sie Über- oder Unterbewertung und verkaufen Sie zum fairen Marktwert.`}
             buttonText="Jetzt Verkaufspreis berechnen"
             buttonHref="/pferde-preis-berechnen"
-            imageSrc="/images/cta/pferd-bewertung-final.jpg"
+            imageSrc="/person-evaluating-horse-for-purchase.webp"
             imageAlt="KI-gestützte Pferdebewertung in 2 Minuten"
           />
         </div>
