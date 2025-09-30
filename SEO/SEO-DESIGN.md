@@ -46,25 +46,40 @@
   - Alte `icon` Props verursachen Rendering-Probleme.
 
 ### 4. Komponenten-Richtlinien
+
+**Priorität: Semantisches HTML zuerst, Komponenten nur wo strategisch notwendig!**
+
+#### Immer verwenden (Struktur & Conversion)
 - **RatgeberHero / RatgeberHeroImage**: Standard-Hero mit Badge, Meta-Row und CTA-Buttons; Bilder immer via `RatgeberHeroImage`.
   - Sekundärer CTA `"Zum Inhalt"` nutzt immer das `ChevronDown` Icon (`lucide-react`, `h-5 w-5`).
 - **RatgeberTableOfContents**: Nutzt `sections`-Array `{ id, title }` + `onNavigate` (scroll helper).
-- **ContentSection**: Für inhaltliche Blöcke mit Icon (z. B. `icon="⚖️"`).
-- **RatgeberHighlightBox**: Beige Karten (`bg-[#fdf7f1]`) inkl. optionalem Icon und Titel; nutzen statt manueller `div`-Styles.
-- **RatgeberInfoTiles**: Für Zeit-/Kennzahlen-Grids mit gleichmäßigen Karten.
-- **RatgeberRegionGrid**: Drei InfoBoxen (`type="cost"`) mit 📍-Icon für regionale Schwerpunktlisten.
-- **CTAButton**: Vorhandene Varianten verwenden (`type="primary" | "secondary"`).
 - **FAQ**: Immer unter `id="faq"`, Schema-Daten via Komponente automatisch.
 - **RatgeberRelatedArticles**: Max. drei Einträge; bei <3 Artikeln automatisch mittig ausgerichtet (`md:w-[320px]`). Datenstruktur `{ href, image, title, badge, readTime, description }`.
 - **RatgeberFinalCTA**: Abschluss-CTA mit Bild + Button "Jetzt Pferdewert berechnen".
-- **ArticleMetadata** (falls genutzt): direkt unter H1 platzieren.
+- **CTAButton**: Vorhandene Varianten verwenden (`type="primary" | "secondary"`).
+
+#### Sparsam verwenden (max. 2-4x pro Artikel)
+- **RatgeberHighlightBox**: Beige Karten (`bg-[#fdf7f1]`) inkl. optionalem Icon und Titel.
+  - **Nur nutzen für**:
+    - Conversion-CTAs (AI-Bewertungs-Angebot)
+    - Kritische Warnungen (Sicherheitshinweise, rechtliche Risiken)
+    - Zusammenfassungen wichtiger Checklisten
+  - **NICHT nutzen für**: Reguläre Inhalte, Listenformate, allgemeine Erklärungen
+  - **Maximal 2-4 Boxen pro Artikel** – sonst semantic HTML verwenden!
+
+#### Veraltet – Nicht mehr verwenden
+- ❌ **ContentSection**: Ersetze mit `<section>`, `<h2>`, `<h3>`, `<p>` für bessere Semantik
+- ❌ **RatgeberInfoTiles**: Ersetze mit normalem `<ul>` oder `<ol>` innerhalb von `<section>`
+- ❌ **RatgeberRegionGrid**: Ersetze mit semantischen Listen und Headings
+- ❌ **InfoBox**: Deprecated wegen `icon` Prop Konflikten – nutze `<div>`, `<ul>`, `<p>` stattdessen
+- ❌ **ArticleMetadata**: Falls verwendet, prüfe ob wirklich nötig (oft redundant zu Hero-Meta)
 
 ### 5. Content-Guidelines
 - Absätze: max. 3–4 Sätze, `leading-relaxed`.
 - Zwischenüberschriften alle 4–6 Absätze einbauen (`text-3xl` → `text-2xl`).
 - Listen als `<ol>`/`<ul>`; Keywords fett hervorheben.
 - Blockquotes für Key-Statements.
-- Tabellen vermeiden → stattdessen `grid` mit Highlight-Boxen.
+- Tabellen: Nutze semantic HTML `<table>` oder einfache Listen statt grid mit Boxen.
 
 ### 6. Media & Assets
 - Bilder nur via `next/image` + `sizes` Attribut.
@@ -80,31 +95,129 @@
 - Button immer: `Jetzt Pferdewert berechnen` (`CTAButton type="primary"`).
 - Optional sekundärer Link (Analyse-Beispiel) als Outline-Button.
 
-### 8. Code-Snippets & Beispiele
+### 8. SEO Meta-Daten Integration
+
+**WICHTIG**: Jeder Ratgeber-Artikel hat eine entsprechende `*-meta.json` Datei im SEO-Content-Ordner (z.B. `SEO/SEO-CONTENT/pferd kaufen/pferd kaufen-meta.json`).
+
+Diese Meta-Daten müssen im `<Head>` der Next.js Page eingebunden werden:
+
 ```tsx
-// Highlight-Box
-<RatgeberHighlightBox title="AKU Klasse I" icon="📋">
-  <p>Geeignet für Freizeitpferde bis 5.000 €.</p>
-  <p>Typischer Umfang: Klinische Untersuchung, Basisröntgen.</p>
+import Head from 'next/head';
+import metaData from '@/SEO/SEO-CONTENT/[keyword]/[keyword]-meta.json';
+
+export default function RatgeberPage() {
+  return (
+    <>
+      <Head>
+        {/* Basic Meta Tags */}
+        <title>{metaData.meta_tags.title}</title>
+        <meta name="description" content={metaData.meta_tags.description} />
+        <meta name="robots" content={metaData.meta_tags.robots} />
+        <link rel="canonical" href={metaData.meta_tags.canonical} />
+        <meta httpEquiv="content-language" content={metaData.meta_tags.language} />
+
+        {/* Open Graph Tags */}
+        <meta property="og:type" content={metaData.open_graph.type} />
+        <meta property="og:title" content={metaData.open_graph.title} />
+        <meta property="og:description" content={metaData.open_graph.description} />
+        <meta property="og:url" content={metaData.open_graph.url} />
+        <meta property="og:site_name" content={metaData.open_graph.site_name} />
+        <meta property="og:locale" content={metaData.open_graph.locale} />
+        <meta property="og:image" content={metaData.open_graph.image.url} />
+        <meta property="og:image:width" content={metaData.open_graph.image.width} />
+        <meta property="og:image:height" content={metaData.open_graph.image.height} />
+        <meta property="og:image:alt" content={metaData.open_graph.image.alt} />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content={metaData.twitter_card.card} />
+        <meta name="twitter:title" content={metaData.twitter_card.title} />
+        <meta name="twitter:description" content={metaData.twitter_card.description} />
+        <meta name="twitter:image" content={metaData.twitter_card.image} />
+      </Head>
+
+      {/* Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metaData.structured_data.article)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metaData.structured_data.faq)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metaData.structured_data.breadcrumb)
+        }}
+      />
+
+      {/* Page Content */}
+      <main>{/* Artikel-Content hier */}</main>
+    </>
+  );
+}
+```
+
+**Meta-Daten Checkliste bei Page-Erstellung:**
+- ✅ Title Tag aus `meta_tags.title`
+- ✅ Meta Description aus `meta_tags.description`
+- ✅ Canonical URL aus `meta_tags.canonical`
+- ✅ Open Graph Tags vollständig (Social Media Previews)
+- ✅ Twitter Card Tags vollständig
+- ✅ Structured Data: Article, FAQ, Breadcrumb als JSON-LD
+- ✅ Service Schema (falls AI-Bewertung erwähnt)
+
+**Hinweis:** Die Meta-Daten sind **NICHT** Teil des sichtbaren Artikel-Contents, sondern ausschließlich für SEO und Social Media Previews im `<Head>`.
+
+### 9. Code-Snippets & Beispiele
+
+**Text-First mit strategischen Boxen:**
+```tsx
+// Semantische Content-Struktur (Standard)
+<section id="overview" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+  <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+    Hauptüberschrift des Abschnitts
+  </h2>
+
+  <p className="text-lg text-gray-700 leading-relaxed">
+    Einleitender Absatz mit 3-4 Sätzen. Nutze semantisches HTML für 95%
+    des Contents. Listen, Absätze und Überschriften bilden die Basis.
+  </p>
+
+  <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+    Unterüberschrift für Details
+  </h3>
+
+  <ul className="space-y-2 text-gray-700">
+    <li>• Listenpunkt mit wichtigen Informationen</li>
+    <li>• Weitere relevante Details ohne Box-Wrapper</li>
+    <li>• Keywords können <strong>fett</strong> hervorgehoben werden</li>
+  </ul>
+</section>
+
+// Strategische Highlight-Box (max. 2-4 pro Artikel!)
+<RatgeberHighlightBox
+  title="Wichtiger Hinweis zur Sicherheit"
+  icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}
+>
+  <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+    Nur für kritische Warnungen, Conversion-CTAs oder wichtige Checklisten.
+    Nicht für reguläre Inhalte verwenden!
+  </p>
 </RatgeberHighlightBox>
 
-// Regionale Infos
-<RatgeberRegionGrid
-  regions={[
-    { title: 'Bayern', description: 'Warmblut-Zentren mit hochspezialisierten Praxen.' },
-    { title: 'Niedersachsen', description: 'Größte Dichte an AKU-Tierärzten.' },
-    { title: 'Nordrhein-Westfalen', description: 'Fokus auf Freizeit- und Schulpferde.' }
-  ]}
-/>
-
-// Related Articles
+// Related Articles (Strukturkomponente)
 <RatgeberRelatedArticles
   title="Weiterführende Artikel"
-  articles={akuRelatedArticles}
+  articles={relatedArticles}
   description="Vertiefen Sie Ihr Wissen über die AKU."
 />
 ```
 
-**Interne Verlinkung:** Jede Ratgeberseite mit einem Abschnitt „Weiterführende Artikel“ muss einen Eintrag zum zentralen AKU-Hub unter `/aku-pferd` enthalten.
+**Interne Verlinkung:** Jede Ratgeberseite mit einem Abschnitt „Weiterführende Artikel" muss einen Eintrag zum zentralen AKU-Hub unter `/aku-pferd` enthalten.
 
 Diese Vorgaben sind verbindlich für alle SEO-Ratgeberseiten. Änderungen am Design nur nach Abstimmung mit dem Design-Team vornehmen.
