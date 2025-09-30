@@ -4,6 +4,10 @@
 @docs/development-standards.md
 @docs/extended-guides.md
 
+## Pricing & Business Model
+- **Service is PAID**: Pricing defined in `frontend/lib/pricing.ts`
+- **NEVER use "kostenlos" / "free" in content or UI** - this is business-critical
+
 ## Architecture & Development
 - **Frontend**: Next.js 15 (Pages Router) + TypeScript + Tailwind + Stripe
 - **Backend**: FastAPI + MongoDB + Dual AI (GPT/Claude)
