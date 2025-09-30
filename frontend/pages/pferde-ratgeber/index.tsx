@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import Link from 'next/link'
 
 const PferdeRatgeber: NextPage = () => {
@@ -18,30 +18,30 @@ const PferdeRatgeber: NextPage = () => {
     },
     {
       id: 2,
-      titel: "AKU Ablauf Schritt für Schritt",
-      beschreibung: "So läuft eine Ankaufsuntersuchung ab: Von der Vorbereitung bis zum Befund. Alle Untersuchungsschritte verständlich erklärt.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "12 Min.",
+      titel: "AKU Kosten - Was kostet eine Ankaufsuntersuchung?",
+      beschreibung: "Detaillierte Kostenübersicht für die Ankaufsuntersuchung beim Pferd. Große vs. kleine AKU, regionale Unterschiede und Spartipps.",
+      kategorie: "AKU",
+      lesezeit: "8 Min.",
       bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "/pferde-ratgeber/aku-pferd/ablauf",
+      link: "/pferde-ratgeber/aku-pferd/kosten",
     },
     {
       id: 3,
-      titel: "AKU Klassen erklärt",
-      beschreibung: "Verstehe die verschiedenen AKU-Klassen und ihre Bedeutung für deinen Pferdekauf. Was bedeuten die einzelnen Klassen wirklich?",
-      kategorie: "Kauf & Verkauf",
+      titel: "AKU Klassen - Bewertungssystem erklärt",
+      beschreibung: "Die AKU-Klassifizierung von Klasse 1 bis 5 verständlich erklärt. Was bedeutet jede Klasse für den Pferdekauf?",
+      kategorie: "AKU",
       lesezeit: "10 Min.",
       bild: "/veterinarian-examining-horse-health-check.jpg",
       link: "/pferde-ratgeber/aku-pferd/klassen",
     },
     {
       id: 4,
-      titel: "AKU Kosten im Detail",
-      beschreibung: "Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "8 Min.",
+      titel: "AKU Ablauf - Schritt für Schritt",
+      beschreibung: "Der komplette Ablauf der Ankaufsuntersuchung: Von der Terminvereinbarung bis zum Befund. Mit Checkliste zum Download.",
+      kategorie: "AKU",
+      lesezeit: "12 Min.",
       bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "/pferde-ratgeber/aku-pferd/kosten",
+      link: "/pferde-ratgeber/aku-pferd/ablauf",
     },
     {
       id: 5,
@@ -55,7 +55,7 @@ const PferdeRatgeber: NextPage = () => {
     {
       id: 6,
       titel: "Was kostet ein Pferd?",
-      beschreibung: "Detaillierte Übersicht aller Kosten: Kaufpreis, laufende Kosten und versteckte Ausgaben. So planst du dein Budget richtig.",
+      beschreibung: "Kompletter Kostenüberblick: Anschaffung, monatliche Ausgaben, versteckte Kosten und wie Sie langfristig Geld sparen können.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "14 Min.",
       bild: "/person-evaluating-horse-for-purchase.jpg",
@@ -72,10 +72,10 @@ const PferdeRatgeber: NextPage = () => {
     },
     {
       id: 8,
-      titel: "Pferd verkaufen - Die 10 wichtigsten Tipps",
-      beschreibung: "Praktische Ratschläge für einen erfolgreichen und stressfreien Pferdeverkauf. Was du wirklich beachten musst.",
+      titel: "Pferd verkaufen Tipps - Die besten Strategien",
+      beschreibung: "Expertentipps für den erfolgreichen Pferdeverkauf: Optimale Preisfindung, professionelle Präsentation und Verhandlungsstrategien.",
       kategorie: "Kauf & Verkauf",
-      lesezeit: "12 Min.",
+      lesezeit: "11 Min.",
       bild: "/happy-horse-owner-with-horse--professional-consult.jpg",
       link: "/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps",
     },
@@ -87,9 +87,9 @@ const PferdeRatgeber: NextPage = () => {
         <title>Pferde-Ratgeber | Expertenwissen für Pferdebesitzer | PferdeWert.de</title>
         <meta
           name="description"
-          content="Umfassender Pferde-Ratgeber: AKU Pferd, Pferd kaufen, Pferd verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf mit allen wichtigen Informationen."
+          content="Alle Pferde-Ratgeber auf einen Blick: AKU Pferd, Kosten, Klassen, Ablauf, Pferd kaufen & verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
         />
-        <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung, Pferdekosten" />
+        <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber" />
       </Head>
 
@@ -120,13 +120,13 @@ const PferdeRatgeber: NextPage = () => {
         <section id="artikel-grid" className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Alle Ratgeber</h2>
+              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Alle Ratgeber im Überblick</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Umfassendes Expertenwissen für Pferdekauf, Pferdeverkauf und Ankaufsuntersuchung – kompakt und praxisnah erklärt
+                Umfassendes Expertenwissen zu Pferdekauf, Pferdeverkauf und Ankaufsuntersuchung
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {ratgeberArtikel.map((artikel) => (
                 <div key={artikel.id} className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                   <div className="aspect-[4/3] overflow-hidden relative">
