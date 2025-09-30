@@ -122,7 +122,8 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 
 ### Cluster Hub: AKU Pferd
 
-- **URL:** /aku-pferd
+- **URL:** `/pferde-ratgeber/aku-pferd` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/aku-pferd.tsx`
 - **Rolle:** Zentraler Ratgeber-Artikel als Cluster-Hub
 - **Ziel-Keyword:** aku pferd
 - **Suchvolumen:** 4.400/Monat
@@ -134,14 +135,15 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 - **Status:** ✅ Content ready (SEO/SEO-CONTENT/aku-pferd/)
 - **Weiterführende Artikel:**
   - Verlinkt zu allen 3 Cluster Spokes (siehe unten)
-  - "Mehr zu AKU Kosten" → /aku-pferd-kosten
-  - "AKU Ablauf im Detail" → /aku-pferd-ablauf
-  - "AKU Klassen verstehen" → /aku-pferd-klassen
+  - "Mehr zu AKU Kosten" → `/pferde-ratgeber/aku-pferd/kosten`
+  - "AKU Ablauf im Detail" → `/pferde-ratgeber/aku-pferd/ablauf`
+  - "AKU Klassen verstehen" → `/pferde-ratgeber/aku-pferd/klassen`
 
 ### Cluster Spokes (Sitemap-only Landing Pages):
 
 #### 1. AKU Pferd Kosten
-- **URL:** /aku-pferd-kosten
+- **URL:** `/pferde-ratgeber/aku-pferd/kosten` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/aku-pferd/kosten.tsx`
 - **Ziel-Keyword:** aku pferd kosten
 - **Suchvolumen:** 1.000/Monat
 - **Meta-Titel:** AKU Pferd Kosten 2025 - Preise & was zahlen? | PferdeWert Ratgeber
@@ -152,7 +154,8 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 - **Internal Link:** Verlinkt von Hub unter "Weiterführende Artikel"
 
 #### 2. AKU Pferd Ablauf
-- **URL:** /aku-pferd-ablauf
+- **URL:** `/pferde-ratgeber/aku-pferd/ablauf` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/aku-pferd/ablauf.tsx`
 - **Ziel-Keyword:** aku pferd ablauf
 - **Suchvolumen:** 320/Monat
 - **Meta-Titel:** AKU Pferd Ablauf - So läuft die Ankaufsuntersuchung ab | PferdeWert
@@ -163,7 +166,8 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 - **Internal Link:** Verlinkt von Hub unter "Weiterführende Artikel"
 
 #### 3. AKU Pferd Klassen
-- **URL:** /aku-pferd-klassen
+- **URL:** `/pferde-ratgeber/aku-pferd/klassen` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/aku-pferd/klassen.tsx`
 - **Ziel-Keyword:** aku pferd klassen
 - **Suchvolumen:** 590/Monat
 - **Meta-Titel:** AKU Pferd Klassen erklärt - 1-5 Bewertung | PferdeWert Ratgeber
@@ -227,7 +231,8 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 
 ### Cluster Hub: Pferd verkaufen
 
-- **URL:** /pferd-verkaufen
+- **URL:** `/pferde-ratgeber/pferd-verkaufen` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/pferd-verkaufen.tsx`
 - **Rolle:** Hauptseite für Verkäufer-Zielgruppe
 - **Ziel-Keyword:** pferd verkaufen
 - **Suchvolumen:** 1.300/Monat
@@ -237,12 +242,13 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 - **Priorität:** HOCH (1.300 Suchanfragen, wichtige Verkäufer-Zielgruppe)
 - **Navigation:** Ratgeber (Dropdown-Menü)
 - **Weiterführende Artikel:**
-  - Verlinkt zu Cluster Spoke: "Verkaufstipps im Detail" → /pferd-verkaufen-tipps
+  - Verlinkt zu Cluster Spoke: "Verkaufstipps im Detail" → `/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps`
 
 ### Cluster Spokes (Sitemap-only Landing Pages):
 
 #### 1. Pferd verkaufen Tipps
-- **URL:** /pferd-verkaufen-tipps
+- **URL:** `/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps.tsx`
 - **Ziel-Keyword:** pferd verkaufen tipps
 - **Suchvolumen:** 50/Monat
 - **Meta-Titel:** Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert
@@ -256,7 +262,9 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 
 ## 🐎 Standalone Page: Pferd Kaufen
 
-### Pferd kaufen (/pferd-kaufen)
+### Pferd kaufen
+- **URL:** `/pferde-ratgeber/pferd-kaufen` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/pferd-kaufen.tsx`
 - **Rolle:** Käufer-fokussierte Landingpage (Potenzial für zukünftigen Content Cluster)
 - **Ziel-Keyword:** pferd kaufen
 - **Suchvolumen:** 14.800/Monat
@@ -266,6 +274,20 @@ Basierend auf der [Keyword-Kannibalisierungs-Analyse vom 2025-09-29](/SEO/ANALYS
 - **Priorität:** SEHR HOCH (14.800 Suchanfragen, größtes Suchvolumen)
 - **Navigation:** Ratgeber (Dropdown-Menü)
 - **Status:** Standalone (kein Cluster Hub)
+- **Weiterführende Artikel:**
+  - "Was kostet ein Pferd?" → `/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd`
+
+### Cluster Spokes (Sitemap-only Landing Pages):
+
+#### 1. Was kostet ein Pferd?
+- **URL:** `/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd` ✅ **LIVE**
+- **File:** `pages/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd.tsx`
+- **Ziel-Keyword:** was kostet ein pferd
+- **Meta-Titel:** Was kostet ein Pferd? Preisübersicht & Kostenrechner | PferdeWert
+- **Meta-Description:** Detaillierte Preisübersicht für Pferdekauf: Anschaffungskosten, laufende Ausgaben und versteckte Kosten. Jetzt informieren!
+- **Content-Fokus:** Kostenaufstellung, Preisfaktoren, Budgetplanung für Pferdekauf
+- **Navigation:** Sitemap only (NICHT im Hauptmenü)
+- **Internal Link:** Verlinkt von Hub unter "Weiterführende Artikel"
 
 ---
 
