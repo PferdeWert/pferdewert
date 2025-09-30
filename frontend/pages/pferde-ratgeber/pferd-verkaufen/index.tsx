@@ -2,19 +2,19 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck } from 'lucide-react';
-import Layout from '../../components/Layout';
-import RatgeberHero from '../../components/ratgeber/RatgeberHero';
-import RatgeberHeroImage from '../../components/ratgeber/RatgeberHeroImage';
-import RatgeberTableOfContents from '../../components/ratgeber/RatgeberTableOfContents';
-import ContentSection from '../../components/ContentSection';
-import RatgeberHighlightBox from '../../components/ratgeber/RatgeberHighlightBox';
-import RatgeberInfoTiles from '../../components/ratgeber/RatgeberInfoTiles';
-import RatgeberRegionGrid from '../../components/ratgeber/RatgeberRegionGrid';
-import FAQ from '../../components/FAQ';
-import RatgeberRelatedArticles from '../../components/ratgeber/RatgeberRelatedArticles';
-import RatgeberFinalCTA from '../../components/ratgeber/RatgeberFinalCTA';
-import CTAButton from '../../components/CTAButton';
-import { PRICING_FORMATTED } from '../../lib/pricing';
+import Layout from '@/components/Layout';
+import RatgeberHero from '@/components/ratgeber/RatgeberHero';
+import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
+import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
+import ContentSection from '@/components/ContentSection';
+import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
+import RatgeberInfoTiles from '@/components/ratgeber/RatgeberInfoTiles';
+import RatgeberRegionGrid from '@/components/ratgeber/RatgeberRegionGrid';
+import FAQ from '@/components/FAQ';
+import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
+import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
+import CTAButton from '@/components/CTAButton';
+import { PRICING_FORMATTED } from '@/lib/pricing';
 
 const PferdVerkaufen: NextPage = () => {
   const heroMetaItems = [
@@ -290,14 +290,14 @@ const PferdVerkaufen: NextPage = () => {
           content={`Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust ✓ Plattformvergleich ✓ Preisfindung ✓ Rechtliche Tipps`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <link rel="canonical" href="https://pferdewert.de/ratgeber/pferd-verkaufen" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta name="keywords" content="pferd verkaufen, pferd zu verkaufen, wie viel ist mein pferd wert, pferdewert ermitteln, pferd verkaufen preis, pferd verkaufen plattformen, ki pferdebewertung, pferd online verkaufen, pferdebewertung kostenlos" />
 
         {/* Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Pferd verkaufen 2025: Ultimativer Ratgeber für optimalen Preis" />
         <meta property="og:description" content="Verkaufen Sie Ihr Pferd zum besten Preis: Professionelle KI-Bewertung, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
-        <meta property="og:url" content="https://pferdewert.de/ratgeber/pferd-verkaufen" />
+        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
         <meta property="og:image" content="https://pferdewert.de/images/dino-1.webp" />
