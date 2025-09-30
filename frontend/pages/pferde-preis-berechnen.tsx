@@ -648,7 +648,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   🏆 #1 Online Pferdebewertung
                 </div>
                 <h1 className="text-h1 font-bold text-gray-900">
-                  <span className="text-brand-brown">Pferdepreis berechnen</span>: Sofortige Marktwert-Einschätzung
+                  Jetzt deinen <span className="text-brand-brown">Pferdepreis</span> berechnen
                 </h1>
                 
                 {/* Preisbanner mit neuem Design */}
