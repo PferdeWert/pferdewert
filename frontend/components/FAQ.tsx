@@ -36,7 +36,7 @@ const FAQ: React.FC<FAQProps> = ({
     <>
       {generateSchema()}
       {/* Verbesserter Hintergrund mit Design System Farben */}
-      <section className={`section bg-gradient-to-b from-white to-brand-light/30 ${className}`}>
+      <section className={`section ${className}`}>
         <div className="container mx-auto px-4 max-w-5xl"> {/* Einheitliche Container-Klasse */}
           {sectionTitle && (
             <div className="text-center mb-16">

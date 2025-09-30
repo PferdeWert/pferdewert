@@ -41,9 +41,10 @@ const RatgeberRelatedArticles: React.FC<RatgeberRelatedArticlesProps> = ({
 
         <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8">
           {articles.map(article => (
-            <div
+            <Link
               key={article.href}
-              className="group bg-white rounded-2xl md:rounded-3xl border border-[#e0c9aa] overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft md:w-[320px]"
+              href={article.href}
+              className="group bg-white rounded-2xl md:rounded-3xl border border-[#e0c9aa] overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft md:w-[320px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-brown"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -70,13 +71,11 @@ const RatgeberRelatedArticles: React.FC<RatgeberRelatedArticlesProps> = ({
                   {article.description}
                 </p>
 
-                <Link href={article.href} className="w-full">
-                  <button className="w-full min-h-[44px] h-10 px-3 rounded-lg border border-brand-brown text-brand-brown font-medium text-sm transition-colors group-hover:bg-brand-brown group-hover:text-white hover:bg-brand-brown hover:text-white touch-manipulation">
-                    Artikel lesen
-                  </button>
-                </Link>
+                <span className="mt-auto inline-flex items-center justify-center min-h-[44px] h-10 px-3 rounded-lg border border-brand-brown text-brand-brown font-medium text-sm transition-colors group-hover:bg-brand-brown group-hover:text-white">
+                  Artikel lesen
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

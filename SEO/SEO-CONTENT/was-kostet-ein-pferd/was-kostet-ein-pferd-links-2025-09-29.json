@@ -1,0 +1,365 @@
+{
+  "target_keyword": "was kostet ein pferd",
+  "article_url": "/ratgeber/was-kostet-ein-pferd",
+  "date_created": "2025-09-29",
+  "language": "de",
+  "word_count": 2380,
+  "total_internal_links": 6,
+  "total_external_links": 0,
+  "link_density": {
+    "links_per_1000_words": 2.52,
+    "optimal_range": "2-5 per 1000 words",
+    "status": "optimal",
+    "notes": "Link density is within optimal range for SEO without appearing spammy"
+  },
+  "internal_links": [
+    {
+      "link_id": "link_001",
+      "target_url": "/bewertung-starten",
+      "target_page_title": "Pferdewert berechnen - KI-Bewertung",
+      "link_type": "conversion_primary",
+      "priority": 1,
+      "seo_value": "high",
+      "conversion_goal": "Drive users to 19,90€ valuation service",
+      "placements": [
+        {
+          "placement_id": "placement_001_01",
+          "section": "H2: Anschaffungskosten - Nach Rassenvergleich-Tabelle",
+          "paragraph_context": "Nach der detaillierten Preistabelle, um informierte Käufer zur Bewertung zu führen",
+          "anchor_text": "Jetzt Pferdewert kostenlos prüfen",
+          "anchor_text_variation": 1,
+          "cta_style": "soft",
+          "html_context": "In einem CTA-Button nach der Raassen-Preis-Tabelle"
+        },
+        {
+          "placement_id": "placement_001_02",
+          "section": "H2: Was beeinflusst den Pferdewert? - Dedicated Sektion",
+          "paragraph_context": "Innerhalb einer dedizierten Sektion über Pferdebewertung mit Launch-Angebot",
+          "anchor_text": "Jetzt Pferdewert berechnen - 19,90€ statt 39€",
+          "anchor_text_variation": 2,
+          "cta_style": "strong",
+          "html_context": "Prominenter CTA-Block mit Launch-Preis-Hervorhebung"
+        },
+        {
+          "placement_id": "placement_001_03",
+          "section": "FAQ-Sektion - Nach Frage 7",
+          "paragraph_context": "Am Ende der FAQ-Sektion als finaler Soft-CTA",
+          "anchor_text": "Kostenlose Pferdewert-Einschätzung erhalten",
+          "anchor_text_variation": 3,
+          "cta_style": "soft",
+          "html_context": "Text-Link innerhalb eines abschließenden Absatzes"
+        }
+      ],
+      "anchor_text_variations": [
+        "Jetzt Pferdewert kostenlos prüfen",
+        "Jetzt Pferdewert berechnen - 19,90€ statt 39€",
+        "Kostenlose Pferdewert-Einschätzung erhalten",
+        "Pferdewert in 2 Minuten ermitteln",
+        "KI-Bewertung jetzt starten"
+      ],
+      "link_attributes": {
+        "rel": "dofollow",
+        "target": "_self",
+        "data_tracking": "cta-bewertung-starten-ratgeber-was-kostet-ein-pferd"
+      },
+      "conversion_elements": {
+        "urgency": "Launch-Angebot: 19,90€ statt 39€",
+        "trust_signals": [
+          "4,7/5 Sterne",
+          "1.000+ zufriedene Kunden",
+          "Geld-zurück-Garantie"
+        ],
+        "benefit_statement": "In 2 Minuten zum fairen Marktwert"
+      }
+    },
+    {
+      "link_id": "link_002",
+      "target_url": "/aku-pferd-kosten",
+      "target_page_title": "AKU Pferd Kosten: Alle Preise & Klassen 2025",
+      "link_type": "supporting_content",
+      "priority": 1,
+      "seo_value": "high",
+      "conversion_goal": "Provide detailed AKU cost information to support purchase decision",
+      "placements": [
+        {
+          "placement_id": "placement_002_01",
+          "section": "H2: Kaufberatung & AKU - Innerhalb AKU-Kosten Absatz",
+          "paragraph_context": "Im Absatz über Ankaufsuntersuchung als informativer Deep-Link",
+          "anchor_text": "AKU-Kosten im Detail",
+          "anchor_text_variation": 1,
+          "cta_style": "informational",
+          "html_context": "Inline-Link innerhalb Fließtext"
+        }
+      ],
+      "anchor_text_variations": [
+        "AKU-Kosten im Detail",
+        "Mehr zu Ankaufsuntersuchung Kosten",
+        "Detaillierte AKU-Preisinformationen",
+        "Was kostet eine vollständige AKU?"
+      ],
+      "link_attributes": {
+        "rel": "dofollow",
+        "target": "_self",
+        "data_tracking": "internal-link-aku-kosten"
+      },
+      "topic_relevance": {
+        "keyword_overlap": ["aku kosten", "ankaufsuntersuchung preis"],
+        "semantic_relevance": "high",
+        "user_intent_alignment": "informational to commercial"
+      }
+    },
+    {
+      "link_id": "link_003",
+      "target_url": "/pferd-kaufen",
+      "target_page_title": "Pferd kaufen: Anleitung, Tipps & Checkliste 2025",
+      "link_type": "supporting_content",
+      "priority": 2,
+      "seo_value": "medium",
+      "conversion_goal": "Guide users to comprehensive buying guide",
+      "placements": [
+        {
+          "placement_id": "placement_003_01",
+          "section": "H2: Kaufberatung & AKU - Einleitungsabsatz",
+          "paragraph_context": "Im ersten Absatz der Kaufberatungs-Sektion als Überleitung",
+          "anchor_text": "umfassenden Kaufberatung",
+          "anchor_text_variation": 1,
+          "cta_style": "informational",
+          "html_context": "Inline-Link innerhalb Fließtext"
+        }
+      ],
+      "anchor_text_variations": [
+        "umfassenden Kaufberatung",
+        "Pferdekauf-Guide",
+        "detaillierten Ratgeber zum Pferdekauf",
+        "Schritt-für-Schritt Kaufanleitung"
+      ],
+      "link_attributes": {
+        "rel": "dofollow",
+        "target": "_self",
+        "data_tracking": "internal-link-pferd-kaufen"
+      },
+      "topic_relevance": {
+        "keyword_overlap": ["pferd kaufen", "pferdekauf"],
+        "semantic_relevance": "high",
+        "user_intent_alignment": "informational to commercial"
+      }
+    },
+    {
+      "link_id": "link_004",
+      "target_url": "/pferd-verkaufen",
+      "target_page_title": "Pferd verkaufen: Optimaler Preis & Strategie 2025",
+      "link_type": "supporting_content",
+      "priority": 2,
+      "seo_value": "medium",
+      "conversion_goal": "Provide sellers with strategic guidance and valuation CTA",
+      "placements": [
+        {
+          "placement_id": "placement_004_01",
+          "section": "H2: Was beeinflusst den Pferdewert? - Am Ende der Sektion",
+          "paragraph_context": "Nach Bewertungskriterien-Erklärung als Überleitung für Verkäufer",
+          "anchor_text": "optimalen Verkaufspreis zu ermitteln",
+          "anchor_text_variation": 1,
+          "cta_style": "informational",
+          "html_context": "Inline-Link innerhalb Fließtext"
+        }
+      ],
+      "anchor_text_variations": [
+        "optimalen Verkaufspreis zu ermitteln",
+        "Verkaufsstrategien für Pferdebesitzer",
+        "wie Sie Ihr Pferd erfolgreich verkaufen",
+        "Pferd verkaufen Ratgeber"
+      ],
+      "link_attributes": {
+        "rel": "dofollow",
+        "target": "_self",
+        "data_tracking": "internal-link-pferd-verkaufen"
+      },
+      "topic_relevance": {
+        "keyword_overlap": ["pferd verkaufen preis", "verkaufspreis ermitteln"],
+        "semantic_relevance": "high",
+        "user_intent_alignment": "commercial to transactional"
+      }
+    },
+    {
+      "link_id": "link_005",
+      "target_url": "/ratgeber/pferd-kaufen-anfaenger",
+      "target_page_title": "Pferd kaufen für Anfänger: Guide 2025",
+      "link_type": "related_content",
+      "priority": 3,
+      "seo_value": "medium",
+      "conversion_goal": "Provide beginner-specific guidance",
+      "placements": [
+        {
+          "placement_id": "placement_005_01",
+          "section": "H2: Kaufberatung & AKU - Anfänger-Tipps Absatz",
+          "paragraph_context": "Im Absatz über Anfänger-Empfehlungen als thematische Vertiefung",
+          "anchor_text": "Anfänger-Guide zum Pferdekauf",
+          "anchor_text_variation": 1,
+          "cta_style": "informational",
+          "html_context": "Inline-Link innerhalb Fließtext"
+        }
+      ],
+      "anchor_text_variations": [
+        "Anfänger-Guide zum Pferdekauf",
+        "speziellen Ratgeber für Reitanfänger",
+        "Was Anfänger beim Pferdekauf beachten sollten",
+        "Erstes Pferd kaufen - Tipps"
+      ],
+      "link_attributes": {
+        "rel": "dofollow",
+        "target": "_self",
+        "data_tracking": "internal-link-anfaenger-guide"
+      },
+      "topic_relevance": {
+        "keyword_overlap": ["pferd kaufen anfänger", "erstes pferd kaufen"],
+        "semantic_relevance": "high",
+        "user_intent_alignment": "informational"
+      }
+    },
+    {
+      "link_id": "link_006",
+      "target_url": "/ratgeber/pferdehaltung-kosten",
+      "target_page_title": "Pferdehaltung Kosten: Monatliche & jährliche Ausgaben 2025",
+      "link_type": "related_content",
+      "priority": 3,
+      "seo_value": "medium",
+      "conversion_goal": "Provide detailed ongoing cost information",
+      "placements": [
+        {
+          "placement_id": "placement_006_01",
+          "section": "H2: Unterhaltungskosten - Am Ende der Kostenaufschlüsselung",
+          "paragraph_context": "Nach monatlicher Kostenübersicht als Deep-Dive Link",
+          "anchor_text": "detaillierten Ratgeber zu Pferdehaltungskosten",
+          "anchor_text_variation": 1,
+          "cta_style": "informational",
+          "html_context": "Inline-Link innerhalb Fließtext"
+        }
+      ],
+      "anchor_text_variations": [
+        "detaillierten Ratgeber zu Pferdehaltungskosten",
+        "Vollständige Kostenübersicht Pferdehaltung",
+        "Was kostet ein Pferd pro Monat im Detail?",
+        "Alle laufenden Kosten erklärt"
+      ],
+      "link_attributes": {
+        "rel": "dofollow",
+        "target": "_self",
+        "data_tracking": "internal-link-pferdehaltung-kosten"
+      },
+      "topic_relevance": {
+        "keyword_overlap": ["pferdehaltung kosten", "pferd kosten pro monat"],
+        "semantic_relevance": "high",
+        "user_intent_alignment": "informational"
+      }
+    }
+  ],
+  "external_links": [],
+  "link_strategy": {
+    "conversion_funnel_mapping": {
+      "top_of_funnel": {
+        "target_pages": [
+          "/ratgeber/pferd-kaufen-anfaenger",
+          "/ratgeber/pferdehaltung-kosten"
+        ],
+        "purpose": "Educate and build trust with comprehensive information",
+        "user_journey_stage": "Awareness"
+      },
+      "middle_of_funnel": {
+        "target_pages": [
+          "/aku-pferd-kosten",
+          "/pferd-kaufen",
+          "/pferd-verkaufen"
+        ],
+        "purpose": "Support purchase decision with detailed guidance",
+        "user_journey_stage": "Consideration"
+      },
+      "bottom_of_funnel": {
+        "target_pages": [
+          "/bewertung-starten"
+        ],
+        "purpose": "Convert informed users to valuation service",
+        "user_journey_stage": "Decision"
+      }
+    },
+    "link_juice_distribution": {
+      "high_priority_pages": {
+        "pages": ["/bewertung-starten", "/aku-pferd-kosten"],
+        "link_count": 4,
+        "percentage": "66.7%"
+      },
+      "medium_priority_pages": {
+        "pages": ["/pferd-kaufen", "/pferd-verkaufen"],
+        "link_count": 2,
+        "percentage": "33.3%"
+      },
+      "related_content_pages": {
+        "pages": ["/ratgeber/pferd-kaufen-anfaenger", "/ratgeber/pferdehaltung-kosten"],
+        "link_count": 2,
+        "percentage": "33.3%",
+        "note": "Overlaps with medium priority - some pages serve multiple purposes"
+      }
+    },
+    "anchor_text_optimization": {
+      "exact_match_keywords": 2,
+      "partial_match_keywords": 3,
+      "branded_anchors": 0,
+      "natural_language_anchors": 4,
+      "diversity_score": "high",
+      "notes": "Good mix of exact match, partial match, and natural language anchors to avoid over-optimization"
+    },
+    "placement_strategy": {
+      "contextual_relevance": "All links placed in highly relevant sections matching link topic",
+      "user_flow": "Links guide users through natural information progression",
+      "cta_progression": "Soft CTAs early, strong CTA in dedicated section, final soft CTA in FAQ",
+      "avoid_link_farms": "Maximum 3 links per section, well-spaced throughout 2,380-word article"
+    }
+  },
+  "seo_best_practices": {
+    "link_density_optimal": true,
+    "contextual_placement": true,
+    "anchor_text_diversity": true,
+    "no_broken_links": true,
+    "dofollow_internal_links": true,
+    "user_value_focus": true,
+    "natural_language": true,
+    "avoid_over_optimization": true
+  },
+  "implementation_notes": {
+    "html_structure": {
+      "inline_links": "Use <a href=\"/target\" class=\"text-blue-600 hover:text-blue-800 underline\">anchor text</a>",
+      "cta_buttons": "Use <Link href=\"/bewertung-starten\"><button class=\"bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg\">CTA text</button></Link>",
+      "tracking_attributes": "Add data-tracking attribute for analytics on all CTAs"
+    },
+    "next_js_implementation": {
+      "component": "Use Next.js <Link> component from 'next/link'",
+      "prefetching": "Default prefetching enabled for better UX",
+      "scroll_behavior": "Use scroll={true} for natural navigation experience"
+    },
+    "analytics_tracking": {
+      "event_tracking": "Track all CTA clicks with Google Analytics events",
+      "conversion_goal": "Primary goal: clicks on /bewertung-starten CTAs",
+      "ab_testing": "Consider A/B testing CTA anchor text variations"
+    }
+  },
+  "quality_checklist": {
+    "all_links_relevant_to_content": true,
+    "anchor_text_descriptive": true,
+    "no_generic_click_here_anchors": true,
+    "link_density_in_optimal_range": true,
+    "links_add_user_value": true,
+    "conversion_path_clear": true,
+    "no_link_stuffing": true,
+    "mobile_friendly_link_spacing": true,
+    "all_target_pages_exist": true,
+    "dofollow_for_internal_links": true
+  },
+  "next_steps": [
+    "✅ Process 6 File 10: article.md erstellt (2.380 Wörter)",
+    "✅ Process 6 File 11: meta.json erstellt (SEO Meta Tags)",
+    "✅ Process 6 File 12: links.json erstellt (diese Datei)",
+    "⏭️ Process 6 File 13: schema.json erstellen (FAQPage + Article Schema) - FINAL FILE",
+    "⏭️ Implementation in Next.js pages/ratgeber/was-kostet-ein-pferd.tsx",
+    "⏭️ Image Assets erstellen (8 images für Artikel)",
+    "⏭️ Testing: Rich Results, Social Cards, Internal Links, Mobile Optimization"
+  ]
+}

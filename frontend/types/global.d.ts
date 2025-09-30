@@ -14,15 +14,13 @@ declare global {
   }
 }
 
-// OpenRouter Integration Types
+// OpenRouter Integration Types - 2-Stage System
 export interface OpenRouterConfig {
   apiKey: string;
   baseUrl: string;
   models: {
     primary: string;
-    secondary: string;
-    tertiary: string;
-    emergency: string;
+    fallback: string;
   };
   fallbackStrategy: 'sequential' | 'failover';
   timeout: number;
@@ -39,22 +37,18 @@ export interface OpenRouterResponse {
 }
 
 export interface PferdeWertEnvVars {
-  // Existing environment variables
+  // Core environment variables
   MONGODB_URI: string;
   STRIPE_SECRET_KEY: string;
   STRIPE_WEBHOOK_SECRET: string;
   RESEND_API_KEY: string;
   BACKEND_URL: string;
 
-  // New OpenRouter environment variables
+  // OpenRouter environment variables - 2-Stage System
   OPENROUTER_API_KEY: string;
-  OPENROUTER_BASE_URL: string;
-  OPENROUTER_PRIMARY_MODEL: string;
-  OPENROUTER_SECONDARY_MODEL: string;
-  OPENROUTER_TERTIARY_MODEL: string;
-  OPENROUTER_EMERGENCY_MODEL: string;
-  OPENROUTER_TIMEOUT: string;
-  OPENROUTER_RETRY_ATTEMPTS: string;
+  PRIMARY_MODEL: string;
+  FALLBACK_MODEL: string;
+  SYSTEM_PROMPT: string;
 }
 
 export {};

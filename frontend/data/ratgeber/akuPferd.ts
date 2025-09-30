@@ -28,20 +28,28 @@ export interface AkuRegionItem {
 
 export const akuRelatedArticles: RatgeberRelatedArticle[] = [
   {
-    href: '/pferd-kaufen',
-    image: '/images/blossi-5.webp',
-    title: 'Pferd kaufen: Komplettguide',
-    badge: 'Pferdekauf',
-    readTime: '12 Min.',
-    description: 'Schritt-für-Schritt durch den Kaufprozess: Budget, Auswahl, AKU und Preisverhandlung.'
+    href: '/aku-pferd-ablauf',
+    image: '/veterinarian-examining-horse-health-check.jpg',
+    title: 'AKU Ablauf verstehen',
+    badge: 'AKU Guide',
+    readTime: '10 Min.',
+    description: 'Von Vorbereitung bis Befund – so läuft die Ankaufsuntersuchung Schritt für Schritt ab.'
   },
   {
-    href: '/pferd-verkaufen',
-    image: '/images/dino-1.webp',
-    title: 'Pferd verkaufen: So gelingt’s',
-    badge: 'Pferdeverkauf',
-    readTime: '10 Min.',
-    description: 'Vom Inserat bis zum Kaufvertrag: Tipps für marktgerechte Preise und rechtliche Sicherheit.'
+    href: '/aku-pferd-klassen',
+    image: '/horse-in-stable--professional-care.jpg',
+    title: 'AKU Klassen erklärt',
+    badge: 'AKU Guide',
+    readTime: '8 Min.',
+    description: 'Welche Befunde bedeuten was? Klassen 1–5 mit Risiko- und Kaufempfehlungen.'
+  },
+  {
+    href: '/aku-pferd-kosten',
+    image: '/person-evaluating-horse-for-purchase.jpg',
+    title: 'AKU Kosten 2025',
+    badge: 'Kosten & Preise',
+    readTime: '7 Min.',
+    description: 'Transparente Kostenübersicht, Zusatzkosten und Spartipps für Käufer.'
   }
 ]
 

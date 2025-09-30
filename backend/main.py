@@ -9,8 +9,6 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from openai import OpenAI
-import anthropic
 import time
 import random
 import uuid
@@ -35,150 +33,16 @@ except Exception as e:
     logging.warning("🔄 Will use legacy clients only")
 
 
-# API Keys
-OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-CLAUDE_KEY = os.getenv("ANTHROPIC_API_KEY")
-
-# Model Settings
-MODEL_ID = os.getenv("PW_MODEL", "gpt-4o")
-# Default to Claude Opus 4.1; override via CLAUDE_MODEL env
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805")
-USE_CLAUDE = os.getenv("USE_CLAUDE", "true").lower() == "true"
-
 # Logging Settings
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 AI_DEBUG = os.getenv("AI_DEBUG", "false").lower() == "true"
 
-# Initialize clients
-openai_client = OpenAI(api_key=OPENAI_KEY) if OPENAI_KEY else None
-# Disable HTTP logging and internal retries for Anthropic SDK
-import httpx
-claude_client = anthropic.Anthropic(
-    api_key=CLAUDE_KEY,
-    max_retries=0,  # Disable internal retries (we handle them manually)
-    http_client=httpx.Client(
-        event_hooks={"request": [], "response": []}
-    )
-) if CLAUDE_KEY else None
-
-# Token counting
-def get_tokenizer(model_id: str):
-    """Get tokenizer for model, with fallback for newer models like GPT-5."""
-    try:
-        return tiktoken.encoding_for_model(model_id)
-    except KeyError:
-        # Fallback for newer models (GPT-5, etc.) - use GPT-4 tokenizer
-        if model_id.startswith("gpt-5"):
-            return tiktoken.encoding_for_model("gpt-4")
-        # For other unknown models, use a safe default
-        return tiktoken.get_encoding("cl100k_base")
-
-ENC = get_tokenizer(MODEL_ID) if OPENAI_KEY else None
-CTX_MAX = 128_000
-MAX_COMPLETION = 4000
-
 logging.basicConfig(level=getattr(logging, LOG_LEVEL), format="%(levelname)s: %(message)s")
 
-# Configure library logging based on environment
+# Configure library logging
 logging.getLogger("httpx").setLevel(logging.WARNING)
-if AI_DEBUG or LOG_LEVEL == "DEBUG":
-    logging.getLogger("anthropic").setLevel(logging.INFO)
-    logging.getLogger("openai").setLevel(logging.INFO)
-else:
-    logging.getLogger("anthropic").setLevel(logging.WARNING)
-    logging.getLogger("openai").setLevel(logging.WARNING)
-logging.info(
-    f"OpenAI-key: {'✅' if OPENAI_KEY else '❌'} | Claude-key: {'✅' if CLAUDE_KEY else '❌'} | "
-    f"OpenAI model: {MODEL_ID} | Claude model: {CLAUDE_MODEL} | Use Claude: {USE_CLAUDE}"
-)
+logging.info("🚀 PferdeWert API started with OpenRouter AI integration")
 
-def call_claude_with_retry(client, model, max_tokens, temperature, system, messages, max_retries=3):
-    """Call Claude API with exponential backoff for 529 errors."""
-    for attempt in range(max_retries):
-        try:
-
-            return client.messages.create(
-                model=model,
-                max_tokens=max_tokens,
-                temperature=temperature,
-                system=system,
-                messages=messages
-            )
-        except anthropic.APIError as e:
-            # Retry both 529 (overloaded) and 503 (upstream errors)
-            if e.status_code in [529, 503] and attempt < max_retries - 1:
-                wait_time = (3 ** attempt) + random.uniform(0, 2)  # Aggressiverer exponential backoff für Opus
-                # Only log on first retry to reduce spam
-                if attempt == 0:
-                    logging.warning(f"Claude overloaded ({e.status_code}), retrying {max_retries-1} times with backoff")
-                time.sleep(wait_time)
-                continue
-            else:
-                # Preserve error context for debugging while keeping production logs clean
-                if AI_DEBUG or LOG_LEVEL == "DEBUG":
-                    logging.error(f"Claude API error on attempt {attempt + 1}: {e.status_code} - {e.message}")
-                else:
-                    logging.error(f"Claude API error: {e.status_code}")
-                raise e
-        except Exception as e:
-            # Preserve context for non-API errors
-            if AI_DEBUG or LOG_LEVEL == "DEBUG":
-                logging.error(f"Unexpected error calling Claude: {type(e).__name__}: {str(e)}")
-            else:
-                logging.error(f"Unexpected error calling Claude: {type(e).__name__}")
-            raise e
-
-    # This shouldn't be reached but just in case
-    raise Exception("Max retries exceeded")
-
-def tokens_in(msgs: list[dict]) -> int:
-    """Hilfsfunktion: zählt Tokens in OpenAI-Messages."""
-    if not ENC:
-        return 0
-    total = 0
-    for m in msgs:
-        total += 4  # fixer Overhead pro Message
-        total += len(ENC.encode(m["content"]))
-    return total + 2  # Abschluss-Tokens
-
-# ───────────────────────────────
-#  System Prompts
-# ───────────────────────────────
-
-# Original GPT Prompt (für Vergleich)
-GPT_SYSTEM_PROMPT = os.getenv(
-    "SYSTEM_PROMPT",
-    """Du bist **PferdeWert AI**, eine hochspezialisierte Expert:innen-KI für Markt- und Preisbewertungen von Sport- und Zuchtpferden.
-
-**DEINE AUFGABE:** Erstelle eine professionelle, strukturierte Bewertung basierend auf den bereitgestellten Pferdedaten.
-
-**AUSGABEFORMAT:**
-
-### Zusammenfassung
-[Kurze Einschätzung des Pferdes in 2-3 Sätzen]
-
-### Marktbewertung
-**Geschätzter Marktwert:** [X.XXX - X.XXX €]
-
-[Begründung der Preisschätzung basierend auf Rasse, Alter, Ausbildung, etc.]
-
-### Bewertungsfaktoren
-- **Rasse & Abstammung:** [Bewertung]
-- **Alter & Ausbildungsstand:** [Bewertung] 
-- **Potenzial & Verwendung:** [Bewertung]
-
-### Empfehlungen
-- [Konkrete Handlungsempfehlungen]
-- [Vermarktungshinweise]
-
-**WICHTIG:** 
-- Preise in Euro, realistisch für deutschen Markt
-- Berücksichtige aktuelle Markttrends
-- Begründe alle Einschätzungen sachlich"""
-)
-
-# Claude Prompt für Tests = GPT Prompt
-CLAUDE_SYSTEM_PROMPT = GPT_SYSTEM_PROMPT
 
 # ───────────────────────────────
 #  FastAPI-App
@@ -303,9 +167,9 @@ class BewertungRequest(BaseModel):
 # ───────────────────────────────
 def ai_valuation(d: BewertungRequest) -> dict:
     """
-    Hauptfunktion: OpenRouter 4-Stage Fallback System
-    Stage 1-3: OpenRouter (Gemini 2.5 Pro → GPT-4o → Claude)
-    Stage 4: Legacy clients (GPT + Claude)
+    Hauptfunktion: OpenRouter 2-Stage Fallback System
+    Stage 1: OpenRouter (PRIMARY_MODEL)
+    Stage 2: OpenRouter (FALLBACK_MODEL)
     """
     req_id = getattr(d, '_request_id', str(uuid.uuid4())[:8])
 
@@ -325,10 +189,10 @@ def ai_valuation(d: BewertungRequest) -> dict:
         "besonderheiten": d.besonderheiten
     }
 
-    # Try OpenRouter 4-Stage Fallback System first
+    # Try OpenRouter 2-Stage Fallback System
     if ai_service:
         try:
-            logging.info(f"[{req_id}] 🚀 Starting OpenRouter 4-Stage Fallback System...")
+            logging.info(f"[{req_id}] 🚀 Starting OpenRouter 2-Stage Fallback System...")
             ai_response = ai_service.generate_valuation(horse_data)
 
             logging.info(f"[{req_id}] ✅ OpenRouter success: {ai_response.model} (tier: {ai_response.tier})")
@@ -342,131 +206,22 @@ def ai_valuation(d: BewertungRequest) -> dict:
 
         except Exception as e:
             logging.error(f"[{req_id}] ❌ OpenRouter system failed: {e}")
-            logging.warning(f"[{req_id}] 🔄 Falling back to legacy implementation...")
     else:
-        logging.warning(f"[{req_id}] ⚠️ OpenRouter not available - using legacy system only")
+        logging.warning(f"[{req_id}] ⚠️ OpenRouter not available")
 
-    # ═══════════════════════════════════════════════════════════
-    # LEGACY FALLBACK SYSTEM (existing implementation)
-    # ═══════════════════════════════════════════════════════════
-
-    user_prompt = (
-        f"Rasse: {d.rasse}\nAlter: {d.alter}\nGeschlecht: {d.geschlecht}\n"
-        f"Abstammung: {d.abstammung or 'k. A.'}\nStockmaß: {d.stockmass} cm\n"
-        f"Ausbildungsstand: {d.ausbildung}\n"
-        f"Haupteignung / Disziplin: {d.haupteignung or 'k. A.'}\n"
-        f"Aktueller Standort (PLZ): {d.standort or 'k. A.'}\n"
-        f"Gesundheitsstatus / AKU-Bericht: {d.aku or 'k. A.'}\n"
-        f"Erfolge: {d.erfolge or 'k. A.'}"
-        + (f"\nCharakter & Rittigkeit: {d.charakter}" if d.charakter else "")
-        + (f"\nBesonderheiten: {d.besonderheiten}" if d.besonderheiten else "")
-    )
-
-    claude_result = None
-    gpt_result = None
-
-    # Environment variable to control parallel processing during high load
-    USE_PARALLEL_PROCESSING = os.getenv("USE_PARALLEL_PROCESSING", "false").lower() == "true"
-
-    # 1. Claude für Kunde (Hauptergebnis)
-    if USE_CLAUDE and claude_client:
-        try:
-            logging.info(f"[{req_id}] Analysing with legacy {CLAUDE_MODEL}...")
-            response = call_claude_with_retry(
-                client=claude_client,
-                model=CLAUDE_MODEL,
-                max_tokens=3000,
-                temperature=0.3,  # Für realistischere Bewertungen
-                system=CLAUDE_SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": user_prompt}],
-                max_retries=7  # Mehr Retries für Opus wegen 503/529 Errors
-            )
-
-            # Robustes Parsing der Claude-Antwort
-            if response.content and response.content[0].text:
-                claude_result = response.content[0].text.strip()
-                logging.info(f"[{req_id}] ✅ Legacy Claude-Bewertung erfolgreich erstellt")
-            else:
-                raise ValueError("Claude-Antwort hat kein lesbares Textfeld")
-
-        except Exception as e:
-            logging.error(f"[{req_id}] ❌ Legacy Claude Error: {e} - Fallback zu OpenAI")
-    else:
-        if not USE_CLAUDE:
-            logging.info(f"[{req_id}] ⏭️  Skipping Claude: USE_CLAUDE=false")
-        elif not claude_client:
-            logging.info(f"[{req_id}] ⏭️  Skipping Claude: ANTHROPIC_API_KEY missing or client not initialized")
-
-    # 2. GPT für Vergleich (nur wenn parallel processing enabled oder Claude failed)
-    run_gpt = USE_PARALLEL_PROCESSING or not claude_result
-    if openai_client and run_gpt:
-        try:
-            if USE_PARALLEL_PROCESSING:
-                logging.info(f"[{req_id}] Prompt wird parallel an legacy GPT gesendet...")
-            else:
-                logging.info(f"[{req_id}] Claude failed, using legacy GPT as final fallback...")
-
-            messages = [
-                {"role": "system", "content": GPT_SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt}
-            ]
-
-            rsp = openai_client.chat.completions.create(
-                model=MODEL_ID,
-                messages=messages,
-                temperature=0.3,  # Für realistischere Bewertungen
-                top_p=0.8,
-                seed=12345,  # Reproduzierbarkeit
-                max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(messages)),
-            )
-            gpt_result = rsp.choices[0].message.content.strip()
-            logging.info(f"[{req_id}] ✅ Legacy GPT-Bewertung erstellt")
-        except Exception as e:
-            logging.error(f"[{req_id}] ❌ Legacy GPT Error: {e}")
-    elif not USE_PARALLEL_PROCESSING and claude_result:
-        logging.info(f"[{req_id}] 🚀 Parallel processing disabled - skipping GPT to reduce API load")
-
-    # 3. GPT-Vergleich per E-Mail senden (wenn beide verfügbar)
-    if gpt_result:
-        # send_gpt_comparison_mail(d, gpt_result)  # Temporär deaktiviert
-        logging.info(f"[{req_id}] 📧 GPT-Vergleichsmail temporär deaktiviert")
-
-    # 4. Ergebnis zurückgeben: Claude bevorzugt, GPT als Fallback
-    fallback_text = (
+    # Fallback response when OpenRouter is not available
+    logging.error(f"[{req_id}] ❌ OpenRouter AI service not available")
+    fallback_msg = (
         "Wir arbeiten gerade an unserem KI-Modell, "
         "bitte schicke uns eine E-Mail an info@pferdewert.de "
         "und wir melden uns, sobald das Modell wieder online ist."
     )
-
-    if claude_result:
-        logging.info(f"[{req_id}] ✅ Legacy Claude-Ergebnis wird an Kunde gesendet")
-        return {
-            "bewertung": claude_result,
-            "model": "claude",
-            "model_version": CLAUDE_MODEL,
-            "tier": "legacy"
-        }
-    elif gpt_result:
-        logging.info(f"[{req_id}] ⚠️ Claude nicht verfügbar - Legacy GPT-Fallback wird an Kunde gesendet")
-        return {
-            "bewertung": gpt_result,
-            "model": "gpt",
-            "model_version": MODEL_ID,
-            "tier": "legacy"
-        }
-    else:
-        logging.error(f"[{req_id}] ❌ Alle AI-Services nicht verfügbar")
-        fallback_msg = (
-            "Wir arbeiten gerade an unserem KI-Modell, "
-            "bitte schicke uns eine E-Mail an info@pferdewert.de "
-            "und wir melden uns, sobald das Modell wieder online ist."
-        )
-        return {
-            "bewertung": fallback_msg,
-            "model": "fallback",
-            "model_version": "none",
-            "tier": "fallback"
-        }
+    return {
+        "bewertung": fallback_msg,
+        "model": "fallback",
+        "model_version": "none",
+        "tier": "fallback"
+    }
 
 # ───────────────────────────────
 #  API-Endpoint
@@ -525,119 +280,6 @@ def bewertung(req: BewertungRequest):
 # allow attackers to abuse the AI services and access sensitive model interactions.
 # Uncomment only for local development/testing purposes with proper access controls.
 
-# EMERGENCY DISABLED: This endpoint was causing massive Claude API spam
-# @app.post("/api/debug-comparison")
-# def debug_comparison(req: BewertungRequest):
-#     """Debug-Endpoint: Vergleich GPT vs Claude vs O3"""
-#     logging.info(f"Debug Comparison Request: {req.dict()}")
-#
-#     results = {}
-#
-#     # Test simple prompt first if GPT-5
-#     if MODEL_ID.startswith("gpt-5"):
-#         logging.info("Testing GPT-5 with simple prompt first...")
-#         try:
-#             simple_response = openai_client.chat.completions.create(
-#                 model=MODEL_ID,
-#                 messages=[{"role": "user", "content": "Hello, please respond with exactly: TEST SUCCESSFUL"}],
-#                 max_completion_tokens=2000,
-#             )
-#             simple_content = simple_response.choices[0].message.content if simple_response.choices else None
-#             logging.info(f"GPT-5 Simple test result: '{simple_content}'")
-#             results["gpt5_simple_test"] = simple_content or "No response"
-#         except Exception as e:
-#             logging.error(f"GPT-5 Simple test failed: {e}")
-#             results["gpt5_simple_test"] = f"Error: {str(e)}"
-#
-#     user_prompt = (
-#         f"Rasse: {req.rasse}\n"
-#         f"Alter: {req.alter}\n"
-#         f"Geschlecht: {req.geschlecht}\n"
-#         f"Abstammung: {req.abstammung}\n"
-#         f"Stockmaß: {req.stockmass} cm\n"
-#         f"Ausbildungsstand: {req.ausbildung}\n"
-#         f"Farbe: {req.farbe or 'k. A.'}\n"
-#         f"Züchter / Ausbildungsstall: {req.zuechter or 'k. A.'}\n"
-#         f"Aktueller Standort (PLZ): {req.standort or 'k. A.'}\n"
-#         f"Verwendungszweck / Zielsetzung: {req.verwendungszweck or 'k. A.'}\n"
-#         f"Gesundheitsstatus / AKU-Bericht: {req.aku or 'k. A.'}\n"
-#         f"Erfolge: {req.erfolge or 'k. A.'}"
-#     )
-#
-#     # GPT-4o Test
-#     try:
-#         logging.info("Testing GPT-4o...")
-#         gpt_messages = [
-#             {"role": "system", "content": GPT_SYSTEM_PROMPT},
-#             {"role": "user", "content": user_prompt}
-#         ]
-#         # GPT-5 only supports max_completion_tokens, no temperature/top_p/seed
-#         if MODEL_ID.startswith("gpt-5"):
-#             token_count = tokens_in(gpt_messages)
-#             max_completion = min(2000, CTX_MAX - token_count)  # Increased from MAX_COMPLETION (800) to 2000
-#             logging.info(f"GPT-5 Token info: input={token_count}, max_completion={max_completion}, old_limit={MAX_COMPLETION}")
-#
-#             gpt_response = openai_client.chat.completions.create(
-#                 model=MODEL_ID,
-#                 messages=gpt_messages,
-#                 max_completion_tokens=max_completion,
-#             )
-#         else:
-#             gpt_response = openai_client.chat.completions.create(
-#                 model=MODEL_ID,
-#                 messages=gpt_messages,
-#                 temperature=0.0,
-#                 top_p=0.8,
-#                 seed=12345,
-#                 max_tokens=min(MAX_COMPLETION, CTX_MAX - tokens_in(gpt_messages)),
-#             )
-#
-#         # Debug logging for GPT-5 response
-#         logging.info(f"GPT Response received, has {len(gpt_response.choices)} choices")
-#         if gpt_response.choices and len(gpt_response.choices) > 0:
-#             content = gpt_response.choices[0].message.content
-#             logging.info(f"Message content type: {type(content)}")
-#             logging.info(f"Message content length: {len(content) if content else 'None'}")
-#             logging.info(f"Message content: '{content}'")
-#             results["gpt"] = content.strip() if content else "GPT-5 returned None content"
-#         else:
-#             logging.info("No choices in GPT response")
-#             results["gpt"] = "GPT-5 returned no choices"
-#         logging.info(f"{MODEL_ID}: Success")
-#     except Exception as e:
-#         results["gpt"] = f"GPT Error: {str(e)}"
-#         logging.error(f"GPT-4o Error: {e}")
-#
-#     # Claude Test
-#     try:
-#         logging.info("Testing Claude...")
-#         local_claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-#         claude_response = call_claude_with_retry(
-#             client=local_claude_client,
-#             model=CLAUDE_MODEL,
-#             max_tokens=1000,
-#             temperature=0.0,
-#             system=CLAUDE_SYSTEM_PROMPT,
-#             messages=[{"role": "user", "content": user_prompt}]
-#         )
-#         results["claude"] = claude_response.content[0].text.strip()
-#         logging.info("Claude: Success")
-#     except Exception as e:
-#         results["claude"] = f"Claude Error: {str(e)}"
-#         logging.error(f"Claude Error: {e}")
-#
-#
-#     # Vergleichsinfo hinzufügen
-#     results["info"] = {
-#         "timestamp": "2025-07-29",
-#         "gpt_model": MODEL_ID,
-#         "claude_model": CLAUDE_MODEL,
-#         "use_claude_setting": os.getenv("USE_CLAUDE", "false"),
-#         "test_data": req.dict(),
-#     }
-#
-#     return results
-    pass  # Endpoint completely disabled
 
 # ───────────────────────────────
 #  Health Check
@@ -657,15 +299,8 @@ def health_check():
 
     # Build comprehensive health response
     health_status = {
-        # LEGACY COMPATIBILITY
-        "status": "ok",
-        "openai_available": bool(openai_client),
-        "claude_available": bool(claude_client),
-        "claude_model": CLAUDE_MODEL,
-        "openai_model": MODEL_ID,
-        "use_claude": USE_CLAUDE,
-
         # OPENROUTER INTEGRATION STATUS
+        "status": "ok",
         "openrouter": {
             "enabled": bool(ai_service),
             "status": ai_health.get("status", "unknown"),
@@ -675,21 +310,14 @@ def health_check():
 
         # SYSTEM OVERVIEW
         "ai_system": {
-            "primary_ai": "openrouter" if ai_service else "legacy",
-            "fallback_available": bool(openai_client or claude_client),
-            "total_ai_services": sum([
-                bool(ai_service),
-                bool(openai_client),
-                bool(claude_client)
-            ])
+            "primary_ai": "openrouter" if ai_service else "none",
+            "total_ai_services": 1 if ai_service else 0
         }
     }
 
     # Determine overall health status
     if ai_service and ai_health.get("status") == "healthy":
         health_status["status"] = "healthy"
-    elif bool(openai_client or claude_client):
-        health_status["status"] = "degraded"  # OpenRouter down, but legacy available
     else:
         health_status["status"] = "critical"  # No AI services available
 

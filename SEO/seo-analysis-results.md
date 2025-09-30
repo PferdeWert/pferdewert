@@ -2,7 +2,7 @@
 
 ## Verfügbare Tools
 - **Claude Code**: AI-gestützte Analyse und Content-Erstellung
-- **DataForSEO MCP**: Keyword Research, SERP Analysis, On-Page Audit
+- **DataForSEO API**: Keyword Research, SERP Analysis, On-Page Audit (via `/api/seo/*` Endpoints)
 - **Firecrawl MCP**: Website Scraping und Content-Extraktion
 - **File Storage**: JSON/MD-Dateien für Datenablage und Prozess-Tracking
 
@@ -37,7 +37,7 @@ Generierung und Verfeinerung von Seed Keywords mit regionalem Fokus für deutsch
 1. **Company Profile laden**: ✅ Existierende `SEO/company/company-profile-{date}.md` verwenden
 2. **Keyword-Filter anwenden**: Ausschlusskriterien aus Company Profile beachten
 3. **Seed Keyword Brainstorming**: Claude generiert Keywords basierend auf Content-Fokus aus Profil
-4. **DataForSEO Keyword Ideas**: `dataforseo_labs_google_keyword_ideas` für Keyword-Expansion
+4. **DataForSEO Keyword Ideas**: API Call via `/api/seo/keyword-ideas` für Keyword-Expansion
 5. **Regionale Anpassung**: Keywords für definierte Regionen aus Company Profile erweitern
 6. **Speicherung**: Ergebnisse in `SEO/SEO-CONTENT/{keyword}/seed-keywords-{date}.json` ablegen
 
@@ -63,9 +63,9 @@ Umfassende Keyword-Recherche durch Expansion der Seed Keywords mit SEO-Daten und
 ### Schritte mit Claude Code
 1. **Company Profile & Seeds laden**: ✅ `SEO/company/company-profile-{date}.md` + Seed Keywords aus Prozess 1
 2. **Multi-API Keyword Research**:
-   - `dataforseo_labs_google_keyword_ideas`
-   - `dataforseo_labs_google_related_keywords`
-   - `dataforseo_labs_google_keyword_suggestions`
+   - API Call: `/api/seo/keyword-ideas`
+   - API Call: `/api/seo/related-keywords`
+   - API Call: `/api/seo/keyword-suggestions`
 3. **Company-basierte AI-Filterung**: Keywords gegen Ausschlusskriterien aus Company Profile prüfen
 4. **Keyword-Kategorisierung**: Nach Intent + Themenfeldern aus Company Profile
 5. **Priority Scoring**: Relevanz nach Content-Fokus aus Company Profile (Prio 1-4)
@@ -95,8 +95,8 @@ Automatische Erstellung umfassender Content-Outlines basierend auf Keyword-Analy
 2. **Competitor Analysis**:
    - `firecrawl_search` für Top 10 Competitors
    - `firecrawl_scrape` für Heading-Extraktion
-3. **SERP Research**: `dataforseo_serp_organic_live_advanced` für aktuelle Rankings
-4. **People Also Ask**: `serp_organic_live_advanced` mit `people_also_ask_click_depth`
+3. **SERP Research**: API Call via `/api/seo/serp` für aktuelle Rankings
+4. **People Also Ask**: API Call via `/api/seo/serp` mit `people_also_ask_click_depth`
 5. **Company-optimierte Outline**: Content-Struktur nach Tonalität aus Company Profile
 6. **FAQ-Sektion**: PAA-Daten + USPs aus Company Profile kombinieren
 7. **Speicherung**: Outline als Markdown-Datei
@@ -123,8 +123,8 @@ Umfassende technische SEO-Analyse der PferdeWert.de Website mit automatisierter 
 ### Schritte mit Claude Code
 1. **Website Mapping**: `firecrawl_map` für vollständige URL-Erfassung
 2. **URL Priorisierung**: Claude bewertet URLs nach Wichtigkeit
-3. **OnPage Analyse**: `dataforseo_on_page_instant_pages` für jede wichtige URL
-4. **Lighthouse Audit**: `dataforseo_on_page_lighthouse` für Performance-Metriken
+3. **OnPage Analyse**: API Call via `/api/seo/onpage-pages` für jede wichtige URL
+4. **Lighthouse Audit**: API Call via `/api/seo/lighthouse` für Performance-Metriken
 5. **Problem-Kategorisierung**: Claude klassifiziert Probleme (Critical/Warning/Info)
 6. **Report Generation**: Markdown-Report mit priorisierten Fixes
 7. **Action Items**: Konkrete Verbesserungsvorschläge
@@ -151,7 +151,7 @@ Regelmäßige Überwachung der Keyword-Rankings mit automatisierter Verlust-Erke
 
 ### Schritte mit Claude Code
 1. **Keyword-Liste laden**: Aus Research-Prozess
-2. **Position Checking**: `dataforseo_serp_organic_live_advanced` für alle Keywords
+2. **Position Checking**: API Call via `/api/seo/serp` für alle Keywords
 3. **Historical Comparison**: Vergleich mit vorherigen Daten aus JSON-Files
 4. **Ranking-Analyse**: Claude identifiziert signifikante Änderungen
 5. **Alert Generation**: Markdown-Report bei kritischen Verlusten
@@ -180,7 +180,7 @@ Automatisierte Erstellung suchoptimierter Artikel basierend auf SERP-Analyse und
 
 ### Schritte mit Claude Code
 1. **Company Profile & Content-Brief laden**: ✅ Existierendes `SEO/company/company-profile-{date}.md` + Outline aus Prozess 3
-2. **SERP Analysis**: Top 20 Ergebnisse mit `dataforseo_serp_organic_live_advanced`
+2. **SERP Analysis**: API Call via `/api/seo/serp` für Top 20 Ergebnisse
 3. **Content Research**: `firecrawl_scrape` für Top-Performer Content
 4. **Competitive Analysis**: Claude analysiert Content-Gaps basierend auf USPs
 5. **Brand-optimierte Content Creation**: Artikel nach Tonalität & Content-Fokus aus Company Profile
@@ -245,8 +245,8 @@ Input: target_keyword + ✅ Company Profile aus SEO/company/
 Umfang: Komplette Prozess-Kette 1→2→3→6 in einem Agent
 Actions:
 ├── Lade Company Profile: SEO/company/company-profile-{date}.md
-├── Keyword Research: dataforseo_labs_google_keyword_ideas + related + suggestions
-├── SERP Analysis: dataforseo_serp_organic_live_advanced (Top 10)
+├── Keyword Research: API Calls via /api/seo/* (keyword-ideas + related + suggestions)
+├── SERP Analysis: API Call via /api/seo/serp (Top 10)
 ├── Competitor Research: firecrawl_scrape für Content-Extraktion
 ├── Intent-Klassifizierung: Nach Company Profile Ausschlusskriterien
 ├── Content-Outline: H1-H3 Struktur + FAQ-Sektion

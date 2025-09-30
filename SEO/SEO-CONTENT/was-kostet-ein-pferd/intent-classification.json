@@ -1,0 +1,387 @@
+{
+  "target_keyword": "was kostet ein pferd",
+  "date_created": "2025-09-29",
+  "total_keywords": 108,
+  "classification_framework": {
+    "informational": {
+      "description": "Nutzer suchen allgemeine Informationen über Pferdepreise, Kosten und Marktwissen",
+      "content_strategy": "Umfassende Ratgeber, Kostenaufschlüsselungen, Vergleichstabellen, FAQ-Sektionen",
+      "conversion_goal": "Awareness schaffen, Trust aufbauen, zur Bewertung führen",
+      "keywords_count": 52
+    },
+    "commercial": {
+      "description": "Nutzer sind in der Kaufentscheidungsphase und vergleichen Preise und Optionen",
+      "content_strategy": "Kaufberatung mit Preisindikationen, Rassenvergleiche, Qualitätskriterien, Markttrends",
+      "conversion_goal": "Kaufentscheidung unterstützen, PferdeWert Service als Absicherung positionieren",
+      "keywords_count": 38
+    },
+    "transactional": {
+      "description": "Nutzer sind bereit zur Aktion - Bewertung, Verkauf oder professionelle Beratung",
+      "content_strategy": "Direkter CTA zu PferdeWert.de Service, Bewertungs-Tool, Trust-Signale, Garantien",
+      "conversion_goal": "Sofortige Conversion zum 19,90€ Bewertungs-Service",
+      "keywords_count": 18
+    }
+  },
+  "intent_clusters": [
+    {
+      "cluster_name": "Allgemeine Preisanfragen (Informational High-Volume)",
+      "intent": "informational",
+      "priority": 1,
+      "keywords": [
+        "was kostet ein pferd",
+        "wie viel kostet ein pferd",
+        "pferd preis",
+        "pferde kosten",
+        "was kostet ein pferd im monat",
+        "pferd kosten pro monat",
+        "pferdehaltung kosten",
+        "pferd unterhalt kosten",
+        "eigenes pferd kosten",
+        "pferd kosten jährlich"
+      ],
+      "search_volume_total": 28500,
+      "user_journey_stage": "Awareness - Early Research",
+      "content_approach": "Hauptartikel-Fokus mit umfassender Kostenübersicht (Anschaffung + Unterhalt)",
+      "conversion_strategy": "Soft CTA nach Kostenaufschlüsselung: 'Wissen Sie, was Ihr Pferd wert ist?'"
+    },
+    {
+      "cluster_name": "Rassenspezifische Preise (Commercial Intent)",
+      "intent": "commercial",
+      "priority": 2,
+      "keywords": [
+        "warmblut preis",
+        "was kostet ein warmblut",
+        "dressurpferd preis",
+        "springpferd preis",
+        "freizeitpferd preis",
+        "reitpferd preis",
+        "turnierpferd preis",
+        "islandpferd preis",
+        "haflinger preis",
+        "friese preis",
+        "quarter horse preis",
+        "hannoveraner preis",
+        "oldenburger preis",
+        "trakehner preis",
+        "holsteiner preis",
+        "warmblut kaufen preis",
+        "deutsches reitpferd preis"
+      ],
+      "search_volume_total": 9880,
+      "user_journey_stage": "Consideration - Comparing Options",
+      "content_approach": "Detaillierte Raassen-Preis-Tabelle mit Qualitätskriterien",
+      "conversion_strategy": "Medium CTA: 'Fairness beim Kauf: Lassen Sie den Preis professionell bewerten'"
+    },
+    {
+      "cluster_name": "Pferdebewertung & Verkauf (Transactional HIGH)",
+      "intent": "transactional",
+      "priority": 1,
+      "keywords": [
+        "was ist mein pferd wert",
+        "pferdebewertung",
+        "pferd wert ermitteln",
+        "pferdewert berechnen",
+        "pferd schätzen lassen",
+        "pferd verkaufen preis",
+        "pferdewert online berechnen",
+        "pferdewert schätzen",
+        "pferd wert bestimmen",
+        "pferdewert kostenlos ermitteln",
+        "pferdewert rechner",
+        "pferd bewerten lassen kosten",
+        "wie viel ist mein pferd wert"
+      ],
+      "search_volume_total": 8390,
+      "user_journey_stage": "Decision - Ready to Act",
+      "content_approach": "Dedicated Sektion mit prominentem Service-CTA",
+      "conversion_strategy": "STRONG CTA: 'Jetzt Pferdewert in 2 Minuten berechnen - nur 19,90€ statt 39€'"
+    },
+    {
+      "cluster_name": "Kaufberatung & AKU (Informational + Commercial Mix)",
+      "intent": "informational",
+      "priority": 2,
+      "keywords": [
+        "pferd kaufen was beachten",
+        "erstes pferd kaufen",
+        "pferd kaufen anfänger",
+        "pferdekauf checkliste",
+        "aku pferd kosten",
+        "ankaufsuntersuchung pferd preis",
+        "pferdekauf kosten",
+        "pferd anschaffungskosten",
+        "pferd kaufen ratgeber",
+        "worauf beim pferdekauf achten"
+      ],
+      "search_volume_total": 9460,
+      "user_journey_stage": "Consideration - Risk Mitigation",
+      "content_approach": "Kaufberatungs-Sektion mit AKU-Expertise und Risiko-Minimierung",
+      "conversion_strategy": "Trust-building CTA: 'Bewertung VOR dem Kauf = Überzahlung vermeiden'"
+    },
+    {
+      "cluster_name": "Alter & Geschlecht Preise (Commercial Niche)",
+      "intent": "commercial",
+      "priority": 3,
+      "keywords": [
+        "was kostet ein fohlen",
+        "fohlen preis",
+        "jungpferd kaufen preis",
+        "stute preis",
+        "wallach preis",
+        "hengst preis",
+        "jährling preis",
+        "zweijähriges pferd preis",
+        "dreijähriges pferd preis",
+        "junges pferd kaufen preis",
+        "alte pferde preis"
+      ],
+      "search_volume_total": 3740,
+      "user_journey_stage": "Consideration - Specific Requirements",
+      "content_approach": "Preis-Tabelle nach Alter mit Erklärung der Wertentwicklung",
+      "conversion_strategy": "Education-focused: 'Altersfaktoren beeinflussen den Preis - professionelle Bewertung hilft'"
+    },
+    {
+      "cluster_name": "Disziplinspezifische Preise (Commercial Specialized)",
+      "intent": "commercial",
+      "priority": 3,
+      "keywords": [
+        "dressurpferd kaufen preis",
+        "springpferd kaufen preis",
+        "vielseitigkeitspferd preis",
+        "westernpferd preis",
+        "gangpferd preis",
+        "schulpferd preis",
+        "distanzpferd preis",
+        "fahrpferd preis",
+        "working equitation pferd preis"
+      ],
+      "search_volume_total": 3520,
+      "user_journey_stage": "Consideration - Discipline-Specific Search",
+      "content_approach": "Disziplin-Preis-Übersicht mit Turniererfolg-Einfluss",
+      "conversion_strategy": "Specialized CTA: 'Turniererfolge richtig bewerten lassen'"
+    },
+    {
+      "cluster_name": "Unterhaltungskosten Details (Informational Deep-Dive)",
+      "intent": "informational",
+      "priority": 2,
+      "keywords": [
+        "hufschmied kosten",
+        "tierarzt pferd kosten",
+        "pferd versicherung kosten",
+        "pferd transportkosten",
+        "stallmiete kosten",
+        "futter pferd kosten",
+        "pferd impfung kosten",
+        "pferd wurmkur kosten",
+        "pferd zahnarzt kosten",
+        "pferd sattel kosten",
+        "pferd ausrüstung kosten",
+        "pferd training kosten",
+        "reitunterricht kosten",
+        "pferd pensionskosten"
+      ],
+      "search_volume_total": 12680,
+      "user_journey_stage": "Research - Total Cost of Ownership",
+      "content_approach": "Detaillierte Kostenaufschlüsselung mit Monats/Jahres-Rechner",
+      "conversion_strategy": "Low-pressure CTA: 'Verstehen Sie alle Kosten? Wir helfen beim fairen Kaufpreis'"
+    },
+    {
+      "cluster_name": "Regionale Preise Bayern (Commercial Local)",
+      "intent": "commercial",
+      "priority": 2,
+      "keywords": [
+        "was kostet ein pferd bayern",
+        "pferd kaufen bayern preis",
+        "pferde preise münchen",
+        "pferd kaufen münchen",
+        "pferdemarkt bayern",
+        "warmblut bayern preis",
+        "pferd kaufen oberbayern",
+        "pferd kaufen nürnberg",
+        "pferd kaufen augsburg",
+        "bayerisches warmblut preis"
+      ],
+      "search_volume_total": 2960,
+      "user_journey_stage": "Consideration - Local Market Research",
+      "content_approach": "Regionale Preisvariationen-Sektion mit Stadt-Vergleichen",
+      "conversion_strategy": "Local trust: 'Faire Preise in Bayern - deutschlandweite Bewertung'"
+    },
+    {
+      "cluster_name": "Alternative Besitzformen (Informational Options)",
+      "intent": "informational",
+      "priority": 3,
+      "keywords": [
+        "reitbeteiligung kosten",
+        "pferd leasen kosten",
+        "pferd mieten kosten",
+        "pflegepferd kosten",
+        "pferd in pflege nehmen kosten"
+      ],
+      "search_volume_total": 3110,
+      "user_journey_stage": "Awareness - Exploring Options",
+      "content_approach": "Alternative Besitzformen-Vergleich (Kauf vs. Leasing vs. Beteiligung)",
+      "conversion_strategy": "Informational only - kein direkter CTA (nicht Service-relevant)"
+    },
+    {
+      "cluster_name": "Pony-spezifische Preise (Commercial Niche)",
+      "intent": "commercial",
+      "priority": 3,
+      "keywords": [
+        "pony preis",
+        "was kostet ein pony",
+        "pony kaufen preis",
+        "shetlandpony preis",
+        "welsh pony preis",
+        "deutsches reitpony preis"
+      ],
+      "search_volume_total": 3280,
+      "user_journey_stage": "Consideration - Specific Animal Type",
+      "content_approach": "Pony vs. Pferd Preis-Unterschiede Sektion",
+      "conversion_strategy": "Medium CTA: 'Auch Ponys professionell bewerten lassen'"
+    },
+    {
+      "cluster_name": "Marktpreise & Verkauf (Commercial + Transactional)",
+      "intent": "commercial",
+      "priority": 2,
+      "keywords": [
+        "pferdemarkt preise",
+        "pferde preise deutschland",
+        "durchschnittspreis pferd",
+        "aktueller pferdemarkt",
+        "pferd verkaufspreis ermitteln",
+        "pferd zu verkaufen preis"
+      ],
+      "search_volume_total": 2590,
+      "user_journey_stage": "Research - Market Intelligence",
+      "content_approach": "Markttrends-Sektion mit aktuellen Durchschnittspreisen",
+      "conversion_strategy": "Data-driven CTA: 'Marktgerechten Preis mit KI ermitteln'"
+    }
+  ],
+  "conversion_funnel_mapping": {
+    "top_of_funnel": {
+      "intent": "informational",
+      "keywords": 52,
+      "clusters": [
+        "Allgemeine Preisanfragen",
+        "Unterhaltungskosten Details",
+        "Alternative Besitzformen",
+        "Kaufberatung & AKU"
+      ],
+      "content_goal": "Awareness schaffen, Expertise demonstrieren, Trust aufbauen",
+      "cta_style": "Soft, educational, non-intrusive"
+    },
+    "middle_of_funnel": {
+      "intent": "commercial",
+      "keywords": 38,
+      "clusters": [
+        "Rassenspezifische Preise",
+        "Alter & Geschlecht Preise",
+        "Disziplinspezifische Preise",
+        "Regionale Preise Bayern",
+        "Pony-spezifische Preise",
+        "Marktpreise & Verkauf"
+      ],
+      "content_goal": "Kaufentscheidung unterstützen, Vergleichsmöglichkeiten bieten",
+      "cta_style": "Medium pressure, value-focused, risk-mitigation"
+    },
+    "bottom_of_funnel": {
+      "intent": "transactional",
+      "keywords": 18,
+      "clusters": [
+        "Pferdebewertung & Verkauf"
+      ],
+      "content_goal": "Sofortige Conversion zum Service",
+      "cta_style": "Strong, urgent, benefit-driven (Launch-Preis, Garantie)"
+    }
+  },
+  "content_distribution_strategy": {
+    "hero_section": {
+      "primary_intent": "informational",
+      "hook": "Konkrete Preisspanne (1.500€ - 50.000€) + Kostenfaktoren-Overview"
+    },
+    "section_1_anschaffung": {
+      "primary_intent": "informational + commercial",
+      "keywords_focus": [
+        "was kostet ein pferd",
+        "pferd kaufen preis",
+        "pferd preis"
+      ],
+      "cta_placement": "Nach Raassen-Tabelle (Soft CTA)"
+    },
+    "section_2_unterhalt": {
+      "primary_intent": "informational",
+      "keywords_focus": [
+        "pferd kosten pro monat",
+        "pferdehaltung kosten",
+        "eigenes pferd kosten"
+      ],
+      "cta_placement": "Keine (rein informational)"
+    },
+    "section_3_bewertung": {
+      "primary_intent": "transactional",
+      "keywords_focus": [
+        "was ist mein pferd wert",
+        "pferdebewertung",
+        "pferdewert berechnen"
+      ],
+      "cta_placement": "STRONG CTA mit Launch-Angebot (19,90€ statt 39€)"
+    },
+    "section_4_regional": {
+      "primary_intent": "commercial",
+      "keywords_focus": [
+        "pferd kaufen bayern preis",
+        "pferde preise münchen"
+      ],
+      "cta_placement": "Medium CTA mit Local Trust-Signal"
+    },
+    "section_5_kaufberatung": {
+      "primary_intent": "informational",
+      "keywords_focus": [
+        "pferd kaufen was beachten",
+        "aku pferd kosten"
+      ],
+      "cta_placement": "Trust-building CTA (Bewertung VOR Kauf)"
+    },
+    "faq_section": {
+      "primary_intent": "mixed",
+      "keywords_focus": "Long-tail questions aus allen Clustern",
+      "cta_placement": "Final Soft CTA am Ende"
+    }
+  },
+  "quality_metrics": {
+    "total_keywords_classified": 108,
+    "intent_coverage": {
+      "informational": "48.1%",
+      "commercial": "35.2%",
+      "transactional": "16.7%"
+    },
+    "priority_1_transactional_keywords": 13,
+    "high_conversion_potential": 18,
+    "content_depth_required": "2000-2500 words for comprehensive coverage",
+    "internal_linking_opportunities": 25
+  },
+  "pferdewert_service_alignment": {
+    "direct_service_keywords": [
+      "was ist mein pferd wert",
+      "pferdebewertung",
+      "pferd wert ermitteln",
+      "pferdewert berechnen",
+      "pferd schätzen lassen",
+      "pferdewert online berechnen",
+      "pferdewert rechner",
+      "pferd bewerten lassen kosten",
+      "wie viel ist mein pferd wert",
+      "pferdewert kostenlos ermitteln",
+      "pferd wert bestimmen",
+      "pferdewert schätzen",
+      "pferd verkaufspreis ermitteln"
+    ],
+    "indirect_service_keywords": [
+      "pferd kaufen preis",
+      "pferd verkaufen preis",
+      "pferd kaufen was beachten",
+      "erstes pferd kaufen",
+      "pferd kaufen anfänger"
+    ],
+    "service_positioning": "19,90€ KI-Bewertung als Absicherung gegen Überzahlung (Käufer) und für optimalen Verkaufspreis (Verkäufer)"
+  }
+}

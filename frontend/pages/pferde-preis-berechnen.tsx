@@ -516,15 +516,15 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta httpEquiv="content-language" content="de" />
 
         {/* Primary Meta Tags */}
-        <title>Pferdepreis berechnen: Kostenloser Online Rechner | PferdeWert</title>
+        <title>Pferde Preis Rechner: Online Tool für Marktwertberechnung | PferdeWert</title>
         <meta
           name="description"
-          content="Berechnen Sie den Marktwert Ihres Pferdes kostenlos mit unserem Online-Rechner. Professionelle KI-Bewertung in 2 Minuten mit detailliertem PDF-Report."
+          content="Pferdewert online berechnen mit dem KI-Rechner: Geben Sie Daten ein und erhalten Sie in 2 Minuten eine detaillierte Marktanalyse als PDF. Professionelles Bewertungstool."
         />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Pferdepreis berechnen: Kostenloser Online Rechner | PferdeWert" />
-        <meta property="og:description" content="Berechnen Sie den Marktwert Ihres Pferdes kostenlos mit unserem Online-Rechner. Professionelle KI-Bewertung in 2 Minuten mit detailliertem PDF-Report." />
+        <meta property="og:title" content="Pferde Preis Rechner: Online Tool für Marktwertberechnung | PferdeWert" />
+        <meta property="og:description" content="Pferdewert online berechnen mit dem KI-Rechner: Geben Sie Daten ein und erhalten Sie in 2 Minuten eine detaillierte Marktanalyse als PDF. Professionelles Bewertungstool." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/pferde-preis-berechnen" />
         <meta property="og:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
@@ -533,8 +533,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferdepreis berechnen: Kostenloser Online Rechner | PferdeWert" />
-        <meta name="twitter:description" content="Berechnen Sie den Marktwert Ihres Pferdes kostenlos mit unserem Online-Rechner. Professionelle KI-Bewertung in 2 Minuten mit detailliertem PDF-Report." />
+        <meta name="twitter:title" content="Pferde Preis Rechner: Online Tool für Marktwertberechnung | PferdeWert" />
+        <meta name="twitter:description" content="Pferdewert online berechnen mit dem KI-Rechner: Geben Sie Daten ein und erhalten Sie in 2 Minuten eine detaillierte Marktanalyse als PDF. Professionelles Bewertungstool." />
         <meta name="twitter:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
         <meta name="twitter:site" content="@PferdeWert" />
 
@@ -548,32 +548,32 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//js.stripe.com" />
 
-        {/* JSON-LD Structured Data - Service Schema */}
+        {/* JSON-LD Structured Data - WebApplication Schema (Primary for Tool Focus) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Service",
-              "name": "Pferdepreis berechnen - Online Rechner",
-              "description": "Professionelle Pferdebewertung mit KI-gestütztem Online-Rechner. Sofortige Marktpreisanalyse für alle Pferderassen und Disziplinen.",
+              "@type": "WebApplication",
+              "name": "Pferde Preis Rechner",
+              "applicationCategory": "CalculatorApplication",
+              "description": "Online-Rechner zur Berechnung des Marktwertes von Pferden. Geben Sie Ihre Pferdedaten ein und erhalten Sie eine KI-gestützte Marktwertanalyse.",
               "url": "https://pferdewert.de/pferde-preis-berechnen",
-              "image": "https://pferdewert.de/images/pferdepreis-berechnen-og.jpg",
-              "provider": {
-                "@type": "Organization",
-                "name": "PferdeWert.de",
-                "url": "https://pferdewert.de",
-                "logo": "https://pferdewert.de/logo.png"
-              },
+              "operatingSystem": "Web Browser",
+              "browserRequirements": "Requires JavaScript",
               "offers": {
                 "@type": "Offer",
                 "price": "14.90",
                 "priceCurrency": "EUR",
-                "description": "Professionelle Pferdebewertung mit detailliertem PDF-Report",
-                "availability": "https://schema.org/InStock"
+                "description": "Einmalige Gebühr für detaillierte Pferdebewertung mit PDF-Report",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31"
               },
-              "serviceType": "Pferdebewertung",
-              "areaServed": ["Deutschland", "Österreich", "Schweiz"],
+              "author": {
+                "@type": "Organization",
+                "name": "PferdeWert.de",
+                "url": "https://pferdewert.de"
+              },
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.7",
@@ -581,71 +581,48 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                 "bestRating": "5",
                 "worstRating": "1"
               },
-              "review": [
-                {
-                  "@type": "Review",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Miriam F."
-                  },
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5"
-                  },
-                  "reviewBody": "Unkompliziert, nachvollziehbar und professionell. Wer wissen möchte, was das eigene Pferd wirklich wert ist, findet bei PferdeWert eine durchdachte und fachlich fundierte Einschätzung."
-                }
+              "featureList": [
+                "KI-gestützte Marktwertberechnung",
+                "Detaillierter PDF-Report",
+                "Berücksichtigung von Rasse, Alter, Ausbildung",
+                "Ergebnis in unter 2 Minuten"
               ]
             })
           }}
         />
 
-        {/* JSON-LD Structured Data - Calculator Tool Schema */}
+        {/* JSON-LD Structured Data - FAQPage Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Pferdepreis Rechner",
-              "description": "Online-Tool zur Berechnung des Marktwertes von Pferden basierend auf KI-Analyse",
-              "url": "https://pferdewert.de/pferde-preis-berechnen",
-              "applicationCategory": "CalculatorApplication",
-              "operatingSystem": "Web Browser",
-              "offers": {
-                "@type": "Offer",
-                "price": "14.90",
-                "priceCurrency": "EUR"
-              },
-              "author": {
-                "@type": "Organization",
-                "name": "PferdeWert.de"
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "1247"
-              }
-            })
-          }}
-        />
-
-        {/* Organization Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "PferdeWert.de",
-              "url": "https://pferdewert.de",
-              "logo": "https://pferdewert.de/logo.png",
-              "description": "Führende KI-basierte Plattform für professionelle Pferdebewertungen in Deutschland",
-              "areaServed": ["Deutschland", "Österreich", "Schweiz"],
-              "expertise": ["Pferdebewertung", "Pferdepreis-Berechnung", "Marktpreisanalyse"],
-              "serviceType": ["Pferdebewertung", "Pferdepreis Rechner", "Marktanalyse"],
-              "sameAs": [
-                "https://www.instagram.com/pferdewert.de",
-                "https://www.facebook.com/pferdewert"
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Wie funktioniert der Pferde Preis Rechner?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Geben Sie relevante Daten zu Ihrem Pferd ein (Rasse, Alter, Ausbildungsstand, etc.) und unser KI-System berechnet den aktuellen Marktwert basierend auf umfangreichen Marktdaten."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Was kostet die Pferdewert-Berechnung?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Die professionelle Pferdebewertung kostet einmalig 14,90 EUR und beinhaltet einen detaillierten PDF-Report mit Marktwertanalyse."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Wie lange dauert die Berechnung?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nach Eingabe Ihrer Pferdedaten erhalten Sie das Bewertungsergebnis innerhalb von 2 Minuten als PDF-Report per E-Mail."
+                  }
+                }
               ]
             })
           }}
@@ -671,7 +648,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                   🏆 #1 Online Pferdebewertung
                 </div>
                 <h1 className="text-h1 font-bold text-gray-900">
-                  <span className="text-brand-brown">Pferdepreis berechnen</span> - Wie viel ist mein Pferd wert?
+                  <span className="text-brand-brown">Pferde Preis Rechner</span>: Marktwert online berechnen
                 </h1>
                 
                 {/* Preisbanner mit neuem Design */}
@@ -1029,7 +1006,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Das sagen unsere Kunden</h2>
               <p className="text-xl text-gray-600">
-                Erfahrungen von Pferdebesitzern und Reitern
+                Erfahrungen mit unserem Pferde Preis Rechner
               </p>
             </div>
 
@@ -1099,15 +1076,19 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
             <div className="text-center mt-16">
               <div className="mb-4">
                 <p className="text-lg text-gray-700 font-medium mb-6">
-                  Professionelle Bewertungen für Pferdebesitzer und Pferdekäufer
+                  Nutze den Pferde Preis Rechner für deine Online-Marktwertberechnung
                 </p>
               </div>
 
               <Link
-                href="/pferde-preis-berechnen"
+                href="#wizard-start"
                 className="btn-primary text-lg px-8 py-4 inline-block"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('wizard-start')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                Jetzt Pferdewert berechnen
+                Jetzt Rechner starten
               </Link>
 
               <div className="mt-4">

@@ -1,0 +1,902 @@
+{
+  "target_keyword": "was kostet ein pferd",
+  "date_created": "2025-09-29",
+  "expansion_method": "related_keywords + keyword_suggestions + semantic_expansion",
+  "total_keywords": 108,
+  "expanded_keywords": [
+    {
+      "keyword": "was kostet ein pferd im monat",
+      "search_volume": 1800,
+      "intent": "informational",
+      "priority": 1,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "was kostet ein pferd im jahr",
+      "search_volume": 1300,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "was kostet ein pferd pro monat",
+      "search_volume": 2100,
+      "intent": "informational",
+      "priority": 1,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "was kostet ein pferd zu halten",
+      "search_volume": 880,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "was kostet ein pferd in der anschaffung",
+      "search_volume": 720,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "was kostet mich ein pferd im monat",
+      "search_volume": 590,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "wie teuer ist ein pferd",
+      "search_volume": 3200,
+      "intent": "informational",
+      "priority": 1,
+      "competition": "medium",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "wie teuer ist ein warmblut",
+      "search_volume": 480,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "wie teuer ist ein dressurpferd",
+      "search_volume": 320,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "wie teuer ist pferdehaltung",
+      "search_volume": 720,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "pferd kosten gesamt",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "gesamt"
+    },
+    {
+      "keyword": "pferd kosten rechner",
+      "search_volume": 480,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "tool"
+    },
+    {
+      "keyword": "pferd kosten übersicht",
+      "search_volume": 290,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "gesamt"
+    },
+    {
+      "keyword": "pferd kosten jährlich",
+      "search_volume": 590,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "pferd kaufen budget",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "category": "finanzierung"
+    },
+    {
+      "keyword": "pferd kaufen preise",
+      "search_volume": 1100,
+      "intent": "commercial",
+      "priority": 1,
+      "competition": "medium",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "pferd kaufen preisspanne",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "günstig pferd kaufen",
+      "search_volume": 880,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "billiges pferd kaufen",
+      "search_volume": 320,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "preiswertes pferd kaufen",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "pferd finanzierung",
+      "search_volume": 720,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "category": "finanzierung"
+    },
+    {
+      "keyword": "pferd auf raten kaufen",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "finanzierung"
+    },
+    {
+      "keyword": "stallmiete kosten",
+      "search_volume": 1900,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "stallmiete durchschnitt",
+      "search_volume": 480,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "was kostet eine box im stall",
+      "search_volume": 590,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "offenstall kosten",
+      "search_volume": 720,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "paddockbox kosten",
+      "search_volume": 260,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "futter pferd kosten monat",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "pferdefutter kosten",
+      "search_volume": 880,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "heu kosten pferd",
+      "search_volume": 480,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "kraftfutter kosten",
+      "search_volume": 320,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "hufschmied kosten pferd",
+      "search_volume": 1600,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "beschlag kosten pferd",
+      "search_volume": 590,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "barhuf kosten",
+      "search_volume": 210,
+      "intent": "informational",
+      "priority": 4,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "tierarztkosten pferd jahr",
+      "search_volume": 720,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "tierarztkosten pferd monat",
+      "search_volume": 480,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "impfung pferd kosten",
+      "search_volume": 1100,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "wurmkur pferd kosten",
+      "search_volume": 880,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "zahnkontrolle pferd kosten",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "osteopath pferd kosten",
+      "search_volume": 590,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "physiotherapie pferd kosten",
+      "search_volume": 320,
+      "intent": "informational",
+      "priority": 4,
+      "competition": "low",
+      "category": "unterhalt"
+    },
+    {
+      "keyword": "pferdehaftpflicht kosten",
+      "search_volume": 1400,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "category": "versicherung"
+    },
+    {
+      "keyword": "pferde op versicherung kosten",
+      "search_volume": 880,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "category": "versicherung"
+    },
+    {
+      "keyword": "pferdekrankenversicherung kosten",
+      "search_volume": 480,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "medium",
+      "category": "versicherung"
+    },
+    {
+      "keyword": "pferdelebensversicherung kosten",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "versicherung"
+    },
+    {
+      "keyword": "reitunterricht kosten",
+      "search_volume": 2400,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "medium",
+      "category": "training"
+    },
+    {
+      "keyword": "beritt kosten",
+      "search_volume": 1100,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "category": "training"
+    },
+    {
+      "keyword": "pferdetraining kosten",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "training"
+    },
+    {
+      "keyword": "jungpferdausbildung kosten",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "training"
+    },
+    {
+      "keyword": "ausbildungspferd kosten",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "anschaffung"
+    },
+    {
+      "keyword": "roh pferd preis",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "category": "ausbildung"
+    },
+    {
+      "keyword": "angerittenes pferd preis",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "ausbildung"
+    },
+    {
+      "keyword": "fertig ausgebildetes pferd preis",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "ausbildung"
+    },
+    {
+      "keyword": "turniererfahrenes pferd preis",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "ausbildung"
+    },
+    {
+      "keyword": "s dressurpferd preis",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "medium",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "m dressurpferd preis",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "l dressurpferd preis",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "s springpferd preis",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "medium",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "m springpferd preis",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "vielseitigkeitspferd preis",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "westernpferd kaufen preis",
+      "search_volume": 320,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "distanzpferd preis",
+      "search_volume": 110,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "fahrpferd preis",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "doppelveranlagtes pferd preis",
+      "search_volume": 90,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "disziplin"
+    },
+    {
+      "keyword": "pferd alter preis",
+      "search_volume": 480,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "alter"
+    },
+    {
+      "keyword": "3 jähriges pferd preis",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "alter"
+    },
+    {
+      "keyword": "5 jähriges pferd preis",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "alter"
+    },
+    {
+      "keyword": "10 jähriges pferd preis",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "alter"
+    },
+    {
+      "keyword": "altes pferd preis",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "alter"
+    },
+    {
+      "keyword": "junges pferd kaufen preis",
+      "search_volume": 320,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "alter"
+    },
+    {
+      "keyword": "deutsches reitpony preis",
+      "search_volume": 590,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "welsh pony preis",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "shetlandpony preis",
+      "search_volume": 720,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "vollblut preis",
+      "search_volume": 480,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "araber pferd preis",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "paint horse preis",
+      "search_volume": 320,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "appaloosa preis",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "tinker preis",
+      "search_volume": 880,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "shire horse preis",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "andalusier preis",
+      "search_volume": 480,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "lusitano preis",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "knabstrupper preis",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "category": "rasse"
+    },
+    {
+      "keyword": "pferdewert schätzen",
+      "search_volume": 390,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "pferd taxieren",
+      "search_volume": 260,
+      "intent": "transactional",
+      "priority": 2,
+      "competition": "low",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "pferd schätzen lassen",
+      "search_volume": 320,
+      "intent": "transactional",
+      "priority": 2,
+      "competition": "low",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "pferdewert online berechnen",
+      "search_volume": 170,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "pferd wert berechnen online",
+      "search_volume": 140,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "pferdebewertung online",
+      "search_volume": 210,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "marktwert pferd",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "wiederbeschaffungswert pferd",
+      "search_volume": 170,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "versicherungswert pferd",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "bewertung"
+    },
+    {
+      "keyword": "pferd kaufen ohne aku",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "aku klasse 1 kosten",
+      "search_volume": 480,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "aku klasse 2 kosten",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "große aku kosten",
+      "search_volume": 590,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "kleine aku kosten",
+      "search_volume": 320,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "röntgen pferd kosten",
+      "search_volume": 720,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "was kostet aku pferd",
+      "search_volume": 880,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "aku"
+    },
+    {
+      "keyword": "pferd verkaufen wie viel wert",
+      "search_volume": 480,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "verkauf"
+    },
+    {
+      "keyword": "pferdewert verkauf",
+      "search_volume": 320,
+      "intent": "transactional",
+      "priority": 2,
+      "competition": "low",
+      "category": "verkauf"
+    },
+    {
+      "keyword": "verkaufspreis pferd",
+      "search_volume": 590,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "verkauf"
+    },
+    {
+      "keyword": "pferd verkaufen wert ermitteln",
+      "search_volume": 260,
+      "intent": "transactional",
+      "priority": 1,
+      "competition": "medium",
+      "category": "verkauf"
+    },
+    {
+      "keyword": "pferd inserieren preis",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "category": "verkauf"
+    },
+    {
+      "keyword": "pferdemarkt deutschland preise",
+      "search_volume": 290,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "category": "markt"
+    },
+    {
+      "keyword": "pferdemarkt online",
+      "search_volume": 1600,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "high",
+      "category": "markt"
+    }
+  ],
+  "category_distribution": {
+    "unterhalt": 25,
+    "anschaffung": 18,
+    "rasse": 17,
+    "bewertung": 14,
+    "disziplin": 11,
+    "aku": 7,
+    "ausbildung": 5,
+    "alter": 6,
+    "verkauf": 5,
+    "versicherung": 4,
+    "training": 4,
+    "finanzierung": 3,
+    "tool": 1,
+    "markt": 2,
+    "gesamt": 3
+  },
+  "analysis": {
+    "total_search_volume_expansion": 87430,
+    "average_search_volume": 809,
+    "primary_intents": {
+      "informational": 61,
+      "commercial": 38,
+      "transactional": 9
+    },
+    "priority_distribution": {
+      "priority_1": 14,
+      "priority_2": 29,
+      "priority_3": 52,
+      "priority_4": 13
+    },
+    "competition_analysis": {
+      "low": 89,
+      "medium": 18,
+      "high": 1
+    }
+  },
+  "keyword_quality_metrics": {
+    "long_tail_keywords": 76,
+    "question_based_keywords": 12,
+    "transactional_value_keywords": 14,
+    "content_depth_keywords": 61,
+    "conversion_focused_keywords": 9
+  },
+  "excluded_keywords": {
+    "total_excluded": 0,
+    "exclusion_reasons": {
+      "competitor_brand": 0,
+      "gambling_related": 0,
+      "unethical_topics": 0,
+      "medical_diagnosis": 0
+    },
+    "note": "All keywords passed company profile exclusion criteria"
+  }
+}

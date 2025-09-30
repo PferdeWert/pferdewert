@@ -104,7 +104,7 @@ export default function PferdeWertServiceSchema({
     'Marktwert Pferd',
     'Pferdebewertung online',
     'Was ist mein Pferd wert',
-    'Pferdepreis ermitteln',
+    'Pferdepreis berechnen',
     'Pferdebewertung Deutschland',
     'KI Pferdebewertung',
     'Pferdewert Gutachten',
@@ -113,9 +113,9 @@ export default function PferdeWertServiceSchema({
 
   // Target audience
   const serviceAudience = [
-    createServiceAudience('Pferdebesitzer', 'Pferdebesitzer', 'Besitzer von Pferden, die den aktuellen Marktwert ihres Pferdes ermitteln möchten'),
+    createServiceAudience('Pferdebesitzer', 'Pferdebesitzer', 'Besitzer von Pferden, die den aktuellen Marktwert ihres Pferdes berechnen möchten'),
     createServiceAudience('Pferdekäufer', 'Pferdekäufer', 'Personen, die ein Pferd kaufen möchten und eine objektive Werteinschätzung benötigen'),
-    createServiceAudience('Pferdeverkäufer', 'Pferdeverkäufer', 'Personen, die ihr Pferd verkaufen möchten und den optimalen Verkaufspreis ermitteln wollen'),
+    createServiceAudience('Pferdeverkäufer', 'Pferdeverkäufer', 'Personen, die ihr Pferd verkaufen möchten und den optimalen Verkaufspreis berechnen wollen'),
     createServiceAudience('Reitställe', 'Reitställe', 'Reitställe und Pferdehöfe, die ihre Bestände bewerten lassen möchten'),
     createServiceAudience('Pferdehändler', 'Pferdehändler', 'Professionelle Pferdehändler, die eine schnelle und zuverlässige Bewertung benötigen')
   ];

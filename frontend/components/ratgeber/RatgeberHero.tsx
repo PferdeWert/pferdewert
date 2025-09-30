@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { ChevronDown } from 'lucide-react'
 
 export interface RatgeberHeroMetaItem {
   icon: ReactNode
@@ -37,6 +38,12 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   primaryCta,
   secondaryCta
 }) => {
+  const normalizedSecondaryLabel = secondaryCta?.label
+    ? secondaryCta.label.trim().toLowerCase()
+    : undefined
+  const isScrollToContentCta = normalizedSecondaryLabel === 'zum inhalt'
+  const resolvedSecondaryIcon = isScrollToContentCta ? <ChevronDown className="h-5 w-5" /> : secondaryCta?.icon
+
   return (
     <section className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -83,7 +90,7 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-medium rounded-xl transition-all"
               >
                 {secondaryCta.label}
-                {secondaryCta.icon}
+                {resolvedSecondaryIcon}
               </button>
             )}
           </div>

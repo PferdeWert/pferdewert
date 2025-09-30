@@ -1,21 +1,15 @@
 """
-AI Service with 4-Stage Fallback System for PferdeWert
-Implements: Gemini 2.5 Pro → GPT-4o → Claude → Legacy Clients
+AI Service with 2-Stage Fallback System for PferdeWert
+Implements: PRIMARY_MODEL → FALLBACK_MODEL (both via OpenRouter)
 """
 
 import os
 import logging
-import time
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 from dataclasses import dataclass
 
 from .openrouter_client import OpenRouterClient, OpenRouterError, ModelResponse
 from config.models import ModelManager, ModelConfig
-
-# Legacy client imports (for fallback)
-import openai
-import anthropic
-import httpx
 
 @dataclass
 class AIServiceResponse:
@@ -28,8 +22,8 @@ class AIServiceResponse:
 
 class AIService:
     """
-    Main AI service implementing 4-stage fallback system
-    Integrates OpenRouter with legacy clients for maximum reliability
+    Main AI service implementing 2-stage fallback system
+    Uses only OpenRouter for both primary and fallback models
     """
 
     def __init__(self):
@@ -47,37 +41,10 @@ class AIService:
         # Initialize model manager
         self.model_manager = ModelManager()
 
-        # Initialize legacy clients (fallback)
-        self.legacy_openai_client = None
-        self.legacy_claude_client = None
-        self._initialize_legacy_clients()
-
         # Get system prompts
         self.system_prompt = self._get_system_prompt()
 
         logging.info(f"AIService initialized - OpenRouter: {'✅' if self.openrouter_client else '❌'}")
-
-    def _initialize_legacy_clients(self):
-        """Initialize legacy AI clients for fallback"""
-        # OpenAI legacy client
-        if os.getenv("OPENAI_API_KEY"):
-            try:
-                self.legacy_openai_client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-                logging.info("✅ Legacy OpenAI client initialized")
-            except Exception as e:
-                logging.error(f"❌ Failed to initialize legacy OpenAI client: {e}")
-
-        # Claude legacy client
-        if os.getenv("ANTHROPIC_API_KEY"):
-            try:
-                self.legacy_claude_client = anthropic.Anthropic(
-                    api_key=os.getenv("ANTHROPIC_API_KEY"),
-                    max_retries=0,  # We handle retries manually
-                    http_client=httpx.Client(event_hooks={"request": [], "response": []})
-                )
-                logging.info("✅ Legacy Claude client initialized")
-            except Exception as e:
-                logging.error(f"❌ Failed to initialize legacy Claude client: {e}")
 
     def _get_system_prompt(self) -> str:
         """Get system prompt for horse valuation"""
@@ -114,11 +81,9 @@ class AIService:
 
     def generate_valuation(self, horse_data: Dict[str, Any]) -> AIServiceResponse:
         """
-        Main method: Generate horse valuation using 4-stage fallback
-        Stage 1: Gemini 2.5 Pro (OpenRouter)
-        Stage 2: GPT-4o (OpenRouter)
-        Stage 3: Claude (OpenRouter)
-        Stage 4: Legacy clients
+        Main method: Generate horse valuation using 2-stage fallback
+        Stage 1: PRIMARY_MODEL (via OpenRouter)
+        Stage 2: FALLBACK_MODEL (via OpenRouter)
         """
         user_prompt = self._build_user_prompt(horse_data)
         messages = [
@@ -126,95 +91,50 @@ class AIService:
             {"role": "user", "content": user_prompt}
         ]
 
-        # Try OpenRouter models first (Stages 1-3)
-        if self.openrouter_client:
-            fallback_models = self.model_manager.get_fallback_models()
+        # Check if OpenRouter is available
+        if not self.openrouter_client:
+            logging.error("❌ OpenRouter client not available - returning fallback message")
+            return self._get_fallback_response()
 
-            for i, model_config in enumerate(fallback_models, 1):
-                try:
-                    logging.info(f"Stage {i}: Trying {model_config.name} via OpenRouter...")
+        # Get fallback models (primary + fallback)
+        fallback_models = self.model_manager.get_fallback_models()
 
-                    response = self.openrouter_client.create_completion(
-                        model=model_config.openrouter_id,
-                        messages=messages,
-                        max_tokens=model_config.max_tokens,
-                        temperature=model_config.temperature,
-                        top_p=model_config.top_p
-                    )
-
-                    logging.info(f"✅ Stage {i} successful: {model_config.name}")
-
-                    return AIServiceResponse(
-                        content=response.content,
-                        model=model_config.name,
-                        model_version=model_config.openrouter_id,
-                        tier="openrouter",
-                        usage=response.usage
-                    )
-
-                except OpenRouterError as e:
-                    logging.warning(f"❌ Stage {i} failed ({model_config.name}): {e}")
-                    continue
-                except Exception as e:
-                    logging.error(f"❌ Stage {i} unexpected error ({model_config.name}): {e}")
-                    continue
-
-        # Stage 4: Legacy clients fallback
-        logging.warning("🔄 All OpenRouter models failed, falling back to legacy clients...")
-
-        # Try legacy GPT-4o first
-        if self.legacy_openai_client:
+        for i, model_config in enumerate(fallback_models, 1):
             try:
-                logging.info("Stage 4a: Trying legacy GPT-4o...")
-                response = self.legacy_openai_client.chat.completions.create(
-                    model=os.getenv("PW_MODEL", "gpt-4o"),
+                stage_name = "Primary" if i == 1 else "Fallback"
+                logging.info(f"Stage {i} ({stage_name}): Trying {model_config.name} via OpenRouter...")
+
+                response = self.openrouter_client.create_completion(
+                    model=model_config.openrouter_id,
                     messages=messages,
-                    temperature=0.3,
-                    top_p=0.8,
-                    max_tokens=4000
+                    max_tokens=model_config.max_tokens,
+                    temperature=model_config.temperature,
+                    top_p=model_config.top_p
                 )
 
-                content = response.choices[0].message.content.strip()
-                logging.info(f"✅ Stage 4a successful: Legacy GPT-4o")
+                logging.info(f"✅ Stage {i} successful: {model_config.name}")
 
                 return AIServiceResponse(
-                    content=content,
-                    model="GPT-4o",
-                    model_version=os.getenv("PW_MODEL", "gpt-4o"),
-                    tier="fallback"
+                    content=response.content,
+                    model=model_config.name,
+                    model_version=model_config.openrouter_id,
+                    tier="openrouter",
+                    usage=response.usage
                 )
 
+            except OpenRouterError as e:
+                logging.warning(f"❌ Stage {i} failed ({model_config.name}): {e}")
+                continue
             except Exception as e:
-                logging.error(f"❌ Stage 4a failed (Legacy GPT): {e}")
+                logging.error(f"❌ Stage {i} unexpected error ({model_config.name}): {e}")
+                continue
 
-        # Try legacy Claude
-        if self.legacy_claude_client:
-            try:
-                logging.info("Stage 4b: Trying legacy Claude...")
-                response = self._call_claude_with_retry(
-                    client=self.legacy_claude_client,
-                    model=os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805"),
-                    messages=[{"role": "user", "content": user_prompt}],
-                    system=self.system_prompt,
-                    max_tokens=3000,
-                    temperature=0.3
-                )
+        # All models failed
+        logging.error("❌ All AI models failed - returning fallback message")
+        return self._get_fallback_response()
 
-                content = response.content[0].text.strip()
-                logging.info(f"✅ Stage 4b successful: Legacy Claude")
-
-                return AIServiceResponse(
-                    content=content,
-                    model="Claude",
-                    model_version=os.getenv("CLAUDE_MODEL", "claude-opus-4-1-20250805"),
-                    tier="fallback"
-                )
-
-            except Exception as e:
-                logging.error(f"❌ Stage 4b failed (Legacy Claude): {e}")
-
-        # Ultimate fallback message
-        logging.error("❌ All AI services failed - returning fallback message")
+    def _get_fallback_response(self) -> AIServiceResponse:
+        """Return standardized fallback response when all AI services fail"""
         return AIServiceResponse(
             content=(
                 "Wir arbeiten gerade an unserem KI-Modell, "
@@ -249,44 +169,12 @@ class AIService:
 
         return "\n".join(prompt_parts)
 
-    def _call_claude_with_retry(self, client, model, messages, system, max_tokens, temperature, max_retries=3):
-        """Legacy Claude retry logic (from main.py)"""
-        import random
-        import time
-
-        for attempt in range(max_retries):
-            try:
-                return client.messages.create(
-                    model=model,
-                    max_tokens=max_tokens,
-                    temperature=temperature,
-                    system=system,
-                    messages=messages
-                )
-            except anthropic.APIError as e:
-                if e.status_code in [529, 503] and attempt < max_retries - 1:
-                    wait_time = (3 ** attempt) + random.uniform(0, 2)
-                    if attempt == 0:
-                        logging.warning(f"Claude overloaded ({e.status_code}), retrying with backoff")
-                    time.sleep(wait_time)
-                    continue
-                else:
-                    logging.error(f"Claude API error: {e.status_code}")
-                    raise e
-            except Exception as e:
-                logging.error(f"Unexpected error calling Claude: {type(e).__name__}")
-                raise e
-
-        raise Exception("Max retries exceeded")
-
     def health_check(self) -> Dict[str, Any]:
-        """Health check for all AI services"""
+        """Health check for AI service (OpenRouter only)"""
         health = {
             "status": "healthy",
             "services": {
-                "openrouter": False,
-                "legacy_openai": bool(self.legacy_openai_client),
-                "legacy_claude": bool(self.legacy_claude_client)
+                "openrouter": False
             },
             "models": self.model_manager.get_model_stats()
         }
@@ -301,11 +189,8 @@ class AIService:
                 logging.error(f"OpenRouter health check failed: {e}")
                 health["services"]["openrouter"] = False
 
-        # Overall health status
-        healthy_services = sum(1 for v in health["services"].values() if v)
-        if healthy_services == 0:
+        # Overall health status - only based on OpenRouter
+        if not health["services"]["openrouter"]:
             health["status"] = "critical"
-        elif healthy_services < 2:
-            health["status"] = "degraded"
 
         return health

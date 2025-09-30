@@ -1,657 +1,394 @@
-import { NextPage } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
-import { info } from '@/lib/log';
-import FAQ from '../components/FAQ';
-import InfoBox from '../components/InfoBox';
-import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
-import { FAQItem } from '../types/faq.types';
+import { NextPage } from "next"
+import Head from "next/head"
+import { ClipboardList, Stethoscope, Microscope, FileText, CheckCircle } from "lucide-react"
 
-interface PhaseData {
-  id: string;
-  title: string;
-  description: string;
-  duration: string;
-  details: string[];
-  keyPoints: string[];
-  tips: string[];
+import Layout from "@/components/Layout"
+import ContentSection from "@/components/ContentSection"
+import FAQ from "@/components/FAQ"
+import RatgeberHero from "@/components/ratgeber/RatgeberHero"
+import RatgeberHeroImage from "@/components/ratgeber/RatgeberHeroImage"
+import RatgeberHighlightBox from "@/components/ratgeber/RatgeberHighlightBox"
+import RatgeberInfoTiles from "@/components/ratgeber/RatgeberInfoTiles"
+import RatgeberRelatedArticles from "@/components/ratgeber/RatgeberRelatedArticles"
+import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
+import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
+import { FAQItem } from "@/types/faq.types"
+import scrollToSection from "@/utils/ratgeber/scrollToSection"
+
+interface PhaseTile {
+  id: string
+  title: string
+  duration: string
+  description: string
+  steps: string[]
+  keyPoints: string[]
 }
 
-interface AKUClass {
-  klasse: string;
-  titel: string;
-  beschreibung: string;
-  kosten: string;
-  empfehlung: string;
-  farbe: string;
+interface AkuClassTile {
+  title: string
+  scope: string
+  costs: string
+  recommendation: string
 }
+
+const sections = [
+  { id: "overview", title: "AKU Ablauf im Überblick" },
+  { id: "phasen", title: "Die 5 Phasen der Ankaufsuntersuchung" },
+  { id: "klassen", title: "AKU-Klassen & Umfang" },
+  { id: "tipps", title: "Vorbereitung & Protokoll" },
+  { id: "faq", title: "FAQ zur AKU" }
+]
+
+const heroMetaItems = [
+  {
+    icon: <ClipboardList className="h-4 w-4" />,
+    label: "5 Phasen verständlich erklärt"
+  },
+  {
+    icon: <Stethoscope className="h-4 w-4" />,
+    label: "Tierarzt-Checklisten inklusive"
+  },
+  {
+    icon: <Microscope className="h-4 w-4" />,
+    label: "Spezialdiagnostik im Überblick"
+  }
+]
+
+const phases: PhaseTile[] = [
+  {
+    id: "vorbereitung",
+    title: "1. Vorbereitung & Termin",
+    duration: "1–2 Wochen vorher",
+    description: "Planung, Tierarztauswahl und Abstimmung mit dem Verkäufer.",
+    steps: [
+      "Unabhängigen Tierarzt mit AKU-Erfahrung beauftragen",
+      "AKU-Klasse nach Kaufpreis & Nutzung festlegen",
+      "Kosten und Anfahrt im Vorfeld abstimmen",
+      "Papiere, Vorbefunde und Trainingsnachweise zusammenstellen"
+    ],
+    keyPoints: [
+      "Tierarzt darf nicht der Verkäufer-Arzt sein",
+      "Längere Anfahrten rechtzeitig einplanen",
+      "Backup-Termin für Schlechtwetter reservieren"
+    ]
+  },
+  {
+    id: "anamnese",
+    title: "2. Anamnese & Vorgeschichte",
+    duration: "15–30 Minuten",
+    description: "Gesundheitsfragen, Einsatzzweck und bisherige Leistungen klären.",
+    steps: [
+      "Krankengeschichte und Behandlungen erfassen",
+      "Impfungen, Wurmkuren, Huftermine prüfen",
+      "Verhalten und Trainingsstand diskutieren",
+      "Identität per Pass oder Chip verifizieren"
+    ],
+    keyPoints: [
+      "Ehrliche Angaben schaffen Rechtssicherheit",
+      "Frühere Lahmheiten offen ansprechen",
+      "Alle Unterlagen griffbereit halten"
+    ]
+  },
+  {
+    id: "klinisch",
+    title: "3. Klinische Untersuchung",
+    duration: "45–90 Minuten",
+    description: "Systematische Prüfung von Kopf bis Schweif inklusive Bewegungsanalyse.",
+    steps: [
+      "Adspektion im Stand: Körperbau & Gliedmaßen",
+      "Palpation von Gelenken, Sehnen und Bändern",
+      "Herz- und Lungencheck, Atemwege, Augen",
+      "Bewegungsanalyse im Schritt, Trab und bei Bedarf Galopp"
+    ],
+    keyPoints: [
+      "Vergleich beider Körperseiten",
+      "Alle Befunde werden protokolliert",
+      "Ruhiges Pferd erleichtert die Untersuchung"
+    ]
+  },
+  {
+    id: "bildgebung",
+    title: "4. Bildgebung & Spezialdiagnostik",
+    duration: "30–120 Minuten",
+    description: "Röntgen, Ultraschall und weitere Spezialuntersuchungen je nach Klasse.",
+    steps: [
+      "Standard-Röntgen (10–12 Aufnahmen)",
+      "Optionale Rücken-, Hals- oder Kopfaufnahmen",
+      "Ultraschall bei Sehnenverdacht",
+      "Endoskopie & Blutprofile nach Bedarf"
+    ],
+    keyPoints: [
+      "Umfang vorab vereinbaren – Kosten im Blick behalten",
+      "Röntgenbilder gehören dem Auftraggeber",
+      "Spezialdiagnostik bei hochpreisigen Pferden empfehlenswert"
+    ]
+  },
+  {
+    id: "befund",
+    title: "5. Befundauswertung & Protokoll",
+    duration: "30–45 Minuten",
+    description: "Zusammenfassung aller Ergebnisse, Risikobewertung und Kaufempfehlung.",
+    steps: [
+      "Befunde nach AKU-Schema (OB/MB) einordnen",
+      "Protokoll inkl. Bilddokumentation erstellen",
+      "Kaufempfehlung oder Einschränkung formulieren",
+      "Empfehlungen für Nachuntersuchungen geben"
+    ],
+    keyPoints: [
+      "Alles schriftlich fixieren lassen",
+      "Rückfragen direkt klären",
+      "Protokoll digital speichern und Versicherer informieren"
+    ]
+  }
+]
+
+const akuClasses: AkuClassTile[] = [
+  {
+    title: "Klasse I – Kleine AKU",
+    scope: "Klinische Untersuchung & einfache Flexionstests",
+    costs: "150 – 300 €",
+    recommendation: "Für Freizeitpferde bis ca. 5.000 €"
+  },
+  {
+    title: "Klasse II – Große AKU",
+    scope: "Klinik + Standard-Röntgen (10–12 Aufnahmen)",
+    costs: "400 – 800 €",
+    recommendation: "Für Sportpferde und Kaufpreise bis 25.000 €"
+  },
+  {
+    title: "Klasse III – Erweiterte AKU",
+    scope: "Zusätzliche Röntgenprojektionen, Ultraschall",
+    costs: "800 – 1.500 €",
+    recommendation: "Für hochwertige Sport- und Zuchtpferde"
+  },
+  {
+    title: "Klasse IV/V – Spezial-AKU",
+    scope: "Individuelle Diagnostik inkl. Endoskopie & Labor",
+    costs: "ab 1.500 €",
+    recommendation: "Für internationale Verkäufe & Profis"
+  }
+]
+
+const preparationChecklist = [
+  "Pferdepass, Impfpass, vorhandene Röntgenbilder & Befunde",
+  "Pferd sauber vorstellen, Hufe frisch auskratzen oder beschlagen",
+  "Ruhige Fläche für Schritt/Trab an der Hand und an der Longe",
+  "Zeitpuffer für Röntgen & Spezialdiagnostik einplanen",
+  "Fragen & Einsatzprofil schriftlich notieren"
+]
+
+const faqItems: FAQItem[] = [
+  {
+    question: "Wie lange dauert eine komplette AKU?",
+    answer:
+      "Je nach Umfang zwischen 2 und 4 Stunden. Erweiterte Klassen mit Spezialdiagnostik können zusätzliche Termine erfordern."
+  },
+  {
+    question: "Wer trägt die AKU-Kosten?",
+    answer:
+      "In der Regel der Käufer. Bei Abbruch aufgrund schwerer Befunde können anteilige Kosten mit dem Verkäufer verhandelt werden." 
+  },
+  {
+    question: "Wann lohnt sich eine erweiterte AKU?",
+    answer:
+      "Je höher der Kaufpreis und der sportliche Anspruch, desto umfassender sollte die Diagnostik sein. Für Pferde über 15.000 € ist Klasse II/III Standard."
+  },
+  {
+    question: "Wie aussagekräftig sind AKU-Befunde?",
+    answer:
+      "Sie dokumentieren den Zustand am Untersuchungstag. Besprich mit dem Tierarzt, welche Befunde kaufpreismindernd oder risikoreich sind."
+  }
+]
+
+const relatedArticles = [
+  {
+    href: "/aku-pferd",
+    image: "/images/blossi-shooting.webp",
+    title: "AKU Pferd Überblick",
+    badge: "AKU Guide",
+    readTime: "12 Min.",
+    description: "Kompletter Einstieg in Kosten, Ablauf und Befunde der Ankaufsuntersuchung."
+  },
+  {
+    href: "/aku-pferd-klassen",
+    image: "/horse-in-stable--professional-care.webp",
+    title: "AKU Klassen verstehen",
+    badge: "AKU Guide",
+    readTime: "9 Min.",
+    description: "Welcher Umfang ist sinnvoll? Kosten, Nutzen und Entscheidungshilfen für jede Klasse."
+  },
+  {
+    href: "/aku-pferd-kosten",
+    image: "/person-evaluating-horse-for-purchase.webp",
+    title: "AKU Kosten 2025",
+    badge: "Kosten & Preise",
+    readTime: "7 Min.",
+    description: "Transparente Kostenübersicht plus Spartipps für Käufer und Verkäufer."
+  }
+]
 
 const AkuPferdAblauf: NextPage = () => {
-  const [selectedPhase, setSelectedPhase] = useState<string>('');
-  const [isPhasesVisible, setIsPhasesVisible] = useState(false);
+  const handleNavigate = (id: string) => scrollToSection(id)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsPhasesVisible(true);
-        }
-      });
-    });
-
-    const phasesElement = document.getElementById('phases-section');
-    if (phasesElement) {
-      observer.observe(phasesElement);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const trackPhaseClick = useCallback((phaseId: string) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'aku_ablauf_phase_viewed', {
-        event_category: 'User Interaction',
-        event_label: phaseId,
-        page_title: 'AKU Pferd Ablauf'
-      });
-      info('GA4 Event: AKU Ablauf Phase Viewed', phaseId);
-    }
-  }, []);
-
-  const handlePhaseClick = (phaseId: string) => {
-    setSelectedPhase(selectedPhase === phaseId ? '' : phaseId);
-    trackPhaseClick(phaseId);
-  };
-
-  const akuPhases: PhaseData[] = [
-    {
-      id: 'vorbereitung',
-      title: '1. Vorbereitung und Terminvereinbarung',
-      description: 'Planung und Organisation der Ankaufsuntersuchung',
-      duration: '1-2 Wochen vorher',
-      details: [
-        'Qualifizierten Tierarzt mit AKU-Erfahrung auswählen',
-        'Termin mit Verkäufer und Tierarzt abstimmen',
-        'AKU-Klasse entsprechend dem Verwendungszweck festlegen',
-        'Kosten transparent vereinbaren',
-        'Alle Pferdepapiere und Unterlagen zusammenstellen'
-      ],
-      keyPoints: [
-        'Tierarzt sollte nicht der Haustierarzt des Verkäufers sein',
-        'AKU-Klasse richtet sich nach Kaufpreis und Verwendung',
-        'Anfahrtskosten bei weiter Entfernung berücksichtigen'
-      ],
-      tips: [
-        'Mindestens 1-2 Wochen Vorlauf einplanen',
-        'Bei beliebten Tierärzten früh buchen',
-        'Backup-Termin für Schlechtwetter vereinbaren'
-      ]
-    },
-    {
-      id: 'anamnese',
-      title: '2. Anamnese und Vorgeschichte',
-      description: 'Erfassung der medizinischen Historie und des Leistungsstandes',
-      duration: '15-30 Minuten',
-      details: [
-        'Krankengeschichte und Vorerkrankungen erfassen',
-        'Bisherige Nutzung und Leistungsstand dokumentieren',
-        'Impfungen, Wurmkuren und Behandlungen prüfen',
-        'Verhalten und Eigenarten besprechen',
-        'Identität des Pferdes durch Chip oder Pass verifizieren'
-      ],
-      keyPoints: [
-        'Ehrliche Angaben sind rechtlich wichtig',
-        'Auch scheinbar unbedeutende Verletzungen erwähnen',
-        'Leistungsabfall kann Hinweis auf Probleme sein'
-      ],
-      tips: [
-        'Alle verfügbaren Unterlagen mitbringen',
-        'Auch nach kleineren Auffälligkeiten fragen',
-        'Bei Zweifeln nachbohren'
-      ]
-    },
-    {
-      id: 'klinische-untersuchung',
-      title: '3. Klinische Untersuchung',
-      description: 'Umfassende körperliche Untersuchung des Pferdes',
-      duration: '45-90 Minuten',
-      details: [
-        'Adspektion im Stand: Körperbau, Haltung, Gliedmaßenstellung',
-        'Palpation: Abtasten von Gelenken, Sehnen, Bändern',
-        'Herz-Kreislauf-System: Puls, Herzgeräusche, Rhythmus',
-        'Atmungsapparat: Lunge, Nüstern, Kehlkopf',
-        'Augen: Pupillenreflexe, Hornhaut, Linse',
-        'Bewegungsapparat: Ganganalyse im Schritt und Trab'
-      ],
-      keyPoints: [
-        'Systematisches Vorgehen von Kopf bis Schweif',
-        'Vergleich zwischen linker und rechter Körperhälfte',
-        'Dokumentation aller Befunde, auch geringfügiger'
-      ],
-      tips: [
-        'Pferd sollte entspannt und trocken sein',
-        'Ausreichend Platz für Bewegungsanalyse',
-        'Bei Unklarheiten Nachuntersuchung anbieten'
-      ]
-    },
-    {
-      id: 'spezielle-untersuchungen',
-      title: '4. Spezielle Untersuchungen',
-      description: 'Vertiefende Diagnostik je nach AKU-Klasse',
-      duration: '30-120 Minuten',
-      details: [
-        'Beugeproben: Provokationstests der Gelenke',
-        'Röntgenuntersuchung: Bildgebende Diagnostik je nach Klasse',
-        'Endoskopie: Atemwege bei Bedarf',
-        'Ultraschall: Weichteile und Sehnen',
-        'Blutuntersuchung: Bei besonderen Indikationen'
-      ],
-      keyPoints: [
-        'Umfang richtet sich nach vereinbarter AKU-Klasse',
-        'Zusatzuntersuchungen nur nach Absprache',
-        'Röntgenbilder gehören dem Auftraggeber'
-      ],
-      tips: [
-        'Standard-Röntgenprojektionen kennen',
-        'Bei auffälligen Beugeproben nachhaken',
-        'Zusatzkosten vorab klären'
-      ]
-    },
-    {
-      id: 'befundauswertung',
-      title: '5. Befundauswertung und Protokoll',
-      description: 'Zusammenfassung und Bewertung aller Untersuchungsergebnisse',
-      duration: '30-45 Minuten',
-      details: [
-        'Systematische Auswertung aller Befunde',
-        'Klassifizierung nach AKU-Schema (Klasse I-V)',
-        'Erstellung des schriftlichen Protokolls',
-        'Kaufempfehlung aussprechen',
-        'Aufklärung über Risiken und Prognose',
-        'Empfehlungen für weitere Maßnahmen'
-      ],
-      keyPoints: [
-        'Objektive Befundbewertung ohne Emotionen',
-        'Klare Kaufempfehlung oder -warnung',
-        'Rechtliche Absicherung durch Dokumentation'
-      ],
-      tips: [
-        'Alle Details im Protokoll festhalten lassen',
-        'Unverständliches erklären lassen',
-        'Kopie des Protokolls für eigene Unterlagen'
-      ]
-    }
-  ];
-
-  const akuKlassen: AKUClass[] = [
-    {
-      klasse: 'I',
-      titel: 'Kleine AKU',
-      beschreibung: 'Basisuntersuchung ohne Röntgen',
-      kosten: '900 - 1.400 €',
-      empfehlung: 'Für Freizeitpferde bis 15.000 €',
-      farbe: 'bg-green-100 text-green-800 border-green-300'
-    },
-    {
-      klasse: 'II',
-      titel: 'Große AKU',
-      beschreibung: 'Umfassende Untersuchung mit Standard-Röntgen',
-      kosten: '1.400 - 2.500 €',
-      empfehlung: 'Für Turnier- und Zuchtpferde',
-      farbe: 'bg-blue-100 text-blue-800 border-blue-300'
-    },
-    {
-      klasse: 'III-V',
-      titel: 'Spezial-AKU',
-      beschreibung: 'Erweiterte Diagnostik mit Zusatzuntersuchungen',
-      kosten: '2.500 - 4.000 €',
-      empfehlung: 'Für hochwertige Sport- und Zuchtpferde',
-      farbe: 'bg-purple-100 text-purple-800 border-purple-300'
-    }
-  ];
-
-  // Schema Markup Data
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "AKU Pferd Ablauf - Der komplette Leitfaden zur Ankaufsuntersuchung",
-    "description": "Umfassender Guide zum AKU Pferd Ablauf: Phasen, Kosten, Klassen und Tipps für eine erfolgreiche Ankaufsuntersuchung beim Pferdekauf.",
-    "image": "https://pferdewert.de/images/aku-pferd-ablauf-guide.jpg",
-    "author": {
-      "@type": "Organization",
-      "name": "PferdeWert",
-      "url": "https://pferdewert.de",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://pferdewert.de/logo.png"
-      }
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "PferdeWert",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://pferdewert.de/logo.png"
-      }
-    },
-    "datePublished": "2025-01-20",
-    "dateModified": "2025-01-20",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://pferdewert.de/ratgeber/aku-pferd-ablauf"
-    },
-    "keywords": ["aku pferd ablauf", "ankaufsuntersuchung", "pferdekauf", "tierarzt untersuchung", "aku klassen"],
-    "articleSection": "Ratgeber",
-    "wordCount": 2850
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://pferdewert.de"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Ratgeber",
-        "item": "https://pferdewert.de/ratgeber"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "AKU Pferd Ablauf",
-        "item": "https://pferdewert.de/ratgeber/aku-pferd-ablauf"
-      }
-    ]
-  };
-
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "PferdeWert",
-    "url": "https://pferdewert.de",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://pferdewert.de/logo.png"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "info@pferdewert.de"
-    },
-    "sameAs": [
-      "https://www.facebook.com/pferdewert",
-      "https://www.instagram.com/pferdewert"
-    ]
-  };
-
-  const faqItems: FAQItem[] = [
-    {
-      question: "Wie lange dauert eine Ankaufsuntersuchung?",
-      answer: "Eine kleine AKU (Klasse I) dauert 2-3 Stunden, eine große AKU (Klasse II) 4-6 Stunden. Die Dauer hängt vom Kooperationsverhalten des Pferdes und eventuellen Zusatzuntersuchungen ab."
-    },
-    {
-      question: "Was kostet eine Ankaufsuntersuchung?",
-      answer: "Eine kleine AKU kostet 900-1.400€, eine große AKU 1.400-2.500€. Die Preise variieren je nach Region und Untersuchungsumfang. Zusatzkosten können für Anfahrt und Spezialuntersuchungen anfallen."
-    },
-    {
-      question: "Kann ein Pferd bei der AKU durchfallen?",
-      answer: "Ein Pferd kann bei der AKU nicht 'durchfallen'. Die Untersuchung ist eine objektive Zustandsbeschreibung. Die Entscheidung, ob Sie das Pferd trotz bestimmter Befunde kaufen möchten, liegt bei Ihnen."
-    },
-    {
-      question: "Wer bezahlt die AKU?",
-      answer: "Grundsätzlich zahlt der potenzielle Käufer die AKU, auch wenn der Kauf nicht zustande kommt. In seltenen Fällen teilen sich Käufer und Verkäufer die Kosten."
-    },
-    {
-      question: "Wie lange ist ein AKU-Protokoll gültig?",
-      answer: "Ein AKU-Protokoll beschreibt den Zustand zum Untersuchungstag. 0-4 Wochen ist es vollwertig, 1-3 Monate noch brauchbar, über 6 Monate wird eine neue AKU empfohlen."
-    },
-    {
-      question: "Brauche ich eine AKU bei jedem Pferdekauf?",
-      answer: "Eine AKU ist besonders sinnvoll bei Pferden über 15.000€, Turnierpferden, Zuchttieren und Pferden mit unbekannter Vorgeschichte. Bei günstigen Freizeitpferden kann eine kleine AKU ausreichend sein."
-    },
-    {
-      question: "Kann ich den Tierarzt selbst wählen?",
-      answer: "Ja, Sie sollten einen erfahrenen Tierarzt wählen, der nicht der Haustierarzt des Verkäufers ist. Wichtig sind Spezialisierung auf Pferde und Erfahrung mit Ankaufsuntersuchungen."
-    },
-    {
-      question: "Was passiert wenn Befunde gefunden werden?",
-      answer: "Bei Befunden haben Sie mehrere Optionen: Kaufverzicht, Preisverhandlung, Nachuntersuchung durch Spezialisten oder Anpassung des Kaufvertrags mit Haftungsausschluss."
-    }
-  ];
+  const handleScrollToToc = () => {
+    if (typeof window === "undefined") return
+    document.getElementById("inhaltsverzeichnis")?.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
-    <>
-      <Head>
-        <title>AKU Pferd Ablauf - So läuft die Ankaufsuntersuchung ab | PferdeWert</title>
-        <meta name="description" content="AKU Ablauf Schritt für Schritt: Von der Terminvereinbarung bis zum Ergebnis. Alles zur Ankaufsuntersuchung beim Pferdekauf." />
-        <meta name="keywords" content="aku pferd ablauf, ankaufsuntersuchung ablauf, aku pferd kosten, aku klassen pferd, tierarzt ankaufsuntersuchung" />
-        <link rel="canonical" href="https://pferdewert.de/ratgeber/aku-pferd-ablauf" />
+    <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
+      <>
+        <Head>
+          <title>AKU Pferd Ablauf: Von Vorbereitung bis Befund | PferdeWert</title>
+          <meta
+            name="description"
+            content="Kompletter Ablauf der Ankaufsuntersuchung: Vorbereitung, klinische Untersuchung, Röntgen, Spezialdiagnostik und Befundauswertung – inklusive Checklisten."
+          />
+        </Head>
 
-        {/* Open Graph */}
-        <meta property="og:title" content="AKU Pferd Ablauf - Kompletter Leitfaden zur Ankaufsuntersuchung" />
-        <meta property="og:description" content="Erfahren Sie Schritt für Schritt, wie der AKU Ablauf beim Pferd funktioniert. Von der Vorbereitung bis zum Protokoll - alle wichtigen Informationen." />
-        <meta property="og:image" content="https://pferdewert.de/images/aku-pferd-ablauf-guide.jpg" />
-        <meta property="og:url" content="https://pferdewert.de/ratgeber/aku-pferd-ablauf" />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="PferdeWert" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AKU Pferd Ablauf - Kompletter Leitfaden zur Ankaufsuntersuchung" />
-        <meta name="twitter:description" content="Erfahren Sie Schritt für Schritt, wie der AKU Ablauf beim Pferd funktioniert. Von der Vorbereitung bis zum Protokoll - alle wichtigen Informationen." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/aku-pferd-ablauf-guide.jpg" />
-
-        {/* Schema Markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        <RatgeberHero
+          badgeLabel="AKU Guide"
+          badgeIcon={<ClipboardList className="h-4 w-4" />}
+          title="AKU Pferd Ablauf: Schritt für Schritt"
+          subtitle="Verstehe jeden Schritt der Ankaufsuntersuchung – von der Vorbereitung bis zum finalen Befund mit klaren To-dos."
+          metaItems={heroMetaItems}
+          primaryCta={{
+            href: "/pferde-preis-berechnen",
+            label: "Pferdewert nach AKU berechnen",
+            icon: <CheckCircle className="h-5 w-5" />
+          }}
+          secondaryCta={{
+            label: "Zum Inhalt",
+            icon: <Stethoscope className="h-5 w-5" />,
+            onClick: handleScrollToToc
+          }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+
+        <RatgeberHeroImage
+          src="/veterinarian-examining-horse-health-check.jpg"
+          alt="Tierärztin untersucht ein Pferd während der AKU"
+          priority
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-      </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-blue-50">
-        {/* Breadcrumb Navigation */}
-        <nav className="bg-white border-b border-gray-200 py-4">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center text-sm text-gray-600 space-x-2">
-              <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-              <span>›</span>
-              <a href="/ratgeber" className="hover:text-blue-600 transition-colors">Ratgeber</a>
-              <span>›</span>
-              <span className="text-gray-900 font-medium">AKU Pferd Ablauf</span>
-            </div>
-          </div>
-        </nav>
+        <RatgeberTableOfContents sections={sections} onNavigate={handleNavigate} />
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#4e463b] to-[#5a4b3b] text-white py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-[#f6c36a]/20 px-4 py-2 rounded-full text-[#f6c36a] text-sm font-medium mb-6">
-                <span className="w-2 h-2 bg-[#f6c36a] rounded-full mr-2"></span>
-                Schritt-für-Schritt Anleitung
-              </div>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                AKU Pferd Ablauf
-              </h1>
-              <p className="text-xl md:text-2xl text-amber-100 mb-8 leading-relaxed">
-                Der komplette Leitfaden zur Ankaufsuntersuchung beim Pferdekauf
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => document.getElementById('phases-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-[#f6c36a] hover:bg-[#f3c27b] text-[#4e463b] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  5 Phasen ansehen
-                </button>
-                <button
-                  onClick={() => document.getElementById('klassen-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#4e463b] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
-                >
-                  AKU-Klassen
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Content Introduction */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Die Ankaufsuntersuchung verstehen
-              </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Eine Ankaufsuntersuchung (AKU) ist die wichtigste Absicherung beim Pferdekauf. Sie läuft in 5 systematischen Phasen ab und gibt Ihnen objektive Gewissheit über den Gesundheitszustand Ihres Wunschpferdes.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-sm">
-                <div className="w-16 h-16 bg-[#3B82F6] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-2xl">2-6h</span>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Dauer</h3>
-                <p className="text-gray-600">Je nach AKU-Klasse und Untersuchungsumfang</p>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl shadow-sm">
-                <div className="w-16 h-16 bg-[#f6c36a] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#4e463b] font-bold text-2xl">5</span>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Phasen</h3>
-                <p className="text-gray-600">Systematische Untersuchung in fester Reihenfolge</p>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-sm">
-                <div className="w-16 h-16 bg-[#22c55e] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-2xl">I-V</span>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Klassen</h3>
-                <p className="text-gray-600">Bewertung von ohne Befund bis hochgradig</p>
-              </div>
-            </div>
-
-            <InfoBox
-              type="tip"
-              title="Wichtiger Hinweis vor der AKU"
-              content="Wählen Sie immer einen erfahrenen Tierarzt, der nicht der Haustierarzt des Verkäufers ist. Eine unabhängige Beurteilung ist für Ihre Sicherheit beim Pferdekauf entscheidend."
-            />
-            </div>
-          </div>
-        </section>
-
-        {/* AKU Phases Section */}
-        <section id="phases-section" className="py-16 bg-[#fcfaf6]">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Die 5 Phasen der Ankaufsuntersuchung
-                </h2>
-                <p className="text-xl text-gray-600">
-                  Jede Phase baut systematisch aufeinander auf und liefert wichtige Erkenntnisse
-                </p>
-              </div>
-
-              <div className="space-y-8">
-                {akuPhases.map((phase, index) => (
-                  <div
-                    key={phase.id}
-                    className={`transform transition-all duration-500 ${
-                      isPhasesVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
-                    }`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-                      <div
-                        className="p-6 cursor-pointer hover:bg-gray-50 transition-colors"
-                        onClick={() => handlePhaseClick(phase.id)}
-                      >
-                        <div className="flex items-start">
-                          <div className="flex-shrink-0 w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center text-white font-bold text-lg mr-6">
-                            {index + 1}
-                          </div>
-                          <div className="flex-grow">
-                            <div className="flex justify-between items-start mb-3">
-                              <h3 className="font-serif text-xl md:text-2xl font-bold text-gray-900">{phase.title}</h3>
-                              <span className="text-sm text-[#3B82F6] bg-blue-50 px-3 py-1 rounded-full font-medium ml-4">
-                                {phase.duration}
-                              </span>
-                            </div>
-                            <p className="text-lg text-gray-600 mb-4 leading-relaxed">{phase.description}</p>
-                            <div className="flex items-center text-[#3B82F6] font-medium">
-                              <span className="mr-2">Details ansehen</span>
-                              <svg
-                                className={`w-5 h-5 transition-transform ${selectedPhase === phase.id ? 'rotate-180' : ''}`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {selectedPhase === phase.id && (
-                        <div className="px-6 pb-6 bg-gradient-to-r from-blue-50 to-amber-50">
-                          <div className="grid md:grid-cols-3 gap-6">
-                            <div className="bg-white rounded-xl p-5 shadow-sm">
-                              <h4 className="font-serif font-bold text-gray-900 mb-3 text-lg">Ablauf im Detail:</h4>
-                              <ul className="space-y-2">
-                                {phase.details.map((detail, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <span className="w-2 h-2 bg-[#3B82F6] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span className="text-gray-700 text-sm leading-relaxed">{detail}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div className="bg-white rounded-xl p-5 shadow-sm">
-                              <h4 className="font-serif font-bold text-gray-900 mb-3 text-lg">Wichtige Aspekte:</h4>
-                              <ul className="space-y-2">
-                                {phase.keyPoints.map((point, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <span className="text-[#f6c36a] mr-2 text-xl">★</span>
-                                    <span className="text-gray-700 text-sm leading-relaxed">{point}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div className="bg-white rounded-xl p-5 shadow-sm">
-                              <h4 className="font-serif font-bold text-gray-900 mb-3 text-lg">Praktische Tipps:</h4>
-                              <ul className="space-y-2">
-                                {phase.tips.map((tip, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <span className="text-green-500 mr-2">✓</span>
-                                    <span className="text-gray-700 text-sm leading-relaxed">{tip}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* AKU Classes Section */}
-        <section id="klassen-section" className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  AKU-Klassen und Kosten im Überblick
-                </h2>
-                <p className="text-xl text-gray-600">
-                  Wählen Sie die passende AKU-Klasse für Ihren Verwendungszweck und Ihr Budget
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {akuKlassen.map((klasse) => (
-                  <div key={klasse.klasse} className={`border-2 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg ${klasse.farbe}`}>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                      <div className="flex items-center mb-4 md:mb-0">
-                        <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center font-bold text-2xl mr-4 shadow-sm">
-                          {klasse.klasse}
-                        </div>
-                        <div>
-                          <h3 className="font-serif text-2xl font-bold mb-1">{klasse.titel}</h3>
-                          <p className="text-lg opacity-90">{klasse.beschreibung}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold mb-1">{klasse.kosten}</div>
-                        <div className="text-sm opacity-75">{klasse.empfehlung}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <InfoBox
-                type="cost"
-                title="Zusätzliche Kostenaspekte beachten"
-                content="Neben den Grundkosten können Anfahrtskosten, Wochenendzuschläge und spezielle Untersuchungen (Endoskopie, erweiterte Röntgendiagnostik) zusätzliche Kosten verursachen. Klären Sie alle Kostenpunkte vorab transparent ab."
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Warning Section */}
-        <section className="py-16 bg-amber-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <InfoBox
-                type="warning"
-                title="Rechtliche Aspekte der AKU"
+        <div className="container mx-auto px-4 py-8 md:py-12">
+          <article className="max-w-5xl mx-auto space-y-16">
+            <section id="overview" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">AKU Ablauf im Überblick</h2>
+              <ContentSection
+                icon={<ClipboardList className="h-6 w-6" />}
+                title="Was passiert bei der AKU?"
                 content={
-                  <div>
-                    <p className="mb-4">
-                      Die AKU ist eine Momentaufnahme und beschreibt den Zustand zum Untersuchungszeitpunkt.
-                      Der Tierarzt haftet für die ordnungsgemäße Durchführung, nicht aber für die Entwicklung des Pferdes nach dem Kauf.
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700">
-                      <li>AKU-Protokoll hat dokumentarischen Charakter</li>
-                      <li>Gewährleistungsrechte bleiben gegenüber dem Verkäufer bestehen</li>
-                      <li>Bei Kaufrücktritt wegen AKU-Befunden entstehen keine Schadensersatzansprüche</li>
-                      <li>Zweitmeinung ist bei kritischen Befunden immer möglich</li>
-                    </ul>
-                  </div>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Die Ankaufsuntersuchung ist eine strukturierte tierärztliche Prüfung. Sie besteht aus fünf aufeinander aufbauenden
+                    Phasen: Vorbereitung, Anamnese, klinische Untersuchung, Bildgebung und Befundbesprechung. Jede Phase liefert
+                    Bausteine für deine Kaufentscheidung.
+                  </p>
                 }
               />
-            </div>
-          </div>
-        </section>
+              <RatgeberHighlightBox title="Ziele der AKU" icon={<Stethoscope className="h-5 w-5 text-brand-brown" />}>
+                <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
+                  <li>• Transparenz über den aktuellen Gesundheitszustand</li>
+                  <li>• Einschätzung des zukünftigen Einsatzrisikos</li>
+                  <li>• Grundlage für Preisverhandlung und Versicherung</li>
+                </ul>
+              </RatgeberHighlightBox>
+            </section>
 
-        {/* FAQ Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <FAQ
-                faqs={faqItems}
-                sectionTitle="Häufig gestellte Fragen zum AKU-Ablauf"
-                withSchema={true}
+            <section id="phasen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Die 5 Phasen der Ankaufsuntersuchung</h2>
+              <div className="space-y-4 md:space-y-6">
+                {phases.map((phase) => (
+                  <RatgeberHighlightBox key={phase.id} title={`${phase.title} · ${phase.duration}`} icon={<FileText className="h-5 w-5 text-brand-brown" />} padding="p-6">
+                    <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">{phase.description}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                      <div>
+                        <h3 className="font-semibold text-brand-brown mb-2 text-sm md:text-base">Ablauf</h3>
+                        <ul className="space-y-1 text-gray-700 text-sm md:text-base leading-relaxed">
+                          {phase.steps.map((step) => (
+                            <li key={step}>• {step}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-brand-brown mb-2 text-sm md:text-base">Wichtige Hinweise</h3>
+                        <ul className="space-y-1 text-gray-700 text-sm md:text-base leading-relaxed">
+                          {phase.keyPoints.map((point) => (
+                            <li key={point}>• {point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </RatgeberHighlightBox>
+                ))}
+              </div>
+            </section>
+
+            <section id="klassen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">AKU-Klassen & Umfang</h2>
+              <RatgeberInfoTiles
+                headline="Welche Klasse passt zu deinem Kaufpreis?"
+                tiles={akuClasses.map((klasse) => ({
+                  title: klasse.title,
+                  value: klasse.costs,
+                  description: `${klasse.scope} · Empfehlung: ${klasse.recommendation}`
+                }))}
               />
-            </div>
-          </div>
-        </section>
+              <RatgeberHighlightBox title="Entscheidungshilfe" icon={<Microscope className="h-5 w-5 text-brand-brown" />}>
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Investiere 2–5 % des Kaufpreises in die AKU. Je höher der sportliche Anspruch, desto umfassender sollte die Diagnostik
+                  ausfallen. Besprich unklare Befunde direkt mit dem Untersuchungstierarzt.
+                </p>
+              </RatgeberHighlightBox>
+            </section>
 
-        <RatgeberFinalCTA
-          image={{
-            src: '/images/blossi-shooting.webp',
-            alt: 'Pferdebewertung vor der AKU'
-          }}
-          title="Bewerten Sie Ihr Pferd vor der AKU"
-          description="Unsere KI-gestützte Pferdebewertung für nur 14,90€ liefert Ihnen vorab wichtige Erkenntnisse über den Marktwert und unterstützt Sie bei der Vorbereitung auf die Ankaufsuntersuchung."
-          ctaHref="/pferde-preis-berechnen"
-          ctaLabel="Pferd jetzt bewerten - nur 14,90€"
-        />
-      </div>
-    </>
-  );
-};
+            <section id="tipps" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Vorbereitung & Protokoll</h2>
+              <RatgeberHighlightBox title="Vorbereitung am Untersuchungstag" icon={<ClipboardList className="h-5 w-5 text-brand-brown" />}>
+                <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
+                  {preparationChecklist.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </RatgeberHighlightBox>
+              <ContentSection
+                icon={<FileText className="h-6 w-6" />}
+                title="Tipps zum AKU-Protokoll"
+                content={
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Lass dir das Protokoll vollständig aushändigen. Markiere kritische MB-Befunde und kläre, ob sie den geplanten Einsatz
+                    beeinflussen. Digitale Röntgenbilder solltest du für Versicherungen und zukünftige Tierärzte archivieren.
+                  </p>
+                }
+              />
+            </section>
+          </article>
 
-export default AkuPferdAblauf;
+          <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
+            <FAQ sectionTitle="Häufig gestellte Fragen zur AKU" faqs={faqItems} />
+          </section>
+
+          <RatgeberRelatedArticles
+            title="Weiterführende Artikel"
+            description="Vertiefe dein Wissen zu AKU-Umfang, Kosten und Befundinterpretation."
+            articles={relatedArticles}
+          />
+
+          <RatgeberFinalCTA
+            image={{
+              src: "/veterinarian-examining-horse-health-check.jpg",
+              alt: "Professionelle Pferdebewertung nach der AKU"
+            }}
+            title="AKU abgeschlossen – wie geht es weiter?"
+            description="Nutze unsere KI, um die AKU-Befunde in eine marktgerechte Preisbewertung zu überführen und sicher zu verhandeln."
+            ctaHref="/pferde-preis-berechnen"
+            ctaLabel="Pferdewert jetzt berechnen"
+          />
+        </div>
+      </>
+    </Layout>
+  )
+}
+
+export default AkuPferdAblauf

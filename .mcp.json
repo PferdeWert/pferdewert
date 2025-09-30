@@ -1,3 +1,15 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "dataforseo": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "dataforseo-mcp-server"
+      ],
+      "env": {
+        "DATAFORSEO_USERNAME": "info@pferdewert.de",
+        "DATAFORSEO_PASSWORD": "790192729b5fc619"
+      }
+    }
+  }
 }

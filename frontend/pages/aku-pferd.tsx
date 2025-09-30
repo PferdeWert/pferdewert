@@ -4,9 +4,7 @@ import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
 import ContentSection from '@/components/ContentSection'
-import CTAButton from '@/components/CTAButton'
 import FAQ from '@/components/FAQ'
-import InfoBox from '@/components/InfoBox'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage'
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox'
@@ -186,7 +184,7 @@ const AKUPferd: NextPage = () => {
         />
       </Head>
 
-      <Layout fullWidth={true} background="bg-gradient-to-b from-brand-light to-white">
+      <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
         <RatgeberHero
           badgeLabel="Pferde-Ratgeber"
           badgeIcon={<Award className="h-4 w-4" />}
@@ -590,27 +588,6 @@ const AKUPferd: NextPage = () => {
                     </div>
                   </RatgeberHighlightBox>
 
-                  {/* Call-to-Action Section */}
-                  <div className="bg-[#fdf7f1] border border-[#e0c9aa] rounded-lg p-6 md:p-8 space-y-4 md:space-y-6">
-                    <div className="text-center">
-                      <div className="flex justify-center items-center space-x-2 mb-4">
-                        <span className="text-2xl md:text-3xl">🎯</span>
-                        <h3 className="text-xl md:text-2xl font-bold text-brand-brown">Pferdewert nach AKU ermitteln</h3>
-                      </div>
-                      <p className="text-gray-700 mb-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-                        Sie haben bereits eine AKU durchführen lassen? Nutzen Sie unsere KI-gestützte Bewertung,
-                        um den fairen Marktwert Ihres Pferdes basierend auf den AKU-Ergebnissen zu ermitteln.
-                      </p>
-                      <div className="flex justify-center">
-                        <CTAButton
-                          text="Jetzt Pferdewert berechnen"
-                          href="/pferde-preis-berechnen"
-                          trackingEvent="aku_pferd_cta_main_valuation"
-                          type="primary"
-                        />
-                      </div>
-                    </div>
-                  </div>
               </section>
 
               {/* AKU-Tierarzt finden */}
@@ -696,17 +673,13 @@ const AKUPferd: NextPage = () => {
                         Unsere Auswertung von über 1.000 Verkäufen zeigt, wie stark AKU-Ergebnisse die Preisfindung prägen.
                         Befunde werden je nach Schweregrad und Verwendungszweck sehr unterschiedlich bewertet.
                       </p>
-                      <InfoBox
-                        type="cost"
-                        title="Typische Preiswirkungen"
-                        content={
-                          <ul className="space-y-2 text-sm sm:text-base leading-relaxed">
-                            <li><strong>Geringfügige Befunde:</strong> 3–8 % Preisabschlag, oft verhandelbar.</li>
-                            <li><strong>Moderate Befunde:</strong> 8–18 % Wertminderung, Einsatzgebiet kritisch prüfen.</li>
-                            <li><strong>Deutliche Befunde:</strong> 18–35 % Abschlag, ggf. Kaufabbruch empfehlen.</li>
-                          </ul>
-                        }
-                      />
+                      <RatgeberHighlightBox title="Typische Preiswirkungen" icon="💶" padding="p-5 md:p-6">
+                        <ul className="space-y-2 text-sm sm:text-base leading-relaxed">
+                          <li><strong>Geringfügige Befunde:</strong> 3–8 % Preisabschlag, oft verhandelbar.</li>
+                          <li><strong>Moderate Befunde:</strong> 8–18 % Wertminderung, Einsatzzweck kritisch prüfen.</li>
+                          <li><strong>Deutliche Befunde:</strong> 18–35 % Abschlag, ggf. Kaufabbruch erwägen.</li>
+                        </ul>
+                      </RatgeberHighlightBox>
                       <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-4">
                         Warmblüter reagieren sensibler auf Befunde als Robustrassen, regionale Märkte unterscheiden sich ebenfalls
                         um bis zu zehn Prozentpunkten in der Akzeptanz.

@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
+    "test:e2e": "playwright test",
     "fix-order": "node scripts/fix-order.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "seo": "node scripts/seo-process.mjs"
@@ -48,6 +49,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.2",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "@playwright/test": "^1.48.2"
   }
 }

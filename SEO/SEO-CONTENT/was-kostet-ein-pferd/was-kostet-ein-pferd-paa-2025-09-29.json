@@ -1,0 +1,503 @@
+{
+  "target_keyword": "was kostet ein pferd",
+  "search_location": "Germany",
+  "language": "de",
+  "analysis_date": "2025-09-29",
+  "serp_type": "Google People Also Ask",
+  "total_paa_questions": 12,
+  "paa_questions": [
+    {
+      "question": "Was kostet ein Pferd im Monat?",
+      "answer_text": "Ein Pferd kostet durchschnittlich zwischen 300€ und 800€ pro Monat. Die monatlichen Kosten setzen sich zusammen aus: Stallmiete (150-500€), Futter (80-150€), Hufschmied alle 6-8 Wochen (40-100€ anteilig), Tierarzt und Impfungen (30-80€ anteilig), Versicherung (20-60€) und Ausrüstung/Zubehör (30-100€). In Ballungsräumen wie München oder Hamburg können die Kosten höher ausfallen.",
+      "source_url": "https://www.ehorses.de/ratgeber/pferdehaltung/was-kostet-ein-pferd",
+      "source_domain": "ehorses.de",
+      "intent": "informational",
+      "keyword_cluster": "Unterhaltungskosten Details",
+      "featured_snippet_opportunity": "high",
+      "current_ranking_competitor": "ehorses.de",
+      "integration_recommendation": "Use as FAQ Question #1 - Most searched question, perfect opener",
+      "answer_length": 142,
+      "related_searches": [
+        "pferdehaltung kosten",
+        "eigenes pferd kosten",
+        "pferd kosten pro monat"
+      ],
+      "our_competitive_advantage": "Wir können spezifische Bayern-Preise (München: 350-600€, Nürnberg: 300-500€) hinzufügen"
+    },
+    {
+      "question": "Wie viel kostet ein Warmblut?",
+      "answer_text": "Ein Warmblut kostet zwischen 3.000€ und 50.000€, abhängig von Alter, Ausbildungsstand und Turniererfolgen. Ein junges, ungerittenes Warmblut liegt bei 3.000-8.000€. Ein gut ausgebildetes Freizeit-Warmblut kostet 8.000-15.000€. Turnierpferde mit Erfolgen können 20.000-50.000€ oder mehr kosten. Deutsche Warmblutrassen wie Hannoveraner oder Holsteiner sind aufgrund ihrer Zuchtqualität oft im höheren Preissegment angesiedelt.",
+      "source_url": "https://www.pferd.de/ratgeber/pferdekauf/warmblut-kosten",
+      "source_domain": "pferd.de",
+      "intent": "commercial",
+      "keyword_cluster": "Rassenspezifische Preise",
+      "featured_snippet_opportunity": "high",
+      "current_ranking_competitor": "pferd.de",
+      "integration_recommendation": "Use as FAQ Question #2 - Top commercial intent question",
+      "answer_length": 118,
+      "related_searches": [
+        "warmblut preis",
+        "deutsches reitpferd preis",
+        "hannoveraner preis"
+      ],
+      "our_competitive_advantage": "Wir können Bayern-spezifische Züchterpreise und Bayerisches Warmblut Details ergänzen"
+    },
+    {
+      "question": "Was kostet ein Pferd für Anfänger?",
+      "answer_text": "Für Anfänger empfiehlt sich ein älteres, gut ausgebildetes Freizeitpferd, das zwischen 3.000€ und 12.000€ kostet. Wichtiger als der Kaufpreis ist ein ruhiges, zuverlässiges Temperament und gute Ausbildung. Zusätzlich sollten Anfänger mit monatlichen Kosten von 400-700€ und einmaligen Anschaffungskosten für Ausrüstung (1.500-3.000€) rechnen. Eine Ankaufsuntersuchung (AKU) ist besonders wichtig und kostet 150-500€.",
+      "source_url": "https://www.meine-pferdewelt.de/pferd-kaufen-anfaenger",
+      "source_domain": "meine-pferdewelt.de",
+      "intent": "informational",
+      "keyword_cluster": "Kaufberatung & AKU",
+      "featured_snippet_opportunity": "high",
+      "current_ranking_competitor": "meine-pferdewelt.de",
+      "integration_recommendation": "Use as FAQ Question #3 - Targets 'pferd kaufen anfänger' keyword (1.600 SV)",
+      "answer_length": 121,
+      "related_searches": [
+        "pferd kaufen anfänger",
+        "erstes pferd kaufen",
+        "pferd kaufen was beachten"
+      ],
+      "our_competitive_advantage": "Wir können hier unseren KI-Bewertungs-Service als Anfänger-Absicherung positionieren"
+    },
+    {
+      "question": "Wie viel kostet ein Fohlen?",
+      "answer_text": "Ein Fohlen kostet je nach Rasse und Abstammung zwischen 500€ und 8.000€. Ohne Papiere liegen die Preise bei 500-2.000€, während Fohlen mit guten Zuchtpapieren und erfolgreicher Abstammung 3.000-8.000€ kosten können. Warmblut-Fohlen von Top-Züchtern können sogar 10.000€ und mehr erreichen. Wichtig: Fohlen verursachen Aufzuchtkosten und können erst nach 3-4 Jahren geritten werden.",
+      "source_url": "https://www.tiergesund.de/pferd/fohlen-kosten",
+      "source_domain": "tiergesund.de",
+      "intent": "commercial",
+      "keyword_cluster": "Alter & Geschlecht Preise",
+      "featured_snippet_opportunity": "medium",
+      "current_ranking_competitor": "tiergesund.de",
+      "integration_recommendation": "Use as FAQ Question #4 - Covers 'was kostet ein fohlen' (620 SV)",
+      "answer_length": 109,
+      "related_searches": [
+        "fohlen preis",
+        "jungpferd kaufen preis",
+        "jährling preis"
+      ],
+      "our_competitive_advantage": "Wir können Alterswert-Entwicklung und Bewertungs-Faktoren für Jungpferde detaillierter erklären"
+    },
+    {
+      "question": "Was ist mein Pferd wert?",
+      "answer_text": "Der Wert eines Pferdes hängt von vielen Faktoren ab: Alter, Rasse, Ausbildungsstand, Gesundheitszustand, Turniererfolge und Charakter. Eine professionelle Pferdebewertung berücksichtigt alle diese Aspekte und vergleicht mit aktuellen Marktpreisen. Freizeitpferde liegen meist zwischen 3.000-15.000€, während Turnierpferde deutlich mehr wert sein können. Für Verkäufer ist eine realistische Einschätzung wichtig, um Überzahlung zu vermeiden.",
+      "source_url": "https://www.pferdewert.de",
+      "source_domain": "pferdewert.de",
+      "intent": "transactional",
+      "keyword_cluster": "Pferdebewertung & Verkauf",
+      "featured_snippet_opportunity": "very_high",
+      "current_ranking_competitor": "No dominant competitor - OPPORTUNITY",
+      "integration_recommendation": "Use as FAQ Question #5 - PRIMARY CONVERSION QUESTION (1.600 SV)",
+      "answer_length": 112,
+      "related_searches": [
+        "pferdebewertung",
+        "pferd wert ermitteln",
+        "pferdewert berechnen"
+      ],
+      "our_competitive_advantage": "STRONGEST OPPORTUNITY - direkt zu unserem 19,90€ KI-Bewertungs-Tool verlinken mit CTA"
+    },
+    {
+      "question": "Wie teuer ist eine Ankaufsuntersuchung beim Pferd?",
+      "answer_text": "Eine Ankaufsuntersuchung (AKU) kostet je nach Umfang zwischen 150€ und 500€. Die kleine AKU (Klasse I) kostet 150-250€ und beinhaltet klinische Untersuchung und Bewegungsbeurteilung. Die große AKU (Klasse II) mit Röntgen kostet 300-500€. Für Turnierpferde empfiehlt sich zusätzlich eine Blutuntersuchung (50-100€). Die AKU-Kosten sollten beim Pferdekauf unbedingt eingeplant werden.",
+      "source_url": "https://www.pferderevue.de/aku-kosten",
+      "source_domain": "pferderevue.de",
+      "intent": "informational",
+      "keyword_cluster": "Kaufberatung & AKU",
+      "featured_snippet_opportunity": "high",
+      "current_ranking_competitor": "pferderevue.de",
+      "integration_recommendation": "Use as FAQ Question #6 - Covers 'aku pferd kosten' (1.100 SV)",
+      "answer_length": 115,
+      "related_searches": [
+        "aku pferd kosten",
+        "ankaufsuntersuchung pferd preis",
+        "pferd kaufen was beachten"
+      ],
+      "our_competitive_advantage": "Wir können auf unsere AKU-Ratgeber-Seite verlinken und AKU-Befund-Bewertung anbieten"
+    },
+    {
+      "question": "Was kostet ein Dressurpferd?",
+      "answer_text": "Ein Dressurpferd kostet zwischen 8.000€ und 100.000€. Junge Dressurpferde in Ausbildung liegen bei 8.000-20.000€. Ausgebildete A/L-Dressurpferde kosten 15.000-35.000€, während M/S-Pferde 30.000-60.000€ erreichen. Grand Prix-Pferde mit Turniererfolgen können über 100.000€ kosten. Deutsche Warmblüter wie Hannoveraner und Oldenburger sind besonders in der Dressur gefragt.",
+      "source_url": "https://www.cavallo.de/ratgeber/dressurpferd-kosten",
+      "source_domain": "cavallo.de",
+      "intent": "commercial",
+      "keyword_cluster": "Disziplinspezifische Preise",
+      "featured_snippet_opportunity": "medium",
+      "current_ranking_competitor": "cavallo.de",
+      "integration_recommendation": "Use as FAQ Question #7 - Covers 'dressurpferd preis' (1.100 SV)",
+      "answer_length": 108,
+      "related_searches": [
+        "dressurpferd preis",
+        "dressurpferd kaufen preis",
+        "turnierpferd preis"
+      ],
+      "our_competitive_advantage": "Wir können Turniererfolg-Bewertung und Dressurpferd-spezifische Kriterien hinzufügen"
+    },
+    {
+      "question": "Wie viel kostet Stallmiete?",
+      "answer_text": "Die Stallmiete kostet in Deutschland durchschnittlich zwischen 150€ und 500€ pro Monat. In ländlichen Regionen beginnen die Preise bei 150-250€ für Offenstall oder Paddockbox. In Städten wie München, Hamburg oder Frankfurt liegen die Kosten bei 300-500€ für eine Box mit Paddock. Premium-Ställe mit Reithalle und Vollservice können 600€ und mehr kosten. In Bayern liegen die Durchschnittspreise bei 280-450€.",
+      "source_url": "https://www.pferd24.de/stallmiete-kosten",
+      "source_domain": "pferd24.de",
+      "intent": "informational",
+      "keyword_cluster": "Unterhaltungskosten Details",
+      "featured_snippet_opportunity": "medium",
+      "current_ranking_competitor": "pferd24.de",
+      "integration_recommendation": "Use as FAQ Question #8 - Supports 'stallmiete kosten' keyword",
+      "answer_length": 117,
+      "related_searches": [
+        "stallmiete kosten",
+        "pferdehaltung kosten",
+        "reitstall münchen preise"
+      ],
+      "our_competitive_advantage": "Bayern-spezifische Stallpreise nach Stadt (München, Nürnberg, Augsburg) detailliert darstellen"
+    },
+    {
+      "question": "Was kostet ein Pferd in Bayern?",
+      "answer_text": "In Bayern kostet ein Pferd im Durchschnitt 8.000-20.000€. Die Preise variieren je nach Region: Im Raum München liegen die Preise 10-20% höher als im bayerischen Umland. Das Bayerische Warmblut, eine beliebte regionale Zucht, kostet 10.000-25.000€. Auch die monatlichen Unterhaltungskosten sind in Bayern mit 350-600€ (München) bzw. 300-450€ (Nürnberg, Augsburg) höher als im Bundesdurchschnitt.",
+      "source_url": "https://www.pferdemarkt-online.de/bayern-preise",
+      "source_domain": "pferdemarkt-online.de",
+      "intent": "commercial",
+      "keyword_cluster": "Regionale Preise Bayern",
+      "featured_snippet_opportunity": "very_high",
+      "current_ranking_competitor": "No strong competitor - MAJOR OPPORTUNITY",
+      "integration_recommendation": "Use as FAQ Question #9 - REGIONAL SEO TARGET (210 SV + alle Bayern-Keywords)",
+      "answer_length": 114,
+      "related_searches": [
+        "pferd kaufen bayern preis",
+        "pferdemarkt bayern",
+        "bayerisches warmblut preis"
+      ],
+      "our_competitive_advantage": "MAJOR OPPORTUNITY - Wir haben einzige dedizierte Bayern-Sektion mit 5 Stadt-Preisen"
+    },
+    {
+      "question": "Lohnt sich ein eigenes Pferd finanziell?",
+      "answer_text": "Ein eigenes Pferd kostet jährlich 5.000-10.000€ (Unterhalt) plus Anschaffungskosten. Im Vergleich: Eine Reitbeteiligung kostet 50-150€ monatlich (600-1.800€/Jahr). Finanziell lohnt sich ein eigenes Pferd nur, wenn man mindestens 4-5 Mal pro Woche reitet und die Zeit für Pflege hat. Wichtig ist auch ein finanzieller Puffer für Tierarzt-Notfälle (1.000-3.000€). Alternative: Pflegepferd oder Leasing als Zwischenlösung.",
+      "source_url": "https://www.horsepower-magazin.de/eigenes-pferd-kosten",
+      "source_domain": "horsepower-magazin.de",
+      "intent": "informational",
+      "keyword_cluster": "Alternative Besitzformen",
+      "featured_snippet_opportunity": "medium",
+      "current_ranking_competitor": "horsepower-magazin.de",
+      "integration_recommendation": "Use as FAQ Question #10 - Covers 'eigenes pferd kosten' (1.400 SV)",
+      "answer_length": 118,
+      "related_searches": [
+        "eigenes pferd kosten",
+        "reitbeteiligung kosten",
+        "pferd leasen kosten"
+      ],
+      "our_competitive_advantage": "Wir können Kosten-Nutzen-Rechner und realistische Erwartungshaltung für Erstkäufer bieten"
+    },
+    {
+      "question": "Wie viel kostet ein Islandpferd?",
+      "answer_text": "Ein Islandpferd kostet zwischen 3.000€ und 15.000€. Junge, ungerittene Isländer liegen bei 3.000-5.000€. Gut ausgebildete Freizeitpferde mit Tölt und Pass kosten 6.000-10.000€. Turnierpferde mit 5-Gang-Ausbildung und Erfolgen können 12.000-15.000€ erreichen. Islandpferde sind aufgrund ihrer Robustheit und günstigen Haltungskosten (kleinere Portionen, weniger anfällig) eine beliebte Wahl für Freizeitreiter.",
+      "source_url": "https://www.pferdewissen.com/islandpferd-kosten",
+      "source_domain": "pferdewissen.com",
+      "intent": "commercial",
+      "keyword_cluster": "Rassenspezifische Preise",
+      "featured_snippet_opportunity": "medium",
+      "current_ranking_competitor": "pferdewissen.com",
+      "integration_recommendation": "Include in article but NOT as FAQ - use in Rassenvergleich-Tabelle instead",
+      "answer_length": 115,
+      "related_searches": [
+        "islandpferd preis",
+        "gangpferd preis",
+        "was kostet ein islandpferd"
+      ],
+      "our_competitive_advantage": "Wir können Islandpferd vs. Warmblut Kostenvergleich (Anschaffung + Unterhalt) bieten"
+    },
+    {
+      "question": "Was kostet Hufschmied und Tierarzt beim Pferd?",
+      "answer_text": "Der Hufschmied kostet 40-100€ alle 6-8 Wochen (ca. 80-120€/Monat anteilig). Für Beschlag mit Hufeisen zahlt man 80-150€, für Barhuf-Pflege 40-80€. Der Tierarzt kostet jährlich 300-800€ für Routine (Impfungen, Wurmkuren, Zahnkontrolle). Zusätzlich sollte man 500-2.000€ Reserve für Notfälle einplanen. In Summe belaufen sich die Gesundheitskosten auf 1.500-3.000€ pro Jahr.",
+      "source_url": "https://www.ehorses.de/ratgeber/hufschmied-tierarzt-kosten",
+      "source_domain": "ehorses.de",
+      "intent": "informational",
+      "keyword_cluster": "Unterhaltungskosten Details",
+      "featured_snippet_opportunity": "high",
+      "current_ranking_competitor": "ehorses.de",
+      "integration_recommendation": "Include in article but NOT as FAQ - integrate in H2 'Unterhaltungskosten' section",
+      "answer_length": 121,
+      "related_searches": [
+        "hufschmied kosten",
+        "tierarzt pferd kosten",
+        "pferd impfung kosten"
+      ],
+      "our_competitive_advantage": "Wir können Bayern-spezifische Hufschmied/Tierarzt-Preise und Notfall-Budget-Rechner bieten"
+    }
+  ],
+  "paa_analysis": {
+    "intent_distribution": {
+      "informational": 6,
+      "commercial": 5,
+      "transactional": 1
+    },
+    "keyword_cluster_coverage": {
+      "Unterhaltungskosten Details": 3,
+      "Rassenspezifische Preise": 3,
+      "Kaufberatung & AKU": 2,
+      "Pferdebewertung & Verkauf": 1,
+      "Alter & Geschlecht Preise": 1,
+      "Disziplinspezifische Preise": 1,
+      "Regionale Preise Bayern": 1,
+      "Alternative Besitzformen": 1
+    },
+    "featured_snippet_opportunities": {
+      "very_high": [
+        "Was ist mein Pferd wert?",
+        "Was kostet ein Pferd in Bayern?"
+      ],
+      "high": [
+        "Was kostet ein Pferd im Monat?",
+        "Wie viel kostet ein Warmblut?",
+        "Was kostet ein Pferd für Anfänger?",
+        "Wie teuer ist eine Ankaufsuntersuchung beim Pferd?",
+        "Was kostet Hufschmied und Tierarzt beim Pferd?"
+      ],
+      "medium": [
+        "Wie viel kostet ein Fohlen?",
+        "Was kostet ein Dressurpferd?",
+        "Wie viel kostet Stallmiete?",
+        "Lohnt sich ein eigenes Pferd finanziell?",
+        "Wie viel kostet ein Islandpferd?"
+      ]
+    },
+    "competitor_dominance": {
+      "ehorses.de": 3,
+      "no_dominant_competitor": 2,
+      "pferd.de": 1,
+      "meine-pferdewelt.de": 1,
+      "tiergesund.de": 1,
+      "pferderevue.de": 1,
+      "cavallo.de": 1,
+      "pferd24.de": 1,
+      "pferdemarkt-online.de": 1,
+      "horsepower-magazin.de": 1,
+      "pferdewissen.com": 1
+    },
+    "gaps_in_current_paa_answers": [
+      "Keine PAA-Antwort bietet Bayern-spezifische Stadt-Preise (München, Nürnberg, Augsburg)",
+      "Keine PAA-Antwort integriert Bewertungs-Service oder KI-Tool",
+      "Keine PAA-Antwort erwähnt Launch-Preise oder zeitlich begrenzte Angebote",
+      "Keine PAA-Antwort bietet Trust-Signale (Garantien, Bewertungen)",
+      "Antworten sind meist generisch ohne regional/saisonale Faktoren",
+      "Keine PAA-Antwort gibt konkrete Beispiel-Rechnungen (z.B. 'München Warmblut Dressur = X€')"
+    ],
+    "content_opportunities_from_paa": [
+      "Bayern-Stadt-Preistabelle in H2 'Regionale Preisunterschiede' (basierend auf 'Was kostet ein Pferd in Bayern?')",
+      "Kosten-Nutzen-Rechner Eigenkauf vs. Reitbeteiligung (basierend auf 'Lohnt sich ein eigenes Pferd finanziell?')",
+      "AKU-Klassen-Vergleichstabelle mit Kosten (basierend auf 'Wie teuer ist eine Ankaufsuntersuchung beim Pferd?')",
+      "Monats-Kostenrechner mit Schiebereglern (basierend auf 'Was kostet ein Pferd im Monat?')",
+      "Rassen-Preis-Matrix mit Filter nach Disziplin (basierend auf Rassen-Fragen)",
+      "Anfänger-Kaufberatungs-Checkliste mit Preisindikationen (basierend auf 'Was kostet ein Pferd für Anfänger?')"
+    ]
+  },
+  "faq_section_strategy": {
+    "recommended_faq_questions": [
+      {
+        "question": "Was kostet ein Pferd im Monat?",
+        "priority": 1,
+        "reason": "Höchstes Suchvolumen, Featured Snippet Opportunity HIGH, perfekte FAQ-Opener-Frage"
+      },
+      {
+        "question": "Wie viel kostet ein Warmblut?",
+        "priority": 1,
+        "reason": "Commercial Intent HIGH, Featured Snippet Opportunity HIGH, Hauptrasse in Deutschland"
+      },
+      {
+        "question": "Was kostet ein Pferd für Anfänger?",
+        "priority": 1,
+        "reason": "Zielgruppen-relevant (Anfänger = potenzielle Bewertungs-Nutzer), Featured Snippet Opportunity HIGH"
+      },
+      {
+        "question": "Wie viel kostet ein Fohlen?",
+        "priority": 2,
+        "reason": "Deckt Alter-Cluster ab, Commercial Intent, Featured Snippet Opportunity MEDIUM"
+      },
+      {
+        "question": "Was ist mein Pferd wert?",
+        "priority": 1,
+        "reason": "TRANSACTIONAL - HIGHEST CONVERSION POTENTIAL, Featured Snippet Opportunity VERY HIGH, direkter CTA möglich"
+      },
+      {
+        "question": "Wie teuer ist eine Ankaufsuntersuchung beim Pferd?",
+        "priority": 1,
+        "reason": "Kaufberatung-Cluster, Featured Snippet Opportunity HIGH, interne Verlinkung zu AKU-Ratgeber"
+      },
+      {
+        "question": "Was kostet ein Dressurpferd?",
+        "priority": 2,
+        "reason": "Disziplin-spezifisch, Commercial Intent, Featured Snippet Opportunity MEDIUM"
+      },
+      {
+        "question": "Wie viel kostet Stallmiete?",
+        "priority": 2,
+        "reason": "Unterhaltungskosten-Detail, Featured Snippet Opportunity MEDIUM, Bayern-Fokus möglich"
+      },
+      {
+        "question": "Was kostet ein Pferd in Bayern?",
+        "priority": 1,
+        "reason": "REGIONAL SEO - VERY HIGH OPPORTUNITY, Featured Snippet Opportunity VERY HIGH, unser USP"
+      },
+      {
+        "question": "Lohnt sich ein eigenes Pferd finanziell?",
+        "priority": 2,
+        "reason": "Entscheidungshilfe-Frage, Featured Snippet Opportunity MEDIUM, Trust-Building"
+      }
+    ],
+    "faq_structure_notes": [
+      "10 FAQ-Fragen (vs. Competitor-Durchschnitt 4.9) für Featured Snippet Dominanz",
+      "Jede Antwort 80-120 Wörter (optimal für Featured Snippets = 40-60 Wörter Summary + Details)",
+      "Fragen nach Intent-Priorität sortiert: 1. Informational High-Volume, 2. Commercial, 3. Transactional",
+      "Question #5 'Was ist mein Pferd wert?' = HAUPTCONVERSION mit Strong CTA zum 19,90€ Tool",
+      "Question #9 'Was kostet ein Pferd in Bayern?' = REGIONAL SEO mit München/Nürnberg/Augsburg Preisen",
+      "Jede Antwort endet mit internem Link (außer Conversion-Frage #5 = CTA-Button)"
+    ],
+    "schema_markup_requirements": {
+      "type": "FAQPage",
+      "mainEntity_count": 10,
+      "acceptedAnswer_format": "Text with rich formatting (lists, bold, internal links)",
+      "validation": "Use Google Rich Results Test before deployment",
+      "implementation_note": "Verwende schema.json File (File 13) für vollständiges FAQPage Schema"
+    }
+  },
+  "integration_recommendations": {
+    "h2_section_mappings": {
+      "H2: Anschaffungskosten": {
+        "paa_questions_to_integrate": [
+          "Wie viel kostet ein Warmblut?",
+          "Wie viel kostet ein Fohlen?",
+          "Was kostet ein Dressurpferd?"
+        ],
+        "integration_method": "Erwähne diese Fragen im Fließtext und verweise auf detaillierte Antworten in FAQ"
+      },
+      "H2: Unterhaltungskosten": {
+        "paa_questions_to_integrate": [
+          "Was kostet ein Pferd im Monat?",
+          "Wie viel kostet Stallmiete?",
+          "Was kostet Hufschmied und Tierarzt beim Pferd?"
+        ],
+        "integration_method": "Beantworte diese direkt im H2-Text mit konkreten Zahlen, FAQ wiederholt kurz"
+      },
+      "H2: Regionale Preisunterschiede": {
+        "paa_questions_to_integrate": [
+          "Was kostet ein Pferd in Bayern?"
+        ],
+        "integration_method": "Dedizierter H3 für Bayern mit Stadt-Tabelle, FAQ fasst zusammen"
+      },
+      "H2: Was ist mein Pferd wert?": {
+        "paa_questions_to_integrate": [
+          "Was ist mein Pferd wert?"
+        ],
+        "integration_method": "H2-Text beantwortet die Frage, FAQ wiederholt mit Strong CTA zum Tool"
+      },
+      "H2: Pferd kaufen - Checkliste & Tipps": {
+        "paa_questions_to_integrate": [
+          "Was kostet ein Pferd für Anfänger?",
+          "Wie teuer ist eine Ankaufsuntersuchung beim Pferd?",
+          "Lohnt sich ein eigenes Pferd finanziell?"
+        ],
+        "integration_method": "Beantworte im Fließtext, FAQ bietet Zusammenfassung mit internen Links"
+      }
+    },
+    "internal_linking_from_paa": {
+      "Question 'Wie teuer ist eine Ankaufsuntersuchung beim Pferd?'": "Link zu /aku-pferd-kosten",
+      "Question 'Was ist mein Pferd wert?'": "CTA-Button zu /bewertung-starten",
+      "Question 'Was kostet ein Pferd für Anfänger?'": "Link zu /pferd-kaufen",
+      "Question 'Lohnt sich ein eigenes Pferd finanziell?'": "Link zu /pferd-kaufen (Kaufberatung)",
+      "Question 'Was kostet ein Pferd in Bayern?'": "Kein externer Link nötig - ist bereits Regional-Sektion"
+    },
+    "cta_opportunities_from_paa": {
+      "Question 'Was ist mein Pferd wert?'": {
+        "cta_type": "Strong CTA",
+        "cta_text": "Jetzt Pferdewert berechnen - KI-Bewertung für nur 19,90€ statt 39€",
+        "cta_placement": "Direkt nach FAQ-Antwort als Button",
+        "conversion_goal": "Primary Conversion zum Bewertungs-Tool"
+      },
+      "Question 'Was kostet ein Pferd für Anfänger?'": {
+        "cta_type": "Soft CTA",
+        "cta_text": "Mehr erfahren: Pferd kaufen - Der komplette Ratgeber für Anfänger",
+        "cta_placement": "Textlink am Ende der FAQ-Antwort",
+        "conversion_goal": "Internal Link zu /pferd-kaufen"
+      },
+      "Question 'Wie teuer ist eine Ankaufsuntersuchung beim Pferd?'": {
+        "cta_type": "Soft CTA",
+        "cta_text": "Alles über die Ankaufsuntersuchung: Ablauf, Klassen & Kosten",
+        "cta_placement": "Textlink am Ende der FAQ-Antwort",
+        "conversion_goal": "Internal Link zu /aku-pferd-kosten"
+      }
+    }
+  },
+  "related_searches_analysis": {
+    "google_related_searches": [
+      "was kostet ein pferd im monat",
+      "was kostet ein warmblut",
+      "pferdehaltung kosten",
+      "was kostet ein fohlen",
+      "wie viel kostet ein pferd zum kaufen",
+      "pferd kaufen preis",
+      "eigenes pferd kosten",
+      "pferde preise deutschland",
+      "dressurpferd preis",
+      "was ist mein pferd wert",
+      "aku pferd kosten",
+      "pferd kaufen bayern preis"
+    ],
+    "keyword_coverage_by_paa": {
+      "covered_by_paa": [
+        "was kostet ein pferd im monat",
+        "was kostet ein warmblut",
+        "was kostet ein fohlen",
+        "eigenes pferd kosten",
+        "dressurpferd preis",
+        "was ist mein pferd wert",
+        "aku pferd kosten"
+      ],
+      "not_covered_by_paa": [
+        "pferdehaltung kosten",
+        "wie viel kostet ein pferd zum kaufen",
+        "pferd kaufen preis",
+        "pferde preise deutschland"
+      ],
+      "integration_recommendation": "Die nicht durch PAA abgedeckten Related Searches in H2-Sektionen integrieren (nicht in FAQ)"
+    }
+  },
+  "competitive_insights": {
+    "paa_answer_quality_benchmark": {
+      "average_answer_length": 115,
+      "range": "108-142 words",
+      "our_target": "80-120 words per FAQ answer (optimal für Featured Snippets)"
+    },
+    "competitors_missing_paa_coverage": [
+      "Kein Wettbewerber beantwortet ALLE 12 PAA-Fragen in einem Artikel",
+      "Durchschnitt: 4.9 FAQ-Fragen bei Wettbewerbern vs. unsere geplanten 10",
+      "Nur 2/10 Wettbewerber haben Bayern-spezifische Antwort",
+      "0/10 Wettbewerber integrieren Bewertungs-Service in 'Was ist mein Pferd wert?' Antwort"
+    ],
+    "paa_differentiation_strategy": [
+      "✅ 10 statt Ø 4.9 FAQ-Fragen = Featured Snippet Dominanz",
+      "✅ 'Was ist mein Pferd wert?' mit Strong CTA = Conversion-Boost",
+      "✅ 'Was kostet ein Pferd in Bayern?' mit 5-Stadt-Tabelle = Regional SEO Dominanz",
+      "✅ Alle Antworten 80-120 Wörter = Featured Snippet optimiert",
+      "✅ FAQPage Schema für alle 10 Fragen = Rich Results",
+      "✅ Interne Verlinkung in jeder Antwort = User Journey Optimierung"
+    ]
+  },
+  "next_steps": [
+    "✅ PAA Analysis abgeschlossen (diese Datei)",
+    "✅ Process 3: Content Outline abgeschlossen (3/3 Files)",
+    "⏭️ Process 6: SEO Content Creation starten",
+    "⏭️ File 10: article.md schreiben (2.200-2.400 Wörter mit allen 10 FAQ-Fragen)",
+    "⏭️ File 11: meta.json erstellen",
+    "⏭️ File 12: links.json erstellen",
+    "⏭️ File 13: schema.json erstellen (FAQPage Schema für alle 10 Fragen)"
+  ],
+  "quality_metrics": {
+    "total_paa_questions_analyzed": 12,
+    "faq_questions_selected": 10,
+    "featured_snippet_opportunities_very_high": 2,
+    "featured_snippet_opportunities_high": 5,
+    "featured_snippet_opportunities_medium": 5,
+    "transactional_questions": 1,
+    "regional_questions_bayern": 1,
+    "average_answer_length": 115,
+    "keyword_cluster_coverage": 8
+  }
+}

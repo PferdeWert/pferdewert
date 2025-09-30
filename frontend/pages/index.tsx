@@ -135,10 +135,10 @@ export default function PferdeWertHomepage() {
         <meta httpEquiv="content-language" content="de" />
 
         {/* Primary Meta Tags */}
-        <title>Pferde Preis berechnen: KI-basierte Pferdebewertung | PferdeWert</title>
+        <title>Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de</title>
         <meta
           name="description"
-          content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise. Jetzt starten!"
+          content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten."
         />
         <meta name="keywords" content="pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdepreise, was ist mein pferd wert, pferd preis, pferdemarkt preise, pferde bewertung" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -155,8 +155,8 @@ export default function PferdeWertHomepage() {
         <meta property="og:site_name" content="PferdeWert" />
         <meta property="og:locale" content="de_DE" />
         <meta property="og:url" content="https://pferdewert.de/" />
-        <meta property="og:title" content="Pferde Preis berechnen: KI-basierte Pferdebewertung | PferdeWert" />
-        <meta property="og:description" content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise. Jetzt starten!" />
+        <meta property="og:title" content="Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de" />
+        <meta property="og:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
         <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
         <meta property="og:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
         <meta property="og:image:width" content="1200" />
@@ -164,8 +164,8 @@ export default function PferdeWertHomepage() {
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferde Preis berechnen ✓ KI-basierte Pferdebewertung | PferdeWert" />
-        <meta name="twitter:description" content="Pferdepreis berechnen mit KI: Ermitteln Sie den Marktwert Ihres Pferdes in 2 Minuten. Professionelle Pferdebewertung für faire Marktpreise." />
+        <meta name="twitter:title" content="Was ist mein Pferd wert? ✓ KI-Pferdebewertung | PferdeWert.de" />
+        <meta name="twitter:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
         <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
 
@@ -313,11 +313,11 @@ export default function PferdeWertHomepage() {
                     🏆 #1 Online Pferdebewertung
                   </div>
                   <h1 className="text-h1 font-bold text-gray-900">
-                    <span className="text-brand-brown">Pferdepreis</span> berechnen: Wie viel ist mein Pferd wert?
+                    Wie viel ist mein <span className="text-brand-brown">Pferd wert?</span>
                   </h1>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Du fragst dich &ldquo;Wie viel ist mein Pferd wert?&rdquo; Unsere KI-Pferdebewertung gibt dir eine
-                    präzise Antwort in nur 2 Minuten. Entwickelt von Reitern für Reiter – transparent und vertrauenswürdig.
+                    Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung.
+                    Entwickelt von Reitern für Reiter – präzise Analyse in nur 2 Minuten.
                   </p>
                 </div>
 
@@ -562,7 +562,7 @@ export default function PferdeWertHomepage() {
                 href="/pferde-preis-berechnen"
                 className="btn-primary text-lg px-8 py-4"
               >
-                Jetzt Pferdepreis berechnen
+                Jetzt Pferdewert berechnen
               </Link>
             </div>
           </div>

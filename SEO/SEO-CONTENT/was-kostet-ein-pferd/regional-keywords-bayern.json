@@ -1,0 +1,230 @@
+{
+  "target_keyword": "was kostet ein pferd",
+  "region": "Bayern",
+  "date_created": "2025-09-29",
+  "language": "de",
+  "regional_keywords": [
+    {
+      "keyword": "was kostet ein pferd bayern",
+      "search_volume": 210,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "pferd kaufen bayern preis",
+      "search_volume": 390,
+      "intent": "commercial",
+      "priority": 1,
+      "competition": "medium",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "pferde preise münchen",
+      "search_volume": 170,
+      "intent": "informational",
+      "priority": 2,
+      "competition": "low",
+      "local_modifier": "münchen"
+    },
+    {
+      "keyword": "pferd kaufen münchen",
+      "search_volume": 880,
+      "intent": "commercial",
+      "priority": 1,
+      "competition": "high",
+      "local_modifier": "münchen"
+    },
+    {
+      "keyword": "pferdemarkt bayern",
+      "search_volume": 320,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "warmblut bayern preis",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "pferd kaufen oberbayern",
+      "search_volume": 260,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "local_modifier": "oberbayern"
+    },
+    {
+      "keyword": "pferd kaufen nürnberg",
+      "search_volume": 480,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "local_modifier": "nürnberg"
+    },
+    {
+      "keyword": "pferd kaufen augsburg",
+      "search_volume": 320,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "medium",
+      "local_modifier": "augsburg"
+    },
+    {
+      "keyword": "pferd kaufen regensburg",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "regensburg"
+    },
+    {
+      "keyword": "pferd kaufen würzburg",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "würzburg"
+    },
+    {
+      "keyword": "pferd kaufen niederbayern",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "niederbayern"
+    },
+    {
+      "keyword": "pferd kaufen schwaben",
+      "search_volume": 110,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "schwaben"
+    },
+    {
+      "keyword": "pferd kaufen franken",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "franken"
+    },
+    {
+      "keyword": "stallmiete bayern",
+      "search_volume": 260,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "pferdehaltung kosten bayern",
+      "search_volume": 90,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "reitstall münchen preise",
+      "search_volume": 210,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "medium",
+      "local_modifier": "münchen"
+    },
+    {
+      "keyword": "pferdezucht bayern",
+      "search_volume": 390,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "warmblut züchter bayern",
+      "search_volume": 170,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "medium",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "bayerisches warmblut preis",
+      "search_volume": 140,
+      "intent": "commercial",
+      "priority": 2,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "süddeutsches kaltblut preis",
+      "search_volume": 70,
+      "intent": "commercial",
+      "priority": 4,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "haflinger bayern kaufen",
+      "search_volume": 110,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "aku tierarzt münchen kosten",
+      "search_volume": 90,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "münchen"
+    },
+    {
+      "keyword": "pferdeklinik bayern",
+      "search_volume": 320,
+      "intent": "informational",
+      "priority": 3,
+      "competition": "medium",
+      "local_modifier": "bayern"
+    },
+    {
+      "keyword": "turnierpferd bayern",
+      "search_volume": 110,
+      "intent": "commercial",
+      "priority": 3,
+      "competition": "low",
+      "local_modifier": "bayern"
+    }
+  ],
+  "total_keywords": 25,
+  "analysis": {
+    "primary_intents": {
+      "informational": 8,
+      "commercial": 17
+    },
+    "priority_distribution": {
+      "priority_1": 2,
+      "priority_2": 8,
+      "priority_3": 14,
+      "priority_4": 1
+    },
+    "estimated_total_search_volume": 5820,
+    "top_cities": [
+      "München",
+      "Nürnberg",
+      "Augsburg",
+      "Regensburg",
+      "Würzburg"
+    ],
+    "regional_focus": "Bayern ist eine der pferdestärksten Regionen Deutschlands mit traditioneller Pferdezucht und hoher Nachfrage nach Warm- und Kaltblütern."
+  }
+}

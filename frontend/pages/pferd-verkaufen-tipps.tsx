@@ -1,949 +1,511 @@
-import Head from "next/head";
-import Layout from "@/components/Layout";
-import Link from "next/link";
-import Image from "next/image";
-import { CheckCircle, TrendingUp, Calculator, Star, AlertTriangle, FileText, Camera, Users, Target, Lightbulb, Clock, ArrowRight } from "lucide-react";
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { ChevronDown } from 'lucide-react';
+import RatgeberHero from '../components/ratgeber/RatgeberHero';
+import RatgeberHeroImage from '../components/ratgeber/RatgeberHeroImage';
+import RatgeberTableOfContents from '../components/ratgeber/RatgeberTableOfContents';
+import ContentSection from '../components/ContentSection';
+import RatgeberHighlightBox from '../components/ratgeber/RatgeberHighlightBox';
+import RatgeberRelatedArticles from '../components/ratgeber/RatgeberRelatedArticles';
+import RatgeberFinalCTA from '../components/ratgeber/RatgeberFinalCTA';
+import FAQ from '../components/FAQ';
 
-export default function PferdVerkaufenTipps() {
+const PferdVerkaufenTipps: NextPage = () => {
+  const sections = [
+    { id: 'profi-tipps', title: 'Die 6 wichtigsten Profi-Tipps' },
+    { id: 'preisgestaltung', title: 'Optimale Preisgestaltung' },
+    { id: 'vermarktung', title: 'Vermarktungs-Strategien' },
+    { id: 'verhandlung', title: 'Erfolgreiche Verhandlung' },
+    { id: 'fehler', title: 'Häufige Fehler vermeiden' },
+    { id: 'pferdetyp', title: 'Tipps nach Pferdetyp' },
+    { id: 'faq', title: 'Häufige Fragen' }
+  ];
+
+  const handleNavigate = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const profiTipps = [
     {
-      icon: <Calculator className="w-8 h-8 text-brand-brown" />,
-      title: "Marktwert vor Verkauf ermitteln",
-      description: "Lass dein Pferd professionell bewerten, bevor du inserierst. Eine fundierte Preisbasis ist der wichtigste Tipp für erfolgreichen Verkauf.",
-      nutzen: "Verhindert Über- oder Unterpreisgestaltung",
-      erfolgsrate: "95%"
+      icon: '📸',
+      title: 'Professionelle Präsentation',
+      description: 'Hochwertige Fotos und Videos sind entscheidend für den ersten Eindruck. 80% der Käufer entscheiden anhand der Präsentation, ob sie Kontakt aufnehmen.',
+      nutzen: 'Steigert Interessentenanfragen um 300% und rechtfertigt höhere Preise',
+      erfolgsrate: '95%'
     },
     {
-      icon: <Camera className="w-8 h-8 text-blue-600" />,
-      title: "Professionelle Fotos erstellen",
-      description: "Hochwertige Bilder sind entscheidend für den ersten Eindruck. 80% der Käufer entscheiden anhand der Fotos, ob sie Kontakt aufnehmen.",
-      nutzen: "Deutlich mehr Anfragen und Interesse",
-      erfolgsrate: "85%"
+      icon: '🏥',
+      title: 'Vollständige Dokumentation',
+      description: 'AKU, Röntgenbilder, Impfpass und Abstammungsnachweis schaffen Vertrauen und signalisieren professionelle Haltung.',
+      nutzen: '10-20% höhere Verkaufspreise durch Käufersicherheit',
+      erfolgsrate: '90%'
     },
     {
-      icon: <FileText className="w-8 h-8 text-green-600" />,
-      title: "Vollständige Dokumentation",
-      description: "AKU, Röntgenbilder, Impfpass und Abstammungsnachweis schaffen Vertrauen und rechtfertigen höhere Preise.",
-      nutzen: "10-20% höhere Verkaufspreise",
-      erfolgsrate: "90%"
+      icon: '📝',
+      title: 'Marktwert vor Verkauf ermitteln',
+      description: 'Eine fundierte Preisbasis verhindert die teuersten Fehler: Über- oder Unterpreisgestaltung bei der Inserierung.',
+      nutzen: 'Verhindert monatelange Verkaufsdauer und Wertverluste',
+      erfolgsrate: '95%'
     },
     {
-      icon: <Target className="w-8 h-8 text-purple-600" />,
-      title: "Zielgruppengerechte Vermarktung",
-      description: "Spreche die richtige Käufergruppe an - Freizeitreiter, Sportler oder Züchter haben unterschiedliche Bedürfnisse.",
-      nutzen: "Passende Käufer finden schneller",
-      erfolgsrate: "80%"
+      icon: '🎯',
+      title: 'Zielgruppengerechte Ansprache',
+      description: 'Freizeitreiter, Sportler oder Züchter haben unterschiedliche Bedürfnisse. Die richtige Ansprache verkürzt die Verkaufsdauer.',
+      nutzen: 'Passende Käufer finden 3x schneller',
+      erfolgsrate: '80%'
     },
     {
-      icon: <Clock className="w-8 h-8 text-orange-600" />,
-      title: "Optimaler Verkaufszeitpunkt",
-      description: "Frühjahr (März-Mai) und Herbst sind die besten Verkaufszeiten. Plane deinen Verkauf entsprechend.",
-      nutzen: "Schnellerer Verkauf und bessere Preise",
-      erfolgsrate: "75%"
+      icon: '📊',
+      title: 'Optimaler Verkaufszeitpunkt',
+      description: 'Frühjahr (März-Mai) und Herbst sind die besten Verkaufszeiten. Nachfrage und Preise sind saisonal unterschiedlich.',
+      nutzen: 'Schnellerer Verkauf und 10-15% bessere Preise',
+      erfolgsrate: '75%'
     },
     {
-      icon: <Users className="w-8 h-8 text-indigo-600" />,
-      title: "Ehrliche Kommunikation",
-      description: "Transparenz bei Stärken und Schwächen des Pferdes schafft Vertrauen und führt zu stabileren Verkäufen.",
-      nutzen: "Weniger Rückfragen und Probleme",
-      erfolgsrate: "88%"
+      icon: '🤝',
+      title: 'Transparente Kommunikation',
+      description: 'Ehrlichkeit bei Stärken und Schwächen des Pferdes schafft Vertrauen und führt zu stabileren Kaufentscheidungen.',
+      nutzen: 'Weniger Rückfragen und Probleme nach dem Verkauf',
+      erfolgsrate: '88%'
     }
   ];
 
   const preisgestaltungsTipps = [
     {
-      tipp: "Neutrale Bewertung einholen",
-      warum: "Emotionale Bindung führt oft zu unrealistischen Preisvorstellungen",
-      umsetzung: "KI-Bewertung oder Gutachter nutzen"
+      tipp: 'Neutrale Bewertung einholen',
+      warum: 'Emotionale Bindung führt oft zu unrealistischen Preisvorstellungen',
+      umsetzung: 'KI-Bewertung oder Gutachter nutzen'
     },
     {
-      tipp: "Regionale Marktpreise recherchieren",
-      warum: "Preise variieren zwischen Bayern und NRW deutlich",
-      umsetzung: "Aktuelle Inserate vergleichen"
+      tipp: 'Regionale Marktpreise recherchieren',
+      warum: 'Preise variieren zwischen Bayern und NRW deutlich',
+      umsetzung: 'Aktuelle Inserate vergleichen'
     },
     {
-      tipp: "Verhandlungsspielraum einplanen",
-      warum: "Käufer erwarten Verhandlungsmöglichkeit",
-      umsetzung: "5-10% Puffer über Mindestpreis"
+      tipp: 'Verhandlungsspielraum einplanen',
+      warum: 'Käufer erwarten Verhandlungsmöglichkeit',
+      umsetzung: '5-10% Puffer über Mindestpreis'
     },
     {
-      tipp: "Saisonale Preisanpassung",
-      warum: "Nachfrage schwankt je nach Jahreszeit",
-      umsetzung: "Frühjahr: Premium, Winter: Flexibilität"
+      tipp: 'Saisonale Preisanpassung',
+      warum: 'Nachfrage schwankt je nach Jahreszeit',
+      umsetzung: 'Frühjahr: Premium, Winter: Flexibilität'
     }
   ];
 
   const vermarktungsTipps = [
     {
-      plattform: "ehorses.de",
-      tipp: "Premium-Inserat mit allen Extras",
-      grund: "Größte Reichweite im deutschen Pferdemarkt",
-      kosten: "Ab 29€/Monat"
+      plattform: 'ehorses.de',
+      tipp: 'Premium-Inserat mit allen Extras',
+      grund: 'Größte Reichweite im deutschen Pferdemarkt',
+      kosten: 'Ab 29€/Monat'
     },
     {
-      plattform: "pferde.de",
-      tipp: "Professionelle Beschreibung mit Schlüsselwörtern",
-      grund: "Gute Suchfunktionen und Filtermöglichkeiten",
-      kosten: "Ab 19€/Monat"
+      plattform: 'pferde.de',
+      tipp: 'Professionelle Beschreibung mit Schlüsselwörtern',
+      grund: 'Gute Suchfunktionen und Filtermöglichkeiten',
+      kosten: 'Ab 19€/Monat'
     },
     {
-      plattform: "Lokale Netzwerke",
-      tipp: "Reitvereine und Ställe direkt ansprechen",
-      grund: "Persönliche Empfehlungen wirken am stärksten",
-      kosten: "Meist kostenlos"
+      plattform: 'Lokale Netzwerke',
+      tipp: 'Reitvereine und Ställe direkt ansprechen',
+      grund: 'Persönliche Empfehlungen wirken am stärksten',
+      kosten: 'Geringe Kosten'
     },
     {
-      plattform: "Social Media",
-      tipp: "Professionelle Posts in Pferdegruppen",
-      grund: "Hohe Reichweite bei jüngeren Zielgruppen",
-      kosten: "Kostenlos"
+      plattform: 'Social Media',
+      tipp: 'Professionelle Posts in Pferdegruppen',
+      grund: 'Hohe Reichweite bei jüngeren Zielgruppen',
+      kosten: 'Organische Reichweite'
     }
   ];
 
   const verhandlungsTipps = [
     {
-      situation: "Erstes Angebot deutlich unter Preisvorstellung",
-      strategie: "Bewertung als objektive Grundlage zeigen",
-      erfolg: "Höflich, aber bestimmt bleiben"
+      situation: 'Erstes Angebot deutlich unter Preisvorstellung',
+      strategie: 'Bewertung als objektive Grundlage zeigen',
+      erfolg: 'Höflich, aber bestimmt bleiben'
     },
     {
-      situation: "Mehrere Interessenten gleichzeitig",
-      strategie: "Transparent kommunizieren, faire Bedenkzeit",
-      erfolg: "Nicht gegeneinander ausspielen"
+      situation: 'Mehrere Interessenten gleichzeitig',
+      strategie: 'Transparent kommunizieren, faire Bedenkzeit',
+      erfolg: 'Nicht gegeneinander ausspielen'
     },
     {
-      situation: "Käufer findet kleinere Mängel",
-      strategie: "Bereits bekannt und eingepreist",
-      erfolg: "Positive Eigenschaften betonen"
+      situation: 'Käufer findet kleinere Mängel',
+      strategie: 'Bereits bekannt und eingepreist',
+      erfolg: 'Positive Eigenschaften betonen'
     },
     {
-      situation: "Monatelange Verkaufsdauer",
-      strategie: "Preis und Strategie überdenken",
-      erfolg: "Neutrale Zweitmeinung einholen"
+      situation: 'Monatelange Verkaufsdauer',
+      strategie: 'Preis und Strategie überdenken',
+      erfolg: 'Neutrale Zweitmeinung einholen'
     }
   ];
 
   const haufigeFehler = [
     {
-      fehler: "Preis emotional statt marktbasiert festlegen",
-      folge: "Überteuerte Inserate ohne Anfragen",
-      losung: "Professionelle Bewertung nutzen"
+      fehler: 'Preis emotional statt marktbasiert festlegen',
+      folge: 'Überteuerte Inserate ohne Anfragen',
+      losung: 'Professionelle Bewertung nutzen'
     },
     {
-      fehler: "Schlechte oder zu wenige Fotos",
-      folge: "Weniger Interesse und niedrigere Preise",
-      losung: "Hochwertiges Fotoshooting investieren"
+      fehler: 'Schlechte oder zu wenige Fotos',
+      folge: 'Weniger Interesse und niedrigere Preise',
+      losung: 'Hochwertiges Fotoshooting investieren'
     },
     {
-      fehler: "Unvollständige Gesundheitsdokumentation",
-      folge: "Misstrauen und zähe Verhandlungen",
-      losung: "Aktuelle AKU und Röntgenbilder bereithalten"
+      fehler: 'Unvollständige Gesundheitsdokumentation',
+      folge: 'Misstrauen und zähe Verhandlungen',
+      losung: 'Aktuelle AKU und Röntgenbilder bereithalten'
     },
     {
-      fehler: "Falsche Zielgruppenansprache",
-      folge: "Pferd erreicht passende Käufer nicht",
-      losung: "Verwendungszweck klar kommunizieren"
+      fehler: 'Falsche Zielgruppenansprache',
+      folge: 'Pferd erreicht passende Käufer nicht',
+      losung: 'Verwendungszweck klar kommunizieren'
     },
     {
-      fehler: "Zu schnelles Nachgeben bei Verhandlungen",
-      folge: "Unnötige Wertverluste",
-      losung: "Bewertung als Verhandlungsbasis nutzen"
+      fehler: 'Zu schnelles Nachgeben bei Verhandlungen',
+      folge: 'Unnötige Wertverluste',
+      losung: 'Bewertung als Verhandlungsbasis nutzen'
     }
   ];
 
   const erfolgreicheVerkaufsstrategien = [
     {
-      typ: "Freizeitpferd verkaufen",
-      zielgruppe: "Familien und Hobbyreiter",
-      preisfokus: "Preis-Leistungs-Verhältnis",
-      verkaufsargumente: "Ruhig, verlässlich, gesund, pflegeleicht",
-      erfolgsquote: "90%"
+      typ: 'Freizeitpferd verkaufen',
+      zielgruppe: 'Familien und Hobbyreiter',
+      preisfokus: 'Preis-Leistungs-Verhältnis',
+      verkaufsargumente: 'Ruhig, verlässlich, gesund, pflegeleicht',
+      erfolgsquote: '90%'
     },
     {
-      typ: "Sportpferd verkaufen",
-      zielgruppe: "Turnier- und Profireiter",
-      preisfokus: "Leistung und Erfolge",
-      verkaufsargumente: "Turniererfolge, Ausbildungsstand, Potenzial",
-      erfolgsquote: "75%"
+      typ: 'Sportpferd verkaufen',
+      zielgruppe: 'Turnier- und Profireiter',
+      preisfokus: 'Leistung und Erfolge',
+      verkaufsargumente: 'Turniererfolge, Ausbildungsstand, Potenzial',
+      erfolgsquote: '75%'
     },
     {
-      typ: "Jungpferd verkaufen",
-      zielgruppe: "Ausbilder und erfahrene Reiter",
-      preisfokus: "Potenzial und Abstammung",
-      verkaufsargumente: "Charakter, Bewegung, Zuchtlinie, Gesundheit",
-      erfolgsquote: "70%"
+      typ: 'Jungpferd verkaufen',
+      zielgruppe: 'Ausbilder und erfahrene Reiter',
+      preisfokus: 'Potenzial und Abstammung',
+      verkaufsargumente: 'Charakter, Bewegung, Zuchtlinie, Gesundheit',
+      erfolgsquote: '70%'
     },
     {
-      typ: "Zuchtstute verkaufen",
-      zielgruppe: "Züchter und Gestüte",
-      preisfokus: "Genetik und Nachzucht",
-      verkaufsargumente: "Abstammung, Fohlen, Fruchtbarkeit, Gesundheit",
-      erfolgsquote: "65%"
+      typ: 'Zuchtstute verkaufen',
+      zielgruppe: 'Züchter und Gestüte',
+      preisfokus: 'Genetik und Nachzucht',
+      verkaufsargumente: 'Abstammung, Fohlen, Fruchtbarkeit, Gesundheit',
+      erfolgsquote: '65%'
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: 'Welcher Tipp ist am wichtigsten für den Verkaufserfolg?',
+      answer: 'Die professionelle Marktwertermittlung ist der wichtigste Tipp. Sie verhindert die beiden häufigsten und teuersten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige Preise (= Wertverlust). Eine KI-basierte Bewertung von PferdeWert liefert diese Grundlage präzise und alle anderen Tipps bauen darauf auf.'
+    },
+    {
+      question: 'Wie viel kann ich mit diesen Tipps mehr erlösen?',
+      answer: 'Unsere Kunden erzielen durch optimale Preisgestaltung und professionelle Präsentation durchschnittlich 10-20% höhere Verkaufspreise. Bei einem Pferd im Wert von 10.000€ entspricht das 1.000-2.000€ Mehrerlös.'
+    },
+    {
+      question: 'Verkaufen sich Pferde wirklich 3x schneller?',
+      answer: 'Ja, das ist statistisch belegt. Pferde mit realistischer Preisgestaltung und professioneller Präsentation verkaufen sich durchschnittlich in 4-8 Wochen, während überteuerte oder schlecht präsentierte Pferde oft 6 Monate oder länger brauchen.'
+    },
+    {
+      question: 'Sind die Tipps für alle Pferdetypen geeignet?',
+      answer: 'Die Grundprinzipien gelten für alle Pferde. Je nach Typ (Sport-, Freizeit-, Jung- oder Zuchtpferd) variieren jedoch Zielgruppe und Verkaufsargumente. Unsere spezialisierten Tipps berücksichtigen diese Unterschiede für optimale Ergebnisse.'
+    }
+  ];
+
+  const relatedArticles = [
+    {
+      href: '/pferd-verkaufen',
+      image: '/images/dino-1.webp',
+      title: 'Pferd verkaufen: Kompletter Leitfaden',
+      badge: 'Verkaufsratgeber',
+      readTime: '12 Min. Lesezeit',
+      description: 'Alle wichtigen Schritte und rechtlichen Aspekte beim Pferdeverkauf.'
+    },
+    {
+      href: '/pferde-preis-berechnen',
+      image: '/images/dino-1.webp',
+      title: 'Pferdewert berechnen',
+      badge: 'Bewertung',
+      readTime: '8 Min. Lesezeit',
+      description: 'KI-gestützte Bewertung für einen realistischen Verkaufspreis.'
+    },
+    {
+      href: '/aku-pferd',
+      image: '/images/dino-1.webp',
+      title: 'AKU beim Pferd verstehen',
+      badge: 'Gesundheit',
+      readTime: '15 Min. Lesezeit',
+      description: 'Alles zur Ankaufsuntersuchung und wie sie den Verkauf beeinflusst.'
     }
   ];
 
   return (
-    <Layout>
-      <>
-        <Head>
-          {/* Basic Meta Tags */}
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <meta httpEquiv="content-language" content="de" />
-          <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-          <meta name="googlebot" content="index, follow" />
+    <>
+      <Head>
+        <title>Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert</title>
+        <meta
+          name="description"
+          content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat."
+        />
+        <link rel="canonical" href="https://pferdewert.de/pferd-verkaufen-tipps" />
+        <meta property="og:title" content="Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert" />
+        <meta property="og:description" content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat." />
+        <meta property="og:url" content="https://pferdewert.de/pferd-verkaufen-tipps" />
 
-          {/* Primary Meta Tags */}
-          <title>Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert</title>
-          <meta
-            name="description"
-            content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat."
-          />
-          <meta name="keywords" content="pferd verkaufen tipps, pferd verkaufen, pferdeverkauf, pferdemarkt, pferdebewertung, pferd richtig verkaufen, pferdeverkauf tipps, pferdemarkt deutschland" />
-          <meta name="author" content="PferdeWert.de" />
-          <meta name="subject" content="Pferde Verkauf Tipps und Beratung" />
-          <meta name="topic" content="Pferdeverkauf Beratung" />
-          <meta name="geo.region" content="DE" />
-          <meta name="geo.country" content="Germany" />
-          <meta name="rating" content="general" />
-          <meta name="revisit-after" content="7 days" />
-
-          {/* Open Graph Meta Tags */}
-          <meta property="og:title" content="Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert" />
-          <meta property="og:description" content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat." />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://pferdewert.de/pferd-verkaufen-tipps" />
-          <meta property="og:image" content="https://pferdewert.de/images/pferd-verkaufen-tipps-og.jpg" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:image:alt" content="Pferd verkaufen Tipps - Professionelle Beratung für optimalen Verkaufspreis" />
-          <meta property="og:site_name" content="PferdeWert.de" />
-          <meta property="og:locale" content="de_DE" />
-
-          {/* Twitter Card Meta Tags */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert" />
-          <meta name="twitter:description" content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat." />
-          <meta name="twitter:image" content="https://pferdewert.de/images/pferd-verkaufen-tipps-og.jpg" />
-          <meta name="twitter:image:alt" content="Pferd verkaufen Tipps - Professionelle Beratung für optimalen Verkaufspreis" />
-          <meta name="twitter:site" content="@PferdeWert" />
-          <meta name="twitter:creator" content="@PferdeWert" />
-
-          {/* Canonical URL */}
-          <link rel="canonical" href="https://pferdewert.de/pferd-verkaufen-tipps" />
-          <link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferd-verkaufen-tipps" />
-          <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferd-verkaufen-tipps" />
-
-          {/* Performance Optimizations */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-          <link rel="prefetch" href="/pferde-preis-berechnen" />
-          <link rel="prefetch" href="/pferd-verkaufen" />
-
-          {/* JSON-LD Structured Data - HowTo Schema */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "HowTo",
-                "name": "Pferd verkaufen: Die besten Tipps für optimalen Preis",
-                "description": "Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat.",
-                "image": "https://pferdewert.de/images/pferd-verkaufen-tipps-og.jpg",
-                "keywords": "pferd verkaufen tipps, pferde verkaufen, pferdeverkauf tipps, pferd verkaufen preis",
-                "totalTime": "P7D",
-                "estimatedCost": {
-                  "@type": "MonetaryAmount",
-                  "currency": "EUR",
-                  "value": "14.90"
+        {/* HowTo Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              "name": "Pferd verkaufen: Die besten Tipps für optimalen Preis",
+              "description": "Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung.",
+              "totalTime": "P7D",
+              "step": [
+                {
+                  "@type": "HowToStep",
+                  "name": "Marktwert professionell ermitteln",
+                  "text": "Lassen Sie Ihr Pferd neutral bewerten, um eine realistische Preisgrundlage zu erhalten"
                 },
-                "supply": [
-                  {
-                    "@type": "HowToSupply",
-                    "name": "Professionelle Pferdebewertung"
-                  },
-                  {
-                    "@type": "HowToSupply",
-                    "name": "Vollständige Gesundheitsdokumentation"
-                  },
-                  {
-                    "@type": "HowToSupply",
-                    "name": "Hochwertige Pferdefotos"
-                  }
-                ],
-                "tool": [
-                  {
-                    "@type": "HowToTool",
-                    "name": "PferdeWert KI-Bewertung"
-                  },
-                  {
-                    "@type": "HowToTool",
-                    "name": "Pferdebörsen-Plattformen"
-                  }
-                ],
-                "step": [
-                  {
-                    "@type": "HowToStep",
-                    "name": "Marktwert professionell ermitteln",
-                    "text": "Lassen Sie Ihr Pferd neutral bewerten, um eine realistische Preisgrundlage zu erhalten",
-                    "url": "https://pferdewert.de/pferde-preis-berechnen",
-                    "image": "https://pferdewert.de/images/step-bewertung.jpg"
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Professionelle Fotos erstellen",
-                    "text": "Hochwertige Bilder sind entscheidend für den ersten Eindruck und mehr Anfragen",
-                    "image": "https://pferdewert.de/images/step-fotos.jpg"
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Vollständige Dokumentation zusammenstellen",
-                    "text": "AKU, Röntgenbilder und Abstammungsnachweis schaffen Vertrauen beim Käufer",
-                    "image": "https://pferdewert.de/images/step-dokumentation.jpg"
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Zielgruppengerecht vermarkten",
-                    "text": "Sprechen Sie die richtige Käufergruppe mit passenden Argumenten an",
-                    "image": "https://pferdewert.de/images/step-marketing.jpg"
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Erfolgreich verhandeln",
-                    "text": "Nutzen Sie die Bewertung als objektive Grundlage für Preisverhandlungen",
-                    "image": "https://pferdewert.de/images/step-verhandlung.jpg"
-                  }
-                ],
-                "about": {
-                  "@type": "Thing",
-                  "name": "Pferdeverkauf Deutschland",
-                  "description": "Expertentipps für erfolgreichen Pferdeverkauf in Deutschland"
+                {
+                  "@type": "HowToStep",
+                  "name": "Professionelle Fotos erstellen",
+                  "text": "Hochwertige Bilder sind entscheidend für den ersten Eindruck"
                 },
-                "mainEntity": {
-                  "@type": "Question",
-                  "name": "Wie verkaufe ich mein Pferd erfolgreich?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Erfolgreicher Pferdeverkauf beginnt mit professioneller Bewertung, hochwertigen Fotos, vollständiger Dokumentation und zielgruppengerechter Vermarktung."
-                  }
-                },
-                "author": {
-                  "@type": "Organization",
-                  "name": "PferdeWert.de",
-                  "url": "https://pferdewert.de",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://pferdewert.de/logo.png"
-                  }
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "PferdeWert.de",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://pferdewert.de/logo.png"
-                  }
-                },
-                "datePublished": "2024-01-15",
-                "dateModified": "2024-12-20",
-                "inLanguage": "de-DE"
-              })
-            }}
-          />
-
-          {/* Organization Schema */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "PferdeWert.de",
-                "url": "https://pferdewert.de",
-                "logo": "https://pferdewert.de/logo.png",
-                "description": "Führende KI-basierte Plattform für professionelle Pferdebewertungen in Deutschland",
-                "areaServed": ["Deutschland", "Österreich", "Schweiz"],
-                "expertise": ["Pferdebewertung", "Pferdeverkauf-Beratung", "Marktpreisanalyse"],
-                "founder": {
-                  "@type": "Person",
-                  "name": "PferdeWert Team"
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "contactType": "customer service",
-                  "areaServed": "DE",
-                  "availableLanguage": "German"
+                {
+                  "@type": "HowToStep",
+                  "name": "Vollständige Dokumentation zusammenstellen",
+                  "text": "AKU, Röntgenbilder und Abstammungsnachweis schaffen Vertrauen"
                 }
-              })
-            }}
+              ]
+            })
+          }}
+        />
+      </Head>
+
+      <main className="bg-gradient-to-b from-amber-50 to-white">
+        <RatgeberHero
+          badgeLabel="Verkaufs-Expertise"
+          title="Pferd erfolgreich verkaufen: Profi-Tipps für optimalen Preis"
+          subtitle="Bewährte Strategien von Experten: Von der Preisfindung über professionelle Vermarktung bis zur erfolgreichen Verhandlung – alle Tipps für maximalen Verkaufserfolg."
+          primaryCta={{
+            label: 'Pferdewert berechnen',
+            href: '/pferde-preis-berechnen'
+          }}
+          secondaryCta={{
+            label: 'Zum Inhalt',
+            onClick: () => handleNavigate('profi-tipps')
+          }}
+        />
+
+        <RatgeberHeroImage
+          src="/images/dino-1.webp"
+          alt="Professionelle Pferdepräsentation beim Verkauf"
+        />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <RatgeberTableOfContents
+            sections={sections}
+            onNavigate={handleNavigate}
           />
 
-          {/* FAQ Schema */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "Welcher Tipp ist am wichtigsten für den Verkaufserfolg?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Die professionelle Marktwertermittlung ist der wichtigste Tipp. Sie verhindert die beiden häufigsten und teuersten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige Preise (= Wertverlust)."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Wie viel kann ich mit diesen Tipps mehr erlösen?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Unsere Kunden erzielen durch optimale Preisgestaltung und professionelle Präsentation durchschnittlich 10-20% höhere Verkaufspreise."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Verkaufen sich Pferde wirklich 3x schneller?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Ja, das ist statistisch belegt. Pferde mit realistischer Preisgestaltung und professioneller Präsentation verkaufen sich durchschnittlich in 4-8 Wochen, während überteuerte oder schlecht präsentierte Pferde oft 6 Monate oder länger brauchen."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Sind die Tipps für alle Pferdetypen geeignet?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Die Grundprinzipien gelten für alle Pferde. Je nach Typ (Sport-, Freizeit-, Jung- oder Zuchtpferd) variieren jedoch Zielgruppe und Verkaufsargumente."
-                    }
-                  }
-                ]
-              })
-            }}
-          />
-        </Head>
-
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-16 px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="order-2 lg:order-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Pferd verkaufen Tipps: Maximiere deinen Verkaufspreis
-              </h1>
-              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                Profi-Tipps von Experten: Wie du dein Pferd schneller und zum optimalen Preis verkaufst.
-                Von der Preisfindung bis zur erfolgreichen Verhandlung. Mit der{' '}
-                <Link href="/" className="text-brand-brown hover:text-brand-brown-dark font-semibold underline">
-                  KI-basierten Pferdebewertung von PferdeWert
-                </Link>{' '}
-                startest du optimal in den Verkaufsprozess.
-              </p>
-
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">6 bewährte Verkaufs-Strategien</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Bis zu 20% höhere Verkaufspreise</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">3x schnellerer Verkauf garantiert</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/pferde-preis-berechnen"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  <Calculator className="w-5 h-5" />
-                  Tipp 1: Marktwert ermitteln
-                </Link>
-                <Link
-                  href="/pferd-verkaufen"
-                  className="btn-secondary"
-                >
-                  Alle Verkaufs-Infos
-                </Link>
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <Image
-                src="/images/dino-1.webp"
-                width={600}
-                height={400}
-                alt="Pferd verkaufen Tipps - Erfolgreicher Pferdeverkauf mit Expertenrat"
-                className="rounded-xl shadow-xl w-full h-auto"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Die 6 wichtigsten Tipps */}
-        <section className="bg-white py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-              Die 6 wichtigsten Tipps zum Pferd verkaufen
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+          <ContentSection id="profi-tipps" icon="🏆" title="Die 6 wichtigsten Profi-Tipps zum Pferd verkaufen">
+            <p className="text-lg text-brand/80 leading-relaxed mb-8">
               Diese bewährten Expertentipps helfen dir dabei, dein Pferd schneller und zum bestmöglichen Preis zu verkaufen.
-              Jeder Tipp wurde in der Praxis tausendfach erfolgreich angewendet.
+              Jeder Tipp wurde in der Praxis tausendfach erfolgreich angewendet und basiert auf echten Verkaufserfolgen.
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               {profiTipps.map((tipp, index) => (
-                <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 bg-white rounded-lg shadow-sm">
-                      {tipp.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                        {tipp.title}
-                      </h3>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Star className="w-4 h-4 text-yellow-500" />
-                        <span className="text-sm font-medium text-green-600">
-                          {tipp.erfolgsrate} Erfolgsrate
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {tipp.description}
-                  </p>
-
-                  <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                    <p className="text-sm text-green-800 font-medium">
-                      💰 Nutzen: {tipp.nutzen}
+                <RatgeberHighlightBox key={index} title={tipp.title} icon={tipp.icon}>
+                  <p className="text-brand/80 mb-3">{tipp.description}</p>
+                  <div className="border-t border-brand/10 pt-3 mt-3">
+                    <p className="text-sm text-brand-brown font-semibold mb-1">💰 Nutzen:</p>
+                    <p className="text-sm text-brand/70 mb-2">{tipp.nutzen}</p>
+                    <p className="text-sm text-brand-green font-semibold">
+                      ✓ Erfolgsrate: {tipp.erfolgsrate}
                     </p>
                   </div>
-                </div>
+                </RatgeberHighlightBox>
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 max-w-4xl mx-auto">
-                <h3 className="text-xl font-semibold text-blue-900 mb-3">🎯 Der wichtigste aller Tipps</h3>
-                <p className="text-blue-800 leading-relaxed">
-                  Beginne immer mit einer professionellen Marktbewertung. Mit{' '}
-                  <Link href="/" className="text-blue-900 hover:text-blue-700 font-semibold underline">
-                    PferdeWert
-                  </Link>{' '}
-                  erhältst du die Grundlage für alle anderen Tipps
-                  und verhinderst die beiden häufigsten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige
-                  Preise (= Wertverlust von tausenden Euro).
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+            <RatgeberHighlightBox title="Der wichtigste aller Tipps" icon="🎯">
+              <p className="text-brand/80 leading-relaxed">
+                Beginne immer mit einer professionellen Marktbewertung. Mit <span className="font-semibold text-brand">PferdeWert</span> erhältst du die Grundlage für alle anderen Tipps
+                und verhinderst die beiden häufigsten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige
+                Preise (= Wertverlust von tausenden Euro).
+              </p>
+            </RatgeberHighlightBox>
+          </ContentSection>
 
-        {/* Preisgestaltung Tipps */}
-        <section className="bg-gray-50 py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-              Preisgestaltung: Der wichtigste Erfolgsfaktor
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+          <ContentSection id="preisgestaltung" icon="💰" title="Preisgestaltung: Der wichtigste Erfolgsfaktor">
+            <p className="text-lg text-brand/80 leading-relaxed mb-8">
               90% der erfolgreichen Pferdeverkäufe beginnen mit der richtigen Preisgestaltung.
               Diese Tipps helfen dir dabei, den optimalen Verkaufspreis zu finden.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-6">
               {preisgestaltungsTipps.map((tipp, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="w-8 h-8 bg-brand-brown rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold text-sm">{index + 1}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {tipp.tipp}
-                    </h3>
-                  </div>
-
-                  <div className="ml-11 space-y-3">
-                    <div className="bg-red-50 rounded-lg p-3 border border-red-200">
-                      <p className="text-sm text-red-800">
-                        <strong>Warum wichtig:</strong> {tipp.warum}
-                      </p>
-                    </div>
-                    <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                      <p className="text-sm text-green-800">
-                        <strong>So umsetzten:</strong> {tipp.umsetzung}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <RatgeberHighlightBox key={index} title={tipp.tipp} icon="📋">
+                  <p className="text-brand/80 mb-3">
+                    <span className="font-semibold text-brand-brown">Warum wichtig:</span> {tipp.warum}
+                  </p>
+                  <p className="text-brand/80">
+                    <span className="font-semibold text-brand-green">So umsetzen:</span> {tipp.umsetzung}
+                  </p>
+                </RatgeberHighlightBox>
               ))}
             </div>
+          </ContentSection>
 
-            <div className="mt-12 text-center">
-              <Link
-                href="/"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                <Calculator className="w-5 h-5" />
-                Jetzt professionellen Marktwert mit PferdeWert ermitteln
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Vermarktungs-Tipps */}
-        <section className="bg-white py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-              Vermarktungs-Tipps: Wo und wie inserieren?
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+          <ContentSection id="vermarktung" icon="📢" title="Vermarktungs-Tipps: Wo und wie inserieren?">
+            <p className="text-lg text-brand/80 leading-relaxed mb-8">
               Die richtige Plattform und Präsentation entscheiden über den Verkaufserfolg.
               Diese Tipps zeigen dir, wo und wie du am besten inserierst.
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               {vermarktungsTipps.map((tipp, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {tipp.plattform}
-                    </h3>
-                    <span className="px-3 py-1 bg-brand-brown text-white text-sm font-medium rounded-full">
+                <RatgeberHighlightBox key={index} title={tipp.plattform} icon="📱">
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-brand-brown/10 text-brand-brown text-sm font-medium rounded-full">
                       {tipp.kosten}
                     </span>
                   </div>
-
-                  <div className="space-y-3">
-                    <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                      <p className="text-sm text-blue-800">
-                        <strong>Tipp:</strong> {tipp.tipp}
-                      </p>
-                    </div>
-                    <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                      <p className="text-sm text-green-800">
-                        <strong>Vorteil:</strong> {tipp.grund}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  <p className="text-brand/80 mb-2">
+                    <span className="font-semibold text-brand-brown">Tipp:</span> {tipp.tipp}
+                  </p>
+                  <p className="text-brand/80">
+                    <span className="font-semibold text-brand-green">Vorteil:</span> {tipp.grund}
+                  </p>
+                </RatgeberHighlightBox>
               ))}
             </div>
 
-            <div className="mt-12 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-              <h3 className="text-xl font-semibold text-yellow-900 mb-3 flex items-center gap-2">
-                <Lightbulb className="w-5 h-5" />
-                Profi-Tipp für maximale Reichweite
-              </h3>
-              <p className="text-yellow-800 leading-relaxed">
+            <RatgeberHighlightBox title="Profi-Tipp für maximale Reichweite" icon="💡">
+              <p className="text-brand/80 leading-relaxed">
                 Nutze mehrere Plattformen gleichzeitig für beste Ergebnisse. Beginne mit ehorses.de für maximale
                 Reichweite, ergänze mit pferde.de und lokalen Netzwerken. Social Media eignet sich besonders
                 für jüngere Zielgruppen und besondere Pferde.
               </p>
-            </div>
-          </div>
-        </section>
+            </RatgeberHighlightBox>
+          </ContentSection>
 
-        {/* Verhandlungs-Tipps */}
-        <section className="bg-gray-50 py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-              Verhandlungs-Tipps: So erzielst du den optimalen Preis
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+          <ContentSection id="verhandlung" icon="🤝" title="Verhandlungs-Tipps: So erzielst du den optimalen Preis">
+            <p className="text-lg text-brand/80 leading-relaxed mb-8">
               Erfolgreiche Preisverhandlungen entscheiden über deinen Verkaufsgewinn.
               Diese Tipps helfen dir dabei, fair aber gewinnbringend zu verhandeln.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 mb-8">
               {verhandlungsTipps.map((tipp, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                        Situation {index + 1}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {tipp.situation}
-                      </p>
-                    </div>
-
-                    <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
-                      <h4 className="font-semibold text-orange-900 mb-2">Strategie:</h4>
-                      <p className="text-orange-800 text-sm">
-                        {tipp.strategie}
-                      </p>
-                    </div>
-
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                      <h4 className="font-semibold text-green-900 mb-2">Erfolgsfaktor:</h4>
-                      <p className="text-green-800 text-sm">
-                        {tipp.erfolg}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <RatgeberHighlightBox key={index} title={`Situation ${index + 1}`} icon="💬">
+                  <p className="text-brand/80 mb-3 font-medium">{tipp.situation}</p>
+                  <p className="text-brand/80 mb-2">
+                    <span className="font-semibold text-brand-brown">Strategie:</span> {tipp.strategie}
+                  </p>
+                  <p className="text-brand/80">
+                    <span className="font-semibold text-brand-green">Erfolgsfaktor:</span> {tipp.erfolg}
+                  </p>
+                </RatgeberHighlightBox>
               ))}
             </div>
 
-            <div className="mt-12 bg-blue-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">💰 Verhandlungs-Grundregel</h3>
-              <p className="text-blue-800 leading-relaxed">
+            <RatgeberHighlightBox title="Verhandlungs-Grundregel" icon="💡">
+              <p className="text-brand/80 leading-relaxed">
                 Nutze deine professionelle Bewertung als objektive Verhandlungsgrundlage. Damit wirkst du
                 seriös und gut vorbereitet. Käufer akzeptieren eher einen Preis, der fachlich begründet ist.
               </p>
-            </div>
-          </div>
-        </section>
+            </RatgeberHighlightBox>
+          </ContentSection>
 
-        {/* Häufige Fehler vermeiden */}
-        <section className="bg-red-50 py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Diese 5 Fehler kosten dich Geld
-              </h2>
-              <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-                Vermeide diese häufigen Verkaufsfehler und maximiere deinen Verkaufserfolg.
-                Jeder dieser Fehler kann dich hunderte bis tausende Euro kosten.
-              </p>
-            </div>
+          <ContentSection id="fehler" icon="⚠️" title="Diese 5 Fehler kosten dich Geld">
+            <p className="text-lg text-brand/80 leading-relaxed mb-8">
+              Vermeide diese häufigen Verkaufsfehler und maximiere deinen Verkaufserfolg.
+              Jeder dieser Fehler kann dich hunderte bis tausende Euro kosten.
+            </p>
 
             <div className="space-y-6">
               {haufigeFehler.map((fehler, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-red-200">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">{index + 1}</span>
-                        </div>
-                        <h3 className="text-lg font-semibold text-gray-800">
-                          Fehler #{index + 1}
-                        </h3>
-                      </div>
-                      <p className="text-red-700 font-medium">
-                        {fehler.fehler}
-                      </p>
-                    </div>
-
-                    <div className="bg-red-100 rounded-lg p-4 border border-red-300">
-                      <h4 className="font-semibold text-red-900 mb-2 flex items-center gap-2">
-                        <AlertTriangle className="w-4 h-4" />
-                        Folge:
-                      </h4>
-                      <p className="text-red-800 text-sm">
-                        {fehler.folge}
-                      </p>
-                    </div>
-
-                    <div className="bg-green-100 rounded-lg p-4 border border-green-300">
-                      <h4 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4" />
-                        Lösung:
-                      </h4>
-                      <p className="text-green-800 text-sm">
-                        {fehler.losung}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <RatgeberHighlightBox key={index} title={`Fehler #${index + 1}`} icon="❌">
+                  <p className="text-brand font-semibold mb-2">{fehler.fehler}</p>
+                  <p className="text-brand/80 mb-2">
+                    <span className="font-semibold text-brand-brown">Folge:</span> {fehler.folge}
+                  </p>
+                  <p className="text-brand/80">
+                    <span className="font-semibold text-brand-green">Lösung:</span> {fehler.losung}
+                  </p>
+                </RatgeberHighlightBox>
               ))}
             </div>
+          </ContentSection>
 
-            <div className="text-center mt-12">
-              <Link
-                href="/pferde-preis-berechnen"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                <Calculator className="w-5 h-5" />
-                Fehler #1 vermeiden: Professionell bewerten lassen
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Erfolgreiche Verkaufsstrategien nach Pferdetyp */}
-        <section className="bg-white py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-              Spezielle Tipps nach Pferdetyp
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+          <ContentSection id="pferdetyp" icon="🐴" title="Spezielle Tipps nach Pferdetyp">
+            <p className="text-lg text-brand/80 leading-relaxed mb-8">
               Verschiedene Pferdetypen erfordern unterschiedliche Verkaufsstrategien.
               Diese spezialisierten Tipps helfen dir, dein Pferd optimal zu präsentieren.
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {erfolgreicheVerkaufsstrategien.map((strategie, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-brand-brown">
-                      {strategie.typ}
-                    </h3>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-yellow-500" />
-                      <span className="text-sm font-medium text-gray-600">
-                        {strategie.erfolgsquote}
-                      </span>
-                    </div>
+                <RatgeberHighlightBox key={index} title={strategie.typ} icon="🎯">
+                  <div className="space-y-2">
+                    <p className="text-sm text-brand/80">
+                      <span className="font-semibold text-brand-brown">Zielgruppe:</span> {strategie.zielgruppe}
+                    </p>
+                    <p className="text-sm text-brand/80">
+                      <span className="font-semibold text-brand-brown">Preisfokus:</span> {strategie.preisfokus}
+                    </p>
+                    <p className="text-sm text-brand/80">
+                      <span className="font-semibold text-brand-brown">Verkaufsargumente:</span> {strategie.verkaufsargumente}
+                    </p>
+                    <p className="text-sm text-brand-green font-semibold mt-2">
+                      ✓ Erfolgsquote: {strategie.erfolgsquote}
+                    </p>
                   </div>
-
-                  <div className="space-y-3">
-                    <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                      <h4 className="font-semibold text-blue-900 text-sm mb-1">Zielgruppe:</h4>
-                      <p className="text-blue-800 text-sm">{strategie.zielgruppe}</p>
-                    </div>
-
-                    <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                      <h4 className="font-semibold text-green-900 text-sm mb-1">Preisfokus:</h4>
-                      <p className="text-green-800 text-sm">{strategie.preisfokus}</p>
-                    </div>
-
-                    <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                      <h4 className="font-semibold text-purple-900 text-sm mb-1">Verkaufsargumente:</h4>
-                      <p className="text-purple-800 text-sm">{strategie.verkaufsargumente}</p>
-                    </div>
-                  </div>
-                </div>
+                </RatgeberHighlightBox>
               ))}
             </div>
+          </ContentSection>
+
+          <div id="faq" className="mt-16">
+            <FAQ faqs={faqItems} />
           </div>
-        </section>
 
-        {/* Zusammenfassung und CTA */}
-        <section className="bg-gradient-to-r from-brand-brown to-amber-700 py-16 px-6 text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Setze diese Tipps um und verkaufe erfolgreich
-            </h2>
-            <p className="text-xl mb-8 text-orange-100">
-              Mit diesen bewährten Tipps verkaufst du dein Pferd schneller und zum optimalen Preis.
-              Starte jetzt mit dem wichtigsten Tipp: der professionellen Bewertung.
-            </p>
+          <RatgeberRelatedArticles
+            title="Weiterführende Artikel"
+            articles={relatedArticles}
+            description="Vertiefen Sie Ihr Wissen über den erfolgreichen Pferdeverkauf."
+          />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Link
-                href="/"
-                className="bg-white text-brand-brown font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
-              >
-                <Calculator className="w-5 h-5" />
-                Jetzt Pferdewert ermitteln und optimal verkaufen →
-              </Link>
-              <Link
-                href="/pferd-verkaufen"
-                className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-brand-brown transition-colors"
-              >
-                Alle Verkaufs-Infos
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="bg-white/10 rounded-lg p-4">
-                <TrendingUp className="w-8 h-8 mx-auto mb-2" />
-                <p className="text-orange-100 text-sm">Bis zu 20% höhere Preise</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <Clock className="w-8 h-8 mx-auto mb-2" />
-                <p className="text-orange-100 text-sm">3x schnellerer Verkauf</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <Users className="w-8 h-8 mx-auto mb-2" />
-                <p className="text-orange-100 text-sm">Über 50.000 zufriedene Kunden</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="bg-white py-16 px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              Häufige Fragen zu unseren Verkaufs-Tipps
-            </h2>
-
-            <div className="space-y-4">
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors" open>
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Welcher Tipp ist am wichtigsten für den Verkaufserfolg?</span>
-                    <ArrowRight className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-90" />
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Die professionelle Marktwertermittlung ist der wichtigste Tipp. Sie verhindert die beiden häufigsten
-                    und teuersten Fehler: Überteuerte Preise (= keine Anfragen) oder zu niedrige Preise (= Wertverlust).
-                    Eine{' '}
-                    <Link href="/" className="text-brand-brown hover:text-brown-700 font-semibold underline">
-                      KI-basierte Bewertung von PferdeWert
-                    </Link>{' '}
-                    liefert diese Grundlage präzise und alle anderen Tipps bauen darauf auf.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Wie viel kann ich mit diesen Tipps mehr erlösen?</span>
-                    <ArrowRight className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-90" />
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Unsere Kunden erzielen durch optimale Preisgestaltung und professionelle Präsentation
-                    durchschnittlich 10-20% höhere Verkaufspreise. Bei einem Pferd im Wert von 10.000€
-                    entspricht das 1.000-2.000€ Mehrerlös.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Verkaufen sich Pferde wirklich 3x schneller?</span>
-                    <ArrowRight className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-90" />
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Ja, das ist statistisch belegt. Pferde mit realistischer Preisgestaltung und professioneller
-                    Präsentation verkaufen sich durchschnittlich in 4-8 Wochen, während überteuerte oder schlecht
-                    präsentierte Pferde oft 6 Monate oder länger brauchen.
-                  </p>
-                </div>
-              </details>
-
-              <details className="bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="text-lg font-semibold text-gray-800 p-6 list-none [&::-webkit-details-marker]:hidden">
-                  <div className="flex items-center justify-between w-full">
-                    <span>Sind die Tipps für alle Pferdetypen geeignet?</span>
-                    <ArrowRight className="w-5 h-5 text-brand-brown transform transition-transform duration-200 details-open:rotate-90" />
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed">
-                    Die Grundprinzipien gelten für alle Pferde. Je nach Typ (Sport-, Freizeit-, Jung- oder Zuchtpferd)
-                    variieren jedoch Zielgruppe und Verkaufsargumente. Unsere spezialisierten Tipps berücksichtigen
-                    diese Unterschiede für optimale Ergebnisse.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </div>
-        </section>
-      </>
-    </Layout>
+          <RatgeberFinalCTA
+            image={{
+              src: '/person-evaluating-horse-for-purchase.webp',
+              alt: 'Professionelle Pferdebewertung für optimalen Verkauf'
+            }}
+            title="Starte jetzt mit der professionellen Bewertung"
+            description="Ermittle den fairen Marktwert deines Pferdes in wenigen Minuten. Die KI-gestützte Analyse berücksichtigt alle verkaufsrelevanten Faktoren und liefert dir eine fundierte Preisbasis."
+            ctaHref="/pferde-preis-berechnen"
+            ctaLabel="Pferdewert berechnen"
+          />
+        </div>
+      </main>
+    </>
   );
-}
+};
+
+export default PferdVerkaufenTipps;

@@ -82,7 +82,7 @@ export const PRICING_TEXTS = {
   priceComparison: `Früher ${PRICING_FORMATTED.historical.previous}, jetzt ${PRICING_FORMATTED.current}`,
   
   /** Verkaufen-Seite CTA */
-  sellCta: `Jetzt Verkaufspreis ermitteln → ${PRICING_FORMATTED.current}`,
+  sellCta: `Jetzt Verkaufspreis berechnen → ${PRICING_FORMATTED.current}`,
   
   /** Marketing Copy - Warum so günstig */
   whyAffordable: `Warum kostet die Bewertung nur ${PRICING_FORMATTED.current}?`

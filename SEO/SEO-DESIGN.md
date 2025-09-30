@@ -4,7 +4,7 @@ Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukü
 
 ### 1. Seitenaufbau
 1. **Hero**
-   - Hintergrund: `bg-gradient-to-b from-brand-light to-white`.
+   - Hintergrund (Layout + Hero): `bg-gradient-to-b from-amber-50 to-white`.
    - Optionales Badge (`Award` Icon) mit `bg-brand-light` und `text-brand/80`.
    - Haupttitel in Playfair Display, `text-brand`.
    - Subheadline `text-brand/80` (max. 2–3 Sätze).
@@ -42,6 +42,7 @@ Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukü
 
 ### 4. Komponenten-Richtlinien
 - **RatgeberHero / RatgeberHeroImage**: Standard-Hero mit Badge, Meta-Row und CTA-Buttons; Bilder immer via `RatgeberHeroImage`.
+  - Sekundärer CTA `"Zum Inhalt"` nutzt immer das `ChevronDown` Icon (`lucide-react`, `h-5 w-5`).
 - **RatgeberTableOfContents**: Nutzt `sections`-Array `{ id, title }` + `onNavigate` (scroll helper).
 - **ContentSection**: Für inhaltliche Blöcke mit Icon (z. B. `icon="⚖️"`).
 - **RatgeberHighlightBox**: Beige Karten (`bg-[#fdf7f1]`) inkl. optionalem Icon und Titel; nutzen statt manueller `div`-Styles.
@@ -96,5 +97,7 @@ Ausgerichtet am Layout von `/aku-pferd` – gilt für alle bestehenden und zukü
   description="Vertiefen Sie Ihr Wissen über die AKU."
 />
 ```
+
+**Interne Verlinkung:** Jede Ratgeberseite mit einem Abschnitt „Weiterführende Artikel“ muss einen Eintrag zum zentralen AKU-Hub unter `/aku-pferd` enthalten.
 
 Diese Vorgaben sind verbindlich für alle SEO-Ratgeberseiten. Änderungen am Design nur nach Abstimmung mit dem Design-Team vornehmen.
