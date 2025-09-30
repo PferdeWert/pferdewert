@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import HeroSection from "@/components/HeroSection";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle, Instagram } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
@@ -303,86 +304,66 @@ export default function PferdeWertHomepage() {
       <main className="min-h-screen">
 
         {/* Hero Section */}
-        <section id="bewertung" className="relative overflow-hidden">
-          <div className="container mx-auto px-4 py-12 lg:py-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
-              <div className="space-y-8 hero-fade-in-left">
-                <div className="space-y-4">
-                  <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                    🏆 #1 Online Pferdebewertung
-                  </div>
-                  <h1 className="text-h1 font-bold text-gray-900">
-                    Wie viel ist mein <span className="text-brand-brown">Pferd wert?</span>
-                  </h1>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung.
-                    Entwickelt von Reitern für Reiter – präzise Analyse in nur 2 Minuten.
-                  </p>
-                </div>
+        <HeroSection
+          badge="🏆 #1 Online Pferdebewertung"
+          headline="Wie viel ist mein Pferd wert?"
+          highlightedWord="Pferd wert"
+          image="/images/blossi-shooting.webp"
+          imageAlt="Unser Pferd Blossom beim Photoshooting - Professionelle Pferdebewertung Beispiel"
+          imageWidth={600}
+          imageHeight={600}
+          sectionId="bewertung"
+          useContainer={true}
+          showImageGradient={true}
+          imageClassName="relative rounded-3xl shadow-2xl object-cover"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bvND+0532KzGVhZQAAAAD//Z"
+        >
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung.
+            Entwickelt von Reitern für Reiter – präzise Analyse in nur 2 Minuten.
+          </p>
 
-                {/* Trust Indicators */}
-                <div className="flex flex-wrap gap-6 text-sm text-gray-600">
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-4 h-4 text-brand-brown" />
-                    <span>In 2 Minuten</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Shield className="w-4 h-4 text-brand-brown" />
-                    <span>Kein Abo</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Award className="w-4 h-4 text-brand-brown" />
-                    <span>Geld-zurück-Garantie</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                      ))}
-                    </div>
-                    <span>4,7/5</span>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/pferde-preis-berechnen"
-                    className="btn-primary group text-lg px-8 py-4"
-                  >
-                    Jetzt Pferdewert berechnen
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <Link
-                    href="/beispiel-analyse"
-                    className="btn-secondary text-lg px-8 py-4"
-                  >
-                    Beispielanalyse ansehen
-                  </Link>
-                </div>
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+            <div className="flex items-center space-x-2">
+              <Clock className="w-4 h-4 text-brand-brown" />
+              <span>In 2 Minuten</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Shield className="w-4 h-4 text-brand-brown" />
+              <span>Kein Abo</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Award className="w-4 h-4 text-brand-brown" />
+              <span>Geld-zurück-Garantie</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                ))}
               </div>
-
-              {/* Right Image */}
-              <div className="relative hero-fade-in-right">
-                <div className="relative hero-fade-in-right">
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-brown/20 to-brand-gold/20 rounded-3xl blur-3xl"></div>
-                  <Image
-                    src="/images/blossi-shooting.webp"
-                    alt="Unser Pferd Blossom beim Photoshooting - Professionelle Pferdebewertung Beispiel"
-                    width={600}
-                    height={600}
-                    sizes="(min-width: 1024px) 600px, (min-width: 768px) 80vw, 90vw"
-                    className="relative rounded-3xl shadow-2xl object-cover"
-                    priority
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bvND+0532KzGVhZQAAAAD//Z"
-                  />
-                </div>
-              </div>
+              <span>4,7/5</span>
             </div>
           </div>
-        </section>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/pferde-preis-berechnen"
+              className="btn-primary group text-lg px-8 py-4"
+            >
+              Jetzt Pferdewert berechnen
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/beispiel-analyse"
+              className="btn-secondary text-lg px-8 py-4"
+            >
+              Beispielanalyse ansehen
+            </Link>
+          </div>
+        </HeroSection>
 
         {/* Special Offer Banner */}
         <section id="preise" className="bg-gradient-to-r from-brand-gold/20 to-brand-brown/20 border-y border-brand-brown/20">

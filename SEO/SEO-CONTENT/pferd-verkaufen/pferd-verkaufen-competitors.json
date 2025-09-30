@@ -1,0 +1,314 @@
+{
+  "analysis_date": "2025-09-30",
+  "keyword": "pferd verkaufen",
+  "serp_position_analyzed": "Top 10",
+
+  "top_competitors": [
+    {
+      "rank": 2,
+      "domain": "ehorses.de",
+      "url": "https://www.ehorses.de/",
+      "title": "Pferde kaufen und Pferde verkaufen | Pferdemarkt ehorses.de",
+      "domain_authority": 58,
+      "page_authority": 65,
+      "backlinks_estimated": "50,000+",
+      "content_type": "Marketplace Landing Page",
+      "word_count": 800,
+      "content_structure": {
+        "h1": "Pferde kaufen und verkaufen",
+        "h2_count": 4,
+        "h3_count": 8,
+        "main_topics": [
+          "19,000+ Verkaufspferde",
+          "Kostenlos inserieren",
+          "Weltweit größter Online Pferdemarkt",
+          "Kategorien nach Rasse und Disziplin"
+        ]
+      },
+      "strengths": [
+        "Massive brand recognition (135,000/mo branded searches)",
+        "Free listings attract sellers",
+        "Large inventory creates network effects",
+        "Sitelinks boost SERP real estate"
+      ],
+      "weaknesses": [
+        "No valuation tools or pricing guidance",
+        "Overwhelming choices confuse sellers",
+        "Generic platform, no personalization",
+        "No educational content on pricing strategy"
+      ],
+      "content_gaps": [
+        "No 'how to price' guide",
+        "No AI/data-driven recommendations",
+        "No emotional support content",
+        "Missing regional pricing differences"
+      ],
+      "pferdewert_advantage": "We provide data-driven pricing before listing, preventing 20-30% underpricing"
+    },
+    {
+      "rank": 3,
+      "domain": "pferde.de",
+      "url": "https://www.pferde.de/kleinanzeigen/pferdemarkt-c162600/",
+      "title": "Pferdemarkt - Pferde kaufen und verkaufen bei pferde.de",
+      "domain_authority": 52,
+      "page_authority": 58,
+      "backlinks_estimated": "30,000+",
+      "content_type": "Classified Ads + Directory",
+      "word_count": 600,
+      "content_structure": {
+        "h1": "Pferdemarkt",
+        "h2_count": 3,
+        "h3_count": 6,
+        "main_topics": [
+          "Kostenlose Kleinanzeige",
+          "Kategorien: Freizeitpferde, Fohlen, Dressur, Springpferde",
+          "Großer deutscher Pferdemarkt"
+        ]
+      },
+      "strengths": [
+        "Strong sitelinks (Freizeitpferde, Fohlen, etc.)",
+        "Established German brand",
+        "Free classified model attracts users",
+        "Directory structure for category targeting"
+      ],
+      "weaknesses": [
+        "Outdated design/UX",
+        "No professional valuation services",
+        "Basic search functionality",
+        "Limited educational resources"
+      ],
+      "content_gaps": [
+        "No pricing calculator",
+        "No market trends data",
+        "No 'avoid common mistakes' content",
+        "Missing seller success stories"
+      ],
+      "pferdewert_advantage": "Professional valuation complements free listings - position as pre-listing step"
+    },
+    {
+      "rank": 6,
+      "domain": "handvollhufeisen.de",
+      "url": "https://handvollhufeisen.de/ein-pferd-verkaufen/",
+      "title": "Jeder Abschied ist schwer - Sein Pferd verkaufen",
+      "domain_authority": 28,
+      "page_authority": 35,
+      "backlinks_estimated": "500-1,000",
+      "content_type": "Emotional Blog Post",
+      "word_count": 1200,
+      "content_structure": {
+        "h1": "Jeder Abschied ist schwer",
+        "h2_count": 5,
+        "h3_count": 3,
+        "main_topics": [
+          "Emotionale Vorbereitung",
+          "Gründe für Verkauf",
+          "Persönliche Erfahrung",
+          "Abschied nehmen"
+        ]
+      },
+      "strengths": [
+        "Ranks #6 with purely emotional content",
+        "Authentic personal story resonates",
+        "Addresses psychological aspects",
+        "Long-form content (1200 words)"
+      ],
+      "weaknesses": [
+        "Low domain authority (28)",
+        "No actionable selling advice",
+        "No pricing/valuation information",
+        "Missing practical steps"
+      ],
+      "content_gaps": [
+        "No transition from emotion to action",
+        "No 'what comes next' guidance",
+        "Missing financial planning advice",
+        "No valuation tools mentioned"
+      ],
+      "pferdewert_advantage": "Combine emotional support WITH practical pricing guidance - unique positioning"
+    },
+    {
+      "rank": 8,
+      "domain": "sporthorses.de",
+      "url": "https://www.sporthorses.de/",
+      "title": "Sporthorses - Pferde kaufen und Pferde verkaufen",
+      "domain_authority": 45,
+      "page_authority": 52,
+      "backlinks_estimated": "10,000+",
+      "content_type": "Premium Marketplace",
+      "word_count": 700,
+      "content_structure": {
+        "h1": "Professioneller Pferdemarktplatz",
+        "h2_count": 4,
+        "h3_count": 5,
+        "main_topics": [
+          "Bessere Sportpferde",
+          "95% Verkaufsquote",
+          "Professionelle Präsentation",
+          "Hochpreisiges Segment"
+        ]
+      },
+      "strengths": [
+        "Premium positioning attracts high-value segment",
+        "95% success rate is strong social proof",
+        "Professional photography/presentation",
+        "Curated marketplace reduces noise"
+      ],
+      "weaknesses": [
+        "Narrow audience (only sport horses)",
+        "Excludes recreational horse market",
+        "Higher barrier to entry",
+        "Limited to specific disciplines"
+      ],
+      "content_gaps": [
+        "No mass-market appeal",
+        "Missing recreational horse segment",
+        "No pricing transparency",
+        "No educational content"
+      ],
+      "pferdewert_advantage": "Serve ALL horse types (sport + recreational) with AI valuation for any horse"
+    },
+    {
+      "rank": 10,
+      "domain": "magazine.clipmyhorse.tv",
+      "url": "https://magazine.clipmyhorse.tv/artikel/erfolgreicher-pferdeverkauf-tipps-und-strategien-fur-einen-reibungslosen-verkauf",
+      "title": "Erfolgreicher Pferdeverkauf: Tipps und Strategien für einen reibungslosen Verkauf",
+      "domain_authority": 42,
+      "page_authority": 38,
+      "backlinks_estimated": "5,000+",
+      "content_type": "Comprehensive Guide",
+      "word_count": 1800,
+      "content_structure": {
+        "h1": "Erfolgreicher Pferdeverkauf",
+        "h2_count": 8,
+        "h3_count": 12,
+        "main_topics": [
+          "Wo verkaufe ich mein Pferd?",
+          "Plattform-Vergleich (ehorses, pferde.de, etc.)",
+          "Preisfindung Grundlagen",
+          "Verkaufsablauf Schritt-für-Schritt"
+        ]
+      },
+      "strengths": [
+        "Comprehensive 1800-word guide",
+        "Step-by-step structure",
+        "Platform comparison included",
+        "Educational value high"
+      ],
+      "weaknesses": [
+        "Generic advice, no unique insights",
+        "No data-driven pricing methods",
+        "Outdated content (mentions old platforms)",
+        "No interactive tools/calculators"
+      ],
+      "content_gaps": [
+        "No AI/modern tech angle",
+        "Missing 'avoid underpricing' focus",
+        "No ROI calculation for valuation services",
+        "No case studies or success stories"
+      ],
+      "pferdewert_advantage": "Modernize guide with AI angle + provide actual tool, not just theory"
+    }
+  ],
+
+  "people_also_ask_competitors": {
+    "question_1": {
+      "question": "Wo verkaufe ich am besten ein Pferd?",
+      "current_featured_answer": "magazine.clipmyhorse.tv",
+      "answer_quality": "Good - comprehensive platform comparison",
+      "pferdewert_opportunity": "Add 'Step 0: Get valuation BEFORE choosing platform' angle"
+    },
+    "question_2": {
+      "question": "Wie viel Geld ist mein Pferd wert?",
+      "current_featured_answer": "ehorses.de",
+      "answer_quality": "Basic pricing table by training level",
+      "pferdewert_opportunity": "CRITICAL - This is our core service! Create better answer with interactive element"
+    },
+    "question_3": {
+      "question": "Welche Website eignet sich am besten zum Verkauf eines Pferdes?",
+      "current_featured_answer": "translate.google.com (equine.com)",
+      "answer_quality": "POOR - Foreign source translated to German",
+      "pferdewert_opportunity": "Easy win - create German-native comprehensive answer"
+    }
+  },
+
+  "content_gap_analysis": {
+    "missing_angles": [
+      "✓ AI-powered valuation tools (NO competitor has this)",
+      "✓ Data-driven pricing strategy (only generic advice exists)",
+      "✓ Emotional + practical combined approach (handvollhufeisen has emotion, others have listings)",
+      "✓ 'Avoid underpricing' focus (no competitor emphasizes potential losses)",
+      "✓ ROI calculation for valuation service (€14.90 vs €3,000-9,000 loss prevention)",
+      "✓ Modern technology angle (all competitors are traditional/manual)",
+      "✓ Speed emphasis (valuation in 2 minutes vs weeks of research)",
+      "✓ Pre-listing optimization (position as BEFORE marketplace step)"
+    ],
+    "content_format_gaps": [
+      "Interactive pricing calculator (all competitors lack tools)",
+      "Video explainer (only NativeHorses has video, but different topic)",
+      "Case studies with real numbers (no competitor shows ROI)",
+      "Comparison table: With vs Without Valuation (ROI visualization)",
+      "FAQ schema targeting PAA questions (weak competition)"
+    ],
+    "technical_seo_gaps": [
+      "HowTo Schema for selling process",
+      "Table Schema for pricing",
+      "FAQ Schema for PAA targeting",
+      "Video Schema for explainer content"
+    ]
+  },
+
+  "competitive_positioning_recommendations": {
+    "primary_message": "Verkaufen Sie Ihr Pferd zum optimalen Preis - nicht 20-30% unter Wert",
+    "secondary_messages": [
+      "KI-gestützte Bewertung in 2 Minuten, nicht wochenlang raten",
+      "14,90€ Investment verhindert durchschnittlich €3.000-9.000 Verlust",
+      "Datenbasierte Preisempfehlung vor Inseraterstellung",
+      "Emotional UND rational: Würdevoller Abschied mit fairem Preis"
+    ],
+    "avoid_direct_competition_with": [
+      "ehorses.de - Position as complementary, not competitive",
+      "pferde.de - Don't attack free listings, emphasize pre-listing optimization",
+      "sporthorses.de - Acknowledge premium segment, but serve mass market too"
+    ],
+    "partnership_opportunities": [
+      "Mention ehorses/pferde.de as 'where to list AFTER getting valuation'",
+      "Position as 'recommended first step before posting on any platform'",
+      "Offer affiliate partnerships with marketplaces (future)"
+    ]
+  },
+
+  "benchmark_targets": {
+    "word_count_target": 1800,
+    "reasoning": "Match ClipMyHorse guide (#10) + 20% = 2160 words for depth advantage",
+    "h2_count_target": "8-10",
+    "h3_count_target": "12-15",
+    "internal_links_target": "8-10 to PferdeWert pages",
+    "external_links_target": "3-5 to authoritative sources (not competitors)",
+    "faq_count_target": "6-8 questions",
+    "images_target": "5-7 relevant images with alt text"
+  },
+
+  "quick_win_opportunities": [
+    {
+      "opportunity": "Target 'Wie viel ist mein Pferd wert?' PAA with better answer than ehorses",
+      "difficulty": "LOW",
+      "impact": "HIGH",
+      "timeframe": "Immediate",
+      "implementation": "Create dedicated section with interactive element + table schema"
+    },
+    {
+      "opportunity": "Answer 'Welche Website eignet sich am besten?' better than Google Translate result",
+      "difficulty": "VERY LOW",
+      "impact": "MEDIUM",
+      "timeframe": "Immediate",
+      "implementation": "German-native platform comparison + position PferdeWert as pre-listing tool"
+    },
+    {
+      "opportunity": "Combine emotional angle (handvollhufeisen) with practical advice (ClipMyHorse)",
+      "difficulty": "MEDIUM",
+      "impact": "HIGH",
+      "timeframe": "Immediate",
+      "implementation": "Dedicated H2 section addressing emotional aspects + transition to pricing"
+    }
+  ]
+}

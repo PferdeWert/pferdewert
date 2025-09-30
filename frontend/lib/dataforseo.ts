@@ -18,7 +18,7 @@ class DataForSEOClient {
     this.auth = Buffer.from(`${config.login}:${config.password}`).toString('base64');
   }
 
-  private async request(endpoint: string, data: any[]) {
+  private async request(endpoint: string, data: unknown[]) {
     const response = await fetch(`${DATAFORSEO_API}${endpoint}`, {
       method: 'POST',
       headers: {

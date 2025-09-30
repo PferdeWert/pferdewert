@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { ChevronDown } from 'lucide-react';
 import RatgeberHero from '../components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '../components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '../components/ratgeber/RatgeberTableOfContents';

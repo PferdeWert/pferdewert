@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const client = getDataForSEOClient();
 
-    const results: any = {};
+    const results: Record<string, unknown> = {};
 
     if (keyword) {
       results.keywordCompetitors = await client.getCompetitors(keyword);

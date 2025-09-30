@@ -1,0 +1,426 @@
+{
+  "keyword": "pferd kaufen",
+  "created_date": "2025-09-30",
+  "language": "de",
+  "country": "DE",
+
+  "meta_tags": {
+    "title": "Pferd kaufen 2025: Checkliste, Preise & Expertentipps",
+    "description": "Pferd kaufen leicht gemacht ✓ Was kostet ein Pferd? ✓ Checkliste für Käufer ✓ Faire Preise erkennen ✓ AI-Bewertung in 2 Min ➜ Jetzt informieren!",
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "canonical": "https://pferdewert.de/ratgeber/pferd-kaufen",
+    "language": "de-DE"
+  },
+
+  "open_graph": {
+    "type": "article",
+    "title": "Pferd kaufen 2025: Der ultimative Ratgeber",
+    "description": "Entdecken Sie den kompletten Ratgeber zum Pferdekauf: Preise, Checkliste, Fehler vermeiden & faire Preise erkennen mit AI-Bewertung.",
+    "url": "https://pferdewert.de/ratgeber/pferd-kaufen",
+    "site_name": "PferdeWert.de",
+    "locale": "de_DE",
+    "image": {
+      "url": "https://pferdewert.de/images/og/pferd-kaufen-ratgeber.jpg",
+      "width": 1200,
+      "height": 630,
+      "alt": "Pferd kaufen Ratgeber 2025 - PferdeWert.de"
+    }
+  },
+
+  "twitter_card": {
+    "card": "summary_large_image",
+    "title": "Pferd kaufen 2025: Checkliste & Expertentipps",
+    "description": "Der ultimative Ratgeber zum Pferdekauf ✓ Preise ✓ Checkliste ✓ AI-Bewertung",
+    "image": "https://pferdewert.de/images/og/pferd-kaufen-ratgeber.jpg"
+  },
+
+  "target_keywords": {
+    "primary": {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "difficulty": 25,
+      "intent": "commercial",
+      "target_density": "1.5%"
+    },
+    "secondary": [
+      {
+        "keyword": "pferd kaufen preis",
+        "search_volume": 320,
+        "placement": "H2 section dedicated"
+      },
+      {
+        "keyword": "pferde kaufen in der nähe",
+        "search_volume": 260,
+        "placement": "Regional section"
+      },
+      {
+        "keyword": "pferd für anfänger kaufen",
+        "search_volume": 880,
+        "placement": "H2 section dedicated"
+      },
+      {
+        "keyword": "pferd kaufen günstig",
+        "search_volume": 210,
+        "placement": "FAQ + warnings"
+      }
+    ],
+    "lsi_keywords": [
+      "Ankaufsuntersuchung",
+      "Pferdemarkt",
+      "Verkäufer",
+      "Besichtigung",
+      "Kaufvertrag",
+      "Stallmiete",
+      "Freizeitpferd",
+      "Warmblut",
+      "Fohlen",
+      "Turnierpferd",
+      "AKU",
+      "Pferdebewertung"
+    ]
+  },
+
+  "internal_links": {
+    "primary_cta": {
+      "url": "/bewertung",
+      "anchor_text": "Pferdewert jetzt berechnen",
+      "occurrences": 3,
+      "positions": ["After price section", "After price recognition section", "Before FAQ"]
+    },
+    "related_content": [
+      {
+        "url": "/ratgeber/aku-pferd",
+        "anchor_text": "AKU Ratgeber",
+        "context": "Ankaufsuntersuchung section",
+        "occurrences": 1
+      },
+      {
+        "url": "/pferd-verkaufen",
+        "anchor_text": "Pferd verkaufen",
+        "context": "Contextual mention in comparison",
+        "occurrences": 1
+      },
+      {
+        "url": "/ratgeber",
+        "anchor_text": "Ratgeber Übersicht",
+        "context": "General reference",
+        "occurrences": 1
+      }
+    ],
+    "total_internal_links": 6
+  },
+
+  "structured_data": {
+    "article": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pferd kaufen: Der ultimative Ratgeber für 2025",
+      "description": "Umfassender Ratgeber zum Pferdekauf mit Preisübersicht, Checkliste, Anfänger-Tipps und AI-Bewertung für faire Preise.",
+      "image": "https://pferdewert.de/images/articles/pferd-kaufen-ratgeber.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "url": "https://pferdewert.de"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/logo.png"
+        }
+      },
+      "datePublished": "2025-09-30",
+      "dateModified": "2025-09-30",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://pferdewert.de/ratgeber/pferd-kaufen"
+      },
+      "inLanguage": "de-DE"
+    },
+
+    "faq": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was kostet ein Pferd durchschnittlich?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ein Freizeitpferd kostet zwischen 1.500€ und 8.000€. Sportpferde (Dressur/Springen) liegen bei 5.000€ bis 50.000€+. Der Preis hängt von Rasse, Ausbildung, Alter und Gesundheit ab."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann man Pferde für 200-500 Euro kaufen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, aber mit Vorsicht! Sehr günstige Pferde haben oft gesundheitliche Probleme, mangelnde Ausbildung oder schwierige Charaktereigenschaften. Eine gründliche Ankaufsuntersuchung (AKU) ist hier absolut essentiell."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich eine Ankaufsuntersuchung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unbedingt ja! Eine AKU kostet 150€-1.200€ und kann teure Überraschungen verhindern. Wählen Sie die AKU-Klasse passend zum Verwendungszweck des Pferdes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo finde ich Pferde in meiner Nähe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nutzen Sie Plattformen wie ehorses.de, pferde.de oder kleinanzeigen.de mit Regionalfilter. Besuchen Sie lokale Gestüte, Reiterhöfe und Pferdemarkt-Events in Ihrer Region."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist ein älteres Pferd besser für Anfänger?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, in der Regel. Pferde zwischen 8-15 Jahren haben meist einen ausgeglichenen Charakter und solide Ausbildung. Jungpferde unter 5 Jahren sind für Anfänger zu anspruchsvoll und benötigen erfahrene Reiter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie erkenne ich einen seriösen Verkäufer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seriöse Verkäufer zeigen vollständige Papiere, ermöglichen Proberitte, sind transparent über Gesundheitszustand und stimmen einer AKU zu. Misstrauen Sie bei Zeitdruck und übertriebenen Versprechungen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Lohnt sich eine Pferdebewertung vor dem Kauf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolut! Mit PferdeWert.de erhalten Sie in 2 Minuten eine objektive AI-Bewertung des Marktwerts. So wissen Sie vor der Verhandlung, ob der Preis fair ist - für nur 19,90€ mit Geld-zurück-Garantie."
+          }
+        }
+      ]
+    },
+
+    "breadcrumb": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pferdewert.de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://pferdewert.de/ratgeber"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pferd kaufen",
+          "item": "https://pferdewert.de/ratgeber/pferd-kaufen"
+        }
+      ]
+    },
+
+    "service": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI-Pferdebewertung",
+      "description": "Objektive KI-gestützte Bewertung des Marktwerts von Pferden in nur 2 Minuten",
+      "provider": {
+        "@type": "Organization",
+        "name": "PferdeWert.de"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "19.90",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://pferdewert.de/bewertung"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Germany"
+      }
+    }
+  },
+
+  "content_metrics": {
+    "word_count": 2500,
+    "reading_time": "10-11 minutes",
+    "primary_keyword_density": "1.5%",
+    "secondary_keyword_density": "0.5%",
+    "flesch_reading_ease": "60-70 (Grade 8-10)",
+    "total_headings": {
+      "h1": 1,
+      "h2": 9,
+      "h3": 14
+    },
+    "total_images": 5,
+    "total_internal_links": 6,
+    "total_external_links": 3,
+    "total_ctas": 5
+  },
+
+  "seo_checklist": {
+    "title_optimized": true,
+    "meta_description_optimized": true,
+    "primary_keyword_in_h1": true,
+    "primary_keyword_in_first_100_words": true,
+    "primary_keyword_in_conclusion": true,
+    "alt_text_for_images": true,
+    "internal_linking": true,
+    "external_authoritative_links": true,
+    "faq_schema": true,
+    "article_schema": true,
+    "mobile_friendly": true,
+    "no_kostenlos_usage": true,
+    "eeat_signals": true,
+    "readability_grade": "8-10",
+    "unique_content": true,
+    "call_to_actions": true,
+    "geld_zuruck_guarantee_mentioned": true
+  },
+
+  "target_serp_features": [
+    "featured_snippet",
+    "faq_box",
+    "image_pack",
+    "related_searches"
+  ],
+
+  "competitor_differentiation": {
+    "unique_value": "AI-powered pre-purchase valuation tool",
+    "positioning": "Pre-Purchase Intelligence Platform",
+    "not_competing_with": "Marketplaces (ehorses.de, kleinanzeigen.de, pferde.de)",
+    "complementary_to": "Online horse marketplaces - use valuation BEFORE browsing",
+    "key_advantages": [
+      "Price transparency before negotiation",
+      "AI-based objective valuation",
+      "2-minute evaluation process",
+      "Developed by experienced equestrians",
+      "30-day money-back guarantee",
+      "Only 19,90€ (launch price)"
+    ]
+  },
+
+  "conversion_funnel": {
+    "awareness": "User searches 'pferd kaufen'",
+    "consideration": "User reads comprehensive buying guide",
+    "decision": "User realizes need for fair price knowledge",
+    "action": "User clicks CTA to /bewertung",
+    "conversion": "User purchases AI valuation for 19,90€"
+  },
+
+  "image_requirements": [
+    {
+      "type": "hero",
+      "alt": "Glückliche Familie kauft ihr erstes Pferd von seriösem Verkäufer",
+      "placement": "Top of article",
+      "dimensions": "1200x630"
+    },
+    {
+      "type": "infographic",
+      "alt": "Preisübersicht Pferde 2025 nach Typ und Rasse",
+      "placement": "Price section",
+      "dimensions": "800x600"
+    },
+    {
+      "type": "checklist",
+      "alt": "7 Schritte zum Pferdekauf - Checkliste",
+      "placement": "Checklist section",
+      "dimensions": "800x1000"
+    },
+    {
+      "type": "map",
+      "alt": "Pferdemarkt Deutschland - Regionale Preisunterschiede",
+      "placement": "Regional section",
+      "dimensions": "800x600"
+    },
+    {
+      "type": "screenshot",
+      "alt": "PferdeWert.de AI-Bewertung Interface",
+      "placement": "Price recognition section",
+      "dimensions": "800x600"
+    }
+  ],
+
+  "publication_checklist": [
+    {
+      "task": "Upload article to CMS",
+      "status": "pending"
+    },
+    {
+      "task": "Add all images with proper alt text",
+      "status": "pending"
+    },
+    {
+      "task": "Implement FAQ schema markup",
+      "status": "pending"
+    },
+    {
+      "task": "Implement Article schema markup",
+      "status": "pending"
+    },
+    {
+      "task": "Add internal links to /bewertung, /ratgeber/aku-pferd, etc.",
+      "status": "pending"
+    },
+    {
+      "task": "Add external links to FN and veterinary associations",
+      "status": "pending"
+    },
+    {
+      "task": "Set canonical URL",
+      "status": "pending"
+    },
+    {
+      "task": "Configure Open Graph tags",
+      "status": "pending"
+    },
+    {
+      "task": "Test mobile responsiveness",
+      "status": "pending"
+    },
+    {
+      "task": "Verify all CTAs link correctly to /bewertung",
+      "status": "pending"
+    },
+    {
+      "task": "Submit URL to Google Search Console",
+      "status": "pending"
+    }
+  ],
+
+  "monitoring_kpis": {
+    "organic_traffic": {
+      "target": "500+ visits/month within 6 months",
+      "tracking": "Google Analytics"
+    },
+    "serp_ranking": {
+      "target": "Top 10 for 'pferd kaufen' within 6 months",
+      "tracking": "Google Search Console + SEMrush"
+    },
+    "conversion_rate": {
+      "target": "3-5% article visitors to /bewertung page",
+      "tracking": "Google Analytics goals"
+    },
+    "ctr": {
+      "target": "5%+ from SERP",
+      "tracking": "Google Search Console"
+    },
+    "bounce_rate": {
+      "target": "<60%",
+      "tracking": "Google Analytics"
+    },
+    "avg_session_duration": {
+      "target": ">5 minutes",
+      "tracking": "Google Analytics"
+    }
+  }
+}

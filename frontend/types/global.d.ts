@@ -51,4 +51,19 @@ export interface PferdeWertEnvVars {
   SYSTEM_PROMPT: string;
 }
 
+// Ratgeber Types
+export interface RatgeberSection {
+  id: string;
+  title: string;
+}
+
+export interface RatgeberRelatedArticle {
+  href: string;
+  image: string;
+  title: string;
+  badge: string;
+  readTime: string;
+  description: string;
+}
+
 export {};

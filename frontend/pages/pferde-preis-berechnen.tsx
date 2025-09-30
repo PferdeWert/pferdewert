@@ -6,15 +6,16 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
+import HeroSection from "@/components/HeroSection";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle, Instagram } from "lucide-react";
 import { PRICING_FORMATTED } from "../lib/pricing";
-import { 
-  trackValuationStart, 
-  trackFormProgress, 
-  trackPaymentStart, 
-  calculateFormCompletionTime 
+import {
+  trackValuationStart,
+  trackFormProgress,
+  trackPaymentStart,
+  calculateFormCompletionTime
 } from "@/lib/analytics";
 
 interface FormState {
@@ -638,70 +639,47 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       {/* Note: Animations moved to globals.css for better performance */}
 
       {/* Hero-Bereich mit fullWidth Layout wie index.tsx */}
-      <section id="preise" className="relative overflow-hidden">
-        <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text-Bereich - Links mit fade-in */}
-            <div className="space-y-8 hero-fade-in-left">
-              <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                  🏆 #1 Online Pferdebewertung
-                </div>
-                <h1 className="text-h1 font-bold text-gray-900">
-                  Jetzt deinen <span className="text-brand-brown">Pferdepreis</span> berechnen
-                </h1>
-                
-                {/* Preisbanner mit neuem Design */}
-                <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 border-2 border-amber-300 p-6 rounded-2xl shadow-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-2xl">🔥</span>
-                    <p className="text-xl font-bold text-gray-800">
-                      Nur <span className="text-h3 text-red-600 font-black">{PRICING_FORMATTED.current}</span>
-                      <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
-                    </p>
-                  </div>
-                  <p className="text-sm text-gray-600 font-medium">Exklusiv in der Sommer-Aktion!</p>
-                </div>
+      <HeroSection
+        badge="🏆 #1 Online Pferdebewertung"
+        headline="Jetzt deinen Pferdepreis berechnen"
+        highlightedWord="Pferdepreis"
+        image="/images/result.webp"
+        imageAlt="Deutsches Sportpferd für KI-Pferdebewertung"
+        imageWidth={600}
+        imageHeight={400}
+        sectionId="preise"
+        useContainer={false}
+        showImageGradient={false}
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+      >
+        {/* Preisbanner mit neuem Design */}
+        <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 border-2 border-amber-300 p-6 rounded-2xl shadow-lg">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-2xl">🔥</span>
+            <p className="text-xl font-bold text-gray-800">
+              Nur <span className="text-h3 text-red-600 font-black">{PRICING_FORMATTED.current}</span>
+              <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
+            </p>
+          </div>
+          <p className="text-sm text-gray-600 font-medium">Exklusiv in der Sommer-Aktion!</p>
+        </div>
 
-                {/* Features mit Icons */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Shield className="w-5 h-5 text-brand-brown flex-shrink-0" />
-                    <span className="font-medium">Komplett anonym – keine Anmeldung nötig</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Clock className="w-5 h-5 text-brand-brown flex-shrink-0" />
-                    <span className="font-medium">Ergebnis in unter 2 Minuten</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-brand-brown flex-shrink-0" />
-                    <span className="font-medium">Detaillierte PDF-Analyse</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bild-Bereich - Rechts mit fade-in */}
-            <div className="relative hero-fade-in-right">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/result.webp"
-                  width={600}
-                  height={400}
-                  alt="Deutsches Sportpferd für KI-Pferdebewertung"
-                  className="w-full h-auto"
-                  priority
-                  sizes="(max-width: 480px) 400px, (max-width: 768px) 500px, (max-width: 1200px) 600px, 600px"
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-            </div>
+        {/* Features mit Icons */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 text-gray-700">
+            <Shield className="w-5 h-5 text-brand-brown flex-shrink-0" />
+            <span className="font-medium">Komplett anonym – keine Anmeldung nötig</span>
+          </div>
+          <div className="flex items-center gap-3 text-gray-700">
+            <Clock className="w-5 h-5 text-brand-brown flex-shrink-0" />
+            <span className="font-medium">Ergebnis in unter 2 Minuten</span>
+          </div>
+          <div className="flex items-center gap-3 text-gray-700">
+            <CheckCircle className="w-5 h-5 text-brand-brown flex-shrink-0" />
+            <span className="font-medium">Detaillierte PDF-Analyse</span>
           </div>
         </div>
-      </section>
+      </HeroSection>
 
       {/* Wizard-Bereich mit fullWidth Layout und fade-in */}
       <section id="wizard-start" className="py-8 lg:py-16">

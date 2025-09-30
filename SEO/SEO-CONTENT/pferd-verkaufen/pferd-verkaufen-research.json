@@ -1,0 +1,542 @@
+{
+  "analysis_date": "2025-09-30",
+  "primary_keyword": "pferd verkaufen",
+  "location": "Germany",
+  "language": "de",
+
+  "executive_summary": {
+    "search_volume": "1,300/month",
+    "search_volume_trend": "-23% monthly, -38% yearly (declining)",
+    "competition_level": "LOW (0.29)",
+    "cpc": "€0.36",
+    "keyword_difficulty": 37,
+    "search_intent": "commercial (with navigational elements)",
+    "revenue_potential": "€389/month (€4,668/year)",
+    "priority": "MEDIUM (declining trend requires cautious investment)"
+  },
+
+  "keyword_metrics": {
+    "search_volume": 1300,
+    "monthly_trend": -23,
+    "yearly_trend": -38,
+    "competition": 0.29,
+    "competition_level": "LOW",
+    "cpc": 0.36,
+    "low_bid": 0.07,
+    "high_bid": 0.4,
+    "keyword_difficulty": 37,
+    "detected_language": "de",
+    "core_keyword": "pferde zu verkauf",
+    "monthly_searches_12m": {
+      "2025-08": 1000,
+      "2025-07": 1300,
+      "2025-06": 1000,
+      "2025-05": 1300,
+      "2025-04": 1300,
+      "2025-03": 1300,
+      "2025-02": 1300,
+      "2025-01": 1300,
+      "2024-12": 1300,
+      "2024-11": 1300,
+      "2024-10": 1300,
+      "2024-09": 1300
+    }
+  },
+
+  "search_intent_analysis": {
+    "main_intent": "commercial",
+    "foreign_intent": ["navigational"],
+    "user_journey": "Users are actively looking to sell their horses and comparing marketplace options",
+    "conversion_likelihood": "Medium-High (commercial intent indicates readiness to act)",
+    "pferdewert_positioning": "Value proposition should focus on maximizing sale price through accurate AI valuation"
+  },
+
+  "serp_features": {
+    "ai_overview": true,
+    "people_also_ask": true,
+    "videos": true,
+    "people_also_search": true,
+    "related_searches": true,
+    "featured_snippet_opportunity": false,
+    "local_pack": false,
+    "knowledge_graph": false
+  },
+
+  "top_10_organic_results": [
+    {
+      "position": 1,
+      "type": "ai_overview",
+      "note": "AI Overview present - may reduce organic CTR"
+    },
+    {
+      "position": 2,
+      "domain": "ehorses.de",
+      "title": "Pferde kaufen und Pferde verkaufen | Pferdemarkt ehorses.de",
+      "url": "https://www.ehorses.de/",
+      "description": "Pferde kaufen und verkaufen ✓ Über 19.000 Verkaufspferde ✓ Jetzt kostenlos inserieren auf dem weltweit größten Online Pferdemarkt!",
+      "content_type": "Marketplace",
+      "unique_angle": "Free listings, largest marketplace"
+    },
+    {
+      "position": 3,
+      "domain": "pferde.de",
+      "title": "Pferdemarkt - Pferde kaufen und verkaufen bei ...",
+      "url": "https://www.pferde.de/kleinanzeigen/pferdemarkt-c162600/",
+      "description": "Pferde online kaufen und verkaufen auf pferde.de - dem großen deutschen Pferdemarkt. Erstelle eine kostenlose Kleinanzeige in unserem Pferdemarkt.",
+      "content_type": "Marketplace + Directory",
+      "unique_angle": "Free classified ads",
+      "sitelinks": ["Freizeitpferde", "Fohlen", "Dressur", "Springpferde"]
+    },
+    {
+      "position": 4,
+      "type": "people_also_ask",
+      "questions": [
+        "Wo verkaufe ich am besten ein Pferd?",
+        "Wie viel Geld ist mein Pferd wert?",
+        "Was bedeutet die 20%-Regel bei Pferden?",
+        "Welche Website eignet sich am besten zum Verkauf eines Pferdes?"
+      ]
+    },
+    {
+      "position": 5,
+      "domain": "heinshof.de",
+      "title": "Pferdeankauf",
+      "url": "https://heinshof.de/pferde/pferdeankauf/",
+      "description": "Sie möchten Ihr Pferd verkaufen? Ihnen ist ein vertrauensvoller, professioneller und liebevoller weiterer Umgang mit Ihrem Pferd wichtig?",
+      "content_type": "Horse buyer service"
+    },
+    {
+      "position": 6,
+      "domain": "handvollhufeisen.de",
+      "title": "Jeder Abschied ist schwer - Sein Pferd verkaufen",
+      "url": "https://handvollhufeisen.de/ein-pferd-verkaufen/",
+      "description": "Der Pferdeverkauf ist kein einfacher Schritt. Die Gründe für diese Entscheidung können vielseitig sein. Wir erzählen von unserer Erfahrung.",
+      "content_type": "Emotional/Experience blog post",
+      "unique_angle": "Emotional support for difficult decision"
+    },
+    {
+      "position": 7,
+      "type": "video_carousel",
+      "videos": [
+        "\"Passen mein Pferd und ich überhaupt zusammen? Verkaufen ...\" (NativeHorses)",
+        "\"Kann ich mir mein Traumpferd kaufen?\" (NativeHorses)",
+        "Pferdeverkauf - Was tun, wenn es nicht passt? | 7P CoffeeTime"
+      ]
+    },
+    {
+      "position": 8,
+      "domain": "sporthorses.de",
+      "title": "Sporthorses - Pferde kaufen und Pferde verkaufen ...",
+      "url": "https://www.sporthorses.de/",
+      "description": "Pferde zu verkaufen, Pferd kaufen oder Pferd verkaufen? Der professionelle Pferdemarktplatz für das bessere Sportpferd - \"95% unserer Verkäufer verkaufen ...",
+      "content_type": "Premium marketplace",
+      "unique_angle": "High-end sport horses"
+    },
+    {
+      "position": 9,
+      "domain": "helgstranddressage.com",
+      "title": "Verkaufen Sie Ihr Pferd",
+      "url": "https://helgstranddressage.com/de/verkaufspferde/pferd-verkaufen/",
+      "description": "Füllen Sie das Formular aus und laden Sie ein Video hoch, wenn Sie einen unverbindlichen und vertraulichen Dialog über den Verkauf Ihres Pferdes wünschen.",
+      "content_type": "Professional sales service"
+    },
+    {
+      "position": 10,
+      "domain": "magazine.clipmyhorse.tv",
+      "title": "Erfolgreicher Pferdeverkauf: Tipps und Strategien für einen ...",
+      "url": "https://magazine.clipmyhorse.tv/artikel/erfolgreicher-pferdeverkauf-tipps-und-strategien-fur-einen-reibungslosen-verkauf",
+      "description": "Wo kann ich mein Pferd am besten verkaufen? ‍Online-Plattformen wie ehorses, pferde.de oder der ClipMyHorse.TV Pferdemarkt bieten große Reichweite. Auch ...",
+      "content_type": "Comprehensive guide",
+      "unique_angle": "Educational content with tips and strategies"
+    }
+  ],
+
+  "people_also_ask_insights": {
+    "questions": [
+      {
+        "question": "Wo verkaufe ich am besten ein Pferd?",
+        "featured_answer_domain": "magazine.clipmyhorse.tv",
+        "answer_summary": "Online-Plattformen wie ehorses, pferde.de oder ClipMyHorse.TV Pferdemarkt bieten große Reichweite. Auch Auktionen, soziale Medien oder persönliche Netzwerke können geeignete Kanäle sein.",
+        "opportunity": "Featured snippet opportunity with comprehensive platform comparison"
+      },
+      {
+        "question": "Wie viel Geld ist mein Pferd wert?",
+        "featured_answer_domain": "ehorses.de",
+        "answer_summary": "Pricing table showing value increases by training level (€1,000-€50,000+)",
+        "opportunity": "CRITICAL - Direct match to PferdeWert.de core service. Featured snippet with pricing table."
+      },
+      {
+        "question": "Was bedeutet die 20%-Regel bei Pferden?",
+        "featured_answer_domain": "translate.google.com (English source)",
+        "answer_summary": "Weight carrying capacity rule",
+        "opportunity": "Not relevant to selling/valuation"
+      },
+      {
+        "question": "Welche Website eignet sich am besten zum Verkauf eines Pferdes?",
+        "featured_answer_domain": "translate.google.com (equine.com)",
+        "answer_summary": "English site translated to German",
+        "opportunity": "Weak answer from foreign source - easy to outrank with German content"
+      }
+    ]
+  },
+
+  "related_searches": [
+    "Pferde kaufen für 200 Euro",
+    "Pferde kaufen in der Nähe",
+    "Ehorses",
+    "Pferde günstig kaufen bis 500 Euro",
+    "Ebay Kleinanzeigen Pferde",
+    "Ehorses ID Nummer eingeben",
+    "Dringend Pferd abzugeben",
+    "Pferde kaufen günstig"
+  ],
+
+  "competitor_landscape": {
+    "dominant_players": [
+      {
+        "domain": "ehorses.de",
+        "position": 2,
+        "domain_authority": 58,
+        "business_model": "Marketplace",
+        "unique_value": "19,000+ listings, free posting, largest platform",
+        "weakness": "No valuation tools, overwhelming choices"
+      },
+      {
+        "domain": "pferde.de",
+        "position": 3,
+        "domain_authority": 52,
+        "business_model": "Marketplace + Directory",
+        "unique_value": "Classified ads + resources",
+        "weakness": "No professional valuation guidance"
+      },
+      {
+        "domain": "sporthorses.de",
+        "position": 8,
+        "domain_authority": 45,
+        "business_model": "Premium marketplace",
+        "unique_value": "High-end sport horses, 95% success rate",
+        "weakness": "Limited to sport horses, narrow audience"
+      }
+    ],
+    "content_gaps": [
+      "✓ No AI-powered valuation tools in top 10",
+      "✓ No data-driven pricing guidance",
+      "✓ Emotional content present but lacks actionable pricing strategy",
+      "✓ Missing: 'How to price my horse for quick sale' angle",
+      "✓ Missing: 'Avoid underpricing your horse' angle",
+      "✓ Weak international content (Google Translate results in PAA)"
+    ]
+  },
+
+  "related_keywords_high_priority": [
+    {
+      "keyword": "pferd zu verkaufen",
+      "search_volume": 1600,
+      "competition": 0.08,
+      "cpc": 0.2,
+      "difficulty": 39,
+      "trend": "+19% yearly",
+      "priority": "HIGH",
+      "note": "Higher volume, growing trend - better target than 'pferd verkaufen'"
+    },
+    {
+      "keyword": "ehorses",
+      "search_volume": 135000,
+      "competition": "LOW",
+      "cpc": 2.82,
+      "difficulty": 78,
+      "intent": "navigational",
+      "priority": "LOW",
+      "note": "Brand keyword - not targetable directly, but shows marketplace dominance"
+    },
+    {
+      "keyword": "ebay kleinanzeigen pferde",
+      "search_volume": 3600,
+      "competition": 0.01,
+      "cpc": 2.18,
+      "difficulty": 24,
+      "trend": "-34% yearly",
+      "priority": "MEDIUM",
+      "note": "Platform comparison opportunity"
+    },
+    {
+      "keyword": "pferde kaufen in der nähe",
+      "search_volume": 2400,
+      "competition": 0.16,
+      "cpc": 0.18,
+      "difficulty": 9,
+      "trend": "+21% quarterly",
+      "priority": "MEDIUM",
+      "note": "Local search intent - could target sellers wanting local buyers"
+    },
+    {
+      "keyword": "pferde kaufen für 200 euro",
+      "search_volume": 1000,
+      "competition": 0.02,
+      "cpc": 0.43,
+      "difficulty": 21,
+      "trend": "+30% yearly",
+      "priority": "LOW",
+      "note": "Low-value segment, not ideal for €14.90 service"
+    },
+    {
+      "keyword": "pferde kaufen günstig",
+      "search_volume": 1000,
+      "competition": 0.1,
+      "cpc": 0.22,
+      "difficulty": 13,
+      "trend": "+30% quarterly",
+      "priority": "MEDIUM",
+      "note": "Price-conscious buyers - valuation tool could prevent underpricing"
+    },
+    {
+      "keyword": "pferde günstig kaufen bis 500 euro",
+      "search_volume": 880,
+      "competition": 0.04,
+      "cpc": 0.2,
+      "difficulty": "N/A",
+      "trend": "-12% yearly",
+      "priority": "LOW",
+      "note": "Low-value segment"
+    },
+    {
+      "keyword": "pferde zu verschenken sonst schlachter",
+      "search_volume": 720,
+      "competition": "LOW",
+      "cpc": 2.86,
+      "difficulty": "N/A",
+      "trend": "-28% yearly",
+      "priority": "LOW",
+      "note": "Emotional/rescue segment - not commercial target"
+    }
+  ],
+
+  "content_strategy_recommendations": {
+    "quick_wins": [
+      {
+        "action": "Target 'pferd zu verkaufen' instead of 'pferd verkaufen'",
+        "rationale": "23% higher search volume (1,600 vs 1,300), growing trend (+19% vs -38%)",
+        "effort": "LOW",
+        "impact": "HIGH",
+        "timeframe": "2-4 weeks",
+        "estimated_traffic": "+48 monthly visitors",
+        "revenue_impact": "+€14/month"
+      },
+      {
+        "action": "Create 'Wie viel ist mein Pferd wert?' landing page targeting PAA featured snippet",
+        "rationale": "Direct match to core service, weak competition (ehorses.de has basic table only)",
+        "effort": "MEDIUM",
+        "impact": "HIGH",
+        "timeframe": "4-6 weeks",
+        "estimated_traffic": "+150 monthly visitors",
+        "revenue_impact": "+€45/month"
+      },
+      {
+        "action": "Optimize existing pages with emotional selling angle ('Jeder Abschied ist schwer')",
+        "rationale": "handvollhufeisen.de ranks #6 with purely emotional content - combine emotion + tool",
+        "effort": "LOW",
+        "impact": "MEDIUM",
+        "timeframe": "1-2 weeks",
+        "estimated_traffic": "+30 monthly visitors",
+        "revenue_impact": "+€9/month"
+      }
+    ],
+    "strategic_initiatives": [
+      {
+        "action": "Build comprehensive 'Pferd verkaufen Ratgeber' series",
+        "rationale": "ClipMyHorse.TV ranks #10 with guide format - opportunity for depth",
+        "topics": [
+          "Wo verkaufe ich mein Pferd am besten? (Plattform-Vergleich)",
+          "Pferd richtig bewerten vor dem Verkauf",
+          "Häufige Fehler beim Pferdeverkauf vermeiden",
+          "Verkaufspreis optimieren: So holen Sie das Maximum raus",
+          "Emotionale Vorbereitung: Abschied vom eigenen Pferd"
+        ],
+        "effort": "HIGH",
+        "impact": "HIGH",
+        "timeframe": "8-12 weeks",
+        "estimated_traffic": "+200 monthly visitors",
+        "revenue_impact": "+€60/month"
+      },
+      {
+        "action": "Create comparison content: 'PferdeWert.de vs. kostenlose Inserate'",
+        "rationale": "Address 'why pay €14.90 when marketplaces are free' objection",
+        "angle": "Prevent 20-30% underpricing with accurate valuation (saves €3,000-€9,000 on average horse)",
+        "effort": "MEDIUM",
+        "impact": "HIGH",
+        "timeframe": "4-6 weeks",
+        "estimated_traffic": "+80 monthly visitors",
+        "revenue_impact": "+€24/month",
+        "conversion_boost": "+0.5% (better qualification)"
+      },
+      {
+        "action": "Add video content targeting video carousel position",
+        "rationale": "Video carousel appears at position #7 - NativeHorses dominates with emotional angle",
+        "topics": [
+          "AI-Bewertung erklärt: So funktioniert PferdeWert.de",
+          "Pferd verkaufen: 5 Tipps für den richtigen Preis",
+          "Erfahrungsbericht: Mit Bewertung 20% mehr erzielt"
+        ],
+        "effort": "HIGH",
+        "impact": "MEDIUM",
+        "timeframe": "12-16 weeks",
+        "estimated_traffic": "+60 monthly visitors",
+        "revenue_impact": "+€18/month"
+      }
+    ]
+  },
+
+  "technical_seo_recommendations": [
+    {
+      "action": "Implement FAQ Schema for PAA targeting",
+      "priority": "HIGH",
+      "questions_to_target": [
+        "Wo verkaufe ich am besten ein Pferd?",
+        "Wie viel Geld ist mein Pferd wert?",
+        "Welche Website eignet sich am besten zum Verkauf eines Pferdes?"
+      ]
+    },
+    {
+      "action": "Add HowTo Schema for step-by-step selling guide",
+      "priority": "MEDIUM",
+      "page": "/ratgeber/pferd-verkaufen"
+    },
+    {
+      "action": "Create Table Schema for pricing by training level",
+      "priority": "HIGH",
+      "rationale": "ehorses.de has featured snippet with table - we can outrank with better data"
+    },
+    {
+      "action": "Optimize for 'Wie viel ist mein Pferd wert?' featured snippet",
+      "priority": "CRITICAL",
+      "format": "Table + explanation + CTA to tool"
+    }
+  ],
+
+  "revenue_projections": {
+    "current_situation": {
+      "ranking": "Not ranking",
+      "estimated_monthly_traffic": 0,
+      "estimated_conversions": 0,
+      "monthly_revenue": "€0"
+    },
+    "conservative_scenario": {
+      "ranking": "Position 8-10",
+      "estimated_ctr": 0.03,
+      "estimated_monthly_traffic": 39,
+      "conversion_rate": 0.02,
+      "estimated_conversions": 0.78,
+      "monthly_revenue": "€12",
+      "annual_revenue": "€140"
+    },
+    "moderate_scenario": {
+      "ranking": "Position 5-7",
+      "estimated_ctr": 0.08,
+      "estimated_monthly_traffic": 104,
+      "conversion_rate": 0.02,
+      "estimated_conversions": 2.08,
+      "monthly_revenue": "€31",
+      "annual_revenue": "€372"
+    },
+    "optimistic_scenario": {
+      "ranking": "Position 3-4 + PAA featured snippet",
+      "estimated_ctr": 0.15,
+      "estimated_monthly_traffic": 195,
+      "conversion_rate": 0.025,
+      "estimated_conversions": 4.88,
+      "monthly_revenue": "€73",
+      "annual_revenue": "€872",
+      "note": "Higher conversion rate due to featured snippet trust signal"
+    },
+    "stretch_goal": {
+      "ranking": "Position 1-2 + multiple featured snippets",
+      "estimated_ctr": 0.30,
+      "estimated_monthly_traffic": 390,
+      "conversion_rate": 0.03,
+      "estimated_conversions": 11.7,
+      "monthly_revenue": "€174",
+      "annual_revenue": "€2,092",
+      "note": "Includes 'pferd zu verkaufen' (1,600/mo) combined traffic"
+    }
+  },
+
+  "implementation_priority": {
+    "phase_1_quick_wins_weeks_1_4": [
+      "1. [HIGH] Optimize existing content for 'pferd zu verkaufen' (higher volume variant)",
+      "2. [HIGH] Add FAQ Schema targeting 'Wie viel ist mein Pferd wert?' PAA",
+      "3. [MEDIUM] Update meta descriptions with emotional + practical angle",
+      "4. [MEDIUM] Create pricing table for featured snippet opportunity"
+    ],
+    "phase_2_content_development_weeks_5_12": [
+      "1. [HIGH] Build 'Wie viel ist mein Pferd wert?' comprehensive landing page",
+      "2. [HIGH] Create 'Pferd verkaufen Ratgeber' series (5 articles)",
+      "3. [MEDIUM] Develop 'Platform comparison' content (PferdeWert vs free marketplaces)",
+      "4. [LOW] Add emotional storytelling elements (inspired by handvollhufeisen.de)"
+    ],
+    "phase_3_advanced_tactics_weeks_13_24": [
+      "1. [MEDIUM] Produce video content for YouTube/video carousel",
+      "2. [MEDIUM] Build backlinks from equestrian forums/blogs",
+      "3. [LOW] Create calculator comparison tool (with vs without valuation)",
+      "4. [LOW] Develop case studies: 'Saved from underpricing by €X,XXX'"
+    ]
+  },
+
+  "competitive_positioning": {
+    "pferdewert_unique_advantages": [
+      "✓ ONLY AI-powered valuation tool in top 10 results",
+      "✓ Data-driven pricing vs. marketplace guesswork",
+      "✓ Prevents underpricing (average seller loses 20-30% without valuation)",
+      "✓ Emotional + rational approach (no other competitor does both)",
+      "✓ Fast results (14.90€ < hours of research + potential €3,000-9,000 loss)"
+    ],
+    "messaging_framework": {
+      "headline": "Pferd verkaufen zum optimalen Preis",
+      "subheadline": "KI-gestützte Bewertung verhindert Unterbewertung um durchschnittlich 20-30%",
+      "value_props": [
+        "Datenbasierte Preisempfehlung statt Bauchgefühl",
+        "Vermeiden Sie Verluste von €3.000-9.000 durch Unterbewertung",
+        "Ergebnis in 24 Stunden statt wochenlangem Rätselraten",
+        "14,90€ Investment sichert fairen Verkaufspreis"
+      ],
+      "cta_primary": "Jetzt Pferdewert berechnen",
+      "cta_secondary": "Mehr über KI-Bewertung erfahren"
+    }
+  },
+
+  "risk_analysis": {
+    "declining_search_volume": {
+      "concern": "Primary keyword declining -38% yearly",
+      "mitigation": "Target 'pferd zu verkaufen' (+19% yearly) as primary keyword instead",
+      "impact": "MEDIUM"
+    },
+    "low_absolute_volume": {
+      "concern": "Only 1,300/month search volume - limited upside",
+      "mitigation": "Combine with 'pferd kaufen' (40,500/mo) strategy - sellers become buyers",
+      "impact": "LOW"
+    },
+    "marketplace_dominance": {
+      "concern": "ehorses.de (135,000/mo) and pferde.de dominate market awareness",
+      "mitigation": "Position as complementary tool BEFORE listing on marketplaces",
+      "impact": "MEDIUM"
+    },
+    "ai_overview_present": {
+      "concern": "AI Overview at position 1 may reduce organic CTR by 30-50%",
+      "mitigation": "Target featured snippets + PAA to increase visibility despite AI Overview",
+      "impact": "HIGH"
+    }
+  },
+
+  "recommendation_summary": {
+    "overall_verdict": "MEDIUM PRIORITY - Declining keyword with limited volume, but strong content gap opportunity",
+    "investment_recommendation": "Moderate investment (€500-1,000 content budget), focus on quick wins",
+    "expected_roi": "12-month ROI: 200-400% (€1,000 investment → €2,000-4,000 revenue)",
+    "alternative_strategy": "Prioritize 'pferd kaufen' (40,500/mo, stable) and use selling content as secondary funnel",
+    "key_success_factors": [
+      "1. Target 'pferd zu verkaufen' (growing) not 'pferd verkaufen' (declining)",
+      "2. Capture 'Wie viel ist mein Pferd wert?' featured snippet (critical)",
+      "3. Combine emotional + practical approach (unique positioning)",
+      "4. Position as pre-marketplace step (complementary, not competitive)",
+      "5. Emphasize loss prevention (€3,000-9,000 saved) not just pricing"
+    ]
+  }
+}

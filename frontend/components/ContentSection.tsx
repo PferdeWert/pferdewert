@@ -2,10 +2,11 @@ import { ReactNode } from 'react'
 
 interface ContentSectionProps {
   title: string
-  content: ReactNode
+  content?: ReactNode
   icon?: ReactNode
   highlight?: boolean
   id?: string
+  children?: ReactNode
 }
 
 const ContentSection: React.FC<ContentSectionProps> = ({
@@ -13,7 +14,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   content,
   icon,
   highlight = false,
-  id
+  id,
+  children
 }) => {
   const sectionClasses = highlight
     ? 'bg-[#f5f5f3] border border-[#e8e8e4] rounded-3xl px-4 md:px-10 py-6 md:py-10 shadow-sm'
@@ -30,6 +32,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
         </div>
         <div className="space-y-4 md:space-y-5 text-base md:text-lg leading-7 md:leading-relaxed text-gray-700">
           {content}
+          {children}
         </div>
       </div>
     </section>

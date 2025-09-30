@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
@@ -297,9 +298,9 @@ const WasKostetEinPferd: NextPage = () => {
                   Einschätzung des Marktwerts – basierend auf Rasse, Alter, Ausbildung und aktuellen Marktdaten. So vermeiden Sie
                   Überzahlung und kaufen zum fairen Preis.
                 </p>
-                <a href="/pferde-preis-berechnen" className="inline-flex items-center gap-2 text-brand-brown font-semibold hover:text-brand-brownDark">
+                <Link href="/pferde-preis-berechnen" className="inline-flex items-center gap-2 text-brand-brown font-semibold hover:text-brand-brownDark">
                   Jetzt Pferdewert berechnen <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </RatgeberHighlightBox>
             </div>
 
@@ -484,16 +485,16 @@ const WasKostetEinPferd: NextPage = () => {
                   <li>✅ <strong>Von Reitern entwickelt</strong> – Expertise aus 20+ Jahren Pferdesport</li>
                 </ul>
                 <div className="bg-white p-4 rounded-lg border border-[#e0c9aa] mb-4">
-                  <h5 className="font-semibold text-brand-brown mb-2">So funktioniert's:</h5>
+                  <h5 className="font-semibold text-brand-brown mb-2">So funktioniert&apos;s:</h5>
                   <ol className="space-y-1 text-sm text-gray-700 list-decimal list-inside">
                     <li>Fragebogen ausfüllen (Rasse, Alter, Ausbildung, Gesundheit, etc.)</li>
                     <li>KI analysiert Ihr Pferd + vergleicht mit 100.000+ Marktdaten</li>
                     <li>Erhalten Sie detaillierten Bewertungsbericht per E-Mail</li>
                   </ol>
                 </div>
-                <a href="/pferde-preis-berechnen" className="inline-flex items-center gap-2 text-brand-brown font-semibold hover:text-brand-brownDark">
+                <Link href="/pferde-preis-berechnen" className="inline-flex items-center gap-2 text-brand-brown font-semibold hover:text-brand-brownDark">
                   Jetzt Pferdewert berechnen <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </RatgeberHighlightBox>
             </div>
 
@@ -538,9 +539,9 @@ const WasKostetEinPferd: NextPage = () => {
                     </ul>
                     <p className="text-lg text-gray-700 mt-4">
                       Mehr Details finden Sie in unserem{' '}
-                      <a href="/aku-pferd" className="text-brand-brown font-semibold hover:text-brand-brownDark">
+                      <Link href="/aku-pferd" className="text-brand-brown font-semibold hover:text-brand-brownDark">
                         umfassenden AKU-Ratgeber
-                      </a>.
+                      </Link>.
                     </p>
                   </>
                 }

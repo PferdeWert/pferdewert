@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { keyword, depth = 100 } = req.body;
+  const { keyword } = req.body;
 
   if (!keyword) {
     return res.status(400).json({ error: 'Keyword required' });

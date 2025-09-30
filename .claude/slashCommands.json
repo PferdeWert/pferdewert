@@ -6,5 +6,9 @@
   "docs": {
     "command": "~/.claude-code-docs/claude-docs-helper.sh",
     "description": "Access Claude Code documentation (auto-updating)"
+  },
+  "seo": {
+    "command": ".claude/commands/seo.md",
+    "description": "SEO research and content creation with DataForSEO + agents"
   }
 }

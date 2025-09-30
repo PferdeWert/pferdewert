@@ -1,0 +1,51 @@
+{
+  "keyword": "pferd verkaufen",
+  "status": "completed",
+  "created_at": "2025-09-30T12:00:00Z",
+  "last_updated": "2025-09-30T14:30:00Z",
+  "process_chain": "1 → 2 → 3 → 6",
+  "completed_phases": ["1", "2", "3", "6"],
+  "current_phase": "completed",
+  "phases": {
+    "1": {
+      "name": "Keyword Research",
+      "status": "completed",
+      "output_file": "pferd-verkaufen-research.json",
+      "completed_at": "2025-09-30T12:00:00Z",
+      "notes": "Research data loaded from ANALYSIS folder"
+    },
+    "2": {
+      "name": "Data Analysis",
+      "status": "completed",
+      "output_file": "pferd-verkaufen-research.json",
+      "completed_at": "2025-09-30T12:00:00Z",
+      "notes": "Analysis complete - ready for competitor analysis"
+    },
+    "3": {
+      "name": "Competitor Analysis & Outline",
+      "status": "completed",
+      "output_files": ["pferd-verkaufen-competitors.json", "pferd-verkaufen-outline.md"],
+      "completed_at": "2025-09-30T14:00:00Z",
+      "notes": "Competitor analysis and detailed outline created successfully"
+    },
+    "6": {
+      "name": "Content Creation",
+      "status": "completed",
+      "output_files": ["pferd-verkaufen-article.md", "pferd-verkaufen-meta.json"],
+      "completed_at": "2025-09-30T14:30:00Z",
+      "notes": "Article (3,802 words) and meta files created successfully. All quality checks passed."
+    }
+  },
+  "quality_checks": {
+    "company_profile_loaded": true,
+    "pricing_policy_verified": true,
+    "no_kostenlos_mentions": true,
+    "word_count": 3802,
+    "keyword_density": 1.4,
+    "all_files_exist": true,
+    "faq_count": 8,
+    "internal_links_count": 23,
+    "structured_data_complete": true,
+    "e_e_a_t_signals": true
+  }
+}
