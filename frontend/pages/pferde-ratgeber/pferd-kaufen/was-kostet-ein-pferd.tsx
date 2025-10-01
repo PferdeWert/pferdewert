@@ -74,7 +74,7 @@ const WasKostetEinPferd: NextPage = () => {
     "@type": "Article",
     "headline": "Was kostet ein Pferd? Der vollständige Preis-Guide 2025",
     "description": "Die Preise für Pferde in Deutschland: Anschaffungskosten, monatliche Unterhaltungskosten, regionale Unterschiede und professionelle Kaufberatung.",
-    "image": "https://pferdewert.de/images/was-kostet-ein-pferd.jpg",
+    "image": "https://pferdewert.de/images/was-kostet-ein-pferd.webp",
     "author": {
       "@type": "Organization",
       "name": "PferdeWert.de"
@@ -142,7 +142,7 @@ const WasKostetEinPferd: NextPage = () => {
         <meta property="og:description" content="Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pferdewert.de/was-kostet-ein-pferd" />
-        <meta property="og:image" content="https://pferdewert.de/images/was-kostet-ein-pferd.jpg" />
+        <meta property="og:image" content="https://pferdewert.de/images/was-kostet-ein-pferd.webp" />
 
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -580,7 +580,7 @@ const WasKostetEinPferd: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: '/happy-horse-owner-with-horse--professional-consult.jpg',
+              src: '/happy-horse-owner-with-horse--professional-consult.webp',
               alt: 'Professionelle Pferdeberatung und Bewertung',
               width: 960,
               height: 640

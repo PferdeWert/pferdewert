@@ -1,0 +1,215 @@
+{
+  "page": "aku-pferd-kosten",
+  "url": "/pferde-ratgeber/aku-pferd/kosten",
+  "canonical": "https://pferdewert.de/pferde-ratgeber/aku-pferd/kosten",
+  "generatedDate": "2025-01-13",
+  "companyProfileRef": "SEO/company/company-profile-2025-09-21.md",
+  "seoCompleteness": "~15% → Target: ~100%",
+
+  "structuredData": {
+    "articleSchema": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {
+        "value": "AKU Pferd Kosten 2025: Komplette Übersicht & Spartipps",
+        "rationale": "Descriptive headline targeting main keyword with year for freshness and value-add (Spartipps)",
+        "brandAlignment": "Reflects 'Marktaktualität' and 'Transparenz' USPs with current year and complete overview"
+      },
+      "description": {
+        "value": "Die Kosten der Ankaufsuntersuchung im Detail: Preise pro AKU-Klasse (150-2.000€), Zusatzkosten, regionale Unterschiede und bewährte Spartipps für Käufer.",
+        "rationale": "Comprehensive article summary with specific price range, regional aspect, and practical value",
+        "brandAlignment": "Emphasizes 'Transparenz' USP with concrete pricing and comprehensive coverage"
+      },
+      "image": {
+        "value": "https://pferdewert.de/person-evaluating-horse-for-purchase.jpg",
+        "rationale": "High-quality image URL for rich snippet display in SERPs",
+        "requirements": "Minimum 1200x630px for optimal social sharing and Google image display"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "rationale": "Organization authorship (not Person) per Company Profile guidelines",
+        "brandAlignment": "Establishes brand authority, never use individual names"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/logo.png",
+          "rationale": "Required for Article rich snippets, establishes brand identity"
+        },
+        "rationale": "Publisher must be Organization type with logo for valid Article schema"
+      },
+      "datePublished": {
+        "value": "new Date().toISOString()",
+        "dynamicGeneration": true,
+        "rationale": "ISO 8601 format required by Schema.org, generated at page load for accuracy",
+        "implementationNote": "For static pages, use actual publish date instead of dynamic generation"
+      },
+      "dateModified": {
+        "value": "new Date().toISOString()",
+        "dynamicGeneration": true,
+        "rationale": "ISO 8601 format, updated on content changes for freshness signal",
+        "implementationNote": "Update this manually when page content is significantly revised (especially pricing changes)"
+      },
+      "validationNotes": [
+        "Test schema with Google Rich Results Test: https://search.google.com/test/rich-results",
+        "Ensure image is accessible and meets size requirements",
+        "Verify ISO 8601 date format for publish/modified dates",
+        "Author must be Organization type, never Person",
+        "Update dateModified when pricing information changes"
+      ]
+    },
+
+    "organizationSchema": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {
+        "value": "PferdeWert.de",
+        "rationale": "Consistent brand name across all schema instances"
+      },
+      "url": {
+        "value": "https://pferdewert.de",
+        "rationale": "Canonical homepage URL for brand identity"
+      },
+      "logo": {
+        "value": "https://pferdewert.de/logo.png",
+        "rationale": "Brand logo for knowledge graph and rich snippets",
+        "requirements": "Square format recommended, minimum 112x112px, transparent background preferred"
+      },
+      "description": {
+        "value": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
+        "rationale": "Matches Company Profile Vision verbatim for consistency",
+        "brandAlignment": "Direct quote from 'Unternehmensmission' in Company Profile"
+      },
+      "sameAs": {
+        "value": [
+          "https://www.facebook.com/pferdewert",
+          "https://www.instagram.com/pferdewert"
+        ],
+        "rationale": "Social media links for entity disambiguation and trust signals",
+        "implementationNote": "Add LinkedIn, Twitter, YouTube if/when profiles are created"
+      },
+      "validationNotes": [
+        "Organization schema should appear on all pages for brand consistency",
+        "Update sameAs array when new social profiles are added",
+        "Logo must be accessible at specified URL",
+        "Description matches Company Profile mission statement exactly"
+      ]
+    },
+
+    "faqSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": {
+        "structure": "Array of Question/Answer pairs",
+        "dataSource": "faqItems array from page component (lines 94-115)",
+        "dynamicGeneration": true,
+        "rationale": "FAQ schema enables rich snippet expansion in SERPs, increases visibility",
+        "exampleQuestionAnswer": {
+          "@type": "Question",
+          "name": "Wer bezahlt die AKU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In der Regel der Käufer. Bei Kaufabbruch aufgrund kritischer Befunde können Kostenanteile mit dem Verkäufer verhandelt werden – wichtige Punkte vorab vertraglich klären."
+          }
+        },
+        "implementationPattern": "faqItems.map(faq => ({ \"@type\": \"Question\", \"name\": faq.question, \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": faq.answer }}))",
+        "brandAlignment": "Answers demonstrate practical expertise per AKU Content-Fokus"
+      },
+      "contentGuidelines": {
+        "questionFormat": [
+          "Start with question words: Wer, Was, Wie, Warum, Welche",
+          "Use natural language matching user search queries",
+          "Keep questions concise (under 100 characters recommended)",
+          "Focus on cost-related questions and practical budgeting per page theme"
+        ],
+        "answerFormat": [
+          "Provide complete, standalone answers (not fragments)",
+          "Include specific price ranges or percentages for transparency (per USP)",
+          "Keep answers under 300 characters for optimal SERP display",
+          "Maintain 'Fachkundig aber zugänglich' tone from Company Profile",
+          "Avoid 'kostenlos' or any free/cost-free language (service is paid)"
+        ]
+      },
+      "validationNotes": [
+        "Test with Google Rich Results Test for FAQ eligibility",
+        "Ensure questions match real user search queries",
+        "Answers must be factual and complete (not click-bait fragments)",
+        "Minimum 2 questions recommended, maximum 10-15 for readability",
+        "Page has 4 FAQ items (lines 94-115) - all should be included"
+      ]
+    }
+  },
+
+  "implementationNotes": {
+    "jsonLdInjection": [
+      "Use Next.js Head component with dangerouslySetInnerHTML",
+      "Stringify each schema separately: JSON.stringify(articleSchema)",
+      "Each schema in separate <script type=\"application/ld+json\"> tag",
+      "Order: Article → Organization → FAQPage (for logical priority)"
+    ],
+    "dynamicDataHandling": [
+      "Dates: Use new Date().toISOString() for current timestamp OR hardcode actual publish date",
+      "FAQ items: Map from FAQItem[] array defined in component (lines 94-115)",
+      "Images: Ensure all image URLs are absolute (https://pferdewert.de/...)",
+      "Social links: Update sameAs array when new profiles are created",
+      "Price ranges: Update article description if AKU pricing changes significantly"
+    ],
+    "schemaSelection": [
+      "Article schema chosen (not HowTo) because page is informational/guide content",
+      "Page provides cost information and budgeting guidance, not a step-by-step process",
+      "Similar to page 8 (was-kostet-ein-pferd) which also uses Article schema",
+      "FAQPage schema complements Article for comprehensive coverage"
+    ],
+    "schemaValidation": [
+      "Use Google Rich Results Test: https://search.google.com/test/rich-results",
+      "Use Schema.org validator: https://validator.schema.org/",
+      "Check Search Console for structured data errors",
+      "Verify all required fields for Article: headline, image, author, publisher"
+    ],
+    "brandGuidelines": [
+      "Author must ALWAYS be Organization, never Person (per Company Profile)",
+      "Organization description must match Company Profile Vision exactly",
+      "Never use 'kostenlos' in any schema text fields (service is paid 19,90€)",
+      "Emphasize transparency with concrete price ranges in description per USP",
+      "FAQ answers demonstrate practical expertise per 'Fachkundig aber zugänglich' tonality"
+    ]
+  },
+
+  "schemaInteractions": {
+    "articleAndOrganization": "Article publisher references Organization schema for consistent brand entity",
+    "articleAndFaq": "Both appear on same page - Article for content, FAQ for specific cost questions",
+    "organizationGlobal": "Organization schema should appear on all pages for brand knowledge graph",
+    "faqPageSpecific": "FAQ schema only on pages with actual FAQ sections (this page has 4 cost-focused FAQs)"
+  },
+
+  "seoImpact": {
+    "richSnippets": {
+      "article": "Enables article rich snippet with author, date, image in SERPs",
+      "faq": "FAQ accordion expansion directly in search results increases CTR for cost questions",
+      "organization": "Knowledge graph panel in brand searches"
+    },
+    "trustSignals": {
+      "organizationSchema": "Establishes brand entity for Google Knowledge Graph",
+      "articleDates": "Freshness signal with datePublished/dateModified - especially important for pricing content",
+      "faqSchema": "Demonstrates practical expertise and transparency (E-E-A-T)"
+    },
+    "clickThroughRate": {
+      "faqExpansion": "Users can read cost answers in SERP without clicking (but schema presence increases trust)",
+      "articleSnippet": "Image + author + date + price range makes result highly informative",
+      "organizationLogo": "Brand logo in snippets increases recognition and trust"
+    }
+  },
+
+  "maintenanceGuidelines": [
+    "Update dateModified when pricing information is significantly revised",
+    "Update article description if price ranges change (currently 150-2.000€)",
+    "Add new FAQ items as cost-related user questions emerge (monitor search queries)",
+    "Validate schemas after any structure changes using Google Rich Results Test",
+    "Update Organization sameAs array when new social profiles launch",
+    "Review FAQ answers quarterly to ensure pricing accuracy and brand alignment",
+    "Update year in headline for seasonal content updates (2025 → 2026)"
+  ]
+}

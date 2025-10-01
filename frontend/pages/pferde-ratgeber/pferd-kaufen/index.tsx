@@ -169,7 +169,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/veterinarian-examining-horse-health-check.jpg",
+    image: "/veterinarian-examining-horse-health-check.webp",
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",

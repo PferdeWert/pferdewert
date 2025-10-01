@@ -1,0 +1,227 @@
+{
+  "page": "aku-pferd-ablauf",
+  "url": "/pferde-ratgeber/aku-pferd/ablauf",
+  "canonical": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+  "generatedDate": "2025-01-13",
+  "companyProfileRef": "SEO/company/company-profile-2025-09-21.md",
+  "seoCompleteness": "~15% → Target: ~100%",
+
+  "structuredData": {
+    "howToSchema": {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": {
+        "value": "Wie läuft die Ankaufsuntersuchung (AKU) für Pferde ab?",
+        "rationale": "Question format for HowTo schema, targets user search intent",
+        "brandAlignment": "Demonstrates veterinary expertise per AKU Content-Fokus"
+      },
+      "description": {
+        "value": "Schritt-für-Schritt-Anleitung zur Ankaufsuntersuchung: Von der Vorbereitung über die 5 Untersuchungsphasen bis zum finalen AKU-Protokoll.",
+        "rationale": "Comprehensive description covering all aspects of the process",
+        "brandAlignment": "Emphasizes 'Transparenz' USP with structured approach"
+      },
+      "image": {
+        "value": "https://pferdewert.de/veterinarian-examining-horse-health-check.jpg",
+        "rationale": "Hero image from page showing veterinary examination",
+        "requirements": "Minimum 1200x630px for optimal display"
+      },
+      "totalTime": {
+        "value": "PT2H",
+        "rationale": "ISO 8601 duration format: 2 hours typical for standard AKU",
+        "implementationNote": "Adjust if page specifies different typical duration"
+      },
+      "estimatedCost": {
+        "value": "400-800 EUR",
+        "currency": "EUR",
+        "rationale": "Typical cost range for standard AKU (Klasse II) per kosten page data",
+        "brandAlignment": "Demonstrates 'Transparenz' USP with concrete pricing"
+      },
+      "step": {
+        "structure": "Array of HowToStep objects",
+        "dataSource": "Extract from phases section on page (lines 216-305)",
+        "rationale": "HowTo schema enables rich snippet step display in SERPs",
+        "exampleStep": {
+          "@type": "HowToStep",
+          "name": "Phase 1: Anamnese und Vorbesprechung",
+          "text": "Der Tierarzt erfasst die Vorgeschichte des Pferdes, bespricht den geplanten Einsatzzweck und legt den Untersuchungsumfang fest.",
+          "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf#phase1"
+        },
+        "implementationPattern": "Extract all 5 phases from page content and map to HowToStep objects with name, text, and url (using section anchors)",
+        "brandAlignment": "Step-by-step format demonstrates 'Fachkundig aber zugänglich' tonality"
+      },
+      "tool": {
+        "structure": "Array of tools/supplies needed",
+        "rationale": "Optional but adds completeness to HowTo schema",
+        "examples": [
+          "AKU-Protokoll Vorlage",
+          "Krankenakte des Pferdes (falls vorhanden)",
+          "Liste mit Fragen zum Pferd"
+        ]
+      },
+      "supply": {
+        "structure": "Array of supplies needed",
+        "rationale": "Documents preparation requirements",
+        "examples": [
+          "Impfpass des Pferdes",
+          "Vorige Untersuchungsbefunde",
+          "Kaufvertragsentwurf"
+        ]
+      },
+      "validationNotes": [
+        "Test schema with Google Rich Results Test for HowTo eligibility",
+        "Each step must have name and text (url optional but recommended)",
+        "totalTime in ISO 8601 duration format (PT2H = 2 hours)",
+        "estimatedCost must include currency property",
+        "tool and supply arrays are optional but add completeness"
+      ]
+    },
+
+    "organizationSchema": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {
+        "value": "PferdeWert.de",
+        "rationale": "Consistent brand name across all schema instances"
+      },
+      "url": {
+        "value": "https://pferdewert.de",
+        "rationale": "Canonical homepage URL for brand identity"
+      },
+      "logo": {
+        "value": "https://pferdewert.de/logo.png",
+        "rationale": "Brand logo for knowledge graph and rich snippets",
+        "requirements": "Square format recommended, minimum 112x112px, transparent background preferred"
+      },
+      "description": {
+        "value": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
+        "rationale": "Matches Company Profile Vision verbatim for consistency",
+        "brandAlignment": "Direct quote from 'Unternehmensmission' in Company Profile"
+      },
+      "sameAs": {
+        "value": [
+          "https://www.facebook.com/pferdewert",
+          "https://www.instagram.com/pferdewert"
+        ],
+        "rationale": "Social media links for entity disambiguation and trust signals",
+        "implementationNote": "Add LinkedIn, Twitter, YouTube if/when profiles are created"
+      },
+      "validationNotes": [
+        "Organization schema should appear on all pages for brand consistency",
+        "Update sameAs array when new social profiles are added",
+        "Logo must be accessible at specified URL",
+        "Description matches Company Profile mission statement exactly"
+      ]
+    },
+
+    "faqSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": {
+        "structure": "Array of Question/Answer pairs",
+        "dataSource": "faqItems array from page component (lines 143-164)",
+        "dynamicGeneration": true,
+        "rationale": "FAQ schema enables rich snippet expansion in SERPs, increases visibility",
+        "exampleQuestionAnswer": {
+          "@type": "Question",
+          "name": "Wie lange dauert eine AKU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine kleine AKU dauert 30–60 Minuten, eine große AKU mit Röntgen 90–150 Minuten. Plane zusätzlich Zeit für Vor- und Nachbesprechung ein."
+          }
+        },
+        "implementationPattern": "faqItems.map(faq => ({ \"@type\": \"Question\", \"name\": faq.question, \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": faq.answer }}))",
+        "brandAlignment": "Answers demonstrate veterinary expertise per AKU Content-Fokus"
+      },
+      "contentGuidelines": {
+        "questionFormat": [
+          "Start with question words: Wie, Was, Warum, Wann, Wo",
+          "Use natural language matching user search queries",
+          "Keep questions concise (under 100 characters recommended)",
+          "Focus on informational intent per Company Profile Content-Fokus"
+        ],
+        "answerFormat": [
+          "Provide complete, standalone answers (not fragments)",
+          "Include specific numbers/timeframes for transparency (per USP)",
+          "Keep answers under 300 characters for optimal SERP display",
+          "Maintain 'Fachkundig aber zugänglich' tone from Company Profile",
+          "Avoid 'kostenlos' or any free/cost-free language (service is paid)"
+        ]
+      },
+      "validationNotes": [
+        "Test with Google Rich Results Test for FAQ eligibility",
+        "Ensure questions match real user search queries",
+        "Answers must be factual and complete (not click-bait fragments)",
+        "Minimum 2 questions recommended, maximum 10-15 for readability",
+        "Page has 8 FAQ items (lines 143-164) - all should be included"
+      ]
+    }
+  },
+
+  "implementationNotes": {
+    "jsonLdInjection": [
+      "Use Next.js Head component with dangerouslySetInnerHTML",
+      "Stringify each schema separately: JSON.stringify(howToSchema)",
+      "Each schema in separate <script type=\"application/ld+json\"> tag",
+      "Order: HowTo → Organization → FAQPage (for logical priority)"
+    ],
+    "dynamicDataHandling": [
+      "FAQ items: Map from FAQItem[] array defined in component (lines 143-164)",
+      "HowTo steps: Extract from phases content section (lines 216-305)",
+      "Images: Ensure all image URLs are absolute (https://pferdewert.de/...)",
+      "Social links: Update sameAs array when new profiles are created"
+    ],
+    "schemaSelection": [
+      "HowTo schema chosen (not Article) because page explains a process",
+      "Main AKU page (aku-pferd.tsx) uses same pattern - reference implementation",
+      "Process-oriented content with clear steps makes HowTo most appropriate",
+      "FAQPage schema complements HowTo for comprehensive coverage"
+    ],
+    "schemaValidation": [
+      "Use Google Rich Results Test: https://search.google.com/test/rich-results",
+      "Use Schema.org validator: https://validator.schema.org/",
+      "Check Search Console for structured data errors",
+      "Verify all required fields for HowTo: name, step (with name and text for each)"
+    ],
+    "brandGuidelines": [
+      "Author must ALWAYS be Organization, never Person (per Company Profile)",
+      "Organization description must match Company Profile Vision exactly",
+      "Never use 'kostenlos' in any schema text fields (service is paid 19,90€)",
+      "Emphasize veterinary expertise in HowTo description per AKU Content-Fokus",
+      "FAQ answers demonstrate expertise per 'Fachkundig aber zugänglich' tonality"
+    ]
+  },
+
+  "schemaInteractions": {
+    "howToAndOrganization": "HowTo references Organization for brand entity consistency",
+    "howToAndFaq": "Both appear on same page - HowTo for process, FAQ for specific questions",
+    "organizationGlobal": "Organization schema should appear on all pages for brand knowledge graph",
+    "faqPageSpecific": "FAQ schema only on pages with actual FAQ sections (this page has 8 FAQs)"
+  },
+
+  "seoImpact": {
+    "richSnippets": {
+      "howTo": "Enables step-by-step rich snippet with estimated time and cost in SERPs",
+      "faq": "FAQ accordion expansion directly in search results increases CTR",
+      "organization": "Knowledge graph panel in brand searches"
+    },
+    "trustSignals": {
+      "organizationSchema": "Establishes brand entity for Google Knowledge Graph",
+      "howToSteps": "Structured process demonstrates expertise (E-E-A-T)",
+      "faqSchema": "Demonstrates expertise and authority (E-E-A-T)"
+    },
+    "clickThroughRate": {
+      "howToRichSnippet": "Step preview + time + cost makes result highly informative and trustworthy",
+      "faqExpansion": "Users can read answers in SERP without clicking (but schema presence increases trust)",
+      "organizationLogo": "Brand logo in snippets increases recognition and trust"
+    }
+  },
+
+  "maintenanceGuidelines": [
+    "Update HowTo steps if process changes or phases are modified",
+    "Add new FAQ items as user questions emerge (monitor search queries)",
+    "Validate schemas after any structure changes using Google Rich Results Test",
+    "Update Organization sameAs array when new social profiles launch",
+    "Review FAQ answers quarterly to ensure accuracy and brand alignment",
+    "Verify estimatedCost if AKU pricing changes significantly"
+  ]
+}

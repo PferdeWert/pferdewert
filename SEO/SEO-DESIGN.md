@@ -220,4 +220,76 @@ export default function RatgeberPage() {
 
 **Interne Verlinkung:** Jede Ratgeberseite mit einem Abschnitt „Weiterführende Artikel" muss einen Eintrag zum zentralen AKU-Hub unter `/aku-pferd` enthalten.
 
+### 10. Deployment Checklist für neue Ratgeber
+
+**WICHTIG**: Alle Ratgeber-Artikel werden zentral über das Ratgeber-Registry verwaltet. Dieses System automatisiert die Sitemap-Generierung und die Anzeige auf der Übersichtsseite.
+
+#### 4-Schritte-Prozess für neue Ratgeber:
+
+1. **Ratgeber-Seite erstellen**
+   - Erstelle die neue Page-Datei in `/frontend/pages/pferde-ratgeber/`
+   - Beispiel: `/frontend/pages/pferde-ratgeber/pferd-versichern.tsx`
+   - Implementiere alle Design-Guidelines aus diesem Dokument
+   - Integriere SEO Meta-Daten aus der entsprechenden `*-meta.json` Datei
+
+2. **Registry-Eintrag hinzufügen**
+   - Öffne `/frontend/lib/ratgeber-registry.ts`
+   - Füge einen neuen Eintrag zum `RATGEBER_ENTRIES` Array hinzu:
+   ```typescript
+   {
+     slug: 'pferd-versichern',  // URL-Slug (ohne /pferde-ratgeber/)
+     title: 'Pferd versichern - Der komplette Ratgeber',
+     description: 'Alles über Pferdeversicherungen...',
+     category: 'Finanzen & Recht',
+     readTime: '12 Min.',
+     image: '/path-to-image.jpg',
+     priority: '0.7',  // SEO Priority (0.0 - 1.0)
+     changefreq: 'monthly'  // SEO Change Frequency
+   }
+   ```
+
+3. **Sitemap & robots.txt aktualisieren**
+   - Führe aus: `npm run sitemap`
+   - Dieser Befehl generiert automatisch:
+     - `/frontend/public/sitemap.xml` mit dem neuen Ratgeber-Eintrag
+     - `/frontend/public/robots.txt` mit aktualisierter Crawling-Struktur
+   - Verifiziere die Generierung in der Konsolen-Ausgabe
+
+4. **Deploy durchführen**
+   - Commit & Push der Änderungen
+   - Nach Deployment wird:
+     - Die Übersichtsseite `/pferde-ratgeber` automatisch den neuen Artikel anzeigen
+     - Die Sitemap für Suchmaschinen aktualisiert sein
+     - Die neue Page unter `/pferde-ratgeber/[slug]` verfügbar sein
+
+#### Wichtige Hinweise:
+
+- **Single Source of Truth**: Das Ratgeber-Registry (`ratgeber-registry.ts`) ist die zentrale Datenquelle
+- **Keine manuellen Sitemap-Änderungen**: NIEMALS direkt `sitemap.xml` oder `robots.txt` editieren
+- **Übersichtsseite**: Wird automatisch aus dem Registry generiert, keine manuellen Updates nötig
+- **Reihenfolge zählt**: Ratgeber werden in der Reihenfolge angezeigt, wie sie im Registry-Array stehen
+- **Testing**: Teste die neue Page lokal (`npm run dev`) bevor du die Sitemap generierst
+
+#### Häufige Fehler vermeiden:
+
+- ❌ **Sitemap manuell editieren** → Nutze `npm run sitemap`
+- ❌ **Übersichtsseite hardcoden** → Registry wird automatisch gelesen
+- ❌ **Registry-Eintrag vergessen** → Page wird nicht in Sitemap/Übersicht auftauchen
+- ❌ **Sitemap vor Deploy vergessen** → Alte Sitemap wird deployed
+
+#### Verfügbare Helper-Funktionen:
+
+```typescript
+import { getRatgeberPath, getRatgeberBySlug, getRatgeberByCategory } from '@/lib/ratgeber-registry';
+
+// URL-Pfad generieren
+const path = getRatgeberPath('pferd-versichern'); // → /pferde-ratgeber/pferd-versichern
+
+// Entry nach Slug finden
+const entry = getRatgeberBySlug('pferd-versichern');
+
+// Alle Entries einer Kategorie
+const financeArticles = getRatgeberByCategory('Finanzen & Recht');
+```
+
 Diese Vorgaben sind verbindlich für alle SEO-Ratgeberseiten. Änderungen am Design nur nach Abstimmung mit dem Design-Team vornehmen.

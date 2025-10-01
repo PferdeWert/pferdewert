@@ -13,6 +13,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
+import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 interface PhaseStep {
   phase: string
@@ -174,7 +175,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/klassen",
-    image: "/horse-in-stable--professional-care.jpg",
+    image: "/horse-in-stable--professional-care.webp",
     title: "AKU Klassen erklärt",
     badge: "AKU Guide",
     readTime: "8 Min.",
@@ -182,7 +183,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/kosten",
-    image: "/person-evaluating-horse-for-purchase.jpg",
+    image: "/person-evaluating-horse-for-purchase.webp",
     title: "AKU Kosten transparent",
     badge: "Kosten & Preise",
     readTime: "7 Min.",
@@ -228,7 +229,7 @@ const AkuPferdAblauf: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/veterinarian-examining-horse-health-check.jpg"
+          src={getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/aku-ablauf-hero.webp'}
           alt="Tierarzt führt Ankaufsuntersuchung bei Pferd durch"
           priority
         />
@@ -372,7 +373,7 @@ const AkuPferdAblauf: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/veterinarian-examining-horse-health-check.jpg",
+              src: "/veterinarian-examining-horse-health-check.webp",
               alt: "Tierarzt bei der Ankaufsuntersuchung"
             }}
             title="AKU abgeschlossen – und jetzt?"

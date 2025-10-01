@@ -13,71 +13,26 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "15 Min.",
-      bild: "/veterinarian-examining-horse-health-check.jpg",
+      bild: "/veterinarian-examining-horse-health-check.webp",
       link: "/pferde-ratgeber/aku-pferd",
     },
     {
       id: 2,
-      titel: "AKU Kosten - Was kostet eine Ankaufsuntersuchung?",
-      beschreibung: "Detaillierte Kostenübersicht für die Ankaufsuntersuchung beim Pferd. Große vs. kleine AKU, regionale Unterschiede und Spartipps.",
-      kategorie: "AKU",
-      lesezeit: "8 Min.",
-      bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "/pferde-ratgeber/aku-pferd/kosten",
-    },
-    {
-      id: 3,
-      titel: "AKU Klassen - Bewertungssystem erklärt",
-      beschreibung: "Die AKU-Klassifizierung von Klasse 1 bis 5 verständlich erklärt. Was bedeutet jede Klasse für den Pferdekauf?",
-      kategorie: "AKU",
-      lesezeit: "10 Min.",
-      bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "/pferde-ratgeber/aku-pferd/klassen",
-    },
-    {
-      id: 4,
-      titel: "AKU Ablauf - Schritt für Schritt",
-      beschreibung: "Der komplette Ablauf der Ankaufsuntersuchung: Von der Terminvereinbarung bis zum Befund. Mit Checkliste zum Download.",
-      kategorie: "AKU",
-      lesezeit: "12 Min.",
-      bild: "/veterinarian-examining-horse-health-check.jpg",
-      link: "/pferde-ratgeber/aku-pferd/ablauf",
-    },
-    {
-      id: 5,
       titel: "Pferd kaufen - Der komplette Ratgeber",
       beschreibung: "Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "18 Min.",
-      bild: "/person-evaluating-horse-for-purchase.jpg",
+      bild: "/person-evaluating-horse-for-purchase.webp",
       link: "/pferde-ratgeber/pferd-kaufen",
     },
     {
-      id: 6,
-      titel: "Was kostet ein Pferd?",
-      beschreibung: "Kompletter Kostenüberblick: Anschaffung, monatliche Ausgaben, versteckte Kosten und wie Sie langfristig Geld sparen können.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "14 Min.",
-      bild: "/person-evaluating-horse-for-purchase.jpg",
-      link: "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
-    },
-    {
-      id: 7,
+      id: 3,
       titel: "Pferd verkaufen - Erfolgreich & Optimal",
       beschreibung: "Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "16 Min.",
-      bild: "/happy-horse-owner-with-horse--professional-consult.jpg",
+      bild: "/happy-horse-owner-with-horse--professional-consult.webp",
       link: "/pferde-ratgeber/pferd-verkaufen",
-    },
-    {
-      id: 8,
-      titel: "Pferd verkaufen Tipps - Die besten Strategien",
-      beschreibung: "Expertentipps für den erfolgreichen Pferdeverkauf: Optimale Preisfindung, professionelle Präsentation und Verhandlungsstrategien.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "11 Min.",
-      bild: "/happy-horse-owner-with-horse--professional-consult.jpg",
-      link: "/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps",
     },
   ]
 
@@ -87,7 +42,7 @@ const PferdeRatgeber: NextPage = () => {
         <title>Pferde-Ratgeber | Expertenwissen für Pferdebesitzer | PferdeWert.de</title>
         <meta
           name="description"
-          content="Alle Pferde-Ratgeber auf einen Blick: AKU Pferd, Kosten, Klassen, Ablauf, Pferd kaufen & verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
+          content="Die wichtigsten Pferde-Ratgeber: AKU Pferd, Pferd kaufen und Pferd verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
         />
         <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber" />
@@ -100,9 +55,10 @@ const PferdeRatgeber: NextPage = () => {
         <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-brand-light/50 to-white">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/beautiful-horse-in-golden-sunset-light--profession.jpg"
+              src="/beautiful-horse-in-golden-sunset-light--profession.webp"
               alt="Pferd im goldenen Licht"
               fill
+              sizes="100vw"
               className="object-cover opacity-20"
               priority
             />
@@ -111,7 +67,7 @@ const PferdeRatgeber: NextPage = () => {
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-h1 font-serif font-bold text-brand mb-6">Pferde-Ratgeber</h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-              Ihr Expertenleitfaden für Pferdekauf und -verkauf – mit professioneller AKU-Beratung und Bewertungstipps.
+              Ihr Expertenleitfaden für Pferdekauf und Pferdeverkauf – mit professioneller AKU-Beratung und Bewertungstipps.
             </p>
           </div>
         </section>
@@ -120,24 +76,25 @@ const PferdeRatgeber: NextPage = () => {
         <section id="artikel-grid" className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Alle Ratgeber im Überblick</h2>
+              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Unsere Hauptratgeber</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Umfassendes Expertenwissen zu Pferdekauf, Pferdeverkauf und Ankaufsuntersuchung
+                Die drei wichtigsten Ratgeber für Pferdekauf und -verkauf – kompakt und praxisnah erklärt
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {ratgeberArtikel.map((artikel) => (
-                <div key={artikel.id} className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                <div key={artikel.id} className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col">
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <Image
                       src={artikel.bild}
                       alt={artikel.titel}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-grow">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-xs font-medium bg-brand-light text-brand px-2 py-1 rounded">
                         {artikel.kategorie}
@@ -149,7 +106,7 @@ const PferdeRatgeber: NextPage = () => {
                       {artikel.titel}
                     </h3>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{artikel.beschreibung}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{artikel.beschreibung}</p>
 
                     <Link href={artikel.link}>
                       <button className="w-full border border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white transition-colors py-2 px-4 rounded-lg text-sm font-medium">
@@ -168,9 +125,10 @@ const PferdeRatgeber: NextPage = () => {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <div className="mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
               <Image
-                src="/happy-horse-owner-with-horse--professional-consult.jpg"
+                src="/happy-horse-owner-with-horse--professional-consult.webp"
                 alt="Professionelle Pferdeberatung"
                 fill
+                sizes="(max-width: 768px) 100vw, 672px"
                 className="rounded-xl shadow-soft object-cover"
               />
             </div>

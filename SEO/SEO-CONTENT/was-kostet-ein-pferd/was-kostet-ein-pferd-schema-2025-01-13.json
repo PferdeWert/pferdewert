@@ -1,0 +1,214 @@
+{
+  "page": "was-kostet-ein-pferd",
+  "url": "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+  "canonical": "https://pferdewert.de/was-kostet-ein-pferd",
+  "generatedDate": "2025-01-13",
+  "companyProfileRef": "SEO/company/company-profile-2025-09-21.md",
+  "seoCompleteness": "~100%",
+
+  "structuredData": {
+    "articleSchema": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {
+        "value": "Was kostet ein Pferd? Der vollständige Preis-Guide 2025",
+        "rationale": "Descriptive headline targeting main keyword with year for freshness",
+        "brandAlignment": "Reflects 'Marktaktualität' USP with 2025 reference"
+      },
+      "description": {
+        "value": "Die Preise für Pferde in Deutschland: Anschaffungskosten, monatliche Unterhaltungskosten, regionale Unterschiede und professionelle Kaufberatung.",
+        "rationale": "Comprehensive article summary covering all main topics, includes regional focus",
+        "brandAlignment": "Emphasizes 'professionelle Kaufberatung' per Content-Fokus"
+      },
+      "image": {
+        "value": "https://pferdewert.de/images/was-kostet-ein-pferd.jpg",
+        "rationale": "High-quality image URL for rich snippet display in SERPs",
+        "requirements": "Minimum 1200x630px for optimal social sharing and Google image display"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "rationale": "Organization authorship (not Person) per Company Profile guidelines",
+        "brandAlignment": "Establishes brand authority, never use individual names"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/logo.png",
+          "rationale": "Required for Article rich snippets, establishes brand identity"
+        },
+        "rationale": "Publisher must be Organization type with logo for valid Article schema"
+      },
+      "datePublished": {
+        "value": "new Date().toISOString()",
+        "dynamicGeneration": true,
+        "rationale": "ISO 8601 format required by Schema.org, generated at page load for accuracy",
+        "implementationNote": "For static pages, use actual publish date instead of dynamic generation"
+      },
+      "dateModified": {
+        "value": "new Date().toISOString()",
+        "dynamicGeneration": true,
+        "rationale": "ISO 8601 format, updated on content changes for freshness signal",
+        "implementationNote": "Update this manually when page content is significantly revised"
+      },
+      "validationNotes": [
+        "Test schema with Google Rich Results Test: https://search.google.com/test/rich-results",
+        "Ensure image is accessible and meets size requirements",
+        "Verify ISO 8601 date format for publish/modified dates",
+        "Author must be Organization type, never Person"
+      ]
+    },
+
+    "organizationSchema": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {
+        "value": "PferdeWert.de",
+        "rationale": "Consistent brand name across all schema instances"
+      },
+      "url": {
+        "value": "https://pferdewert.de",
+        "rationale": "Canonical homepage URL for brand identity"
+      },
+      "logo": {
+        "value": "https://pferdewert.de/logo.png",
+        "rationale": "Brand logo for knowledge graph and rich snippets",
+        "requirements": "Square format recommended, minimum 112x112px, transparent background preferred"
+      },
+      "description": {
+        "value": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
+        "rationale": "Matches Company Profile Vision verbatim for consistency",
+        "brandAlignment": "Direct quote from 'Unternehmensmission' in Company Profile"
+      },
+      "sameAs": {
+        "value": [
+          "https://www.facebook.com/pferdewert",
+          "https://www.instagram.com/pferdewert"
+        ],
+        "rationale": "Social media links for entity disambiguation and trust signals",
+        "implementationNote": "Add LinkedIn, Twitter, YouTube if/when profiles are created"
+      },
+      "validationNotes": [
+        "Organization schema should appear on all pages for brand consistency",
+        "Update sameAs array when new social profiles are added",
+        "Logo must be accessible at specified URL",
+        "Description matches Company Profile mission statement exactly"
+      ]
+    },
+
+    "faqSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": {
+        "structure": "Array of Question/Answer pairs",
+        "dataSource": "wasKostetPferdFaqItems array from page component",
+        "dynamicGeneration": true,
+        "rationale": "FAQ schema enables rich snippet expansion in SERPs, increases visibility",
+        "exampleQuestionAnswer": {
+          "@type": "Question",
+          "name": "Wie viel kostet ein Pferd in der Anschaffung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Anschaffungskosten für ein Pferd variieren stark: Freizeitpferde 1.500-8.000€, Sportpferde 8.000-30.000€, Zuchtpferde bis 50.000€+. Faktoren sind Rasse, Alter, Ausbildung und Turniererfolge."
+          }
+        },
+        "implementationPattern": "wasKostetPferdFaqItems.map(faq => ({ \"@type\": \"Question\", \"name\": faq.question, \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": faq.answer }}))",
+        "brandAlignment": "Answers demonstrate expertise per 'Fachkundig aber zugänglich' tonality"
+      },
+      "contentGuidelines": {
+        "questionFormat": [
+          "Start with question words: Wie, Was, Warum, Wann, Wo",
+          "Use natural language matching user search queries",
+          "Keep questions concise (under 100 characters recommended)",
+          "Focus on informational intent per Company Profile Content-Fokus"
+        ],
+        "answerFormat": [
+          "Provide complete, standalone answers (not fragments)",
+          "Include specific numbers/ranges for transparency (per USP)",
+          "Keep answers under 300 characters for optimal SERP display",
+          "Maintain 'Fachkundig aber zugänglich' tone from Company Profile",
+          "Avoid 'kostenlos' or any free/cost-free language (service is paid)"
+        ]
+      },
+      "validationNotes": [
+        "Test with Google Rich Results Test for FAQ eligibility",
+        "Ensure questions match real user search queries",
+        "Answers must be factual and complete (not click-bait fragments)",
+        "Minimum 2 questions recommended, maximum 10-15 for readability"
+      ]
+    }
+  },
+
+  "implementationNotes": {
+    "jsonLdInjection": [
+      "Use Next.js Head component with dangerouslySetInnerHTML",
+      "Stringify each schema separately: JSON.stringify(articleSchema)",
+      "Each schema in separate <script type=\"application/ld+json\"> tag",
+      "Order: Article → Organization → FAQPage (for logical priority)"
+    ],
+    "dynamicDataHandling": [
+      "Dates: Use new Date().toISOString() for current timestamp OR hardcode actual publish date",
+      "FAQ items: Map from FAQItem[] array defined in component",
+      "Images: Ensure all image URLs are absolute (https://pferdewert.de/...)",
+      "Social links: Update sameAs array when new profiles are created"
+    ],
+    "forPages1to7": [
+      "Replace headline with page-specific title",
+      "Update description to match page content summary",
+      "Change image URL to page-specific featured image",
+      "Keep author/publisher as Organization type (never Person)",
+      "For AKU cluster: emphasize veterinary expertise in description",
+      "For pferd-verkaufen: adapt description to seller perspective",
+      "Update FAQ items to match each page's FAQ component data"
+    ],
+    "schemaValidation": [
+      "Use Google Rich Results Test: https://search.google.com/test/rich-results",
+      "Use Schema.org validator: https://validator.schema.org/",
+      "Check Search Console for structured data errors",
+      "Verify all required fields are present (headline, image, author, publisher for Article)"
+    ],
+    "brandGuidelines": [
+      "Author must ALWAYS be Organization, never Person (per Company Profile)",
+      "Organization description must match Company Profile Vision exactly",
+      "Never use 'kostenlos' in any schema text fields (service is paid 19,90€)",
+      "Emphasize USPs in description where relevant: KI-Technologie, Transparenz, Geschwindigkeit",
+      "FAQ answers demonstrate expertise per 'Fachkundig aber zugänglich' tonality"
+    ]
+  },
+
+  "schemaInteractions": {
+    "articleAndOrganization": "Article publisher references Organization schema for consistent brand entity",
+    "articleAndFaq": "Both appear on same page - Article for content, FAQ for specific questions",
+    "organizationGlobal": "Organization schema should appear on all pages for brand knowledge graph",
+    "faqPageSpecific": "FAQ schema only on pages with actual FAQ sections (not all Ratgeber pages)"
+  },
+
+  "seoImpact": {
+    "richSnippets": {
+      "article": "Enables article rich snippet with author, date, image in SERPs",
+      "faq": "FAQ accordion expansion directly in search results increases CTR",
+      "organization": "Knowledge graph panel in brand searches"
+    },
+    "trustSignals": {
+      "organizationSchema": "Establishes brand entity for Google Knowledge Graph",
+      "articleDates": "Freshness signal with datePublished/dateModified",
+      "faqSchema": "Demonstrates expertise and authority (E-E-A-T)"
+    },
+    "clickThroughRate": {
+      "faqExpansion": "Users can read answers in SERP without clicking (but schema presence increases trust)",
+      "articleSnippet": "Image + author + date makes result more visually prominent",
+      "organizationLogo": "Brand logo in snippets increases recognition and trust"
+    }
+  },
+
+  "maintenanceGuidelines": [
+    "Update dateModified when page content is significantly revised",
+    "Add new FAQ items as user questions emerge (monitor search queries)",
+    "Validate schemas after any structure changes using Google Rich Results Test",
+    "Update Organization sameAs array when new social profiles launch",
+    "Review FAQ answers quarterly to ensure accuracy and brand alignment",
+    "For seasonal content: consider dynamic headline/description with year references"
+  ]
+}

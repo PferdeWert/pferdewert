@@ -19,28 +19,16 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pferdewert.de/pferde-ratgeber/pferd-kaufen</loc>
+    <loc>https://pferdewert.de/beispiel-analyse</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://pferdewert.de/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd</loc>
+    <loc>https://pferdewert.de/ueber-pferdewert</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://pferdewert.de/pferde-ratgeber/pferd-verkaufen</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://pferdewert.de/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://pferdewert.de/pferde-ratgeber/aku-pferd</loc>
@@ -67,15 +55,27 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pferdewert.de/beispiel-analyse</loc>
+    <loc>https://pferdewert.de/pferde-ratgeber/pferd-kaufen</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://pferdewert.de/ueber-pferdewert</loc>
+    <loc>https://pferdewert.de/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pferdewert.de/pferde-ratgeber/pferd-verkaufen</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pferdewert.de/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

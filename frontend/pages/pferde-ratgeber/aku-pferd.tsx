@@ -22,6 +22,7 @@ import {
   akuRelatedArticles
 } from '@/data/ratgeber/akuPferd'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
+import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
 
 const AKUPferd: NextPage = () => {
   const getSectionNumber = (sectionId: string) => {
@@ -203,7 +204,7 @@ const AKUPferd: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/blossi-shooting.webp"
+          src={getRatgeberBySlug('aku-pferd')?.image || '/images/aku-pferd-hero.webp'}
           alt="AKU Pferd: Ankaufsuntersuchung beim Pferd - Tierarzt untersucht Pferd"
           priority
         />
@@ -758,7 +759,7 @@ const AKUPferd: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: '/happy-horse-owner-with-horse--professional-consult.jpg',
+              src: '/happy-horse-owner-with-horse--professional-consult.webp',
               alt: 'Professionelle Pferdeberatung mit AKU-Expertise'
             }}
             title={numberedTitle('cta', 'Professionelle Pferdebewertung')}

@@ -1,0 +1,127 @@
+{
+  "page": "aku-pferd-ablauf",
+  "url": "/pferde-ratgeber/aku-pferd/ablauf",
+  "canonical": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+  "generatedDate": "2025-01-13",
+  "companyProfileRef": "SEO/company/company-profile-2025-09-21.md",
+  "seoCompleteness": "~15% → Target: ~100%",
+
+  "metaTags": {
+    "basic": {
+      "title": {
+        "content": "AKU Pferd Ablauf: 5 Phasen Schritt für Schritt | PferdeWert",
+        "length": 60,
+        "rationale": "Includes main keyword 'aku pferd ablauf', numerical value '5 Phasen' for specificity, brand name. Under 70 chars for optimal display.",
+        "brandAlignment": "Emphasizes structured process per 'Fachkundig aber zugänglich' tonality"
+      },
+      "description": {
+        "content": "So läuft die Ankaufsuntersuchung ab: Alle 5 Phasen, Vorbereitung, AKU-Klassen und Tipps für eine erfolgreiche Pferdebewertung.",
+        "length": 140,
+        "rationale": "Direct answer to user question, specific phase count, includes key terms (Vorbereitung, AKU-Klassen, Pferdebewertung). Under 165 chars.",
+        "brandAlignment": "Demonstrates 'Transparenz' USP with structured process explanation"
+      },
+      "keywords": {
+        "content": "aku pferd ablauf, ankaufsuntersuchung pferd, aku phasen, pferd kaufen vorbereitung, tierärztliche untersuchung pferd, aku protokoll, röntgen pferd aku, pferdekauf vorbereitung, aku checkliste, ankaufsuntersuchung ablauf",
+        "rationale": "Mix of process keywords (ablauf, phasen, vorbereitung), technical terms (röntgen, protokoll), user intent keywords (checkliste). Covers informational intent.",
+        "brandAlignment": "Aligns with Content-Fokus: 'Veterinärmedizinische Expertise' emphasis"
+      },
+      "author": {
+        "content": "PferdeWert.de",
+        "rationale": "Organization attribution per Company Profile guidelines"
+      },
+      "robots": {
+        "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "rationale": "Full indexing with rich snippet optimization for SERP visibility"
+      }
+    },
+
+    "technical": {
+      "charset": "utf-8",
+      "viewport": {
+        "content": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+        "rationale": "Mobile-first responsive design per SEO priorities"
+      },
+      "themeColor": "#5A4B3B",
+      "msapplicationTileColor": "#5A4B3B",
+      "rationale": "Brand brown color for consistent mobile browser UI"
+    },
+
+    "canonical": {
+      "href": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+      "rationale": "Prevents duplicate content issues, establishes primary URL"
+    },
+
+    "hreflang": {
+      "de-DE": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+      "rationale": "German language and region targeting per Company Profile (Deutschland focus)"
+    },
+
+    "openGraph": {
+      "title": "AKU Pferd Ablauf: 5 Phasen Schritt für Schritt | PferdeWert",
+      "description": "So läuft die Ankaufsuntersuchung ab: Alle 5 Phasen, Vorbereitung, AKU-Klassen und Tipps für eine erfolgreiche Pferdebewertung.",
+      "type": "article",
+      "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+      "image": "https://pferdewert.de/veterinarian-examining-horse-health-check.jpg",
+      "rationale": "Optimizes social sharing on Facebook, LinkedIn. Matches basic meta tags for consistency. Uses existing hero image from page."
+    },
+
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "AKU Pferd Ablauf: 5 Phasen Schritt für Schritt | PferdeWert",
+      "description": "So läuft die Ankaufsuntersuchung ab: Alle 5 Phasen, Vorbereitung, AKU-Klassen und Tipps für eine erfolgreiche Pferdebewertung.",
+      "rationale": "Large image card for better Twitter visibility. Matches OG tags for consistency."
+    }
+  },
+
+  "performanceOptimization": {
+    "preconnect": [
+      {
+        "href": "https://fonts.googleapis.com",
+        "rationale": "Early DNS resolution for Google Fonts to reduce latency"
+      },
+      {
+        "href": "https://fonts.gstatic.com",
+        "crossOrigin": "anonymous",
+        "rationale": "Early connection for font assets (requires crossOrigin)"
+      }
+    ],
+    "dnsPrefetch": [
+      {
+        "href": "https://www.google-analytics.com",
+        "rationale": "Resolve DNS before analytics script loads"
+      }
+    ],
+    "prefetch": [
+      {
+        "href": "/pferde-ratgeber/aku-pferd/klassen",
+        "rationale": "Logical next step - understanding AKU classifications after learning process"
+      },
+      {
+        "href": "/pferde-ratgeber/aku-pferd/kosten",
+        "rationale": "Related content - users often check costs after understanding process"
+      }
+    ]
+  },
+
+  "implementationNotes": {
+    "criticalElements": [
+      "Title at 60 chars for full display",
+      "Description at 140 chars for optimal snippet",
+      "Use numerical value '5 Phasen' for specificity and trust",
+      "Match OG/Twitter tags to basic meta tags for consistency",
+      "Emphasize veterinary expertise per AKU Content-Fokus"
+    ],
+    "brandGuidelines": [
+      "Never use 'kostenlos' (free) - service is paid (19,90€)",
+      "Emphasize veterinary expertise for AKU cluster per Content-Fokus",
+      "Author attribution always 'PferdeWert.de' not individual names",
+      "Process-oriented content demonstrates 'Transparenz' USP"
+    ],
+    "pageSpecific": [
+      "This page explains the 5-phase AKU process - emphasize structured approach",
+      "Veterinary expertise is central to this page's value proposition",
+      "FAQ section present (lines 143-164) - will be used for FAQPage schema",
+      "Hero image: /veterinarian-examining-horse-health-check.jpg already in use"
+    ]
+  }
+}

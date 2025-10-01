@@ -1,10 +1,11 @@
 // scripts/generate-sitemap.js
 import fs from 'fs';
+import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
 
 const DOMAIN = 'https://pferdewert.de';
 const OUTPUT_PATH = 'public/sitemap.xml';
 
-// Konfiguration: Welche Seiten sollen indexiert werden
+// Konfiguration: Welche Seiten sollen indexiert werden (ohne Ratgeber - die kommen aus dem Registry)
 const PAGE_CONFIG = {
   // SEO-relevante Seiten (hohe Priorität)
   '/': { priority: '1.0', changefreq: 'weekly' },
@@ -13,21 +14,20 @@ const PAGE_CONFIG = {
   // Hub-Seiten (hohe Priorität)
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
-  // Ratgeber-Artikel (SEO-relevanter Content)
-  '/pferde-ratgeber/pferd-kaufen': { priority: '0.7', changefreq: 'monthly' },
-  '/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd': { priority: '0.7', changefreq: 'monthly' },
-  '/pferde-ratgeber/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
-  '/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps': { priority: '0.7', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-pferd': { priority: '0.7', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-pferd/ablauf': { priority: '0.6', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-pferd/klassen': { priority: '0.6', changefreq: 'monthly' },
-  '/pferde-ratgeber/aku-pferd/kosten': { priority: '0.6', changefreq: 'monthly' },
-
   // Content-Seiten (mittlere Priorität)
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
 
 };
+
+// Ratgeber-Artikel aus Registry dynamisch hinzufügen
+RATGEBER_ENTRIES.forEach(entry => {
+  const path = `/pferde-ratgeber/${entry.slug}`;
+  PAGE_CONFIG[path] = {
+    priority: entry.priority,
+    changefreq: entry.changefreq
+  };
+});
 
 // Seiten die NICHT indexiert werden sollen
 const EXCLUDED_PAGES = [

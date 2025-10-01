@@ -1,0 +1,212 @@
+{
+  "page": "aku-pferd-klassen",
+  "url": "/pferde-ratgeber/aku-pferd/klassen",
+  "canonical": "https://pferdewert.de/pferde-ratgeber/aku-pferd/klassen",
+  "generatedDate": "2025-01-13",
+  "companyProfileRef": "SEO/company/company-profile-2025-09-21.md",
+  "seoCompleteness": "~15% → Target: ~100%",
+
+  "structuredData": {
+    "articleSchema": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {
+        "value": "AKU Pferd Klassen: Bedeutung und Entscheidungshilfe für Käufer",
+        "rationale": "Descriptive headline targeting main keyword with decision-support angle",
+        "brandAlignment": "Reflects veterinary expertise and buyer guidance per AKU Content-Fokus"
+      },
+      "description": {
+        "value": "Die 5 AKU-Klassen im Detail: Von Klasse 1 (ohne Befund) bis Klasse 5 (hochgradige Befunde) mit Risikobewertung, Kaufempfehlungen und Praxistipps.",
+        "rationale": "Comprehensive article summary covering classification range, key aspects, and practical guidance",
+        "brandAlignment": "Emphasizes 'Transparenz' USP with complete classification overview"
+      },
+      "image": {
+        "value": "https://pferdewert.de/horse-in-stable--professional-care.jpg",
+        "rationale": "High-quality image URL for rich snippet display in SERPs",
+        "requirements": "Minimum 1200x630px for optimal social sharing and Google image display"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "rationale": "Organization authorship (not Person) per Company Profile guidelines",
+        "brandAlignment": "Establishes brand authority, never use individual names"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PferdeWert.de",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pferdewert.de/logo.png",
+          "rationale": "Required for Article rich snippets, establishes brand identity"
+        },
+        "rationale": "Publisher must be Organization type with logo for valid Article schema"
+      },
+      "datePublished": {
+        "value": "new Date().toISOString()",
+        "dynamicGeneration": true,
+        "rationale": "ISO 8601 format required by Schema.org, generated at page load for accuracy",
+        "implementationNote": "For static pages, use actual publish date instead of dynamic generation"
+      },
+      "dateModified": {
+        "value": "new Date().toISOString()",
+        "dynamicGeneration": true,
+        "rationale": "ISO 8601 format, updated on content changes for freshness signal",
+        "implementationNote": "Update this manually when page content is significantly revised"
+      },
+      "validationNotes": [
+        "Test schema with Google Rich Results Test: https://search.google.com/test/rich-results",
+        "Ensure image is accessible and meets size requirements",
+        "Verify ISO 8601 date format for publish/modified dates",
+        "Author must be Organization type, never Person"
+      ]
+    },
+
+    "organizationSchema": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {
+        "value": "PferdeWert.de",
+        "rationale": "Consistent brand name across all schema instances"
+      },
+      "url": {
+        "value": "https://pferdewert.de",
+        "rationale": "Canonical homepage URL for brand identity"
+      },
+      "logo": {
+        "value": "https://pferdewert.de/logo.png",
+        "rationale": "Brand logo for knowledge graph and rich snippets",
+        "requirements": "Square format recommended, minimum 112x112px, transparent background preferred"
+      },
+      "description": {
+        "value": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
+        "rationale": "Matches Company Profile Vision verbatim for consistency",
+        "brandAlignment": "Direct quote from 'Unternehmensmission' in Company Profile"
+      },
+      "sameAs": {
+        "value": [
+          "https://www.facebook.com/pferdewert",
+          "https://www.instagram.com/pferdewert"
+        ],
+        "rationale": "Social media links for entity disambiguation and trust signals",
+        "implementationNote": "Add LinkedIn, Twitter, YouTube if/when profiles are created"
+      },
+      "validationNotes": [
+        "Organization schema should appear on all pages for brand consistency",
+        "Update sameAs array when new social profiles are added",
+        "Logo must be accessible at specified URL",
+        "Description matches Company Profile mission statement exactly"
+      ]
+    },
+
+    "faqSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": {
+        "structure": "Array of Question/Answer pairs",
+        "dataSource": "faqItems array from page component (lines 99-120)",
+        "dynamicGeneration": true,
+        "rationale": "FAQ schema enables rich snippet expansion in SERPs, increases visibility",
+        "exampleQuestionAnswer": {
+          "@type": "Question",
+          "name": "Wer legt die AKU-Klasse fest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der untersuchende Tierarzt stuft alle Befunde nach dem gängigen AKU-Schema ein. Die Bewertung dient als Entscheidungsgrundlage für Käufer und Verkäufer."
+          }
+        },
+        "implementationPattern": "faqItems.map(faq => ({ \"@type\": \"Question\", \"name\": faq.question, \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": faq.answer }}))",
+        "brandAlignment": "Answers demonstrate veterinary expertise per AKU Content-Fokus"
+      },
+      "contentGuidelines": {
+        "questionFormat": [
+          "Start with question words: Wer, Was, Warum, Wann, Wie",
+          "Use natural language matching user search queries",
+          "Keep questions concise (under 100 characters recommended)",
+          "Focus on informational and decision-support intent per Content-Fokus"
+        ],
+        "answerFormat": [
+          "Provide complete, standalone answers (not fragments)",
+          "Include specific guidance for decision-making where relevant",
+          "Keep answers under 300 characters for optimal SERP display",
+          "Maintain 'Fachkundig aber zugänglich' tone from Company Profile",
+          "Avoid 'kostenlos' or any free/cost-free language (service is paid)"
+        ]
+      },
+      "validationNotes": [
+        "Test with Google Rich Results Test for FAQ eligibility",
+        "Ensure questions match real user search queries",
+        "Answers must be factual and complete (not click-bait fragments)",
+        "Minimum 2 questions recommended, maximum 10-15 for readability",
+        "Page has 4 FAQ items (lines 99-120) - all should be included"
+      ]
+    }
+  },
+
+  "implementationNotes": {
+    "jsonLdInjection": [
+      "Use Next.js Head component with dangerouslySetInnerHTML",
+      "Stringify each schema separately: JSON.stringify(articleSchema)",
+      "Each schema in separate <script type=\"application/ld+json\"> tag",
+      "Order: Article → Organization → FAQPage (for logical priority)"
+    ],
+    "dynamicDataHandling": [
+      "Dates: Use new Date().toISOString() for current timestamp OR hardcode actual publish date",
+      "FAQ items: Map from FAQItem[] array defined in component (lines 99-120)",
+      "Images: Ensure all image URLs are absolute (https://pferdewert.de/...)",
+      "Social links: Update sameAs array when new profiles are created"
+    ],
+    "schemaSelection": [
+      "Article schema chosen (not HowTo) because page is educational/reference content",
+      "Page explains a classification system, not a step-by-step process",
+      "Similar to page 8 (was-kostet-ein-pferd) which also uses Article schema",
+      "FAQPage schema complements Article for comprehensive coverage"
+    ],
+    "schemaValidation": [
+      "Use Google Rich Results Test: https://search.google.com/test/rich-results",
+      "Use Schema.org validator: https://validator.schema.org/",
+      "Check Search Console for structured data errors",
+      "Verify all required fields for Article: headline, image, author, publisher"
+    ],
+    "brandGuidelines": [
+      "Author must ALWAYS be Organization, never Person (per Company Profile)",
+      "Organization description must match Company Profile Vision exactly",
+      "Never use 'kostenlos' in any schema text fields (service is paid 19,90€)",
+      "Emphasize veterinary expertise in description per AKU Content-Fokus",
+      "FAQ answers demonstrate expertise per 'Fachkundig aber zugänglich' tonality"
+    ]
+  },
+
+  "schemaInteractions": {
+    "articleAndOrganization": "Article publisher references Organization schema for consistent brand entity",
+    "articleAndFaq": "Both appear on same page - Article for content, FAQ for specific questions",
+    "organizationGlobal": "Organization schema should appear on all pages for brand knowledge graph",
+    "faqPageSpecific": "FAQ schema only on pages with actual FAQ sections (this page has 4 FAQs)"
+  },
+
+  "seoImpact": {
+    "richSnippets": {
+      "article": "Enables article rich snippet with author, date, image in SERPs",
+      "faq": "FAQ accordion expansion directly in search results increases CTR",
+      "organization": "Knowledge graph panel in brand searches"
+    },
+    "trustSignals": {
+      "organizationSchema": "Establishes brand entity for Google Knowledge Graph",
+      "articleDates": "Freshness signal with datePublished/dateModified",
+      "faqSchema": "Demonstrates expertise and authority (E-E-A-T)"
+    },
+    "clickThroughRate": {
+      "faqExpansion": "Users can read answers in SERP without clicking (but schema presence increases trust)",
+      "articleSnippet": "Image + author + date makes result more visually prominent",
+      "organizationLogo": "Brand logo in snippets increases recognition and trust"
+    }
+  },
+
+  "maintenanceGuidelines": [
+    "Update dateModified when page content is significantly revised",
+    "Add new FAQ items as user questions emerge (monitor search queries)",
+    "Validate schemas after any structure changes using Google Rich Results Test",
+    "Update Organization sameAs array when new social profiles launch",
+    "Review FAQ answers quarterly to ensure accuracy and brand alignment",
+    "Update article description if classification system or guidelines change"
+  ]
+}

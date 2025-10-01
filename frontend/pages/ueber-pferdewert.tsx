@@ -142,7 +142,7 @@ export default function UeberUns() {
         </section>
 
         {/* Wer wir sind */}
-        <section className="py-12 lg:py-20 bg-white section-fade-in" id="wer-wir-sind">
+        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="wer-wir-sind">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Wer wir sind</h2>
@@ -165,7 +165,7 @@ export default function UeberUns() {
         </section>
 
         {/* Wie PferdeWert entstand */}
-        <section className="py-12 lg:py-20 bg-gray-50 section-fade-in" id="entstehung">
+        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="entstehung">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Wie PferdeWert entstand</h2>
@@ -206,7 +206,7 @@ export default function UeberUns() {
         </section>
 
         {/* Mission */}
-        <section className="py-12 lg:py-20 bg-white section-fade-in" id="mission">
+        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="mission">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Unsere Mission</h2>
@@ -291,7 +291,7 @@ export default function UeberUns() {
         </section>
 
        {/* Was uns wichtig ist - SEO Optimized Values Section */}
-<section className="py-12 lg:py-20 bg-gray-50 section-fade-in" id="werte">
+<section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="werte">
   <div className="px-4 lg:px-8 xl:px-12">
     <div className="max-w-6xl mx-auto">
       <h2 className="text-h2 font-bold text-gray-900 text-center mb-6">Was uns wichtig ist</h2>
@@ -375,7 +375,7 @@ export default function UeberUns() {
 
 
         {/* Customer Testimonials - Trust Signal Section */}
-        <section className="py-12 lg:py-20 bg-white section-fade-in" id="testimonials">
+        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="testimonials">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 text-center mb-4">
@@ -434,7 +434,7 @@ export default function UeberUns() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 lg:py-16 bg-white">
+        <section className="py-12 lg:py-16 bg-amber-50">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <FAQ
@@ -497,7 +497,7 @@ export default function UeberUns() {
         </section>
 
         {/* Social Media */}
-        <section className="py-12 lg:py-16 bg-gradient-to-br from-brand-light to-white" id="social">
+        <section className="py-12 lg:py-16 bg-amber-50" id="social">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-4">

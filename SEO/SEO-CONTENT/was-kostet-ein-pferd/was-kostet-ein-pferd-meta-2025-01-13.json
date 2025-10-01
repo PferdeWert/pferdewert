@@ -1,0 +1,130 @@
+{
+  "page": "was-kostet-ein-pferd",
+  "url": "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+  "canonical": "https://pferdewert.de/was-kostet-ein-pferd",
+  "generatedDate": "2025-01-13",
+  "companyProfileRef": "SEO/company/company-profile-2025-09-21.md",
+  "seoCompleteness": "~100%",
+
+  "metaTags": {
+    "basic": {
+      "title": {
+        "content": "Was kostet ein Pferd? Preise & Kosten-Guide 2025 | PferdeWert",
+        "length": 63,
+        "rationale": "Includes main keyword 'was kostet ein pferd', year 2025 for freshness, brand name for trust. Under 70 chars for optimal display.",
+        "brandAlignment": "Reflects 'Marktaktualität' USP with 2025 date"
+      },
+      "description": {
+        "content": "Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden.",
+        "length": 163,
+        "rationale": "Answers user question directly, provides specific price ranges for transparency, includes regional aspect per Company Profile focus.",
+        "brandAlignment": "Demonstrates 'Transparenz' USP with concrete price ranges"
+      },
+      "keywords": {
+        "content": "was kostet ein pferd, pferd kaufen kosten, pferd preis, warmblut kosten, pferd monatliche kosten, stallmiete, pferdehaltung kosten, bayern pferd preis, pferdekauf budget, anfängerpferd kosten",
+        "rationale": "Mix of informational and commercial intent keywords, includes regional variant (bayern), covers both one-time and recurring costs.",
+        "brandAlignment": "Aligns with Content-Fokus: 'Pferdebewertung & Preisfindung' and regional SEO priorities"
+      },
+      "author": {
+        "content": "PferdeWert.de",
+        "rationale": "Company attribution per Company Profile guidelines"
+      },
+      "robots": {
+        "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "rationale": "Full indexing with rich snippet optimization for SERP visibility"
+      }
+    },
+
+    "technical": {
+      "charset": "utf-8",
+      "viewport": {
+        "content": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+        "rationale": "Mobile-first responsive design per SEO priorities"
+      },
+      "themeColor": "#5A4B3B",
+      "msapplicationTileColor": "#5A4B3B",
+      "rationale": "Brand brown color for consistent mobile browser UI"
+    },
+
+    "canonical": {
+      "href": "https://pferdewert.de/was-kostet-ein-pferd",
+      "rationale": "Prevents duplicate content issues, establishes primary URL"
+    },
+
+    "hreflang": {
+      "de-DE": "https://pferdewert.de/was-kostet-ein-pferd",
+      "rationale": "German language and region targeting per Company Profile (Deutschland focus)"
+    },
+
+    "openGraph": {
+      "title": "Was kostet ein Pferd? Preise & Kosten-Guide 2025 | PferdeWert",
+      "description": "Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden.",
+      "type": "article",
+      "url": "https://pferdewert.de/was-kostet-ein-pferd",
+      "image": "https://pferdewert.de/images/was-kostet-ein-pferd.jpg",
+      "rationale": "Optimizes social sharing on Facebook, LinkedIn. Matches basic meta tags for consistency."
+    },
+
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Was kostet ein Pferd? Preise & Kosten-Guide 2025 | PferdeWert",
+      "description": "Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden.",
+      "rationale": "Large image card for better Twitter visibility. Matches OG tags for consistency."
+    }
+  },
+
+  "performanceOptimization": {
+    "preconnect": [
+      {
+        "href": "https://fonts.googleapis.com",
+        "rationale": "Early DNS resolution for Google Fonts to reduce latency"
+      },
+      {
+        "href": "https://fonts.gstatic.com",
+        "crossOrigin": "anonymous",
+        "rationale": "Early connection for font assets (requires crossOrigin)"
+      }
+    ],
+    "dnsPrefetch": [
+      {
+        "href": "https://www.google-analytics.com",
+        "rationale": "Resolve DNS before analytics script loads"
+      }
+    ],
+    "prefetch": [
+      {
+        "href": "/pferde-preis-berechnen",
+        "rationale": "Primary CTA page - high probability user will navigate here next"
+      },
+      {
+        "href": "/pferde-ratgeber/pferd-kaufen",
+        "rationale": "Related ratgeber content - logical next step in user journey"
+      }
+    ]
+  },
+
+  "implementationNotes": {
+    "forPages1to7": [
+      "Replace page-specific values: title, description, keywords, canonical URL, OG/Twitter tags",
+      "Keep consistent author: 'PferdeWert.de'",
+      "Update image URLs to match page content",
+      "Adjust prefetch links based on each page's logical next steps",
+      "Ensure keywords avoid Company Profile exclusions (no competitors, gambling, slaughter)",
+      "Maintain tonality: 'Fachkundig aber zugänglich, vertrauenswürdig, transparent'",
+      "For AKU cluster pages: emphasize expertise (veterinary knowledge) per Content-Fokus"
+    ],
+    "criticalElements": [
+      "Title must be under 70 chars for full display",
+      "Description should be 150-165 chars for optimal snippet",
+      "Always include year (2025) in title for freshness signal",
+      "Use concrete numbers/ranges in description for trustworthiness",
+      "Match OG/Twitter tags to basic meta tags for consistency"
+    ],
+    "brandGuidelines": [
+      "Never use 'kostenlos' (free) - service is paid (19,90€)",
+      "Emphasize USPs where relevant: Speed (2 min), KI-Technology, Transparency",
+      "Include regional variants for Local SEO priority",
+      "Author attribution always 'PferdeWert.de' not individual names"
+    ]
+  }
+}

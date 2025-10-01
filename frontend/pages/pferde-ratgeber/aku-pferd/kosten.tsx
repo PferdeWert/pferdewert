@@ -125,7 +125,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/veterinarian-examining-horse-health-check.jpg",
+    image: "/veterinarian-examining-horse-health-check.webp",
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",
@@ -133,7 +133,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/klassen",
-    image: "/horse-in-stable--professional-care.jpg",
+    image: "/horse-in-stable--professional-care.webp",
     title: "AKU Klassen erklärt",
     badge: "AKU Guide",
     readTime: "8 Min.",
@@ -179,7 +179,7 @@ const AkuPferdKosten: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/person-evaluating-horse-for-purchase.jpg"
+          src="/person-evaluating-horse-for-purchase.webp"
           alt="Käufer bewertet Pferd und kalkuliert AKU-Kosten"
           priority
         />
@@ -305,7 +305,7 @@ const AkuPferdKosten: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/person-evaluating-horse-for-purchase.jpg",
+              src: "/person-evaluating-horse-for-purchase.webp",
               alt: "Pferdebewertung unter Berücksichtigung der AKU-Kosten"
             }}
             title="AKU geplant? Berechne deinen Pferdewert"

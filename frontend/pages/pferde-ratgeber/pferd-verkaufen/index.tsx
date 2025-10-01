@@ -91,7 +91,7 @@ const PferdVerkaufen: NextPage = () => {
 
   const relatedArticles = [
     {
-      href: '/ratgeber/pferdewert-ermitteln',
+      href: '/pferde-ratgeber/pferdewert-ermitteln',
       image: '/images/dino-1.webp',
       title: 'Pferdewert ermitteln: 5 Methoden im Vergleich',
       badge: 'Bewertung',
@@ -99,7 +99,7 @@ const PferdVerkaufen: NextPage = () => {
       description: 'Wie ermitteln Sie den fairen Marktwert eines Pferdes? Vergleich klassischer Methoden vs. moderne AI-Bewertung.'
     },
     {
-      href: '/ratgeber/pferd-kaufen',
+      href: '/pferde-ratgeber/pferd-kaufen',
       image: '/images/dino-1.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
       badge: 'Kaufberatung',
@@ -107,7 +107,7 @@ const PferdVerkaufen: NextPage = () => {
       description: 'Umfassender Ratgeber zum Pferdekauf mit Preisübersicht, Checkliste, Anfänger-Tipps und AI-Bewertung für faire Preise.'
     },
     {
-      href: '/ratgeber/aku-pferd',
+      href: '/pferde-ratgeber/aku-pferd',
       image: '/images/dino-1.webp',
       title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
       badge: 'Kaufsicherheit',
@@ -308,7 +308,7 @@ const PferdVerkaufen: NextPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pferd verkaufen 2025: Optimaler Preis & schneller Verkauf" />
         <meta name="twitter:description" content={`KI-gestützte Pferdebewertung in 2 Min (${PRICING_FORMATTED.current}) ✓ Plattformvergleich ✓ Preistipps ✓ Rechtliche Sicherheit`} />
-        <meta name="twitter:image" content="https://pferdewert.de/images/og/pferd-verkaufen-ratgeber.jpg" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/og/pferd-verkaufen-ratgeber.webp" />
 
         {/* Structured Data */}
         <script
