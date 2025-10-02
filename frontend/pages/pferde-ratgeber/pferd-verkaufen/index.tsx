@@ -283,7 +283,7 @@ const PferdVerkaufen: NextPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         <title>Pferd verkaufen 2025: Ultimativer Ratgeber für optimalen Preis</title>
         <meta
