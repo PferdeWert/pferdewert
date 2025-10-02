@@ -65,12 +65,12 @@ const PferdVerkaufen: NextPage = () => {
 
   const relatedArticles = [
     {
-      href: '/pferde-ratgeber/pferdewert-ermitteln',
-      image: getRatgeberBySlug('pferdewert-ermitteln')?.image || '/images/ratgeber/pferdewert-ermitteln/hero.webp',
-      title: 'Pferdewert ermitteln: 5 Methoden im Vergleich',
-      badge: 'Bewertung',
+      href: '/pferde-ratgeber/pferd-verkaufen/tipps',
+      image: getRatgeberBySlug('pferd-verkaufen/tipps')?.image || '/images/ratgeber/pferd-verkaufen/tipps.webp',
+      title: 'Pferd verkaufen: Die besten Tipps für optimale Preise',
+      badge: 'Verkaufstipps',
       readTime: '8 min',
-      description: 'Wie ermitteln Sie den fairen Marktwert eines Pferdes? Vergleich klassischer Methoden vs. moderne AI-Bewertung.'
+      description: 'Profi-Tipps für maximalen Verkaufserfolg: Timing, Inserate, Fotos und Verhandlungstaktiken vom Experten.'
     },
     {
       href: '/pferde-ratgeber/pferd-kaufen',
