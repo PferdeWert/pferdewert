@@ -13,7 +13,6 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
-import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 interface PhaseStep {
   phase: string

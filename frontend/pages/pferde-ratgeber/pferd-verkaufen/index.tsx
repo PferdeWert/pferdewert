@@ -1015,6 +1015,7 @@ const PferdVerkaufen: NextPage = () => {
           articles={relatedArticles}
           description="Vertiefen Sie Ihr Wissen rund um Pferdekauf, -verkauf und Bewertung."
         />
+        </article>
 
         {/* Final CTA */}
           <RatgeberFinalCTA
