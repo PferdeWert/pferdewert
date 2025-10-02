@@ -107,9 +107,9 @@ const PferdeRatgeber: NextPage = () => {
 
       <Header />
 
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-brand-light/50 to-white">
+        <section className="relative min-h-[60vh] flex items-center justify-center">
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/overviews/pferde-ratgeber-hero.webp"
@@ -200,7 +200,7 @@ const PferdeRatgeber: NextPage = () => {
         </section>
 
         {/* Category Overview */}
-        <section className="py-16 md:py-20 bg-gradient-to-b from-brand-light/20 to-white">
+        <section className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-4">
@@ -248,7 +248,7 @@ const PferdeRatgeber: NextPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <div className="mb-8 md:mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
               <Image
