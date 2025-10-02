@@ -253,7 +253,7 @@ const PferdVerkaufenTipps: NextPage = () => {
   ];
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert</title>
         <meta
@@ -506,7 +506,7 @@ const PferdVerkaufenTipps: NextPage = () => {
           />
         </div>
       </main>
-    </>
+    </Layout>
   );
 };
 
