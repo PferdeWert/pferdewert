@@ -112,7 +112,7 @@ export default function PferdeWertHomepage() {
         <meta property="og:url" content="https://pferdewert.de/" />
         <meta property="og:title" content="Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de" />
         <meta property="og:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
-        <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
         <meta property="og:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -121,7 +121,7 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Was ist mein Pferd wert? ✓ KI-Pferdebewertung | PferdeWert.de" />
         <meta name="twitter:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
 
         {/* Canonical and Performance */}
@@ -214,7 +214,7 @@ export default function PferdeWertHomepage() {
               "description": "Pferdepreis berechnen: Deutschlands führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung",
               "url": "https://pferdewert.de",
               "logo": "https://pferdewert.de/images/logo.webp",
-              "image": "https://pferdewert.de/images/blossi-shooting.webp",
+              "image": "https://pferdewert.de/images/shared/blossi-shooting.webp",
               "priceRange": "€",
               "areaServed": {
                 "@type": "Country",
@@ -262,7 +262,7 @@ export default function PferdeWertHomepage() {
           badge="🏆 #1 Online Pferdebewertung"
           headline="Wie viel ist mein Pferd wert?"
           highlightedWord="Pferd wert"
-          image="/images/blossi-shooting.webp"
+          image="/images/shared/blossi-shooting.webp"
           imageAlt="Unser Pferd Blossom beim Photoshooting - Professionelle Pferdebewertung Beispiel"
           imageWidth={600}
           imageHeight={600}
@@ -336,7 +336,7 @@ export default function PferdeWertHomepage() {
         </section>
 
 {/* CTA Section direkt darunter */}
-<section className="bg-white py-12 px-4">
+<section className="py-12 px-4">
   <div className="container mx-auto text-center">
     <Link
       href="/pferde-preis-berechnen"
@@ -344,7 +344,7 @@ export default function PferdeWertHomepage() {
     >
       Jetzt Pferdewert berechnen
     </Link>
-    
+
     <p className="text-sm text-gray-600 mt-4">
       Sichere Bezahlung • Sofortiges Ergebnis • Keine Abos
     </p>
@@ -410,7 +410,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* Features Section */}
-        <section id="vorteile" className="section bg-white">
+        <section id="vorteile" className="section">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
@@ -467,7 +467,7 @@ export default function PferdeWertHomepage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="section bg-white">
+        <section className="section">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Häufige Fragen</h2>
