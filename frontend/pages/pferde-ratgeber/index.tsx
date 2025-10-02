@@ -145,55 +145,55 @@ const PferdeRatgeber: NextPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {ratgeberArtikel.map((artikel) => (
-                <article
+                <Link
                   key={artikel.id}
-                  className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2"
+                  href={artikel.link}
+                  className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
+                  aria-label={`${artikel.titel} lesen`}
                 >
-                  {/* Image Container - Fixed aspect ratio */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={artikel.bild}
-                      alt={artikel.titel}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Content Container - Flex grow to push button to bottom */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    {/* Meta Information */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className={`text-xs font-medium px-2.5 py-1 rounded ${
-                        artikel.kategorie === 'Gesundheit'
-                          ? 'bg-blue-50 text-blue-700'
-                          : 'bg-amber-50 text-amber-700'
-                      }`}>
-                        {artikel.kategorie}
-                      </span>
-                      <span className="text-xs text-gray-500">{artikel.lesezeit}</span>
+                  <article className="flex flex-col h-full">
+                    {/* Image Container - Fixed aspect ratio */}
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={artikel.bild}
+                        alt={artikel.titel}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
 
-                    {/* Title - Fixed height for alignment */}
-                    <h3 className="text-xl font-serif font-bold mb-3 text-brand group-hover:text-brand-brown transition-colors line-clamp-2 min-h-[3.5rem]">
-                      {artikel.titel}
-                    </h3>
+                    {/* Content Container - Flex grow to push button to bottom */}
+                    <div className="p-6 flex flex-col flex-grow">
+                      {/* Meta Information */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`text-xs font-medium px-2.5 py-1 rounded ${
+                          artikel.kategorie === 'Gesundheit'
+                            ? 'bg-blue-50 text-blue-700'
+                            : 'bg-amber-50 text-amber-700'
+                        }`}>
+                          {artikel.kategorie}
+                        </span>
+                        <span className="text-xs text-gray-500">{artikel.lesezeit}</span>
+                      </div>
 
-                    {/* Description - Flex grow to fill space */}
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
-                      {artikel.beschreibung}
-                    </p>
+                      {/* Title - Fixed height for alignment */}
+                      <h3 className="text-xl font-serif font-bold mb-3 text-brand group-hover:text-brand-brown transition-colors line-clamp-2 min-h-[3.5rem]">
+                        {artikel.titel}
+                      </h3>
 
-                    {/* Button - Always at bottom */}
-                    <Link
-                      href={artikel.link}
-                      className="mt-auto w-full max-w-full border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white transition-colors py-2.5 px-4 rounded-lg text-sm font-medium inline-block text-center focus:outline-none focus:ring-2 focus:ring-brand-brown focus:ring-offset-2"
-                      aria-label={`${artikel.titel} lesen`}
-                    >
-                      Artikel lesen
-                    </Link>
-                  </div>
-                </article>
+                      {/* Description - Flex grow to fill space */}
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
+                        {artikel.beschreibung}
+                      </p>
+
+                      {/* Visual Button Indicator - Always at bottom */}
+                      <div className="mt-auto w-full border-2 border-brand-brown text-brand-brown group-hover:bg-brand-brown group-hover:text-white transition-colors py-2.5 px-4 rounded-lg text-sm font-medium text-center">
+                        Artikel lesen
+                      </div>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
           </div>
