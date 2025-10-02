@@ -56,6 +56,11 @@
 - **FAQ**: Immer unter `id="faq"`, Schema-Daten via Komponente automatisch.
 - **RatgeberRelatedArticles**: Max. drei Einträge; bei <3 Artikeln automatisch mittig ausgerichtet (`md:w-[320px]`). Datenstruktur `{ href, image, title, badge, readTime, description }`.
 - **RatgeberFinalCTA**: Abschluss-CTA mit Bild + Button "Jetzt Pferdewert berechnen".
+  - **STANDARD IMAGE**: Immer `/images/shared/blossi-shooting.webp` verwenden (Hero-Bild von Index-Page)
+  - Design: Beige Box (`bg-[#fdf7f1]`, `border-[#e0c9aa]`), zentriertes Layout
+  - Responsive: Image `max-w-2xl`, Button mit `min-h-[44px]` (Touch-Target)
+  - Platzierung: Immer nach Related Articles, vor Seitenende
+  - Props: `image` (src/alt/width/height), `title`, `description`, `ctaHref`, `ctaLabel`
 - **CTAButton**: Vorhandene Varianten verwenden (`type="primary" | "secondary"`).
 
 #### Sparsam verwenden (max. 2-4x pro Artikel)

@@ -135,7 +135,7 @@ export default function TestimonialsSection({
         <div className="text-center mt-16">
           <div className="mb-4">
             <p className="text-lg text-gray-700 font-medium mb-6">
-              Professionelle Pferdepreis-Bewertungen für Pferdebesitzer und Pferdekäufer
+              Professionelle Pferdebewertung für Pferdebesitzer und Pferdekäufer
             </p>
           </div>
 

@@ -13,6 +13,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
+import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 interface PhaseStep {
   phase: string
@@ -166,7 +167,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/shared/blossi-shooting.webp",
+    image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
     title: "AKU Pferd Überblick",
     badge: "AKU Guide",
     readTime: "12 Min.",
@@ -174,7 +175,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/klassen",
-    image: "/images/ratgeber/aku-pferd/klassen/hero.webp",
+    image: getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-pferd/klassen/hero.webp',
     title: "AKU Klassen erklärt",
     badge: "AKU Guide",
     readTime: "8 Min.",
@@ -182,7 +183,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/kosten",
-    image: "/images/ratgeber/aku-pferd/kosten/hero.webp",
+    image: getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten/hero.webp',
     title: "AKU Kosten transparent",
     badge: "Kosten & Preise",
     readTime: "7 Min.",
@@ -228,7 +229,7 @@ const AkuPferdAblauf: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp"
+          src={getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp'}
           alt="Tierarzt führt Ankaufsuntersuchung bei Pferd durch"
           priority
         />
@@ -372,7 +373,7 @@ const AkuPferdAblauf: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp",
+              src: "/images/shared/blossi-shooting.webp",
               alt: "Tierarzt bei der Ankaufsuntersuchung"
             }}
             title="AKU abgeschlossen – und jetzt?"

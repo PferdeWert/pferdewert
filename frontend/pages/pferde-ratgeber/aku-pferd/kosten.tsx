@@ -118,7 +118,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/shared/blossi-shooting.webp",
+    image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
     title: "AKU Pferd Überblick",
     badge: "AKU Guide",
     readTime: "12 Min.",
@@ -126,7 +126,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
+    image: getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp',
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",
@@ -134,7 +134,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/klassen",
-    image: "/images/ratgeber/aku-pferd/klassen/hero.webp",
+    image: getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-pferd/klassen/hero.webp',
     title: "AKU Klassen erklärt",
     badge: "AKU Guide",
     readTime: "8 Min.",
@@ -306,7 +306,7 @@ const AkuPferdKosten: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/images/ratgeber/aku-pferd/kosten/hero.webp",
+              src: "/images/shared/blossi-shooting.webp",
               alt: "Pferdebewertung unter Berücksichtigung der AKU-Kosten"
             }}
             title="AKU geplant? Berechne deinen Pferdewert"

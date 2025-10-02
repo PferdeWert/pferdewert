@@ -123,7 +123,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/shared/blossi-shooting.webp",
+    image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
     title: "AKU Pferd Überblick",
     badge: "AKU Guide",
     readTime: "12 Min.",
@@ -131,7 +131,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
+    image: getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp',
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",
@@ -139,7 +139,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/kosten",
-    image: "/images/ratgeber/aku-pferd/kosten/hero.webp",
+    image: getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten/hero.webp',
     title: "AKU Kosten transparent",
     badge: "Kosten & Preise",
     readTime: "7 Min.",
@@ -287,7 +287,7 @@ const AkuPferdKlassen: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/images/ratgeber/aku-pferd/klassen/hero.webp",
+              src: "/images/shared/blossi-shooting.webp",
               alt: "Pferdebewertung mit dokumentierten AKU-Klassen"
             }}
             title="AKU-Ergebnis erhalten – und jetzt?"

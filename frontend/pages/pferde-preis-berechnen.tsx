@@ -30,11 +30,11 @@ const faqData = [
     answer: `Eine professionelle Pferdebewertung kostet je nach Methode unterschiedlich: Traditionelle Gutachten durch Sachverständige liegen bei 150-500 € und dauern mehrere Tage. Online-Tools wie PferdeWert.de bieten KI-gestützte Bewertungen ab ${PRICING_FORMATTED.current} mit sofortigem Ergebnis. Der Preis richtet sich nach dem Umfang: Basis-Marktwertschätzung (${PRICING_FORMATTED.current}–30 €), erweiterte Analyse mit Marktvergleich (50-100 €) oder vollständiges Wertgutachten mit Rechtsgültigkeit (ab 150 €).`
   },
   {
-    question: "Welche Faktoren beeinflussen den Pferdewert am meisten?",
+    question: "Welche Faktoren beeinflussen den Pferdepreis am meisten?",
     answer: "Der Ausbildungsstand ist der wichtigste Wertfaktor: Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein E-Pferd, ein M/S-Pferd sogar 5-10x mehr. Turniererfolge auf M/S-Niveau können den Wert um 10.000-50.000 € steigern. Weitere Hauptfaktoren: Gesundheitszustand (positive AKU +15-20%, chronische Erkrankungen -30-50%), Abstammung (prämiierte Hengstlinie +20-40%), Alter (optimal 6-12 Jahre), Rasse (Warmblut-Sportpferde höher bewertet als Freizeitpferde) und Charakter (\"Anfängergeeignet\" +10-15%)."
   },
   {
-    question: "Ist eine Online-Pferdebewertung zuverlässig?",
+    question: "Ist eine Pferdepreis-Berechnung online zuverlässig?",
     answer: "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>30.000 €) zusätzlich Sachverständigen-Gutachten einholen."
   }
 ];
@@ -676,7 +676,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 leading-relaxed text-center">
-              Ermitteln Sie den aktuellen Marktwert Ihres Pferdes präzise und datenbasiert. Unser KI-gestützter Rechner analysiert 13 Bewertungskriterien und liefert Ihnen in unter 2 Minuten eine fundierte Preiseinschätzung. Geben Sie einfach die wichtigsten Merkmale ein – Rasse, Alter, Ausbildungsstand und Gesundheit – und erhalten Sie sofort eine detaillierte Auswertung über Ihr Pferd.
+              Ermitteln Sie den aktuellen Marktwert Ihres Pferdes präzise und datenbasiert. Unser KI-gestützter Rechner analysiert Ihr Pferd und liefert Ihnen in unter 2 Minuten eine fundierte Preiseinschätzung.
             </p>
           </div>
         </div>
@@ -982,7 +982,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         {/* Testimonials Section */}
         <TestimonialsSection
           subtitle="Erfahrungen mit unserem Pferde Preis Rechner"
-          ctaText="Jetzt Rechner starten"
+          ctaText="Jetzt Pferdepreis berechnen"
           ctaHref="#wizard-start"
           onCtaClick={(e) => {
             e.preventDefault();
