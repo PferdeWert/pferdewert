@@ -108,7 +108,7 @@ const AKUPferd: NextPage = () => {
     "@type": "Organization",
     "name": "PferdeWert.de",
     "url": "https://pferdewert.de",
-    "logo": "https://pferdewert.de/logo.png",
+    "logo": "https://pferdewert.de/images/logo.webp",
     "description": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
     "sameAs": [
       "https://www.facebook.com/pferdewert",
@@ -204,7 +204,7 @@ const AKUPferd: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('aku-pferd')?.image || '/images/aku-pferd-hero.webp'}
+          src={getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp'}
           alt="AKU Pferd: Ankaufsuntersuchung beim Pferd - Tierarzt untersucht Pferd"
           priority
         />
@@ -759,7 +759,7 @@ const AKUPferd: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: '/happy-horse-owner-with-horse--professional-consult.webp',
+              src: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp',
               alt: 'Professionelle Pferdeberatung mit AKU-Expertise'
             }}
             title={numberedTitle('cta', 'Professionelle Pferdebewertung')}

@@ -21,7 +21,7 @@
         "brandAlignment": "Emphasizes 'Transparenz' USP with complete classification overview"
       },
       "image": {
-        "value": "https://pferdewert.de/horse-in-stable--professional-care.jpg",
+        "value": "https://pferdewert.de/images/ratgeber/aku-pferd/klassen/hero.webp",
         "rationale": "High-quality image URL for rich snippet display in SERPs",
         "requirements": "Minimum 1200x630px for optimal social sharing and Google image display"
       },
@@ -36,7 +36,7 @@
         "name": "PferdeWert.de",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://pferdewert.de/logo.png",
+          "url": "https://pferdewert.de/images/logo.webp",
           "rationale": "Required for Article rich snippets, establishes brand identity"
         },
         "rationale": "Publisher must be Organization type with logo for valid Article schema"
@@ -73,7 +73,7 @@
         "rationale": "Canonical homepage URL for brand identity"
       },
       "logo": {
-        "value": "https://pferdewert.de/logo.png",
+        "value": "https://pferdewert.de/images/logo.webp",
         "rationale": "Brand logo for knowledge graph and rich snippets",
         "requirements": "Square format recommended, minimum 112x112px, transparent background preferred"
       },

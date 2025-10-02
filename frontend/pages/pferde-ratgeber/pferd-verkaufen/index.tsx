@@ -15,6 +15,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
+import { getRatgeberBySlug } from '@/lib/ratgeber-registry';
 
 const PferdVerkaufen: NextPage = () => {
   const heroMetaItems = [
@@ -92,7 +93,7 @@ const PferdVerkaufen: NextPage = () => {
   const relatedArticles = [
     {
       href: '/pferde-ratgeber/pferdewert-ermitteln',
-      image: '/images/dino-1.webp',
+      image: '/images/ratgeber/pferd-verkaufen/hero.webp',
       title: 'Pferdewert ermitteln: 5 Methoden im Vergleich',
       badge: 'Bewertung',
       readTime: '8 min',
@@ -100,7 +101,7 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       href: '/pferde-ratgeber/pferd-kaufen',
-      image: '/images/dino-1.webp',
+      image: '/images/ratgeber/pferd-kaufen/hero.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
       badge: 'Kaufberatung',
       readTime: '11 min',
@@ -108,7 +109,7 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       href: '/pferde-ratgeber/aku-pferd',
-      image: '/images/dino-1.webp',
+      image: '/images/ratgeber/aku-pferd/hero.webp',
       title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
       badge: 'Kaufsicherheit',
       readTime: '12 min',
@@ -156,7 +157,7 @@ const PferdVerkaufen: NextPage = () => {
     '@type': 'Article',
     headline: 'Pferd verkaufen zum optimalen Preis – Der ultimative Ratgeber 2025',
     description: `Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust. Plattformvergleich, Preisfindung, rechtliche Tipps.`,
-    image: 'https://pferdewert.de/images/dino-1.webp',
+    image: 'https://pferdewert.de/images/ratgeber/pferd-verkaufen/hero.webp',
     author: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
@@ -167,7 +168,7 @@ const PferdVerkaufen: NextPage = () => {
       name: 'PferdeWert.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://pferdewert.de/logo.png'
+        url: 'https://pferdewert.de/images/logo.webp'
       }
     },
     datePublished: '2025-01-09',
@@ -300,7 +301,7 @@ const PferdVerkaufen: NextPage = () => {
         <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
-        <meta property="og:image" content="https://pferdewert.de/images/dino-1.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/pferd-verkaufen/hero.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -348,7 +349,7 @@ const PferdVerkaufen: NextPage = () => {
           }}
         />
         <RatgeberHeroImage
-          src="/images/dino-1.webp"
+          src={getRatgeberBySlug('pferd-verkaufen')?.image || '/images/ratgeber/pferd-verkaufen/hero.webp'}
           alt="Erfolgreicher Pferdeverkauf mit zufriedenem Verkäufer und neuem Besitzer"
         />
       </div>
@@ -1434,7 +1435,7 @@ const PferdVerkaufen: NextPage = () => {
             title="Verkaufen Sie Ihr Pferd zum optimalen Preis"
             description={`Der Verkauf eines Pferdes ist komplex und emotional zugleich. Mit PferdeWert.de haben Sie einen verlässlichen Partner für faire Pferdebewertung an Ihrer Seite. Unsere KI-Technologie verschafft Ihnen Preistransparenz und Verhandlungssicherheit in nur 2 Minuten – für nur ${PRICING_FORMATTED.current}. Vermeiden Sie Über- oder Unterbewertung und verkaufen Sie zum fairen Marktwert.`}
             image={{
-              src: "/person-evaluating-horse-for-purchase.webp",
+              src: "/images/ratgeber/pferd-verkaufen/hero.webp",
               alt: "KI-gestützte Pferdebewertung in 2 Minuten"
             }}
             ctaHref="/pferde-preis-berechnen"

@@ -167,7 +167,7 @@ const PferdVerkaufen: NextPage = () => {
       name: 'PferdeWert.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://pferdewert.de/logo.png'
+        url: 'https://pferdewert.de/images/logo.webp'
       }
     },
     datePublished: '2025-01-09',
@@ -1434,7 +1434,7 @@ const PferdVerkaufen: NextPage = () => {
             title="Verkaufen Sie Ihr Pferd zum optimalen Preis"
             description={`Der Verkauf eines Pferdes ist komplex und emotional zugleich. Mit PferdeWert.de haben Sie einen verlässlichen Partner für faire Pferdebewertung an Ihrer Seite. Unsere KI-Technologie verschafft Ihnen Preistransparenz und Verhandlungssicherheit in nur 2 Minuten – für nur ${PRICING_FORMATTED.current}. Vermeiden Sie Über- oder Unterbewertung und verkaufen Sie zum fairen Marktwert.`}
             image={{
-              src: "/person-evaluating-horse-for-purchase.webp",
+              src: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
               alt: "KI-gestützte Pferdebewertung in 2 Minuten"
             }}
             ctaHref="/pferde-preis-berechnen"

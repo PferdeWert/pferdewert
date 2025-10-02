@@ -85,7 +85,7 @@ const WasKostetEinPferd: NextPage = () => {
       "name": "PferdeWert.de",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://pferdewert.de/logo.png"
+        "url": "https://pferdewert.de/images/logo.webp"
       }
     },
     "datePublished": new Date().toISOString(),
@@ -97,7 +97,7 @@ const WasKostetEinPferd: NextPage = () => {
     "@type": "Organization",
     "name": "PferdeWert.de",
     "url": "https://pferdewert.de",
-    "logo": "https://pferdewert.de/logo.png",
+    "logo": "https://pferdewert.de/images/logo.webp",
     "description": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
     "sameAs": [
       "https://www.facebook.com/pferdewert",
@@ -194,7 +194,7 @@ const WasKostetEinPferd: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('pferd-kaufen/was-kostet-ein-pferd')?.image || '/images/ratgeber/aku-kosten-hero.webp'}
+          src={getRatgeberBySlug('pferd-kaufen/was-kostet-ein-pferd')?.image || '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/hero.webp'}
           alt="Was kostet ein Pferd – Professionelle Pferdebewertung und Kaufberatung"
           priority
         />
@@ -581,7 +581,7 @@ const WasKostetEinPferd: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: getRatgeberBySlug('pferd-kaufen/was-kostet-ein-pferd')?.image || '/images/ratgeber/aku-kosten-hero.webp',
+              src: getRatgeberBySlug('pferd-kaufen/was-kostet-ein-pferd')?.image || '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/hero.webp',
               alt: 'Professionelle Pferdeberatung und Bewertung',
               width: 960,
               height: 640

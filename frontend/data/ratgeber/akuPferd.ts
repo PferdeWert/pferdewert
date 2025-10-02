@@ -29,7 +29,7 @@ export interface AkuRegionItem {
 export const akuRelatedArticles: RatgeberRelatedArticle[] = [
   {
     href: '/pferde-ratgeber/aku-pferd/ablauf',
-    image: '/veterinarian-examining-horse-health-check.jpg',
+    image: '/images/ratgeber/aku-pferd/ablauf/hero.webp',
     title: 'AKU Ablauf verstehen',
     badge: 'AKU Guide',
     readTime: '10 Min.',
@@ -37,7 +37,7 @@ export const akuRelatedArticles: RatgeberRelatedArticle[] = [
   },
   {
     href: '/pferde-ratgeber/aku-pferd/klassen',
-    image: '/horse-in-stable--professional-care.jpg',
+    image: '/images/ratgeber/aku-pferd/klassen/hero.webp',
     title: 'AKU Klassen erklärt',
     badge: 'AKU Guide',
     readTime: '8 Min.',
@@ -45,7 +45,7 @@ export const akuRelatedArticles: RatgeberRelatedArticle[] = [
   },
   {
     href: '/pferde-ratgeber/aku-pferd/kosten',
-    image: '/person-evaluating-horse-for-purchase.jpg',
+    image: '/images/ratgeber/aku-pferd/kosten/hero.webp',
     title: 'AKU Kosten 2025',
     badge: 'Kosten & Preise',
     readTime: '7 Min.',

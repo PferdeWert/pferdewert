@@ -170,7 +170,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/veterinarian-examining-horse-health-check.webp",
+    image: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",
@@ -216,7 +216,7 @@ const PferdKaufen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/aku-kosten-hero.webp'}
+          src={getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp'}
           alt="Pferd kaufen – der ultimative Ratgeber für 2025"
           priority
         />
@@ -1036,7 +1036,7 @@ const PferdKaufen: NextPage = () => {
           {/* Final CTA */}
           <RatgeberFinalCTA
             image={{
-              src: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/aku-kosten-hero.webp',
+              src: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
               alt: "Pferdebewertung vor dem Kauf"
             }}
             title="Bereit für Ihren fairen Pferdekauf?"

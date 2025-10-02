@@ -53,7 +53,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.',
     category: 'Kauf & Verkauf',
     readTime: '15 Min.',
-    image: '/images/ratgeber/aku-ablauf-hero.webp', // Tierärztin untersucht Pferd - passt perfekt zu AKU-Übersichtsartikel
+    image: '/images/ratgeber/aku-pferd/hero.webp', // Tierärztin untersucht Pferd – zentrales Motiv für die Gesamtübersicht
     priority: '0.7',
     changefreq: 'monthly'
   },
@@ -63,7 +63,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'So läuft eine Ankaufsuntersuchung ab: Von der Vorbereitung bis zum Befund. Alle Untersuchungsschritte verständlich erklärt.',
     category: 'Kauf & Verkauf',
     readTime: '12 Min.',
-    image: '/images/ratgeber/aku-ablauf-hero.webp', // Tierärztin untersucht Pferd - passt perfekt zum Ablauf
+    image: '/images/ratgeber/aku-pferd/ablauf/hero.webp', // Eigene Aufnahme für den Ablaufartikel
     priority: '0.6',
     changefreq: 'monthly'
   },
@@ -73,7 +73,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Verstehe die verschiedenen AKU-Klassen und ihre Bedeutung für deinen Pferdekauf. Was bedeuten die einzelnen Klassen wirklich?',
     category: 'Kauf & Verkauf',
     readTime: '10 Min.',
-    image: '/images/ratgeber/aku-klassen-hero.webp', // Pferd in Stallbox - einzigartig für Klassen
+    image: '/images/ratgeber/aku-pferd/klassen/hero.webp', // Pferd in Stallbox – spezifisch für Klassenartikel
     priority: '0.6',
     changefreq: 'monthly'
   },
@@ -83,7 +83,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.',
     category: 'Kauf & Verkauf',
     readTime: '8 Min.',
-    image: '/images/ratgeber/aku-kosten-hero.webp', // Frau mit Pferd außen - passt zu Kostenthema
+    image: '/images/ratgeber/aku-pferd/kosten/hero.webp', // Außenaufnahme mit Besitzerin – passend zum Kostenthema
     priority: '0.6',
     changefreq: 'monthly'
   },
@@ -95,7 +95,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.',
     category: 'Kauf & Verkauf',
     readTime: '18 Min.',
-    image: '/images/ratgeber/aku-kosten-hero.webp', // Frau mit Pferd außen - passt zu Kaufthema
+    image: '/images/ratgeber/pferd-kaufen/hero.webp', // Trainingsszene – ideal für Kaufberatung
     priority: '0.7',
     changefreq: 'monthly'
   },
@@ -105,7 +105,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Detaillierte Übersicht aller Kosten: Kaufpreis, laufende Kosten und versteckte Ausgaben. So planst du dein Budget richtig.',
     category: 'Kauf & Verkauf',
     readTime: '14 Min.',
-    image: '/images/ratgeber/aku-kosten-hero.webp', // Frau mit Pferd außen - passt zu Kostenthema
+    image: '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/hero.webp', // Stallaufnahme – fokussiert auf Kosten & Versorgung
     priority: '0.7',
     changefreq: 'monthly'
   },
@@ -117,7 +117,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.',
     category: 'Kauf & Verkauf',
     readTime: '16 Min.',
-    image: '/images/ratgeber/pferd-verkaufen-hero.webp', // Lächelnde Frau mit Pferd - passt perfekt zu Verkauf
+    image: '/images/ratgeber/pferd-verkaufen/hero.webp', // Hauptmotiv für den Verkaufsratgeber
     priority: '0.7',
     changefreq: 'monthly'
   },
@@ -127,7 +127,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Praktische Ratschläge für einen erfolgreichen und stressfreien Pferdeverkauf. Was du wirklich beachten musst.',
     category: 'Kauf & Verkauf',
     readTime: '12 Min.',
-    image: '/images/ratgeber/pferd-verkaufen-hero.webp', // Lächelnde Frau mit Pferd - passt perfekt zu Verkaufstipps
+    image: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp', // Eigenes Motiv für die Tipp-Sammlung
     priority: '0.7',
     changefreq: 'monthly'
   }

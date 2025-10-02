@@ -61,7 +61,7 @@
       "description": "So läuft die Ankaufsuntersuchung ab: Alle 5 Phasen, Vorbereitung, AKU-Klassen und Tipps für eine erfolgreiche Pferdebewertung.",
       "type": "article",
       "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
-      "image": "https://pferdewert.de/veterinarian-examining-horse-health-check.jpg",
+      "image": "https://pferdewert.de/images/ratgeber/aku-pferd/ablauf/hero.webp",
       "rationale": "Optimizes social sharing on Facebook, LinkedIn. Matches basic meta tags for consistency. Uses existing hero image from page."
     },
 
@@ -121,7 +121,7 @@
       "This page explains the 5-phase AKU process - emphasize structured approach",
       "Veterinary expertise is central to this page's value proposition",
       "FAQ section present (lines 143-164) - will be used for FAQPage schema",
-      "Hero image: /veterinarian-examining-horse-health-check.jpg already in use"
+      "Hero image: /images/ratgeber/aku-pferd/ablauf/hero.webp already in use"
     ]
   }
 }

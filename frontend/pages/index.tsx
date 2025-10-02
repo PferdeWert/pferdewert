@@ -165,7 +165,7 @@ export default function PferdeWertHomepage() {
                 "url": "https://pferdewert.de",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://pferdewert.de/logo.webp"
+                  "url": "https://pferdewert.de/images/logo.webp"
                 }
               },
               "potentialAction": {
@@ -213,7 +213,7 @@ export default function PferdeWertHomepage() {
               "alternateName": "PferdeWert",
               "description": "Pferdepreis berechnen: Deutschlands führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung",
               "url": "https://pferdewert.de",
-              "logo": "https://pferdewert.de/logo.webp",
+              "logo": "https://pferdewert.de/images/logo.webp",
               "image": "https://pferdewert.de/images/blossi-shooting.webp",
               "priceRange": "€",
               "areaServed": {

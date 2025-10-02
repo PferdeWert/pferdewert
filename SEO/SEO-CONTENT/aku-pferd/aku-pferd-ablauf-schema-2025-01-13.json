@@ -21,7 +21,7 @@
         "brandAlignment": "Emphasizes 'Transparenz' USP with structured approach"
       },
       "image": {
-        "value": "https://pferdewert.de/veterinarian-examining-horse-health-check.jpg",
+        "value": "https://pferdewert.de/images/ratgeber/aku-pferd/ablauf/hero.webp",
         "rationale": "Hero image from page showing veterinary examination",
         "requirements": "Minimum 1200x630px for optimal display"
       },
@@ -88,7 +88,7 @@
         "rationale": "Canonical homepage URL for brand identity"
       },
       "logo": {
-        "value": "https://pferdewert.de/logo.png",
+        "value": "https://pferdewert.de/images/logo.webp",
         "rationale": "Brand logo for knowledge graph and rich snippets",
         "requirements": "Square format recommended, minimum 112x112px, transparent background preferred"
       },

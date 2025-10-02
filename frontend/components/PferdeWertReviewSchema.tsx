@@ -85,7 +85,7 @@ export default function PferdeWertReviewSchema({
   const organization = {
     name: 'PferdeWert',
     url: 'https://pferdewert.de',
-    logo: 'https://pferdewert.de/logo.webp',
+    logo: 'https://pferdewert.de/images/logo.webp',
     sameAs: [
       // Add social media profiles when available
       // 'https://www.facebook.com/pferdewert',

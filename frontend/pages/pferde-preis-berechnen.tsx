@@ -9,6 +9,7 @@ import HeroSection from "@/components/HeroSection";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQ from "@/components/FAQ";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, SCHEMA_PRICING } from "../lib/pricing";
 import {
@@ -17,6 +18,26 @@ import {
   trackPaymentStart,
   calculateFormCompletionTime
 } from "@/lib/analytics";
+
+// FAQ Data für die zentrale FAQ-Komponente
+const faqData = [
+  {
+    question: "Wie wird der Preis eines Pferdes berechnet?",
+    answer: "Der Preis eines Pferdes setzt sich aus mehreren Bewertungsfaktoren zusammen: Grundwert (Rasse, Alter, Abstammung) + Ausbildungswert (Ausbildungsstand A/L/M/S) + Gesundheitswert (AKU-Status, Vorerkrankungen) + Marktwert-Anpassung (regionale Nachfrage). Die Formel lautet: Pferdewert = (Grundwert × Ausbildungsfaktor) + Gesundheitsfaktor ± Marktanpassung. Beispiel: Ein 8-jähriger Hannoveraner (Grundwert 15.000 €) mit L-Dressur-Ausbildung (Faktor 1,8) und positiver AKU (+2.000 €) ergibt: (15.000 × 1,8) + 2.000 = 29.000 €."
+  },
+  {
+    question: "Was kostet mich die Pferdepreisberechnung?",
+    answer: `Eine professionelle Pferdebewertung kostet je nach Methode unterschiedlich: Traditionelle Gutachten durch Sachverständige liegen bei 150-500 € und dauern mehrere Tage. Online-Tools wie PferdeWert.de bieten KI-gestützte Bewertungen ab ${PRICING_FORMATTED.current} mit sofortigem Ergebnis. Der Preis richtet sich nach dem Umfang: Basis-Marktwertschätzung (${PRICING_FORMATTED.current}–30 €), erweiterte Analyse mit Marktvergleich (50-100 €) oder vollständiges Wertgutachten mit Rechtsgültigkeit (ab 150 €).`
+  },
+  {
+    question: "Welche Faktoren beeinflussen den Pferdewert am meisten?",
+    answer: "Der Ausbildungsstand ist der wichtigste Wertfaktor: Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein E-Pferd, ein M/S-Pferd sogar 5-10x mehr. Turniererfolge auf M/S-Niveau können den Wert um 10.000-50.000 € steigern. Weitere Hauptfaktoren: Gesundheitszustand (positive AKU +15-20%, chronische Erkrankungen -30-50%), Abstammung (prämiierte Hengstlinie +20-40%), Alter (optimal 6-12 Jahre), Rasse (Warmblut-Sportpferde höher bewertet als Freizeitpferde) und Charakter (\"Anfängergeeignet\" +10-15%)."
+  },
+  {
+    question: "Ist eine Online-Pferdebewertung zuverlässig?",
+    answer: "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>30.000 €) zusätzlich Sachverständigen-Gutachten einholen."
+  }
+];
 
 interface FormState {
   rasse: string;
@@ -547,51 +568,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           }}
         />
 
-        {/* JSON-LD Structured Data - FAQPage Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "Wie wird der Preis eines Pferdes ermittelt?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Der Preis eines Pferdes setzt sich aus mehreren Bewertungsfaktoren zusammen: Grundwert (Rasse, Alter, Abstammung) + Ausbildungswert (Ausbildungsstand A/L/M/S) + Gesundheitswert (AKU-Status, Vorerkrankungen) + Marktwert-Anpassung (regionale Nachfrage). Die Formel lautet: Pferdewert = (Grundwert × Ausbildungsfaktor) + Gesundheitsfaktor ± Marktanpassung. Beispiel: Ein 8-jähriger Hannoveraner (Grundwert 15.000 €) mit L-Dressur-Ausbildung (Faktor 1,8) und positiver AKU (+2.000 €) ergibt: (15.000 × 1,8) + 2.000 = 29.000 €."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Was kostet eine Pferdebewertung?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Eine professionelle Pferdebewertung kostet je nach Methode unterschiedlich: Traditionelle Gutachten durch Sachverständige liegen bei 150-500 € und dauern mehrere Tage. Online-Tools wie PferdeWert.de bieten KI-gestützte Bewertungen ab ca. 15 € mit sofortigem Ergebnis. Der Preis richtet sich nach dem Umfang: Basis-Marktwertschätzung (15-30 €), erweiterte Analyse mit Marktvergleich (50-100 €) oder vollständiges Wertgutachten mit Rechtsgültigkeit (ab 150 €)."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Welche Faktoren beeinflussen den Pferdewert am meisten?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Der Ausbildungsstand ist der wichtigste Wertfaktor: Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein E-Pferd, ein M/S-Pferd sogar 5-10x mehr. Turniererfolge auf M/S-Niveau können den Wert um 10.000-50.000 € steigern. Weitere Hauptfaktoren: Gesundheitszustand (positive AKU +15-20%, chronische Erkrankungen -30-50%), Abstammung (prämiierte Hengstlinie +20-40%), Alter (optimal 6-12 Jahre), Rasse (Warmblut-Sportpferde höher bewertet als Freizeitpferde) und Charakter (\"Anfängergeeignet\" +10-15%)."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Ist eine Online-Pferdebewertung zuverlässig?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>20.000 €) zusätzlich Sachverständigen-Gutachten einholen."
-                  }
-                }
-              ]
-            })
-          }}
-        />
-
         {/* JSON-LD Structured Data - HowTo Schema */}
         <script
           type="application/ld+json"
@@ -629,7 +605,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                 {
                   "@type": "HowToStep",
                   "name": "Analyse starten",
-                  "text": "Bestätigen Sie die Einverständniserklärung und starten Sie die kostenpflichtige KI-Analyse für 14,90 EUR.",
+                  "text": `Bestätigen Sie die Einverständniserklärung und starten Sie die kostenpflichtige KI-Analyse für ${PRICING_FORMATTED.current}.`,
                   "position": 4
                 },
                 {
@@ -1015,46 +991,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         />
 
         {/* FAQ Section */}
-        <section id="faq" className="py-12 lg:py-16 bg-white">
-          <div className="px-4 lg:px-8 xl:px-12">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand text-center mb-12">
-                Häufige Fragen zur Pferdepreis-Berechnung
-              </h2>
-
-              <div className="space-y-4">
-                {[
-                  {
-                    question: "Wie wird der Preis eines Pferdes ermittelt?",
-                    answer: "Der Preis eines Pferdes setzt sich aus mehreren Bewertungsfaktoren zusammen: Grundwert (Rasse, Alter, Abstammung) + Ausbildungswert (Ausbildungsstand A/L/M/S) + Gesundheitswert (AKU-Status, Vorerkrankungen) + Marktwert-Anpassung (regionale Nachfrage). Die Formel lautet: Pferdewert = (Grundwert × Ausbildungsfaktor) + Gesundheitsfaktor ± Marktanpassung. Beispiel: Ein 8-jähriger Hannoveraner (Grundwert 15.000 €) mit L-Dressur-Ausbildung (Faktor 1,8) und positiver AKU (+2.000 €) ergibt: (15.000 × 1,8) + 2.000 = 29.000 €."
-                  },
-                  {
-                    question: "Was kostet eine Pferdebewertung?",
-                    answer: "Eine professionelle Pferdebewertung kostet je nach Methode unterschiedlich: Traditionelle Gutachten durch Sachverständige liegen bei 150-500 € und dauern mehrere Tage. Online-Tools wie PferdeWert.de bieten KI-gestützte Bewertungen ab ca. 15 € mit sofortigem Ergebnis. Der Preis richtet sich nach dem Umfang: Basis-Marktwertschätzung (15-30 €), erweiterte Analyse mit Marktvergleich (50-100 €) oder vollständiges Wertgutachten mit Rechtsgültigkeit (ab 150 €)."
-                  },
-                  {
-                    question: "Welche Faktoren beeinflussen den Pferdewert am meisten?",
-                    answer: "Der Ausbildungsstand ist der wichtigste Wertfaktor: Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein E-Pferd, ein M/S-Pferd sogar 5-10x mehr. Turniererfolge auf M/S-Niveau können den Wert um 10.000-50.000 € steigern. Weitere Hauptfaktoren: Gesundheitszustand (positive AKU +15-20%, chronische Erkrankungen -30-50%), Abstammung (prämiierte Hengstlinie +20-40%), Alter (optimal 6-12 Jahre), Rasse (Warmblut-Sportpferde höher bewertet als Freizeitpferde) und Charakter (\"Anfängergeeignet\" +10-15%)."
-                  },
-                  {
-                    question: "Ist eine Online-Pferdebewertung zuverlässig?",
-                    answer: "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>20.000 €) zusätzlich Sachverständigen-Gutachten einholen."
-                  }
-                ].map((faq, index) => (
-                  <details key={index} className="bg-[#fdf7f1] border border-[#e0c9aa] rounded-xl p-6 group">
-                    <summary className="font-semibold text-lg text-brand-brown cursor-pointer list-none flex items-center justify-between">
-                      <span>{faq.question}</span>
-                      <span className="text-2xl group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p className="mt-4 text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <FAQ
+          faqs={faqData}
+          sectionTitle="Häufige Fragen zur Pferdepreis-Berechnung"
+        />
     </Layout>
   );
 }

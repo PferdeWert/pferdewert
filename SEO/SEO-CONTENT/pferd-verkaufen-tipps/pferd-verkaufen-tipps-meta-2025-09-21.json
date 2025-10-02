@@ -43,7 +43,7 @@
           "name": "PferdeWert.de",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://pferdewert.de/logo.png"
+            "url": "https://pferdewert.de/images/logo.webp"
           }
         },
         "datePublished": "2025-09-21",
@@ -111,7 +111,7 @@
         "@type": "Organization",
         "name": "PferdeWert.de",
         "url": "https://pferdewert.de",
-        "logo": "https://pferdewert.de/logo.png",
+        "logo": "https://pferdewert.de/images/logo.webp",
         "description": "Deutschlands führende Plattform für AI-basierte Pferdebewertung. Präzise, transparente und vertrauenswürdige Pferdebewertungen in nur 2 Minuten.",
         "contactPoint": {
           "@type": "ContactPoint",

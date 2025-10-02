@@ -24,7 +24,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.",
       kategorie: "Gesundheit",
       lesezeit: "15 Min.",
-      bild: "/veterinarian-examining-horse-health-check.webp",
+      bild: "/images/ratgeber/aku-pferd/hero.webp",
       link: "/pferde-ratgeber/aku-pferd",
     },
     {
@@ -33,7 +33,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Detaillierte Kostenübersicht für die Ankaufsuntersuchung beim Pferd. Große vs. kleine AKU, regionale Unterschiede und Spartipps.",
       kategorie: "Gesundheit",
       lesezeit: "8 Min.",
-      bild: "/horse-in-stable--professional-care.webp",
+      bild: "/images/ratgeber/aku-pferd/kosten/hero.webp",
       link: "/pferde-ratgeber/aku-pferd/kosten",
     },
     {
@@ -42,7 +42,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Die AKU-Klassifizierung von Klasse 1 bis 5 verständlich erklärt. Was bedeutet jede Klasse für den Pferdekauf?",
       kategorie: "Gesundheit",
       lesezeit: "10 Min.",
-      bild: "/horse-training-session-with-rider.webp",
+      bild: "/images/ratgeber/aku-pferd/klassen/hero.webp",
       link: "/pferde-ratgeber/aku-pferd/klassen",
     },
     {
@@ -51,7 +51,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Der komplette Ablauf der Ankaufsuntersuchung: Von der Terminvereinbarung bis zum Befund. Mit Checkliste zum Download.",
       kategorie: "Gesundheit",
       lesezeit: "12 Min.",
-      bild: "/person-evaluating-horse-for-purchase.webp",
+      bild: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
       link: "/pferde-ratgeber/aku-pferd/ablauf",
     },
     // Hauptratgeber: Kauf & Verkauf
@@ -61,7 +61,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "18 Min.",
-      bild: "/person-evaluating-horse-for-purchase.webp",
+      bild: "/images/ratgeber/pferd-kaufen/hero.webp",
       link: "/pferde-ratgeber/pferd-kaufen",
     },
     {
@@ -70,7 +70,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Kompletter Kostenüberblick: Anschaffung, monatliche Ausgaben, versteckte Kosten und wie Sie langfristig Geld sparen können.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "14 Min.",
-      bild: "/horse-in-stable--professional-care.webp",
+      bild: "/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/hero.webp",
       link: "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
     },
     {
@@ -79,7 +79,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "16 Min.",
-      bild: "/happy-horse-owner-with-horse--professional-consult.webp",
+      bild: "/images/ratgeber/pferd-verkaufen/hero.webp",
       link: "/pferde-ratgeber/pferd-verkaufen",
     },
     {
@@ -88,7 +88,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Expertentipps für den erfolgreichen Pferdeverkauf: Optimale Preisfindung, professionelle Präsentation und Verhandlungsstrategien.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "11 Min.",
-      bild: "/beautiful-horse-in-golden-sunset-light--profession.webp",
+      bild: "/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp",
       link: "/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps",
     },
   ]
@@ -112,7 +112,7 @@ const PferdeRatgeber: NextPage = () => {
         <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-brand-light/50 to-white">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/beautiful-horse-in-golden-sunset-light--profession.webp"
+              src="/images/overviews/pferde-ratgeber-hero.webp"
               alt="Pferd im goldenen Licht"
               fill
               sizes="100vw"
@@ -252,7 +252,7 @@ const PferdeRatgeber: NextPage = () => {
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <div className="mb-8 md:mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
               <Image
-                src="/happy-horse-owner-with-horse--professional-consult.webp"
+                src="/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp"
                 alt="Professionelle Pferdeberatung"
                 fill
                 sizes="(max-width: 768px) 100vw, 672px"

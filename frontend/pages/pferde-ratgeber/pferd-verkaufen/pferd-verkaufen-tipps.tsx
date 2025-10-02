@@ -8,6 +8,7 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import FAQ from '@/components/FAQ';
+import { getRatgeberBySlug } from '@/lib/ratgeber-registry';
 
 const PferdVerkaufenTipps: NextPage = () => {
   const sections = [
@@ -226,7 +227,7 @@ const PferdVerkaufenTipps: NextPage = () => {
   const relatedArticles = [
     {
       href: '/pferd-verkaufen',
-      image: '/images/dino-1.webp',
+      image: '/images/ratgeber/pferd-verkaufen/hero.webp',
       title: 'Pferd verkaufen: Kompletter Leitfaden',
       badge: 'Verkaufsratgeber',
       readTime: '12 Min. Lesezeit',
@@ -242,7 +243,7 @@ const PferdVerkaufenTipps: NextPage = () => {
     },
     {
       href: '/pferde-ratgeber/aku-pferd',
-      image: '/images/dino-1.webp',
+      image: '/images/ratgeber/aku-pferd/hero.webp',
       title: 'AKU beim Pferd verstehen',
       badge: 'Gesundheit',
       readTime: '15 Min. Lesezeit',
@@ -311,7 +312,7 @@ const PferdVerkaufenTipps: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/dino-1.webp"
+          src={getRatgeberBySlug('pferd-verkaufen/pferd-verkaufen-tipps')?.image || '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp'}
           alt="Professionelle Pferdepräsentation beim Verkauf"
         />
 
@@ -493,7 +494,7 @@ const PferdVerkaufenTipps: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: '/person-evaluating-horse-for-purchase.webp',
+              src: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp',
               alt: 'Professionelle Pferdebewertung für optimalen Verkauf'
             }}
             title="Starte jetzt mit der professionellen Bewertung"

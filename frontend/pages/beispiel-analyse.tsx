@@ -117,7 +117,7 @@ const jsonLd = {
     "name": "PferdeWert",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pferdewert.de/images/logo.png"
+      "url": "https://pferdewert.de/images/logo.webp"
     }
   },
   "mainEntityOfPage": {

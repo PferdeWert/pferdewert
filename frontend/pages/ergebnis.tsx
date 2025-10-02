@@ -310,7 +310,7 @@ export default function Ergebnis() {
               "name": "PferdeWert.de",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://pferdewert.de/logo.png"
+                "url": "https://pferdewert.de/images/logo.webp"
               }
             },
             "dateCreated": new Date().toISOString(),

@@ -65,12 +65,12 @@ Currently using only **2 unique images** for **8 different articles**:
 
 ```tsx
 // AKU articles (4 cards) all use:
-bild: "/veterinarian-examining-horse-health-check.webp"
+bild: "/images/ratgeber/aku-pferd/hero.webp"
 
 // Kauf & Verkauf articles (4 cards) split between:
-bild: "/person-evaluating-horse-for-purchase.webp"      // 1 card
-bild: "/horse-in-stable--professional-care.webp"         // 1 card
-bild: "/happy-horse-owner-with-horse--professional-consult.webp" // 2 cards
+bild: "/images/ratgeber/aku-pferd/ablauf/hero.webp"      // 1 card
+bild: "/images/ratgeber/aku-pferd/klassen/hero.webp"         // 1 card
+bild: "/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp" // 2 cards
 ```
 
 **User Impact:**
@@ -138,7 +138,7 @@ Hero image opacity at 20% (line 119) may reduce impact on small screens where te
 // Add mobile-specific background treatment
 <div className="absolute inset-0 z-0">
   <Image
-    src="/beautiful-horse-in-golden-sunset-light--profession.webp"
+    src="/images/overviews/pferde-ratgeber-hero.webp"
     alt="Pferd im goldenen Licht"
     fill
     sizes="100vw"

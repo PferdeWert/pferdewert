@@ -150,7 +150,7 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
   },
   {
     href: '/pferde-ratgeber/pferd-kaufen',
-    image: '/person-evaluating-horse-for-purchase.webp',
+    image: '/images/ratgeber/pferd-kaufen/hero.webp',
     title: 'Pferd kaufen: Der komplette Ratgeber',
     badge: 'Pferde-Ratgeber',
     readTime: '15 min',
@@ -158,7 +158,7 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
   },
   {
     href: '/pferde-ratgeber/pferd-verkaufen',
-    image: '/happy-horse-owner-with-horse--professional-consult.jpg',
+    image: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp',
     title: 'Pferd verkaufen: Optimaler Preis',
     badge: 'Pferde-Ratgeber',
     readTime: '10 min',

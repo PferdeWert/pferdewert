@@ -131,7 +131,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/veterinarian-examining-horse-health-check.webp",
+    image: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",
@@ -139,7 +139,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/kosten",
-    image: "/person-evaluating-horse-for-purchase.webp",
+    image: "/images/ratgeber/aku-pferd/kosten/hero.webp",
     title: "AKU Kosten transparent",
     badge: "Kosten & Preise",
     readTime: "7 Min.",
@@ -185,7 +185,7 @@ const AkuPferdKlassen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-klassen-hero.webp'}
+          src={getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-pferd/klassen/hero.webp'}
           alt="Tierärztliche Begutachtung eines Pferdes im Stall"
           priority
         />
@@ -287,7 +287,7 @@ const AkuPferdKlassen: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/horse-in-stable--professional-care.webp",
+              src: "/images/ratgeber/aku-pferd/klassen/hero.webp",
               alt: "Pferdebewertung mit dokumentierten AKU-Klassen"
             }}
             title="AKU-Ergebnis erhalten – und jetzt?"
