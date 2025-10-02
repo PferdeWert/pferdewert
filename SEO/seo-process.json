@@ -179,25 +179,6 @@
       },
       {
         "step": 4,
-        "name": "Technical SEO Check",
-        "based_on": ["File 5"],
-        "actions": [
-          {
-            "action": "onpage_analysis",
-            "description": "Analyze client website technical SEO",
-            "apis": ["onpage_instant_pages"],
-            "metrics": ["page_speed", "mobile_optimization", "schema_markup", "meta_tags"]
-          },
-          {
-            "action": "optimization_recommendations",
-            "description": "Generate technical improvements for article page",
-            "focus": "Core Web Vitals, structured data, meta optimization",
-            "storage": "Save to {keyword}-technical.json"
-          }
-        ]
-      },
-      {
-        "step": 5,
         "name": "Content Creation",
         "based_on": ["File 7"],
         "actions": [
@@ -227,7 +208,7 @@
         ]
       },
       {
-        "step": 6,
+        "step": 5,
         "name": "Quality Assurance & Tracking Setup",
         "based_on": ["File 6"],
         "actions": [

@@ -115,36 +115,7 @@ SEO/SEO-CONTENT/{keyword}/
 
 ---
 
-## Prozess 4: Technical SEO Audit
-
-### Zweck
-Umfassende technische SEO-Analyse der PferdeWert.de Website mit automatisierter Problemerkennung.
-
-### Schritte mit Claude Code
-1. **Website Mapping**: `firecrawl_map` für vollständige URL-Erfassung
-2. **URL Priorisierung**: Claude bewertet URLs nach Wichtigkeit
-3. **OnPage Analyse**: API Call via `/api/seo/onpage-pages` für jede wichtige URL
-4. **Lighthouse Audit**: API Call via `/api/seo/lighthouse` für Performance-Metriken
-5. **Problem-Kategorisierung**: Claude klassifiziert Probleme (Critical/Warning/Info)
-6. **Report Generation**: Markdown-Report mit priorisierten Fixes
-7. **Action Items**: Konkrete Verbesserungsvorschläge
-
-### Input/Output
-- **Input**: Domain (pferdewert.de)
-- **Output**: Technical SEO Report, Problem-Liste, Action Items
-
-### Ablage-Struktur
-```
-SEO/SEO-CONTENT/{keyword}/
-├── technical-audit-{date}.md
-├── lighthouse-scores-{date}.json
-├── onpage-issues-{date}.json
-└── action-items-{date}.md
-```
-
----
-
-## Prozess 5: Rank Tracking & Monitoring
+## Prozess 4: Rank Tracking & Monitoring
 
 ### Zweck
 Regelmäßige Überwachung der Keyword-Rankings mit automatisierter Verlust-Erkennung.
@@ -173,7 +144,7 @@ SEO/SEO-CONTENT/{keyword}/
 
 ---
 
-## Prozess 6: SEO Content Creation
+## Prozess 5: SEO Content Creation
 
 ### Zweck
 Automatisierte Erstellung suchoptimierter Artikel basierend auf SERP-Analyse und Keyword-Research.
@@ -206,19 +177,17 @@ SEO/SEO-CONTENT/{keyword}/
 ## Prozess-Orchestrierung
 
 ### Content-Erstellung Workflow (Pro Keyword-Artikel)
-**Prozesse 1→2→3→6**: Keyword Research → Analyse → Outline → Content Creation
+**Prozesse 1→2→3→5**: Keyword Research → Analyse → Outline → Content Creation
 - **Input**: Target Keyword + ✅ Bereits erstelltes Company Profile
 - **Output**: Vollständiger SEO-Artikel mit Meta-Daten
 
 ### Periodische Maintenance (Unabhängig)
-**Prozess 4 - Technical SEO Audit**: Quartalsweise Site Health Check
-**Prozess 5 - Rank Tracking**: Tägliches/wöchentliches Performance Monitoring
+**Prozess 4 - Rank Tracking**: Tägliches/wöchentliches Performance Monitoring
 
 ### Workflow-Integration
 1. **Weekly Keyword Review**: Prozess 1-2 für neue Opportunities
-2. **Content Creation Pipeline**: Prozess 1→2→3→6 für jeden neuen Artikel
-3. **Quarterly Technical Audit**: Prozess 4 für Site Health (unabhängig)
-4. **Weekly Rank Monitoring**: Prozess 5 für Performance Tracking (unabhängig)
+2. **Content Creation Pipeline**: Prozess 1→2→3→5 für jeden neuen Artikel
+3. **Weekly Rank Monitoring**: Prozess 4 für Performance Tracking (unabhängig)
 
 ### File-Management
 - Alle Prozesse nutzen einheitliche JSON/MD-Struktur
@@ -242,7 +211,7 @@ Mit dem spezialisierten `seo-content-writer` Agent wird der komplexe 6-Agent-Cha
 #### **Agent: SEO Content Writer** (seo-content-writer)
 ```
 Input: target_keyword + ✅ Company Profile aus SEO/company/
-Umfang: Komplette Prozess-Kette 1→2→3→6 in einem Agent
+Umfang: Komplette Prozess-Kette 1→2→3→5 in einem Agent
 Actions:
 ├── Lade Company Profile: SEO/company/company-profile-{date}.md
 ├── Keyword Research: API Calls via /api/seo/* (keyword-ideas + related + suggestions)

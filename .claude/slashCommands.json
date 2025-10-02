@@ -14,5 +14,9 @@
   "page": {
     "command": ".claude/commands/page.js",
     "description": "Generate SEO Ratgeber page from keyword (Usage: /page <keyword>)"
+  },
+  "seo-audit": {
+    "command": ".claude/commands/seo-audit.md",
+    "description": "Technical SEO Audit with automated problem detection and prioritized action items"
   }
 }
