@@ -88,7 +88,7 @@ const PferdeRatgeber: NextPage = () => {
       beschreibung: "Expertentipps für den erfolgreichen Pferdeverkauf: Optimale Preisfindung, professionelle Präsentation und Verhandlungsstrategien.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "11 Min.",
-      bild: "/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp",
+      bild: "/images/ratgeber/pferd-verkaufen/tipps/hero.webp",
       link: "/pferde-ratgeber/pferd-verkaufen/tipps",
     },
   ]
@@ -204,7 +204,7 @@ const PferdeRatgeber: NextPage = () => {
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <div className="mb-8 md:mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
               <Image
-                src="/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp"
+                src="/images/ratgeber/pferd-verkaufen/tipps/hero.webp"
                 alt="Professionelle Pferdeberatung"
                 fill
                 sizes="(max-width: 768px) 100vw, 672px"

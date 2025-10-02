@@ -127,7 +127,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Praktische Ratschläge für einen erfolgreichen und stressfreien Pferdeverkauf. Was du wirklich beachten musst.',
     category: 'Kauf & Verkauf',
     readTime: '12 Min.',
-    image: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp', // Eigenes Motiv für die Tipp-Sammlung
+    image: '/images/ratgeber/pferd-verkaufen/tipps/hero.webp', // Eigenes Motiv für die Tipp-Sammlung
     priority: '0.7',
     changefreq: 'monthly'
   }

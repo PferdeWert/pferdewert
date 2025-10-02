@@ -312,8 +312,9 @@ const PferdVerkaufenTipps: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('pferd-verkaufen/tipps')?.image || '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp'}
+          src={getRatgeberBySlug('pferd-verkaufen/tipps')?.image || '/images/ratgeber/pferd-verkaufen/tipps/hero.webp'}
           alt="Professionelle Pferdepräsentation beim Verkauf"
+          objectPosition="center 30%"
         />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
