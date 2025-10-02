@@ -10,7 +10,7 @@ import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
-import { PRICING_FORMATTED } from "../lib/pricing";
+import { PRICING_FORMATTED, SCHEMA_PRICING } from "../lib/pricing";
 import {
   trackValuationStart,
   trackFormProgress,
@@ -519,7 +519,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               "browserRequirements": "Requires JavaScript",
               "offers": {
                 "@type": "Offer",
-                "price": "14.90",
+                "price": SCHEMA_PRICING.price,
                 "priceCurrency": "EUR",
                 "description": "Einmalige Gebühr für detaillierte Pferdebewertung mit PDF-Report",
                 "availability": "https://schema.org/InStock",
@@ -605,7 +605,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               "estimatedCost": {
                 "@type": "MonetaryAmount",
                 "currency": "EUR",
-                "value": "14.90"
+                "value": SCHEMA_PRICING.price
               },
               "step": [
                 {
@@ -675,7 +675,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
             </p>
           </div>
-          <p className="text-sm text-gray-600 font-medium">Exklusiv in der Sommer-Aktion!</p>
+          <p className="text-sm text-gray-600 font-medium">Exklusiv in der Herbst-Aktion!</p>
         </div>
 
         {/* Features mit Icons */}
@@ -700,7 +700,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <div className="px-4 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 leading-relaxed text-center">
-              Ermitteln Sie den aktuellen Marktwert Ihres Pferdes präzise und datenbasiert. Unser KI-gestützter Rechner analysiert über 15 Bewertungskriterien und liefert Ihnen in unter 2 Minuten eine fundierte Preiseinschätzung. Geben Sie einfach die wichtigsten Merkmale ein – Rasse, Alter, Ausbildungsstand und Gesundheit – und erhalten Sie sofort eine detaillierte Auswertung für faire Kaufentscheidungen.
+              Ermitteln Sie den aktuellen Marktwert Ihres Pferdes präzise und datenbasiert. Unser KI-gestützter Rechner analysiert 13 Bewertungskriterien und liefert Ihnen in unter 2 Minuten eine fundierte Preiseinschätzung. Geben Sie einfach die wichtigsten Merkmale ein – Rasse, Alter, Ausbildungsstand und Gesundheit – und erhalten Sie sofort eine detaillierte Auswertung über Ihr Pferd.
             </p>
           </div>
         </div>
@@ -1019,7 +1019,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand text-center mb-12">
-                Häufige Fragen zur Pferdebewertung
+                Häufige Fragen zur Pferdepreis-Berechnung
               </h2>
 
               <div className="space-y-4">
