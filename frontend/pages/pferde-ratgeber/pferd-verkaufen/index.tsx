@@ -415,7 +415,7 @@ const PferdVerkaufen: NextPage = () => {
             Die emotionale Seite: Abschied nehmen vom Partner Pferd
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Der Verkauf eines Pferdes ist nicht nur eine Transaktion – es ist oft ein schmerzhafter Abschied
             von einem langjährigen Partner. Diese emotionale Dimension wird häufig unterschätzt.
           </p>
@@ -482,7 +482,7 @@ const PferdVerkaufen: NextPage = () => {
             Verkaufsplattformen im Vergleich: Wo verkaufe ich am besten?
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Die Wahl der richtigen Verkaufsplattform ist entscheidend für Ihren Erfolg. Jede Plattform hat
             ihre Stärken und Zielgruppen. Ein strategischer Mix mehrerer Plattformen maximiert Ihre Reichweite.
           </p>
@@ -491,7 +491,7 @@ const PferdVerkaufen: NextPage = () => {
             ehorses.de – Die Premium-Plattform
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Mit über 19.000 aktiven Inseraten ist ehorses.de Deutschlands größter Pferdemarkt und die erste Wahl
             für hochwertige Pferde.
           </p>
@@ -509,7 +509,7 @@ const PferdVerkaufen: NextPage = () => {
             pferde.de – Die Community-Plattform
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             pferde.de ist bekannt für seine aktive Community und eignet sich besonders für Freizeitpferde
             im mittleren Preissegment.
           </p>
@@ -527,7 +527,7 @@ const PferdVerkaufen: NextPage = () => {
             kleinanzeigen.de (ehemals eBay Kleinanzeigen) – Der regionale Marktplatz
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Ideal für regionale Verkäufe und Pferde im unteren bis mittleren Preissegment.
           </p>
 
@@ -547,7 +547,7 @@ const PferdVerkaufen: NextPage = () => {
             Die 5 wichtigsten Preisfaktoren im Detail
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Der Wert eines Pferdes wird durch eine Kombination verschiedener Faktoren bestimmt. Verstehen Sie
             diese Faktoren, um den optimalen Verkaufspreis zu ermitteln.
           </p>
@@ -556,7 +556,7 @@ const PferdVerkaufen: NextPage = () => {
             1. Ausbildungsstand (Einfluss: 40%)
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Jede Ausbildungsstufe erhöht den Wert merklich. Ein Pferd mit A-Niveau ist 2.000-3.000€ mehr wert
             als ein vergleichbares ohne Turniererfahrung. L-Niveau: +4.000-7.000€, M-Niveau: +8.000-15.000€.
             Spezialisierungen wie Dressur oder Springen erhöhen den Wert zusätzlich.
@@ -566,7 +566,7 @@ const PferdVerkaufen: NextPage = () => {
             2. Gesundheitszustand (Einfluss: 30%)
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Chronische Erkrankungen (Hufrehe, Arthrose, Atemwegsprobleme) senken den Wert um 30-60%. Eine aktuelle
             AKU ohne Befund steigert Verkaufschancen und Preis um 10-20%. Röntgenbilder und Blutbild können
             zusätzliches Vertrauen schaffen.
@@ -576,7 +576,7 @@ const PferdVerkaufen: NextPage = () => {
             3. Alter (Einfluss: 15%)
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Pferde zwischen 6 und 12 Jahren erzielen Höchstpreise. Ab 15 Jahren sinkt der Wert merklich,
             ab 20 Jahren deutlich (Rentner-Status). Jungpferde (3-4 Jahre) haben Potenzial, aber auch Risiko.
           </p>
@@ -585,7 +585,7 @@ const PferdVerkaufen: NextPage = () => {
             4. Rasse und Abstammung (Einfluss: 10%)
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Warmblüter aus anerkannten Zuchtlinien (Hannoveraner, Oldenburger, Westfalen) rechtfertigen
             1.000-3.000€ Aufschlag. Elitetiere mit Körung oder gekörten Eltern erzielen Spitzenpreise.
           </p>
@@ -594,7 +594,7 @@ const PferdVerkaufen: NextPage = () => {
             5. Charakter und Eignung (Einfluss: 5%)
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Anfängertaugliche, gelassene Pferde sind gefragter und erzielen 10-15% höhere Preise als
             schwierige Charaktere. Vielseitigkeit (Dressur + Springen) steigert ebenfalls den Wert.
           </p>
@@ -603,7 +603,7 @@ const PferdVerkaufen: NextPage = () => {
             Regionale Preisunterschiede
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Auch die Region beeinflusst den Preis erheblich:
           </p>
 
@@ -629,7 +629,7 @@ const PferdVerkaufen: NextPage = () => {
             Die 7 teuersten Fehler beim Pferdeverkauf (und wie Sie sie vermeiden)
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Diese Fehler kosten Verkäufer jährlich tausende Euro. Lernen Sie aus den Erfahrungen anderer
             und vermeiden Sie diese klassischen Fallen.
           </p>
@@ -684,7 +684,7 @@ const PferdVerkaufen: NextPage = () => {
             Pferd verkaufen: Die komplette Schritt-für-Schritt-Anleitung
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Folgen Sie dieser bewährten 9-Schritte-Methode für einen erfolgreichen und rechtssicheren Verkauf.
           </p>
 
@@ -743,7 +743,7 @@ const PferdVerkaufen: NextPage = () => {
             KI-gestützte Pferdebewertung: So funktioniert PferdeWert.de
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Moderne Künstliche Intelligenz revolutioniert die Pferdebewertung. Erfahren Sie, wie unser
             duales KI-System (GPT-4 + Claude) in nur 2 Minuten objektive Marktwerte berechnet.
           </p>
@@ -752,7 +752,7 @@ const PferdVerkaufen: NextPage = () => {
             Die Technologie hinter PferdeWert.de
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Unser System kombiniert zwei führende KI-Modelle (GPT-4 von OpenAI und Claude von Anthropic),
             um maximale Präzision zu erreichen. Beide Systeme wurden mit tausenden Pferdedaten trainiert
             und von erfahrenen Reitern validiert.
@@ -777,7 +777,7 @@ const PferdVerkaufen: NextPage = () => {
             Warum zwei KI-Modelle besser sind als eines
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Unterschiedliche KI-Systeme haben unterschiedliche Stärken. GPT-4 ist hervorragend bei der
             Marktdatenanalyse und Trendprognosen, während Claude besonders stark bei komplexen Faktoren
             wie Charakterbewertung und Eignungsanalyse ist. Die Kombination beider Systeme erhöht die
@@ -820,7 +820,7 @@ const PferdVerkaufen: NextPage = () => {
             Preisverhandlung meistern: Psychologie & Taktik
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Die richtige Verhandlungsstrategie kann den Unterschied zwischen gutem und optimalem Preis ausmachen.
             Lernen Sie die wichtigsten psychologischen Prinzipien und taktischen Werkzeuge.
           </p>
@@ -829,7 +829,7 @@ const PferdVerkaufen: NextPage = () => {
             Preisanker setzen
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Der erste genannte Preis (Anker) beeinflusst die gesamte Verhandlung. Setzen Sie Ihren Verkaufspreis
             10-15% über Ihrem Minimalpreis, aber bleiben Sie im realistischen Rahmen. Ein absurd hoher Anker
             schreckt seriöse Käufer ab.
@@ -839,7 +839,7 @@ const PferdVerkaufen: NextPage = () => {
             Objektive Argumente nutzen
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Emotionale Argumente wie &quot;Ich habe so viel investiert&quot; überzeugen nicht. Nutzen Sie stattdessen:
           </p>
 
@@ -855,7 +855,7 @@ const PferdVerkaufen: NextPage = () => {
             Verhandlungsspielraum kommunizieren
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Formulieren Sie Ihren Preis geschickt: &quot;Der Preis liegt bei 7.500€ – ich bin allerdings
             gesprächsbereit bei einem schnellen Abschluss.&quot; Dies signalisiert Flexibilität ohne Schwäche.
           </p>
@@ -864,7 +864,7 @@ const PferdVerkaufen: NextPage = () => {
             Win-Win-Lösungen finden
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Manchmal sind kreative Lösungen besser als Preisreduzierungen:
           </p>
 
@@ -879,7 +879,7 @@ const PferdVerkaufen: NextPage = () => {
             Timing ist entscheidend
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Verhandeln Sie nicht sofort beim ersten Kontakt. Lassen Sie den Interessenten zuerst das Pferd
             kennenlernen. Nach einer erfolgreichen Besichtigung ist die Zahlungsbereitschaft 15-25% höher.
           </p>
@@ -891,7 +891,7 @@ const PferdVerkaufen: NextPage = () => {
             Rechtliche Aspekte: Kaufvertrag, Gewährleistung & Haftung
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Der Pferdeverkauf unterliegt klaren rechtlichen Vorgaben. Schützen Sie sich vor späteren
             Rechtsstreitigkeiten durch korrekte Vertragsgestaltung und transparente Kommunikation.
           </p>
@@ -951,13 +951,13 @@ const PferdVerkaufen: NextPage = () => {
             Gewährleistung: Privat vs. Gewerblich
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             <strong className="text-brand">Privatverkauf:</strong> Sie können die Gewährleistung komplett
             ausschließen (&quot;Gekauft wie gesehen&quot;). Aber Achtung: Bei arglistig verschwiegenen Mängeln
             haften Sie trotzdem! Arglist liegt vor, wenn Sie Mängel kannten und bewusst verschwiegen haben.
           </p>
 
-          <p className="text-gray-700 leading-relaxed mt-4">
+          <p className="text-gray-700 leading-relaxed mb-6 mt-4">
             <strong className="text-brand">Gewerblicher Verkauf:</strong> Händler können die gesetzliche
             Gewährleistung (24 Monate) auf 12 Monate verkürzen, aber nicht komplett ausschließen. Bei
             gebrauchten Pferden ist eine Verkürzung auf 12 Monate üblich und rechtlich zulässig.
@@ -991,7 +991,7 @@ const PferdVerkaufen: NextPage = () => {
             Dokumente bei Übergabe
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Folgende Dokumente müssen Sie dem Käufer übergeben:
           </p>
 
