@@ -105,10 +105,6 @@ export default function UeberUns() {
               {/* Left Content */}
               <div className="space-y-8 hero-fade-in-left">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center px-4 py-2 bg-brand-brown/10 text-brand-brown rounded-full text-sm font-semibold">
-                    <Heart className="w-4 h-4 mr-2" />
-                    #1 Online Pferdebewertung
-                  </div>
                   <h1 className="text-h1 font-bold text-gray-900 leading-tight">
                     Über uns
                   </h1>
@@ -142,7 +138,7 @@ export default function UeberUns() {
         </section>
 
         {/* Wer wir sind */}
-        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="wer-wir-sind">
+        <section className="py-12 lg:py-20 section-fade-in" id="wer-wir-sind">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Wer wir sind</h2>
@@ -165,7 +161,7 @@ export default function UeberUns() {
         </section>
 
         {/* Wie PferdeWert entstand */}
-        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="entstehung">
+        <section className="py-12 lg:py-20 section-fade-in" id="entstehung">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Wie PferdeWert entstand</h2>
@@ -206,7 +202,7 @@ export default function UeberUns() {
         </section>
 
         {/* Mission */}
-        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="mission">
+        <section className="py-12 lg:py-20 section-fade-in" id="mission">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Unsere Mission</h2>
@@ -235,7 +231,7 @@ export default function UeberUns() {
               </div>
 
               {/* Unsere Lösung */}
-              <div className="bg-brand-gold/10 p-8 rounded-xl border border-brand-gold/20 mb-8">
+              <div className="bg-[#fdf7f1] p-8 rounded-xl border border-[#e0c9aa] mb-8">
                 <h3 className="text-2xl font-semibold text-brand-brown mb-6">
                   <span className="font-bold">PferdeWert.de</span> - Die professionelle Lösung:
                 </h3>
@@ -265,215 +261,27 @@ export default function UeberUns() {
               </div>
 
               {/* Unser Versprechen */}
-              <div className="bg-gray-50 p-8 rounded-2xl">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Unser Versprechen an die Pferdegemeinschaft</h3>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-brand-brown mb-2">🎯 Präzise Bewertungen</h4>
-                    <p className="text-gray-700">Kontinuierliche Optimierung unserer KI-Modelle für höchste Genauigkeit</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-brand-brown mb-2">🔒 Datenschutz</h4>
-                    <p className="text-gray-700">Ihre Pferdedaten werden sicher und vertraulich behandelt</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-brand-brown mb-2">📈 Marktaktualität</h4>
-                    <p className="text-gray-700">Regelmäßige Updates basierend auf aktuellen Marktentwicklungen</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-brand-brown mb-2">🤝 Fairness</h4>
-                    <p className="text-gray-700">Gleiche Bewertungsstandards für alle - unabhängig von Budget oder Herkunft</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-       {/* Was uns wichtig ist - SEO Optimized Values Section */}
-<section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="werte">
-  <div className="px-4 lg:px-8 xl:px-12">
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-h2 font-bold text-gray-900 text-center mb-6">Was uns wichtig ist</h2>
-      <p className="text-center max-w-2xl mx-auto text-gray-700 mb-8">
-        Unsere Werte leiten uns bei jedem Schritt – von der Entwicklung unseres KI-Pferdebewertungsmodells bis zur fairen Preisgestaltung bei PferdeWert.
-      </p>
-
-      {/* Core Values for Professional Horse Valuation */}
-      <h3 className="text-2xl font-semibold text-gray-800 text-center mb-8">
-        Grundwerte für professionelle Pferdebewertung in Deutschland
-      </h3>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[
-          {
-            icon: Shield,
-            title: "Transparenz bei Pferdebewertungen",
-            description: "Wir machen den Pferdepreis transparent – mit einer klaren KI-gestützten Analyse statt Bauchgefühl. Jede Bewertung ist nachvollziehbar und wissenschaftlich fundiert."
-          },
-          {
-            icon: Users,
-            title: "Fairness im Pferdemarkt",
-            description: "Unsere objektive Pferdebewertung sorgt für Klarheit – für Käufer und Verkäufer gleichermaßen. Faire Preise stärken das Vertrauen in den deutschen Pferdemarkt."
-          },
-          {
-            icon: Zap,
-            title: "Einfache Zugänglichkeit",
-            description: "Unser Online-Pferdepreis-Rechner ist einfach, anonym & ohne Fachwissen nutzbar. Professionelle Pferdebewertung für jeden – in nur 2 Minuten."
-          },
-          {
-            icon: Heart,
-            title: "Tierwohl & Verantwortung",
-            description: "Das Wohl der Pferde steht für uns immer an erster Stelle. Unsere Bewertungen berücksichtigen ethische Aspekte der Pferdehaltung und -vermarktung."
-          },
-          {
-            icon: Star,
-            title: "Ehrlichkeit & Realismus",
-            description: "Wir versprechen nur, was wir halten können – realistische Marktwerte statt Fantasiepreise. Unsere KI-Bewertungen basieren auf echten Verkaufsdaten."
-          },
-          {
-            icon: Award,
-            title: "Fachliche Kompetenz",
-            description: "Wir kombinieren Markterfahrung, aktuelle Inserate und externe Datenquellen zu einer belastbaren, praxisnahen Bewertung."
-          }
-        ].map((item, index) => (
-          <div key={index} className="bg-white rounded-2xl border border-brand-gold/20 hover:shadow-2xl hover:translate-y-1 transition-transform shadow-sm p-6">
-            <item.icon className="w-8 h-8 text-brand-brownDark mb-4" aria-hidden="true" />
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h4>
-            <p className="text-gray-600">{item.description}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Trust Indicators for German Horse Market */}
-      <div className="mt-16 text-center">
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">
-          Vertrauen der deutschen Pferdegemeinschaft
-        </h3>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-brand-brown">500+</div>
-            <div className="text-sm text-gray-600">Erfolgreich bewertete Pferde</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-brand-brown">95%</div>
-            <div className="text-sm text-gray-600">Kundenzufriedenheit</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-brand-brown">2 Min</div>
-            <div className="text-sm text-gray-600">Durchschnittliche Bewertungszeit</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-brand-brown">24/7</div>
-            <div className="text-sm text-gray-600">Online verfügbar</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-        {/* Customer Testimonials - Trust Signal Section */}
-        <section className="py-12 lg:py-20 bg-amber-50 section-fade-in" id="testimonials">
-          <div className="px-4 lg:px-8 xl:px-12">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-h2 font-bold text-gray-900 text-center mb-4">
-                Das sagen unsere Kunden über PferdeWert.de
-              </h2>
-              <p className="text-center max-w-2xl mx-auto text-gray-700 mb-12">
-                Echte Erfahrungen von Pferdebesitzern, die unsere KI-Pferdebewertung genutzt haben
-              </p>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  {
-                    name: "Sarah M.",
-                    location: "Bayern",
-                    horse: "Hannoveraner Stute",
-                    text: "Die Bewertung war unglaublich genau! Als ich meine Stute verkauft habe, lag der Preis nur 200€ vom PferdeWert-Ergebnis entfernt. Spart so viel Zeit bei der Preisfindung.",
-                    rating: 5
-                  },
-                  {
-                    name: "Thomas K.",
-                    location: "Nordrhein-Westfalen",
-                    horse: "Oldenburger Wallach",
-                    text: "Endlich eine objektive Einschätzung! Als Käufer hatte ich durch PferdeWert eine solide Verhandlungsgrundlage. Der Verkäufer konnte den Preis nicht mehr künstlich hochhalten.",
-                    rating: 5
-                  },
-                  {
-                    name: "Lisa H.",
-                    location: "Baden-Württemberg",
-                    horse: "Deutsches Reitpony",
-                    text: `Super einfach zu bedienen und das Ergebnis kam sofort. Für ${PRICING_FORMATTED.current} bekommt man eine professionelle Bewertung, für die man beim Sachverständigen 300€+ bezahlen würde.`,
-                    rating: 5
-                  }
-                ].map((testimonial, index) => (
-                  <div key={index} className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
-                    <div className="border-t pt-4">
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.location} • {testimonial.horse}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-12 text-center">
-                <p className="text-sm text-gray-500">
-                  ⭐ 4.8/5 Sterne Durchschnittsbewertung • Über 500 zufriedene Kunden
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-12 lg:py-16 bg-amber-50">
-          <div className="px-4 lg:px-8 xl:px-12">
-            <div className="max-w-4xl mx-auto">
-              <FAQ
-                faqs={[
-                  {
-                    question: "Wer steht hinter PferdeWert.de?",
-                    answer: "PferdeWert.de wurde von einem Team aus Pferdeexperten und KI-Entwicklern entwickelt. Unser Gründer Benjamin Reder kombiniert jahrelange Erfahrung im Pferdesport mit modernster Technologie, um objektive und präzise Pferdebewertungen zu ermöglichen."
-                  },
-                  {
-                    question: "Wie funktioniert die KI-gestützte Bewertung?",
-                    answer: "Unsere KI analysiert über 50 verschiedene Faktoren wie Rasse, Alter, Ausbildungsstand, Gesundheitszustand und regionale Marktdaten. Das System wurde mit tausenden von Pferdetransaktionen trainiert und wird kontinuierlich von Experten validiert."
-                  },
-                  {
-                    question: "Ist PferdeWert.de wirklich unabhängig?",
-                    answer: "Ja, absolut. Wir sind ein unabhängiges Unternehmen ohne Verbindungen zu Händlern oder Verkäufern. Unsere Bewertungen basieren ausschließlich auf objektiven Daten und Marktanalysen – nicht auf kommerziellen Interessen."
-                  },
-                  {
-                    question: "Wie aktuell sind die Marktdaten?",
-                    answer: "Unsere Marktdaten werden täglich aktualisiert. Wir analysieren kontinuierlich Verkaufspreise, Markttrends und regionale Unterschiede, um sicherzustellen, dass unsere Bewertungen immer den aktuellen Markt widerspiegeln."
-                  },
-                  {
-                    question: "Kann ich mehrere Pferde bewerten lassen?",
-                    answer: "Ja, gerne! Jede Bewertung kostet 14,90€. Es gibt keine Mengenbegrenzung und jede Bewertung wird individuell und unabhängig durchgeführt. Für gewerbliche Nutzer bieten wir auf Anfrage auch Paketlösungen an.",
-                    highlight: true
-                  },
-                  {
-                    question: "Was unterscheidet PferdeWert von anderen Bewertungstools?",
-                    answer: "PferdeWert kombiniert wissenschaftliche Methoden mit praktischer Pferdeerfahrung. Unser duales KI-System (GPT + Claude) sorgt für besonders präzise Ergebnisse, während unsere Experten die Algorithmen kontinuierlich optimieren."
-                  }
-                ]}
-                sectionTitle="Häufige Fragen über PferdeWert"
-                className="mb-8"
-              />
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Unser Versprechen an die Pferdegemeinschaft</h3>
+              <ul className="space-y-4 text-gray-700">
+                <li>
+                  <strong className="text-brand-brown">🎯 Präzise Bewertungen:</strong> Kontinuierliche Optimierung unserer KI-Modelle für höchste Genauigkeit
+                </li>
+                <li>
+                  <strong className="text-brand-brown">🔒 Datenschutz:</strong> Ihre Pferdedaten werden sicher und vertraulich behandelt
+                </li>
+                <li>
+                  <strong className="text-brand-brown">📈 Marktaktualität:</strong> Regelmäßige Updates basierend auf aktuellen Marktentwicklungen
+                </li>
+                <li>
+                  <strong className="text-brand-brown">🤝 Fairness:</strong> Gleiche Bewertungsstandards für alle - unabhängig von Budget oder Herkunft
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
         {/* Enhanced CTA Section */}
-        <section className="py-12 lg:py-20 bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 section-fade-in" id="cta">
+        <section className="py-12 lg:py-20 bg-[#fdf7f1] section-fade-in" id="cta">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-h2 font-bold text-gray-900 mb-6">
@@ -497,7 +305,7 @@ export default function UeberUns() {
         </section>
 
         {/* Social Media */}
-        <section className="py-12 lg:py-16 bg-amber-50" id="social">
+        <section className="py-12 lg:py-16" id="social">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-4">

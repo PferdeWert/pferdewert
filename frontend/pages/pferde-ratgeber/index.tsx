@@ -5,19 +5,58 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
 
+interface RatgeberArtikel {
+  id: number
+  titel: string
+  beschreibung: string
+  kategorie: string
+  lesezeit: string
+  bild: string
+  link: string
+}
+
 const PferdeRatgeber: NextPage = () => {
-  const ratgeberArtikel = [
+  const ratgeberArtikel: RatgeberArtikel[] = [
+    // Hauptratgeber: AKU
     {
       id: 1,
       titel: "AKU Pferd - Ankaufsuntersuchung erklärt",
       beschreibung: "Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.",
-      kategorie: "Kauf & Verkauf",
+      kategorie: "Gesundheit",
       lesezeit: "15 Min.",
       bild: "/veterinarian-examining-horse-health-check.webp",
       link: "/pferde-ratgeber/aku-pferd",
     },
     {
       id: 2,
+      titel: "AKU Kosten - Was kostet eine Ankaufsuntersuchung?",
+      beschreibung: "Detaillierte Kostenübersicht für die Ankaufsuntersuchung beim Pferd. Große vs. kleine AKU, regionale Unterschiede und Spartipps.",
+      kategorie: "Gesundheit",
+      lesezeit: "8 Min.",
+      bild: "/horse-in-stable--professional-care.webp",
+      link: "/pferde-ratgeber/aku-pferd/kosten",
+    },
+    {
+      id: 3,
+      titel: "AKU Klassen - Bewertungssystem erklärt",
+      beschreibung: "Die AKU-Klassifizierung von Klasse 1 bis 5 verständlich erklärt. Was bedeutet jede Klasse für den Pferdekauf?",
+      kategorie: "Gesundheit",
+      lesezeit: "10 Min.",
+      bild: "/horse-training-session-with-rider.webp",
+      link: "/pferde-ratgeber/aku-pferd/klassen",
+    },
+    {
+      id: 4,
+      titel: "AKU Ablauf - Schritt für Schritt",
+      beschreibung: "Der komplette Ablauf der Ankaufsuntersuchung: Von der Terminvereinbarung bis zum Befund. Mit Checkliste zum Download.",
+      kategorie: "Gesundheit",
+      lesezeit: "12 Min.",
+      bild: "/person-evaluating-horse-for-purchase.webp",
+      link: "/pferde-ratgeber/aku-pferd/ablauf",
+    },
+    // Hauptratgeber: Kauf & Verkauf
+    {
+      id: 5,
       titel: "Pferd kaufen - Der komplette Ratgeber",
       beschreibung: "Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.",
       kategorie: "Kauf & Verkauf",
@@ -26,13 +65,31 @@ const PferdeRatgeber: NextPage = () => {
       link: "/pferde-ratgeber/pferd-kaufen",
     },
     {
-      id: 3,
+      id: 6,
+      titel: "Was kostet ein Pferd?",
+      beschreibung: "Kompletter Kostenüberblick: Anschaffung, monatliche Ausgaben, versteckte Kosten und wie Sie langfristig Geld sparen können.",
+      kategorie: "Kauf & Verkauf",
+      lesezeit: "14 Min.",
+      bild: "/horse-in-stable--professional-care.webp",
+      link: "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+    },
+    {
+      id: 7,
       titel: "Pferd verkaufen - Erfolgreich & Optimal",
       beschreibung: "Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.",
       kategorie: "Kauf & Verkauf",
       lesezeit: "16 Min.",
       bild: "/happy-horse-owner-with-horse--professional-consult.webp",
       link: "/pferde-ratgeber/pferd-verkaufen",
+    },
+    {
+      id: 8,
+      titel: "Pferd verkaufen Tipps - Die besten Strategien",
+      beschreibung: "Expertentipps für den erfolgreichen Pferdeverkauf: Optimale Preisfindung, professionelle Präsentation und Verhandlungsstrategien.",
+      kategorie: "Kauf & Verkauf",
+      lesezeit: "11 Min.",
+      bild: "/beautiful-horse-in-golden-sunset-light--profession.webp",
+      link: "/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps",
     },
   ]
 
@@ -42,9 +99,9 @@ const PferdeRatgeber: NextPage = () => {
         <title>Pferde-Ratgeber | Expertenwissen für Pferdebesitzer | PferdeWert.de</title>
         <meta
           name="description"
-          content="Die wichtigsten Pferde-Ratgeber: AKU Pferd, Pferd kaufen und Pferd verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
+          content="Alle Pferde-Ratgeber auf einen Blick: AKU Pferd, Kosten, Klassen, Ablauf, Pferd kaufen & verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
         />
-        <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung" />
+        <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung, Pferdegesundheit" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber" />
       </Head>
 
@@ -65,65 +122,135 @@ const PferdeRatgeber: NextPage = () => {
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-h1 font-serif font-bold text-brand mb-6">Pferde-Ratgeber</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand mb-6">
+              Pferde-Ratgeber
+            </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-              Ihr Expertenleitfaden für Pferdekauf und Pferdeverkauf – mit professioneller AKU-Beratung und Bewertungstipps.
+              Ihr Expertenleitfaden für Pferdekauf, Pferdeverkauf und Ankaufsuntersuchung – fundiertes Wissen für informierte Entscheidungen
             </p>
           </div>
         </section>
 
         {/* Artikel Grid */}
-        <section id="artikel-grid" className="py-20 px-6">
+        <section id="artikel-grid" className="py-16 md:py-20 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-h2 font-serif font-bold text-brand mb-4">Unsere Hauptratgeber</h2>
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-4">
+                Alle Ratgeber im Überblick
+              </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Die drei wichtigsten Ratgeber für Pferdekauf und -verkauf – kompakt und praxisnah erklärt
+                Von der Ankaufsuntersuchung bis zum erfolgreichen Verkauf – fundierte Informationen für jeden Schritt
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {ratgeberArtikel.map((artikel) => (
-                <div key={artikel.id} className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col">
-                  <div className="aspect-[4/3] overflow-hidden relative">
+                <article
+                  key={artikel.id}
+                  className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2"
+                >
+                  {/* Image Container - Fixed aspect ratio */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={artikel.bild}
                       alt={artikel.titel}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
+
+                  {/* Content Container - Flex grow to push button to bottom */}
                   <div className="p-6 flex flex-col flex-grow">
+                    {/* Meta Information */}
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-medium bg-brand-light text-brand px-2 py-1 rounded">
+                      <span className={`text-xs font-medium px-2.5 py-1 rounded ${
+                        artikel.kategorie === 'Gesundheit'
+                          ? 'bg-blue-50 text-blue-700'
+                          : 'bg-amber-50 text-amber-700'
+                      }`}>
                         {artikel.kategorie}
                       </span>
                       <span className="text-xs text-gray-500">{artikel.lesezeit}</span>
                     </div>
 
-                    <h3 className="text-xl font-serif font-bold mb-3 text-brand group-hover:text-brand-brown transition-colors">
+                    {/* Title - Fixed height for alignment */}
+                    <h3 className="text-xl font-serif font-bold mb-3 text-brand group-hover:text-brand-brown transition-colors line-clamp-2 min-h-[3.5rem]">
                       {artikel.titel}
                     </h3>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{artikel.beschreibung}</p>
+                    {/* Description - Flex grow to fill space */}
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
+                      {artikel.beschreibung}
+                    </p>
 
-                    <Link href={artikel.link}>
-                      <button className="w-full border border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white transition-colors py-2 px-4 rounded-lg text-sm font-medium">
-                        Artikel lesen
-                      </button>
+                    {/* Button - Always at bottom */}
+                    <Link
+                      href={artikel.link}
+                      className="mt-auto w-full max-w-full border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white transition-colors py-2.5 px-4 rounded-lg text-sm font-medium inline-block text-center focus:outline-none focus:ring-2 focus:ring-brand-brown focus:ring-offset-2"
+                      aria-label={`${artikel.titel} lesen`}
+                    >
+                      Artikel lesen
                     </Link>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Category Overview */}
+        <section className="py-16 md:py-20 bg-gradient-to-b from-brand-light/20 to-white">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-4">
+                Themengebiete
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Unsere Ratgeber decken alle wichtigen Bereiche ab
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Gesundheit & AKU */}
+              <div className="bg-white rounded-xl shadow-soft p-8 border border-gray-100">
+                <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-brand mb-3">
+                  Gesundheit & AKU
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Alles zur Ankaufsuntersuchung: Kosten, Klassen, Ablauf und Bewertung für fundierte Kaufentscheidungen.
+                </p>
+                <p className="text-sm text-brand font-medium">4 Artikel</p>
+              </div>
+
+              {/* Kauf & Verkauf */}
+              <div className="bg-white rounded-xl shadow-soft p-8 border border-gray-100">
+                <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-brand mb-3">
+                  Kauf & Verkauf
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Von der Kaufentscheidung bis zur erfolgreichen Verkaufsstrategie – praxisnahe Tipps für beide Seiten.
+                </p>
+                <p className="text-sm text-brand font-medium">4 Artikel</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="py-20 bg-brand-light/30">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <div className="mb-8 md:mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
               <Image
                 src="/happy-horse-owner-with-horse--professional-consult.webp"
                 alt="Professionelle Pferdeberatung"
@@ -133,7 +260,7 @@ const PferdeRatgeber: NextPage = () => {
               />
             </div>
 
-            <h2 className="text-h2 font-serif font-bold text-brand mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-6">
               Ihr Pferd bewerten lassen?
             </h2>
 
@@ -141,10 +268,15 @@ const PferdeRatgeber: NextPage = () => {
               Nutzen Sie unsere AI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Einfach, schnell und datenbasiert.
             </p>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/pferde-preis-berechnen">
-                <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-button">
+                <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
                   Bewertung starten
+                </button>
+              </Link>
+              <Link href="/ueber-pferdewert">
+                <button className="border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
+                  Mehr erfahren
                 </button>
               </Link>
             </div>
