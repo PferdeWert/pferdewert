@@ -4,9 +4,15 @@ interface RatgeberHeroImageProps {
   src: string
   alt: string
   priority?: boolean
+  objectPosition?: string
 }
 
-const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({ src, alt, priority = false }) => {
+const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({
+  src,
+  alt,
+  priority = false,
+  objectPosition = 'center'
+}) => {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -17,6 +23,7 @@ const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({ src, alt, priorit
             fill
             priority={priority}
             className="object-cover rounded-lg shadow-lg"
+            style={{ objectPosition }}
             sizes="(min-width: 768px) 80vw, 100vw"
           />
         </div>

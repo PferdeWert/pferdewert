@@ -256,7 +256,7 @@ const PferdVerkaufen: NextPage = () => {
   };
 
   return (
-    <Layout fullWidth background="bg-brand-light">
+    <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         <title>Pferd verkaufen 2025: Ultimativer Ratgeber für optimalen Preis</title>
         <meta
@@ -339,7 +339,7 @@ const PferdVerkaufen: NextPage = () => {
             Schritt 1: Den realistischen Pferdewert ermitteln
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Die Bewertung Ihres Pferdes ist der wichtigste erste Schritt beim Verkauf. Ein realistischer Preis
             entscheidet über Verkaufserfolg oder monatelanges Warten. Die größte Herausforderung: Emotionale Bindung
             führt oft zu überhöhten Preisvorstellungen.
@@ -349,7 +349,7 @@ const PferdVerkaufen: NextPage = () => {
             Marktpreise 2025: Was ist Ihr Pferd wirklich wert?
           </h3>
 
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Die Preisspanne im Pferdemarkt ist enorm – von 500€ für Rentner-Pferde bis über 50.000€ für
             Spitzensportpferde. Eine grobe Orientierung:
           </p>
