@@ -4,94 +4,18 @@ import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-
-interface RatgeberArtikel {
-  id: number
-  titel: string
-  beschreibung: string
-  kategorie: string
-  lesezeit: string
-  bild: string
-  link: string
-}
+import { RATGEBER_ENTRIES, getRatgeberPath } from '../../lib/ratgeber-registry'
 
 const PferdeRatgeber: NextPage = () => {
-  const ratgeberArtikel: RatgeberArtikel[] = [
-    // Hauptratgeber: AKU
-    {
-      id: 1,
-      titel: "AKU Pferd - Ankaufsuntersuchung erklärt",
-      beschreibung: "Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.",
-      kategorie: "Gesundheit",
-      lesezeit: "15 Min.",
-      bild: "/images/ratgeber/aku-pferd/hero.webp",
-      link: "/pferde-ratgeber/aku-pferd",
-    },
-    {
-      id: 2,
-      titel: "AKU Kosten - Was kostet eine Ankaufsuntersuchung?",
-      beschreibung: "Detaillierte Kostenübersicht für die Ankaufsuntersuchung beim Pferd. Große vs. kleine AKU, regionale Unterschiede und Spartipps.",
-      kategorie: "Gesundheit",
-      lesezeit: "8 Min.",
-      bild: "/images/ratgeber/aku-pferd/kosten/hero.webp",
-      link: "/pferde-ratgeber/aku-pferd/kosten",
-    },
-    {
-      id: 3,
-      titel: "AKU Klassen - Bewertungssystem erklärt",
-      beschreibung: "Die AKU-Klassifizierung von Klasse 1 bis 5 verständlich erklärt. Was bedeutet jede Klasse für den Pferdekauf?",
-      kategorie: "Gesundheit",
-      lesezeit: "10 Min.",
-      bild: "/images/ratgeber/aku-pferd/klassen/hero.webp",
-      link: "/pferde-ratgeber/aku-pferd/klassen",
-    },
-    {
-      id: 4,
-      titel: "AKU Ablauf - Schritt für Schritt",
-      beschreibung: "Der komplette Ablauf der Ankaufsuntersuchung: Von der Terminvereinbarung bis zum Befund. Mit Checkliste zum Download.",
-      kategorie: "Gesundheit",
-      lesezeit: "12 Min.",
-      bild: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
-      link: "/pferde-ratgeber/aku-pferd/ablauf",
-    },
-    // Hauptratgeber: Kauf & Verkauf
-    {
-      id: 5,
-      titel: "Pferd kaufen - Der komplette Ratgeber",
-      beschreibung: "Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "18 Min.",
-      bild: "/images/ratgeber/pferd-kaufen/hero.webp",
-      link: "/pferde-ratgeber/pferd-kaufen",
-    },
-    {
-      id: 6,
-      titel: "Was kostet ein Pferd?",
-      beschreibung: "Kompletter Kostenüberblick: Anschaffung, monatliche Ausgaben, versteckte Kosten und wie Sie langfristig Geld sparen können.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "14 Min.",
-      bild: "/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/hero.webp",
-      link: "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
-    },
-    {
-      id: 7,
-      titel: "Pferd verkaufen - Erfolgreich & Optimal",
-      beschreibung: "Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "16 Min.",
-      bild: "/images/ratgeber/pferd-verkaufen/hero.webp",
-      link: "/pferde-ratgeber/pferd-verkaufen",
-    },
-    {
-      id: 8,
-      titel: "Pferd verkaufen Tipps - Die besten Strategien",
-      beschreibung: "Expertentipps für den erfolgreichen Pferdeverkauf: Optimale Preisfindung, professionelle Präsentation und Verhandlungsstrategien.",
-      kategorie: "Kauf & Verkauf",
-      lesezeit: "11 Min.",
-      bild: "/images/ratgeber/pferd-verkaufen/tipps/hero.webp",
-      link: "/pferde-ratgeber/pferd-verkaufen/tipps",
-    },
-  ]
+  const ratgeberArtikel = RATGEBER_ENTRIES.map((entry, index) => ({
+    id: index + 1,
+    titel: entry.title,
+    beschreibung: entry.description,
+    kategorie: entry.category,
+    lesezeit: entry.readTime,
+    bild: entry.image,
+    link: getRatgeberPath(entry.slug),
+  }))
 
   return (
     <>
