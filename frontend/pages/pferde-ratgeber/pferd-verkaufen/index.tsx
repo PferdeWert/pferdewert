@@ -327,14 +327,16 @@ const PferdVerkaufen: NextPage = () => {
         />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="content-start">
+      <div className="container mx-auto px-4 py-8 md:py-12">
         <RatgeberTableOfContents
           sections={sections}
           onNavigate={handleNavigate}
         />
 
-        {/* Pferdewert ermitteln */}
-        <section id="wert-ermitteln" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+        {/* Article Content */}
+        <article className="max-w-5xl mx-auto space-y-16" id="content-start">
+          {/* Pferdewert ermitteln */}
+          <section id="wert-ermitteln" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
             Schritt 1: Den realistischen Pferdewert ermitteln
           </h2>

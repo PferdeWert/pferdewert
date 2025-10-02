@@ -229,7 +229,7 @@ const AkuPferdAblauf: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp'}
+          src="/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp"
           alt="Tierarzt führt Ankaufsuntersuchung bei Pferd durch"
           priority
         />
@@ -373,7 +373,7 @@ const AkuPferdAblauf: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp',
+              src: "/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp",
               alt: "Tierarzt bei der Ankaufsuntersuchung"
             }}
             title="AKU abgeschlossen – und jetzt?"

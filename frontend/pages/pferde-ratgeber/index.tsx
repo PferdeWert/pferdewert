@@ -128,8 +128,8 @@ const PferdeRatgeber: NextPage = () => {
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <div className="mb-8 md:mb-12 relative w-full max-w-2xl mx-auto aspect-[3/2]">
               <Image
-                src="/images/ratgeber/pferd-verkaufen/tipps/hero.webp"
-                alt="Professionelle Pferdeberatung"
+                src="/images/shared/blossi-shooting.webp"
+                alt="Professionelle Pferdebewertung mit PferdeWert"
                 fill
                 sizes="(max-width: 768px) 100vw, 672px"
                 className="rounded-xl shadow-soft object-cover"
@@ -144,18 +144,11 @@ const PferdeRatgeber: NextPage = () => {
               Nutzen Sie unsere AI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Einfach, schnell und datenbasiert.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/pferde-preis-berechnen">
-                <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
-                  Bewertung starten
-                </button>
-              </Link>
-              <Link href="/ueber-pferdewert">
-                <button className="border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
-                  Mehr erfahren
-                </button>
-              </Link>
-            </div>
+            <Link href="/pferde-preis-berechnen">
+              <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
+                Bewertung starten
+              </button>
+            </Link>
           </div>
         </section>
       </main>
