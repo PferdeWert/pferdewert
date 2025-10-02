@@ -98,7 +98,7 @@ export default function UeberUns() {
 
         {/* Hero Section */}
         <section id="hero" className="relative overflow-hidden">
-          <div className="px-4 lg:px-8 xl:px-12 py-12 lg:py-20">
+          <div className="container mx-auto px-4 py-12 lg:py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               
               {/* Left Content */}

@@ -15,6 +15,7 @@ import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
+import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 const sections = [
   { id: "preise", title: "Was kostet ein Pferd? Preisübersicht 2025" },
@@ -215,7 +216,7 @@ const PferdKaufen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/person-evaluating-horse-for-purchase.webp"
+          src={getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/aku-kosten-hero.webp'}
           alt="Pferd kaufen – der ultimative Ratgeber für 2025"
           priority
         />
@@ -1035,7 +1036,7 @@ const PferdKaufen: NextPage = () => {
           {/* Final CTA */}
           <RatgeberFinalCTA
             image={{
-              src: "/person-evaluating-horse-for-purchase.webp",
+              src: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/aku-kosten-hero.webp',
               alt: "Pferdebewertung vor dem Kauf"
             }}
             title="Bereit für Ihren fairen Pferdekauf?"

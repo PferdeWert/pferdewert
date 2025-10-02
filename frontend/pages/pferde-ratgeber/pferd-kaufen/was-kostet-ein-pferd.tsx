@@ -24,6 +24,7 @@ import {
   wasKostetPferdRelatedArticles
 } from '@/data/ratgeber/wasKostetPferd'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
+import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
 
 const WasKostetEinPferd: NextPage = () => {
   const getSectionNumber = (sectionId: string) => {
@@ -193,7 +194,7 @@ const WasKostetEinPferd: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/person-evaluating-horse-for-purchase.webp"
+          src={getRatgeberBySlug('pferd-kaufen/was-kostet-ein-pferd')?.image || '/images/ratgeber/aku-kosten-hero.webp'}
           alt="Was kostet ein Pferd – Professionelle Pferdebewertung und Kaufberatung"
           priority
         />
@@ -580,7 +581,7 @@ const WasKostetEinPferd: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: '/happy-horse-owner-with-horse--professional-consult.webp',
+              src: getRatgeberBySlug('pferd-kaufen/was-kostet-ein-pferd')?.image || '/images/ratgeber/aku-kosten-hero.webp',
               alt: 'Professionelle Pferdeberatung und Bewertung',
               width: 960,
               height: 640

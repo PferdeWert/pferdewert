@@ -12,6 +12,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
+import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 interface ClassTile {
   title: string
@@ -184,7 +185,7 @@ const AkuPferdKlassen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/horse-in-stable--professional-care.webp"
+          src={getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-klassen-hero.webp'}
           alt="Tierärztliche Begutachtung eines Pferdes im Stall"
           priority
         />

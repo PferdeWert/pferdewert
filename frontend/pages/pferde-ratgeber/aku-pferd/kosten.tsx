@@ -12,6 +12,7 @@ import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
+import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 const sections = [
   { id: "overview", title: "AKU Kosten im Überblick" },
@@ -179,7 +180,7 @@ const AkuPferdKosten: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/person-evaluating-horse-for-purchase.webp"
+          src={getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-kosten-hero.webp'}
           alt="Käufer bewertet Pferd und kalkuliert AKU-Kosten"
           priority
         />
