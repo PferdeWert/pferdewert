@@ -146,7 +146,7 @@ const PferdeRatgeber: NextPage = () => {
 
             <Link href="/pferde-preis-berechnen">
               <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
-                Bewertung starten
+                Jetzt Pferdewert berechnen
               </button>
             </Link>
           </div>
