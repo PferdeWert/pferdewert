@@ -2,9 +2,8 @@ import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import Layout from "@/components/Layout"
-import FAQ from "@/components/FAQ"
 import { PRICING_FORMATTED } from "@/lib/pricing"
-import { Award, Heart, Shield, Users, Zap, Target, Star } from "lucide-react"
+import { Shield, Zap, Target } from "lucide-react"
 
 export default function UeberUns() {
   return (
