@@ -66,7 +66,7 @@ const PferdVerkaufen: NextPage = () => {
   const relatedArticles = [
     {
       href: '/pferde-ratgeber/pferdewert-ermitteln',
-      image: '/images/ratgeber/pferd-verkaufen/hero.webp',
+      image: getRatgeberBySlug('pferdewert-ermitteln')?.image || '/images/ratgeber/pferdewert-ermitteln/hero.webp',
       title: 'Pferdewert ermitteln: 5 Methoden im Vergleich',
       badge: 'Bewertung',
       readTime: '8 min',
@@ -74,7 +74,7 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       href: '/pferde-ratgeber/pferd-kaufen',
-      image: '/images/ratgeber/pferd-kaufen/hero.webp',
+      image: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
       badge: 'Kaufberatung',
       readTime: '11 min',
@@ -82,7 +82,7 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       href: '/pferde-ratgeber/aku-pferd',
-      image: '/images/ratgeber/aku-pferd/hero.webp',
+      image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
       title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
       badge: 'Kaufsicherheit',
       readTime: '12 min',

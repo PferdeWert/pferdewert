@@ -154,7 +154,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/shared/blossi-shooting.webp",
+    image: getRatgeberBySlug("aku-pferd")?.image || "/images/ratgeber/aku-pferd/hero.webp",
     title: "AKU Pferd: Der komplette Guide",
     badge: "AKU Guide",
     readTime: "12 Min.",
@@ -162,7 +162,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/pferd-verkaufen",
-    image: "/images/shared/dino-1.webp",
+    image: getRatgeberBySlug("pferd-verkaufen")?.image || "/images/ratgeber/pferd-verkaufen/hero.webp",
     title: "Pferd verkaufen: Optimaler Preis mit KI",
     badge: "Verkauf",
     readTime: "9 Min.",
@@ -170,7 +170,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
+    image: getRatgeberBySlug("aku-pferd/ablauf")?.image || "/images/ratgeber/aku-pferd/ablauf/hero.webp",
     title: "AKU Ablauf verstehen",
     badge: "AKU Guide",
     readTime: "10 Min.",
