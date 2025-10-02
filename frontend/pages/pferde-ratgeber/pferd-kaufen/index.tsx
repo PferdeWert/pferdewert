@@ -35,7 +35,7 @@ const heroMetaItems = [
   },
   {
     icon: <Shield className="h-4 w-4" />,
-    label: "Aktualisiert 2025"
+    label: "Aktualisiert Oktober 2025"
   },
   {
     icon: <CheckCircle className="h-4 w-4" />,

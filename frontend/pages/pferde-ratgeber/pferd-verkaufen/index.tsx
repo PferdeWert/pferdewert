@@ -258,7 +258,7 @@ const PferdVerkaufen: NextPage = () => {
   return (
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd verkaufen 2025: Ultimativer Ratgeber für optimalen Preis</title>
+        <title>Pferd verkaufen 2025: Ultimative Ratgeber für optimalen Preis</title>
         <meta
           name="description"
           content={`Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust ✓ Plattformvergleich ✓ Preisfindung ✓ Rechtliche Tipps`}
@@ -406,7 +406,7 @@ const PferdVerkaufen: NextPage = () => {
             </div>
             <CTAButton type="primary" href="/pferde-preis-berechnen" text={`Jetzt Verkaufspreis berechnen – nur ${PRICING_FORMATTED.current}`} />
             <p className="text-sm text-gray-600 mt-3 italic">
-              Von Reitern entwickelt. Über 10.000 erfolgreiche Bewertungen.
+              Von Reitern entwickelt. Mit Geld-zurück-Garantie.
             </p>
           </RatgeberHighlightBox>
         </section>
@@ -812,7 +812,7 @@ const PferdVerkaufen: NextPage = () => {
           </p>
 
           <div className="mt-6">
-            <CTAButton type="primary" href="/pferde-preis-berechnen" text="Jetzt KI-Bewertung starten" />
+            <CTAButton type="primary" href="/pferde-preis-berechnen" text="Jetzt Pferdewert berechnen" />
           </div>
         </section>
 
