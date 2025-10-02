@@ -256,7 +256,7 @@ const PferdVerkaufen: NextPage = () => {
   };
 
   return (
-    <Layout fullWidth>
+    <Layout fullWidth background="bg-brand-light">
       <Head>
         <title>Pferd verkaufen 2025: Ultimativer Ratgeber für optimalen Preis</title>
         <meta
