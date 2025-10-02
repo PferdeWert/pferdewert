@@ -142,7 +142,7 @@ export const wasKostetPferdFaqItems = [
 export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
   {
     href: '/pferde-ratgeber/aku-pferd',
-    image: '/images/blossi-shooting.webp',
+    image: '/images/shared/blossi-shooting.webp',
     title: 'AKU Pferd: Ankaufsuntersuchung',
     badge: 'Pferde-Ratgeber',
     readTime: '12 min',

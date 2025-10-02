@@ -33,7 +33,7 @@ export default function PferdeWertServiceSchema({
     url: 'https://pferdewert.de',
     description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.',
     logo: 'https://pferdewert.de/images/logo.webp',
-    image: 'https://pferdewert.de/images/blossi-shooting.webp',
+    image: 'https://pferdewert.de/images/shared/blossi-shooting.webp',
     email: 'info@pferdewert.de',
     address: {
       addressCountry: 'DE'

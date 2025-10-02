@@ -235,7 +235,7 @@ const PferdVerkaufenTipps: NextPage = () => {
     },
     {
       href: '/pferde-preis-berechnen',
-      image: '/images/dino-1.webp',
+      image: '/images/shared/dino-1.webp',
       title: 'Pferdewert berechnen',
       badge: 'Bewertung',
       readTime: '8 Min. Lesezeit',

@@ -633,7 +633,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         badge="🏆 #1 Online Pferdebewertung"
         headline="Pferdepreis jetzt berechnen"
         highlightedWord="Pferdepreis"
-        image="/images/result.webp"
+        image="/images/shared/result.webp"
         imageAlt="Deutsches Sportpferd für KI-Pferdebewertung"
         imageWidth={600}
         imageHeight={400}

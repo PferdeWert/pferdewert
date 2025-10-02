@@ -21,11 +21,11 @@ export default function UeberUns() {
           content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung. Transparent, fair und von Experten entwickelt."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
         <meta property="twitter:description" content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung." />
-        <meta property="twitter:image" content="https://pferdewert.de/images/blossi-shooting.webp" />
+        <meta property="twitter:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
         <link rel="canonical" href="https://pferdewert.de/ueber-pferdewert" />
 
         {/* Schema.org Structured Data */}
@@ -118,7 +118,7 @@ export default function UeberUns() {
               <div className="relative hero-fade-in-right">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/blossi-shooting.webp"
+                    src="/images/shared/blossi-shooting.webp"
                     alt="Blossi - Unsere 6-jährige Deutsches Sportpferd Stute"
                     width={600}
                     height={400}

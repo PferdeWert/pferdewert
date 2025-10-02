@@ -95,7 +95,7 @@ const seoConfig = {
   description: "Sehen Sie eine echte Pferdebewertung im Detail. Beispiel-Analyse zeigt, wie unsere KI den Wert Ihres Pferdes ermittelt. Transparent und nachvollziehbar.",
   keywords: "pferdebewertung beispiel, pferdewert beispiel analyse, ki pferdebewertung demonstration, pferdemarkt bewertung beispiel, pferdepreis berechnen beispiel, pferd schätzen lassen beispiel, marktwert pferd beispiel, pferdegutachten beispiel, equine valuation example",
   canonicalUrl: "https://pferdewert.de/beispiel-analyse",
-  ogImage: "https://pferdewert.de/images/result.webp"
+  ogImage: "https://pferdewert.de/images/shared/result.webp"
 };
 
 const jsonLd = {
@@ -152,14 +152,14 @@ export default function BeispielAnalyse() {
         <meta property="og:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
-        <meta property="og:image" content="https://pferdewert.de/images/result.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/shared/result.webp" />
         <meta property="og:locale" content="de_DE" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pferdebewertung Beispiel Bayern: KI-Analyse Demo | PferdeWert" />
         <meta name="twitter:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
-        <meta name="twitter:image" content="https://pferdewert.de/images/result.webp" />
+        <meta name="twitter:image" content="https://pferdewert.de/images/shared/result.webp" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />

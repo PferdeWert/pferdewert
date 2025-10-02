@@ -58,7 +58,7 @@ export default function PferdeWertReviewSchema({
           type: 'Service' as const,
           url: serviceUrl || `${baseUrl}/pferde-preis-berechnen`,
           description: 'Professionelle Bewertung des Marktwerts von Pferden mittels künstlicher Intelligenz in nur 2 Minuten',
-          image: `${baseUrl}/images/blossi-shooting.webp`
+          image: `${baseUrl}/images/shared/blossi-shooting.webp`
         };
       
       case 'about':
@@ -67,7 +67,7 @@ export default function PferdeWertReviewSchema({
           type: 'Organization' as const,
           url: baseUrl,
           description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung',
-          image: `${baseUrl}/images/blossi-shooting.webp`
+          image: `${baseUrl}/images/shared/blossi-shooting.webp`
         };
       
       default: // homepage
@@ -76,7 +76,7 @@ export default function PferdeWertReviewSchema({
           type: 'LocalBusiness' as const,
           url: baseUrl,
           description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.',
-          image: `${baseUrl}/images/blossi-shooting.webp`
+          image: `${baseUrl}/images/shared/blossi-shooting.webp`
         };
     }
   };

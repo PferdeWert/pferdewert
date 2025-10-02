@@ -61,16 +61,20 @@ className="group bg-white rounded-xl shadow-soft hover:shadow-xl
 
 **Critical Issue: Image Diversity**
 
-Currently using only **2 unique images** for **8 different articles**:
+✅ **Update (Jan 2025):** Die acht Hero-Kacheln nutzen jetzt jeweils ein eigenes Motiv (siehe Mapping unten). Frühere Hinweise auf doppelte Assets sind damit behoben.
 
 ```tsx
-// AKU articles (4 cards) all use:
+// AKU-Serie
 bild: "/images/ratgeber/aku-pferd/hero.webp"
+bild: "/images/ratgeber/aku-pferd/ablauf/hero.webp"
+bild: "/images/ratgeber/aku-pferd/klassen/hero.webp"
+bild: "/images/ratgeber/aku-pferd/kosten/hero.webp"
 
-// Kauf & Verkauf articles (4 cards) split between:
-bild: "/images/ratgeber/aku-pferd/ablauf/hero.webp"      // 1 card
-bild: "/images/ratgeber/aku-pferd/klassen/hero.webp"         // 1 card
-bild: "/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp" // 2 cards
+// Kauf & Verkauf
+bild: "/images/ratgeber/pferd-kaufen/hero.webp"
+bild: "/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/hero.webp"
+bild: "/images/ratgeber/pferd-verkaufen/hero.webp"
+bild: "/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp"
 ```
 
 **User Impact:**

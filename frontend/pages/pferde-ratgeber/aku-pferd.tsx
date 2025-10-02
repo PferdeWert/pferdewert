@@ -759,7 +759,7 @@ const AKUPferd: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp',
+              src: '/images/ratgeber/aku-pferd/hero.webp',
               alt: 'Professionelle Pferdeberatung mit AKU-Expertise'
             }}
             title={numberedTitle('cta', 'Professionelle Pferdebewertung')}

@@ -326,7 +326,7 @@ export default function PferdeWertHomepage() {
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
                 <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – exklusiv in der Sommer-Aktion!
+                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – exklusiv in der Herbst-Aktion!
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten
@@ -383,7 +383,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Schutz vor Überzahlung</h3>
                 <p className="text-gray-600">
-                  Unsere objektive Pferdepreis-Bewertung online hilft dir, faire Pferdekauf-Preise zu erkennen
+                  Unsere objektive Pferdebewertung hilft dir, faire Pferde-Preise zu erkennen
                 </p>
               </div>
 
@@ -393,7 +393,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Verhandlung richtig vorbereiten</h3>
                 <p className="text-gray-600">
-                  Mit fundierter Pferdepreis-Bewertung online optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
+                  Mit fundierter Pferdebewertung optimal auf Preisverhandlungen beim Pferdekauf vorbereitet
                 </p>
               </div>
             </div>
@@ -415,7 +415,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Warum PferdeWert die beste Wahl ist</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Professionelle Pferdepreis-Bewertung basierend auf jahrelanger Expertise und modernster KI-Technologie
+                Professionelle Pferdebewertung basierend auf jahrelanger Expertise und modernster KI-Technologie
               </p>
             </div>
 
@@ -472,7 +472,7 @@ export default function PferdeWertHomepage() {
             <div className="text-center mb-16">
               <h2 className="text-h2 font-bold text-gray-900 mb-4">Häufige Fragen</h2>
               <p className="text-xl text-gray-600">
-                Alles was du über Pferdepreis berechnen und Pferdebewertung wissen möchtest
+                Alles was du über PferdeWert wissen möchtest
               </p>
             </div>
 
@@ -532,7 +532,7 @@ export default function PferdeWertHomepage() {
                 </h3>
                 <p className="text-gray-600 mb-6">
                   Erfahre mit unserer <Link href="/pferde-preis-berechnen" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
-                  egal ob aus Neugier, für Versicherung oder zukünftige Planung.
+                  egal ob aus Neugier, für den Kauf oder Verkauf eines Pferdes.
                 </p>
                 <Link
                   href="/pferde-preis-berechnen"
@@ -553,8 +553,7 @@ export default function PferdeWertHomepage() {
                 Bereit für deine professionelle Pferdebewertung?
               </h2>
               <p className="text-xl text-brand-light mb-8">
-                Starte jetzt und erhalte in wenigen Minuten eine detaillierte Pferdepreis-Bewertung mit
-                professioneller Pferdewert-Ermittlung.
+                Starte jetzt und erhalte in wenigen Minuten eine detaillierte Pferdebewertung.
               </p>
               <Link
                 href="/pferde-preis-berechnen"

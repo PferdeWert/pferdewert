@@ -154,7 +154,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/blossi-shooting.webp",
+    image: "/images/shared/blossi-shooting.webp",
     title: "AKU Pferd: Der komplette Guide",
     badge: "AKU Guide",
     readTime: "12 Min.",
@@ -162,7 +162,7 @@ const relatedArticles = [
   },
   {
     href: "/pferde-ratgeber/pferd-verkaufen",
-    image: "/images/dino-1.webp",
+    image: "/images/shared/dino-1.webp",
     title: "Pferd verkaufen: Optimaler Preis mit KI",
     badge: "Verkauf",
     readTime: "9 Min.",

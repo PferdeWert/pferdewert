@@ -118,7 +118,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/blossi-shooting.webp",
+    image: "/images/shared/blossi-shooting.webp",
     title: "AKU Pferd Überblick",
     badge: "AKU Guide",
     readTime: "12 Min.",
@@ -306,7 +306,7 @@ const AkuPferdKosten: NextPage = () => {
 
           <RatgeberFinalCTA
             image={{
-              src: "/images/ratgeber/aku-pferd/ablauf/hero.webp",
+              src: "/images/ratgeber/aku-pferd/kosten/hero.webp",
               alt: "Pferdebewertung unter Berücksichtigung der AKU-Kosten"
             }}
             title="AKU geplant? Berechne deinen Pferdewert"

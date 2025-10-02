@@ -167,7 +167,7 @@ const faqItems: FAQItem[] = [
 const relatedArticles = [
   {
     href: "/pferde-ratgeber/aku-pferd",
-    image: "/images/blossi-shooting.webp",
+    image: "/images/shared/blossi-shooting.webp",
     title: "AKU Pferd Überblick",
     badge: "AKU Guide",
     readTime: "12 Min.",
