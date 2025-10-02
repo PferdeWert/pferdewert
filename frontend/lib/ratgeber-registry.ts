@@ -122,7 +122,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     changefreq: 'monthly'
   },
   {
-    slug: 'pferd-verkaufen/pferd-verkaufen-tipps',
+    slug: 'pferd-verkaufen/tipps',
     title: 'Pferd verkaufen - Die 10 wichtigsten Tipps',
     description: 'Praktische Ratschläge für einen erfolgreichen und stressfreien Pferdeverkauf. Was du wirklich beachten musst.',
     category: 'Kauf & Verkauf',

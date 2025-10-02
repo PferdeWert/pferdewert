@@ -158,7 +158,7 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
   },
   {
     href: '/pferde-ratgeber/pferd-verkaufen',
-    image: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp',
+    image: '/images/ratgeber/pferd-verkaufen/hero.webp',
     title: 'Pferd verkaufen: Optimaler Preis',
     badge: 'Pferde-Ratgeber',
     readTime: '10 min',

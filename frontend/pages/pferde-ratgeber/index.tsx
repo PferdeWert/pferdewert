@@ -89,7 +89,7 @@ const PferdeRatgeber: NextPage = () => {
       kategorie: "Kauf & Verkauf",
       lesezeit: "11 Min.",
       bild: "/images/ratgeber/pferd-verkaufen/pferd-verkaufen-tipps/hero.webp",
-      link: "/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps",
+      link: "/pferde-ratgeber/pferd-verkaufen/tipps",
     },
   ]
 
@@ -195,54 +195,6 @@ const PferdeRatgeber: NextPage = () => {
                   </article>
                 </Link>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Category Overview */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-4">
-                Themengebiete
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Unsere Ratgeber decken alle wichtigen Bereiche ab
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Gesundheit & AKU */}
-              <div className="bg-white rounded-xl shadow-soft p-8 border border-gray-100">
-                <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-serif font-bold text-brand mb-3">
-                  Gesundheit & AKU
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Alles zur Ankaufsuntersuchung: Kosten, Klassen, Ablauf und Bewertung für fundierte Kaufentscheidungen.
-                </p>
-                <p className="text-sm text-brand font-medium">4 Artikel</p>
-              </div>
-
-              {/* Kauf & Verkauf */}
-              <div className="bg-white rounded-xl shadow-soft p-8 border border-gray-100">
-                <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-serif font-bold text-brand mb-3">
-                  Kauf & Verkauf
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Von der Kaufentscheidung bis zur erfolgreichen Verkaufsstrategie – praxisnahe Tipps für beide Seiten.
-                </p>
-                <p className="text-sm text-brand font-medium">4 Artikel</p>
-              </div>
             </div>
           </div>
         </section>
