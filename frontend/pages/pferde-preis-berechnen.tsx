@@ -257,15 +257,49 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
 
+  // Type guard to validate localStorage data
+  const isValidFormState = (data: unknown): data is FormState => {
+    if (typeof data !== 'object' || data === null) return false;
+
+    const obj = data as Record<string, unknown>;
+
+    // Check required string fields
+    const requiredStringFields: (keyof FormState)[] = [
+      'rasse', 'alter', 'geschlecht', 'abstammung', 'stockmass',
+      'ausbildung', 'aku', 'erfolge', 'standort', 'haupteignung'
+    ];
+
+    for (const field of requiredStringFields) {
+      if (typeof obj[field] !== 'string') return false;
+    }
+
+    // Check optional string fields
+    const optionalStringFields: (keyof FormState)[] = [
+      'charakter', 'besonderheiten', 'attribution_source'
+    ];
+
+    for (const field of optionalStringFields) {
+      if (obj[field] !== undefined && typeof obj[field] !== 'string') return false;
+    }
+
+    return true;
+  };
+
   // Formular bei Start wiederherstellen + Migration für alte Daten
   useEffect(() => {
     if (!isMounted) return;
-    
+
     const savedForm = localStorage.getItem(STORAGE_KEY);
     if (savedForm) {
       try {
-        const parsedForm = JSON.parse(savedForm) as FormState;
-        
+        const parsedForm: unknown = JSON.parse(savedForm);
+
+        if (!isValidFormState(parsedForm)) {
+          warn("[FORM] Ungültige Formulardaten in localStorage erkannt - wird ignoriert");
+          localStorage.removeItem(STORAGE_KEY);
+          return;
+        }
+
         // Migration: verwendungszweck → haupteignung
         const legacyForm = parsedForm as FormState & { verwendungszweck?: string };
         const migratedForm = {
@@ -274,11 +308,12 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           charakter: parsedForm.charakter || "",
           besonderheiten: parsedForm.besonderheiten || ""
         };
-        
+
         setForm(migratedForm);
         info("[FORM] Formular aus localStorage wiederhergestellt (mit Migration)");
       } catch (e) {
         warn("Fehler beim Wiederherstellen des Formulars:", e);
+        localStorage.removeItem(STORAGE_KEY);
       }
     }
   }, [isMounted]);
@@ -433,18 +468,39 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     }
 
     setLoading(true);
-    
+
     // Track payment initiation with form completion time
     const completionTime = calculateFormCompletionTime(formStartTime);
     const formWithMetrics = { ...form, completionTime };
     trackPaymentStart(formWithMetrics);
-    
+
+    // IMPORTANT: All form fields including charakter, besonderheiten, and attribution_source
+    // MUST be sent to the payment API because:
+    // 1. AI valuation requires these fields for accurate price estimation (e.g., "anfängergeeignet"
+    //    can increase value by 10-15%)
+    // 2. Marketing attribution data (attribution_source) is needed in admin email notifications
+    // 3. Complete data chain: Frontend → Checkout API → MongoDB → Webhook → Backend → AI
+    // DO NOT sanitize or remove any fields from this payload.
+
     try {
+      // Create abort controller for request timeout protection (30s)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      // Get CSRF token from meta tag (added by _document.tsx or API)
+      const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
       const res = await fetch("/api/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken
+        },
         body: JSON.stringify({ text: JSON.stringify(form) }),
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       if (res.ok) {
         const data = await res.json() as { url: string };
@@ -461,7 +517,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       }
     } catch (err) {
       const message =
-        err instanceof Error
+        err instanceof Error && err.name === 'AbortError'
+          ? "Die Anfrage hat zu lange gedauert. Bitte versuche es erneut."
+          : err instanceof Error
           ? "Die Verbindung zum Server ist fehlgeschlagen. Bitte versuche es in einer Minute erneut oder wende dich an info@pferdewert.de."
           : "Ein unerwarteter Fehler ist aufgetreten.";
       error("Fehler beim Starten der Bewertung", err);
