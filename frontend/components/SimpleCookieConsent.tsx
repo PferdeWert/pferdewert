@@ -202,12 +202,21 @@ if (denyButton) {
         const granted = status === 'allow';
         setHasConsent(granted);
 
-        // 📊 Track Cookie Banner Interaction (Vercel Analytics)
-        if (typeof window !== 'undefined' && window.va) {
-          window.va('track', granted ? 'cookie_accepted' : 'cookie_rejected', {
-            source: 'cookie_banner'
-          });
-          console.log(`📊 Vercel Analytics: cookie_${granted ? 'accepted' : 'rejected'}`);
+        // 📊 Track Cookie Banner Interaction (100% GRATIS)
+        if (typeof window !== 'undefined') {
+          // MongoDB Tracking
+          fetch('/api/track-consent', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: granted ? 'accept' : 'reject' })
+          }).catch(() => {}); // Silent fail
+
+          // DataFa.st Event Tracking (gratis Custom Events!)
+          if (window.datafast) {
+            window.datafast(granted ? 'cookie_accepted' : 'cookie_rejected');
+          }
+
+          console.log(`📊 Consent tracked: ${granted ? 'accepted' : 'rejected'}`);
         }
 
         // Google Consent Mode v2 - Enhanced for @next/third-parties
