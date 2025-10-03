@@ -7,6 +7,11 @@ import { getDataForSEOClient } from '../../../lib/dataforseo';
  * Body: { keyword: string }
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Disable in production - development only
+  if (process.env.NODE_ENV === 'production') {
+    return res.status(404).json({ error: 'Not found' });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
