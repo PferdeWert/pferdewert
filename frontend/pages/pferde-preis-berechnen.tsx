@@ -416,11 +416,12 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   // Nächster Schritt Definition mit verbessertem Mobile Scroll-Verhalten
   const nextStep = (): void => {
     if (validateStep(currentStep)) {
+      // Track completion of CURRENT step BEFORE moving to next
+      const currentStepName = stepData.find(s => s.id === currentStep)?.title || `Step ${currentStep}`;
+      trackFormProgress(currentStep, currentStepName);
+
       setCurrentStep(prev => {
         const next = Math.min(prev + 1, stepData.length);
-        // Track form progress when moving to next step
-        const stepName = stepData.find(s => s.id === next)?.title || `Step ${next}`;
-        trackFormProgress(next, stepName);
         scrollToFormCard();
         return next;
       });
