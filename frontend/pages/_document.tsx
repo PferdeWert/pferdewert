@@ -5,14 +5,25 @@ export default function Document() {
   return (
     <Html lang="de">
       <Head>
+        {/* DataFa.st Queue Script - Must load early to capture events */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.datafast = window.datafast || function() {
+                (window.datafast.q = window.datafast.q || []).push(arguments);
+              };
+            `,
+          }}
+        />
+
         {/* ===== OPTIMIERTE FAVICONS (ersetzt alte favicon.png) ===== */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        
+
         {/* PWA Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
-        
+
         {/* Theme Color für Mobile Browser */}
         <meta name="theme-color" content="#8B4513" />
         <meta name="msapplication-TileColor" content="#8B4513" />

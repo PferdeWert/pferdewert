@@ -252,12 +252,6 @@ if (denyButton) {
             datafastScript.src = 'https://datafa.st/js/script.js';
             document.head.appendChild(datafastScript);
 
-            // Initialize datafast function
-            window.datafast = window.datafast || function(...args) {
-              window.datafast!.q = window.datafast!.q || [];
-              window.datafast!.q.push(args);
-            };
-
             console.log('📊 DataFa.st tracking enabled after consent');
           }
         }
