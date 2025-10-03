@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import { JSX } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 // Dynamic import for better performance - loads only when needed
 const SimpleCookieConsent = dynamic(() => import("@/components/SimpleCookieConsent"), {
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     <>
       <SimpleCookieConsent />
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 }

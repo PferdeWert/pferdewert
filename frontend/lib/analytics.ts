@@ -39,8 +39,8 @@ export const trackFormProgress = (stepNumber: number, stepName: string): void =>
     });
   }
 
-  // DataFast Custom Event
-  sendDataFastEvent("form_step_completed", {
+  // DataFast Custom Event with numbered event name
+  sendDataFastEvent(`form_step_completed_${stepNumber}`, {
     step_number: stepNumber,
     step_name: stepName,
     form_type: "horse_valuation"

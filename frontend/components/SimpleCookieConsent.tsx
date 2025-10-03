@@ -195,12 +195,20 @@ if (denyButton) {
 
       onStatusChange: (status: string) => {
         console.log(`🍪 Status changed: ${status}`);
-        
+
         // Cleanup: Overflow zurücksetzen
         document.body.style.overflow = '';
 
         const granted = status === 'allow';
         setHasConsent(granted);
+
+        // 📊 Track Cookie Banner Interaction (Vercel Analytics)
+        if (typeof window !== 'undefined' && window.va) {
+          window.va('track', granted ? 'cookie_accepted' : 'cookie_rejected', {
+            source: 'cookie_banner'
+          });
+          console.log(`📊 Vercel Analytics: cookie_${granted ? 'accepted' : 'rejected'}`);
+        }
 
         // Google Consent Mode v2 - Enhanced for @next/third-parties
         if (typeof window !== 'undefined' && window.gtag) {

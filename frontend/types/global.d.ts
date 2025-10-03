@@ -11,6 +11,7 @@ declare global {
       (event: 'payment', data: { amount: number; currency: string; transaction_id: string }): void;
       (event: string, data?: Record<string, unknown>): void;
     };
+    va?: (command: 'track', eventName: string, properties?: Record<string, unknown>) => void;
   }
 }
 
