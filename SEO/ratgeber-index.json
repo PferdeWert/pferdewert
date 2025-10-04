@@ -1,0 +1,143 @@
+{
+  "ratgeber": {
+    "title": "PferdeWert.de Ratgeber",
+    "description": "Umfassender Pferde-Ratgeber zu Kauf, Verkauf, Ankaufsuntersuchung und Pferdebewertung",
+    "baseUrl": "/pferde-ratgeber",
+    "articles": [
+      {
+        "id": "ratgeber-overview",
+        "title": "Pferde-Ratgeber",
+        "slug": "/pferde-ratgeber",
+        "category": "Übersicht",
+        "path": "frontend/pages/pferde-ratgeber/index.tsx",
+        "description": "Übersichtsseite des PferdeWert Ratgebers mit allen Artikeln"
+      },
+      {
+        "id": "aku-pferd",
+        "title": "AKU Pferd: Ankaufsuntersuchung",
+        "slug": "/pferde-ratgeber/aku-pferd",
+        "category": "Ankaufsuntersuchung",
+        "path": "frontend/pages/pferde-ratgeber/aku-pferd.tsx",
+        "dataFile": "frontend/data/ratgeber/akuPferd.ts",
+        "description": "Alles über Kosten, Ablauf und Befunde der Ankaufsuntersuchung beim Pferdekauf",
+        "readTime": "12 min",
+        "image": "/images/shared/blossi-shooting.webp",
+        "subArticles": [
+          {
+            "id": "aku-kosten",
+            "title": "AKU Kosten 2025",
+            "slug": "/pferde-ratgeber/aku-pferd/kosten",
+            "path": "frontend/pages/pferde-ratgeber/aku-pferd/kosten.tsx",
+            "description": "Transparente Kostenübersicht, Zusatzkosten und Spartipps für Käufer",
+            "readTime": "7 Min.",
+            "image": "/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp"
+          },
+          {
+            "id": "aku-klassen",
+            "title": "AKU Klassen erklärt",
+            "slug": "/pferde-ratgeber/aku-pferd/klassen",
+            "path": "frontend/pages/pferde-ratgeber/aku-pferd/klassen.tsx",
+            "description": "Welche Befunde bedeuten was? Klassen 1–5 mit Risiko- und Kaufempfehlungen",
+            "readTime": "8 Min.",
+            "image": "/images/ratgeber/aku-pferd/klassen/aku-klassen-uebersicht.webp"
+          },
+          {
+            "id": "aku-ablauf",
+            "title": "AKU Ablauf verstehen",
+            "slug": "/pferde-ratgeber/aku-pferd/ablauf",
+            "path": "frontend/pages/pferde-ratgeber/aku-pferd/ablauf.tsx",
+            "description": "Von Vorbereitung bis Befund – so läuft die Ankaufsuntersuchung Schritt für Schritt ab",
+            "readTime": "10 Min.",
+            "image": "/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp"
+          }
+        ],
+        "sections": [
+          "AKU Grundlagen",
+          "AKU-Klassen",
+          "AKU Kosten",
+          "Ablauf & Dauer",
+          "Befunde verstehen",
+          "AKU-Tierarzt finden",
+          "Marktwert & Daten"
+        ],
+        "faqs": 10
+      },
+      {
+        "id": "was-kostet-ein-pferd",
+        "title": "Was kostet ein Pferd?",
+        "slug": "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+        "category": "Pferdekauf",
+        "path": "frontend/pages/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd.tsx",
+        "dataFile": "frontend/data/ratgeber/wasKostetPferd.ts",
+        "description": "Anschaffung, Unterhalt & versteckte Kosten – So kalkulieren Sie realistisch",
+        "readTime": "15 min",
+        "sections": [
+          "Anschaffungskosten",
+          "Monatliche Unterhaltungskosten",
+          "Regionale Preisunterschiede",
+          "Was ist mein Pferd wert?",
+          "Pferdekauf-Checkliste",
+          "Häufige Fragen",
+          "Weiterführende Artikel"
+        ],
+        "faqs": 10
+      },
+      {
+        "id": "pferd-kaufen",
+        "title": "Pferd kaufen: Der komplette Ratgeber",
+        "slug": "/pferde-ratgeber/pferd-kaufen",
+        "category": "Pferdekauf",
+        "path": "frontend/pages/pferde-ratgeber/pferd-kaufen/index.tsx",
+        "description": "Checkliste, Tipps und Kaufberatung für Ihren erfolgreichen Pferdekauf",
+        "readTime": "15 min",
+        "image": "/images/ratgeber/pferd-kaufen/hero.webp"
+      },
+      {
+        "id": "pferd-verkaufen",
+        "title": "Pferd verkaufen: Optimaler Preis",
+        "slug": "/pferde-ratgeber/pferd-verkaufen",
+        "category": "Pferdeverkauf",
+        "path": "frontend/pages/pferde-ratgeber/pferd-verkaufen/index.tsx",
+        "description": "So finden Sie den richtigen Verkaufspreis für Ihr Pferd",
+        "readTime": "10 min",
+        "image": "/images/ratgeber/pferd-verkaufen/hero.webp",
+        "subArticles": [
+          {
+            "id": "pferd-verkaufen-tipps",
+            "title": "Pferd verkaufen: Tipps für erfolgreichen Verkauf",
+            "slug": "/pferde-ratgeber/pferd-verkaufen/tipps",
+            "path": "frontend/pages/pferde-ratgeber/pferd-verkaufen/tipps.tsx",
+            "description": "Praktische Verkaufstipps für Pferdebesitzer"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "name": "Ankaufsuntersuchung",
+        "slug": "ankaufsuntersuchung",
+        "description": "Alles zur AKU: Kosten, Ablauf, Klassen und Befunde",
+        "articleCount": 4
+      },
+      {
+        "name": "Pferdekauf",
+        "slug": "pferdekauf",
+        "description": "Ratgeber zum Pferdekauf: Kosten, Checklisten, Tipps",
+        "articleCount": 2
+      },
+      {
+        "name": "Pferdeverkauf",
+        "slug": "pferdeverkauf",
+        "description": "Pferd erfolgreich verkaufen: Preisfindung und Verkaufstipps",
+        "articleCount": 2
+      }
+    ],
+    "stats": {
+      "totalArticles": 5,
+      "totalSubArticles": 6,
+      "totalPages": 9,
+      "totalCategories": 3,
+      "estimatedReadTime": "77+ min"
+    }
+  }
+}
