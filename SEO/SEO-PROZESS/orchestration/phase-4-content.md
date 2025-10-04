@@ -56,9 +56,22 @@ Schreibe einen vollständigen SEO-optimierten Artikel basierend auf dem Content-
   "article_metadata": {
     "title": "...",
     "meta_description": "...",
-    "target_word_count": 2500,
     "primary_keyword": "...",
-    "secondary_keywords": [...]
+    "secondary_keywords": [...],
+    "word_count_data": {
+      "avg_word_count": 2150,
+      "target_word_count": 2365,
+      "word_count_range_min": 1828,
+      "word_count_range_max": 2795,
+      "word_count_strategy": "serp_competitive",
+      "word_count_fallback": 2500,
+      "word_count_distribution": {
+        "introduction": {"percentage": 0.07, "calculated_words": 165},
+        "main_sections": {"percentage": 0.72, "calculated_words": 1703},
+        "faq": {"percentage": 0.10, "calculated_words": 237},
+        "conclusion": {"percentage": 0.07, "calculated_words": 165}
+      }
+    }
   },
   "introduction": {...},
   "main_sections": [...],
@@ -305,7 +318,11 @@ Erstelle eine vollständige Markdown-Datei mit:
 
 Prüfe ob Sub-Agent vollständigen Artikel geliefert hat:
 
-✅ **Target Word Count erreicht** (2000-3500 Wörter, ±10% akzeptabel)
+✅ **Target Word Count im SERP-competitive Range**:
+   - **Warning**: < `word_count_range_min` (aus word_count_data in content-outline.json)
+   - **Failure**: < (`word_count_range_min` × 0.90) OR > `word_count_range_max`
+   - **Target Range**: `word_count_range_min` - `word_count_range_max`
+   - **Fallback**: 2000-3500 wenn word_count_strategy = "fallback"
 ✅ **Alle Hauptsektionen aus Outline umgesetzt** (5-8 Sektionen)
 ✅ **Primary Keyword Density 0.8-1.2%**
 ✅ **Min 3 E-E-A-T Signale integriert** (Expertise, Erfahrung, References)

@@ -40,9 +40,11 @@ Führe eine umfassende Qualitätsprüfung des finalen SEO-Artikels durch (v2.0 m
 ### 1. Content Quality Validation
 
 **Word Count Check**:
-- **Ziel**: 2000-2500 Wörter (basierend auf `format_recommendations.target_word_count` aus Phase 2)
-- **Akzeptabel**: 1800-2800 Wörter
-- **KRITISCH**: Wenn < 1800 oder > 3000 → Flag für Revision
+- **Ziel**: `word_count_data.target_word_count` (aus content-outline.json Phase 3)
+- **Akzeptabel**: `word_count_range_min` - `word_count_range_max` (SERP-competitive range)
+- **Warning**: < `word_count_range_min` (avg × 0.85)
+- **KRITISCH**: < (`word_count_range_min` × 0.90) OR > `word_count_range_max` → Flag für Revision
+- **Fallback**: Bei word_count_strategy = "fallback" → Ziel 2500, Akzeptabel 2000-3500
 
 **Keyword Density Check**:
 - **Primary Keyword**: 0.8-1.2% Density
@@ -661,7 +663,7 @@ Prüfe ob finale Validierung erfolgreich war:
 |-------|-------------|-----------------|---------------|
 | **Overall Quality Score** | ≥ 8.0 | ≥ 7.5 | < 7.5 |
 | **E-E-A-T Score** | ≥ 7.0 | ≥ 6.5 | < 6.5 |
-| **Word Count** | 2000-2500 | 1800-2800 | < 1800 or > 3000 |
+| **Word Count** | target_word_count | word_count_range_min - word_count_range_max | < (word_count_range_min × 0.90) or > word_count_range_max |
 | **Primary Keyword Density** | 0.8-1.2% | 0.5-1.5% | < 0.5% or > 1.5% |
 | **H2 Headings** | ≥ 7 | ≥ 5 | < 5 |
 | **Flesch Reading Ease** | 70-80 | 60-85 | < 50 or > 90 |
@@ -1121,7 +1123,7 @@ Variante – eine Investition die sich bei 9 von 10 Fällen durch Aufdecken vers
 
 ### Content Quality
 - ⏱️ **Execution Time**: 15-20 Minuten (automatisiert, Phase 6 jetzt ~5min länger durch Competitive Checks)
-- 📝 **Word Count**: 2000-2500 Wörter (quality content, +10-20% vs. Top 3 Median)
+- 📝 **Word Count**: `target_word_count` (SERP-competitive: avg_word_count_top_3 × 1.10, typically +10% vs. Top 3 Avg)
 - 🎯 **Primary Keyword Density**: 0.8-1.2% (SEO-optimiert, kein Stuffing)
 - 🔍 **Supporting Keywords**: Min 8/10 Related Keywords natürlich integriert (80% Coverage)
 

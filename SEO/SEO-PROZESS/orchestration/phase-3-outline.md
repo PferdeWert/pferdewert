@@ -40,13 +40,39 @@ Erstelle einen detaillierten Content-Outline basierend auf Keyword- und SERP-Ana
     "completely_missing": [...]    // Content-Gaps (keiner deckt ab)
   },
   "format_recommendations": {
-    "target_word_count": 2500,
+    "avg_word_count": 2150,        // SERP-competitive: Durchschnitt Top 3 URLs
+    "target_word_count": 2365,     // Dein Ziel = avg × 1.10 (10% mehr)
+    "word_count_range_min": 1828,  // Min-Threshold = avg × 0.85
+    "word_count_range_max": 2795,  // Max-Threshold = avg × 1.30
+    "word_count_strategy": "serp_competitive",  // oder "fallback"
+    "word_count_fallback": 2500,   // Fallback wenn Content Parsing API unavailable
     "required_sections": [...],
     "visual_elements": [...]
   },
   "eeat_signals": {...},
   "paa_integration": [...]         // PAA-Fragen mit Sektion-Placement
 }
+
+**WICHTIG - Word Count Berechnung**:
+Nutze die dynamischen Word Count Daten aus serp-analysis.json:
+
+1. **Extrahiere word_count_data**:
+   - Lies `format_recommendations.target_word_count` aus serp-analysis.json
+   - Lies `format_recommendations.word_count_strategy` (sollte "serp_competitive" sein)
+
+2. **Berechne Sektion-Längen** basierend auf fixen Prozentsätzen:
+   - Einleitung: target_word_count × 0.07 (~7%)
+   - Hauptsektionen: target_word_count × 0.72 (~72%, verteilt auf 5-8 H2-Sektionen)
+   - FAQ: target_word_count × 0.10 (~10%)
+   - Zusammenfassung/Fazit: target_word_count × 0.07 (~7%)
+
+3. **Beispiel-Rechnung** bei target_word_count = 2365:
+   - Einleitung: 2365 × 0.07 = 165 Wörter
+   - Hauptsektionen (bei 6 Sektionen): (2365 × 0.72) / 6 = 284 Wörter/Sektion
+   - FAQ: 2365 × 0.10 = 237 Wörter
+   - Fazit: 2365 × 0.07 = 165 Wörter
+
+4. **Fallback**: Wenn word_count_strategy = "fallback", nutze word_count_fallback (2500)
 
 ## AUFGABE:
 
@@ -107,7 +133,13 @@ Für jede Hauptsektion definiere:
 - Supporting Keywords integriert
 - Beispiel H3: "Röntgenuntersuchung: Wann sinnvoll?"
 
-**Ziel-Wortanzahl**: 300-500 Wörter pro Hauptsektion
+**Ziel-Wortanzahl**: ~72% des target_word_count, verteilt auf 5-8 Sektionen
+
+**Word Count Berechnung pro Sektion**:
+- Bei 2365 target mit 6 Sektionen: (2365 × 0.72) / 6 = ~284 Wörter/Sektion
+- Bei 2365 target mit 5 Sektionen: (2365 × 0.72) / 5 = ~340 Wörter/Sektion
+- Bei 3000 target mit 6 Sektionen: (3000 × 0.72) / 6 = ~360 Wörter/Sektion
+- Bei 3000 target mit 8 Sektionen: (3000 × 0.72) / 8 = ~270 Wörter/Sektion
 
 **Keyword-Integration**:
 - Welche Keywords in dieser Sektion natürlich verwenden?
@@ -123,7 +155,11 @@ Für jede Hauptsektion definiere:
 - Tabellen, Checklisten, Diagramme
 - Beispiel: "Vergleichstabelle: Ankaufsuntersuchung Stufen"
 
-### 4. FAQ-Sektion (200-300 Wörter)
+### 4. FAQ-Sektion (~10% des target_word_count)
+
+**Word Count Berechnung**:
+- Beispiel bei 2365 target: 2365 × 0.10 = ~237 Wörter
+- Beispiel bei 3000 target: 3000 × 0.10 = ~300 Wörter
 
 **Anforderungen**:
 - Min 5 PAA-basierte Fragen aus Phase 2
@@ -136,7 +172,11 @@ Für jede Hauptsektion definiere:
 - Fragen die NICHT in Hauptsektionen beantwortet wurden
 - Mix aus verschiedenen Kategorien (Kosten, Gesundheit, Rechtliches)
 
-### 5. Zusammenfassung/Fazit (150-200 Wörter)
+### 5. Zusammenfassung/Fazit (~7% des target_word_count)
+
+**Word Count Berechnung**:
+- Beispiel bei 2365 target: 2365 × 0.07 = ~165 Wörter
+- Beispiel bei 3000 target: 3000 × 0.07 = ~210 Wörter
 
 **Struktur**:
 - **Key Takeaways** (3-5 Bullet Points): Wichtigste Learnings
@@ -149,9 +189,22 @@ Für jede Hauptsektion definiere:
   "article_metadata": {
     "title": "Pferd kaufen: Worauf achten? Der ultimative Kaufratgeber 2025",
     "meta_description": "Pferd kaufen leicht gemacht: Gesundheitscheck, Kaufvertrag, Kosten. Experten-Tipps für sicheren Pferdekauf.",
-    "target_word_count": 2500,
     "primary_keyword": "pferd kaufen worauf achten",
-    "secondary_keywords": ["gesundes pferd kaufen", "pferdekauf beratung", "pferd kaufen tipps"]
+    "secondary_keywords": ["gesundes pferd kaufen", "pferdekauf beratung", "pferd kaufen tipps"],
+    "word_count_data": {
+      "avg_word_count": 2150,
+      "target_word_count": 2365,
+      "word_count_range_min": 1828,
+      "word_count_range_max": 2795,
+      "word_count_strategy": "serp_competitive",
+      "word_count_fallback": 2500,
+      "word_count_distribution": {
+        "introduction": {"percentage": 0.07, "calculated_words": 165},
+        "main_sections": {"percentage": 0.72, "calculated_words": 1703},
+        "faq": {"percentage": 0.10, "calculated_words": 237},
+        "conclusion": {"percentage": 0.07, "calculated_words": 165}
+      }
+    }
   },
   "introduction": {
     "word_count": 180,
@@ -339,7 +392,11 @@ Prüfe ob Sub-Agent vollständigen Outline geliefert hat:
 
 ✅ **5-8 Hauptsektionen definiert**
 ✅ **Primary Keyword in min 3 H2-Headings integriert**
-✅ **Target Word Count zwischen 2000-3500**
+✅ **Target Word Count im SERP-competitive Range**:
+   - **Warning**: < `word_count_range_min` (avg_word_count × 0.85)
+   - **Failure**: < (`word_count_range_min` × 0.90) OR > `word_count_range_max`
+   - **Target Range**: `word_count_range_min` - `word_count_range_max` (aus serp-analysis.json)
+   - **Fallback**: 2000-3500 wenn word_count_strategy = "fallback"
 ✅ **Min 5 FAQ-Fragen (davon min 3 aus PAA)**
 ✅ **Jede Sektion hat Content-Type, Keywords, E-E-A-T Signale**
 ✅ **Min 3 Internal Linking Opportunities identifiziert**

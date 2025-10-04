@@ -2,6 +2,17 @@
 
 **Zuletzt aktualisiert:** 2025-10-04
 
+ **Generische Entscheidungsmatrix**                                                │
+     │                                                                                  │
+     │ Erstelle eine wiederverwendbare Decision-Matrix für zukünftige Keywords:         │
+     │                                                                                  │
+     │ IF (search_volume > 500 AND intent_different AND serp_avg_words > 1500):         │
+     │   → Eigener Spoke-Artikel                                                        │
+     │ ELIF (search_volume > 200 AND overlap < 60%):                                    │
+     │   → Eigener Spoke-Artikel (borderline)                                           │
+     │ ELSE:                                                                            │
+     │   → Im Hub-Artikel als H2 behandeln    
+
 ## 🎯 Brand & Core Pages
 
 ### Homepage (/) - Brand Hub
