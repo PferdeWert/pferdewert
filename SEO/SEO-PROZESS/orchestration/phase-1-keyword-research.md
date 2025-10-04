@@ -461,6 +461,54 @@ Für Top 3 Keyword-Cluster erstelle Empfehlungen:
       "supporting_keywords": 0.005
     },
     "estimated_word_count": 2500
+  },
+  "quality_gates": {
+    "phase_1a_passed": true,
+    "phase_1b_passed": true,
+    "quality_score": 0.85,
+    "warnings": [],
+    "failed_checks": [],
+    "validation_details": {
+      "total_keywords": 23,
+      "duplicates_removed": 2,
+      "relevance_ratio": 0.87,
+      "high_volume_keywords": 8,
+      "informational_keywords": 12,
+      "api_success": {
+        "related_keywords": true,
+        "keyword_ideas": true
+      }
+    }
+  },
+  "api_call_metadata": {
+    "response_times": {
+      "related_keywords_ms": 1250,
+      "keyword_ideas_ms": 980
+    },
+    "api_success": {
+      "related_keywords": true,
+      "keyword_ideas": true
+    },
+    "duplicates_removed": 2,
+    "retry_count": 0,
+    "total_execution_time_ms": 3450,
+    "api_parameters_used": {
+      "location_name": "Germany",
+      "language_code": "de",
+      "related_keywords_depth": 1,
+      "related_keywords_limit": 20,
+      "keyword_ideas_limit": 15
+    }
+  },
+  "next_phase_input": {
+    "primary_keyword": {
+      "keyword": "pferd kaufen worauf achten",
+      "search_volume": 1200,
+      "intent": "informational",
+      "competition": "LOW"
+    },
+    "recommended_serp_competitors": 10,
+    "phase_2_instructions": "Analyze SERP for primary keyword + top 5 supporting keywords from hero_content cluster. Focus on informational intent competitors with domain_rank > 70."
   }
 }
 
