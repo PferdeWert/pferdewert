@@ -49,22 +49,22 @@ const nextConfig = {
       {
         source: '/bewerten',
         destination: '/pferde-preis-berechnen',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/was-kostet-ein-pferd',
-        destination: '/pferde-ratgeber/was-kostet-ein-pferd',
-        permanent: true,
+        destination: '/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd',
+        statusCode: 301,
       },
       {
         source: '/aku-pferd',
         destination: '/pferde-ratgeber/aku-pferd',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/pferd-verkaufen',
         destination: '/pferde-ratgeber/pferd-verkaufen',
-        permanent: true,
+        statusCode: 301,
       },
     ]
   },
