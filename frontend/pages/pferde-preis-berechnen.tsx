@@ -575,7 +575,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta name="twitter:site" content="@PferdeWert" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://pferdewert.de/pferde-preis-berechnen" />
+        <link rel="canonical" href="https://www.pferdewert.de/pferde-preis-berechnen" />
 
         {/* Performance Optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

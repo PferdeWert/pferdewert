@@ -289,7 +289,7 @@ export default function Ergebnis() {
       <title>Professionelle Pferdebewertung - Ihr Ergebnis | PferdeWert.de</title>
       <meta name="description" content="Ihre detaillierte KI-basierte Pferdebewertung ist fertig. Professioneller Bewertungsbericht mit Marktwertanalyse zum sofortigen Download als PDF." />
       <meta name="robots" content="noindex, nofollow" />
-      <link rel="canonical" href="https://pferdewert.de/ergebnis" />
+      <link rel="canonical" href="https://www.pferdewert.de/ergebnis" />
 
       {/* Structured Data for Analysis Report */}
       <script

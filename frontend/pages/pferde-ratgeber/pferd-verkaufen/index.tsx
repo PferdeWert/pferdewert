@@ -264,7 +264,7 @@ const PferdVerkaufen: NextPage = () => {
           content={`Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust ✓ Plattformvergleich ✓ Preisfindung ✓ Rechtliche Tipps`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
+        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta name="keywords" content="pferd verkaufen, pferd zu verkaufen, wie viel ist mein pferd wert, pferdewert ermitteln, pferd verkaufen preis, pferd verkaufen plattformen, ki pferdebewertung, pferd online verkaufen, pferdebewertung kostenlos" />
 
         {/* Open Graph */}

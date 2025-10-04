@@ -146,7 +146,7 @@ const AKUPferd: NextPage = () => {
         <meta name="msapplication-TileColor" content="#5A4B3B" />
 
         {/* Canonical and hreflang */}
-        <link rel="canonical" href="https://pferdewert.de/aku-pferd" />
+        <link rel="canonical" href="https://www.pferdewert.de/aku-pferd" />
         <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/aku-pferd" />
 
         {/* Open Graph */}

@@ -260,7 +260,7 @@ const PferdVerkaufenTipps: NextPage = () => {
           name="description"
           content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat."
         />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen/tipps" />
+        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/pferd-verkaufen/tipps" />
         <meta property="og:title" content="Pferd verkaufen: Die besten Tipps für optimalen Preis | PferdeWert" />
         <meta property="og:description" content="Profi-Tipps zum Pferde-Verkauf: Preisfindung, Vermarktung und Verhandlung. Maximieren Sie den Verkaufspreis Ihres Pferdes mit Expertenrat." />
         <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen/tipps" />

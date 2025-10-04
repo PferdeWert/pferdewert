@@ -125,7 +125,7 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
 
         {/* Canonical and Performance */}
-        <link rel="canonical" href="https://pferdewert.de/" />
+        <link rel="canonical" href="https://www.pferdewert.de/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="preconnect" href="https://api.pferdewert.de" />

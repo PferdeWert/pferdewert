@@ -135,7 +135,7 @@ const WasKostetEinPferd: NextPage = () => {
         <meta name="msapplication-TileColor" content="#5A4B3B" />
 
         {/* Canonical and hreflang */}
-        <link rel="canonical" href="https://pferdewert.de/was-kostet-ein-pferd" />
+        <link rel="canonical" href="https://www.pferdewert.de/was-kostet-ein-pferd" />
         <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/was-kostet-ein-pferd" />
 
         {/* Open Graph */}
