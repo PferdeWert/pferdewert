@@ -48,54 +48,91 @@ Der `/seo` Command:
 |-------|------|-------------|--------|--------|
 | **1** | `phase-1-keyword-research.md` | Related Keywords, Keyword Ideas, Overview | `keyword-analysis.json`, Top 20 Keywords | ~500 |
 | **2** | `phase-2-serp-analysis.md` | SERP Data, PAA Expansion, Competitor Analysis | `serp-analysis.json`, Content Gaps | ~600 |
-| **3** | `phase-3-outline.md` | Content Cluster, Outline Creation, H2/H3 Structure | `content-outline.json`, Article Structure | ~400 |
+| **3** | `phase-3-outline.md` | Content Cluster, Outline Creation, H2/H3 Structure | `content-outline.json`, Article Structure | ~700 |
 | **4** | `phase-4-content.md` | Content Writing, E-E-A-T Integration, Fact-Checking | `article-draft.md`, 2000-2500 Wörter | ~700 |
 | **5** | `phase-5-onpage-seo.md` | Metadata, Schema Markup, Internal Linking | `seo-metadata.json`, Schema JSONs | ~400 |
 | **6** | `phase-6-quality-check.md` | Quality Validation, Readability Check, Final Review | `quality-report.json`, Publication-Ready | ~400 |
 
-**Total Token Budget**: ~3000 Tokens (vs. 7-8k im alten Monolith-System)
+**Total Token Budget**: ~3300 Tokens (vs. 7-8k im alten Monolith-System)
 
 ---
 
 ## 🔧 Main vs. Sub-Agent Pattern
 
-**Best Practice**: Sub-Agents machen alle Tool-Calls in ihrem eigenen Context Window → verhindert Main-Agent Context Overflow.
+**CRITICAL**: Main Agent liest NIEMALS die Phase-MD Dateien → verhindert 85k+ Token Context-Overflow!
 
-### Main Agent (Pipeline Coordinator)
-- **Führt aus**: Phase-Loading, Todo-Tracking, Orchestration
-- **Tools**: `Read`, `Write`, `Bash(mkdir:*)`, `TodoWrite`
-- **Rolle**: Workflow-Steuerung, Status-Monitoring, Phase-Validierung
-- **KEIN**: DataForSEO API-Calls (verhindert Context Pollution)
+### Main Agent (Pipeline Coordinator via `/seo` Command)
+- **Führt aus**: Ordner-Erstellung, Sub-Agent-Spawning, Todo-Tracking
+- **Tools**: `Bash(mkdir:*)`, `Task`, `TodoWrite`
+- **Rolle**: Orchestration ONLY, keine Phase-MDs lesen!
+- **Context**: Bleibt minimal (~1-2k tokens) durch kompakte Summaries
+- **VERBOTEN**: `Read` auf Phase-MDs (würde 60k+ tokens addieren über 6 Phasen)
 
-### Sub-Agent (seo-content-writer)
-- **Führt aus**: Alle DataForSEO MCP API-Calls + Analyse + Content-Erstellung
+### Sub-Agent (seo-content-writer - pro Phase)
+- **Führt aus**:
+  1. Liest sein eigenes Phase-MD (z.B. `phase-1-keyword-research.md`)
+  2. Befolgt alle Instruktionen aus dem Phase-MD
+  3. Macht alle DataForSEO API-Calls
+  4. Erstellt alle Deliverables
+  5. Gibt nur kompakte Summary zurück (max 200 Wörter)
 - **Tools**: `mcp__dataforseo__*`, `Read`, `Write`
-- **Rolle**: Keyword-Research (Phase 1), SERP-Analyse (Phase 2), Outline (Phase 3), Content (Phase 4), On-Page SEO (Phase 5), Quality-Check (Phase 6)
-- **Vorteil**: Isolierter Context → API-Responses bleiben im Sub-Agent
+- **Context**: Wird nach jeder Phase verworfen (keine Akkumulation!)
+- **Vorteil**: Phase-MDs + API-Responses bleiben isoliert
 
-**Delegation-Pattern**:
+### Delegation-Pattern (UPDATED 2025-01-04)
 ```xml
-<!-- Main Agent delegiert Phase an Sub-Agent -->
+<!-- Main Agent spawnt Sub-Agent für Phase 1 -->
 <invoke name="Task">
 <parameter name="subagent_type">seo-content-writer</parameter>
 <parameter name="prompt">
-Führe Phase 1 Keyword-Research aus für: "{keyword}"
+TARGET: 'pferd kaufen worauf achten'
+OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
 
-## PHASE-WORKFLOW:
-1. Nutze `mcp__dataforseo__dataforseo_labs_google_keyword_overview` für Keyword-Metriken
-2. Nutze `mcp__dataforseo__dataforseo_labs_google_related_keywords` für Related Keywords
-3. Analysiere Daten und erstelle `keyword-analysis.json`
-4. Speichere in: SEO/SEO-CONTENT/{keyword-slug}/research/keyword-analysis.json
+1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
+2. Befolge ALLE Instruktionen aus dem Phase-MD
+3. Erstelle alle geforderten Deliverables
+4. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
+</parameter>
+</invoke>
 
-## OUTPUT FORMAT (JSON): {...}
+<!-- Main Agent spawnt neuen Sub-Agent für Phase 2 (frischer Context!) -->
+<invoke name="Task">
+<parameter name="subagent_type">seo-content-writer</parameter>
+<parameter name="prompt">
+TARGET: 'pferd kaufen worauf achten'
+OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
+
+1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
+2. Befolge ALLE Instruktionen aus dem Phase-MD
+3. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
+4. Return: Kompakte Summary + Liste der erstellten Dateien
 </parameter>
 </invoke>
 ```
 
-**Context-Vorteile**:
-- ✅ Main Agent bleibt sauber (nur Phase-Koordination)
-- ✅ Sub-Agent macht API-Calls in eigenem Context (5KB+ Responses isoliert)
-- ✅ Längere Sessions möglich (keine Context-Pollution durch API-Daten)
+### Context-Budget-Vergleich
+**❌ Alte Methode (Main Agent liest Phase-MDs)**:
+```
+Phase 1 MD:     10k tokens
+Phase 1 Result: 20k tokens  } = 30k
+Phase 2 MD:     10k tokens
+Phase 2 Result: 20k tokens  } = 60k
+Phase 3 MD:     10k tokens
+Phase 3 Result: 20k tokens  } = 90k ❌ OVERFLOW!
+```
+
+**✅ Neue Methode (Sub-Agents lesen Phase-MDs)**:
+```
+Phase 1 Summary: 0.2k tokens
+Phase 2 Summary: 0.2k tokens
+Phase 3 Summary: 0.2k tokens
+Phase 4 Summary: 0.2k tokens
+Phase 5 Summary: 0.2k tokens
+Phase 6 Summary: 0.2k tokens
+TOTAL:           1.2k tokens ✅ Context-Safe!
+```
+
+**Einsparung**: ~85k tokens (98% Reduktion!)
 
 ---
 
