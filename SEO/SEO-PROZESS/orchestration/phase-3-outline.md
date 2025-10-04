@@ -1,6 +1,6 @@
 # Phase 3: Content Outline Creation
 
-**Token Budget**: ~400 Tokens
+**Token Budget**: ~700 Tokens
 **Main Deliverables**: `content-outline.json`, Article Structure with H2/H3
 **Agent Pattern**: Sub-Agent only (combines Phase 1+2 data)
 
@@ -66,13 +66,17 @@ Erstelle einen vollständig ausgearbeiteten Artikel-Outline mit präzisen Anweis
 - Call-to-Action
 - Beispiel: "Pferd kaufen leicht gemacht: Gesundheitscheck, Kaufvertrag, Kosten-Übersicht. Experten-Tipps für sicheren Pferdekauf. Jetzt informieren!"
 
-### 2. Einleitung (150-200 Wörter)
+### 2. Einleitung (~7% des target_word_count)
 
 **Struktur**:
 - **Hook** (2-3 Sätze): Relevantes Problem oder emotionaler Einstieg
 - **User-Intent-Adressierung** (2-3 Sätze): Was wird der Leser lernen?
 - **Primary Keyword Integration**: Natürlich im ersten Absatz
 - **Preview** (2-3 Sätze): Überblick über Artikel-Inhalt
+
+**Word Count Berechnung**:
+- Beispiel bei 2365 target: 2365 × 0.07 = ~165 Wörter
+- Beispiel bei 3000 target: 3000 × 0.07 = ~210 Wörter
 
 **Beispiel-Outline**:
 ```

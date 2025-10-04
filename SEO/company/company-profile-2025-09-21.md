@@ -1,19 +1,15 @@
 # PferdeWert.de - Unternehmensprofil für SEO
 
-**Erstellt am:** 2025-09-21
-**Version:** 1.0
-**Zweck:** SEO-Prozess Grundlage für Content Creation
-
 ## 🎯 Unternehmensmission
 
-**Vision:** Deutschlands führende Plattform für AI-basierte Pferdebewertung
+**Vision:** Deutschlands führende Plattform für KI-basierte Pferdebewertung
 **Mission:** Präzise, transparente und vertrauenswürdige Pferdebewertungen für bessere Kauf- und Verkaufsentscheidungen
 
 ## 🏢 Kerngeschäft & Services
 
 ### Hauptservice
 - **KI-basierte Pferdebewertung** in unter 2 Minuten
-- Preis: 19,90€ (Launch-Angebot, regulär 39€)
+- Preis: 14,90€ (Launch-Angebot, regulär 39€). Der darf aber nie Hardcoded irgendwo im Code oder Text stehen, da wir den Preis oft ändern. Preise nur als VAR aus der pricing.ts.
 - Geld-zurück-Garantie
 - Sofortige Online-Bewertung ohne Anmeldung
 
@@ -43,79 +39,10 @@
 - "Entwickelt von Reitern für Reiter"
 - Premium-Qualität zu fairem Preis
 
-## 📊 Fachexpertise & Autorität
-
-### Bewertungskriterien
-- Rasse und Abstammung
-- Alter und Gesundheitsstatus
-- Ausbildungsstand und Turniererfolge
-- Aktuelle Markttrends
-- Regionale Preisunterschiede
-
-### Technische Kompetenz
-- Modernste KI-Technologie
-- Big Data Analyse von Verkaufsdaten
-- Kontinuierliche Marktbeobachtung
-- Professioneller KI-Algorithmus
-
-## 🎯 Content-Fokus für SEO
-
-### Primäre Themenfelder
-1. **Pferdebewertung & Preisfindung**
-   - Pferdewert berechnen
-   - Was ist mein Pferd wert
-   - Pferde Preis berechnen
-
-2. **Pferdekauf & -verkauf**
-   - Pferd kaufen (regional: Bayern, NRW, etc.)
-   - Pferd verkaufen
-   - Pferdemarkt Deutschland
-
-3. **Pferdearten & Rassen**
-   - Warmblut kaufen
-   - Dressurpferd kaufen
-   - Springpferd kaufen
-
-4. **Fachratgeber (AKU-Bereich)**
-   - AKU Pferd (Ankaufsuntersuchung)
-   - AKU Kosten, Ablauf, Klassen
-   - Veterinärmedizinische Expertise
-
-### Regionale SEO-Schwerpunkte
-- Bayern (München, Nürnberg, Augsburg)
-- Nordrhein-Westfalen (Köln, Düsseldorf, Dortmund)
-- Niedersachsen (Hannover, Oldenburg)
-- Baden-Württemberg (Stuttgart, Mannheim)
-- Hessen (Frankfurt, Wiesbaden)
-- Schleswig-Holstein (Kiel, Lübeck)
-
-## 🚫 Keyword-Filter & Ausschlusskriterien
-
-### Zu VERMEIDEN (Brand-Konflikte)
-- Konkrete Mitbewerber-Namen
-- Andere Bewertungsplattformen
-- Fremde Unternehmensnamen
-- Markennamen von Pferdefutter/Ausrüstung
-
-### Zu VERMEIDEN (Thematisch)
-- Pferdewetten/Glücksspiel
-- Pferdeschlachtung
-- Tierschutz-Skandale
-- Illegaler Pferdehandel
-- Medizinische Diagnosen (nur allgemeine Info)
-
-### FOKUS auf
-- Seriöser Pferdemarkt
-- Professionelle Bewertung
-- Kaufberatung
-- Verkaufsoptimierung
-- Marktanalyse
-- Regionale Pferdeszene
-
 ## 💡 Content-Tonalität
 
-**Zielgruppe:** Pferdebesitzer, Reiter, Pferdekäufer
-**Ton:** Fachkundig aber zugänglich, vertrauenswürdig, transparent
+**Zielgruppe:** Pferdebesitzer, Reiter, Pferdekäufer, Pferdeverkäufer
+**Ton:** Fachkundig aber zugänglich, vertrauenswürdig
 **Stil:** Beratend, hilfreich, objektiv
 **Sprache:** Deutsch, pferdespezifisches Fachvokabular
 **Länge:** Umfassend (1000-2500 Worte für Autorität)

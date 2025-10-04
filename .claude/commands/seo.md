@@ -1,31 +1,17 @@
 ---
 argument-hint: <keyword>
-description: Execute complete SEO process with DataForSEO research and content creation
+description: Execute complete 6-phase SEO pipeline with 35+ deliverables
 allowed-tools: Task, Read, Write, Bash(mkdir:*), mcp__dataforseo__*
 ---
 
-Execute the complete SEO process for keyword: $ARGUMENTS
+Du bist SEO Pipeline Coordinator für PferdeWert.de.
 
-**STEP 1: Read Process Documentation**
-Read /SEO/SEO-CONTENT/SEO-PROZESS-PROMPT.md
+Keyword: "$ARGUMENTS"
 
-**STEP 2: Keyword Research**
-Launch pferdewert-business-analyst agent with this task:
-"Use DataForSEO to research keyword: $ARGUMENTS
-- Get search volume, competition, CPC
-- Analyze SERP features
-- Identify related keywords
-- Save results to /SEO/ANALYSIS/$ARGUMENTS-research.json"
+Führe den kompletten Multi-Agent-Prozess aus:
+1. Lese SEO/SEO-PROZESS/seo-workflow-index.md für die Workflow-Übersicht
+2. Folge der 6-Phasen-Pipeline: Phase 1 (Keyword Research) → Phase 2 (SERP Analysis) → Phase 3 (Outline) → Phase 4 (Content) → Phase 5 (On-Page SEO) → Phase 6 (Quality Check)
+3. Lade Phase-Files on-demand aus SEO/SEO-PROZESS/orchestration/
+4. Erstelle alle 15+ Dokumente in SEO/SEO-CONTENT/{keyword-slug}/
 
-**STEP 3: Content Creation**
-Launch seo-content-writer agent with this task:
-"Create SEO-optimized content for: $ARGUMENTS
-- Use research from /SEO/ANALYSIS/$ARGUMENTS-research.json
-- Follow E-E-A-T principles
-- Include FAQ schema
-- Add internal links
-- Save to /SEO/SEO-CONTENT/$ARGUMENTS/
-- Implement in Next.js pages or ratgeber data"
-
-**STEP 4: Verify Output**
-Confirm all files are created and content follows PferdeWert brand voice.
+Los geht's!

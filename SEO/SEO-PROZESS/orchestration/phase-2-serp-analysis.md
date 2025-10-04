@@ -187,6 +187,11 @@ Scrape die tatsächliche Content-Struktur der Top 3 URLs für echte Content-Gap-
 }
 ```
 
+**WICHTIG - Word Count Extraction**:
+- Extrahiere `estimated_word_count` für **ALLE Top 3 URLs**
+- Berechne Durchschnitt: `avg_word_count = (url1_count + url2_count + url3_count) / 3`
+- Dieser Wert wird in Step 5.2 für SERP-competitive word count strategy verwendet
+
 **Falls API-Call fehlschlägt** (z.B. Paywall, JavaScript-heavy):
 - Log warning
 - Proceed mit SERP Meta-Daten only
@@ -224,10 +229,15 @@ Vergleiche was die Top 10 abdecken vs. was fehlt:
 
 #### 5.2 Content-Format-Analyse
 
-**Target Word Count**:
-- Falls Content Parsing verfügbar: Durchschnitt von Top 3
-- Falls nicht: Schätze basierend auf Title/Description Komplexität + Featured Snippet Länge
-- Range angeben (z.B. 2200-2800 für Durchschnitt 2500)
+**SERP-Competitive Word Count Strategy**:
+- **Primär**: Nutze `estimated_word_count` aus Content Parsing (Top 3 URLs)
+- **Berechnung**:
+  - `avg_word_count = (url1 + url2 + url3) / 3`
+  - `target_word_count = avg_word_count × 1.10` (10% mehr für comprehensiveness)
+  - `word_count_range_min = avg_word_count × 0.85` (Quality Gate Warning)
+  - `word_count_range_max = avg_word_count × 1.30` (Quality Gate Failure)
+- **Fallback**: Falls Content Parsing nicht verfügbar → `word_count_fallback: 2500`
+- **Flag setzen**: `"word_count_strategy": "serp_competitive"` oder `"fallback"`
 
 **Required Sections**:
 - Basierend auf H2-Analyse der Top 3 (wenn verfügbar)
@@ -395,8 +405,12 @@ Vergleiche was die Top 10 abdecken vs. was fehlt:
     }
   },
   "format_recommendations": {
-    "target_word_count": 2500,
-    "word_count_range": "2200-2800",
+    "avg_word_count": 2150,
+    "target_word_count": 2365,
+    "word_count_range_min": 1828,
+    "word_count_range_max": 2795,
+    "word_count_strategy": "serp_competitive",
+    "word_count_fallback": 2500,
     "required_sections": [
       "Einleitung: Warum ein systematischer Kaufprozess wichtig ist",
       "Gesundheitscheck: Schritt-für-Schritt Anleitung",

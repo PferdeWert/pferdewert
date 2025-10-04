@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "primaryKeyword": "",
+    "slug": "",
+    "createdAt": "",
+    "phase": "4A-content-brief"
+  },
+  "keyword": {
+    "primary": {
+      "term": "",
+      "searchVolume": 0,
+      "difficulty": 0,
+      "searchIntent": ""
+    },
+    "secondary": [],
+    "longtail": []
+  },
+  "contentStrategy": {
+    "targetWordCount": 2500,
+    "primaryKeywordDensity": "0.8-1.2%",
+    "tone": "Du-Ansprache, vertrauensvoll, praxisorientiert",
+    "brandVoice": "SEO/pferdewert-brand-language.md"
+  },
+  "outline": {
+    "h1": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "sections": []
+  },
+  "contentRequirements": {
+    "eeat": {
+      "experienceSnippets": [],
+      "expertiseCredentials": [],
+      "authoritySignals": [],
+      "trustElements": []
+    },
+    "semanticTopics": [],
+    "mandatoryElements": {
+      "internalLinks": {
+        "min": 3,
+        "suggestions": []
+      },
+      "externalSources": {
+        "min": 2,
+        "qualityThreshold": "high-authority"
+      },
+      "visuals": {
+        "min": 1,
+        "types": ["infographic", "comparison-table", "checklist"]
+      }
+    }
+  },
+  "serpInsights": {
+    "topCompetitors": [],
+    "contentGaps": [],
+    "paaQuestions": [],
+    "uniqueAngles": []
+  },
+  "qualityGates": {
+    "wordCount": {
+      "min": 2000,
+      "target": 2500,
+      "max": 3000
+    },
+    "keywordDensity": {
+      "min": 0.008,
+      "target": 0.01,
+      "max": 0.012
+    },
+    "semanticCoverage": {
+      "minTopics": 8,
+      "requiredTopics": []
+    },
+    "eeatScore": {
+      "min": 7,
+      "target": 9
+    },
+    "internalLinks": {
+      "min": 3,
+      "target": 5
+    }
+  }
+}
