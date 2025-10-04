@@ -51,6 +51,21 @@ const nextConfig = {
         destination: '/pferde-preis-berechnen',
         permanent: true,
       },
+      {
+        source: '/was-kostet-ein-pferd',
+        destination: '/pferde-ratgeber/was-kostet-ein-pferd',
+        permanent: true,
+      },
+      {
+        source: '/aku-pferd',
+        destination: '/pferde-ratgeber/aku-pferd',
+        permanent: true,
+      },
+      {
+        source: '/pferd-verkaufen',
+        destination: '/pferde-ratgeber/pferd-verkaufen',
+        permanent: true,
+      },
     ]
   },
 };
