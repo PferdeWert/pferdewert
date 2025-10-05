@@ -3,7 +3,7 @@
 **Token Budget**: ~550-600 Tokens (v2.0 erweitert)
 **Main Deliverables**: `quality-report.json`, `eeat-score.json`, `competitive-positioning.json`, Publication-Ready Article
 **Agent Pattern**: Sub-Agent (comprehensive validation)
-**Version**: 2.0 (2025-01-04)
+**Version**: 2.1 (2025-01-05)
 
 ---
 
@@ -23,17 +23,49 @@ Führe finale Qualitätsprüfung aller Deliverables aus Phase 1-5 durch.
 <parameter name="prompt">
 Führe eine umfassende Qualitätsprüfung des finalen SEO-Artikels durch (v2.0 mit Competitive Positioning).
 
-## DATEN (JSON):
-{
-  "article_content": "...",              // Finaler Artikel aus Phase 4
-  "seo_metadata": {...},                  // Metadaten aus Phase 5
-  "schema_markup": [...],                 // Schema JSONs aus Phase 5
-  "internal_links": [...],                // Internal Linking aus Phase 5
-  "keyword_data": {...},                  // Keyword-Analyse aus Phase 1
-  "serp_analysis": {...},                 // SERP-Daten aus Phase 2
-  "content_outline": {...},               // Outline aus Phase 3
-  "top_3_serp_results": [...]             // Top 3 SERP Competitors aus Phase 2
-}
+## INPUT FILES (Sub-Agent liest selbst)
+
+Du benötigst folgende Dateien aus `SEO/SEO-CONTENT/{keyword-slug}/`:
+
+### Content & SEO Files (Phase 4-5 Outputs):
+1. **content/article-draft.md**
+   - Verwendung: Content Quality Check, Readability Analysis, Word Count, E-E-A-T Scoring
+   - Tool: `Read`
+
+2. **seo/seo-metadata.json**
+   - Verwendung: Metadata Validation (Title, Description Längen, CTR Optimization)
+   - Tool: `Read`
+
+3. **seo/schema-article.json**
+   - Verwendung: Schema Markup Validation (Article Schema Pflicht-Check)
+   - Tool: `Read`
+
+4. **seo/schema-faq.json** (optional)
+   - Verwendung: FAQ Schema Validation (falls vorhanden)
+   - Tool: `Read`
+
+5. **seo/internal-linking.json**
+   - Verwendung: Internal Linking Check (min 3 Links)
+   - Tool: `Read`
+
+### Research Files (Phase 1-2 Outputs):
+6. **research/keyword-analysis.json**
+   - Verwendung: Primary Keyword, Supporting Keywords, Target Word Count, Keyword Density Checks
+   - Tool: `Read`
+
+7. **research/serp-analysis.json**
+   - Verwendung: Competitive Positioning (top_3_serp_results), PAA Coverage, Search Intent
+   - Tool: `Read`
+
+### Planning Files (Phase 3 Outputs):
+8. **planning/content-outline.json**
+   - Verwendung: Must-Have Topics Check, H2/H3 Structure Validation, Topic Completeness
+   - Tool: `Read`
+
+**WICHTIG**:
+- Lies ALLE 8 Dateien sequenziell mit `Read` Tool
+- Extrahiere relevante Daten für Quality Checks
+- Speichere extrahierte Daten in lokalen Variablen (keine JSON-Serialisierung!)
 
 ## AUFGABE:
 

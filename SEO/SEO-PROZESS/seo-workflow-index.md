@@ -72,7 +72,7 @@ Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion 
 | **5A** | `phase-5a-metadata.md` | Title, Description, OG Tags, Twitter Cards, Canonical | `seo-metadata.json` | ~150 |
 | **5B** | `phase-5b-schema-markup.md` | Article, FAQ, HowTo, Breadcrumb Schema | Schema JSONs | ~200 |
 | **5C** | `phase-5c-internal-linking.md` | Sitemap Analysis, Relevance Scoring, Link Placement | `internal-linking.json` | ~200 |
-| **6** | `phase-6-quality-check.md` | Quality Validation, Readability Check, Final Review | `quality-report.json`, Publication-Ready | ~400 |
+| **6** | `phase-6-quality-check.md` (v2.1) | Quality Validation, Readability Check, Final Review (Fixed Delegation) | `quality-report.json`, Publication-Ready | ~400 |
 
 **Total Token Budget**: ~3760 Tokens (vs. 7-8k im alten Monolith-System)
 

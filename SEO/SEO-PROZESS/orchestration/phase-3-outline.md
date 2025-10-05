@@ -162,12 +162,13 @@ Für jede Hauptsektion definiere:
 - Beispiel bei 3000 target: 3000 × 0.10 = ~300 Wörter
 
 **Anforderungen**:
-- Min 5 PAA-basierte Fragen aus Phase 2
+- Min 5 PAA-basierte Fragen aus Phase 2 (`serp-analysis.json` → `paa_integration` Array)
 - Kurze, prägnante Antworten (50-100 Wörter pro Frage)
 - Schema-Markup-ready (für FAQ Schema in Phase 5)
 - Long-tail Keywords natürlich integriert
 
 **Frage-Auswahl-Kriterien**:
+- Nutze `paa_integration` Array aus `serp-analysis.json` als primäre Quelle
 - High-Priority PAA-Fragen zuerst
 - Fragen die NICHT in Hauptsektionen beantwortet wurden
 - Mix aus verschiedenen Kategorien (Kosten, Gesundheit, Rechtliches)
@@ -366,6 +367,16 @@ Für jede Hauptsektion definiere:
       "anchor_text": "Pferdewert kostenlos schätzen"
     },
     {
+      "section": "Ankaufsuntersuchung",
+      "target_page": "/ratgeber/ankaufsuntersuchung-pferd",
+      "anchor_text": "Ablauf und Kosten der Ankaufsuntersuchung"
+    },
+    {
+      "section": "Rasse-Auswahl",
+      "target_page": "/ratgeber/pferderassen-anfaenger",
+      "anchor_text": "geeignete Pferderassen für Anfänger"
+    },
+    {
       "section": "FAQ",
       "target_page": "/ratgeber/pferdehaltung-kosten",
       "anchor_text": "monatliche Pferdehaltungskosten"
@@ -399,7 +410,7 @@ Prüfe ob Sub-Agent vollständigen Outline geliefert hat:
    - **Fallback**: 2000-3500 wenn word_count_strategy = "fallback"
 ✅ **Min 5 FAQ-Fragen (davon min 3 aus PAA)**
 ✅ **Jede Sektion hat Content-Type, Keywords, E-E-A-T Signale**
-✅ **Min 3 Internal Linking Opportunities identifiziert**
+✅ **Min 5 Internal Linking Opportunities identifiziert** (optimal 5-8)
 ❌ **Wenn < 5 Sektionen** → Retry mit mehr Detail-Anforderungen
 
 **Partial Success**: Wenn E-E-A-T Signale fehlen → proceed mit generic placeholders für Phase 4.

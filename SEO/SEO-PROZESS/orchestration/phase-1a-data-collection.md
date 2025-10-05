@@ -27,49 +27,40 @@ mkdir -p {OUTPUT_DIR}/research
 
 ## STEP 1: API Calls ausführen (Parallel)
 
-**WICHTIG**: Alle 3 API-Calls PARALLEL ausführen für Performance-Optimierung.
+**WICHTIG**: Alle 3 API-Calls in EINER Message mit mehreren <invoke> Blöcken ausführen!
 
-### Call 1: Related Keywords
-```
-AKTION: Rufe DataForSEO Tool auf
-Tool: mcp__dataforseo__dataforseo_labs_google_related_keywords
+**Syntax für parallele Execution**:
+```xml
+<function_calls>
+<invoke name="mcp__dataforseo__dataforseo_labs_google_related_keywords">
+<parameter name="keyword">{PRIMARY_KEYWORD}</parameter>
+<parameter name="location_name">Germany</parameter>
+<parameter name="language_code">de</parameter>
+<parameter name="depth">1</parameter>
+<parameter name="limit">20</parameter>
+</invoke>
 
-Parameter:
-- keyword: {PRIMARY_KEYWORD}
-- location_name: "Germany"
-- language_code: "de"
-- depth: 1
-- limit: 20
+<invoke name="mcp__dataforseo__dataforseo_labs_google_keyword_ideas">
+<parameter name="keywords">["{PRIMARY_KEYWORD}"]</parameter>
+<parameter name="location_name">Germany</parameter>
+<parameter name="language_code">de</parameter>
+<parameter name="limit">15</parameter>
+</invoke>
 
-Speichere Response in Variable: related_keywords_response
-```
-
-### Call 2: Keyword Ideas
-```
-AKTION: Rufe DataForSEO Tool auf
-Tool: mcp__dataforseo__dataforseo_labs_google_keyword_ideas
-
-Parameter:
-- keywords: ["{PRIMARY_KEYWORD}"]
-- location_name: "Germany"
-- language_code: "de"
-- limit: 15
-
-Speichere Response in Variable: keyword_ideas_response
+<invoke name="mcp__dataforseo__dataforseo_labs_google_keyword_overview">
+<parameter name="keywords">["{PRIMARY_KEYWORD}"]</parameter>
+<parameter name="location_name">Germany</parameter>
+<parameter name="language_code">de</parameter>
+</invoke>
+</function_calls>
 ```
 
-### Call 3: Keyword Overview
-```
-AKTION: Rufe DataForSEO Tool auf
-Tool: mcp__dataforseo__dataforseo_labs_google_keyword_overview
-
-Parameter:
-- keywords: ["{PRIMARY_KEYWORD}"]
-- location_name: "Germany"
-- language_code: "de"
-
-Speichere Response in Variable: keyword_overview_response
-```
+**Response Handling**:
+- Du bekommst 3 separate `<function_results>` Blöcke zurück
+- Speichere jede Response in separater Variable:
+  - `related_keywords_response`
+  - `keyword_ideas_response`
+  - `keyword_overview_response`
 
 ---
 

@@ -130,15 +130,20 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
      - subagent_type: `seo-content-writer`
      - prompt:
        ```
-       SEO PHASE 6: QUALITY CHECK
+       SEO PHASE 6: QUALITY CHECK & FINAL VALIDATION (v2.1)
 
        TARGET: '$ARGUMENTS'
        OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
        1. Lies: SEO/SEO-PROZESS/orchestration/phase-6-quality-check.md
-       2. Validiere alle Deliverables aus Phase 1-5
-       3. Erstelle E-E-A-T Quality Report
-       4. Return: Final Score (Ziel: ≥7/10) + Quality Report Path
+       2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. File Reads + Writes!)
+       3. Erstelle alle geforderten Deliverables (5 Dateien in quality/ + 1 in content/)
+       4. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
+
+       WICHTIG:
+       - Du liest SELBST alle Input-Dateien (siehe Phase-MD Section "INPUT FILES")
+       - Du schreibst SELBST alle Output-Dateien (siehe Phase-MD Section "FILE OPERATIONS")
+       - Main Agent bekommt NUR deine Summary, KEINE Raw Data!
        ```
 
 4. **Final Summary** (nach Phase 6):
