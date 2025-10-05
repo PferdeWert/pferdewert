@@ -37,8 +37,22 @@ SEO-PROZESS/
 
 Der `/seo` Command:
 1. Lädt dieses Index-Dokument als Entry Point
-2. Führt Phase 1-6 sequenziell aus (on-demand loading)
-3. Erstellt 35+ Deliverables in `SEO/SEO-CONTENT/{keyword-slug}/`
+2. Erstellt Ordnerstruktur für Output-Dateien (siehe unten)
+3. Führt Phase 1-6 sequenziell aus (on-demand loading)
+4. Erstellt 35+ Deliverables in `SEO/SEO-CONTENT/{keyword-slug}/`
+
+**Ordner-Erstellung** - Main Agent erstellt die Unterordner:
+
+Der Main Agent erstellt die Ordnerstruktur mit folgenden Unterordnern:
+Ordner erstellen: `SEO/SEO-CONTENT/{keyword-slug}/`
+Dann folgende Unterordner:
+- research
+- planning
+- content
+- seo
+- quality
+
+Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion in der Shell nicht zuverlässig funktioniert.
 
 ---
 
@@ -79,17 +93,20 @@ Der `/seo` Command:
 - **Context**: Wird nach jeder Phase verworfen (keine Akkumulation!)
 - **Vorteil**: Phase-MDs + API-Responses bleiben isoliert
 
-### Delegation-Pattern (UPDATED 2025-01-04)
+### Delegation-Pattern
+
 ```xml
 <!-- Main Agent spawnt Sub-Agent für Phase 1 -->
 <invoke name="Task">
 <parameter name="subagent_type">seo-content-writer</parameter>
 <parameter name="prompt">
+SEO PHASE 1: KEYWORD RESEARCH
+
 TARGET: 'pferd kaufen worauf achten'
 OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
 
 1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
-2. Befolge ALLE Instruktionen aus dem Phase-MD
+2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
 3. Erstelle alle geforderten Deliverables
 4. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
 </parameter>
@@ -99,11 +116,13 @@ OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
 <invoke name="Task">
 <parameter name="subagent_type">seo-content-writer</parameter>
 <parameter name="prompt">
+SEO PHASE 2: SERP ANALYSIS
+
 TARGET: 'pferd kaufen worauf achten'
 OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
 
 1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
-2. Befolge ALLE Instruktionen aus dem Phase-MD
+2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
 3. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
 4. Return: Kompakte Summary + Liste der erstellten Dateien
 </parameter>

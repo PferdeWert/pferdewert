@@ -1,7 +1,7 @@
 ---
 argument-hint: <keyword>
 description: Execute complete 6-phase SEO pipeline with 35+ deliverables with agents
-allowed-tools: Task, Read, Write, Bash(mkdir:*), mcp__dataforseo__*, firecrawl
+allowed-tools: Task, Read, Write, Bash(mkdir:*), Bash(echo:*), mcp__dataforseo__*, firecrawl_*
 ---
 
 Du bist SEO Pipeline Coordinator für PferdeWert.de.
@@ -19,137 +19,174 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
 
 1. **Erstelle Projekt-Ordner**
    ```bash
-   mkdir -p "SEO/SEO-CONTENT/{keyword-slug}/{research,planning,content,seo,quality}"
+   # Erstelle keyword_slug (lowercase, replace spaces/umlauts)
+   # Example: "Pferd kaufen Tipps" → "pferd-kaufen-tipps"
+
+   # Erstelle Hauptordner
+   mkdir -p "SEO/SEO-CONTENT/$ARGUMENTS_SLUG"
+
+   # Erstelle Unterordner (separate commands für Zuverlässigkeit)
+   mkdir -p "SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research"
+   mkdir -p "SEO/SEO-CONTENT/$ARGUMENTS_SLUG/planning"
+   mkdir -p "SEO/SEO-CONTENT/$ARGUMENTS_SLUG/content"
+   mkdir -p "SEO/SEO-CONTENT/$ARGUMENTS_SLUG/seo"
+   mkdir -p "SEO/SEO-CONTENT/$ARGUMENTS_SLUG/quality"
    ```
 
-2. **Definiere Keyword-Slug**
+2. **Konvertiere Keyword zu Slug**
    ```
-   keyword_slug = keyword.lower().replace(' ', '-').replace('ä','ae').replace('ö','oe').replace('ü','ue').replace('ß','ss')
+   $ARGUMENTS_SLUG = $ARGUMENTS in lowercase mit:
+   - Spaces → Hyphens
+   - ä→ae, ö→oe, ü→ue, ß→ss
+   - Beispiel: "Pferd kaufen Tipps" → "pferd-kaufen-tipps"
    ```
 
 3. **Starte 6 Sequential Sub-Agents** (jeder liest sein eigenes Phase-MD):
 
+   **WICHTIG**: Verwende `seo-content-writer` Agent (custom agent mit DataForSEO MCP Tools)
+
    **Phase 1 - Keyword Research**:
-   ```
-   Task(subagent_type="seo-content-writer", prompt='''
-   You have access to these tools for this phase: Read, Write, Bash(mkdir:*), mcp__dataforseo__*
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 1: KEYWORD RESEARCH
 
-   TARGET: '{keyword}'
-   OUTPUT: SEO/SEO-CONTENT/{keyword_slug}/
+       TARGET: '$ARGUMENTS'
+       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
-   1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
-   2. Befolge ALLE Instruktionen aus dem Phase-MD
-   3. Nutze DataForSEO Tools für Keyword-Metriken
-   4. Erstelle alle geforderten Deliverables
-   5. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
-   ''')
-   ```
+       1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
+       2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
+       3. Erstelle alle geforderten Deliverables
+       4. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
+       ```
 
    **Phase 2 - SERP Analysis**:
-   ```
-   Task(subagent_type="seo-content-writer", prompt='''
-   You have access to these tools for this phase: Read, Write, Bash(mkdir:*), mcp__dataforseo__*, firecrawl
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 2: SERP ANALYSIS
 
-   TARGET: '{keyword}'
-   OUTPUT: SEO/SEO-CONTENT/{keyword_slug}/
+       TARGET: '$ARGUMENTS'
+       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
-   1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
-   2. Befolge ALLE Instruktionen aus dem Phase-MD
-   3. Nutze DataForSEO für SERP-Daten, Firecrawl für Content-Scraping
-   4. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
-   5. Return: Kompakte Summary + Liste der erstellten Dateien
-   ''')
-   ```
+       1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
+       2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO + Firecrawl!)
+       3. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
+       4. Return: Kompakte Summary + Liste der erstellten Dateien
+       ```
 
    **Phase 3 - Outline Creation**:
-   ```
-   Task(subagent_type="seo-content-writer", prompt='''
-   You have access to these tools for this phase: Read, Write, Bash(mkdir:*)
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 3: OUTLINE CREATION
 
-   TARGET: '{keyword}'
-   OUTPUT: SEO/SEO-CONTENT/{keyword_slug}/
+       TARGET: '$ARGUMENTS'
+       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
-   1. Lies: SEO/SEO-PROZESS/orchestration/phase-3-outline.md
-   2. Befolge ALLE Instruktionen
-   3. Nutze Ergebnisse aus Phase 1+2
-   4. Return: Kompakte Summary + erstellte Dateien
-   ''')
-   ```
+       1. Lies: SEO/SEO-PROZESS/orchestration/phase-3-outline.md
+       2. Befolge ALLE Instruktionen
+       3. Nutze Ergebnisse aus Phase 1+2
+       4. Return: Kompakte Summary + erstellte Dateien
+       ```
 
    **Phase 4 - Content Writing**:
-   ```
-   Task(subagent_type="seo-content-writer", prompt='''
-   You have access to these tools for this phase: Read, Write, Edit, Bash(mkdir:*)
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 4: CONTENT WRITING
 
-   TARGET: '{keyword}'
-   OUTPUT: SEO/SEO-CONTENT/{keyword_slug}/
+       TARGET: '$ARGUMENTS'
+       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
-   1. Lies: SEO/SEO-PROZESS/orchestration/phase-4-content.md
-   2. Nutze Outline aus Phase 3
-   3. Schreibe 2000-2500 Wörter Ratgeber-Content
-   4. Return: Kompakte Summary + Word Count
-   ''')
-   ```
+       1. Lies: SEO/SEO-PROZESS/orchestration/phase-4-content.md
+       2. Nutze Outline aus Phase 3
+       3. Schreibe 2000-2500 Wörter Ratgeber-Content
+       4. Return: Kompakte Summary + Word Count
+       ```
 
    **Phase 5 - On-Page SEO**:
-   ```
-   Task(subagent_type="seo-content-writer", prompt='''
-   You have access to these tools for this phase: Read, Write, Edit, Bash(mkdir:*)
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 5: ON-PAGE SEO
 
-   TARGET: '{keyword}'
-   OUTPUT: SEO/SEO-CONTENT/{keyword_slug}/
+       TARGET: '$ARGUMENTS'
+       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
-   1. Lies: SEO/SEO-PROZESS/orchestration/phase-5-onpage-seo.md
-   2. Optimiere Content aus Phase 4
-   3. Erstelle Meta-Tags, Schema-Markup
-   4. Return: SEO-Score + erstellte Assets
-   ''')
-   ```
+       1. Lies: SEO/SEO-PROZESS/orchestration/phase-5-onpage-seo.md
+       2. Optimiere Content aus Phase 4
+       3. Erstelle Meta-Tags, Schema-Markup
+       4. Return: SEO-Score + erstellte Assets
+       ```
 
    **Phase 6 - Quality Check**:
-   ```
-   Task(subagent_type="seo-content-writer", prompt='''
-   You have access to these tools for this phase: Read, Write, Edit, Bash(mkdir:*)
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 6: QUALITY CHECK
 
-   TARGET: '{keyword}'
-   OUTPUT: SEO/SEO-CONTENT/{keyword_slug}/
+       TARGET: '$ARGUMENTS'
+       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
-   1. Lies: SEO/SEO-PROZESS/orchestration/phase-6-quality-check.md
-   2. Validiere alle Deliverables aus Phase 1-5
-   3. Erstelle E-E-A-T Quality Report
-   4. Return: Final Score (Ziel: ≥7/10) + Quality Report Path
-   ''')
-   ```
+       1. Lies: SEO/SEO-PROZESS/orchestration/phase-6-quality-check.md
+       2. Validiere alle Deliverables aus Phase 1-5
+       3. Erstelle E-E-A-T Quality Report
+       4. Return: Final Score (Ziel: ≥7/10) + Quality Report Path
+       ```
 
 4. **Final Summary** (nach Phase 6):
    ```
    ✅ Pipeline completed!
-   📁 Output: SEO/SEO-CONTENT/{keyword_slug}/
+   📁 Output: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
    📊 E-E-A-T Score: {score}/10
    📄 Word Count: {count} Wörter
    🎯 Publication-Ready: {yes/no}
    ```
 
-## DELEGATION PATTERN (KRITISCH!)
-- **DU (Main Agent)**:
-  - Erstelle Ordner
-  - Spawne 6 Sub-Agents sequenziell mit **EXPLIZITEN TOOL-GRANTS**
-  - Tracke Todos
-  - **LESE NIEMALS DIE PHASE-MD DATEIEN!**
+## DELEGATION PATTERN (FIXED 2025-01-05)
 
-- **Sub-Agent (seo-content-writer)**:
-  - **ERHÄLT TOOLS VIA Task(allowed_tools=[...])**
-  - Liest sein eigenes Phase-MD
-  - Führt Phase aus
-  - Gibt nur kompakte Summary zurück (max 200 Wörter)
-  - **Verhindert Context-Overflow beim Main Agent**
+### Main Agent (DU)
+- **Rolle**: Orchestration ONLY
+- **Tasks**:
+  1. Erstelle Ordner-Struktur via separate `mkdir -p` commands
+  2. Spawne 6 Sub-Agents sequenziell (`general-purpose` type)
+  3. Tracke Todos via `TodoWrite`
+  4. Sammle kompakte Summaries (je ~200 Wörter)
+- **VERBOTEN**: NIEMALS Phase-MDs lesen (würde 60k+ tokens addieren!)
 
-- **🔧 TOOL DELEGATION FIX (KRITISCH!)**:
-  - Sub-Agents erben NICHT automatisch Tools vom Slash Command
-  - **Lösung**: Tools EXPLIZIT im Prompt deklarieren: "You have access to these tools: ..."
-  - Phase 1: Braucht `mcp__dataforseo__*` für Keyword-Metriken
-  - Phase 2: Braucht `mcp__dataforseo__*` + `firecrawl` für SERP+Content
-  - Phase 3-6: Brauchen nur `Read, Write, Edit, Bash(mkdir:*)`
-  - **Warum wichtig**: Ohne Tool-Grants scheitern DataForSEO-Calls mit Permission-Errors
+### Sub-Agent (general-purpose)
+- **Rolle**: Phase-Execution
+- **Tool-Zugriff**: Automatisch geerbt via `allowed-tools` vom Command (inkl. MCP tools)
+- **Tasks pro Phase**:
+  1. Liest sein eigenes Phase-MD (z.B. `phase-1-keyword-research.md`)
+  2. Befolgt ALLE Instruktionen
+  3. Macht DataForSEO/Firecrawl API-Calls wenn nötig
+  4. Erstellt alle Deliverables
+  5. Gibt nur kompakte Summary zurück (max 200 Wörter)
+- **Vorteil**: Context wird nach jeder Phase verworfen → keine Akkumulation!
+
+### Tool-Vererbung (WICHTIG!)
+- ✅ **Sub-Agents erben automatisch** alle `allowed-tools` vom Slash Command
+- ✅ Command hat: `mcp__dataforseo__*`, `firecrawl_*` → Sub-Agents können diese nutzen
+- ❌ **Keine manuelle Tool-Deklaration nötig** im Prompt (nur zur Dokumentation)
+- ✅ `general-purpose` Agent hat `tools: *` → vollen MCP-Zugriff
+
+### Context-Budget-Vergleich
+**❌ Alte Methode**: Main Agent liest Phase-MDs
+- 6 Phasen × 10k tokens Phase-MD = 60k tokens
+- + 6 × 20k tokens Results = 120k tokens
+- **TOTAL**: ~180k tokens → OVERFLOW!
+
+**✅ Neue Methode**: Sub-Agents lesen Phase-MDs
+- 6 Phasen × 0.2k Summary = 1.2k tokens
+- Main Agent Context bleibt minimal (~2k tokens)
+- **TOTAL**: ~3k tokens → 98% Einsparung!
 
 **Los geht's mit Phase 1 Sub-Agent!**

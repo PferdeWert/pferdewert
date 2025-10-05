@@ -1,326 +1,99 @@
-# Phase 4: Content Creation
+# Phase 4: Content Creation (3-Phase Split)
 
-**Token Budget**: ~700 Tokens
-**Main Deliverables**: `article-draft.md`, E-E-A-T Integration, Fact-Checked Content
-**Agent Pattern**: Sub-Agent (content writing) + Optional Main-Agent (fact-checking)
+**Token Budget**: ~700 tokens (Phase 4A: ~200, 4B: ~400, 4C: ~100)
 
 ---
 
-## Phase 4A: Content Writing Preparation (Optional Main-Agent)
+## Phase 4A: Content-Brief Consolidation
 
-**WICHTIG**: Main-Agent ist nur für Fact-Checking notwendig, falls externe Daten benötigt werden.
+**Ziel**: Konsolidiere Phase 1-3 Outputs in ein einziges Content-Brief JSON (Single Source of Truth).
 
-### Optional Step: Fact-Checking via Firecrawl
+**Sub-Agent Task** (seo-content-writer):
+```
+TARGET: {keyword}
+OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 
-Falls der Content externe Fakten/Statistiken benötigt (z.B. Marktdaten, wissenschaftliche Studien, Gesetzestexte):
+1. Lies folgende Dateien:
+   - research/keyword-analysis.json (Phase 1 Output)
+   - research/serp-analysis.json (Phase 2 Output)
+   - planning/content-outline.json (Phase 3 Output)
 
-```xml
-<function_calls>
-<invoke name="mcp__firecrawl__firecrawl_scrape">
-<parameter name="url">https://example-veterinary-source.com/horse-health-guidelines</parameter>
-<parameter name="formats">["markdown"]</parameter>
-<parameter name="onlyMainContent">true</parameter>
-</invoke>
-</function_calls>
+2. Lies Template:
+   - SEO/SEO-PROZESS/templates/content-brief-template.json
+
+3. Konsolidiere Daten in einheitliches Content-Brief:
+   - meta: primaryKeyword, slug, createdAt, phase
+   - keyword: primary (term, searchVolume, difficulty, searchIntent), secondary[], longtail[]
+   - contentStrategy: targetWordCount (aus word_count_data), primaryKeywordDensity, tone, brandVoice
+   - outline: h1, metaTitle, metaDescription, sections[] (aus content-outline.json)
+   - contentRequirements.eeat: experienceSnippets[], expertiseCredentials[], authoritySignals[], trustElements[] (aus serp-analysis.json)
+   - contentRequirements.semanticTopics: [] (aus keyword-analysis.json supporting_keywords)
+   - contentRequirements.mandatoryElements: internalLinks.min=3, externalSources.min=2, visuals.min=1
+   - serpInsights: topCompetitors[], contentGaps[], paaQuestions[], uniqueAngles[] (aus serp-analysis.json)
+   - qualityGates: wordCount (min/target/max aus word_count_data), keywordDensity, semanticCoverage, eeatScore, internalLinks
+
+4. Erstelle Datei:
+   - planning/content-brief.json (vollständiges konsolidiertes JSON)
+
+5. Return: "Content-Brief created: {file_count} Dateien gelesen, 1 Brief erstellt"
 ```
 
-**Verwende Firecrawl nur wenn**:
-- Externe Daten-Quellen für E-E-A-T nötig (Studien, Statistiken)
-- Aktuelle Gesetzestexte/Regulierungen zitiert werden müssen
-- Expertenzitate von bekannten Branchenquellen
+### Quality Gate Phase 4A
 
-**Skip diesen Step wenn**:
-- Content basiert auf allgemeinem Fachwissen
-- Keine spezifischen externen Referenzen nötig
+✅ **content-brief.json existiert** im planning/ Ordner
+✅ **Alle Pflichtfelder befüllt** (keyword.primary, contentStrategy, outline.h1, qualityGates)
+✅ **Word Count Target gesetzt** (aus word_count_data oder Fallback 2000-3500)
+❌ **Wenn Felder fehlen** → Retry mit expliziter Aufforderung fehlende Daten zu ergänzen
 
 ---
 
-## Phase 4B: Content-Erstellung (Sub-Agent)
+## Phase 4B: Content Writing
 
-**WICHTIG**: Sub-Agent erstellt vollständigen Artikel basierend auf Phase 3 Outline.
+**Ziel**: Schreibe 2000-2500 Wörter Rank-1 Content basierend auf Content-Brief.
 
-### Sub-Agent Delegation
+**Sub-Agent Task** (seo-content-writer):
+```
+TARGET: {keyword}
+OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 
-```xml
-<function_calls>
-<invoke name="Task">
-<parameter name="description">Write SEO-optimized article from outline</parameter>
-<parameter name="subagent_type">seo-content-writer</parameter>
-<parameter name="prompt">
-Schreibe einen vollständigen SEO-optimierten Artikel basierend auf dem Content-Outline aus Phase 3.
+1. Lies Content-Brief:
+   - planning/content-brief.json (Single Source of Truth)
 
-## INPUT-DATEN:
+2. Lies Methodology Reference (für Beispiele):
+   - SEO/SEO-PROZESS/methodology/content-writing-examples.md
+   - SEO/pferdewert-brand-language.md
 
-### Aus Phase 3 (content-outline.json):
-{
-  "article_metadata": {
-    "title": "...",
-    "meta_description": "...",
-    "primary_keyword": "...",
-    "secondary_keywords": [...],
-    "word_count_data": {
-      "avg_word_count": 2150,
-      "target_word_count": 2365,
-      "word_count_range_min": 1828,
-      "word_count_range_max": 2795,
-      "word_count_strategy": "serp_competitive",
-      "word_count_fallback": 2500,
-      "word_count_distribution": {
-        "introduction": {"percentage": 0.07, "calculated_words": 165},
-        "main_sections": {"percentage": 0.72, "calculated_words": 1703},
-        "faq": {"percentage": 0.10, "calculated_words": 237},
-        "conclusion": {"percentage": 0.07, "calculated_words": 165}
-      }
-    }
-  },
-  "introduction": {...},
-  "main_sections": [...],
-  "faq_section": {...},
-  "conclusion": {...},
-  "internal_linking_opportunities": [...]
-}
+3. Schreibe vollständigen Artikel:
+   - Nutze outline.sections[] als Struktur
+   - Integriere keyword.primary, secondary, longtail natürlich
+   - Verwende contentRequirements.eeat.experienceSnippets[] für E-E-A-T Signale
+   - Beantworte serpInsights.paaQuestions[] im FAQ-Bereich
+   - Implementiere contentRequirements.mandatoryElements (min 3 interne Links, min 2 externe Quellen)
+   - Befolge contentStrategy.tone: "Du-Ansprache, vertrauensvoll, praxisorientiert"
+   - Orientiere dich an Beispielen aus content-writing-examples.md (Struktur, E-E-A-T Integration, Ton)
 
-### Aus Phase 2 (serp-analysis.json):
-{
-  "eeat_signals": {
-    "required_credentials": "equestrian_professional",
-    "case_studies_needed": 2,
-    "external_references": 3,
-    "expert_quotes": true
-  },
-  "content_gaps": {
-    "must_have_topics": [...],
-    "differentiation_opportunities": [...]
-  }
-}
+4. Erstelle Datei:
+   - content/article-draft.md (2000-2500 Wörter, Markdown-formatiert)
 
-### Optional: Fact-Checking Daten (falls Phase 4A ausgeführt):
-{
-  "external_sources": [...],
-  "verified_data_points": [...]
-}
-
-## AUFGABE:
-
-Schreibe einen vollständigen Ratgeber-Artikel für PferdeWert.de mit folgenden Anforderungen:
-
-### 1. Brand Language & Tone of Voice
-
-**Lies zuerst**: `SEO/pferdewert-brand-language.md` für exakte Tonalität-Vorgaben.
-
-**Kernprinzipien**:
-- **Du-Ansprache**: Direkt und persönlich
-- **Warmherzig aber professionell**: Fachkompetenz ohne Fachjargon
-- **Praktisch orientiert**: Konkrete Handlungsempfehlungen statt theoretischer Erklärungen
-- **Emotionale Verbindung**: Pferdeliebe und Verantwortungsbewusstsein ansprechen
-
-**Verbotene Formulierungen**:
-- ❌ "Wir empfehlen..." → ✅ "Du solltest darauf achten..."
-- ❌ "Es ist wichtig zu beachten..." → ✅ "Achte besonders darauf..."
-- ❌ "Man sollte..." → ✅ "Du kannst... / Du solltest..."
-
-### 2. Artikel-Struktur (Exakt nach Outline)
-
-#### Einleitung (150-200 Wörter)
-- **Hook**: Stelle eine relevante Frage oder beschreibe ein häufiges Problem
-- **Primary Keyword**: Natürlich in den ersten 100 Wörtern integriert
-- **User Intent**: Klar kommunizieren was der Leser lernen wird
-- **Emotional Connection**: Pferdeliebe und Verantwortung ansprechen
-
-Beispiel-Hook:
-> "Du träumst schon lange von einem eigenen Pferd, aber beim Gedanken an den Kauf fühlst du dich unsicher? Keine Sorge – mit der richtigen Vorbereitung wird der Pferdekauf zu einem aufregenden Erlebnis statt einer Stressprobe."
-
-#### Hauptsektionen (5-8 Sektionen)
-
-Für **jede Sektion aus dem Outline** (main_sections array):
-
-**Heading**: Verwende exakt den H2/H3 aus dem Outline
-**Wortanzahl**: Halte dich an die target word_count pro Sektion (±10%)
-**Content-Type umsetzen**:
-- `explanation`: Erkläre Konzepte mit Beispielen
-- `tutorial`: Schritt-für-Schritt-Anleitungen mit nummerierten Listen
-- `comparison`: Vor-/Nachteile-Tabellen oder Vergleiche
-- `checklist`: Bullet-Point-Listen zum Abhaken
-- `case_study`: Echte oder realistische Praxis-Beispiele
-
-**Keyword-Integration**:
-- Primary Keyword: 2-3 Mal pro Sektion (natürlich eingebunden)
-- Supporting Keywords: 1-2 Mal pro Sektion
-- **KRITISCH**: Keine Keyword-Stuffing! Nur natürliche Verwendung.
-
-**E-E-A-T Signal-Integration**:
-Je nach `eeat_signals` aus Outline:
-- `personal_experience`: "In meiner 15-jährigen Erfahrung als Pferdetrainerin habe ich gesehen..."
-- `expert_quote`: "Dr. Sarah Müller, Tierärztin und Expertin für Pferdekauf, empfiehlt..."
-- `data_reference`: "Laut einer Studie des Deutschen Reitsportverbands 2024..."
-- `case_study`: "Ein Beispiel aus der Praxis: Anna kaufte 2023 ihr erstes Pferd und..."
-- `credentials`: "Als zertifizierte Reitlehrerin mit FN-Trainerlizenz kann ich dir versichern..."
-
-**Visual Elements umsetzen**:
-Falls `visual_elements` im Outline enthält:
-- `comparison_table`: Erstelle Markdown-Tabelle
-- `checklist`: Erstelle Bullet-Point-Liste mit Checkboxen
-- `step_by_step`: Erstelle nummerierte Liste mit klaren Schritten
-- `pros_cons`: Erstelle Pro/Contra-Auflistung
-
-Beispiel Markdown-Tabelle:
-```markdown
-| Kriterium | Worauf achten? | Warnsignale |
-|-----------|----------------|-------------|
-| Augen | Klar und wach | Tränen, Ausfluss |
-| Fell | Glänzend | Stumpf, Parasitenbefall |
+5. OUTPUT FORMAT (Summary für Main-Agent):
+   Return kompakte Summary:
+   - Word Count: {actual_count}
+   - Primary Keyword Density: {density}%
+   - E-E-A-T Signals: {count}
+   - Internal Links: {count}
+   - FAQ Questions: {count}
+   - File: content/article-draft.md
 ```
 
-#### FAQ-Sektion (200-300 Wörter)
-
-Verwende `faq_section` aus Outline und beantworte jede Frage:
-
-**Format**:
-```markdown
-## Häufig gestellte Fragen zum Pferdekauf
-
-### Was kostet ein gesundes Pferd?
-
-Die Kosten variieren stark je nach Rasse, Ausbildungsstand und Alter...
-```
-
-**Antwort-Länge**: 50-100 Wörter pro Frage
-**Keyword-Integration**: PAA-basierte Fragen enthalten natürlich relevante Keywords
-**Stil**: Direkte Antworten, keine Umschweife
-
-#### Zusammenfassung/Fazit (150-200 Wörter)
-
-- **Key Takeaways**: 3-5 wichtigste Punkte als Bullet-List
-- **Call-to-Action**: Verwende PferdeWert.de-Dienste (falls commercial intent)
-- **Ermutigung**: Positive, motivierende Abschluss-Botschaft
-
-Beispiel CTA:
-> "Du bist bereit für den Pferdekauf, aber möchtest vorher wissen, was dein Traumpferd wert ist? Mit der AI-gestützten Pferdebewertung von PferdeWert.de erhältst du eine präzise Einschätzung des Marktwerts – damit du beim Kauf auf der sicheren Seite bist."
-
-### 3. Interne Verlinkung
-
-Verwende `internal_linking_opportunities` aus Outline:
-
-**Format**: Kontextuelle Links im Fließtext
-```markdown
-Wenn du mehr über [Pferdehaltung und laufende Kosten](/ratgeber/pferdehaltung-kosten) erfahren möchtest, lies unseren detaillierten Guide.
-```
-
-**Regeln**:
-- Min 3 interne Links pro Artikel
-- Nur Links zu tatsächlich existierenden Ratgeber-Seiten
-- Anchor-Text natürlich (kein "Klicke hier")
-- Relevanter Kontext (nicht forciert)
-
-### 4. Keyword-Dichte-Management
-
-**Target Keyword Density**:
-- Primary Keyword: 0.8-1.2% des Gesamt-Contents
-- Supporting Keywords: 0.3-0.6% des Gesamt-Contents
-
-**Berechnung**:
-- Bei 2500 Wörtern: Primary Keyword = 20-30 Mal erwähnen
-- Supporting Keywords: 8-15 Mal pro Keyword
-
-**KRITISCH**: Natürliche Integration! Lieber 0.7% natürlich als 1.2% forciert.
-
-### 5. Content-Qualität
-
-**Must-Have Eigenschaften**:
-- ✅ **Actionable**: Jede Sektion gibt konkrete Handlungsempfehlungen
-- ✅ **Comprehensive**: Alle Must-Have Topics aus Phase 2 abgedeckt
-- ✅ **Unique Angles**: Differenzierungs-Chancen aus Phase 2 genutzt
-- ✅ **Well-Structured**: Klare H2/H3-Hierarchie, gute Lesbarkeit
-- ✅ **E-E-A-T Signals**: Min 3 Expertise-Signale pro Artikel
-- ✅ **Fehlerfreiheit**: Korrekte Grammatik, Rechtschreibung, Interpunktion
-
-**Vermeide**:
-- ❌ Generische Aussagen ohne praktischen Nutzen
-- ❌ Zu komplexer Fachjargon ohne Erklärung
-- ❌ Lange Schachtelsätze (max 20 Wörter pro Satz)
-- ❌ Passive Formulierungen ("Es wird empfohlen..." → "Achte darauf...")
-- ❌ Keyword-Stuffing
-
-## OUTPUT FORMAT (Markdown):
-
-Erstelle eine vollständige Markdown-Datei mit:
-
-```markdown
-# {Article Title aus Outline}
-
-*Letzte Aktualisierung: {Aktuelles Datum}*
-
-## Einleitung
-
-{150-200 Wörter Einleitungstext mit Hook, Primary Keyword, Intent-Statement}
-
-## {H2 Sektion 1 Heading}
-
-{Content für Sektion 1...}
-
-### {H3 Subsektion 1.1 Heading}
-
-{Content...}
-
-### {H3 Subsektion 1.2 Heading}
-
-{Content...}
-
-## {H2 Sektion 2 Heading}
-
-{Content für Sektion 2...}
-
-...
-
-## Häufig gestellte Fragen zum {Topic}
-
-### {FAQ Frage 1}
-
-{Antwort 1...}
-
-### {FAQ Frage 2}
-
-{Antwort 2...}
-
-...
-
-## Fazit: {Catchy Conclusion Title}
-
-**Das Wichtigste in Kürze:**
-- {Key Takeaway 1}
-- {Key Takeaway 2}
-- {Key Takeaway 3}
-
-{Abschluss-Paragraph mit CTA...}
-
----
-
-*Artikel-Statistiken*:
-- Wortanzahl: {Actual Word Count}
-- Lesedauer: {Geschätzte Minuten}
-- Primary Keyword Density: {Calculated %}
-```
-
-**KRITISCH**:
-- Verwende NUR die Daten aus Phase 3 Outline für Struktur
-- Integriere E-E-A-T Signale aus Phase 2 wo definiert
-- Halte dich an PferdeWert.de Brand Language (lies Brand-Language-Datei!)
-- Markdown-Formatierung sauber (keine HTML-Tags)
-- Alle Fakten müssen korrekt sein (nutze Fact-Checking-Daten falls vorhanden)
-</parameter>
-</invoke>
-</function_calls>
-```
-
----
+**IMPORTANT**: Sub-Agent soll content-writing-examples.md **referenzieren**, NICHT im Prompt wiederholen!
 
 ### Quality Gate Phase 4B
 
 Prüfe ob Sub-Agent vollständigen Artikel geliefert hat:
 
 ✅ **Target Word Count im SERP-competitive Range**:
-   - **Warning**: < `word_count_range_min` (aus word_count_data in content-outline.json)
-   - **Failure**: < (`word_count_range_min` × 0.90) OR > `word_count_range_max`
+   - **Warning**: &lt; `word_count_range_min` (aus word_count_data in content-brief.json)
+   - **Failure**: &lt; (`word_count_range_min` × 0.90) OR &gt; `word_count_range_max`
    - **Target Range**: `word_count_range_min` - `word_count_range_max`
    - **Fallback**: 2000-3500 wenn word_count_strategy = "fallback"
 ✅ **Alle Hauptsektionen aus Outline umgesetzt** (5-8 Sektionen)
@@ -330,172 +103,122 @@ Prüfe ob Sub-Agent vollständigen Artikel geliefert hat:
 ✅ **FAQ mit min 5 PAA-basierten Fragen**
 ✅ **Brand Language konsistent** (Du-Ansprache, warmherzig, praktisch)
 ✅ **Markdown-Formatierung sauber** (korrekte Heading-Hierarchie)
-❌ **Wenn < 2000 Wörter** → Retry mit expliziter Aufforderung mehr Content zu erstellen
+❌ **Wenn &lt; 2000 Wörter** → Retry mit expliziter Aufforderung mehr Content zu erstellen
 ❌ **Wenn Keyword-Stuffing erkennbar** → Retry mit natürlicherer Integration
 
 **Partial Success**: Wenn Word Count bei 1800 statt 2000 → proceed mit Warning.
 
 ---
 
-## Output Files
+## Phase 4C: Quality Validation
 
-Speichere Ergebnis in `SEO/SEO-CONTENT/{keyword-slug}/content/`:
+**Ziel**: Validiere Lesbarkeit, E-E-A-T Score, Keyword-Dichte.
 
-### 1. `article-draft.md`
-```markdown
-# Pferd kaufen: Worauf achten? Der ultimative Kaufratgeber 2025
+**Sub-Agent Task** (seo-content-writer):
+```
+TARGET: {keyword}
+OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 
-*Letzte Aktualisierung: 2025-01-04*
+1. Lies Artikel:
+   - content/article-draft.md
 
-## Einleitung
+2. Lies Content-Brief (für Validation Gates):
+   - planning/content-brief.json
 
-Du träumst schon lange von einem eigenen Pferd...
+3. Validiere:
+   - Word Count (min/target/max aus qualityGates.wordCount)
+   - Primary Keyword Density (min 0.008, target 0.01, max 0.012)
+   - E-E-A-T Score (min 7/10):
+     * Experience Signals (min 2)
+     * Expertise Credentials (min 1)
+     * Authority Backlinks/Citations (min 2)
+     * Trust Elements (Quellen, Transparenz) (min 2)
+   - Internal Links (min 3, target 5)
+   - Semantic Coverage (min 8 supporting keywords natürlich integriert)
+   - Readability (Flesch-Reading-Ease &gt; 60 für Deutsch)
 
-[Vollständiger Artikel-Content]
+4. Erstelle Validation Report:
+   - quality/quality-report.json (JSON mit allen Metriken + Pass/Fail Status)
+
+5. Return: "Quality Report: {pass_count}/{total_checks} passed, E-E-A-T Score: {score}/10"
+```
+
+### Quality Gate Phase 4C
+
+✅ **quality-report.json existiert** im quality/ Ordner
+✅ **E-E-A-T Score ≥ 7/10**
+✅ **Word Count im Target Range**
+✅ **Primary Keyword Density 0.8-1.2%**
+✅ **Min 8 semantische Topics abgedeckt**
+❌ **Wenn E-E-A-T Score &lt; 7** → Retry Phase 4B mit expliziter E-E-A-T Verstärkung
+❌ **Wenn Readability &lt; 60** → Retry mit Aufforderung kürzere Sätze/einfachere Sprache
+
+**Partial Success**: Wenn 1-2 Checks failed aber E-E-A-T Score ≥ 7 → proceed mit Warning.
 
 ---
 
-*Artikel-Statistiken*:
-- Wortanzahl: 2487
-- Lesedauer: 12 Minuten
-- Primary Keyword Density: 1.1%
-```
+## File Dependencies (Phase 4)
 
-### 2. `content-metadata.json` (Optional)
-Metadata für Tracking und Quality-Check:
-```json
-{
-  "phase": "4B",
-  "primary_keyword": "pferd kaufen worauf achten",
-  "timestamp": "2025-01-04T15:30:00Z",
-  "stats": {
-    "word_count": 2487,
-    "primary_keyword_count": 27,
-    "primary_keyword_density": 1.1,
-    "supporting_keywords_count": 42,
-    "eeat_signals_count": 5,
-    "internal_links_count": 4,
-    "faq_questions_count": 6,
-    "sections_count": 7
-  },
-  "quality_gates_passed": {
-    "word_count_target": true,
-    "keyword_density": true,
-    "eeat_signals": true,
-    "internal_links": true,
-    "faq_section": true,
-    "brand_language": true
-  }
-}
-```
+**Input** (gelesen von Sub-Agents):
+- `research/keyword-analysis.json` (Phase 1)
+- `research/serp-analysis.json` (Phase 2)
+- `planning/content-outline.json` (Phase 3)
+- `SEO/SEO-PROZESS/templates/content-brief-template.json` (Template)
+- `SEO/SEO-PROZESS/methodology/content-writing-examples.md` (Referenz)
+- `SEO/pferdewert-brand-language.md` (Referenz)
+
+**Output** (erstellt von Sub-Agents):
+- Phase 4A: `planning/content-brief.json` (konsolidiert)
+- Phase 4B: `content/article-draft.md` (2000-2500 Wörter)
+- Phase 4C: `quality/quality-report.json` (Validation Report)
 
 ---
 
-## Troubleshooting
+## Main-Agent Delegation Pattern
 
-### Problem: Content zu generisch/oberflächlich
-**Lösung**:
-- Prüfe ob E-E-A-T Signals aus Phase 2 im Prompt enthalten waren
-- Retry mit expliziter Aufforderung: "Verwende konkrete Praxis-Beispiele"
-- Stelle sicher dass Content-Type pro Sektion klar definiert ist (tutorial vs. explanation)
-
-### Problem: Keyword-Density zu hoch (> 1.5%)
-**Lösung**:
-- Retry mit: "Reduziere Keyword-Verwendung, fokussiere auf natürliche Sprache"
-- Prüfe ob Supporting Keywords statt Primary Keyword verwendet werden können
-- Verwende Synonyme und natürliche Variationen
-
-### Problem: Artikel zu kurz (< 2000 Wörter)
-**Lösung**:
-- Prüfe ob alle Subsections aus Outline umgesetzt wurden
-- Retry mit: "Erweitere jede Subsektion auf min 200 Wörter"
-- Füge mehr Beispiele und Praxis-Tipps hinzu
-
-### Problem: Brand Language nicht konsistent
-**Lösung**:
-- Stelle sicher dass `SEO/pferdewert-brand-language.md` im Prompt referenziert ist
-- Retry mit expliziten Beispielen: "Verwende 'Du' statt 'Sie', 'Dein Pferd' statt 'das Pferd'"
-- Prüfe auf verbotene Formulierungen ("Wir empfehlen..." statt "Du solltest...")
-
-### Problem: Fact-Checking-Daten nicht verfügbar
-**Lösung**:
-- Proceed ohne Firecrawl-Daten (Phase 4A skip)
-- Verwende allgemein bekannte Fakten und Best Practices
-- Markiere Stellen wo externe Referenzen später hinzugefügt werden können
-
-### Problem: Interne Links zu nicht-existierenden Seiten
-**Lösung**:
-- Prüfe welche Ratgeber-Seiten tatsächlich existieren (über sitemap oder Dateistruktur)
-- Verwende nur Links zu existierenden Seiten
-- Falls keine passenden Seiten existieren → erstelle generische Links für späteren Aufbau
-
----
-
-## Best Practices
-
-### E-E-A-T Signal-Integration Beispiele
-
-**Experience (Persönliche Erfahrung)**:
-```markdown
-Als ich vor 10 Jahren mein erstes Pferd kaufte, machte ich einen entscheidenden Fehler: Ich verzichtete auf den Gesundheitscheck durch einen unabhängigen Tierarzt. Das kostete mich später tausende Euro in Behandlungskosten.
 ```
+# Phase 4A: Content-Brief Consolidation
+&lt;invoke name="Task"&gt;
+&lt;parameter name="subagent_type"&gt;seo-content-writer&lt;/parameter&gt;
+&lt;parameter name="prompt"&gt;
+TARGET: {keyword}
+OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 
-**Expertise (Fachliche Kompetenz)**:
-```markdown
-Dr. Laura Schmidt, Fachtierärztin für Pferde mit 20 Jahren Erfahrung, erklärt: "Die Ankaufsuntersuchung sollte immer eine Röntgenaufnahme der Gliedmaßen beinhalten, besonders bei Sportpferden."
-```
+Lies: SEO/SEO-PROZESS/orchestration/phase-4-content.md
+Befolge: Phase 4A Instruktionen (Content-Brief Consolidation)
+Return: Kompakte Summary (max 100 Wörter)
+&lt;/parameter&gt;
+&lt;/invoke&gt;
 
-**Authoritativeness (Quellenangabe)**:
-```markdown
-Laut dem Deutschen Olympiade-Komitee für Reiterei (DOKR) liegt der durchschnittliche Kaufpreis für ein gut ausgebildetes Dressurpferd zwischen 15.000 und 40.000 Euro (Stand 2024).
-```
+# Phase 4B: Content Writing
+&lt;invoke name="Task"&gt;
+&lt;parameter name="subagent_type"&gt;seo-content-writer&lt;/parameter&gt;
+&lt;parameter name="prompt"&gt;
+TARGET: {keyword}
+OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 
-**Trustworthiness (Transparenz)**:
-```markdown
-Wichtig: Dieser Artikel ersetzt keine individuelle Beratung durch einen Tierarzt oder Fachmann vor Ort. Bei gesundheitlichen Fragen zu deinem Pferd konsultiere immer einen qualifizierten Veterinär.
-```
+Lies: SEO/SEO-PROZESS/orchestration/phase-4-content.md
+Befolge: Phase 4B Instruktionen (Content Writing)
+Return: Kompakte Summary (max 150 Wörter) mit Word Count + Metriken
+&lt;/parameter&gt;
+&lt;/invoke&gt;
 
-### Keyword-Integration Beispiele
+# Phase 4C: Quality Validation
+&lt;invoke name="Task"&gt;
+&lt;parameter name="subagent_type"&gt;seo-content-writer&lt;/parameter&gt;
+&lt;parameter name="prompt"&gt;
+TARGET: {keyword}
+OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 
-**Natürlich (✅)**:
-```markdown
-Bevor du ein Pferd kaufst, solltest du dir über die laufenden Kosten im Klaren sein. Die Entscheidung, ein Pferd zu kaufen, ist nicht nur emotional, sondern auch finanziell weitreichend.
-```
-
-**Forciert (❌)**:
-```markdown
-Wenn du ein Pferd kaufen möchtest, musst du beim Pferd kaufen auf viele Dinge achten. Der Pferdekauf erfordert beim Pferd kaufen besondere Sorgfalt.
-```
-
-### Interne Verlinkung Best Practices
-
-**Kontextuell (✅)**:
-```markdown
-Die laufenden Kosten für ein Pferd belaufen sich auf 300-800 Euro monatlich. Mehr Details zu den verschiedenen Kostenpunkten findest du in unserem [detaillierten Ratgeber zur Pferdehaltung](/ratgeber/pferdehaltung-kosten).
-```
-
-**Forciert (❌)**:
-```markdown
-Pferde kosten Geld. [Klicke hier](/ratgeber/kosten) für mehr Infos. Lies auch unseren [Artikel über Versicherungen](/ratgeber/versicherung).
+Lies: SEO/SEO-PROZESS/orchestration/phase-4-content.md
+Befolge: Phase 4C Instruktionen (Quality Validation)
+Return: Kompakte Summary (max 100 Wörter) mit E-E-A-T Score
+&lt;/parameter&gt;
+&lt;/invoke&gt;
 ```
 
 ---
 
-## Next Phase
-
-Nach erfolgreichem Abschluss von Phase 4:
-→ **Phase 5: On-Page SEO** (`phase-5-onpage-seo.md`)
-
-Verwende `article-draft.md` aus Phase 4B als Input für Phase 5.
-
----
-
-**Phase 4 Checklist**:
-- [ ] Optional Step: Fact-Checking via Firecrawl ausgeführt (wenn benötigt)
-- [ ] Sub-Agent Delegation für Content-Erstellung
-- [ ] Brand Language Guide referenziert im Prompt
-- [ ] Quality Gate 4B: Min 2000 Wörter erreicht
-- [ ] Quality Gate 4B: Keyword Density 0.8-1.2%
-- [ ] Quality Gate 4B: Min 3 E-E-A-T Signale integriert
-- [ ] Output Files gespeichert in `content/` Ordner
-- [ ] Ready für Phase 5: Vollständiger Artikel-Draft vorhanden
+**Version**: 2.0 (2025-01-04)
+**Changes**: Split into 3-Phase Structure, Content-Brief Consolidation, External Reference Pattern
+**Token Budget**: ~700 (68% reduction from ~2200)
