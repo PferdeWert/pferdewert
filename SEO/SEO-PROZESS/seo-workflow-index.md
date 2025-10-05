@@ -14,11 +14,14 @@ Dieser Ordner enthält die **modular-hierarchische SEO-Prozess-Dokumentation** f
 SEO-PROZESS/
 ├── seo-workflow-index.md          ← Du bist hier (Navigation Hub)
 ├── orchestration/                 ← Executable Workflows (Phase 1-6)
-│   ├── phase-1-keyword-research.md
+│   ├── phase-1a-data-collection.md
+│   ├── phase-1b-keyword-analysis.md
 │   ├── phase-2-serp-analysis.md
 │   ├── phase-3-outline.md
 │   ├── phase-4-content.md
-│   ├── phase-5-onpage-seo.md
+│   ├── phase-5a-metadata.md          ← Modular Phase 5A
+│   ├── phase-5b-schema-markup.md     ← Modular Phase 5B
+│   ├── phase-5c-internal-linking.md  ← Modular Phase 5C
 │   └── phase-6-quality-check.md
 └── methodology/                   ← Reference Documentation
     ├── eeat-signals.md
@@ -60,14 +63,18 @@ Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion 
 
 | Phase | File | Haupt-Tasks | Output | Tokens |
 |-------|------|-------------|--------|--------|
-| **1** | `phase-1-keyword-research.md` | Related Keywords, Keyword Ideas, Overview | `keyword-analysis.json`, Top 20 Keywords | ~500 |
+| **1A** | `phase-1a-data-collection.md` | API Data Collection (3 parallel calls) | `raw-api-data.json` | ~610 |
+| **1B** | `phase-1b-keyword-analysis.md` | Scoring, Clustering, Top 20 Selection | `keyword-analysis.json`, Top 20 Keywords | ~200 |
+| **QC** | `phase-1-quality-check.md` | Validate Phase 1A+1B, Auto-Retry on Fail | `phase-1-quality-report.json` | ~300 |
 | **2** | `phase-2-serp-analysis.md` | SERP Data, PAA Expansion, Competitor Analysis | `serp-analysis.json`, Content Gaps | ~600 |
 | **3** | `phase-3-outline.md` | Content Cluster, Outline Creation, H2/H3 Structure | `content-outline.json`, Article Structure | ~700 |
 | **4** | `phase-4-content.md` | Content Writing, E-E-A-T Integration, Fact-Checking | `article-draft.md`, 2000-2500 Wörter | ~700 |
-| **5** | `phase-5-onpage-seo.md` | Metadata, Schema Markup, Internal Linking | `seo-metadata.json`, Schema JSONs | ~400 |
+| **5A** | `phase-5a-metadata.md` | Title, Description, OG Tags, Twitter Cards, Canonical | `seo-metadata.json` | ~150 |
+| **5B** | `phase-5b-schema-markup.md` | Article, FAQ, HowTo, Breadcrumb Schema | Schema JSONs | ~200 |
+| **5C** | `phase-5c-internal-linking.md` | Sitemap Analysis, Relevance Scoring, Link Placement | `internal-linking.json` | ~200 |
 | **6** | `phase-6-quality-check.md` | Quality Validation, Readability Check, Final Review | `quality-report.json`, Publication-Ready | ~400 |
 
-**Total Token Budget**: ~3300 Tokens (vs. 7-8k im alten Monolith-System)
+**Total Token Budget**: ~3760 Tokens (vs. 7-8k im alten Monolith-System)
 
 ---
 
@@ -96,19 +103,57 @@ Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion 
 ### Delegation-Pattern
 
 ```xml
-<!-- Main Agent spawnt Sub-Agent für Phase 1 -->
+<!-- Main Agent spawnt Sub-Agent für Phase 1A -->
 <invoke name="Task">
 <parameter name="subagent_type">seo-content-writer</parameter>
 <parameter name="prompt">
-SEO PHASE 1: KEYWORD RESEARCH
+SEO PHASE 1A: DATA COLLECTION
 
 TARGET: 'pferd kaufen worauf achten'
 OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
 
-1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
+1. Lies: SEO/SEO-PROZESS/orchestration/phase-1a-data-collection.md
 2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
 3. Erstelle alle geforderten Deliverables
-4. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
+4. Return: Kompakte Summary (max 150 Wörter) + Liste der erstellten Dateien
+</parameter>
+</invoke>
+
+<!-- Main Agent spawnt neuen Sub-Agent für Phase 1B (frischer Context!) -->
+<invoke name="Task">
+<parameter name="subagent_type">seo-content-writer</parameter>
+<parameter name="prompt">
+SEO PHASE 1B: KEYWORD ANALYSIS
+
+TARGET: 'pferd kaufen worauf achten'
+OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
+
+1. Lies: SEO/SEO-PROZESS/orchestration/phase-1b-keyword-analysis.md
+2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. executeCode für Scoring!)
+3. Nutze Ergebnisse aus Phase 1A (raw-api-data.json im Output-Ordner)
+4. Return: Kompakte Summary (max 150 Wörter) + Liste der erstellten Dateien
+</parameter>
+</invoke>
+
+<!-- Main Agent spawnt Quality-Check-Agent nach Phase 1B -->
+<invoke name="Task">
+<parameter name="subagent_type">seo-quality-checker</parameter>
+<parameter name="prompt">
+QUALITY CHECK: Phase 1A+1B
+
+TARGET: 'pferd kaufen worauf achten'
+OUTPUT_DIR: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
+
+1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-quality-check.md
+2. Validiere Phase 1A Output (raw-api-data.json)
+3. Validiere Phase 1B Output (keyword-analysis.json)
+4. Entscheide automatisch: PASSED | RETRY_1A | RETRY_1B | ABORT
+5. Return: Kompakte Summary (max 200 Wörter) + next_action
+
+WICHTIG:
+- KEINE User-Prompts für Retry-Entscheidungen!
+- Max 2 Retries pro Phase
+- Bei RETRY → Gib adjusted_params zurück (Main Agent spawnt dann retry Sub-Agent)
 </parameter>
 </invoke>
 
@@ -123,7 +168,7 @@ OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
 
 1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
 2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
-3. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
+3. Nutze Ergebnisse aus Phase 1A+1B (im Output-Ordner)
 4. Return: Kompakte Summary + Liste der erstellten Dateien
 </parameter>
 </invoke>
@@ -142,13 +187,16 @@ Phase 3 Result: 20k tokens  } = 90k ❌ OVERFLOW!
 
 **✅ Neue Methode (Sub-Agents lesen Phase-MDs)**:
 ```
-Phase 1 Summary: 0.2k tokens
-Phase 2 Summary: 0.2k tokens
-Phase 3 Summary: 0.2k tokens
-Phase 4 Summary: 0.2k tokens
-Phase 5 Summary: 0.2k tokens
-Phase 6 Summary: 0.2k tokens
-TOTAL:           1.2k tokens ✅ Context-Safe!
+Phase 1A Summary: 0.15k tokens
+Phase 1B Summary: 0.15k tokens
+Phase 2 Summary:  0.2k tokens
+Phase 3 Summary:  0.2k tokens
+Phase 4 Summary:  0.2k tokens
+Phase 5A Summary: 0.15k tokens
+Phase 5B Summary: 0.2k tokens
+Phase 5C Summary: 0.2k tokens
+Phase 6 Summary:  0.2k tokens
+TOTAL:            1.65k tokens ✅ Context-Safe!
 ```
 
 **Einsparung**: ~85k tokens (98% Reduktion!)
@@ -197,7 +245,10 @@ Jeder Workflow erstellt folgende Dateien in `SEO/SEO-CONTENT/{keyword-slug}/`:
 ```
 {keyword-slug}/
 ├── research/
-│   ├── keyword-analysis.json          # Phase 1 Output
+│   ├── raw-api-data.json              # Phase 1A Output
+│   ├── phase-1a-summary.md            # Phase 1A Summary
+│   ├── keyword-analysis.json          # Phase 1B Output
+│   ├── phase-1b-summary.md            # Phase 1B Summary
 │   ├── serp-analysis.json             # Phase 2 Output
 │   └── competitor-content-gaps.json   # Phase 2 Output
 ├── planning/
@@ -216,7 +267,7 @@ Jeder Workflow erstellt folgende Dateien in `SEO/SEO-CONTENT/{keyword-slug}/`:
     └── eeat-score.json                # Phase 6 Output
 ```
 
-**Total Deliverables**: 15+ strukturierte Dateien pro Keyword
+**Total Deliverables**: 17+ strukturierte Dateien pro Keyword
 
 ---
 
@@ -226,22 +277,29 @@ Jeder Workflow erstellt folgende Dateien in `SEO/SEO-CONTENT/{keyword-slug}/`:
 ### Standard-Ablauf (sequenziell)
 ```bash
 /seo {keyword}
-# → Lädt Phase 1 → Ausführung → Phase 2 → ... → Phase 6
+# → Lädt Phase 1A → Ausführung → Phase 1B → Phase 2 → ... → Phase 6
 ```
 
 ### Einzelne Phase ausführen (Ad-hoc)
 ```bash
-# Main-Agent liest nur die benötigte Phase
-Read SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
+# Main-Agent spawnt Sub-Agent für einzelne Phase
+Task: SEO PHASE 2 - SERP ANALYSIS
 # → Führt nur SERP-Analyse aus
+
+# Oder für einzelne Sub-Phase von Phase 5
+Task: SEO PHASE 5A - METADATA OPTIMIZATION
+# → Führt nur Metadata-Optimierung aus
 ```
 
 ### Phase wiederholen (Retry)
 ```bash
-# Wenn Quality Gate failed in Phase 1
-Read SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
-# → Retry mit anderen API-Parametern (time_period, limit)
-# → Aber immer zum gleichen Ziel-Keyword
+# Wenn Quality Gate failed in Phase 1A
+Task: SEO PHASE 1A - DATA COLLECTION (RETRY)
+# → Retry mit anderen API-Parametern (depth, limit)
+
+# Wenn Quality Gate failed in Phase 5B
+Task: SEO PHASE 5B - SCHEMA MARKUP (RETRY)
+# → Retry Schema-Generierung mit angepassten Parametern
 ```
 
 ---
