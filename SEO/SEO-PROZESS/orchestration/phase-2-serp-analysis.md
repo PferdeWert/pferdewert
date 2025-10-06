@@ -43,17 +43,15 @@ Führe die vollständige SERP-Analyse für das Target-Keyword aus Phase 1 durch.
 
 ### Step 1: SERP Organic Results (API Call 1)
 
-Hole Top 30 organische SERP-Ergebnisse.
+Hole Top 30 organische SERP-Ergebnisse mit dem DataForSEO MCP Tool:
 
-```xml
-<invoke name="mcp__dataforseo__serp_organic_live_advanced">
-<parameter name="keyword">{PRIMARY_KEYWORD}</parameter>
-<parameter name="location_name">Germany</parameter>
-<parameter name="language_code">de</parameter>
-<parameter name="depth">30</parameter>
-<parameter name="device">desktop</parameter>
-</invoke>
-```
+**Tool**: `mcp__dataforseo__serp_organic_live_advanced`
+**Parameters**:
+- keyword: {PRIMARY_KEYWORD}
+- location_name: "Germany"
+- language_code: "de"
+- depth: 30
+- device: "desktop"
 
 **Sofort nach Response extrahieren:**
 - Top 10 URLs (rank 1-10): Full data (url, title, description, domain, rank_group)
@@ -77,18 +75,16 @@ Hole Top 30 organische SERP-Ergebnisse.
 
 ### Step 2: People Also Ask Deep Expansion (API Call 2)
 
-Hole PAA-Daten mit 2-Level Click Depth.
+Hole PAA-Daten mit 2-Level Click Depth mit dem DataForSEO MCP Tool:
 
-```xml
-<invoke name="mcp__dataforseo__serp_organic_live_advanced">
-<parameter name="keyword">{PRIMARY_KEYWORD}</parameter>
-<parameter name="location_name">Germany</parameter>
-<parameter name="language_code">de</parameter>
-<parameter name="depth">5</parameter>
-<parameter name="people_also_ask_click_depth">2</parameter>
-<parameter name="device">desktop</parameter>
-</invoke>
-```
+**Tool**: `mcp__dataforseo__serp_organic_live_advanced`
+**Parameters**:
+- keyword: {PRIMARY_KEYWORD}
+- location_name: "Germany"
+- language_code: "de"
+- depth: 5
+- people_also_ask_click_depth: 2
+- device: "desktop"
 
 **KRITISCH**:
 - `depth=5` → Wir brauchen nur PAA, nicht SERP Results (spart 50% Response Size!)
@@ -122,14 +118,12 @@ Hole PAA-Daten mit 2-Level Click Depth.
 
 ### Step 3: Search Intent Analysis (API Call 3)
 
-Klassifiziere Search Intent für content strategy alignment.
+Klassifiziere Search Intent für content strategy alignment mit dem DataForSEO MCP Tool:
 
-```xml
-<invoke name="mcp__dataforseo__dataforseo_labs_search_intent">
-<parameter name="keywords">["{ PRIMARY_KEYWORD}"]</parameter>
-<parameter name="language_code">de</parameter>
-</invoke>
-```
+**Tool**: `mcp__dataforseo__dataforseo_labs_search_intent`
+**Parameters**:
+- keywords: ["{PRIMARY_KEYWORD}"]
+- language_code: "de"
 
 **Erwarteter Output:**
 ```json
@@ -153,14 +147,13 @@ Klassifiziere Search Intent für content strategy alignment.
 
 ### Step 4: On-Page Content Parsing (API Calls 4-6, OPTIONAL but recommended)
 
-Scrape die tatsächliche Content-Struktur der Top 3 URLs für echte Content-Gap-Analyse.
+Scrape die tatsächliche Content-Struktur der Top 3 URLs für echte Content-Gap-Analyse mit dem DataForSEO MCP Tool.
 
 **Für jede der Top 3 URLs:**
-```xml
-<invoke name="mcp__dataforseo__on_page_content_parsing">
-<parameter name="url">{TOP_RANKING_URL}</parameter>
-</invoke>
-```
+
+**Tool**: `mcp__dataforseo__on_page_content_parsing`
+**Parameters**:
+- url: {TOP_RANKING_URL}
 
 **Sofort nach Response extrahieren:**
 - H2/H3 Heading-Struktur (Titel + Hierarchie)

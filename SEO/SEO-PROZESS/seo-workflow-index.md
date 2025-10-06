@@ -63,9 +63,9 @@ Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion 
 
 | Phase | File | Haupt-Tasks | Output | Tokens |
 |-------|------|-------------|--------|--------|
-| **1A** | `phase-1a-data-collection.md` | API Data Collection (3 parallel calls) | `raw-api-data.json` | ~610 |
-| **1B** | `phase-1b-keyword-analysis.md` | Scoring, Clustering, Top 20 Selection | `keyword-analysis.json`, Top 20 Keywords | ~200 |
-| **QC** | `phase-1-quality-check.md` | Validate Phase 1A+1B, Auto-Retry on Fail | `phase-1-quality-report.json` | ~300 |
+| **1A** | `phase-1a-data-collection.md` (102 lines) | API Data Collection (3 parallel calls) | `raw-api-data.json` | ~500 |
+| **1B** | `phase-1b-keyword-analysis.md` (170 lines) | Scoring, Clustering, Top 20 Selection | `keyword-analysis.json`, Top 20 Keywords | ~200 |
+| **QC** | `phase-1-quality-check.md` (165 lines) | Validate Phase 1A+1B, Auto-Retry on Fail | `phase-1-quality-report.json` | ~300 |
 | **2** | `phase-2-serp-analysis.md` | SERP Data, PAA Expansion, Competitor Analysis | `serp-analysis.json`, Content Gaps | ~600 |
 | **3** | `phase-3-outline.md` | Content Cluster, Outline Creation, H2/H3 Structure | `content-outline.json`, Article Structure | ~700 |
 | **4** | `phase-4-content.md` | Content Writing, E-E-A-T Integration, Fact-Checking | `article-draft.md`, 2000-2500 Wörter | ~700 |
@@ -109,13 +109,15 @@ Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion 
 <parameter name="prompt">
 SEO PHASE 1A: DATA COLLECTION
 
-TARGET: 'pferd kaufen worauf achten'
-OUTPUT: SEO/SEO-CONTENT/pferd-kaufen-worauf-achten/
+TARGET KEYWORD: '{PRIMARY_KEYWORD}'
+OUTPUT DIR: SEO/SEO-CONTENT/{keyword-slug}/
 
-1. Lies: SEO/SEO-PROZESS/orchestration/phase-1a-data-collection.md
-2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
-3. Erstelle alle geforderten Deliverables
-4. Return: Kompakte Summary (max 150 Wörter) + Liste der erstellten Dateien
+INSTRUCTIONS:
+1. Read SEO/SEO-PROZESS/orchestration/phase-1a-data-collection.md
+2. Follow ALL steps in the phase-MD file (API calls, file creation, validation)
+3. Return: Compact summary (max 150 words) + list of created files
+
+IMPORTANT: The phase-MD contains exact DataForSEO API call specifications. Execute them as documented.
 </parameter>
 </invoke>
 

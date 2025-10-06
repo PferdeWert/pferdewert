@@ -41,24 +41,83 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
    - Beispiel: "Pferd kaufen Tipps" → "pferd-kaufen-tipps"
    ```
 
-3. **Starte 6 Sequential Sub-Agents** (jeder liest sein eigenes Phase-MD):
+3. **Starte 7 Sequential Sub-Agents** (jeder liest sein eigenes Phase-MD):
 
    **WICHTIG**: Verwende `seo-content-writer` Agent (custom agent mit DataForSEO MCP Tools)
 
-   **Phase 1 - Keyword Research**:
+   **Phase 1A - Data Collection**:
    - Spawne Sub-Agent mit:
      - subagent_type: `seo-content-writer`
      - prompt:
        ```
-       SEO PHASE 1: KEYWORD RESEARCH
+       SEO PHASE 1A: DATA COLLECTION for '$ARGUMENTS'
 
-       TARGET: '$ARGUMENTS'
-       OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
+       STEP 1: Create folder
+       mkdir -p SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research
 
-       1. Lies: SEO/SEO-PROZESS/orchestration/phase-1-keyword-research.md
-       2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO API-Calls!)
-       3. Erstelle alle geforderten Deliverables
-       4. Return: Kompakte Summary (max 200 Wörter) + Liste der erstellten Dateien
+       STEP 2: Execute these 3 DataForSEO API calls IN PARALLEL:
+
+       Call 1 - mcp__dataforseo__dataforseo_labs_google_related_keywords:
+       {
+         "keyword": "$ARGUMENTS",
+         "location_name": "Germany",
+         "language_code": "de",
+         "depth": 1,
+         "limit": 20
+       }
+
+       Call 2 - mcp__dataforseo__dataforseo_labs_google_keyword_ideas:
+       {
+         "keywords": ["$ARGUMENTS"],
+         "location_name": "Germany",
+         "language_code": "de",
+         "limit": 15
+       }
+
+       Call 3 - mcp__dataforseo__dataforseo_labs_google_keyword_overview:
+       {
+         "keywords": ["$ARGUMENTS"],
+         "location_name": "Germany",
+         "language_code": "de"
+       }
+
+       STEP 3: Save results to:
+       - SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/raw-api-data.json
+       - SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/phase-1a-summary.md
+
+       STEP 4: Return summary:
+       "Phase 1A ✅ | API Calls: Related={count}, Ideas={count}, Overview SV={volume} | Files: 2"
+       ```
+
+   **Phase 1B - Keyword Analysis**:
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 1B: KEYWORD ANALYSIS for '$ARGUMENTS'
+
+       STEP 1: Load data
+       Read SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/raw-api-data.json
+       Extract all keywords from related_keywords, keyword_ideas, keyword_overview
+
+       STEP 2: Score keywords using Python (executeCode)
+       Calculate relevance_score = (SV/1000*0.4) + (CPC*10*0.3) + (similarity*0.3*10)
+       Sort by score DESC
+
+       STEP 3: Cluster by intent (executeCode)
+       - Informational: wie/was/warum/ratgeber/tipps
+       - Commercial: kaufen/verkaufen/preis/kosten
+       - Long-Tail: word_count > 5
+       - General: rest
+
+       STEP 4: Select top 20 with cluster diversity
+
+       STEP 5: Save results to:
+       - SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/keyword-analysis.json
+       - SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/phase-1b-summary.md
+
+       STEP 6: Return summary:
+       "Phase 1B ✅ | Keywords: {total} analyzed, Top 20 selected | Clusters: Info={n}, Commercial={n}, LT={n}, General={n} | Stats: SV={avg}, CPC={avg} | Files: 2"
        ```
 
    **Phase 2 - SERP Analysis**:
