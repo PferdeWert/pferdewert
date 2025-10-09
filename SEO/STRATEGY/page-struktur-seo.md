@@ -31,9 +31,6 @@
 
 ### Service Pages
 
-#### Was ist mein Pferd wert (/was-ist-mein-pferd-wert)
-- **Ziel-Keyword**: wie viel ist mein pferd wert (90/Mo., KD: N/A)
-- **Navigation**: Sitemap only
 
 #### Beispiel Analyse (/beispiel-analyse)
 - **Ziel-Keyword**: pferdebewertung beispiel (keine Daten verfügbar)
