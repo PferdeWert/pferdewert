@@ -187,21 +187,21 @@ const handlePayment = async (formData: HorseData) => {
 useEffect(() => {
   const validateSession = async () => {
     const sessionId = router.query.session_id;
-    
+
     if (!sessionId) {
-      router.push('/bewerten');
+      router.push('/pferde-preis-berechnen');
       return;
     }
 
     try {
       const response = await fetch(`/api/session?session_id=${sessionId}`);
       if (!response.ok) throw new Error('Invalid session');
-      
+
       const data = await response.json();
       setSessionData(data);
     } catch (err) {
       error('Session validation failed:', err);
-      router.push('/bewerten');
+      router.push('/pferde-preis-berechnen');
     }
   };
 

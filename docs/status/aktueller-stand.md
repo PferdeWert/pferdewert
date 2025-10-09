@@ -24,7 +24,7 @@
 * **PayPal:** ✅ Live und aktiv
 * **Checkout:** Weiterleitung zu Stripe gehostetem Checkout
 * **Session-Verarbeitung:** `session_id` wird im Query empfangen, Validierung erfolgt über `GET /api/session`
-* **Zugriffsschutz:** Ergebnisseite nur nach erfolgreicher Zahlung sichtbar, sonst Weiterleitung zu `/bewerten`
+* **Zugriffsschutz:** Ergebnisseite nur nach erfolgreicher Zahlung sichtbar, sonst Weiterleitung zu `/pferde-preis-berechnen`
 * **Webhooks:** Vollständig implementiert für Payment-Confirmations
 
 ---
@@ -56,7 +56,7 @@
 
 ### Pages:
 * **`/index.tsx`** – Landing Page mit Hero, Preisbanner, FAQ, Footer
-* **`/bewerten`** – Bewertungsformular (Stripe-Integration)
+* **`/pferde-preis-berechnen`** – Bewertungsformular (Stripe-Integration)
 * **`/ergebnis`** – Geschützte Ergebnisseite nach Payment
 * **`/beispiel-analyse`** – Beispielseite mit Muster-PDF
 
