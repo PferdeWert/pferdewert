@@ -52,6 +52,11 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/preise',
+        destination: '/pferde-preis-berechnen',
+        statusCode: 301,
+      },
+      {
         source: '/was-kostet-ein-pferd',
         destination: '/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd',
         statusCode: 301,
