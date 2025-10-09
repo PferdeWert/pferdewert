@@ -1,0 +1,241 @@
+{
+  "primary_keyword": "pferd verkaufen",
+  "collected_at": "2025-10-06T00:00:00Z",
+  "api_calls": {
+    "related_keywords": {
+      "status": "success",
+      "count": 9,
+      "data": [
+        {
+          "keyword": "ehorses",
+          "search_volume": 135000,
+          "cpc": 2.82,
+          "competition_level": "LOW",
+          "keyword_difficulty": 78,
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "ebay kleinanzeigen pferde",
+          "search_volume": 3600,
+          "cpc": 2.18,
+          "competition_level": "LOW",
+          "keyword_difficulty": 24,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "pferde kaufen in der nähe",
+          "search_volume": 2400,
+          "cpc": 0.18,
+          "competition_level": "LOW",
+          "keyword_difficulty": 9,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferd verkaufen",
+          "search_volume": 1300,
+          "cpc": 0.36,
+          "competition_level": "LOW",
+          "keyword_difficulty": 37,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferde kaufen für 200 euro",
+          "search_volume": 1000,
+          "cpc": 0.43,
+          "competition_level": "LOW",
+          "keyword_difficulty": 21,
+          "main_intent": "transactional"
+        },
+        {
+          "keyword": "pferde kaufen günstig",
+          "search_volume": 1000,
+          "cpc": 0.22,
+          "competition_level": "LOW",
+          "keyword_difficulty": 13,
+          "main_intent": "transactional"
+        },
+        {
+          "keyword": "pferde günstig kaufen bis 500 euro",
+          "search_volume": 880,
+          "cpc": 0.2,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferde zu verschenken sonst schlachter",
+          "search_volume": 720,
+          "cpc": 2.86,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferde günstig kaufen bis 1000 euro",
+          "search_volume": 170,
+          "cpc": 0.28,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "transactional"
+        }
+      ]
+    },
+    "keyword_ideas": {
+      "status": "success",
+      "count": 15,
+      "data": [
+        {
+          "keyword": "pferd",
+          "search_volume": 165000,
+          "cpc": 0.52,
+          "competition_level": "LOW",
+          "keyword_difficulty": 81,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferd kaufen",
+          "search_volume": 40500,
+          "cpc": 0.22,
+          "competition_level": "LOW",
+          "keyword_difficulty": 25,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "labubu kaufen",
+          "search_volume": 60500,
+          "cpc": 0.56,
+          "competition_level": "HIGH",
+          "keyword_difficulty": null,
+          "main_intent": "transactional"
+        },
+        {
+          "keyword": "ehorses pferd kaufen",
+          "search_volume": 1600,
+          "cpc": 0.17,
+          "competition_level": "LOW",
+          "keyword_difficulty": 26,
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "pferde dringend abzugeben",
+          "search_volume": 880,
+          "cpc": 0.34,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "trojanisches pferd",
+          "search_volume": 22200,
+          "cpc": null,
+          "competition_level": "LOW",
+          "keyword_difficulty": 12,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "reitbeteiligung",
+          "search_volume": 8100,
+          "cpc": 0.06,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferd ausmalbild",
+          "search_volume": 18100,
+          "cpc": 0.04,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "freizeitpferd kaufen",
+          "search_volume": 1900,
+          "cpc": 0.13,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "reitbeteiligung ehorses",
+          "search_volume": 880,
+          "cpc": null,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "wie alt werden pferde",
+          "search_volume": 9900,
+          "cpc": null,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "reitbeteiligung in der nähe",
+          "search_volume": 4400,
+          "cpc": 0.05,
+          "competition_level": "LOW",
+          "keyword_difficulty": null,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "ebay pferde kaufen",
+          "search_volume": 2400,
+          "cpc": 0.14,
+          "competition_level": "LOW",
+          "keyword_difficulty": 27,
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "schimmel pferd",
+          "search_volume": 9900,
+          "cpc": null,
+          "competition_level": "LOW",
+          "keyword_difficulty": 16,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferd bild",
+          "search_volume": 14800,
+          "cpc": 0.22,
+          "competition_level": "MEDIUM",
+          "keyword_difficulty": null,
+          "main_intent": "commercial"
+        }
+      ]
+    },
+    "keyword_overview": {
+      "status": "success",
+      "data": {
+        "keyword": "pferd verkaufen",
+        "search_volume": 1300,
+        "cpc": 0.36,
+        "competition": 0.29,
+        "competition_level": "LOW",
+        "keyword_difficulty": 37,
+        "main_intent": "commercial",
+        "foreign_intent": ["navigational"],
+        "monthly_searches": {
+          "2025-08": 1000,
+          "2025-07": 1300,
+          "2025-06": 1000,
+          "2025-05": 1300,
+          "2025-04": 1300,
+          "2025-03": 1300,
+          "2025-02": 1300,
+          "2025-01": 1300,
+          "2024-12": 1300,
+          "2024-11": 1300,
+          "2024-10": 1300,
+          "2024-09": 1300
+        },
+        "search_volume_trend": {
+          "monthly": -23,
+          "yearly": -38
+        }
+      }
+    }
+  }
+}

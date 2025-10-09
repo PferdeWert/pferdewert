@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pferd kaufen: Der ultimative Ratgeber 2025",
+  "alternativeHeadline": "Pferd kaufen 2025: Preise, Bewertung & Checkliste",
+  "description": "Umfassender Ratgeber zum Pferdekauf mit aktuellen Preisen, AI-gestützter Bewertung, professioneller 8-Schritt-Anleitung und Checkliste für den sicheren Pferdekauf.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    }
+  },
+  "datePublished": "2025-01-05",
+  "dateModified": "2025-01-05",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/ratgeber/pferd-kaufen"
+  },
+  "articleSection": "Ratgeber",
+  "keywords": [
+    "pferd kaufen",
+    "pferd kaufen preis",
+    "pferde kaufen bayern",
+    "pferde kaufen in der nähe",
+    "aku pferd",
+    "pferdebewertung",
+    "pferd kaufen checkliste"
+  ],
+  "wordCount": 3628,
+  "inLanguage": "de-DE",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Pferdekauf",
+      "description": "Prozess des Kaufs eines Pferdes"
+    },
+    {
+      "@type": "Thing",
+      "name": "Pferdebewertung",
+      "description": "Ermittlung des Marktwerts eines Pferdes"
+    },
+    {
+      "@type": "Thing",
+      "name": "Ankaufsuntersuchung",
+      "description": "Veterinärmedizinische Untersuchung vor dem Pferdekauf"
+    }
+  ],
+  "mentions": [
+    {
+      "@type": "Service",
+      "name": "AI-gestützte Pferdebewertung",
+      "provider": {
+        "@type": "Organization",
+        "name": "PferdeWert.de"
+      }
+    }
+  ]
+}

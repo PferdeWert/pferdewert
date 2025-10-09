@@ -1,0 +1,38 @@
+{
+  "primary_keyword": "pferd verkaufen",
+  "validated_at": "2025-10-06T10:45:00Z",
+  "status": "ABORT",
+  "phase_1a_validation": {
+    "valid": false,
+    "total_keywords": 25,
+    "all_apis_success": true,
+    "failed_apis": [],
+    "errors": [
+      "Total keywords (25) below minimum threshold (30)"
+    ]
+  },
+  "phase_1b_validation": {
+    "valid": true,
+    "top_keywords_count": 20,
+    "cluster_count": 3,
+    "avg_relevance_score": 4.62,
+    "errors": []
+  },
+  "retry_info": {
+    "retry_count_1a": 0,
+    "retry_count_1b": 0
+  },
+  "next_action": "ABORT",
+  "quality_issues": [
+    "Phase 1A failed: Only 25 keywords collected (minimum: 30)",
+    "Phase 1B has low average relevance score (4.62 < 5.0 ideal threshold)",
+    "Many irrelevant keywords detected (e.g., 'labubu kaufen', 'trojanisches pferd', 'pferd ausmalbild')",
+    "Keyword quality is poor - scoring algorithm needs adjustment"
+  ],
+  "recommendations": [
+    "Phase 1A: Increase depth to 2, increase limit to 30",
+    "Phase 1B: Adjust weights to prioritize commercial intent",
+    "Filter out irrelevant keywords (toys, historical references, coloring pages)",
+    "Focus on horse trading/selling specific keywords"
+  ]
+}

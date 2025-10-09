@@ -18,9 +18,6 @@ Allow: /pferde-preis-berechnen
 Allow: /pferde-ratgeber
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
-Allow: /impressum
-Allow: /datenschutz
-Allow: /agb
 Allow: /pferde-ratgeber/aku-pferd
 Allow: /pferde-ratgeber/aku-pferd/ablauf
 Allow: /pferde-ratgeber/aku-pferd/klassen

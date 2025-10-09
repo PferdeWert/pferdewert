@@ -1,6 +1,6 @@
 # Page-Struktur SEO - PferdeWert.de
 
-**Zuletzt aktualisiert:** 2025-10-04
+**Zuletzt aktualisiert:** 2025-10-09
 
  **Generische Entscheidungsmatrix**                                                │
      │                                                                                  │
@@ -11,20 +11,20 @@
      │ ELIF (search_volume > 200 AND overlap < 60%):                                    │
      │   → Eigener Spoke-Artikel (borderline)                                           │
      │ ELSE:                                                                            │
-     │   → Im Hub-Artikel als H2 behandeln    
+     │   → Im Hub-Artikel als H2 behandeln
 
 ## 🎯 Brand & Core Pages
 
 ### Homepage (/) - Brand Hub
-- **Ziel-Keywords**: "pferdewert", "was ist mein pferd wert", "wie viel ist mein pferd wert"
-- **Suchvolumen**: Brand (880) + Info (90 + 110)
+- **Ziel-Keywords**: "pferdewert", "was ist mein pferd wert" (30/Mo., KD: N/A), "wie viel ist mein pferd wert" (90/Mo., KD: N/A)
+- **Suchvolumen**: Brand (keine Daten) + Info (30 + 90) = ~120/Monat
 - **Content-Fokus**: Brand-Building, Service-Übersicht, Trust-Building
 - **Keyword-Strategie**: Fokus auf Brand + informationelle Keywords, KEINE "berechnen"-Sprache
 - **Navigation**: Hauptmenü (Logo)
 
 ### Pferde Preis berechnen (/pferde-preis-berechnen) - Tool Page
-- **Ziel-Keywords**: "pferde preis berechnen", "pferde preis rechner", "pferdepreis rechner"
-- **Suchvolumen**: 115/Monat
+- **Ziel-Keywords**: "pferde preis rechner" (20/Mo., KD: 47), "pferdepreis rechner" (20/Mo., KD: 47)
+- **Suchvolumen**: ~40/Monat (kombiniert)
 - **Content-Fokus**: Tool-fokussiert, Formular-Wizard, direkte Conversion
 - **Keyword-Strategie**: Strikte Fokussierung auf "Rechner"-Keywords, KEIN "pferdewert"
 - **Navigation**: Hauptmenü (CTA)
@@ -32,11 +32,11 @@
 ### Service Pages
 
 #### Was ist mein Pferd wert (/was-ist-mein-pferd-wert)
-- **Ziel-Keyword**: wie viel ist mein pferd wert (90/Mo.)
+- **Ziel-Keyword**: wie viel ist mein pferd wert (90/Mo., KD: N/A)
 - **Navigation**: Sitemap only
 
 #### Beispiel Analyse (/beispiel-analyse)
-- **Ziel-Keyword**: pferdebewertung beispiel (10/Mo.)
+- **Ziel-Keyword**: pferdebewertung beispiel (keine Daten verfügbar)
 - **Navigation**: Hauptmenü
 
 ---
@@ -79,32 +79,36 @@
 
 ## 📋 Content Cluster: Pferd Kaufen
 
-**Total Search Volume:** 17.940/Monat (Hub: 14.800 + Spokes: 3.140)
+**Total Search Volume:** 47.200/Monat (Hub: 40.500 + Spokes: 6.700)
 
 ### Hub: Pferd kaufen (/pferde-ratgeber/pferd-kaufen) ✅ LIVE
-- **Ziel-Keyword**: pferd kaufen (14.800/Mo.)
+- **Ziel-Keyword**: pferd kaufen (40.500/Mo., KD: 25)
 - **Navigation**: Ratgeber Dropdown
+- **⚠️ Hinweis**: Suchvolumen deutlich höher als ursprünglich angenommen (14.800 → 40.500)
 
 ### Spokes (Sitemap-only):
 
 1. **Was kostet ein Pferd** (/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd) ✅ LIVE
-   - Keyword: was kostet ein pferd
+   - Keyword: was kostet ein pferd (2.900/Mo., KD: 4)
+   - Begründung: Informational keyword mit niedrigem KD, perfekt für Einstiegs-Content
 
 2. **Pferd Kosten** (/pferde-ratgeber/pferd-kaufen/pferd-kosten)
-   - Keyword: pferd kosten (880/Mo.)
+   - Keyword: pferd kosten (880/Mo., KD: N/A)
    - Begründung: Laufende Kosten-Übersicht für potenzielle Käufer
 
 3. **Pferd Preis** (/pferde-ratgeber/pferd-kaufen/pferd-preis)
-   - Keyword: pferd preis (880/Mo.)
+   - Keyword: pferd preis (880/Mo., KD: 15)
    - Begründung: Kaufpreis-Faktoren und Marktübersicht
 
 4. **Pferdekauf für Anfänger** (/pferde-ratgeber/pferd-kaufen/pferdekauf-anfaenger)
-   - Keyword: Related Search "Pferdekauf für Anfänger" (200-500/Mo. geschätzt)
+   - Keyword: pferdekauf anfänger (keine Daten verfügbar)
+   - ⚠️ Hinweis: Keyword möglicherweise falsch geschrieben oder zu spezifisch. Alternative Recherche empfohlen.
    - Begründung: SERP-Gap für Einsteiger-Content
 
 5. **Checkliste Pferdekauf** (/pferde-ratgeber/pferd-kaufen/checkliste-pferdekauf)
-   - Keyword: Related Search "Checkliste Pferdekauf pdf" (300-600/Mo. geschätzt)
-   - Begründung: Download-Intent, PDF-Leadmagnet
+   - Keyword: checkliste pferdekauf (40/Mo., KD: 7)
+   - ⚠️ Korrektur: Ursprünglich geschätzt 300-600/Mo., tatsächlich nur 40/Mo.
+   - Begründung: Download-Intent, PDF-Leadmagnet trotz niedrigem Volumen wertvoll für Leadgenerierung
 
 ---
 
@@ -118,22 +122,22 @@
 
 ## 📋 Content Cluster: Pferde Gesundheit
 
-**Total Search Volume:** 15.300/Monat (Hub: 9.900 + Spokes: 5.400)
+**Total Search Volume:** 15.390/Monat (Hub: 9.900 + Spokes: 5.490)
 
 ### Hub: Pferde Gesundheit (/pferde-ratgeber/pferde-gesundheit)
-- **Ziel-Keywords**: pferde gesundheit, wie alt werden pferde
-- **Primary Keyword**: wie alt werden pferde (9.900/Mo.)
+- **Ziel-Keywords**: pferde gesundheit (90/Mo., KD: 13), wie alt werden pferde (9.900/Mo., KD: N/A)
+- **Primary Keyword**: wie alt werden pferde (9.900/Mo., KD: N/A)
 - **Navigation**: Ratgeber Dropdown
 - **Begründung**: Hochvolumen informational keyword. Hub deckt Gesundheitsthemen ab, mit Fokus auf Lebenserwartung als Einstieg.
 
 ### Spokes (Sitemap-only):
 
 1. **Wie alt werden Pferde** (/pferde-ratgeber/pferde-gesundheit/wie-alt-werden-pferde)
-   - Keyword: wie alt werden pferde (9.900/Mo.)
+   - Keyword: wie alt werden pferde (9.900/Mo., KD: N/A)
    - Begründung: Dedicated deep-dive in Lebenserwartung und Altersfaktoren
 
 2. **Kolik beim Pferd** (/pferde-ratgeber/pferde-gesundheit/kolik-pferd)
-   - Keyword: kolik pferd (5.400/Mo.)
+   - Keyword: kolik pferd (5.400/Mo., KD: N/A)
    - Begründung: Kritisches Gesundheitsthema. Gesundheitszustand beeinflusst Pferdewert direkt.
 
 ---
@@ -156,15 +160,61 @@ PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
 
 ## 📊 Keyword Research Methodik
 
-**Tools:** DataForSEO APIs (Keyword Ideas, Keyword Suggestions, SERP Analysis)
+**Tools:** DataForSEO APIs (Keyword Overview, Bulk Keyword Difficulty, SERP Analysis)
 
 **Workflow:**
-1. **Keyword Suggestions** - Seed-Keywords aus bestehenden Artikeln, Filter: SV > 500, informational/commercial intent
-2. **SERP-Analyse** - PAA-Fragen & Related Searches für Content-Gaps
-3. **Keyword Ideas** - Thematische Erweiterung mit maximal 20 Results (Token-Limit)
+1. **Keyword Overview** - Basis-Daten zu Suchvolumen, CPC, Competition Level
+2. **Bulk Keyword Difficulty** - KD-Scores für Ranking-Feasibility
+3. **SERP-Analyse** - PAA-Fragen & Related Searches für Content-Gaps
+
+**Letzte Aktualisierung:** 2025-10-09
 
 **Nächste Research-Targets:**
-- "pferdehaltung kosten" (monatliche Kosten vs. Anschaffung)
-- "pferd kaufvertrag" (rechtliche Aspekte)
-- "gesundheitscheck pferd" (pre-purchase examination)
+- "pferdehaltung kosten" (90/Mo., KD: 3) - niedrige Difficulty, guter Einstiegspunkt
+- "pferd kaufvertrag" (260/Mo., KD: N/A) - rechtliche Aspekte mit mittlerem Volumen
+- "gesundheitscheck pferd" (20/Mo., KD: N/A) - pre-purchase examination (niedriges Volumen)
 
+---
+
+## 📈 Keyword Research Zusammenfassung (DataForSEO)
+
+**Gesamtvolumen aller recherchierten Keywords:** ~61.000/Monat
+
+### Hochvolumen-Keywords (>5.000/Mo.):
+| Keyword | Suchvolumen | KD | Status |
+|---------|-------------|-----|--------|
+| pferd kaufen | 40.500/Mo. | 25 | ✅ LIVE (Hub) |
+| wie alt werden pferde | 9.900/Mo. | N/A | Geplant (Hub) |
+| kolik pferd | 5.400/Mo. | N/A | Geplant (Spoke) |
+
+### Mittelvolumen-Keywords (500-5.000/Mo.):
+| Keyword | Suchvolumen | KD | Status |
+|---------|-------------|-----|--------|
+| was kostet ein pferd | 2.900/Mo. | 4 | ✅ LIVE |
+| pferd kosten | 880/Mo. | N/A | Geplant |
+| pferd preis | 880/Mo. | 15 | Geplant |
+
+### Niedrigvolumen-Keywords (<500/Mo.):
+| Keyword | Suchvolumen | KD | Status |
+|---------|-------------|-----|--------|
+| pferd kaufvertrag | 260/Mo. | N/A | Research Target |
+| wie viel ist mein pferd wert | 90/Mo. | N/A | ✅ LIVE |
+| pferde gesundheit | 90/Mo. | 13 | Geplant (Hub) |
+| pferdehaltung kosten | 90/Mo. | 3 | Research Target |
+| checkliste pferdekauf | 40/Mo. | 7 | Geplant (Spoke) |
+| was ist mein pferd wert | 30/Mo. | N/A | ✅ LIVE |
+| pferde preis rechner | 20/Mo. | 47 | ✅ LIVE |
+| pferdepreis rechner | 20/Mo. | 47 | ✅ LIVE |
+| gesundheitscheck pferd | 20/Mo. | N/A | Research Target |
+
+### Keine Daten verfügbar:
+- pferdewert (Brand-Keyword)
+- pferdebewertung beispiel
+- pferdekauf anfänger (möglicherweise falsche Schreibweise)
+
+**Erkenntnisse:**
+1. **"pferd kaufen"** hat 2,7x höheres Volumen als ursprünglich angenommen (40.500 vs. 14.800)
+2. **Checkliste Pferdekauf** deutlich niedriger als geschätzt (40 vs. 300-600)
+3. **Keyword Difficulty** variiert stark: einfachste = pferdehaltung kosten (KD: 3), schwierigste = pferde preis rechner (KD: 47)
+4. **Niedriger KD-Bereich (0-10)** bietet beste Quick-Win-Opportunities
+5. **Hochvolumen-Keywords** teilweise ohne KD-Daten (DataForSEO-Limitation bei sehr breiten Keywords)

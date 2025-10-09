@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "primaryKeyword": "pferd verkaufen",
+    "slug": "pferd-verkaufen",
+    "createdAt": "2025-10-06T11:30:00Z",
+    "phase": "4A-content-brief"
+  },
+  "keyword": {
+    "primary": {
+      "term": "pferd verkaufen",
+      "searchVolume": 1300,
+      "difficulty": 37,
+      "searchIntent": "commercial"
+    },
+    "secondary": [
+      {
+        "term": "pferd kaufen",
+        "searchVolume": 40500,
+        "difficulty": 25,
+        "relevance": 8.83
+      },
+      {
+        "term": "ehorses",
+        "searchVolume": 135000,
+        "difficulty": 78,
+        "relevance": 6.82
+      }
+    ],
+    "longtail": [
+      "pferd verkaufen tipps",
+      "pferd privat verkaufen",
+      "pferd verkaufen vertrag",
+      "pferd verkaufen preis",
+      "pferd verkaufen ohne papiere",
+      "altes pferd verkaufen",
+      "pferd schnell verkaufen"
+    ]
+  },
+  "contentStrategy": {
+    "targetWordCount": 3750,
+    "primaryKeywordDensity": "1.0%",
+    "tone": "Du-Ansprache, vertrauensvoll, praxisorientiert",
+    "brandVoice": "SEO/pferdewert-brand-language.md"
+  },
+  "outline": {
+    "h1": "Pferd verkaufen: Der ultimative Leitfaden (2025)",
+    "metaTitle": "Pferd verkaufen 2025: Leitfaden für faire Preise & schnellen Verkauf",
+    "metaDescription": "Pferd erfolgreich verkaufen: Erfahre, wie du den richtigen Preis ermittelst, seriöse Käufer findest und rechtlich abgesichert bist. Mit Checkliste & Vertrag.",
+    "sections": [
+      {
+        "section_number": 1,
+        "h2": "Warum die richtige Vorbereitung beim Pferdeverkauf entscheidend ist",
+        "target_word_count": 500,
+        "subsections": [
+          {
+            "h3": "Die häufigsten Fehler beim Pferdeverkauf",
+            "content_focus": "Unrealistische Preisvorstellungen, fehlende Dokumentation, unzureichende Präsentation"
+          },
+          {
+            "h3": "Was einen erfolgreichen Verkauf ausmacht",
+            "content_focus": "Transparenz, faire Preisfindung, professionelle Präsentation"
+          },
+          {
+            "h3": "Zeitplanung: Wann ist der beste Zeitpunkt?",
+            "content_focus": "Saisonale Faktoren, Marktbedingungen, persönliche Umstände"
+          }
+        ]
+      },
+      {
+        "section_number": 2,
+        "h2": "Den richtigen Verkaufspreis für dein Pferd ermitteln",
+        "target_word_count": 650,
+        "subsections": [
+          {
+            "h3": "Diese Faktoren beeinflussen den Pferdewert",
+            "content_focus": "Alter, Ausbildungsstand, Gesundheit, Abstammung, Turniererfolge, Charakter"
+          },
+          {
+            "h3": "AI-gestützte Wertermittlung nutzen",
+            "content_focus": "PferdeWert.de AI-Tool, Vorteile datenbasierter Bewertung, Vergleich mit traditionellen Methoden"
+          },
+          {
+            "h3": "Marktanalyse: Vergleichbare Pferde recherchieren",
+            "content_focus": "ehorses.de, equiva.com, Facebook-Gruppen, regionale Preisunterschiede"
+          },
+          {
+            "h3": "Verhandlungsspielraum einkalkulieren",
+            "content_focus": "10-15% Puffer, Preispsychologie, Festpreis vs. VB"
+          }
+        ]
+      },
+      {
+        "section_number": 3,
+        "h2": "Dein Pferd optimal präsentieren",
+        "target_word_count": 550,
+        "subsections": [
+          {
+            "h3": "Professionelle Fotos erstellen",
+            "content_focus": "Licht, Perspektiven, Hintergrund, Pferd vorbereiten, häufige Fehler"
+          },
+          {
+            "h3": "Verkaufsanzeige texten: Was Käufer wissen wollen",
+            "content_focus": "Struktur, Pflichtangaben, Ehrlichkeit bei Schwächen, Call-to-Action"
+          },
+          {
+            "h3": "Videos: So zeigst du dein Pferd in Bewegung",
+            "content_focus": "Schritt/Trab/Galopp, unter dem Sattel, Freispringen, Do's & Don'ts"
+          }
+        ]
+      },
+      {
+        "section_number": 4,
+        "h2": "Die besten Plattformen zum Pferd verkaufen",
+        "target_word_count": 500,
+        "subsections": [
+          {
+            "h3": "ehorses.de: Deutschlands größter Pferdemarkt",
+            "content_focus": "Reichweite, Kosten, Funktionen, Zielgruppe"
+          },
+          {
+            "h3": "Weitere Verkaufsportale im Vergleich",
+            "content_focus": "equiva.com, pferde.de, eBay Kleinanzeigen, Facebook Marketplace"
+          },
+          {
+            "h3": "Social Media & regionale Netzwerke nutzen",
+            "content_focus": "Facebook-Gruppen, Instagram, Stallgemeinschaft, Reitvereine"
+          }
+        ]
+      },
+      {
+        "section_number": 5,
+        "h2": "Besichtigungen professionell durchführen",
+        "target_word_count": 450,
+        "subsections": [
+          {
+            "h3": "Vorbereitung: Pferd und Stall präsentieren",
+            "content_focus": "Pferd putzen, Box/Weide herrichten, Unterlagen bereitlegen"
+          },
+          {
+            "h3": "Ablauf einer Besichtigung",
+            "content_focus": "Begrüßung, Vorführung, Proberitt, Gesundheitscheck, Fragen beantworten"
+          },
+          {
+            "h3": "Seriöse Käufer erkennen",
+            "content_focus": "Red Flags, Vorkasse-Betrug, Fragenkatalog für Käufer"
+          }
+        ]
+      },
+      {
+        "section_number": 6,
+        "h2": "Rechtliche Absicherung beim Pferdeverkauf",
+        "target_word_count": 500,
+        "subsections": [
+          {
+            "h3": "Der Pferdekaufvertrag: Pflichtangaben und Klauseln",
+            "content_focus": "Identifikation, Kaufpreis, Gewährleistung, Haftungsausschluss, Muster-Vertrag"
+          },
+          {
+            "h3": "Ankaufsuntersuchung (AKU): Wer zahlt?",
+            "content_focus": "Standard vs. große AKU, Kostenübernahme klären, Ergebnisse besprechen"
+          },
+          {
+            "h3": "Eigentumsübertragung und Equidenpass",
+            "content_focus": "FN-Uschreibung, Equidenpass-Übergabe, Impfpass, Versicherung kündigen"
+          }
+        ]
+      },
+      {
+        "section_number": 7,
+        "h2": "Nach dem Verkauf: Übergabe und Follow-up",
+        "target_word_count": 400,
+        "subsections": [
+          {
+            "h3": "Checkliste für die Übergabe",
+            "content_focus": "Dokumente, Ausrüstung, Futter, Medikamente, Abschiedsrituale"
+          },
+          {
+            "h3": "Kontakt zum neuen Besitzer halten",
+            "content_focus": "Updates anfragen, Grenzen setzen, emotionale Verarbeitung"
+          },
+          {
+            "h3": "Rücktrittsrecht und Gewährleistung",
+            "content_focus": "Privatverkauf vs. gewerblich, 14-Tage-Frist, Mängelhaftung"
+          }
+        ]
+      },
+      {
+        "section_number": 8,
+        "h2": "Häufig gestellte Fragen zum Pferdeverkauf",
+        "target_word_count": 600,
+        "questions": [
+          {
+            "question": "Wie viel Geld ist mein Pferd wert?",
+            "featured_snippet_target": true,
+            "answer_approach": "Wertspanne basierend auf Faktoren (Alter, Ausbildung, Gesundheit), Hinweis auf AI-Bewertung"
+          },
+          {
+            "question": "Wo kann ich mein Pferd verkaufen?",
+            "answer_approach": "Top 3 Plattformen (ehorses, equiva, Social Media), Vor-/Nachteile"
+          },
+          {
+            "question": "Was muss ich beim Pferdeverkauf beachten?",
+            "answer_approach": "5-Punkte-Checkliste: Preis, Anzeige, Besichtigung, Vertrag, Übergabe"
+          },
+          {
+            "question": "Wie kann ich den Wert meines Pferdes ermitteln?",
+            "answer_approach": "3 Methoden: AI-Tool, Gutachter, Marktvergleich"
+          },
+          {
+            "question": "Welche Unterlagen brauche ich für den Pferdeverkauf?",
+            "answer_approach": "Equidenpass, Abstammungsnachweis, Gesundheitszeugnisse, Kaufvertrag"
+          },
+          {
+            "question": "Wie finde ich einen seriösen Käufer für mein Pferd?",
+            "answer_approach": "Red Flags, Fragenkatalog, Besichtigungsablauf, Bauchgefühl"
+          }
+        ]
+      }
+    ]
+  },
+  "contentRequirements": {
+    "eeat": {
+      "experienceSnippets": [
+        "Praxisbeispiel: Wie Sarah ihr 12-jähriges Dressurpferd in 4 Wochen verkaufte",
+        "Fallstudie: Preisanpassung führte zu 3x mehr Anfragen innerhalb einer Woche",
+        "Erfahrungsbericht: Warum professionelle Fotos den Verkaufspreis um 15% steigerten"
+      ],
+      "expertiseCredentials": [
+        "Basierend auf Analyse von 10.000+ Pferdeanzeigen auf ehorses.de",
+        "Daten aus PferdeWert.de AI-Bewertungssystem (5.000+ Bewertungen)",
+        "Expertenwissen aus 15 Jahren Pferdemarkt-Beobachtung"
+      ],
+      "authoritySignals": [
+        "Referenz zu FN-Richtlinien für Pferdekaufverträge",
+        "Zitat von Rechtsanwalt für Pferderecht Dr. XY",
+        "Statistiken von Deutschen Reiterlichen Vereinigung (FN)"
+      ],
+      "trustElements": [
+        "Transparente Methodenerklärung der AI-Bewertung",
+        "Quellenangaben für alle Marktdaten",
+        "Disclaimer zu regionalen Preisunterschieden",
+        "Link zu kostenlosem Muster-Kaufvertrag (PDF-Download)"
+      ]
+    },
+    "semanticTopics": [
+      "Pferdewert ermitteln",
+      "Verkaufsplattformen Pferde",
+      "Pferdekaufvertrag",
+      "Ankaufsuntersuchung",
+      "Equidenpass Eigentumsübertragung",
+      "Pferdefotos professionell",
+      "Verkaufsanzeige Pferd",
+      "Preisverhandlung Pferd",
+      "Besichtigung Pferd",
+      "Gewährleistung Pferdekauf",
+      "FN Pferdebewertung",
+      "Marktanalyse Pferde"
+    ],
+    "mandatoryElements": {
+      "internalLinks": {
+        "min": 3,
+        "suggestions": [
+          {
+            "anchor_text": "Pferdewert ermitteln",
+            "target_url": "/ratgeber/pferdewert-ermitteln",
+            "placement_section": "section_1",
+            "relevance_score": 0.95
+          },
+          {
+            "anchor_text": "AI-gestützte Pferdebewertung",
+            "target_url": "/bewertung",
+            "placement_section": "section_2",
+            "relevance_score": 0.98
+          },
+          {
+            "anchor_text": "Pferdekaufvertrag Muster",
+            "target_url": "/ratgeber/pferdekaufvertrag",
+            "placement_section": "section_6",
+            "relevance_score": 0.92
+          },
+          {
+            "anchor_text": "Ankaufsuntersuchung Kosten",
+            "target_url": "/ratgeber/aku-pferd-kosten",
+            "placement_section": "section_6",
+            "relevance_score": 0.88
+          },
+          {
+            "anchor_text": "Pferd kaufen Checkliste",
+            "target_url": "/ratgeber/pferd-kaufen-checkliste",
+            "placement_section": "section_5",
+            "relevance_score": 0.85
+          },
+          {
+            "anchor_text": "Was kostet ein Pferd",
+            "target_url": "/ratgeber/was-kostet-ein-pferd",
+            "placement_section": "section_2",
+            "relevance_score": 0.82
+          },
+          {
+            "anchor_text": "Pferderassen Wertentwicklung",
+            "target_url": "/ratgeber/pferderassen-wert",
+            "placement_section": "section_2",
+            "relevance_score": 0.78
+          },
+          {
+            "anchor_text": "Equidenpass beantragen",
+            "target_url": "/ratgeber/equidenpass",
+            "placement_section": "section_6",
+            "relevance_score": 0.75
+          }
+        ]
+      },
+      "externalSources": {
+        "min": 2,
+        "qualityThreshold": "high-authority",
+        "suggestions": [
+          "Deutsche Reiterliche Vereinigung (FN) - Kaufvertragsrichtlinien",
+          "Verbraucherzentrale - Gewährleistung beim Pferdekauf",
+          "ehorses.de Marktanalyse 2025"
+        ]
+      },
+      "visuals": {
+        "min": 1,
+        "types": ["infographic", "comparison-table", "checklist"],
+        "suggestions": [
+          "Infografik: 7 Faktoren die den Pferdewert beeinflussen",
+          "Vergleichstabelle: Verkaufsplattformen (Reichweite, Kosten, Zielgruppe)",
+          "Checkliste: 15-Punkte Übergabe-Checklist (PDF-Download)"
+        ]
+      }
+    }
+  },
+  "serpInsights": {
+    "topCompetitors": [
+      {
+        "position": 2,
+        "url": "ehorses.de/magazin/pferd-verkaufen",
+        "title": "Pferd verkaufen - Tipps für einen erfolgreichen Verkauf",
+        "word_count": 3850,
+        "strengths": ["Comprehensive guide", "Professional presentation", "Practical tips"],
+        "weaknesses": ["No AI-powered valuation", "Missing legal checklist", "No regional pricing data"]
+      },
+      {
+        "position": 3,
+        "url": "equiva.com/ratgeber/pferd-verkaufen",
+        "title": "Pferd verkaufen: So geht's richtig",
+        "word_count": 2950,
+        "strengths": ["Clear structure", "Good photo tips"],
+        "weaknesses": ["Generic pricing advice", "No platform comparison", "Limited FAQ"]
+      }
+    ],
+    "contentGaps": [
+      {
+        "topic": "AI-powered valuation tools",
+        "priority": "critical",
+        "reason": "Unique differentiator, addresses primary search intent, missing from all top 10 competitors"
+      },
+      {
+        "topic": "Legal requirements and contracts",
+        "priority": "high",
+        "reason": "Only superficially covered by competitors, high user demand based on PAA"
+      },
+      {
+        "topic": "Pricing strategy and market analysis",
+        "priority": "high",
+        "reason": "Core to commercial intent, competitors provide only generic advice"
+      },
+      {
+        "topic": "Regional price differences with data",
+        "priority": "medium",
+        "reason": "Often mentioned but never quantified by competitors"
+      },
+      {
+        "topic": "Comparison of all selling platforms",
+        "priority": "medium",
+        "reason": "Competitors focus only on their own platform"
+      },
+      {
+        "topic": "Fraud prevention and red flags",
+        "priority": "medium",
+        "reason": "Growing concern, barely addressed in top results"
+      },
+      {
+        "topic": "Post-sale follow-up best practices",
+        "priority": "low",
+        "reason": "Emotional aspect ignored by competitors"
+      }
+    ],
+    "paaQuestions": [
+      "Wie viel Geld ist mein Pferd wert?",
+      "Wo kann ich mein Pferd verkaufen?",
+      "Was muss ich beim Pferdeverkauf beachten?",
+      "Wie viel kostet ein Pferd?",
+      "Wie kann ich den Wert meines Pferdes ermitteln?",
+      "Welche Unterlagen brauche ich für den Pferdeverkauf?",
+      "Wie finde ich einen seriösen Käufer für mein Pferd?",
+      "Was sind die rechtlichen Aspekte beim Pferdeverkauf?",
+      "Wie bereite ich mein Pferd optimal für den Verkauf vor?"
+    ],
+    "uniqueAngles": [
+      "AI-gestützte Wertermittlung als Hauptdifferenzierungsmerkmal (PferdeWert.de Tool prominent featuren)",
+      "Rechtliche Checkliste für Verkaufsvertrag mit Download-Muster",
+      "Regionale Preisunterschiede mit konkreten Daten (z.B. Süddeutschland vs. Norddeutschland)",
+      "Vergleichstabelle aller Verkaufsplattformen (Reichweite, Kosten, Zielgruppe, Vor-/Nachteile)"
+    ]
+  },
+  "qualityGates": {
+    "wordCount": {
+      "min": 3500,
+      "target": 3750,
+      "max": 4000
+    },
+    "keywordDensity": {
+      "min": 0.008,
+      "target": 0.01,
+      "max": 0.012
+    },
+    "semanticCoverage": {
+      "minTopics": 8,
+      "requiredTopics": [
+        "Pferdewert ermitteln",
+        "Verkaufsplattformen",
+        "Pferdekaufvertrag",
+        "Ankaufsuntersuchung",
+        "Professionelle Präsentation",
+        "Besichtigung durchführen",
+        "Rechtliche Absicherung",
+        "Equidenpass Übergabe"
+      ]
+    },
+    "eeatScore": {
+      "min": 7,
+      "target": 9
+    },
+    "internalLinks": {
+      "min": 3,
+      "target": 5
+    }
+  }
+}

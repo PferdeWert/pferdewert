@@ -1,0 +1,357 @@
+{
+  "keyword": "pferd kaufen",
+  "analyzed_at": "2025-01-06T11:00:00Z",
+  "serp_features_overview": {
+    "total_features": 4,
+    "feature_types": [
+      "Organic Results with Sitelinks",
+      "People Also Ask (PAA)",
+      "People Also Search",
+      "Related Searches"
+    ],
+    "notable_absences": [
+      "Featured Snippets",
+      "Local Pack",
+      "Shopping Ads",
+      "Video Carousel",
+      "Image Pack",
+      "Knowledge Panel"
+    ]
+  },
+  "organic_results_analysis": {
+    "total_results_analyzed": 11,
+    "sitelinks_presence": {
+      "rank_1_ehorses": {
+        "sitelink_count": 4,
+        "categories": [
+          "Pferde kaufen (general listing page)",
+          "Freizeitpferde kaufen (discipline-specific)",
+          "Dressurpferde kaufen (discipline-specific)",
+          "Pferd sucht Reiter (alternative service)"
+        ],
+        "strategy": "Category-based navigation + alternative offering",
+        "serp_real_estate": "Dominant - 3 total positions (ranks 1, 6, 10)"
+      },
+      "rank_2_pferde_de": {
+        "sitelink_count": 4,
+        "categories": [
+          "Freizeitpferde (primary category)",
+          "Fohlen (age-specific)",
+          "Beisteller (58) (specific use case + count)",
+          "Dressur (539) (discipline + count)"
+        ],
+        "strategy": "Category diversity + listing counts for social proof"
+      },
+      "rank_3_kleinanzeigen": {
+        "sitelink_count": 4,
+        "categories": [
+          "Pferde kaufen (general)",
+          "Abzugeben Pferd (seller-focused language)",
+          "Pferd Gesucht (buyer-focused language)",
+          "Freizeitpferd (popular category)"
+        ],
+        "strategy": "User intent segmentation (buy/sell/wanted)"
+      },
+      "rank_6_ehorses_secondary": {
+        "sitelink_count": 4,
+        "categories": [
+          "Freizeitpferd",
+          "Dressurpferde",
+          "Arabofriese kaufen und...",
+          "Springpferde"
+        ],
+        "strategy": "Discipline-focused + specific breed targeting"
+      }
+    },
+    "title_patterns": {
+      "marketplace_indicators": [
+        "Pferdemarkt (3 occurrences)",
+        "kaufen und verkaufen (4 occurrences)",
+        "Inserate/Inserieren mentions"
+      ],
+      "trust_signals": [
+        "geprüfte Angebote (ehorses rank 10)",
+        "weltgrößter Online Pferdemarkt (ehorses rank 1)",
+        "großen deutschen Pferdemarkt (pferde.de)"
+      ],
+      "volume_indicators": [
+        "Über 19.000 Verkaufspferde (ehorses)",
+        "11,894 listings (kleinanzeigen implied)",
+        "1,514 active listings (pferde.de implied)"
+      ]
+    },
+    "description_patterns": {
+      "price_mentions": [
+        "kostenlos inserieren (ehorses)",
+        "kostenlose Kleinanzeige (pferde.de)"
+      ],
+      "cta_patterns": [
+        "Jetzt kostenlos inserieren",
+        "Erstelle eine kostenlose Kleinanzeige",
+        "Jetzt Traumpferd finden"
+      ],
+      "specificity_examples": [
+        "Doppelveranlagtes Deutsches Reitpony zu verkaufen (kleinanzeigen)",
+        "8jährige Hispano-Araber Stute (kleinanzeigen)",
+        "Wunderschöner Schimmelwallach (kleinanzeigen)"
+      ]
+    }
+  },
+  "people_also_ask_analysis": {
+    "total_questions": 4,
+    "pricing_focus": {
+      "percentage": 75,
+      "questions": [
+        "Wie viel kostet es, ein Pferd zu kaufen?",
+        "Wie viel kostet der Kauf eines Pferdes?",
+        "Wie viel kostet ein gutes Pferd?"
+      ]
+    },
+    "technical_questions": {
+      "percentage": 25,
+      "questions": [
+        "Was bedeutet die 20%-Regel bei Pferden?"
+      ]
+    },
+    "paa_content_analysis": [
+      {
+        "question": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "ranking_domain": "www.panto-heimtier.de",
+        "answer_type": "Price Range Guidance",
+        "key_data_points": [
+          "Freizeitpferd: 4.000 - 6.000 Euro",
+          "Sportpferd (angerittenes Tier, 3-4 Jahre): ab 8.500 Euro"
+        ],
+        "content_structure": "Direct price ranges + use case differentiation",
+        "opportunity_for_pferdewert": "AI-powered precision pricing vs. generic ranges"
+      },
+      {
+        "question": "Wie viel kostet der Kauf eines Pferdes?",
+        "ranking_domain": "translate.google.com (MoneySuperMarket UK)",
+        "answer_type": "International Price Ranges (Pounds converted to Euros implied)",
+        "key_data_points": [
+          "Small young pony: few hundred pounds",
+          "Pedigree horse: several thousand pounds",
+          "Average price: 3,000 - 4,000 pounds"
+        ],
+        "content_structure": "Size/age-based pricing + breed factor",
+        "weakness": "Non-German source, currency conversion needed",
+        "opportunity_for_pferdewert": "German market-specific data + real-time pricing"
+      },
+      {
+        "question": "Wie viel kostet ein gutes Pferd?",
+        "ranking_domain": "www.petcovergroup.com",
+        "answer_type": "Purpose-Based Pricing",
+        "key_data_points": [
+          "Freizeitreiten: 1.500 - 10.000 Euro",
+          "Wettkampfpferde: ab 15.000 Euro (deutlich teurer möglich)"
+        ],
+        "content_structure": "Use case segmentation + open-ended upper limits",
+        "opportunity_for_pferdewert": "Specific valuation factors (breed, training, age, health) vs. generic ranges"
+      },
+      {
+        "question": "Was bedeutet die 20%-Regel bei Pferden?",
+        "ranking_domain": "translate.google.com (UMN Extension)",
+        "answer_type": "Technical/Care Information",
+        "key_data_points": [
+          "Weight carrying capacity: 20% of ideal body weight",
+          "Research-based (heart rate, breathing rate, rectal temperature monitoring)"
+        ],
+        "content_structure": "Scientific explanation + practical application",
+        "relevance_to_pferdewert": "Low direct relevance to buying decision, but signals user research phase"
+      }
+    ],
+    "paa_intent_signals": {
+      "primary_user_concern": "Price Uncertainty",
+      "evidence": "3/4 questions directly about costs/pricing",
+      "user_journey_stage": "Research/Consideration",
+      "knowledge_gap": "Users lack baseline understanding of fair market prices",
+      "decision_support_needed": "Context-specific pricing (breed, use case, training level, age)",
+      "content_opportunity": "Educational content bridging generic price ranges to specific valuation factors"
+    }
+  },
+  "related_searches_analysis": {
+    "total_related_searches": 5,
+    "patterns_identified": [
+      {
+        "pattern_type": "Geographic Specificity",
+        "searches": [
+          "pferd kaufen nähe berlin",
+          "pferd kaufen nähe münchen"
+        ],
+        "intent": "Local/Regional Availability",
+        "user_need": "Proximity for viewing/transport convenience",
+        "percentage": 40
+      },
+      {
+        "pattern_type": "Price-Focused",
+        "searches": [
+          "Pferd kaufen Preis",
+          "Pferde kaufen für 200 Euro"
+        ],
+        "intent": "Budget Research + Affordability Concerns",
+        "user_need": "Price transparency + low-cost options",
+        "percentage": 40
+      },
+      {
+        "pattern_type": "Platform-Specific",
+        "searches": [
+          "Pferd kaufen eBay"
+        ],
+        "intent": "Familiar Platform Preference",
+        "user_need": "Trust in established marketplace (kleinanzeigen.de is former eBay Kleinanzeigen)",
+        "percentage": 20
+      }
+    ],
+    "geographic_insights": {
+      "cities_mentioned": [
+        "Berlin",
+        "München"
+      ],
+      "implication": "Major German cities drive significant search volume",
+      "regional_demand": "Urban areas with strong horse buying interest",
+      "content_opportunity": "Regional pricing variations + transport cost factors"
+    },
+    "price_sensitivity_signals": {
+      "budget_concern": "Pferde kaufen für 200 Euro",
+      "analysis": "Extremely low price point (likely unrealistic) suggests inexperienced buyers",
+      "user_education_need": "Realistic cost expectations + total cost of ownership",
+      "valuation_opportunity": "Educate on why quality horses require higher investment"
+    }
+  },
+  "people_also_search_analysis": {
+    "total_entities": 6,
+    "entity_types": [
+      "Hauspferd (domestic horse)",
+      "Pony",
+      "Hausesel (domestic donkey)",
+      "Zebras",
+      "Hund (dog)",
+      "Hauskatze (domestic cat)"
+    ],
+    "insights": {
+      "related_animals": "Equine-related (Pony, Hausesel, Zebras)",
+      "general_pets": "Dog, Cat (suggests general pet ownership interest)",
+      "relevance_to_pferdewert": "Low - mostly general animal interest, not buying intent",
+      "content_opportunity": "Minimal - focus remains on horse-specific content"
+    }
+  },
+  "serp_feature_intent_mapping": {
+    "primary_intent": "Commercial/Transactional",
+    "confidence_level": "Very High",
+    "supporting_evidence": [
+      "All top 10 organic results are marketplace/classifieds platforms",
+      "Sitelinks emphasize browsing categories + disciplines",
+      "Title patterns focus on 'kaufen und verkaufen'",
+      "No informational content ranks in top 10"
+    ],
+    "secondary_intent": "Informational (Pricing)",
+    "confidence_level": "High",
+    "supporting_evidence": [
+      "75% of PAA questions about costs/pricing",
+      "40% of related searches price-focused",
+      "Descriptions emphasize 'kostenlos' (price sensitivity)",
+      "Price ranges dominate PAA answers"
+    ],
+    "tertiary_intent": "Local/Regional",
+    "confidence_level": "Medium",
+    "supporting_evidence": [
+      "40% of related searches location-specific (Berlin, München)",
+      "ehorses.de has regional landing page (NRW) at rank 10",
+      "Location filtering emphasized in descriptions"
+    ],
+    "user_journey_stages": {
+      "research_phase": {
+        "serp_features": ["PAA questions", "Related Searches"],
+        "user_behavior": "Price research + location considerations",
+        "content_needs": "Educational pricing content + regional availability"
+      },
+      "comparison_phase": {
+        "serp_features": ["Organic listings", "Sitelinks"],
+        "user_behavior": "Browsing categories + filtering options",
+        "content_needs": "Decision support + valuation guidance"
+      },
+      "transaction_phase": {
+        "serp_features": ["Marketplace platforms", "CTA in descriptions"],
+        "user_behavior": "Ready to browse listings + contact sellers",
+        "content_needs": "Confidence in fair pricing + purchase decision validation"
+      }
+    }
+  },
+  "content_opportunities_from_serp_features": {
+    "featured_snippet_opportunities": [
+      {
+        "target_query": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "current_answer_weakness": "Generic price ranges without context",
+        "pferdewert_advantage": "AI-powered pricing based on specific characteristics (breed, age, training, health)",
+        "content_format": "Structured answer with price range breakdown by factors",
+        "schema_markup": "FAQPage + Table markup for pricing factors"
+      },
+      {
+        "target_query": "Wie viel kostet ein gutes Pferd?",
+        "current_answer_weakness": "Wide price ranges (1.500 - 10.000 Euro) without explanation",
+        "pferdewert_advantage": "Quality indicators + valuation methodology explanation",
+        "content_format": "Definition of 'good' horse + pricing factors + case examples",
+        "schema_markup": "HowTo + FAQPage"
+      },
+      {
+        "target_query": "Pferd kaufen Preis",
+        "current_serp_status": "No featured snippet (related search only)",
+        "pferdewert_advantage": "Comprehensive pricing guide with real market data",
+        "content_format": "Detailed pricing guide covering all relevant factors",
+        "schema_markup": "Article + FAQPage + Table"
+      }
+    ],
+    "paa_expansion_opportunities": [
+      "Wie bewertet man ein Pferd richtig?",
+      "Welche Faktoren beeinflussen den Pferdewert?",
+      "Was kostet ein Pferd im Jahr? (total cost of ownership)",
+      "Wie viel ist mein Pferd wert?",
+      "Pferdewert berechnen - wie geht das?"
+    ],
+    "sitelink_opportunities": {
+      "recommendation": "Unlikely to compete for sitelinks against marketplace platforms",
+      "rationale": "Sitelinks favor large sites with clear category structure + high traffic",
+      "alternative_strategy": "Focus on capturing PAA positions + featured snippets instead"
+    },
+    "local_pack_opportunity": {
+      "current_status": "Not present in SERP",
+      "rationale": "'pferd kaufen' is not local service query (buying horses, not finding stables)",
+      "relevance_to_pferdewert": "Low priority for this keyword"
+    }
+  },
+  "competitive_serp_positioning": {
+    "marketplace_dominance": {
+      "top_10_breakdown": {
+        "marketplaces": 10,
+        "informational_content": 0,
+        "commercial_services": 0
+      },
+      "implication": "Transactional intent dominates, informational content ranks elsewhere"
+    },
+    "pferdewert_positioning_strategy": {
+      "direct_competition": "Not feasible for this keyword (marketplace platforms have structural advantage)",
+      "alternative_approach": [
+        "Target informational modifiers (e.g., 'pferd kaufen preis', 'pferd kaufen checkliste', 'pferd wert ermitteln')",
+        "Capture PAA positions with superior pricing content",
+        "Create comprehensive buying guide that surfaces for related queries",
+        "Focus on pre-purchase phase (valuation) vs. transaction phase (listings)"
+      ],
+      "content_angle": "Buyer Education + Valuation Service (complement marketplace platforms rather than compete)",
+      "cta_integration": "After educating on pricing → 'Bewerten Sie Ihr Wunschpferd kostenlos' CTA"
+    }
+  },
+  "key_takeaways": {
+    "serp_intent": "Strongly transactional with significant pricing information need",
+    "content_gaps": "Zero informational content in top 10 despite 75% of PAA being price-focused",
+    "user_pain_point": "Price uncertainty + lack of objective valuation guidance",
+    "pferdewert_opportunity": "Become authoritative source for horse pricing education → capture PAA positions → funnel to valuation service",
+    "recommended_content_strategy": [
+      "Create comprehensive 'Pferd kaufen Preis' guide targeting PAA questions",
+      "Develop valuation methodology explainer (transparency builds trust)",
+      "Publish regional pricing data (address location-specific searches)",
+      "Build 'Was kostet ein Pferd wirklich?' total cost of ownership content",
+      "Integrate valuation CTA after educational content"
+    ]
+  }
+}

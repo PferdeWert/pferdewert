@@ -146,14 +146,14 @@ const AKUPferd: NextPage = () => {
         <meta name="msapplication-TileColor" content="#5A4B3B" />
 
         {/* Canonical and hreflang */}
-        <link rel="canonical" href="https://www.pferdewert.de/aku-pferd" />
-        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/aku-pferd" />
+        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/aku-pferd" />
+        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
 
         {/* Open Graph */}
         <meta property="og:title" content="AKU Pferd: Die Ankaufsuntersuchung | PferdeWert Ratgeber" />
         <meta property="og:description" content="AKU beim Pferdekauf: Was wird untersucht, Kosten und Bedeutung für den Pferdewert. Kompletter Guide zur Ankaufsuntersuchung." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/aku-pferd" />
+        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
         <meta property="og:image" content="https://pferdewert.de/images/aku-pferd-ratgeber.jpg" />
 
         {/* Twitter Cards */}

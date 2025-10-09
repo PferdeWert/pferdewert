@@ -1,0 +1,318 @@
+{
+  "primary_keyword": "pferd verkaufen",
+  "analyzed_at": "2025-10-06T10:22:58.314131Z",
+  "total_keywords_analyzed": 25,
+  "top_keywords": [
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "relevance_score": 7.33,
+      "keyword_info": {
+        "search_volume": 40500,
+        "cpc": 0.22,
+        "competition_level": "LOW",
+        "keyword_difficulty": 25
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "pferd",
+      "search_volume": 165000,
+      "cpc": 0.52,
+      "relevance_score": 7.0,
+      "keyword_info": {
+        "search_volume": 165000,
+        "cpc": 0.52,
+        "competition_level": "LOW",
+        "keyword_difficulty": 81
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 1
+    },
+    {
+      "keyword": "labubu kaufen",
+      "search_volume": 60500,
+      "cpc": 0.56,
+      "relevance_score": 7.0,
+      "keyword_info": {
+        "search_volume": 60500,
+        "cpc": 0.56,
+        "competition_level": "HIGH",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "ehorses",
+      "search_volume": 135000,
+      "cpc": 2.82,
+      "relevance_score": 6.32,
+      "keyword_info": {
+        "search_volume": 135000,
+        "cpc": 2.82,
+        "competition_level": "LOW",
+        "keyword_difficulty": 78
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 1
+    },
+    {
+      "keyword": "pferd bild",
+      "search_volume": 14800,
+      "cpc": 0.22,
+      "relevance_score": 6.1,
+      "keyword_info": {
+        "search_volume": 14800,
+        "cpc": 0.22,
+        "competition_level": "MEDIUM",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 2
+    },
+    {
+      "keyword": "pferd ausmalbild",
+      "search_volume": 18100,
+      "cpc": 0.04,
+      "relevance_score": 5.67,
+      "keyword_info": {
+        "search_volume": 18100,
+        "cpc": 0.04,
+        "competition_level": "LOW",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 2
+    },
+    {
+      "keyword": "schimmel pferd",
+      "search_volume": 9900,
+      "cpc": 0,
+      "relevance_score": 4.99,
+      "keyword_info": {
+        "search_volume": 9900,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 16
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 2
+    },
+    {
+      "keyword": "wie alt werden pferde",
+      "search_volume": 9900,
+      "cpc": 0,
+      "relevance_score": 4.96,
+      "keyword_info": {
+        "search_volume": 9900,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 4
+    },
+    {
+      "keyword": "trojanisches pferd",
+      "search_volume": 22200,
+      "cpc": 0,
+      "relevance_score": 4.91,
+      "keyword_info": {
+        "search_volume": 22200,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 12
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 2
+    },
+    {
+      "keyword": "pferd verkaufen",
+      "search_volume": 1300,
+      "cpc": 0.36,
+      "relevance_score": 4.6,
+      "keyword_info": {
+        "search_volume": 1300,
+        "cpc": 0.36,
+        "competition_level": "LOW",
+        "keyword_difficulty": 37
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "reitbeteiligung",
+      "search_volume": 8100,
+      "cpc": 0.06,
+      "relevance_score": 4.22,
+      "keyword_info": {
+        "search_volume": 8100,
+        "cpc": 0.06,
+        "competition_level": "LOW",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 1
+    },
+    {
+      "keyword": "ebay kleinanzeigen pferde",
+      "search_volume": 3600,
+      "cpc": 2.18,
+      "relevance_score": 3.84,
+      "keyword_info": {
+        "search_volume": 3600,
+        "cpc": 2.18,
+        "competition_level": "LOW",
+        "keyword_difficulty": 24
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "ebay pferde kaufen",
+      "search_volume": 2400,
+      "cpc": 0.14,
+      "relevance_score": 3.56,
+      "keyword_info": {
+        "search_volume": 2400,
+        "cpc": 0.14,
+        "competition_level": "LOW",
+        "keyword_difficulty": 27
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "pferde kaufen für 200 euro",
+      "search_volume": 1000,
+      "cpc": 0.43,
+      "relevance_score": 3.45,
+      "keyword_info": {
+        "search_volume": 1000,
+        "cpc": 0.43,
+        "competition_level": "LOW",
+        "keyword_difficulty": 21
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 5
+    },
+    {
+      "keyword": "pferde kaufen in der nähe",
+      "search_volume": 2400,
+      "cpc": 0.18,
+      "relevance_score": 3.3,
+      "keyword_info": {
+        "search_volume": 2400,
+        "cpc": 0.18,
+        "competition_level": "LOW",
+        "keyword_difficulty": 9
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 5
+    },
+    {
+      "keyword": "ehorses pferd kaufen",
+      "search_volume": 1600,
+      "cpc": 0.17,
+      "relevance_score": 3.21,
+      "keyword_info": {
+        "search_volume": 1600,
+        "cpc": 0.17,
+        "competition_level": "LOW",
+        "keyword_difficulty": 26
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "freizeitpferd kaufen",
+      "search_volume": 1900,
+      "cpc": 0.13,
+      "relevance_score": 3.21,
+      "keyword_info": {
+        "search_volume": 1900,
+        "cpc": 0.13,
+        "competition_level": "LOW",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "pferde kaufen günstig",
+      "search_volume": 1000,
+      "cpc": 0.22,
+      "relevance_score": 3.06,
+      "keyword_info": {
+        "search_volume": 1000,
+        "cpc": 0.22,
+        "competition_level": "LOW",
+        "keyword_difficulty": 13
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "pferde zu verschenken sonst schlachter",
+      "search_volume": 720,
+      "cpc": 2.86,
+      "relevance_score": 3.03,
+      "keyword_info": {
+        "search_volume": 720,
+        "cpc": 2.86,
+        "competition_level": "LOW",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 5
+    },
+    {
+      "keyword": "pferde dringend abzugeben",
+      "search_volume": 880,
+      "cpc": 0.34,
+      "relevance_score": 2.72,
+      "keyword_info": {
+        "search_volume": 880,
+        "cpc": 0.34,
+        "competition_level": "LOW",
+        "keyword_difficulty": null
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    }
+  ],
+  "cluster_distribution": {
+    "Informational": 3,
+    "Commercial": 11,
+    "Long-Tail": 0,
+    "General": 6
+  },
+  "statistics": {
+    "avg_search_volume": 25040,
+    "avg_cpc": 0.57,
+    "avg_relevance_score": 4.62
+  }
+}

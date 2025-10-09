@@ -1,0 +1,735 @@
+{
+  "keyword": "pferd kaufen",
+  "analyzed_at": "2025-01-06T12:00:00Z",
+  "analysis_sources": [
+    "competitor-content-analysis.json",
+    "serp-features-intent-mapping.json",
+    "serp-raw-data.json",
+    "keyword-analysis.json"
+  ],
+  "executive_summary": {
+    "primary_finding": "Marketplace platforms dominate 100% of top 10 SERP positions but fail to address critical pricing information needs (75% of PAA questions)",
+    "key_opportunity": "PferdeWert can capture PAA positions and informational traffic by providing educational pricing content, then funnel users to AI-powered valuation service",
+    "competitive_positioning": "Complement (not compete) with marketplaces - focus on pre-purchase education and valuation vs. transaction listings",
+    "content_strategy": "Educational content → Trust building → Valuation CTA → Service conversion"
+  },
+  "critical_content_gaps": [
+    {
+      "gap_id": "CG-01",
+      "gap_name": "No Objective Pricing Guidance",
+      "severity": "Critical",
+      "priority": 1,
+      "evidence": [
+        "75% of PAA questions focus on pricing (3 of 4 questions)",
+        "40% of related searches are price-focused ('Pferd kaufen Preis', 'Pferde kaufen für 200 Euro')",
+        "All top 10 organic results are marketplaces with listings but zero pricing guidance",
+        "Existing PAA answers provide generic ranges (4.000-6.000 Euro for Freizeitpferd) without context"
+      ],
+      "user_pain_points": [
+        "Price uncertainty: users don't know what constitutes fair market value",
+        "No baseline understanding of pricing factors (breed, age, training, health)",
+        "Generic price ranges lack specificity for individual horse characteristics",
+        "Inexperienced buyers have unrealistic expectations ('Pferde kaufen für 200 Euro')"
+      ],
+      "pferdewert_advantage": "AI-powered valuation based on specific horse characteristics (breed, age, training, discipline, health status) vs. generic ranges",
+      "content_opportunities": [
+        {
+          "opportunity_id": "CG-01-A",
+          "target_query": "Wie viel kostet es, ein Pferd zu kaufen?",
+          "current_ranking_domain": "www.panto-heimtier.de",
+          "current_answer_weakness": "Static price ranges (4.000-6.000 Euro Freizeitpferd, ab 8.500 Euro Sportpferd) without explaining variation factors",
+          "content_format": "Comprehensive pricing guide with interactive price calculator",
+          "content_elements": [
+            "Price ranges by use case (Freizeitpferd, Sportpferd, Zuchtpferd)",
+            "Pricing factors breakdown (breed, age, training level, health, pedigree)",
+            "Regional price variations (Bayern, NRW, Berlin area)",
+            "Case examples with specific horses and their valuations",
+            "Price comparison: quality indicators vs. red flags"
+          ],
+          "schema_markup": ["FAQPage", "HowTo", "Table"],
+          "cta_integration": "After education: 'Bewerten Sie Ihr Wunschpferd kostenlos mit unserer KI-Analyse'",
+          "estimated_search_volume": 10000,
+          "keyword_difficulty": 15
+        },
+        {
+          "opportunity_id": "CG-01-B",
+          "target_query": "Wie viel kostet ein gutes Pferd?",
+          "current_ranking_domain": "www.petcovergroup.com",
+          "current_answer_weakness": "Vague definition of 'good' (1.500-10.000 Euro Freizeitreiten, ab 15.000 Euro Wettkampf) with no quality criteria",
+          "content_format": "Quality assessment guide with valuation factors",
+          "content_elements": [
+            "Definition of 'quality' by use case (leisure vs. competition)",
+            "Quality indicators: training level, health status, temperament, conformation",
+            "Price-quality correlation: why better horses cost more",
+            "Red flags that lower value: health issues, behavioral problems, poor training",
+            "How to assess value during viewing: practical checklist"
+          ],
+          "schema_markup": ["FAQPage", "HowTo"],
+          "cta_integration": "Objective quality assessment through AI valuation",
+          "estimated_search_volume": 1000,
+          "keyword_difficulty": 12
+        },
+        {
+          "opportunity_id": "CG-01-C",
+          "target_query": "Pferd kaufen Preis",
+          "current_serp_status": "Related search only, no dedicated content ranking",
+          "content_format": "Ultimate pricing guide hub page",
+          "content_elements": [
+            "Comprehensive price factors matrix (breed × age × training × discipline)",
+            "Market price ranges by popular breeds",
+            "Total cost of ownership calculator (purchase + annual costs)",
+            "Price negotiation tips based on valuation",
+            "Common pricing mistakes buyers make"
+          ],
+          "schema_markup": ["Article", "FAQPage", "Table", "Breadcrumb"],
+          "internal_linking": "Link to specific PAA content pieces (CG-01-A, CG-01-B)",
+          "estimated_search_volume": 320,
+          "keyword_difficulty": 10
+        }
+      ],
+      "business_impact": {
+        "traffic_potential": "High - 11,320+ monthly searches across pricing queries",
+        "conversion_potential": "Very High - users seeking pricing info are pre-qualified for valuation service",
+        "competitive_defensibility": "Strong - AI-powered data vs. generic ranges creates moat",
+        "seo_positioning": "Featured snippet capture for PAA questions, organic rank for long-tail pricing queries"
+      }
+    },
+    {
+      "gap_id": "CG-02",
+      "gap_name": "No Buyer Education Content",
+      "severity": "High",
+      "priority": 2,
+      "evidence": [
+        "All top 10 results are transactional (listings) with zero educational content",
+        "PAA questions indicate research phase: users lack foundational knowledge",
+        "Search query 'Pferde kaufen für 200 Euro' reveals severe knowledge gap about realistic pricing",
+        "No content explaining what to look for when evaluating horses"
+      ],
+      "user_pain_points": [
+        "First-time buyers don't know evaluation criteria",
+        "Lack of objective decision-making framework",
+        "Uncertainty about quality indicators vs. marketing claims",
+        "No guidance on avoiding overpriced or problem horses"
+      ],
+      "pferdewert_advantage": "Educational content establishing authority → trust → valuation service adoption",
+      "content_opportunities": [
+        {
+          "opportunity_id": "CG-02-A",
+          "content_title": "Pferdekauf-Leitfaden: Was Sie vor dem Kauf wissen müssen",
+          "target_keywords": ["pferd kaufen tipps", "pferdekauf checkliste", "erstes pferd kaufen"],
+          "content_format": "Ultimate guide (3000-4000 words)",
+          "content_elements": [
+            "Pre-purchase considerations: experience level, time commitment, facilities",
+            "Budget reality check: purchase price + ongoing costs",
+            "Horse evaluation criteria: conformation, health, temperament, training",
+            "AKU (Ankaufsuntersuchung) importance and what it reveals",
+            "Test riding checklist and red flags",
+            "Contract essentials and legal considerations",
+            "Post-purchase transition planning"
+          ],
+          "schema_markup": ["Article", "HowTo", "FAQPage"],
+          "internal_linking": "Link to valuation service, pricing guides, AKU content",
+          "estimated_traffic": 5000,
+          "conversion_funnel": "Education → Trust → Valuation interest → Service trial"
+        },
+        {
+          "opportunity_id": "CG-02-B",
+          "content_title": "Wie bewertet man ein Pferd richtig? (PAA Expansion)",
+          "target_keywords": ["pferd bewerten", "pferdewert ermitteln", "pferd einschätzen"],
+          "content_format": "Methodology explainer (2000-2500 words)",
+          "content_elements": [
+            "Professional valuation criteria used by experts",
+            "Breed-specific valuation factors",
+            "Training level assessment: raw vs. green vs. finished",
+            "Health and soundness impact on value",
+            "Age-value curve: optimal selling/buying ages",
+            "Market demand factors: discipline popularity, regional preferences",
+            "How AI improves valuation accuracy vs. subjective assessment"
+          ],
+          "schema_markup": ["HowTo", "FAQPage"],
+          "cta_integration": "Try AI valuation: objective data-driven assessment",
+          "estimated_traffic": 2000,
+          "conversion_potential": "High - directly related to core service offering"
+        },
+        {
+          "opportunity_id": "CG-02-C",
+          "content_title": "Pferdekauf-Fehler: 10 teure Fehler vermeiden",
+          "target_keywords": ["pferdekauf fehler", "pferd kaufen worauf achten", "pferdekauf fehler vermeiden"],
+          "content_format": "Listicle with case examples (2500-3000 words)",
+          "content_elements": [
+            "Fehler 1: Kaufen ohne professionelle Bewertung",
+            "Fehler 2: Überbezahlen aufgrund emotionaler Entscheidungen",
+            "Fehler 3: AKU auslassen oder falsche AKU-Stufe wählen",
+            "Fehler 4: Verkäuferangaben unreflektiert glauben",
+            "Fehler 5: Training level überschätzen",
+            "Fehler 6: Gesundheitsprobleme übersehen",
+            "Fehler 7: Unrealistische Budgetplanung (nur Kaufpreis, keine Folgekosten)",
+            "Fehler 8: Pferd kaufen ohne eigene Reiterfahrung einzuschätzen",
+            "Fehler 9: Regionale Preisunterschiede ignorieren",
+            "Fehler 10: Ohne Probezeit oder Rückgaberecht kaufen"
+          ],
+          "schema_markup": ["Article", "FAQPage", "ItemList"],
+          "social_proof": "Expert insights + case study examples",
+          "estimated_traffic": 3000,
+          "viral_potential": "High - relatable mistakes, shareable content"
+        }
+      ],
+      "business_impact": {
+        "traffic_potential": "Medium-High - 10,000+ estimated monthly traffic across educational keywords",
+        "conversion_potential": "Medium - indirect conversion via trust and authority building",
+        "brand_positioning": "Establishes PferdeWert as thought leader and trusted advisor",
+        "seo_positioning": "Hub content for internal linking + topical authority signal"
+      }
+    },
+    {
+      "gap_id": "CG-03",
+      "gap_name": "No Quality-Price Correlation Explanation",
+      "severity": "High",
+      "priority": 3,
+      "evidence": [
+        "Marketplace listings show prices but don't explain pricing rationale",
+        "PAA answers provide ranges without explaining what drives variation",
+        "Users see identical-looking horses priced 3.000 Euro vs. 15.000 Euro without understanding why",
+        "No content explaining valuation methodology or pricing transparency"
+      ],
+      "user_pain_points": [
+        "Can't distinguish between fair pricing and overpricing",
+        "Don't understand why similar horses have vastly different prices",
+        "Suspicious of seller price claims without objective validation",
+        "Risk of paying premium prices for average horses (or vice versa)"
+      ],
+      "pferdewert_advantage": "Transparent AI valuation showing exactly which factors influence price + data-driven pricing vs. seller claims",
+      "content_opportunities": [
+        {
+          "opportunity_id": "CG-03-A",
+          "content_title": "Welche Faktoren beeinflussen den Pferdewert? (PAA Expansion)",
+          "target_keywords": ["pferdewert faktoren", "pferd preis beeinflussen", "pferdewert berechnen faktoren"],
+          "content_format": "Comprehensive factor analysis (2500-3000 words)",
+          "content_elements": [
+            "Factor 1: Breed and pedigree (impact: 20-30% of value)",
+            "Factor 2: Age and lifespan considerations (impact: 15-25%)",
+            "Factor 3: Training level and discipline specialization (impact: 30-40%)",
+            "Factor 4: Health status and soundness (impact: 20-30% negative if issues)",
+            "Factor 5: Temperament and rideability (impact: 10-20%)",
+            "Factor 6: Competition results and performance records (impact: 20-50% for sport horses)",
+            "Factor 7: Physical conformation and movement quality (impact: 10-20%)",
+            "Factor 8: Market demand and regional factors (impact: 5-15%)",
+            "Interactive examples: same breed, different factors → price variation",
+            "How PferdeWert AI weighs these factors objectively"
+          ],
+          "schema_markup": ["Article", "FAQPage", "Table"],
+          "visual_elements": "Infographic showing factor weightings, before/after price impact examples",
+          "estimated_traffic": 1500,
+          "conversion_integration": "Show how AI analyzes all factors simultaneously vs. manual guesswork"
+        },
+        {
+          "opportunity_id": "CG-03-B",
+          "content_title": "Pferdewert berechnen: So geht's richtig",
+          "target_keywords": ["pferdewert berechnen", "pferd wert ermitteln", "pferdebewertung"],
+          "content_format": "Methodology guide with calculator (2000-2500 words)",
+          "content_elements": [
+            "Traditional valuation methods (comparative market analysis, cost approach, income approach)",
+            "Limitations of manual valuation: subjectivity, limited data, time-intensive",
+            "Modern AI-powered valuation: data-driven, objective, comprehensive",
+            "Step-by-step: how to use PferdeWert valuation tool",
+            "Case study: manual estimate vs. AI valuation accuracy",
+            "When to get professional valuation (pre-purchase, insurance, breeding)",
+            "Free vs. paid valuation: what you get at each tier"
+          ],
+          "schema_markup": ["HowTo", "FAQPage"],
+          "interactive_element": "Basic valuation calculator (lead magnet)",
+          "estimated_traffic": 800,
+          "conversion_potential": "Very High - direct funnel to paid valuation service"
+        }
+      ],
+      "business_impact": {
+        "traffic_potential": "Medium - 2,300+ monthly searches for valuation methodology",
+        "conversion_potential": "Very High - users actively seeking valuation = ready to convert",
+        "competitive_moat": "Transparency in methodology builds trust and differentiates from black-box competitors",
+        "seo_positioning": "Authoritative content for valuation-related queries"
+      }
+    },
+    {
+      "gap_id": "CG-04",
+      "gap_name": "No Regional/Local Market Intelligence",
+      "severity": "Medium",
+      "priority": 4,
+      "evidence": [
+        "40% of related searches are location-specific ('pferd kaufen nähe berlin', 'pferd kaufen nähe münchen')",
+        "ehorses.de ranks at position 10 with regional page (NRW-specific landing)",
+        "No content addressing regional price variations or transport considerations",
+        "Users want proximity for viewing convenience and transport cost reduction"
+      ],
+      "user_pain_points": [
+        "Don't know if prices vary significantly by region",
+        "Unsure about transport costs and logistics for distant horses",
+        "Want to find horses nearby but lack regional market data",
+        "Don't know which regions have better supply/pricing for specific breeds"
+      ],
+      "pferdewert_advantage": "Market data aggregation across regions → regional pricing insights + transport cost calculator",
+      "content_opportunities": [
+        {
+          "opportunity_id": "CG-04-A",
+          "content_title": "Pferde kaufen in Deutschland: Regionale Preisunterschiede",
+          "target_keywords": ["pferd kaufen bayern", "pferde kaufen nrw", "pferdekauf regional", "pferd kaufen berlin", "pferd kaufen münchen"],
+          "content_format": "Regional market analysis (2000-2500 words)",
+          "content_elements": [
+            "Regional price index by state (Bayern, NRW, Niedersachsen, etc.)",
+            "Supply and demand dynamics: where specific breeds are more common",
+            "Regional specializations: sport horse regions vs. leisure horse areas",
+            "Transport cost calculator: distance-based pricing",
+            "Regional marketplace insights: where to find best deals",
+            "Proximity vs. price trade-off: when to consider distant horses",
+            "Legal considerations: cross-border purchases (Germany, Netherlands, Belgium)"
+          ],
+          "schema_markup": ["Article", "FAQPage", "Table"],
+          "visual_elements": "Interactive map showing regional price indices",
+          "estimated_traffic": 4000,
+          "local_seo_value": "Captures long-tail regional searches"
+        },
+        {
+          "opportunity_id": "CG-04-B",
+          "content_title": "Pferd kaufen in der Nähe finden: Lokale Suche + Transportkosten",
+          "target_keywords": ["pferde kaufen in der nähe", "pferd kaufen umkreis", "pferd transport kosten"],
+          "content_format": "Practical guide (1500-2000 words)",
+          "content_elements": [
+            "How to search locally: marketplace filters, regional Facebook groups, local stables",
+            "Proximity benefits: multiple viewings, trial periods, vet check convenience",
+            "Transport cost breakdown: professional vs. self-transport, distance-based pricing",
+            "When distance doesn't matter: exceptional horses worth travel",
+            "Transport safety and legal requirements",
+            "Regional valuation tool: check if local prices are competitive"
+          ],
+          "schema_markup": ["HowTo", "FAQPage"],
+          "interactive_element": "Transport cost calculator + proximity search",
+          "estimated_traffic": 2400,
+          "conversion_integration": "Regional valuation data exclusive to PferdeWert users"
+        }
+      ],
+      "business_impact": {
+        "traffic_potential": "Medium-High - 6,400+ monthly searches for regional queries",
+        "conversion_potential": "Medium - users looking locally may have less patience for complex valuation",
+        "seo_positioning": "Capture location-specific long-tail keywords",
+        "data_advantage": "Regional pricing data is proprietary and difficult for competitors to replicate"
+      }
+    },
+    {
+      "gap_id": "CG-05",
+      "gap_name": "No Total Cost of Ownership Education",
+      "severity": "Medium",
+      "priority": 5,
+      "evidence": [
+        "Related search 'Pferde kaufen für 200 Euro' indicates users focus only on purchase price",
+        "No PAA questions about ongoing costs (only purchase price)",
+        "Marketplaces don't educate about annual costs, only listing prices",
+        "Price sensitivity signals suggest budget constraints without understanding total commitment"
+      ],
+      "user_pain_points": [
+        "Underestimate total cost of ownership (purchase price is just start)",
+        "Budget shock after purchase: feed, boarding, vet, farrier, insurance",
+        "Can't afford ongoing costs despite low purchase price",
+        "Don't factor location (urban vs. rural) into ongoing costs"
+      ],
+      "pferdewert_advantage": "Total cost calculator showing purchase price in context of 5-year ownership cost",
+      "content_opportunities": [
+        {
+          "opportunity_id": "CG-05-A",
+          "content_title": "Was kostet ein Pferd wirklich? Total Cost of Ownership",
+          "target_keywords": ["pferd kosten im jahr", "pferdehaltung kosten", "pferd unterhaltskosten", "was kostet ein pferd monatlich"],
+          "content_format": "Comprehensive cost breakdown (2500-3000 words)",
+          "content_elements": [
+            "One-time costs: purchase price, transport, initial vet check (AKU), tack/equipment",
+            "Monthly recurring costs: boarding, feed, farrier, routine vet care",
+            "Annual costs: insurance, vaccinations, dental, training/lessons",
+            "Unexpected costs: emergency vet care, injury treatment, behavioral training",
+            "Cost variations: full board vs. self-care, urban vs. rural, leisure vs. competition",
+            "5-year total cost projection by horse type",
+            "Budget reality check: minimum income required for responsible ownership",
+            "Cost-saving strategies without compromising horse welfare"
+          ],
+          "schema_markup": ["Article", "FAQPage", "Table"],
+          "interactive_element": "Total cost of ownership calculator",
+          "estimated_traffic": 3000,
+          "user_education_value": "Critical for preventing buyer's remorse and abandoned horses"
+        },
+        {
+          "opportunity_id": "CG-05-B",
+          "content_title": "Pferd kaufen für 200 Euro: Warum das unrealistisch ist",
+          "target_keywords": ["pferde kaufen günstig", "pferd kaufen 500 euro", "günstiges pferd kaufen"],
+          "content_format": "Reality check article (1500-2000 words)",
+          "content_elements": [
+            "Why extremely low prices are red flags: health issues, behavioral problems, poor training",
+            "True cost of 'cheap' horses: rehabilitation, retraining, vet bills often exceed 'savings'",
+            "Realistic budget minimums by use case (Freizeitpferd, Beistellpferd, Sportpferd)",
+            "Better budget strategies: leasing, Reitbeteiligung, older horses, rescue horses",
+            "When low prices are legitimate: retirement homes, rescue cases (with honest disclosure)",
+            "Total cost perspective: 500 Euro purchase + 5.000 Euro annual costs = focus on affordability, not price"
+          ],
+          "schema_markup": ["Article", "FAQPage"],
+          "tone": "Empathetic but realistic - discouraging bad decisions while offering alternatives",
+          "estimated_traffic": 1500,
+          "conversion_integration": "Valuation service helps avoid overpriced AND underpriced (problem) horses"
+        }
+      ],
+      "business_impact": {
+        "traffic_potential": "Medium - 4,500+ monthly searches for cost-related queries",
+        "conversion_potential": "Low-Medium - budget-conscious users may not be ready for paid valuation",
+        "brand_value": "Positions PferdeWert as responsible, ethical advisor (not just profit-focused)",
+        "seo_positioning": "Captures cost-related informational queries, builds topical authority"
+      }
+    }
+  ],
+  "paa_expansion_opportunities": [
+    {
+      "paa_id": "PAA-01",
+      "question": "Wie bewertet man ein Pferd richtig?",
+      "current_serp_status": "Not present in PAA, but high search intent",
+      "keyword_data": {
+        "estimated_search_volume": 500,
+        "keyword_difficulty": 8,
+        "related_queries": ["pferd bewerten", "pferdewert ermitteln", "pferd einschätzen"]
+      },
+      "content_strategy": "Covered in CG-02-B",
+      "business_alignment": "Core service offering - direct conversion potential"
+    },
+    {
+      "paa_id": "PAA-02",
+      "question": "Welche Faktoren beeinflussen den Pferdewert?",
+      "current_serp_status": "Not present in PAA",
+      "keyword_data": {
+        "estimated_search_volume": 300,
+        "keyword_difficulty": 7,
+        "related_queries": ["pferdewert faktoren", "pferd preis faktoren"]
+      },
+      "content_strategy": "Covered in CG-03-A",
+      "business_alignment": "Educational → trust building → valuation interest"
+    },
+    {
+      "paa_id": "PAA-03",
+      "question": "Was kostet ein Pferd im Jahr?",
+      "current_serp_status": "Not present in PAA",
+      "keyword_data": {
+        "estimated_search_volume": 1200,
+        "keyword_difficulty": 10,
+        "related_queries": ["pferd unterhaltskosten", "pferdehaltung kosten", "pferd monatliche kosten"]
+      },
+      "content_strategy": "Covered in CG-05-A",
+      "business_alignment": "Buyer education → responsible ownership → brand trust"
+    },
+    {
+      "paa_id": "PAA-04",
+      "question": "Wie viel ist mein Pferd wert?",
+      "current_serp_status": "Not present in PAA (different user intent from 'pferd kaufen')",
+      "keyword_data": {
+        "estimated_search_volume": 800,
+        "keyword_difficulty": 12,
+        "related_queries": ["pferd wert ermitteln", "pferdewert berechnen", "pferd verkaufswert"]
+      },
+      "content_strategy": "Create dedicated seller-focused content (not covered in current gaps)",
+      "business_alignment": "Seller market opportunity - expands target audience beyond buyers"
+    },
+    {
+      "paa_id": "PAA-05",
+      "question": "Pferdewert berechnen - wie geht das?",
+      "current_serp_status": "Not present in PAA",
+      "keyword_data": {
+        "estimated_search_volume": 400,
+        "keyword_difficulty": 9,
+        "related_queries": ["pferdebewertung durchführen", "pferdewert ermitteln anleitung"]
+      },
+      "content_strategy": "Covered in CG-03-B",
+      "business_alignment": "Direct conversion - users actively seeking valuation tools"
+    },
+    {
+      "paa_id": "PAA-06",
+      "question": "Was bedeutet die 20%-Regel bei Pferden?",
+      "current_serp_status": "Currently in PAA (rank 4 of 4)",
+      "keyword_data": {
+        "estimated_search_volume": 200,
+        "keyword_difficulty": 5
+      },
+      "content_strategy": "Low priority - technical question with low relevance to core business",
+      "business_alignment": "Minimal - signals research phase but not buying/valuation intent"
+    }
+  ],
+  "featured_snippet_targeting_strategy": {
+    "high_priority_targets": [
+      {
+        "target_query": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "current_fs_holder": "www.panto-heimtier.de",
+        "displacement_strategy": "Provide more comprehensive, data-backed answer with price ranges + factors",
+        "content_format": "Structured answer: price ranges table + factor explanations + regional variations",
+        "schema_markup": "FAQPage + Table",
+        "estimated_monthly_impressions": 8000,
+        "ctr_potential": "15-20% (featured snippets average)",
+        "traffic_potential": 1200
+      },
+      {
+        "target_query": "Wie viel kostet ein gutes Pferd?",
+        "current_fs_holder": "www.petcovergroup.com",
+        "displacement_strategy": "Define 'good' with quality criteria + price-quality correlation",
+        "content_format": "Structured answer: quality definition + price ranges by quality tier + case examples",
+        "schema_markup": "FAQPage + HowTo",
+        "estimated_monthly_impressions": 800,
+        "ctr_potential": "15-20%",
+        "traffic_potential": 120
+      }
+    ],
+    "medium_priority_targets": [
+      {
+        "target_query": "Pferd kaufen Preis",
+        "current_fs_holder": "None (related search only)",
+        "opportunity": "Create featured snippet from scratch - low competition",
+        "content_format": "Hub page with comprehensive pricing tables and factor breakdowns",
+        "schema_markup": "Article + FAQPage + Table + Breadcrumb",
+        "estimated_monthly_impressions": 250,
+        "traffic_potential": 40
+      }
+    ],
+    "total_featured_snippet_traffic_potential": 1360
+  },
+  "content_prioritization_matrix": {
+    "tier_1_immediate_priority": [
+      {
+        "content_id": "CG-01-A",
+        "title": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "rationale": "Highest search volume (10,000), targets existing PAA, direct conversion potential",
+        "estimated_effort": "40 hours (research + writing + schema + calculator)",
+        "estimated_traffic": 1500,
+        "estimated_conversions": "3% = 45 valuations/month",
+        "roi_score": 9.5
+      },
+      {
+        "content_id": "CG-03-B",
+        "title": "Pferdewert berechnen: So geht's richtig",
+        "rationale": "Direct funnel to valuation service, high conversion intent",
+        "estimated_effort": "30 hours",
+        "estimated_traffic": 800,
+        "estimated_conversions": "5% = 40 valuations/month",
+        "roi_score": 9.0
+      },
+      {
+        "content_id": "CG-02-B",
+        "title": "Wie bewertet man ein Pferd richtig?",
+        "rationale": "Core service alignment, establishes authority",
+        "estimated_effort": "25 hours",
+        "estimated_traffic": 2000,
+        "estimated_conversions": "4% = 80 valuations/month",
+        "roi_score": 8.8
+      }
+    ],
+    "tier_2_secondary_priority": [
+      {
+        "content_id": "CG-01-B",
+        "title": "Wie viel kostet ein gutes Pferd?",
+        "rationale": "Featured snippet opportunity, quality-focused content",
+        "estimated_effort": "30 hours",
+        "estimated_traffic": 1000,
+        "estimated_conversions": "3% = 30 valuations/month",
+        "roi_score": 7.5
+      },
+      {
+        "content_id": "CG-02-A",
+        "title": "Pferdekauf-Leitfaden: Was Sie vor dem Kauf wissen müssen",
+        "rationale": "Hub content for internal linking, authority building",
+        "estimated_effort": "50 hours",
+        "estimated_traffic": 5000,
+        "estimated_conversions": "1% = 50 valuations/month",
+        "roi_score": 7.0
+      },
+      {
+        "content_id": "CG-04-A",
+        "title": "Pferde kaufen in Deutschland: Regionale Preisunterschiede",
+        "rationale": "Unique data advantage, captures regional long-tail",
+        "estimated_effort": "35 hours",
+        "estimated_traffic": 4000,
+        "estimated_conversions": "1.5% = 60 valuations/month",
+        "roi_score": 6.8
+      }
+    ],
+    "tier_3_supporting_content": [
+      {
+        "content_id": "CG-03-A",
+        "title": "Welche Faktoren beeinflussen den Pferdewert?",
+        "rationale": "Supporting content for main valuation pieces",
+        "estimated_effort": "30 hours",
+        "estimated_traffic": 1500,
+        "estimated_conversions": "2% = 30 valuations/month",
+        "roi_score": 6.0
+      },
+      {
+        "content_id": "CG-05-A",
+        "title": "Was kostet ein Pferd wirklich? Total Cost of Ownership",
+        "rationale": "Buyer education, brand positioning",
+        "estimated_effort": "35 hours",
+        "estimated_traffic": 3000,
+        "estimated_conversions": "1% = 30 valuations/month",
+        "roi_score": 5.5
+      },
+      {
+        "content_id": "CG-02-C",
+        "title": "Pferdekauf-Fehler: 10 teure Fehler vermeiden",
+        "rationale": "Viral potential, social sharing",
+        "estimated_effort": "30 hours",
+        "estimated_traffic": 3000,
+        "estimated_conversions": "1% = 30 valuations/month",
+        "roi_score": 5.5
+      }
+    ]
+  },
+  "competitive_positioning_strategy": {
+    "positioning_statement": "PferdeWert is the trusted advisor for horse buyers seeking objective, data-driven valuation guidance before making purchase decisions",
+    "differentiation_vs_marketplaces": {
+      "ehorses_pferde_kleinanzeigen": {
+        "their_strength": "Transaction platform with large inventory",
+        "their_weakness": "Zero pricing guidance or buyer education",
+        "pferdewert_complement": "Provide pre-purchase valuation and education → users return to marketplaces to find horses matching validated price expectations"
+      }
+    },
+    "content_strategy_vs_competitors": {
+      "do_not_compete_on": [
+        "Marketplace listings - no plans to create horse classifieds",
+        "Transaction facilitation - not building seller-buyer matching",
+        "Large inventory - focus is valuation, not volume"
+      ],
+      "compete_on": [
+        "Educational content depth and quality",
+        "Pricing transparency and data-driven insights",
+        "Featured snippet positions for pricing queries",
+        "Topical authority in horse valuation",
+        "AI-powered tools and calculators"
+      ]
+    },
+    "conversion_funnel_strategy": {
+      "awareness_stage": {
+        "user_intent": "General research: 'how much does a horse cost?'",
+        "content_types": "PAA-optimized pricing guides, total cost calculators",
+        "goal": "Capture organic search traffic, establish authority",
+        "conversion_action": "Newsletter signup, bookmark site"
+      },
+      "consideration_stage": {
+        "user_intent": "Evaluating specific horses: 'how to value a horse'",
+        "content_types": "Valuation methodology explainers, quality assessment guides",
+        "goal": "Build trust in AI valuation approach",
+        "conversion_action": "Free basic valuation trial"
+      },
+      "decision_stage": {
+        "user_intent": "Ready to purchase: needs confidence in fair pricing",
+        "content_types": "Valuation service landing pages, case studies",
+        "goal": "Convert to paid comprehensive valuation",
+        "conversion_action": "Purchase €14.90 valuation report"
+      }
+    }
+  },
+  "implementation_roadmap": {
+    "phase_1_foundation": {
+      "timeline": "Weeks 1-4",
+      "content_pieces": [
+        "CG-01-A: Wie viel kostet es, ein Pferd zu kaufen? (flagship PAA content)",
+        "CG-03-B: Pferdewert berechnen (direct valuation funnel)",
+        "CG-02-B: Wie bewertet man ein Pferd richtig? (authority building)"
+      ],
+      "technical_requirements": [
+        "FAQPage schema implementation",
+        "Table schema for pricing data",
+        "Basic price calculator widget",
+        "Internal linking structure setup"
+      ],
+      "success_metrics": [
+        "Featured snippet capture for at least 1 PAA query",
+        "Top 10 ranking for 3+ target keywords",
+        "50+ valuation conversions from organic content"
+      ]
+    },
+    "phase_2_expansion": {
+      "timeline": "Weeks 5-8",
+      "content_pieces": [
+        "CG-01-B: Wie viel kostet ein gutes Pferd?",
+        "CG-02-A: Pferdekauf-Leitfaden (hub content)",
+        "CG-04-A: Regionale Preisunterschiede"
+      ],
+      "technical_requirements": [
+        "Regional price data visualization",
+        "Transport cost calculator",
+        "Content hub internal linking",
+        "HowTo schema implementation"
+      ],
+      "success_metrics": [
+        "200+ organic sessions/day to content",
+        "80+ valuation conversions/month",
+        "Featured snippet for 2+ queries"
+      ]
+    },
+    "phase_3_authority": {
+      "timeline": "Weeks 9-12",
+      "content_pieces": [
+        "CG-03-A: Welche Faktoren beeinflussen den Pferdewert?",
+        "CG-05-A: Was kostet ein Pferd wirklich? (TCO)",
+        "CG-02-C: Pferdekauf-Fehler vermeiden"
+      ],
+      "technical_requirements": [
+        "Total cost of ownership calculator",
+        "Interactive factor weighting tool",
+        "Social sharing optimization",
+        "Email capture forms"
+      ],
+      "success_metrics": [
+        "500+ organic sessions/day",
+        "150+ valuation conversions/month",
+        "Top 5 ranking for 'pferdewert' branded keywords"
+      ]
+    }
+  },
+  "measurement_framework": {
+    "traffic_kpis": {
+      "organic_sessions": "Target: 15,000/month by month 3",
+      "featured_snippet_impressions": "Target: 10,000/month",
+      "paa_click_through_rate": "Target: 12-15%",
+      "page_1_rankings": "Target: 15+ keywords by month 3"
+    },
+    "conversion_kpis": {
+      "content_to_valuation_conversion": "Target: 2-3%",
+      "monthly_valuations_from_content": "Target: 150+ by month 3",
+      "content_assisted_revenue": "Target: €2,235/month (150 × €14.90)",
+      "roi_vs_content_investment": "Target: 3:1 by month 6"
+    },
+    "engagement_kpis": {
+      "avg_time_on_page": "Target: 3+ minutes",
+      "scroll_depth": "Target: 70%+",
+      "calculator_interaction_rate": "Target: 15%+",
+      "internal_link_click_rate": "Target: 8%+"
+    }
+  },
+  "risk_mitigation": {
+    "risk_1_low_conversion": {
+      "risk": "High traffic but low valuation conversions",
+      "likelihood": "Medium",
+      "mitigation": [
+        "A/B test CTA placement and messaging",
+        "Add exit-intent popups with value proposition",
+        "Implement remarketing campaigns",
+        "Offer tiered pricing (free basic + paid comprehensive)"
+      ]
+    },
+    "risk_2_serp_volatility": {
+      "risk": "Google algorithm changes affect rankings",
+      "likelihood": "Medium",
+      "mitigation": [
+        "Diversify traffic sources (email, social, direct)",
+        "Build E-E-A-T signals (expert contributors, citations)",
+        "Regular content updates to maintain freshness",
+        "Strong internal linking for topical authority"
+      ]
+    },
+    "risk_3_competitive_response": {
+      "risk": "Marketplaces add pricing guides after seeing success",
+      "likelihood": "Low-Medium",
+      "mitigation": [
+        "First-mover advantage with AI valuation integration",
+        "Build proprietary data moat (regional pricing database)",
+        "Focus on service (valuation reports) not just content",
+        "Patent/trademark protection for valuation methodology"
+      ]
+    }
+  }
+}

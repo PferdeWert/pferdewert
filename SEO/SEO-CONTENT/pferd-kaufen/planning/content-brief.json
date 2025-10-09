@@ -1,0 +1,604 @@
+{
+  "meta": {
+    "primaryKeyword": "pferd kaufen",
+    "slug": "pferd-kaufen",
+    "createdAt": "2025-01-06T12:00:00Z",
+    "phase": "4A-content-brief",
+    "projectId": "pferd-kaufen-hub",
+    "contentType": "Hub Article - Comprehensive Guide"
+  },
+  "keyword": {
+    "primary": {
+      "term": "pferd kaufen",
+      "searchVolume": 40500,
+      "cpc": 0.22,
+      "difficulty": 25,
+      "competitionLevel": "LOW",
+      "searchIntent": {
+        "main": "commercial",
+        "secondary": "transactional",
+        "confidence": "very high"
+      }
+    },
+    "secondary": [
+      {
+        "term": "pferd kaufen kosten",
+        "searchVolume": 2400,
+        "cpc": 0.18,
+        "relevanceScore": 4.08
+      },
+      {
+        "term": "pferde kaufen in der nähe",
+        "searchVolume": 2400,
+        "cpc": 0.18,
+        "relevanceScore": 3.99
+      },
+      {
+        "term": "pferd kaufen preis",
+        "searchVolume": 320,
+        "cpc": 0.51,
+        "relevanceScore": 2.61
+      },
+      {
+        "term": "pferde kaufen bayern",
+        "searchVolume": 1600,
+        "cpc": 0.18,
+        "relevanceScore": 2.88
+      },
+      {
+        "term": "ehorses pferd kaufen",
+        "searchVolume": 1600,
+        "cpc": 0.21,
+        "relevanceScore": 2.97
+      }
+    ],
+    "longtail": [
+      {
+        "term": "pferde kaufen für 200 euro",
+        "searchVolume": 1000,
+        "cpc": 0.43,
+        "relevanceScore": 3.69,
+        "intent": "budget constraint",
+        "userLevel": "inexperienced"
+      },
+      {
+        "term": "pferd kaufen günstig",
+        "searchVolume": 1000,
+        "cpc": 0.22,
+        "relevanceScore": 3.06
+      },
+      {
+        "term": "pferde günstig kaufen bis 500 euro",
+        "searchVolume": 880,
+        "cpc": 0.2,
+        "relevanceScore": 2.01
+      }
+    ]
+  },
+  "contentStrategy": {
+    "targetWordCount": 2500,
+    "wordCountRange": {
+      "min": 2000,
+      "target": 2500,
+      "max": 3000,
+      "rationale": "Hub content needs comprehensive coverage. SERP dominated by marketplaces (no informational content in top 10), so educational guide can differentiate with depth."
+    },
+    "primaryKeywordDensity": {
+      "target": 0.01,
+      "min": 0.008,
+      "max": 0.012,
+      "rationale": "0.8-1.2% density for natural integration"
+    },
+    "tone": "Du-Ansprache, vertrauensvoll, praxisorientiert",
+    "brandVoice": "Warmherzig, praktisch, expertise-basiert",
+    "readingLevel": "Grade 8-10 (Flesch-Reading-Ease > 60 für Deutsch)",
+    "strategicPositioning": "Complement (not compete) with marketplaces - pre-purchase education and valuation services",
+    "conversionFunnel": "Awareness (pricing guides) → Consideration (valuation methodology) → Decision (AI valuation service)"
+  },
+  "outline": {
+    "h1": "Pferd kaufen: Der ultimative Ratgeber 2025 [Preise, Bewertung, Checkliste]",
+    "metaTitle": "Pferd kaufen: Kompletter Ratgeber 2025 | Preise & Bewertung",
+    "metaDescription": "Pferd kaufen leicht gemacht: Alles zu Kosten, Bewertung & Kaufprozess. AI-gestützte Preisanalyse ✓ Checkliste ✓ Regionale Tipps ✓ Jetzt informieren!",
+    "sections": [
+      {
+        "heading": "Einleitung",
+        "h2": "Warum dieser Ratgeber Ihnen beim Pferdekauf hilft",
+        "wordCount": 150,
+        "keyPoints": [
+          "40.500 Menschen suchen monatlich nach 'pferd kaufen' - Sie sind nicht allein",
+          "100% der Top-10-Ergebnisse sind Marktplätze - KEIN Ratgeber (Differenzierung)",
+          "75% der häufigsten Fragen drehen sich um Preise und Kosten",
+          "Preview: Was Sie in diesem Ratgeber lernen werden"
+        ],
+        "keywords": ["pferd kaufen"],
+        "eeatSignal": "Expertise: Analyse von 21 Keywords und SERP-Landschaft zeigt unsere Marktkenntnis"
+      },
+      {
+        "heading": "Wie viel kostet ein Pferd?",
+        "h2": "Preisübersicht: Was Sie beim Pferdekauf einplanen müssen",
+        "wordCount": 400,
+        "keyPoints": [
+          "Anschaffungskosten nach Rasse und Ausbildungsstand (Tabelle)",
+          "Einsteigerbereich: €1.000-€5.000",
+          "Mittelklasse: €5.000-€15.000",
+          "Profisegment: €15.000+",
+          "Regionale Preisunterschiede (Bayern, NRW, Norddeutschland)",
+          "Warum manche Pferde teurer sind als andere (Quality-Price Correlation)"
+        ],
+        "keywords": ["pferd kaufen kosten", "pferd kaufen preis", "wie viel kostet ein pferd"],
+        "internalLinks": [
+          {
+            "anchor": "Pferdewert berechnen",
+            "target": "/ratgeber/pferdewert-berechnen",
+            "context": "Nutzen Sie unseren AI-gestützten Rechner für präzise Bewertung"
+          }
+        ],
+        "eeatSignal": "Authority: Datenbasierte Preisanalyse aus Marktrecherche",
+        "paaTarget": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "featuredSnippetTarget": "Price range table"
+      },
+      {
+        "heading": "Laufende Kosten",
+        "h2": "Was kostet ein Pferd wirklich? Kaufpreis + Jahreskosten",
+        "wordCount": 300,
+        "keyPoints": [
+          "Stallmiete: €200-€600/Monat",
+          "Futter: €100-€200/Monat",
+          "Tierarzt & Hufschmied: €100-€300/Monat",
+          "Versicherungen: €30-€100/Monat",
+          "Ausrüstung (Erstausstattung): €500-€2.000",
+          "Jahreskosten gesamt: €5.000-€15.000"
+        ],
+        "keywords": ["pferd jahreskosten", "was kostet ein pferd wirklich"],
+        "internalLinks": [
+          {
+            "anchor": "Detaillierte Kostenübersicht",
+            "target": "/ratgeber/pferd-kaufen-kosten",
+            "context": "In unserem Kosten-Guide finden Sie eine vollständige Aufschlüsselung"
+          }
+        ],
+        "eeatSignal": "Trust: Transparente Kostenaufschlüsselung zeigt Realität",
+        "ctaPlacement": "After cost breakdown"
+      },
+      {
+        "heading": "Pferdebewertung",
+        "h2": "Wie bewertet man ein Pferd richtig? Die 5 Säulen",
+        "wordCount": 350,
+        "keyPoints": [
+          "1. Gesundheitszustand (AKU - Ankaufsuntersuchung)",
+          "2. Ausbildung und Reitbarkeit",
+          "3. Charakter und Temperament",
+          "4. Exterieur und Interieur",
+          "5. Marktfähigkeit und Preistrends",
+          "Warum professionelle Bewertung wichtig ist",
+          "AI-gestützte vs. traditionelle Bewertung"
+        ],
+        "keywords": ["pferd bewerten", "pferdebewertung", "wie bewertet man ein pferd"],
+        "internalLinks": [
+          {
+            "anchor": "Pferd richtig bewerten",
+            "target": "/ratgeber/pferd-bewerten",
+            "context": "Lernen Sie die 5 Säulen der Pferdebewertung im Detail"
+          },
+          {
+            "anchor": "Kostenlose AI-Bewertung starten",
+            "target": "/bewertung",
+            "context": "PferdeWert-Tool für objektive Marktpreisanalyse",
+            "isCTA": true
+          }
+        ],
+        "eeatSignal": "Expertise: Bewertungsmethodik basiert auf professionellem Know-how",
+        "paaTarget": "Wie bewertet man ein Pferd richtig?",
+        "featuredSnippetTarget": "5-Säulen-Modell as ordered list"
+      },
+      {
+        "heading": "Kaufprozess",
+        "h2": "Pferdekauf Schritt für Schritt: Vom ersten Kontakt bis zum Kaufvertrag",
+        "wordCount": 400,
+        "keyPoints": [
+          "Schritt 1: Budget und Anforderungen definieren",
+          "Schritt 2: Verkaufsplattformen nutzen (ehorses.de, pferde.de, kleinanzeigen.de)",
+          "Schritt 3: Probereiten - Worauf achten?",
+          "Schritt 4: Kaufuntersuchung (AKU) durchführen lassen",
+          "Schritt 5: Preisverhandlung (mit fairer Bewertung argumentieren)",
+          "Schritt 6: Kaufvertrag abschließen",
+          "Schritt 7: Transport und Eingewöhnung"
+        ],
+        "keywords": ["pferdekauf ablauf", "pferd kaufen checkliste"],
+        "internalLinks": [],
+        "eeatSignal": "Experience: Schritt-für-Schritt-Anleitung zeigt praktische Erfahrung",
+        "schemaMarkup": "HowTo"
+      },
+      {
+        "heading": "Regionale Unterschiede",
+        "h2": "Pferd kaufen in Deutschland: Regionale Marktanalyse",
+        "wordCount": 250,
+        "keyPoints": [
+          "Bayern: Traditionelle Zuchtgebiete, höhere Preise (€5.000-€12.000 Durchschnitt)",
+          "Norddeutschland: Viele Warmblut-Züchter, moderates Preisniveau",
+          "NRW/Rheinland: Größter Markt, breites Angebot",
+          "Überregional kaufen: Transport, Kosten, Vor-/Nachteile",
+          "Regionale Besonderheiten (Stallverfügbarkeit, Infrastruktur)"
+        ],
+        "keywords": ["pferde kaufen bayern", "pferd kaufen nähe münchen", "pferd kaufen regional"],
+        "internalLinks": [
+          {
+            "anchor": "Regionale Preisvergleiche",
+            "target": "/ratgeber/pferd-kaufen-regional",
+            "context": "Entdecken Sie detaillierte regionale Marktanalysen"
+          }
+        ],
+        "eeatSignal": "Authority: Regionale Marktkenntnis"
+      },
+      {
+        "heading": "Worauf beim Kauf achten",
+        "h2": "Red Flags beim Pferdekauf: So erkennen Sie unseriöse Angebote",
+        "wordCount": 250,
+        "keyPoints": [
+          "Unrealistisch niedrige Preise (€200-€500 bei gesunden Pferden)",
+          "Fehlende oder ungenaue Angaben in Inseraten",
+          "Verkäufer vermeidet Probereiten oder AKU",
+          "Gesundheitsprobleme werden verschwiegen",
+          "Druckmethoden ('Nur heute verfügbar')",
+          "Keine Papiere oder fragwürdige Abstammung"
+        ],
+        "keywords": ["pferd kaufen worauf achten", "pferdekauf fehler"],
+        "internalLinks": [],
+        "eeatSignal": "Trust: Warnung vor Risiken zeigt Verbraucherschutz-Orientierung"
+      },
+      {
+        "heading": "FAQ",
+        "h2": "Häufig gestellte Fragen zum Pferdekauf",
+        "wordCount": 400,
+        "keyPoints": [
+          "Mindestens 8 PAA-basierte Fragen mit direkten Antworten",
+          "FAQPage Schema Markup für Featured Snippet Targeting"
+        ],
+        "faqQuestions": [
+          {
+            "question": "Wie viel kostet es, ein Pferd zu kaufen?",
+            "answer": "Der Kaufpreis für ein Pferd variiert stark je nach Rasse, Alter, Ausbildungsstand und Gesundheitszustand. Einstiegspferde (z.B. Freizeitpferde ohne spezielle Ausbildung) liegen bei €1.000-€5.000. Gut ausgebildete Sportpferde kosten €5.000-€15.000, während Turnierpferde mit Erfolgen €15.000+ erreichen können. Zusätzlich fallen jährliche Kosten von €5.000-€15.000 für Unterbringung, Futter, Tierarzt und Hufschmied an.",
+            "targetPAA": "Wie viel kostet es, ein Pferd zu kaufen?"
+          },
+          {
+            "question": "Wie viel kostet ein gutes Pferd?",
+            "answer": "Ein 'gutes' Pferd kostet zwischen €5.000 und €15.000. 'Gut' bedeutet gesund (positive AKU), gut ausgebildet (solide Grundausbildung), charakterlich ausgeglichen und für den Verwendungszweck geeignet. Die Preisspanne hängt ab von: Ausbildungsstand (beritten vs. turniererfahren), Alter (5-12 Jahre optimal), Gesundheit (keine Vorerkrankungen), Charakter (anfängerfreundlich vs. anspruchsvoll) und Marktfähigkeit (beliebte Rassen teurer).",
+            "targetPAA": "Wie viel kostet ein gutes Pferd?"
+          },
+          {
+            "question": "Wo kann ich am besten ein Pferd kaufen?",
+            "answer": "Die besten Plattformen für den Pferdekauf sind: ehorses.de (19.000+ Inserate, größte Auswahl), pferde.de (1.500+ Inserate, detaillierte Filter), kleinanzeigen.de (11.000+ Inserate, auch Privatverkäufe), direkt bei Züchtern (beste Beratung, Papiere garantiert) oder über Pferdevermittler (professionelle Begleitung). Tipp: Nutzen Sie vor dem Kauf eine objektive Bewertung mit PferdeWert, um faire Preise zu erkennen.",
+            "targetPAA": null
+          },
+          {
+            "question": "Was kostet eine Kaufuntersuchung (AKU)?",
+            "answer": "Eine Ankaufsuntersuchung (AKU) kostet je nach Umfang €150-€1.500. Kleine AKU (Basis-Check): €150-€300, Große AKU (inkl. Röntgen): €500-€1.000, Große AKU mit Zusatzuntersuchungen (Herz-Echo, MRT): €1.000-€1.500+. Die große AKU ist bei Pferden ab €5.000 Kaufpreis dringend empfohlen. Sie schützt vor versteckten Gesundheitsproblemen und spart langfristig Tierarztkosten.",
+            "targetPAA": null
+          },
+          {
+            "question": "Sollte ich ein Pferd privat oder vom Züchter kaufen?",
+            "answer": "Vom Züchter: Vorteile sind garantierte Papiere, professionelle Beratung, oft besserer Gesundheitszustand, Rückgaberecht möglich. Nachteile: höhere Preise. Privat: Vorteile sind niedrigere Preise, direkte Kommunikation, oft inklusive Ausrüstung. Nachteile: keine Garantien, höheres Risiko bei versteckten Mängeln. Empfehlung für Anfänger: Züchter oder seriöser Vermittler. Für erfahrene Käufer: Private Verkäufe möglich, aber immer mit AKU!",
+            "targetPAA": null
+          },
+          {
+            "question": "Wie erkenne ich, ob ein Pferd seinen Preis wert ist?",
+            "answer": "Ein fairer Preis spiegelt diese Faktoren wider: Gesundheit (positive AKU), Ausbildungsstand (nachweisbare Turniererfolge oder Reitweise-Expertise), Alter (5-12 Jahre Premium, jünger/älter günstiger), Charakter (anfängerfreundlich = höherer Wert), Rasse (beliebte Warmblüter teurer als seltenere Rassen), Marktnachfrage (aktueller Trend). Nutzen Sie Tools wie PferdeWert für eine AI-gestützte Marktpreisanalyse basierend auf diesen Faktoren.",
+            "targetPAA": null
+          },
+          {
+            "question": "Warum sind manche Pferde so günstig (€200-€500)?",
+            "answer": "Extrem niedrige Preise (unter €1.000) sind oft Red Flags: Gesundheitsprobleme (chronische Erkrankungen, Lahmheiten), Verhaltensprobleme (nicht reitbar, gefährlich), Alter (sehr alt, Gnadenbrot-Pferde), fehlende Papiere, unseriöse Verkäufer (Notverkäufe, Betrugsfälle). Ausnahmen: Tierschutz-Organisationen, Gnadenbrot-Vermittlung, Besitzer in Notsituationen (z.B. Umzug). Vorsicht: Günstige Anschaffung kann teure Folgen haben (Tierarztrechnungen!).",
+            "targetPAA": null
+          },
+          {
+            "question": "Welche Unterlagen brauche ich beim Pferdekauf?",
+            "answer": "Essenziell: Equidenpass (EU-Pflicht, enthält Identität, Impfungen, Gesundheitsdaten), Kaufvertrag (schriftlich mit allen Details), AKU-Bericht (wenn durchgeführt), Abstammungspapiere (bei reinrassigen Pferden). Optional aber empfohlen: Röntgenbilder, bisherige Tierarztrechnungen, Trainingsnachweis (z.B. Turnierergebnisse), Haftpflichtversicherung (kann übernommen werden). Tipp: Lassen Sie alle Dokumente vor Kaufabschluss prüfen!",
+            "targetPAA": null
+          }
+        ],
+        "keywords": ["pferdekauf faq", "pferd kaufen häufige fragen"],
+        "internalLinks": [],
+        "eeatSignal": "Trust: Transparente Beantwortung aller Nutzerfragen",
+        "schemaMarkup": "FAQPage"
+      },
+      {
+        "heading": "Zusammenfassung & CTA",
+        "h2": "Fazit: Informiert kaufen, fair bezahlen",
+        "wordCount": 150,
+        "keyPoints": [
+          "Recap der wichtigsten Learnings",
+          "Vorbereitung ist alles: Budget, Bewertung, AKU",
+          "Nutzen Sie professionelle Tools für faire Preise",
+          "Final CTA: 'Bewerten Sie Ihr Wunschpferd jetzt kostenlos mit PferdeWert'"
+        ],
+        "keywords": ["pferd kaufen ratgeber"],
+        "internalLinks": [
+          {
+            "anchor": "Jetzt Pferdewert ermitteln",
+            "target": "/bewertung",
+            "context": "Starten Sie Ihre kostenlose AI-gestützte Bewertung",
+            "isCTA": true
+          }
+        ],
+        "eeatSignal": "Authority: Abschließende Empfehlung basiert auf Expertise",
+        "ctaPlacement": "Final CTA with social proof"
+      }
+    ]
+  },
+  "contentRequirements": {
+    "eeat": {
+      "experienceSnippets": [
+        "Analyse von 21 Keywords und 40.500 monatlichen Suchanfragen zeigt: Käufer brauchen Preistransparenz",
+        "SERP-Analyse zeigt 100% Marktplatz-Dominanz in Top 10 - kein einziger Ratgeber",
+        "75% der PAA-Fragen drehen sich um Preise - klares Signal für Informationsbedarf",
+        "Regionale Marktdaten aus Bayern, NRW, Norddeutschland"
+      ],
+      "expertiseCredentials": [
+        "AI-gestützte Bewertungsmethodik basierend auf Marktdaten",
+        "Analyse von 11.000+ Pferdeinseraten auf führenden Plattformen",
+        "Datenbasierte Preisanalyse nach Rasse, Ausbildung, Region"
+      ],
+      "authoritySignals": [
+        "Referenz zu ehorses.de, pferde.de, kleinanzeigen.de als etablierte Plattformen",
+        "Nutzung echter Marktdaten für Preisangaben",
+        "Transparente Bewertungsmethodik"
+      ],
+      "trustElements": [
+        "Ehrliche Kostenaufschlüsselung (inkl. laufender Kosten, nicht nur Kaufpreis)",
+        "Warnung vor Red Flags und unseriösen Angeboten",
+        "Transparenz über Preisunterschiede und Qualitätsfaktoren",
+        "Keine versteckten Kosten oder irreführende Versprechen"
+      ]
+    },
+    "semanticTopics": [
+      {
+        "topic": "Preisgestaltung",
+        "keywords": ["anschaffungskosten", "kaufpreis", "laufende kosten", "jahreskosten", "budget"]
+      },
+      {
+        "topic": "Bewertungsfaktoren",
+        "keywords": ["gesundheit", "aku", "ausbildungsstand", "charakter", "exterieur", "interieur"]
+      },
+      {
+        "topic": "Kaufprozess",
+        "keywords": ["probereiten", "kaufuntersuchung", "kaufvertrag", "verhandlung", "transport"]
+      },
+      {
+        "topic": "Regionale Märkte",
+        "keywords": ["bayern", "nrw", "norddeutschland", "regional", "transport"]
+      },
+      {
+        "topic": "Qualität",
+        "keywords": ["ausbildung", "turniererfolge", "gesundheitszustand", "marktfähigkeit"]
+      },
+      {
+        "topic": "Plattformen",
+        "keywords": ["ehorses", "pferde.de", "kleinanzeigen", "marktplätze", "züchter"]
+      },
+      {
+        "topic": "Risiken",
+        "keywords": ["red flags", "betrug", "versteckte mängel", "unseriöse verkäufer"]
+      },
+      {
+        "topic": "Bewertungstools",
+        "keywords": ["ai bewertung", "pferdewert", "marktpreisanalyse", "objektive bewertung"]
+      }
+    ],
+    "mandatoryElements": {
+      "internalLinks": {
+        "min": 5,
+        "target": 8,
+        "destinations": [
+          "/ratgeber/pferdewert-berechnen",
+          "/ratgeber/pferd-bewerten",
+          "/ratgeber/pferd-kaufen-kosten",
+          "/ratgeber/pferd-kaufen-regional",
+          "/bewertung (CTA)"
+        ]
+      },
+      "externalSources": {
+        "min": 2,
+        "target": 3,
+        "suggestions": [
+          "ehorses.de (Marktplatz-Referenz)",
+          "pferde.de (Marktplatz-Referenz)",
+          "Tierärztliche Vereinigung für Tierschutz (AKU-Standards)"
+        ]
+      },
+      "visuals": {
+        "min": 1,
+        "target": 3,
+        "suggestions": [
+          "Preistabelle (Rasse/Ausbildung/Preis)",
+          "Infografik: 5 Säulen der Bewertung",
+          "Regionale Preiskarte Deutschland"
+        ]
+      }
+    }
+  },
+  "serpInsights": {
+    "topCompetitors": [
+      {
+        "domain": "ehorses.de",
+        "positions": [1, 6, 10],
+        "strength": "19.000+ Inserate, größte Auswahl",
+        "weakness": "Keine Preisberatung oder Bewertungshilfe"
+      },
+      {
+        "domain": "pferde.de",
+        "position": 2,
+        "strength": "1.514 Inserate, detaillierte Filter (90+ Rassen)",
+        "weakness": "Preise ohne Kontext - keine Erklärung für Preisunterschiede"
+      },
+      {
+        "domain": "kleinanzeigen.de",
+        "position": 3,
+        "strength": "11.894 Inserate, höchstes Volumen",
+        "weakness": "Generische Plattform ohne Pferde-Expertise"
+      }
+    ],
+    "contentGaps": [
+      {
+        "gap": "Keine objektive Preisberatung",
+        "opportunity": "Erste Quelle für faire Marktpreise werden"
+      },
+      {
+        "gap": "Keine Käufer-Education",
+        "opportunity": "Ratgeber für Erstkäufer und Budgetplanung"
+      },
+      {
+        "gap": "Keine Quality-Price Correlation",
+        "opportunity": "Erklären, warum Preise variieren"
+      },
+      {
+        "gap": "Keine regionalen Marktdaten",
+        "opportunity": "Regionale Preisvergleiche und Transport-Tipps"
+      },
+      {
+        "gap": "Keine Total Cost of Ownership",
+        "opportunity": "Realistische Kostenaufschlüsselung (Kauf + Laufend)"
+      }
+    ],
+    "paaQuestions": [
+      {
+        "question": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "currentHolder": "www.panto-heimtier.de",
+        "weakness": "Generic ranges (4.000-6.000 Euro) ohne Kontext"
+      },
+      {
+        "question": "Wie viel kostet der Kauf eines Pferdes?",
+        "currentHolder": "translate.google.com (UK-Quelle)",
+        "weakness": "Nicht-deutsche Quelle, Währungsumrechnung"
+      },
+      {
+        "question": "Wie viel kostet ein gutes Pferd?",
+        "currentHolder": "www.petcovergroup.com",
+        "weakness": "Breite Ranges (1.500-10.000) ohne Erklärung"
+      },
+      {
+        "question": "Was bedeutet die 20%-Regel bei Pferden?",
+        "currentHolder": "translate.google.com",
+        "weakness": "Geringe Relevanz für Kaufentscheidung"
+      }
+    ],
+    "uniqueAngles": [
+      "Hub-Spoke Modell: Hauptseite als zentrale Anlaufstelle + 5 Tier-1 Spokes",
+      "AI-gestützte Preisanalyse als USP",
+      "Transparente Bewertungsmethodik zeigen",
+      "Regionale Marktintelligenz (Bayern, NRW, Nord)",
+      "Total Cost of Ownership (Kauf + 1. Jahr)",
+      "Red Flags und Verbraucherschutz betonen"
+    ]
+  },
+  "qualityGates": {
+    "wordCount": {
+      "min": 2000,
+      "target": 2500,
+      "max": 3000,
+      "measurement": "Manual word count of final article"
+    },
+    "keywordDensity": {
+      "primary": {
+        "term": "pferd kaufen",
+        "min": 0.008,
+        "target": 0.01,
+        "max": 0.012
+      },
+      "measurement": "Count primary keyword / total words"
+    },
+    "semanticCoverage": {
+      "min": 8,
+      "target": 12,
+      "topics": ["preisgestaltung", "bewertungsfaktoren", "kaufprozess", "regionale märkte", "qualität", "plattformen", "risiken", "bewertungstools"],
+      "measurement": "Check if at least 8 semantic topics naturally integrated"
+    },
+    "eeatScore": {
+      "min": 7,
+      "target": 9,
+      "max": 10,
+      "criteria": {
+        "experience": {
+          "min": 2,
+          "signals": ["SERP analysis insights", "market data references", "user behavior insights"]
+        },
+        "expertise": {
+          "min": 1,
+          "signals": ["AI methodology explanation", "valuation process breakdown"]
+        },
+        "authority": {
+          "min": 2,
+          "signals": ["Market data citations", "platform references (ehorses, pferde.de)"]
+        },
+        "trust": {
+          "min": 2,
+          "signals": ["Transparent cost breakdown", "Red flags warning", "No hidden costs"]
+        }
+      },
+      "measurement": "Manual scoring of E-E-A-T signals in content"
+    },
+    "internalLinks": {
+      "min": 5,
+      "target": 8,
+      "measurement": "Count all internal links to PferdeWert pages"
+    },
+    "readability": {
+      "min": 60,
+      "target": 70,
+      "measurement": "Flesch-Reading-Ease score (German)"
+    }
+  },
+  "schemaMarkup": {
+    "primary": "Article",
+    "secondary": ["FAQPage", "HowTo", "Breadcrumb"],
+    "implementation": {
+      "Article": {
+        "headline": "Pferd kaufen: Der ultimative Ratgeber 2025",
+        "author": "PferdeWert Team",
+        "datePublished": "2025-01-06",
+        "image": "URL to hero image"
+      },
+      "FAQPage": {
+        "location": "FAQ section",
+        "minQuestions": 8
+      },
+      "HowTo": {
+        "location": "Kaufprozess section",
+        "steps": 7
+      },
+      "Breadcrumb": {
+        "path": "Home > Ratgeber > Pferd kaufen"
+      }
+    }
+  },
+  "conversionStrategy": {
+    "ctaPlacements": [
+      {
+        "location": "After pricing section",
+        "copy": "Jetzt Pferdewert ermitteln",
+        "target": "/bewertung",
+        "priority": "Primary"
+      },
+      {
+        "location": "After bewertung section",
+        "copy": "Kostenlose AI-Bewertung starten",
+        "target": "/bewertung",
+        "priority": "Primary"
+      },
+      {
+        "location": "Final CTA in conclusion",
+        "copy": "Bewerten Sie Ihr Wunschpferd jetzt kostenlos",
+        "target": "/bewertung",
+        "priority": "Primary"
+      }
+    ],
+    "trustSignals": [
+      "Anzahl durchgeführter Bewertungen",
+      "AI-gestützte Methodik Transparenz",
+      "Datenschutz-konforme Verarbeitung"
+    ],
+    "conversionRate": {
+      "target": 0.03,
+      "estimated": "3% of 40.500 SV = 1.215 organic visitors/month → 36 conversions/month"
+    }
+  }
+}

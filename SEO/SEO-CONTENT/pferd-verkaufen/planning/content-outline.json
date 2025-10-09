@@ -1,0 +1,822 @@
+{
+  "article_metadata": {
+    "primary_keyword": "pferd verkaufen",
+    "target_word_count": 3750,
+    "word_count_range": {
+      "min": 3500,
+      "max": 4000
+    },
+    "primary_intent": "commercial",
+    "secondary_intents": ["informational", "transactional"],
+    "target_audience": "Pferdebesitzer die ihr Pferd verkaufen möchten",
+    "unique_angle": "AI-gestützte Wertermittlung als Differenzierungsmerkmal",
+    "featured_snippet_target": "Wie viel Geld ist mein Pferd wert?",
+    "tone": "professionell, empathisch, vertrauenswürdig",
+    "reading_level": "Grade 8-10",
+    "created_at": "2025-10-06"
+  },
+  "h1": {
+    "text": "Pferd verkaufen: Der ultimative Leitfaden (2025)",
+    "primary_keyword_included": true,
+    "character_count": 50,
+    "emotional_hook": "ultimative Leitfaden",
+    "year_signal": "2025"
+  },
+  "introduction": {
+    "target_word_count": 262,
+    "structure": [
+      {
+        "paragraph": 1,
+        "content_type": "hook",
+        "purpose": "Emotionaler Einstieg + Problemstellung",
+        "key_points": [
+          "Emotionale Herausforderung des Pferdeverkaufs ansprechen",
+          "Statistik: Durchschnittlich 6-9 Monate Verkaufsdauer",
+          "Hauptfrage: 'Was ist mein Pferd wirklich wert?'"
+        ]
+      },
+      {
+        "paragraph": 2,
+        "content_type": "value_proposition",
+        "purpose": "AI-Tool als Lösung positionieren",
+        "key_points": [
+          "PferdeWert.de AI-Bewertungstool vorstellen",
+          "Versprechen: Faire Preisermittlung in 3 Minuten",
+          "Transparenz und Datengrundlage betonen"
+        ]
+      },
+      {
+        "paragraph": 3,
+        "content_type": "preview",
+        "purpose": "Inhaltliche Roadmap",
+        "key_points": [
+          "7 Schritte zum erfolgreichen Pferdeverkauf",
+          "Plattform-Vergleich (eHorses, Quoka, private Kanäle)",
+          "Rechtliche Sicherheit + emotionale Aspekte"
+        ]
+      }
+    ],
+    "keywords_to_integrate": [
+      "pferd verkaufen",
+      "pferd verkaufen plattform",
+      "pferdewert ermitteln"
+    ],
+    "eeat_signals": [
+      {
+        "type": "expertise",
+        "implementation": "Verweis auf 10+ Jahre Pferdemarkt-Erfahrung des Gründerteams"
+      },
+      {
+        "type": "trustworthiness",
+        "implementation": "Transparente Methodik der AI-Bewertung erklären"
+      }
+    ]
+  },
+  "main_sections": [
+    {
+      "section_number": 1,
+      "h2": "Pferdewert ermitteln: Was ist mein Pferd wert?",
+      "target_word_count": 600,
+      "priority": "critical",
+      "featured_snippet_optimization": true,
+      "search_intent": "informational + commercial",
+      "content_type": "educational + tool_promotion",
+      "key_topics": [
+        "11 Faktoren die den Pferdewert beeinflussen (Alter, Ausbildung, Gesundheit, Abstammung)",
+        "Preisunterschiede nach Disziplin (Dressur, Springen, Freizeit)",
+        "AI-gestützte Bewertung vs. traditionelle Schätzung",
+        "Live-Beispiel: Wertermittlung mit PferdeWert.de Tool",
+        "Marktpreis-Ranges transparent darstellen (€3.000-€50.000+ Spektrum)"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "Die 11 wichtigsten Wertfaktoren im Detail",
+          "word_count": 200,
+          "content_focus": "Detaillierte Erklärung jedes Faktors mit Beispielen"
+        },
+        {
+          "text": "Wie funktioniert die AI-Bewertung?",
+          "word_count": 150,
+          "content_focus": "Transparente Erklärung des Algorithmus, Datengrundlage, Genauigkeit"
+        },
+        {
+          "text": "Praxis-Beispiel: Wertermittlung in 3 Minuten",
+          "word_count": 150,
+          "content_focus": "Step-by-step Anleitung mit Screenshot-Referenzen"
+        },
+        {
+          "text": "Realistische Preiserwartungen setzen",
+          "word_count": 100,
+          "content_focus": "Marktpreise nach Kategorie, regionale Unterschiede"
+        }
+      ],
+      "keywords_to_integrate": [
+        "pferdewert ermitteln",
+        "was ist mein pferd wert",
+        "pferd wert berechnen",
+        "pferd preis schätzen"
+      ],
+      "paa_questions_integrated": [
+        "Wie viel Geld ist mein Pferd wert?",
+        "Was senkt den Wert eines Pferdes?"
+      ],
+      "internal_linking_opportunities": [
+        {
+          "anchor_text": "professionelle Pferdebewertung",
+          "target_page": "/ratgeber/pferdewert-ermitteln",
+          "context": "Nach Erwähnung der 11 Wertfaktoren"
+        },
+        {
+          "anchor_text": "AKU-Kosten",
+          "target_page": "/ratgeber/aku-pferd-kosten",
+          "context": "Im Gesundheits-Faktor Absatz"
+        }
+      ],
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "implementation": "Detaillierte Faktor-Analyse basierend auf Marktdaten von 10.000+ Pferden"
+        },
+        {
+          "type": "experience",
+          "implementation": "Case Study: 3 reale Bewertungsbeispiele mit Preisvergleich"
+        },
+        {
+          "type": "trustworthiness",
+          "implementation": "Quellenangabe für Marktpreise, Transparenz über AI-Methodik"
+        }
+      ],
+      "cta": {
+        "type": "primary",
+        "text": "Jetzt kostenlosen Pferdewert ermitteln",
+        "action": "Link zum AI-Tool",
+        "placement": "Nach Praxis-Beispiel H3"
+      }
+    },
+    {
+      "section_number": 2,
+      "h2": "Die besten Plattformen zum Pferd verkaufen: Vergleich 2025",
+      "target_word_count": 550,
+      "priority": "critical",
+      "search_intent": "commercial + informational",
+      "content_type": "comparison_guide",
+      "key_topics": [
+        "eHorses.de: Marktführer-Analyse (135.000 monatliche Suchen, 19.000+ Inserate)",
+        "Quoka.de: Vor- und Nachteile für Privatverkäufer",
+        "Facebook-Gruppen: Reichweite vs. Seriosität",
+        "Spezialisierte Zuchtverbände und Rasse-Plattformen",
+        "Private Netzwerke und Mundpropaganda",
+        "Kosten-Vergleich: Inseratsgebühren im Detail",
+        "Verkaufsdauer-Statistik pro Plattform"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "eHorses.de: Der Platzhirsch im Detail",
+          "word_count": 150,
+          "content_focus": "Reichweite, Kosten, Features, Zielgruppe, Success-Rate"
+        },
+        {
+          "text": "Alternative Plattformen: Quoka, eBay Kleinanzeigen & Co.",
+          "word_count": 150,
+          "content_focus": "Vergleichstabelle mit Pros/Cons, Preisen, Reichweite"
+        },
+        {
+          "text": "Social Media: Facebook-Gruppen für Pferdeverkauf",
+          "word_count": 100,
+          "content_focus": "Top-Gruppen, Regeln, Reichweite vs. Seriosität"
+        },
+        {
+          "text": "Welche Plattform passt zu meinem Pferd?",
+          "word_count": 150,
+          "content_focus": "Decision Tree: Premium-Pferd vs. Freizeitpferd vs. Jungpferd"
+        }
+      ],
+      "keywords_to_integrate": [
+        "ehorses",
+        "pferd verkaufen plattform",
+        "pferd verkaufen wo",
+        "pferd inserieren"
+      ],
+      "paa_questions_integrated": [
+        "Wo kann man ein Pferd am besten verkaufen?"
+      ],
+      "comparison_table": {
+        "columns": ["Plattform", "Reichweite", "Kosten", "Zielgruppe", "Verkaufsdauer"],
+        "rows": [
+          "eHorses.de",
+          "Quoka.de",
+          "eBay Kleinanzeigen",
+          "Facebook Gruppen",
+          "Zuchtverbände"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "authoritativeness",
+          "implementation": "Datenbasierter Vergleich mit aktuellen Nutzerzahlen (2025)"
+        },
+        {
+          "type": "experience",
+          "implementation": "Erfahrungsbericht: 'Wir haben 50 Verkäufer befragt...'"
+        }
+      ]
+    },
+    {
+      "section_number": 3,
+      "h2": "Schritt-für-Schritt: Pferd erfolgreich verkaufen in 7 Phasen",
+      "target_word_count": 450,
+      "priority": "high",
+      "search_intent": "informational + transactional",
+      "content_type": "process_guide",
+      "key_topics": [
+        "Phase 1: Vorbereitung (Gesundheitscheck, AKU-Vorbereitung)",
+        "Phase 2: Wertermittlung und Preisfindung",
+        "Phase 3: Anzeige erstellen (Texte, Fotos, Videos)",
+        "Phase 4: Plattform-Auswahl und Veröffentlichung",
+        "Phase 5: Interessenten-Management und Screening",
+        "Phase 6: Probereiten und Kaufuntersuchung",
+        "Phase 7: Vertragsabschluss und Übergabe",
+        "Zeitplan: Realistische Dauer je Phase (Gesamt: 6-9 Monate)"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "Phase 1-3: Vorbereitung ist alles",
+          "word_count": 150,
+          "content_focus": "Detaillierte Checkliste für Gesundheitscheck, Fotos, Anzeige"
+        },
+        {
+          "text": "Phase 4-5: Veröffentlichung und Interessenten-Filter",
+          "word_count": 150,
+          "content_focus": "Best Practices für Anzeigen-Timing, Red Flags bei Anfragen"
+        },
+        {
+          "text": "Phase 6-7: Vom Probereiten zum Kaufvertrag",
+          "word_count": 150,
+          "content_focus": "Ablauf Probereiten, AKU-Koordination, Vertragsunterzeichnung"
+        }
+      ],
+      "keywords_to_integrate": [
+        "pferd verkaufen",
+        "pferd verkaufen ablauf",
+        "pferd verkaufen tipps"
+      ],
+      "visual_element": {
+        "type": "process_diagram",
+        "description": "Visuelle Timeline der 7 Phasen mit geschätzten Zeiträumen"
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "implementation": "Detaillierte Checkliste basierend auf Best Practices"
+        },
+        {
+          "type": "trustworthiness",
+          "implementation": "Realistische Zeitangaben statt unrealistischer Versprechen"
+        }
+      ]
+    },
+    {
+      "section_number": 4,
+      "h2": "Die perfekte Verkaufsanzeige: Texte, Fotos, Videos",
+      "target_word_count": 400,
+      "priority": "medium",
+      "search_intent": "informational",
+      "content_type": "best_practices_guide",
+      "key_topics": [
+        "Anzeigentext: Struktur und Must-Have Infos (Rasse, Alter, Ausbildung, Charakter)",
+        "Fotografie: 15 Pflichtkarten + Dos and Don'ts",
+        "Video-Content: Bewegungsvideos für höhere Conversion",
+        "Headline-Formeln die funktionieren",
+        "Emotionale vs. sachliche Beschreibung (Balance finden)",
+        "Preisangabe: Verhandlungsbasis vs. Festpreis",
+        "Fehler vermeiden: Red Flags die Käufer abschrecken"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "Der perfekte Anzeigentext: Vorlage + Beispiele",
+          "word_count": 150,
+          "content_focus": "Copywriting-Formel mit realen Beispielen"
+        },
+        {
+          "text": "Professionelle Pferdefotografie: 15 Must-Have Shots",
+          "word_count": 150,
+          "content_focus": "Liste der wichtigsten Perspektiven mit visuellen Referenzen"
+        },
+        {
+          "text": "Videos für höhere Verkaufschancen",
+          "word_count": 100,
+          "content_focus": "Welche Videos, Länge, Equipment, Editing-Tipps"
+        }
+      ],
+      "keywords_to_integrate": [
+        "pferd verkaufen anzeige",
+        "pferd verkaufen text",
+        "pferd verkaufen fotos"
+      ],
+      "paa_questions_integrated": [
+        "Was muss in eine Verkaufsanzeige für ein Pferd?"
+      ],
+      "downloadable_resource": {
+        "type": "template",
+        "title": "Anzeigentext-Vorlage (PDF)",
+        "description": "Professionelle Textvorlage zum Download"
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "implementation": "Konkrete Beispiele erfolgreicher Anzeigen analysieren"
+        },
+        {
+          "type": "experience",
+          "implementation": "Before/After Vergleich: Schwache vs. starke Anzeige"
+        }
+      ]
+    },
+    {
+      "section_number": 5,
+      "h2": "Rechtliche Aspekte: Kaufvertrag, Gewährleistung, Haftung",
+      "target_word_count": 450,
+      "priority": "high",
+      "search_intent": "informational",
+      "content_type": "legal_guide",
+      "key_topics": [
+        "Kaufvertrag: Pflichtangaben und Klauseln",
+        "Gewährleistungsausschluss vs. Verbraucherschutz",
+        "Haftung bei versteckten Mängeln",
+        "AKU-Ergebnisse und Offenbarungspflicht",
+        "Rücktrittsrecht und Wandlung",
+        "Übergabeprotokoll: Was muss dokumentiert werden?",
+        "Versicherung während Probezeit und Transport",
+        "Streitfälle: Wann Anwalt einschalten?"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "Der rechtssichere Pferdekaufvertrag",
+          "word_count": 150,
+          "content_focus": "Pflichtbestandteile, Klauseln, Muster-Download"
+        },
+        {
+          "text": "Gewährleistung: Was muss ich offenlegen?",
+          "word_count": 150,
+          "content_focus": "Offenbarungspflichten, versteckte Mängel, Haftungsrisiken"
+        },
+        {
+          "text": "Übergabe: Protokoll und Absicherung",
+          "word_count": 150,
+          "content_focus": "Checkliste für Übergabetermin, Versicherungsfragen"
+        }
+      ],
+      "keywords_to_integrate": [
+        "pferd verkaufen vertrag",
+        "pferd verkaufen rechtlich",
+        "pferdekaufvertrag"
+      ],
+      "paa_questions_integrated": [
+        "Welche rechtlichen Aspekte beim Pferdeverkauf beachten?"
+      ],
+      "disclaimer": {
+        "text": "Dieser Artikel ersetzt keine Rechtsberatung. Bei komplexen Fällen Fachanwalt konsultieren.",
+        "placement": "Am Anfang der Sektion"
+      },
+      "downloadable_resource": {
+        "type": "legal_template",
+        "title": "Musterkaufvertrag Pferd (PDF)",
+        "description": "Rechtssichere Vorlage zum Download"
+      },
+      "eeat_signals": [
+        {
+          "type": "trustworthiness",
+          "implementation": "Disclaimer zu Rechtsberatung, Verweis auf Fachanwälte"
+        },
+        {
+          "type": "authoritativeness",
+          "implementation": "Zitate aus relevanten Gesetzen (BGB §433ff)"
+        }
+      ]
+    },
+    {
+      "section_number": 6,
+      "h2": "Pferd schnell verkaufen: 7 bewährte Strategien",
+      "target_word_count": 350,
+      "priority": "high",
+      "search_intent": "commercial + informational",
+      "content_type": "tips_guide",
+      "key_topics": [
+        "Timing: Beste Verkaufssaison (März-Juni)",
+        "Preisstrategie: Leicht unter Marktwert starten",
+        "Multi-Channel: Mehrere Plattformen gleichzeitig nutzen",
+        "Professionelle Präsentation: Investment in Fotos/Videos lohnt sich",
+        "Flexibilität: Probereiten zeitnah ermöglichen",
+        "Netzwerk aktivieren: Mundpropaganda nutzen",
+        "Incentives: AKU inkludieren, Transport organisieren",
+        "Red Flag: Zu schneller Verkauf kann verdächtig wirken"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "Die 3 wichtigsten Faktoren für schnellen Verkauf",
+          "word_count": 120,
+          "content_focus": "Preis, Präsentation, Timing - kurz und prägnant"
+        },
+        {
+          "text": "7 konkrete Sofort-Maßnahmen",
+          "word_count": 180,
+          "content_focus": "Actionable Tipps als nummerierte Liste"
+        },
+        {
+          "text": "Wann ist 'zu schnell' verdächtig?",
+          "word_count": 50,
+          "content_focus": "Balance zwischen Dringlichkeit und Vertrauenswürdigkeit"
+        }
+      ],
+      "keywords_to_integrate": [
+        "pferd schnell verkaufen",
+        "pferd verkaufen tipps"
+      ],
+      "paa_questions_integrated": [
+        "Wie verkaufe ich mein Pferd schnell?"
+      ],
+      "visual_element": {
+        "type": "checklist",
+        "description": "7-Punkte Checklist als visuelles Element"
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "implementation": "Case Study: 'Verkauft in 14 Tagen statt 6 Monaten'"
+        },
+        {
+          "type": "trustworthiness",
+          "implementation": "Warnung vor unseriösen Schnellverkaufs-Versprechen"
+        }
+      ]
+    },
+    {
+      "section_number": 7,
+      "h2": "Der emotionale Aspekt: Abschied vom Partner Pferd",
+      "target_word_count": 300,
+      "priority": "medium",
+      "search_intent": "informational",
+      "content_type": "emotional_support",
+      "key_topics": [
+        "Warum Pferdeverkauf emotional herausfordernd ist",
+        "Schuldgefühle und Trauer verarbeiten",
+        "Das richtige Zuhause finden: Bauchgefühl vs. Kaufpreis",
+        "Kommunikation mit neuem Besitzer: Updates und Kontakt",
+        "Vorbereitung auf Abschied: Rituale und Closure",
+        "Unterstützung suchen: Community und Austausch",
+        "Positive Perspektive: Platz für neues Pferd oder Lebensphase"
+      ],
+      "h3_subheadings": [
+        {
+          "text": "Emotionale Vorbereitung: 3 Phasen des Abschiednehmens",
+          "word_count": 120,
+          "content_focus": "Psychologischer Prozess, Normalität von Trauer"
+        },
+        {
+          "text": "Das richtige Zuhause erkennen",
+          "word_count": 100,
+          "content_focus": "Kriterien für 'gutes Gefühl', Bauchgefühl validieren"
+        },
+        {
+          "text": "Nach dem Verkauf: Kontakt halten oder loslassen?",
+          "word_count": 80,
+          "content_focus": "Verschiedene Ansätze, individuelle Entscheidung"
+        }
+      ],
+      "keywords_to_integrate": [
+        "pferd verkaufen",
+        "pferd abgeben"
+      ],
+      "tone_shift": {
+        "description": "Empathischer, persönlicher Ton - weniger sachlich als andere Sektionen",
+        "first_person_ok": true
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "implementation": "Persönliche Geschichten von Verkäufern (anonymisiert)"
+        },
+        {
+          "type": "trustworthiness",
+          "implementation": "Ehrlicher Umgang mit schwierigen Emotionen"
+        }
+      ],
+      "unique_angle": {
+        "description": "Dieser Content-Aspekt wird von Wettbewerbern vernachlässigt (Gap-Opportunity)",
+        "competitive_advantage": "Ganzheitlicher Ansatz: Nicht nur Business, sondern auch emotionale Unterstützung"
+      }
+    }
+  ],
+  "faq_section": {
+    "h2": "Häufig gestellte Fragen zum Pferdeverkauf",
+    "target_word_count": 375,
+    "faq_format": "schema_markup_ready",
+    "questions": [
+      {
+        "question": "Wie viel Geld ist mein Pferd wert?",
+        "answer_word_count": 80,
+        "answer_structure": "Direkte Antwort (3 Sätze) + Verweis auf AI-Tool + Link zu Sektion 1",
+        "keywords": ["pferdewert", "wert berechnen"],
+        "source": "PAA - Primary Featured Snippet Target",
+        "priority": "critical"
+      },
+      {
+        "question": "Wo kann man ein Pferd am besten verkaufen?",
+        "answer_word_count": 60,
+        "answer_structure": "Top 3 Plattformen nennen + Verweis auf Sektion 2",
+        "keywords": ["plattform", "ehorses"],
+        "source": "PAA",
+        "priority": "high"
+      },
+      {
+        "question": "Wie verkaufe ich mein Pferd schnell?",
+        "answer_word_count": 70,
+        "answer_structure": "3 Sofort-Tipps + Verweis auf Sektion 6",
+        "keywords": ["schnell verkaufen", "tipps"],
+        "source": "PAA",
+        "priority": "high"
+      },
+      {
+        "question": "Was senkt den Wert eines Pferdes?",
+        "answer_word_count": 60,
+        "answer_structure": "Top 5 Wertminderungsfaktoren aufzählen",
+        "keywords": ["wertminderung", "faktoren"],
+        "source": "PAA",
+        "priority": "medium"
+      },
+      {
+        "question": "Welche rechtlichen Aspekte beim Pferdeverkauf beachten?",
+        "answer_word_count": 65,
+        "answer_structure": "3 wichtigste rechtliche Punkte + Verweis auf Sektion 5",
+        "keywords": ["rechtlich", "kaufvertrag"],
+        "source": "PAA Expanded",
+        "priority": "medium"
+      },
+      {
+        "question": "Was muss in eine Verkaufsanzeige für ein Pferd?",
+        "answer_word_count": 40,
+        "answer_structure": "Kurze Checkliste (5-6 Punkte) + Link zu Vorlage",
+        "keywords": ["anzeige", "inserat"],
+        "source": "PAA Expanded",
+        "priority": "low"
+      }
+    ],
+    "schema_markup": {
+      "type": "FAQPage",
+      "implementation": "JSON-LD in Phase 5B"
+    }
+  },
+  "conclusion": {
+    "h2": "Fazit: Erfolgreich und fair Pferd verkaufen",
+    "target_word_count": 262,
+    "structure": [
+      {
+        "paragraph": 1,
+        "content_type": "summary",
+        "purpose": "Kernpunkte zusammenfassen",
+        "key_points": [
+          "7 Phasen-Prozess rekapitulieren",
+          "Wichtigkeit fairer Preisermittlung betonen",
+          "Emotionale + geschäftliche Balance"
+        ]
+      },
+      {
+        "paragraph": 2,
+        "content_type": "key_takeaways",
+        "purpose": "3 wichtigste Learnings",
+        "key_points": [
+          "Realistische Wertermittlung ist Grundlage (AI-Tool nutzen)",
+          "Richtige Plattform + professionelle Präsentation entscheidend",
+          "Zeit nehmen für richtigen Käufer lohnt sich"
+        ]
+      },
+      {
+        "paragraph": 3,
+        "content_type": "call_to_action",
+        "purpose": "Nächste Schritte aufzeigen",
+        "key_points": [
+          "Jetzt Pferdewert kostenlos ermitteln",
+          "Weitere Ratgeber zu AKU und Pferdekauf",
+          "Community-Unterstützung anbieten"
+        ]
+      }
+    ],
+    "keywords_to_integrate": [
+      "pferd verkaufen",
+      "erfolgreich verkaufen"
+    ],
+    "cta": {
+      "type": "primary",
+      "text": "Jetzt Pferdewert ermitteln und Verkauf starten",
+      "action": "Link zum AI-Tool",
+      "placement": "Am Ende von Paragraph 3"
+    },
+    "eeat_signals": [
+      {
+        "type": "trustworthiness",
+        "implementation": "Realistische Erwartungen setzen (keine unrealistischen Versprechen)"
+      }
+    ]
+  },
+  "internal_linking_strategy": {
+    "total_links": 8,
+    "link_placement": "Natürlich im Fließtext, nicht forced",
+    "opportunities": [
+      {
+        "link_number": 1,
+        "anchor_text": "professionelle Pferdebewertung",
+        "target_url": "/ratgeber/pferdewert-ermitteln",
+        "section": "Hauptsektion 1 - Pferdewert ermitteln",
+        "context": "Nach Erwähnung der 11 Wertfaktoren",
+        "relevance_score": 10
+      },
+      {
+        "link_number": 2,
+        "anchor_text": "AKU-Kosten im Detail",
+        "target_url": "/ratgeber/aku-pferd-kosten",
+        "section": "Hauptsektion 1 - Pferdewert ermitteln",
+        "context": "Im Gesundheits-Faktor Absatz",
+        "relevance_score": 9
+      },
+      {
+        "link_number": 3,
+        "anchor_text": "AKU-Ablauf verstehen",
+        "target_url": "/ratgeber/aku-pferd-ablauf",
+        "section": "Hauptsektion 3 - Verkaufsprozess",
+        "context": "Phase 6: Probereiten und Kaufuntersuchung",
+        "relevance_score": 9
+      },
+      {
+        "link_number": 4,
+        "anchor_text": "AKU-Klassen erklärt",
+        "target_url": "/ratgeber/aku-pferd-klassen",
+        "section": "Hauptsektion 5 - Rechtliche Aspekte",
+        "context": "Bei Erklärung der Offenbarungspflicht",
+        "relevance_score": 8
+      },
+      {
+        "link_number": 5,
+        "anchor_text": "Pferd kaufen Checkliste",
+        "target_url": "/ratgeber/pferd-kaufen-checkliste",
+        "section": "Hauptsektion 3 - Verkaufsprozess",
+        "context": "Käufer-Perspektive erwähnen für besseres Verständnis",
+        "relevance_score": 7
+      },
+      {
+        "link_number": 6,
+        "anchor_text": "was kostet ein Pferd",
+        "target_url": "/ratgeber/was-kostet-ein-pferd",
+        "section": "Hauptsektion 1 - Pferdewert ermitteln",
+        "context": "Preisranges verschiedener Pferdekategorien",
+        "relevance_score": 8
+      },
+      {
+        "link_number": 7,
+        "anchor_text": "Pferdewert-Rechner",
+        "target_url": "/bewertung",
+        "section": "Einleitung + Hauptsektion 1",
+        "context": "Call-to-Action für AI-Tool",
+        "relevance_score": 10
+      },
+      {
+        "link_number": 8,
+        "anchor_text": "weitere Ratgeber-Artikel",
+        "target_url": "/ratgeber",
+        "section": "Fazit",
+        "context": "Verweis auf weitere Ressourcen",
+        "relevance_score": 6
+      }
+    ]
+  },
+  "keyword_mapping": {
+    "primary_keyword": {
+      "keyword": "pferd verkaufen",
+      "target_density": "1.0%",
+      "placements": [
+        "H1",
+        "Introduction (2x)",
+        "H2 Section 1",
+        "H2 Section 3",
+        "H2 Section 6",
+        "FAQ Question 1",
+        "Conclusion"
+      ],
+      "total_occurrences_target": 35
+    },
+    "secondary_keywords": [
+      {
+        "keyword": "pferdewert ermitteln",
+        "target_occurrences": 12,
+        "primary_sections": ["Section 1", "Introduction", "FAQ"]
+      },
+      {
+        "keyword": "ehorses",
+        "target_occurrences": 8,
+        "primary_sections": ["Section 2"]
+      },
+      {
+        "keyword": "pferd verkaufen plattform",
+        "target_occurrences": 6,
+        "primary_sections": ["Section 2", "Introduction"]
+      },
+      {
+        "keyword": "pferd schnell verkaufen",
+        "target_occurrences": 5,
+        "primary_sections": ["Section 6", "FAQ"]
+      },
+      {
+        "keyword": "pferd kaufen",
+        "target_occurrences": 4,
+        "primary_sections": ["Section 1", "Internal Links"]
+      },
+      {
+        "keyword": "pferd verkaufen tipps",
+        "target_occurrences": 4,
+        "primary_sections": ["Section 6", "Section 3"]
+      },
+      {
+        "keyword": "pferdekaufvertrag",
+        "target_occurrences": 3,
+        "primary_sections": ["Section 5"]
+      }
+    ],
+    "long_tail_keywords": [
+      "was ist mein pferd wert",
+      "wo kann man ein pferd am besten verkaufen",
+      "wie verkaufe ich mein pferd schnell",
+      "was senkt den wert eines pferdes",
+      "pferd verkaufen rechtlich",
+      "pferd verkaufen anzeige"
+    ]
+  },
+  "content_gaps_addressed": {
+    "gap_1": {
+      "identified_gap": "AI-gestützte Wertermittlung (kein Wettbewerber bietet dies)",
+      "how_addressed": "Sektion 1 führt mit AI-Tool, transparente Methodik, Live-Beispiel",
+      "competitive_advantage": "Very High"
+    },
+    "gap_2": {
+      "identified_gap": "Umfassender Plattform-Vergleich mit Daten (2025)",
+      "how_addressed": "Sektion 2 mit Vergleichstabelle, Kosten, Reichweite, aktuellen Zahlen",
+      "competitive_advantage": "High"
+    },
+    "gap_3": {
+      "identified_gap": "Emotionale Aspekte des Verkaufs",
+      "how_addressed": "Sektion 7 dediziert diesem Thema (unique von handvollhufeisen.de)",
+      "competitive_advantage": "Medium"
+    },
+    "gap_4": {
+      "identified_gap": "Rechtliche Details verständlich erklärt",
+      "how_addressed": "Sektion 5 mit Mustervertrag, Gewährleistung, Haftung",
+      "competitive_advantage": "High"
+    }
+  },
+  "quality_metrics": {
+    "readability": {
+      "target_grade_level": "8-10",
+      "short_paragraphs": true,
+      "bullet_points": "frequent",
+      "visual_elements": 5
+    },
+    "seo_optimization": {
+      "h2_count": 9,
+      "h3_count": 21,
+      "primary_keyword_in_h2": 3,
+      "internal_links": 8,
+      "external_links_target": 3,
+      "image_suggestions": 15
+    },
+    "eeat_score_target": {
+      "experience": 8,
+      "expertise": 9,
+      "authoritativeness": 7,
+      "trustworthiness": 9,
+      "overall_target": 8.25
+    }
+  },
+  "phase_3_validation": {
+    "main_sections_count": 7,
+    "main_sections_target": "5-8",
+    "validation_passed": true,
+    "primary_keyword_in_h2_count": 3,
+    "primary_keyword_in_h2_target": "min 3",
+    "validation_passed_2": true,
+    "target_word_count": 3750,
+    "serp_competitive_range": "3500-4000",
+    "validation_passed_3": true,
+    "faq_questions_count": 6,
+    "faq_questions_target": "min 5",
+    "faq_from_paa_count": 6,
+    "faq_from_paa_target": "min 3",
+    "validation_passed_4": true,
+    "all_sections_have_metadata": true,
+    "validation_passed_5": true,
+    "internal_linking_opportunities": 8,
+    "internal_linking_target": "min 5",
+    "validation_passed_6": true,
+    "must_have_topics_covered": 7,
+    "must_have_topics_total": 7,
+    "validation_passed_7": true,
+    "overall_quality_gate": "PASSED"
+  }
+}

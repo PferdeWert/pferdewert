@@ -1,0 +1,206 @@
+{
+  "keyword": "pferd kaufen",
+  "analyzed_at": "2025-01-06T10:30:00Z",
+  "top_competitors": [
+    {
+      "rank": 1,
+      "domain": "ehorses.de",
+      "url": "https://www.ehorses.de/",
+      "title": "Pferde kaufen und Pferde verkaufen | Pferdemarkt ehorses.de",
+      "description": "Pferde kaufen und verkaufen ✓ Über 19.000 Verkaufspferde ✓ Jetzt kostenlos inserieren auf dem weltweit größten Online Pferdemarkt!",
+      "content_type": "Marketplace Platform",
+      "key_features": [
+        "Over 19,000 horse listings",
+        "Free ad posting",
+        "Multiple sitelinks (Freizeitpferde, Dressurpferde, Springpferde, Pferd sucht Reiter)",
+        "Dominates SERP with 3 positions (1, 6, 10)",
+        "International reach (weltgrößter Online Pferdemarkt)",
+        "Category-based navigation",
+        "Regional filtering (NRW listing at position 10)"
+      ],
+      "value_proposition": "World's largest online horse marketplace with free listings",
+      "content_structure": {
+        "primary_focus": "Marketplace/Classifieds",
+        "categories_offered": [
+          "Freizeitpferde",
+          "Dressurpferde",
+          "Springpferde",
+          "Reitbeteiligung"
+        ],
+        "filtering_options": "Breed, discipline, price, location"
+      },
+      "competitive_advantages": [
+        "Largest inventory (19,000+ horses)",
+        "Free listings attract sellers",
+        "Strong brand presence (3 SERP positions)",
+        "Comprehensive category coverage",
+        "International platform"
+      ]
+    },
+    {
+      "rank": 2,
+      "domain": "pferde.de",
+      "url": "https://www.pferde.de/kleinanzeigen/pferdemarkt-c162600/",
+      "title": "Pferdemarkt - Pferde kaufen und verkaufen bei ...",
+      "description": "Pferde online kaufen und verkaufen auf pferde.de - dem großen deutschen Pferdemarkt. Erstelle eine kostenlose Kleinanzeige in unserem Pferdemarkt.",
+      "content_type": "Marketplace Platform + Community",
+      "key_features": [
+        "1,514 active listings",
+        "Extensive breed filtering (90+ breeds)",
+        "Detailed horse attributes (age, color, height, discipline)",
+        "Verified sellers (geprüfte Identität)",
+        "Premium partner program",
+        "Free classified ads",
+        "Price transparency"
+      ],
+      "value_proposition": "Comprehensive German horse marketplace with detailed filtering and verified sellers",
+      "content_structure": {
+        "primary_focus": "Classified Ads Platform",
+        "categories_offered": [
+          "Freizeitpferde (1,090)",
+          "Dressur (563)",
+          "Springen (347)",
+          "Western (317)",
+          "Vielseitigkeit (295)",
+          "Fahren (285)"
+        ],
+        "filtering_dimensions": [
+          "Breed (90+ options)",
+          "Age (from <1 to 20+ years)",
+          "Color (40+ options)",
+          "Height (12 ranges)",
+          "Discipline/Use",
+          "Location (state and city level)",
+          "Price",
+          "Training level",
+          "Gender"
+        ],
+        "quality_indicators": [
+          "Verified identity badges",
+          "Premium partners",
+          "Verified breeders",
+          "AKU available",
+          "X-rays available"
+        ]
+      },
+      "competitive_advantages": [
+        "Most granular filtering system",
+        "Strong trust signals (verified sellers)",
+        "Active community (frequent updates)",
+        "Detailed horse specifications",
+        "Regional targeting",
+        "Price range visibility"
+      ]
+    },
+    {
+      "rank": 3,
+      "domain": "kleinanzeigen.de",
+      "url": "https://www.kleinanzeigen.de/s-pferde/c139",
+      "title": "Pferde & Zubehör gebraucht kaufen",
+      "description": "Passende Treffer · Doppelveranlagtes Deutsches Reitpony zu verkaufen. 18. Ratingen · 8jährige Hispano-Araber Stute. 16. Lindlar · Wunderschöner Schimmelwallach ...",
+      "content_type": "General Classifieds Platform",
+      "key_features": [
+        "11,894 listings (largest volume)",
+        "General classifieds platform (not horse-specific)",
+        "Free private listings",
+        "Regional focus (state-level filtering)",
+        "Mixed content (horses + equipment)",
+        "Simple filtering (size, offer/wanted)",
+        "Price sorting"
+      ],
+      "value_proposition": "High-volume general classifieds with horse category",
+      "content_structure": {
+        "primary_focus": "General Classifieds",
+        "categories_offered": [
+          "Großpferde (7,290)",
+          "Kleinpferde & Ponys (4,602)"
+        ],
+        "filtering_options": "Basic - size category, offer/wanted, region, price",
+        "listing_distribution": {
+          "total": 11894,
+          "private": 10328,
+          "commercial": 1566
+        },
+        "regional_breakdown": [
+          "Niedersachsen (2,653)",
+          "Nordrhein-Westfalen (2,075)",
+          "Bayern (1,449)"
+        ]
+      },
+      "competitive_advantages": [
+        "Largest listing volume (11,894)",
+        "Established platform (formerly eBay Kleinanzeigen)",
+        "High traffic from general users",
+        "Simple user experience",
+        "No specialized horse knowledge needed"
+      ]
+    }
+  ],
+  "content_pattern_analysis": {
+    "common_elements": [
+      "Marketplace/classifieds model dominates",
+      "Free listing options to attract sellers",
+      "Regional/location filtering",
+      "Price transparency",
+      "Category/discipline filtering",
+      "Verified seller badges",
+      "Large inventory numbers in titles/descriptions"
+    ],
+    "differentiators": [
+      "ehorses.de: International reach + largest inventory claim",
+      "pferde.de: Most detailed filtering + horse-specific features",
+      "kleinanzeigen.de: General platform advantage + highest volume"
+    ],
+    "user_intent_served": [
+      "Browse available horses",
+      "Filter by specific criteria (breed, discipline, location, price)",
+      "Compare multiple options",
+      "Contact sellers directly",
+      "Post horses for sale"
+    ]
+  },
+  "content_gaps_identified": [
+    {
+      "gap": "No valuation/pricing guidance",
+      "opportunity": "Users searching 'pferd kaufen' lack information on fair market prices",
+      "pferdewert_advantage": "AI-powered valuation service fills this critical gap"
+    },
+    {
+      "gap": "No buyer education content",
+      "opportunity": "Competitors focus on listings, not on educating buyers on what to look for",
+      "pferdewert_advantage": "Educational content on horse valuation factors"
+    },
+    {
+      "gap": "No quality/price correlation",
+      "opportunity": "Listings show prices but don't explain why horses are priced differently",
+      "pferdewert_advantage": "Data-driven pricing insights based on characteristics"
+    },
+    {
+      "gap": "Limited decision support",
+      "opportunity": "Buyers must evaluate horses without objective guidance",
+      "pferdewert_advantage": "Comprehensive valuation reports to support purchase decisions"
+    },
+    {
+      "gap": "No market intelligence",
+      "opportunity": "No data on fair market prices by breed, age, training, region",
+      "pferdewert_advantage": "Market data and pricing trends"
+    }
+  ],
+  "serp_intent_analysis": {
+    "primary_intent": "Commercial/Transactional",
+    "evidence": [
+      "All top 10 results are marketplaces/classifieds",
+      "Sitelinks point to specific horse categories",
+      "Listings dominate SERP",
+      "Price-related PAA questions"
+    ],
+    "secondary_intent": "Informational (Pricing)",
+    "evidence": [
+      "All 4 People Also Ask questions about costs/pricing",
+      "Related searches include 'Pferd kaufen Preis'",
+      "Price transparency emphasized in descriptions"
+    ],
+    "user_journey_stage": "Decision/Comparison",
+    "context": "Users are ready to browse/buy but need pricing information"
+  }
+}
