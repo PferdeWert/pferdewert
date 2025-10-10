@@ -28,7 +28,8 @@ const sections = [
   { id: "fehler", title: "Häufige Fehler vermeiden" },
   { id: "faire-preise", title: "Faire Pferde-Preise erkennen" },
   { id: "kaufwege", title: "Online vs. Händler vs. Privat" },
-  { id: "faq", title: "Häufig gestellte Fragen" }
+  { id: "faq", title: "Häufig gestellte Fragen" },
+  { id: "fazit", title: "Fazit" }
 ]
 
 const heroMetaItems = [
@@ -54,12 +55,12 @@ const priceTiles = [
   },
   {
     title: "Mittelklasse",
-    value: "5.000 – 15.000 €",
+    value: "5.000 – 20.000 €",
     description: "Gut ausgebildete Freizeitpferde, Sportpferde mit solider Grundausbildung."
   },
   {
     title: "Profisegment",
-    value: "15.000+ €",
+    value: "20.000+ €",
     description: "Turnierpferde mit Erfolgen, hochwertige Zuchtpferde, Spezialausbildung."
   }
 ]
@@ -108,39 +109,44 @@ const regionTiles = [
 
 const faqItems: FAQItem[] = [
   {
-    question: "Was kostet ein Pferd durchschnittlich?",
+    question: "Wie viel kostet es, ein Pferd zu kaufen?",
     answer:
-      "Ein Freizeitpferd kostet zwischen 1.500€ und 8.000€. Gut ausgebildete Freizeitpferde mit solidem Charakter liegen bei 3.500€ bis 5.000€. Sportpferde für Dressur oder Springen bewegen sich zwischen 5.000€ und 50.000€, abhängig von Ausbildungsstand und Turniererfolgen. Fohlen und Jungpferde sind mit 800€ bis 5.000€ günstiger, brauchen aber noch mehrere Jahre Ausbildung."
+      "Der Kaufpreis für ein Pferd variiert stark je nach Rasse, Alter, Ausbildungsstand und Gesundheitszustand. **Einstiegspferde** (z.B. Freizeitpferde ohne spezielle Ausbildung) liegen bei €1.000-€5.000. **Gut ausgebildete Sportpferde** kosten €5.000-€15.000, während **Turnierpferde mit Erfolgen** €15.000+ erreichen können. Zusätzlich fallen jährliche Kosten von €5.000-€15.000 für Unterbringung, Futter, Tierarzt und Hufschmied an."
   },
   {
-    question: "Kann man Pferde für 200-500 Euro kaufen?",
+    question: "Wie viel kostet ein gutes Pferd?",
     answer:
-      "Ja, solche Angebote existieren, aber Vorsicht ist geboten. Pferde in diesem Preissegment haben meist erhebliche Probleme: chronische Erkrankungen, schwere Ausbildungsdefizite, Verhaltensauffälligkeiten oder hohes Alter. Eine gründliche Ankaufsuntersuchung ist hier absolut essentiell. Oft übersteigen die anschließenden Tierarzt- und Ausbildungskosten den niedrigen Kaufpreis um ein Vielfaches. Für Anfänger sind diese Pferde nicht geeignet."
+      "Ein &quot;gutes&quot; Pferd kostet zwischen **€5.000 und €20.000**. &quot;Gut&quot; bedeutet: gesund (positive AKU), gut ausgebildet (solide Grundausbildung), charakterlich ausgeglichen und für den Verwendungszweck geeignet. Die Preisspanne hängt ab von: Ausbildungsstand (beritten vs. turniererfahren), Alter (5-12 Jahre optimal), Gesundheit (keine Vorerkrankungen), Charakter (anfängerfreundlich vs. anspruchsvoll) und Marktfähigkeit (beliebte Rassen teurer)."
   },
   {
-    question: "Brauche ich eine Ankaufsuntersuchung?",
+    question: "Wo kann ich am besten ein Pferd kaufen?",
     answer:
-      "Ja, unbedingt! Die AKU ist Ihre wichtigste Absicherung vor teuren Fehlkäufen. Eine kleine AKU kostet 150€ bis 250€, eine große AKU mit Röntgen 400€ bis 600€. Diese Investition kann Sie vor Kosten im fünfstelligen Bereich bewahren. Wählen Sie die AKU-Klasse passend zum Kaufpreis: Bei Pferden unter 3.000€ reicht oft die kleine AKU, bei Pferden über 5.000€ ist die große AKU mit Röntgen Standard."
+      "Die besten Plattformen für den Pferdekauf sind:\n\n- **ehorses.de**: 19.000+ Inserate, größte Auswahl\n- **pferde.de**: 1.500+ Inserate, detaillierte Filter\n- **kleinanzeigen.de**: 11.000+ Inserate, auch Privatverkäufe\n- **Direkt bei Züchtern**: Beste Beratung, Papiere garantiert\n- **Über Pferdevermittler**: Professionelle Begleitung\n\n**Tipp**: Nutze vor dem Kauf eine objektive Bewertung mit PferdeWert, um faire Preise zu erkennen."
   },
   {
-    question: "Wo finde ich Pferde in meiner Nähe?",
+    question: "Was kostet eine Kaufuntersuchung (AKU)?",
     answer:
-      "Nutzen Sie große Online-Pferdemarktplätze wie ehorses.de, pferde.de oder kleinanzeigen.de mit Regionalfilter. Geben Sie Ihre PLZ oder Ihr Bundesland ein, um nur lokale Angebote zu sehen. Besuchen Sie außerdem lokale Gestüte, Ausbildungsbetriebe und Reiterhöfe. Regionale Pferdemarkt-Events, Hengstparaden und Zuchtschauen sind gute Gelegenheiten für persönliche Kontakte."
+      "Eine Ankaufsuntersuchung (AKU) kostet je nach Umfang **€150-€1.500**:\n\n- **Kleine AKU** (Basis-Check): €150-€300\n- **Große AKU** (inkl. Röntgen): €500-€1.000\n- **Große AKU mit Zusatzuntersuchungen** (Herz-Echo, MRT): €1.000-€1.500+\n\nDie große AKU ist bei Pferden ab €5.000 Kaufpreis dringend empfohlen. Sie schützt vor versteckten Gesundheitsproblemen und spart langfristig Tierarztkosten."
   },
   {
-    question: "Ist ein älteres Pferd besser für Anfänger?",
+    question: "Sollte ich ein Pferd privat oder vom Züchter kaufen?",
     answer:
-      "Ja, in der Regel. Pferde zwischen 8 und 15 Jahren sind ideal für Anfänger. Sie haben einen ausgeglichenen, gefestigten Charakter, umfangreiche Lebenserfahrung und eine solide Ausbildung. Jungpferde unter 6 Jahren sind für Anfänger ungeeignet – sie sind noch unsicher, brauchen erfahrene Ausbilder und können unberechenbar reagieren. Die goldene Mitte liegt bei 8-15 Jahren."
+      "**Vom Züchter:**\n- ✅ Vorteile: Garantierte Papiere, professionelle Beratung, oft besserer Gesundheitszustand, Rückgaberecht möglich\n- ❌ Nachteile: Höhere Preise\n\n**Privat:**\n- ✅ Vorteile: Niedrigere Preise, direkte Kommunikation, oft inklusive Ausrüstung\n- ❌ Nachteile: Keine Garantien, höheres Risiko bei versteckten Mängeln\n\n**Empfehlung für Anfänger**: Züchter oder seriöser Vermittler. **Für erfahrene Käufer**: Private Verkäufe möglich, aber immer mit AKU!"
   },
   {
-    question: "Wie erkenne ich einen seriösen Verkäufer?",
+    question: "Wie erkenne ich, ob ein Pferd seinen Preis wert ist?",
     answer:
-      "Seriöse Verkäufer zeigen vollständige Papiere (Equidenpass, Eigentumsurkunde), sind transparent über Gesundheitszustand und Vorgeschichte des Pferdes, ermöglichen mehrfache Besichtigungen und Proberitte, stimmen einer unabhängigen Ankaufsuntersuchung durch Ihren Tierarzt zu und drängen nicht zu schnellen Entscheidungen. Warnsignale sind: Zeitdruck, Verweigerung von AKU oder Proberitt, unvollständige Papiere, widersprüchliche Aussagen zur Geschichte."
+      "Ein fairer Preis spiegelt diese Faktoren wider:\n\n1. **Gesundheit**: Positive AKU, keine Vorerkrankungen\n2. **Ausbildungsstand**: Nachweisbare Turniererfolge oder Reitweise-Expertise\n3. **Alter**: 5-12 Jahre Premium, jünger/älter günstiger\n4. **Charakter**: Anfängerfreundlich = höherer Wert\n5. **Rasse**: Beliebte Warmblüter teurer als seltenere Rassen\n6. **Marktnachfrage**: Aktueller Trend\n\n**Nutze Tools wie PferdeWert.de** für eine fundierte Marktpreisanalyse basierend auf diesen Faktoren."
   },
   {
-    question: "Lohnt sich eine Pferdebewertung vor dem Kauf?",
+    question: "Warum sind manche Pferde so günstig (€200-€500)?",
     answer:
-      "Absolut! Eine objektive Bewertung des Marktwerts verschafft Ihnen entscheidende Vorteile: Sie wissen vor der Verhandlung, ob der Preis fair oder überteuert ist, Sie können selbstbewusster verhandeln und Sie vermeiden Überzahlung um mehrere tausend Euro. Mit PferdeWert.de erhalten Sie in nur 2 Minuten eine AI-gestützte Bewertung. Unser Algorithmus berücksichtigt über 50 Kriterien sowie aktuelle Marktdaten."
+      "Extrem niedrige Preise (unter €1.000) sind oft **Red Flags**:\n\n- **Gesundheitsprobleme**: Chronische Erkrankungen, Lahmheiten\n- **Verhaltensprobleme**: Nicht reitbar, gefährlich\n- **Alter**: Sehr alt, Gnadenbrot-Pferde\n- **Fehlende Papiere**: Illegale Herkunft\n- **Unseriöse Verkäufer**: Notverkäufe, Betrugsfälle\n\n**Ausnahmen**: Tierschutz-Organisationen, Gnadenbrot-Vermittlung, Besitzer in Notsituationen (z.B. Umzug).\n\n**Vorsicht**: Günstige Anschaffung kann teure Folgen haben (Tierarztrechnungen!)."
+  },
+  {
+    question: "Welche Unterlagen brauche ich beim Pferdekauf?",
+    answer:
+      "**Essenziell:**\n\n- **Equidenpass** (EU-Pflicht): Enthält Identität, Impfungen, Gesundheitsdaten\n- **Kaufvertrag** (schriftlich mit allen Details)\n- **AKU-Bericht** (wenn durchgeführt)\n- **Abstammungspapiere** (bei reinrassigen Pferden)\n\n**Optional aber empfohlen:**\n\n- Röntgenbilder\n- Bisherige Tierarztrechnungen\n- Trainingsnachweis (z.B. Turnierergebnisse)\n- Haftpflichtversicherung (kann übernommen werden)\n\n**Tipp**: Lassen Sie alle Dokumente vor Kaufabschluss prüfen!"
   }
 ]
 
@@ -188,13 +194,94 @@ const PferdKaufen: NextPage = () => {
             name="description"
             content="Pferd kaufen mit System: 7-Schritte-Checkliste, faire Preise erkennen, häufige Fehler vermeiden. Vom Budget bis zur AKU – der komplette Ratgeber."
           />
+
+          {/* Article Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Pferd kaufen: Der ultimative Ratgeber für 2025",
+                "description": "Pferd kaufen mit System: 7-Schritte-Checkliste, faire Preise erkennen, häufige Fehler vermeiden. Vom Budget bis zur AKU – der komplette Ratgeber.",
+                "author": {
+                  "@type": "Organization",
+                  "name": "PferdeWert"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "PferdeWert",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://pferdewert.de/logo.png"
+                  }
+                },
+                "datePublished": "2025-01-10",
+                "dateModified": "2025-01-10",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen"
+                }
+              })
+            }}
+          />
+
+          {/* FAQPage Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": faqItems.map(faq => ({
+                  "@type": "Question",
+                  "name": faq.question,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.answer
+                  }
+                }))
+              })
+            }}
+          />
+
+          {/* BreadcrumbList Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Startseite",
+                    "item": "https://pferdewert.de"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Ratgeber",
+                    "item": "https://pferdewert.de/pferde-ratgeber"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Pferd kaufen",
+                    "item": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen"
+                  }
+                ]
+              })
+            }}
+          />
         </Head>
 
         <RatgeberHero
           badgeLabel="Ultimativer Kaufratgeber"
           badgeIcon={<TrendingUp className="h-4 w-4" />}
           title="Pferd kaufen: Der ultimative Ratgeber für 2025"
-          subtitle="Von der realistischen Budgetplanung über die Auswahl seriöser Plattformen bis zur professionellen Ankaufsuntersuchung – dieser umfassende Guide führt Sie durch jeden Schritt zum Traumpferd."
+          subtitle="Von der realistischen Budgetplanung über die Auswahl seriöser Plattformen bis zur professionellen Ankaufsuntersuchung – dieser umfassende Guide führt dich durch jeden Schritt zum Traumpferd."
           metaItems={heroMetaItems}
           primaryCta={{
             href: "/pferde-preis-berechnen",
@@ -222,7 +309,7 @@ const PferdKaufen: NextPage = () => {
             <section className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
                 Du möchtest ein Pferd kaufen und fragst dich, worauf es wirklich ankommt? Du bist nicht allein: Über{" "}
-                <strong>40.500 Menschen suchen monatlich</strong> nach &quot;pferd kaufen&quot;.
+                <strong>40.000 Menschen suchen monatlich</strong> nach &quot;pferd kaufen&quot;.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 <strong>100% der Top-10-Suchergebnisse</strong> sind Marktplätze mit tausenden Inseraten, aber{" "}
@@ -230,7 +317,7 @@ const PferdKaufen: NextPage = () => {
                 Welche Faktoren beeinflussen den Preis? Und wie erkenne ich ein faires Angebot?
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Unsere Analyse von 21 relevanten Keywords zeigt: <strong>75% aller Fragen drehen sich um Preise und Kosten</strong> –
+                Unsere Analyse zeigt: <strong>75% aller Fragen drehen sich um Preise und Kosten</strong> –
                 genau hier setzt dieser Ratgeber an.
               </p>
               <div className="text-lg text-gray-700 leading-relaxed">
@@ -250,7 +337,7 @@ const PferdKaufen: NextPage = () => {
             <section id="preise" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Was kostet ein Pferd? Preisübersicht 2025</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Die erste und wichtigste Frage: <strong>Was kostet ein Pferd wirklich?</strong> Die Preise beim Pferdekauf variieren erheblich – von unter 1.000 Euro für ältere Freizeitpferde bis weit über 15.000 Euro für Turnierpferde. Um realistische Erwartungen zu entwickeln, solltest du die aktuellen Marktpreise kennen:
+                Die erste und wichtigste Frage: <strong>Was kostet ein Pferd wirklich?</strong> Die Preise beim Pferdekauf variieren erheblich – von unter 1.000 Euro für ältere Freizeitpferde bis weit über 20.000 Euro für Turnierpferde. Um realistische Erwartungen zu entwickeln, solltest du die aktuellen Marktpreise kennen:
               </p>
 
               <RatgeberInfoTiles headline="Preisklassen nach Verwendungszweck" tiles={priceTiles} />
@@ -431,12 +518,12 @@ const PferdKaufen: NextPage = () => {
 
               {/* Säule 3: Charakter und Temperament */}
               <ContentSection
-                title="Säule 3: Charakter und Temperament – Der Unterschätzte"
+                title="Säule 3: Charakter und Temperament – Der Unterschätzte Faktor"
                 icon="💚"
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Ein 6-jähriges Warmblut mit A-Dressur kann 5.000€ kosten – oder 12.000€. Was den Unterschied macht? Oft der Charakter. Ein nervensicheres, ausgeglichenes Pferd mit „Will-to-please" ist für viele Käufer mehr wert als ein schwieriges Hochleistungspferd.
+                      Ein 6-jähriges Warmblut mit A-Dressur kann 5.000€ kosten – oder 12.000€. Was den Unterschied macht? Oft der Charakter. Ein nervensicheres, ausgeglichenes Pferd mit &quot;Will-to-please&quot; ist für viele Käufer mehr wert als ein schwieriges Hochleistungspferd.
                     </p>
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Positiver Charakter: Das erhöht den Wert</h3>
@@ -445,7 +532,7 @@ const PferdKaufen: NextPage = () => {
                       <li>• <strong>Nervensicher:</strong> Gelassen im Straßenverkehr, bei Lärm, in neuen Situationen → Aufpreis 10-15%</li>
                       <li>• <strong>Sozialverträglich:</strong> Kommt mit anderen Pferden klar, keine Aggressivität → Aufpreis 5-10%</li>
                       <li>• <strong>Handling-freundlich:</strong> Lässt sich problemlos führen, putzen, verladen → Aufpreis 5-10%</li>
-                      <li>• <strong>Menschenbezogen:</strong> Sucht Kontakt, „Will-to-please"-Mentalität → Aufpreis 10-15%</li>
+                      <li>• <strong>Menschenbezogen:</strong> Sucht Kontakt, &quot;Will-to-please&quot;-Mentalität → Aufpreis 10-15%</li>
                     </ul>
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Negativer Charakter: Das senkt den Wert</h3>
@@ -471,13 +558,13 @@ const PferdKaufen: NextPage = () => {
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      „Ein schönes Pferd verkauft sich leichter" – das ist mehr als nur ein Spruch. Das Exterieur (äußere Erscheinung) und Interieur (innere Qualitäten wie Bewegungsablauf) beeinflussen sowohl den aktuellen Wert als auch das zukünftige Potenzial.
+                      &quot;Ein schönes Pferd verkauft sich leichter&quot; – das ist mehr als nur ein Spruch. Das Exterieur (äußere Erscheinung) und Interieur (innere Qualitäten wie Bewegungsablauf) beeinflussen sowohl den aktuellen Wert als auch das zukünftige Potenzial.
                     </p>
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Exterieur-Merkmale, die den Wert steigern:</h3>
                     <ul className="space-y-2 text-gray-700 leading-relaxed">
                       <li>• <strong>Korrekte Gliedmaßenstellung:</strong> Gerade Beine ohne X-/O-Beinigkeit → Aufpreis 5-10%</li>
-                      <li>• <strong>Edles Erscheinungsbild:</strong> Harmonische Proportionen, „Hingucker"-Optik → Aufpreis 10-20%</li>
+                      <li>• <strong>Edles Erscheinungsbild:</strong> Harmonische Proportionen, &quot;Hingucker&quot;-Optik → Aufpreis 10-20%</li>
                       <li>• <strong>Gute Bemuskelung:</strong> Topline, Rückenmuskulatur, athletischer Körperbau → Aufpreis 5-10%</li>
                       <li>• <strong>Ausdrucksstarker Kopf:</strong> Große Augen, edle Züge (v.a. bei Zucht- und Showpferden) → Aufpreis 5-15%</li>
                       <li>• <strong>Gesunde Hufe:</strong> Große, gut geformte Hufe mit korrekter Stellung → Aufpreis 5%</li>
@@ -624,10 +711,10 @@ const PferdKaufen: NextPage = () => {
             {/* 7-Schritte-Checkliste */}
             <section id="checkliste" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                Die 7-Schritte-Checkliste: So kaufen Sie Ihr Traumpferd
+                Die 7-Schritte-Checkliste: So kaufst Du Dein Traumpferd
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Der strukturierte Ablauf beim Pferdekauf verhindert teure Fehler und emotionale Spontankäufe. Folgen Sie dieser
+                Der strukturierte Ablauf beim Pferdekauf verhindert teure Fehler und emotionale Spontankäufe. Folge dieser
                 bewährten Checkliste:
               </p>
 
@@ -747,7 +834,7 @@ const PferdKaufen: NextPage = () => {
 
                     <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
                       <strong className="text-brand-brown">Kritischer Tipp:</strong> Bevor Sie in Kaufverhandlungen gehen, sollten Sie wissen, ob der angebotene Preis fair ist. Mit der
-                      AI-Bewertung von PferdeWert.de erhalten Sie in 2 Minuten eine objektive Einschätzung des Marktwerts. So
+                      KI-Bewertung von PferdeWert.de erhalten Sie in 2 Minuten eine objektive Einschätzung des Marktwerts. So
                       starten Sie die Verhandlung mit klarem Preiswissen und vermeiden Überzahlung.
                     </p>
                   </div>
@@ -911,15 +998,15 @@ const PferdKaufen: NextPage = () => {
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Versicherung sofort aktivieren</h3>
                     <p className="text-gray-700 leading-relaxed">
-                      Schließen Sie die Pferdehaftpflichtversicherung bereits vor der Übergabe ab, sodass das Pferd vom Moment des
+                      Schließe die Pferdehaftpflichtversicherung bereits vor der Übergabe ab, sodass das Pferd vom Moment des
                       Eigentumswechsels an versichert ist. Die Pferdehaftpflicht ist in Deutschland nicht gesetzlich vorgeschrieben,
                       aber absolut essentiell – Schäden durch Pferde können sechsstellige Summen erreichen.
                     </p>
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Eingewöhnungsphase</h3>
                     <p className="text-gray-700 leading-relaxed">
-                      Planen Sie 2-4 Wochen Eingewöhnungszeit ein. Das Pferd muss sich an neue Umgebung, Boxennachbarn,
-                      Fütterungszeiten und Ihre Handhabung gewöhnen. Starten Sie mit leichter Arbeit und steigern Sie langsam.
+                      Plane 2-4 Wochen Eingewöhnungszeit ein. Das Pferd muss sich an neue Umgebung, Boxennachbarn,
+                      Fütterungszeiten und deine Handhabung gewöhnen. Starte mit leichter Arbeit und steigere langsam.
                     </p>
                   </div>
                 }
@@ -944,7 +1031,7 @@ const PferdKaufen: NextPage = () => {
                       <p className="text-red-800 font-semibold">⚠️ Achtung bei Schnäppchen!</p>
                       <p className="text-red-700 mt-2">
                         Ein ausgebildetes Turnierpferd für 3.000 € oder ein junges Warmblut mit Top-Abstammung für 2.000 €?
-                        Hier stimmt garantiert etwas nicht.
+                        Hier besteht ein hohes Risiko, dass etwas nicht stimmt.
                       </p>
                     </div>
 
@@ -1257,8 +1344,8 @@ const PferdKaufen: NextPage = () => {
               </ul>
 
               <p className="text-lg text-gray-700 leading-relaxed">
-                Ein Pferd kaufen ohne ausreichende Reitausbildung ist riskant. <strong>Investieren Sie parallel zum Pferdekauf in
-                regelmäßigen Reitunterricht.</strong> So entwickeln Sie sich gemeinsam mit Ihrem Pferd weiter und vermeiden
+                Ein Pferd kaufen ohne ausreichende Reitausbildung ist riskant. <strong>Investiere parallel zum Pferdekauf in
+                regelmäßigen Reitunterricht.</strong> So entwickelst du dich gemeinsam mit deinem Pferd weiter und vermeidest
                 gefährliche Situationen durch Unwissenheit.
               </p>
             </section>
@@ -1269,7 +1356,7 @@ const PferdKaufen: NextPage = () => {
                 Regionale Unterschiede: Wo kauft man Pferde am besten?
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Der deutsche Pferdemarkt ist regional unterschiedlich geprägt. Je nach Bundesland finden Sie verschiedene
+                Der deutsche Pferdemarkt ist regional unterschiedlich geprägt. Je nach Bundesland findest du verschiedene
                 Schwerpunkte, Preisstrukturen und Angebote:
               </p>
 
@@ -1304,7 +1391,7 @@ const PferdKaufen: NextPage = () => {
               </ul>
 
               <p className="text-lg text-gray-700 leading-relaxed">
-                Die großen Pferde-Plattformen wie ehorses.de und pferde.de ermöglichen bundesweite Suche. <strong>Bedenken Sie:</strong>{" "}
+                Die großen Pferde-Plattformen wie ehorses.de und pferde.de ermöglichen bundesweite Suche. <strong>Bedenke:</strong>{" "}
                 Ein perfektes Pferd 400 km entfernt kann trotz höherer Transportkosten die bessere Wahl sein als ein mittelmäßiges
                 Pferd vor Ort.
               </p>
@@ -1314,7 +1401,7 @@ const PferdKaufen: NextPage = () => {
             <section id="fehler" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Häufige Fehler beim Pferdekauf vermeiden</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Viele Pferdekäufe scheitern oder führen zu Enttäuschungen durch vermeidbare Fehler. Lernen Sie aus den häufigsten
+                Viele Pferdekäufe scheitern oder führen zu Enttäuschungen durch vermeidbare Fehler. Lerne aus den häufigsten
                 Fehlern anderer:
               </p>
 
@@ -1325,15 +1412,15 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Das Problem:</p>
                       <p>
-                        Sie verlieben sich beim ersten Blick in ein Pferd und kaufen überstürzt, ohne kritische Prüfung. Besonders
+                        Du verliebst dich beim ersten Blick in ein Pferd und kaufst überstürzt, ohne kritische Prüfung. Besonders
                         bei schönen, großen Augen schaltet sich der Verstand aus.
                       </p>
                     </div>
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Nehmen Sie immer eine emotional unbeteiligte, erfahrene Person zur Besichtigung mit. Diese kann objektiv
-                        beurteilen und Sie vor Spontankäufen bewahren.
+                        Nimm immer eine emotional unbeteiligte, erfahrene Person zur Besichtigung mit. Diese kann objektiv
+                        beurteilen und dich vor Spontankäufen bewahren.
                       </p>
                     </div>
                   </div>
@@ -1345,14 +1432,14 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Das Problem:</p>
                       <p>
-                        Sie kennen die aktuellen Marktpreise nicht und glauben der Preisvorstellung des Verkäufers. Verkäufer
+                        Du kennst die aktuellen Marktpreise nicht und glaubst der Preisvorstellung des Verkäufers. Verkäufer
                         überschätzen ihre Pferde häufig um 20-40%.
                       </p>
                     </div>
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Mit der AI-Bewertung von PferdeWert.de erhalten Sie in nur 2 Minuten eine objektive Marktwert-Einschätzung.
+                        Mit der KI-gestützten Bewertung von PferdeWert.de erhältst du in nur 2 Minuten eine objektive Marktwert-Einschätzung.
                         Eine Investition, die sich beim ersten Kauf vielfach amortisiert.
                       </p>
                     </div>
@@ -1365,14 +1452,14 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Das Problem:</p>
                       <p>
-                        Sie sparen die 200€ für eine kleine AKU oder wählen bei einem 15.000€ Turnierpferd nur die kleine statt der
+                        Du sparst die 200€ für eine kleine AKU oder wählst bei einem 15.000€ Turnierpferd nur die kleine statt der
                         großen AKU mit Röntgen.
                       </p>
                     </div>
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        NIEMALS auf die AKU verzichten. Wählen Sie die AKU-Klasse passend zum Kaufpreis. Bei Pferden über 5.000€ ist
+                        NIEMALS auf die AKU verzichten. Wähle die AKU-Klasse passend zum Kaufpreis. Bei Pferden über 5.000€ ist
                         die große AKU mit Röntgen Standard.
                       </p>
                     </div>
@@ -1384,12 +1471,12 @@ const PferdKaufen: NextPage = () => {
                   <div className="space-y-3 text-gray-700 leading-relaxed">
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Das Problem:</p>
-                      <p>Sie konzentrieren sich nur auf den Kaufpreis und vergessen die laufenden Kosten von 400€ bis 700€ pro Monat.</p>
+                      <p>Du konzentrierst dich nur auf den Kaufpreis und vergisst die laufenden Kosten von 400€ bis 700€ pro Monat.</p>
                     </div>
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Kalkulieren Sie realistisch mit mindestens 5.000€ Jahreskosten. Legen Sie eine Notfallreserve von 2.000€ für
+                        Kalkuliere realistisch mit mindestens 5.000€ Jahreskosten. Lege eine Notfallreserve von 2.000€ für
                         unvorhergesehene Tierarztkosten an.
                       </p>
                     </div>
@@ -1408,7 +1495,7 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Seien Sie ehrlich zu Ihrem Können. Anfänger brauchen erfahrene, gelassene Lehrmeister-Pferde. Investieren Sie
+                        Sei ehrlich zu deinem Können. Anfänger brauchen erfahrene, gelassene Lehrmeister-Pferde. Investiere
                         parallel in Reitunterricht.
                       </p>
                     </div>
@@ -1420,12 +1507,12 @@ const PferdKaufen: NextPage = () => {
                   <div className="space-y-3 text-gray-700 leading-relaxed">
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Das Problem:</p>
-                      <p>Sie verlassen sich auf mündliche Zusagen und Handschlag-Geschäfte.</p>
+                      <p>Du verlässt dich auf mündliche Zusagen und Handschlag-Geschäfte.</p>
                     </div>
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Bestehen Sie auf einem schriftlichen Kaufvertrag, auch bei Privatkäufen von netten Menschen. Nutzen Sie
+                        Bestehe auf einem schriftlichen Kaufvertrag, auch bei Privatkäufen von netten Menschen. Nutze
                         Muster-Verträge von FN oder Rechtsanwälten.
                       </p>
                     </div>
@@ -1445,8 +1532,8 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Lassen Sie sich nicht drängen. Vereinbaren Sie mindestens 2-3 Probetermine an verschiedenen Tagen. Seriöse
-                        Verkäufer geben Ihnen die Zeit.
+                        Lass dich nicht drängen. Vereinbare mindestens 2-3 Probetermine an verschiedenen Tagen. Seriöse
+                        Verkäufer geben dir die Zeit.
                       </p>
                     </div>
                   </div>
@@ -1456,15 +1543,15 @@ const PferdKaufen: NextPage = () => {
 
             {/* Faire Preise erkennen */}
             <section id="faire-preise" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">So erkennen Sie faire Pferde-Preise</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">So erkennst du faire Pferde-Preise</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Die Preisfindung beim Pferdekauf ist eine der größten Herausforderungen. Woher wissen Sie, ob 8.000€ für ein
+                Die Preisfindung beim Pferdekauf ist eine der größten Herausforderungen. Woher weißt du, ob 8.000€ für ein
                 bestimmtes Pferd angemessen oder überteuert sind?
               </p>
 
               <h3 className="text-xl font-serif text-brand mt-6 mb-3">Marktanalyse: Vergleichspreise recherchieren</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
-                Schauen Sie sich auf Verkaufsplattformen ähnliche Pferde an:
+                Schau dir auf Verkaufsplattformen ähnliche Pferde an:
               </p>
               <ul className="space-y-2 text-gray-700 leading-relaxed">
                 <li>• Gleiche oder ähnliche Rasse</li>
@@ -1473,7 +1560,7 @@ const PferdKaufen: NextPage = () => {
                 <li>• Gleiche Region</li>
               </ul>
               <p className="text-gray-700 leading-relaxed mt-3">
-                Notieren Sie sich 8-10 Vergleichsangebote und bilden Sie einen Durchschnittspreis.
+                Notiere dir 8-10 Vergleichsangebote und bilde einen Durchschnittspreis.
               </p>
 
               <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
@@ -1510,16 +1597,16 @@ const PferdKaufen: NextPage = () => {
                 Wahrnehmung führen zu überhöhten Preisvorstellungen.
               </p>
 
-              <RatgeberHighlightBox title="Die Lösung: AI-gestützte Pferdebewertung">
+              <RatgeberHighlightBox title="Die Lösung: KI-gestützte Pferdebewertung">
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   PferdeWert.de nutzt modernste Künstliche Intelligenz, um den fairen Marktwert eines Pferdes in nur 2 Minuten zu
                   berechnen. Unser Algorithmus wurde von erfahrenen Reitern entwickelt und berücksichtigt über 50
                   Bewertungskriterien sowie aktuelle Marktdaten.
                 </p>
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-brand">Die Vorteile für Sie:</h4>
+                  <h4 className="font-semibold text-brand">Die Vorteile für dich:</h4>
                   <ul className="space-y-2 text-gray-700 leading-relaxed">
-                    <li>• <strong>Verhandlungssicherheit:</strong> Sie wissen, was das Pferd wirklich wert ist</li>
+                    <li>• <strong>Verhandlungssicherheit:</strong> Du weißt, was das Pferd wirklich wert ist</li>
                     <li>• <strong>Schnelligkeit:</strong> Ergebnis in 2 Minuten, nicht Tage der Recherche</li>
                     <li>• <strong>Objektivität:</strong> KI ohne emotionale Verzerrung</li>
                     <li>• <strong>Aktualität:</strong> Berücksichtigt aktuelle Markttrends</li>
@@ -1633,14 +1720,64 @@ const PferdKaufen: NextPage = () => {
             articles={relatedArticles}
           />
 
+          {/* Fazit */}
+          <section id="fazit" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
+            <div className="max-w-4xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Fazit: Informiert kaufen, fair bezahlen
+              </h2>
+
+              <p className="text-lg text-gray-700 mb-6">
+                Ein Pferd zu kaufen ist eine der größten Entscheidungen im Reiterleben – emotional und finanziell. Die wichtigsten Learnings:
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <p className="font-bold text-gray-900 mb-2">Vorbereitung ist alles:</p>
+                  <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                    <li>Realistische Budgetplanung (Kaufpreis + Erstausstattung + laufende Kosten)</li>
+                    <li>Professionelle Bewertung nutzen für faire Preise</li>
+                    <li>Große AKU ab €5.000 Kaufpreis ist Pflicht</li>
+                  </ul>
+                </div>
+
+                <p className="text-gray-700">
+                  <span className="font-bold">Die 5 Säulen der Bewertung</span> (Gesundheit, Ausbildung, Charakter, Exterieur, Marktfähigkeit) geben dir eine objektive Grundlage für Verhandlungen.
+                </p>
+
+                <p className="text-gray-700">
+                  <span className="font-bold">Regionale Unterschiede</span> können bis zu 15% Preisabweichung bedeuten – plane Transportkosten von Anfang an ein.
+                </p>
+
+                <p className="text-gray-700">
+                  <span className="font-bold">Red Flags erkennen</span> schützt vor Fehlinvestitionen: Unrealistische Preise, fehlende AKU, Druckmethoden sind klare Warnsignale.
+                </p>
+
+                <p className="text-lg text-gray-700 mt-6">
+                  Du möchtest jetzt den nächsten Schritt gehen? <span className="font-bold">Bewerte dein Wunschpferd mit PferdeWert</span> – unsere KI vergleicht es mit tausenden verifizierten Marktdaten und gibt dir eine objektive Preiseinschätzung in Minuten.
+                </p>
+
+                <div className="mt-6">
+                  <Link
+                    href="/pferde-preis-berechnen"
+                    className="inline-flex items-center px-6 py-3 bg-brand-brown text-white font-semibold rounded-lg hover:bg-brand-brown-dark transition-colors"
+                  >
+                    Jetzt Pferdewert ermitteln und mit Vertrauen kaufen
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Final CTA */}
           <RatgeberFinalCTA
             image={{
               src: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
               alt: "Pferdebewertung vor dem Kauf"
             }}
-            title="Bereit für Ihren fairen Pferdekauf?"
-            description="Nutzen Sie unsere KI-Analyse für eine objektive Preisbewertung. Starten Sie die Verhandlung mit klarem Preiswissen und vermeiden Sie Überzahlung."
+            title="Bereit für deinen fairen Pferdekauf?"
+            description="Nutze unsere KI-Analyse für eine objektive Preisbewertung. Starte die Verhandlung mit klarem Preiswissen und vermeide Überzahlung."
             ctaHref="/pferde-preis-berechnen"
             ctaLabel="Jetzt Pferdewert berechnen"
           />
