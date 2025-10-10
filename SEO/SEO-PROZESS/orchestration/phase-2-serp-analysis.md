@@ -1,7 +1,7 @@
 # Phase 2: SERP Analysis
 
 **Token Budget**: ~2500 Tokens (realistic with safety margin)
-**Main Deliverables**: `serp-analysis.json`, Content Gaps, PAA Integration, Search Intent Mapping
+**Main Deliverables**: `serp-analysis.json`, `outline-brief.json`, Content Gaps, PAA Integration, Search Intent Mapping
 **Agent Pattern**: Sub-Agent (ALL API calls + analysis) → Main-Agent (validation + file storage)
 
 ---

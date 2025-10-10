@@ -8,27 +8,18 @@
 
 ## Input Files (Read via File Tool)
 
-**WICHTIG**: Nutze Read-Tool um diese Files einzulesen:
+**WICHTIG**: Nutze Read-Tool um dieses File einzulesen:
 
-1. **Keyword-Analyse** (Phase 1B):
-   `SEO/SEO-CONTENT/{keyword-slug}/research/keyword-analysis.json`
+**Outline Brief** (Phase 2):
+   `SEO/SEO-CONTENT/{keyword-slug}/research/outline-brief.json`
 
-   Extrahiere:
-   - `top_keywords` → für Heading-Optimierung
-   - `content_clusters` → für Sektions-Gruppierung
-   - `recommendations.top_article_topics` → für H2-Headings
-   - `recommendations.estimated_word_count` → als Fallback
-
-2. **SERP-Analyse** (Phase 2):
-   `SEO/SEO-CONTENT/{keyword-slug}/research/serp-analysis.json`
-
-   Extrahiere:
-   - `content_gaps.must_have_topics` → PFLICHT-Sektionen
-   - `content_gaps.differentiation_opportunities` → Unique Angles
-   - `format_recommendations.target_word_count` → Primäres Word Count Ziel
-   - `format_recommendations.word_count_strategy` → "serp_competitive" oder "fallback"
-   - `paa_integration` → für FAQ-Fragen (min 5, davon 3+ aus PAA)
-   - `eeat_signals` → für Expertise-Integration
+   Dieses Brief konsolidiert alle notwendigen Daten aus Phase 1B + Phase 2:
+   - `keywords` → Top Keywords für Heading-Optimierung
+   - `content_structure` → Sektions-Empfehlungen mit must-have topics
+   - `word_count` → Target + Strategy (serp_competitive)
+   - `faq_questions` → PAA-Fragen für FAQ-Integration
+   - `eeat_integration` → Expertise-Signale pro Sektion
+   - `differentiation` → Unique Angles vs. Wettbewerb
 
 ---
 
@@ -37,11 +28,10 @@
 ```json
 {
   "phase": "3",
-  "primary_keyword": "<aus keyword-analysis.json>",
+  "primary_keyword": "<aus outline-brief.json>",
   "timestamp": "<ISO 8601>",
   "based_on": {
-    "phase_1b": "keyword-analysis.json",
-    "phase_2": "serp-analysis.json"
+    "outline_brief": "outline-brief.json (consolidates Phase 1B + Phase 2)"
   },
 
   "article_metadata": {
@@ -50,8 +40,8 @@
     "primary_keyword": "",
     "secondary_keywords": ["keyword1", "keyword2", "keyword3"],
     "word_count_data": {
-      "target_word_count": "<aus serp-analysis.json>",
-      "word_count_strategy": "<aus serp-analysis.json>",
+      "target_word_count": "<aus outline-brief.json>",
+      "word_count_strategy": "<aus outline-brief.json>",
       "distribution": {
         "introduction": {"percentage": 0.07, "calculated_words": "<target × 0.07>"},
         "main_sections": {"percentage": 0.72, "calculated_words": "<target × 0.72>"},
@@ -106,7 +96,7 @@
     "word_count": "<target × 0.10>",
     "questions": [
       {
-        "question": "<PAA-Frage aus serp-analysis.json>",
+        "question": "<PAA-Frage aus outline-brief.json>",
         "answer_outline": "<50-100 Wörter Antwort-Skizze>",
         "word_count": 80,
         "paa_source": true,
@@ -141,7 +131,7 @@
 ## Critical Rules
 
 ### 1. Word Count Berechnung
-- Lies `target_word_count` aus `serp-analysis.json`
+- Lies `target_word_count` aus `outline-brief.json`
 - Berechne Sektions-Längen mit **fixen Prozentsätzen**:
   - Einleitung: target × 0.07 (~7%)
   - Hauptsektionen: target × 0.72 (~72%, verteilt auf 5-8 H2)
@@ -158,7 +148,7 @@
 
 ### 3. FAQ-Integration
 - **Min 5 Fragen**
-- **Min 3 Fragen aus PAA** (nutze `paa_integration` Array aus serp-analysis.json)
+- **Min 3 Fragen aus PAA** (nutze `paa_integration` Array aus outline-brief.json)
 - Kurze Antworten (50-100 Wörter)
 - Schema-Markup-ready
 
@@ -244,13 +234,13 @@ echo "✅ PASS: Sections=$SECTION_COUNT | FAQ=$FAQ_COUNT (PAA=$PAA_COUNT) | Link
 ## Troubleshooting
 
 **Problem**: Word count calculations missing
-**Solution**: Verify `serp-analysis.json` has `format_recommendations.target_word_count`
+**Solution**: Verify `outline-brief.json` has `word_count.target_word_count`
 
 **Problem**: Too generic outline
-**Solution**: Check if `content_gaps.must_have_topics` was used from Phase 2
+**Solution**: Check if `content_structure.must_have_topics` was used from outline-brief.json
 
 **Problem**: FAQ missing PAA questions
-**Solution**: Verify `paa_integration` array exists in serp-analysis.json
+**Solution**: Verify `faq_questions` array exists in outline-brief.json
 
 ---
 

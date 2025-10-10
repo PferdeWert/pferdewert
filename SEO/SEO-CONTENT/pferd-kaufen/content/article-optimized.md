@@ -48,7 +48,7 @@ Unsere Marktanalyse zeigt deutliche regionale Unterschiede beim Pferd kaufen:
 - **Norddeutschland**: Viele Warmblut-Züchter, moderates Preisniveau €4.000-€9.000
 - **NRW/Rheinland**: Größter Markt, breites Angebot, €3.500-€10.000
 
-Du möchtest wissen, ob der Preis für ein konkretes Pferd fair ist? [Nutze unseren AI-gestützten Rechner für eine präzise Bewertung](/bewertung).
+Du möchtest wissen, ob der Preis für ein konkretes Pferd fair ist? [Nutze unseren AI-gestützten Rechner für eine präzise Bewertung](/pferde-preis-berechnen).
 
 ## Was kostet ein Pferd wirklich? Kaufpreis + Jahreskosten
 
@@ -89,7 +89,7 @@ Das bedeutet: Ein €5.000-Pferd kostet dich im ersten Jahr realistisch €10.00
 
 In unserem [detaillierten Kosten-Guide](/ratgeber/pferd-kaufen-kosten) findest du eine vollständige Aufschlüsselung aller versteckten Kosten, die auf dich zukommen.
 
-**Jetzt Pferdewert ermitteln und realistische Budgetplanung erstellen** → [Zur kostenlosen Bewertung](/bewertung)
+**Jetzt Pferdewert ermitteln und realistische Budgetplanung erstellen** → [Zur kostenlosen Bewertung](/pferde-preis-berechnen)
 
 ## Wie bewertet man ein Pferd richtig? Die 5 Säulen
 
@@ -148,7 +148,7 @@ Aktuell gefragt sind beim Pferd kaufen:
 
 Traditionelle Gutachter bewerten nach Erfahrung – unsere AI vergleicht dein Pferd mit **tausenden verifizierten Verkaufsdaten** aus ehorses.de, pferde.de und kleinanzeigen.de. Das Ergebnis: präziser, schneller, objektiver.
 
-[Lerne die 5 Säulen der Pferdebewertung im Detail](/ratgeber/pferd-bewerten) oder [starte jetzt deine kostenlose AI-Bewertung](/bewertung).
+[Lerne die 5 Säulen der Pferdebewertung im Detail](/ratgeber/pferd-bewerten) oder [starte jetzt deine kostenlose AI-Bewertung](/pferde-preis-berechnen).
 
 ## Pferdekauf Schritt für Schritt: Vom ersten Kontakt bis zum Kaufvertrag
 
@@ -432,7 +432,7 @@ Ein Pferd kaufen ist eine der größten Entscheidungen im Reiterleben – emotio
 
 Du möchtest jetzt ein Pferd kaufen? **Bewerte dein Wunschpferd kostenlos mit PferdeWert** – unsere AI vergleicht es mit tausenden verifizierten Marktdaten und gibt dir eine objektive Preiseinschätzung in Minuten.
 
-[Jetzt Pferdewert ermitteln und mit Vertrauen kaufen](/bewertung)
+[Jetzt Pferdewert ermitteln und mit Vertrauen kaufen](/pferde-preis-berechnen)
 
 ---
 
