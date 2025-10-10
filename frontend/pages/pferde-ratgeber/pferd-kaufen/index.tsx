@@ -189,11 +189,35 @@ const PferdKaufen: NextPage = () => {
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <>
         <Head>
-          <title>Pferd kaufen: Der ultimative Ratgeber für 2025 | PferdeWert</title>
+          {/* Primary Meta Tags */}
+          <title>Pferd kaufen 2025: Preise, Bewertung & Checkliste</title>
           <meta
             name="description"
-            content="Pferd kaufen mit System: 7-Schritte-Checkliste, faire Preise erkennen, häufige Fehler vermeiden. Vom Budget bis zur AKU – der komplette Ratgeber."
+            content="Pferd kaufen leicht gemacht: Aktuelle Preise, AI-Bewertung, 8-Schritt-Anleitung & Checkliste. Jetzt informieren & Traumpferd finden!"
           />
+          <meta
+            name="keywords"
+            content="pferd kaufen, pferd kaufen preis, pferde kaufen bayern, pferde kaufen in der nähe, aku pferd, pferdebewertung, pferd kaufen checkliste"
+          />
+          <meta name="author" content="PferdeWert.de" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="content-language" content="de-DE" />
+
+          {/* Canonical URL */}
+          <link rel="canonical" href="https://pferdewert.de/ratgeber/pferd-kaufen" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content="https://pferdewert.de/ratgeber/pferd-kaufen" />
+          <meta property="og:title" content="Pferd kaufen: Der ultimative Ratgeber 2025" />
+          <meta property="og:description" content="Alles über Pferdekauf: Preise, Bewertung, AKU, Kaufvertrag & Red Flags. Mit AI-gestütztem Bewertungstool." />
+          <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
+
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Pferd kaufen 2025: Preise, Bewertung & Checkliste" />
+          <meta name="twitter:description" content="Pferd kaufen leicht gemacht: Aktuelle Preise, AI-Bewertung, 8-Schritt-Anleitung & Checkliste." />
+          <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
 
           {/* Article Schema */}
           <script
@@ -202,25 +226,25 @@ const PferdKaufen: NextPage = () => {
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Article",
-                "headline": "Pferd kaufen: Der ultimative Ratgeber für 2025",
-                "description": "Pferd kaufen mit System: 7-Schritte-Checkliste, faire Preise erkennen, häufige Fehler vermeiden. Vom Budget bis zur AKU – der komplette Ratgeber.",
+                "headline": "Pferd kaufen: Der ultimative Ratgeber 2025",
+                "description": "Alles über Pferdekauf: Preise, Bewertung, AKU, Kaufvertrag & Red Flags. Mit AI-gestütztem Bewertungstool.",
                 "author": {
                   "@type": "Organization",
-                  "name": "PferdeWert"
+                  "name": "PferdeWert.de"
                 },
                 "publisher": {
                   "@type": "Organization",
-                  "name": "PferdeWert",
+                  "name": "PferdeWert.de",
                   "logo": {
                     "@type": "ImageObject",
                     "url": "https://pferdewert.de/logo.png"
                   }
                 },
-                "datePublished": "2025-01-10",
-                "dateModified": "2025-01-10",
+                "datePublished": "2025-01-05",
+                "dateModified": "2025-01-05",
                 "mainEntityOfPage": {
                   "@type": "WebPage",
-                  "@id": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen"
+                  "@id": "https://pferdewert.de/ratgeber/pferd-kaufen"
                 }
               })
             }}
@@ -241,6 +265,121 @@ const PferdKaufen: NextPage = () => {
                     "text": faq.answer
                   }
                 }))
+              })
+            }}
+          />
+
+          {/* HowTo Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "HowTo",
+                "name": "Pferd kaufen: 8-Schritt-Anleitung",
+                "description": "Professionelle Schritt-für-Schritt-Anleitung zum sicheren Pferdekauf mit Bedarfsanalyse, Budgetplanung, Besichtigung, AKU-Untersuchung und Kaufvertrag.",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://pferdewert.de/images/pferd-kaufen-anleitung.jpg",
+                  "width": 1200,
+                  "height": 630
+                },
+                "totalTime": "PT4W",
+                "estimatedCost": {
+                  "@type": "MonetaryAmount",
+                  "currency": "EUR",
+                  "value": "2500-50000"
+                },
+                "supply": [
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Budget für Pferdekauf"
+                  },
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Checkliste für Besichtigung"
+                  },
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Kontaktdaten unabhängiger Tierarzt für AKU"
+                  },
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Kaufvertrag-Vorlage"
+                  }
+                ],
+                "tool": [
+                  {
+                    "@type": "HowToTool",
+                    "name": "PferdeWert.de AI-Bewertungstool"
+                  }
+                ],
+                "step": [
+                  {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Bedarfsanalyse durchführen",
+                    "text": "Definiere deine Anforderungen genau: Welche Disziplin (Dressur, Springen, Freizeit)? Welches Erfahrungslevel hast du? Welches Budget steht zur Verfügung? Berücksichtige auch die jährlichen Kosten von €3,000-6,000 für Unterbringung, Futter, Tierarzt und Hufschmied.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#bedarfsanalyse",
+                    "image": "https://pferdewert.de/images/bedarfsanalyse.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Budget realistisch planen",
+                    "text": "Kalkuliere nicht nur den Kaufpreis (Freizeitpferde €2,500-8,000, Dressurpferde €8,000-25,000, Springpferde €10,000-50,000+), sondern auch Nebenkosten: AKU-Untersuchung (€150-500), Transport (€200-800), Erstausstattung (€500-1,500) und jährliche Unterhaltungskosten (€3,000-6,000).",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#budget",
+                    "image": "https://pferdewert.de/images/budgetplanung.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Geeignete Pferde suchen und vorselektieren",
+                    "text": "Nutze seriöse Plattformen wie ehorses.de, besuche lokale Pferdehöfe und Züchter mit gutem Ruf, frage in Reitvereinen nach Empfehlungen. Achte bei Online-Inseraten auf vollständige Informationen, realistische Preise und klare Fotos. Erstelle eine Shortlist von 3-5 Pferden für Besichtigungen.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#pferdesuche",
+                    "image": "https://pferdewert.de/images/pferdesuche.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Mehrfache Besichtigungen und Probereiten",
+                    "text": "Besuche jedes Pferd mindestens zweimal zu unterschiedlichen Tageszeiten. Probereiten in verschiedenen Gangarten und Situationen (Halle, Gelände, mit/ohne andere Pferde). Achte auf Verhalten beim Putzen, Satteln, Führen. Nimm einen erfahrenen Reiter oder Trainer mit zur Einschätzung.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#besichtigung",
+                    "image": "https://pferdewert.de/images/probereiten.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Professionelle Ankaufsuntersuchung (AKU) durchführen",
+                    "text": "Beauftrage einen unabhängigen Tierarzt (nicht den Stallveterinär) für eine umfassende AKU. Diese umfasst: Klinische Untersuchung (Herz, Lunge, Allgemeinzustand), Röntgenaufnahmen der Gliedmaßen, Blutuntersuchung auf Substanzen, Bewegungsanalyse an der Longe und unter dem Reiter. Kosten: €150-500 je nach Umfang.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#aku",
+                    "image": "https://pferdewert.de/images/aku-untersuchung.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 6,
+                    "name": "Objektive Bewertung des Pferdewertes",
+                    "text": "Nutze moderne Bewertungsmethoden zur objektiven Preiseinschätzung: AI-gestützte Tools wie PferdeWert.de analysieren Rasse, Alter, Ausbildungsstand, Gesundheitszustand und Marktvergleiche. Vergleiche mit aktuellen Verkaufspreisen ähnlicher Pferde. Berücksichtige das AKU-Ergebnis bei der Wertermittlung.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#bewertung",
+                    "image": "https://pferdewert.de/images/bewertung.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 7,
+                    "name": "Preisverhandlung und schriftlicher Kaufvertrag",
+                    "text": "Verhandle fair basierend auf objektiver Bewertung und AKU-Ergebnis. Erstelle einen detaillierten schriftlichen Kaufvertrag mit: Kaufpreis, Zahlungsmodalitäten, Identifikation des Pferdes (Equidenpass-Nummer), Gesundheitszustand laut AKU, Gewährleistungsausschlüsse, Rücktrittsrechte, Übergabedatum. Beide Parteien unterschreiben.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#kaufvertrag",
+                    "image": "https://pferdewert.de/images/kaufvertrag.jpg"
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "position": 8,
+                    "name": "Übergabe, Versicherung und Transport organisieren",
+                    "text": "Organisiere vor Übergabe: Haftpflichtversicherung abschließen (€5-15/Monat, oft Pflicht), optional OP-Versicherung (€30-80/Monat), professionellen Transport buchen (€200-800 je nach Entfernung), Stallplatz reservieren. Bei Übergabe: Equidenpass prüfen, Abstammungsnachweis mitnehmen, Futter-/Pflegegewohnheiten erfragen.",
+                    "url": "https://pferdewert.de/ratgeber/pferd-kaufen#uebergabe",
+                    "image": "https://pferdewert.de/images/uebergabe.jpg"
+                  }
+                ]
               })
             }}
           />
@@ -270,6 +409,83 @@ const PferdKaufen: NextPage = () => {
                     "position": 3,
                     "name": "Pferd kaufen",
                     "item": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen"
+                  }
+                ]
+              })
+            }}
+          />
+
+          {/* Enhanced FAQ Schema from SEO Content */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Was kostet ein Pferd im Durchschnitt?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Der Kaufpreis variiert stark je nach Disziplin und Ausbildungsstand: Freizeitpferde kosten €2,500-8,000, Dressurpferde €8,000-25,000, Springpferde €10,000-50,000+. Zusätzlich zum Kaufpreis fallen jährliche Kosten von €3,000-6,000 für Unterbringung, Futter, Tierarzt und Hufschmied an."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Was sollte man beim Pferdekauf beachten?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Die wichtigsten Aspekte beim Pferdekauf sind: 1) Durchführung einer professionellen Ankaufsuntersuchung (AKU), 2) Mehrfaches Probereiten unter verschiedenen Bedingungen, 3) Prüfung aller Papiere und Dokumente, 4) Objektive Pferdebewertung (z.B. mit AI-Tools), 5) Schriftlicher Kaufvertrag mit allen Details, 6) Vermeidung von Red Flags wie unrealistisch niedrigen Preisen oder fehlenden Papieren."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Wie läuft eine Ankaufsuntersuchung (AKU) ab?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Eine AKU umfasst mehrere Komponenten: 1) Klinische Untersuchung (Allgemeinzustand, Herzfrequenz, Atmung), 2) Röntgenaufnahmen der Gliedmaßen, 3) Blutuntersuchung auf Substanzen, 4) Bewegungsanalyse an der Longe und unter dem Reiter, 5) Beurteilung der Belastbarkeit. Die Kosten liegen zwischen €150-500 je nach Umfang. Eine AKU sollte immer von einem unabhängigen Tierarzt durchgeführt werden."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Wo kann man seriös ein Pferd kaufen?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Seriöse Kaufmöglichkeiten umfassen: 1) Spezialisierte Online-Plattformen wie ehorses.de, 2) Lokale Pferdehöfe und Züchter mit gutem Ruf, 3) Reitvereine und Pensionsbetriebe, 4) Pferdebörsen und Auktionen, 5) Empfehlungen von Trainern und Tierärzten. Wichtig ist immer: Persönliche Besichtigung, mehrfaches Probereiten und professionelle AKU durchführen."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Welche Papiere braucht man beim Pferdekauf?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Erforderliche Dokumente beim Pferdekauf: 1) Equidenpass (EU-Pflicht mit Identifikation und Impfungen), 2) Abstammungsnachweis/Zuchtpapiere bei Rassepferden, 3) Schriftlicher Kaufvertrag mit allen Details, 4) AKU-Bericht vom Tierarzt, 5) Eigentumsnachweis des Verkäufers, 6) Haftungsausschluss-Vereinbarung (falls gewünscht). Alle Papiere sollten vor Kaufabschluss geprüft werden."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Was sind typische Red Flags beim Pferdekauf?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Warnsignale beim Pferdekauf: 1) Unrealistisch niedrige Preise ohne plausible Erklärung, 2) Verkäufer lehnt AKU ab oder drängt zu bestimmtem Tierarzt, 3) Fehlende oder unvollständige Papiere, 4) Pferd ist stark sediert beim Probereiten, 5) Verkäufer verhindert mehrfache Besichtigungen, 6) Keine Informationen zur Vorgeschichte/Gesundheit, 7) Druck zu schneller Kaufentscheidung, 8) Widersprüchliche Angaben zu Alter, Ausbildung oder Leistungen."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Welche Versicherungen braucht man für ein Pferd?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Empfohlene Versicherungen für Pferdebesitzer: 1) Haftpflichtversicherung (€5-15/Monat, deckt Schäden durch das Pferd), 2) OP-Versicherung (€30-80/Monat, übernimmt Operationskosten), 3) Krankenversicherung (optional, €50-150/Monat), 4) Lebensversicherung (optional, bei wertvollen Pferden). Die Haftpflichtversicherung ist besonders wichtig und in vielen Reitbetrieben Pflicht."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Wie bewertet man den Wert eines Pferdes objektiv?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Objektive Pferdebewertung erfolgt nach mehreren Kriterien: 1) Rasse und Abstammung (Zuchtlinien, Stammbaum), 2) Ausbildungsstand und Leistungen (Turniererfolge, Ausbildungsniveau), 3) Alter und Gesundheitszustand (AKU-Ergebnis, Vorerkrankungen), 4) Exterieur und Interieur (Körperbau, Charakter), 5) Marktvergleich (aktuelle Verkaufspreise ähnlicher Pferde). Moderne AI-gestützte Tools wie PferdeWert.de kombinieren diese Faktoren für eine datenbasierte Bewertung."
+                    }
                   }
                 ]
               })
