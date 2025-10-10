@@ -38,7 +38,6 @@
         }
       ],
       "destination": "https://www.pferdewert.de/:path*",
-      "permanent": true,
       "statusCode": 301
     }
   ],
