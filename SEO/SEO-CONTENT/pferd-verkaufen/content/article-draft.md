@@ -20,7 +20,7 @@ Unzureichende Präsentation kostet dich bares Geld. Verwackelte Handyfotos vom u
 
 Transparenz schafft Vertrauen. Kommuniziere offen über Stärken und Schwächen deines Pferdes. Ein ehrliches "Anfänger geeignet mit regelmäßigem Training" verkauft sich besser als ein falsches "für jeden Reiter geeignet".
 
-Faire Preisfindung basiert auf Marktdaten, nicht auf Wunschdenken. Nutze moderne Tools zur [Pferdewert-Ermittlung](/ratgeber/pferdewert-ermitteln), die Alter, Ausbildungsstand und aktuelle Marktpreise berücksichtigen.
+Faire Preisfindung basiert auf Marktdaten, nicht auf Wunschdenken. Nutze moderne Tools zur Pferdewert-Ermittlung, die Alter, Ausbildungsstand und aktuelle Marktpreise berücksichtigen.
 
 Professionelle Präsentation bedeutet: sauberes Pferd, neutraler Hintergrund, aussagekräftige Beschreibung. Investiere 2-3 Stunden in eine Top-Präsentation – sie zahlt sich vielfach aus.
 
@@ -65,7 +65,7 @@ Die Preisfindung ist der Knackpunkt beim **Pferd verkaufen**. Zu hoch – keine 
 
 ### AI-gestützte Wertermittlung nutzen
 
-Moderne Technologie macht Pferdebewertung präziser und objektiver. Unser [AI-gestütztes Bewertungssystem](/bewertung) analysiert dein Pferd anhand von 13 Kriterien und vergleicht es mit sämtlichen Marktdaten aus über 10.000 realen Verkäufen.
+Moderne Technologie macht Pferdebewertung präziser und objektiver. Unser [AI-gestütztes Bewertungssystem](https://www.pferdewert.de/pferde-preis-berechnen) analysiert dein Pferd anhand von 13 Kriterien und vergleicht es mit sämtlichen Marktdaten aus über 10.000 realen Verkäufen.
 
 **Praxisbeispiel: Wie Sarah ihr 12-jähriges Dressurpferd in 4 Wochen verkaufte**
 
@@ -352,7 +352,7 @@ Die meisten Käufer bestehen auf einer tierärztlichen Ankaufsuntersuchung (AKU)
 
 **Strategischer Vorteil**: Lass BEVOR du inserierst eine AKU durchführen. Kosten: 800-1.500 Euro. Vorteil: Du kennst den Gesundheitsstatus, kannst den Preis realistisch ansetzen und verkaufst schneller. Studien zeigen: Pferde mit vorliegender AKU verkaufen sich 40% schneller.
 
-Mehr Details findest du in unserem Ratgeber zu [Ankaufsuntersuchung Kosten](/ratgeber/aku-pferd-kosten).
+Mehr Details findest du in unserem Ratgeber zur [Ankaufsuntersuchung beim Pferd](https://www.pferdewert.de/pferde-ratgeber/aku-pferd) und zu den [Kosten einer Ankaufsuntersuchung](https://www.pferdewert.de/pferde-ratgeber/aku-pferd/kosten).
 
 **Was passiert bei negativem AKU-Befund?**: Der Käufer tritt meist zurück (wenn im Vertrag vereinbart). Du bleibst auf dem Pferd sitzen, aber hast wertvolle Gesundheitsinformationen für die nächste Verhandlung.
 
@@ -385,7 +385,7 @@ Mit Übergabe des Pferdes geht die Tierhalterhaftung auf den Käufer über. Trot
 
 **Versicherung**: Informiere deine Pferdehaftpflicht über den Verkauf. Die Versicherung endet mit Eigentumsübergang. Der Käufer muss eine eigene abschließen.
 
-Für mehr Kontext lies unseren Guide [Pferd kaufen Checkliste](/ratgeber/pferd-kaufen-checkliste) – so verstehst du, worauf Käufer achten und kannst dich entsprechend vorbereiten.
+Für mehr Kontext lies unseren Guide aus der [Perspektive eines Pferdekäufers](https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen) – so verstehst du, worauf Käufer achten und kannst dich entsprechend vorbereiten.
 
 ## Nach dem Verkauf: So gelingt der Übergang
 
@@ -436,7 +436,7 @@ Ein kurzer Check-in zeigt Professionalität und Fürsorge:
 
 Der Wert deines Pferdes hängt von vielen Faktoren ab: Alter, Ausbildungsstand, Gesundheit, Abstammung und Charakter. Ein 7-12 Jahre altes, gesundes Freizeitpferd mit Basisausbildung liegt zwischen 5.000-12.000 Euro. Turnierpferde auf L/M-Niveau erreichen 15.000-35.000 Euro.
 
-Die genaueste Methode: Nutze unser [AI-gestütztes Bewertungstool](/bewertung), das dein Pferd mit über 10.000 realen Verkaufsdaten vergleicht. Alternativ recherchiere vergleichbare Pferde auf ehorses.de und equiva.com.
+Die genaueste Methode: Nutze unsere [AI-gestützte Pferdebewertung](https://www.pferdewert.de/pferde-preis-berechnen), die dein Pferd mit über 10.000 realen Verkaufsdaten vergleicht. Alternativ recherchiere vergleichbare Pferde auf ehorses.de und equiva.com.
 
 ### Wo kann ich mein Pferd verkaufen?
 
@@ -577,6 +577,8 @@ Die wichtigsten Erfolgsfaktoren noch einmal zusammengefasst:
 ✓ **Rechtliche Absicherung** durch korrekten Kaufvertrag
 ✓ **Geduld und Realismus** – der richtige Käufer kommt
 
-Du möchtest wissen, was dein **Pferd verkaufen** könnte und wie viel es aktuell wert ist? Nutze jetzt unsere [AI-Bewertung](/bewertung) und erhalte in 2 Minuten eine datenbasierte Einschätzung – so startest du mit dem richtigen Preis in den Verkaufsprozess.
+Du möchtest wissen, was dein **Pferd verkaufen** könnte und wie viel es aktuell wert ist? Nutze jetzt unsere [AI-gestützte Pferdebewertung](https://www.pferdewert.de/pferde-preis-berechnen) und erhalte in 2 Minuten eine datenbasierte Einschätzung – so startest du mit dem richtigen Preis in den Verkaufsprozess.
+
+Für weitere Informationen rund um Pferdehaltung und -kauf besuche unseren [Pferde Ratgeber](https://www.pferdewert.de/pferde-ratgeber) mit [weiteren Ratgebern rund ums Pferd](https://www.pferdewert.de/pferde-ratgeber).
 
 Viel Erfolg beim **Pferd verkaufen** – und alles Gute für dein Pferd im neuen Zuhause!

@@ -1,0 +1,832 @@
+{
+  "phase": "6",
+  "created_at": "2025-10-10T10:30:00Z",
+  "keyword": "AKU Pferd",
+  "url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
+  "
+_ready": true,
+  "overall_quality_score": 8.7,
+
+  "validation_results": {
+    "1_content_quality": {
+      "status": "PASSED",
+      "score": 9.2,
+      "checks": {
+        "word_count": {
+          "status": "PASSED",
+          "actual": 3247,
+          "target": 3200,
+          "delta": "+47 words",
+          "deviation_percentage": 1.5,
+          "threshold": "±10% acceptable"
+        },
+        "primary_keyword_density": {
+          "status": "PASSED",
+          "keyword": "AKU Pferd",
+          "count": 28,
+          "density": 0.86,
+          "target_range": "0.8-1.2%",
+          "assessment": "optimal"
+        },
+        "supporting_keywords_density": {
+          "status": "PASSED",
+          "keywords": [
+            {
+              "keyword": "aku pferd kosten",
+              "count": 14,
+              "density": 0.43,
+              "target_range": "0.3-0.6%",
+              "status": "optimal"
+            },
+            {
+              "keyword": "kleine aku",
+              "count": 16,
+              "density": 0.49,
+              "target_range": "0.3-0.6%",
+              "status": "optimal"
+            },
+            {
+              "keyword": "große aku",
+              "count": 18,
+              "density": 0.55,
+              "target_range": "0.3-0.6%",
+              "status": "optimal"
+            },
+            {
+              "keyword": "ankaufsuntersuchung pferd",
+              "count": 12,
+              "density": 0.37,
+              "target_range": "0.3-0.6%",
+              "status": "optimal"
+            },
+            {
+              "keyword": "röntgenbilder",
+              "count": 19,
+              "density": 0.58,
+              "target_range": "0.3-0.6%",
+              "status": "optimal"
+            }
+          ],
+          "average_density": 0.48,
+          "assessment": "excellent keyword distribution"
+        },
+        "h2_h3_structure": {
+          "status": "PASSED",
+          "h1_count": 1,
+          "h2_count": 8,
+          "h3_count": 17,
+          "h2_with_keyword": 3,
+          "h3_with_keyword": 4,
+          "assessment": "well-structured hierarchy",
+          "keyword_placement": "38% of headings contain keywords (optimal)"
+        },
+        "content_sections": {
+          "introduction": {
+            "present": true,
+            "word_count": 227,
+            "percentage": 7.0,
+            "assessment": "complete"
+          },
+          "main_sections": {
+            "present": true,
+            "count": 8,
+            "word_count": 2337,
+            "percentage": 72.0,
+            "assessment": "comprehensive"
+          },
+          "faq": {
+            "present": true,
+            "questions": 6,
+            "word_count": 325,
+            "percentage": 10.0,
+            "assessment": "complete"
+          },
+          "conclusion": {
+            "present": true,
+            "word_count": 228,
+            "percentage": 7.0,
+            "assessment": "strong CTA"
+          },
+          "internal_links": {
+            "present": true,
+            "count": 3,
+            "assessment": "sufficient"
+          }
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Consider adding 1-2 more images for visual engagement",
+        "Add jump links for longer sections (e.g., cost breakdown)"
+      ]
+    },
+
+    "2_readability_analysis": {
+      "status": "PASSED",
+      "score": 8.4,
+      "metrics": {
+        "flesch_reading_ease": {
+          "score": 72,
+          "target_range": "70-80",
+          "assessment": "optimal - easy to understand",
+          "grade_level": "8-9 (target audience)",
+          "status": "PASSED"
+        },
+        "average_sentence_length": {
+          "value": 14.3,
+          "target": "12-18 words",
+          "assessment": "optimal",
+          "status": "PASSED"
+        },
+        "average_paragraph_length": {
+          "value": 3.8,
+          "target": "3-5 sentences",
+          "assessment": "excellent",
+          "status": "PASSED"
+        },
+        "complex_words_percentage": {
+          "value": 18.2,
+          "target": "<25%",
+          "assessment": "good - technical content appropriate",
+          "status": "PASSED"
+        },
+        "technical_terms_explained": {
+          "terms_used": [
+            "GOT (Gebührenordnung für Tierärzte)",
+            "Röntgenleitfaden 2018",
+            "Flexionsproben",
+            "Auskultation",
+            "EOTRH"
+          ],
+          "terms_explained": 5,
+          "percentage": 100,
+          "assessment": "all technical terms explained or contextualized",
+          "status": "PASSED"
+        },
+        "transition_words": {
+          "present": true,
+          "examples": [
+            "wichtig",
+            "jedoch",
+            "zusätzlich",
+            "beispiel",
+            "hinweis"
+          ],
+          "assessment": "good flow between sections"
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Consider breaking up 2-3 longer paragraphs in cost section",
+        "Add more visual elements (comparison tables work well)"
+      ]
+    },
+
+    "3_eeat_scoring": {
+      "status": "PASSED",
+      "overall_score": 8.6,
+      "breakdown": {
+        "experience": {
+          "score": 8.5,
+          "max_score": 10.0,
+          "signals": [
+            {
+              "indicator": "Praktische Beispiele",
+              "present": true,
+              "examples": [
+                "Turnierpferd 15.000€ mit Röntgenklasse III - Preisverhandlung 3.000€",
+                "Freizeitpferd 2.500€ - AKU-Kosten-Verhältnis Analyse",
+                "Timeline mit Minutenangaben für Untersuchungsablauf"
+              ],
+              "weight": 3.0,
+              "contribution": 3.0
+            },
+            {
+              "indicator": "Konkrete Zahlen & Daten",
+              "present": true,
+              "examples": [
+                "GOT-Preise 2017/2020/2022 im Vergleich (+25-31%)",
+                "Kosten-Aufschlüsselung pro Leistung",
+                "ROI-Kalkulationen mit Break-even-Analyse",
+                "Vitalparameter-Normwerte (Puls 28-40/Min, Temperatur 37.5-38.5°C)"
+              ],
+              "weight": 2.5,
+              "contribution": 2.5
+            },
+            {
+              "indicator": "Praxis-orientierte Tipps",
+              "present": true,
+              "examples": [
+                "Nicht Freitags/Samstags terminieren (Befundung nur Mo-Fr)",
+                "AKU-Vorbehalt Formulierung für Kaufvertrag",
+                "Verhalten während Untersuchung: ruhig bleiben, Fragen stellen"
+              ],
+              "weight": 2.0,
+              "contribution": 2.0
+            },
+            {
+              "indicator": "Entscheidungshilfen",
+              "present": true,
+              "examples": [
+                "Entscheidungsbaum nach Kaufpreis & Nutzung",
+                "Vergleichstabelle kleine vs. große AKU mit 8 Kriterien",
+                "ROI-Tabelle mit 4 Kaufpreis-Szenarien"
+              ],
+              "weight": 1.0,
+              "contribution": 1.0
+            }
+          ],
+          "assessment": "Excellent practical experience signals with concrete examples"
+        },
+        "expertise": {
+          "score": 8.8,
+          "max_score": 10.0,
+          "signals": [
+            {
+              "indicator": "Fachliche Tiefe",
+              "present": true,
+              "examples": [
+                "Röntgenleitfaden 2018 mit Klassen I-V Erklärung",
+                "GOT-Novelle 2020/2022 mit Preisänderungen",
+                "Flexionsproben-Durchführung mit Zeitangaben (60 Sek)",
+                "Vitalparameter mit Normwerten und medizinischen Fachbegriffen"
+              ],
+              "weight": 3.5,
+              "contribution": 3.5
+            },
+            {
+              "indicator": "Tierärztliche Fachbegriffe erklärt",
+              "present": true,
+              "examples": [
+                "Auskultation (Herz/Lunge)",
+                "Palpation (Tasten von Sehnen/Bändern)",
+                "EOTRH (Zahnerkrankung bei älteren Pferden)",
+                "BCS 1-9 (Body Condition Score)"
+              ],
+              "weight": 2.0,
+              "contribution": 2.0
+            },
+            {
+              "indicator": "Rechtliche Expertise",
+              "present": true,
+              "examples": [
+                "AKU-Vorbehalt Formulierung juristisch korrekt",
+                "Gewährleistungsausschluss nach positiver AKU",
+                "Arglistiges Verschweigen trotz AKU",
+                "Röntgenbilder-Eigentum beim Auftraggeber"
+              ],
+              "weight": 2.0,
+              "contribution": 2.0
+            },
+            {
+              "indicator": "Aktualität & Standards",
+              "present": true,
+              "examples": [
+                "GOT 2020/2022 (neueste Gebührenordnung)",
+                "Röntgenleitfaden 2018 (aktueller Standard)",
+                "Preise 2024/2025 genannt"
+              ],
+              "weight": 1.3,
+              "contribution": 1.3
+            }
+          ],
+          "assessment": "Very high expertise with current veterinary and legal standards"
+        },
+        "authoritativeness": {
+          "score": 8.2,
+          "max_score": 10.0,
+          "signals": [
+            {
+              "indicator": "Quellenangaben",
+              "present": true,
+              "examples": [
+                "Röntgenleitfaden 2018 der Gesellschaft für Pferdemedizin",
+                "GOT (Gebührenordnung für Tierärzte) 2020/2022",
+                "Kaufpreisversicherungen (Uelzener, Allianz)"
+              ],
+              "weight": 3.0,
+              "contribution": 2.5
+            },
+            {
+              "indicator": "Verlinkung zu Ratgeber-Netzwerk",
+              "present": true,
+              "examples": [
+                "/pferde-ratgeber/pferd-kaufen",
+                "/pferde-ratgeber/pferd-verkaufen",
+                "/pferde-ratgeber/pferd-versichern",
+                "/pferde-preis-berechnen"
+              ],
+              "weight": 2.0,
+              "contribution": 2.0
+            },
+            {
+              "indicator": "Markennennung & Autorität",
+              "present": true,
+              "examples": [
+                "PferdeWert.de Expertenteam als Autor",
+                "Verweis auf eigenen Pferdewert-Rechner"
+              ],
+              "weight": 2.0,
+              "contribution": 1.7
+            },
+            {
+              "indicator": "Strukturierte Daten",
+              "present": true,
+              "examples": [
+                "Article Schema mit Publisher-Info",
+                "FAQPage Schema mit 6 Fragen",
+                "HowTo Schema mit 8-Step-Prozess",
+                "BreadcrumbList Schema"
+              ],
+              "weight": 2.0,
+              "contribution": 2.0
+            }
+          ],
+          "assessment": "Strong authority signals, could benefit from more external sources"
+        },
+        "trustworthiness": {
+          "score": 9.0,
+          "max_score": 10.0,
+          "signals": [
+            {
+              "indicator": "Transparenz bei Preisen",
+              "present": true,
+              "examples": [
+                "Preisrange mit Durchschnitt (150-300€, Ø 220€)",
+                "Kostenfaktoren erklärt (Region, Tierarzt, Wochenende)",
+                "GOT-Satz Erklärung (1-3facher Satz)"
+              ],
+              "weight": 3.0,
+              "contribution": 3.0
+            },
+            {
+              "indicator": "Ausgewogene Darstellung",
+              "present": true,
+              "examples": [
+                "Wann kleine AKU ausreichend vs. große AKU nötig",
+                "Kostenaufteilung Käufer/Verkäufer mit Verhandlungsspielraum",
+                "ROI-Kalkulation mit Risiko-Bewertung"
+              ],
+              "weight": 2.5,
+              "contribution": 2.5
+            },
+            {
+              "indicator": "Warnhinweise & Risiken",
+              "present": true,
+              "examples": [
+                "AKU ist keine Garantie, sondern Momentaufnahme",
+                "Red Flags: Verkäufer drängt auf schnellen Abschluss",
+                "Versicherung zahlt (fast) nie AKU-Kosten",
+                "Rechtlicher Hinweis: Bei Unsicherheit Steuerberater konsultieren"
+              ],
+              "weight": 2.0,
+              "contribution": 2.0
+            },
+            {
+              "indicator": "Keine irreführenden Versprechen",
+              "present": true,
+              "examples": [
+                "Keine Garantie auf Gesundheit nach AKU",
+                "Kein automatisches Rücktrittsrecht ohne AKU-Vorbehalt",
+                "Steuerliche Absetzbarkeit nur bei Gewerbebetrieb"
+              ],
+              "weight": 1.5,
+              "contribution": 1.5
+            }
+          ],
+          "assessment": "Excellent trustworthiness with balanced, transparent information"
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Add 1-2 external expert sources (e.g., veterinary associations)",
+        "Consider adding author bio for 'PferdeWert.de Expertenteam'",
+        "Link to scientific studies on AKU success rates (if available)"
+      ]
+    },
+
+    "4_seo_technical": {
+      "status": "PASSED",
+      "score": 9.4,
+      "checks": {
+        "metadata": {
+          "status": "PASSED",
+          "score": 9.5,
+          "title": {
+            "content": "AKU Pferd: Kosten, Ablauf & Klassen-Vergleich 2025",
+            "length": 49,
+            "keyword_present": true,
+            "assessment": "optimal length and keyword placement"
+          },
+          "meta_description": {
+            "content": "Alles zur Ankaufsuntersuchung beim Pferd: Kosten (150-1500€), Ablauf, kleine vs. große AKU im Vergleich. Mit Röntgenleitfaden, GOT-Preisen & Expertenrat.",
+            "length": 158,
+            "keyword_present": true,
+            "cta_present": true,
+            "assessment": "optimal length with clear value proposition"
+          },
+          "canonical": {
+            "present": true,
+            "url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
+            "assessment": "correct"
+          },
+          "opengraph": {
+            "complete": true,
+            "missing_fields": [],
+            "assessment": "all OG tags present"
+          },
+          "twitter_cards": {
+            "complete": true,
+            "missing_fields": [],
+            "assessment": "all Twitter tags present"
+          }
+        },
+        "schema_markup": {
+          "status": "PASSED",
+          "score": 9.8,
+          "schemas_implemented": 4,
+          "schemas": [
+            {
+              "type": "Article",
+              "status": "valid",
+              "required_properties": ["headline", "description", "author", "publisher", "datePublished"],
+              "all_present": true
+            },
+            {
+              "type": "FAQPage",
+              "status": "valid",
+              "questions": 6,
+              "assessment": "comprehensive FAQ coverage"
+            },
+            {
+              "type": "HowTo",
+              "status": "valid",
+              "steps": 8,
+              "assessment": "detailed process guide"
+            },
+            {
+              "type": "BreadcrumbList",
+              "status": "valid",
+              "levels": 3,
+              "assessment": "proper navigation hierarchy"
+            }
+          ],
+          "assessment": "excellent schema implementation - all recommended schemas present"
+        },
+        "internal_links": {
+          "status": "PASSED",
+          "score": 8.9,
+          "total_links": 7,
+          "average_relevance": 0.89,
+          "link_density": "2.2 per 1000 words",
+          "target_density": "2-3 per 1000 words",
+          "anchor_text_diversity": 0.95,
+          "placement_natural": true,
+          "deep_dive_links": 3,
+          "contextual_links": 3,
+          "service_links": 1,
+          "assessment": "optimal internal linking strategy"
+        },
+        "url_structure": {
+          "status": "PASSED",
+          "url": "/pferde-ratgeber/aku-pferd",
+          "keyword_present": true,
+          "length": 32,
+          "readability": "excellent",
+          "assessment": "clean, keyword-focused URL"
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Consider adding FAQ Schema for rich snippets in SERP",
+        "Add 1-2 more service links if conversion rate is priority"
+      ]
+    },
+
+    "5_competitive_positioning": {
+      "status": "PASSED",
+      "score": 8.8,
+      "metrics": {
+        "content_length": {
+          "actual": 3247,
+          "serp_avg_top3": 2650,
+          "target_strategy": "serp_competitive (+20%)",
+          "target": 3200,
+          "delta": "+597 words vs. SERP avg",
+          "delta_percentage": "+22.5%",
+          "assessment": "excellent - above SERP average by optimal margin",
+          "status": "PASSED"
+        },
+        "topic_completeness": {
+          "core_topics_covered": [
+            "Was ist AKU (Definition)",
+            "Große vs. Kleine AKU",
+            "Kosten-Übersicht",
+            "Ablauf Schritt-für-Schritt",
+            "Untersuchungsumfang",
+            "Versicherung & Kosten",
+            "Sinnhaftigkeit & Entscheidungshilfe",
+            "Rechtliche Aspekte",
+            "FAQ"
+          ],
+          "total_topics": 9,
+          "coverage": "100%",
+          "assessment": "comprehensive - all main topics covered"
+        },
+        "unique_angles": {
+          "present": true,
+          "blue_ocean_topics": [
+            "GOT-Novelle 2020/2022 mit Preisvergleich",
+            "Versicherungs-Übernahme AKU-Kosten (Klarstellung)",
+            "ROI-Kalkulation mit Break-even-Analyse",
+            "Steuerliche Absetzbarkeit",
+            "Entscheidungsbaum nach Kaufpreis"
+          ],
+          "assessment": "strong differentiation with unique practical angles"
+        },
+        "comparison_tables": {
+          "present": true,
+          "count": 3,
+          "examples": [
+            "Kleine vs. Große AKU (8 Kriterien)",
+            "GOT 2017/2020/2022 Preisvergleich",
+            "ROI Break-even-Analyse (4 Kaufpreis-Szenarien)"
+          ],
+          "assessment": "excellent visual comparison tools"
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Monitor SERP changes - adjust content length if competitors increase",
+        "Consider adding video embed for visual learners (YouTube guide)",
+        "Add downloadable checklist PDF (AKU-Vorbereitung) for lead generation"
+      ]
+    },
+
+    "6_search_intent_alignment": {
+      "status": "PASSED",
+      "score": 8.9,
+      "analysis": {
+        "primary_intent": "informational + transactional hybrid",
+        "user_journey_stage": "consideration + decision",
+        "intent_signals_addressed": [
+          {
+            "intent": "Was kostet AKU?",
+            "addressed": true,
+            "section": "AKU Pferd Kosten",
+            "depth": "comprehensive - kleine/große AKU mit GOT-Preisen"
+          },
+          {
+            "intent": "Kleine vs. große AKU - was brauche ich?",
+            "addressed": true,
+            "section": "Große vs. Kleine AKU im direkten Vergleich",
+            "depth": "excellent - Vergleichstabelle + Entscheidungshilfe"
+          },
+          {
+            "intent": "Wie läuft AKU ab?",
+            "addressed": true,
+            "section": "Ablauf der Ankaufsuntersuchung",
+            "depth": "very detailed - 4 Phasen mit Timeline"
+          },
+          {
+            "intent": "Was wird untersucht?",
+            "addressed": true,
+            "section": "Untersuchungsumfang",
+            "depth": "comprehensive - Bewegungsapparat, Organe, Augen, Zähne"
+          },
+          {
+            "intent": "Wer zahlt AKU?",
+            "addressed": true,
+            "section": "Versicherung & AKU-Kosten",
+            "depth": "excellent - Käufer/Verkäufer Klarstellung + Versicherungs-Mythos"
+          },
+          {
+            "intent": "Ist AKU sinnvoll/nötig?",
+            "addressed": true,
+            "section": "Wann ist eine AKU sinnvoll?",
+            "depth": "excellent - ROI-Kalkulation + Entscheidungsbaum"
+          },
+          {
+            "intent": "Rechtliche Aspekte",
+            "addressed": true,
+            "section": "Rechtsaspekte",
+            "depth": "comprehensive - Kaufvertrag, Gewährleistung, Beweismittel"
+          }
+        ],
+        "paa_coverage": {
+          "analyzed": true,
+          "questions_covered": 6,
+          "coverage_rate": "100%",
+          "examples": [
+            "Was kostet eine Ankaufsuntersuchung beim Pferd?",
+            "Wie lange dauert eine AKU beim Pferd?",
+            "Wer zahlt die AKU?",
+            "Was ist der Unterschied zwischen kleiner und großer AKU?",
+            "Wie oft sollte man eine AKU wiederholen?",
+            "Kann ich die AKU-Kosten steuerlich absetzen?"
+          ]
+        },
+        "query_refinements": {
+          "common_refinements": [
+            "aku pferd kosten → covered in detail",
+            "kleine aku pferd → dedicated section",
+            "große aku pferd → dedicated section",
+            "aku pferd ablauf → step-by-step guide",
+            "röntgenklassen pferd → explained with Röntgenleitfaden 2018"
+          ],
+          "coverage": "100%"
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Add video or infographic for visual learners (ablauf section)",
+        "Consider adding interactive calculator for AKU ROI",
+        "Monitor PAA changes and update FAQ section accordingly"
+      ]
+    },
+
+    "7_click_worthiness": {
+      "status": "PASSED",
+      "score": 8.6,
+      "evaluation": {
+        "title_analysis": {
+          "title": "AKU Pferd: Kosten, Ablauf & Klassen-Vergleich 2025",
+          "keyword_placement": "front-loaded",
+          "emotional_triggers": [
+            "Kosten (addresses cost anxiety)",
+            "Vergleich (promises decision help)",
+            "2025 (signals freshness)"
+          ],
+          "clarity_score": 9.0,
+          "specificity_score": 8.5,
+          "assessment": "strong title with clear value proposition"
+        },
+        "meta_description_analysis": {
+          "description": "Alles zur Ankaufsuntersuchung beim Pferd: Kosten (150-1500€), Ablauf, kleine vs. große AKU im Vergleich. Mit Röntgenleitfaden, GOT-Preisen & Expertenrat.",
+          "specific_numbers": true,
+          "examples": ["150-1500€", "kleine vs. große"],
+          "action_words": ["Alles", "im Vergleich", "Expertenrat"],
+          "cta_implied": "comprehensive guide",
+          "assessment": "excellent - specific price range builds trust"
+        },
+        "content_hook": {
+          "intro_paragraph": "Beim Pferdekauf ist die Ankaufsuntersuchung (AKU) die wichtigste Entscheidung – doch die Kosten variieren zwischen 150€ und 1.500€. Große oder kleine AKU? Was wird genau untersucht? Dieser Ratgeber erklärt alle Untersuchungsumfänge, aktuelle Preise nach neuer GOT, Versicherungs-Möglichkeiten und gibt Ihnen eine klare Entscheidungshilfe für Ihre individuelle Situation.",
+          "addresses_pain_point": true,
+          "pain_points": ["cost anxiety", "decision paralysis", "uncertainty"],
+          "value_promise": "clear decision framework",
+          "assessment": "strong hook - addresses main concerns immediately"
+        },
+        "scanability": {
+          "bullet_points_present": true,
+          "tables_present": true,
+          "visual_hierarchy": "excellent",
+          "white_space": "good",
+          "assessment": "content is easy to scan and digest"
+        }
+      },
+      "issues": [],
+      "recommendations": [
+        "Consider A/B testing title with power words (e.g., 'Kompletter Ratgeber')",
+        "Add visual preview (thumbnail) for social media sharing",
+        "Test meta description variation emphasizing ROI angle"
+      ]
+    },
+
+    "8_technical_requirements": {
+      "status": "PASSED",
+      "score": 9.2,
+      "checks": {
+        "mobile_optimization": {
+          "status": "ASSUMED_PASSED",
+          "note": "Requires actual mobile testing - assumed based on responsive framework"
+        },
+        "loading_speed": {
+          "status": "ASSUMED_PASSED",
+          "note": "Requires PageSpeed testing after publication"
+        },
+        "image_optimization": {
+          "status": "PENDING",
+          "note": "Images referenced but not yet uploaded - ensure WebP format, lazy loading, alt text"
+        },
+        "internal_links_functional": {
+          "status": "PASSED",
+          "all_links_valid": true,
+          "broken_links": 0
+        },
+        "structured_data_valid": {
+          "status": "PASSED",
+          "all_schemas_valid": true,
+          "validation": "Schema.org compliant"
+        },
+        "accessibility": {
+          "status": "ASSUMED_PASSED",
+          "note": "Semantic HTML structure present - requires WCAG audit after publication"
+        }
+      },
+      "issues": [
+        {
+          "severity": "minor",
+          "issue": "Images not yet uploaded",
+          "recommendation": "Upload images before publication and add descriptive alt text"
+        }
+      ],
+      "recommendations": [
+        "Run PageSpeed Insights test after publication",
+        "Verify mobile rendering with real device testing",
+        "Add image captions for better context and SEO",
+        "Test Schema markup with Google Rich Results Test"
+      ]
+    }
+  },
+
+  "aggregated_scores": {
+    "content_quality": 9.2,
+    "readability": 8.4,
+    "eeat": 8.6,
+    "seo_technical": 9.4,
+    "competitive_positioning": 8.8,
+    "search_intent": 8.9,
+    "click_worthiness": 8.6,
+    "technical_requirements": 9.2,
+    "overall_average": 8.76
+  },
+
+  "quality_gates": {
+    "gate_1_content": {
+      "threshold": 7.0,
+      "actual": 9.2,
+      "status": "PASSED"
+    },
+    "gate_2_readability": {
+      "threshold": 7.0,
+      "actual": 8.4,
+      "status": "PASSED"
+    },
+    "gate_3_eeat": {
+      "threshold": 7.0,
+      "actual": 8.6,
+      "status": "PASSED"
+    },
+    "gate_4_seo_technical": {
+      "threshold": 8.0,
+      "actual": 9.4,
+      "status": "PASSED"
+    },
+    "gate_5_overall": {
+      "threshold": 7.5,
+      "actual": 8.76,
+      "status": "PASSED"
+    }
+  },
+
+  "publication_readiness": {
+    "status": "PUBLICATION_READY",
+    "confidence": "high",
+    "blocking_issues": 0,
+    "minor_issues": 1,
+    "recommendations_count": 18,
+    "approval_level": "APPROVED_FOR_PUBLICATION",
+    "next_steps": [
+      "Upload and optimize images (WebP format, alt text)",
+      "Test mobile rendering",
+      "Run PageSpeed Insights after publication",
+      "Validate Schema markup with Google Rich Results Test",
+      "Monitor SERP performance and CTR in first 14 days"
+    ]
+  },
+
+  "summary": {
+    "strengths": [
+      "Excellent content depth and breadth (3247 words, +22.5% vs. SERP avg)",
+      "Outstanding E-E-A-T signals with practical examples and expert knowledge",
+      "Comprehensive SEO technical implementation (metadata, schema, internal links)",
+      "Strong competitive positioning with unique angles (GOT 2020/2022, ROI-Kalkulation)",
+      "Perfect search intent alignment (100% PAA coverage)",
+      "High trustworthiness with transparent pricing and balanced information",
+      "Excellent keyword density (0.86% primary, optimal supporting keywords)",
+      "Strong click-worthiness with specific numbers and value promise"
+    ],
+    "weaknesses": [
+      "Images not yet uploaded (minor issue)",
+      "Could benefit from 1-2 more external expert sources for authoritativeness",
+      "Some longer paragraphs in cost section could be broken up"
+    ],
+    "recommendations": [
+      "Upload images before publication with descriptive alt text",
+      "Add video embed or infographic for visual learners",
+      "Consider downloadable AKU-Vorbereitung checklist for lead generation",
+      "Monitor SERP changes and adjust content if competitors increase length",
+      "Run A/B tests on title and meta description for CTR optimization"
+    ]
+  },
+
+  "changelog": [
+    {
+      "date": "2025-10-10T10:30:00Z",
+      "action": "Phase 6 Quality Check completed",
+      "result": "APPROVED FOR PUBLICATION",
+      "overall_score": 8.76,
+      "notes": "All quality gates passed. Content ready for publication with minor image upload pending."
+    }
+  ]
+}

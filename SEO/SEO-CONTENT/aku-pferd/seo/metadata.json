@@ -1,0 +1,72 @@
+{
+  "phase": "5A",
+  "created_at": "2025-10-10T10:15:00Z",
+  "keyword": "AKU Pferd",
+  "url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
+
+  "title": {
+    "content": "AKU Pferd: Kosten, Ablauf & Klassen-Vergleich 2025",
+    "length": 49,
+    "validation": {
+      "keyword_present": true,
+      "length_ok": true,
+      "unique": true
+    }
+  },
+
+  "meta_description": {
+    "content": "Alles zur Ankaufsuntersuchung beim Pferd: Kosten (150-1500€), Ablauf, kleine vs. große AKU im Vergleich. Mit Röntgenleitfaden, GOT-Preisen & Expertenrat.",
+    "length": 158,
+    "validation": {
+      "keyword_present": true,
+      "length_ok": true,
+      "call_to_action": true
+    }
+  },
+
+  "canonical_url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
+
+  "opengraph": {
+    "og:title": "AKU Pferd: Kompletter Ratgeber zu Kosten & Ablauf",
+    "og:description": "Alles zur Ankaufsuntersuchung: Kosten (150-1500€), kleine vs. große AKU, Röntgenleitfaden 2018, GOT-Preise & Entscheidungshilfe für Käufer.",
+    "og:type": "article",
+    "og:url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
+    "og:image": "https://www.pferdewert.de/images/aku-pferd-ratgeber.jpg",
+    "og:locale": "de_DE",
+    "og:site_name": "PferdeWert.de"
+  },
+
+  "twitter": {
+    "twitter:card": "summary_large_image",
+    "twitter:title": "AKU Pferd: Kosten, Ablauf & Klassen-Vergleich",
+    "twitter:description": "Kompletter Ratgeber zur Ankaufsuntersuchung: 150-1500€ Kosten, kleine vs. große AKU, Röntgenleitfaden & Expertenrat.",
+    "twitter:image": "https://www.pferdewert.de/images/aku-pferd-ratgeber.jpg"
+  },
+
+  "additional_meta": {
+    "robots": "index, follow",
+    "language": "de",
+    "author": "PferdeWert.de Expertenteam",
+    "revisit-after": "7 days"
+  },
+
+  "quality_gate": {
+    "status": "PASSED",
+    "checks": {
+      "title_length": "PASSED",
+      "title_keyword": "PASSED",
+      "description_length": "PASSED",
+      "description_keyword": "PASSED",
+      "canonical_url": "PASSED",
+      "opengraph_complete": "PASSED",
+      "twitter_cards": "PASSED"
+    },
+    "errors": [],
+    "warnings": [],
+    "info": [
+      "Title length optimal: 49 characters",
+      "Meta description length optimal: 158 characters",
+      "Primary keyword 'AKU Pferd' present in title and description"
+    ]
+  }
+}

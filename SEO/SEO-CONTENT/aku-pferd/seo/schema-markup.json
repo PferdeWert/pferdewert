@@ -1,0 +1,230 @@
+{
+  "phase": "5B",
+  "created_at": "2025-10-10T10:15:00Z",
+  "keyword": "AKU Pferd",
+
+  "schemas": [
+    {
+      "type": "Article",
+      "priority": "required",
+      "implementation": "page_head",
+      "data": {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AKU Pferd: Kosten, Ablauf & Klassen-Vergleich 2025",
+        "description": "Umfassender Ratgeber zur Ankaufsuntersuchung beim Pferd: Kosten zwischen 150-1500€, detaillierter Ablauf, kleine vs. große AKU im Vergleich, Röntgenleitfaden 2018 und rechtliche Aspekte.",
+        "image": "https://www.pferdewert.de/images/aku-pferd-ratgeber.jpg",
+        "author": {
+          "@type": "Organization",
+          "name": "PferdeWert.de Expertenteam",
+          "url": "https://www.pferdewert.de"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "PferdeWert.de",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.pferdewert.de/images/logo.png",
+            "width": 600,
+            "height": 60
+          }
+        },
+        "datePublished": "2025-10-10",
+        "dateModified": "2025-10-10",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd"
+        },
+        "articleSection": "Pferdekauf & Ankaufsuntersuchung",
+        "keywords": [
+          "AKU Pferd",
+          "Ankaufsuntersuchung Pferd",
+          "Pferd kaufen Untersuchung",
+          "AKU Kosten",
+          "kleine AKU",
+          "große AKU",
+          "Röntgenleitfaden Pferd"
+        ],
+        "wordCount": 3200,
+        "inLanguage": "de-DE"
+      }
+    },
+    {
+      "type": "FAQPage",
+      "priority": "recommended",
+      "implementation": "page_head",
+      "data": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was kostet eine AKU beim Pferd?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Kosten für eine Ankaufsuntersuchung (AKU) beim Pferd variieren je nach Umfang: Eine kleine AKU kostet zwischen 150-300€ und umfasst die klinische Untersuchung. Eine große AKU mit Röntgenbildern kostet 800-1500€ und beinhaltet zusätzlich bildgebende Verfahren nach Röntgenleitfaden 2018. Die genauen Preise richten sich nach der GOT (Gebührenordnung für Tierärzte)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen kleiner und großer AKU?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die kleine AKU ist eine rein klinische Untersuchung ohne bildgebende Verfahren und dauert ca. 45-60 Minuten. Sie umfasst Allgemeinzustand, Bewegungsapparat, Herz-Kreislauf und Atmung. Die große AKU beinhaltet zusätzlich Röntgenbilder nach dem Röntgenleitfaden 2018 (18-24 Aufnahmen), optional Ultraschall und dauert 2-3 Stunden. Sie bietet deutlich mehr Absicherung durch bildgebende Diagnostik."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange dauert eine AKU beim Pferd?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Dauer einer Ankaufsuntersuchung hängt vom Umfang ab: Eine kleine AKU dauert etwa 45-60 Minuten. Eine große AKU mit Röntgenbildern benötigt 2-3 Stunden. Zusätzlich muss Zeit für die Auswertung der Röntgenbilder eingeplant werden, die oft erst nach 24-48 Stunden vorliegt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wer zahlt die AKU - Käufer oder Verkäufer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Grundsätzlich trägt der Käufer die Kosten der Ankaufsuntersuchung, da er der Auftraggeber ist. Der Käufer hat das Recht, den Tierarzt frei zu wählen. In einigen Fällen kann auch eine Kostenaufteilung zwischen Käufer und Verkäufer vereinbart werden, besonders wenn der Verkäufer aktiv für die Pferdegesundheit werben möchte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist eine AKU beim Pferdekauf Pflicht?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein, eine AKU ist nicht gesetzlich vorgeschrieben. Sie ist jedoch dringend empfohlen, da sie den Käufer rechtlich absichert und versteckte Mängel aufdecken kann. Ohne AKU trägt der Käufer das volle Risiko für spätere Gesundheitsprobleme. Bei wertvollen Sport- oder Zuchtpferden ist eine große AKU praktisch unverzichtbar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was wird bei einer großen AKU geröntgt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bei einer großen AKU werden nach dem Röntgenleitfaden 2018 standardmäßig 18-24 Röntgenaufnahmen erstellt: Alle vier Hufe (je 3-4 Aufnahmen), beide Sprunggelenke (je 4 Aufnahmen) und beide Vorderfußwurzelgelenke (je 2 Aufnahmen). Optional können weitere Bereiche wie Knie, Rücken oder Hals hinzukommen. Die Bilder werden nach der Röntgenklassifikation I-IV bewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "HowTo",
+      "priority": "recommended",
+      "implementation": "page_head",
+      "data": {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Wie läuft eine Ankaufsuntersuchung beim Pferd ab?",
+        "description": "Schritt-für-Schritt Anleitung zum Ablauf einer Ankaufsuntersuchung (AKU) beim Pferd - von der Vorbereitung bis zur Bewertung.",
+        "image": "https://www.pferdewert.de/images/aku-pferd-ablauf.jpg",
+        "totalTime": "PT2H",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "EUR",
+          "value": "150-1500"
+        },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Vorbereitung & Terminvereinbarung",
+            "text": "Vereinbaren Sie einen Termin mit einem unabhängigen Tierarzt Ihrer Wahl. Das Pferd sollte am Untersuchungstag sauber und trocken sein. Bereiten Sie relevante Unterlagen vor (Equidenpass, Impfpass, Vorerkrankungen).",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Identitätskontrolle",
+            "text": "Der Tierarzt überprüft die Identität des Pferdes anhand von Equidenpass und Chip-Nummer. Abgleich von Abzeichen, Wirbeln und Brandzeichen mit den Dokumenten.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Allgemeine klinische Untersuchung",
+            "text": "Erfassung von Vitalparametern: Puls (28-40 Schläge/Min), Atmung (8-16 Züge/Min), Temperatur (37,5-38,2°C). Untersuchung von Augen, Maul, Zähnen, Lymphknoten, Haut und Fell.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Bewegungsapparat",
+            "text": "Adspektion im Stand und Bewegung: Beurteilung der Gliedmaßenstellung, Hufe, Gelenke. Palpation aller Gelenke und Sehnen auf Schwellungen, Wärme oder Schmerzen. Beugeproben an allen vier Gliedmaßen.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Bewegungsanalyse",
+            "text": "Vorführen des Pferdes im Schritt und Trab auf hartem und weichem Boden, auf gerader Linie und auf Zirkel. Beurteilung von Gangbild, Takt, Lahmheiten. Bei Reitpferden: Untersuchung unter dem Sattel in allen drei Gangarten.",
+            "position": 5
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Belastungsprobe",
+            "text": "Longenarbeit oder Reiten für 10-15 Minuten. Messung von Puls und Atmung vor, während und nach Belastung. Beurteilung der Erholungszeit und erneute Gangbildanalyse.",
+            "position": 6
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Röntgenuntersuchung (bei großer AKU)",
+            "text": "Erstellung von 18-24 Röntgenaufnahmen nach Röntgenleitfaden 2018: Hufe, Sprunggelenke, Vorderfußwurzelgelenke. Bewertung nach Röntgenklassen I-IV. Befundbesprechung erfolgt meist 24-48 Stunden später.",
+            "position": 7
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Dokumentation & Gutachten",
+            "text": "Der Tierarzt erstellt ein schriftliches Gutachten mit allen Befunden, Messwerten und einer Gesamtbeurteilung. Bei großer AKU: Röntgenbilder auf CD/DVD mit detaillierter Auswertung. Besprechung der Ergebnisse und Kaufempfehlung.",
+            "position": 8
+          }
+        ]
+      }
+    },
+    {
+      "type": "BreadcrumbList",
+      "priority": "recommended",
+      "implementation": "page_head",
+      "data": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.pferdewert.de"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Pferde-Ratgeber",
+            "item": "https://www.pferdewert.de/pferde-ratgeber"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AKU Pferd",
+            "item": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd"
+          }
+        ]
+      }
+    }
+  ],
+
+  "quality_gate": {
+    "status": "PASSED",
+    "checks": {
+      "article_schema": "PASSED",
+      "faq_schema": "PASSED",
+      "howto_schema": "PASSED",
+      "breadcrumb_schema": "PASSED",
+      "schema_validity": "PASSED",
+      "required_properties": "PASSED"
+    },
+    "errors": [],
+    "warnings": [],
+    "info": [
+      "Article schema with all required properties created",
+      "FAQ schema with 6 high-value questions created",
+      "HowTo schema with 8-step process created",
+      "Breadcrumb schema with 3-level navigation created",
+      "All schemas follow Schema.org standards"
+    ]
+  }
+}

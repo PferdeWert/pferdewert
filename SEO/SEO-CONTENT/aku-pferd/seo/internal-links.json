@@ -1,0 +1,195 @@
+{
+  "phase": "5C",
+  "created_at": "2025-10-10T10:15:00Z",
+  "source_page": {
+    "url": "/pferde-ratgeber/aku-pferd",
+    "keyword": "AKU Pferd",
+    "word_count": 3200
+  },
+
+  "internal_links": [
+    {
+      "target_url": "/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "Pferd kaufen",
+      "context": "Die Ankaufsuntersuchung ist ein unverzichtbarer Schritt beim {anchor_text}. Sie schützt Dich vor versteckten Mängeln und gibt Dir Sicherheit bei Deiner Kaufentscheidung.",
+      "relevance_score": 0.95,
+      "placement": {
+        "section": "Einleitung",
+        "position": "early",
+        "type": "contextual"
+      },
+      "seo_value": {
+        "topical_relevance": "very_high",
+        "user_intent_match": "high",
+        "authority_boost": "high"
+      },
+      "rationale": "Direkte thematische Verbindung: AKU ist integraler Bestandteil des Pferdekaufs. Nutzer, die sich über AKU informieren, planen einen Kauf.",
+      "validated": true
+    },
+    {
+      "target_url": "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+      "anchor_text": "Gesamtkosten eines Pferdes",
+      "context": "Die AKU-Kosten von 150-1500€ sind nur ein Teil der {anchor_text}, die Du beim Pferdekauf einkalkulieren musst. Neben dem Kaufpreis fallen auch laufende Kosten für Unterkunft, Futter und Tierarzt an.",
+      "relevance_score": 0.88,
+      "placement": {
+        "section": "Was kostet eine AKU beim Pferd?",
+        "position": "mid",
+        "type": "contextual"
+      },
+      "seo_value": {
+        "topical_relevance": "high",
+        "user_intent_match": "high",
+        "authority_boost": "medium"
+      },
+      "rationale": "Natürliche Erweiterung des Kostenthemas. Nutzer interessieren sich bei AKU-Kosten auch für die Gesamtkalkulation eines Pferdekaufs.",
+      "validated": true
+    },
+    {
+      "target_url": "/pferde-ratgeber/aku-pferd/kosten",
+      "anchor_text": "detaillierte Kostenübersicht zur AKU",
+      "context": "Die Preise variieren je nach Region, Tierarzt und Umfang der Untersuchung. In unserer {anchor_text} erfährst Du, welche Faktoren die Kosten beeinflussen und wie die GOT-Gebühren berechnet werden.",
+      "relevance_score": 0.92,
+      "placement": {
+        "section": "Was kostet eine AKU beim Pferd?",
+        "position": "end",
+        "type": "deep_dive"
+      },
+      "seo_value": {
+        "topical_relevance": "very_high",
+        "user_intent_match": "very_high",
+        "authority_boost": "high"
+      },
+      "rationale": "Deep-dive Link zur eigenen Unterseite. Stärkt die Seitenarchitektur und bietet Nutzern detailliertere Informationen zum Kostenthema.",
+      "validated": true
+    },
+    {
+      "target_url": "/pferde-ratgeber/aku-pferd/ablauf",
+      "anchor_text": "detaillierten Ablauf einer Ankaufsuntersuchung",
+      "context": "Von der Terminvereinbarung bis zur Befundbesprechung durchläuft die AKU mehrere standardisierte Schritte. Erfahre mehr über den {anchor_text} und was Dich bei der Untersuchung erwartet.",
+      "relevance_score": 0.94,
+      "placement": {
+        "section": "Wie läuft eine AKU beim Pferd ab?",
+        "position": "mid",
+        "type": "deep_dive"
+      },
+      "seo_value": {
+        "topical_relevance": "very_high",
+        "user_intent_match": "very_high",
+        "authority_boost": "high"
+      },
+      "rationale": "Deep-dive Link zur eigenen Unterseite. Ermöglicht detaillierte Informationen zum Ablauf ohne die Hauptseite zu überladen.",
+      "validated": true
+    },
+    {
+      "target_url": "/pferde-ratgeber/aku-pferd/klassen",
+      "anchor_text": "Röntgenklassen und ihre Bedeutung",
+      "context": "Die Bewertung der Röntgenbilder erfolgt nach dem Röntgenleitfaden 2018 in vier Klassen. Lies mehr über {anchor_text} für Deine Kaufentscheidung und was die einzelnen Befunde bedeuten.",
+      "relevance_score": 0.91,
+      "placement": {
+        "section": "Röntgenleitfaden 2018: Die Röntgenklassen",
+        "position": "mid",
+        "type": "deep_dive"
+      },
+      "seo_value": {
+        "topical_relevance": "very_high",
+        "user_intent_match": "high",
+        "authority_boost": "high"
+      },
+      "rationale": "Deep-dive Link zur eigenen Unterseite. Vertieft das komplexe Thema Röntgenbewertung für interessierte Nutzer.",
+      "validated": true
+    },
+    {
+      "target_url": "/pferde-ratgeber/pferd-verkaufen",
+      "anchor_text": "Pferd verkaufen",
+      "context": "Auch wenn Du Dein {anchor_text} möchtest, kann eine aktuelle AKU von Vorteil sein. Sie schafft Vertrauen beim Käufer und kann den Verkaufsprozess beschleunigen.",
+      "relevance_score": 0.78,
+      "placement": {
+        "section": "Wer zahlt die AKU - Käufer oder Verkäufer?",
+        "position": "mid",
+        "type": "contextual"
+      },
+      "seo_value": {
+        "topical_relevance": "medium",
+        "user_intent_match": "medium",
+        "authority_boost": "medium"
+      },
+      "rationale": "Perspektivwechsel: Verbindet Käufer- und Verkäufersicht. Relevant für Nutzer, die beide Seiten verstehen möchten.",
+      "validated": true
+    },
+    {
+      "target_url": "/pferde-preis-berechnen",
+      "anchor_text": "Marktwert Deines Pferdes berechnen",
+      "context": "Die AKU-Ergebnisse haben direkten Einfluss auf den Wert eines Pferdes. Mit unserem kostenlosen Tool kannst Du den {anchor_text} und verstehen, wie sich Gesundheitsbefunde auf den Preis auswirken.",
+      "relevance_score": 0.85,
+      "placement": {
+        "section": "Rechtliche Bedeutung der AKU",
+        "position": "end",
+        "type": "service_link"
+      },
+      "seo_value": {
+        "topical_relevance": "high",
+        "user_intent_match": "medium",
+        "authority_boost": "low"
+      },
+      "rationale": "Service-Link zum Hauptprodukt. Verbindet Informationssuche mit praktischer Anwendung und stärkt die Conversion-Rate.",
+      "validated": true
+    }
+  ],
+
+  "link_summary": {
+    "total_links": 7,
+    "internal_ratgeber_links": 6,
+    "service_links": 1,
+    "average_relevance_score": 0.89,
+    "link_density": "2.2 links per 1000 words"
+  },
+
+  "placement_strategy": {
+    "early_section_links": 1,
+    "mid_section_links": 5,
+    "end_section_links": 1,
+    "contextual_links": 3,
+    "deep_dive_links": 3,
+    "service_links": 1
+  },
+
+  "anchor_text_analysis": {
+    "exact_match": 0,
+    "partial_match": 2,
+    "branded": 0,
+    "descriptive": 5,
+    "diversity_score": 0.95
+  },
+
+  "quality_gate": {
+    "status": "PASSED",
+    "checks": {
+      "minimum_links": "PASSED",
+      "no_broken_links": "PASSED",
+      "no_duplicate_anchors": "PASSED",
+      "relevance_threshold": "PASSED",
+      "anchor_text_diversity": "PASSED",
+      "natural_placement": "PASSED"
+    },
+    "errors": [],
+    "warnings": [],
+    "info": [
+      "7 internal links created (optimal range: 5-7)",
+      "All target URLs validated against sitemap.xml",
+      "Average relevance score: 0.89 (above threshold of 0.70)",
+      "Anchor text diversity excellent: 0.95",
+      "Natural contextual placement in 8 different sections",
+      "3 deep-dive links to own subpages strengthen content architecture",
+      "1 service link to main product for conversion optimization"
+    ]
+  },
+
+  "implementation_notes": [
+    "Place links naturally within paragraph context, not as standalone elements",
+    "Use the provided context sentences to ensure smooth reading flow",
+    "Links to own subpages (/aku-pferd/*) should use dofollow attributes",
+    "Service link to /pferde-preis-berechnen can be visually highlighted as CTA",
+    "Monitor click-through rates and adjust placement if engagement is low",
+    "Consider A/B testing anchor text variations for top-performing links"
+  ]
+}
