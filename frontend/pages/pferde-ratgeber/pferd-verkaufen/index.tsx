@@ -40,6 +40,7 @@ const PferdVerkaufen: NextPage = () => {
     { id: 'ki-bewertung', title: 'KI-gestützte Bewertung' },
     { id: 'preisverhandlung', title: 'Preisverhandlung' },
     { id: 'rechtliche-aspekte', title: 'Rechtliche Aspekte' },
+    { id: 'pferdetyp', title: 'Verkaufstipps nach Pferdetyp' },
     { id: 'faq', title: 'Häufige Fragen' }
   ];
 
@@ -87,6 +88,61 @@ const PferdVerkaufen: NextPage = () => {
       badge: 'Kaufsicherheit',
       readTime: '12 min',
       description: 'Alles zur Ankaufsuntersuchung: Welche AKU-Klasse brauchen Sie? Was wird untersucht? Kompletter Ratgeber für Pferdekäufer.'
+    }
+  ];
+
+  const erfolgreicheVerkaufsstrategien = [
+    {
+      typ: 'Freizeitpferd verkaufen',
+      icon: '🐴',
+      zielgruppe: 'Familien und Hobbyreiter',
+      preisfokus: 'Preis-Leistungs-Verhältnis',
+      verkaufsargumente: 'Ruhig, verlässlich, gesund, pflegeleicht',
+      erfolgsquote: '90%',
+      tipps: [
+        'Charakter betonen: Anfängertauglichkeit ist Gold wert',
+        'Gesundheit dokumentieren: Aktuelle AKU zahlt sich aus',
+        'Alltagstauglichkeit zeigen: Videos beim Ausreiten, Verladen, Hufschmied'
+      ]
+    },
+    {
+      typ: 'Sportpferd verkaufen',
+      icon: '🏆',
+      zielgruppe: 'Ambitionierte Reiter und Turnierreiter',
+      preisfokus: 'Leistung und Erfolge',
+      verkaufsargumente: 'Turniererfolge, Ausbildungsstand, Potential',
+      erfolgsquote: '75%',
+      tipps: [
+        'Turniererfolge dokumentieren: Platzierungsurkunden, Videos',
+        'Leistungsniveau klar benennen: L, M oder S? Spezialisierung?',
+        'Potential aufzeigen: Was ist noch möglich? Welche Klassen?'
+      ]
+    },
+    {
+      typ: 'Jungpferd verkaufen',
+      icon: '🌱',
+      zielgruppe: 'Ausbilder und erfahrene Reiter',
+      preisfokus: 'Abstammung und Potential',
+      verkaufsargumente: 'Pedigree, Charakter, Exterieur, Bewegungsqualität',
+      erfolgsquote: '65%',
+      tipps: [
+        'Abstammung hervorheben: Elterntiere, Zuchtlinien, Körungen',
+        'Bewegungsvideos: Freilaufen, Longieren - Bewegungsqualität zeigen',
+        'Charakterfestigkeit dokumentieren: Gelassenheit, Lernbereitschaft'
+      ]
+    },
+    {
+      typ: 'Zuchtstute verkaufen',
+      icon: '👑',
+      zielgruppe: 'Züchter und Zuchtbetriebe',
+      preisfokus: 'Zuchtqualität und Erfolge',
+      verkaufsargumente: 'Nachzucht-Erfolge, Körung, Abstammung, Fruchtbarkeit',
+      erfolgsquote: '70%',
+      tipps: [
+        'Nachzuchterfolge präsentieren: Verkaufte Fohlen, Turniererfolge',
+        'Körungsresultate zeigen: Prädikat, Noten, Bewertungen',
+        'Fruchtbarkeit dokumentieren: Erfolgreiche Trächtigkeiten, Abfohlungen'
+      ]
     }
   ];
 

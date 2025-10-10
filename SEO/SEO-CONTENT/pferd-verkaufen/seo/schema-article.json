@@ -1,120 +1,69 @@
 {
-  "phase": "5B",
-  "schema_type": "Article",
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Pferd verkaufen: Der ultimative Leitfaden (2025)",
-  "description": "Pferd verkaufen leicht gemacht: AI-gestützte Wertermittlung, Plattform-Vergleich (68% Erfolgsrate), rechtliche Absicherung & Verkaufstipps. Jetzt fairen Preis ermitteln!",
-  "image": "https://www.pferdewert.de/images/article-pferd-verkaufen-hero.jpg",
+  "description": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 3 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/og-pferd-verkaufen.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "Pferd verkaufen - Leitfaden für erfolgreichen Pferdeverkauf"
+  },
   "author": {
     "@type": "Organization",
-    "name": "PferdeWert Redaktion",
-    "url": "https://www.pferdewert.de"
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/images/logo.png"
+    }
   },
   "publisher": {
     "@type": "Organization",
     "name": "PferdeWert.de",
-    "url": "https://www.pferdewert.de",
+    "url": "https://pferdewert.de",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.pferdewert.de/logo.png",
-      "width": 600,
-      "height": 60
+      "url": "https://pferdewert.de/images/logo.png"
     }
   },
-  "datePublished": "2025-10-10T10:00:00+01:00",
-  "dateModified": "2025-10-10T10:00:00+01:00",
+  "datePublished": "2025-10-10T00:00:00+00:00",
+  "dateModified": "2025-10-10T00:00:00+00:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.pferdewert.de/ratgeber/pferd-verkaufen"
+    "@id": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen"
   },
   "articleSection": "Pferde Ratgeber",
   "keywords": [
     "pferd verkaufen",
+    "pferdeverkauf",
     "pferdewert ermitteln",
-    "pferd verkaufsplattformen",
-    "pferdekaufvertrag",
-    "ankaufsuntersuchung pferd",
-    "pferd verkaufen tipps",
-    "ehorses pferd verkaufen",
-    "pferde.de verkaufen",
-    "pferd verkaufspreis",
-    "pferd privat verkaufen"
+    "verkaufsplattformen",
+    "kaufvertrag pferd",
+    "pferd privat verkaufen",
+    "ehorses",
+    "pferdewertermittlung"
   ],
-  "wordCount": 2095,
-  "inLanguage": "de-DE",
-  "isAccessibleForFree": true,
-  "about": {
-    "@type": "Thing",
-    "name": "Pferdeverkauf",
-    "description": "Umfassender Ratgeber zum Verkauf von Pferden mit Preisfindung, Plattform-Auswahl und rechtlicher Absicherung"
-  },
-  "mentions": [
+  "wordCount": 2165,
+  "articleBody": "Diese Frage beschäftigt jeden Pferdebesitzer, der vor der Entscheidung steht, sein geliebtes Tier zu verkaufen. Die Realität: Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit und emotionaler Herausforderungen. Mit dem PferdeWert.de AI-Tool ermitteln Sie in nur 3 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd.",
+  "about": [
     {
-      "@type": "SoftwareApplication",
-      "name": "PferdeWert AI-Bewertungssystem",
-      "applicationCategory": "BusinessApplication",
-      "description": "AI-gestützte Pferdebewertung basierend auf 10.000+ realen Verkaufsdaten"
+      "@type": "Thing",
+      "name": "Pferdeverkauf",
+      "description": "Prozess des Verkaufs eines Pferdes einschließlich Wertermittlung, Plattformauswahl und rechtlicher Absicherung"
     },
     {
-      "@type": "WebSite",
-      "name": "ehorses.de",
-      "url": "https://www.ehorses.de"
-    },
-    {
-      "@type": "WebSite",
-      "name": "pferde.de",
-      "url": "https://pferde.de"
-    },
-    {
-      "@type": "WebSite",
-      "name": "equiva.com",
-      "url": "https://www.equiva.com"
+      "@type": "Thing",
+      "name": "Pferdewert",
+      "description": "Marktwert eines Pferdes basierend auf Faktoren wie Ausbildung, Gesundheit, Alter und Turniererfolgen"
     }
   ],
-  "validation": {
-    "errors": [],
-    "warnings": [
-      {
-        "type": "WARNING",
-        "field": "image",
-        "message": "Article hero image URL is placeholder - replace with actual image before deployment",
-        "severity": "medium"
-      },
-      {
-        "type": "WARNING",
-        "field": "publisher.logo.url",
-        "message": "Publisher logo URL is placeholder - replace with actual image before deployment",
-        "severity": "medium"
-      }
-    ],
-    "info": [
-      {
-        "type": "INFO",
-        "field": "schema_type",
-        "message": "Article schema successfully created with E-E-A-T signals",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "headline",
-        "message": "Headline length: 50 characters (optimal: under 110)",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "wordCount",
-        "message": "Article word count: 2,095 words (comprehensive content)",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "mentions",
-        "message": "4 entity mentions included for topical authority",
-        "value": "PASS"
-      }
-    ],
-    "quality_gate_status": "PASS_WITH_WARNINGS",
-    "summary": "Article schema created successfully with organization author (E-E-A-T signal), publisher data, and topical mentions. Replace placeholder image URLs before deployment. Word count (2,095) and headline length (50 chars) within optimal ranges."
-  }
+  "mentions": [
+    {
+      "@type": "Organization",
+      "name": "eHorses",
+      "description": "Europas größte Online-Plattform für Pferdeverkauf"
+    }
+  ]
 }

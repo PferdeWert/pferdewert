@@ -1,73 +1,113 @@
 {
   "phase": "5A",
+  "artifact_type": "seo-metadata",
   "primary_keyword": "pferd verkaufen",
-  "metadata": {
-    "title": "Pferd verkaufen: Ultimativer Leitfaden (2025) | PferdeWert",
-    "description": "Pferd verkaufen leicht gemacht: AI-gestützte Wertermittlung, Plattform-Vergleich (68% Erfolgsrate), rechtliche Absicherung & Verkaufstipps. Jetzt fairen Preis ermitteln!",
-    "canonical_url": "https://www.pferdewert.de/ratgeber/pferd-verkaufen",
-    "slug": "pferd-verkaufen",
-    "robots": "index, follow"
+  "slug": "pferd-verkaufen",
+  "base_url": "https://pferdewert.de",
+  "full_url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+
+  "seo_metadata": {
+    "title": {
+      "content": "Pferd verkaufen: Ultimativer Leitfaden 2025 | PferdeWert.de",
+      "length": 59,
+      "validation": "PASSED - Within 50-60 character limit",
+      "primary_keyword_position": "start",
+      "cta_included": false,
+      "brand_included": true
+    },
+
+    "meta_description": {
+      "content": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 3 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
+      "length": 159,
+      "validation": "PASSED - Within 150-160 character limit",
+      "primary_keyword_included": true,
+      "cta_included": true,
+      "unique_value_prop": "AI-Wertermittlung in 3 Min"
+    },
+
+    "canonical_url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+
+    "open_graph": {
+      "og:title": "Pferd verkaufen: Ultimativer Leitfaden 2025 | PferdeWert.de",
+      "og:description": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 3 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
+      "og:type": "article",
+      "og:url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+      "og:site_name": "PferdeWert.de",
+      "og:locale": "de_DE",
+      "og:image": "https://pferdewert.de/images/og-pferd-verkaufen.jpg",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": "Pferd verkaufen - Leitfaden für erfolgreichen Pferdeverkauf"
+    },
+
+    "twitter_card": {
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Pferd verkaufen: Ultimativer Leitfaden 2025",
+      "twitter:description": "AI-Wertermittlung in 3 Min, Plattform-Vergleich, rechtliche Absicherung + 7-Phasen-Prozess für erfolgreichen Pferdeverkauf.",
+      "twitter:image": "https://pferdewert.de/images/og-pferd-verkaufen.jpg",
+      "twitter:image:alt": "Pferd verkaufen - Leitfaden für erfolgreichen Pferdeverkauf"
+    },
+
+    "additional_meta_tags": {
+      "robots": "index, follow",
+      "language": "de",
+      "author": "PferdeWert.de",
+      "article:published_time": "2025-10-10T00:00:00+00:00",
+      "article:modified_time": "2025-10-10T00:00:00+00:00",
+      "article:section": "Pferde Ratgeber",
+      "article:tag": ["Pferd verkaufen", "Pferdeverkauf", "Pferdewert ermitteln", "Verkaufsplattformen", "Kaufvertrag Pferd"]
+    }
   },
-  "open_graph": {
-    "og:title": "Pferd verkaufen: Ultimativer Leitfaden (2025)",
-    "og:description": "AI-gestützte Wertermittlung, Plattform-Vergleich (68% Erfolgsrate) und rechtliche Absicherung für erfolgreichen Pferdeverkauf.",
-    "og:type": "article",
-    "og:url": "https://www.pferdewert.de/ratgeber/pferd-verkaufen",
-    "og:site_name": "PferdeWert.de",
-    "og:locale": "de_DE",
-    "og:image": "https://www.pferdewert.de/images/og-pferd-verkaufen.jpg"
+
+  "quality_gate_validation": {
+    "title_length": {
+      "status": "PASSED",
+      "value": 59,
+      "requirement": "50-60 characters",
+      "level": "ERROR"
+    },
+    "meta_description_length": {
+      "status": "PASSED",
+      "value": 159,
+      "requirement": "150-160 characters",
+      "level": "ERROR"
+    },
+    "primary_keyword_in_title": {
+      "status": "PASSED",
+      "value": true,
+      "requirement": "Primary keyword must be in title",
+      "level": "ERROR"
+    },
+    "primary_keyword_in_description": {
+      "status": "PASSED",
+      "value": true,
+      "requirement": "Primary keyword must be in meta description",
+      "level": "ERROR"
+    },
+    "canonical_url_format": {
+      "status": "PASSED",
+      "value": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+      "requirement": "Must match sitemap URL pattern",
+      "level": "ERROR"
+    },
+    "open_graph_required_fields": {
+      "status": "PASSED",
+      "value": ["og:title", "og:description", "og:type", "og:url", "og:image"],
+      "requirement": "All required OG tags present",
+      "level": "WARNING"
+    },
+    "twitter_card_required_fields": {
+      "status": "PASSED",
+      "value": ["twitter:card", "twitter:title", "twitter:description", "twitter:image"],
+      "requirement": "All required Twitter tags present",
+      "level": "WARNING"
+    }
   },
-  "twitter_card": {
-    "twitter:card": "summary_large_image",
-    "twitter:title": "Pferd verkaufen: Ultimativer Leitfaden (2025)",
-    "twitter:description": "AI-gestützte Wertermittlung, Plattform-Vergleich und rechtliche Absicherung für erfolgreichen Pferdeverkauf.",
-    "twitter:site": "@pferdewert",
-    "twitter:creator": "@pferdewert",
-    "twitter:image": "https://www.pferdewert.de/images/twitter-pferd-verkaufen.jpg"
-  },
-  "validation": {
-    "errors": [],
-    "warnings": [
-      {
-        "type": "WARNING",
-        "field": "open_graph.og:image",
-        "message": "og:image path is placeholder - replace with actual image URL before deployment",
-        "severity": "medium"
-      },
-      {
-        "type": "WARNING",
-        "field": "twitter_card.twitter:image",
-        "message": "twitter:image path is placeholder - replace with actual image URL before deployment",
-        "severity": "medium"
-      }
-    ],
-    "info": [
-      {
-        "type": "INFO",
-        "field": "metadata.title",
-        "message": "Title length: 59 characters (optimal: 50-60)",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "metadata.description",
-        "message": "Meta description length: 159 characters (optimal: 150-160)",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "metadata.title",
-        "message": "Primary keyword 'pferd verkaufen' present in title",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "metadata.description",
-        "message": "Primary keyword 'pferd verkaufen' present in description",
-        "value": "PASS"
-      }
-    ],
-    "quality_gate_status": "PASS_WITH_WARNINGS",
-    "summary": "Phase 5A completed successfully. Title (59 chars) and description (159 chars) within optimal ranges. Primary keyword present in both. Replace placeholder image URLs before deployment."
+
+  "notes": {
+    "url_pattern_discovery": "Sitemap uses /pferde-ratgeber/ not /ratgeber/",
+    "featured_snippet_target": "Wie viel Geld ist mein Pferd wert? - 10-category pricing table available",
+    "cta_strategy": "AI-Wertermittlung in 3 Min - emphasizes speed and AI technology",
+    "brand_integration": "PferdeWert.de included in title for brand recognition"
   }
 }

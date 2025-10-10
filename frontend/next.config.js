@@ -76,6 +76,11 @@ const nextConfig = {
         destination: '/pferde-ratgeber/pferd-verkaufen',
         statusCode: 301,
       },
+      {
+        source: '/pferde-ratgeber/pferd-verkaufen/tipps',
+        destination: '/pferde-ratgeber/pferd-verkaufen',
+        statusCode: 301,
+      },
     ]
   },
 };

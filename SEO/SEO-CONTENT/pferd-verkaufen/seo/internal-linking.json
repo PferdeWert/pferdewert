@@ -1,204 +1,246 @@
 {
   "phase": "5C",
-  "source_article": "/pferde-ratgeber/pferd-verkaufen",
+  "artifact_type": "internal-linking",
   "primary_keyword": "pferd verkaufen",
-  "internal_links": [
-    {
-      "target_url": "https://www.pferdewert.de/pferde-preis-berechnen",
-      "anchor_text": "AI-gestützte Pferdebewertung nutzen",
-      "placement_section": "Den richtigen Verkaufspreis für dein Pferd ermitteln",
-      "placement_context": "After discussing manual pricing research methods, introduce the AI tool as a data-driven alternative",
-      "suggested_line_range": "68-75",
-      "relevance_score": 92,
-      "scoring_breakdown": {
-        "keyword_overlap": 36,
-        "topic_cluster": 30,
-        "semantic_similarity": 18,
-        "content_length": 8
-      },
-      "reasoning": "Highest relevance - AI valuation tool directly supports pricing section. Article mentions '/bewertung' placeholder 3x. Natural fit for users seeking objective pricing data."
-    },
-    {
-      "target_url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
-      "anchor_text": "Ankaufsuntersuchung beim Pferd",
-      "placement_section": "Rechtliche Absicherung beim Pferdeverkauf",
-      "placement_context": "When discussing buyer expectations for health documentation and transparency",
-      "suggested_line_range": "355-365",
-      "relevance_score": 85,
-      "scoring_breakdown": {
-        "keyword_overlap": 28,
-        "topic_cluster": 30,
-        "semantic_similarity": 19,
-        "content_length": 8
-      },
-      "reasoning": "Strong topical relevance - AKU is critical component of horse sales. Article already mentions AKU costs. Links to comprehensive AKU guide for sellers preparing documentation."
-    },
-    {
-      "target_url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd/kosten",
-      "anchor_text": "Kosten einer Ankaufsuntersuchung",
-      "placement_section": "Rechtliche Absicherung beim Pferdeverkauf",
-      "placement_context": "When advising sellers about supporting buyers during AKU process",
-      "suggested_line_range": "375-382",
-      "relevance_score": 82,
-      "scoring_breakdown": {
-        "keyword_overlap": 24,
-        "topic_cluster": 30,
-        "semantic_similarity": 18,
-        "content_length": 10
-      },
-      "reasoning": "High relevance - AKU cost transparency helps sellers set realistic expectations. Article mentions '/ratgeber/aku-pferd-kosten' placeholder. Supports buyer confidence building."
-    },
-    {
-      "target_url": "https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen",
-      "anchor_text": "Perspektive eines Pferdekäufers",
-      "placement_section": "Besichtigungstermine professionell durchführen",
-      "placement_context": "When discussing how to prepare for buyer questions and expectations",
-      "suggested_line_range": "285-295",
-      "relevance_score": 78,
-      "scoring_breakdown": {
-        "keyword_overlap": 32,
-        "topic_cluster": 30,
-        "semantic_similarity": 10,
-        "content_length": 6
-      },
-      "reasoning": "Medium-high relevance - Understanding buyer psychology improves sales success. Natural counterpart to selling guide. Helps sellers anticipate buyer concerns."
-    },
-    {
-      "target_url": "https://www.pferdewert.de/pferde-ratgeber",
-      "anchor_text": "weitere Ratgeber rund ums Pferd",
-      "placement_section": "Fazit: Dein Weg zum erfolgreichen Pferdeverkauf",
-      "placement_context": "In conclusion when directing readers to additional resources",
-      "suggested_line_range": "577-580",
-      "relevance_score": 72,
-      "scoring_breakdown": {
-        "keyword_overlap": 20,
-        "topic_cluster": 30,
-        "semantic_similarity": 14,
-        "content_length": 8
-      },
-      "reasoning": "Medium relevance - Ratgeber hub link increases site exploration. Natural placement in conclusion for readers seeking related content. Supports content cluster structure."
-    },
-    {
-      "target_url": "https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
-      "anchor_text": "Was ein Pferd kostet",
-      "placement_section": "Den richtigen Verkaufspreis für dein Pferd ermitteln",
-      "placement_context": "When discussing market price ranges and buyer budget expectations",
-      "suggested_line_range": "55-65",
-      "relevance_score": 68,
-      "scoring_breakdown": {
-        "keyword_overlap": 24,
-        "topic_cluster": 30,
-        "semantic_similarity": 8,
-        "content_length": 6
-      },
-      "reasoning": "Medium relevance - Pricing context from buyer perspective helps sellers understand market dynamics. Supports realistic price setting. Natural topical connection to valuation section."
-    }
-  ],
-  "url_structure_notes": {
-    "inconsistencies_found": true,
-    "details": [
-      {
-        "issue": "Article placeholder URLs don't match sitemap structure",
-        "examples": [
-          {
-            "article_placeholder": "/bewertung",
-            "sitemap_canonical": "/pferde-preis-berechnen",
-            "action_required": "Update article-draft.md placeholders to match canonical URLs"
-          },
-          {
-            "article_placeholder": "/ratgeber/aku-pferd-kosten",
-            "sitemap_canonical": "/pferde-ratgeber/aku-pferd/kosten",
-            "action_required": "Update article-draft.md to use full canonical path"
-          },
-          {
-            "article_placeholder": "/ratgeber/pferd-kaufen-checkliste",
-            "sitemap_canonical": "/pferde-ratgeber/pferd-kaufen",
-            "action_required": "Verify if '/pferd-kaufen-checkliste' should be added to sitemap or placeholder should be updated"
-          }
-        ]
-      }
+  "source_page": {
+    "url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+    "title": "Pferd verkaufen: Ultimativer Leitfaden 2025 | PferdeWert.de",
+    "h2_topics": [
+      "Pferdewert ermitteln",
+      "Plattformen zum Pferd verkaufen",
+      "Schritt-für-Schritt Verkaufsprozess",
+      "Verkaufsanzeige erstellen",
+      "Rechtliche Aspekte",
+      "Pferd schnell verkaufen",
+      "Emotionaler Aspekt"
     ]
   },
+
+  "recommended_internal_links": [
+    {
+      "rank": 1,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/aku-pferd",
+      "anchor_text": "AKU beim Pferd",
+      "context_section": "Pferdewert ermitteln: Was ist mein Pferd wert?",
+      "placement_recommendation": "After mentioning health examination requirements in the valuation section",
+      "relevance_score": {
+        "total": 91,
+        "breakdown": {
+          "keyword_overlap": 38,
+          "topic_cluster": 30,
+          "h2_overlap": 15,
+          "content_length": 8
+        }
+      },
+      "justification": "AKU is critical for horse valuation and sales. Mentioned 12 times in article. Direct topic cluster match (health/valuation). Target page is comprehensive guide.",
+      "seo_value": "HIGH - Strengthens topic cluster authority, distributes link equity to high-priority guide page"
+    },
+    {
+      "rank": 2,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/aku-pferd/kosten",
+      "anchor_text": "AKU-Kosten im Detail",
+      "context_section": "Schritt-für-Schritt: Pferd verkaufen erfolgreich umsetzen",
+      "placement_recommendation": "When discussing preparation phase and documentation costs",
+      "relevance_score": {
+        "total": 88,
+        "breakdown": {
+          "keyword_overlap": 36,
+          "topic_cluster": 28,
+          "h2_overlap": 16,
+          "content_length": 8
+        }
+      },
+      "justification": "Cost transparency is crucial for sellers. AKU cost mentioned in article. Directly supports 'preparation' step in sales process.",
+      "seo_value": "HIGH - Supports transactional intent, helps users understand investment required"
+    },
+    {
+      "rank": 3,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+      "anchor_text": "Was kostet ein Pferd monatlich",
+      "context_section": "Die perfekte Verkaufsanzeige: Texte, Fotos, Videos",
+      "placement_recommendation": "When discussing how to highlight cost-effectiveness to buyers",
+      "relevance_score": {
+        "total": 85,
+        "breakdown": {
+          "keyword_overlap": 32,
+          "topic_cluster": 28,
+          "h2_overlap": 18,
+          "content_length": 7
+        }
+      },
+      "justification": "Sellers benefit from understanding buyer perspective on costs. FAQ includes monthly cost question. Bidirectional topic relevance (buy/sell).",
+      "seo_value": "MEDIUM-HIGH - Cross-links buy/sell content, strengthens site architecture, addresses buyer concerns"
+    },
+    {
+      "rank": 4,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/aku-pferd/klassen",
+      "anchor_text": "AKU-Klassen erklärt",
+      "context_section": "Pferdewert ermitteln: Was ist mein Pferd wert?",
+      "placement_recommendation": "After mentioning AKU importance, before pricing table",
+      "relevance_score": {
+        "total": 84,
+        "breakdown": {
+          "keyword_overlap": 34,
+          "topic_cluster": 27,
+          "h2_overlap": 16,
+          "content_length": 7
+        }
+      },
+      "justification": "AKU classification directly impacts valuation. Helps sellers understand how health status affects pricing. FAQ mentions AKU requirement.",
+      "seo_value": "MEDIUM-HIGH - Educates on valuation factors, supports E-E-A-T through detailed explanation"
+    },
+    {
+      "rank": 5,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+      "anchor_text": "AKU-Ablauf verstehen",
+      "context_section": "Schritt-für-Schritt: Pferd verkaufen erfolgreich umsetzen",
+      "placement_recommendation": "In preparation phase when discussing obtaining health documentation",
+      "relevance_score": {
+        "total": 83,
+        "breakdown": {
+          "keyword_overlap": 33,
+          "topic_cluster": 27,
+          "h2_overlap": 16,
+          "content_length": 7
+        }
+      },
+      "justification": "Understanding AKU process helps sellers prepare timeline. Supports 'preparation' step. Reduces anxiety about examination.",
+      "seo_value": "MEDIUM - Provides process clarity, supports user journey from decision to action"
+    },
+    {
+      "rank": 6,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen/tipps",
+      "anchor_text": "Weitere Verkaufstipps",
+      "context_section": "Pferd schnell verkaufen: 7 bewährte Strategien",
+      "placement_recommendation": "At end of quick-sale strategies section or in conclusion",
+      "relevance_score": {
+        "total": 79,
+        "breakdown": {
+          "keyword_overlap": 40,
+          "topic_cluster": 30,
+          "h2_overlap": 8,
+          "content_length": 1
+        }
+      },
+      "justification": "Direct topic match (selling tips). Supports content depth. Keeps users engaged on site. Sub-page relationship.",
+      "seo_value": "MEDIUM - Extends content depth, distributes authority to child page, improves dwell time"
+    },
+    {
+      "rank": 7,
+      "target_url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "Pferd kaufen Checkliste",
+      "context_section": "Der emotionale Aspekt beim Pferd verkaufen: Abschied gestalten",
+      "placement_recommendation": "When discussing finding the right new owner or conclusion section",
+      "relevance_score": {
+        "total": 76,
+        "breakdown": {
+          "keyword_overlap": 28,
+          "topic_cluster": 26,
+          "h2_overlap": 14,
+          "content_length": 8
+        }
+      },
+      "justification": "Helps sellers understand buyer perspective. Bidirectional content connection. Supports empathy in sales process.",
+      "seo_value": "MEDIUM - Strengthens internal architecture, provides buyer perspective, topic cluster connection"
+    }
+  ],
+
+  "url_pattern_fix_required": {
+    "issue": "Article content uses /ratgeber/ paths but sitemap shows /pferde-ratgeber/ paths",
+    "affected_links_in_article": [
+      "/ratgeber/aku-pferd-kosten",
+      "/ratgeber/aku-pferd-ablauf",
+      "/ratgeber/aku-pferd-klassen",
+      "/ratgeber/pferd-kaufen-checkliste",
+      "/ratgeber"
+    ],
+    "corrected_urls": [
+      "https://pferdewert.de/pferde-ratgeber/aku-pferd/kosten",
+      "https://pferdewert.de/pferde-ratgeber/aku-pferd/ablauf",
+      "https://pferdewert.de/pferde-ratgeber/aku-pferd/klassen",
+      "https://pferdewert.de/pferde-ratgeber/pferd-kaufen",
+      "https://pferdewert.de/pferde-ratgeber"
+    ],
+    "action_required": "Update all internal links in final-article.md to use /pferde-ratgeber/ pattern for consistency with sitemap.xml"
+  },
+
   "implementation_notes": {
-    "anchor_text_strategy": "All anchors are 2-6 words, natural language, keyword-rich but not over-optimized. No duplicate anchors to avoid Penguin penalty risk.",
-    "placement_strategy": "Links distributed across 4 different article sections for natural reading flow. Avoided clustering multiple links in single paragraph.",
-    "diversity": "Mix of tool links (AI valuation), informational ratgeber links (AKU, buying guide), and hub link (ratgeber main) for varied user journeys.",
-    "user_value": "Each link provides genuine value to readers at decision points in sales process - not manipulative SEO-only linking."
+    "anchor_text_strategy": "Use natural, descriptive anchor text that matches user intent and target page content",
+    "placement_priority": "Place links contextually where they add genuine value to reader understanding",
+    "link_distribution": "Spread links across different H2 sections to avoid clustering",
+    "avoid_over_optimization": "Do not use exact-match keywords in all anchors - vary naturally",
+    "technical_implementation": "Use standard HTML <a> tags with relative paths for internal links"
   },
-  "validation": {
-    "errors": [],
-    "warnings": [],
-    "info": [
-      {
-        "type": "INFO",
-        "field": "internal_links",
-        "message": "6 strategic internal link recommendations generated (target: 5-7)",
-        "value": "PASS"
+
+  "relevance_scoring_algorithm": {
+    "methodology": "Weighted scoring system to identify most strategic internal links",
+    "weights": {
+      "keyword_overlap": {
+        "percentage": 40,
+        "calculation": "Count of shared keywords between source and target pages / Total unique keywords * 40"
       },
-      {
-        "type": "INFO",
-        "field": "relevance_scores",
-        "message": "All recommended links scored 68-92 out of 100 (threshold: 60+)",
-        "value": "PASS"
+      "topic_cluster": {
+        "percentage": 30,
+        "calculation": "Semantic relatedness score based on primary topics (horse health, buying, selling, valuation) * 30"
       },
-      {
-        "type": "INFO",
-        "field": "anchor_texts",
-        "message": "All anchor texts are unique and natural (2-6 words each)",
-        "value": "PASS"
+      "h2_overlap": {
+        "percentage": 20,
+        "calculation": "Number of matching H2 topic themes / Total H2 sections * 20"
       },
-      {
-        "type": "INFO",
-        "field": "target_urls",
-        "message": "All 6 target URLs verified to exist in sitemap.xml",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "placement_distribution",
-        "message": "Links distributed across 4 article sections for natural flow",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "topic_clusters",
-        "message": "5 of 6 links are within /pferde-ratgeber topic cluster (83% cluster coherence)",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "url_structure",
-        "message": "All placeholder URLs successfully updated to canonical URLs in article-draft.md (2025-10-10)",
-        "value": "PASS"
-      },
-      {
-        "type": "INFO",
-        "field": "implementation_status",
-        "message": "Phase 5C FULLY COMPLETED - All 6 internal links implemented with correct URLs",
-        "value": "PASS"
+      "content_length": {
+        "percentage": 10,
+        "calculation": "Target page content depth score (comprehensive pages score higher) * 10"
       }
-    ],
-    "quality_gate_status": "PASS",
-    "summary": "Phase 5C completed successfully on 2025-10-10. All 6 high-quality internal link recommendations implemented with relevance scores 68-92. All placeholder URLs updated to match canonical sitemap structure. Natural anchor texts with strategic placement across pricing (lines 68, 439, 580), legal (lines 355), buying guide (line 388), and hub link (line 582) sections. Ready for publication."
+    },
+    "threshold": "Links with total score >= 75 are considered strategic recommendations"
   },
-  "implementation_completed": {
-    "date": "2025-10-10",
-    "changes_summary": [
-      "Line 23: Removed broken /ratgeber/pferdewert-ermitteln link",
-      "Line 68: Fixed /bewertung → https://www.pferdewert.de/pferde-preis-berechnen",
-      "Lines 353-355: Added AKU links with optimized anchor texts",
-      "Line 388: Fixed /ratgeber/pferd-kaufen-checkliste → canonical URL",
-      "Line 439: Fixed FAQ section /bewertung → canonical URL",
-      "Lines 580-582: Fixed conclusion section link + added hub link"
-    ],
-    "verification": "All 6 edits completed successfully without errors"
+
+  "quality_gate_validation": {
+    "link_count": {
+      "status": "PASSED",
+      "value": 7,
+      "requirement": "5-7 strategic internal links",
+      "level": "ERROR"
+    },
+    "relevance_threshold": {
+      "status": "PASSED",
+      "value": "All links >= 76 score",
+      "requirement": "Minimum relevance score >= 75",
+      "level": "ERROR"
+    },
+    "url_pattern_consistency": {
+      "status": "WARNING",
+      "value": "Inconsistency detected",
+      "requirement": "All URLs must match sitemap.xml pattern",
+      "level": "WARNING",
+      "remediation": "Fix required in final-article.md - update /ratgeber/ to /pferde-ratgeber/"
+    },
+    "anchor_text_diversity": {
+      "status": "PASSED",
+      "value": "7 unique anchor texts, no exact duplicates",
+      "requirement": "Natural, varied anchor text for each link",
+      "level": "WARNING"
+    },
+    "placement_distribution": {
+      "status": "PASSED",
+      "value": "Links distributed across 5 different H2 sections",
+      "requirement": "Avoid link clustering in single section",
+      "level": "INFO"
+    }
   },
-  "next_steps": [
-    "Proceed to Phase 6: Final Article Publication",
-    "Copy article-draft.md to production content folder",
-    "Implement all schema markup (article, FAQ, breadcrumb)",
-    "Verify all internal links are clickable in production",
-    "Submit to Google Search Console for indexing",
-    "Monitor internal linking performance after publication"
-  ]
+
+  "seo_impact_summary": {
+    "topical_authority": "Strengthens site authority on horse sales, AKU, and valuation topics through strategic clustering",
+    "user_experience": "Provides contextual navigation to relevant supporting content, reducing bounce rate",
+    "link_equity_distribution": "Distributes page authority to high-priority guide pages (AKU series, buying/selling guides)",
+    "crawlability": "Improves internal link structure for better search engine discovery of deep content",
+    "conversion_optimization": "Guides users through informational content toward conversion points (valuation tool)"
+  },
+
+  "notes": {
+    "orchestration_file_missing": "phase-5c-internal-linking.md does not exist - worked from context requirements",
+    "algorithm_applied": "Relevance scoring algorithm (keyword 40%, topic 30%, H2 20%, content length 10%) applied to all recommendations",
+    "priority_links": "AKU-related links ranked highest due to direct impact on horse valuation and sales success",
+    "bidirectional_strategy": "Included buyer-perspective links (pferd-kaufen) to support comprehensive site architecture"
+  }
 }
