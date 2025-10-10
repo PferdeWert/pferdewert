@@ -28,19 +28,6 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "pferdewert.de"
-        }
-      ],
-      "destination": "https://www.pferdewert.de/:path*",
-      "statusCode": 301
-    }
-  ],
   "rewrites": [
     {
       "source": "/robots.txt",
