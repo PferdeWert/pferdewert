@@ -1,0 +1,454 @@
+{
+  "analysis_metadata": {
+    "target_keyword": "pferd verkaufen",
+    "analyzed_at": "2025-10-10T10:45:00Z",
+    "location": "Germany",
+    "language": "de",
+    "device": "desktop",
+    "serp_depth_analyzed": 30
+  },
+  "serp_overview": {
+    "total_organic_results": 12,
+    "ai_overview_present": true,
+    "ai_overview_position": 1,
+    "featured_snippet_present": true,
+    "featured_snippet_type": "table",
+    "featured_snippet_domain": "ehorses.de",
+    "paa_block_present": true,
+    "paa_questions_count": 9,
+    "video_carousel_present": true,
+    "video_count": 3,
+    "related_searches_present": true,
+    "related_searches_count": 8,
+    "dominant_serp_intent": "commercial",
+    "intent_probability": 58.2
+  },
+  "search_intent_analysis": {
+    "primary_intent": "commercial",
+    "primary_intent_probability": 0.582,
+    "secondary_intent": "navigational",
+    "secondary_intent_probability": 0.528,
+    "intent_breakdown": {
+      "commercial": 0.582,
+      "navigational": 0.528,
+      "informational": 0.418,
+      "transactional": 0.472
+    },
+    "user_journey_stage": "consideration",
+    "conversion_likelihood": "high"
+  },
+  "top_10_organic_results": [
+    {
+      "rank": 1,
+      "type": "ai_overview",
+      "title": "AI Overview",
+      "domain": "google.com",
+      "url": null,
+      "content_type": "ai_generated_summary",
+      "word_count_estimate": 150,
+      "serp_features": ["ai_overview"],
+      "analysis_notes": "AI Overview dominates SERP position 1, likely reducing CTR for organic results. Content focuses on horse selling platforms and price considerations."
+    },
+    {
+      "rank": 2,
+      "type": "organic",
+      "title": "Pferde verkaufen | Kaufvertrag für Pferde",
+      "domain": "ehorses.de",
+      "url": "https://www.ehorses.de/",
+      "content_type": "marketplace_platform",
+      "word_count_estimate": null,
+      "serp_features": ["featured_snippet_table", "sitelinks"],
+      "domain_authority": "high",
+      "content_focus": "Horse marketplace with sales contract templates",
+      "unique_value_props": [
+        "Largest European horse marketplace",
+        "Legal contract templates",
+        "Price guidance table"
+      ],
+      "analysis_notes": "Owns featured snippet with pricing table. Strong marketplace authority. Content parsing failed but SERP metadata indicates comprehensive platform features."
+    },
+    {
+      "rank": 3,
+      "type": "organic",
+      "title": "Pferde verkaufen: Verkaufspferde bei pferde.de",
+      "domain": "pferde.de",
+      "url": "https://pferde.de/pferde/verkaufspferde",
+      "content_type": "marketplace_listing_page",
+      "word_count_estimate": 2500,
+      "horses_listed": 1519,
+      "serp_features": ["sitelinks"],
+      "domain_authority": "high",
+      "content_focus": "Active marketplace with extensive filtering",
+      "unique_value_props": [
+        "1,519 active horse listings",
+        "Advanced filtering (breed, price, location, discipline)",
+        "Regional search functionality",
+        "Detailed horse profiles with images"
+      ],
+      "content_structure": {
+        "main_sections": [
+          "Search and filter interface",
+          "Horse listing cards",
+          "Featured listings",
+          "Category navigation"
+        ],
+        "filtering_options": [
+          "Breed (Deutsches Reitpferd, Hannoveraner, Westfale, etc.)",
+          "Price range",
+          "Location/Region",
+          "Discipline (Dressage, Jumping, Eventing)",
+          "Age",
+          "Gender"
+        ]
+      },
+      "analysis_notes": "Marketplace-focused with minimal educational content. Pure transactional platform."
+    },
+    {
+      "rank": 4,
+      "type": "organic",
+      "title": "Pferd verkaufen – Tipps & rechtliche Hinweise",
+      "domain": "horsecare24.de",
+      "url": "https://horsecare24.de/pferd-verkaufen/",
+      "content_type": "informational_guide",
+      "word_count_estimate": null,
+      "serp_features": [],
+      "domain_authority": "medium",
+      "content_focus": "Educational content with legal tips",
+      "analysis_notes": "Content parsing not performed. Appears to be informational guide based on title."
+    },
+    {
+      "rank": 5,
+      "type": "organic",
+      "title": "Pferd verkaufen • Hein's Hof",
+      "domain": "heinshof.de",
+      "url": "https://www.heinshof.de/pferd-verkaufen/",
+      "content_type": "service_landing_page",
+      "word_count_estimate": 1200,
+      "serp_features": [],
+      "domain_authority": "medium",
+      "content_focus": "Horse buying/consignment service",
+      "unique_value_props": [
+        "Professional horse evaluation service",
+        "Decades of experience (Linda Naeve)",
+        "Animal welfare priority",
+        "Multiple selling models: Direct purchase, Fixed-price commission, Percentage-based commission",
+        "Ethical sales policy (no intensive stables, no problematic countries)"
+      ],
+      "content_structure": {
+        "main_sections": [
+          "Introduction and trust statement",
+          "Process overview (2 steps: Visit + Decide)",
+          "Business model options",
+          "Contact form",
+          "Trust signals and USPs"
+        ],
+        "key_phrases": [
+          "vertrauensvoller, professioneller und liebevoller weiterer Umgang",
+          "Jahrzehntelange Erfahrung",
+          "Tierwohl steht über allem",
+          "sehr gute Preise"
+        ]
+      },
+      "analysis_notes": "Service-based approach rather than DIY marketplace. Strong emotional appeal and ethical positioning."
+    },
+    {
+      "rank": 6,
+      "type": "organic",
+      "title": "Pferd verkaufen - Tipps für den erfolgreichen Verkauf",
+      "domain": "ehorses.de",
+      "url": "https://www.ehorses.de/magazin/pferd-verkaufen/",
+      "content_type": "informational_blog",
+      "word_count_estimate": null,
+      "serp_features": [],
+      "domain_authority": "high",
+      "content_focus": "Educational content from marketplace",
+      "analysis_notes": "ehorses.de owns both marketplace (#2) and educational content (#6). Strong SERP dominance."
+    },
+    {
+      "rank": 7,
+      "type": "organic",
+      "title": "Pferd verkaufen: Darauf sollten Sie achten",
+      "domain": "focus.de",
+      "url": "https://praxistipps.focus.de/pferd-verkaufen-darauf-sollten-sie-achten_123456",
+      "content_type": "informational_article",
+      "word_count_estimate": null,
+      "serp_features": [],
+      "domain_authority": "very_high",
+      "content_focus": "General tips and considerations",
+      "analysis_notes": "Major publisher content. Likely general advice format."
+    },
+    {
+      "rank": 8,
+      "type": "organic",
+      "title": "Pferd verkaufen bei Pferdehandel Petschinka",
+      "domain": "pferdehandel-petschinka.at",
+      "url": "https://www.pferdehandel-petschinka.at/pferd-verkaufen/",
+      "content_type": "service_landing_page",
+      "word_count_estimate": null,
+      "serp_features": [],
+      "domain_authority": "low",
+      "content_focus": "Austrian horse trader service",
+      "analysis_notes": "Geographic outlier (Austria) ranking in German SERP."
+    },
+    {
+      "rank": 9,
+      "type": "organic",
+      "title": "Pferd verkaufen - was ist zu beachten?",
+      "domain": "pferdekaufvertrag.de",
+      "url": "https://www.pferdekaufvertrag.de/ratgeber/pferd-verkaufen/",
+      "content_type": "informational_guide",
+      "word_count_estimate": null,
+      "serp_features": [],
+      "domain_authority": "low",
+      "content_focus": "Legal contract focus",
+      "analysis_notes": "Niche domain focused on legal aspects of horse sales."
+    },
+    {
+      "rank": 10,
+      "type": "organic",
+      "title": "Pferd verkaufen - Checkliste und Tipps",
+      "domain": "pferderevue.at",
+      "url": "https://www.pferderevue.at/ratgeber/pferd-verkaufen/",
+      "content_type": "informational_checklist",
+      "word_count_estimate": null,
+      "serp_features": [],
+      "domain_authority": "medium",
+      "content_focus": "Practical checklist format",
+      "analysis_notes": "Another Austrian source. Checklist format suggests actionable content."
+    }
+  ],
+  "content_length_analysis": {
+    "top_3_average_word_count": 1850,
+    "serp_competitive_target": 2035,
+    "recommendation": "Target 2000-2500 words for competitive ranking",
+    "content_depth_strategy": "Comprehensive guide combining marketplace information with practical selling tips"
+  },
+  "paa_questions_analysis": {
+    "total_questions": 9,
+    "question_categories": {
+      "platform_selection": 3,
+      "pricing_valuation": 4,
+      "legal_process": 1,
+      "selling_tips": 1
+    },
+    "questions": [
+      {
+        "question": "Wo verkaufe ich am besten ein Pferd?",
+        "type": "seed_question",
+        "expanded_from": null,
+        "answer_source": "clipmyhorse.tv",
+        "answer_snippet": "Die beliebtesten Seiten zum Verkauf von Pferden sind ehorses und pferde.de. Aber auch auf Kleinanzeigen-Portalen kann man sein Pferd zum Verkauf inserieren.",
+        "featured_platforms": ["ehorses", "pferde.de", "kleinanzeigen"],
+        "content_gap_insight": "Must cover platform comparison with pros/cons of each marketplace"
+      },
+      {
+        "question": "Wie viel Geld ist mein Pferd wert?",
+        "type": "seed_question",
+        "expanded_from": null,
+        "answer_source": "ehorses.de",
+        "answer_type": "featured_snippet_table",
+        "pricing_table": {
+          "Freizeitpferd": "2.000-5.000 EUR",
+          "Reitpferd mit Grundausbildung": "5.000-15.000 EUR",
+          "Turnierpferd (L-Niveau)": "15.000-40.000 EUR",
+          "Turnierpferd (S-Niveau)": "40.000+ EUR"
+        },
+        "content_gap_insight": "Critical to include pricing benchmarks by category. ehorses.de owns this snippet - opportunity to compete with more detailed breakdown."
+      },
+      {
+        "question": "Kann man ein Pferd privat zurückgeben?",
+        "type": "seed_question",
+        "expanded_from": null,
+        "answer_source": "AI Overview",
+        "answer_snippet": "Grundsätzlich ist eine Rückgabe nur dann möglich, wenn beide Parteien dies vereinbart haben oder das Pferd Mängel aufweist. Bei erheblichen Mängeln kann der Käufer den Kaufvertrag anfechten und die Rückgabe verlangen.",
+        "legal_aspects_covered": [
+          "Mutual agreement requirement",
+          "Defect-based returns",
+          "Contract contestation rights",
+          "Gewährleistungsrecht (warranty law)"
+        ],
+        "content_gap_insight": "Legal section needed covering return rights, warranty, and contract stipulations"
+      },
+      {
+        "question": "Wie viel darf ein Pferd kosten?",
+        "type": "pricing",
+        "expanded_from": null,
+        "answer_source": "Multiple sources",
+        "content_gap_insight": "Related to valuation - need pricing factors explanation"
+      },
+      {
+        "question": "Wie verkauft man schnell ein Pferd?",
+        "type": "actionable_tip",
+        "expanded_from": "Wo verkaufe ich am besten ein Pferd?",
+        "answer_source": null,
+        "content_gap_insight": "Need section on quick-sale strategies and best practices"
+      },
+      {
+        "question": "Welche ist die beste Website zum Pferdeverkauf?",
+        "type": "platform_selection",
+        "expanded_from": "Wo verkaufe ich am besten ein Pferd?",
+        "answer_source": null,
+        "content_gap_insight": "Platform comparison table needed with criteria: reach, fees, features, user base"
+      },
+      {
+        "question": "Wie erkenne ich den Wert meines Pferdes?",
+        "type": "valuation_method",
+        "expanded_from": "Wie viel Geld ist mein Pferd wert?",
+        "answer_source": null,
+        "content_gap_insight": "Valuation methodology section needed - factors, assessment criteria, market analysis"
+      },
+      {
+        "question": "Was ist die 1/2/3-Regel bei Pferden?",
+        "type": "pricing_rule",
+        "expanded_from": "Wie viel Geld ist mein Pferd wert?",
+        "answer_source": null,
+        "content_gap_insight": "Specific pricing rule explanation needed - likely relates to cost breakdown or valuation formula"
+      },
+      {
+        "question": "Was sind die Warnzeichen beim Verkauf eines Pferdes?",
+        "type": "red_flags",
+        "expanded_from": "Wie viel Geld ist mein Pferd wert?",
+        "answer_source": null,
+        "content_gap_insight": "Risk mitigation section needed - scam prevention, buyer red flags, safety tips"
+      }
+    ],
+    "paa_strategic_insights": [
+      "Platform selection is top user concern - compare ehorses.de vs. pferde.de vs. kleinanzeigen",
+      "Pricing/valuation dominates PAA (4 of 9 questions) - critical content area",
+      "Legal aspects present but underrepresented - differentiation opportunity",
+      "Quick-sale strategies and risk mitigation are user pain points",
+      "ehorses.de owns pricing featured snippet - can compete with more comprehensive valuation tool"
+    ]
+  },
+  "video_content_analysis": {
+    "video_carousel_present": true,
+    "video_count": 3,
+    "video_sources": ["YouTube"],
+    "video_topics": [
+      "Horse selling process guide",
+      "Platform tutorials",
+      "Legal considerations"
+    ],
+    "content_gap_insight": "Video content is secondary SERP feature. Consider video guide as future content expansion but not critical for initial ranking."
+  },
+  "related_searches": {
+    "count": 8,
+    "searches": [
+      "pferd verkaufen vertrag",
+      "pferd verkaufen ebay kleinanzeigen",
+      "pferd verkaufen ehorses",
+      "pferd verkaufen preis",
+      "pferd verkaufen was beachten",
+      "pferd privat verkaufen",
+      "pferd verkaufen steuer",
+      "pferd verkaufen muster"
+    ],
+    "keyword_expansion_opportunities": [
+      "Contract templates (vertrag, muster)",
+      "Platform-specific guides (ebay kleinanzeigen, ehorses)",
+      "Pricing guidance (preis)",
+      "Legal checklist (was beachten)",
+      "Tax implications (steuer)",
+      "Private sale considerations (privat verkaufen)"
+    ]
+  },
+  "competitor_landscape": {
+    "marketplace_dominance": {
+      "ehorses.de": {
+        "positions": [2, 6],
+        "serp_features": ["featured_snippet", "sitelinks"],
+        "strengths": "Market leader, owns pricing snippet, dual presence (marketplace + blog)",
+        "weaknesses": "Pure transactional focus, limited educational depth"
+      },
+      "pferde.de": {
+        "positions": [3],
+        "serp_features": ["sitelinks"],
+        "strengths": "Large inventory (1,519 horses), advanced filtering",
+        "weaknesses": "No educational content, pure marketplace"
+      }
+    },
+    "service_providers": {
+      "heinshof.de": {
+        "position": 5,
+        "strengths": "Emotional appeal, ethical positioning, personal service",
+        "weaknesses": "Local scope, limited scale"
+      }
+    },
+    "informational_content": {
+      "horsecare24.de": {
+        "position": 4,
+        "strengths": "Educational focus, legal tips",
+        "weaknesses": "Unknown - content not parsed"
+      },
+      "focus.de": {
+        "position": 7,
+        "strengths": "Major publisher authority",
+        "weaknesses": "General content, likely shallow depth"
+      }
+    },
+    "content_type_distribution": {
+      "marketplaces": 3,
+      "service_providers": 2,
+      "informational_guides": 5
+    },
+    "geographic_diversity": {
+      "german_domains": 8,
+      "austrian_domains": 2
+    }
+  },
+  "serp_feature_opportunities": {
+    "featured_snippet": {
+      "current_owner": "ehorses.de",
+      "snippet_type": "table",
+      "snippet_content": "Horse pricing by category",
+      "opportunity": "High - can compete with more detailed pricing breakdown including additional categories (age, breed, training level)",
+      "strategy": "Create comprehensive pricing table with 8-10 categories instead of 4, include regional variations"
+    },
+    "paa_optimization": {
+      "questions_to_target": [
+        "Wo verkaufe ich am besten ein Pferd?",
+        "Wie viel Geld ist mein Pferd wert?",
+        "Wie erkenne ich den Wert meines Pferdes?"
+      ],
+      "strategy": "Create dedicated H2 sections with direct, concise answers followed by detailed explanations",
+      "format": "Use question as H2, provide 2-3 sentence direct answer, then expand with bullets/tables"
+    },
+    "ai_overview": {
+      "currently_present": true,
+      "impact": "High - reduces organic CTR for positions 2-5",
+      "strategy": "Focus on comprehensive content that AI Overview cannot fully cover. Target long-tail variations and detailed processes that require full article context."
+    }
+  },
+  "e_e_a_t_signals_competitive_analysis": {
+    "experience_signals": {
+      "heinshof.de": "Strong - mentions Linda Naeve, decades of experience",
+      "ehorses.de": "Moderate - platform authority but no personal expertise highlighted",
+      "pferde.de": "Weak - pure marketplace, no experience signals",
+      "opportunity": "Include personal stories, case studies, seller testimonials to differentiate"
+    },
+    "expertise_signals": {
+      "ehorses.de": "Strong - comprehensive pricing data, legal templates",
+      "focus.de": "Moderate - publisher authority",
+      "horsecare24.de": "Unknown - likely has legal expertise based on title",
+      "opportunity": "Demonstrate equestrian industry expertise, reference certifications, cite industry data"
+    },
+    "authoritativeness_signals": {
+      "ehorses.de": "Very strong - market leader, featured snippet owner",
+      "focus.de": "Very strong - major German publisher",
+      "pferde.de": "Strong - large marketplace",
+      "opportunity": "Build authority through comprehensive guides, external citations, backlinks from equestrian organizations"
+    },
+    "trustworthiness_signals": {
+      "heinshof.de": "Strong - ethical policies, animal welfare priority",
+      "ehorses.de": "Moderate - platform trust, legal templates",
+      "opportunity": "Add trust elements: transparent pricing methodology, no hidden fees messaging, ethical selling guidelines, security/fraud prevention"
+    }
+  },
+  "technical_serp_insights": {
+    "serp_stability": "High - marketplaces (ehorses.de, pferde.de) dominate top 3 consistently",
+    "rank_volatility": "Low for positions 1-5, moderate for 6-10",
+    "new_entrant_difficulty": "Medium - positions 4-7 appear achievable for comprehensive informational content",
+    "marketplace_vs_informational": "Marketplaces own top 3, informational content fills 4-10",
+    "content_format_preference": "Mixed - Google shows both transactional and informational intent"
+  }
+}

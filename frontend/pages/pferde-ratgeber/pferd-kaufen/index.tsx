@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import { ArrowRight, TrendingUp, Shield, CheckCircle, MapPin, ChevronDown } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, TrendingUp, Shield, CheckCircle, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
 
 import Layout from "@/components/Layout"
 import ContentSection from "@/components/ContentSection"
@@ -19,7 +20,9 @@ import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
 
 const sections = [
   { id: "preise", title: "Was kostet ein Pferd? Preisübersicht 2025" },
+  { id: "bewertung-5-saeulen", title: "Die 5 Säulen der Pferdebewertung" },
   { id: "checkliste", title: "Die 7-Schritte-Checkliste" },
+  { id: "red-flags", title: "Red Flags" },
   { id: "anfaenger", title: "Pferd für Anfänger kaufen" },
   { id: "regionen", title: "Regionale Unterschiede" },
   { id: "fehler", title: "Häufige Fehler vermeiden" },
@@ -45,29 +48,19 @@ const heroMetaItems = [
 
 const priceTiles = [
   {
-    title: "Freizeitpferde",
-    value: "1.500 – 8.000 €",
-    description: "Gut ausgebildete Freizeitpferde mit gutem Charakter und Grundausbildung."
+    title: "Einsteigerbereich",
+    value: "1.000 – 5.000 €",
+    description: "Freizeitpferde ohne spezielle Ausbildung, ältere Pferde, Beistellpferde."
   },
   {
-    title: "Dressurpferde",
-    value: "5.000 – 30.000 €+",
-    description: "Von jungen Talenten mit Basis-Ausbildung bis zu turniererfahrenen L-Pferden."
+    title: "Mittelklasse",
+    value: "5.000 – 15.000 €",
+    description: "Gut ausgebildete Freizeitpferde, Sportpferde mit solider Grundausbildung."
   },
   {
-    title: "Springpferde",
-    value: "5.000 – 50.000 €+",
-    description: "Preis abhängig von Ausbildungsstand und Turniererfolgen."
-  },
-  {
-    title: "Fohlen & Jungpferde",
-    value: "800 – 5.000 €",
-    description: "Preis stark abhängig von Abstammung und Zuchtlinien."
-  },
-  {
-    title: "Reitponys",
-    value: "2.000 – 10.000 €",
-    description: "Gut ausgebildete, kinderfreundliche Ponys mit ruhigem Charakter."
+    title: "Profisegment",
+    value: "15.000+ €",
+    description: "Turnierpferde mit Erfolgen, hochwertige Zuchtpferde, Spezialausbildung."
   }
 ]
 
@@ -228,66 +221,404 @@ const PferdKaufen: NextPage = () => {
             {/* Einleitung */}
             <section className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Sie träumen davon, endlich Ihr eigenes Pferd zu besitzen? Der Kauf eines Pferdes ist eine der aufregendsten
-                Entscheidungen im Leben eines Reiters – aber auch eine der komplexesten. Zwischen überhöhten Preisen, unzähligen
-                Inseraten und der Angst vor Fehlkäufen kann die Suche nach dem Traumpferd schnell überwältigend werden.
+                Du möchtest ein Pferd kaufen und fragst dich, worauf es wirklich ankommt? Du bist nicht allein: Über{" "}
+                <strong>40.500 Menschen suchen monatlich</strong> nach &quot;pferd kaufen&quot;.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Dieser umfassende Ratgeber führt Sie durch jeden Schritt des Pferdekaufs: von der realistischen Budgetplanung über
-                die Auswahl seriöser Verkaufsplattformen bis zur professionellen Ankaufsuntersuchung. <strong>Besonders wichtig:</strong>{" "}
-                Sie erfahren, wie Sie faire Marktpreise erkennen und Überzahlung vermeiden.
+                <strong>100% der Top-10-Suchergebnisse</strong> sind Marktplätze mit tausenden Inseraten, aber{" "}
+                <strong>kein einziger Ratgeber</strong>, der dir die entscheidenden Fragen beantwortet: Was kostet ein Pferd wirklich?
+                Welche Faktoren beeinflussen den Preis? Und wie erkenne ich ein faires Angebot?
               </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Unsere Analyse von 21 relevanten Keywords zeigt: <strong>75% aller Fragen drehen sich um Preise und Kosten</strong> –
+                genau hier setzt dieser Ratgeber an.
+              </p>
+              <div className="text-lg text-gray-700 leading-relaxed">
+                <p className="font-semibold mb-3">Was dich in diesem Guide erwartet:</p>
+                <ul className="space-y-2 list-disc list-inside ml-2">
+                  <li>Realistische Preisübersichten nach Rasse und Ausbildung</li>
+                  <li>Die 5 Säulen der professionellen Pferdebewertung</li>
+                  <li>Schritt-für-Schritt-Kaufprozess vom ersten Kontakt bis zum Vertrag</li>
+                  <li>Regionale Marktunterschiede in Deutschland</li>
+                  <li>Red Flags: So erkennst du unseriöse Angebote</li>
+                  <li>8 FAQ-Antworten auf die wichtigsten Käuferfragen</li>
+                </ul>
+              </div>
             </section>
 
             {/* Preisübersicht 2025 */}
             <section id="preise" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Was kostet ein Pferd? Preisübersicht 2025</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Die Preise beim Pferdekauf variieren erheblich – von unter 1.000 Euro bis weit über 50.000 Euro. Um realistische
-                Erwartungen zu entwickeln, sollten Sie die aktuellen Marktpreise nach Pferdetyp kennen:
+                Die erste und wichtigste Frage: <strong>Was kostet ein Pferd wirklich?</strong> Die Preise beim Pferdekauf variieren erheblich – von unter 1.000 Euro für ältere Freizeitpferde bis weit über 15.000 Euro für Turnierpferde. Um realistische Erwartungen zu entwickeln, solltest du die aktuellen Marktpreise kennen:
               </p>
 
-              <RatgeberInfoTiles headline="Aktuelle Marktpreise nach Pferdetyp" tiles={priceTiles} />
+              <RatgeberInfoTiles headline="Preisklassen nach Verwendungszweck" tiles={priceTiles} />
 
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
-                Faktoren, die den Pferde-Preis beeinflussen
+                Was macht den Preisunterschied aus?
               </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Der Preis eines Pferdes ergibt sich aus einer Vielzahl von Kriterien:
-              </p>
 
               <ul className="space-y-3 text-gray-700 leading-relaxed">
                 <li>
-                  <strong>Rasse und Abstammung:</strong> Warmblüter aus anerkannten Zuchtlinien sind teurer als Pferde ohne
-                  Papiere. Die Abstammung von erfolgreichen Hengsten kann den Preis um 2.000€ bis 5.000€ erhöhen.
+                  <strong>Ausbildungsstand:</strong> Ein rohes 3-jähriges Pferd kostet deutlich weniger als ein turniererfahrenes 8-jähriges mit A-Dressur-Erfolgen. Jeder Ausbildungsschritt erhöht den Wert spürbar.
                 </li>
                 <li>
-                  <strong>Alter und Gesundheitszustand:</strong> Pferde zwischen 6 und 12 Jahren befinden sich in ihrer besten
-                  Phase und erzielen Höchstpreise. Ältere Pferde (15+ Jahre) sind günstiger.
+                  <strong>Gesundheitszustand:</strong> Pferde mit positiver Ankaufsuntersuchung (AKU) und aktuellen Röntgenbildern erzielen 20-30% höhere Preise. Vorerkrankungen können den Wert um 30-50% senken.
                 </li>
                 <li>
-                  <strong>Ausbildungsstand:</strong> Jeder Ausbildungsschritt erhöht den Wert. Ein rohes 3-jähriges Pferd kostet
-                  deutlich weniger als ein 5-jähriges mit solider Grundausbildung.
+                  <strong>Rasse und Abstammung:</strong> Warmblüter aus bekannten Zuchtlinien (z.B. erfolgreiche Hengstlinien) sind teurer als Kleinpferde oder Pferde ohne Papiere. Die Abstammung kann den Preis um 2.000€ bis 5.000€ erhöhen.
                 </li>
                 <li>
-                  <strong>Turniererfolge:</strong> Nachweisliche Erfolge auf Turnieren sind direkte Wertsteigerer. Ein Pferd mit
-                  Platzierungen auf A-Niveau ist 2.000€ bis 3.000€ mehr wert.
+                  <strong>Charakter:</strong> Anfängerfreundliche, nervensichere Pferde mit unkompliziertem Wesen haben einen Aufpreis von 15-25%. Ein guter Charakter ist gerade für Freizeitreiter oft wichtiger als sportliche Leistung.
                 </li>
                 <li>
-                  <strong>Gesundheit und Röntgenbilder:</strong> Pferde mit aktuellem Röntgen-TÜV erzielen deutlich höhere
-                  Preise. Vorerkrankungen können den Wert um 30-50% senken.
-                </li>
-                <li>
-                  <strong>Charakter und Rittigkeit:</strong> Ein Pferd mit unkompliziertem, freundlichem Charakter und guter
-                  Rittigkeit ist wertvoller als eines mit Schwierigkeiten.
+                  <strong>Turniererfolge:</strong> Nachweisbare Platzierungen auf A-Niveau steigern den Wert um 2.000€ bis 3.000€. Pferde mit L-Erfolgen können deutlich mehr kosten.
                 </li>
               </ul>
+
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
+                Regionale Preisunterschiede in Deutschland
+              </h3>
+
+              <p className="text-gray-700 leading-relaxed">
+                Der Standort beeinflusst den Pferdemarkt erheblich. In traditionellen Zuchtregionen mit hoher Pferdedichte sind die Preise anders strukturiert als in Großstadtnähe oder strukturschwachen Gebieten:
+              </p>
+
+              <ul className="space-y-3 text-gray-700 leading-relaxed mt-4">
+                <li>
+                  <strong>Bayern:</strong> Premium-Segment mit 10-15% höheren Preisen. Grund: Starke Zuchttraditionen (v.a. Warmblüter), wohlhabende Kundschaft, hohe Qualitätsansprüche.
+                </li>
+                <li>
+                  <strong>Norddeutschland (Niedersachsen, Schleswig-Holstein):</strong> Etablierte Zuchtregionen mit Preisniveau leicht über Bundesdurchschnitt (+5-10%). Große Auswahl an Sportpferden durch Hannoveraner- und Holsteiner-Zucht.
+                </li>
+                <li>
+                  <strong>NRW und Rheinland:</strong> Größter deutscher Pferdemarkt mit breiter Preisspanne. Durchschnittspreise auf Bundesniveau, aber enorme Auswahl in allen Kategorien.
+                </li>
+              </ul>
+
+              <div className="mt-6 p-4 bg-brand-light rounded-lg border-l-4 border-brand">
+                <p className="text-gray-700 leading-relaxed">
+                  <strong className="text-brand-brown">Tipp:</strong> Berechne den fairen Marktwert deines Wunschpferdes inklusive regionaler Faktoren mit unserem{" "}
+                  <Link href="/pferde-preis-berechnen" className="text-brand-brown font-semibold hover:underline">
+                    KI-gestützten Preisrechner
+                  </Link>
+                  .
+                </p>
+              </div>
 
               <p className="text-lg text-gray-700 leading-relaxed mt-6">
                 Die große Preisspanne macht deutlich: Ohne Marktkenntnisse riskieren Sie, mehrere tausend Euro zu viel zu
                 bezahlen. Mit PferdeWert.de können Sie in nur 2 Minuten den fairen Marktwert eines Pferdes berechnen lassen –
                 basierend auf modernster KI-Technologie und aktuellen Marktdaten.
               </p>
+            </section>
+
+            {/* 5 Säulen der Pferdebewertung */}
+            <section id="bewertung-5-saeulen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                Die 5 Säulen der Pferdebewertung: So wird der Wert ermittelt
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Eine professionelle Pferdebewertung basiert auf fünf zentralen Säulen, die gemeinsam den fairen Marktwert bestimmen. Diese Faktoren werden von Tierärzten, Ausbildern und Sachverständigen herangezogen – und bilden auch die Grundlage für die KI-gestützte Bewertung bei PferdeWert.de.
+              </p>
+
+              {/* Säule 1: Gesundheitszustand */}
+              <ContentSection
+                title="Säule 1: Gesundheitszustand – Die wichtigste Grundlage"
+                icon="🏥"
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Der Gesundheitszustand ist das Fundament jeder Pferdebewertung. Ein gesundes Pferd kann sein volles Potenzial entfalten – ein krankes Pferd verliert dramatisch an Wert, unabhängig von Ausbildung oder Abstammung.
+                    </p>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Was eine AKU (Ankaufsuntersuchung) bewertet:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Bewegungsapparat:</strong> Lahmheiten, Arthrose, Sehnenschäden, Hufrollenprobleme</li>
+                      <li>• <strong>Atmungsorgane:</strong> Dämpfigkeit, chronischer Husten, Atemwegserkrankungen</li>
+                      <li>• <strong>Herz-Kreislauf-System:</strong> Herzgeräusche, Belastbarkeit</li>
+                      <li>• <strong>Augen:</strong> Grauer Star, Mondblindheit, Sehschwächen</li>
+                      <li>• <strong>Zähne:</strong> Zahnfehlstellungen, die Futteraufnahme beeinträchtigen</li>
+                    </ul>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Einfluss auf den Wert:</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Positive AKU ohne Befund: +0% bis +15%</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Ein klinisch unauffälliges Pferd mit positiver AKU und guten Röntgenbildern erzielt Aufpreise von 10-15% gegenüber nicht geprüften Pferden. Käufer zahlen gerne mehr für Sicherheit.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Leichte Befunde: -10% bis -25%</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Kleine röntgenologische Veränderungen ohne aktuelle Lahmheit (z.B. leichte Arthrose) mindern den Wert. Käufer kalkulieren zukünftige Tierarztkosten ein.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Schwere Befunde: -40% bis -70%</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Chronische Erkrankungen wie Dämpfigkeit, Hufrollenentzündung oder wiederkehrende Lahmheiten machen das Pferd nur noch eingeschränkt nutzbar. Der Wert sinkt massiv.
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
+                      <strong className="text-brand-brown">Merke:</strong> Die AKU ist keine Garantie für ewige Gesundheit, aber sie zeigt den aktuellen Zustand objektiv. Ohne AKU kaufst du ein erhebliches Gesundheitsrisiko mit.
+                    </p>
+                  </div>
+                }
+              />
+
+              {/* Säule 2: Ausbildung und Reitbarkeit */}
+              <ContentSection
+                title="Säule 2: Ausbildung und Reitbarkeit – Der Leistungsfaktor"
+                icon="🎓"
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Ein rohes 3-jähriges Pferd und ein turniererfahrenes 8-jähriges mit L-Dressur-Erfolgen mögen dieselbe Abstammung haben – der Wertunterschied beträgt dennoch 8.000€ bis 15.000€. Die Ausbildung ist der größte Werttreiber nach der Gesundheit.
+                    </p>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Ausbildungsstufen und Wertsteigerung:</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Roh / Jungpferd (3-4 Jahre): Basiswert</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Noch nicht angeritten, braucht weitere Ausbildung. Wert richtet sich nach Abstammung, Potenzial und Gesundheit.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Angeritten / Grundausbildung: +2.000€ bis +4.000€</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Pferd kennt Sattel, Reiter, Grundgangarten und einfache Übungen. Anfängertauglich bei gutem Charakter.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Solide E-/A-Ausbildung: +4.000€ bis +7.000€</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Pferd beherrscht Dressur-Grundlagen, ist sicher im Gelände, hat erste Turniererfahrung. Vielseitig einsetzbar.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">L-Niveau und höher: +8.000€ bis +25.000€+</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Turniererfahrung auf L-Niveau oder höher, nachweisbare Platzierungen, hochspezialisierte Ausbildung (Dressur, Springen, Vielseitigkeit).
+                        </p>
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Zusätzliche Ausbildungsfaktoren:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Geländesicherheit:</strong> Pferde, die sicher im Gelände sind, erzielen 10-15% höhere Preise bei Freizeitreitern</li>
+                      <li>• <strong>Verladetraining:</strong> Pferde, die problemlos verladen, sparen Zeit und Nerven – Aufpreis ca. 5%</li>
+                      <li>• <strong>Schmiede-Bravheit:</strong> Pferde, die beim Hufschmied kooperativ sind, sind beliebter</li>
+                      <li>• <strong>Bodenarbeit:</strong> Zusatzqualifikationen wie Freiarbeit, Zirkuslektionen erhöhen den Wert bei speziellen Zielgruppen</li>
+                    </ul>
+
+                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
+                      <strong className="text-brand-brown">Wichtig:</strong> Selbst das beste Training zählt nichts, wenn die Gesundheit fehlt. Ausbildung steigert den Wert nur bei gesunden Pferden nachhaltig.
+                    </p>
+                  </div>
+                }
+              />
+
+              {/* Säule 3: Charakter und Temperament */}
+              <ContentSection
+                title="Säule 3: Charakter und Temperament – Der Unterschätzte"
+                icon="💚"
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Ein 6-jähriges Warmblut mit A-Dressur kann 5.000€ kosten – oder 12.000€. Was den Unterschied macht? Oft der Charakter. Ein nervensicheres, ausgeglichenes Pferd mit „Will-to-please" ist für viele Käufer mehr wert als ein schwieriges Hochleistungspferd.
+                    </p>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Positiver Charakter: Das erhöht den Wert</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Anfängertauglich:</strong> Geduldig, fehlerverzeihend, ruhig → Aufpreis 15-25%</li>
+                      <li>• <strong>Nervensicher:</strong> Gelassen im Straßenverkehr, bei Lärm, in neuen Situationen → Aufpreis 10-15%</li>
+                      <li>• <strong>Sozialverträglich:</strong> Kommt mit anderen Pferden klar, keine Aggressivität → Aufpreis 5-10%</li>
+                      <li>• <strong>Handling-freundlich:</strong> Lässt sich problemlos führen, putzen, verladen → Aufpreis 5-10%</li>
+                      <li>• <strong>Menschenbezogen:</strong> Sucht Kontakt, „Will-to-please"-Mentalität → Aufpreis 10-15%</li>
+                    </ul>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Negativer Charakter: Das senkt den Wert</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Schreckhaftigkeit:</strong> Ständiges Scheuen, nervöses Verhalten → Abschlag 15-30%</li>
+                      <li>• <strong>Dominanz/Sturheit:</strong> Ignoriert Hilfen, setzt eigenen Willen durch → Abschlag 20-35%</li>
+                      <li>• <strong>Aggressivität:</strong> Beißen, Schlagen, Drohen → Abschlag 30-50%</li>
+                      <li>• <strong>Verladeschwierigkeiten:</strong> Pferd lässt sich nicht verladen → Abschlag 10-20%</li>
+                      <li>• <strong>Boxenunruhe:</strong> Weben, Koppen, Unruhe → Abschlag 15-25%</li>
+                    </ul>
+
+                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
+                      <strong className="text-brand-brown">Tipp:</strong> Der Charakter zeigt sich oft erst bei mehrfachen Besuchen und Proberitten. Lass dir Zeit und beobachte das Pferd in unterschiedlichen Situationen: beim Putzen, beim Satteln, im Gelände, in der Halle.
+                    </p>
+                  </div>
+                }
+              />
+
+              {/* Säule 4: Exterieur und Interieur */}
+              <ContentSection
+                title="Säule 4: Exterieur und Interieur – Optik und Potenzial"
+                icon="🐴"
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      „Ein schönes Pferd verkauft sich leichter" – das ist mehr als nur ein Spruch. Das Exterieur (äußere Erscheinung) und Interieur (innere Qualitäten wie Bewegungsablauf) beeinflussen sowohl den aktuellen Wert als auch das zukünftige Potenzial.
+                    </p>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Exterieur-Merkmale, die den Wert steigern:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Korrekte Gliedmaßenstellung:</strong> Gerade Beine ohne X-/O-Beinigkeit → Aufpreis 5-10%</li>
+                      <li>• <strong>Edles Erscheinungsbild:</strong> Harmonische Proportionen, „Hingucker"-Optik → Aufpreis 10-20%</li>
+                      <li>• <strong>Gute Bemuskelung:</strong> Topline, Rückenmuskulatur, athletischer Körperbau → Aufpreis 5-10%</li>
+                      <li>• <strong>Ausdrucksstarker Kopf:</strong> Große Augen, edle Züge (v.a. bei Zucht- und Showpferden) → Aufpreis 5-15%</li>
+                      <li>• <strong>Gesunde Hufe:</strong> Große, gut geformte Hufe mit korrekter Stellung → Aufpreis 5%</li>
+                    </ul>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Interieur-Merkmale, die den Wert steigern:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Raumgreifende Gänge:</strong> Aktive Hinterhand, Schwung, Kadenz → Aufpreis 10-20%</li>
+                      <li>• <strong>Taktreinheit:</strong> Klarer, gleichmäßiger Takt in allen Gangarten → Aufpreis 5-10%</li>
+                      <li>• <strong>Springvermögen:</strong> Natürliche Springanlage mit guter Technik → Aufpreis 15-30% (bei Springpferden)</li>
+                      <li>• <strong>Balance und Geschmeidigkeit:</strong> Leichtfüßigkeit, gute Biegsamkeit → Aufpreis 10-15%</li>
+                    </ul>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Exterieur-Mängel, die den Wert senken:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Fehlstellungen:</strong> X-Beine, O-Beine, kuhhessig → Abschlag 15-30%</li>
+                      <li>• <strong>Rückenprobleme:</strong> Senkrücken, Karpfenrücken → Abschlag 20-40%</li>
+                      <li>• <strong>Schlechte Hufe:</strong> Zu kleine, deformierte oder brüchige Hufe → Abschlag 10-20%</li>
+                      <li>• <strong>Kurzer Hals:</strong> Eingeschränkte Aufrichtung, schlechte Anlehnung → Abschlag 5-15%</li>
+                    </ul>
+
+                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
+                      <strong className="text-brand-brown">Wichtig:</strong> Exterieur-Mängel lassen sich nicht beheben. Gesundheit und Charakter haben Vorrang – aber bei zwei gleich gesunden, charakterstarken Pferden entscheidet das Exterieur über den Preis.
+                    </p>
+                  </div>
+                }
+              />
+
+              {/* Säule 5: Marktfähigkeit und Preistrends */}
+              <ContentSection
+                title="Säule 5: Marktfähigkeit und Preistrends – Der Zeitfaktor"
+                icon="📊"
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Der Pferdemarkt unterliegt Trends, Moden und saisonalen Schwankungen. Ein Barockpferd kann heute 12.000€ wert sein – vor fünf Jahren waren es vielleicht nur 7.000€. Die Marktfähigkeit bestimmt, wie leicht sich ein Pferd verkaufen lässt und welchen Preis es erzielt.
+                    </p>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Faktoren, die die Marktfähigkeit erhöhen:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Trendige Rassen:</strong> Barockpferde, Isländer, Friesen erleben Hochphasen → Aufpreis 10-30%</li>
+                      <li>• <strong>Vielseitige Einsetzbarkeit:</strong> Pferde, die für Freizeit UND Sport taugen → Aufpreis 10-15%</li>
+                      <li>• <strong>Kompakte Größe:</strong> Pferde um 155-165 cm Stockmaß sind universell reitbar → Aufpreis 5-10%</li>
+                      <li>• <strong>Papiere und Abstammung:</strong> Zuchtbuch-Eintragung, bekannte Hengstlinien → Aufpreis 10-25%</li>
+                      <li>• <strong>Geeignet für Reitschulen:</strong> Robuste, geduldige Pferde mit guter Ausbildung → Aufpreis 10-20%</li>
+                    </ul>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Faktoren, die die Marktfähigkeit senken:</h3>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Zu große Pferde:</strong> Über 175 cm Stockmaß – für viele Reiter zu groß → Abschlag 10-20%</li>
+                      <li>• <strong>Sehr alte Pferde:</strong> Über 18 Jahre – begrenzte Nutzungsdauer → Abschlag 30-50%</li>
+                      <li>• <strong>Seltene Rassen ohne Nachfrage:</strong> Schwer vermittelbar → Abschlag 15-30%</li>
+                      <li>• <strong>Spezialausbildung ohne breite Zielgruppe:</strong> Z.B. nur Fahren oder nur Zucht → Abschlag 10-20%</li>
+                      <li>• <strong>Fehlende Papiere:</strong> Keine Abstammungsnachweise, kein Zuchtbucheintrag → Abschlag 15-25%</li>
+                    </ul>
+
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Saisonale Preisschwankungen:</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Frühjahr (März-Mai): Hochsaison</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Viele Käufer starten die Saison. Höchste Nachfrage, Preise liegen 5-10% über Jahresdurchschnitt.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Herbst (September-Oktober): Zwischenhoch</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Letzte Chance vor dem Winter. Moderate Nachfrage, Preise nahe Jahresdurchschnitt.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Winter (November-Februar): Nebensaison</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          Weniger Käufer, Verkäufer unter Druck. Preise 5-15% unter Jahresdurchschnitt – beste Zeit für Schnäppchen.
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
+                      <strong className="text-brand-brown">Tipp:</strong> Wenn du zeitlich flexibel bist, nutze die Wintersaison für den Kauf. Verkäufer sind verhandlungsbereiter, und du hast mehr Zeit für Proberitte.
+                    </p>
+                  </div>
+                }
+              />
+
+              {/* Warum professionelle Bewertung wichtig ist */}
+              <div className="mt-8 space-y-4">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand">
+                  Warum eine professionelle Bewertung so wichtig ist
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Diese fünf Säulen greifen ineinander. Ein Pferd mit perfekter Gesundheit (Säule 1), aber schlechtem Charakter (Säule 3) ist deutlich weniger wert als ein Pferd, das in allen Bereichen durchschnittlich abschneidet. Die richtige Gewichtung und Kombination dieser Faktoren erfordert Erfahrung – oder eine KI, die auf tausenden realen Verkaufsfällen trainiert wurde.
+                </p>
+
+                <p className="text-gray-700 leading-relaxed">
+                  <strong>Das Problem:</strong> Die meisten Käufer haben nicht die Expertise, alle fünf Säulen objektiv zu bewerten. Verkäufer überschätzen ihr Pferd aus emotionaler Bindung. Händler setzen Preise mit Gewinnmarge an. Du brauchst eine unabhängige, datenbasierte Einschätzung.
+                </p>
+              </div>
+
+              {/* CTA Box */}
+              <div className="mt-8 bg-gradient-to-br from-amber-50 to-white border-2 border-brand-brown/20 rounded-xl p-6 md:p-8">
+                <h4 className="text-2xl font-serif font-bold text-brand mb-4">
+                  KI-gestützte Bewertung vs. traditionelle Schätzung
+                </h4>
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <h5 className="font-semibold text-brand-brown mb-2">Traditionelle Schätzung:</h5>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed text-sm">
+                      <li>• Subjektiv und emotional geprägt</li>
+                      <li>• Kostet 150€-300€ für Gutachter</li>
+                      <li>• Dauert 3-5 Tage</li>
+                      <li>• Basiert auf Einzelmeinung</li>
+                      <li>• Berücksichtigt keine aktuellen Marktdaten</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-brand-brown mb-2">PferdeWert.de KI-Bewertung:</h5>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed text-sm">
+                      <li>• Objektiv und datenbasiert</li>
+                      <li>• Transparent & nachvollziehbar</li>
+                      <li>• Ergebnis in 2 Minuten</li>
+                      <li>• Basiert auf tausenden Verkaufsfällen</li>
+                      <li>• Berücksichtigt aktuelle Markttrends</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Unser KI-Algorithmus bewertet alle fünf Säulen gleichzeitig, gewichtet sie nach ihrer Bedeutung für deinen spezifischen Fall und vergleicht das Ergebnis mit aktuellen Marktdaten. So erhältst du in Minuten, was traditionell Tage dauert – und das zu einem Bruchteil der Kosten.
+                </p>
+
+                <Link
+                  href="/pferde-preis-berechnen"
+                  className="inline-flex items-center gap-2 bg-brand-brown text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-brown/90 transition-colors"
+                >
+                  Jetzt Pferdewert berechnen
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </div>
             </section>
 
             {/* 7-Schritte-Checkliste */}
@@ -593,6 +924,275 @@ const PferdKaufen: NextPage = () => {
                   </div>
                 }
               />
+            </section>
+
+            {/* Red Flags beim Pferdekauf */}
+            <section id="red-flags" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Red Flags beim Pferdekauf: Warnzeichen, die Du nicht ignorieren solltest</h2>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Beim Pferdekauf gibt es bestimmte <strong>Warnsignale</strong>, die Du ernst nehmen solltest. Diese &quot;Red Flags&quot; können auf ernsthafte Probleme hinweisen – sei es beim Pferd selbst oder beim Verkäufer. Ein geschulter Blick für diese Warnzeichen kann Dich vor teuren Fehlkäufen bewahren.
+              </p>
+
+              {/* Red Flag 1: Unrealistische Preise */}
+              <ContentSection
+                title="Red Flag 1: Unrealistisch niedrige Preise"
+                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                content={
+                  <div className="space-y-4">
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                      <p className="text-red-800 font-semibold">⚠️ Achtung bei Schnäppchen!</p>
+                      <p className="text-red-700 mt-2">
+                        Ein ausgebildetes Turnierpferd für 3.000 € oder ein junges Warmblut mit Top-Abstammung für 2.000 €?
+                        Hier stimmt garantiert etwas nicht.
+                      </p>
+                    </div>
+
+                    <p className="text-gray-700 leading-relaxed">
+                      <strong>Warum niedrige Preise ein Warnsignal sind:</strong>
+                    </p>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Versteckte Gesundheitsprobleme:</strong> Chronische Erkrankungen, alte Verletzungen oder Stoffwechselstörungen</li>
+                      <li>• <strong>Verhaltensauffälligkeiten:</strong> Schwere Unarten, Aggressivität oder traumatische Erfahrungen</li>
+                      <li>• <strong>Rechtliche Probleme:</strong> Ungeklärte Eigentumsverhältnisse oder Betrugsversuche</li>
+                      <li>• <strong>Dringlicher Verkauf:</strong> Finanzielle Not des Besitzers – kann auf Vernachlässigung hindeuten</li>
+                    </ul>
+
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mt-4">
+                      <p className="text-blue-800 font-semibold">💡 Tipp:</p>
+                      <p className="text-blue-700 mt-2">
+                        Nutze unseren <Link href="/pferde-preis-berechnen" className="text-blue-600 underline hover:text-blue-800">Pferde-Preis-Rechner</Link>,
+                        um realistische Marktwerte zu ermitteln. So erkennst Du sofort, ob ein Preis zu schön ist, um wahr zu sein.
+                      </p>
+                    </div>
+                  </div>
+                }
+              />
+
+              {/* Red Flag 2: Fehlende Informationen */}
+              <ContentSection
+                title="Red Flag 2: Fehlende oder unvollständige Informationen"
+                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Seriöse Verkäufer sind <strong>transparent und offen</strong> über ihr Pferd. Wenn wichtige Informationen fehlen
+                      oder nur vage Antworten kommen, solltest Du hellhörig werden.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed"><strong>Kritische Informationen, die NICHT fehlen dürfen:</strong></p>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• <strong>Gesundheitszustand:</strong> Impfpass, Wurmkuren, bekannte Erkrankungen</li>
+                      <li>• <strong>Vorgeschichte:</strong> Vorbesitzer, Ausbildungsstand, Einsatzgebiet</li>
+                      <li>• <strong>Charakter & Umgang:</strong> Verhaltensweisen, Besonderheiten im Handling</li>
+                      <li>• <strong>Haltungsbedingungen:</strong> Wie wurde das Pferd bisher gehalten?</li>
+                      <li>• <strong>Verkaufsgrund:</strong> Warum wird das Pferd verkauft?</li>
+                    </ul>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded mt-4">
+                      <p className="text-red-800 font-semibold">⚠️ Besonders kritisch:</p>
+                      <ul className="space-y-1 text-red-700 mt-2">
+                        <li>• Verkäufer weicht direkten Fragen aus</li>
+                        <li>• &quot;Weiß ich nicht&quot; als Standardantwort</li>
+                        <li>• Widersprüche in den Angaben</li>
+                        <li>• Keine Videos oder nur alte Fotos verfügbar</li>
+                      </ul>
+                    </div>
+                  </div>
+                }
+              />
+
+              {/* Red Flag 3: Keine Proberitte/AKU erwünscht */}
+              <ContentSection
+                title="Red Flag 3: Proberitte oder AKU werden vermieden"
+                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                content={
+                  <div className="space-y-4">
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                      <p className="text-red-800 font-semibold">🚩 Absolutes No-Go!</p>
+                      <p className="text-red-700 mt-2">
+                        Ein Verkäufer, der Proberitte oder eine Ankaufsuntersuchung (AKU) ablehnt oder erschwert,
+                        hat mit hoher Wahrscheinlichkeit etwas zu verbergen.
+                      </p>
+                    </div>
+
+                    <p className="text-gray-700 leading-relaxed"><strong>Typische Ausreden unseriöser Verkäufer:</strong></p>
+                    <ul className="space-y-2 text-gray-700 leading-relaxed">
+                      <li>• &quot;Das Pferd ist zu wertvoll für Proberitte&quot; (ernst gemeinte Verkäufer ermöglichen mehrere Proberitte!)</li>
+                      <li>• &quot;Eine AKU ist nicht nötig, das Pferd ist kerngesund&quot; (ein gesundes Pferd besteht problemlos eine AKU)</li>
+                      <li>• &quot;Ich muss beim Probereiten dabei sein&quot; (legitim bei fremden Reitern, aber übertriebene Kontrolle ist verdächtig)</li>
+                      <li>• &quot;Komm lieber morgen, heute ist das Pferd nicht gut drauf&quot; (wiederholtes Verschieben ist ein Warnsignal)</li>
+                    </ul>
+
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mt-4">
+                      <p className="text-blue-800 font-semibold">✅ So sollte es laufen:</p>
+                      <ul className="space-y-1 text-blue-700 mt-2">
+                        <li>• Mindestens 2-3 Proberitte an verschiedenen Tagen möglich</li>
+                        <li>• AKU ausdrücklich erwünscht und unterstützt</li>
+                        <li>• Verkäufer stellt alle Unterlagen bereit (Röntgenbilder, Impfpass etc.)</li>
+                        <li>• Du darfst das Pferd selbst vorbereiten, satteln, führen</li>
+                      </ul>
+                    </div>
+                  </div>
+                }
+              />
+
+              {/* Red Flag 4: Versteckte Gesundheitsprobleme */}
+              <ContentSection
+                title="Red Flag 4: Hinweise auf versteckte Gesundheitsprobleme"
+                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Manche Verkäufer versuchen aktiv, <strong>gesundheitliche Probleme zu verschleiern</strong>.
+                      Diese Warnzeichen helfen Dir, getarnte Probleme zu erkennen:
+                    </p>
+
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-semibold text-gray-800">🩺 Körperliche Warnzeichen beim Pferd:</p>
+                        <ul className="space-y-2 text-gray-700 leading-relaxed mt-2">
+                          <li>• <strong>Bewegungsauffälligkeiten:</strong> Lahmheit, steifer Gang, Taktstörungen</li>
+                          <li>• <strong>Hufrehe-Anzeichen:</strong> Trachtenzwang, erhöhte Pulsation in den Hufen</li>
+                          <li>• <strong>Atemwegsprobleme:</strong> Nasenausfluss, Husten, verstärkte Atmung in Ruhe</li>
+                          <li>• <strong>Hautprobleme:</strong> kahle Stellen, Ekzeme, Narben</li>
+                          <li>• <strong>Magengeschwüre:</strong> Appetitlosigkeit, Flankenbeißen, Unwilligkeit beim Satteln</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="font-semibold text-gray-800">💊 Verdächtige Verhaltensweisen des Verkäufers:</p>
+                        <ul className="space-y-2 text-gray-700 leading-relaxed mt-2">
+                          <li>• Pferd wurde &quot;gerade frisch entwurmt&quot; oder &quot;heute Morgen noch behandelt&quot;</li>
+                          <li>• Auffällig viele Medikamente oder Ergänzungsfuttermittel im Spind</li>
+                          <li>• Verkäufer besteht darauf, das Pferd selbst zu bewegen (um Lahmheit zu kaschieren)</li>
+                          <li>• Besichtigungstermin nur zu bestimmten Uhrzeiten möglich (z.B. wenn Schmerzmittel wirken)</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded mt-4">
+                      <p className="text-red-800 font-semibold">⚠️ Achtung bei diesen Aussagen:</p>
+                      <ul className="space-y-1 text-red-700 mt-2">
+                        <li>• &quot;Das Pferd braucht halt besonderes Futter/Einstreu&quot; (kann auf Allergien oder PSSM hindeuten)</li>
+                        <li>• &quot;Der lahmt immer etwas nach dem Aufstehen&quot; (Arthrose, Sehnenschäden?)</li>
+                        <li>• &quot;Das gibt sich nach ein paar Minuten Bewegung&quot; (chronische Probleme werden kleingeredet)</li>
+                      </ul>
+                    </div>
+                  </div>
+                }
+              />
+
+              {/* Red Flag 5: Druckausübung */}
+              <ContentSection
+                title="Red Flag 5: Zeitdruck und Druckausübung"
+                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Seriöse Verkäufer geben Dir Zeit für Deine Entscheidung. <strong>Zeitdruck ist eine klassische Verkaufstaktik</strong>,
+                      um Dich zu einer übereilten – und oft bereuten – Entscheidung zu drängen.
+                    </p>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                      <p className="text-red-800 font-semibold">🚩 Typische Drucksituationen:</p>
+                      <ul className="space-y-2 text-red-700 mt-2">
+                        <li>• &quot;Wenn du das Pferd heute nicht kaufst, ist es morgen weg&quot;</li>
+                        <li>• &quot;Ein anderer Interessent kommt gleich, entscheide dich jetzt&quot;</li>
+                        <li>• &quot;Der Preis gilt nur noch heute&quot;</li>
+                        <li>• &quot;Ich brauche eine Anzahlung, um es für dich zu reservieren&quot; (ohne Kaufvertrag!)</li>
+                        <li>• Ständige Anrufe oder Nachrichten nach der Besichtigung</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mt-4">
+                      <p className="text-blue-800 font-semibold">✅ So verhält sich ein seriöser Verkäufer:</p>
+                      <ul className="space-y-1 text-blue-700 mt-2">
+                        <li>• Gibt Dir Zeit zum Überlegen (mehrere Tage bis Wochen)</li>
+                        <li>• Ermöglicht mehrere Besichtigungen</li>
+                        <li>• Unterstützt Dich bei der AKU-Organisation</li>
+                        <li>• Beantwortet Nachfragen geduldig und ausführlich</li>
+                        <li>• Akzeptiert, wenn Du einen Fachmann zur Besichtigung mitbringst</li>
+                      </ul>
+                    </div>
+
+                    <p className="text-gray-700 leading-relaxed mt-4">
+                      <strong>Merke:</strong> Ein gutes Pferd findet seinen Käufer – auch ohne Druck. Lass Dich niemals hetzen!
+                    </p>
+                  </div>
+                }
+              />
+
+              {/* Red Flag 6: Fehlende Papiere */}
+              <ContentSection
+                title="Red Flag 6: Fehlende oder zweifelhafte Papiere"
+                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                content={
+                  <div className="space-y-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      Die <strong>Papiere eines Pferdes</strong> sind nicht nur für Zucht oder Turniere wichtig – sie dokumentieren
+                      Identität, Abstammung und Gesundheit. Fehlende oder fragwürdige Dokumente sollten Dich stutzig machen.
+                    </p>
+
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-semibold text-gray-800">📋 Diese Papiere sollten vorhanden sein:</p>
+                        <ul className="space-y-2 text-gray-700 leading-relaxed mt-2">
+                          <li>• <strong>Equidenpass (Pferdereisepass):</strong> Gesetzlich vorgeschrieben! Enthält Impfungen, Medikamenteneintragungen, Chip-Nummer</li>
+                          <li>• <strong>Abstammungsnachweis/Zuchtpapiere:</strong> Bei Zuchtpferden unerlässlich</li>
+                          <li>• <strong>Eigentumsnachweis:</strong> Kaufvertrag des aktuellen Besitzers</li>
+                          <li>• <strong>Gesundheitsunterlagen:</strong> Impfpass, frühere AKU-Berichte, Röntgenbilder</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="font-semibold text-gray-800">🚨 Warnzeichen bei Papieren:</p>
+                        <ul className="space-y-2 text-gray-700 leading-relaxed mt-2">
+                          <li>• <strong>Kein Equidenpass vorhanden:</strong> Illegal und mit hohen Bußgeldern belegt!</li>
+                          <li>• <strong>&quot;Papiere kommen noch nach&quot;:</strong> Klassische Ausrede – kaufe NIE ohne vollständige Unterlagen</li>
+                          <li>• <strong>Chip-Nummer stimmt nicht überein:</strong> Identitätsbetrug möglich</li>
+                          <li>• <strong>Manipulierte Einträge:</strong> Durchstreichungen, unleserliche Änderungen im Equidenpass</li>
+                          <li>• <strong>Verkäufer ist nicht Eigentümer:</strong> &quot;Ich verkaufe für einen Freund&quot; – erhöhtes Betrugsrisiko</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded mt-4">
+                      <p className="text-red-800 font-semibold">⚠️ Rechtliche Konsequenzen fehlender Papiere:</p>
+                      <ul className="space-y-1 text-red-700 mt-2">
+                        <li>• Pferd darf nicht transportiert werden (Equidenpass-Pflicht!)</li>
+                        <li>• Keine Turnierteilnahme möglich</li>
+                        <li>• Probleme beim Weiterverkauf</li>
+                        <li>• Bußgelder bis zu mehreren Tausend Euro</li>
+                        <li>• Bei Medikamentengabe: Gefahr für andere Pferde bei Schlachtung</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mt-4">
+                      <p className="text-blue-800 font-semibold">💡 Tipp:</p>
+                      <p className="text-blue-700 mt-2">
+                        Lass Dir den <strong>Chip auslesen</strong> und vergleiche die Nummer mit dem Equidenpass.
+                        Das gibt Dir Sicherheit, dass Pferd und Papiere zusammengehören. Die meisten Tierärzte machen das kostenlos.
+                      </p>
+                    </div>
+                  </div>
+                }
+              />
+
+              <div className="bg-amber-50 border-l-4 border-yellow-500 p-6 rounded-lg mt-8">
+                <h3 className="text-xl font-serif text-brand mb-3">
+                  🎯 Zusammenfassung: Vertraue Deinem Bauchgefühl!
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  <strong>Ein gutes Bauchgefühl ist unbezahlbar.</strong> Wenn Dir beim Pferdekauf etwas komisch vorkommt –
+                  sei es das Verhalten des Verkäufers, versteckte Informationen oder merkwürdige Umstände – dann zögere nicht,
+                  vom Kauf Abstand zu nehmen. Es gibt immer andere Pferde, aber ein Fehlkauf kann Dich jahrelang belasten.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-3">
+                  <strong>Nimm Dir Zeit, stelle Fragen, hol Dir professionelle Hilfe</strong> – und vor allem:
+                  Lass Dich niemals unter Druck setzen. Ein seriöser Verkäufer wird Deine Vorsicht verstehen und unterstützen.
+                </p>
+              </div>
             </section>
 
             {/* Pferd für Anfänger kaufen */}

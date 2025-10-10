@@ -1,0 +1,215 @@
+{
+  "primary_keyword": "AKU Pferd",
+  "analyzed_at": "2025-10-10T08:44:24.657926Z",
+  "total_keywords_analyzed": 31,
+  "top_keywords": [
+    {
+      "keyword": "aku pferd",
+      "search_volume": 480,
+      "cpc": 4.22,
+      "relevance_score": 6.87,
+      "similarity": 1.0,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 2
+    },
+    {
+      "keyword": "aku pferd kosten",
+      "search_volume": 260,
+      "cpc": 4.65,
+      "relevance_score": 5.14,
+      "similarity": 0.667,
+      "word_overlap": 2,
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd 2018",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.7,
+      "similarity": 0.783,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd kurz",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.7,
+      "similarity": 0.783,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd klein",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.5,
+      "similarity": 0.75,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd große",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.5,
+      "similarity": 0.75,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd kleine",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.5,
+      "similarity": 0.75,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd pferd",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.5,
+      "similarity": 0.75,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd dauer",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.5,
+      "similarity": 0.75,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd inhalt",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.5,
+      "similarity": 0.75,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd alte got",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.26,
+      "similarity": 0.71,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 4
+    },
+    {
+      "keyword": "aku pferd wie oft",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.26,
+      "similarity": 0.71,
+      "word_overlap": 2,
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 4
+    },
+    {
+      "keyword": "aku pferd röntgen",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.26,
+      "similarity": 0.71,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd template",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.26,
+      "similarity": 0.71,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd tierarzt",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.26,
+      "similarity": 0.71,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd verkauf",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.26,
+      "similarity": 0.71,
+      "word_overlap": 2,
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd kosten 2024",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 4.02,
+      "similarity": 0.67,
+      "word_overlap": 2,
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 4
+    },
+    {
+      "keyword": "aku pferd was ist das",
+      "search_volume": 10,
+      "cpc": null,
+      "relevance_score": 3.9,
+      "similarity": 0.65,
+      "word_overlap": 2,
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 5
+    }
+  ],
+  "cluster_distribution": {
+    "General": 14,
+    "Commercial": 2,
+    "Informational": 2
+  },
+  "statistics": {
+    "avg_search_volume": 50,
+    "avg_cpc": 4.44,
+    "avg_relevance_score": 4.55
+  }
+}

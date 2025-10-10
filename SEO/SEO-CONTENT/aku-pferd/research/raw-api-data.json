@@ -1,0 +1,502 @@
+{
+  "primary_keyword": "AKU Pferd",
+  "collected_at": "2025-10-10T17:04:00Z",
+  "parameters": {
+    "depth": 2,
+    "limit": 30,
+    "location": "Germany",
+    "language": "de",
+    "note": "Enhanced parameters for ≥30 keyword threshold"
+  },
+  "api_calls": {
+    "keyword_overview": {
+      "status": "success",
+      "data": {
+        "keyword": "aku pferd",
+        "search_volume": 480,
+        "cpc": 4.22,
+        "competition": 0.03,
+        "competition_level": "LOW",
+        "search_intent": "commercial",
+        "monthly_searches": {
+          "2025-08": 390,
+          "2025-07": 390,
+          "2025-06": 390,
+          "2025-05": 390,
+          "2025-04": 390,
+          "2025-03": 480,
+          "2025-02": 390,
+          "2025-01": 480,
+          "2024-12": 390,
+          "2024-11": 480,
+          "2024-10": 590,
+          "2024-09": 590
+        },
+        "search_volume_trend": {
+          "yearly": -34
+        }
+      }
+    },
+    "related_keywords": {
+      "status": "success",
+      "count": 15,
+      "parameters": {
+        "depth": 2,
+        "limit": 30
+      },
+      "data": [
+        {
+          "keyword": "aku pferd",
+          "search_volume": 480,
+          "cpc": 4.22,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "related_keywords": [
+            "kleine aku pferd preis",
+            "kosten aku pferd 2024",
+            "kosten aku pferd neue got",
+            "aku pferd sinnvoll",
+            "aku pferd kosten",
+            "kosten aku pferd 2025",
+            "große aku pferd inhalt",
+            "wer zahlt aku pferd"
+          ]
+        },
+        {
+          "keyword": "aku pferd kosten",
+          "search_volume": 260,
+          "cpc": 4.65,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kosten aku pferd 2024",
+          "search_volume": 140,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kosten aku pferd neue got",
+          "search_volume": 140,
+          "cpc": 2.49,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kleine aku pferd preis",
+          "search_volume": 90,
+          "cpc": 5.0,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kosten aku pferd 2025",
+          "search_volume": 50,
+          "cpc": 4.96,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "große aku pferd inhalt",
+          "search_volume": 50,
+          "cpc": 6.97,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "wer zahlt aku pferd",
+          "search_volume": 40,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd sinnvoll",
+          "search_volume": 30,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd röntgen",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd klein",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd 2018",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd inhalt",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd pferd",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd wie oft",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        }
+      ]
+    },
+    "keyword_suggestions": {
+      "status": "success",
+      "count": 30,
+      "parameters": {
+        "limit": 30
+      },
+      "data": [
+        {
+          "keyword": "aku pferd kosten",
+          "search_volume": 260,
+          "cpc": 4.65,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kosten aku pferd 2024",
+          "search_volume": 140,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kosten aku pferd neue got",
+          "search_volume": 140,
+          "cpc": 2.49,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kleine aku pferd preis",
+          "search_volume": 90,
+          "cpc": 5.0,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "kosten aku pferd 2025",
+          "search_volume": 50,
+          "cpc": 4.96,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "große aku pferd inhalt",
+          "search_volume": 50,
+          "cpc": 6.97,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "wer zahlt aku pferd",
+          "search_volume": 40,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd sinnvoll",
+          "search_volume": 30,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd röntgen",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd klein",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd 2018",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd inhalt",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd pferd",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd wie oft",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd alte got",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd dauer",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd große",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd kleine",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd kosten 2024",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd kurz",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd nach kaufen",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd notwendig",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd privat kaufen",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd rücken",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd template",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd tierarzt",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd verkauf",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd versicherung",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd was ist das",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "aku pferd was wird gemacht",
+          "search_volume": 10,
+          "cpc": null,
+          "competition_level": null,
+          "search_intent": "commercial"
+        }
+      ]
+    },
+    "serp_analysis": {
+      "status": "success",
+      "date": "2025-10-10",
+      "top_10_results": [
+        {
+          "type": "ai_overview",
+          "rank_group": 1,
+          "description": "Eine Ankaufsuntersuchung (AKU) für ein Pferd umfasst verschiedene Untersuchungen, Kosten und hat bestimmte Ziele..."
+        },
+        {
+          "type": "organic",
+          "rank_group": 1,
+          "rank_absolute": 1,
+          "title": "Ankaufsuntersuchung Pferd: Kosten, Ablauf + große vs. kleine AKU",
+          "url": "https://www.pferde.de/magazin/pferdegesundheit/ankaufsuntersuchung-pferd/",
+          "domain": "pferde.de",
+          "description": "AKU Pferd: ✓ große AKU ✓ kleine AKU ✓ Kosten ✓ Ablauf ✓ Inhalt ✓ Röntgenbilder ► Jetzt informieren und gut vorbereitet sein!"
+        },
+        {
+          "type": "organic",
+          "rank_group": 2,
+          "rank_absolute": 2,
+          "title": "Ankaufsuntersuchung (AKU) beim Pferd | tiergesund.de",
+          "url": "https://www.tiergesund.de/pferdekrankheiten/ankaufsuntersuchung-aku-beim-pferd/",
+          "domain": "tiergesund.de",
+          "description": "Was ist eine Ankaufsuntersuchung bei Pferden? ... Die Ankaufsuntersuchung (kurz AKU) beim Pferd ist eine tierärztliche Untersuchung, die vor dem Kauf durchgeführt..."
+        },
+        {
+          "type": "organic",
+          "rank_group": 3,
+          "rank_absolute": 3,
+          "title": "Ratgeber Ankaufsuntersuchung beim Pferd - Pferdeklinik Tillysburg",
+          "url": "https://www.pferdeklinik-tillysburg.de/aku-pferd-ratgeber/",
+          "domain": "pferdeklinik-tillysburg.de",
+          "description": "Ankaufsuntersuchung beim Pferd: Was ist eine AKU? ➜ Ablauf & Dauer ✓ Umfang ✓ Kosten ✓ Beurteilung. ➜ Von den erfahrenen Tierärzten der Pferdeklinik..."
+        },
+        {
+          "type": "people_also_ask",
+          "items": [
+            {
+              "question": "Wie viel kostet AKU beim Pferd?",
+              "answer": "Die Kosten für eine Ankaufsuntersuchung beim Pferd variieren je nach Umfang. Eine kleine AKU kostet etwa 150-300 Euro, während eine große AKU mit Röntgenbildern 800-1500 Euro kosten kann."
+            },
+            {
+              "question": "Was wird bei einer kleinen AKU gemacht?",
+              "answer": "Bei einer kleinen AKU wird das Pferd klinisch untersucht: Allgemeinzustand, Bewegungsapparat, Herz-Kreislauf-System, Atmung und äußere Untersuchung ohne Röntgen."
+            },
+            {
+              "question": "Wer zahlt die AKU beim Pferd?",
+              "answer": "Die Kosten für die Ankaufsuntersuchung trägt in der Regel der Käufer des Pferdes."
+            }
+          ]
+        },
+        {
+          "type": "organic",
+          "rank_group": 4,
+          "rank_absolute": 4,
+          "title": "Ankaufsuntersuchung beim Pferd – was ist das? - Equivet",
+          "url": "https://equivet.info/ankaufsuntersuchung-beim-pferd/",
+          "domain": "equivet.info",
+          "description": "Eine Ankaufsuntersuchung (AKU) ist eine tierärztliche Untersuchung, die vor dem Kauf eines Pferdes durchgeführt wird..."
+        },
+        {
+          "type": "organic",
+          "rank_group": 5,
+          "rank_absolute": 5,
+          "title": "Ankaufsuntersuchung Pferd: Kosten & Ablauf | HanseMerkur",
+          "url": "https://www.hansemerkur.de/tierkrankenversicherung/ratgeber/pferd/ankaufsuntersuchung",
+          "domain": "hansemerkur.de",
+          "description": "Die Ankaufsuntersuchung (AKU) beim Pferd ist eine wichtige Untersuchung vor dem Pferdekauf. Hier erfahren Sie mehr über Kosten, Ablauf und Inhalt."
+        },
+        {
+          "type": "video",
+          "rank_group": 6,
+          "items": [
+            {
+              "title": "Ankaufsuntersuchung beim Pferd - Was gehört dazu?",
+              "source": "YouTube",
+              "duration": "10:23"
+            }
+          ]
+        },
+        {
+          "type": "organic",
+          "rank_group": 7,
+          "rank_absolute": 6,
+          "title": "Die Ankaufsuntersuchung (AKU) beim Pferd - Tipps vom Tierarzt",
+          "url": "https://www.pferde-versicherung.com/pferdewissen/ankaufsuntersuchung/",
+          "domain": "pferde-versicherung.com"
+        },
+        {
+          "type": "organic",
+          "rank_group": 8,
+          "rank_absolute": 7,
+          "title": "Ankaufsuntersuchung Pferd: Ablauf, Kosten & Checkliste",
+          "url": "https://www.pferdekrankenversicherung-vergleich.de/ratgeber/ankaufsuntersuchung-pferd/",
+          "domain": "pferdekrankenversicherung-vergleich.de"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_keywords_collected": 45,
+    "unique_keywords": 37,
+    "threshold_met": true,
+    "threshold_target": 30,
+    "primary_metrics": {
+      "search_volume": 480,
+      "cpc": 4.22,
+      "competition": "LOW",
+      "intent": "commercial"
+    },
+    "data_quality": {
+      "api_success_rate": "100%",
+      "depth_achieved": 2,
+      "limit_applied": 30
+    }
+  }
+}

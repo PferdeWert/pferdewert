@@ -1,0 +1,527 @@
+{
+  "analysis_metadata": {
+    "target_keyword": "pferd verkaufen",
+    "analyzed_at": "2025-10-10T10:45:00Z",
+    "based_on_serp_analysis": "research/serp-analysis.json",
+    "top_competitors_analyzed": [
+      "ehorses.de",
+      "pferde.de",
+      "heinshof.de"
+    ]
+  },
+  "must_have_topics": [
+    {
+      "topic": "Pferdewert bestimmen - Detaillierte Preisbewertung",
+      "priority": "CRITICAL",
+      "reason": "4 of 9 PAA questions focus on pricing/valuation. ehorses.de owns featured snippet with pricing table.",
+      "competitor_coverage": {
+        "ehorses.de": "Has featured snippet table with 4 categories",
+        "pferde.de": "Shows 1,519 horse listings with prices",
+        "heinshof.de": "Mentions professional evaluation service"
+      },
+      "content_gap": "Expand pricing table from 4 to 8-10 categories. Include: age factors, breed premiums, training certifications, regional price variations, health/vet check impact on value.",
+      "recommended_h2": "Wie viel ist mein Pferd wert? Preistabelle 2025",
+      "recommended_h3": [
+        "Preisfaktoren im Überblick",
+        "Pferdewert nach Ausbildungsstand",
+        "Rassenspezifische Preisunterschiede",
+        "Altersfaktor und Wertverlust",
+        "Gesundheitszustand und Ankaufsuntersuchung"
+      ],
+      "target_word_count": 400,
+      "featured_snippet_optimization": {
+        "current_owner": "ehorses.de",
+        "format": "table",
+        "opportunity": "HIGH - Create expanded table with 8-10 categories + age/breed modifiers",
+        "table_structure_recommendation": "Category | Preisspanne | Einflussfaktoren"
+      }
+    },
+    {
+      "topic": "Verkaufsplattformen im Vergleich",
+      "priority": "CRITICAL",
+      "reason": "Top PAA question: 'Wo verkaufe ich am besten ein Pferd?' - Direct user intent match.",
+      "competitor_coverage": {
+        "ehorses.de": "Self-promotes as largest European marketplace",
+        "pferde.de": "Focuses on own platform features",
+        "heinshof.de": "Offers commission-based sales service"
+      },
+      "content_gap": "No competitor provides objective platform comparison. Need pros/cons analysis of ehorses.de vs. pferde.de vs. ebay kleinanzeigen vs. private sale.",
+      "recommended_h2": "Wo verkaufe ich mein Pferd am besten? Plattform-Vergleich",
+      "recommended_h3": [
+        "ehorses.de - Vor- und Nachteile",
+        "pferde.de - Für wen geeignet?",
+        "eBay Kleinanzeigen - Kostenlose Alternative",
+        "Privater Verkauf vs. Kommissionsverkauf",
+        "Social Media und Facebook-Gruppen"
+      ],
+      "target_word_count": 350,
+      "differentiation_angle": "Unbiased comparison with decision matrix based on seller goals (speed vs. price vs. reach)",
+      "paa_optimization": "Direct answer in first 50 words, then detailed comparison table"
+    },
+    {
+      "topic": "Rechtliche Aspekte - Kaufvertrag, Gewährleistung, Rückgabe",
+      "priority": "HIGH",
+      "reason": "3 PAA questions address legal concerns. Related searches include 'pferd verkaufen vertrag' and 'pferd verkaufen muster'.",
+      "competitor_coverage": {
+        "ehorses.de": "Mentions 'Kaufvertrag für Pferde' in title, provides contract templates",
+        "pferde.de": "No legal content visible",
+        "heinshof.de": "Mentions 'ethical sales policy' but no legal details"
+      },
+      "content_gap": "Legal section exists in ehorses.de but lacks detail on: return rights (Rückgaberecht), warranty law (Gewährleistungsrecht), defect disclosure requirements, contract contestation.",
+      "recommended_h2": "Rechtliches beim Pferdverkauf: Vertrag, Gewährleistung & Rückgabe",
+      "recommended_h3": [
+        "Kaufvertrag für Pferde - Muster und Pflichtangaben",
+        "Gewährleistungsrecht beim Pferdekauf",
+        "Kann man ein Pferd zurückgeben?",
+        "Mängel und Sachmängelhaftung",
+        "Haftungsausschlüsse richtig formulieren"
+      ],
+      "target_word_count": 300,
+      "trust_signals": "Include downloadable contract template, reference to German civil code (BGB), lawyer-reviewed disclaimer",
+      "paa_optimization": "Answer 'Kann man ein Pferd privat zurückgeben?' with legal framework, then detailed scenarios"
+    },
+    {
+      "topic": "Verkaufsvorbereitung - Pferd präsentationsbereit machen",
+      "priority": "HIGH",
+      "reason": "Related search 'pferd verkaufen was beachten' indicates user need for comprehensive checklist.",
+      "competitor_coverage": {
+        "ehorses.de": "No preparation guidance visible",
+        "pferde.de": "Platform features only, no seller advice",
+        "heinshof.de": "Mentions 'professional evaluation' but no DIY preparation tips"
+      },
+      "content_gap": "COMPLETELY MISSING - No competitor covers practical preparation steps: grooming, photos, video, health documents, training demonstrations.",
+      "recommended_h2": "Pferd verkaufsbereit machen - Die ultimative Checkliste",
+      "recommended_h3": [
+        "Ankaufsuntersuchung (AKU) - Ja oder Nein?",
+        "Professionelle Fotos und Videos erstellen",
+        "Pferd optimal präsentieren - Tipps vom Profi",
+        "Verkaufsunterlagen zusammenstellen",
+        "Probereiten organisieren - Dos and Don'ts"
+      ],
+      "target_word_count": 350,
+      "differentiation_angle": "Practical, actionable checklist with visual examples. Include photo/video quality tips (lighting, angles, movement shots).",
+      "experience_signals": "Add case study: 'Wie ich mein Pferd 3 Wochen schneller verkauft habe' with before/after preparation comparison"
+    },
+    {
+      "topic": "Verkaufsanzeige schreiben - Texte, die verkaufen",
+      "priority": "MEDIUM",
+      "reason": "Implicit need from platform comparison topic. Related search 'pferd verkaufen muster' suggests need for templates.",
+      "competitor_coverage": {
+        "ehorses.de": "Platform provides form fields but no copywriting guidance",
+        "pferde.de": "No visible guidance",
+        "heinshof.de": "Professional service creates listings but no DIY tips"
+      },
+      "content_gap": "COMPLETELY MISSING - No competitor teaches how to write compelling horse sale descriptions.",
+      "recommended_h2": "Verkaufsanzeige schreiben - Texte, die Käufer überzeugen",
+      "recommended_h3": [
+        "Die perfekte Überschrift formulieren",
+        "Pferdecharakter authentisch beschreiben",
+        "Ehrlichkeit vs. Verkaufsstrategie - Die richtige Balance",
+        "Verkaufsanzeige Muster und Beispiele",
+        "Häufige Fehler in Verkaufstexten vermeiden"
+      ],
+      "target_word_count": 250,
+      "differentiation_angle": "Include 2-3 real example listings (good vs. bad) with annotations explaining what works and what doesn't",
+      "expertise_signals": "Demonstrate copywriting knowledge specific to equestrian market psychology"
+    },
+    {
+      "topic": "Schnellverkauf-Strategien und Preisverhandlungen",
+      "priority": "MEDIUM",
+      "reason": "PAA question 'Wie verkaufe ich mein Pferd schnell?' indicates urgency-driven user segment.",
+      "competitor_coverage": {
+        "ehorses.de": "No time-to-sale strategies visible",
+        "pferde.de": "No guidance",
+        "heinshof.de": "Offers commission models but no DIY quick-sale advice"
+      },
+      "content_gap": "COMPLETELY MISSING - No competitor addresses urgent sale scenarios or negotiation tactics.",
+      "recommended_h2": "Pferd schnell verkaufen - Strategien für zeitkritische Verkäufe",
+      "recommended_h3": [
+        "Realistische Preisgestaltung für schnellen Verkauf",
+        "Verkaufskanäle für maximale Reichweite",
+        "Preisverhandlungen führen - Tipps für Verkäufer",
+        "Wann Preissenkungen sinnvoll sind",
+        "Notverkauf vs. fairer Marktpreis"
+      ],
+      "target_word_count": 200,
+      "differentiation_angle": "Address ethical considerations (avoid pressure sales, maintain horse welfare standards even in urgent situations)",
+      "trustworthiness_signals": "Emphasize animal welfare priority over profit, matching heinshof.de's ethical positioning"
+    },
+    {
+      "topic": "Steuerliche Aspekte beim Pferdverkauf",
+      "priority": "MEDIUM",
+      "reason": "Related search 'pferd verkaufen steuer' indicates tax-related user concern.",
+      "competitor_coverage": {
+        "ehorses.de": "No tax information visible",
+        "pferde.de": "No tax content",
+        "heinshof.de": "No tax guidance"
+      },
+      "content_gap": "COMPLETELY MISSING - No competitor addresses tax implications of horse sales.",
+      "recommended_h2": "Steuerliche Aspekte beim Pferdverkauf",
+      "recommended_h3": [
+        "Wann ist Pferdverkauf steuerpflichtig?",
+        "Privatverkauf vs. gewerblicher Handel",
+        "Umsatzsteuer und Kleinunternehmerregelung",
+        "Steuerberater konsultieren - Wann notwendig?"
+      ],
+      "target_word_count": 150,
+      "expertise_disclaimer": "Include clear disclaimer to consult tax professional, position content as 'overview' not 'advice'",
+      "authority_signals": "Reference German tax code (EStG), link to official tax authority resources (Bundeszentralamt für Steuern)"
+    }
+  ],
+  "differentiation_opportunities": [
+    {
+      "opportunity": "AI-Powered Horse Valuation Tool Integration",
+      "competitive_advantage": "None of the top 3 competitors offer instant, data-driven valuation.",
+      "implementation": "Embed PferdeWert calculator prominently in pricing section. Position as 'Get instant valuation based on 10,000+ sales data points'.",
+      "strategic_rationale": "ehorses.de owns pricing featured snippet with static table. We can compete by offering dynamic, personalized pricing.",
+      "cta_placement": "After pricing table in H2 'Wie viel ist mein Pferd wert?'",
+      "expected_impact": "HIGH - Captures 'pferd verkaufen preis' searchers (related search term)",
+      "e_e_a_t_boost": "Demonstrates technological expertise and data-driven approach, differentiates from marketplace-only competitors"
+    },
+    {
+      "opportunity": "First-Hand Seller Success Stories and Case Studies",
+      "competitive_advantage": "heinshof.de mentions experience but no detailed case studies. ehorses.de and pferde.de lack personal narratives.",
+      "implementation": "Include 2-3 detailed case studies: 'How [Seller Name] sold their [Horse Type] in [X weeks] using [Strategy]'.",
+      "strategic_rationale": "Builds Experience signal (E-E-A-T), provides social proof, makes content more engaging than dry platform listings.",
+      "recommended_sections": [
+        "Fallstudie 1: Freizeitpferd erfolgreich verkauft in 3 Wochen",
+        "Fallstudie 2: Turnierpferd zum optimalen Preis platziert",
+        "Lessons Learned - Was Verkäufer anders machen würden"
+      ],
+      "expected_impact": "MEDIUM-HIGH - Increases engagement, reduces bounce rate, strengthens expertise perception",
+      "content_format": "Before/after comparison, timeline visualization, direct seller quotes"
+    },
+    {
+      "opportunity": "Ethical Selling Framework - Animal Welfare Priority",
+      "competitive_advantage": "heinshof.de mentions ethical policies (no intensive stables, no problematic countries) but doesn't provide seller framework.",
+      "implementation": "Create ethical selling checklist and buyer screening guidelines. Position as 'responsible horse sales' approach.",
+      "strategic_rationale": "Builds trust and differentiates from transactional marketplace approach of ehorses.de and pferde.de.",
+      "recommended_h2": "Verantwortungsvoll verkaufen - Pferdewohl im Fokus",
+      "recommended_h3": [
+        "Käufer screening - Red Flags erkennen",
+        "Stallcheck beim potenziellen Käufer",
+        "Verkauf ablehnen - Wann ist es richtig?",
+        "Rückkaufvereinbarungen und Vorkaufsrecht"
+      ],
+      "target_word_count": 200,
+      "expected_impact": "MEDIUM - Appeals to conscientious sellers, builds brand differentiation, strengthens trustworthiness",
+      "trustworthiness_signals": "Align with heinshof.de's ethical positioning but make it actionable for DIY sellers"
+    },
+    {
+      "opportunity": "Video Content and Multimedia Integration",
+      "competitive_advantage": "Video carousel present in SERP (3 YouTube videos) but no competitor integrates video guidance into written content.",
+      "implementation": "Embed instructional videos: 'How to photograph your horse for sale', 'What to say during buyer visit', 'Probereiten setup'.",
+      "strategic_rationale": "Increases dwell time, appeals to visual learners, modern content format expected in 2025.",
+      "recommended_placement": [
+        "After 'Professionelle Fotos und Videos erstellen' section",
+        "In 'Probereiten organisieren' section",
+        "In pricing section (video explainer of valuation factors)"
+      ],
+      "expected_impact": "MEDIUM - Boosts engagement metrics, potential for video SERP features, differentiates from text-only competitors",
+      "production_note": "Can start with simple screen recordings or partner with equestrian influencers for authentic content"
+    },
+    {
+      "opportunity": "Interactive Decision Tools and Calculators",
+      "competitive_advantage": "No competitor offers interactive tools beyond basic platform search filters.",
+      "implementation": "Build: 1) Platform Selection Quiz ('Which marketplace is right for your horse?'), 2) Price Negotiation Calculator, 3) Time-to-Sale Estimator.",
+      "strategic_rationale": "Increases engagement, generates return visits, captures email leads, provides unique value.",
+      "recommended_tools": [
+        "Verkaufsplattform-Finder (Quiz: 5 questions → platform recommendation)",
+        "Verkaufszeitrechner (Based on: price positioning, season, breed → estimated days to sale)",
+        "Provision vs. Eigenverkauf Vergleich (Input: asking price → shows net proceeds for each model)"
+      ],
+      "expected_impact": "HIGH - Strong differentiation, lead generation opportunity, tool-based featured snippet potential",
+      "technical_implementation": "Lightweight JavaScript calculators, no backend required for MVP"
+    }
+  ],
+  "completely_missing_topics": [
+    {
+      "topic": "Saisonalität beim Pferdverkauf",
+      "discovery_source": "Gap identified from competitor analysis - no one mentions timing strategies",
+      "user_need": "Sellers need to know when to list (spring/summer typically better than winter for horse sales)",
+      "recommended_h3": "Beste Zeit zum Verkaufen - Saisonale Trends nutzen",
+      "target_word_count": 100,
+      "priority": "LOW",
+      "rationale": "Nice-to-have content that demonstrates market expertise, not critical for ranking"
+    },
+    {
+      "topic": "Betrugsmaschen und Sicherheit beim Pferdverkauf",
+      "discovery_source": "Gap identified from PAA analysis - legal questions present but no fraud prevention content",
+      "user_need": "Sellers (especially first-timers) need to recognize common scams: fake bank transfers, fake vet reports, identity fraud",
+      "recommended_h2": "Betrug vermeiden - Sicher verkaufen",
+      "recommended_h3": [
+        "Häufige Betrugsmaschen beim Pferdverkauf",
+        "Sichere Zahlungsmethoden",
+        "Identitätsnachweis von Käufern",
+        "Was tun bei Betrugsversuch?"
+      ],
+      "target_word_count": 200,
+      "priority": "MEDIUM",
+      "rationale": "Builds trust, demonstrates seller advocacy, addresses genuine pain point not covered by competitors",
+      "trustworthiness_signals": "Positions PferdeWert as seller advocate, not just marketplace facilitator"
+    },
+    {
+      "topic": "Notfallverkauf und finanzielle Zwangslage",
+      "discovery_source": "Related search 'pferde zu verschenken sonst schlachter' indicates desperate seller segment",
+      "user_need": "Sellers in financial hardship need guidance on: options before emergency sale, rescue organizations, low-cost listing strategies, avoiding exploitation",
+      "recommended_h2": "Pferd in Notlage verkaufen - Hilfe und Alternativen",
+      "recommended_h3": [
+        "Finanzielle Zwangslage - Was tun?",
+        "Tierschutzorganisationen und Gnadenhöfe",
+        "Reitbeteiligung als Alternative zum Verkauf",
+        "Pflegepferde-Programme und Übergangslösungen"
+      ],
+      "target_word_count": 150,
+      "priority": "LOW-MEDIUM",
+      "rationale": "Sensitive topic requiring careful handling. Builds brand humanity and trustworthiness. Low search volume but high emotional impact.",
+      "ethical_considerations": "Must prioritize animal welfare, provide resources to prevent hasty decisions, avoid exploitation of desperate sellers",
+      "tone": "Compassionate, non-judgmental, solution-focused"
+    },
+    {
+      "topic": "Pferd nicht verkaufbar - Was tun?",
+      "discovery_source": "PAA question 'Wie verkaufe ich mein Pferd schnell?' implies some sellers struggle to find buyers",
+      "user_need": "Sellers with 'difficult' horses (health issues, behavioral problems, advanced age) need realistic options and alternative solutions",
+      "recommended_h2": "Pferd lässt sich nicht verkaufen - Alternative Lösungen",
+      "recommended_h3": [
+        "Realistische Preisanpassung vs. Verschenken",
+        "Reitbeteiligung statt Verkauf",
+        "Gnadenbrot-Plätze finden",
+        "Pferd behalten - Kostenoptimierung"
+      ],
+      "target_word_count": 150,
+      "priority": "LOW",
+      "rationale": "Addresses edge case but demonstrates comprehensive expertise. Very low search volume.",
+      "differentiation_angle": "Honest, practical advice vs. generic 'every horse sells' messaging from marketplaces"
+    },
+    {
+      "topic": "Pferdeverkauf nach Scheidung, Erbschaft, oder Todesfall",
+      "discovery_source": "Gap identified from life event scenarios not addressed by any competitor",
+      "user_need": "Sellers dealing with emotional circumstances need guidance on: co-ownership disputes, inheritance law, emotional attachment vs. practical decisions",
+      "recommended_h3": "Pferdverkauf in besonderen Lebenslagen",
+      "target_word_count": 100,
+      "priority": "LOW",
+      "rationale": "Niche scenario, very low search volume, but demonstrates empathy and comprehensive expertise",
+      "tone": "Sensitive, empathetic, brief overview with recommendation to consult legal counsel for complex situations"
+    }
+  ],
+  "content_structure_recommendations": {
+    "total_target_word_count": 2035,
+    "word_count_rationale": "SERP-competitive target = average of top 3 (1,850 words) × 1.10 = 2,035 words",
+    "recommended_h2_structure": [
+      {
+        "h2": "Wie viel ist mein Pferd wert? Preistabelle 2025",
+        "word_count": 400,
+        "priority": 1,
+        "featured_snippet_target": true,
+        "paa_questions_answered": [
+          "Wie viel Geld ist mein Pferd wert?",
+          "Wie erkenne ich den Wert meines Pferdes?"
+        ]
+      },
+      {
+        "h2": "Wo verkaufe ich mein Pferd am besten? Plattform-Vergleich",
+        "word_count": 350,
+        "priority": 2,
+        "paa_questions_answered": [
+          "Wo verkaufe ich am besten ein Pferd?"
+        ],
+        "cta_placement": "After comparison table, link to PferdeWert calculator"
+      },
+      {
+        "h2": "Pferd verkaufsbereit machen - Die ultimative Checkliste",
+        "word_count": 350,
+        "priority": 3,
+        "differentiation_focus": "Practical, actionable steps. Include case study."
+      },
+      {
+        "h2": "Verkaufsanzeige schreiben - Texte, die Käufer überzeugen",
+        "word_count": 250,
+        "priority": 4,
+        "differentiation_focus": "Real examples with annotations (good vs. bad)"
+      },
+      {
+        "h2": "Rechtliches beim Pferdverkauf: Vertrag, Gewährleistung & Rückgabe",
+        "word_count": 300,
+        "priority": 5,
+        "paa_questions_answered": [
+          "Kann man ein Pferd privat zurückgeben?",
+          "Welche Gewährleistung gibt es beim Pferdekauf?"
+        ],
+        "trust_signals": "Downloadable contract template, BGB references"
+      },
+      {
+        "h2": "Pferd schnell verkaufen - Strategien für zeitkritische Verkäufe",
+        "word_count": 200,
+        "priority": 6,
+        "paa_questions_answered": [
+          "Wie verkaufe ich mein Pferd schnell?"
+        ],
+        "ethical_focus": "Balance urgency with animal welfare"
+      },
+      {
+        "h2": "Steuerliche Aspekte beim Pferdverkauf",
+        "word_count": 150,
+        "priority": 7,
+        "authority_signals": "Reference EStG, link to official tax resources"
+      },
+      {
+        "h2": "Betrug vermeiden - Sicher verkaufen",
+        "word_count": 200,
+        "priority": 8,
+        "differentiation_focus": "Seller advocacy positioning"
+      }
+    ],
+    "introduction_requirements": {
+      "word_count": 80,
+      "must_include": [
+        "Primary keyword 'pferd verkaufen' in first 100 words",
+        "Hook addressing main pain point: uncertainty about pricing and platform choice",
+        "Value proposition: comprehensive guide with pricing tool"
+      ]
+    },
+    "conclusion_requirements": {
+      "word_count": 150,
+      "must_include": [
+        "Summary of key decision points: pricing, platform, preparation",
+        "Strong CTA to PferdeWert calculator",
+        "Encouragement statement balancing commercial success with animal welfare"
+      ]
+    },
+    "internal_linking_strategy": [
+      {
+        "from_section": "Wie viel ist mein Pferd wert?",
+        "link_to": "/pferde-preis-berechnen (PferdeWert calculator landing page)",
+        "anchor_text": "Jetzt kostenlosen Pferdewert berechnen"
+      },
+      {
+        "from_section": "Wo verkaufe ich am besten?",
+        "link_to": "/pferde-preis-berechnen",
+        "anchor_text": "Marktgerechten Preis ermitteln"
+      },
+      {
+        "from_section": "Rechtliches",
+        "link_to": "Internal legal resources or contract template download (if exists)",
+        "anchor_text": "Kaufvertrag Vorlage herunterladen"
+      }
+    ],
+    "faq_section_recommendations": {
+      "placement": "After main content, before conclusion",
+      "target_paa_questions": [
+        "Wo verkaufe ich am besten ein Pferd?",
+        "Wie viel Geld ist mein Pferd wert?",
+        "Kann man ein Pferd privat zurückgeben?",
+        "Wie verkaufe ich mein Pferd schnell?",
+        "Wie erkenne ich den Wert meines Pferdes?"
+      ],
+      "format": "Short 50-word direct answers, link to detailed sections for more info",
+      "schema_markup": "Implement FAQ schema for rich snippet eligibility"
+    }
+  },
+  "serp_feature_targeting_strategy": {
+    "featured_snippet_primary_target": {
+      "question": "Wie viel Geld ist mein Pferd wert?",
+      "current_owner": "ehorses.de",
+      "format": "table",
+      "strategy": "Expand table from 4 to 8-10 categories, add age/breed modifiers column",
+      "table_structure": "Pferdekategorie | Preisspanne | Hauptfaktoren",
+      "optimization_tips": [
+        "Place table within first 400 words of article",
+        "Use <table> HTML markup with proper headers",
+        "Include concise intro sentence before table: 'Pferdewert nach Ausbildungsstand und Nutzung:'",
+        "Add brief explanatory text after table"
+      ],
+      "success_probability": "HIGH - ehorses.de table is basic (4 rows), ours will be more comprehensive"
+    },
+    "paa_block_optimization": {
+      "target_questions": [
+        "Wo verkaufe ich am besten ein Pferd?",
+        "Wie viel Geld ist mein Pferd wert?",
+        "Kann man ein Pferd privat zurückgeben?",
+        "Wie verkaufe ich mein Pferd schnell?",
+        "Wie erkenne ich den Wert meines Pferdes?"
+      ],
+      "optimization_strategy": "Create dedicated H2 sections with exact question as heading, provide direct 40-50 word answer in first paragraph, then detailed explanation",
+      "formatting": "Use <p> tags for direct answer, bullet points for detailed breakdown",
+      "success_probability": "MEDIUM - PAA blocks rotate frequently, but exact question match improves odds"
+    },
+    "ai_overview_strategy": {
+      "current_status": "AI Overview present at position 1",
+      "impact": "Reduces organic CTR for positions 2-5",
+      "optimization_approach": "Focus on featured snippet and PAA optimization to appear within AI Overview citations",
+      "content_quality_focus": "Authoritative, well-structured content with clear E-E-A-T signals increases likelihood of AI citation",
+      "success_probability": "LOW-MEDIUM - AI Overviews source from multiple pages, but quality signals help"
+    },
+    "video_carousel_opportunity": {
+      "current_status": "3 YouTube videos present in SERP",
+      "strategy": "Create and embed instructional videos, optimize for YouTube SEO with same target keywords",
+      "video_topics": [
+        "Pferd verkaufen - Schritt für Schritt Anleitung",
+        "Pferdewert bestimmen - Die wichtigsten Faktoren",
+        "Verkaufsfotos richtig machen - Profi Tipps"
+      ],
+      "success_probability": "MEDIUM - Requires video production effort, but carousel shows Google values video content for this query"
+    }
+  },
+  "priority_ranking_summary": {
+    "immediate_priorities_must_have": [
+      "1. Pferdewert Preistabelle (CRITICAL - featured snippet opportunity, 4 PAA questions)",
+      "2. Plattform-Vergleich (CRITICAL - top PAA question direct match)",
+      "3. Verkaufsvorbereitung Checkliste (HIGH - completely missing from competitors)",
+      "4. Rechtliche Aspekte (HIGH - 3 PAA questions, related searches mention 'vertrag')"
+    ],
+    "secondary_priorities_differentiation": [
+      "5. AI-Powered Valuation Tool Integration (HIGH differentiation impact)",
+      "6. Verkaufsanzeige schreiben (MEDIUM - completely missing, related search 'muster')",
+      "7. Schnellverkauf Strategien (MEDIUM - PAA question match)",
+      "8. Case Studies and Success Stories (MEDIUM - E-E-A-T boost)"
+    ],
+    "tertiary_priorities_nice_to_have": [
+      "9. Steuerliche Aspekte (MEDIUM - related search, but niche)",
+      "10. Betrugsmaschen (MEDIUM - trust building, not high search volume)",
+      "11. Ethical Selling Framework (LOW-MEDIUM - brand differentiation)",
+      "12. Video Content Integration (LOW-MEDIUM - engagement boost, production effort required)"
+    ],
+    "low_priority_edge_cases": [
+      "13. Saisonalität (LOW - expertise demonstration, low search volume)",
+      "14. Notfallverkauf (LOW - sensitive topic, very low volume)",
+      "15. Pferd nicht verkaufbar (LOW - edge case, demonstrates comprehensive expertise)",
+      "16. Verkauf nach Scheidung/Erbschaft (LOW - niche life events, very low volume)"
+    ]
+  },
+  "competitive_positioning_summary": {
+    "ehorses_de_positioning": "Dominant marketplace player with featured snippet ownership. Transactional focus, lacks detailed seller education.",
+    "pferde_de_positioning": "Secondary marketplace with large inventory (1,519+ listings). Platform features only, no educational content.",
+    "heinshof_de_positioning": "Professional commission service with ethical positioning. Strong E-E-A-T signals (decades of experience, animal welfare priority) but no DIY seller guidance.",
+    "pferdewert_differentiation_strategy": "Educational content hub + AI valuation tool. Position as 'seller advocate' with unbiased platform comparison, ethical framework, and data-driven pricing guidance. Combine heinshof.de's trustworthiness signals with ehorses.de's market reach awareness, while offering what neither provides: comprehensive DIY seller education with interactive tools.",
+    "key_differentiation_pillars": [
+      "1. AI-powered valuation (technology edge)",
+      "2. Unbiased platform comparison (editorial independence)",
+      "3. Ethical selling framework (trust + animal welfare)",
+      "4. Comprehensive legal guidance (risk mitigation)",
+      "5. Interactive tools and calculators (engagement + lead generation)"
+    ]
+  },
+  "next_phase_recommendations": {
+    "phase_3_content_creation_focus": [
+      "Start with pricing section (featured snippet target)",
+      "Create platform comparison next (top PAA question)",
+      "Build legal section third (trust signals)",
+      "Integrate PferdeWert calculator CTAs throughout",
+      "Develop FAQ schema markup for PAA optimization"
+    ],
+    "technical_implementation_priorities": [
+      "1. Implement FAQ schema markup",
+      "2. Create pricing table with proper HTML structure",
+      "3. Build platform selection quiz (lightweight JavaScript)",
+      "4. Prepare contract template download (PDF)",
+      "5. Plan video content production for future enhancement"
+    ],
+    "measurement_and_iteration": [
+      "Track featured snippet acquisition for pricing table",
+      "Monitor PAA block presence and question rotation",
+      "Measure calculator engagement and conversion",
+      "A/B test CTA placement and messaging",
+      "Track competitor SERP position changes"
+    ]
+  }
+}
