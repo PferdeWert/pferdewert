@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AKU Pferd: Der KI-gestützte Ratgeber für Pferdekäufer (2024/2025)",
+  "description": "AKU Pferd: Kosten-Rechner, GOT-Preise 2024, Versicherungs-Check & Sinnvoll-Test. Große vs. Kleine AKU im Vergleich. Jetzt informieren!",
+  "url": "https://www.pferdewert.de/ratgeber/aku-pferd",
+  "datePublished": "2025-01-10T08:00:00+01:00",
+  "dateModified": "2025-01-10T08:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "PferdeWert Redaktion"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://www.pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.pferdewert.de/ratgeber/aku-pferd"
+  },
+  "articleSection": "Pferdekauf Ratgeber",
+  "keywords": [
+    "aku pferd",
+    "aku pferd kosten",
+    "große aku pferd",
+    "kleine aku pferd",
+    "aku pferd versicherung",
+    "got preise 2024",
+    "aku pferd sinnvoll"
+  ],
+  "inLanguage": "de-DE",
+  "about": {
+    "@type": "Thing",
+    "name": "Ankaufsuntersuchung Pferd",
+    "description": "Tierärztliche Untersuchung beim Pferdekauf zur Feststellung des Gesundheitszustands"
+  }
+}

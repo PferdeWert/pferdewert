@@ -1,0 +1,186 @@
+{
+  "phase": "5C",
+  "source_article": "/pferde-ratgeber/pferd-verkaufen",
+  "primary_keyword": "pferd verkaufen",
+  "internal_links": [
+    {
+      "target_url": "https://www.pferdewert.de/pferde-preis-berechnen",
+      "anchor_text": "AI-gestützte Pferdebewertung nutzen",
+      "placement_section": "Den richtigen Verkaufspreis für dein Pferd ermitteln",
+      "placement_context": "After discussing manual pricing research methods, introduce the AI tool as a data-driven alternative",
+      "suggested_line_range": "68-75",
+      "relevance_score": 92,
+      "scoring_breakdown": {
+        "keyword_overlap": 36,
+        "topic_cluster": 30,
+        "semantic_similarity": 18,
+        "content_length": 8
+      },
+      "reasoning": "Highest relevance - AI valuation tool directly supports pricing section. Article mentions '/bewertung' placeholder 3x. Natural fit for users seeking objective pricing data."
+    },
+    {
+      "target_url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd",
+      "anchor_text": "Ankaufsuntersuchung beim Pferd",
+      "placement_section": "Rechtliche Absicherung beim Pferdeverkauf",
+      "placement_context": "When discussing buyer expectations for health documentation and transparency",
+      "suggested_line_range": "355-365",
+      "relevance_score": 85,
+      "scoring_breakdown": {
+        "keyword_overlap": 28,
+        "topic_cluster": 30,
+        "semantic_similarity": 19,
+        "content_length": 8
+      },
+      "reasoning": "Strong topical relevance - AKU is critical component of horse sales. Article already mentions AKU costs. Links to comprehensive AKU guide for sellers preparing documentation."
+    },
+    {
+      "target_url": "https://www.pferdewert.de/pferde-ratgeber/aku-pferd/kosten",
+      "anchor_text": "Kosten einer Ankaufsuntersuchung",
+      "placement_section": "Rechtliche Absicherung beim Pferdeverkauf",
+      "placement_context": "When advising sellers about supporting buyers during AKU process",
+      "suggested_line_range": "375-382",
+      "relevance_score": 82,
+      "scoring_breakdown": {
+        "keyword_overlap": 24,
+        "topic_cluster": 30,
+        "semantic_similarity": 18,
+        "content_length": 10
+      },
+      "reasoning": "High relevance - AKU cost transparency helps sellers set realistic expectations. Article mentions '/ratgeber/aku-pferd-kosten' placeholder. Supports buyer confidence building."
+    },
+    {
+      "target_url": "https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "Perspektive eines Pferdekäufers",
+      "placement_section": "Besichtigungstermine professionell durchführen",
+      "placement_context": "When discussing how to prepare for buyer questions and expectations",
+      "suggested_line_range": "285-295",
+      "relevance_score": 78,
+      "scoring_breakdown": {
+        "keyword_overlap": 32,
+        "topic_cluster": 30,
+        "semantic_similarity": 10,
+        "content_length": 6
+      },
+      "reasoning": "Medium-high relevance - Understanding buyer psychology improves sales success. Natural counterpart to selling guide. Helps sellers anticipate buyer concerns."
+    },
+    {
+      "target_url": "https://www.pferdewert.de/pferde-ratgeber",
+      "anchor_text": "weitere Ratgeber rund ums Pferd",
+      "placement_section": "Fazit: Dein Weg zum erfolgreichen Pferdeverkauf",
+      "placement_context": "In conclusion when directing readers to additional resources",
+      "suggested_line_range": "577-580",
+      "relevance_score": 72,
+      "scoring_breakdown": {
+        "keyword_overlap": 20,
+        "topic_cluster": 30,
+        "semantic_similarity": 14,
+        "content_length": 8
+      },
+      "reasoning": "Medium relevance - Ratgeber hub link increases site exploration. Natural placement in conclusion for readers seeking related content. Supports content cluster structure."
+    },
+    {
+      "target_url": "https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+      "anchor_text": "Was ein Pferd kostet",
+      "placement_section": "Den richtigen Verkaufspreis für dein Pferd ermitteln",
+      "placement_context": "When discussing market price ranges and buyer budget expectations",
+      "suggested_line_range": "55-65",
+      "relevance_score": 68,
+      "scoring_breakdown": {
+        "keyword_overlap": 24,
+        "topic_cluster": 30,
+        "semantic_similarity": 8,
+        "content_length": 6
+      },
+      "reasoning": "Medium relevance - Pricing context from buyer perspective helps sellers understand market dynamics. Supports realistic price setting. Natural topical connection to valuation section."
+    }
+  ],
+  "url_structure_notes": {
+    "inconsistencies_found": true,
+    "details": [
+      {
+        "issue": "Article placeholder URLs don't match sitemap structure",
+        "examples": [
+          {
+            "article_placeholder": "/bewertung",
+            "sitemap_canonical": "/pferde-preis-berechnen",
+            "action_required": "Update article-draft.md placeholders to match canonical URLs"
+          },
+          {
+            "article_placeholder": "/ratgeber/aku-pferd-kosten",
+            "sitemap_canonical": "/pferde-ratgeber/aku-pferd/kosten",
+            "action_required": "Update article-draft.md to use full canonical path"
+          },
+          {
+            "article_placeholder": "/ratgeber/pferd-kaufen-checkliste",
+            "sitemap_canonical": "/pferde-ratgeber/pferd-kaufen",
+            "action_required": "Verify if '/pferd-kaufen-checkliste' should be added to sitemap or placeholder should be updated"
+          }
+        ]
+      }
+    ]
+  },
+  "implementation_notes": {
+    "anchor_text_strategy": "All anchors are 2-6 words, natural language, keyword-rich but not over-optimized. No duplicate anchors to avoid Penguin penalty risk.",
+    "placement_strategy": "Links distributed across 4 different article sections for natural reading flow. Avoided clustering multiple links in single paragraph.",
+    "diversity": "Mix of tool links (AI valuation), informational ratgeber links (AKU, buying guide), and hub link (ratgeber main) for varied user journeys.",
+    "user_value": "Each link provides genuine value to readers at decision points in sales process - not manipulative SEO-only linking."
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [
+      {
+        "type": "WARNING",
+        "field": "url_structure",
+        "message": "3 placeholder URLs in article-draft.md don't match sitemap canonical URLs - see url_structure_notes for details",
+        "severity": "medium",
+        "action": "Update article-draft.md placeholders before final publication"
+      }
+    ],
+    "info": [
+      {
+        "type": "INFO",
+        "field": "internal_links",
+        "message": "6 strategic internal link recommendations generated (target: 5-7)",
+        "value": "PASS"
+      },
+      {
+        "type": "INFO",
+        "field": "relevance_scores",
+        "message": "All recommended links scored 68-92 out of 100 (threshold: 60+)",
+        "value": "PASS"
+      },
+      {
+        "type": "INFO",
+        "field": "anchor_texts",
+        "message": "All anchor texts are unique and natural (2-6 words each)",
+        "value": "PASS"
+      },
+      {
+        "type": "INFO",
+        "field": "target_urls",
+        "message": "All 6 target URLs verified to exist in sitemap.xml",
+        "value": "PASS"
+      },
+      {
+        "type": "INFO",
+        "field": "placement_distribution",
+        "message": "Links distributed across 4 article sections for natural flow",
+        "value": "PASS"
+      },
+      {
+        "type": "INFO",
+        "field": "topic_clusters",
+        "message": "5 of 6 links are within /pferde-ratgeber topic cluster (83% cluster coherence)",
+        "value": "PASS"
+      }
+    ],
+    "quality_gate_status": "PASS_WITH_WARNINGS",
+    "summary": "Phase 5C completed successfully. 6 high-quality internal link recommendations generated with relevance scores 68-92. All links verified in sitemap. Natural anchor texts with strategic placement across pricing, legal, and conclusion sections. WARNING: 3 placeholder URLs in article need updating to match canonical sitemap structure before publication."
+  },
+  "next_steps": [
+    "Update article-draft.md to replace placeholder URLs with canonical URLs from this file",
+    "Implement recommended links in final article HTML/markdown",
+    "Verify all links are clickable and point to correct destinations",
+    "Monitor internal linking performance in Google Search Console after publication"
+  ]
+}

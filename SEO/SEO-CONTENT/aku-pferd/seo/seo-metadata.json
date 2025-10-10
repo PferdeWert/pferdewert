@@ -1,0 +1,51 @@
+{
+  "phase": "5A",
+  "primary_keyword": "aku pferd",
+  "metadata": {
+    "title": "AKU Pferd: Kosten, Ablauf & Versicherung (2024/2025)",
+    "description": "AKU Pferd: Kosten-Rechner, GOT-Preise 2024, Versicherungs-Check & Sinnvoll-Test. Große vs. Kleine AKU im Vergleich. Jetzt informieren!",
+    "canonical_url": "https://www.pferdewert.de/ratgeber/aku-pferd",
+    "slug": "aku-pferd",
+    "robots": "index, follow"
+  },
+  "open_graph": {
+    "og:title": "AKU Pferd: Kosten, Ablauf & Versicherung (2024/2025)",
+    "og:description": "AKU Pferd: Kosten-Rechner, GOT-Preise 2024, Versicherungs-Check & Sinnvoll-Test. Große vs. Kleine AKU im Vergleich.",
+    "og:type": "article",
+    "og:url": "https://www.pferdewert.de/ratgeber/aku-pferd",
+    "og:site_name": "PferdeWert.de",
+    "og:locale": "de_DE",
+    "og:image": null,
+    "og:image:width": null,
+    "og:image:height": null,
+    "og:image:alt": null
+  },
+  "twitter_card": {
+    "twitter:card": "summary_large_image",
+    "twitter:title": "AKU Pferd: Kosten, Ablauf & Versicherung (2024/2025)",
+    "twitter:description": "AKU Pferd: Kosten-Rechner, GOT-Preise 2024, Versicherungs-Check & Sinnvoll-Test. Große vs. Kleine AKU im Vergleich.",
+    "twitter:site": "@PferdeWert",
+    "twitter:creator": "@PferdeWert",
+    "twitter:image": null,
+    "twitter:image:alt": null
+  },
+  "validation": {
+    "title_length": 52,
+    "description_length": 146,
+    "primary_keyword_in_title": true,
+    "canonical_format_valid": true,
+    "blue_ocean_topics_integrated": ["Versicherung", "GOT 2024", "Sinnvoll-Test"],
+    "quality_gate_status": "PASSED"
+  },
+  "blue_ocean_integration": {
+    "versicherung": "Versicherungs-Check integriert (40 Suchen/Monat, 0% Coverage)",
+    "got_2024": "GOT-Preise 2024 integriert (140 Suchen/Monat, 0% Coverage)",
+    "sinnvoll": "Sinnvoll-Test integriert (30 Suchen/Monat, 0% Coverage)",
+    "total_blue_ocean_searches": 210
+  },
+  "notes": {
+    "article_source": "Generated from planning/primary-content-outline.md (article-draft.md not found)",
+    "cta_integrated": "Jetzt informieren!",
+    "competitor_advantage": "Alle 3 Blue Ocean Topics mit ZERO Konkurrenz integriert"
+  }
+}

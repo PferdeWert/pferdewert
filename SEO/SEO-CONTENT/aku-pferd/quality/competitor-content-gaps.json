@@ -1,0 +1,392 @@
+{
+  "primary_keyword": "AKU Pferd",
+  "analyzed_at": "2025-10-10T17:20:00Z",
+  "analysis_phase": "Phase 2: Competitor Content Gaps",
+  "methodology": "Gap analysis based on SERP analysis, keyword research, and user intent assessment",
+  "content_gaps": [
+    {
+      "gap_id": "G1",
+      "gap_title": "AI-Driven AKU Decision Support",
+      "priority": "HIGH",
+      "opportunity_score": 9.5,
+      "description": "No competitors offer AI-powered decision support for whether an AKU is necessary based on horse characteristics and purchase price",
+      "evidence": {
+        "competitor_coverage": "0% - Not addressed by any top 10 result",
+        "user_intent": "decision_making - Only partially covered by competitors",
+        "keyword_opportunities": [
+          "aku pferd sinnvoll (30 SV)",
+          "aku pferd notwendig (10 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Integrate AKU necessity assessment into PferdeWert valuation tool",
+        "implementation": "AI recommends AKU based on: purchase price, horse age, discipline, competition level",
+        "differentiation": "Data-driven recommendation vs. generic advice"
+      },
+      "content_format": [
+        "Interactive calculator/quiz",
+        "Decision tree visualization",
+        "Personalized recommendation"
+      ],
+      "search_volume_potential": 40,
+      "conversion_potential": "HIGH - directly connects to PferdeWert core service"
+    },
+    {
+      "gap_id": "G2",
+      "gap_title": "AKU Cost-Benefit Analysis for Different Horse Values",
+      "priority": "HIGH",
+      "opportunity_score": 9.0,
+      "description": "Competitors list costs but don't help users understand ROI or appropriate AKU level based on horse value",
+      "evidence": {
+        "competitor_coverage": "30% - Basic cost info present, no value analysis",
+        "user_intent": "value_justification - Poorly covered by competitors",
+        "keyword_opportunities": [
+          "aku pferd kosten (260 SV)",
+          "kleine aku pferd preis (90 SV)",
+          "aku pferd kosten 2024 (10 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Connect AKU investment to expected horse value from PferdeWert estimates",
+        "implementation": "Show recommended AKU level (small/large) based on estimated horse value",
+        "differentiation": "ROI calculation: 'For a €15,000 horse, invest in large AKU (€1,200) vs. risk of undiscovered issues'"
+      },
+      "content_format": [
+        "Cost-benefit calculator",
+        "Value-based recommendation table",
+        "ROI examples with real scenarios"
+      ],
+      "search_volume_potential": 360,
+      "conversion_potential": "HIGH - bridges to valuation service"
+    },
+    {
+      "gap_id": "G3",
+      "gap_title": "What AKU Findings Mean for Horse Value",
+      "priority": "HIGH",
+      "opportunity_score": 8.5,
+      "description": "No competitor explains how AKU findings impact market value and negotiation leverage",
+      "evidence": {
+        "competitor_coverage": "10% - Mentions findings but not value implications",
+        "user_intent": "risk_assessment - Minimally covered by competitors",
+        "keyword_opportunities": [
+          "aku pferd inhalt (10 SV)",
+          "aku pferd röntgen (10 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Translate AKU findings into price adjustment recommendations",
+        "implementation": "Database of common findings with typical value impacts (e.g., 'OCD finding in fetlock: -€2,000 to -€5,000')",
+        "differentiation": "Actionable negotiation guidance vs. medical definitions only"
+      },
+      "content_format": [
+        "Findings-to-value impact table",
+        "Negotiation strategy guide",
+        "Case studies with price adjustments"
+      ],
+      "search_volume_potential": 20,
+      "conversion_potential": "MEDIUM - educational, supports trust in valuation expertise"
+    },
+    {
+      "gap_id": "G4",
+      "gap_title": "Post-AKU Decision Framework",
+      "priority": "MEDIUM",
+      "opportunity_score": 7.5,
+      "description": "Competitors explain what happens during AKU but not what to do after receiving results",
+      "evidence": {
+        "competitor_coverage": "15% - Basic 'consult with vet' advice only",
+        "user_intent": "decision_making - Partially covered by competitors",
+        "keyword_opportunities": [
+          "aku pferd was ist das (10 SV)",
+          "aku pferd verkauf (10 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Step-by-step decision framework after AKU results",
+        "implementation": "Decision tree: Pass with no findings → Verify price with PferdeWert | Minor findings → Calculate adjusted value | Major findings → Walk away assessment",
+        "differentiation": "Structured decision process vs. vague guidance"
+      },
+      "content_format": [
+        "Interactive decision tree",
+        "Flowchart infographic",
+        "Action checklist with if-then logic"
+      ],
+      "search_volume_potential": 20,
+      "conversion_potential": "MEDIUM - positions PferdeWert as decision support tool"
+    },
+    {
+      "gap_id": "G5",
+      "gap_title": "AKU Frequency and Re-examination Guidelines",
+      "priority": "MEDIUM",
+      "opportunity_score": 7.0,
+      "description": "Limited guidance on when to repeat AKU for horses in training or changing disciplines",
+      "evidence": {
+        "competitor_coverage": "5% - Rarely addressed",
+        "user_intent": "process_understanding - Well covered for initial purchase, poorly for re-examination",
+        "keyword_opportunities": [
+          "aku pferd wie oft (10 SV)",
+          "aku pferd dauer (10 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Guidelines for AKU frequency based on horse use and value changes",
+        "implementation": "Recommendations: Young horses starting competition → Annual AKU; Value increase → Updated AKU before sale",
+        "differentiation": "Lifecycle-based approach vs. one-time purchase focus"
+      },
+      "content_format": [
+        "Re-examination schedule guide",
+        "Scenario-based recommendations",
+        "Timeline visualization"
+      ],
+      "search_volume_potential": 20,
+      "conversion_potential": "LOW - educational but tangential to core service"
+    },
+    {
+      "gap_id": "G6",
+      "gap_title": "Veterinarian Selection and Quality Assessment",
+      "priority": "MEDIUM",
+      "opportunity_score": 6.5,
+      "description": "No guidance on how to choose an AKU veterinarian or assess examination quality",
+      "evidence": {
+        "competitor_coverage": "10% - Basic 'choose experienced vet' advice",
+        "user_intent": "decision_making - Partially covered by competitors",
+        "keyword_opportunities": [
+          "aku pferd tierarzt (10 SV)",
+          "aku pferd template (10 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Quality criteria checklist for AKU veterinarians and reports",
+        "implementation": "Evaluation criteria: Specialization, equipment, report completeness, GOT compliance",
+        "differentiation": "Quality assessment framework vs. generic recommendations"
+      },
+      "content_format": [
+        "Vet selection checklist",
+        "Report quality evaluation guide",
+        "Red flags to watch for"
+      ],
+      "search_volume_potential": 20,
+      "conversion_potential": "LOW - builds authority but not directly monetizable"
+    },
+    {
+      "gap_id": "G7",
+      "gap_title": "AKU for Private vs. Professional Sales",
+      "priority": "MEDIUM",
+      "opportunity_score": 6.0,
+      "description": "Limited discussion of AKU differences and legal implications between private and dealer sales",
+      "evidence": {
+        "competitor_coverage": "20% - Mentioned but not explored in depth",
+        "user_intent": "risk_assessment - Minimally covered by competitors",
+        "keyword_opportunities": [
+          "aku pferd privat kaufen (10 SV)",
+          "wer zahlt aku pferd (40 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Legal and practical differences for AKU based on seller type",
+        "implementation": "Compare: Private sale (buyer typically pays, limited recourse) vs. Dealer (professional inspection expectations, warranty implications)",
+        "differentiation": "Legal context awareness vs. generic process description"
+      },
+      "content_format": [
+        "Comparison table (private vs. professional)",
+        "Legal considerations guide",
+        "Payment responsibility scenarios"
+      ],
+      "search_volume_potential": 50,
+      "conversion_potential": "LOW - informational, supports buyer education"
+    },
+    {
+      "gap_id": "G8",
+      "gap_title": "GOT 2020/2025 Updates Impact on AKU Costs",
+      "priority": "LOW",
+      "opportunity_score": 5.5,
+      "description": "Competitors mention GOT but don't explain recent changes or future updates clearly",
+      "evidence": {
+        "competitor_coverage": "40% - Mentioned but not explained thoroughly",
+        "user_intent": "cost_information - Extensively covered but not future-proof",
+        "keyword_opportunities": [
+          "kosten aku pferd 2024 (140 SV)",
+          "kosten aku pferd neue got (140 SV)",
+          "kosten aku pferd 2025 (50 SV)"
+        ]
+      },
+      "pferdewert_angle": {
+        "unique_value": "Historical and projected cost trends with GOT updates",
+        "implementation": "Timeline: GOT 2020 rates → Current 2024 costs → Expected 2025 changes",
+        "differentiation": "Forward-looking cost planning vs. static cost lists"
+      },
+      "content_format": [
+        "Cost evolution timeline",
+        "GOT comparison table (old vs. new)",
+        "Projected 2025 cost estimates"
+      ],
+      "search_volume_potential": 330,
+      "conversion_potential": "LOW - price information, minimal conversion impact"
+    }
+  ],
+  "keyword_gap_mapping": {
+    "high_value_keywords_with_gaps": [
+      {
+        "keyword": "aku pferd kosten",
+        "search_volume": 260,
+        "current_coverage": "Competitors list prices but don't provide value context",
+        "gap_addressed": ["G2"],
+        "content_opportunity": "Cost-benefit analysis based on horse value"
+      },
+      {
+        "keyword": "kosten aku pferd 2024",
+        "search_volume": 140,
+        "current_coverage": "Current prices listed but no historical context or future trends",
+        "gap_addressed": ["G8"],
+        "content_opportunity": "GOT evolution and projected 2025 costs"
+      },
+      {
+        "keyword": "kosten aku pferd neue got",
+        "search_volume": 140,
+        "current_coverage": "GOT mentioned but changes not explained",
+        "gap_addressed": ["G8"],
+        "content_opportunity": "Detailed GOT update impact analysis"
+      },
+      {
+        "keyword": "kleine aku pferd preis",
+        "search_volume": 90,
+        "current_coverage": "Price ranges given without value-based recommendation",
+        "gap_addressed": ["G2"],
+        "content_opportunity": "When to choose small vs. large AKU based on horse value"
+      },
+      {
+        "keyword": "kosten aku pferd 2025",
+        "search_volume": 50,
+        "current_coverage": "Not addressed - only current prices",
+        "gap_addressed": ["G8"],
+        "content_opportunity": "Future cost projections with GOT updates"
+      },
+      {
+        "keyword": "große aku pferd inhalt",
+        "search_volume": 50,
+        "current_coverage": "Lists what's included but not value implications",
+        "gap_addressed": ["G2", "G3"],
+        "content_opportunity": "ROI analysis for comprehensive examination"
+      },
+      {
+        "keyword": "wer zahlt aku pferd",
+        "search_volume": 40,
+        "current_coverage": "Basic 'buyer pays' answer in PAA",
+        "gap_addressed": ["G7"],
+        "content_opportunity": "Payment scenarios by sales type and negotiation strategies"
+      },
+      {
+        "keyword": "aku pferd sinnvoll",
+        "search_volume": 30,
+        "current_coverage": "Generic 'always recommended' advice",
+        "gap_addressed": ["G1"],
+        "content_opportunity": "AI-driven necessity assessment based on specific factors"
+      }
+    ],
+    "total_gap_keyword_volume": 900,
+    "coverage_opportunity": "Keywords with identified gaps represent 900 monthly searches (58% of total keyword volume)"
+  },
+  "competitor_weakness_analysis": {
+    "domain_authority_gap": {
+      "observation": "Top results dominated by veterinary authorities and horse marketplaces",
+      "pferdewert_positioning": "Technology/data angle not present - opportunity to differentiate as AI-powered decision support",
+      "strategy": "Position as 'smart AKU decision tool' rather than competing on veterinary authority"
+    },
+    "content_depth_gap": {
+      "observation": "Most content is shallow guides (1,000-2,000 words) covering same basic topics",
+      "pferdewert_positioning": "Create ultimate resource (3,000+ words) integrating AKU with valuation expertise",
+      "strategy": "Comprehensive guide + interactive tools + personalized recommendations"
+    },
+    "user_journey_gap": {
+      "observation": "Content stops at 'what is AKU' and 'how much does it cost' - no post-purchase guidance",
+      "pferdewert_positioning": "Complete buyer journey: Pre-purchase decision → AKU interpretation → Price negotiation → Final purchase decision",
+      "strategy": "Multi-stage content funnel connecting to PferdeWert valuation at each decision point"
+    },
+    "interactivity_gap": {
+      "observation": "All top results are static text content - no calculators, tools, or personalization",
+      "pferdewert_positioning": "Interactive tools create stickiness and demonstrate AI expertise",
+      "strategy": "Develop: AKU necessity calculator, Cost-benefit analyzer, Findings-to-value translator"
+    }
+  },
+  "recommended_content_strategy": {
+    "primary_content_piece": {
+      "title": "AKU Pferd: Der KI-gestützte Ratgeber für Pferdekäufer (2024/2025)",
+      "format": "Comprehensive guide (3,500+ words) + 3 interactive tools",
+      "target_keywords": ["aku pferd", "aku pferd kosten", "aku pferd sinnvoll"],
+      "unique_angles": [
+        "AI-powered AKU necessity assessment integrated into content",
+        "Cost-benefit analysis connected to horse value estimates",
+        "AKU findings-to-value impact translator",
+        "Post-AKU decision framework with PferdeWert integration"
+      ],
+      "competitive_differentiation": "Only resource connecting AKU to data-driven horse valuation"
+    },
+    "supporting_content": [
+      {
+        "title": "AKU Kosten 2024/2025: GOT-Update und Preisentwicklung",
+        "format": "Cost analysis article (1,500 words)",
+        "target_keywords": ["kosten aku pferd 2024", "kosten aku pferd neue got", "kosten aku pferd 2025"],
+        "gap_addressed": ["G8"]
+      },
+      {
+        "title": "Kleine vs. Große AKU: Welche Untersuchung für welchen Pferdewert?",
+        "format": "Decision guide (1,200 words) + calculator",
+        "target_keywords": ["kleine aku pferd preis", "große aku pferd inhalt"],
+        "gap_addressed": ["G2"]
+      },
+      {
+        "title": "Nach der AKU: Wie Befunde den Pferdewert beeinflussen",
+        "format": "Interpretation guide (1,800 words) + value impact table",
+        "target_keywords": ["aku pferd inhalt", "aku pferd röntgen"],
+        "gap_addressed": ["G3", "G4"]
+      }
+    ],
+    "interactive_tools": [
+      {
+        "tool_name": "AKU-Notwendigkeits-Check",
+        "description": "5-question assessment recommending AKU level based on horse value, age, discipline",
+        "gap_addressed": ["G1"],
+        "conversion_path": "Recommends PferdeWert valuation to determine appropriate AKU investment"
+      },
+      {
+        "tool_name": "AKU-Kosten-Nutzen-Rechner",
+        "description": "Calculates ROI of different AKU levels based on purchase price and risk tolerance",
+        "gap_addressed": ["G2"],
+        "conversion_path": "Requires horse value input → promotes PferdeWert valuation tool"
+      },
+      {
+        "tool_name": "Befund-Wert-Rechner",
+        "description": "Translates common AKU findings into estimated price adjustments",
+        "gap_addressed": ["G3"],
+        "conversion_path": "Demonstrates PferdeWert's valuation expertise and data foundation"
+      }
+    ]
+  },
+  "competitive_advantage_summary": {
+    "pferdewert_unique_strengths": [
+      "AI/tech positioning in traditional veterinary topic space",
+      "Direct connection to horse valuation expertise and data",
+      "Ability to offer interactive, personalized recommendations",
+      "Data-driven approach vs. generic advice",
+      "Complete buyer journey vs. isolated information"
+    ],
+    "exploitable_competitor_weaknesses": [
+      "No interactive tools or calculators in top 10 results",
+      "Value/ROI perspective missing from all competitors",
+      "Generic advice without personalization",
+      "Fragmented content not connected to broader purchase process",
+      "Static content without decision support"
+    ],
+    "barriers_to_overcome": [
+      "Lower domain authority vs. established veterinary sites",
+      "AI Overview already present in SERP position 1",
+      "Strong veterinary authority perception needed",
+      "Insurance/marketplace competitors have brand recognition"
+    ],
+    "success_metrics": {
+      "ranking_targets": "Top 5 for 'aku pferd' (480 SV), Top 3 for 'aku pferd kosten' (260 SV)",
+      "traffic_potential": "900+ monthly visits from gap keywords",
+      "conversion_opportunity": "High - AKU decision directly precedes valuation need",
+      "estimated_timeline": "6-9 months to reach target rankings with quality content + backlinks"
+    }
+  }
+}

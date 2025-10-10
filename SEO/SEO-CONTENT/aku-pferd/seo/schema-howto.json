@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Wie läuft eine Ankaufsuntersuchung (AKU) beim Pferd ab?",
+  "description": "Schritt-für-Schritt Anleitung zur Vorbereitung und Durchführung einer Ankaufsuntersuchung beim Pferdekauf",
+  "totalTime": "P14D",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "EUR",
+    "value": "200-1500"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Unabhängigen Tierarzt finden",
+      "text": "Wählen Sie einen unabhängigen, auf Pferde spezialisierten Tierarzt mit AKU-Erfahrung. Der Tierarzt sollte nicht der Haustierarzt des Verkäufers sein.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#tierarzt-finden"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "AKU-Termin koordinieren",
+      "text": "Kontaktieren Sie den Verkäufer und vereinbaren Sie einen gemeinsamen Termin für die Untersuchung. Planen Sie 2-3 Stunden ein (je nach AKU-Umfang).",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#termin-vereinbaren"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Anamnese durchführen",
+      "text": "Der Tierarzt erfasst die Vorgeschichte des Pferdes: Alter, bisherige Nutzung, Vorerkrankungen, Medikamente, Impfungen. Diese Phase dauert 15-20 Minuten.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#anamnese"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Klinische Untersuchung",
+      "text": "Systematische Untersuchung von Allgemeinzustand, Herz-Kreislauf, Atmung, Bewegungsapparat, Augen und Zähnen. Diese Phase dauert 45-60 Minuten und umfasst auch Beugeproben und Bewegungstests.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#klinische-untersuchung"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Röntgenuntersuchung (nur große AKU)",
+      "text": "Bei der großen AKU werden 18 Röntgenbilder angefertigt: Hufe (8 Bilder), Fesselgelenke (4 Bilder), Sprunggelenke (4 Bilder), Rücken (2 Bilder). Diese Phase dauert 60-90 Minuten.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#roentgen"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Abschlussgespräch vor Ort",
+      "text": "Der Tierarzt bespricht erste Eindrücke und Auffälligkeiten mit Ihnen. Die detaillierte Befundung erfolgt im schriftlichen Gutachten. Diese Phase dauert 10-15 Minuten.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#abschlussgespraech"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Schriftliches Gutachten erhalten",
+      "text": "Sie erhalten das vollständige AKU-Gutachten 2-5 Tage nach der Untersuchung. Es enthält alle Befunde, Röntgenbilder-Beurteilung und eine Kaufempfehlung.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#gutachten"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 8,
+      "name": "Befund interpretieren und Kaufentscheidung treffen",
+      "text": "Lesen Sie das Gutachten sorgfältig und besprechen Sie unklare Befunde mit Ihrem Tierarzt. Berücksichtigen Sie den geplanten Einsatzzweck des Pferdes bei Ihrer Kaufentscheidung.",
+      "url": "https://www.pferdewert.de/ratgeber/aku-pferd#kaufentscheidung"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "primary_keyword": "AKU Pferd",
+  "analyzed_at": "2025-10-10T17:15:00Z",
+  "serp_date": "2025-10-10",
+  "analysis_phase": "Phase 2: SERP Analysis",
+  "serp_features": {
+    "ai_overview": {
+      "present": true,
+      "rank_group": 1,
+      "description": "Eine Ankaufsuntersuchung (AKU) für ein Pferd umfasst verschiedene Untersuchungen, Kosten und hat bestimmte Ziele",
+      "impact": "High - AI Overview takes prominent position and answers basic questions"
+    },
+    "people_also_ask": {
+      "present": true,
+      "rank_group": 4,
+      "questions": [
+        {
+          "question": "Wie viel kostet AKU beim Pferd?",
+          "answer_summary": "Kleine AKU: 150-300 Euro, Große AKU mit Röntgen: 800-1500 Euro",
+          "coverage": "Well covered by competitors"
+        },
+        {
+          "question": "Was wird bei einer kleinen AKU gemacht?",
+          "answer_summary": "Klinische Untersuchung: Allgemeinzustand, Bewegungsapparat, Herz-Kreislauf, Atmung, äußere Untersuchung ohne Röntgen",
+          "coverage": "Well covered by competitors"
+        },
+        {
+          "question": "Wer zahlt die AKU beim Pferd?",
+          "answer_summary": "In der Regel der Käufer",
+          "coverage": "Well covered by competitors"
+        }
+      ]
+    },
+    "video_content": {
+      "present": true,
+      "rank_group": 6,
+      "title": "Ankaufsuntersuchung beim Pferd - Was gehört dazu?",
+      "source": "YouTube",
+      "duration": "10:23"
+    },
+    "featured_snippet": {
+      "present": false
+    }
+  },
+  "top_10_organic_results": [
+    {
+      "rank": 1,
+      "domain": "pferde.de",
+      "url": "https://www.pferde.de/magazin/pferdegesundheit/ankaufsuntersuchung-pferd/",
+      "title": "Ankaufsuntersuchung Pferd: Kosten, Ablauf + große vs. kleine AKU",
+      "description": "AKU Pferd: ✓ große AKU ✓ kleine AKU ✓ Kosten ✓ Ablauf ✓ Inhalt ✓ Röntgenbilder ► Jetzt informieren und gut vorbereitet sein!",
+      "content_focus": [
+        "Cost comparison (small vs large AKU)",
+        "Process/procedure explanation",
+        "Content of examination",
+        "X-ray images discussion"
+      ],
+      "strength": "Comprehensive guide covering all main aspects",
+      "domain_type": "Horse marketplace/community"
+    },
+    {
+      "rank": 2,
+      "domain": "tiergesund.de",
+      "url": "https://www.tiergesund.de/pferdekrankheiten/ankaufsuntersuchung-aku-beim-pferd/",
+      "title": "Ankaufsuntersuchung (AKU) beim Pferd | tiergesund.de",
+      "description": "Was ist eine Ankaufsuntersuchung bei Pferden? ... Die Ankaufsuntersuchung (kurz AKU) beim Pferd ist eine tierärztliche Untersuchung, die vor dem Kauf durchgeführt",
+      "content_focus": [
+        "Veterinary definition",
+        "Medical perspective",
+        "Pre-purchase timing"
+      ],
+      "strength": "Authoritative veterinary source",
+      "domain_type": "Veterinary health portal"
+    },
+    {
+      "rank": 3,
+      "domain": "pferdeklinik-tillysburg.de",
+      "url": "https://www.pferdeklinik-tillysburg.de/aku-pferd-ratgeber/",
+      "title": "Ratgeber Ankaufsuntersuchung beim Pferd - Pferdeklinik Tillysburg",
+      "description": "Ankaufsuntersuchung beim Pferd: Was ist eine AKU? ➜ Ablauf & Dauer ✓ Umfang ✓ Kosten ✓ Beurteilung. ➜ Von den erfahrenen Tierärzten der Pferdeklinik",
+      "content_focus": [
+        "Process and duration",
+        "Scope of examination",
+        "Costs",
+        "Assessment/evaluation",
+        "Clinic expertise"
+      ],
+      "strength": "Professional clinic perspective with practical advice",
+      "domain_type": "Veterinary clinic"
+    },
+    {
+      "rank": 4,
+      "domain": "equivet.info",
+      "url": "https://equivet.info/ankaufsuntersuchung-beim-pferd/",
+      "title": "Ankaufsuntersuchung beim Pferd – was ist das? - Equivet",
+      "description": "Eine Ankaufsuntersuchung (AKU) ist eine tierärztliche Untersuchung, die vor dem Kauf eines Pferdes durchgeführt wird",
+      "content_focus": [
+        "Basic definition",
+        "Pre-purchase context"
+      ],
+      "strength": "Veterinary information source",
+      "domain_type": "Veterinary information portal"
+    },
+    {
+      "rank": 5,
+      "domain": "hansemerkur.de",
+      "url": "https://www.hansemerkur.de/tierkrankenversicherung/ratgeber/pferd/ankaufsuntersuchung",
+      "title": "Ankaufsuntersuchung Pferd: Kosten & Ablauf | HanseMerkur",
+      "description": "Die Ankaufsuntersuchung (AKU) beim Pferd ist eine wichtige Untersuchung vor dem Pferdekauf. Hier erfahren Sie mehr über Kosten, Ablauf und Inhalt.",
+      "content_focus": [
+        "Costs",
+        "Process",
+        "Content",
+        "Insurance perspective"
+      ],
+      "strength": "Insurance angle - protection/risk management",
+      "domain_type": "Insurance company"
+    },
+    {
+      "rank": 6,
+      "domain": "pferde-versicherung.com",
+      "url": "https://www.pferde-versicherung.com/pferdewissen/ankaufsuntersuchung/",
+      "title": "Die Ankaufsuntersuchung (AKU) beim Pferd - Tipps vom Tierarzt",
+      "description": "N/A",
+      "content_focus": [
+        "Veterinary tips",
+        "Insurance connection"
+      ],
+      "strength": "Practical tips from vet perspective",
+      "domain_type": "Insurance broker/portal"
+    },
+    {
+      "rank": 7,
+      "domain": "pferdekrankenversicherung-vergleich.de",
+      "url": "https://www.pferdekrankenversicherung-vergleich.de/ratgeber/ankaufsuntersuchung-pferd/",
+      "title": "Ankaufsuntersuchung Pferd: Ablauf, Kosten & Checkliste",
+      "description": "N/A",
+      "content_focus": [
+        "Process",
+        "Costs",
+        "Checklist"
+      ],
+      "strength": "Checklist approach - actionable",
+      "domain_type": "Insurance comparison"
+    }
+  ],
+  "competitor_patterns": {
+    "common_topics": [
+      "Costs (Kosten) - covered by all top results",
+      "Process/Procedure (Ablauf) - covered by most",
+      "Small vs Large AKU distinction - well covered",
+      "What is examined (Inhalt/Umfang) - well covered",
+      "X-ray images (Röntgenbilder) - mentioned",
+      "Duration (Dauer) - less covered",
+      "Who pays - covered in PAA"
+    ],
+    "content_types": [
+      "Comprehensive guides (pferde.de)",
+      "Veterinary/medical explanations (tiergesund.de, equivet.info)",
+      "Clinic perspectives (pferdeklinik-tillysburg.de)",
+      "Insurance perspectives (hansemerkur.de, pferde-versicherung.com)",
+      "Checklists (pferdekrankenversicherung-vergleich.de)",
+      "Video content (YouTube)"
+    ],
+    "domain_authority": [
+      "High: pferde.de (marketplace/community leader)",
+      "High: tiergesund.de (veterinary authority)",
+      "Medium: Specific veterinary clinics",
+      "Medium: Insurance companies",
+      "Medium: Insurance comparison sites"
+    ],
+    "user_intent_addressed": {
+      "cost_information": "Extensively covered",
+      "process_understanding": "Well covered",
+      "decision_making": "Partially covered",
+      "risk_assessment": "Minimally covered",
+      "value_justification": "Poorly covered"
+    }
+  },
+  "content_structure_patterns": {
+    "title_formulas": [
+      "Topic + Kosten + Ablauf",
+      "Ratgeber + Topic",
+      "Topic + was ist das",
+      "Topic + Tipps vom Tierarzt"
+    ],
+    "description_elements": [
+      "Checkmarks for key features",
+      "Call-to-action (► Jetzt informieren)",
+      "Authority signals (erfahrene Tierärzte)",
+      "Comprehensive coverage claims"
+    ],
+    "content_organization": [
+      "Definition first",
+      "Cost breakdown (small vs large)",
+      "Process explanation",
+      "What is examined",
+      "Practical tips"
+    ]
+  },
+  "seo_competitive_landscape": {
+    "difficulty": "Medium - dominated by established veterinary and horse marketplace sites",
+    "opportunities": [
+      "AI/tech angle not present in top results",
+      "Data-driven decision making not emphasized",
+      "Connection to horse valuation not explored",
+      "Interactive tools/calculators not present",
+      "Personalized recommendations missing"
+    ],
+    "threats": [
+      "Strong domain authority competitors (pferde.de, tiergesund.de)",
+      "AI Overview takes top position",
+      "People Also Ask covers basic questions",
+      "Multiple veterinary authorities present"
+    ]
+  }
+}

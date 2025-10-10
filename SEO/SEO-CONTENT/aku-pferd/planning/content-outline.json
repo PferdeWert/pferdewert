@@ -1,0 +1,479 @@
+{
+  "phase": "3",
+  "primary_keyword": "AKU Pferd",
+  "timestamp": "2025-10-10T10:15:00Z",
+  "based_on": {
+    "keyword_analysis": "keyword-analysis.json (Phase 1B)",
+    "competitor_gaps": "competitor-content-gaps.json (Phase 2)"
+  },
+
+  "article_metadata": {
+    "title": "AKU Pferd: Kosten, Ablauf & Vergleich (Große vs. Kleine AKU)",
+    "meta_description": "AKU Pferd: Alle Kosten (150-1.500€), Ablauf, Große vs. Kleine AKU im Vergleich. Neue GOT-Preise, Versicherung & wann sinnvoll. Jetzt informieren!",
+    "primary_keyword": "AKU Pferd",
+    "secondary_keywords": [
+      "aku pferd kosten",
+      "kleine aku pferd",
+      "große aku pferd",
+      "aku pferd ablauf",
+      "aku pferd dauer",
+      "aku pferd inhalt",
+      "aku pferd röntgen"
+    ],
+    "word_count_data": {
+      "target_word_count": 3200,
+      "word_count_strategy": "serp_competitive (avg top 3: 2650 words, +20% = 3180 words, rounded to 3200)",
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 224
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 2304
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 320
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 224
+        }
+      }
+    }
+  },
+
+  "introduction": {
+    "word_count": 224,
+    "hook": "Beim Pferdekauf ist die Ankaufsuntersuchung (AKU) die wichtigste Entscheidung – doch die Kosten variieren zwischen 150€ und 1.500€. Große oder kleine AKU? Was wird genau untersucht?",
+    "user_intent": "Umfassender Guide zu allen Aspekten der Pferde-Ankaufsuntersuchung: Kosten-Transparenz, Ablauf-Details, Vergleich Große vs. Kleine AKU, Versicherungsfragen, rechtliche Aspekte und wann eine AKU wirklich sinnvoll ist.",
+    "preview": "Dieser Ratgeber erklärt alle Untersuchungsumfänge, aktuelle Preise nach neuer GOT, Versicherungs-Möglichkeiten und gibt Ihnen eine klare Entscheidungshilfe für Ihre individuelle Situation.",
+    "keyword_integration": [
+      "AKU Pferd",
+      "Ankaufsuntersuchung Pferd"
+    ]
+  },
+
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "H2: Was ist eine AKU beim Pferd? (Definition & Zweck)",
+      "content_type": "explanation",
+      "word_count": 288,
+      "subsections": [
+        {
+          "heading": "H3: Definition der Ankaufsuntersuchung",
+          "word_count": 120,
+          "keywords": ["aku pferd was ist das", "ankaufsuntersuchung definition"],
+          "content_focus": "Klare Definition: Veterinärmedizinische Untersuchung vor Pferdekauf zur Feststellung des Gesundheitszustands zum Untersuchungszeitpunkt. Keine Garantie, sondern Momentaufnahme."
+        },
+        {
+          "heading": "H3: Zweck und Nutzen der AKU",
+          "word_count": 168,
+          "keywords": ["aku pferd sinnvoll", "pferdekauf absichern"],
+          "content_focus": "Risikominimierung beim Pferdekauf, Kaufpreis-Absicherung, versteckte Mängel erkennen, Verhandlungsbasis schaffen, rechtliche Absicherung."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["AKU Pferd"],
+        "supporting": ["Ankaufsuntersuchung Pferd", "Pferdekauf Untersuchung"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Referenz auf veterinärmedizinische Standards und GOT-Regelungen zur Etablierung fachlicher Autorität."
+        }
+      ],
+      "visual_elements": []
+    },
+
+    {
+      "section_number": 2,
+      "heading": "H2: Große vs. Kleine AKU im direkten Vergleich",
+      "content_type": "comparison",
+      "word_count": 384,
+      "subsections": [
+        {
+          "heading": "H3: Die kleine AKU – Umfang und Eignung",
+          "word_count": 128,
+          "keywords": ["kleine aku pferd", "aku pferd klein"],
+          "content_focus": "Klinische Untersuchung ohne Röntgen: Allgemeinzustand, Bewegungsapparat, Herz-Kreislauf, Atmungsorgane, Augen. Geeignet für: Freizeitpferde unter 5.000€ Kaufpreis."
+        },
+        {
+          "heading": "H3: Die große AKU – Erweiterte Diagnostik",
+          "word_count": 128,
+          "keywords": ["große aku pferd", "aku pferd röntgen"],
+          "content_focus": "Kleine AKU + Röntgenuntersuchung (bis zu 18 Aufnahmen): Gliedmaßen, Rücken, Hals. Geeignet für: Sport-/Turnierpferde, Kaufpreis >10.000€, Leistungspferde."
+        },
+        {
+          "heading": "H3: Vergleichstabelle: Kleine vs. Große AKU",
+          "word_count": 128,
+          "keywords": ["aku pferd vergleich", "aku pferd unterschiede"],
+          "content_focus": "Side-by-side Tabelle mit: Untersuchungsumfang, Dauer, Kosten, Röntgenbilder Anzahl, Empfehlung nach Kaufpreis, Empfehlung nach Nutzung."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["kleine aku pferd", "große aku pferd"],
+        "supporting": ["aku pferd klein", "aku pferd große", "aku pferd vergleich"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Klare Empfehlungen basierend auf Kaufpreis und Nutzungszweck – praxisnahe Expertise."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Side-by-side Vergleichstabelle Kleine vs. Große AKU mit Checkmarks (✓) und Crosses (✗) für Features. Spalten: Kriterium | Kleine AKU | Große AKU. Zeilen: Klinische Untersuchung, Röntgenbilder, Dauer, Kosten, Empfehlung Kaufpreis, Empfehlung Nutzung."
+        }
+      ]
+    },
+
+    {
+      "section_number": 3,
+      "heading": "H2: AKU Pferd Kosten: Aktuelle Preise (2024/2025)",
+      "content_type": "explanation",
+      "word_count": 288,
+      "subsections": [
+        {
+          "heading": "H3: Kleine AKU Kosten",
+          "word_count": 96,
+          "keywords": ["aku pferd kosten", "kleine aku kosten"],
+          "content_focus": "Preisrange: 150-300€. Faktoren: Region, Tierarzt-Qualifikation, Wochenende/Feiertag-Zuschläge. Durchschnitt: 220€."
+        },
+        {
+          "heading": "H3: Große AKU Kosten (inkl. Röntgen)",
+          "word_count": 96,
+          "keywords": ["große aku kosten", "aku pferd röntgen kosten"],
+          "content_focus": "Preisrange: 800-1.500€. Abhängig von Anzahl Röntgenbilder (Standard 10-18 Aufnahmen). Durchschnitt: 1.100€. Pro Röntgenbild: 50-80€ zusätzlich."
+        },
+        {
+          "heading": "H3: Neue GOT und Preisanpassungen (2020/2022)",
+          "word_count": 96,
+          "keywords": ["aku pferd neue got", "got gebührenordnung tierarzt"],
+          "content_focus": "Erklärung GOT-Novelle 2020 und 2022: Preiserhöhungen um 12-20%. Vergleich alte vs. neue GOT-Sätze. Auswirkung auf AKU-Gesamtkosten."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["aku pferd kosten"],
+        "supporting": ["aku pferd kosten 2024", "kosten aku pferd neue got", "aku pferd preise"]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Konkrete Preisangaben mit Ranges, Durchschnittswerten und Bezug auf offizielle GOT-Sätze schaffen Transparenz und Vertrauen."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Preisübersicht-Tabelle: AKU-Typ | Kostenrange | Durchschnitt | Inkludiert. Zeilen: Kleine AKU, Große AKU Standard, Große AKU erweitert."
+        }
+      ]
+    },
+
+    {
+      "section_number": 4,
+      "heading": "H2: Ablauf der Ankaufsuntersuchung (Schritt für Schritt)",
+      "content_type": "tutorial",
+      "word_count": 288,
+      "subsections": [
+        {
+          "heading": "H3: Phase 1: Vorbereitung und Terminvereinbarung",
+          "word_count": 72,
+          "keywords": ["aku pferd tierarzt", "aku pferd vorbereitung"],
+          "content_focus": "Tierarzt-Auswahl (unabhängig!), Terminabstimmung mit Verkäufer, Röntgenbilder-Umfang festlegen, Kosten vorab klären."
+        },
+        {
+          "heading": "H3: Phase 2: Klinische Untersuchung (1-2 Stunden)",
+          "word_count": 72,
+          "keywords": ["aku pferd ablauf", "klinische untersuchung pferd"],
+          "content_focus": "Allgemeinzustand, Gangbildanalyse, Flexionsproben, Herz/Lunge, Augen, Zähne. Dauer: 60-90 Minuten."
+        },
+        {
+          "heading": "H3: Phase 3: Röntgenuntersuchung (nur große AKU, 1-1.5 Stunden)",
+          "word_count": 72,
+          "keywords": ["aku pferd röntgen", "röntgenbilder pferd"],
+          "content_focus": "Standard-Röntgenbilder: Vorderfußwurzelgelenk, Krongelenk, Hufgelenk, Sprunggelenk. Optional: Rücken, Knie. Entwicklung und Befundung."
+        },
+        {
+          "heading": "H3: Phase 4: Befundung und Protokoll",
+          "word_count": 72,
+          "keywords": ["aku pferd protokoll", "aku befund"],
+          "content_focus": "Schriftliche Dokumentation aller Befunde, Röntgenbilder-Bewertung (Klasse I-V nach Röntgenleitfaden), Übergabe Protokoll an Käufer. Dauer: 24-48h nach Untersuchung."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["aku pferd ablauf"],
+        "supporting": ["aku pferd dauer", "wie läuft aku ab"]
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "content": "Detaillierte Schritt-für-Schritt-Anleitung mit realistischen Zeitangaben demonstriert praktische Erfahrung."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Timeline-Visualisierung: 4 Phasen mit jeweiliger Dauer, Aktivitäten und Checkmarks für erledigte Schritte."
+        }
+      ]
+    },
+
+    {
+      "section_number": 5,
+      "heading": "H2: Untersuchungsumfang: Was wird bei der AKU genau geprüft?",
+      "content_type": "checklist",
+      "word_count": 288,
+      "subsections": [
+        {
+          "heading": "H3: Bewegungsapparat und Lahmheitsuntersuchung",
+          "word_count": 96,
+          "keywords": ["aku pferd inhalt", "lahmheitsuntersuchung"],
+          "content_focus": "Gangbildanalyse im Schritt/Trab, Flexionsproben, Beugeproben Vorder-/Hinterhand, Palpation Sehnen/Bänder."
+        },
+        {
+          "heading": "H3: Innere Organe und Kreislaufsystem",
+          "word_count": 96,
+          "keywords": ["aku untersuchung herz", "aku pferd lunge"],
+          "content_focus": "Herz-Auskultation, Lungenauskultation, Pulsmessung, Körpertemperatur, Schleimhäute."
+        },
+        {
+          "heading": "H3: Augen, Zähne und Allgemeinzustand",
+          "word_count": 96,
+          "keywords": ["augenuntersuchung pferd aku", "zahnkontrolle aku"],
+          "content_focus": "Ophthalmologische Untersuchung, Zahnstatus, Ernährungszustand, Fell/Haut, Verhaltensbeobachtung."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["aku pferd inhalt"],
+        "supporting": ["was wird bei aku untersucht", "aku untersuchung umfang"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Detaillierte Checkliste mit veterinärmedizinischen Fachbegriffen (erklärt) zeigt fachliche Tiefe."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Visuelle Checkliste mit Checkboxen: 3 Hauptkategorien (Bewegungsapparat, Innere Organe, Augen/Zähne) mit jeweils 4-6 Unterpunkten."
+        }
+      ]
+    },
+
+    {
+      "section_number": 6,
+      "heading": "H2: Versicherung & AKU-Kosten: Wer zahlt?",
+      "content_type": "explanation",
+      "word_count": 288,
+      "subsections": [
+        {
+          "heading": "H3: Pferdekrankenversicherung und AKU-Übernahme",
+          "word_count": 96,
+          "keywords": ["wer zahlt aku pferd", "versicherung aku kosten"],
+          "content_focus": "Keine Versicherung übernimmt AKU-Kosten VOR Vertragsabschluss. Kaufpreisversicherungen: Sonderfall mit Bedingungen. Wann zahlt Versicherung nach Kauf?"
+        },
+        {
+          "heading": "H3: Käufer oder Verkäufer: Wer trägt die Kosten?",
+          "word_count": 96,
+          "keywords": ["aku kosten käufer verkäufer", "wer bezahlt aku"],
+          "content_focus": "Standard: Käufer zahlt AKU. Verhandlungssache: Kostenaufteilung möglich. Bei negativer AKU: Kosten bleiben beim Käufer. Tipp: Vorab klären."
+        },
+        {
+          "heading": "H3: Steuerliche Absetzbarkeit der AKU-Kosten",
+          "word_count": 96,
+          "keywords": ["aku kosten absetzen", "aku steuerlich absetzbar"],
+          "content_focus": "Gewerbliche Pferdehaltung: AKU als Betriebsausgabe absetzbar. Private Pferdehaltung: Nicht absetzbar. Ausnahme: Zucht-/Reitbetrieb."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["wer zahlt aku pferd"],
+        "supporting": ["versicherung aku", "aku kosten übernehmen"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Differenzierte Betrachtung Versicherungen, rechtliche Aspekte und steuerliche Behandlung zeigt umfassendes Wissen."
+        }
+      ],
+      "visual_elements": []
+    },
+
+    {
+      "section_number": 7,
+      "heading": "H2: Wann ist eine AKU sinnvoll? (Entscheidungshilfe)",
+      "content_type": "explanation",
+      "word_count": 288,
+      "subsections": [
+        {
+          "heading": "H3: AKU-Pflicht: Wann unbedingt erforderlich?",
+          "word_count": 96,
+          "keywords": ["aku pferd sinnvoll", "aku pflicht"],
+          "content_focus": "Kaufpreis >5.000€: Immer empfohlen. Sport-/Turnierpferde: Unabhängig vom Preis. Jung-/Fohlen: Bei Zukunftsinvestition. Vorerkrankungen bekannt: Absicherung."
+        },
+        {
+          "heading": "H3: Wann reicht eine kleine AKU?",
+          "word_count": 96,
+          "keywords": ["kleine aku ausreichend", "wann kleine aku"],
+          "content_focus": "Freizeitpferde <3.000€, ältere Pferde (>15 Jahre) ohne Leistungsanspruch, Beistellpferde, bekanntes Pferd (Probereiten >4 Wochen)."
+        },
+        {
+          "heading": "H3: ROI-Kalkulation: AKU-Kosten vs. Kaufpreis-Risiko",
+          "word_count": 96,
+          "keywords": ["aku kosten nutzen", "lohnt sich aku"],
+          "content_focus": "Rechenbeispiel: 1.200€ AKU-Kosten vs. 15.000€ Kaufpreis mit verstecktem Mangel. Break-even-Analyse. Entscheidungsbaum nach Kaufpreis."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["aku pferd sinnvoll"],
+        "supporting": ["wann aku notwendig", "brauche ich aku"]
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "content": "Konkrete ROI-Kalkulation und Rechenbeispiele demonstrieren praktische Beratungskompetenz."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "diagram",
+          "description": "Entscheidungsbaum: Kaufpreis → Nutzung → Vorerkrankungen → Empfehlung (Keine AKU / Kleine AKU / Große AKU)."
+        }
+      ]
+    },
+
+    {
+      "section_number": 8,
+      "heading": "H2: Rechtsaspekte: AKU und Kaufvertrag",
+      "content_type": "explanation",
+      "word_count": 192,
+      "subsections": [
+        {
+          "heading": "H3: Negative AKU: Rücktrittsrecht und Gewährleistung",
+          "word_count": 96,
+          "keywords": ["aku pferd verkauf", "negative aku rücktritt"],
+          "content_focus": "AKU-Vorbehalt im Kaufvertrag: Formulierung. Rücktrittsrecht bei negativer AKU: Rechtslage. Gewährleistungsausschluss nach positiver AKU: Grenzen."
+        },
+        {
+          "heading": "H3: AKU-Protokoll als Beweismittel",
+          "word_count": 96,
+          "keywords": ["aku protokoll rechtlich", "aku beweiswert"],
+          "content_focus": "Beweiswert vor Gericht, Aufbewahrungspflicht, Röntgenbilder-Eigentum, Weitergabe an Käufer."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["aku pferd verkauf"],
+        "supporting": ["aku kaufvertrag", "aku rechtlich"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Rechtliche Einordnung mit Bezug auf Gewährleistung und Rücktrittsrecht zeigt juristische Sachkenntnis."
+        }
+      ],
+      "visual_elements": []
+    }
+  ],
+
+  "faq_section": {
+    "word_count": 320,
+    "questions": [
+      {
+        "question": "Was kostet eine Ankaufsuntersuchung beim Pferd?",
+        "answer_outline": "Kleine AKU ohne Röntgen: 150-300€ (Durchschnitt 220€). Große AKU mit Röntgenbildern: 800-1.500€ (Durchschnitt 1.100€). Kosten variieren nach Region, Tierarzt-Qualifikation und Anzahl Röntgenbilder (Standard 10-18 Aufnahmen à 50-80€).",
+        "word_count": 80,
+        "paa_source": true,
+        "keywords": ["aku pferd kosten"]
+      },
+      {
+        "question": "Wie lange dauert eine AKU beim Pferd?",
+        "answer_outline": "Kleine AKU (klinische Untersuchung): 1-2 Stunden. Große AKU inkl. Röntgen: 2-3 Stunden vor Ort. Befundung und Protokoll-Erstellung: 24-48 Stunden nach Untersuchung. Gesamt-Timeline vom Termin bis Protokoll-Übergabe: 2-3 Tage.",
+        "word_count": 80,
+        "paa_source": true,
+        "keywords": ["aku pferd dauer"]
+      },
+      {
+        "question": "Wer zahlt die AKU – Käufer oder Verkäufer?",
+        "answer_outline": "Standard: Käufer zahlt AKU-Kosten, da er die Untersuchung beauftragt. Verhandlungssache: Kostenaufteilung möglich, oft 50/50 bei hohen Kaufpreisen. Wichtig: Vor Untersuchung im Kaufvertrag klären. Bei negativer AKU bleiben Kosten beim Käufer.",
+        "word_count": 80,
+        "paa_source": true,
+        "keywords": ["wer zahlt aku pferd"]
+      },
+      {
+        "question": "Was ist der Unterschied zwischen kleiner und großer AKU?",
+        "answer_outline": "Kleine AKU: Nur klinische Untersuchung (Gangbild, Herz, Lunge, Augen, Allgemeinzustand), keine Röntgenbilder, 150-300€, geeignet für Freizeitpferde <5.000€. Große AKU: Zusätzlich Röntgenuntersuchung (10-18 Aufnahmen), 800-1.500€, empfohlen für Sport-/Turnierpferde und Kaufpreis >10.000€.",
+        "word_count": 80,
+        "paa_source": true,
+        "keywords": ["kleine große aku unterschied"]
+      },
+      {
+        "question": "Wie oft sollte man eine AKU wiederholen?",
+        "answer_outline": "AKU ist eine einmalige Momentaufnahme vor dem Kauf. Wiederholung nicht üblich. Ausnahme: Bei Probereiten >3 Monate zwischen AKU und Kaufabschluss – dann Update-AKU empfohlen. Nach Kauf: Regelmäßige tierärztliche Routineuntersuchungen (1-2x jährlich), aber keine vollständige AKU mehr nötig.",
+        "word_count": 80,
+        "paa_source": false,
+        "keywords": ["aku pferd wie oft"]
+      },
+      {
+        "question": "Kann ich die AKU-Kosten steuerlich absetzen?",
+        "answer_outline": "Gewerbliche Pferdehaltung (Zucht, Reitbetrieb, Pensionsstall): Ja, als Betriebsausgabe absetzbar. Private Pferdehaltung: Nein, keine steuerliche Absetzbarkeit. Ausnahme: Nachweis gewerblicher Tätigkeit mit Gewinnerzielungsabsicht erforderlich. Bei Unsicherheit: Steuerberater konsultieren.",
+        "word_count": 80,
+        "paa_source": false,
+        "keywords": ["aku kosten absetzen"]
+      }
+    ]
+  },
+
+  "conclusion": {
+    "word_count": 224,
+    "key_takeaways": [
+      "Große vs. Kleine AKU: Entscheidung nach Kaufpreis (>10.000€ = große AKU) und Nutzung (Sport = große AKU, Freizeit = kleine AKU ausreichend).",
+      "Kosten-Transparenz: 150-300€ kleine AKU, 800-1.500€ große AKU. Neue GOT-Preise 2024 beachten.",
+      "Versicherung zahlt nicht: AKU-Kosten trägt in 95% der Fälle der Käufer. Kostenaufteilung verhandelbar.",
+      "Ablauf planen: 2-3 Stunden Untersuchung, 24-48h Befundung. Unabhängigen Tierarzt wählen.",
+      "Rechtlich absichern: AKU-Vorbehalt im Kaufvertrag verankern, Rücktrittsrecht bei negativer AKU klären."
+    ],
+    "call_to_action": "Planen Sie einen Pferdekauf? Nutzen Sie unseren kostenlosen Pferdewert-Rechner, um den fairen Marktwert zu ermitteln und die AKU-Kosten ins Budget einzuplanen. Jetzt Pferd bewerten!",
+    "keyword_integration": [
+      "AKU Pferd",
+      "Pferd kaufen"
+    ]
+  },
+
+  "internal_linking_opportunities": [
+    {
+      "section": "H2: Wann ist eine AKU sinnvoll? (Entscheidungshilfe)",
+      "target_page": "/pferde-preis-berechnen",
+      "anchor_text": "Pferdewert berechnen und AKU-Kosten ins Budget einplanen"
+    },
+    {
+      "section": "H2: Was ist eine AKU beim Pferd? (Definition & Zweck)",
+      "target_page": "/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "Pferd kaufen: Umfassender Ratgeber"
+    },
+    {
+      "section": "H2: Rechtsaspekte: AKU und Kaufvertrag",
+      "target_page": "/pferde-ratgeber/pferd-verkaufen",
+      "anchor_text": "Pferd verkaufen: Rechtliche Aspekte und Kaufvertrag"
+    },
+    {
+      "section": "H3: Pferdekrankenversicherung und AKU-Übernahme",
+      "target_page": "/pferde-ratgeber/pferd-versichern",
+      "anchor_text": "Pferdekrankenversicherung im Vergleich"
+    },
+    {
+      "section": "H2: Große vs. Kleine AKU im direkten Vergleich",
+      "target_page": "/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "Checkliste Pferdekauf"
+    },
+    {
+      "section": "H2: AKU Pferd Kosten: Aktuelle Preise (2024/2025)",
+      "target_page": "/pferde-preis-berechnen",
+      "anchor_text": "Kostenlosen Pferdewert-Rechner nutzen"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "analysis_date": "2025-10-10",
+  "primary_keyword": "AKU Pferd",
+  "competitors_analyzed": 7,
+  "serp_features_present": {
+    "ai_overview": true,
+    "people_also_ask": true,
+    "video_carousel": true,
+    "featured_snippet": false
+  },
+  "must_have_topics": [
+    {
+      "topic": "Kosten (Costs)",
+      "coverage": "7/7",
+      "coverage_percentage": 100,
+      "priority": "critical",
+      "notes": "Alle 7 Seiten nennen Kosten prominent im Titel oder Description. Absolut erforderlich mit konkreten Preisangaben."
+    },
+    {
+      "topic": "Ablauf (Process/Procedure)",
+      "coverage": "5/7",
+      "coverage_percentage": 71,
+      "priority": "high",
+      "notes": "71% Coverage rechtfertigt Must-Have Status. 5 von 7 Top-Seiten behandeln den Ablauf detailliert."
+    }
+  ],
+  "differentiation_opportunities": [
+    {
+      "topic": "Große vs. Kleine AKU Vergleich",
+      "coverage": "2/7",
+      "coverage_percentage": 29,
+      "opportunity_score": 9,
+      "notes": "Nur pferde.de (Rank 1) und 1 weitere Seite bieten direkten Vergleich. STARKE Differenzierungschance. Rank 1 nutzt dies als USP.",
+      "implementation": "Side-by-side Vergleichstabelle mit Kosten, Dauer, Inhalt, Empfehlung"
+    },
+    {
+      "topic": "Inhalt/Umfang der Untersuchung",
+      "coverage": "3/7",
+      "coverage_percentage": 43,
+      "opportunity_score": 7,
+      "notes": "Mittlere Coverage. Detaillierte Checkliste was genau untersucht wird fehlt bei meisten.",
+      "implementation": "Detaillierte Checkliste pro Untersuchungsbereich"
+    },
+    {
+      "topic": "Definition/Was ist eine AKU",
+      "coverage": "2/7",
+      "coverage_percentage": 29,
+      "opportunity_score": 6,
+      "notes": "Nur 2 Seiten adressieren explizit die Grundfrage. Wichtig für SEO und User Intent.",
+      "implementation": "Klare Definition im Einleitungsabsatz + FAQ"
+    },
+    {
+      "topic": "Tierarzt-Expertise/Qualifikation",
+      "coverage": "2/7",
+      "coverage_percentage": 29,
+      "opportunity_score": 8,
+      "notes": "Nur Kliniken betonen Tierarzt-Qualifikation. E-E-A-T Opportunity.",
+      "implementation": "Expertenquotes, Qualifikationshinweise, Klinik-Empfehlungen"
+    },
+    {
+      "topic": "Röntgenbilder Details",
+      "coverage": "1/7",
+      "coverage_percentage": 14,
+      "opportunity_score": 7,
+      "notes": "Nur pferde.de (Rank 1) erwähnt Röntgenbilder explizit. Wichtiges Detail für große AKU.",
+      "implementation": "Welche Röntgenbilder, Kosten pro Bild, Standard vs. erweitert"
+    }
+  ],
+  "missing_topics": [
+    {
+      "topic": "Versicherung & Kostenübernahme",
+      "coverage": "0/7",
+      "coverage_percentage": 0,
+      "blue_ocean_score": 10,
+      "search_volume": 40,
+      "keyword": "wer zahlt aku pferd",
+      "notes": "KEINE Top 7 Seite behandelt Versicherungsaspekte trotz 40 monatlicher Suchen. PAA fragt 'Wer zahlt?' aber nur Grundantwort. MASSIVE Blue Ocean Opportunity.",
+      "implementation": "Dedicated section: Welche Versicherungen übernehmen AKU-Kosten? Kaufpreisversicherung? Steuerliche Absetzbarkeit?"
+    },
+    {
+      "topic": "Neue GOT (Gebührenordnung 2020/2022)",
+      "coverage": "0/7",
+      "coverage_percentage": 0,
+      "blue_ocean_score": 9,
+      "search_volume": 140,
+      "keyword": "kosten aku pferd neue got",
+      "notes": "140 monatliche Suchen für 'kosten aku pferd neue got' aber KEINE Top 7 Seite adressiert GOT-Änderungen. Wichtig für aktuelle Preisangaben.",
+      "implementation": "Erklärung GOT-Anpassungen, Vergleich alte vs. neue Preise, Auswirkung auf AKU-Kosten"
+    },
+    {
+      "topic": "Ist AKU sinnvoll? - Empfehlung",
+      "coverage": "0/7",
+      "coverage_percentage": 0,
+      "blue_ocean_score": 8,
+      "search_volume": 30,
+      "keyword": "aku pferd sinnvoll",
+      "notes": "Alle Seiten BESCHREIBEN AKU, aber keine gibt klare Empfehlung WANN sinnvoll/notwendig. 30 Suchen/Monat.",
+      "implementation": "Decision guide: Wann ist AKU Pflicht? Wann optional? Risiko-Nutzen-Analyse nach Kaufpreis"
+    },
+    {
+      "topic": "Regionale Preisunterschiede",
+      "coverage": "0/7",
+      "coverage_percentage": 0,
+      "blue_ocean_score": 7,
+      "search_volume": 0,
+      "notes": "Keine Seite behandelt regionale Preisvariation Nord/Süd, Stadt/Land. Potenziell wertvoll für User.",
+      "implementation": "Preisübersicht nach Bundesland/Region, Faktoren für Preisunterschiede"
+    },
+    {
+      "topic": "AKU-Vorlage/Template zum Download",
+      "coverage": "0/7",
+      "coverage_percentage": 0,
+      "blue_ocean_score": 6,
+      "search_volume": 10,
+      "keyword": "aku pferd template",
+      "notes": "10 Suchen für Template. Praktisches Downloadable könnte Lead Magnet sein.",
+      "implementation": "Kostenlose Checkliste/Vorlage als PDF zum Ausdrucken für Tierarzt-Termin"
+    },
+    {
+      "topic": "AKU nach Kaufvertrag - Rechtsaspekte",
+      "coverage": "0/7",
+      "coverage_percentage": 0,
+      "blue_ocean_score": 8,
+      "search_volume": 10,
+      "keyword": "aku pferd verkauf",
+      "notes": "Rechtliche Implikationen: Gewährleistung, Rücktritt, Mängel nach AKU. Keine Top 7 Seite behandelt dies.",
+      "implementation": "Rechtsaspekte: Was passiert bei negativer AKU? Rücktrittsrecht? Gewährleistungsausschluss?"
+    }
+  ],
+  "rank_1_unique_angles": [
+    {
+      "angle": "Große vs. Kleine AKU - Direkter Vergleich",
+      "unique_to_rank_1": true,
+      "implementation_notes": "pferde.de nutzt Side-by-side Vergleich als Hauptdifferenzierer. Checkmark-Liste (✓) für Features. Wir sollten dies übernehmen + erweitern mit Entscheidungsbaum.",
+      "importance": "critical"
+    },
+    {
+      "angle": "Röntgenbilder explizit genannt",
+      "unique_to_rank_1": true,
+      "implementation_notes": "Als einzige Seite werden 'Röntgenbilder' im Title erwähnt. Detail-Tiefe signalisiert. Wir sollten noch detaillierter werden: Welche Bilder? Kosten pro Bild?",
+      "importance": "high"
+    },
+    {
+      "angle": "Magazin/Ratgeber-Stil",
+      "unique_to_rank_1": false,
+      "implementation_notes": "pferde.de nutzt Magazin-Kontext (pferde.de/magazin/...). Signalisiert umfassenden Guide. Wir als PferdeWert.de/pferde-ratgeber/ haben ähnlichen Vorteil.",
+      "importance": "medium"
+    },
+    {
+      "angle": "Call-to-Action: 'Jetzt informieren'",
+      "unique_to_rank_1": true,
+      "implementation_notes": "Aktiver CTA in Meta Description. Wir sollten stärkeren CTA nutzen: 'Jetzt Pferd bewerten + AKU-Kosten kalkulieren'",
+      "importance": "medium"
+    }
+  ],
+  "competitor_domain_types": {
+    "veterinary_clinics": {
+      "count": 1,
+      "domains": ["pferdeklinik-tillysburg.de"],
+      "strength": "E-E-A-T Autorität, praktische Expertise",
+      "weakness": "Weniger umfassende Ratgeber-Inhalte"
+    },
+    "veterinary_info_portals": {
+      "count": 2,
+      "domains": ["tiergesund.de", "equivet.info"],
+      "strength": "Breite Gesundheitsthemen, SEO-optimiert",
+      "weakness": "Weniger spezialisiert auf Kaufaspekte"
+    },
+    "insurance_companies": {
+      "count": 3,
+      "domains": ["hansemerkur.de", "pferde-versicherung.com", "pferdekrankenversicherung-vergleich.de"],
+      "strength": "Commercial Intent Match",
+      "weakness": "Versicherungsfokus könnte Bias suggerieren"
+    },
+    "horse_marketplaces": {
+      "count": 1,
+      "domains": ["pferde.de"],
+      "strength": "Rank 1 Position, umfassende Ratgeber, User Trust",
+      "weakness": "Konkurrenz zu unserem Marketplace-Modell"
+    }
+  },
+  "content_strategy_recommendations": {
+    "must_implement": [
+      "Detaillierte Kostenübersicht (150-300€ kleine AKU, 800-1500€ große AKU) mit GOT-Bezug",
+      "Schritt-für-Schritt Ablauf mit Timeline (Dauer-Angaben)",
+      "Große vs. Kleine AKU Side-by-side Vergleichstabelle"
+    ],
+    "differentiation_focus": [
+      "Versicherung & Kostenübernahme (MASSIVE Gap)",
+      "Neue GOT Auswirkungen auf Preise (140 Suchen/Monat)",
+      "Entscheidungshilfe: Wann ist AKU sinnvoll?",
+      "Regionale Preisunterschiede",
+      "Rechtsaspekte nach AKU"
+    ],
+    "unique_value_adds": [
+      "AKU-Kosten-Rechner integriert mit PferdeWert-Tool",
+      "Downloadbare Checkliste/Vorlage",
+      "Tierarzt-Finder für AKU in der Nähe",
+      "ROI-Kalkulator: AKU-Kosten vs. Kaufpreis-Risiko"
+    ]
+  },
+  "analysis_summary": {
+    "total_topics_identified": 15,
+    "must_have_topics": 2,
+    "differentiation_opportunities": 5,
+    "blue_ocean_topics": 6,
+    "average_competitor_coverage": "2.9 topics per page",
+    "our_target_coverage": "12+ topics for comprehensive advantage",
+    "key_insight": "Massive Blue Ocean Opportunity: Versicherung (0% coverage, 40 searches), Neue GOT (0% coverage, 140 searches), Sinnvoll-Evaluation (0% coverage, 30 searches). Kombination dieser 3 Topics = 210 zusätzliche monatliche Searches mit ZERO Konkurrenz."
+  }
+}

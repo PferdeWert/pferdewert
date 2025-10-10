@@ -1,0 +1,110 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Brauche ich immer eine AKU beim Pferdekauf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein, nicht immer. Bei Freizeitpferden mit niedrigem Kaufpreis (<€5.000) und bekannter Vorgeschichte kann eine AKU verzichtbar sein. Bei Turnierpferden oder höheren Kaufpreisen (>€10.000) ist eine große AKU jedoch dringend empfohlen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wer sucht den Tierarzt aus – Käufer oder Verkäufer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Käufer wählt den Tierarzt aus und zahlt ihn. Der Tierarzt sollte unabhängig sein und darf nicht der Haustierarzt des Verkäufers sein, um Interessenkonflikte zu vermeiden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet eine AKU beim Pferd 2024?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kleine AKU: €200-€350 (ohne Röntgen). Große AKU: €800-€1.500 (mit 18 Röntgenbildern). Die Preise basieren auf der GOT 2020 (seit November 2022 gültig) und variieren regional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Versicherung zahlt die AKU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standardmäßig zahlt keine Versicherung die AKU-Kosten beim Pferdekauf. Spezielle Pferdekauf-Versicherungen können die Kosten übernehmen, sind aber selten. Der Käufer trägt in der Regel die Kosten selbst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Unterschied zwischen großer und kleiner AKU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die kleine AKU umfasst nur die klinische Untersuchung (Herz, Lunge, Bewegungsapparat) und dauert 1-2 Stunden. Die große AKU beinhaltet zusätzlich 18 Röntgenbilder zur Beurteilung von Knochen und Gelenken und dauert 2-3 Stunden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert eine AKU beim Pferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine kleine AKU dauert ca. 1-2 Stunden. Eine große AKU mit Röntgenbildern dauert ca. 2-3 Stunden. Das schriftliche Gutachten erhalten Sie in der Regel 2-5 Tage nach der Untersuchung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was wird bei einer AKU genau untersucht?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bei einer AKU werden systematisch untersucht: Allgemeinzustand, Herz-Kreislauf-System, Atmungsorgane, Bewegungsapparat (Gliedmaßen, Rücken), Augen, Zähne, Geschlechtsorgane. Bei der großen AKU kommen Röntgenbilder von Hufen, Fesselgelenken, Sprunggelenken und Rücken hinzu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich die AKU-Kosten steuerlich absetzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, wenn das Pferd beruflich genutzt wird (z.B. Reitschule, gewerbliche Zucht, Turnierbetrieb). Privatpersonen können AKU-Kosten nicht steuerlich geltend machen. Dokumentieren Sie die Kosten für die Steuererklärung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann ist eine AKU sinnvoll?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine AKU ist besonders sinnvoll bei: Kaufpreisen über €10.000, geplanter sportlicher Nutzung, unbekannter Vorgeschichte des Pferdes, älteren Pferden (>12 Jahre), oder wenn der Verkäufer keine Gesundheitsgarantie gibt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was passiert nach einer negativen AKU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nach einer negativen AKU haben Sie in der Regel ein Rücktrittsrecht vom Kaufvertrag. Sprechen Sie dies vorher mit dem Verkäufer ab. Die AKU-Kosten bleiben beim Käufer, auch wenn der Kauf nicht zustande kommt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie finde ich einen guten Tierarzt für die AKU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suchen Sie einen auf Pferde spezialisierten Tierarzt mit AKU-Erfahrung. Fragen Sie andere Pferdebesitzer nach Empfehlungen oder kontaktieren Sie Pferdekliniken in Ihrer Region. Wichtig: Der Tierarzt sollte unabhängig sein und nicht in Verbindung zum Verkäufer stehen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es eine AKU-Vorlage oder Checkliste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, standardisierte AKU-Protokolle gibt es von verschiedenen Tierärzte-Verbänden. Eine Checkliste hilft Ihnen, den Tierarzt-Termin vorzubereiten und alle wichtigen Punkte anzusprechen. Fragen Sie Ihren Tierarzt nach seinem Untersuchungsprotokoll."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie haben sich die AKU-Kosten durch die neue GOT verändert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seit der GOT-Novelle im November 2022 sind die AKU-Kosten um ca. 15-25% gestiegen. Der einfache Satz liegt nun höher, und viele Tierärzte berechnen den 2-fachen Satz. Vergleichen Sie Preise vorab bei mehreren Tierärzten."
+      }
+    }
+  ]
+}
