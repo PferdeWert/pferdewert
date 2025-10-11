@@ -77,7 +77,7 @@ const PferdVerkaufen: NextPage = () => {
       title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
       badge: 'Kaufsicherheit',
       readTime: '12 min',
-      description: 'Alles zur Ankaufsuntersuchung: Welche AKU-Klasse brauchen Sie? Was wird untersucht? Kompletter Ratgeber für Pferdekäufer.'
+      description: 'Alles zur Ankaufsuntersuchung: Welche AKU-Klasse brauchst du? Was wird untersucht? Kompletter Ratgeber für Pferdekäufer.'
     },
     {
       href: '/pferde-ratgeber/aku-pferd/kosten',
@@ -214,7 +214,7 @@ const PferdVerkaufen: NextPage = () => {
         {/* Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis" />
-        <meta property="og:description" content="Verkaufen Sie Ihr Pferd zum besten Preis: 7-Phasen-Prozess, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
+        <meta property="og:description" content="Verkaufe dein Pferd zum besten Preis: 7-Phasen-Prozess, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
         <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
@@ -248,7 +248,7 @@ const PferdVerkaufen: NextPage = () => {
           badgeLabel="Verkaufsratgeber"
           badgeIcon={<BookOpen className="h-4 w-4" />}
           title="Pferd verkaufen: Der ultimative Leitfaden (2025)"
-          subtitle="Sie möchten Ihr Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit. Dieser Leitfaden zeigt Ihnen den 7-Phasen-Verkaufsprozess, den Plattform-Vergleich (eHorses vs. pferde.de) und die rechtliche Absicherung. Inklusive emotionaler Begleitung beim Abschied vom Partner Pferd."
+          subtitle="Du möchtest dein Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit. Dieser Leitfaden zeigt dir den 7-Phasen-Verkaufsprozess, den Plattform-Vergleich (eHorses vs. pferde.de) und die rechtliche Absicherung. Inklusive emotionaler Begleitung beim Abschied vom Partner Pferd."
           metaItems={heroMetaItems}
           primaryCta={{
             href: "/pferde-preis-berechnen",
@@ -287,11 +287,11 @@ const PferdVerkaufen: NextPage = () => {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium"><strong>PferdeWert KI-Tool</strong></Link> ermitteln Sie in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert Ihnen eine realistische Preiseinschätzung.
+              Mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium"><strong>PferdeWert KI-Tool</strong></Link> ermittelst du in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für dein Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert dir eine realistische Preiseinschätzung.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              In diesem ultimativen Leitfaden erfahren Sie alles Wichtige: vom 7-Phasen-Verkaufsprozess über den detaillierten Plattform-Vergleich (eHorses vs. private Kanäle) bis hin zur rechtlichen Absicherung durch professionelle Kaufverträge. Wir decken auch den oft vernachlässigten emotionalen Aspekt ab – denn ein Pferd zu verkaufen bedeutet, Abschied von einem Partner zu nehmen.
+              In diesem ultimativen Leitfaden erfährst du alles Wichtige: vom 7-Phasen-Verkaufsprozess über den detaillierten Plattform-Vergleich (eHorses vs. private Kanäle) bis hin zur rechtlichen Absicherung durch professionelle Kaufverträge. Wir decken auch den oft vernachlässigten emotionalen Aspekt ab – denn ein Pferd zu verkaufen bedeutet, Abschied von einem Partner zu nehmen.
             </p>
           </section>
 
@@ -302,7 +302,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Bevor Sie Ihr Pferd verkaufen, müssen Sie den realistischen Marktwert ermitteln. Ein realistischer Preis entscheidet darüber, ob Ihr Pferd innerhalb weniger Wochen oder erst nach Monaten verkauft wird.
+              Bevor du dein Pferd verkaufst, musst du den realistischen Marktwert ermitteln. Ein realistischer Preis entscheidet darüber, ob dein Pferd innerhalb weniger Wochen oder erst nach Monaten verkauft wird.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -363,7 +363,7 @@ const PferdVerkaufen: NextPage = () => {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Wenn Sie Ihr Pferd verkaufen möchten, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert Ihres Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern.
+              Wenn du dein Pferd verkaufen möchtest, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert deines Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -388,30 +388,21 @@ const PferdVerkaufen: NextPage = () => {
               <strong>Was senkt den Wert eines Pferdes?</strong> Chronische Erkrankungen (z.B. Arthrose, Allergien), Verhaltensauffälligkeiten (Steigen, Buckeln), fortgeschrittenes Alter (über 15 Jahre für Sportpferde), unvollständige Abstammungspapiere und lange Verkaufsdauer (über 6 Monate) wirken sich negativ auf den Preis aus.
             </p>
 
-            {/* STRATEGIC BOX #1: AI-Bewertung CTA */}
+            {/* STRATEGIC BOX #1: KI-Bewertung CTA */}
             <RatgeberHighlightBox
-              title="AI-Bewertung in 3 Minuten – Vermeiden Sie 3.000-9.000€ Verlust"
+              title="KI-Bewertung in 2 Minuten – Vermeide 3.000-9.000€ Verlust"
               icon={<Calculator className="h-5 w-5 text-brand-brown" />}
             >
               <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
-                PferdeWert.de unterstützt Sie beim Pferd verkaufen mit präziser Wertermittlung. Unser AI-Tool analysiert alle 11 Wertfaktoren gleichzeitig und vergleicht Ihr Pferd mit über 10.000 Verkaufsdaten aus dem deutschen Markt.
+                PferdeWert unterstützt dich beim Pferd verkaufen mit präziser Wertermittlung. Unser KI-Tool analysiert die relevanten Wertfaktoren und vergleicht dein Pferd mit realen Verkaufsdaten aus dem deutschen Markt.
               </p>
-              <div className="mb-4">
-                <p className="font-semibold text-brand mb-2">Die Methodik:</p>
-                <ul className="space-y-2 text-sm md:text-base text-gray-700">
-                  <li>• <strong>Datengrundlage:</strong> Reale Verkaufspreise von eHorses, pferde.de und privaten Transaktionen</li>
-                  <li>• <strong>Algorithmus:</strong> Machine Learning Modell mit 11-Faktoren-Gewichtung</li>
-                  <li>• <strong>Aktualisierung:</strong> Monatliche Marktdaten-Integration</li>
-                  <li>• <strong>Ergebnis:</strong> Realistische Preisspanne mit Begründung</li>
-                </ul>
-              </div>
               <CTAButton
                 type="primary"
                 href="/pferde-preis-berechnen"
                 text="Jetzt Pferdewert berechnen"
               />
               <p className="text-sm text-gray-600 mt-3 italic">
-                Im Gegensatz zu subjektiven Schätzungen liefert das AI-Tool eine objektive, datenbasierte Bewertung – ohne emotionale Verzerrung.
+                Im Gegensatz zu subjektiven Schätzungen liefert unser KI-Tool eine objektive, datenbasierte Bewertung – ohne emotionale Verzerrung.
               </p>
             </RatgeberHighlightBox>
           </section>
@@ -423,7 +414,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Beim Pferd verkaufen ist die Wahl der richtigen Plattform entscheidend für Ihren Erfolg. Ein datenbasierter Vergleich hilft, die optimale Strategie zu finden.
+              Beim Pferd verkaufen ist die Wahl der richtigen Plattform entscheidend für deinen Erfolg. Ein datenbasierter Vergleich hilft, die optimale Strategie zu finden.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -468,7 +459,7 @@ const PferdVerkaufen: NextPage = () => {
             </div>
 
             <p className="text-gray-700 leading-relaxed bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
-              <strong>Die Antwort:</strong> Beim Pferd verkaufen über eHorses erreichen Sie die größte Zielgruppe – der Marktführer hat die höchste Verkaufsquote (68% in 3 Monaten) für Turnierpferde und hochpreisige Pferde (über €15.000). Für Freizeitpferde und Breitensport bietet <strong>pferde.de</strong> ein gutes Preis-Leistungs-Verhältnis. <strong>Privat Ihr Pferd verkaufen</strong> spart Gebühren, funktioniert gut wenn Sie bereits potenzielle Käufer kennen – erfordert aber mehr Eigeninitiative (42% Erfolgsquote).
+              <strong>Die Antwort:</strong> Beim Pferd verkaufen über eHorses erreichst du die größte Zielgruppe – der Marktführer hat die höchste Verkaufsquote (68% in 3 Monaten) für Turnierpferde und hochpreisige Pferde (über €15.000). Für Freizeitpferde und Breitensport bietet <strong>pferde.de</strong> ein gutes Preis-Leistungs-Verhältnis. <strong>Privat dein Pferd verkaufen</strong> spart Gebühren, funktioniert gut wenn du bereits potenzielle Käufer kennst – erfordert aber mehr Eigeninitiative (42% Erfolgsquote).
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -541,7 +532,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein strukturierter Ablauf hilft Ihnen, Ihr Pferd verkaufen zu können ohne wichtige Schritte zu vergessen. Hier der bewährte 7-Phasen-Ablauf, der die Verkaufsdauer von durchschnittlich 9 auf 3-6 Monate verkürzt:
+              Ein strukturierter Ablauf hilft dir, dein Pferd verkaufen zu können ohne wichtige Schritte zu vergessen. Hier der bewährte 7-Phasen-Ablauf, der die Verkaufsdauer von durchschnittlich 9 auf 3-6 Monate verkürzt:
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -572,7 +563,7 @@ const PferdVerkaufen: NextPage = () => {
             </ul>
 
             <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4">
-              <strong>Zeitaufwand gesamt:</strong> 3-5 Wochen Vorbereitung – systematisch Ihr Pferd verkaufen erhöht die Erfolgsquote deutlich.
+              <strong>Zeitaufwand gesamt:</strong> 3-5 Wochen Vorbereitung – systematisch dein Pferd verkaufen erhöht die Erfolgsquote deutlich.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -623,7 +614,7 @@ const PferdVerkaufen: NextPage = () => {
               <li>✓ Transport organisieren (Käufer-Verantwortung klären)</li>
             </ul>
 
-            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
+            <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
               <strong>Zeitrahmen gesamt:</strong> Bei optimaler Vorbereitung und realistischem Preis <strong>3-6 Monate</strong> vom Start bis zur Übergabe.
             </p>
           </section>
@@ -635,7 +626,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die Verkaufsanzeige ist Ihr wichtigstes Werkzeug, um Ihr Pferd verkaufen zu können. Sie bestimmt, ob Ihr Inserat 50 oder 500 Mal angeklickt wird.
+              Die Verkaufsanzeige ist dein wichtigstes Werkzeug, um dein Pferd verkaufen zu können. Sie bestimmt, ob dein Inserat 50 oder 500 Mal angeklickt wird.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -644,7 +635,7 @@ const PferdVerkaufen: NextPage = () => {
 
             {/* STRATEGIC BOX #2: Anzeigen-Checkliste */}
             <RatgeberHighlightBox
-              title="8-Punkte Must-Have Checkliste für Ihre Anzeige"
+              title="8-Punkte Must-Have Checkliste für deine Anzeige"
               icon={<CheckCircle className="h-5 w-5 text-brand-brown" />}
             >
               <ol className="space-y-3 list-decimal list-inside text-sm md:text-base text-gray-700">
@@ -658,7 +649,7 @@ const PferdVerkaufen: NextPage = () => {
                 <li><strong>Kontaktmöglichkeiten</strong> – Telefon + E-Mail + WhatsApp für schnelle Rückmeldung</li>
               </ol>
               <p className="text-sm md:text-base text-gray-700 mt-4">
-                Eine professionelle Anzeige ist der Schlüssel, um Ihr Pferd verkaufen zu können.
+                Eine professionelle Anzeige ist der Schlüssel, um dein Pferd verkaufen zu können.
               </p>
             </RatgeberHighlightBox>
 
@@ -682,12 +673,12 @@ const PferdVerkaufen: NextPage = () => {
 
             <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>2 essenzielle Videos:</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
-              <li>• <strong>Bewegungsvideo (30 Sekunden):</strong> Schritt → Trab → Galopp auf beiden Händen – Videos erhöhen Ihre Chancen, das Pferd verkaufen zu können, um 60%</li>
+              <li>• <strong>Bewegungsvideo (30 Sekunden):</strong> Schritt → Trab → Galopp auf beiden Händen – Videos erhöhen deine Chancen, das Pferd verkaufen zu können, um 60%</li>
               <li>• <strong>Handling-Video (20 Sekunden):</strong> Führen, Putzen, Aufhalftern (zeigt Umgänglichkeit)</li>
             </ul>
 
-            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
-              💡 <strong>Profi-Tipp:</strong> Investieren Sie €100-150 in einen professionellen Pferdefotografen für Turnierpferde ab €15.000. Der ROI liegt bei 3-5 Wochen kürzerer Verkaufsdauer.
+            <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
+              💡 <strong>Profi-Tipp:</strong> Investiere €100-150 in einen professionellen Pferdefotografen für Turnierpferde ab €15.000. Das zahlt sich aus durch 3-5 Wochen kürzere Verkaufsdauer.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -716,8 +707,8 @@ const PferdVerkaufen: NextPage = () => {
               </div>
             </div>
 
-            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
-              <strong>Faustregel:</strong> VB-Preis sollte 10-15% über Ihrem Mindestpreis liegen, um Verhandlungsspielraum zu haben.
+            <p className="text-base text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Faustregel:</strong> VB-Preis sollte 10-15% über deinem Mindestpreis liegen, um Verhandlungsspielraum zu haben.
             </p>
           </section>
 
@@ -732,7 +723,7 @@ const PferdVerkaufen: NextPage = () => {
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-              Welche rechtlichen Aspekte beim Pferdeverkauf beachten?
+              Welche rechtlichen Aspekte gilt es beim Pferdeverkauf zu beachten?
             </h3>
 
             {/* STRATEGIC BOX #3: Rechtliche Checkliste */}
@@ -797,7 +788,7 @@ const PferdVerkaufen: NextPage = () => {
               <li>• Schriftlicher Vereinbarung im Kaufvertrag</li>
             </ul>
 
-            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+            <p className="text-base text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
               <strong>Konsequenzen bei Verletzung der Offenbarungspflicht:</strong> Rückabwicklung des Kaufs, Schadensersatzforderungen, strafrechtliche Relevanz bei arglistiger Täuschung.
             </p>
 
@@ -817,7 +808,7 @@ const PferdVerkaufen: NextPage = () => {
               <li>✓ <strong>Versicherungsübergabe:</strong> Haftpflicht/OP-Versicherung auf Käufer übertragen oder gekündigt</li>
             </ol>
 
-            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+            <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
               <strong>Zeitpunkt:</strong> Protokoll IMMER bei physischer Übergabe ausfüllen und von beiden Parteien unterschreiben lassen.
             </p>
           </section>
@@ -829,7 +820,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Wenn Sie Ihr Pferd verkaufen möchten und schnelle Ergebnisse brauchen, helfen diese 7 Strategien. Schnelligkeit ist wichtig – aber nicht um jeden Preis. Die Balance zwischen &quot;schnell&quot; und &quot;seriös&quot; ist entscheidend.
+              Wenn du dein Pferd verkaufen möchtest und schnelle Ergebnisse brauchst, helfen diese 7 Strategien. Schnelligkeit ist wichtig – aber nicht um jeden Preis. Die Balance zwischen &quot;schnell&quot; und &quot;seriös&quot; ist entscheidend.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -843,11 +834,11 @@ const PferdVerkaufen: NextPage = () => {
             >
               <ol className="space-y-4 list-decimal list-inside text-sm md:text-base text-gray-700">
                 <li>
-                  <strong className="text-brand">Preis 5-10% unter Marktwert setzen</strong> – realistisch zu preisen hilft, Ihr Pferd verkaufen zu können ohne Verzögerungen
+                  <strong className="text-brand">Preis 5-10% unter Marktwert setzen</strong> – realistisch zu preisen hilft, dein Pferd verkaufen zu können ohne Verzögerungen
                   <ul className="ml-6 mt-2 space-y-1">
                     <li>• Recherche: 10 Vergleichsinserate analysieren</li>
                     <li>• Durchschnittspreis berechnen</li>
-                    <li>• Minus 5-10% = Ihr Schnellverkaufs-Preis</li>
+                    <li>• Minus 5-10% = dein Schnellverkaufs-Preis</li>
                   </ul>
                 </li>
                 <li>
@@ -887,7 +878,7 @@ const PferdVerkaufen: NextPage = () => {
               <li><strong>Transportoption anbieten</strong> – Organisierter Transport (auf Käuferkosten) erleichtert Entscheidung</li>
             </ol>
 
-            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+            <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
               <strong>Case Study:</strong> Turnierpferd (€22.000) verkauft in 14 Tagen statt 6 Monaten durch Kombination von Maßnahmen 1, 2, 4 und 7. Kritisch: Preis von €24.500 auf €22.000 gesenkt + professionelle Fotoshoot-Investment €150.
             </p>
 
@@ -910,8 +901,8 @@ const PferdVerkaufen: NextPage = () => {
               <li>• Bereitwillig Fragen beantworten (auch kritische)</li>
             </ul>
 
-            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
-              <strong>Faustregel:</strong> Schneller Verkauf ist gut, aber nicht wenn er Käufer abschreckt. 2-4 Wochen ist das Sweet Spot-Fenster.
+            <p className="text-base text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Faustregel:</strong> Schneller Verkauf ist gut, aber nicht wenn er Käufer abschreckt. 2-4 Wochen ist der ideale Zeitrahmen.
             </p>
           </section>
 
@@ -922,7 +913,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein Pferd verkaufen bedeutet oft, sich von einem langjährigen Partner zu trennen. Es ist nicht nur eine geschäftliche Transaktion – es ist der Abschied von einem Lebewesen, das oft jahrelang Ihr Partner war.
+              Ein Pferd verkaufen bedeutet oft, sich von einem langjährigen Partner zu trennen. Es ist nicht nur eine geschäftliche Transaktion – es ist der Abschied von einem Lebewesen, das oft jahrelang dein Partner war.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -933,21 +924,21 @@ const PferdVerkaufen: NextPage = () => {
               <div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Phase 1: Vorbereitung (Trauer ist normal)</strong></p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Ein Pferd verkaufen ist emotional – nehmen Sie sich Zeit für Abschied. Es ist völlig normal, beim Gedanken an den Verkauf traurig zu sein. Viele Verkäufer berichten von Schuldgefühlen oder dem Gefühl, ihr Pferd &quot;im Stich zu lassen&quot;. Diese Emotionen sind legitim – nehmen Sie sich Zeit, sie zu verarbeiten.
+                  Ein Pferd verkaufen ist emotional – nimm dir Zeit für Abschied. Es ist völlig normal, beim Gedanken an den Verkauf traurig zu sein. Viele Verkäufer berichten von Schuldgefühlen oder dem Gefühl, ihr Pferd &quot;im Stich zu lassen&quot;. Diese Emotionen sind legitim – nimm dir Zeit, sie zu verarbeiten.
                 </p>
               </div>
 
               <div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Phase 2: Loslassen (Das richtige Zuhause finden)</strong></p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Der Verkaufsprozess wird emotional leichter, wenn Ihr Fokus nicht auf dem Abschied liegt, sondern darauf, das beste neue Zuhause für Ihr Pferd zu finden. Sie sind nicht verantwortungslos – Sie treffen eine durchdachte Entscheidung.
+                  Der Verkaufsprozess wird emotional leichter, wenn dein Fokus nicht auf dem Abschied liegt, sondern darauf, das beste neue Zuhause für dein Pferd zu finden. Du bist nicht verantwortungslos – du triffst eine durchdachte Entscheidung.
                 </p>
               </div>
 
               <div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Phase 3: Closure (Abschiedsritual)</strong></p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Viele Verkäufer empfinden einen letzten Ausritt, ein Foto oder ein kleines Ritual als hilfreich, um den Abschied bewusst zu gestalten. Es gibt kein &quot;richtiges&quot; Ritual – tun Sie, was sich für Sie stimmig anfühlt.
+                  Viele Verkäufer empfinden einen letzten Ausritt, ein Foto oder ein kleines Ritual als hilfreich, um den Abschied bewusst zu gestalten. Es gibt kein &quot;richtiges&quot; Ritual – tu, was sich für dich stimmig anfühlt.
                 </p>
               </div>
             </div>
@@ -960,10 +951,10 @@ const PferdVerkaufen: NextPage = () => {
 
             <ul className="space-y-3 text-gray-700">
               <li>
-                • <strong>Stallbesichtigung:</strong> Besuchen Sie den neuen Stall, wenn möglich. Saubere Boxen, gepflegte Pferde und freundliches Personal sind gute Zeichen.
+                • <strong>Stallbesichtigung:</strong> Besuche den neuen Stall, wenn möglich. Saubere Boxen, gepflegte Pferde und freundliches Personal sind gute Zeichen.
               </li>
               <li>
-                • <strong>Umgang beobachten:</strong> Wie geht der Käufer beim Probereiten mit Ihrem Pferd um? Geduldig, respektvoll, sachkundig?
+                • <strong>Umgang beobachten:</strong> Wie geht der Käufer beim Probereiten mit deinem Pferd um? Geduldig, respektvoll, sachkundig?
               </li>
               <li>
                 • <strong>Fragen des Käufers:</strong> Gute Käufer fragen detailliert nach Charakter, Gesundheit, Vorlieben des Pferdes – nicht nur nach Leistung.
@@ -973,12 +964,12 @@ const PferdVerkaufen: NextPage = () => {
               </li>
             </ul>
 
-            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
-              <strong>Wann ist ein Zuhause &quot;gut genug&quot;?</strong> Es gibt kein perfektes Zuhause. Wenn Grundbedürfnisse (artgerechte Haltung, kompetente Betreuung, finanzielle Sicherheit) erfüllt sind und Ihr Bauchgefühl &quot;Ja&quot; sagt, ist das ausreichend.
+            <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+              <strong>Wann ist ein Zuhause &quot;gut genug&quot;?</strong> Es gibt kein perfektes Zuhause. Wenn Grundbedürfnisse (artgerechte Haltung, kompetente Betreuung, finanzielle Sicherheit) erfüllt sind und dein Bauchgefühl &quot;Ja&quot; sagt, ist das ausreichend.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-              Kontakt nach Verkauf: Ihre Wahl
+              Kontakt nach Verkauf: deine Wahl
             </h3>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
@@ -989,7 +980,7 @@ const PferdVerkaufen: NextPage = () => {
               <div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Option 1: Updates vereinbaren</strong></p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Manche Käufer sind offen dafür, regelmäßig Fotos oder kurze Updates zu schicken. Besprechen Sie das vor dem Verkauf, falls Ihnen das wichtig ist.
+                  Manche Käufer sind offen dafür, regelmäßig Fotos oder kurze Updates zu schicken. Besprich das vor dem Verkauf, falls dir das wichtig ist.
                 </p>
               </div>
 
@@ -1016,15 +1007,15 @@ const PferdVerkaufen: NextPage = () => {
           {/* Fazit */}
           <section id="fazit" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Fazit: Erfolgreich und fair Pferd verkaufen
+              Fazit: Erfolgreich und fair dein Pferd verkaufen
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereitung möglich. Ein Pferd erfolgreich zu verkaufen bedeutet, den kompletten 7-Phasen-Prozess zu durchlaufen: von der gründlichen Vorbereitung über die datenbasierte Wertermittlung mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">PferdeWert.de AI-Tool</Link> bis hin zur Wahl der richtigen Plattform (eHorses für Premium-Pferde, pferde.de oder private Kanäle für Freizeitpferde) und der professionellen Übergabe.
+              Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereitung möglich. Ein Pferd erfolgreich zu verkaufen bedeutet, den kompletten 7-Phasen-Prozess zu durchlaufen: von der gründlichen Vorbereitung über die datenbasierte Wertermittlung mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">PferdeWert KI-Tool</Link> bis hin zur Wahl der richtigen Plattform (eHorses für Premium-Pferde, pferde.de oder private Kanäle für Freizeitpferde) und der professionellen Übergabe.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Erfolg definiert sich nicht nur über den Verkaufspreis, sondern auch über die emotionale Balance – das richtige Zuhause für Ihr Pferd zu finden.
+              Erfolg definiert sich nicht nur über den Verkaufspreis, sondern auch über die emotionale Balance – das richtige Zuhause für dein Pferd zu finden.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -1033,16 +1024,16 @@ const PferdVerkaufen: NextPage = () => {
 
             <div className="space-y-4">
               <div>
-                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Foundation:</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Die Basis:</strong></p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Ob Sie Ihr erstes oder fünftes Pferd verkaufen: Die Kombination aus realistischer Wertermittlung mit dem PferdeWert.de AI-Tool in nur 3 Minuten und der Wahl der richtigen Plattform (eHorses für Turnierpferde, pferde.de für Breitensport, private Kanäle für Netzwerke) schafft die Basis für schnellen Verkaufserfolg. Diese Foundation spart Monate frustrierender Verkaufsbemühungen mit überhöhten Preisen.
+                  Ob du dein erstes oder fünftes Pferd verkaufst: Die Kombination aus realistischer Wertermittlung und der Wahl der richtigen Plattform (eHorses für Turnierpferde, pferde.de für Breitensport, private Kanäle für Netzwerke) schafft die Basis für schnellen Verkaufserfolg. Diese solide Grundlage spart Monate frustrierender Verkaufsbemühungen mit überhöhten Preisen.
                 </p>
               </div>
 
               <div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Timing:</strong></p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Geduld zahlt sich aus. Die optimale Verkaufsdauer liegt bei 2-6 Wochen – alles darunter wirkt verdächtig (Red Flag für Käufer), alles darüber signalisiert Preiskorrektur-Bedarf. Starten Sie im März-Juni (Hochsaison) für maximale Anfragen.
+                  Geduld zahlt sich aus. Die optimale Verkaufsdauer liegt bei 2-6 Wochen – alles darunter wirkt verdächtig (Red Flag für Käufer), alles darüber signalisiert Preiskorrektur-Bedarf. Starte im März-Juni (Hochsaison) für maximale Anfragen.
                 </p>
               </div>
             </div>
@@ -1054,7 +1045,7 @@ const PferdVerkaufen: NextPage = () => {
                 text="Jetzt Pferdewert berechnen"
               />
               <p className="text-sm text-gray-600 mt-3">
-                In 3 Minuten erhalten Sie eine datenbasierte Preiseinschätzung basierend auf 10.000+ analysierten Pferden.
+                In nur 2 Minuten erhältst du eine datenbasierte Preiseinschätzung.
               </p>
             </div>
           </section>
@@ -1066,7 +1057,7 @@ const PferdVerkaufen: NextPage = () => {
           <RatgeberRelatedArticles
             title="Weiterführende Ratgeber"
             articles={relatedArticles}
-            description="Vertiefen Sie Ihr Wissen rund um Pferdekauf, -verkauf und Bewertung."
+            description="Vertiefe dein Wissen rund um Pferdekauf, -verkauf und Bewertung."
           />
         </article>
 
@@ -1077,7 +1068,7 @@ const PferdVerkaufen: NextPage = () => {
             alt: "Pferd erfolgreich verkaufen - Jetzt starten"
           }}
           title="Bereit für den erfolgreichen Verkauf?"
-          description={`Starten Sie jetzt mit einer professionellen AI-Bewertung für nur ${PRICING_FORMATTED.current} und verkaufen Sie Ihr Pferd zum optimalen Preis. Objektiv, schnell, präzise – entwickelt von erfahrenen Reitern.`}
+          description={`Starte jetzt mit einer professionellen AI-Bewertung für nur ${PRICING_FORMATTED.current} und verkaufe dein Pferd zum optimalen Preis. Objektiv, schnell, präzise – entwickelt von erfahrenen Reitern.`}
           ctaHref="/pferde-preis-berechnen"
           ctaLabel="Jetzt Pferdewert berechnen"
         />
