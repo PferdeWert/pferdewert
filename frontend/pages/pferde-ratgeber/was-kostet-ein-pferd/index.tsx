@@ -3,9 +3,7 @@ import Link from 'next/link'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents'
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox'
-import RatgeberInfoTile from '@/components/ratgeber/RatgeberInfoTile'
-import RatgeberRegionCard from '@/components/ratgeber/RatgeberRegionCard'
-import FAQ from '@/components/shared/FAQ'
+import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import {
@@ -17,6 +15,7 @@ import {
   wasKostetPferdFaqItems,
   wasKostetPferdRelatedArticles
 } from '@/data/ratgeber/wasKostetPferd'
+import { Calculator, MapPin } from 'lucide-react'
 
 export default function WasKostetEinPferd() {
   // JSON-LD Article Schema
@@ -145,10 +144,17 @@ export default function WasKostetEinPferd() {
         <RatgeberHero
           title="Was kostet ein Pferd?"
           subtitle="Komplette Kostenübersicht 2025: Von der Anschaffung bis zum monatlichen Unterhalt"
-          description="Ein Pferd kostet in der Anschaffung zwischen 2.500€ und 15.000€. Dazu kommen monatliche Kosten von 400-800€. Hier finden Sie alle Kosten im Detail – inkl. versteckter Ausgaben und regionaler Unterschiede."
-          image="/images/ratgeber/was-kostet-pferd/hero.webp"
-          imageAlt="Pferd auf der Weide - Kosten im Überblick"
-          readTime="18 min"
+          primaryCta={{
+            href: '/bewertung',
+            label: 'Jetzt Pferd bewerten',
+            icon: <Calculator className="w-5 h-5" />
+          }}
+          secondaryCta={{
+            onClick: () => {
+              document.getElementById('anschaffung')?.scrollIntoView({ behavior: 'smooth' })
+            },
+            label: 'Mehr erfahren'
+          }}
         />
 
         {/* Table of Contents */}
@@ -178,13 +184,10 @@ export default function WasKostetEinPferd() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Preise nach Pferderassen</h3>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {rassenPreise.map((rasse, index) => (
-                <RatgeberHighlightBox
-                  key={index}
-                  title={rasse.title}
-                  value={rasse.price}
-                  description={rasse.description}
-                  variant="primary"
-                />
+                <RatgeberHighlightBox key={index} title={rasse.title}>
+                  <p className="text-xl font-bold text-brand-brown mb-2">{rasse.price}</p>
+                  <p className="text-gray-700">{rasse.description}</p>
+                </RatgeberHighlightBox>
               ))}
             </div>
 
@@ -192,12 +195,11 @@ export default function WasKostetEinPferd() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Preise nach Alter</h3>
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               {alterPreisTiles.map((tile, index) => (
-                <RatgeberInfoTile
-                  key={index}
-                  title={tile.title}
-                  value={tile.value}
-                  description={tile.description}
-                />
+                <div key={index} className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{tile.title}</h4>
+                  <p className="text-2xl font-bold text-brand-brown mb-3">{tile.value}</p>
+                  <p className="text-gray-600 text-sm">{tile.description}</p>
+                </div>
               ))}
             </div>
 
@@ -231,12 +233,11 @@ export default function WasKostetEinPferd() {
             {/* Unterhalt Kosten Tiles */}
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               {unterhaltKostenTiles.map((tile, index) => (
-                <RatgeberInfoTile
-                  key={index}
-                  title={tile.title}
-                  value={tile.value}
-                  description={tile.description}
-                />
+                <div key={index} className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{tile.title}</h4>
+                  <p className="text-2xl font-bold text-brand-brown mb-3">{tile.value}</p>
+                  <p className="text-gray-600 text-sm">{tile.description}</p>
+                </div>
               ))}
             </div>
 
@@ -357,11 +358,10 @@ export default function WasKostetEinPferd() {
             {/* Regional Bayern Cards */}
             <div className="space-y-6 mb-10">
               {regionalBayernRegions.map((region, index) => (
-                <RatgeberRegionCard
-                  key={index}
-                  title={region.title}
-                  description={region.description}
-                />
+                <div key={index} className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3">{region.title}</h4>
+                  <p className="text-gray-700">{region.description}</p>
+                </div>
               ))}
             </div>
 
@@ -573,24 +573,28 @@ export default function WasKostetEinPferd() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Häufig gestellte Fragen
             </h2>
-            <FAQ items={wasKostetPferdFaqItems} />
+            <FAQ faqs={wasKostetPferdFaqItems} />
           </section>
 
           {/* Section 8: Related Articles */}
           <section id="related" className="mb-20 scroll-mt-24">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Weiterführende Artikel
-            </h2>
-            <RatgeberRelatedArticles articles={wasKostetPferdRelatedArticles} />
+            <RatgeberRelatedArticles
+              title="Weiterführende Artikel"
+              articles={wasKostetPferdRelatedArticles}
+            />
           </section>
         </article>
 
         {/* Final CTA */}
         <RatgeberFinalCTA
+          image={{
+            src: '/images/shared/blossi-shooting.webp',
+            alt: 'Professionelle Pferdebewertung'
+          }}
           title="Wie viel ist Ihr Pferd wert?"
           description="Nutzen Sie unsere AI-gestützte Pferdebewertung für eine professionelle Werteinschätzung in nur 3 Minuten."
-          ctaText="Jetzt Pferd bewerten"
-          ctaLink="/bewertung"
+          ctaLabel="Jetzt Pferd bewerten"
+          ctaHref="/bewertung"
         />
       </main>
     </>
