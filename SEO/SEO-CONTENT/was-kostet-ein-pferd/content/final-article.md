@@ -1,6 +1,6 @@
 # Was kostet ein Pferd? Vollständige Kostenübersicht 2025
 
-Ein Pferd kostet in der Anschaffung zwischen 2.500€ und 15.000€, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen durchschnittlich bei 400€ - 800€. In diesem [umfassenden Pferdekauf-Ratgeber](/pferde-ratgeber/pferd-kaufen) erfahren Sie, wie Sie ein passendes Pferd finden und worauf Sie beim Kauf achten sollten.
+Ein Pferd kostet in der Anschaffung zwischen 2.500€ und 20.000€+, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen durchschnittlich bei 400€ - 800€. In diesem [umfassenden Pferdekauf-Ratgeber](/pferde-ratgeber/pferd-kaufen) erfahren Sie, wie Sie ein passendes Pferd finden und worauf Sie beim Kauf achten sollten.
 
 ## Inhaltsverzeichnis
 1. [Anschaffungskosten eines Pferdes](#anschaffungskosten-eines-pferdes)
