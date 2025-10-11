@@ -28,6 +28,7 @@
 - Headings: Playfair Display (`font-serif`).
 - Fließtext & UI-Elemente: Lato (`font-sans`).
 - **Body Paragraphs**: `text-lg` is the STANDARD for ALL `<p>` tags in ratgeber content (for better readability and consistency).
+- **WICHTIG**: Verwende NIEMALS `text-sm` – minimum ist `text-base` (besser `text-lg` für Fließtext). `text-sm` ist zu klein und schlecht lesbar.
 - Blockquotes: Playfair Display kursiv, linke Border in `brand-green`.
 
 ### 3. Farb- & Boxsystem
@@ -80,6 +81,7 @@
 - ❌ **ArticleMetadata**: Falls verwendet, prüfe ob wirklich nötig (oft redundant zu Hero-Meta)
 
 ### 5. Content-Guidelines
+- **Ansprache**: IMMER duzen ("Du", "Dein", "Dir") in Ratgeber-Artikeln – keine Siez-Form!
 - Absätze: max. 3–4 Sätze, `leading-relaxed`.
 - Zwischenüberschriften alle 4–6 Absätze einbauen (`text-3xl` → `text-2xl`).
 - Listen als `<ol>`/`<ul>`; Keywords fett hervorheben.
@@ -209,7 +211,7 @@ export default function RatgeberPage() {
   title="Wichtiger Hinweis zur Sicherheit"
   icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}
 >
-  <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+  <p className="text-base text-gray-700 leading-relaxed">
     Nur für kritische Warnungen, Conversion-CTAs oder wichtige Checklisten.
     Nicht für reguläre Inhalte verwenden!
   </p>

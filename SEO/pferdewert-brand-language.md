@@ -17,7 +17,7 @@ Wir verwandeln komplexe Pferdebewertungen in verständliche, datenbasierte Einsc
 
 1. **Kompetent ohne Arroganz**: Wir erklären komplexe Marktzusammenhänge einfach und zugänglich
 2. **Technologisch versiert, menschlich nah**: KI-Power trifft auf echte Pferdekenntnis
-3. **Transparent und ehrlich**: Keine versteckten Bewertungskriterien, keine unrealistischen Versprechungen
+3. **Transparent und ehrlich**: Keine versteckten Bewertungskriterien, keine unrealistischen Versprechungen. 
 4. **Partnerschaftlich**: Wir stehen auf der Seite unserer Nutzer, nicht der Verkäufer oder Käufer
 
 ---
@@ -58,6 +58,7 @@ Wir verwandeln komplexe Pferdebewertungen in verständliche, datenbasierte Einsc
    - "Du fragst dich, ob der Preis fair ist?"
    - "Hier erfährst du, worauf es wirklich ankommt"
    - Leser aktiv einbeziehen
+   - DU anstatt SIE! 
 
 3. **Aktiv statt passiv**
    - ✅ "Wir analysieren 13 Bewertungskriterien"
@@ -113,7 +114,7 @@ Wir verwandeln komplexe Pferdebewertungen in verständliche, datenbasierte Einsc
 - Checklisten und Quick-Start-Guides
 
 **Beispiele:**
-- "In 3 Minuten zur ersten Einschätzung"
+- "In 2 Minuten zur ersten Einschätzung"
 - "Diese 7 Angaben reichen für eine Bewertung"
 - "Bewertung verstehen: Unser Ampelsystem erklärt"
 
@@ -146,7 +147,7 @@ Wir verwandeln komplexe Pferdebewertungen in verständliche, datenbasierte Einsc
    - Schritt-für-Schritt-Anleitungen
 
 3. **Vertrauensaufbau**
-   - Unsere Methodik offenlegen
+   - Unsere Methodik offenlegen ohne sie zu erfinden. Wir erfinden nicht Dinge wie "wir verleichen dein Pferd mit 10.000 Marktdaten", da wir diese Zahlen nicht haben.
    - Erfolgsgeschichten teilen (mit Einwilligung)
    - Grenzen ehrlich kommunizieren
 
@@ -238,7 +239,6 @@ Wir verwandeln komplexe Pferdebewertungen in verständliche, datenbasierte Einsc
 
 ✅ **Transparent:**
 - "Unsere KI vergleicht dein Pferd mit ähnlichen Verkäufen"
-- "Dual-AI-System: GPT-4 + Claude für präzisere Einschätzungen"
 
 ✅ **Verständlich:**
 - "Die Bewertung berücksichtigt 15 Faktoren – von Ausbildung bis Gesundheit"

@@ -4,6 +4,7 @@ import { RatgeberSection, RatgeberRelatedArticle } from '@/types/global'
 export const wasKostetPferdSections: RatgeberSection[] = [
   { id: 'anschaffung', title: 'Anschaffungskosten' },
   { id: 'unterhalt', title: 'Monatliche Unterhaltungskosten' },
+  { id: 'versteckte-kosten', title: 'Versteckte Kosten, die oft vergessen werden' },
   { id: 'regional', title: 'Regionale Preisunterschiede' },
   { id: 'bewertung', title: 'Was ist mein Pferd wert?' },
   { id: 'kauftipps', title: 'Pferdekauf-Checkliste' },

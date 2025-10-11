@@ -122,11 +122,10 @@ const WasKostetEinPferd: NextPage = () => {
     <>
       <Head>
         {/* Basic Meta Tags */}
-        <title>Was kostet ein Pferd? Preise & Kosten-Guide 2025 | PferdeWert</title>
-        <meta name="description" content="Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden." />
-        <meta name="keywords" content="was kostet ein pferd, pferd kaufen kosten, pferd preis, warmblut kosten, pferd monatliche kosten, stallmiete, pferdehaltung kosten, bayern pferd preis, pferdekauf budget, anfängerpferd kosten" />
+        <title>Was kostet ein Pferd? Kosten 2025 im Überblick</title>
+        <meta name="description" content="Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€/Monat. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten." />
         <meta name="author" content="PferdeWert.de" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="robots" content="index, follow" />
 
         {/* Technical Meta Tags */}
         <meta charSet="utf-8" />
@@ -135,20 +134,22 @@ const WasKostetEinPferd: NextPage = () => {
         <meta name="msapplication-TileColor" content="#5A4B3B" />
 
         {/* Canonical and hreflang */}
-        <link rel="canonical" href="https://www.pferdewert.de/was-kostet-ein-pferd" />
-        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/was-kostet-ein-pferd" />
+        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
+        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Was kostet ein Pferd? Preise & Kosten-Guide 2025 | PferdeWert" />
-        <meta property="og:description" content="Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden." />
+        <meta property="og:title" content="Was kostet ein Pferd? Alle Kosten 2025 im Überblick" />
+        <meta property="og:description" content="Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€ monatlich. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/was-kostet-ein-pferd" />
+        <meta property="og:url" content="https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
         <meta property="og:image" content="https://pferdewert.de/images/was-kostet-ein-pferd.webp" />
 
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Was kostet ein Pferd? Preise & Kosten-Guide 2025 | PferdeWert" />
-        <meta name="twitter:description" content="Was kostet ein Pferd in Deutschland? Kompletter Guide zu Anschaffungskosten (1.500€-50.000€), monatlichen Kosten (300€-800€) und regionalen Preisunterschieden." />
+        <meta name="twitter:title" content="Was kostet ein Pferd? Alle Kosten 2025 im Überblick" />
+        <meta name="twitter:description" content="Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€ monatlich. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten." />
+        <meta name="twitter:site" content="@PferdeWert" />
+        <meta name="twitter:creator" content="@PferdeWert" />
 
         {/* Preconnect for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -214,7 +215,10 @@ const WasKostetEinPferd: NextPage = () => {
               <p className="text-lg leading-relaxed text-gray-700">
                 Die Entscheidung für ein eigenes Pferd ist nicht nur emotional, sondern auch finanziell bedeutsam. Ob Sie ein Freizeitpferd,
                 Turnierpferd oder Ihr erstes Pferd kaufen möchten – dieser Artikel liefert Ihnen alle relevanten Preisinformationen,
-                regionale Unterschiede und professionelle Kaufberatung für 2025.
+                regionale Unterschiede und professionelle Kaufberatung für 2025. Weitere Details zum gesamten Kaufprozess finden Sie in unserem{' '}
+                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-brand-brown font-semibold hover:text-brand-brownDark">
+                  umfassenden Pferdekauf-Ratgeber
+                </Link>.
               </p>
             </div>
 
@@ -297,7 +301,10 @@ const WasKostetEinPferd: NextPage = () => {
                 <p className="mb-4">
                   Mit unserer <strong>KI-gestützten Pferdebewertung</strong> erhalten Sie in nur 2 Minuten eine professionelle
                   Einschätzung des Marktwerts – basierend auf Rasse, Alter, Ausbildung und aktuellen Marktdaten. So vermeiden Sie
-                  Überzahlung und kaufen zum fairen Preis.
+                  Überzahlung und kaufen zum fairen Preis. Wenn Sie selbst ein Pferd verkaufen möchten, lesen Sie unseren{' '}
+                  <Link href="/pferde-ratgeber/pferd-verkaufen" className="text-brand-brown font-semibold hover:text-brand-brownDark">
+                    Ratgeber zum Pferde-Verkauf
+                  </Link>.
                 </p>
                 <Link href="/pferde-preis-berechnen" className="inline-flex items-center gap-2 text-brand-brown font-semibold hover:text-brand-brownDark">
                   Jetzt Pferdewert berechnen <ArrowRight className="w-4 h-4" />
@@ -367,6 +374,72 @@ const WasKostetEinPferd: NextPage = () => {
                   Ohne unvorhergesehene Tierarztkosten! Realistisch sollten Sie 700€ - 900€/Monat einplanen.
                 </p>
               </RatgeberHighlightBox>
+            </div>
+
+            {/* Versteckte Kosten */}
+            <div id="versteckte-kosten" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('versteckte-kosten', 'Versteckte Kosten, die oft vergessen werden')}
+              </h2>
+
+              <p className="text-lg leading-relaxed text-gray-700">
+                Bei der Pferdehaltung gibt es zahlreiche Ausgaben, die in der anfänglichen Kalkulation oft übersehen werden, aber dennoch regelmäßig anfallen.
+              </p>
+
+              <ContentSection
+                title="Notfall-Tierarztkosten"
+                icon="🚑"
+                content={
+                  <>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-brand-brown mb-2">Kolik-Notfall:</h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li><strong>Konservative Behandlung:</strong> 200€ - 800€</li>
+                          <li><strong>Operation:</strong> 3.000€ - 8.000€</li>
+                          <li><strong>Nachsorge:</strong> 500€ - 2.000€</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-brand-brown mb-2">Lahmheitsuntersuchung:</h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li><strong>Basis-Check:</strong> 100€ - 200€</li>
+                          <li><strong>Röntgen:</strong> 150€ - 400€</li>
+                          <li><strong>MRT:</strong> 800€ - 1.500€</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </>
+                }
+              />
+
+              <ContentSection
+                title="Equipment-Wartung & Ersatz"
+                icon="🛠️"
+                content={
+                  <>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-brand-brown mb-2">Sattel & Zubehör:</h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li><strong>Sattelkauf:</strong> 1.000€ - 4.000€</li>
+                          <li><strong>Sattel-Check/Anpassung:</strong> 50€ - 150€/Jahr</li>
+                          <li><strong>Trense & Gebisse:</strong> 100€ - 500€</li>
+                          <li><strong>Decken (Winter/Regendecke):</strong> 150€ - 600€</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-brand-brown mb-2">Verschleißteile:</h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li><strong>Putzzeug:</strong> 50€ - 100€/Jahr</li>
+                          <li><strong>Halfter, Stricke:</strong> 30€ - 80€/Jahr</li>
+                          <li><strong>Bandagen, Gamaschen:</strong> 50€ - 150€/Jahr</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </>
+                }
+              />
             </div>
 
             {/* Regionale Preisunterschiede */}
@@ -542,6 +615,13 @@ const WasKostetEinPferd: NextPage = () => {
                       Mehr Details finden Sie in unserem{' '}
                       <Link href="/pferde-ratgeber/aku-pferd" className="text-brand-brown font-semibold hover:text-brand-brownDark">
                         umfassenden AKU-Ratgeber
+                      </Link>, sowie spezifische Informationen zu{' '}
+                      <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown font-semibold hover:text-brand-brownDark">
+                        AKU-Kosten
+                      </Link>{' '}
+                      und dem{' '}
+                      <Link href="/pferde-ratgeber/aku-pferd/ablauf" className="text-brand-brown font-semibold hover:text-brand-brownDark">
+                        AKU-Ablauf
                       </Link>.
                     </p>
                   </>
