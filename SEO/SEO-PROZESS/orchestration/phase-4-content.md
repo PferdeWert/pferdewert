@@ -67,7 +67,7 @@ OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
    - Nutze outline.sections[] als Struktur
    - Integriere keyword.primary, secondary, longtail natürlich
    - Verwende contentRequirements.eeat.experienceSnippets[] für E-E-A-T Signale
-   - Beantworte serpInsights.paaQuestions[] im FAQ-Bereich
+   - WICHTIG: KEINE FAQ-Sektion im Artikel erstellen (FAQs werden separat in Phase 5B als Schema Markup generiert)
    - Implementiere contentRequirements.mandatoryElements (min 3 interne Links, min 2 externe Quellen)
    - Befolge contentStrategy.tone: "Du-Ansprache, vertrauensvoll, praxisorientiert"
    - Orientiere dich an Beispielen aus content-writing-examples.md (Struktur, E-E-A-T Integration, Ton)
@@ -81,7 +81,6 @@ OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
    - Primary Keyword Density: {density}%
    - E-E-A-T Signals: {count}
    - Internal Links: {count}
-   - FAQ Questions: {count}
    - File: content/article-draft.md
 ```
 
@@ -100,7 +99,6 @@ Prüfe ob Sub-Agent vollständigen Artikel geliefert hat:
 ✅ **Primary Keyword Density 0.8-1.2%**
 ✅ **Min 3 E-E-A-T Signale integriert** (Expertise, Erfahrung, References)
 ✅ **Min 3 interne Links eingebaut**
-✅ **FAQ mit min 5 PAA-basierten Fragen**
 ✅ **Brand Language konsistent** (Du-Ansprache, warmherzig, praktisch)
 ✅ **Markdown-Formatierung sauber** (korrekte Heading-Hierarchie)
 ❌ **Wenn &lt; 2000 Wörter** → Retry mit expliziter Aufforderung mehr Content zu erstellen
