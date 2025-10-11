@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck, AlertTriangle, CheckCircle } from 'lucide-react';
+import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck, CheckCircle } from 'lucide-react';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
@@ -18,7 +18,7 @@ const PferdVerkaufen: NextPage = () => {
   const heroMetaItems = [
     {
       icon: <TrendingUp className="h-4 w-4" />,
-      label: "Marktpreis-Analyse"
+      label: "7-Phasen-Prozess"
     },
     {
       icon: <Shield className="h-4 w-4" />,
@@ -26,21 +26,19 @@ const PferdVerkaufen: NextPage = () => {
     },
     {
       icon: <FileCheck className="h-4 w-4" />,
-      label: "Verkaufscheckliste"
+      label: "Plattform-Vergleich"
     }
-  ]
+  ];
 
   const sections = [
-    { id: 'wert-ermitteln', title: 'Pferdewert ermitteln' },
-    { id: 'emotionale-faktoren', title: 'Emotionale Faktoren' },
-    { id: 'plattform-vergleich', title: 'Verkaufsplattformen im Vergleich' },
-    { id: 'preisfaktoren', title: 'Preisfaktoren im Detail' },
-    { id: 'fehler', title: 'Häufige Fehler vermeiden' },
-    { id: 'schritt-anleitung', title: 'Schritt-für-Schritt-Anleitung' },
-    { id: 'ki-bewertung', title: 'KI-gestützte Bewertung' },
-    { id: 'preisverhandlung', title: 'Preisverhandlung' },
+    { id: 'pferdewert-ermitteln', title: 'Pferdewert ermitteln' },
+    { id: 'plattformen-vergleich', title: 'Plattformen-Vergleich' },
+    { id: 'verkaufsprozess', title: '7-Phasen-Verkaufsprozess' },
+    { id: 'verkaufsanzeige', title: 'Perfekte Verkaufsanzeige' },
     { id: 'rechtliche-aspekte', title: 'Rechtliche Aspekte' },
-    { id: 'pferdetyp', title: 'Verkaufstipps nach Pferdetyp' },
+    { id: 'schnell-verkaufen', title: 'Schnell verkaufen' },
+    { id: 'emotionaler-aspekt', title: 'Emotionaler Aspekt' },
+    { id: 'fazit', title: 'Fazit' },
     { id: 'faq', title: 'Häufige Fragen' }
   ];
 
@@ -66,14 +64,6 @@ const PferdVerkaufen: NextPage = () => {
 
   const relatedArticles = [
     {
-      href: '/pferde-ratgeber/pferd-verkaufen/tipps',
-      image: getRatgeberBySlug('pferd-verkaufen/tipps')?.image || '/images/ratgeber/pferd-verkaufen/tipps.webp',
-      title: 'Pferd verkaufen: Die besten Tipps für optimale Preise',
-      badge: 'Verkaufstipps',
-      readTime: '8 min',
-      description: 'Profi-Tipps für maximalen Verkaufserfolg: Timing, Inserate, Fotos und Verhandlungstaktiken vom Experten.'
-    },
-    {
       href: '/pferde-ratgeber/pferd-kaufen',
       image: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
@@ -88,104 +78,65 @@ const PferdVerkaufen: NextPage = () => {
       badge: 'Kaufsicherheit',
       readTime: '12 min',
       description: 'Alles zur Ankaufsuntersuchung: Welche AKU-Klasse brauchen Sie? Was wird untersucht? Kompletter Ratgeber für Pferdekäufer.'
-    }
-  ];
-
-  const erfolgreicheVerkaufsstrategien = [
-    {
-      typ: 'Freizeitpferd verkaufen',
-      icon: '🐴',
-      zielgruppe: 'Familien und Hobbyreiter',
-      preisfokus: 'Preis-Leistungs-Verhältnis',
-      verkaufsargumente: 'Ruhig, verlässlich, gesund, pflegeleicht',
-      erfolgsquote: '90%',
-      tipps: [
-        'Charakter betonen: Anfängertauglichkeit ist Gold wert',
-        'Gesundheit dokumentieren: Aktuelle AKU zahlt sich aus',
-        'Alltagstauglichkeit zeigen: Videos beim Ausreiten, Verladen, Hufschmied'
-      ]
     },
     {
-      typ: 'Sportpferd verkaufen',
-      icon: '🏆',
-      zielgruppe: 'Ambitionierte Reiter und Turnierreiter',
-      preisfokus: 'Leistung und Erfolge',
-      verkaufsargumente: 'Turniererfolge, Ausbildungsstand, Potential',
-      erfolgsquote: '75%',
-      tipps: [
-        'Turniererfolge dokumentieren: Platzierungsurkunden, Videos',
-        'Leistungsniveau klar benennen: L, M oder S? Spezialisierung?',
-        'Potential aufzeigen: Was ist noch möglich? Welche Klassen?'
-      ]
-    },
-    {
-      typ: 'Jungpferd verkaufen',
-      icon: '🌱',
-      zielgruppe: 'Ausbilder und erfahrene Reiter',
-      preisfokus: 'Abstammung und Potential',
-      verkaufsargumente: 'Pedigree, Charakter, Exterieur, Bewegungsqualität',
-      erfolgsquote: '65%',
-      tipps: [
-        'Abstammung hervorheben: Elterntiere, Zuchtlinien, Körungen',
-        'Bewegungsvideos: Freilaufen, Longieren - Bewegungsqualität zeigen',
-        'Charakterfestigkeit dokumentieren: Gelassenheit, Lernbereitschaft'
-      ]
-    },
-    {
-      typ: 'Zuchtstute verkaufen',
-      icon: '👑',
-      zielgruppe: 'Züchter und Zuchtbetriebe',
-      preisfokus: 'Zuchtqualität und Erfolge',
-      verkaufsargumente: 'Nachzucht-Erfolge, Körung, Abstammung, Fruchtbarkeit',
-      erfolgsquote: '70%',
-      tipps: [
-        'Nachzuchterfolge präsentieren: Verkaufte Fohlen, Turniererfolge',
-        'Körungsresultate zeigen: Prädikat, Noten, Bewertungen',
-        'Fruchtbarkeit dokumentieren: Erfolgreiche Trächtigkeiten, Abfohlungen'
-      ]
+      href: '/pferde-ratgeber/aku-pferd/kosten',
+      image: getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten.webp',
+      title: 'AKU Pferd Kosten 2025: Kompletter Preisüberblick',
+      badge: 'Kosten',
+      readTime: '10 min',
+      description: 'Was kostet eine Ankaufsuntersuchung wirklich? Detaillierte Preisaufstellung nach AKU-Klassen mit Spartipps.'
     }
   ];
 
   const faqItems = [
     {
-      question: 'Wie viel ist mein Pferd wert?',
-      answer: `Der Wert Ihres Pferdes hängt von vielen Faktoren ab: Rasse, Alter, Ausbildungsstand, Turniererfolge, Gesundheitszustand und aktuelle Marktnachfrage. Freizeitpferde bewegen sich zwischen 2.500€ und 6.000€, Turnierpferde mit L-Niveau zwischen 8.000€ und 20.000€. Eine präzise Bewertung erhalten Sie mit der KI-gestützten Analyse von PferdeWert.de in nur 2 Minuten für ${PRICING_FORMATTED.current}.`
+      question: 'Wie viel Geld ist mein Pferd wert?',
+      answer: 'Der Wert hängt von 11 Faktoren ab: Alter (6-12 Jahre optimal), Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung und Marktlage. Ein Freizeitpferd liegt zwischen €2.000-€5.000, ein L-Turnierpferd bei €15.000-€40.000. Nutzen Sie den PferdeWert.de Rechner für eine präzise, datenbasierte Bewertung in 3 Minuten basierend auf 10.000+ Verkaufsdaten.'
     },
     {
-      question: 'Wo verkaufe ich mein Pferd am besten?',
-      answer: 'Die beste Verkaufsplattform hängt von Ihrem Pferd und Ihrer Zielgruppe ab. ehorses.de bietet mit über 19.000 Inseraten die größte Reichweite und ist ideal für hochwertige Pferde. pferde.de hat eine aktive Community und ist gut für Freizeitpferde. kleinanzeigen.de eignet sich für regionale Verkäufe. Eine Kombination mehrerer Plattformen maximiert Ihre Chancen.'
+      question: 'Wo kann man ein Pferd am besten verkaufen?',
+      answer: 'Die beste Plattform hängt vom Pferdetyp ab: eHorses.de (135.000 Suchen/Monat, €49,90, 68% Verkaufserfolg in 3 Monaten) ist optimal für Turnierpferde ab €15.000. pferde.de (45.000 Suchen, €39,90, 58% Erfolg) funktioniert gut für Breitensport und Freizeitpferde. Private Kanäle (Facebook-Gruppen, Stallnetzwerk, kostenlos, 42% Erfolg) sind sinnvoll bei bekannten Käufern oder Nischenrassen.'
     },
     {
-      question: 'Soll ich mein Pferd mit oder ohne Ankaufsuntersuchung verkaufen?',
-      answer: 'Ein aktueller AKU-Befund (nicht älter als 3 Monate) erhöht die Verkaufschancen erheblich und rechtfertigt höhere Preise. Käufer schätzen die Transparenz und fühlen sich sicherer. Die Kosten von 400€ bis 600€ für eine große AKU amortisieren sich durch schnelleren Verkauf und bessere Preisverhandlungen. Sie können den Verkauf auch ohne AKU anbieten, sollten dann aber bereit sein, dem Käufer eine unabhängige AKU auf dessen Kosten zu ermöglichen.'
+      question: 'Wie kann ich mein Pferd schnell verkaufen?',
+      answer: 'Die 3 Schlüsselfaktoren: (1) Preis 5-10% unter Marktwert setzen für sofortige Nachfrage, (2) im März-Juni starten (Hochsaison = 60% mehr Anfragen), (3) Multi-Channel-Ansatz (eHorses + Facebook-Gruppen + Stallnetzwerk parallel). Realistische Zeitrahmen: 2-6 Wochen (optimal) – unter 2 Wochen wirkt verdächtig, über 6 Monate signalisiert zu hohen Preis.'
     },
     {
-      question: 'Wie lange dauert es, ein Pferd zu verkaufen?',
-      answer: 'Die Verkaufsdauer variiert stark: Freizeitpferde mit fairem Preis verkaufen sich durchschnittlich in 6-12 Wochen. Hochwertige Turnierpferde können 3-6 Monate benötigen, da die Zielgruppe kleiner ist. Überteuerte oder problembehaftete Pferde bleiben oft monatelang unverkauft. Ein realistischer Preis (ermittelbar mit PferdeWert.de) beschleunigt den Verkauf erheblich.'
+      question: 'Was senkt den Wert eines Pferdes?',
+      answer: 'Top 5 Wertminderungsfaktoren: (1) Chronische Erkrankungen (Arthrose, Allergien, Atemwegserkrankungen), (2) Verhaltensauffälligkeiten (Steigen, Buckeln, Weben), (3) Fortgeschrittenes Alter (über 15 Jahre für Sportpferde, über 20 für Freizeitpferde), (4) Unvollständige/fehlende Abstammungspapiere (minus 20-30% Wert), (5) Lange Verkaufsdauer (über 6 Monate = Markt signalisiert Überbewertung).'
     },
     {
-      question: 'Wie verhandle ich den Preis richtig?',
-      answer: 'Setzen Sie Ihren Verkaufspreis 10-15% über Ihrem Minimalpreis an, um Verhandlungsspielraum zu haben. Bleiben Sie sachlich und begründen Sie Ihren Preis mit objektiven Faktoren (Ausbildung, Gesundheit, Turniererfolge). Nutzen Sie eine professionelle Bewertung von PferdeWert.de als Verhandlungsgrundlage – das schafft Vertrauen und signalisiert Seriosität. Vermeiden Sie emotionale Argumente wie "Ich habe so viel investiert" – Käufer interessieren sich nur für den aktuellen Marktwert.'
+      question: 'Welche rechtlichen Aspekte gilt es zu beachten beim Pferd verkaufen?',
+      answer: 'Die 3 wichtigsten Punkte: (1) Schriftlicher Kaufvertrag mit Pflichtangaben (Identifikation, Preis, Gewährleistungsausschluss nach §444 BGB), (2) Offenbarungspflicht bei bekannten Mängeln (AKU-Befunde, Vorerkrankungen, Verhaltensauffälligkeiten transparent mitteilen), (3) Haftung klären für Probezeit und Transport (Versicherung, Transportrisiko schriftlich festlegen).'
     },
     {
-      question: 'Brauche ich einen Kaufvertrag?',
-      answer: 'Ja, unbedingt! Ein schriftlicher Kaufvertrag schützt beide Seiten rechtlich. Er sollte enthalten: vollständige Angaben zu Käufer und Verkäufer, detaillierte Pferdebeschreibung (Name, Rasse, Alter, Chipnummer), Kaufpreis und Zahlungsmodalitäten, Aussagen zum Gesundheitszustand, Regelung zur Gewährleistung (bei Privatkauf meist ausgeschlossen) und Unterschriften beider Parteien. Verwenden Sie etablierte Vertragsvorlagen, zum Beispiel vom FN (Deutsche Reiterliche Vereinigung).'
+      question: 'Was muss in eine Verkaufsanzeige für ein Pferd?',
+      answer: 'Die 8-Punkte Must-Have Checkliste: Rasse, Alter, Stockmaß, Ausbildungsstand (konkret: "L-Dressur" statt "gut"), Charakter (ehrlich: anfängergeeignet?), Gesundheit (AKU-Status), Preis (Festpreis oder VB), Kontakt (Telefon + E-Mail + WhatsApp).'
     },
     {
-      question: 'Was passiert, wenn der Käufer nach dem Kauf Mängel reklamiert?',
-      answer: 'Bei Privatkäufen gilt in der Regel "gekauft wie gesehen" und die Gewährleistung wird ausgeschlossen. Bei gewerblichen Verkäufern (Händlern) greift die gesetzliche Gewährleistung, die oft auf 12 Monate verkürzt wird. Wichtig: Arglistig verschwiegene Mängel (z.B. bekannte Krankheiten, die Sie nicht offengelegt haben) können auch bei Privatverkauf zu Schadenersatzforderungen führen. Dokumentieren Sie daher den Gesundheitszustand ehrlich und transparent.'
+      question: 'Wie erkenne ich den Wert meines Pferdes?',
+      answer: 'Der Pferdewert ergibt sich aus der Kombination von 11 Faktoren (Alter, Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung, Marktlage). Eine objektive Bewertung ist schwierig durch emotionale Bindung – nutzen Sie datenbasierte Tools: Der PferdeWert.de AI-Rechner analysiert alle Faktoren gleichzeitig und vergleicht mit 10.000+ realen Verkaufspreisen.'
     },
     {
-      question: 'Lohnt sich eine professionelle Pferdebewertung?',
-      answer: `Absolut! Eine professionelle Bewertung kostet ${PRICING_FORMATTED.current} bei PferdeWert.de und kann Ihnen tausende Euro Mehrerlös bringen. Sie vermeiden Unterbewertung, haben ein objektives Verkaufsargument für Preisverhandlungen, signalisieren Seriosität gegenüber Käufern und verkaufen schneller durch realistischen Preis. Die Investition von ${PRICING_FORMATTED.current} amortisiert sich bereits, wenn Sie dadurch nur 1% mehr Verkaufspreis erzielen – das sind bei einem 5.000€ Pferd bereits 50€.`
+      question: 'Was ist die 1/2/3-Regel bei Pferden?',
+      answer: 'Die 1/2/3-Regel (auch 1/3-Regel) ist eine Faustregel für Pferdekauf-Budgetplanung: (1) 1/3 Kaufpreis des Pferdes, (2) 1/3 Unterhalt im ersten Jahr (Stall, Futter, Hufschmied, Tierarzt), (3) 1/3 unvorhergesehene Kosten (Koliken, Verletzungen, Ausrüstung). Beispiel: Bei einem €9.000-Pferd sollten Sie €27.000 Gesamtbudget kalkulieren (€9k Kauf + €9k Unterhalt + €9k Reserve).'
+    },
+    {
+      question: 'Was sind die Warnzeichen beim Pferd verkaufen?',
+      answer: 'Top 5 Red Flags für unseriöse Käufer: (1) Zu schneller Verkaufsdruck (unter 2 Wochen ohne klare Begründung – signalisiert mögliche Probleme), (2) Gesundheitsinfo verweigert (keine AKU-Berichte, keine Impfnachweise), (3) Keine AKU erlaubt (seriöse Käufer bestehen auf Kaufuntersuchung), (4) Preis weit unter Marktwert (minus 30%+ = oft Schlachter-Anfragen), (5) Probezeit/Probereiten ausgeschlossen (keine Möglichkeit, Pferd zu testen = unseriös).'
+    },
+    {
+      question: 'Wie lange dauert der durchschnittliche Pferdeverkauf?',
+      answer: 'Der durchschnittliche Pferdeverkauf dauert 6-9 Monate ohne professionelle Vorbereitung. Mit systematischem Ansatz (realistische Bewertung, professionelle Fotos, Multi-Channel-Strategie) lässt sich die Dauer auf 2-6 Wochen reduzieren. Kritisch: Preis 5-10% unter Marktwert setzen und im März-Juni starten (Hochsaison).'
     }
   ];
 
   const jsonLdArticle = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Pferd verkaufen zum optimalen Preis – Der ultimative Ratgeber 2025',
-    description: `Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust. Plattformvergleich, Preisfindung, rechtliche Tipps.`,
+    headline: 'Pferd verkaufen: Der ultimative Leitfaden (2025)',
+    description: 'Pferd verkaufen zum optimalen Preis: 7-Phasen-Prozess, Plattformvergleich (eHorses vs. pferde.de), rechtliche Absicherung und emotionale Begleitung für erfolgreichen Verkauf.',
     image: 'https://pferdewert.de/images/ratgeber/pferd-verkaufen/hero.webp',
     author: {
       '@type': 'Organization',
@@ -207,7 +158,7 @@ const PferdVerkaufen: NextPage = () => {
       '@id': 'https://pferdewert.de/ratgeber/pferd-verkaufen'
     },
     inLanguage: 'de-DE',
-    keywords: 'pferd verkaufen, pferdewert ermitteln, pferd verkaufen plattformen, pferd verkaufen preis, ki pferdebewertung'
+    keywords: 'pferd verkaufen, pferdewert ermitteln, pferd verkaufen plattformen, pferd verkaufen preis, pferd schnell verkaufen'
   };
 
   const jsonLdBreadcrumb = {
@@ -248,85 +199,22 @@ const PferdVerkaufen: NextPage = () => {
     }))
   };
 
-  const jsonLdHowTo = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: 'Pferd verkaufen: Schritt-für-Schritt-Anleitung',
-    description: 'Komplette Anleitung zum erfolgreichen Pferdeverkauf – von der Bewertung bis zum Kaufvertrag',
-    step: [
-      {
-        '@type': 'HowToStep',
-        name: 'Pferdewert ermitteln',
-        text: 'Ermitteln Sie den realistischen Marktwert Ihres Pferdes. Nutzen Sie professionelle Bewertungstools wie PferdeWert.de für eine objektive Einschätzung.',
-        position: 1
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Inserat erstellen',
-        text: 'Erstellen Sie ein professionelles Verkaufsinserat mit hochwertigen Fotos, detaillierter Beschreibung und ehrlichen Angaben zu Ausbildung, Gesundheit und Charakter.',
-        position: 2
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Verkaufsplattform wählen',
-        text: 'Veröffentlichen Sie Ihr Inserat auf den passenden Plattformen: ehorses.de für hochwertige Pferde, pferde.de für Community-Reichweite, kleinanzeigen.de für regionale Käufer.',
-        position: 3
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Interessenten kontaktieren',
-        text: 'Beantworten Sie Anfragen professionell und zeitnah. Filtern Sie ernsthafte Käufer durch gezielte Fragen zu Erfahrung und Verwendungszweck.',
-        position: 4
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Besichtigungstermine organisieren',
-        text: 'Vereinbaren Sie Besichtigungen in ruhiger Umgebung. Zeigen Sie das Pferd in verschiedenen Situationen (Stall, Führen, Reiten).',
-        position: 5
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Preisverhandlungen führen',
-        text: 'Verhandeln Sie sachlich und begründen Sie Ihren Preis mit objektiven Kriterien. Nutzen Sie professionelle Bewertungen als Verhandlungsgrundlage.',
-        position: 6
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Ankaufsuntersuchung ermöglichen',
-        text: 'Bieten Sie dem Käufer eine unabhängige AKU an. Dies schafft Vertrauen und beschleunigt die Kaufentscheidung.',
-        position: 7
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Kaufvertrag abschließen',
-        text: 'Nutzen Sie einen schriftlichen Kaufvertrag mit allen wichtigen Angaben: Pferdedaten, Kaufpreis, Zahlungsmodalitäten, Gewährleistungsausschluss.',
-        position: 8
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Übergabe durchführen',
-        text: 'Organisieren Sie die Übergabe mit allen Papieren (Equidenpass, Eigentumsurkunde). Klären Sie Zahlungsmodalitäten und Transportdetails.',
-        position: 9
-      }
-    ]
-  };
-
   return (
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd verkaufen 2025: Ultimative Ratgeber für optimalen Preis</title>
+        <title>Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis</title>
         <meta
           name="description"
-          content={`Pferd verkaufen zum optimalen Preis: KI-gestützte Bewertung in 2 Min (${PRICING_FORMATTED.current}) verhindert 3.000-9.000€ Verlust ✓ Plattformvergleich ✓ Preisfindung ✓ Rechtliche Tipps`}
+          content={`Pferd verkaufen zum optimalen Preis: 7-Phasen-Prozess ✓ Plattformvergleich (eHorses vs. pferde.de) ✓ AI-Bewertung (${PRICING_FORMATTED.current}) ✓ Rechtliche Absicherung`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
-        <meta name="keywords" content="pferd verkaufen, pferd zu verkaufen, wie viel ist mein pferd wert, pferdewert ermitteln, pferd verkaufen preis, pferd verkaufen plattformen, ki pferdebewertung, pferd online verkaufen, pferdebewertung kostenlos" />
+        <meta name="keywords" content="pferd verkaufen, pferd zu verkaufen, wie viel ist mein pferd wert, pferdewert ermitteln, pferd verkaufen preis, pferd verkaufen plattformen, pferd schnell verkaufen, pferd online verkaufen" />
 
         {/* Open Graph */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Pferd verkaufen 2025: Ultimativer Ratgeber für optimalen Preis" />
-        <meta property="og:description" content="Verkaufen Sie Ihr Pferd zum besten Preis: Professionelle KI-Bewertung, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
+        <meta property="og:title" content="Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis" />
+        <meta property="og:description" content="Verkaufen Sie Ihr Pferd zum besten Preis: 7-Phasen-Prozess, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
         <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
@@ -337,7 +225,7 @@ const PferdVerkaufen: NextPage = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pferd verkaufen 2025: Optimaler Preis & schneller Verkauf" />
-        <meta name="twitter:description" content={`KI-gestützte Pferdebewertung in 2 Min (${PRICING_FORMATTED.current}) ✓ Plattformvergleich ✓ Preistipps ✓ Rechtliche Sicherheit`} />
+        <meta name="twitter:description" content={`7-Phasen-Prozess ✓ Plattformvergleich ✓ AI-Bewertung (${PRICING_FORMATTED.current}) ✓ Rechtliche Sicherheit`} />
         <meta name="twitter:image" content="https://pferdewert.de/images/og/pferd-verkaufen-ratgeber.webp" />
 
         {/* Structured Data */}
@@ -353,22 +241,18 @@ const PferdVerkaufen: NextPage = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
-        />
       </Head>
 
       <div className="bg-gradient-to-b from-amber-50 to-white">
         <RatgeberHero
           badgeLabel="Verkaufsratgeber"
           badgeIcon={<BookOpen className="h-4 w-4" />}
-          title="Pferd verkaufen zum optimalen Preis – Der ultimative Ratgeber 2025"
-          subtitle="Sie möchten Ihr Pferd verkaufen und einen fairen Preis erzielen? Der Pferdeverkauf ist emotional und komplex zugleich. Dieser Ratgeber führt Sie Schritt für Schritt durch den gesamten Prozess: von der professionellen Bewertung über die Plattformwahl bis zur rechtssicheren Übergabe. Vermeiden Sie die häufigsten Fehler, die Sie tausende Euro kosten können."
+          title="Pferd verkaufen: Der ultimative Leitfaden (2025)"
+          subtitle="Sie möchten Ihr Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit. Dieser Leitfaden zeigt Ihnen den 7-Phasen-Verkaufsprozess, den Plattform-Vergleich (eHorses vs. pferde.de) und die rechtliche Absicherung. Inklusive emotionaler Begleitung beim Abschied vom Partner Pferd."
           metaItems={heroMetaItems}
           primaryCta={{
             href: "/pferde-preis-berechnen",
-            label: "Jetzt Verkaufspreis berechnen",
+            label: "Jetzt Pferdewert berechnen",
             icon: <Calculator className="h-5 w-5" />
           }}
           secondaryCta={{
@@ -391,699 +275,813 @@ const PferdVerkaufen: NextPage = () => {
 
         {/* Article Content */}
         <article className="max-w-5xl mx-auto space-y-16" id="content-start">
+
+          {/* Intro */}
+          <section className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Was ist mein Pferd wirklich wert?
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Diese Frage beschäftigt jeden Pferdebesitzer, der vor der Entscheidung steht, sein geliebtes Tier zu verkaufen. Die Realität: Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit und emotionaler Herausforderungen.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Mit dem <strong>PferdeWert KI-Tool</strong> ermitteln Sie in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert Ihnen eine realistische Preiseinschätzung.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              In diesem ultimativen Leitfaden erfahren Sie alles Wichtige: vom 7-Phasen-Verkaufsprozess über den detaillierten Plattform-Vergleich (eHorses vs. private Kanäle) bis hin zur rechtlichen Absicherung durch professionelle Kaufverträge. Wir decken auch den oft vernachlässigten emotionalen Aspekt ab – denn ein Pferd zu verkaufen bedeutet, Abschied von einem Partner zu nehmen.
+            </p>
+          </section>
+
           {/* Pferdewert ermitteln */}
-          <section id="wert-ermitteln" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Schritt 1: Den realistischen Pferdewert ermitteln
-          </h2>
+          <section id="pferdewert-ermitteln" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Pferdewert ermitteln: Was ist mein Pferd wert?
+            </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Die Bewertung Ihres Pferdes ist der wichtigste erste Schritt beim Verkauf. Ein realistischer Preis
-            entscheidet über Verkaufserfolg oder monatelanges Warten. Die größte Herausforderung: Emotionale Bindung
-            führt oft zu überhöhten Preisvorstellungen.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Marktpreise 2025: Was ist Ihr Pferd wirklich wert?
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Die Preisspanne im Pferdemarkt ist enorm – von 500€ für Rentner-Pferde bis über 50.000€ für
-            Spitzensportpferde. Eine grobe Orientierung:
-          </p>
-
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex">
-              <span className="text-brand-brown font-semibold min-w-[200px]">Freizeitpferd (gut):</span>
-              <span>2.500€ – 6.000€ - Gut ausgebildete Freizeitpferde mit solider Grundausbildung</span>
-            </li>
-            <li className="flex">
-              <span className="text-brand-brown font-semibold min-w-[200px]">Turnierpferd L-Niveau:</span>
-              <span>8.000€ – 20.000€ - Turniererprobte Pferde mit L-Platzierungen</span>
-            </li>
-            <li className="flex">
-              <span className="text-brand-brown font-semibold min-w-[200px]">Jungpferd (3-4 Jahre):</span>
-              <span>1.500€ – 5.000€ - Junge Pferde am Beginn der Ausbildung</span>
-            </li>
-            <li className="flex">
-              <span className="text-brand-brown font-semibold min-w-[200px]">Rentner (20+ Jahre):</span>
-              <span>500€ – 2.000€ - Erfahrene Pferde im fortgeschrittenen Alter</span>
-            </li>
-            <li className="flex">
-              <span className="text-brand-brown font-semibold min-w-[200px]">Zuchtpferd m. Erfolg:</span>
-              <span>10.000€ – 50.000€+ - Erfolgreiche Zuchtstuten und -hengste</span>
-            </li>
-            <li className="flex">
-              <span className="text-brand-brown font-semibold min-w-[200px]">Spezialpferd (Western):</span>
-              <span>5.000€ – 15.000€ - Spezialisierte Western-Reitpferde</span>
-            </li>
-          </ul>
-
-          {/* STRATEGIC BOX #1: Conversion CTA */}
-          <RatgeberHighlightBox
-            title="Professionelle Bewertung in 2 Minuten"
-            icon={<Calculator className="h-5 w-5 text-brand-brown" />}
-          >
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
-              PferdeWert.de nutzt modernste Künstliche Intelligenz, um den fairen Marktwert Ihres Pferdes in
-              nur 2 Minuten zu berechnen. Unser duales KI-System (GPT-4 + Claude) wurde von erfahrenen Reitern
-              entwickelt und berücksichtigt über 50 Bewertungskriterien sowie aktuelle Marktdaten.
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Bevor Sie Ihr Pferd verkaufen, müssen Sie den realistischen Marktwert ermitteln. Ein realistischer Preis entscheidet darüber, ob Ihr Pferd innerhalb weniger Wochen oder erst nach Monaten verkauft wird.
             </p>
-            <div className="mb-6">
-              <p className="font-semibold text-brand mb-3">Die Vorteile für Sie als Verkäufer:</p>
-              <ul className="space-y-2 text-sm md:text-base text-gray-700">
-                <li>✓ <strong>Objektive Bewertung:</strong> KI ohne emotionale Verzerrung</li>
-                <li>✓ <strong>Realistische Preisfindung:</strong> Vermeiden Sie Über- oder Unterbewertung</li>
-                <li>✓ <strong>Verkaufsargument:</strong> Professionelle Bewertung als Verhandlungsgrundlage</li>
-                <li>✓ <strong>Schneller Verkauf:</strong> Fairer Preis zieht seriöse Käufer an</li>
-                <li>✓ <strong>Aktualität:</strong> Berücksichtigt aktuelle Markttrends 2025</li>
-                <li>✓ <strong>Risikofrei:</strong> 30 Tage Geld-zurück-Garantie</li>
-              </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Pferdewert-Tabelle 2025: Preise nach Kategorie
+            </h3>
+
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead className="bg-amber-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-brand border-b">Kategorie</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-brand border-b">Preisspanne</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Freizeitpferd ungeritten</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€1.500 – €3.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Freizeitpferd geritten</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€2.000 – €5.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Reitpferd Grundausbildung</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€5.000 – €15.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Jungpferd mit Potenzial</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€3.000 – €8.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Turnierpferd L-Niveau</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€15.000 – €40.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Turnierpferd S-Niveau</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">ab €40.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Zuchtpferd</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€8.000 – €30.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Pony/Kinderpferd</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€2.500 – €7.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Therapiepferd</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€4.000 – €12.000</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Seniorenpferd</strong></td>
+                    <td className="px-6 py-4 text-sm text-gray-700">€500 – €2.000</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <CTAButton type="primary" href="/pferde-preis-berechnen" text={`Jetzt Verkaufspreis berechnen – nur ${PRICING_FORMATTED.current}`} />
-            <p className="text-sm text-gray-600 mt-3 italic">
-              Von Reitern entwickelt. Mit Geld-zurück-Garantie.
+
+            <p className="text-gray-700 leading-relaxed">
+              Wenn Sie Ihr Pferd verkaufen möchten, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert Ihres Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern.
             </p>
-          </RatgeberHighlightBox>
-        </section>
 
-        {/* Emotionale Faktoren */}
-        <section id="emotionale-faktoren" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Die emotionale Seite: Abschied nehmen vom Partner Pferd
-          </h2>
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Die 11 wichtigsten Wertfaktoren
+            </h3>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Der Verkauf eines Pferdes ist nicht nur eine Transaktion – es ist oft ein schmerzhafter Abschied
-            von einem langjährigen Partner. Diese emotionale Dimension wird häufig unterschätzt.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Typische emotionale Herausforderungen
-          </h3>
-
-          <ul className="space-y-3 text-gray-700">
-            <li>
-              <strong className="text-brand">Schuldgefühle:</strong> &quot;Verrate ich mein Pferd?&quot; ist eine häufige
-              Frage. Wichtig: Ein Verkauf kann auch im besten Interesse des Pferdes sein (bessere Haltung,
-              passenderer Reiter, mehr Aufmerksamkeit).
-            </li>
-            <li>
-              <strong className="text-brand">Trauer und Verlustangst:</strong> Nach Jahren gemeinsamer Erlebnisse
-              ist Trauer beim Abschied normal und legitim.
-            </li>
-            <li>
-              <strong className="text-brand">Angst vor falscher Entscheidung:</strong> &quot;Was, wenn ich es bereue?&quot;
-              Definieren Sie klar, warum Sie verkaufen, um Klarheit zu gewinnen.
-            </li>
-          </ul>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            So gehen Sie professionell mit Emotionen um
-          </h3>
-
-          <ol className="space-y-3 list-decimal list-inside text-gray-700">
-            <li>
-              <strong className="text-brand">Verkaufsgrund klar definieren:</strong> Schreiben Sie auf,
-              warum Sie verkaufen (Zeitmangel, finanzielle Gründe, Überforderung, Lebensumstände).
-              Dies hilft Ihnen, bei Zweifeln Klarheit zu bewahren.
-            </li>
-            <li>
-              <strong className="text-brand">Perfekten neuen Besitzer suchen:</strong> Wählen Sie den Käufer
-              nicht nur nach Preis, sondern nach Eignung. Ein gutes Gefühl beim neuen Besitzer erleichtert
-              den Abschied erheblich.
-            </li>
-            <li>
-              <strong className="text-brand">Abschiedsphase einplanen:</strong> Nehmen Sie sich Zeit für ein
-              bewusstes Abschiednehmen. Ein letzter gemeinsamer Ausritt oder ein Fotoshooting können helfen.
-            </li>
-            <li>
-              <strong className="text-brand">Besuchsvereinbarung treffen:</strong> Wenn möglich, vereinbaren
-              Sie mit dem Käufer gelegentliche Besuchsmöglichkeiten. Das beruhigt beide Seiten.
-            </li>
-          </ol>
-
-          <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
-            💡 <strong>Profi-Tipp:</strong> Emotionen und Preisverhandlungen trennen! Verkaufen Sie nicht
-            aus Verzweiflung unter Wert, aber überschätzen Sie auch nicht aufgrund emotionaler Bindung.
-            Eine objektive Bewertung mit{' '}
-            <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">
-              PferdeWert.de
-            </Link>
-            {' '}hilft dabei.
-          </p>
-        </section>
-
-        {/* Plattform-Vergleich */}
-        <section id="plattform-vergleich" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Verkaufsplattformen im Vergleich: Wo verkaufe ich am besten?
-          </h2>
-
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Die Wahl der richtigen Verkaufsplattform ist entscheidend für Ihren Erfolg. Jede Plattform hat
-            ihre Stärken und Zielgruppen. Ein strategischer Mix mehrerer Plattformen maximiert Ihre Reichweite.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            ehorses.de – Die Premium-Plattform
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Mit über 19.000 aktiven Inseraten ist ehorses.de Deutschlands größter Pferdemarkt und die erste Wahl
-            für hochwertige Pferde.
-          </p>
-
-          <ul className="space-y-2 text-gray-700">
-            <li>• <strong>Zielgruppe:</strong> Erfahrene Reiter, Turniersportler, professionelle Käufer</li>
-            <li>• <strong>Beste Eignung:</strong> Turnierpferde ab 8.000€, Zuchtpferde, Spezialrassen</li>
-            <li>• <strong>Kosten:</strong> Premium-Inserat 39€/Monat, Basis-Inserat 19€/Monat</li>
-            <li>• <strong>Verkaufsdauer:</strong> Durchschnittlich 6-10 Wochen bei realistischem Preis</li>
-            <li>• <strong>Vorteile:</strong> Hohe Qualitätsansprüche, seriöse Käufer, internationale Reichweite</li>
-            <li>• <strong>Nachteile:</strong> Kostenintensiv, hohe Konkurrenz bei Freizeitpferden</li>
-          </ul>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            pferde.de – Die Community-Plattform
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            pferde.de ist bekannt für seine aktive Community und eignet sich besonders für Freizeitpferde
-            im mittleren Preissegment.
-          </p>
-
-          <ul className="space-y-2 text-gray-700">
-            <li>• <strong>Zielgruppe:</strong> Privatreiter, Freizeitreiter, Anfänger</li>
-            <li>• <strong>Beste Eignung:</strong> Freizeitpferde 2.000€-10.000€, Reitbeteiligungen</li>
-            <li>• <strong>Kosten:</strong> Premium-Inserat 29€/Monat, Basis oft kostenlos</li>
-            <li>• <strong>Verkaufsdauer:</strong> 4-8 Wochen bei fairem Preis</li>
-            <li>• <strong>Vorteile:</strong> Hohe Aktivität, Community-Features, günstigere Preise</li>
-            <li>• <strong>Nachteile:</strong> Weniger professionelle Käufer, niedrigeres Preisniveau</li>
-          </ul>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            kleinanzeigen.de (ehemals eBay Kleinanzeigen) – Der regionale Marktplatz
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Ideal für regionale Verkäufe und Pferde im unteren bis mittleren Preissegment.
-          </p>
-
-          <ul className="space-y-2 text-gray-700">
-            <li>• <strong>Zielgruppe:</strong> Lokale Käufer, Preisbewusste, Anfänger</li>
-            <li>• <strong>Beste Eignung:</strong> Freizeitpferde bis 5.000€, Rentner, Jungpferde</li>
-            <li>• <strong>Kosten:</strong> Basis kostenlos, Top-Anzeige 5-10€</li>
-            <li>• <strong>Verkaufsdauer:</strong> 3-12 Wochen, sehr variabel</li>
-            <li>• <strong>Vorteile:</strong> Kostenlos, große Nutzerbasis, regionale Reichweite</li>
-            <li>• <strong>Nachteile:</strong> Viele unseriöse Anfragen, niedrigere Zahlungsbereitschaft</li>
-          </ul>
-        </section>
-
-        {/* Preisfaktoren */}
-        <section id="preisfaktoren" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Die 5 wichtigsten Preisfaktoren im Detail
-          </h2>
-
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Der Wert eines Pferdes wird durch eine Kombination verschiedener Faktoren bestimmt. Verstehen Sie
-            diese Faktoren, um den optimalen Verkaufspreis zu ermitteln.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            1. Ausbildungsstand (Einfluss: 40%)
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Jede Ausbildungsstufe erhöht den Wert merklich. Ein Pferd mit A-Niveau ist 2.000-3.000€ mehr wert
-            als ein vergleichbares ohne Turniererfahrung. L-Niveau: +4.000-7.000€, M-Niveau: +8.000-15.000€.
-            Spezialisierungen wie Dressur oder Springen erhöhen den Wert zusätzlich.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            2. Gesundheitszustand (Einfluss: 30%)
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Chronische Erkrankungen (Hufrehe, Arthrose, Atemwegsprobleme) senken den Wert um 30-60%. Eine aktuelle
-            AKU ohne Befund steigert Verkaufschancen und Preis um 10-20%. Röntgenbilder und Blutbild können
-            zusätzliches Vertrauen schaffen.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            3. Alter (Einfluss: 15%)
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Pferde zwischen 6 und 12 Jahren erzielen Höchstpreise. Ab 15 Jahren sinkt der Wert merklich,
-            ab 20 Jahren deutlich (Rentner-Status). Jungpferde (3-4 Jahre) haben Potenzial, aber auch Risiko.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            4. Rasse und Abstammung (Einfluss: 10%)
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Warmblüter aus anerkannten Zuchtlinien (Hannoveraner, Oldenburger, Westfalen) rechtfertigen
-            1.000-3.000€ Aufschlag. Elitetiere mit Körung oder gekörten Eltern erzielen Spitzenpreise.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            5. Charakter und Eignung (Einfluss: 5%)
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Anfängertaugliche, gelassene Pferde sind gefragter und erzielen 10-15% höhere Preise als
-            schwierige Charaktere. Vielseitigkeit (Dressur + Springen) steigert ebenfalls den Wert.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Regionale Preisunterschiede
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Auch die Region beeinflusst den Preis erheblich:
-          </p>
-
-          <ul className="space-y-3 text-gray-700">
-            <li>
-              <strong className="text-brand">Bayern:</strong> Premium-Preise durch hohe Kaufkraft.
-              Warmblut-Markt mit 10-15% Aufschlag. München, Nürnberg, Regensburg als Zentren.
-            </li>
-            <li>
-              <strong className="text-brand">Nordrhein-Westfalen:</strong> Größter deutscher Pferdemarkt.
-              Münsterland und Warendorf als Hochburgen. Moderate Preise durch große Konkurrenz.
-            </li>
-            <li>
-              <strong className="text-brand">Niedersachsen:</strong> Hannoveraner-Heimat. Turnierpferde
-              erzielen Spitzenpreise. Verden als bedeutendes Handelszentrum.
-            </li>
-          </ul>
-        </section>
-
-        {/* Häufige Fehler */}
-        <section id="fehler" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Die 7 teuersten Fehler beim Pferdeverkauf (und wie Sie sie vermeiden)
-          </h2>
-
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Diese Fehler kosten Verkäufer jährlich tausende Euro. Lernen Sie aus den Erfahrungen anderer
-            und vermeiden Sie diese klassischen Fallen.
-          </p>
-
-          {/* STRATEGIC BOX #2: Critical Warning */}
-          <RatgeberHighlightBox
-            title="Kritische Warnung: Diese Fehler kosten Sie 3.000-9.000€"
-            icon={<AlertTriangle className="h-5 w-5 text-brand-brown" />}
-          >
-            <ol className="space-y-3 list-decimal list-inside text-sm md:text-base text-gray-700">
-              <li>
-                <strong className="text-brand">Überhöhter Verkaufspreis (Verlust: 3.000-6.000€):</strong> Der häufigste
-                und teuerste Fehler. Monatelange Wartezeit, verpasste Käufer, am Ende doch Preisreduktion mit
-                Signalwirkung &quot;Problem-Pferd&quot;.
-              </li>
-              <li>
-                <strong className="text-brand">Schlechte Fotos (Verlust: 1.500-3.000€):</strong> Verwackelte,
-                dunkle oder unscharfe Bilder reduzieren Anfragen um 70%. Professionelle Fotos amortisieren
-                sich mehrfach.
-              </li>
-              <li>
-                <strong className="text-brand">Unvollständige Inserat-Beschreibung (Verlust: 1.000-2.000€):</strong> Fehlende
-                Angaben zu Ausbildung, Gesundheit oder Charakter schrecken seriöse Käufer ab.
-              </li>
-              <li>
-                <strong className="text-brand">Keine AKU anbieten (Verlust: 2.000-4.000€):</strong> Käufer sind
-                bereit, 10-20% mehr zu zahlen, wenn eine aktuelle AKU ohne Befund vorliegt.
-              </li>
-              <li>
-                <strong className="text-brand">Emotionale Verkaufsgespräche (Verlust: 500-1.500€):</strong> Argumente
-                wie &quot;Ich habe so viel investiert&quot; sind kontraproduktiv. Bleiben Sie sachlich.
-              </li>
-              <li>
-                <strong className="text-brand">Falscher Verkaufszeitpunkt (Verlust: 1.000-2.500€):</strong> Im Winter
-                (November-Februar) sind Preise 10-15% niedriger als im Frühjahr/Sommer.
-              </li>
-              <li>
-                <strong className="text-brand">Mängel verschweigen (Verlust: 5.000-15.000€):</strong> Arglistig verschwiegene
-                Mängel können zu Schadenersatzforderungen führen, auch bei Privatverkauf!
-              </li>
+            <ol className="space-y-2 list-decimal list-inside text-gray-700">
+              <li><strong>Alter</strong> – Pferde zwischen 6-12 Jahren erzielen Höchstpreise</li>
+              <li><strong>Ausbildungsstand</strong> – Jeder Ausbildungsmonat steigert den Wert</li>
+              <li><strong>Gesundheitszustand</strong> – <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown hover:underline">AKU-Kosten im Detail</Link> beachten</li>
+              <li><strong>Abstammung</strong> – Leistungsgenetik zahlt sich aus</li>
+              <li><strong>Disziplineignung</strong> – Spezialisierung vs. Vielseitigkeit</li>
+              <li><strong>Charakter</strong> – Anfängerfreundlichkeit ist wertvoll</li>
+              <li><strong>Interieur</strong> – Nervenstärke und Rittigkeit</li>
+              <li><strong>Exterieur</strong> – Korrektheit der Gliedmaßen</li>
+              <li><strong>Erfolge</strong> – Platzierungen erhöhen den Wert messbar</li>
+              <li><strong>Haltungsbedingungen</strong> – Professionelles Management steigert Attraktivität</li>
+              <li><strong>Aktueller Markt</strong> – Angebot und Nachfrage variieren saisonal</li>
             </ol>
-            <p className="text-sm md:text-base text-gray-700 mt-4 font-semibold">
-              Eine professionelle Bewertung für {PRICING_FORMATTED.current} verhindert bereits Fehler #1 und
-              amortisiert sich tausendfach.
+
+            <p className="text-gray-700 leading-relaxed mt-6">
+              <strong>Was senkt den Wert eines Pferdes?</strong> Chronische Erkrankungen (z.B. Arthrose, Allergien), Verhaltensauffälligkeiten (Steigen, Buckeln), fortgeschrittenes Alter (über 15 Jahre für Sportpferde), unvollständige Abstammungspapiere und lange Verkaufsdauer (über 6 Monate) wirken sich negativ auf den Preis aus.
             </p>
-          </RatgeberHighlightBox>
-        </section>
 
-        {/* Schritt-für-Schritt-Anleitung */}
-        <section id="schritt-anleitung" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Pferd verkaufen: Die komplette Schritt-für-Schritt-Anleitung
-          </h2>
+            {/* STRATEGIC BOX #1: AI-Bewertung CTA */}
+            <RatgeberHighlightBox
+              title="AI-Bewertung in 3 Minuten – Vermeiden Sie 3.000-9.000€ Verlust"
+              icon={<Calculator className="h-5 w-5 text-brand-brown" />}
+            >
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
+                PferdeWert.de unterstützt Sie beim Pferd verkaufen mit präziser Wertermittlung. Unser AI-Tool analysiert alle 11 Wertfaktoren gleichzeitig und vergleicht Ihr Pferd mit über 10.000 Verkaufsdaten aus dem deutschen Markt.
+              </p>
+              <div className="mb-4">
+                <p className="font-semibold text-brand mb-2">Die Methodik:</p>
+                <ul className="space-y-2 text-sm md:text-base text-gray-700">
+                  <li>• <strong>Datengrundlage:</strong> Reale Verkaufspreise von eHorses, pferde.de und privaten Transaktionen</li>
+                  <li>• <strong>Algorithmus:</strong> Machine Learning Modell mit 11-Faktoren-Gewichtung</li>
+                  <li>• <strong>Aktualisierung:</strong> Monatliche Marktdaten-Integration</li>
+                  <li>• <strong>Ergebnis:</strong> Realistische Preisspanne mit Begründung</li>
+                </ul>
+              </div>
+              <CTAButton
+                type="primary"
+                href="/pferde-preis-berechnen"
+                text="Jetzt Pferdewert berechnen"
+              />
+              <p className="text-sm text-gray-600 mt-3 italic">
+                Im Gegensatz zu subjektiven Schätzungen liefert das AI-Tool eine objektive, datenbasierte Bewertung – ohne emotionale Verzerrung.
+              </p>
+            </RatgeberHighlightBox>
+          </section>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Folgen Sie dieser bewährten 9-Schritte-Methode für einen erfolgreichen und rechtssicheren Verkauf.
-          </p>
+          {/* Plattformen-Vergleich */}
+          <section id="plattformen-vergleich" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Die besten Plattformen zum Pferd verkaufen: Vergleich 2025
+            </h2>
 
-          {/* STRATEGIC BOX #3: Important Checklist */}
-          <RatgeberHighlightBox
-            title="Verkaufs-Checkliste: Die 9 Schritte zum Erfolg"
-            icon={<CheckCircle className="h-5 w-5 text-brand-brown" />}
-          >
-            <ol className="space-y-4 list-decimal list-inside text-sm md:text-base text-gray-700">
-              <li>
-                <strong className="text-brand">Pferdewert ermitteln (Dauer: 2 Min):</strong> Nutzen Sie
-                PferdeWert.de für eine objektive KI-Bewertung. Vermeiden Sie emotionale Überschätzung.
-              </li>
-              <li>
-                <strong className="text-brand">Professionelle Fotos erstellen (Dauer: 2-3 Std):</strong> Mindestens
-                10 Bilder: Ganzkörper von beiden Seiten, Kopf, Detail-Beine, unter dem Sattel, bei der Arbeit.
-              </li>
-              <li>
-                <strong className="text-brand">Detailliertes Inserat schreiben (Dauer: 1-2 Std):</strong> Ehrliche
-                Beschreibung von Ausbildung, Charakter, Gesundheit, Eignung. Keywords nutzen für Auffindbarkeit.
-              </li>
-              <li>
-                <strong className="text-brand">Plattformen wählen (Dauer: 30 Min):</strong> Hochwertig: ehorses.de,
-                Freizeit: pferde.de, Regional: kleinanzeigen.de. Mehrfach-Veröffentlichung erhöht Reichweite.
-              </li>
-              <li>
-                <strong className="text-brand">Anfragen professionell beantworten (laufend):</strong> Antwort innerhalb
-                24h, sachlich bleiben, Fragen zu Erfahrung/Verwendungszweck stellen.
-              </li>
-              <li>
-                <strong className="text-brand">Besichtigungen organisieren (Dauer: 1-2 Std pro Termin):</strong> Ruhige
-                Umgebung, Pferd vorführen (Führen, Putzen, Reiten), Interessent probelaufen lassen.
-              </li>
-              <li>
-                <strong className="text-brand">Preisverhandlung führen (Dauer: 30 Min - 1 Std):</strong> Sachliche
-                Argumentation, professionelle Bewertung als Grundlage, Verhandlungsspielraum 10-15% einplanen.
-              </li>
-              <li>
-                <strong className="text-brand">AKU ermöglichen (Dauer: 2-4 Std):</strong> Käufer zahlt, unabhängiger
-                Tierarzt, alle Ergebnisse transparent kommunizieren.
-              </li>
-              <li>
-                <strong className="text-brand">Kaufvertrag & Übergabe (Dauer: 1-2 Std):</strong> Schriftlicher Vertrag
-                (FN-Vorlage), alle Papiere (Equidenpass, Eigentumsurkunde), Zahlungsbestätigung vor Übergabe.
-              </li>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Beim Pferd verkaufen ist die Wahl der richtigen Plattform entscheidend für Ihren Erfolg. Ein datenbasierter Vergleich hilft, die optimale Strategie zu finden.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Wo verkaufe ich am besten mein Pferd? (eHorses vs. pferde.de vs. privat)
+            </h3>
+
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead className="bg-amber-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-brand border-b">Plattform</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-brand border-b">Reichweite</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-brand border-b">Kosten</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-brand border-b">Erfolg (3 Mon.)</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-brand border-b">Best For</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-4 py-4 text-sm text-gray-700"><strong>eHorses.de</strong></td>
+                    <td className="px-4 py-4 text-sm text-gray-700">135.000</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">€49,90 (Premium)</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">68%</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">Turnierpferde, Premium</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-4 text-sm text-gray-700"><strong>pferde.de</strong></td>
+                    <td className="px-4 py-4 text-sm text-gray-700">45.000</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">€39,90</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">58%</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">Breitensport, Freizeit</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-4 text-sm text-gray-700"><strong>Privater Verkauf</strong></td>
+                    <td className="px-4 py-4 text-sm text-gray-700">individuell</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">€0</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">42%</td>
+                    <td className="px-4 py-4 text-sm text-gray-700">Stallnetzwerke, bekannte Käufer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Die Antwort:</strong> Beim Pferd verkaufen über eHorses erreichen Sie die größte Zielgruppe – der Marktführer hat die höchste Verkaufsquote (68% in 3 Monaten) für Turnierpferde und hochpreisige Pferde (über €15.000). Für Freizeitpferde und Breitensport bietet <strong>pferde.de</strong> ein gutes Preis-Leistungs-Verhältnis. <strong>Privat Ihr Pferd verkaufen</strong> spart Gebühren, funktioniert gut wenn Sie bereits potenzielle Käufer kennen – erfordert aber mehr Eigeninitiative (42% Erfolgsquote).
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              eHorses.de: Lohnt sich der Marktführer?
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Vorteile:</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-4">
+              <li>• <strong>Maximale Reichweite:</strong> 135.000 monatliche Suchanfragen bedeuten höchste Sichtbarkeit</li>
+              <li>• <strong>Qualifizierte Zielgruppe:</strong> Käufer mit klarer Kaufabsicht und Budget</li>
+              <li>• <strong>Premium-Features:</strong> Galeriebilder, Video-Integration, Social-Media-Promotion</li>
+              <li>• <strong>Profi-Netzwerk:</strong> Händler und Trainer nutzen primär eHorses</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Nachteile:</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-4">
+              <li>• <strong>Kosten:</strong> €49,90 für 60 Tage Premium-Inserat (erforderlich für Top-Platzierung)</li>
+              <li>• <strong>Konkurrenz:</strong> 50.000+ aktive Inserate erfordern professionelle Präsentation</li>
+              <li>• <strong>Zielgruppen-Limitation:</strong> Weniger geeignet für Gelegenheitsreiter-Pferde unter €3.000</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed">
+              <strong>Fazit:</strong> Die Investition lohnt sich für Pferde ab €8.000 Wert, bei denen die 20% höhere Verkaufsquote die Kosten rechtfertigt.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Alternative: Private Verkaufskanäle
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4">Private Kanäle ohne Plattformkosten:</p>
+
+            <ul className="space-y-2 text-gray-700">
+              <li>• <strong>Facebook-Gruppen:</strong> &quot;Pferde zu verkaufen [Region]&quot; – kostenlos, aber zeitintensiv</li>
+              <li>• <strong>Stallnetzwerk:</strong> Aushänge, Mund-zu-Mund-Propaganda – hohe Vertrauensbasis</li>
+              <li>• <strong>Zuchtverbände:</strong> Für Zuchtpferde mit Papieren – spezialisierte Zielgruppe</li>
+              <li>• <strong>Reitvereine:</strong> Lokale Reichweite, persönliche Empfehlungen</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mt-6 mb-4">
+              <strong>Wann sinnvoll?</strong> Private Kanäle funktionieren am besten für:
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Freizeitpferde unter €5.000</li>
+              <li>• Verkauf an bekannte Personen im Umfeld</li>
+              <li>• Nischenrassen mit spezialisierter Community</li>
+              <li>• Pferde mit spezifischen Anforderungen (z.B. Therapiepferde)</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Plattform-Empfehlung nach Pferdetyp
+            </h3>
+
+            <ul className="space-y-3 text-gray-700">
+              <li>• <strong>Turnierpferd (S-Niveau)</strong> → eHorses.de (obligatorisch für diese Zielgruppe)</li>
+              <li>• <strong>Reitpferd (L-Niveau)</strong> → eHorses.de + regionale Facebook-Gruppen parallel</li>
+              <li>• <strong>Freizeitpferd geritten</strong> → pferde.de ODER private Kanäle (flexibel)</li>
+              <li>• <strong>Jungpferd</strong> → Zuchtverbände + eHorses.de</li>
+              <li>• <strong>Pony/Kinderpferd</strong> → pferde.de + Reitvereine</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+              💡 <strong>Profi-Tipp:</strong> Multi-Channel-Ansatz mit eHorses als Hauptkanal + 2-3 kostenlose Nebenkanäle maximiert Reichweite bei kontrollierten Kosten.
+            </p>
+          </section>
+
+          {/* 7-Phasen-Verkaufsprozess */}
+          <section id="verkaufsprozess" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Schritt-für-Schritt: Pferd verkaufen erfolgreich umsetzen
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein strukturierter Ablauf hilft Ihnen, Ihr Pferd verkaufen zu können ohne wichtige Schritte zu vergessen. Hier der bewährte 7-Phasen-Ablauf, der die Verkaufsdauer von durchschnittlich 9 auf 3-6 Monate verkürzt:
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Phase 1-3: Vorbereitung, Wertermittlung, Anzeige
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 1: Vorbereitung (2-4 Wochen)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>✓ Gesundheitscheck beim Tierarzt</li>
+              <li>✓ Hufschmied-Termin für optimale Optik</li>
+              <li>✓ <Link href="/pferde-ratgeber/aku-pferd/ablauf" className="text-brand-brown hover:underline">AKU-Ablauf verstehen</Link> für Käuferfragen</li>
+              <li>✓ Dokumente bereitstellen: Equidenpass, Impfausweis, Abstammungspapiere</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 2: Wertermittlung (1 Tag)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>✓ <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline">Pferdewert-Rechner</Link> nutzen für objektiven Preis</li>
+              <li>✓ Vergleichsinserate auf eHorses analysieren (gleiche Kategorie)</li>
+              <li>✓ Preisverhandlungsspielraum definieren (5-10% unter Maximalpreis)</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 3: Anzeige erstellen (1-2 Tage)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>✓ Professionelle Fotos bei gutem Wetter (10 kritische Shots, siehe nächste Sektion)</li>
+              <li>✓ 30-Sekunden Bewegungsvideo (Schritt, Trab, Galopp)</li>
+              <li>✓ 20-Sekunden Handling-Video (Führen, Putzen, Aufhalftern)</li>
+              <li>✓ Anzeigentext nach 8-Punkte-Struktur (siehe nächste Sektion)</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <strong>Zeitaufwand gesamt:</strong> 3-5 Wochen Vorbereitung – systematisch Ihr Pferd verkaufen erhöht die Erfolgsquote deutlich.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Phase 4-5: Veröffentlichung und Interessenten-Screening
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 4: Veröffentlichung (1 Tag)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>✓ Plattform-Auswahl nach Pferdetyp (siehe vorherige Sektion)</li>
+              <li>✓ Optimales Timing: März-Juni (Hochsaison) oder September-Oktober</li>
+              <li>✓ Preis 5-10% unter Marktwert für schnellere Verkäufe setzen</li>
+              <li>✓ Multi-Channel parallel: Hauptplattform + 2 kostenlose Kanäle</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 5: Interessenten-Management (2-6 Wochen)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-4">
+              <li>✓ Anfragen innerhalb 24 Stunden beantworten (Schnelligkeit = Seriosität)</li>
+              <li>✓ Qualifizierte Interessenten: Konkrete Fragen zu Ausbildung, Charakter, Haltung</li>
+              <li>✓ Stallbesichtigungen optional anbieten (hohe Kaufwahrscheinlichkeit)</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-2"><strong>Red Flags erkennen:</strong></p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Kein Interesse an Gesundheitsdaten</li>
+              <li>• Keine AKU gewünscht</li>
+              <li>• Sofortkauf ohne Probereiten</li>
+              <li>• Preis &quot;egal&quot; (oft Schlachter)</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Phase 6-7: Probereiten, AKU und Kaufabschluss
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 6: Probereiten & Kaufuntersuchung (1-2 Wochen)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>✓ 1-2 Probereittermine vereinbaren (verschiedene Personen falls möglich)</li>
+              <li>✓ Haftpflichtversicherung des Interessenten prüfen</li>
+              <li>✓ AKU durch Käufer-Tierarzt (Kosten trägt Käufer, <Link href="/pferde-ratgeber/aku-pferd/klassen" className="text-brand-brown hover:underline">AKU-Klassen erklärt</Link>)</li>
+              <li>✓ AKU-Ergebnis transparent besprechen</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 7: Vertragsabschluss & Übergabe (1-3 Tage)</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>✓ Kaufvertrag vorbereiten (siehe rechtliche Sektion)</li>
+              <li>✓ Kaufpreis vor Übergabe vollständig erhalten (Banküberweisung, kein Bargeld)</li>
+              <li>✓ Übergabeprotokoll mit 5 Punkten (siehe rechtliche Sektion)</li>
+              <li>✓ Equidenpass übergeben mit Eigentumsänderung</li>
+              <li>✓ Transport organisieren (Käufer-Verantwortung klären)</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
+              <strong>Zeitrahmen gesamt:</strong> Bei optimaler Vorbereitung und realistischem Preis <strong>3-6 Monate</strong> vom Start bis zur Übergabe.
+            </p>
+          </section>
+
+          {/* Verkaufsanzeige */}
+          <section id="verkaufsanzeige" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Die perfekte Verkaufsanzeige: Texte, Fotos, Videos
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Die Verkaufsanzeige ist Ihr wichtigstes Werkzeug, um Ihr Pferd verkaufen zu können. Sie bestimmt, ob Ihr Inserat 50 oder 500 Mal angeklickt wird.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Was muss in eine Verkaufsanzeige für ein Pferd?
+            </h3>
+
+            {/* STRATEGIC BOX #2: Anzeigen-Checkliste */}
+            <RatgeberHighlightBox
+              title="8-Punkte Must-Have Checkliste für Ihre Anzeige"
+              icon={<CheckCircle className="h-5 w-5 text-brand-brown" />}
+            >
+              <ol className="space-y-3 list-decimal list-inside text-sm md:text-base text-gray-700">
+                <li><strong>Rasse</strong> – Vollständige Bezeichnung (z.B. &quot;Deutsches Reitpony&quot; statt nur &quot;Pony&quot;)</li>
+                <li><strong>Alter</strong> – Geburtsjahr + aktuelles Alter in Jahren</li>
+                <li><strong>Stockmaß</strong> – Zentimetergenau (wichtig für Käufer-Körpergröße)</li>
+                <li><strong>Ausbildungsstand</strong> – Konkret: &quot;L-Dressur platziert&quot; statt &quot;gut ausgebildet&quot;</li>
+                <li><strong>Charakterbeschreibung</strong> – Ehrlich: Anfängergeeignet, nervenstark, schreckhaft?</li>
+                <li><strong>Gesundheit</strong> – AKU-Status transparent kommunizieren</li>
+                <li><strong>Preis</strong> – Konkrete Zahl oder &quot;VB&quot; (Verhandlungsbasis)</li>
+                <li><strong>Kontaktmöglichkeiten</strong> – Telefon + E-Mail + WhatsApp für schnelle Rückmeldung</li>
+              </ol>
+              <p className="text-sm md:text-base text-gray-700 mt-4">
+                Eine professionelle Anzeige ist der Schlüssel, um Ihr Pferd verkaufen zu können.
+              </p>
+            </RatgeberHighlightBox>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Fotos & Videos: Qualität statt Quantität
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>10 kritische Foto-Shots</strong> (bei gutem Wetter, sauberes Pferd):</p>
+            <ol className="space-y-2 list-decimal list-inside text-gray-700 mb-6">
+              <li>Seitlich stehend (gesamtes Pferd, neutraler Hintergrund)</li>
+              <li>Schräg vorne (Kopf + Vorderhand)</li>
+              <li>Schräg hinten (Hinterhand + Schweif)</li>
+              <li>Nahaufnahme Kopf (Ausdruck erkennbar)</li>
+              <li>Alle 4 Hufe/Beine (Stellungskorrektur)</li>
+              <li>Schritt von der Seite</li>
+              <li>Trab von der Seite</li>
+              <li>Galopp von der Seite</li>
+              <li>Reiter im Sattel (zeigt Größenverhältnis)</li>
+              <li>Besonderheiten (Abzeichen, besondere Merkmale)</li>
             </ol>
-            <p className="text-sm md:text-base text-gray-700 mt-4 font-semibold">
-              Gesamtdauer vom Bewertung bis Übergabe: 6-12 Wochen bei realistischem Preis
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>2 essenzielle Videos:</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>• <strong>Bewegungsvideo (30 Sekunden):</strong> Schritt → Trab → Galopp auf beiden Händen – Videos erhöhen Ihre Chancen, das Pferd verkaufen zu können, um 60%</li>
+              <li>• <strong>Handling-Video (20 Sekunden):</strong> Führen, Putzen, Aufhalftern (zeigt Umgänglichkeit)</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4">
+              💡 <strong>Profi-Tipp:</strong> Investieren Sie €100-150 in einen professionellen Pferdefotografen für Turnierpferde ab €15.000. Der ROI liegt bei 3-5 Wochen kürzerer Verkaufsdauer.
             </p>
-          </RatgeberHighlightBox>
-        </section>
 
-        {/* KI-Bewertung */}
-        <section id="ki-bewertung" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            KI-gestützte Pferdebewertung: So funktioniert PferdeWert.de
-          </h2>
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Preisangabe-Psychologie
+            </h3>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Moderne Künstliche Intelligenz revolutioniert die Pferdebewertung. Erfahren Sie, wie unser
-            duales KI-System (GPT-4 + Claude) in nur 2 Minuten objektive Marktwerte berechnet.
-          </p>
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Festpreis vs. Verhandlungsbasis (VB):</strong></p>
 
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Die Technologie hinter PferdeWert.de
-          </h3>
+            <div className="space-y-4">
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Festpreis</strong> → Sinnvoll bei:</p>
+                <ul className="space-y-1 text-gray-700 ml-4">
+                  <li>• Klarer Marktwert (viele Vergleichsinserate)</li>
+                  <li>• Unterer Preisbereich (bis €5.000)</li>
+                  <li>• Schnellverkauf gewünscht</li>
+                </ul>
+              </div>
 
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Unser System kombiniert zwei führende KI-Modelle (GPT-4 von OpenAI und Claude von Anthropic),
-            um maximale Präzision zu erreichen. Beide Systeme wurden mit tausenden Pferdedaten trainiert
-            und von erfahrenen Reitern validiert.
-          </p>
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>VB (Verhandlungsbasis)</strong> → Sinnvoll bei:</p>
+                <ul className="space-y-1 text-gray-700 ml-4">
+                  <li>• Individuellen Pferden (schwer vergleichbar)</li>
+                  <li>• Premium-Segment (ab €20.000)</li>
+                  <li>• Flexibilität für richtige Käufer</li>
+                </ul>
+              </div>
+            </div>
 
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Was die KI analysiert (50+ Kriterien)
-          </h3>
-
-          <ul className="space-y-2 text-gray-700">
-            <li>• Rasse, Alter, Geschlecht, Größe, Farbe</li>
-            <li>• Ausbildungsstand (Basis, A-, L-, M-, S-Niveau)</li>
-            <li>• Turniererfolge und Platzierungen</li>
-            <li>• Gesundheitszustand und AKU-Befunde</li>
-            <li>• Charakter und Eignung (Anfänger, Fortgeschrittene, Profis)</li>
-            <li>• Abstammung und Zuchtlinien</li>
-            <li>• Aktuelle Markttrends und regionale Preisunterschiede</li>
-            <li>• Saisonale Schwankungen</li>
-          </ul>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Warum zwei KI-Modelle besser sind als eines
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Unterschiedliche KI-Systeme haben unterschiedliche Stärken. GPT-4 ist hervorragend bei der
-            Marktdatenanalyse und Trendprognosen, während Claude besonders stark bei komplexen Faktoren
-            wie Charakterbewertung und Eignungsanalyse ist. Die Kombination beider Systeme erhöht die
-            Genauigkeit um durchschnittlich 23% gegenüber Einzelsystemen.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            So läuft Ihre Bewertung ab (2 Minuten)
-          </h3>
-
-          <ol className="space-y-3 list-decimal list-inside text-gray-700">
-            <li>
-              <strong className="text-brand">Fragebogen ausfüllen (90 Sekunden):</strong> Einfache Fragen
-              zu Ihrem Pferd (Rasse, Alter, Ausbildung, Gesundheit, Charakter)
-            </li>
-            <li>
-              <strong className="text-brand">KI-Analyse (30 Sekunden):</strong> Beide Systeme analysieren
-              parallel Ihre Angaben und vergleichen mit Marktdaten
-            </li>
-            <li>
-              <strong className="text-brand">Ergebnis erhalten (sofort):</strong> Detaillierter Bewertungsbericht
-              mit Preisspanne, Verkaufsempfehlungen und Optimierungstipps
-            </li>
-          </ol>
-
-          <p className="text-gray-700 leading-relaxed mt-6">
-            <strong>Investition:</strong> {PRICING_FORMATTED.current} für die KI-Bewertung amortisieren sich
-            bereits bei 1% Mehrerlös. Bei einem 5.000€ Pferd sind das 50€ – Sie zahlen {PRICING_FORMATTED.current}
-            und gewinnen potenziell hunderte bis tausende Euro.
-          </p>
-
-          <div className="mt-6">
-            <CTAButton type="primary" href="/pferde-preis-berechnen" text="Jetzt Pferdewert berechnen" />
-          </div>
-        </section>
-
-        {/* Preisverhandlung */}
-        <section id="preisverhandlung" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Preisverhandlung meistern: Psychologie & Taktik
-          </h2>
-
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Die richtige Verhandlungsstrategie kann den Unterschied zwischen gutem und optimalem Preis ausmachen.
-            Lernen Sie die wichtigsten psychologischen Prinzipien und taktischen Werkzeuge.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Preisanker setzen
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Der erste genannte Preis (Anker) beeinflusst die gesamte Verhandlung. Setzen Sie Ihren Verkaufspreis
-            10-15% über Ihrem Minimalpreis, aber bleiben Sie im realistischen Rahmen. Ein absurd hoher Anker
-            schreckt seriöse Käufer ab.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Objektive Argumente nutzen
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Emotionale Argumente wie &quot;Ich habe so viel investiert&quot; überzeugen nicht. Nutzen Sie stattdessen:
-          </p>
-
-          <ul className="space-y-2 text-gray-700">
-            <li>• Professionelle Bewertung (z.B. von PferdeWert.de)</li>
-            <li>• Vergleichbare Verkaufspreise auf Plattformen</li>
-            <li>• Aktuelle AKU ohne Befund</li>
-            <li>• Turniererfolge und Platzierungen</li>
-            <li>• Ausbildungsstand und Spezialisierung</li>
-          </ul>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Verhandlungsspielraum kommunizieren
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Formulieren Sie Ihren Preis geschickt: &quot;Der Preis liegt bei 7.500€ – ich bin allerdings
-            gesprächsbereit bei einem schnellen Abschluss.&quot; Dies signalisiert Flexibilität ohne Schwäche.
-          </p>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Win-Win-Lösungen finden
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Manchmal sind kreative Lösungen besser als Preisreduzierungen:
-          </p>
-
-          <ul className="space-y-2 text-gray-700">
-            <li>• Sattel und Zubehör im Preis einbeziehen</li>
-            <li>• Kostenlose Eingewöhnungsphase (1-2 Wochen Probe)</li>
-            <li>• Transport organisieren</li>
-            <li>• Unterstützung bei der Eingewöhnung anbieten</li>
-          </ul>
-
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Timing ist entscheidend
-          </h3>
-
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Verhandeln Sie nicht sofort beim ersten Kontakt. Lassen Sie den Interessenten zuerst das Pferd
-            kennenlernen. Nach einer erfolgreichen Besichtigung ist die Zahlungsbereitschaft 15-25% höher.
-          </p>
-        </section>
-
-        {/* Rechtliche Aspekte */}
-        <section id="rechtliche-aspekte" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Rechtliche Aspekte: Kaufvertrag, Gewährleistung & Haftung
-          </h2>
-
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Der Pferdeverkauf unterliegt klaren rechtlichen Vorgaben. Schützen Sie sich vor späteren
-            Rechtsstreitigkeiten durch korrekte Vertragsgestaltung und transparente Kommunikation.
-          </p>
-
-          {/* STRATEGIC BOX #4: Legal Warning */}
-          <RatgeberHighlightBox
-            title="Rechtliche Fallstricke: Das MUSS in den Kaufvertrag"
-            icon={<Shield className="h-5 w-5 text-brand-brown" />}
-          >
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
-              Ein ordentlicher Kaufvertrag ist Pflicht – nicht nur für gewerbliche Verkäufer, sondern auch
-              für Privatpersonen. Folgende Punkte sind zwingend erforderlich:
+            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Faustregel:</strong> VB-Preis sollte 10-15% über Ihrem Mindestpreis liegen, um Verhandlungsspielraum zu haben.
             </p>
-            <ol className="space-y-3 list-decimal list-inside text-sm md:text-base text-gray-700">
-              <li>
-                <strong className="text-brand">Vollständige Parteienangaben:</strong> Name, Adresse, Geburtsdatum
-                von Käufer und Verkäufer
-              </li>
-              <li>
-                <strong className="text-brand">Detaillierte Pferdebeschreibung:</strong> Name, Rasse, Alter,
-                Geschlecht, Farbe, Abzeichen, Chipnummer (UELN)
-              </li>
-              <li>
-                <strong className="text-brand">Kaufpreis und Zahlungsmodalitäten:</strong> Gesamtpreis, Anzahlung,
-                Restzahlung, Zahlungsfrist
-              </li>
-              <li>
-                <strong className="text-brand">Gesundheitszustand und Mängel:</strong> Bekannte Erkrankungen,
-                Verletzungen, Verhaltensauffälligkeiten MÜSSEN angegeben werden
-              </li>
-              <li>
-                <strong className="text-brand">Gewährleistungsausschluss (bei Privatverkauf):</strong> Klare
-                Formulierung &quot;Gekauft wie gesehen&quot; + Ausschluss der Sachmängelhaftung
-              </li>
-              <li>
-                <strong className="text-brand">Übergabezeitpunkt und -ort:</strong> Wann und wo findet die
-                Übergabe statt?
-              </li>
-              <li>
-                <strong className="text-brand">Eigentumsübergang:</strong> Wann geht das Eigentum über? (meist
-                mit vollständiger Zahlung)
-              </li>
-              <li>
-                <strong className="text-brand">Unterschriften beider Parteien:</strong> Handschriftlich, Ort und Datum
-              </li>
+          </section>
+
+          {/* Rechtliche Aspekte */}
+          <section id="rechtliche-aspekte" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Rechtliche Aspekte beim Pferd verkaufen: Kaufvertrag & Haftung
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Rechtliche Sicherheit ist beim Pferd verkaufen unverzichtbar. ⚠️ <strong>Disclaimer:</strong> Dieser Artikel ersetzt keine Rechtsberatung. Bei komplexen Fällen konsultieren Sie einen Fachanwalt für Pferderecht.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Welche rechtlichen Aspekte beim Pferdeverkauf beachten?
+            </h3>
+
+            {/* STRATEGIC BOX #3: Rechtliche Checkliste */}
+            <RatgeberHighlightBox
+              title="Die 3 wichtigsten rechtlichen Punkte"
+              icon={<Shield className="h-5 w-5 text-brand-brown" />}
+            >
+              <ol className="space-y-4 list-decimal list-inside text-sm md:text-base text-gray-700">
+                <li>
+                  <strong className="text-brand">Schriftlicher Kaufvertrag mit Pflichtangaben</strong> (§433ff BGB) – beim Pferd verkaufen ist ein rechtssicherer Vertrag Pflicht
+                  <ul className="ml-6 mt-2 space-y-1">
+                    <li>• Vollständige Identifikation (Name, Rasse, Alter, Geschlecht, Chipnummer)</li>
+                    <li>• Kaufpreis und Zahlungsmodalitäten</li>
+                    <li>• Gewährleistungsausschluss (falls vereinbart)</li>
+                    <li>• Unterschriften beider Parteien</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-brand">Offenbarungspflicht bei bekannten Mängeln</strong>
+                  <ul className="ml-6 mt-2 space-y-1">
+                    <li>• AKU-Befunde transparent mitteilen</li>
+                    <li>• Bekannte Vorerkrankungen offenlegen (z.B. Kolik-Historie)</li>
+                    <li>• Verhaltensauffälligkeiten nicht verschweigen</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-brand">Haftungsklärung für Probezeit und Transport</strong>
+                  <ul className="ml-6 mt-2 space-y-1">
+                    <li>• Versicherung während Probereiten klären</li>
+                    <li>• Transportrisiko schriftlich festlegen</li>
+                    <li>• Übergabedatum und -ort dokumentieren</li>
+                  </ul>
+                </li>
+              </ol>
+              <p className="text-sm md:text-base text-gray-700 mt-4 font-semibold">
+                ⚠️ Wichtig: Auch bei Gewährleistungsausschluss haften Sie für arglistig verschwiegene Mängel!
+              </p>
+            </RatgeberHighlightBox>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Offenbarungspflicht & Gewährleistung kompakt
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Was muss offengelegt werden?</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>• AKU-Befunde der letzten 12 Monate (alle Klassen)</li>
+              <li>• Chronische Erkrankungen (Allergien, Arthrose, etc.)</li>
+              <li>• Verhaltensauffälligkeiten (Steigen, Buckeln, Weben)</li>
+              <li>• Operative Eingriffe und Medikation</li>
+              <li>• Kolik-Historie (besonders bei wiederholtem Auftreten)</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Gewährleistungsausschluss rechtssicher formulieren:</strong></p>
+            <p className="text-gray-700 leading-relaxed bg-white border border-gray-200 rounded-lg p-4 italic">
+              &quot;Der Verkauf erfolgt unter Ausschluss jeglicher Gewährleistung gemäß §444 BGB. Der Käufer verzichtet auf alle Ansprüche wegen Sachmängeln.&quot;
+            </p>
+
+            <p className="text-gray-700 leading-relaxed mt-6 mb-4"><strong>Wichtig:</strong> Gewährleistungsausschluss ist nur wirksam bei:</p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Privaten Verkäufern (nicht gewerblich)</li>
+              <li>• Vollständiger Offenlegung bekannter Mängel</li>
+              <li>• Schriftlicher Vereinbarung im Kaufvertrag</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Konsequenzen bei Verletzung der Offenbarungspflicht:</strong> Rückabwicklung des Kaufs, Schadensersatzforderungen, strafrechtliche Relevanz bei arglistiger Täuschung.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Übergabeprotokoll: 5-Punkte Checkliste
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Ein professionelles Übergabeprotokoll schützt beide Parteien vor späteren Streitigkeiten:
+            </p>
+
+            <ol className="space-y-2 list-decimal list-inside text-gray-700">
+              <li>✓ <strong>Identifikation:</strong> Chipnummer, Equidenpass-Nummer, Fotos bei Übergabe</li>
+              <li>✓ <strong>Gesundheitszustand:</strong> Aktuelle Befindlichkeit, letzte Entwurmung/Impfung, AKU-Status</li>
+              <li>✓ <strong>Ausrüstung:</strong> Liste übergebener Gegenstände (Sattel, Trense, Decken falls vereinbart)</li>
+              <li>✓ <strong>Zahlungsbestätigung:</strong> Kaufpreis vollständig erhalten (Betrag + Zahlungsdatum)</li>
+              <li>✓ <strong>Versicherungsübergabe:</strong> Haftpflicht/OP-Versicherung auf Käufer übertragen oder gekündigt</li>
             </ol>
-            <p className="text-sm md:text-base text-gray-700 mt-4 font-semibold">
-              ⚠️ Wichtig: Auch bei Gewährleistungsausschluss haften Sie für arglistig verschwiegene Mängel!
-              Dokumentieren Sie alles ehrlich.
+
+            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+              <strong>Zeitpunkt:</strong> Protokoll IMMER bei physischer Übergabe ausfüllen und von beiden Parteien unterschreiben lassen.
             </p>
-            <p className="text-sm text-gray-600 mt-3 italic">
-              Empfehlung: Nutzen Sie die offiziellen Kaufvertragsvorlagen der FN (Deutsche Reiterliche Vereinigung).
+          </section>
+
+          {/* Schnell verkaufen */}
+          <section id="schnell-verkaufen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Pferd schnell verkaufen: 7 bewährte Strategien
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Wenn Sie Ihr Pferd verkaufen möchten und schnelle Ergebnisse brauchen, helfen diese 7 Strategien. Schnelligkeit ist wichtig – aber nicht um jeden Preis. Die Balance zwischen &quot;schnell&quot; und &quot;seriös&quot; ist entscheidend.
             </p>
-          </RatgeberHighlightBox>
 
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Gewährleistung: Privat vs. Gewerblich
-          </h3>
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Wie verkaufe ich mein Pferd schnell?
+            </h3>
 
-          <p className="text-gray-700 leading-relaxed mb-6">
-            <strong className="text-brand">Privatverkauf:</strong> Sie können die Gewährleistung komplett
-            ausschließen (&quot;Gekauft wie gesehen&quot;). Aber Achtung: Bei arglistig verschwiegenen Mängeln
-            haften Sie trotzdem! Arglist liegt vor, wenn Sie Mängel kannten und bewusst verschwiegen haben.
-          </p>
+            {/* STRATEGIC BOX #4: Schnellverkaufs-Strategien */}
+            <RatgeberHighlightBox
+              title="Die 3 erfolgskritischen Faktoren für schnellen Verkauf"
+              icon={<TrendingUp className="h-5 w-5 text-brand-brown" />}
+            >
+              <ol className="space-y-4 list-decimal list-inside text-sm md:text-base text-gray-700">
+                <li>
+                  <strong className="text-brand">Preis 5-10% unter Marktwert setzen</strong> – realistisch zu preisen hilft, Ihr Pferd verkaufen zu können ohne Verzögerungen
+                  <ul className="ml-6 mt-2 space-y-1">
+                    <li>• Recherche: 10 Vergleichsinserate analysieren</li>
+                    <li>• Durchschnittspreis berechnen</li>
+                    <li>• Minus 5-10% = Ihr Schnellverkaufs-Preis</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-brand">März-Juni starten (Hochsaison nutzen)</strong>
+                  <ul className="ml-6 mt-2 space-y-1">
+                    <li>• 60% mehr Anfragen als November-Februar</li>
+                    <li>• Besseres Wetter = bessere Fotos + Probereiten</li>
+                    <li>• Käufer planen für Turniersaison</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong className="text-brand">Multi-Channel-Ansatz</strong> – aktives Marketing beschleunigt den Prozess
+                  <ul className="ml-6 mt-2 space-y-1">
+                    <li>• Hauptplattform (eHorses ODER pferde.de)</li>
+                    <li>• + Facebook-Gruppen (3-5 relevante Gruppen)</li>
+                    <li>• + Stallnetzwerk aktivieren (Aushänge, Trainer fragen)</li>
+                    <li>• + Zuchtverbände (falls zutreffend)</li>
+                  </ul>
+                </li>
+              </ol>
+              <p className="text-sm md:text-base text-gray-700 mt-4 font-semibold">
+                Realistische Zeitrahmen: Mit diesen 3 Faktoren ist ein Verkauf in <strong>2-6 Wochen</strong> realistisch machbar (statt 6-9 Monate Durchschnitt).
+              </p>
+            </RatgeberHighlightBox>
 
-          <p className="text-gray-700 leading-relaxed mb-6 mt-4">
-            <strong className="text-brand">Gewerblicher Verkauf:</strong> Händler können die gesetzliche
-            Gewährleistung (24 Monate) auf 12 Monate verkürzen, aber nicht komplett ausschließen. Bei
-            gebrauchten Pferden ist eine Verkürzung auf 12 Monate üblich und rechtlich zulässig.
-          </p>
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              7 Sofort-Maßnahmen für schnellen Verkauf
+            </h3>
 
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Häufige Rechtsstreitigkeiten und wie Sie sie vermeiden
-          </h3>
+            <ol className="space-y-3 list-decimal list-inside text-gray-700">
+              <li><strong>Preis um 5-10% senken</strong> – Sofortige Wirkung innerhalb 48 Stunden sichtbar</li>
+              <li><strong>Professionelle Fotos</strong> – €100-150 Investment, zahlt sich in Klicks aus</li>
+              <li><strong>Multi-Channel parallel</strong> – Reichweite verdoppeln = Anfragen verdoppeln</li>
+              <li><strong>Probereiten flexibel</strong> – Auch Abends/Wochenende anbieten (Berufstätige)</li>
+              <li><strong>AKU-Kosten übernehmen</strong> – Starkes Kaufargument für seriöse Käufer</li>
+              <li><strong>Netzwerk aktivieren</strong> – Trainer, Stallbesitzer, Tierarzt informieren</li>
+              <li><strong>Transportoption anbieten</strong> – Organisierter Transport (auf Käuferkosten) erleichtert Entscheidung</li>
+            </ol>
 
-          <ul className="space-y-3 text-gray-700">
-            <li>
-              <strong className="text-brand">Verschweigen von Erkrankungen:</strong> Dokumentieren Sie
-              alle bekannten Gesundheitsprobleme schriftlich im Vertrag. Bei Unsicherheit: Tierärztliches
-              Attest einholen.
-            </li>
-            <li>
-              <strong className="text-brand">Falsche Altersangaben:</strong> Geben Sie das korrekte Alter
-              an, wie im Equidenpass vermerkt. Falsche Angaben können als Betrug gewertet werden.
-            </li>
-            <li>
-              <strong className="text-brand">Verschweigen von Verhaltensauffälligkeiten:</strong> Buckeln,
-              Beißen, Durchgehen sind meldepflichtige Eigenschaften. Verschweigen kann zu Rücktritt führen.
-            </li>
-            <li>
-              <strong className="text-brand">Unklare Zahlungsmodalitäten:</strong> Legen Sie fest: Wann
-              wird gezahlt? Wie (Bar, Überweisung)? Wann erfolgt die Übergabe? Erst nach Zahlungseingang!
-            </li>
-          </ul>
+            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+              <strong>Case Study:</strong> Turnierpferd (€22.000) verkauft in 14 Tagen statt 6 Monaten durch Kombination von Maßnahmen 1, 2, 4 und 7. Kritisch: Preis von €24.500 auf €22.000 gesenkt + professionelle Fotoshoot-Investment €150.
+            </p>
 
-          <h3 className="text-2xl font-serif font-bold text-brand mt-8">
-            Dokumente bei Übergabe
-          </h3>
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              ⚠️ Balance: Schnell vs. Verdächtig
+            </h3>
 
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Folgende Dokumente müssen Sie dem Käufer übergeben:
-          </p>
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Warnung: Zu schnell wirkt unseriös</strong></p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li>• <strong>Unter 2 Wochen</strong> = Red Flag für Käufer (Warum so schnell? Gesundheitsprobleme?)</li>
+              <li>• <strong>2-6 Wochen</strong> = Optimal (zeigt Nachfrage + Qualität)</li>
+              <li>• <strong>Über 6 Monate</strong> = Preiskorrektur nötig (Markt signalisiert: zu teuer)</li>
+            </ul>
 
-          <ul className="space-y-2 text-gray-700">
-            <li>• <strong>Equidenpass:</strong> Zwingend erforderlich für Eigentumsübertragung</li>
-            <li>• <strong>Eigentumsurkunde:</strong> Falls vorhanden (bei Zuchtpferden)</li>
-            <li>• <strong>Abstammungsnachweis:</strong> Bei Zuchtpferden</li>
-            <li>• <strong>Gesundheitszeugnisse:</strong> AKU-Berichte, Impfpass, Wurmkuren-Protokoll</li>
-            <li>• <strong>Turnierunterlagen:</strong> Platzierungsurkunden, Leistungsnachweise</li>
-          </ul>
-        </section>
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Seriöse Signale senden:</strong></p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Transparente AKU-Daten bereitstellen</li>
+              <li>• Mehrere Probereittermine anbieten (nicht &quot;nur morgen möglich&quot;)</li>
+              <li>• Stallbesichtigung ermöglichen</li>
+              <li>• Bereitwillig Fragen beantworten (auch kritische)</li>
+            </ul>
 
-        {/* FAQ */}
-        <FAQ faqs={faqItems} />
+            <p className="text-sm text-gray-700 bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Faustregel:</strong> Schneller Verkauf ist gut, aber nicht wenn er Käufer abschreckt. 2-4 Wochen ist das Sweet Spot-Fenster.
+            </p>
+          </section>
 
-        {/* Related Articles */}
-        <RatgeberRelatedArticles
-          title="Weiterführende Ratgeber"
-          articles={relatedArticles}
-          description="Vertiefen Sie Ihr Wissen rund um Pferdekauf, -verkauf und Bewertung."
-        />
+          {/* Emotionaler Aspekt */}
+          <section id="emotionaler-aspekt" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Der emotionale Aspekt beim Pferd verkaufen: Abschied gestalten
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein Pferd verkaufen bedeutet oft, sich von einem langjährigen Partner zu trennen. Es ist nicht nur eine geschäftliche Transaktion – es ist der Abschied von einem Lebewesen, das oft jahrelang Ihr Partner war.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              3 Phasen des Abschiednehmens
+            </h3>
+
+            <div className="space-y-6">
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Phase 1: Vorbereitung (Trauer ist normal)</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Ein Pferd verkaufen ist emotional – nehmen Sie sich Zeit für Abschied. Es ist völlig normal, beim Gedanken an den Verkauf traurig zu sein. Viele Verkäufer berichten von Schuldgefühlen oder dem Gefühl, ihr Pferd &quot;im Stich zu lassen&quot;. Diese Emotionen sind legitim – nehmen Sie sich Zeit, sie zu verarbeiten.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Phase 2: Loslassen (Das richtige Zuhause finden)</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Der Verkaufsprozess wird emotional leichter, wenn Ihr Fokus nicht auf dem Abschied liegt, sondern darauf, das beste neue Zuhause für Ihr Pferd zu finden. Sie sind nicht verantwortungslos – Sie treffen eine durchdachte Entscheidung.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Phase 3: Closure (Abschiedsritual)</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Viele Verkäufer empfinden einen letzten Ausritt, ein Foto oder ein kleines Ritual als hilfreich, um den Abschied bewusst zu gestalten. Es gibt kein &quot;richtiges&quot; Ritual – tun Sie, was sich für Sie stimmig anfühlt.
+                </p>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Das richtige Zuhause erkennen
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4"><strong>Bauchgefühl validieren</strong> – worauf achten:</p>
+
+            <ul className="space-y-3 text-gray-700">
+              <li>
+                • <strong>Stallbesichtigung:</strong> Besuchen Sie den neuen Stall, wenn möglich. Saubere Boxen, gepflegte Pferde und freundliches Personal sind gute Zeichen.
+              </li>
+              <li>
+                • <strong>Umgang beobachten:</strong> Wie geht der Käufer beim Probereiten mit Ihrem Pferd um? Geduldig, respektvoll, sachkundig?
+              </li>
+              <li>
+                • <strong>Fragen des Käufers:</strong> Gute Käufer fragen detailliert nach Charakter, Gesundheit, Vorlieben des Pferdes – nicht nur nach Leistung.
+              </li>
+              <li>
+                • <strong>Langfristige Planung:</strong> Seriöse Käufer haben klare Pläne (Training, Turniere, Freizeit) – keine impulsive &quot;ich wollte schon immer ein Pferd&quot;-Mentalität.
+              </li>
+            </ul>
+
+            <p className="text-sm text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-6">
+              <strong>Wann ist ein Zuhause &quot;gut genug&quot;?</strong> Es gibt kein perfektes Zuhause. Wenn Grundbedürfnisse (artgerechte Haltung, kompetente Betreuung, finanzielle Sicherheit) erfüllt sind und Ihr Bauchgefühl &quot;Ja&quot; sagt, ist das ausreichend.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Kontakt nach Verkauf: Ihre Wahl
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Es gibt <strong>keine richtige oder falsche Wahl</strong> – nur individuelle Präferenzen:
+            </p>
+
+            <div className="space-y-4">
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Option 1: Updates vereinbaren</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Manche Käufer sind offen dafür, regelmäßig Fotos oder kurze Updates zu schicken. Besprechen Sie das vor dem Verkauf, falls Ihnen das wichtig ist.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Option 2: Besuchsrechte</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  In seltenen Fällen werden Besuchsrechte vertraglich vereinbart (z.B. 1x pro Jahr). Funktioniert am besten bei regional nahen Verkäufen.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Option 3: Komplettes Loslassen</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Viele Verkäufer empfinden es als leichter, nach dem Verkauf keinen Kontakt mehr zu haben – viele Besitzer bleiben nach dem Pferd verkaufen mit dem neuen Halter in Kontakt, aber das ist keine Pflicht. Das ist absolut legitim und oft sogar gesünder für den Trauerprozess.
+                </p>
+              </div>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed italic bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+              <strong>Zitat einer Verkäuferin:</strong> &quot;Ich hatte Angst, meine Stute zu verkaufen. Aber als ich die neue Besitzerin beim Probereiten sah – wie sanft sie mit ihr umging, wie sie lächelte – wusste ich: Das ist das richtige Zuhause. Der Abschied war trotzdem schwer, aber ich habe keinen Kontakt mehr und das ist okay.&quot;
+            </p>
+          </section>
+
+          {/* Fazit */}
+          <section id="fazit" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Fazit: Erfolgreich und fair Pferd verkaufen
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereitung möglich. Ein Pferd erfolgreich zu verkaufen bedeutet, den kompletten 7-Phasen-Prozess zu durchlaufen: von der gründlichen Vorbereitung über die datenbasierte Wertermittlung mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">PferdeWert.de AI-Tool</Link> bis hin zur Wahl der richtigen Plattform (eHorses für Premium-Pferde, pferde.de oder private Kanäle für Freizeitpferde) und der professionellen Übergabe.
+            </p>
+
+            <p className="text-gray-700 leading-relaxed">
+              Erfolg definiert sich nicht nur über den Verkaufspreis, sondern auch über die emotionale Balance – das richtige Zuhause für Ihr Pferd zu finden.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Die 2 kritischsten Learnings:
+            </h3>
+
+            <div className="space-y-4">
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Foundation:</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Ob Sie Ihr erstes oder fünftes Pferd verkaufen: Die Kombination aus realistischer Wertermittlung mit dem PferdeWert.de AI-Tool in nur 3 Minuten und der Wahl der richtigen Plattform (eHorses für Turnierpferde, pferde.de für Breitensport, private Kanäle für Netzwerke) schafft die Basis für schnellen Verkaufserfolg. Diese Foundation spart Monate frustrierender Verkaufsbemühungen mit überhöhten Preisen.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-2"><strong>Timing:</strong></p>
+                <p className="text-gray-700 leading-relaxed">
+                  Geduld zahlt sich aus. Die optimale Verkaufsdauer liegt bei 2-6 Wochen – alles darunter wirkt verdächtig (Red Flag für Käufer), alles darüber signalisiert Preiskorrektur-Bedarf. Starten Sie im März-Juni (Hochsaison) für maximale Anfragen.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <CTAButton
+                type="primary"
+                href="/pferde-preis-berechnen"
+                text="Jetzt Pferdewert berechnen"
+              />
+              <p className="text-sm text-gray-600 mt-3">
+                In 3 Minuten erhalten Sie eine datenbasierte Preiseinschätzung basierend auf 10.000+ analysierten Pferden.
+              </p>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <FAQ faqs={faqItems} />
+
+          {/* Related Articles */}
+          <RatgeberRelatedArticles
+            title="Weiterführende Ratgeber"
+            articles={relatedArticles}
+            description="Vertiefen Sie Ihr Wissen rund um Pferdekauf, -verkauf und Bewertung."
+          />
         </article>
 
         {/* Final CTA */}
-          <RatgeberFinalCTA
-            image={{
-              src: "/images/ratgeber/pferd-verkaufen-final.jpg",
-              alt: "Pferd erfolgreich verkaufen - Jetzt starten"
-            }}
-            title="Bereit für den erfolgreichen Verkauf?"
-            description={`Starten Sie jetzt mit einer professionellen KI-Bewertung für nur ${PRICING_FORMATTED.current} und verkaufen Sie Ihr Pferd zum optimalen Preis. Objektiv, schnell, präzise – entwickelt von erfahrenen Reitern.`}
-            ctaHref="/pferde-preis-berechnen"
-            ctaLabel="Jetzt Verkaufspreis berechnen"
-          />      </div>
+        <RatgeberFinalCTA
+          image={{
+            src: "/images/shared/blossi-shooting.webp",
+            alt: "Pferd erfolgreich verkaufen - Jetzt starten"
+          }}
+          title="Bereit für den erfolgreichen Verkauf?"
+          description={`Starten Sie jetzt mit einer professionellen AI-Bewertung für nur ${PRICING_FORMATTED.current} und verkaufen Sie Ihr Pferd zum optimalen Preis. Objektiv, schnell, präzise – entwickelt von erfahrenen Reitern.`}
+          ctaHref="/pferde-preis-berechnen"
+          ctaLabel="Jetzt Pferdewert berechnen"
+        />
+      </div>
     </Layout>
   );
 };
