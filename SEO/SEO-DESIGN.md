@@ -27,7 +27,7 @@
 ### 2. Typografie
 - Headings: Playfair Display (`font-serif`).
 - Fließtext & UI-Elemente: Lato (`font-sans`).
-- Basisgrößen: `text-base` (Body), `text-xl+` für wichtige Absätze.
+- **Body Paragraphs**: `text-lg` is the STANDARD for ALL `<p>` tags in ratgeber content (for better readability and consistency).
 - Blockquotes: Playfair Display kursiv, linke Border in `brand-green`.
 
 ### 3. Farb- & Boxsystem

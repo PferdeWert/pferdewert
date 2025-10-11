@@ -205,7 +205,7 @@ const PferdVerkaufen: NextPage = () => {
         <title>Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis</title>
         <meta
           name="description"
-          content={`Pferd verkaufen zum optimalen Preis: 7-Phasen-Prozess ✓ Plattformvergleich (eHorses vs. pferde.de) ✓ AI-Bewertung (${PRICING_FORMATTED.current}) ✓ Rechtliche Absicherung`}
+          content={`Pferd verkaufen 2025: Kompletter Leitfaden mit 7-Phasen-System für optimalen Verkaufspreis. Plattformvergleich (eHorses vs. pferde.de), professionelle KI-Bewertung ab ${PRICING_FORMATTED.current}, rechtliche Checklisten & Verkaufsstrategien für Privatverkäufer.`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
@@ -475,7 +475,7 @@ const PferdVerkaufen: NextPage = () => {
               eHorses.de: Lohnt sich der Marktführer?
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Vorteile:</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Vorteile:</strong></p>
             <ul className="space-y-2 text-gray-700 mb-4">
               <li>• <strong>Maximale Reichweite:</strong> 135.000 monatliche Suchanfragen bedeuten höchste Sichtbarkeit</li>
               <li>• <strong>Qualifizierte Zielgruppe:</strong> Käufer mit klarer Kaufabsicht und Budget</li>
@@ -483,14 +483,14 @@ const PferdVerkaufen: NextPage = () => {
               <li>• <strong>Profi-Netzwerk:</strong> Händler und Trainer nutzen primär eHorses</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Nachteile:</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Nachteile:</strong></p>
             <ul className="space-y-2 text-gray-700 mb-4">
               <li>• <strong>Kosten:</strong> €49,90 für 60 Tage Premium-Inserat (erforderlich für Top-Platzierung)</li>
               <li>• <strong>Konkurrenz:</strong> 50.000+ aktive Inserate erfordern professionelle Präsentation</li>
               <li>• <strong>Zielgruppen-Limitation:</strong> Weniger geeignet für Gelegenheitsreiter-Pferde unter €3.000</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               <strong>Fazit:</strong> Die Investition lohnt sich für Pferde ab €8.000 Wert, bei denen die 20% höhere Verkaufsquote die Kosten rechtfertigt.
             </p>
 
@@ -498,7 +498,7 @@ const PferdVerkaufen: NextPage = () => {
               Alternative: Private Verkaufskanäle
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4">Private Kanäle ohne Plattformkosten:</p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">Private Kanäle ohne Plattformkosten:</p>
 
             <ul className="space-y-2 text-gray-700">
               <li>• <strong>Facebook-Gruppen:</strong> &quot;Pferde zu verkaufen [Region]&quot; – kostenlos, aber zeitintensiv</li>
@@ -507,7 +507,7 @@ const PferdVerkaufen: NextPage = () => {
               <li>• <strong>Reitvereine:</strong> Lokale Reichweite, persönliche Empfehlungen</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mt-6 mb-4">
+            <p className="text-lg text-gray-700 leading-relaxed mt-6 mb-4">
               <strong>Wann sinnvoll?</strong> Private Kanäle funktionieren am besten für:
             </p>
             <ul className="space-y-2 text-gray-700">
@@ -548,7 +548,7 @@ const PferdVerkaufen: NextPage = () => {
               Phase 1-3: Vorbereitung, Wertermittlung, Anzeige
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 1: Vorbereitung (2-4 Wochen)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 1: Vorbereitung (2-4 Wochen)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ Gesundheitscheck beim Tierarzt</li>
               <li>✓ Hufschmied-Termin für optimale Optik</li>
@@ -556,14 +556,14 @@ const PferdVerkaufen: NextPage = () => {
               <li>✓ Dokumente bereitstellen: Equidenpass, Impfausweis, Abstammungspapiere</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 2: Wertermittlung (1 Tag)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 2: Wertermittlung (1 Tag)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline">Pferdewert-Rechner</Link> nutzen für objektiven Preis</li>
               <li>✓ Vergleichsinserate auf eHorses analysieren (gleiche Kategorie)</li>
               <li>✓ Preisverhandlungsspielraum definieren (5-10% unter Maximalpreis)</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 3: Anzeige erstellen (1-2 Tage)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 3: Anzeige erstellen (1-2 Tage)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ Professionelle Fotos bei gutem Wetter (10 kritische Shots, siehe nächste Sektion)</li>
               <li>✓ 30-Sekunden Bewegungsvideo (Schritt, Trab, Galopp)</li>
@@ -579,7 +579,7 @@ const PferdVerkaufen: NextPage = () => {
               Phase 4-5: Veröffentlichung und Interessenten-Screening
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 4: Veröffentlichung (1 Tag)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 4: Veröffentlichung (1 Tag)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ Plattform-Auswahl nach Pferdetyp (siehe vorherige Sektion)</li>
               <li>✓ Optimales Timing: März-Juni (Hochsaison) oder September-Oktober</li>
@@ -587,14 +587,14 @@ const PferdVerkaufen: NextPage = () => {
               <li>✓ Multi-Channel parallel: Hauptplattform + 2 kostenlose Kanäle</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 5: Interessenten-Management (2-6 Wochen)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 5: Interessenten-Management (2-6 Wochen)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-4">
               <li>✓ Anfragen innerhalb 24 Stunden beantworten (Schnelligkeit = Seriosität)</li>
               <li>✓ Qualifizierte Interessenten: Konkrete Fragen zu Ausbildung, Charakter, Haltung</li>
               <li>✓ Stallbesichtigungen optional anbieten (hohe Kaufwahrscheinlichkeit)</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-2"><strong>Red Flags erkennen:</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Red Flags erkennen:</strong></p>
             <ul className="space-y-2 text-gray-700">
               <li>• Kein Interesse an Gesundheitsdaten</li>
               <li>• Keine AKU gewünscht</li>
@@ -606,7 +606,7 @@ const PferdVerkaufen: NextPage = () => {
               Phase 6-7: Probereiten, AKU und Kaufabschluss
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 6: Probereiten & Kaufuntersuchung (1-2 Wochen)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 6: Probereiten & Kaufuntersuchung (1-2 Wochen)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ 1-2 Probereittermine vereinbaren (verschiedene Personen falls möglich)</li>
               <li>✓ Haftpflichtversicherung des Interessenten prüfen</li>
@@ -614,7 +614,7 @@ const PferdVerkaufen: NextPage = () => {
               <li>✓ AKU-Ergebnis transparent besprechen</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Phase 7: Vertragsabschluss & Übergabe (1-3 Tage)</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 7: Vertragsabschluss & Übergabe (1-3 Tage)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ Kaufvertrag vorbereiten (siehe rechtliche Sektion)</li>
               <li>✓ Kaufpreis vor Übergabe vollständig erhalten (Banküberweisung, kein Bargeld)</li>
@@ -666,7 +666,7 @@ const PferdVerkaufen: NextPage = () => {
               Fotos & Videos: Qualität statt Quantität
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>10 kritische Foto-Shots</strong> (bei gutem Wetter, sauberes Pferd):</p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>10 kritische Foto-Shots</strong> (bei gutem Wetter, sauberes Pferd):</p>
             <ol className="space-y-2 list-decimal list-inside text-gray-700 mb-6">
               <li>Seitlich stehend (gesamtes Pferd, neutraler Hintergrund)</li>
               <li>Schräg vorne (Kopf + Vorderhand)</li>
@@ -680,7 +680,7 @@ const PferdVerkaufen: NextPage = () => {
               <li>Besonderheiten (Abzeichen, besondere Merkmale)</li>
             </ol>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>2 essenzielle Videos:</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>2 essenzielle Videos:</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>• <strong>Bewegungsvideo (30 Sekunden):</strong> Schritt → Trab → Galopp auf beiden Händen – Videos erhöhen Ihre Chancen, das Pferd verkaufen zu können, um 60%</li>
               <li>• <strong>Handling-Video (20 Sekunden):</strong> Führen, Putzen, Aufhalftern (zeigt Umgänglichkeit)</li>
@@ -694,11 +694,11 @@ const PferdVerkaufen: NextPage = () => {
               Preisangabe-Psychologie
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Festpreis vs. Verhandlungsbasis (VB):</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Festpreis vs. Verhandlungsbasis (VB):</strong></p>
 
             <div className="space-y-4">
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Festpreis</strong> → Sinnvoll bei:</p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Festpreis</strong> → Sinnvoll bei:</p>
                 <ul className="space-y-1 text-gray-700 ml-4">
                   <li>• Klarer Marktwert (viele Vergleichsinserate)</li>
                   <li>• Unterer Preisbereich (bis €5.000)</li>
@@ -707,7 +707,7 @@ const PferdVerkaufen: NextPage = () => {
               </div>
 
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>VB (Verhandlungsbasis)</strong> → Sinnvoll bei:</p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>VB (Verhandlungsbasis)</strong> → Sinnvoll bei:</p>
                 <ul className="space-y-1 text-gray-700 ml-4">
                   <li>• Individuellen Pferden (schwer vergleichbar)</li>
                   <li>• Premium-Segment (ab €20.000)</li>
@@ -776,7 +776,7 @@ const PferdVerkaufen: NextPage = () => {
               Offenbarungspflicht & Gewährleistung kompakt
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Was muss offengelegt werden?</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Was muss offengelegt werden?</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>• AKU-Befunde der letzten 12 Monate (alle Klassen)</li>
               <li>• Chronische Erkrankungen (Allergien, Arthrose, etc.)</li>
@@ -785,12 +785,12 @@ const PferdVerkaufen: NextPage = () => {
               <li>• Kolik-Historie (besonders bei wiederholtem Auftreten)</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Gewährleistungsausschluss rechtssicher formulieren:</strong></p>
-            <p className="text-gray-700 leading-relaxed bg-white border border-gray-200 rounded-lg p-4 italic">
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Gewährleistungsausschluss rechtssicher formulieren:</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed bg-white border border-gray-200 rounded-lg p-4 italic">
               &quot;Der Verkauf erfolgt unter Ausschluss jeglicher Gewährleistung gemäß §444 BGB. Der Käufer verzichtet auf alle Ansprüche wegen Sachmängeln.&quot;
             </p>
 
-            <p className="text-gray-700 leading-relaxed mt-6 mb-4"><strong>Wichtig:</strong> Gewährleistungsausschluss ist nur wirksam bei:</p>
+            <p className="text-lg text-gray-700 leading-relaxed mt-6 mb-4"><strong>Wichtig:</strong> Gewährleistungsausschluss ist nur wirksam bei:</p>
             <ul className="space-y-2 text-gray-700">
               <li>• Privaten Verkäufern (nicht gewerblich)</li>
               <li>• Vollständiger Offenlegung bekannter Mängel</li>
@@ -805,7 +805,7 @@ const PferdVerkaufen: NextPage = () => {
               Übergabeprotokoll: 5-Punkte Checkliste
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
               Ein professionelles Übergabeprotokoll schützt beide Parteien vor späteren Streitigkeiten:
             </p>
 
@@ -895,14 +895,14 @@ const PferdVerkaufen: NextPage = () => {
               ⚠️ Balance: Schnell vs. Verdächtig
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Warnung: Zu schnell wirkt unseriös</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Warnung: Zu schnell wirkt unseriös</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>• <strong>Unter 2 Wochen</strong> = Red Flag für Käufer (Warum so schnell? Gesundheitsprobleme?)</li>
               <li>• <strong>2-6 Wochen</strong> = Optimal (zeigt Nachfrage + Qualität)</li>
               <li>• <strong>Über 6 Monate</strong> = Preiskorrektur nötig (Markt signalisiert: zu teuer)</li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Seriöse Signale senden:</strong></p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Seriöse Signale senden:</strong></p>
             <ul className="space-y-2 text-gray-700">
               <li>• Transparente AKU-Daten bereitstellen</li>
               <li>• Mehrere Probereittermine anbieten (nicht &quot;nur morgen möglich&quot;)</li>
@@ -931,22 +931,22 @@ const PferdVerkaufen: NextPage = () => {
 
             <div className="space-y-6">
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Phase 1: Vorbereitung (Trauer ist normal)</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Phase 1: Vorbereitung (Trauer ist normal)</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Ein Pferd verkaufen ist emotional – nehmen Sie sich Zeit für Abschied. Es ist völlig normal, beim Gedanken an den Verkauf traurig zu sein. Viele Verkäufer berichten von Schuldgefühlen oder dem Gefühl, ihr Pferd &quot;im Stich zu lassen&quot;. Diese Emotionen sind legitim – nehmen Sie sich Zeit, sie zu verarbeiten.
                 </p>
               </div>
 
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Phase 2: Loslassen (Das richtige Zuhause finden)</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Phase 2: Loslassen (Das richtige Zuhause finden)</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Der Verkaufsprozess wird emotional leichter, wenn Ihr Fokus nicht auf dem Abschied liegt, sondern darauf, das beste neue Zuhause für Ihr Pferd zu finden. Sie sind nicht verantwortungslos – Sie treffen eine durchdachte Entscheidung.
                 </p>
               </div>
 
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Phase 3: Closure (Abschiedsritual)</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Phase 3: Closure (Abschiedsritual)</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Viele Verkäufer empfinden einen letzten Ausritt, ein Foto oder ein kleines Ritual als hilfreich, um den Abschied bewusst zu gestalten. Es gibt kein &quot;richtiges&quot; Ritual – tun Sie, was sich für Sie stimmig anfühlt.
                 </p>
               </div>
@@ -956,7 +956,7 @@ const PferdVerkaufen: NextPage = () => {
               Das richtige Zuhause erkennen
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4"><strong>Bauchgefühl validieren</strong> – worauf achten:</p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Bauchgefühl validieren</strong> – worauf achten:</p>
 
             <ul className="space-y-3 text-gray-700">
               <li>
@@ -981,28 +981,28 @@ const PferdVerkaufen: NextPage = () => {
               Kontakt nach Verkauf: Ihre Wahl
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
               Es gibt <strong>keine richtige oder falsche Wahl</strong> – nur individuelle Präferenzen:
             </p>
 
             <div className="space-y-4">
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Option 1: Updates vereinbaren</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Option 1: Updates vereinbaren</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Manche Käufer sind offen dafür, regelmäßig Fotos oder kurze Updates zu schicken. Besprechen Sie das vor dem Verkauf, falls Ihnen das wichtig ist.
                 </p>
               </div>
 
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Option 2: Besuchsrechte</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Option 2: Besuchsrechte</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   In seltenen Fällen werden Besuchsrechte vertraglich vereinbart (z.B. 1x pro Jahr). Funktioniert am besten bei regional nahen Verkäufen.
                 </p>
               </div>
 
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Option 3: Komplettes Loslassen</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Option 3: Komplettes Loslassen</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Viele Verkäufer empfinden es als leichter, nach dem Verkauf keinen Kontakt mehr zu haben – viele Besitzer bleiben nach dem Pferd verkaufen mit dem neuen Halter in Kontakt, aber das ist keine Pflicht. Das ist absolut legitim und oft sogar gesünder für den Trauerprozess.
                 </p>
               </div>
@@ -1023,7 +1023,7 @@ const PferdVerkaufen: NextPage = () => {
               Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereitung möglich. Ein Pferd erfolgreich zu verkaufen bedeutet, den kompletten 7-Phasen-Prozess zu durchlaufen: von der gründlichen Vorbereitung über die datenbasierte Wertermittlung mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">PferdeWert.de AI-Tool</Link> bis hin zur Wahl der richtigen Plattform (eHorses für Premium-Pferde, pferde.de oder private Kanäle für Freizeitpferde) und der professionellen Übergabe.
             </p>
 
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               Erfolg definiert sich nicht nur über den Verkaufspreis, sondern auch über die emotionale Balance – das richtige Zuhause für Ihr Pferd zu finden.
             </p>
 
@@ -1033,15 +1033,15 @@ const PferdVerkaufen: NextPage = () => {
 
             <div className="space-y-4">
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Foundation:</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Foundation:</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Ob Sie Ihr erstes oder fünftes Pferd verkaufen: Die Kombination aus realistischer Wertermittlung mit dem PferdeWert.de AI-Tool in nur 3 Minuten und der Wahl der richtigen Plattform (eHorses für Turnierpferde, pferde.de für Breitensport, private Kanäle für Netzwerke) schafft die Basis für schnellen Verkaufserfolg. Diese Foundation spart Monate frustrierender Verkaufsbemühungen mit überhöhten Preisen.
                 </p>
               </div>
 
               <div>
-                <p className="text-gray-700 leading-relaxed mb-2"><strong>Timing:</strong></p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed mb-2"><strong>Timing:</strong></p>
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Geduld zahlt sich aus. Die optimale Verkaufsdauer liegt bei 2-6 Wochen – alles darunter wirkt verdächtig (Red Flag für Käufer), alles darüber signalisiert Preiskorrektur-Bedarf. Starten Sie im März-Juni (Hochsaison) für maximale Anfragen.
                 </p>
               </div>
