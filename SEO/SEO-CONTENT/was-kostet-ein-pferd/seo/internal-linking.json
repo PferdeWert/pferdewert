@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "phase": "5C",
+    "target_keyword": "was kostet ein pferd",
+    "article_word_count": 2750,
+    "total_internal_links": 5,
+    "analysis_date": "2025-10-11",
+    "quality_status": "PASS"
+  },
+  "internal_links": [
+    {
+      "target_url": "/pferde-ratgeber/aku-pferd",
+      "anchor_text": "Ankaufsuntersuchung (AKU)",
+      "relevance_score": 0.78,
+      "relevance_breakdown": {
+        "keyword_overlap": 0.35,
+        "topic_cluster": 0.30,
+        "semantic_similarity": 0.13,
+        "content_length_bonus": 0.00
+      },
+      "topic_cluster": "Pferdekauf",
+      "placement_recommendation": {
+        "section": "Anschaffungskosten: Was kostet ein Pferd beim Kauf?",
+        "context": "Eine umfassende Ankaufsuntersuchung (AKU) ist unverzichtbar und kostet 200€ - 800€",
+        "position": "mid-section",
+        "rationale": "Direct mention of AKU in article at line 62, highly contextual link opportunity"
+      },
+      "link_purpose": "Provide detailed AKU information for readers researching purchase costs"
+    },
+    {
+      "target_url": "/pferde-ratgeber/aku-pferd/kosten",
+      "anchor_text": "Kosten der Ankaufsuntersuchung",
+      "relevance_score": 0.72,
+      "relevance_breakdown": {
+        "keyword_overlap": 0.40,
+        "topic_cluster": 0.30,
+        "semantic_similarity": 0.12,
+        "content_length_bonus": 0.00
+      },
+      "topic_cluster": "Pferdekauf",
+      "placement_recommendation": {
+        "section": "Anschaffungskosten: Was kostet ein Pferd beim Kauf?",
+        "context": "After mentioning AKU cost range (200€-800€)",
+        "position": "mid-section",
+        "rationale": "Deep dive into AKU pricing details, complements cost discussion"
+      },
+      "link_purpose": "Expand on AKU cost breakdown for informed purchase decisions"
+    },
+    {
+      "target_url": "/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "umfassenden Pferdekauf-Ratgeber",
+      "relevance_score": 0.85,
+      "relevance_breakdown": {
+        "keyword_overlap": 0.45,
+        "topic_cluster": 0.30,
+        "semantic_similarity": 0.10,
+        "content_length_bonus": 0.00
+      },
+      "topic_cluster": "Pferdekauf",
+      "placement_recommendation": {
+        "section": "Introduction",
+        "context": "After stating article purpose, before diving into cost details",
+        "position": "early",
+        "rationale": "Natural progression from general purchase guide to specific cost analysis"
+      },
+      "link_purpose": "Provide broader purchase context beyond just costs"
+    },
+    {
+      "target_url": "/pferde-ratgeber/pferd-verkaufen",
+      "anchor_text": "Pferd verkaufen",
+      "relevance_score": 0.52,
+      "relevance_breakdown": {
+        "keyword_overlap": 0.20,
+        "topic_cluster": 0.15,
+        "semantic_similarity": 0.12,
+        "content_length_bonus": 0.05
+      },
+      "topic_cluster": "Pferdehaltung",
+      "placement_recommendation": {
+        "section": "Fazit: Was kostet ein Pferd wirklich?",
+        "context": "Mention resale considerations as part of total cost of ownership",
+        "position": "conclusion",
+        "rationale": "Seller perspective provides complete ownership lifecycle view"
+      },
+      "link_purpose": "Connect ownership costs with eventual resale considerations"
+    },
+    {
+      "target_url": "/pferde-ratgeber/aku-pferd/ablauf",
+      "anchor_text": "Ablauf der Ankaufsuntersuchung",
+      "relevance_score": 0.68,
+      "relevance_breakdown": {
+        "keyword_overlap": 0.30,
+        "topic_cluster": 0.30,
+        "semantic_similarity": 0.08,
+        "content_length_bonus": 0.00
+      },
+      "topic_cluster": "Pferdekauf",
+      "placement_recommendation": {
+        "section": "Anschaffungskosten: Was kostet ein Pferd beim Kauf?",
+        "context": "After initial AKU cost mention, provide process details",
+        "position": "mid-section",
+        "rationale": "Helps readers understand what they're paying for in AKU"
+      },
+      "link_purpose": "Explain AKU process to justify cost investment"
+    }
+  ],
+  "excluded_targets": [
+    {
+      "url": "/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd",
+      "reason": "Current article - self-link excluded"
+    },
+    {
+      "url": "/pferde-ratgeber/aku-pferd/klassen",
+      "reason": "Lower relevance (0.48) - AKU classes less directly related to cost focus"
+    },
+    {
+      "url": "/pferde-ratgeber/pferd-verkaufen/tipps",
+      "reason": "Lower relevance (0.45) - selling tips peripheral to purchase cost topic"
+    }
+  ],
+  "quality_gates": {
+    "errors": [],
+    "warnings": [],
+    "info": [
+      "5 internal links recommended (within optimal 5-7 range)",
+      "All links from same topic cluster (Pferdekauf) for strong topical relevance",
+      "3 AKU-related links create strong sub-cluster around purchase due diligence",
+      "Anchor text variety maintained (no duplicates)",
+      "All targets verified in sitemap"
+    ]
+  },
+  "seo_impact": {
+    "topic_clustering": "Strong - 80% links within Pferdekauf cluster",
+    "user_navigation": "Enhanced - clear pathway to purchase-related content",
+    "crawl_depth": "Optimized - strategic links to deep pages (AKU sub-sections)",
+    "keyword_reinforcement": "Effective - 'kaufen', 'kosten', 'AKU' semantic field strengthened"
+  },
+  "implementation_notes": [
+    "Prioritize AKU links in 'Anschaffungskosten' section for maximum contextual relevance",
+    "Use varied anchor text to avoid over-optimization",
+    "Consider adding more ratgeber content to increase internal linking opportunities",
+    "Monitor click-through rates to optimize anchor text over time"
+  ]
+}

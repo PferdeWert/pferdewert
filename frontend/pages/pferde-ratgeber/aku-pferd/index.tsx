@@ -15,7 +15,6 @@ import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfConten
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import {
   akuSections,
-  akuClasses,
   akuTimeTiles,
   akuRegions,
   akuFaqItems,
@@ -71,34 +70,131 @@ const AKUPferd: NextPage = () => {
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "AKU Pferd: Ankaufsuntersuchung beim Pferdekauf",
-    "description": "Schritt-für-Schritt Anleitung zur Ankaufsuntersuchung beim Pferdekauf mit Kosten, Ablauf und Befunden",
-    "totalTime": "PT3H",
+    "name": "AKU Pferd: Ankaufsuntersuchung beim Pferdekauf durchführen",
+    "description": "Vollständige Anleitung zur Ankaufsuntersuchung beim Pferdekauf - von der Vorbereitung bis zum fertigen Protokoll mit Kosten, Ablauf und Befundung",
+    "totalTime": "PT72H",
     "estimatedCost": {
       "@type": "MonetaryAmount",
       "currency": "EUR",
-      "value": "150-1500"
+      "value": "150",
+      "maxValue": "1500"
     },
     "step": [
       {
         "@type": "HowToStep",
-        "name": "Vorbereitung und Terminvereinbarung",
-        "text": "Wählen Sie einen unabhängigen Tierarzt, legen Sie den Röntgenumfang fest und klären Sie die Kosten vorab"
+        "position": 1,
+        "name": "Phase 1: Vorbereitung und Terminvereinbarung",
+        "text": "1-2 Wochen vor dem AKU-Termin: Unabhängigen Tierarzt auswählen (nicht den Stallveterinär des Verkäufers), AKU-Klasse festlegen (kleine vs. große AKU), Röntgenumfang definieren, Kosten transparent klären und AKU-Vorbehalt im Kaufvertrag vereinbaren",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Wählen Sie einen unabhängigen Tierarzt, der nicht mit dem Verkäufer verbunden ist"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Entscheiden Sie zwischen kleiner AKU (150-300€) für Freizeitpferde oder großer AKU (800-1.500€) für Sportpferde"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Klären Sie den Röntgenumfang (Standard: 10-18 Aufnahmen) und alle Kosten schriftlich"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht"
+          }
+        ]
       },
       {
         "@type": "HowToStep",
-        "name": "Klinische Untersuchung",
-        "text": "Allgemeinzustand, Gangbildanalyse, Flexionsproben, Herz-Lunge-Check und Augenuntersuchung"
+        "position": 2,
+        "name": "Phase 2: Klinische Untersuchung vor Ort",
+        "text": "1-2 Stunden am Untersuchungstag: Allgemeinzustand prüfen, Gangbildanalyse auf verschiedenen Böden, Flexionsproben an allen Gelenken, Herz-Kreislauf-Untersuchung, Lungencheck, Augenuntersuchung und Zahnkontrolle durchführen",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Allgemeinzustand: Körperkondition (Body Condition Score 4-6), Temperatur (37,5-38,2°C), Verhalten"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Gangbildanalyse: Schritt und Trab auf hartem und weichem Boden, Longieren in beide Richtungen"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Flexionsproben: Vorder- und Hintergliedmaßen einzeln testen, auf Lahmheitsreaktionen achten"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Innere Organe: Herzfrequenz (28-40 Schläge/Min.), Atemfrequenz (8-16 Züge/Min.), Abhören von Herz und Lunge"
+          }
+        ]
       },
       {
         "@type": "HowToStep",
-        "name": "Röntgenuntersuchung",
-        "text": "Standard-Röntgenbilder von Gelenken und optional erweiterte Aufnahmen je nach AKU-Klasse"
+        "position": 3,
+        "name": "Phase 3: Röntgenuntersuchung (nur große AKU)",
+        "text": "1-1,5 Stunden zusätzlich: Standard-Röntgenbilder erstellen (Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk), Aufnahmen entwickeln und erste Sichtung, bei Auffälligkeiten erweiterte Aufnahmen anfertigen",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Standard-Aufnahmen: 10-18 Röntgenbilder der wichtigsten Gelenke (je 50-80€ pro Aufnahme)"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Wichtigste Positionen: Vorderfußwurzelgelenk lateral/dorsopalmar, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Bei Auffälligkeiten: Zusätzliche Spezialaufnahmen oder Schrägaufnahmen nach Absprache"
+          }
+        ]
       },
       {
         "@type": "HowToStep",
-        "name": "Befundung und Protokoll",
-        "text": "Auswertung der Ergebnisse, Röntgenklassen-Bewertung und Kaufempfehlung"
+        "position": 4,
+        "name": "Phase 4: Befundung und Protokoll-Erstellung",
+        "text": "24-48 Stunden nach der Untersuchung: Röntgenbilder detailliert auswerten, Röntgenklassen vergeben (I-V), AKU-Protokoll erstellen mit allen Befunden, Kaufempfehlung formulieren und Protokoll an Käufer übergeben",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Röntgenbilder werden nach dem 5-Klassen-System bewertet (I=ohne Befund bis V=hochgradig röntgenpositiv)"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Detailliertes AKU-Protokoll mit allen klinischen und röntgenologischen Befunden wird erstellt"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Kaufempfehlung basierend auf Gesamtbewertung: uneingeschränkt empfehlenswert, bedingt empfehlenswert oder nicht empfehlenswert"
+          },
+          {
+            "@type": "HowToDirection",
+            "text": "Protokoll gehört dem Käufer und dient als rechtliches Beweismittel bei späteren Streitigkeiten"
+          }
+        ]
+      }
+    ],
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Unabhängiger AKU-Tierarzt"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Röntgengerät (bei großer AKU)"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Budget für AKU-Kosten (150-1.500€)"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Kaufvertrag mit AKU-Vorbehalt"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Kostenaufstellung vom Tierarzt"
       }
     ]
   }
@@ -854,9 +950,9 @@ const AKUPferd: NextPage = () => {
             </div>
 
             {/* Versicherung & AKU-Kosten */}
-            <div id="insurance" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            <div id="versicherung" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('insurance', 'Versicherung & AKU-Kosten: Wer zahlt?')}
+                {numberedTitle('versicherung', 'Versicherung & AKU-Kosten: Wer zahlt?')}
               </h2>
 
               <RatgeberHighlightBox title="Wichtige Klarstellung" icon="⚠️" padding="p-6">
@@ -876,7 +972,7 @@ const AKUPferd: NextPage = () => {
                     <div className="bg-amber-50 p-6 rounded-lg mb-6">
                       <h4 className="font-bold text-brand-brown mb-3">Kaufpreisversicherungen (Sonderfall):</h4>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Einige Anbieter bieten "Kaufpreisversicherungen" (Uelzener, Allianz)</li>
+                        <li>• Einige Anbieter bieten &quot;Kaufpreisversicherungen&quot; (Uelzener, Allianz)</li>
                         <li>• <strong>Kostenübernahme:</strong> 50-100% der AKU-Kosten bei Kaufabbruch nach negativer AKU</li>
                         <li>• <strong>Voraussetzung:</strong> Abschluss VOR AKU-Termin</li>
                         <li>• <strong>Beitrag:</strong> 80-150€ einmalig (abhängig von Kaufpreis)</li>
@@ -998,9 +1094,9 @@ const AKUPferd: NextPage = () => {
             </div>
 
             {/* Wann ist eine AKU sinnvoll? */}
-            <div id="when-needed" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            <div id="sinnvoll" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('when-needed', 'Wann ist eine AKU sinnvoll?')}
+                {numberedTitle('sinnvoll', 'Wann ist eine AKU sinnvoll?')}
               </h2>
 
               <ContentSection
@@ -1147,9 +1243,9 @@ const AKUPferd: NextPage = () => {
             </div>
 
             {/* Rechtsaspekte */}
-            <div id="legal" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            <div id="rechtsaspekte" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('legal', 'Rechtsaspekte: AKU und Kaufvertrag')}
+                {numberedTitle('rechtsaspekte', 'Rechtsaspekte: AKU und Kaufvertrag')}
               </h2>
 
               <ContentSection
@@ -1161,7 +1257,7 @@ const AKUPferd: NextPage = () => {
                       <h4 className="font-bold text-brand-brown mb-3">Empfohlene Formulierung für AKU-Vorbehalt im Kaufvertrag:</h4>
                       <div className="bg-white p-4 rounded border-l-4 border-blue-500">
                         <p className="text-gray-700 italic">
-                          "Der Kauf steht unter dem Vorbehalt einer positiven Ankaufsuntersuchung durch einen vom Käufer zu benennenden Tierarzt. Die Untersuchung erfolgt bis spätestens [Datum]. Bei negativer AKU ist der Käufer zum kostenlosen Rücktritt berechtigt. AKU-Kosten trägt der Käufer."
+                          &quot;Der Kauf steht unter dem Vorbehalt einer positiven Ankaufsuntersuchung durch einen vom Käufer zu benennenden Tierarzt. Die Untersuchung erfolgt bis spätestens [Datum]. Bei negativer AKU ist der Käufer zum kostenlosen Rücktritt berechtigt. AKU-Kosten trägt der Käufer.&quot;
                         </p>
                       </div>
                     </div>
@@ -1201,7 +1297,7 @@ const AKUPferd: NextPage = () => {
                       <ul className="space-y-2 text-gray-700">
                         <li>• AKU-Protokoll ist <strong>anerkanntes Beweismittel</strong> bei Kaufstreitigkeiten</li>
                         <li>• Dokumentiert Gesundheitszustand zum Kaufzeitpunkt</li>
-                        <li>• Widerlegt Behauptungen "Mangel war schon vorher da"</li>
+                        <li>• Widerlegt Behauptungen &quot;Mangel war schon vorher da&quot;</li>
                       </ul>
                     </div>
 
@@ -1356,6 +1452,82 @@ const AKUPferd: NextPage = () => {
               faqs={akuFaqItems}
               sectionTitle="Häufig gestellte Fragen zur AKU beim Pferd"
             />
+          </section>
+
+          {/* Fazit Section */}
+          <section id="fazit" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
+            <article className="max-w-5xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-8">
+                {numberedTitle('fazit', 'Fazit: Die wichtigsten Takeaways zur AKU beim Pferd')}
+              </h2>
+
+              <div className="space-y-6">
+                {/* Takeaway 1 */}
+                <div className="bg-white border-l-4 border-blue-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-brand-brown text-xl mb-3">
+                    1. Große vs. Kleine AKU
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Die Entscheidung hängt vom Kaufpreis und der geplanten Nutzung ab. Bei Kaufpreisen über 10.000€ oder sportlicher Nutzung ist die große AKU mit Röntgenbildern unverzichtbar. Für Freizeitpferde unter 5.000€ reicht die kleine AKU meist aus.
+                  </p>
+                </div>
+
+                {/* Takeaway 2 */}
+                <div className="bg-white border-l-4 border-yellow-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-brand-brown text-xl mb-3">
+                    2. Kosten-Transparenz
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Rechnen Sie mit 150-300€ für die kleine AKU und 800-1.500€ für die große AKU. Beachten Sie die neuen GOT-Preise 2024 – die Gebührenordnung wurde 2020 und 2022 angepasst, was zu Preiserhöhungen von 12-20% führte.
+                  </p>
+                </div>
+
+                {/* Takeaway 3 */}
+                <div className="bg-white border-l-4 border-red-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-brand-brown text-xl mb-3">
+                    3. Versicherung zahlt (fast) nie
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    In 95% der Fälle trägt der Käufer die AKU-Kosten. Pferdekrankenversicherungen übernehmen keine Kosten vor Vertragsabschluss. Kostenaufteilung mit dem Verkäufer ist verhandelbar – klären Sie dies vor der Untersuchung schriftlich!
+                  </p>
+                </div>
+
+                {/* Takeaway 4 */}
+                <div className="bg-white border-l-4 border-green-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-brand-brown text-xl mb-3">
+                    4. Ablauf planen
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Eine große AKU dauert 2-3 Stunden vor Ort, plus 24-48 Stunden für die Befundung. Wählen Sie einen unabhängigen Tierarzt (nicht den Stallvet des Verkäufers!) und vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag.
+                  </p>
+                </div>
+
+                {/* Takeaway 5 */}
+                <div className="bg-white border-l-4 border-purple-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-brand-brown text-xl mb-3">
+                    5. Rechtlich absichern
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Verankern Sie einen AKU-Vorbehalt im Kaufvertrag – nur so haben Sie ein kostenloses Rücktrittsrecht bei negativer AKU. Das Protokoll gehört Ihnen und dient als Beweismittel bei späteren Streitigkeiten.
+                  </p>
+                </div>
+              </div>
+
+              {/* Summary Highlight Box */}
+              <div className="mt-8 bg-gradient-to-r from-amber-50 to-white p-6 md:p-8 rounded-lg border-2 border-brand-brown/20">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl flex-shrink-0">💡</span>
+                  <div>
+                    <h4 className="font-bold text-brand-brown text-lg mb-3">
+                      Ihr nächster Schritt
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      Mit diesen fünf Kernpunkten sind Sie optimal vorbereitet für die Ankaufsuntersuchung. Nutzen Sie unsere KI-gestützte Pferdebewertung, um den fairen Marktwert bereits vor der AKU einzuschätzen – so gehen Sie mit realistischen Erwartungen in den Kaufprozess.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
           </section>
 
           <RatgeberRelatedArticles

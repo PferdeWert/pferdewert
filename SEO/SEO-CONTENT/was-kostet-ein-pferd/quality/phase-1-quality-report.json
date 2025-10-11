@@ -1,0 +1,54 @@
+{
+  "primary_keyword": "was kostet ein pferd",
+  "validated_at": "2025-01-11T11:30:00Z",
+  "status": "RETRY_1A",
+  "phase_1a_validation": {
+    "valid": false,
+    "total_keywords": 24,
+    "all_apis_success": true,
+    "failed_apis": [],
+    "errors": [
+      "Total keywords (24) below threshold of 30"
+    ],
+    "file_size": "5.6KB"
+  },
+  "phase_1b_validation": {
+    "valid": false,
+    "top_keywords_count": 11,
+    "cluster_count": 1,
+    "avg_relevance_score": 4.94,
+    "errors": [
+      "Top keywords count (11) below threshold of 15",
+      "Cluster count (1) below threshold of 3",
+      "Average relevance score (4.94) below threshold of 5.0"
+    ],
+    "file_size": "5.3KB"
+  },
+  "retry_info": {
+    "retry_count_1a": 1,
+    "retry_count_1b": 0
+  },
+  "adjusted_params_1a": {
+    "depth": 2,
+    "limit": 30,
+    "filters": {
+      "search_volume_min": 50,
+      "include_suggestions": true,
+      "include_related": true
+    }
+  },
+  "next_action": "RETRY_1A",
+  "details": {
+    "phase_1a_issues": [
+      "Only 24 keywords collected (9 from related_keywords, 15 from keyword_ideas)",
+      "Need minimum 30 keywords for robust analysis",
+      "Increase depth to 2 and limit to 30 per API call"
+    ],
+    "phase_1b_cascade_issues": [
+      "Low keyword count in 1A led to insufficient 1B data",
+      "Only 1 cluster detected (need ≥3 for content structure)",
+      "Average relevance score 4.94 (need ≥5.0)",
+      "1B will be automatically re-run after successful 1A retry"
+    ]
+  }
+}

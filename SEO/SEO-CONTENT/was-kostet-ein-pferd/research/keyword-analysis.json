@@ -1,0 +1,220 @@
+{
+  "primary_keyword": "was kostet ein pferd",
+  "analyzed_at": "2025-10-10T22:53:02.558445Z",
+  "total_keywords_analyzed": 12,
+  "top_keywords": [
+    {
+      "keyword": "was kostet ein pferd",
+      "search_volume": 2900,
+      "cpc": 0.2,
+      "relevance_score": 7.02,
+      "similarity": 1.0,
+      "word_overlap": 4,
+      "keyword_info": {
+        "search_volume": 2900,
+        "cpc": 0.2,
+        "competition_level": "LOW",
+        "keyword_difficulty": 4
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 4
+    },
+    {
+      "keyword": "wie viel kostet ein pferd",
+      "search_volume": 5400,
+      "cpc": 0.63,
+      "relevance_score": 6.9,
+      "similarity": 0.8,
+      "word_overlap": 3,
+      "keyword_info": {
+        "search_volume": 5400,
+        "cpc": 0.63,
+        "competition_level": "LOW",
+        "keyword_difficulty": 6
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 5
+    },
+    {
+      "keyword": "wie viel ps hat ein pferd",
+      "search_volume": 8100,
+      "cpc": 0,
+      "relevance_score": 5.76,
+      "similarity": 0.622,
+      "word_overlap": 2,
+      "keyword_info": {
+        "search_volume": 8100,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 0
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 6
+    },
+    {
+      "keyword": "wie viele ps hat ein pferd",
+      "search_volume": 8100,
+      "cpc": 0,
+      "relevance_score": 5.68,
+      "similarity": 0.609,
+      "word_overlap": 2,
+      "keyword_info": {
+        "search_volume": 8100,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 0
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 6
+    },
+    {
+      "keyword": "was kostet ein pferd im monat",
+      "search_volume": 1600,
+      "cpc": 0.18,
+      "relevance_score": 5.57,
+      "similarity": 0.816,
+      "word_overlap": 4,
+      "keyword_info": {
+        "search_volume": 1600,
+        "cpc": 0.18,
+        "competition_level": "LOW",
+        "keyword_difficulty": 3
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 6
+    },
+    {
+      "keyword": "was kostet ein pferd pro monat",
+      "search_volume": 880,
+      "cpc": 0.15,
+      "relevance_score": 5.24,
+      "similarity": 0.8,
+      "word_overlap": 4,
+      "keyword_info": {
+        "search_volume": 880,
+        "cpc": 0.15,
+        "competition_level": "LOW",
+        "keyword_difficulty": 2
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 6
+    },
+    {
+      "keyword": "was kostet ein pferd anzuschaffen",
+      "search_volume": 110,
+      "cpc": 0,
+      "relevance_score": 4.56,
+      "similarity": 0.755,
+      "word_overlap": 4,
+      "keyword_info": {
+        "search_volume": 110,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 0
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 5
+    },
+    {
+      "keyword": "wie viel kostet ein pferd im jahr",
+      "search_volume": 320,
+      "cpc": 0,
+      "relevance_score": 4.16,
+      "similarity": 0.679,
+      "word_overlap": 3,
+      "keyword_info": {
+        "search_volume": 320,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 0
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 7
+    },
+    {
+      "keyword": "wie viel kostet ein pferd monatlich",
+      "search_volume": 720,
+      "cpc": 0,
+      "relevance_score": 4.11,
+      "similarity": 0.655,
+      "word_overlap": 3,
+      "keyword_info": {
+        "search_volume": 720,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 3
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 6
+    },
+    {
+      "keyword": "was kostet das teuerste pferd der welt",
+      "search_volume": 90,
+      "cpc": 0,
+      "relevance_score": 3.75,
+      "similarity": 0.621,
+      "word_overlap": 3,
+      "keyword_info": {
+        "search_volume": 90,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 0
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 7
+    },
+    {
+      "keyword": "wie viel kostet ein pferd in deutschland",
+      "search_volume": 320,
+      "cpc": 0,
+      "relevance_score": 3.68,
+      "similarity": 0.6,
+      "word_overlap": 3,
+      "keyword_info": {
+        "search_volume": 320,
+        "cpc": null,
+        "competition_level": "LOW",
+        "keyword_difficulty": 4
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 7
+    },
+    {
+      "keyword": "wie viel kostet das teuerste pferd der welt",
+      "search_volume": 390,
+      "cpc": 0,
+      "relevance_score": 3.15,
+      "similarity": 0.508,
+      "word_overlap": 2,
+      "keyword_info": {
+        "search_volume": 390,
+        "cpc": 0,
+        "competition_level": "LOW",
+        "keyword_difficulty": 0
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 8
+    }
+  ],
+  "cluster_distribution": {
+    "Commercial": 10,
+    "Informational": 2
+  },
+  "statistics": {
+    "avg_search_volume": 2411,
+    "avg_cpc": 0.29,
+    "avg_relevance_score": 4.96
+  }
+}

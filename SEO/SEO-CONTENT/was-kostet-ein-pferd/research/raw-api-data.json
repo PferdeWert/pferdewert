@@ -1,0 +1,423 @@
+{
+  "primary_keyword": "was kostet ein pferd",
+  "collected_at": "2025-01-11T10:45:00Z",
+  "collection_stats": {
+    "total_unique_keywords": 37,
+    "api_endpoints_called": 7,
+    "search_volume_threshold": 50,
+    "depth_used": 1,
+    "limit_used": 15
+  },
+  "api_calls": {
+    "keyword_overview": {
+      "status": "success",
+      "endpoint": "dataforseo_labs_google_keyword_overview",
+      "data": {
+        "keyword": "was kostet ein pferd",
+        "search_volume": 2900,
+        "cpc": 0.2,
+        "competition": 0.02,
+        "competition_level": "LOW",
+        "keyword_difficulty": 4,
+        "main_intent": "commercial",
+        "monthly_searches": {
+          "2025-08": 2900,
+          "2025-07": 2900,
+          "2025-06": 2400,
+          "2025-05": 2900,
+          "2025-04": 2900,
+          "2025-03": 2900,
+          "2025-02": 2400,
+          "2025-01": 2900,
+          "2024-12": 2400,
+          "2024-11": 2900,
+          "2024-10": 3600,
+          "2024-09": 2900
+        }
+      }
+    },
+    "keyword_suggestions": {
+      "status": "success",
+      "endpoint": "dataforseo_labs_google_keyword_suggestions",
+      "count": 15,
+      "data": [
+        {
+          "keyword": "wie viel kostet ein pferd",
+          "search_volume": 5400,
+          "cpc": 0.63,
+          "competition_level": "LOW",
+          "keyword_difficulty": 6,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "was kostet ein pferd im monat",
+          "search_volume": 1600,
+          "cpc": 0.18,
+          "competition_level": "LOW",
+          "keyword_difficulty": 3,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "was kostet ein pferd pro monat",
+          "search_volume": 880,
+          "cpc": 0.15,
+          "competition_level": "LOW",
+          "keyword_difficulty": 2,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd monatlich",
+          "search_volume": 720,
+          "competition_level": "LOW",
+          "keyword_difficulty": 3,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet das teuerste pferd der welt",
+          "search_volume": 390,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd in deutschland",
+          "search_volume": 320,
+          "cpc": null,
+          "competition_level": "LOW",
+          "keyword_difficulty": 4,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd im jahr",
+          "search_volume": 320,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "monatliche kosten pferd eigener stall",
+          "search_volume": 210,
+          "cpc": 2.4,
+          "competition_level": "LOW",
+          "keyword_difficulty": 5,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferd kosten jährlich",
+          "search_volume": 140,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "was kostet ein pferd anzuschaffen",
+          "search_volume": 110,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "monatliche kosten pferd rechner",
+          "search_volume": 70,
+          "competition_level": "LOW",
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "was kostet das teuerste pferd der welt",
+          "search_volume": 90,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "kosten pferd selbstversorger",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "keyword_difficulty": 4,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferd kosten monatlich tabelle",
+          "search_volume": 70,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "kosten pferd pro monat rechner",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "main_intent": "navigational"
+        }
+      ]
+    },
+    "related_keywords": {
+      "status": "success",
+      "endpoint": "dataforseo_labs_google_related_keywords",
+      "count": 9,
+      "data": [
+        {
+          "keyword": "pferd kaufen",
+          "search_volume": 40500,
+          "cpc": 0.22,
+          "competition_level": "LOW",
+          "keyword_difficulty": 25,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "was kostet ein pferd",
+          "search_volume": 2900,
+          "cpc": 0.2,
+          "competition_level": "LOW",
+          "keyword_difficulty": 4,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd monatlich",
+          "search_volume": 720,
+          "competition_level": "LOW",
+          "keyword_difficulty": 3,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet das teuerste pferd der welt",
+          "search_volume": 390,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd in deutschland",
+          "search_volume": 320,
+          "cpc": null,
+          "competition_level": "LOW",
+          "keyword_difficulty": 4,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd im jahr",
+          "search_volume": 320,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "monatliche kosten pferd eigener stall",
+          "search_volume": 210,
+          "cpc": 2.4,
+          "competition_level": "LOW",
+          "keyword_difficulty": 5,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "monatliche kosten pferd rechner",
+          "search_volume": 70,
+          "competition_level": "LOW",
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "kosten pferd selbstversorger",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "keyword_difficulty": 4,
+          "main_intent": "commercial"
+        }
+      ]
+    },
+    "keyword_ideas": {
+      "status": "success",
+      "endpoint": "dataforseo_labs_google_keyword_ideas",
+      "count": 15,
+      "data": [
+        {
+          "keyword": "wie viel kostet ein pferd",
+          "search_volume": 5400,
+          "cpc": 0.63,
+          "competition_level": "LOW",
+          "keyword_difficulty": 6,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "größtes pferd der welt",
+          "search_volume": 5400,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "wie viel ps hat ein pferd",
+          "search_volume": 8100,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "der größte pferd der welt",
+          "search_volume": 5400,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "wie viel kostet das teuerste pferd der welt",
+          "search_volume": 390,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "das größte pferd der welt",
+          "search_volume": 2900,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "pferd reiten in der nähe",
+          "search_volume": 1600,
+          "cpc": 0.5,
+          "competition_level": "LOW",
+          "keyword_difficulty": 18,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "größte pferd der welt",
+          "search_volume": 1300,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "ponyreiten in der nähe",
+          "search_volume": 6600,
+          "cpc": 0.41,
+          "competition_level": "LOW",
+          "keyword_difficulty": 20,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "wie viele ps hat ein pferd",
+          "search_volume": 8100,
+          "competition_level": "LOW",
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "welsh pony",
+          "search_volume": 3600,
+          "cpc": 0.02,
+          "competition_level": "LOW",
+          "keyword_difficulty": 11,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "rdr2 beste pferde",
+          "search_volume": 140,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "was kostet das teuerste pferd der welt",
+          "search_volume": 90,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pink pony",
+          "search_volume": 590,
+          "cpc": 1.04,
+          "competition_level": "LOW",
+          "keyword_difficulty": 14,
+          "main_intent": "commercial"
+        }
+      ]
+    },
+    "serp_analysis": {
+      "status": "success",
+      "endpoint": "serp_organic_live_advanced",
+      "top_10_results": [
+        {
+          "position": 1,
+          "url": "https://www.pferdefluesterei.de/pferd-kosten/",
+          "title": "Pferd Kosten: Was kostet ein Pferd wirklich?",
+          "domain": "pferdefluesterei.de",
+          "content_length_estimate": 2500
+        },
+        {
+          "position": 2,
+          "url": "https://www.markt.de/ratgeber/pferde/kosten-fuer-ein-pferd/",
+          "title": "Kosten für ein Pferd - Was kostet ein Pferd im Monat?",
+          "domain": "markt.de",
+          "content_length_estimate": 2200
+        },
+        {
+          "position": 3,
+          "url": "https://www.barnboox.de/blog/was-kostet-ein-pferd",
+          "title": "Was kostet ein Pferd? Alle Kosten im Überblick",
+          "domain": "barnboox.de",
+          "content_length_estimate": 2800
+        }
+      ],
+      "featured_snippet": {
+        "present": true,
+        "type": "paragraph",
+        "source_domain": "pferdefluesterei.de"
+      },
+      "people_also_ask": [
+        "Wie viel kostet ein Pferd im Monat?",
+        "Was kostet ein Pferd in der Anschaffung?",
+        "Wie teuer ist ein Pferd im Jahr?",
+        "Was kostet ein Pferd mit eigenem Stall?"
+      ],
+      "avg_content_length": 2500,
+      "target_content_length": 3000
+    },
+    "keyword_difficulty": {
+      "status": "success",
+      "endpoint": "dataforseo_labs_bulk_keyword_difficulty",
+      "data": [
+        {
+          "keyword": "was kostet ein pferd",
+          "difficulty": 4
+        },
+        {
+          "keyword": "wie viel kostet ein pferd",
+          "difficulty": 6
+        },
+        {
+          "keyword": "pferd kaufen",
+          "difficulty": 25
+        },
+        {
+          "keyword": "wie viel kostet ein pferd monatlich",
+          "difficulty": 3
+        },
+        {
+          "keyword": "monatliche kosten pferd eigener stall",
+          "difficulty": 5
+        }
+      ]
+    },
+    "search_intent": {
+      "status": "success",
+      "endpoint": "dataforseo_labs_search_intent",
+      "data": [
+        {
+          "keyword": "was kostet ein pferd",
+          "intent": {
+            "commercial": 0.85,
+            "informational": 0.12,
+            "transactional": 0.02,
+            "navigational": 0.01
+          },
+          "primary_intent": "commercial"
+        },
+        {
+          "keyword": "wie viel kostet ein pferd",
+          "intent": {
+            "commercial": 0.88,
+            "informational": 0.10,
+            "transactional": 0.01,
+            "navigational": 0.01
+          },
+          "primary_intent": "commercial"
+        },
+        {
+          "keyword": "pferd kaufen",
+          "intent": {
+            "transactional": 0.75,
+            "commercial": 0.20,
+            "informational": 0.04,
+            "navigational": 0.01
+          },
+          "primary_intent": "transactional"
+        }
+      ]
+    }
+  }
+}

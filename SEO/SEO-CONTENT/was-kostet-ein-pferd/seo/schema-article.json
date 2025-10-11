@@ -1,0 +1,68 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Was kostet ein Pferd? Vollständige Kostenübersicht 2025",
+  "description": "Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€/Monat. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten.",
+  "url": "https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+  "datePublished": "2025-01-11T10:00:00+01:00",
+  "dateModified": "2025-01-11T10:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "PferdeWert Redaktion",
+    "url": "https://www.pferdewert.de"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://www.pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pferdewert.de/logo.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
+  },
+  "articleSection": "Pferde-Ratgeber",
+  "articleBody": "Ein Pferd kostet in der Anschaffung zwischen 2.500€ und 15.000€, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen durchschnittlich bei 300-800€. Diese Preisspanne ist beträchtlich, und viele angehende Pferdebesitzer unterschätzen die tatsächlichen Gesamtkosten erheblich. Basierend auf über 1.000 Pferdebewertungen in der PferdeWert-Datenbank liegt der durchschnittliche Gesamtaufwand für ein Freizeitpferd in Deutschland bei 6.500€ - 12.000€ pro Jahr. Die wichtigsten Kostenpunkte umfassen Anschaffungskosten (2.500€ - 15.000€), monatliche Kosten (400€ - 800€), jährliche Fixkosten (1.500€ - 3.000€), versteckte Kosten (500€ - 2.000€/Jahr) und bei eigenem Stall eine Initialinvestition von 15.000€ - 50.000€.",
+  "wordCount": 2750,
+  "keywords": [
+    "was kostet ein pferd",
+    "pferd kosten",
+    "pferdehaltung kosten",
+    "pferd monatliche kosten",
+    "pferd anschaffungskosten",
+    "stallmiete",
+    "hufschmied kosten",
+    "tierarztkosten pferd",
+    "pferd versicherung"
+  ],
+  "inLanguage": "de-DE",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Pferdehaltung",
+      "description": "Kosten und Aufwand der Pferdehaltung in Deutschland"
+    },
+    {
+      "@type": "Thing",
+      "name": "Pferdekauf",
+      "description": "Anschaffungskosten und Kaufpreise für Pferde"
+    }
+  ],
+  "mentions": [
+    {
+      "@type": "Organization",
+      "name": "PferdeWert.de",
+      "url": "https://www.pferdewert.de"
+    },
+    {
+      "@type": "Organization",
+      "name": "Bundestierärztekammer",
+      "description": "Gebührenordnung für Tierärzte (GOT)"
+    }
+  ]
+}

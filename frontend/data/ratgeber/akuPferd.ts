@@ -59,7 +59,11 @@ export const akuSections: RatgeberSectionItem[] = [
   { id: 'costs', title: 'AKU Kosten' },
   { id: 'process', title: 'Ablauf & Dauer' },
   { id: 'findings', title: 'Befunde verstehen' },
+  { id: 'versicherung', title: 'Versicherung & Kosten' },
+  { id: 'sinnvoll', title: 'Wann sinnvoll?' },
+  { id: 'rechtsaspekte', title: 'Rechtsaspekte' },
   { id: 'tierarzt', title: 'AKU-Tierarzt finden' },
+  { id: 'fazit', title: 'Fazit & Takeaways' },
   { id: 'valuation', title: 'Marktwert & Daten' }
 ]
 
@@ -125,43 +129,27 @@ export const akuRegions: AkuRegionItem[] = [
 
 export const akuFaqItems: FAQItem[] = [
   {
-    question: 'Was kostet eine AKU beim Pferd?',
-    answer: 'Die Kosten für eine Ankaufsuntersuchung variieren je nach Umfang: AKU Klasse I (kleine AKU): 150-300€, AKU Klasse II (große AKU): 400-800€, AKU Klasse III-V: 800-2000€. Die Preise können regional unterschiedlich sein.'
+    question: 'Was kostet eine Ankaufsuntersuchung beim Pferd?',
+    answer: 'Kleine AKU ohne Röntgen: 150-300€ (Durchschnitt 220€). Große AKU mit Röntgenbildern: 800-1.500€ (Durchschnitt 1.100€). Kosten variieren nach Region, Tierarzt-Qualifikation und Anzahl Röntgenbilder (Standard 10-18 Aufnahmen à 50-80€).'
   },
   {
-    question: 'Wie lange dauert eine AKU?',
-    answer: 'Eine kleine AKU (Klasse I) dauert etwa 1-2 Stunden, eine große AKU (Klasse II) 2-4 Stunden. Bei umfangreicheren Untersuchungen (Klasse III-V) können mehrere Termine erforderlich sein.'
+    question: 'Wie lange dauert eine AKU beim Pferd?',
+    answer: 'Kleine AKU (klinische Untersuchung): 1-2 Stunden. Große AKU inkl. Röntgen: 2-3 Stunden vor Ort. Befundung und Protokoll-Erstellung: 24-48 Stunden nach Untersuchung. Gesamt-Timeline vom Termin bis Protokoll-Übergabe: 2-3 Tage.'
   },
   {
-    question: 'Welche AKU-Klasse ist die richtige?',
-    answer: 'AKU Klasse I für Freizeitpferde bis 5.000€, Klasse II für Sportpferde bis 25.000€, Klasse III-V für hochwertige Sport- und Zuchtpferde. Die Wahl hängt vom Kaufpreis und Verwendungszweck ab.'
+    question: 'Wer zahlt die AKU – Käufer oder Verkäufer?',
+    answer: 'Standard: Käufer zahlt AKU-Kosten, da er die Untersuchung beauftragt. Verhandlungssache: Kostenaufteilung möglich, oft 50/50 bei hohen Kaufpreisen. Wichtig: Vor Untersuchung im Kaufvertrag klären. Bei negativer AKU bleiben Kosten beim Käufer.'
   },
   {
-    question: 'Was wird bei der AKU untersucht?',
-    answer: 'Klinische Untersuchung, Bewegungsanalyse, Flexionsproben, Röntgenaufnahmen (je nach Klasse), Ultraschall (bei höheren Klassen), Endoskopie der Atemwege (optional), Blutuntersuchung (optional).'
+    question: 'Was ist der Unterschied zwischen kleiner und großer AKU?',
+    answer: 'Kleine AKU: Nur klinische Untersuchung (Gangbild, Herz, Lunge, Augen, Allgemeinzustand), keine Röntgenbilder, 150-300€, geeignet für Freizeitpferde <5.000€. Große AKU: Zusätzlich Röntgenuntersuchung (10-18 Aufnahmen), 800-1.500€, empfohlen für Sport-/Turnierpferde und Kaufpreis >10.000€.'
   },
   {
-    question: 'Ist eine AKU beim Pferdekauf Pflicht?',
-    answer: 'Eine AKU ist rechtlich nicht verpflichtend, aber dringend empfohlen. Ohne AKU trägt der Käufer das volle Risiko für alle Gesundheitsprobleme und hat keine rechtliche Absicherung.'
+    question: 'Wie oft sollte man eine AKU wiederholen?',
+    answer: 'AKU ist eine einmalige Momentaufnahme vor dem Kauf. Wiederholung nicht üblich. Ausnahme: Bei Probereiten >3 Monate zwischen AKU und Kaufabschluss – dann Update-AKU empfohlen. Nach Kauf: Regelmäßige tierärztliche Routineuntersuchungen (1-2x jährlich), aber keine vollständige AKU mehr nötig.'
   },
   {
-    question: 'Wie lange ist eine AKU gültig?',
-    answer: 'Eine AKU ist in der Regel 2-4 Wochen gültig. Bei längeren Zeiträumen sollte eine neue Untersuchung durchgeführt werden, da sich der Gesundheitszustand des Pferdes ändern kann.'
-  },
-  {
-    question: 'Was passiert bei negativen AKU-Befunden?',
-    answer: 'AKU-Befunde sind nicht automatisch ein Grund für Kaufabbruch, sondern bilden die Grundlage für objektive Preisverhandlungen. Je nach Schweregrad können Preisreduktionen oder spezielle Verwendungsvereinbarungen getroffen werden.'
-  },
-  {
-    question: 'Welche AKU bei welchem Kaufpreis?',
-    answer: 'Bis 5.000€: Kleine AKU (Klasse I-II). Von 5.000-15.000€: Große AKU mit Röntgen (Klasse II). Über 15.000€: Umfassende AKU mit Spezialuntersuchungen (Klasse III-V). Die Investition sollte 2-5% des Kaufpreises betragen.'
-  },
-  {
-    question: 'Wie beeinflusst eine AKU den Versicherungsschutz?',
-    answer: 'Viele Pferdeversicherungen verlangen eine aktuelle AKU als Nachweis des Gesundheitszustands. Ohne AKU können Versicherungsanträge abgelehnt oder Prämienzuschläge verlangt werden. Eine saubere AKU sichert bessere Konditionen.'
-  },
-  {
-    question: 'Sind AKU-Befunde zwischen Tierärzten übertragbar?',
-    answer: 'AKU-Protokolle sind zwischen Tierärzten übertragbar, aber Interpretationen können variieren. Bei unklaren Befunden ist eine Zweitmeinung sinnvoll. Röntgenbilder sollten immer im digitalen Format übergeben werden für bessere Vergleichbarkeit.'
+    question: 'Kann ich die AKU-Kosten steuerlich absetzen?',
+    answer: 'Gewerbliche Pferdehaltung (Zucht, Reitbetrieb, Pensionsstall): Ja, als Betriebsausgabe absetzbar. Private Pferdehaltung: Nein, keine steuerliche Absetzbarkeit. Ausnahme: Nachweis gewerblicher Tätigkeit mit Gewinnerzielungsabsicht erforderlich. Bei Unsicherheit: Steuerberater konsultieren.'
   }
 ]

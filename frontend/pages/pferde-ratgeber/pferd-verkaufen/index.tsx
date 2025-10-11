@@ -287,7 +287,7 @@ const PferdVerkaufen: NextPage = () => {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Mit dem <strong>PferdeWert KI-Tool</strong> ermitteln Sie in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert Ihnen eine realistische Preiseinschätzung.
+              Mit dem <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium"><strong>PferdeWert KI-Tool</strong></Link> ermitteln Sie in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert Ihnen eine realistische Preiseinschätzung.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -362,7 +362,7 @@ const PferdVerkaufen: NextPage = () => {
               </table>
             </div>
 
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               Wenn Sie Ihr Pferd verkaufen möchten, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert Ihres Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern.
             </p>
 
@@ -384,7 +384,7 @@ const PferdVerkaufen: NextPage = () => {
               <li><strong>Aktueller Markt</strong> – Angebot und Nachfrage variieren saisonal</li>
             </ol>
 
-            <p className="text-gray-700 leading-relaxed mt-6">
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
               <strong>Was senkt den Wert eines Pferdes?</strong> Chronische Erkrankungen (z.B. Arthrose, Allergien), Verhaltensauffälligkeiten (Steigen, Buckeln), fortgeschrittenes Alter (über 15 Jahre für Sportpferde), unvollständige Abstammungspapiere und lange Verkaufsdauer (über 6 Monate) wirken sich negativ auf den Preis aus.
             </p>
 

@@ -1,0 +1,76 @@
+{
+  "phase": "5A",
+  "primary_keyword": "was kostet ein pferd",
+  "metadata": {
+    "title": "Was kostet ein Pferd? Kosten 2025 im Überblick",
+    "description": "Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€/Monat. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten.",
+    "canonical_url": "https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+    "slug": "was-kostet-ein-pferd",
+    "robots": "index, follow"
+  },
+  "open_graph": {
+    "og:title": "Was kostet ein Pferd? Alle Kosten 2025 im Überblick",
+    "og:description": "Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€ monatlich. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten.",
+    "og:type": "article",
+    "og:url": "https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+    "og:site_name": "PferdeWert.de",
+    "og:locale": "de_DE",
+    "og:image": null,
+    "og:image:width": null,
+    "og:image:height": null,
+    "og:image:alt": null
+  },
+  "twitter_card": {
+    "twitter:card": "summary_large_image",
+    "twitter:title": "Was kostet ein Pferd? Alle Kosten 2025 im Überblick",
+    "twitter:description": "Ein Pferd kostet 2.500-15.000€ Anschaffung + 400-800€ monatlich. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten.",
+    "twitter:site": "@PferdeWert",
+    "twitter:creator": "@PferdeWert",
+    "twitter:image": null,
+    "twitter:image:alt": null
+  },
+  "validation": {
+    "title_length": 50,
+    "description_length": 152,
+    "primary_keyword_in_title": true,
+    "canonical_format_valid": true,
+    "title_length_status": "VALID (50-60 chars)",
+    "description_length_status": "VALID (150-160 chars)",
+    "og_title_present": true,
+    "og_description_present": true,
+    "twitter_card_type_present": true
+  },
+  "quality_gate_results": {
+    "status": "PASSED_WITH_WARNINGS",
+    "errors": [],
+    "warnings": [
+      {
+        "code": "og_image_missing",
+        "message": "Open Graph Image fehlt (Social Preview suboptimal)",
+        "action": "CONTINUE: Image in Phase 6 manuell hinzufügen"
+      }
+    ],
+    "infos": [
+      {
+        "code": "canonical_url_present",
+        "message": "✓ Canonical URL definiert: https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
+      },
+      {
+        "code": "robots_meta_defined",
+        "message": "✓ Robots Meta Tag definiert: index, follow"
+      },
+      {
+        "code": "primary_keyword_in_title",
+        "message": "✓ Primary Keyword 'was kostet ein pferd' im Title Tag enthalten"
+      },
+      {
+        "code": "title_length_optimal",
+        "message": "✓ Title Tag Länge optimal: 50 Zeichen"
+      },
+      {
+        "code": "description_length_optimal",
+        "message": "✓ Meta Description Länge optimal: 152 Zeichen"
+      }
+    ]
+  }
+}

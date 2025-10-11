@@ -8,9 +8,12 @@
 - **Service is PAID**: Pricing defined in `frontend/lib/pricing.ts`
 - **NEVER use "kostenlos" / "free" in content or UI** - this is business-critical
 
+## Content & Localization
+- **Use "KI" not "AI"**: German market prefers "KI" (Künstliche Intelligenz) over "AI" in all content and UI
+
 ## Architecture & Development
 - **Frontend**: Next.js 15 (Pages Router) + TypeScript + Tailwind + Stripe
-- **Backend**: FastAPI + MongoDB + Dual AI (GPT/Claude)
+- **Backend**: FastAPI + MongoDB + Dual KI (GPT/Claude)
 - **Deployment**: Frontend on Vercel, Backend on Render
 
 ## Development Commands

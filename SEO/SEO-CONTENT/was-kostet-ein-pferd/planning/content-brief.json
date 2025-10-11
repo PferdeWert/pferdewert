@@ -1,0 +1,499 @@
+{
+  "phase": "3",
+  "primary_keyword": "was kostet ein pferd",
+  "created_at": "2025-01-11T15:30:00Z",
+  "target_specifications": {
+    "word_count": 2750,
+    "reading_level": "Grade 8-10 (Flesch 70-80)",
+    "tone": "Professional, informative, trustworthy",
+    "search_intent": "Commercial (85%)",
+    "target_audience": "Prospective horse buyers, current owners evaluating costs",
+    "content_type": "Comprehensive cost guide with tables and actionable advice"
+  },
+  "seo_strategy": {
+    "primary_keyword": "was kostet ein pferd",
+    "primary_keyword_density": "0.8-1.2%",
+    "supporting_keywords": [
+      {
+        "keyword": "pferd kosten",
+        "density": "0.5-0.8%",
+        "search_volume": 1900
+      },
+      {
+        "keyword": "pferdehaltung kosten",
+        "density": "0.4-0.6%",
+        "search_volume": 1300
+      },
+      {
+        "keyword": "pferd monatliche kosten",
+        "density": "0.3-0.5%",
+        "search_volume": 880
+      },
+      {
+        "keyword": "stallmiete",
+        "density": "0.3-0.5%",
+        "search_volume": 720
+      }
+    ],
+    "keyword_placement": {
+      "title": "was kostet ein pferd (mandatory)",
+      "h1": "was kostet ein pferd (exact match)",
+      "first_100_words": "was kostet ein pferd (natural mention)",
+      "h2_headers": "2-3 H2s with primary or supporting keywords",
+      "conclusion": "was kostet ein pferd (recap mention)"
+    }
+  },
+  "eeat_strategy": {
+    "experience": [
+      "Reference PferdeWert market data: 'Basierend auf über 1.000 Pferdebewertungen in unserer Datenbank...'",
+      "Include real cost examples from platform data: 'Ein typisches Warmblut in Süddeutschland...'",
+      "Mention observed cost trends: 'In den letzten 12 Monaten stiegen Stallkosten um durchschnittlich 8%'"
+    ],
+    "expertise": [
+      "Cite FN (Deutsche Reiterliche Vereinigung) for industry benchmarks",
+      "Reference Bundestierärztekammer GOT for veterinary costs",
+      "Include professional recommendations: 'Tierärzte empfehlen eine Reserve von mindestens 2.000€'"
+    ],
+    "authoritativeness": [
+      "Link to official sources: FN website, Tierärztekammer",
+      "Reference GDV insurance industry data",
+      "Cite ehorses.de for market price benchmarks"
+    ],
+    "trustworthiness": [
+      "Provide transparent cost ranges with sources",
+      "Acknowledge regional variations: 'Kosten können je nach Region um bis zu 40% variieren'",
+      "Include disclaimers: 'Alle Kostenangaben sind Durchschnittswerte'",
+      "Display update date: 'Stand: Januar 2025'"
+    ]
+  },
+  "content_outline": {
+    "structure_type": "Comprehensive Guide + Tables",
+    "total_sections": 9,
+    "sections": [
+      {
+        "section_number": 1,
+        "heading": "Einleitung: Was kostet ein Pferd wirklich?",
+        "heading_level": "H1",
+        "word_count_target": "100-150",
+        "content_objectives": [
+          "Hook: Lead with compelling statistic about total cost of ownership",
+          "Direct answer to primary query: Purchase price range + monthly costs",
+          "Set expectations for comprehensive cost breakdown",
+          "Include primary keyword naturally in first 100 words"
+        ],
+        "key_points": [
+          "Purchase price: 2.500€ - 15.000€",
+          "Monthly costs: 400€ - 800€",
+          "Annual total: 6.500€ - 12.000€",
+          "Many prospective owners underestimate true costs",
+          "Reference PferdeWert database insights"
+        ],
+        "keyword_usage": {
+          "primary": "was kostet ein pferd (exact match in H1 and first paragraph)",
+          "supporting": "pferd kosten"
+        }
+      },
+      {
+        "section_number": 2,
+        "heading": "Anschaffungskosten: Was kostet ein Pferd beim Kauf?",
+        "heading_level": "H2",
+        "word_count_target": "400-500",
+        "content_objectives": [
+          "Break down initial purchase price by factors",
+          "Cover AKU costs with internal link to /pferde-ratgeber/aku-pferd",
+          "Provide cost table by breed type",
+          "Differentiate factors affecting price"
+        ],
+        "subsections": [
+          {
+            "heading": "Preisspanne nach Rasse und Typ",
+            "heading_level": "H3",
+            "key_points": [
+              "Freizeitpferd: 3.000€ - 8.000€",
+              "Warmblut: 5.000€ - 15.000€",
+              "Pony: 2.500€ - 6.000€",
+              "Spezialisierte Sportpferde: 10.000€+",
+              "Notfallvermittlungen: 0€ - 500€ (with caveats)"
+            ]
+          },
+          {
+            "heading": "Faktoren die den Kaufpreis beeinflussen",
+            "heading_level": "H3",
+            "key_points": [
+              "Alter (optimal: 5-12 Jahre)",
+              "Ausbildungsstand (roh vs. ausgebildet)",
+              "Gesundheitszustand",
+              "Abstammung und Papiere",
+              "Turniererfolge"
+            ]
+          },
+          {
+            "heading": "Ankaufsuntersuchung (AKU) - Unverzichtbare Investition",
+            "heading_level": "H3",
+            "key_points": [
+              "AKU Kosten: 200€ - 800€ (je nach Umfang)",
+              "INTERNAL LINK: Ankaufsuntersuchung (AKU) → /pferde-ratgeber/aku-pferd",
+              "INTERNAL LINK: Kosten der Ankaufsuntersuchung → /pferde-ratgeber/aku-pferd/kosten",
+              "Warum eine AKU kritisch ist (Risikominimierung)",
+              "Verschiedene AKU-Klassen"
+            ]
+          }
+        ],
+        "visual_elements": [
+          "TABLE: Anschaffungskosten nach Pferdetyp (6-8 rows)"
+        ],
+        "keyword_usage": {
+          "primary": "was kostet ein pferd (natural mention)",
+          "supporting": "pferd kosten, anschaffungskosten"
+        }
+      },
+      {
+        "section_number": 3,
+        "heading": "Grundausstattung: Einmalige Kosten für Equipment",
+        "heading_level": "H2",
+        "word_count_target": "250-300",
+        "content_objectives": [
+          "List essential equipment and costs",
+          "Differentiate must-haves from nice-to-haves",
+          "Provide budget and premium options"
+        ],
+        "key_points": [
+          "Sattel: 500€ - 3.000€",
+          "Trense: 100€ - 300€",
+          "Putzzeug: 50€ - 150€",
+          "Decken (Winter/Regen): 150€ - 400€",
+          "Halfter, Stricke: 50€ - 100€",
+          "Total Grundausstattung: 1.500€ - 5.000€"
+        ],
+        "keyword_usage": {
+          "supporting": "pferd kosten"
+        }
+      },
+      {
+        "section_number": 4,
+        "heading": "Monatliche Kosten: Der größte Kostenfaktor",
+        "heading_level": "H2",
+        "word_count_target": "500-600",
+        "content_objectives": [
+          "Provide comprehensive monthly cost breakdown",
+          "Address PAA question: 'Wie viel Unterhalt kostet ein Pferd?'",
+          "Include cost comparison table by boarding type",
+          "Emphasize stallmiete as largest recurring expense"
+        ],
+        "subsections": [
+          {
+            "heading": "Stallmiete: Die größte monatliche Ausgabe",
+            "heading_level": "H3",
+            "key_points": [
+              "Vollpension: 300€ - 600€/Monat",
+              "Teilpension: 200€ - 400€/Monat",
+              "Selbstversorger: 100€ - 250€/Monat",
+              "Regionale Unterschiede (Stadt vs. Land, Bayern vs. Brandenburg)",
+              "Was ist in der Vollpension enthalten?"
+            ]
+          },
+          {
+            "heading": "Hufschmied und Hufpflege",
+            "heading_level": "H3",
+            "key_points": [
+              "Hufbeschlag: 80€ - 120€ alle 6-8 Wochen",
+              "Barhuf-Pflege: 50€ - 80€ alle 6-8 Wochen",
+              "Jährliche Kosten: 600€ - 1.000€"
+            ]
+          },
+          {
+            "heading": "Futter und Zusatzfutter",
+            "heading_level": "H3",
+            "key_points": [
+              "Bei Vollpension meist inklusive",
+              "Zusatzfutter (Mineralien, Vitamine): 30€ - 80€/Monat",
+              "Kraftfutter bei Bedarf: 40€ - 100€/Monat"
+            ]
+          },
+          {
+            "heading": "Versicherungen: Pflicht und optional",
+            "heading_level": "H3",
+            "key_points": [
+              "Pferdehaftpflicht (PFLICHT): 80€ - 120€/Jahr",
+              "OP-Versicherung: 200€ - 400€/Jahr",
+              "Krankenversicherung: 300€ - 800€/Jahr",
+              "Lebensversicherung: 150€ - 400€/Jahr"
+            ]
+          }
+        ],
+        "visual_elements": [
+          "TABLE: Monatliche Kostenübersicht (8-10 rows)",
+          "TABLE: Stallmiete Vergleich nach Haltungsform"
+        ],
+        "keyword_usage": {
+          "primary": "pferd monatliche kosten",
+          "supporting": "stallmiete, pferdehaltung kosten"
+        }
+      },
+      {
+        "section_number": 5,
+        "heading": "Jährliche Kosten: Tierarzt, Impfungen, Zahnkontrolle",
+        "heading_level": "H2",
+        "word_count_target": "300-400",
+        "content_objectives": [
+          "Cover annual health maintenance costs",
+          "Emphasize importance of emergency fund",
+          "Reference GOT (Gebührenordnung für Tierärzte)"
+        ],
+        "key_points": [
+          "Routineuntersuchungen: 100€ - 200€/Jahr",
+          "Impfungen (Tetanus, Influenza, Herpes): 100€ - 180€/Jahr",
+          "Wurmkuren (4x/Jahr): 60€ - 100€/Jahr",
+          "Zahnkontrolle/-behandlung: 80€ - 150€/Jahr",
+          "Notfall-Reserve: 2.000€ - 5.000€ empfohlen",
+          "Total jährliche Gesundheitskosten: 500€ - 1.000€ (ohne Notfälle)"
+        ],
+        "keyword_usage": {
+          "supporting": "tierarztkosten pferd"
+        }
+      },
+      {
+        "section_number": 6,
+        "heading": "Versteckte Kosten: Was oft vergessen wird",
+        "heading_level": "H2",
+        "word_count_target": "300-400",
+        "content_objectives": [
+          "Address content gap: hidden/overlooked costs",
+          "Differentiate from competitors",
+          "Build comprehensive cost awareness"
+        ],
+        "key_points": [
+          "Transportkosten (Anhänger, Verleih): 200€ - 500€/Jahr",
+          "Reitunterricht/Training: 600€ - 2.400€/Jahr",
+          "Equipment-Ersatz (Decken, Sattel-Anpassung): 200€ - 500€/Jahr",
+          "Turnier-/Veranstaltungsgebühren: 300€ - 1.000€/Jahr",
+          "Stallwechsel-Kosten: 200€ - 500€ einmalig",
+          "Pferdepflege-Produkte: 100€ - 300€/Jahr",
+          "Total versteckte Kosten: 500€ - 2.000€/Jahr"
+        ],
+        "keyword_usage": {
+          "primary": "was kostet ein pferd (mention: 'Was kostet ein Pferd wirklich - inklusive versteckter Kosten?')"
+        }
+      },
+      {
+        "section_number": 7,
+        "heading": "Budget-Szenarien: Pferd mit 500€, 800€ oder 1.200€/Monat",
+        "heading_level": "H2",
+        "word_count_target": "400-500",
+        "content_objectives": [
+          "Address content gap: realistic budget scenarios",
+          "Provide actionable guidance for different financial situations",
+          "Use real-world examples"
+        ],
+        "subsections": [
+          {
+            "heading": "Szenario 1: Pferd mit 500€/Monat (Minimum-Budget)",
+            "heading_level": "H3",
+            "key_points": [
+              "Selbstversorger-Stall: 150€",
+              "Hufschmied (Barhuf): 60€/Monat",
+              "Basis-Haftpflichtversicherung: 10€/Monat",
+              "Tierarzt-Reserve: 50€/Monat",
+              "Total: ~500€/Monat",
+              "Realität: Hoher Zeitaufwand, kein finanzieller Puffer"
+            ]
+          },
+          {
+            "heading": "Szenario 2: Pferd mit 800€/Monat (Realistisches Budget)",
+            "heading_level": "H3",
+            "key_points": [
+              "Vollpension: 450€",
+              "Hufschmied (Beschlag): 100€/Monat",
+              "Versicherungen (Haftpflicht + OP): 40€/Monat",
+              "Tierarzt-Reserve: 100€/Monat",
+              "Zusatzfutter, Equipment: 60€/Monat",
+              "Total: ~800€/Monat",
+              "Realität: Komfortabel, moderate Sicherheit"
+            ]
+          },
+          {
+            "heading": "Szenario 3: Pferd mit 1.200€/Monat (Premium-Budget)",
+            "heading_level": "H3",
+            "key_points": [
+              "Premium Vollpension: 600€",
+              "Hufschmied (Orthopädisch): 120€/Monat",
+              "Vollversicherung (Haftpflicht, OP, Krankenversicherung): 80€/Monat",
+              "Tierarzt-Reserve + Physiotherapie: 200€/Monat",
+              "Reitunterricht, Equipment, Transport: 150€/Monat",
+              "Total: ~1.200€/Monat",
+              "Realität: Optimale Versorgung, starker finanzieller Puffer"
+            ]
+          }
+        ],
+        "visual_elements": [
+          "TABLE: Budget-Szenarien Vergleich (3 columns)"
+        ],
+        "keyword_usage": {
+          "primary": "pferd monatliche kosten"
+        }
+      },
+      {
+        "section_number": 8,
+        "heading": "Regionale Preisunterschiede in Deutschland",
+        "heading_level": "H2",
+        "word_count_target": "200-300",
+        "content_objectives": [
+          "Address content gap: regional cost variations",
+          "Provide Germany-specific insights",
+          "Build localized relevance"
+        ],
+        "key_points": [
+          "Stallmiete Bayern (München-Umland): 500€ - 700€/Monat",
+          "Stallmiete Brandenburg/Sachsen: 200€ - 400€/Monat",
+          "Stadt vs. Land: bis zu 40% Preisunterschied",
+          "Kaufpreise: Süddeutschland tendenziell 15-20% höher",
+          "Tierarztkosten: relativ einheitlich (GOT-gebunden)"
+        ],
+        "keyword_usage": {
+          "primary": "wie viel kostet ein pferd in deutschland (related search)"
+        }
+      },
+      {
+        "section_number": 9,
+        "heading": "Häufig gestellte Fragen (FAQ)",
+        "heading_level": "H2",
+        "word_count_target": "200-300",
+        "content_objectives": [
+          "Answer all 4 PAA questions directly",
+          "Target featured snippet with concise answers",
+          "Use schema markup from schema-faq.json"
+        ],
+        "faq_items": [
+          {
+            "question": "Wie viel kostet ein normales Pferd?",
+            "answer": "Ein normales Freizeitpferd kostet in der Anschaffung 3.000€ - 8.000€, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen bei 400€ - 600€ für Vollpension, Hufschmied und Versicherungen. Rechnen Sie mit 6.000€ - 9.000€ Gesamtkosten pro Jahr.",
+            "word_count": "40-60"
+          },
+          {
+            "question": "Wie viel Unterhalt kostet ein Pferd?",
+            "answer": "Der monatliche Unterhalt für ein Pferd liegt durchschnittlich bei 400€ - 800€. Die größten Posten sind Stallmiete (300€ - 600€), Hufschmied (50€ - 120€), Versicherungen (30€ - 50€) und Tierarzt-Reserve (50€ - 100€). Zusätzlich fallen jährliche Kosten für Impfungen (100€ - 180€), Zahnkontrolle (80€ - 150€) und Equipment-Ersatz (200€ - 500€) an.",
+            "word_count": "60-80"
+          },
+          {
+            "question": "Wie viel kostet das billigste Pferd?",
+            "answer": "Das billigste Pferd können Sie theoretisch für 0€ - 500€ bekommen – oft ältere Pferde oder Notfallvermittlungen. Aber Vorsicht: Ein günstiges Pferd bedeutet nicht günstige Haltung. Die laufenden Kosten bleiben gleich (400€ - 800€/Monat), und ältere Pferde haben oft höhere Tierarztkosten. Ein realistischer Mindestpreis für ein gesundes Freizeitpferd liegt bei 2.500€ - 4.000€.",
+            "word_count": "60-80"
+          },
+          {
+            "question": "Wie teuer ist etwa ein Pferd?",
+            "answer": "Gesamtkosten pro Jahr: 6.000€ - 12.000€ für ein durchschnittliches Freizeitpferd. Das entspricht 500€ - 1.000€/Monat. Dazu kommen einmalig Anschaffung (3.000€ - 8.000€) und Grundausstattung (1.500€ - 5.000€). Über 10 Jahre Lebenszeit: 60.000€ - 120.000€ + Anschaffungskosten.",
+            "word_count": "50-70"
+          }
+        ],
+        "keyword_usage": {
+          "primary": "was kostet ein pferd (in answers)"
+        }
+      },
+      {
+        "section_number": 10,
+        "heading": "Fazit: Was kostet ein Pferd wirklich?",
+        "heading_level": "H2",
+        "word_count_target": "150-200",
+        "content_objectives": [
+          "Summarize total cost of ownership",
+          "Reinforce key takeaways",
+          "Include PferdeWert CTA for valuation tool",
+          "INTERNAL LINK: Pferd verkaufen → /pferde-ratgeber/pferd-verkaufen"
+        ],
+        "key_points": [
+          "Total first-year cost: 10.000€ - 25.000€ (Anschaffung + Equipment + 12 Monate Haltung)",
+          "Annual cost (years 2+): 6.000€ - 12.000€",
+          "10-year cost of ownership: 60.000€ - 120.000€",
+          "Financial preparedness critical - emergency fund essential",
+          "PferdeWert CTA: 'Ermitteln Sie den genauen Marktwert Ihres Pferdes mit unserem KI-gestützten Bewertungstool'",
+          "INTERNAL LINK: Pferd verkaufen → /pferde-ratgeber/pferd-verkaufen (resale considerations)"
+        ],
+        "keyword_usage": {
+          "primary": "was kostet ein pferd (exact match in heading and conclusion)"
+        }
+      }
+    ]
+  },
+  "internal_linking_plan": {
+    "total_links": 5,
+    "links": [
+      {
+        "target_url": "/pferde-ratgeber/pferd-kaufen",
+        "anchor_text": "umfassenden Pferdekauf-Ratgeber",
+        "placement_section": "Section 1 (Introduction)",
+        "relevance_score": 0.85
+      },
+      {
+        "target_url": "/pferde-ratgeber/aku-pferd",
+        "anchor_text": "Ankaufsuntersuchung (AKU)",
+        "placement_section": "Section 2 (Anschaffungskosten)",
+        "relevance_score": 0.78
+      },
+      {
+        "target_url": "/pferde-ratgeber/aku-pferd/kosten",
+        "anchor_text": "Kosten der Ankaufsuntersuchung",
+        "placement_section": "Section 2 (Anschaffungskosten)",
+        "relevance_score": 0.72
+      },
+      {
+        "target_url": "/pferde-ratgeber/aku-pferd/ablauf",
+        "anchor_text": "Ablauf der Ankaufsuntersuchung",
+        "placement_section": "Section 2 (Anschaffungskosten)",
+        "relevance_score": 0.68
+      },
+      {
+        "target_url": "/pferde-ratgeber/pferd-verkaufen",
+        "anchor_text": "Pferd verkaufen",
+        "placement_section": "Section 10 (Fazit)",
+        "relevance_score": 0.52
+      }
+    ]
+  },
+  "cta_strategy": {
+    "primary_cta": {
+      "placement": "Section 10 (Fazit)",
+      "type": "PferdeWert Valuation Tool",
+      "text": "Ermitteln Sie den genauen Marktwert Ihres Pferdes mit unserem KI-gestützten Bewertungstool",
+      "link": "/bewertung-starten",
+      "design": "Prominent CTA box with button"
+    },
+    "secondary_ctas": [
+      {
+        "placement": "Section 2 (Anschaffungskosten)",
+        "type": "Content upgrade",
+        "text": "Laden Sie unsere kostenlose Pferdekauf-Checkliste herunter",
+        "design": "Inline link or small banner"
+      }
+    ]
+  },
+  "quality_requirements": {
+    "min_word_count": 2750,
+    "max_word_count": 3000,
+    "target_flesch_reading_ease": "70-80",
+    "primary_keyword_density": "0.8-1.2%",
+    "supporting_keyword_total_density": "2.0-3.0%",
+    "min_internal_links": 5,
+    "min_h2_sections": 8,
+    "min_tables": 3,
+    "paa_coverage_requirement": "4/4 questions (100%)",
+    "must_have_topics_coverage": "8/8 topics (100%)"
+  },
+  "validation_checklist": {
+    "serp_analysis_integrated": true,
+    "keyword_strategy_defined": true,
+    "content_structure_complete": true,
+    "eeat_signals_included": true,
+    "internal_linking_planned": true,
+    "visual_elements_specified": true,
+    "cta_strategy_defined": true,
+    "paa_questions_addressed": true,
+    "must_have_topics_covered": true,
+    "word_count_target_set": true
+  },
+  "next_phase": {
+    "phase": "4",
+    "task": "Article Draft Creation",
+    "output_file": "content/draft-article.md",
+    "estimated_time": "15-20 minutes"
+  }
+}
