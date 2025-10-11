@@ -15,7 +15,7 @@ import {
   wasKostetPferdFaqItems,
   wasKostetPferdRelatedArticles
 } from '@/data/ratgeber/wasKostetPferd'
-import { Calculator, MapPin } from 'lucide-react'
+import { Calculator } from 'lucide-react'
 
 export default function WasKostetEinPferd() {
   // JSON-LD Article Schema
