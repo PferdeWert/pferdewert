@@ -186,19 +186,6 @@ const PferdVerkaufen: NextPage = () => {
     ]
   };
 
-  const jsonLdFAQ = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map(item => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer
-      }
-    }))
-  };
-
   return (
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -236,10 +223,6 @@ const PferdVerkaufen: NextPage = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
         />
       </Head>
 
