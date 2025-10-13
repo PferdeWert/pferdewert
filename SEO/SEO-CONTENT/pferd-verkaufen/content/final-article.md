@@ -4,7 +4,7 @@
 
 Diese Frage beschäftigt jeden Pferdebesitzer, der vor der Entscheidung steht, sein geliebtes Tier zu verkaufen. Die Realität: Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit und emotionaler Herausforderungen.
 
-Mit dem **PferdeWert.de AI-Tool** ermitteln Sie in nur 3 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd. Unsere transparente Methodik basiert auf der Analyse von über 10.000 Pferden und liefert Ihnen eine realistische Preiseinschätzung, die beide Seiten schützt.
+Mit dem **PferdeWert.de AI-Tool** ermitteln Sie in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für Ihr Pferd. Unsere transparente Methodik basiert auf der Analyse von über 10.000 Pferden und liefert Ihnen eine realistische Preiseinschätzung, die beide Seiten schützt.
 
 In diesem ultimativen Leitfaden erfahren Sie alles Wichtige: vom 7-Phasen-Verkaufsprozess über den detaillierten Plattform-Vergleich (eHorses vs. private Kanäle) bis hin zur rechtlichen Absicherung durch professionelle Kaufverträge. Wir decken auch den oft vernachlässigten emotionalen Aspekt ab – denn ein Pferd zu verkaufen bedeutet, Abschied von einem Partner zu nehmen.
 
@@ -58,7 +58,7 @@ PferdeWert.de unterstützt Sie beim Pferd verkaufen mit präziser Wertermittlung
 
 Im Gegensatz zu subjektiven Schätzungen liefert das AI-Tool eine objektive, datenbasierte Bewertung – ohne emotionale Verzerrung.
 
-### Wertermittlung in 3 Minuten
+### Wertermittlung in 2 Minuten
 
 1. **Basisdaten eingeben**: Rasse, Alter, Geschlecht, Stockmaß
 2. **Ausbildung beschreiben**: Disziplin, Niveau, Erfolge
@@ -408,13 +408,13 @@ Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereit
 
 **Die 2 kritischsten Learnings:**
 
-**Foundation:** Ob Sie Ihr erstes oder fünftes Pferd verkaufen: Die Kombination aus realistischer Wertermittlung mit dem PferdeWert.de AI-Tool in nur 3 Minuten und der Wahl der richtigen Plattform (eHorses für Turnierpferde, pferde.de für Breitensport, private Kanäle für Netzwerke) schafft die Basis für schnellen Verkaufserfolg. Diese Foundation spart Monate frustrierender Verkaufsbemühungen mit überhöhten Preisen.
+**Foundation:** Ob Sie Ihr erstes oder fünftes Pferd verkaufen: Die Kombination aus realistischer Wertermittlung mit dem PferdeWert.de AI-Tool in nur 2 Minuten und der Wahl der richtigen Plattform (eHorses für Turnierpferde, pferde.de für Breitensport, private Kanäle für Netzwerke) schafft die Basis für schnellen Verkaufserfolg. Diese Foundation spart Monate frustrierender Verkaufsbemühungen mit überhöhten Preisen.
 
 **Timing:** Geduld zahlt sich aus. Die optimale Verkaufsdauer liegt bei 2-6 Wochen – alles darunter wirkt verdächtig (Red Flag für Käufer), alles darüber signalisiert Preiskorrektur-Bedarf. Starten Sie im März-Juni (Hochsaison) für maximale Anfragen.
 
 **Nächste Schritte:**
 
-**[→ Jetzt Pferdewert kostenlos ermitteln](/bewertung)** und starten Sie, Ihr Pferd verkaufen zum optimalen Preis. In 3 Minuten erhalten Sie eine datenbasierte Preiseinschätzung basierend auf 10.000+ analysierten Pferden.
+**[→ Jetzt Pferdewert kostenlos ermitteln](/bewertung)** und starten Sie, Ihr Pferd verkaufen zum optimalen Preis. In 2 Minuten erhalten Sie eine datenbasierte Preiseinschätzung basierend auf 10.000+ analysierten Pferden.
 
 **Weiterführende Hilfe:**
 - [AKU-Ratgeber](/ratgeber/aku-pferd-kosten) – Kosten, Ablauf, Klassen verstehen
@@ -428,7 +428,7 @@ Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereit
 
 ### Wie viel Geld ist mein Pferd wert?
 
-Der Wert hängt von 11 Faktoren ab: Alter (6-12 Jahre optimal), Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung und Marktlage. Ein Freizeitpferd liegt zwischen €2.000-€5.000, ein L-Turnierpferd bei €15.000-€40.000. Nutzen Sie den **[PferdeWert.de Rechner](/bewertung)** für eine präzise, datenbasierte Bewertung in 3 Minuten basierend auf 10.000+ Verkaufsdaten.
+Der Wert hängt von 11 Faktoren ab: Alter (6-12 Jahre optimal), Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung und Marktlage. Ein Freizeitpferd liegt zwischen €2.000-€5.000, ein L-Turnierpferd bei €15.000-€40.000. Nutzen Sie den **[PferdeWert.de Rechner](/bewertung)** für eine präzise, datenbasierte Bewertung in 2 Minuten basierend auf 10.000+ Verkaufsdaten.
 
 ### Wo kann man ein Pferd am besten verkaufen?
 
