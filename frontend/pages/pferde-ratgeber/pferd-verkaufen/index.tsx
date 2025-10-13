@@ -92,7 +92,7 @@ const PferdVerkaufen: NextPage = () => {
   const faqItems = [
     {
       question: 'Wie viel Geld ist mein Pferd wert?',
-      answer: 'Der Wert hängt von 11 Faktoren ab: Alter (6-12 Jahre optimal), Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung und Marktlage. Ein Freizeitpferd liegt zwischen €2.000-€5.000, ein L-Turnierpferd bei €15.000-€40.000. Nutzen Sie den PferdeWert.de Rechner für eine präzise, datenbasierte Bewertung in 3 Minuten basierend auf 10.000+ Verkaufsdaten.'
+      answer: 'Der Wert hängt von 11 Faktoren ab: Alter (6-12 Jahre optimal), Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung und Marktlage. Ein Freizeitpferd liegt zwischen €2.000-€5.000, ein L-Turnierpferd bei €15.000-€40.000. Nutzen Sie den PferdeWert.de Rechner für eine präzise, datenbasierte Bewertung in 2 Minuten basierend auf 10.000+ Verkaufsdaten.'
     },
     {
       question: 'Wo kann man ein Pferd am besten verkaufen?',
