@@ -12,6 +12,18 @@
 - **Use "KI" not "AI"**: German market prefers "KI" (Künstliche Intelligenz) over "AI" in all content and UI
 - **Evaluation Duration is ALWAYS "2 Minuten"**: NEVER use "3 Minuten" or any other duration in content, UI, or AI-generated text - this is a critical accuracy requirement
 
+## Critical Coding Patterns
+- **Custom Logger**: `import { info, warn, error } from '@/lib/log'` - NEVER use console.log
+- **No `any` type**: ESLint enforced, use proper interfaces
+- **No `require()`**: ES6 imports only
+
+## Common Anti-Patterns to Avoid
+- ❌ `useEffect(async () => {})` - breaks React rules
+- ✅ Create async function inside useEffect
+- ❌ Missing dependency arrays in useEffect
+- ❌ Not awaiting promises before sending API responses
+- ❌ Using "kostenlos" or "free" in content (PAID service!)
+
 ## Architecture & Development
 - **Frontend**: Next.js 15 (Pages Router) + TypeScript + Tailwind + Stripe
 - **Backend**: FastAPI + MongoDB + Dual KI (GPT/Claude)
