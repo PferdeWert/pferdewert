@@ -10,6 +10,7 @@
 
 ## Content & Localization
 - **Use "KI" not "AI"**: German market prefers "KI" (Künstliche Intelligenz) over "AI" in all content and UI
+- **Evaluation Duration is ALWAYS "2 Minuten"**: NEVER use "3 Minuten" or any other duration in content, UI, or AI-generated text - this is a critical accuracy requirement
 
 ## Architecture & Development
 - **Frontend**: Next.js 15 (Pages Router) + TypeScript + Tailwind + Stripe

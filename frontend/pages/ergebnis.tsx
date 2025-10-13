@@ -279,7 +279,7 @@ export default function Ergebnis() {
     };
   }, [router]);
 
-  if (loading) return <StripeLoadingScreen estimatedTime="Geschätzte Wartezeit: 1-3 Minuten" />;
+  if (loading) return <StripeLoadingScreen estimatedTime="Geschätzte Wartezeit: 1-2 Minuten" />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
 
@@ -415,7 +415,7 @@ export default function Ergebnis() {
           </p>
           <div className="text-sm text-gray-500">
             <p>✓ Zahlung erfolgreich verarbeitet</p>
-            <p>⏳ Analyse läuft (geschätzte Dauer: 1-3 Minuten)</p>
+            <p>⏳ Analyse läuft (geschätzte Dauer: 1-2 Minuten)</p>
             <p>📧 Bei Fragen: info@pferdewert.de</p>
           </div>
         </div>

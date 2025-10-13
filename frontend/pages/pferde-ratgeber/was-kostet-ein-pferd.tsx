@@ -154,45 +154,6 @@ export default function WasKostetEinPferd() {
     ]
   }
 
-  // JSON-LD FAQ Schema
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Wie viel kostet ein normales Pferd?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Ein normales Freizeitpferd kostet in der Anschaffung 3.000€ - 8.000€, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen bei 400€ - 600€ für Vollpension, Hufschmied und Versicherungen. Rechnen Sie mit 6.000€ - 9.000€ Gesamtkosten pro Jahr.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'Wie viel Unterhalt kostet ein Pferd?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Der monatliche Unterhalt für ein Pferd liegt durchschnittlich bei 400€ - 800€. Die größten Posten sind Stallmiete (300€ - 600€), Hufschmied (50€ - 120€), Versicherungen (30€ - 50€) und Tierarzt-Reserve (50€ - 100€). Zusätzlich fallen jährliche Kosten für Impfungen (100€ - 180€), Zahnkontrolle (80€ - 150€) und Equipment-Ersatz (200€ - 500€) an.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'Wie viel kostet das billigste Pferd?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Das billigste Pferd können Sie theoretisch für 0€ - 500€ bekommen – oft ältere Pferde oder Notfallvermittlungen. Aber Vorsicht: Ein günstiges Pferd bedeutet nicht günstige Haltung. Die laufenden Kosten bleiben gleich (400€ - 800€/Monat), und ältere Pferde haben oft höhere Tierarztkosten. Ein realistischer Mindestpreis für ein gesundes Freizeitpferd liegt bei 2.500€ - 4.000€.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'Wie teuer ist etwa ein Pferd?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Gesamtkosten pro Jahr: 6.000€ - 12.000€ für ein durchschnittliches Freizeitpferd. Das entspricht 500€ - 1.000€/Monat. Dazu kommen einmalig Anschaffung (3.000€ - 8.000€) und Grundausstattung (1.500€ - 5.000€). Über 10 Jahre Lebenszeit: 60.000€ - 120.000€ + Anschaffungskosten.'
-        }
-      }
-    ]
-  }
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -241,10 +202,6 @@ export default function WasKostetEinPferd() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </Head>
 
