@@ -56,6 +56,7 @@
 - **RatgeberTableOfContents**: Nutzt `sections`-Array `{ id, title }` + `onNavigate` (scroll helper).
 - **FAQ**: Immer unter `id="faq"`, Schema-Daten via Komponente automatisch.
 - **RatgeberRelatedArticles**: Max. drei Einträge; bei <3 Artikeln automatisch mittig ausgerichtet (`md:w-[320px]`). Datenstruktur `{ href, image, title, badge, readTime, description }`.
+  - **Datenquelle**: Nutze `getRatgeberBySlug()` aus Registry für konsistente Bildpfade.
 - **RatgeberFinalCTA**: Abschluss-CTA mit Bild + Button "Jetzt Pferdewert berechnen".
   - **STANDARD IMAGE**: Immer `/images/shared/blossi-shooting.webp` verwenden (Hero-Bild von Index-Page)
   - Design: Beige Box (`bg-[#fdf7f1]`, `border-[#e0c9aa]`), zentriertes Layout
