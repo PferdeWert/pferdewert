@@ -1,7 +1,7 @@
 ---
 name: seo-content-writer
 description: Use this agent when you need to create SEO-optimized content that balances search engine visibility with user engagement. This includes blog posts, articles, landing pages, product descriptions, or any long-form content requiring keyword optimization, E-E-A-T signals, and structured formatting for both readers and search engines. <example>Context: User needs SEO-optimized content about horse valuation methods. user: 'Write an article about different methods for valuing horses' assistant: 'I'll use the seo-content-writer agent to create a comprehensive, SEO-optimized article about horse valuation methods' <commentary>Since the user needs content that should rank well in search engines while providing value to readers, use the seo-content-writer agent to create properly optimized content.</commentary></example> <example>Context: User wants to improve website visibility through content. user: 'Create a blog post about common mistakes when buying horses that will help our site rank better' assistant: 'Let me launch the seo-content-writer agent to create an SEO-optimized blog post about common horse buying mistakes' <commentary>The user explicitly wants content that will improve rankings, so the seo-content-writer agent is perfect for creating search-optimized content with proper keyword integration.</commentary></example>
-model: sonnet
+model: haiku
 color: pink
 ---
 

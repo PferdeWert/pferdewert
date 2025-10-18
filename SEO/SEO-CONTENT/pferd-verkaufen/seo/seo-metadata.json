@@ -17,19 +17,19 @@
     },
 
     "meta_description": {
-      "content": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 3 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
+      "content": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 2 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
       "length": 159,
       "validation": "PASSED - Within 150-160 character limit",
       "primary_keyword_included": true,
       "cta_included": true,
-      "unique_value_prop": "AI-Wertermittlung in 3 Min"
+      "unique_value_prop": "AI-Wertermittlung in 2 Min"
     },
 
     "canonical_url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
 
     "open_graph": {
       "og:title": "Pferd verkaufen: Ultimativer Leitfaden 2025 | PferdeWert.de",
-      "og:description": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 3 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
+      "og:description": "Pferd verkaufen erfolgreich: AI-Wertermittlung in 2 Min, Plattform-Vergleich (eHorses vs. privat), rechtliche Absicherung + 7-Phasen-Prozess. Jetzt starten!",
       "og:type": "article",
       "og:url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
       "og:site_name": "PferdeWert.de",
@@ -43,7 +43,7 @@
     "twitter_card": {
       "twitter:card": "summary_large_image",
       "twitter:title": "Pferd verkaufen: Ultimativer Leitfaden 2025",
-      "twitter:description": "AI-Wertermittlung in 3 Min, Plattform-Vergleich, rechtliche Absicherung + 7-Phasen-Prozess für erfolgreichen Pferdeverkauf.",
+      "twitter:description": "AI-Wertermittlung in 2 Min, Plattform-Vergleich, rechtliche Absicherung + 7-Phasen-Prozess für erfolgreichen Pferdeverkauf.",
       "twitter:image": "https://pferdewert.de/images/og-pferd-verkaufen.jpg",
       "twitter:image:alt": "Pferd verkaufen - Leitfaden für erfolgreichen Pferdeverkauf"
     },
@@ -107,7 +107,7 @@
   "notes": {
     "url_pattern_discovery": "Sitemap uses /pferde-ratgeber/ not /ratgeber/",
     "featured_snippet_target": "Wie viel Geld ist mein Pferd wert? - 10-category pricing table available",
-    "cta_strategy": "AI-Wertermittlung in 3 Min - emphasizes speed and AI technology",
+    "cta_strategy": "AI-Wertermittlung in 2 Min - emphasizes speed and AI technology",
     "brand_integration": "PferdeWert.de included in title for brand recognition"
   }
 }

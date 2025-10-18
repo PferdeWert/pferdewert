@@ -23,7 +23,7 @@
 
 ### Meta Description (150-160 Zeichen)
 **Primary:**
-`Pferdewert professionell berechnen mit AI ✓ Faktoren, Methoden & kostenloser Rechner ✓ Marktpreise vergleichen ✓ Faire Bewertung in 3 Minuten`
+`Pferdewert professionell berechnen mit AI ✓ Faktoren, Methoden & kostenloser Rechner ✓ Marktpreise vergleichen ✓ Faire Bewertung in 2 Minuten`
 
 **Alternative:**
 `Ermitteln Sie den fairen Marktwert Ihres Pferdes: Bewertungsmethoden, Einflussfaktoren & AI-gestützter Rechner für präzise Wertermittlung ✓`
@@ -72,7 +72,7 @@
 - Problem: Unsicherheit bei der Preisfindung, Informationsasymmetrie zwischen Käufer/Verkäufer
 - Lösung: Strukturierte Bewertungsmethoden + AI-gestütztes Tool
 - **Keyword-Platzierung:** "Pferdewert berechnen" in Satz 1-2, "Marktwert ermitteln" in Satz 3-4
-- **CTA Teaser:** "Nutzen Sie unseren kostenlosen AI-Rechner für eine präzise Wertermittlung in 3 Minuten ↓"
+- **CTA Teaser:** "Nutzen Sie unseren kostenlosen AI-Rechner für eine präzise Wertermittlung in 2 Minuten ↓"
 
 **Primäre Keywords in Intro:**
 - pferdewert berechnen (2x)
@@ -313,7 +313,7 @@ Anchor: "Erfahren Sie mehr über AKU-Kosten und ihre Bedeutung für den Pferdewe
 **Content (180-220 Wörter):**
 
 **Funktionsweise:**
-1. **Daten-Input:** Pferdedaten in Online-Formular (3 Min.)
+1. **Daten-Input:** Pferdedaten in Online-Formular (2 Min.)
 2. **AI-Analyse:**
    - Vergleich mit 50.000+ Verkaufsdaten
    - Machine Learning Preismodell
@@ -330,7 +330,7 @@ Anchor: "Erfahren Sie mehr über AKU-Kosten und ihre Bedeutung für den Pferdewe
 - Regionale Preis-Algorithmen
 
 **Vorteile:**
-- ✅ Sofortergebnis (3 Minuten)
+- ✅ Sofortergebnis (2 Minuten)
 - ✅ Kosteneffizient (€14,90 statt €500+)
 - ✅ Objektive Datenbasis (keine Subjektivität)
 - ✅ Regionale Marktanpassung automatisch
@@ -540,7 +540,7 @@ GESAMT-RISIKO: -€13.100 bei fehlerhafter Bewertung
 **CTA-Design:**
 ```markdown
 ┌───────────────────────────────────────────────────────────┐
-│  🤖 PFERDEWERT JETZT BERECHNEN – MIT AI IN 3 MINUTEN      │
+│  🤖 PFERDEWERT JETZT BERECHNEN – MIT AI IN 2 MINUTEN      │
 │                                                           │
 │  ✓ 50.000+ Verkaufsdaten analysiert                      │
 │  ✓ Regionale Marktpreise in Echtzeit                     │
@@ -578,7 +578,7 @@ GESAMT-RISIKO: -€13.100 bei fehlerhafter Bewertung
 ╔═══════════════════════════════╗
 ║  SCHNELL-BEWERTUNG            ║
 ║                               ║
-║  Ihr Pferd in 3 Min bewerten: ║
+║  Ihr Pferd in 2 Min bewerten: ║
 ║                               ║
 ║  1️⃣ Daten eingeben            ║
 ║  2️⃣ AI analysiert             ║
@@ -613,7 +613,7 @@ Ja, Sie können eine grobe Schätzung kostenlos selbst durchführen, indem Sie d
 - Keine regionale Echtzeit-Anpassung
 - Zeitaufwendig und fehleranfällig
 
-**Alternative:** Nutzen Sie unsere AI-gestützte Bewertung für €14,90 – das entspricht weniger als 2% des durchschnittlichen Pferdewerts und liefert in 3 Minuten eine präzise, datenbasierte Bewertung mit regionalem Marktabgleich.
+**Alternative:** Nutzen Sie unsere AI-gestützte Bewertung für €14,90 – das entspricht weniger als 2% des durchschnittlichen Pferdewerts und liefert in 2 Minuten eine präzise, datenbasierte Bewertung mit regionalem Marktabgleich.
 
 **Featured Snippet Target:** "pferdewert kostenlos berechnen" → Paragraph Snippet
 
@@ -868,7 +868,7 @@ Der Wertverlauf folgt einer **typischen Alterswert-Kurve**:
       "name": "Kann ich den Pferdewert kostenlos berechnen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja, Sie können eine grobe Schätzung kostenlos selbst durchführen, indem Sie die 5-Schritt-Methode anwenden. Dazu benötigen Sie aktuelle Marktpreise von Vergleichspferden, unsere Bewertungsformeln und etwa 5-10 Stunden Zeitaufwand. Die kostenlose Methode hat allerdings Limitationen wie fehlende Echtzeit-Marktanpassung und subjektive Vergleichbarkeit. Als Alternative bietet PferdeWert.de eine AI-gestützte Bewertung für €14,90, die in 3 Minuten eine präzise, datenbasierte Bewertung mit regionalem Marktabgleich liefert."
+        "text": "Ja, Sie können eine grobe Schätzung kostenlos selbst durchführen, indem Sie die 5-Schritt-Methode anwenden. Dazu benötigen Sie aktuelle Marktpreise von Vergleichspferden, unsere Bewertungsformeln und etwa 5-10 Stunden Zeitaufwand. Die kostenlose Methode hat allerdings Limitationen wie fehlende Echtzeit-Marktanpassung und subjektive Vergleichbarkeit. Als Alternative bietet PferdeWert.de eine AI-gestützte Bewertung für €14,90, die in 2 Minuten eine präzise, datenbasierte Bewertung mit regionalem Marktabgleich liefert."
       }
     },
     {
@@ -1069,7 +1069,7 @@ Erste 2-3 Sätze der FAQ-Antwort optimiert für direkte Antwort
 **Content-Quelle:** H3 "AI-gestützte Bewertung"
 **Optimization:**
 ```markdown
-Online-Pferdewert-Rechner bieten schnelle Schätzungen. Kostenlose Tools haben jedoch eine Abweichung von ±30-40%. Professionelle AI-gestützte Bewertungen (wie PferdeWert.de) kosten €14,90 und erreichen eine Genauigkeit von ±8-12% durch Analyse von 50.000+ Verkaufsdaten mit Live-Marktabgleich. Die kostenlose Selbstberechnung dauert 5-10 Stunden, die AI-Methode nur 3 Minuten.
+Online-Pferdewert-Rechner bieten schnelle Schätzungen. Kostenlose Tools haben jedoch eine Abweichung von ±30-40%. Professionelle AI-gestützte Bewertungen (wie PferdeWert.de) kosten €14,90 und erreichen eine Genauigkeit von ±8-12% durch Analyse von 50.000+ Verkaufsdaten mit Live-Marktabgleich. Die kostenlose Selbstberechnung dauert 5-10 Stunden, die AI-Methode nur 2 Minuten.
 ```
 
 ### Target 4: "pferd abstammung oder ausbildung wichtiger"

@@ -1,5 +1,75 @@
 # PferdeWert.de Frontend Coding Guidelines
 
+## 🎯 Business Requirements
+
+### Critical Platform Standards
+
+These business requirements are non-negotiable and must be followed in all frontend code:
+
+**Timeframe Standard:**
+```typescript
+// ✅ CORRECT - Always use "2 Minuten"
+<p>Professionelle KI-Bewertung in 2 Minuten</p>
+
+// ❌ WRONG - Never use "3 Minuten" or other durations
+<p>Bewertung in 3 Minuten</p>
+```
+
+**Terminology Standard:**
+```typescript
+// ✅ CORRECT - Use German "KI"
+<h2>KI-gestützte Pferdebewertung</h2>
+
+// ❌ WRONG - Never use "AI"
+<h2>AI-gestützte Pferdebewertung</h2>
+```
+
+**Service Positioning:**
+```typescript
+// ✅ CORRECT - Emphasize paid premium service
+<p>Professionelle Bewertung für 14,90€</p>
+<button>Jetzt für 14,90€ bewerten</button>
+
+// ❌ WRONG - Never suggest free service
+<p>Kostenlose Bewertung</p>
+<button>Gratis testen</button>
+```
+
+### Standard CTA Patterns
+
+**Link Target:**
+```typescript
+// ✅ CORRECT - Standard evaluation page
+<Link href="/pferde-preis-berechnen">
+  Jetzt bewerten
+</Link>
+
+// ❌ WRONG - Non-standard URLs
+<Link href="/bewerten">...</Link>
+<Link href="/evaluation">...</Link>
+```
+
+**CTA Text:**
+```typescript
+// ✅ CORRECT - Standard call-to-action
+<button>Jetzt Pferdewert berechnen</button>
+
+// ❌ WRONG - Inconsistent wording
+<button>Pferd bewerten</button>
+<button>Wert ermitteln</button>
+```
+
+### Price Display
+```typescript
+// ✅ CORRECT - German number format
+const price = "14,90€";
+<span>Nur 14,90€</span>
+
+// ❌ WRONG - English format
+const price = "$14.90";
+<span>Only 14.90 EUR</span>
+```
+
 ## 🏗️ Architecture Overview
 
 **Project Structure:**
@@ -61,6 +131,68 @@ const eslintConfig = [
 - **Body**: Lato (sans-serif)
 - **Weights**: 300, 400, 700, 900
 
+### Design Philosophy
+
+**Text-First Approach:**
+PferdeWert.de prioritizes semantic HTML and text content over decorative boxes. Content should be readable and accessible without visual containers.
+
+**Box Usage Limits:**
+```typescript
+// ✅ CORRECT - Strategic use of 2-4 boxes per article for key information
+<article>
+  <h1>Was kostet ein Pferd?</h1>
+
+  {/* Semantic text content - no boxes needed */}
+  <p className="text-lg">Der Kauf eines Pferdes ist eine bedeutende finanzielle Entscheidung...</p>
+
+  <h2>Anschaffungskosten</h2>
+  <p className="text-lg">Die Preise variieren stark je nach Rasse und Ausbildung...</p>
+
+  {/* Strategic box #1 - Key pricing ranges */}
+  <div className="bg-warm-white rounded-lg p-6 my-8">
+    <h3>Preisübersicht nach Kategorie</h3>
+    <ul>
+      <li>Freizeitpferd: 2.000€ - 8.000€</li>
+      <li>Sportpferd: 10.000€ - 50.000€+</li>
+    </ul>
+  </div>
+
+  {/* More semantic text */}
+  <h2>Laufende Kosten</h2>
+  <p className="text-lg">Monatlich müssen Sie mit 300-600€ rechnen...</p>
+
+  {/* Strategic box #2 - Monthly cost breakdown */}
+  <div className="bg-amber-50 rounded-lg p-6 my-8">
+    <h3>Monatliche Kosten im Überblick</h3>
+    {/* cost breakdown */}
+  </div>
+</article>
+
+// ❌ WRONG - Excessive boxes distract from content
+<article>
+  {/* Every section in a box - visual overload */}
+  <div className="bg-warm-white p-6">
+    <h2>Abschnitt 1</h2>
+    <p>Text...</p>
+  </div>
+  <div className="bg-amber-50 p-6">
+    <h2>Abschnitt 2</h2>
+    <p>Text...</p>
+  </div>
+  <div className="bg-warm-white p-6">
+    <h2>Abschnitt 3</h2>
+    <p>Text...</p>
+  </div>
+  {/* Too many boxes - breaks reading flow */}
+</article>
+```
+
+**Implementation Rule:**
+- Maximum 2-4 highlighted boxes per full Ratgeber article
+- Use boxes only for: pricing tables, key statistics, budget breakdowns, or actionable summaries
+- Default to semantic HTML: `<p>`, `<h2>`, `<ul>`, `<section>` without background containers
+- Let content hierarchy be defined by typography, not visual boxes
+
 ### Component Patterns
 
 **Button Styles:**
@@ -74,6 +206,214 @@ const eslintConfig = [
 <button className="bg-brand-brown hover:bg-opacity-90 text-white font-semibold py-2 px-4 rounded">
   Mehr erfahren
 </button>
+```
+
+## 🚫 Deprecated Components
+
+### Components No Longer in Use
+
+The following components should NOT be used in new development. Existing usage should be migrated during refactoring.
+
+#### Header_alt.tsx → Header.tsx
+
+**Status**: ❌ DEPRECATED - Do not use
+
+**Migration Guide:**
+```typescript
+// ❌ WRONG - Old alternative header (not imported anywhere)
+import HeaderAlt from '@/components/Header_alt';
+
+// ✅ CORRECT - Current unified header component
+import Header from '@/components/Header';
+
+// Usage in _app.tsx or Layout components
+export default function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+    </>
+  );
+}
+```
+
+**Why Deprecated**: Header_alt.tsx is an unused alternative header implementation. The current Header.tsx component (308 lines) provides comprehensive functionality including:
+- Desktop navigation with dropdown menus
+- Mobile navigation with progressive disclosure
+- Integrated breadcrumb navigation
+- Keyboard accessibility (ESC key handling)
+- Responsive design patterns
+- Proper ARIA labels and semantic HTML
+
+**Migration Steps:**
+1. Replace any `Header_alt` imports with `Header` from `@/components/Header`
+2. Remove Header_alt.tsx from components directory after verifying no usage
+3. Test navigation functionality across desktop and mobile viewports
+4. Verify breadcrumb navigation on Ratgeber pages
+
+## 📚 Ratgeber Content Guidelines
+
+### Content Structure & SEO Patterns
+
+Ratgeber articles are educational content pages that follow specific SEO and structural patterns to maximize organic discovery and user engagement.
+
+#### Required File Structure
+
+All Ratgeber pages MUST be registered in the Ratgeber registry system:
+
+```typescript
+// frontend/lib/ratgeberRegistry.ts
+export const ratgeberPages = [
+  {
+    slug: 'aku-pferd',
+    title: 'AKU Pferd',
+    path: '/pferde-ratgeber/aku-pferd',
+    metaDescription: '...',
+    lastUpdated: '2025-01-10'
+  },
+  // Add new pages here
+];
+```
+
+#### SEO Best Practices
+
+**1. Heading Hierarchy:**
+- **H1**: One per page, main topic (e.g., "Was kostet ein Pferd?")
+- **H2**: Major sections (e.g., "Anschaffungskosten", "Monatliche Kosten")
+- **H3**: Subsections within H2 (e.g., "Pferdekauf", "Sattel und Zaumzeug")
+- **H4+**: Rare, only for deep nested content
+
+**2. Keyword Optimization:**
+- Primary keyword in H1, first paragraph, and naturally throughout content
+- LSI keywords in H2 headings
+- Internal links to related Ratgeber articles
+- External links to authoritative sources (sparingly)
+
+**3. Meta Tags:**
+```typescript
+<Head>
+  <title>Was kostet ein Pferd? | PferdeWert.de</title>
+  <meta name="description" content="Kompletter Kostenüberblick: Anschaffung, monatliche Ausgaben & realistische Budget-Szenarien für Pferdebesitzer." />
+  <meta property="og:title" content="Was kostet ein Pferd? | PferdeWert.de" />
+  <meta property="og:description" content="..." />
+  <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
+</Head>
+```
+
+#### Content Length Standards
+
+- **Minimum**: 1,500 words for basic topics
+- **Optimal**: 2,500-3,500 words for comprehensive guides
+- **Maximum**: 5,000 words (split into multiple pages if longer)
+
+#### Box Usage in Ratgeber Articles
+
+Follow the text-first design philosophy (see Design Philosophy section above):
+
+```typescript
+// ✅ CORRECT - 2-4 strategic boxes for key information
+export default function RatgeberArticle() {
+  return (
+    <>
+      <h1>Article Title</h1>
+      <p>Introduction text...</p>
+
+      {/* Box 1: Key Statistics */}
+      <div className="bg-amber-50 border-l-4 border-brand-brown p-6 my-8">
+        <h3>Wichtige Zahlen auf einen Blick</h3>
+        <ul>...</ul>
+      </div>
+
+      <h2>Section with pure text</h2>
+      <p>Multiple paragraphs of educational content...</p>
+
+      {/* Box 2: Warning or Important Note */}
+      <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+        <h3>⚠️ Wichtiger Hinweis</h3>
+        <p>Critical information...</p>
+      </div>
+    </>
+  );
+}
+
+// ❌ WRONG - Too many boxes, overwhelming layout
+// Multiple consecutive boxes create visual clutter
+```
+
+#### Registry System Requirements
+
+**Before Deployment:**
+
+1. **Add page to registry** (`frontend/lib/ratgeberRegistry.ts`):
+   - Unique slug
+   - Full title
+   - Canonical path
+   - Meta description (150-160 characters)
+   - Last updated date (ISO format)
+
+2. **Update navigation** (if top-level category):
+   ```typescript
+   // frontend/components/Header.tsx
+   const navigationItems = [
+     {
+       label: "Ratgeber",
+       href: "/pferde-ratgeber",
+       dropdown: [
+         { label: "AKU Pferd", href: "/pferde-ratgeber/aku-pferd" },
+         { label: "Pferd kaufen", href: "/pferde-ratgeber/pferd-kaufen" },
+         // Add new top-level Ratgeber articles here
+       ]
+     }
+   ];
+   ```
+
+3. **Generate sitemap**:
+   ```bash
+   npm run sitemap
+   ```
+   This updates `sitemap.xml` and `robots.txt` automatically.
+
+4. **Verify in Pre-Commit Checklist**:
+   - ✅ Page registered in ratgeberRegistry.ts
+   - ✅ Navigation updated (if needed)
+   - ✅ Sitemap regenerated
+   - ✅ Meta tags validated
+   - ✅ Internal links tested
+
+#### Ratgeber-Specific Components
+
+**Breadcrumbs:**
+Automatically generated from Header.tsx based on navigation structure. No manual implementation needed.
+
+**FAQ Sections:**
+Use structured data for SEO:
+```typescript
+<script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+})}
+</script>
+```
+
+**Table of Contents:**
+For articles >2,000 words, include jump links:
+```typescript
+<nav className="bg-gray-50 p-6 rounded-lg mb-8">
+  <h2 className="text-xl font-bold mb-4">Inhaltsverzeichnis</h2>
+  <ul className="space-y-2">
+    <li><a href="#section-1" className="text-brand-brown hover:underline">Section 1</a></li>
+    <li><a href="#section-2" className="text-brand-brown hover:underline">Section 2</a></li>
+  </ul>
+</nav>
 ```
 
 ## 🔧 TypeScript Standards

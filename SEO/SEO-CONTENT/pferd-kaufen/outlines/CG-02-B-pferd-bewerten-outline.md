@@ -637,7 +637,7 @@ Diese Tabelle ist optimiert für Featured Snippet → "red flags pferdekauf" ode
 
 **Wie die KI-Bewertung funktioniert:**
 
-**1. Daten-Input (3 Minuten):**
+**1. Daten-Input (2 Minuten):**
 - Grunddaten: Rasse, Alter, Geschlecht, Standort
 - Ausbildung: Niveau, Spezialisierung, Turniererfolge
 - Gesundheit: AKU-Befunde, Besonderheiten
@@ -678,7 +678,7 @@ Diese Tabelle ist optimiert für Featured Snippet → "red flags pferdekauf" ode
 ---
 **🤖 PferdeWert AI-Bewertung starten**
 
-Erhalten Sie in 3 Minuten eine objektive Marktwert-Analyse für Ihr Wunschpferd:
+Erhalten Sie in 2 Minuten eine objektive Marktwert-Analyse für Ihr Wunschpferd:
 - ✅ Dual-AI-System (GPT-4 + Claude 3.5)
 - ✅ 50.000+ Verkaufsdaten (2020-2025)
 - ✅ Regionale Marktpreise (Bayern, NRW, etc.)
@@ -1010,7 +1010,7 @@ Nach der umfassenden Bewertung müssen Sie alle Informationen zusammenführen. D
 ---
 **🎯 Schnell-Check: Ist der Preis marktgerecht?**
 
-Lassen Sie unsere AI das Pferd in 3 Minuten bewerten:
+Lassen Sie unsere AI das Pferd in 2 Minuten bewerten:
 - ✅ 50.000+ Verkaufsdaten (2020-2025)
 - ✅ Dual-AI-System (GPT-4 + Claude 3.5)
 - ✅ Regionale Marktpreise für Deutschland

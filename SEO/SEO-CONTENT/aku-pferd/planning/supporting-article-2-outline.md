@@ -419,7 +419,7 @@ Für ein Freizeitpferd bei €12.000 Kaufpreis empfehlen wir die **große AKU**.
 │  und erhalten Sie eine maßgeschneiderte        │
 │  AKU-Empfehlung.                               │
 │                                                  │
-│  ✅ KI-gestützte Bewertung in 3 Minuten        │
+│  ✅ KI-gestützte Bewertung in 2 Minuten        │
 │  ✅ Basierend auf aktuellen Marktdaten 2024    │
 │  ✅ Inklusive AKU-Budget-Empfehlung            │
 │  ✅ Über 2.500 erfolgreiche Pferdekäufe        │
@@ -615,14 +615,14 @@ Für ein Freizeitpferd bei €12.000 Kaufpreis empfehlen wir die **große AKU**.
 **Touchpoint 3: Final CTA Section**
 - **Context**: User has complete decision framework, ready for action
 - **CTA Type**: Primary CTA (conversion)
-- **Copy**: "🎯 **Optimale AKU-Planung für Ihren Pferdekauf** | Ermitteln Sie den fairen Marktwert Ihres Wunschpferdes mit der PferdeWert KI-Bewertung und erhalten Sie eine maßgeschneiderte AKU-Empfehlung. ✅ KI-gestützte Bewertung in 3 Minuten [Jetzt Pferdewert berechnen →]"
+- **Copy**: "🎯 **Optimale AKU-Planung für Ihren Pferdekauf** | Ermitteln Sie den fairen Marktwert Ihres Wunschpferdes mit der PferdeWert KI-Bewertung und erhalten Sie eine maßgeschneiderte AKU-Empfehlung. ✅ KI-gestützte Bewertung in 2 Minuten [Jetzt Pferdewert berechnen →]"
 - **Conversion Goal**: Lead capture via valuation form
 - **Visual**: Large button with supporting trust signals
 - **Alternative**: Secondary CTA to primary pillar article
 
 ### Value Propositions (Repeated Throughout)
 - "Über 2.500 erfolgreiche Pferdekäufe"
-- "KI-gestützte Bewertung in 3 Minuten"
+- "KI-gestützte Bewertung in 2 Minuten"
 - "Basierend auf aktuellen Marktdaten 2024"
 - "Inklusive AKU-Budget-Empfehlung"
 

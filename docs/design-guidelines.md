@@ -25,9 +25,11 @@ This document provides comprehensive design guidelines for PferdeWert.de. These 
 ## 📄 Text-Paragraphen Design
 
 ### Visuelle Hierarchie
-- **Paragraphen**: Standard Font-Weight 400, 16px
+- **Paragraphen**: Standard Font-Weight 400, text-lg (18px) bevorzugt
+- **IMPORTANT**: NEVER use `text-sm` (14px) for body paragraphs – minimum is `text-base` (16px), better: `text-lg` (18px)
+- **Why**: `text-sm` is too small and hard to read, especially on mobile devices
 - **Sekundäre Farbe** für weniger Kontrast als Headlines
-- **Line-height erhöhen** für bessere Lesbarkeit
+- **Line-height erhöhen** für bessere Lesbarkeit (`leading-relaxed`)
 - **Text linksbündig ausrichten** (nie zentriert bei längeren Texten)
 
 ### Lesbarkeit optimieren
@@ -115,10 +117,46 @@ Alle Abstände durch 4 teilbar: `4px, 16px, 48px, etc.`
 .spacing-section-to-section { @apply mt-64; }
 ```
 
-### Color Hierarchy
-- **Primary Headlines**: Highest contrast color (text-gray-900)
-- **Body Text**: Secondary contrast (text-gray-600)
-- **Emphasized Text**: Medium contrast (text-gray-800, font-medium)
+### Color Hierarchy & Brand Colors
+
+#### Brand Color System (Hex Values)
+```css
+/* Primary Brand Colors */
+--brand: #4e463b          /* Primary brand color for headings, key elements */
+--brand-light: #f8f8f6    /* Light background, subtle sections */
+--brand-green: #406243    /* Accent green for highlights */
+--brand-brown: #92400e    /* CTA brown for buttons */
+--brand-brownDark: #78350f /* CTA hover state */
+
+/* Additional Brand Colors */
+--brand-beige: #fdf7f1    /* Highlight box backgrounds */
+--brand-beige-border: #e0c9aa /* Highlight box borders */
+```
+
+#### Tailwind Class Mappings
+```tsx
+/* Brand Colors */
+text-brand           // #4e463b - Primary headings, key text
+bg-brand-light       // #f8f8f6 - Light backgrounds
+text-brand-green     // #406243 - Accent highlights
+bg-brand-brown       // #92400e - Primary CTA buttons
+bg-brand-brownDark   // #78350f - CTA hover state
+
+/* Ratgeber Highlight Boxes */
+bg-[#fdf7f1]         // Beige box background
+border-[#e0c9aa]     // Beige box border
+
+/* Gradients */
+bg-gradient-to-b from-amber-50 to-white  // Hero section background
+```
+
+#### Usage Guidelines
+- **Primary Headlines**: `text-brand` (#4e463b) for maximum contrast
+- **Body Text**: `text-gray-700` for readable secondary contrast
+- **Emphasized Text**: `text-gray-900 font-medium` for medium contrast
+- **CTA Buttons**: `bg-brand-brown` with `hover:bg-brand-brownDark`
+- **Accent Elements**: `text-brand-green` for special highlights
+- **Backgrounds**: `bg-brand-light` for subtle section backgrounds
 
 ## 🧪 Testing & Validation
 
