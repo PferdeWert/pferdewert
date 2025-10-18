@@ -15,7 +15,13 @@ Disallow: /_next/
 
 # Allow important crawlable content
 Allow: /pferde-preis-berechnen
+<<<<<<< HEAD
 Allow: /pferde-ratgeber
+=======
+Allow: /pferde-ratgeber/pferd-kaufen
+Allow: /was-ist-mein-pferd-wert
+Allow: /pferd-verkaufen
+>>>>>>> 816952e (fix(seo): comprehensive SEO optimization based on technical audit)
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
 Allow: /pferde-ratgeber/aku-pferd
@@ -28,4 +34,4 @@ Allow: /pferde-ratgeber/pferd-verkaufen
 Allow: /pferde-ratgeber/pferd-verkaufen/tipps
 
 # Sitemap location
-Sitemap: https://pferdewert.de/sitemap.xml
+Sitemap: https://www.pferdewert.de/sitemap.xml

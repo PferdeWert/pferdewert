@@ -2,7 +2,7 @@
 import fs from 'fs';
 import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
 
-const DOMAIN = 'https://pferdewert.de';
+const DOMAIN = 'https://www.pferdewert.de';
 const OUTPUT_PATH = 'public/sitemap.xml';
 
 // Konfiguration: Welche Seiten sollen indexiert werden (ohne Ratgeber - die kommen aus dem Registry)
@@ -15,6 +15,12 @@ const PAGE_CONFIG = {
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
   // Content-Seiten (mittlere Priorität)
+<<<<<<< HEAD
+=======
+  '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
+  '/was-ist-mein-pferd-wert': { priority: '0.8', changefreq: 'monthly' },
+  '/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
+>>>>>>> 816952e (fix(seo): comprehensive SEO optimization based on technical audit)
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
 

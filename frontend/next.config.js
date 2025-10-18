@@ -86,6 +86,11 @@ const nextConfig = {
         destination: '/pferde-ratgeber/was-kostet-ein-pferd',
         statusCode: 301,
       },
+      {
+        source: '/pferd-kaufen',
+        destination: '/pferde-ratgeber/pferd-kaufen',
+        permanent: true,
+      },
     ]
   },
 };
