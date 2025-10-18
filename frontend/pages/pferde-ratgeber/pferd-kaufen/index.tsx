@@ -107,46 +107,39 @@ const regionTiles = [
   }
 ]
 
+// SEO-optimized FAQ data - synced with schema-faq.json
 const faqItems: FAQItem[] = [
   {
-    question: "Wie viel kostet es, ein Pferd zu kaufen?",
-    answer:
-      "Der Kaufpreis für ein Pferd variiert stark je nach Rasse, Alter, Ausbildungsstand und Gesundheitszustand. **Einstiegspferde** (z.B. Freizeitpferde ohne spezielle Ausbildung) liegen bei €1.000-€5.000. **Gut ausgebildete Sportpferde** kosten €5.000-€15.000, während **Turnierpferde mit Erfolgen** €15.000+ erreichen können. Zusätzlich fallen jährliche Kosten von €5.000-€15.000 für Unterbringung, Futter, Tierarzt und Hufschmied an."
+    question: "Was kostet ein Pferd im Durchschnitt?",
+    answer: "Der Kaufpreis variiert stark je nach Disziplin und Ausbildungsstand: Freizeitpferde kosten €2,500-8,000, Dressurpferde €8,000-25,000, Springpferde €10,000-50,000+. Zusätzlich zum Kaufpreis fallen jährliche Kosten von €3,000-6,000 für Unterbringung, Futter, Tierarzt und Hufschmied an."
   },
   {
-    question: "Wie viel kostet ein gutes Pferd?",
-    answer:
-      "Ein &quot;gutes&quot; Pferd kostet zwischen **€5.000 und €20.000**. &quot;Gut&quot; bedeutet: gesund (positive AKU), gut ausgebildet (solide Grundausbildung), charakterlich ausgeglichen und für den Verwendungszweck geeignet. Die Preisspanne hängt ab von: Ausbildungsstand (beritten vs. turniererfahren), Alter (5-12 Jahre optimal), Gesundheit (keine Vorerkrankungen), Charakter (anfängerfreundlich vs. anspruchsvoll) und Marktfähigkeit (beliebte Rassen teurer)."
+    question: "Was sollte man beim Pferdekauf beachten?",
+    answer: "Die wichtigsten Aspekte beim Pferdekauf sind: 1) Durchführung einer professionellen Ankaufsuntersuchung (AKU), 2) Mehrfaches Probereiten unter verschiedenen Bedingungen, 3) Prüfung aller Papiere und Dokumente, 4) Objektive Pferdebewertung (z.B. mit AI-Tools), 5) Schriftlicher Kaufvertrag mit allen Details, 6) Vermeidung von Red Flags wie unrealistisch niedrigen Preisen oder fehlenden Papieren."
   },
   {
-    question: "Wo kann ich am besten ein Pferd kaufen?",
-    answer:
-      "Die besten Plattformen für den Pferdekauf sind:\n\n- **ehorses.de**: 19.000+ Inserate, größte Auswahl\n- **pferde.de**: 1.500+ Inserate, detaillierte Filter\n- **kleinanzeigen.de**: 11.000+ Inserate, auch Privatverkäufe\n- **Direkt bei Züchtern**: Beste Beratung, Papiere garantiert\n- **Über Pferdevermittler**: Professionelle Begleitung\n\n**Tipp**: Nutze vor dem Kauf eine objektive Bewertung mit PferdeWert, um faire Preise zu erkennen."
+    question: "Wie läuft eine Ankaufsuntersuchung (AKU) ab?",
+    answer: "Eine AKU umfasst mehrere Komponenten: 1) Klinische Untersuchung (Allgemeinzustand, Herzfrequenz, Atmung), 2) Röntgenaufnahmen der Gliedmaßen, 3) Blutuntersuchung auf Substanzen, 4) Bewegungsanalyse an der Longe und unter dem Reiter, 5) Beurteilung der Belastbarkeit. Die Kosten liegen zwischen €150-500 je nach Umfang. Eine AKU sollte immer von einem unabhängigen Tierarzt durchgeführt werden."
   },
   {
-    question: "Was kostet eine Kaufuntersuchung (AKU)?",
-    answer:
-      "Eine Ankaufsuntersuchung (AKU) kostet je nach Umfang **€150-€1.500**:\n\n- **Kleine AKU** (Basis-Check): €150-€300\n- **Große AKU** (inkl. Röntgen): €500-€1.000\n- **Große AKU mit Zusatzuntersuchungen** (Herz-Echo, MRT): €1.000-€1.500+\n\nDie große AKU ist bei Pferden ab €5.000 Kaufpreis dringend empfohlen. Sie schützt vor versteckten Gesundheitsproblemen und spart langfristig Tierarztkosten."
+    question: "Wo kann man seriös ein Pferd kaufen?",
+    answer: "Seriöse Kaufmöglichkeiten umfassen: 1) Spezialisierte Online-Plattformen wie ehorses.de, 2) Lokale Pferdehöfe und Züchter mit gutem Ruf, 3) Reitvereine und Pensionsbetriebe, 4) Pferdebörsen und Auktionen, 5) Empfehlungen von Trainern und Tierärzten. Wichtig ist immer: Persönliche Besichtigung, mehrfaches Probereiten und professionelle AKU durchführen."
   },
   {
-    question: "Sollte ich ein Pferd privat oder vom Züchter kaufen?",
-    answer:
-      "**Vom Züchter:**\n- ✅ Vorteile: Garantierte Papiere, professionelle Beratung, oft besserer Gesundheitszustand, Rückgaberecht möglich\n- ❌ Nachteile: Höhere Preise\n\n**Privat:**\n- ✅ Vorteile: Niedrigere Preise, direkte Kommunikation, oft inklusive Ausrüstung\n- ❌ Nachteile: Keine Garantien, höheres Risiko bei versteckten Mängeln\n\n**Empfehlung für Anfänger**: Züchter oder seriöser Vermittler. **Für erfahrene Käufer**: Private Verkäufe möglich, aber immer mit AKU!"
+    question: "Welche Papiere braucht man beim Pferdekauf?",
+    answer: "Erforderliche Dokumente beim Pferdekauf: 1) Equidenpass (EU-Pflicht mit Identifikation und Impfungen), 2) Abstammungsnachweis/Zuchtpapiere bei Rassepferden, 3) Schriftlicher Kaufvertrag mit allen Details, 4) AKU-Bericht vom Tierarzt, 5) Eigentumsnachweis des Verkäufers, 6) Haftungsausschluss-Vereinbarung (falls gewünscht). Alle Papiere sollten vor Kaufabschluss geprüft werden."
   },
   {
-    question: "Wie erkenne ich, ob ein Pferd seinen Preis wert ist?",
-    answer:
-      "Ein fairer Preis spiegelt diese Faktoren wider:\n\n1. **Gesundheit**: Positive AKU, keine Vorerkrankungen\n2. **Ausbildungsstand**: Nachweisbare Turniererfolge oder Reitweise-Expertise\n3. **Alter**: 5-12 Jahre Premium, jünger/älter günstiger\n4. **Charakter**: Anfängerfreundlich = höherer Wert\n5. **Rasse**: Beliebte Warmblüter teurer als seltenere Rassen\n6. **Marktnachfrage**: Aktueller Trend\n\n**Nutze Tools wie PferdeWert.de** für eine fundierte Marktpreisanalyse basierend auf diesen Faktoren."
+    question: "Was sind typische Red Flags beim Pferdekauf?",
+    answer: "Warnsignale beim Pferdekauf: 1) Unrealistisch niedrige Preise ohne plausible Erklärung, 2) Verkäufer lehnt AKU ab oder drängt zu bestimmtem Tierarzt, 3) Fehlende oder unvollständige Papiere, 4) Pferd ist stark sediert beim Probereiten, 5) Verkäufer verhindert mehrfache Besichtigungen, 6) Keine Informationen zur Vorgeschichte/Gesundheit, 7) Druck zu schneller Kaufentscheidung, 8) Widersprüchliche Angaben zu Alter, Ausbildung oder Leistungen."
   },
   {
-    question: "Warum sind manche Pferde so günstig (€200-€500)?",
-    answer:
-      "Extrem niedrige Preise (unter €1.000) sind oft **Red Flags**:\n\n- **Gesundheitsprobleme**: Chronische Erkrankungen, Lahmheiten\n- **Verhaltensprobleme**: Nicht reitbar, gefährlich\n- **Alter**: Sehr alt, Gnadenbrot-Pferde\n- **Fehlende Papiere**: Illegale Herkunft\n- **Unseriöse Verkäufer**: Notverkäufe, Betrugsfälle\n\n**Ausnahmen**: Tierschutz-Organisationen, Gnadenbrot-Vermittlung, Besitzer in Notsituationen (z.B. Umzug).\n\n**Vorsicht**: Günstige Anschaffung kann teure Folgen haben (Tierarztrechnungen!)."
+    question: "Welche Versicherungen braucht man für ein Pferd?",
+    answer: "Empfohlene Versicherungen für Pferdebesitzer: 1) Haftpflichtversicherung (€5-15/Monat, deckt Schäden durch das Pferd), 2) OP-Versicherung (€30-80/Monat, übernimmt Operationskosten), 3) Krankenversicherung (optional, €50-150/Monat), 4) Lebensversicherung (optional, bei wertvollen Pferden). Die Haftpflichtversicherung ist besonders wichtig und in vielen Reitbetrieben Pflicht."
   },
   {
-    question: "Welche Unterlagen brauche ich beim Pferdekauf?",
-    answer:
-      "**Essenziell:**\n\n- **Equidenpass** (EU-Pflicht): Enthält Identität, Impfungen, Gesundheitsdaten\n- **Kaufvertrag** (schriftlich mit allen Details)\n- **AKU-Bericht** (wenn durchgeführt)\n- **Abstammungspapiere** (bei reinrassigen Pferden)\n\n**Optional aber empfohlen:**\n\n- Röntgenbilder\n- Bisherige Tierarztrechnungen\n- Trainingsnachweis (z.B. Turnierergebnisse)\n- Haftpflichtversicherung (kann übernommen werden)\n\n**Tipp**: Lassen Sie alle Dokumente vor Kaufabschluss prüfen!"
+    question: "Wie bewertet man den Wert eines Pferdes objektiv?",
+    answer: "Objektive Pferdebewertung erfolgt nach mehreren Kriterien: 1) Rasse und Abstammung (Zuchtlinien, Stammbaum), 2) Ausbildungsstand und Leistungen (Turniererfolge, Ausbildungsniveau), 3) Alter und Gesundheitszustand (AKU-Ergebnis, Vorerkrankungen), 4) Exterieur und Interieur (Körperbau, Charakter), 5) Marktvergleich (aktuelle Verkaufspreise ähnlicher Pferde). Moderne AI-gestützte Tools wie PferdeWert.de kombinieren diese Faktoren für eine datenbasierte Bewertung."
   }
 ]
 
@@ -246,25 +239,6 @@ const PferdKaufen: NextPage = () => {
                   "@type": "WebPage",
                   "@id": "https://pferdewert.de/ratgeber/pferd-kaufen"
                 }
-              })
-            }}
-          />
-
-          {/* FAQPage Schema */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": faqItems.map(faq => ({
-                  "@type": "Question",
-                  "name": faq.question,
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.answer
-                  }
-                }))
               })
             }}
           />
@@ -415,82 +389,6 @@ const PferdKaufen: NextPage = () => {
             }}
           />
 
-          {/* Enhanced FAQ Schema from SEO Content */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "Was kostet ein Pferd im Durchschnitt?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Der Kaufpreis variiert stark je nach Disziplin und Ausbildungsstand: Freizeitpferde kosten €2,500-8,000, Dressurpferde €8,000-25,000, Springpferde €10,000-50,000+. Zusätzlich zum Kaufpreis fallen jährliche Kosten von €3,000-6,000 für Unterbringung, Futter, Tierarzt und Hufschmied an."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Was sollte man beim Pferdekauf beachten?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Die wichtigsten Aspekte beim Pferdekauf sind: 1) Durchführung einer professionellen Ankaufsuntersuchung (AKU), 2) Mehrfaches Probereiten unter verschiedenen Bedingungen, 3) Prüfung aller Papiere und Dokumente, 4) Objektive Pferdebewertung (z.B. mit AI-Tools), 5) Schriftlicher Kaufvertrag mit allen Details, 6) Vermeidung von Red Flags wie unrealistisch niedrigen Preisen oder fehlenden Papieren."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Wie läuft eine Ankaufsuntersuchung (AKU) ab?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Eine AKU umfasst mehrere Komponenten: 1) Klinische Untersuchung (Allgemeinzustand, Herzfrequenz, Atmung), 2) Röntgenaufnahmen der Gliedmaßen, 3) Blutuntersuchung auf Substanzen, 4) Bewegungsanalyse an der Longe und unter dem Reiter, 5) Beurteilung der Belastbarkeit. Die Kosten liegen zwischen €150-500 je nach Umfang. Eine AKU sollte immer von einem unabhängigen Tierarzt durchgeführt werden."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Wo kann man seriös ein Pferd kaufen?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Seriöse Kaufmöglichkeiten umfassen: 1) Spezialisierte Online-Plattformen wie ehorses.de, 2) Lokale Pferdehöfe und Züchter mit gutem Ruf, 3) Reitvereine und Pensionsbetriebe, 4) Pferdebörsen und Auktionen, 5) Empfehlungen von Trainern und Tierärzten. Wichtig ist immer: Persönliche Besichtigung, mehrfaches Probereiten und professionelle AKU durchführen."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Welche Papiere braucht man beim Pferdekauf?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Erforderliche Dokumente beim Pferdekauf: 1) Equidenpass (EU-Pflicht mit Identifikation und Impfungen), 2) Abstammungsnachweis/Zuchtpapiere bei Rassepferden, 3) Schriftlicher Kaufvertrag mit allen Details, 4) AKU-Bericht vom Tierarzt, 5) Eigentumsnachweis des Verkäufers, 6) Haftungsausschluss-Vereinbarung (falls gewünscht). Alle Papiere sollten vor Kaufabschluss geprüft werden."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Was sind typische Red Flags beim Pferdekauf?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Warnsignale beim Pferdekauf: 1) Unrealistisch niedrige Preise ohne plausible Erklärung, 2) Verkäufer lehnt AKU ab oder drängt zu bestimmtem Tierarzt, 3) Fehlende oder unvollständige Papiere, 4) Pferd ist stark sediert beim Probereiten, 5) Verkäufer verhindert mehrfache Besichtigungen, 6) Keine Informationen zur Vorgeschichte/Gesundheit, 7) Druck zu schneller Kaufentscheidung, 8) Widersprüchliche Angaben zu Alter, Ausbildung oder Leistungen."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Welche Versicherungen braucht man für ein Pferd?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Empfohlene Versicherungen für Pferdebesitzer: 1) Haftpflichtversicherung (€5-15/Monat, deckt Schäden durch das Pferd), 2) OP-Versicherung (€30-80/Monat, übernimmt Operationskosten), 3) Krankenversicherung (optional, €50-150/Monat), 4) Lebensversicherung (optional, bei wertvollen Pferden). Die Haftpflichtversicherung ist besonders wichtig und in vielen Reitbetrieben Pflicht."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Wie bewertet man den Wert eines Pferdes objektiv?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Objektive Pferdebewertung erfolgt nach mehreren Kriterien: 1) Rasse und Abstammung (Zuchtlinien, Stammbaum), 2) Ausbildungsstand und Leistungen (Turniererfolge, Ausbildungsniveau), 3) Alter und Gesundheitszustand (AKU-Ergebnis, Vorerkrankungen), 4) Exterieur und Interieur (Körperbau, Charakter), 5) Marktvergleich (aktuelle Verkaufspreise ähnlicher Pferde). Moderne AI-gestützte Tools wie PferdeWert.de kombinieren diese Faktoren für eine datenbasierte Bewertung."
-                    }
-                  }
-                ]
-              })
-            }}
-          />
         </Head>
 
         <RatgeberHero
