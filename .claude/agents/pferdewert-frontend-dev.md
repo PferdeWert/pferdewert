@@ -1,7 +1,7 @@
 ---
 name: pferdewert-frontend-dev
 description: Use this agent when working on frontend development tasks for PferdeWert.de, including React component creation, TypeScript implementation, Tailwind CSS styling, Stripe payment integration, form development, responsive design, accessibility improvements, and Next.js Pages Router functionality. Examples: <example>Context: User needs to create a new horse breed selection component with improved validation. user: 'I need to create a dropdown component for horse breed selection with proper TypeScript types and validation' assistant: 'I'll use the pferdewert-frontend-dev agent to create a TypeScript component with proper interfaces, Tailwind styling, and form validation following PferdeWert.de standards'</example> <example>Context: User is implementing Stripe checkout integration for the horse evaluation form. user: 'The checkout flow needs to handle form data and redirect to Stripe properly' assistant: 'Let me use the pferdewert-frontend-dev agent to implement the Stripe checkout handler with proper error handling and loading states'</example> <example>Context: User needs to fix mobile responsiveness issues on the evaluation form. user: 'Users are reporting the horse evaluation form is hard to use on mobile devices' assistant: 'I'll use the pferdewert-frontend-dev agent to optimize the mobile experience with proper touch targets and responsive design'</example>
-model: sonnet
+model: haiku
 color: blue
 ---
 
