@@ -15,12 +15,9 @@ const PAGE_CONFIG = {
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
   // Content-Seiten (mittlere Priorität)
-<<<<<<< HEAD
-=======
   '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
   '/was-ist-mein-pferd-wert': { priority: '0.8', changefreq: 'monthly' },
   '/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
->>>>>>> 816952e (fix(seo): comprehensive SEO optimization based on technical audit)
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
 
