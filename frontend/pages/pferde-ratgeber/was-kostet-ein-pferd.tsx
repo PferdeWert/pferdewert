@@ -14,6 +14,7 @@ import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
 // Section definitions for Table of Contents
 const sections = [
   { id: 'anschaffungskosten', title: 'Anschaffungskosten eines Pferdes' },
+  { id: 'pferd-preis-nach-rasse', title: 'Pferd Preis nach Rasse' },
   { id: 'monatliche-kosten', title: 'Monatliche Kosten im Überblick' },
   { id: 'jaehrliche-kosten', title: 'Jährliche Fixkosten' },
   { id: 'versteckte-kosten', title: 'Versteckte Kosten, die oft vergessen werden' },
@@ -40,6 +41,14 @@ const faqItems = [
   {
     question: 'Ist eine Pferde-Versicherung sinnvoll?',
     answer: 'Ja, Versicherungen sind essenziell. Die Haftpflichtversicherung (60€ - 120€/Jahr) ist OBLIGATORISCH und deckt Schäden ab, die das Pferd Dritten zufügt. Ohne Haftpflicht haften Sie unbegrenzt mit Ihrem Privatvermögen. Eine OP-Versicherung (150€ - 400€/Jahr) ist DRINGEND EMPFOHLEN, da Operationen 3.000€ - 15.000€ kosten können. Die Versicherung deckt bis zu 10.000€ - 25.000€. Eine Kolik-OP kostet z.B. 6.000€, eine Fraktur-OP 12.000€ – ohne Versicherung oft finanzieller Ruin. Eine Krankenversicherung (400€ - 1.200€/Jahr) ist OPTIONAL und lohnt sich meist nur für Pferde mit chronischen Problemen.'
+  },
+  {
+    question: 'Was beeinflusst den Pferd Preis am meisten?',
+    answer: 'Der Pferd Preis wird hauptsächlich von 5 Faktoren bestimmt: (1) Ausbildungsstand – ein rohes Jungpferd kostet 3.000€ - 6.000€, während ein turniererfahrenes Sportpferd 15.000€ - 30.000€+ kostet. (2) Rasse – Warmblüter (8.000€ - 20.000€) sind teurer als Freiberger (4.000€ - 8.000€). (3) Alter – Pferde zwischen 5-12 Jahren erzielen Höchstpreise. (4) Gesundheitszustand – eine positive AKU erhöht den Wert um 15-25%. (5) Abstammung – Pferde mit Championatslinien können 50-100% teurer sein. Regional können Preise um 20-30% variieren: Süddeutschland ist teurer als Ostdeutschland.'
+  },
+  {
+    question: 'Wie unterscheiden sich Pferd Preise nach Rasse?',
+    answer: 'Pferd Preise variieren stark nach Rasse: Warmblüter (z.B. Hannoveraner, Holsteiner) kosten 8.000€ - 20.000€ für Freizeit/Sport, Spitzensportpferde bis 100.000€+. Quarter Horses liegen bei 6.000€ - 15.000€, spezialisierte Westernpferde bis 30.000€+. Islandpferde kosten 4.000€ - 12.000€, mit Tölt-Champions bis 25.000€+. Haflinger/Freiberger sind günstiger bei 3.000€ - 8.000€, Zuchtpferde bis 15.000€. Ponys starten bei 2.000€ - 6.000€, Turnierpponys bis 20.000€. Vollblüter reichen von 3.000€ (Off-Track) bis 500.000€+ (Spitzenzucht). Der Preis spiegelt Zucht, Ausbildung und Marktnachfrage wider.'
   }
 ]
 
@@ -93,9 +102,11 @@ export default function WasKostetEinPferd() {
     keywords: [
       'was kostet ein pferd',
       'pferd kosten',
+      'pferd preis',
       'pferdehaltung kosten',
       'pferd monatliche kosten',
       'pferd anschaffungskosten',
+      'pferd preis nach rasse',
       'stallmiete',
       'hufschmied kosten',
       'tierarztkosten pferd',
@@ -176,7 +187,7 @@ export default function WasKostetEinPferd() {
         <title>Was kostet ein Pferd? Kosten 2025 im Überblick</title>
         <meta
           name="description"
-          content="Ein Pferd kostet 2.500-20.000€ Anschaffung + 400-800€/Monat. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten."
+          content="Pferd Kosten & Preis 2025: Vollständige Kostenübersicht inkl. Anschaffung (2.500-20.000€), monatliche Kosten (400-800€), Stallmiete, Futter & Tierarzt."
         />
         <meta name="robots" content="index, follow" />
         <link
@@ -188,7 +199,7 @@ export default function WasKostetEinPferd() {
         <meta property="og:title" content="Was kostet ein Pferd? Alle Kosten 2025 im Überblick" />
         <meta
           property="og:description"
-          content="Ein Pferd kostet 2.500-20.000€ Anschaffung + 400-800€ monatlich. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten."
+          content="Pferd Kosten & Preis 2025: Vollständige Kostenübersicht inkl. Anschaffung (2.500-20.000€), monatliche Kosten (400-800€), Stallmiete, Futter & Tierarzt."
         />
         <meta property="og:type" content="article" />
         <meta
@@ -203,7 +214,7 @@ export default function WasKostetEinPferd() {
         <meta name="twitter:title" content="Was kostet ein Pferd? Alle Kosten 2025 im Überblick" />
         <meta
           name="twitter:description"
-          content="Ein Pferd kostet 2.500-20.000€ Anschaffung + 400-800€ monatlich. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten."
+          content="Pferd Kosten & Preis 2025: Vollständige Kostenübersicht inkl. Anschaffung (2.500-20.000€), monatliche Kosten (400-800€), Stallmiete, Futter & Tierarzt."
         />
         <meta name="twitter:site" content="@PferdeWert" />
         <meta name="twitter:creator" content="@PferdeWert" />
@@ -438,7 +449,207 @@ export default function WasKostetEinPferd() {
             <p className="text-lg text-gray-600 mb-8">je nach Qualität und ob Neu- oder Gebrauchtkauf</p>
           </section>
 
-          {/* Section 2: Monatliche Kosten */}
+          {/* Section 2: Pferd Preis nach Rasse */}
+          <section id="pferd-preis-nach-rasse" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Pferd Preis nach Rasse
+            </h2>
+
+            <div className="prose prose-lg max-w-none mb-10">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Der Pferd Preis variiert stark je nach Rasse, Ausbildungsstand und Verwendungszweck. Während manche Rassen bereits als Jungpferde höhere Preise erzielen, können gut ausgebildete Turnierpferde deutlich höhere Summen erreichen. Die folgende Übersicht zeigt realistische Preisspannen für beliebte Pferderassen in Deutschland.
+              </p>
+            </div>
+
+            <RatgeberHighlightBox
+              title="Preisspanne erklärt"
+              content="Die Preise variieren basierend auf Abstammung, Ausbildungsstand, Erfolgen, Gesundheitszustand und individuellen Anlagen. Premium-Blutlinien oder besondere Erfolge können Preise deutlich erhöhen."
+              type="info"
+            />
+
+            {/* Warmblut Preise */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 mt-12">Warmblut</h3>
+            <p className="text-lg text-gray-700 mb-6">
+              Deutsche Warmblüter (z.B. Hannoveraner, Oldenburger, Westfalen) sind vielseitige Sport- und Freizeitpferde mit breiter Preisrange je nach Qualität und Ausbildung.
+            </p>
+
+            <div className="mb-12">
+              <table className="w-full mb-8">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="text-left p-4 font-semibold text-gray-900">Ausbildungsstand</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Preisspanne</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Besonderheiten</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Jungpferd (1-3 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">3.000€ - 15.000€</td>
+                    <td className="p-4 text-gray-700">Abhängig von Abstammung und Körung</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Ausgebildetes Pferd (5-8 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">8.000€ - 35.000€</td>
+                    <td className="p-4 text-gray-700">Grundausbildung bis L-Niveau</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 text-gray-900">Turnierpferd (6+ Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">20.000€ - 100.000€+</td>
+                    <td className="p-4 text-gray-700">Platzierungen ab S-Niveau, Premium-Blutlinien</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Haflinger Preise */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Haflinger</h3>
+            <p className="text-lg text-gray-700 mb-6">
+              Haflinger sind robuste, vielseitige Kleinpferde, die sich für Freizeit, Fahrsport und Therapeutisches Reiten eignen. Sie sind in der Anschaffung oft günstiger als Warmblüter.
+            </p>
+
+            <div className="mb-12">
+              <table className="w-full mb-8">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="text-left p-4 font-semibold text-gray-900">Ausbildungsstand</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Preisspanne</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Besonderheiten</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Jungpferd (1-3 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">2.000€ - 6.000€</td>
+                    <td className="p-4 text-gray-700">Beliebte Freizeitrasse, gutes Preis-Leistungs-Verhältnis</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Ausgebildetes Pferd (5-8 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">5.000€ - 12.000€</td>
+                    <td className="p-4 text-gray-700">Reit- und fahrfertig ausgebildet</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 text-gray-900">Turnierpferd (6+ Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">10.000€ - 25.000€</td>
+                    <td className="p-4 text-gray-700">Erfolge im Fahrsport oder Distanzreiten</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Quarter Horse Preise */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Quarter Horse</h3>
+            <p className="text-lg text-gray-700 mb-6">
+              American Quarter Horses sind wendige Westernpferde mit ausgeprägtem &ldquo;Cow Sense&rdquo;. Sie sind besonders beliebt für Western-Disziplinen wie Reining, Cutting und Trail.
+            </p>
+
+            <div className="mb-12">
+              <table className="w-full mb-8">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="text-left p-4 font-semibold text-gray-900">Ausbildungsstand</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Preisspanne</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Besonderheiten</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Jungpferd (1-3 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">3.500€ - 10.000€</td>
+                    <td className="p-4 text-gray-700">Amerikanische Blutlinien oft teurer</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Ausgebildetes Pferd (5-8 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">7.000€ - 20.000€</td>
+                    <td className="p-4 text-gray-700">Western-Grundausbildung bis fortgeschritten</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 text-gray-900">Turnierpferd (6+ Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">15.000€ - 80.000€+</td>
+                    <td className="p-4 text-gray-700">Erfolge in Reining, Cutting oder Western Pleasure</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Vollblut Preise */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Vollblut</h3>
+            <p className="text-lg text-gray-700 mb-6">
+              Englische Vollblüter sind temperamentvolle Rennpferde mit hoher Leistungsbereitschaft. Ehemalige Rennpferde können nach Karriereende deutlich günstiger erworben werden.
+            </p>
+
+            <div className="mb-12">
+              <table className="w-full mb-8">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="text-left p-4 font-semibold text-gray-900">Ausbildungsstand</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Preisspanne</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Besonderheiten</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Jungpferd (1-3 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">2.000€ - 50.000€+</td>
+                    <td className="p-4 text-gray-700">Extrem große Spanne je nach Abstammung</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Ex-Rennpferd umgeschult</td>
+                    <td className="p-4 font-bold text-brand-brown">1.500€ - 8.000€</td>
+                    <td className="p-4 text-gray-700">Für Vielseitigkeit oder ambitioniertes Freizeitreiten</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 text-gray-900">Turnierpferd (6+ Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">10.000€ - 200.000€+</td>
+                    <td className="p-4 text-gray-700">Vielseitigkeit, Galopprennen, Premium-Zuchtpferde</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Friese Preise */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Friese</h3>
+            <p className="text-lg text-gray-700 mb-6">
+              Friesen sind elegante Barockpferde mit charakteristischer schwarzer Färbung und üppiger Mähne. Sie sind beliebt für Dressur, Fahrsport und barocke Reitkunst.
+            </p>
+
+            <div className="mb-12">
+              <table className="w-full mb-8">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="text-left p-4 font-semibold text-gray-900">Ausbildungsstand</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Preisspanne</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Besonderheiten</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Jungpferd (1-3 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">5.000€ - 18.000€</td>
+                    <td className="p-4 text-gray-700">Reinrassige Friesen mit Papieren (KFPS)</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Ausgebildetes Pferd (5-8 Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">12.000€ - 30.000€</td>
+                    <td className="p-4 text-gray-700">Dressur- oder fahrfertig ausgebildet</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 text-gray-900">Turnierpferd (6+ Jahre)</td>
+                    <td className="p-4 font-bold text-brand-brown">25.000€ - 80.000€+</td>
+                    <td className="p-4 text-gray-700">Dressur-Platzierungen oder Show-Erfolge</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <RatgeberHighlightBox
+              title="Wichtig beim Pferdekauf"
+              content="Der Pferd Preis allein sagt nichts über die Gesamtkosten aus. Bedenken Sie immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis."
+              type="warning"
+            />
+          </section>
+
+          {/* Section 3: Monatliche Kosten */}
           <section id="monatliche-kosten" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Monatliche Kosten im Überblick
@@ -448,6 +659,66 @@ export default function WasKostetEinPferd() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 Die monatlichen Fixkosten sind der größte laufende Posten bei der Pferdehaltung. Diese Ausgaben fallen regelmäßig an und sollten in keinem Monat unterschätzt werden.
               </p>
+            </div>
+
+            {/* Comprehensive Monthly Cost Breakdown Table */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Detaillierte Übersicht: Pferd Kosten pro Monat</h3>
+
+              <table className="w-full mb-8">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="text-left p-4 font-semibold text-gray-900">Kostenposition</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Minimum</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Maximum</th>
+                    <th className="text-left p-4 font-semibold text-gray-900">Durchschnitt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Stallmiete & Unterbringung</td>
+                    <td className="p-4 font-bold text-brand-brown">150€</td>
+                    <td className="p-4 font-bold text-brand-brown">1.200€</td>
+                    <td className="p-4 text-gray-700">350€ - 500€</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Futter & Einstreu</td>
+                    <td className="p-4 font-bold text-brand-brown">50€</td>
+                    <td className="p-4 font-bold text-brand-brown">200€</td>
+                    <td className="p-4 text-gray-700">80€ - 120€</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Hufschmied (alle 6-8 Wochen)</td>
+                    <td className="p-4 font-bold text-brand-brown">40€</td>
+                    <td className="p-4 font-bold text-brand-brown">200€</td>
+                    <td className="p-4 text-gray-700">60€ - 120€</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Tierarzt (Routineversorgung)</td>
+                    <td className="p-4 font-bold text-brand-brown">30€</td>
+                    <td className="p-4 font-bold text-brand-brown">150€</td>
+                    <td className="p-4 text-gray-700">50€ - 80€</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="p-4 text-gray-900">Versicherungen (Haftpflicht + OP)</td>
+                    <td className="p-4 font-bold text-brand-brown">20€</td>
+                    <td className="p-4 font-bold text-brand-brown">100€</td>
+                    <td className="p-4 text-gray-700">40€ - 60€</td>
+                  </tr>
+                  <tr className="bg-blue-50 font-bold">
+                    <td className="p-4 text-gray-900">Gesamtkosten pro Monat</td>
+                    <td className="p-4 text-brand-brown">290€</td>
+                    <td className="p-4 text-brand-brown">1.850€</td>
+                    <td className="p-4 text-blue-600">580€ - 880€</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <RatgeberHighlightBox
+                title="Realistische Budgetplanung"
+                content="Die durchschnittlichen monatlichen Pferd Kosten liegen bei 580€ - 880€. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können das Budget schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist empfehlenswert."
+                type="warning"
+              />
             </div>
 
             {/* Stallmiete und Unterbringung - Converted to semantic comparison table */}
@@ -1249,7 +1520,11 @@ export default function WasKostetEinPferd() {
                 </li>
               </ul>
               <p className="text-lg text-gray-700 mt-4 font-bold">
-                Nur wenn du alle Fragen mit &quot;Ja&quot; beantworten kannst, bist du finanziell und zeitlich für ein eigenes Pferd bereit.
+                Nur wenn du alle Fragen mit &quot;Ja&quot; beantworten kannst, bist du finanziell und zeitlich für ein eigenes Pferd bereit. Weitere wichtige Aspekte zur Vorbereitung findest du in unserem{' '}
+                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  Pferdekauf-Ratgeber
+                </Link>
+                .
               </p>
             </div>
 

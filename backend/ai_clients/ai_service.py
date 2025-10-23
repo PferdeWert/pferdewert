@@ -109,7 +109,8 @@ class AIService:
                     messages=messages,
                     max_tokens=model_config.max_tokens,
                     temperature=model_config.temperature,
-                    top_p=model_config.top_p
+                    top_p=model_config.top_p,
+                    stream=False  # Explicitly disable streaming to prevent OpenRouter auto-enabling
                 )
 
                 logging.info(f"✅ Stage {i} successful: {model_config.name}")
