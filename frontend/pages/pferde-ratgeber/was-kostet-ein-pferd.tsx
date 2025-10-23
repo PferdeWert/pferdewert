@@ -463,9 +463,9 @@ export default function WasKostetEinPferd() {
 
             <RatgeberHighlightBox
               title="Preisspanne erklärt"
-              content="Die Preise variieren basierend auf Abstammung, Ausbildungsstand, Erfolgen, Gesundheitszustand und individuellen Anlagen. Premium-Blutlinien oder besondere Erfolge können Preise deutlich erhöhen."
-              type="info"
-            />
+            >
+              Die Preise variieren basierend auf Abstammung, Ausbildungsstand, Erfolgen, Gesundheitszustand und individuellen Anlagen. Premium-Blutlinien oder besondere Erfolge können Preise deutlich erhöhen.
+            </RatgeberHighlightBox>
 
             {/* Warmblut Preise */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6 mt-12">Warmblut</h3>
@@ -644,9 +644,9 @@ export default function WasKostetEinPferd() {
 
             <RatgeberHighlightBox
               title="Wichtig beim Pferdekauf"
-              content="Der Pferd Preis allein sagt nichts über die Gesamtkosten aus. Bedenken Sie immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis."
-              type="warning"
-            />
+            >
+              Der Pferd Preis allein sagt nichts über die Gesamtkosten aus. Bedenken Sie immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
+            </RatgeberHighlightBox>
           </section>
 
           {/* Section 3: Monatliche Kosten */}
@@ -716,9 +716,9 @@ export default function WasKostetEinPferd() {
 
               <RatgeberHighlightBox
                 title="Realistische Budgetplanung"
-                content="Die durchschnittlichen monatlichen Pferd Kosten liegen bei 580€ - 880€. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können das Budget schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist empfehlenswert."
-                type="warning"
-              />
+              >
+                Die durchschnittlichen monatlichen Pferd Kosten liegen bei 580€ - 880€. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können das Budget schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist empfehlenswert.
+              </RatgeberHighlightBox>
             </div>
 
             {/* Stallmiete und Unterbringung - Converted to semantic comparison table */}

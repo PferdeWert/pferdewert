@@ -1,7 +1,7 @@
 ---
 name: pferdewert-backend-architect
 description: Use this agent when you need backend architecture expertise for PferdeWert.de, including FastAPI optimization, MongoDB schema design, Stripe payment integration, performance improvements, deployment strategies, or DSGVO-compliant data architecture. Examples: <example>Context: User is experiencing slow API response times in the horse valuation endpoint. user: 'Our /api/bewertung endpoint is taking 8+ seconds to respond during peak hours. Users are abandoning the form.' assistant: 'I'll use the pferdewert-backend-architect agent to analyze and optimize the API performance bottlenecks.'</example> <example>Context: User needs to implement user accounts while maintaining DSGVO compliance. user: 'We want to add user accounts so people can save their horse valuations, but we need to stay DSGVO compliant.' assistant: 'Let me engage the pferdewert-backend-architect agent to design a compliant user account architecture that maintains data anonymization.'</example> <example>Context: User is having issues with Stripe webhook reliability. user: 'Some Stripe payments are completing but our webhook isn't processing them reliably. Users pay but don't get access to premium features.' assistant: 'I'll use the pferdewert-backend-architect agent to implement robust webhook handling with proper retry logic and idempotency.'</example>
-model: sonnet
+model: haiku
 color: yellow
 ---
 

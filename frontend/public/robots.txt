@@ -15,20 +15,16 @@ Disallow: /_next/
 
 # Allow important crawlable content
 Allow: /pferde-preis-berechnen
-<<<<<<< HEAD
 Allow: /pferde-ratgeber
-=======
 Allow: /pferde-ratgeber/pferd-kaufen
 Allow: /was-ist-mein-pferd-wert
 Allow: /pferd-verkaufen
->>>>>>> 816952e (fix(seo): comprehensive SEO optimization based on technical audit)
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
 Allow: /pferde-ratgeber/aku-pferd
 Allow: /pferde-ratgeber/aku-pferd/ablauf
 Allow: /pferde-ratgeber/aku-pferd/klassen
 Allow: /pferde-ratgeber/aku-pferd/kosten
-Allow: /pferde-ratgeber/pferd-kaufen
 Allow: /pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd
 Allow: /pferde-ratgeber/pferd-verkaufen
 Allow: /pferde-ratgeber/pferd-verkaufen/tipps

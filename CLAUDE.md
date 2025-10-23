@@ -45,9 +45,13 @@ ssh pferdewert-hetzner  # Configured alias in ~/.ssh/config
 
 ## Key Files
 - `pages/` - Next.js routes
-- `components/` - React components  
+- `components/` - React components
 - `lib/mongo.ts` - Database connection
 - `types/global.d.ts` - Window extensions
+
+## Troubleshooting
+- **Evaluations Issues**: See `@docs/troubleshooting-evaluations.md` for scripts to fix incomplete evaluations
+  - **CRITICAL**: Use `MONGODB_DB=test` for evaluation scripts (not `pferdewert` database)
 
 ## Quick Access
 - Use `/docs` for Claude Code capabilities and MCP guides

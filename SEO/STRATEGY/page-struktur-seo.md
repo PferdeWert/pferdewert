@@ -81,11 +81,10 @@
 ### Hub: Pferd kaufen (/pferde-ratgeber/pferd-kaufen) ✅ LIVE
 - **Ziel-Keyword**: pferd kaufen (40.500/Mo., KD: 25)
 - **Navigation**: Ratgeber Dropdown
-- **⚠️ Hinweis**: Suchvolumen deutlich höher als ursprünglich angenommen (14.800 → 40.500)
 
 ### Spokes (Sitemap-only):
 
-1. **Was kostet ein Pferd** (/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd) ✅ LIVE
+1. **Was kostet ein Pferd** (/pferde-ratgeber/was-kostet-ein-pferd) ✅ LIVE
    - Keyword: was kostet ein pferd (2.900/Mo., KD: 4)
    - Begründung: Informational keyword mit niedrigem KD, perfekt für Einstiegs-Content
 

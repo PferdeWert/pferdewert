@@ -41,7 +41,7 @@ class ModelManager:
 
     def _get_fallback_model(self) -> ModelConfig:
         """Get fallback model from environment"""
-        model_id = os.getenv("FALLBACK_MODEL", "anthropic/claude-opus-4-1-20250805")
+        model_id = os.getenv("FALLBACK_MODEL", "anthropic/claude-3.5-sonnet")
         return ModelConfig(
             name=self._get_model_name(model_id),
             openrouter_id=model_id,

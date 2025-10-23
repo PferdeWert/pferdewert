@@ -1,21 +1,111 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import { RATGEBER_ENTRIES, getRatgeberPath } from '../../lib/ratgeber-registry'
+import { error } from '@/lib/log'
+import { connectToDatabase } from '@/lib/mongo/client'
+import { getRatgeberRepository } from '@/lib/mongo/ratgeber-repository'
+import { RatgeberArticle } from '@/types/ratgeber'
 
-const PferdeRatgeber: NextPage = () => {
-  const ratgeberArtikel = RATGEBER_ENTRIES.map((entry, index) => ({
+// ============================================================================
+// TYPES
+// ============================================================================
+
+interface RatgeberIndexProps {
+  articles: RatgeberArticle[]
+}
+
+interface RatgeberArtikelCard {
+  id: number
+  titel: string
+  beschreibung: string
+  kategorie: string
+  lesezeit: string
+  bild: string
+  link: string
+}
+
+// ============================================================================
+// ISR: STATIC PROPS WITH REVALIDATION
+// ============================================================================
+
+export const getStaticProps: GetStaticProps<RatgeberIndexProps> = async () => {
+  try {
+    const { db } = await connectToDatabase()
+    const repository = getRatgeberRepository(db)
+
+    // Fetch all published articles with high limit
+    const response = await repository.findPublished(1, 100)
+
+    return {
+      props: {
+        articles: response.articles,
+      },
+      // Revalidate every hour
+      revalidate: 3600,
+    }
+  } catch (err) {
+    error('Failed to fetch ratgeber articles:', err)
+    // Return empty array with shorter revalidation on error
+    return {
+      props: {
+        articles: [],
+      },
+      revalidate: 60,
+    }
+  }
+}
+
+// ============================================================================
+// HELPER: TRANSFORM ARTICLE TO UI FORMAT
+// ============================================================================
+
+function transformArticleToCard(article: RatgeberArticle, index: number): RatgeberArtikelCard {
+  // Use edited title if available, fallback to Outrank title
+  const titel = article.pferdewert.edited_title || article.outrank.title
+
+  // Use meta description for summary
+  const beschreibung = article.seo.meta_description
+
+  // Map category enum to display name
+  const kategorieMappings: Record<string, string> = {
+    pferdekauf: 'Kauf',
+    pferdeverkauf: 'Verkauf',
+    pferdehaltung: 'Haltung',
+    pferdegesundheit: 'Gesundheit',
+    pferdetraining: 'Training',
+    pferdewissen: 'Wissen',
+    marktanalyse: 'Markt',
+  }
+  const kategorie = kategorieMappings[article.taxonomy.primary_category] || 'Wissen'
+
+  // Use featured image if available, fallback to Outrank image
+  const bild = article.pferdewert.featured_image || article.outrank.image_url
+
+  // Create article link using slug
+  const link = `/pferde-ratgeber/${article.outrank.slug}`
+
+  return {
     id: index + 1,
-    titel: entry.title,
-    beschreibung: entry.description,
-    kategorie: entry.category,
-    lesezeit: entry.readTime,
-    bild: entry.image,
-    link: getRatgeberPath(entry.slug),
-  }))
+    titel,
+    beschreibung,
+    kategorie,
+    lesezeit: '5 Minuten Lesezeit',
+    bild,
+    link,
+  }
+}
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
+
+const PferdeRatgeber: NextPage<RatgeberIndexProps> = ({ articles }) => {
+  const ratgeberArtikel: RatgeberArtikelCard[] = articles.map((article, index) =>
+    transformArticleToCard(article, index)
+  )
 
   return (
     <>
