@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "https://pferdewert.de/:path*",
-      "destination": "https://www.pferdewert.de/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
