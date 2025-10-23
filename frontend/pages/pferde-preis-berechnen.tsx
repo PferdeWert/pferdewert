@@ -497,7 +497,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           "Content-Type": "application/json",
           "X-CSRF-Token": csrfToken
         },
-        body: JSON.stringify({ text: JSON.stringify(form) }),
+        body: JSON.stringify(form),
         signal: controller.signal
       });
 
