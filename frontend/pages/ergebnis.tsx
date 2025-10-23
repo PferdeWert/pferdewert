@@ -327,33 +327,12 @@ export default function Ergebnis() {
     <BewertungLayout title="PferdeWert – Ergebnis der Pferdebewertung">
       {text ? (
         <>
-          {/* Trust Indicators Section */}
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <div className="flex items-center space-x-2 mb-2">
-              <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-              <h3 className="text-sm font-semibold text-green-800">Analyse abgeschlossen</h3>
-            </div>
-            <p className="text-sm text-green-700">
-              Ihre professionelle Pferdebewertung wurde erfolgreich erstellt.
-              Der Bericht basiert auf KI-Analyse von über 10.000 Pferdedaten und aktuellen Markttrends.
-            </p>
-          </div>
 
           {/* Main Content */}
           <article className="prose prose-lg max-w-full">
             <ReactMarkdown>{text}</ReactMarkdown>
           </article>
 
-          {/* Methodology & Trust Section */}
-          <div className="mt-8 mb-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Über diese Bewertung</h3>
-            <div className="text-sm text-blue-800 space-y-2">
-              <p><strong>Methodik:</strong> KI-basierte Analyse mit Dual-AI-System (GPT & Claude)</p>
-              <p><strong>Datengrundlage:</strong> Über 10.000 Pferdedaten und aktuelle Marktpreise</p>
-              <p><strong>Aktualisierung:</strong> Bewertungsmodell wird monatlich aktualisiert</p>
-              <p><strong>Verwendung:</strong> Orientierungswert für Kauf, Verkauf und Versicherung</p>
-            </div>
-          </div>
 
           {/* Download Section */}
           <div className="mt-8 text-center">
@@ -370,37 +349,12 @@ export default function Ergebnis() {
                     }
                   }}
                 >
-                  {loading ? "Lade PDF..." : "📄 Vollständige Analyse als PDF herunterladen"}
+                  {loading ? "Lade PDF..." : "📄 PferdeWert-Analyse als PDF herunterladen"}
                 </button>
               )}
             </PDFDownloadLink>
-            <p className="mt-3 text-sm text-gray-600">
-              Professioneller Bewertungsbericht zum Archivieren und Weiterleiten
-            </p>
           </div>
 
-          {/* Next Steps Section */}
-          <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Nächste Schritte</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div className="space-y-2">
-                <h4 className="font-medium text-gray-800">Für Verkäufer:</h4>
-                <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Bewertung bei Inseraten angeben</li>
-                  <li>PDF an interessierte Käufer senden</li>
-                  <li>Preisverhandlungen professionell führen</li>
-                </ul>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-medium text-gray-800">Für Käufer:</h4>
-                <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Faire Preisverhandlung ermöglichen</li>
-                  <li>Marktwert als Orientierung nutzen</li>
-                  <li>Versicherungswert bestimmen</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </>
       ) : (
         <div className="text-center py-12">
