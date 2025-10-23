@@ -68,6 +68,12 @@ interface WebhookResponse {
   failed_list_revalidations?: string[];
 }
 
+interface WebhookValidationResponse {
+  success: boolean;
+  message: string;
+  timestamp: string;
+}
+
 // ============================================================================
 // AUTHENTICATION MIDDLEWARE
 // ============================================================================
@@ -215,7 +221,7 @@ async function processArticle(
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<WebhookResponse | { error: string }>
+  res: NextApiResponse<WebhookResponse | WebhookValidationResponse | { error: string }>
 ) {
   // Log incoming request details for debugging
   info('📥 Incoming webhook request:', {
@@ -239,7 +245,7 @@ export default async function handler(
       success: true,
       message: 'Webhook endpoint is active and authenticated',
       timestamp: new Date().toISOString(),
-    } as any);
+    });
   }
 
   // Handle POST requests (actual article processing)
