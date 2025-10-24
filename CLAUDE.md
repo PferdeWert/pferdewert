@@ -1,10 +1,8 @@
 # CLAUDE.md
 
-@docs/project-context.md
-@docs/development-standards.md
-@docs/extended-guides.md
+## 🚨 Critical Rules (Always Active)
 
-## Pricing & Business Model
+### Pricing & Business Model
 - **Service is PAID**: Pricing defined in `frontend/lib/pricing.ts`
 - **NEVER use "kostenlos" / "free" in content or UI** - this is business-critical
 
@@ -50,10 +48,36 @@ ssh pferdewert-hetzner  # Configured alias in ~/.ssh/config
 - `types/global.d.ts` - Window extensions
 
 ## Troubleshooting
-- **Evaluations Issues**: See `@docs/troubleshooting-evaluations.md` for scripts to fix incomplete evaluations
+- **Evaluations Issues**: See [troubleshooting-evaluations.md](docs/troubleshooting-evaluations.md) for scripts to fix incomplete evaluations
   - **CRITICAL**: Use `MONGODB_DB=test` for evaluation scripts (not `pferdewert` database)
 
 ## Quick Access
 - Use `/docs` for Claude Code capabilities and MCP guides
 - Use Context7: "use context7" for current docs
 - Agents: `pferdewert-frontend-dev`, `pferdewert-debugger`, `pferdewert-code-reviewer`
+
+---
+
+## 📁 Extended Documentation (Load on-demand)
+
+When you need detailed information about specific areas, refer to these docs:
+
+### Core Documentation
+- **[project-context.md](docs/project-context.md)** - Vision, mission, target users, value propositions, business priorities
+- **[development-standards.md](docs/development-standards.md)** - Critical coding rules, quality standards, deployment checklist
+- **[extended-guides.md](docs/extended-guides.md)** - Specialized agents, MCP troubleshooting, server access, additional guides
+
+### Specialized Guides
+- **[frontend-guidelines.md](docs/frontend-guidelines.md)** - React/Next.js standards
+- **[typescript-guidelines.md](docs/typescript-guidelines.md)** - TS/ESLint rules
+- **[design-guidelines.md](docs/design-guidelines.md)** - UI/UX patterns
+- **[agents.md](docs/agents.md)** - pferdewert-* specialized agents
+- **[security-fixes.md](docs/security-fixes.md)** - Security implementation guide
+- **[troubleshooting-evaluations.md](docs/troubleshooting-evaluations.md)** - Evaluation debugging scripts
+
+### Advanced Topics
+- **[gemini/setup.md](docs/gemini/setup.md)** - Gemini CLI setup and integration
+- **[gemini/usage.md](docs/gemini/usage.md)** - Gemini CLI usage patterns for token savings
+- **[notion-voice-setup.md](docs/notion-voice-setup.md)** - Complete Notion voice integration setup
+
+> **Note**: These docs are NOT automatically loaded. Use the Read tool to access them only when needed.
