@@ -7,6 +7,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { error } from '@/lib/log';
 import { connectToDatabase } from '@/lib/mongo/client';
 import { getRatgeberRepository } from '@/lib/mongo/ratgeber-repository';
@@ -183,12 +184,14 @@ export default function RatgeberArticlePage({
       <article className="max-w-4xl mx-auto px-4 py-12">
         {/* Hero Image */}
         {featuredImage && (
-          <div className="mb-8 rounded-lg overflow-hidden">
-            <img
+          <div className="mb-8 rounded-lg overflow-hidden relative w-full aspect-video">
+            <Image
               src={featuredImage}
               alt={displayTitle}
-              className="w-full h-auto"
-              loading="eager"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 896px"
+              className="object-cover"
+              priority
             />
           </div>
         )}

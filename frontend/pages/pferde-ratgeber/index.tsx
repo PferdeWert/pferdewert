@@ -231,7 +231,7 @@ const PferdeRatgeber: NextPage<RatgeberIndexProps> = ({ articles }) => {
             </h2>
 
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Nutzen Sie unsere AI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Einfach, schnell und datenbasiert.
+              Nutzen Sie unsere KI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Einfach, schnell und datenbasiert.
             </p>
 
             <Link href="/pferde-preis-berechnen">
