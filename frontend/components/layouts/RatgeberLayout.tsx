@@ -6,6 +6,7 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import Breadcrumbs from './Breadcrumbs';
 import BreadcrumbSchema from '../seo/BreadcrumbSchema';
 import ArticleSchema from '../seo/ArticleSchema';
@@ -106,10 +107,13 @@ export default function RatgeberLayout({
                 href="/"
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
-                <img
+                <Image
                   src="/logo.svg"
                   alt="PferdeWert.de Logo"
+                  width={32}
+                  height={32}
                   className="h-8 w-auto"
+                  priority
                 />
                 <span className="text-xl font-bold text-gray-900">
                   PferdeWert.de
