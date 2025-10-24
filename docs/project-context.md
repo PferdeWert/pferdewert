@@ -1,29 +1,28 @@
-# Project Context
+# Projekt-Kontext
 
 ## Vision & Mission
-PferdeWert.de - AI-assisted horse market value estimation platform.
+PferdeWert.de - KI-gestützte Plattform zur Schätzung von Pferde-Marktwerten.
 
-**Mission**: Provide accurate, data-driven horse valuations to help buyers and sellers make informed decisions in the equestrian market.
+**Mission**: Präzise, datenbasierte Pferdebewertungen bereitstellen, um Käufern, Verkäufern und Pferdebesitzern fundierte Entscheidungen im Pferdemarkt zu ermöglichen.
 
-**Target Users**: 
-- Horse buyers seeking fair market prices
-- Horse sellers wanting optimal pricing strategies  
-- Equestrian professionals needing valuation expertise
+**Zielgruppen**:
+- Pferdekäufer, die faire Marktpreise suchen
+- Pferdeverkäufer, die optimale Preisstrategien benötigen
+- Pferdebesitzer, die neugierig sind und wissen wollen was ihr Pferd wert ist. 
+- Zielgruppe sind Amateure, KEINE Profis, KEINE Versicherungen, KEINE Händler..
 
-## Key Value Propositions
-- **AI-Powered Analysis**: Dual AI system (GPT/Claude) for comprehensive horse evaluation
-- **Market Intelligence**: Real-time market data and pricing trends
-- **Expert Validation**: Professional equestrian knowledge integrated into AI models
-- **User-Friendly Interface**: Simplified valuation process for non-experts
+## Zentrale Nutzenversprechen
+- **KI-gestützte Analyse**: Die PferdeWert KI bewertet dein Pferd auf Basis realer Marktpreise.
+- **Markt-Intelligence**: Echtzeit-Marktdaten und Preistrends
+- **Experten-Validierung**: Professionelles Reitsport-Wissen in KI-Modelle integriert
+- **Benutzerfreundliche Oberfläche**: Vereinfachter Bewertungsprozess für Nicht-Experten
 
-## Business Logic & Priorities
-- **Accuracy First**: Valuation precision is critical for user trust
-- **Data Quality**: Clean, verified horse data drives better predictions
-- **User Experience**: Simple input process, clear valuation outputs
-- **Scalability**: Platform must handle growing user base and data volume
+## Geschäftslogik & Prioritäten
+- **Genauigkeit zuerst**: Bewertungspräzision ist kritisch für Nutzervertrauen
+- **Nutzererfahrung**: Einfacher Eingabeprozess, klare Bewertungsergebnisse
 
-## Technical Priorities
-- **Performance**: Fast load times and quick valuations
-- **Reliability**: Stable AI processing and data integrity
-- **Security**: Protected user data and secure payment processing
-- **SEO**: Strong organic discovery for horse-related searches
+## Technische Prioritäten
+- **Performance**: Schnelle Ladezeiten und rasche Bewertungen
+- **Zuverlässigkeit**: Stabile KI-Verarbeitung und Datenintegrität
+- **Sicherheit**: Geschützte Nutzerdaten und sichere Zahlungsabwicklung
+- **SEO**: Starke organische Auffindbarkeit für pferdebezogene Suchanfragen
