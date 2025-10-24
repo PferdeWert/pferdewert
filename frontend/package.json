@@ -2,6 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "predev": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",
     "dev": "cross-env PORT=3000 next dev",

@@ -45,22 +45,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { text } = req.body;
+    // Next.js automatically parses JSON request bodies, so req.body is already the form object
+    const parsedData = req.body;
 
-    if (!text || typeof text !== "string") {
-      warn("[CHECKOUT] ⚠️ Kein valider Text übergeben");
+    if (!parsedData || typeof parsedData !== "object") {
+      warn("[CHECKOUT] ⚠️ Keine validen Daten übergeben");
       return res.status(400).json({ error: "Missing input data" });
     }
-
-    let parsedData;
-try {
-  parsedData = JSON.parse(text);
-} catch {
-  warn("[CHECKOUT] ⚠️ JSON-Parse fehlgeschlagen");
-  return res.status(400).json({ error: "Invalid JSON" });
-}
-
-
 
     const validation = BewertungSchema.safeParse(parsedData);
     if (!validation.success) {

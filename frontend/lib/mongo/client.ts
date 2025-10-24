@@ -11,14 +11,10 @@ import { info, error } from '@/lib/log';
 
 // Environment variables
 const MONGODB_URI = process.env.MONGODB_URI as string;
-const MONGODB_DB = process.env.MONGODB_DB as string;
+const MONGODB_DB = process.env.MONGODB_DB; // Optional: falls back to database in connection string
 
 if (!MONGODB_URI) {
   throw new Error('Please define MONGODB_URI environment variable');
-}
-
-if (!MONGODB_DB) {
-  throw new Error('Please define MONGODB_DB environment variable');
 }
 
 // Cache connection across function invocations (serverless optimization)
@@ -60,8 +56,8 @@ export async function connectToDatabase(): Promise<{ db: Db }> {
     // Connect to MongoDB
     await client.connect();
 
-    // Get database
-    const db = client.db(MONGODB_DB);
+    // Get database (if MONGODB_DB not set, uses database from connection string)
+    const db = client.db(MONGODB_DB || undefined);
 
     // Cache for reuse
     cachedClient = client;
