@@ -14,12 +14,12 @@ import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
 // Section definitions for Table of Contents
 const sections = [
   { id: 'anschaffungskosten', title: 'Anschaffungskosten eines Pferdes' },
-  { id: 'pferd-preis-nach-rasse', title: 'Pferd Preis nach Rasse' },
-  { id: 'monatliche-kosten', title: 'Monatliche Kosten im Überblick' },
-  { id: 'jaehrliche-kosten', title: 'Jährliche Fixkosten' },
+  { id: 'pferd-preis-nach-rasse', title: 'Pferdepreise nach Rasse' },
+  { id: 'monatliche-kosten', title: 'Pferdekosten monatlich: Komplette Kostenübersicht' },
+  { id: 'jaehrliche-kosten', title: 'Pferdekosten jährlich: Jährliche Fixkosten im Detail' },
   { id: 'versteckte-kosten', title: 'Versteckte Kosten, die oft vergessen werden' },
   { id: 'budget-szenarien', title: 'Budget-Szenarien: 3 realistische Beispiele' },
-  { id: 'regionale-unterschiede', title: 'Regionale Preisunterschiede in Deutschland' },
+  { id: 'regionale-unterschiede', title: 'Regionale Preisunterschiede für Pferde in Deutschland' },
   { id: 'fazit', title: 'Fazit: Was kostet ein Pferd wirklich?' },
   { id: 'faq', title: 'FAQ - Häufige Fragen zu Pferdekosten' }
 ]
@@ -35,20 +35,32 @@ const faqItems = [
     answer: 'Die Anschaffungskosten für ein Pferd liegen zwischen 2.500€ und 20.000€. Freizeitpferde kosten 2.500€ - 8.000€, Sportpferde 8.000€ - 30.000€+ und Jungpferde 3.000€ - 12.000€. Hinzu kommen die Ankaufsuntersuchung (AKU) mit 200€ - 800€ sowie die Erstausstattung (Sattel, Trense, Decken etc.) mit 1.000€ - 4.660€. Die Gesamtkosten für die Anschaffung belaufen sich somit auf 3.700€ - 20.460€. Ein günstiges Pferd in der Anschaffung bedeutet nicht zwangsläufig niedrige Gesamtkosten – ein gesundes, gut ausgebildetes Pferd spart langfristig oft mehr Tierarzt- und Trainingskosten.'
   },
   {
+    question: 'Wie viel kostet das günstigste Pferd?',
+    answer: 'Das günstigste Pferd kostet zwischen 500€ - 2.000€ und ist meist ein älteres Freizeitpferd oder ein Pferd mit kleineren gesundheitlichen Problemen. Allerdings: Ein billiges Pferd kann teuer werden. Unsichtbare Gesundheitsprobleme können zu Tierarztkosten von 2.000€ - 8.000€+ führen. Eine Ankaufsuntersuchung (AKU) für 200€ - 800€ ist also auch beim günstigen Kauf essentiell. Viele Pferdehalter sparen am falschen Ende: Ein 4.000€ Pferd mit guter AKU ist langfristig günstiger als ein 1.500€ Pferd mit versteckten Erkrankungen. Wir empfehlen: Budget für AKU einplanen (mindestens 400€) und lieber 3.000€+ für ein gesundes, gut ausgebildetes Pferd investieren.'
+  },
+  {
+    question: 'Wie viel kostet ein Reitpony oder Mini-Pferd?',
+    answer: 'Ein Reitpony oder Mini-Pferd kostet zwischen 1.500€ - 8.000€ in der Anschaffung, deutlich weniger als ein Warmblut-Pferd (8.000€ - 20.000€+). Die monatlichen Pferdekosten sind auch geringer: Ein Pony benötigt weniger Futter (20-30% weniger als ein Großpferd), die Stallmiete ist oft identisch, aber Ausrüstung ist günstiger. Allerdings: Spezialisierte Reitponys (für Turniere) können 5.000€ - 15.000€ kosten. Faustregel: Mit Pony sparst du 100€ - 200€ monatlich, amortisierst du die "billigere" Anschaffung aber erst nach 5-10 Jahren.'
+  },
+  {
+    question: 'Wie unterscheiden sich Pferdkosten zwischen Offenstall und Vollpension?',
+    answer: 'Offenstall/Laufstall: 300€ - 600€/Monat (nur Grundversorgung: Stall, Futter, Wasser). Vollpension: 600€ - 1.200€+/Monat (alles inklusive: tägliche Versorgung, Fütterung, Stallausmisten, Weidegang). Vollpension mit Beritt/Training: 1.200€ - 2.000€+/Monat. Bei der Vollpension sparst du Zeit und Arbeit, bei Offenstall sparst du bis zu 50% der monatlichen Kosten. Allerdings: Eigenständige Pferdehalter unterschätzen versteckte Kosten - Tierarzt-Notfälle, Transport, Reparaturen nehmen schnell 200€ - 500€/Monat zusätzlich in Anspruch. Wähle basierend auf deinem Zeitbudget: Vollpension = weniger Zeit, Offenstall = mehr Eigenarbeit aber günstiger.'
+  },
+  {
     question: 'Welche versteckten Kosten gibt es bei der Pferdehaltung?',
     answer: 'Die häufigsten versteckten Kosten sind: (1) Notfall-Tierarztkosten von 2.000€ - 8.000€ für Kolik-OPs oder Verletzungen, (2) Equipment-Erneuerung mit 200€ - 700€/Jahr für Decken und Sattelzeug, (3) Transport mit 80€ - 600€ für Tierarzt-Notfälle oder Turniere, (4) Weiterbildung/Reitunterricht mit 120€ - 600€/Monat, (5) Zusatzbehandlungen wie Physiotherapie (60€ - 100€/Termin) oder Osteopathie (80€ - 150€/Termin) und (6) Anhänger-Wartung/TÜV mit 200€ - 500€/Jahr. Wir empfehlen eine monatliche Rücklage von mindestens 100€ - 200€ für unvorhergesehene Kosten.'
   },
   {
     question: 'Ist eine Pferde-Versicherung sinnvoll?',
-    answer: 'Ja, Versicherungen sind essenziell. Die Haftpflichtversicherung (60€ - 120€/Jahr) ist OBLIGATORISCH und deckt Schäden ab, die das Pferd Dritten zufügt. Ohne Haftpflicht haften Sie unbegrenzt mit Ihrem Privatvermögen. Eine OP-Versicherung (150€ - 400€/Jahr) ist DRINGEND EMPFOHLEN, da Operationen 3.000€ - 15.000€ kosten können. Die Versicherung deckt bis zu 10.000€ - 25.000€. Eine Kolik-OP kostet z.B. 6.000€, eine Fraktur-OP 12.000€ – ohne Versicherung oft finanzieller Ruin. Eine Krankenversicherung (400€ - 1.200€/Jahr) ist OPTIONAL und lohnt sich meist nur für Pferde mit chronischen Problemen.'
+    answer: 'Ja, Versicherungen sind essenziell. Die Haftpflichtversicherung (60€ - 120€/Jahr) ist OBLIGATORISCH und deckt Schäden ab, die das Pferd Dritten zufügt. Ohne Haftpflicht haftest du unbegrenzt mit deinem Privatvermögen. Eine OP-Versicherung (150€ - 400€/Jahr) ist DRINGEND EMPFOHLEN, da Operationen 3.000€ - 15.000€ kosten können. Die Versicherung deckt bis zu 10.000€ - 25.000€. Eine Kolik-OP kostet z.B. 6.000€, eine Fraktur-OP 12.000€ – ohne Versicherung oft finanzieller Ruin. Eine Krankenversicherung (400€ - 1.200€/Jahr) ist OPTIONAL und lohnt sich meist nur für Pferde mit chronischen Problemen.'
   },
   {
-    question: 'Was beeinflusst den Pferd Preis am meisten?',
-    answer: 'Der Pferd Preis wird hauptsächlich von 5 Faktoren bestimmt: (1) Ausbildungsstand – ein rohes Jungpferd kostet 3.000€ - 6.000€, während ein turniererfahrenes Sportpferd 15.000€ - 30.000€+ kostet. (2) Rasse – Warmblüter (8.000€ - 20.000€) sind teurer als Freiberger (4.000€ - 8.000€). (3) Alter – Pferde zwischen 5-12 Jahren erzielen Höchstpreise. (4) Gesundheitszustand – eine positive AKU erhöht den Wert um 15-25%. (5) Abstammung – Pferde mit Championatslinien können 50-100% teurer sein. Regional können Preise um 20-30% variieren: Süddeutschland ist teurer als Ostdeutschland.'
+    question: 'Was beeinflusst den Pferdepreis am meisten?',
+    answer: 'Der Pferdepreis wird hauptsächlich von 5 Faktoren bestimmt: (1) Ausbildungsstand – ein rohes Jungpferd kostet 3.000€ - 6.000€, während ein turniererfahrenes Sportpferd 15.000€ - 30.000€+ kostet. (2) Rasse – Warmblüter (8.000€ - 20.000€) sind teurer als Freiberger (4.000€ - 8.000€). (3) Alter – Pferde zwischen 5-12 Jahren erzielen Höchstpreise. (4) Gesundheitszustand – eine positive AKU erhöht den Wert um 15-25%. (5) Abstammung – Pferde mit Championatslinien können 50-100% teurer sein. Regional können Preise um 20-30% variieren: Süddeutschland ist teurer als Ostdeutschland.'
   },
   {
-    question: 'Wie unterscheiden sich Pferd Preise nach Rasse?',
-    answer: 'Pferd Preise variieren stark nach Rasse: Warmblüter (z.B. Hannoveraner, Holsteiner) kosten 8.000€ - 20.000€ für Freizeit/Sport, Spitzensportpferde bis 100.000€+. Quarter Horses liegen bei 6.000€ - 15.000€, spezialisierte Westernpferde bis 30.000€+. Islandpferde kosten 4.000€ - 12.000€, mit Tölt-Champions bis 25.000€+. Haflinger/Freiberger sind günstiger bei 3.000€ - 8.000€, Zuchtpferde bis 15.000€. Ponys starten bei 2.000€ - 6.000€, Turnierpponys bis 20.000€. Vollblüter reichen von 3.000€ (Off-Track) bis 500.000€+ (Spitzenzucht). Der Preis spiegelt Zucht, Ausbildung und Marktnachfrage wider.'
+    question: 'Wie unterscheiden sich Pferdepreise nach Rasse?',
+    answer: 'Pferdepreise variieren stark nach Rasse: Warmblüter (z.B. Hannoveraner, Holsteiner) kosten 8.000€ - 20.000€ für Freizeit/Sport, Spitzensportpferde bis 100.000€+. Quarter Horses liegen bei 6.000€ - 15.000€, spezialisierte Westernpferde bis 30.000€+. Islandpferde kosten 4.000€ - 12.000€, mit Tölt-Champions bis 25.000€+. Haflinger/Freiberger sind günstiger bei 3.000€ - 8.000€, Zuchtpferde bis 15.000€. Ponys starten bei 2.000€ - 6.000€, Turnierpponys bis 20.000€. Vollblüter reichen von 3.000€ (Off-Track) bis 500.000€+ (Spitzenzucht). Der Preis spiegelt Zucht, Ausbildung und Marktnachfrage wider.'
   }
 ]
 
@@ -71,11 +83,11 @@ export default function WasKostetEinPferd() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Was kostet ein Pferd? Vollständige Kostenübersicht 2025',
-    description: 'Ein Pferd kostet 2.500-20.000€ Anschaffung + 400-800€/Monat. Komplette Kostenübersicht inkl. Stallmiete, Futter, Tierarzt & versteckte Kosten.',
+    headline: 'Was kostet ein Pferd? Pferd Kosten & Preis 2025 - Vollständige Übersicht',
+    description: 'Pferd Kosten 2025: Anschaffung (2.500-20.000€) + monatliche Kosten (400-800€). Pferdepreise nach Rasse, Haltungsform, Versicherung & Tierarzt. Inkl. Budget-Szenarien.',
     url: 'https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd',
-    datePublished: '2025-01-11T10:00:00+01:00',
-    dateModified: '2025-01-11T10:00:00+01:00',
+    datePublished: '2025-10-11T10:00:00+01:00',
+    dateModified: '2025-10-25T10:00:00+01:00',
     author: {
       '@type': 'Person',
       name: 'PferdeWert Redaktion',
@@ -103,14 +115,18 @@ export default function WasKostetEinPferd() {
       'was kostet ein pferd',
       'pferd kosten',
       'pferd preis',
+      'pferd kosten monatlich',
+      'pferd kosten tabelle',
+      'pferd preis rasse',
       'pferdehaltung kosten',
-      'pferd monatliche kosten',
       'pferd anschaffungskosten',
-      'pferd preis nach rasse',
+      'günstigstes pferd',
       'stallmiete',
       'hufschmied kosten',
       'tierarztkosten pferd',
-      'pferd versicherung'
+      'pferd versicherung',
+      'pferd kaufen kosten',
+      'pferdekosten deutschland'
     ],
     inLanguage: 'de-DE',
     about: [
@@ -184,10 +200,10 @@ export default function WasKostetEinPferd() {
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         {/* Primary Meta Tags */}
-        <title>Was kostet ein Pferd? Kosten 2025 im Überblick</title>
+        <title>Pferd Kosten & Preis 2025 - Vollständige Übersicht</title>
         <meta
           name="description"
-          content="Pferd Kosten & Preis 2025: Vollständige Kostenübersicht inkl. Anschaffung (2.500-20.000€), monatliche Kosten (400-800€), Stallmiete, Futter & Tierarzt."
+          content="Pferdekosten 2025: Anschaffung (2.500-20.000€) + monatliche Kosten (400-800€). Pferdepreise nach Rasse, Stallmiete, Futter, Tierarzt & Versicherung kalkulieren."
         />
         <meta name="robots" content="index, follow" />
         <link
@@ -262,7 +278,7 @@ export default function WasKostetEinPferd() {
         {/* Lead Paragraph */}
         <section className="scroll-mt-32 lg:scroll-mt-40">
           <p className="text-lg text-gray-700 leading-relaxed">
-            Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen durchschnittlich bei <strong>400€ - 800€</strong>. In diesem{' '}
+            Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>400€ - 800€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. In diesem{' '}
             <Link href="/pferde-ratgeber/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
               umfassenden Pferdekauf-Ratgeber
             </Link>{' '}
@@ -274,6 +290,34 @@ export default function WasKostetEinPferd() {
         <section className="scroll-mt-32 lg:scroll-mt-40">
           <RatgeberTableOfContents sections={sections} />
         </section>
+
+        {/* Featured Snippet Box: Pferdekosten auf einen Blick */}
+        <RatgeberHighlightBox
+          title="Pferdekosten auf einen Blick"
+        >
+          <div className="space-y-4">
+            <div className="flex justify-between items-start pb-3 border-b border-brand-brown-light">
+              <span className="font-semibold text-gray-900">Anschaffungskosten:</span>
+              <span className="text-brand-brown font-bold">2.500€ - 20.000€+</span>
+            </div>
+            <div className="flex justify-between items-start pb-3 border-b border-brand-brown-light">
+              <span className="font-semibold text-gray-900">Monatliche Kosten:</span>
+              <span className="text-brand-brown font-bold">400€ - 800€</span>
+            </div>
+            <div className="flex justify-between items-start pb-3 border-b border-brand-brown-light">
+              <span className="font-semibold text-gray-900">Jährliche Kosten:</span>
+              <span className="text-brand-brown font-bold">5.000€ - 10.000€</span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-gray-900">Lebenszykluskosten (20 Jahre):</span>
+              <span className="text-brand-brown font-bold">100.000€ - 200.000€</span>
+            </div>
+            <p className="text-sm text-gray-600 mt-4 pt-4 border-t border-brand-brown-light">
+              Diese Werte sind Richtwerte für Deutschland und können je nach Region, Pferdetyp und individuellen Umständen variieren.
+            </p>
+          </div>
+        </RatgeberHighlightBox>
+
           {/* Section 1: Anschaffungskosten */}
           <section id="anschaffungskosten" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -449,15 +493,15 @@ export default function WasKostetEinPferd() {
             <p className="text-lg text-gray-600 mb-8">je nach Qualität und ob Neu- oder Gebrauchtkauf</p>
           </section>
 
-          {/* Section 2: Pferd Preis nach Rasse */}
+          {/* Section 2: Pferdepreis nach Rasse */}
           <section id="pferd-preis-nach-rasse" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Pferd Preis nach Rasse
+              Pferdepreis nach Rasse
             </h2>
 
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Der Pferd Preis variiert stark je nach Rasse, Ausbildungsstand und Verwendungszweck. Während manche Rassen bereits als Jungpferde höhere Preise erzielen, können gut ausgebildete Turnierpferde deutlich höhere Summen erreichen. Die folgende Übersicht zeigt realistische Preisspannen für beliebte Pferderassen in Deutschland.
+                Der Pferdepreis variiert stark je nach Rasse, Ausbildungsstand und Verwendungszweck. Während manche Rassen bereits als Jungpferde höhere Preise erzielen, können gut ausgebildete Turnierpferde deutlich höhere Summen erreichen. Die folgende Übersicht zeigt realistische Preisspannen für beliebte Pferderassen in Deutschland.
               </p>
             </div>
 
@@ -645,14 +689,14 @@ export default function WasKostetEinPferd() {
             <RatgeberHighlightBox
               title="Wichtig beim Pferdekauf"
             >
-              Der Pferd Preis allein sagt nichts über die Gesamtkosten aus. Bedenken Sie immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
+              Der Pferdepreis allein sagt nichts über die Gesamtkosten aus. Bedenken Sie immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
             </RatgeberHighlightBox>
           </section>
 
           {/* Section 3: Monatliche Kosten */}
           <section id="monatliche-kosten" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Monatliche Kosten im Überblick
+              Pferdekosten monatlich: Komplette Kostenübersicht
             </h2>
 
             <div className="prose prose-lg max-w-none mb-10">
@@ -663,7 +707,7 @@ export default function WasKostetEinPferd() {
 
             {/* Comprehensive Monthly Cost Breakdown Table */}
             <div className="mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Detaillierte Übersicht: Pferd Kosten pro Monat</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Detaillierte Übersicht: Pferdekosten pro Monat</h3>
 
               <table className="w-full mb-8">
                 <thead>
@@ -717,7 +761,7 @@ export default function WasKostetEinPferd() {
               <RatgeberHighlightBox
                 title="Realistische Budgetplanung"
               >
-                Die durchschnittlichen monatlichen Pferd Kosten liegen bei 580€ - 880€. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können das Budget schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist empfehlenswert.
+                Die durchschnittlichen monatlichen Pferdekosten liegen bei 580€ - 880€. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können das Budget schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist empfehlenswert.
               </RatgeberHighlightBox>
             </div>
 
@@ -954,7 +998,7 @@ export default function WasKostetEinPferd() {
           {/* Section 3: Jährliche Fixkosten */}
           <section id="jaehrliche-kosten" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Jährliche Fixkosten
+              Pferdekosten jährlich: Jährliche Fixkosten im Detail
             </h2>
 
             <div className="prose prose-lg max-w-none mb-10">
