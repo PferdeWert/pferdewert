@@ -28,12 +28,14 @@ Das Ziel ist es, den Status quo zu verstehen, das volle Potenzial des Themas zu 
     1. Das Hauptkeyword als Basis nutzen, um eine umfassende Liste von sekundären Keywords, Long-Tail-Keywords und W-Fragen zu erstellen.
     2. Diese Liste bildet die Grundlage für neue Abschnitte im Artikel oder die Vertiefung bestehender Inhalte.
 
-**1.3. Keyword-Validierung**
-- **Ziel:** Die gefundenen Keywords nach Potenzial und Relevanz priorisieren.
-- **Tool:** **DataForSEO Keyword Properties API** (oder integrierte Daten aus anderen API-Antworten wie Suchvolumen)
+**1.3. Keyword-Validierung & erweiterte Metriken**
+- **Ziel:** Die gefundenen Keywords nach Potenzial, Wettbewerb und kommerzieller Intent priorisieren.
+- **Tools:**
+    - **DataForSEO Keyword Properties API:** Suchvolumen, Keyword-Schwierigkeit, Wettbewerb
+    - **DataForSEO Keyword Overview API:** CPC-Wert, Competition Index, Search Intent (informational/commercial/transactional)
 - **Vorgehen:**
-    1. Überprüfung des monatlichen Suchvolumens, der Keyword-Schwierigkeit und des Wettbewerbs für die erstellte Keyword-Liste.
-    2. Auswahl der vielversprechendsten Keywords für die Integration in den Artikel.
+    1. Überprüfung der erweiterten Metriken für die erstellte Keyword-Liste.
+    2. Fokus auf Keywords mit hohem Suchvolumen + niedriger Schwierigkeit (Quick Wins) und Intent-Match zum Artikel.
 
 ---
 
@@ -66,6 +68,13 @@ Auf Basis der gesammelten Daten wird der Artikel nun gezielt überarbeitet.
 ### Schritt 3: Technische Analyse & Laufendes Monitoring
 
 Nach der Optimierung beginnt die Überwachung und weitere technische Verfeinerung.
+
+**3.0. Baseline-Analyse der eigenen Seite vor Optimierung**
+- **Ziel:** Den IST-Status vor der Optimierung dokumentieren, um Fortschritt messbar zu machen.
+- **Tool:** **DataForSEO Content Analysis API**
+- **Vorgehen:**
+    - Analyse der eigenen URL: Wortanzahl, Keyword-Dichte, Readability Score, Schema Markup, Ladezeiten.
+    - Diese Baseline dient später zum Vergleich der Post-Optimierungs-Metriken.
 
 **3.1. Detaillierte On-Page-Analyse der Konkurrenz**
 - **Ziel:** Tiefe Einblicke in die On-Page-Faktoren der Top-Konkurrenten gewinnen.
