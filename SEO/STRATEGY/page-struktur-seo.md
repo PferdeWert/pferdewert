@@ -5,12 +5,9 @@
 ## ⚠️ KRITISCHE ERKENNTNISSE (Update 2025-10-25)
 
 **DRASTISCHE Suchvolumen-Rückgänge im AKU-Cluster:**
-- "aku pferd": **480/Mo.** (vorher: 4.400) → **-89% Rückgang**
-- "aku pferd kosten": **260/Mo.** (vorher: 1.000) → **-74% Rückgang**
-- "aku pferd ablauf": **10/Mo.** (vorher: 320) → **-97% Rückgang**
+- "aku pferd ablauf": **10/Mo.** 
 - "aku pferd klassen": **KEINE DATEN** (vorher: 590)
 
-**Neues Gesamt-Volumen AKU-Cluster:** ~750/Mo. (vorher: 5.910) → **-87% Rückgang**
 
 **Auswirkung:** Der AKU-Cluster ist nicht mehr das Hauptvolumen-Cluster. Fokus sollte auf "Pferd Kaufen" (47.200/Mo.) liegen.
 
@@ -47,7 +44,6 @@
 
 ### Service Pages
 
-
 #### Beispiel Analyse (/beispiel-analyse)
 - **Ziel-Keyword**: pferdebewertung beispiel (keine Daten verfügbar)
 - **Navigation**: Hauptmenü
@@ -56,12 +52,13 @@
 
 ## 📋 Content Cluster: AKU Pferd
 
-**Total Search Volume:** ~750/Monat (Hub: 480 + Spokes: 270) → **⚠️ -87% Rückgang seit letzter Messung**
+**Total Search Volume:** ~750/Monat (Hub: 480 + Spokes: 270)
 
 ### Hub: AKU Pferd (/pferde-ratgeber/aku-pferd) ✅ LIVE
-- **Ziel-Keyword**: aku pferd (480/Mo., KD: N/A) → **-89% Rückgang** (vorher: 4.400)
+- **Ziel-Keyword**: aku pferd (480/Mo., KD: N/A)
 - **Navigation**: Ratgeber Dropdown
 - **Rankings:**
+- Hier will ich doch nicht für "kosten" ranken?! hier kanibalisiere ich wohl meine kosten page? wie ranke ich für "aku pferd" ?
   - "kosten aku pferd 2024" → **Rang 5** (140/Mo.)
   - "was kostet eine aku pferd" → **Rang 9** (70/Mo.)
   - "pferd ankaufsuntersuchung kosten" → **Rang 21** (210/Mo.)
@@ -69,13 +66,13 @@
 ### Spokes (Sitemap-only):
 
 1. **AKU Pferd Kosten** (/pferde-ratgeber/aku-pferd/kosten) ✅ LIVE
-   - Keyword: aku pferd kosten (260/Mo., KD: N/A) → **-74% Rückgang** (vorher: 1.000)
+   - Keyword: aku pferd kosten (260/Mo., KD: N/A)
    - **Rankings:**
      - "aku pferd kosten" → **Rang 9** (260/Mo.)
      - "kosten aku pferd" → **Rang 11** (260/Mo.)
 
 2. **AKU Pferd Ablauf** (/pferde-ratgeber/aku-pferd/ablauf) ✅ LIVE
-   - Keyword: aku pferd ablauf (10/Mo., KD: N/A) → **-97% Rückgang** (vorher: 320)
+   - Keyword: aku pferd ablauf (10/Mo., KD: N/A) 
    - **Rankings:** Keine Top-20 Rankings (sehr niedriges Volumen)
 
 3. **AKU Pferd Klassen** (/pferde-ratgeber/aku-pferd/klassen) ✅ LIVE
@@ -92,12 +89,6 @@
 - **Ziel-Keyword**: pferd verkaufen (1.300/Mo., KD: 23)
 - **Navigation**: Ratgeber Dropdown
 - **Rankings:** Keine Top-20 Rankings (hohe Competition)
-
-### Spokes (Sitemap-only):
-
-1. **Pferd verkaufen Tipps** (/pferde-ratgeber/pferd-verkaufen/pferd-verkaufen-tipps) ✅ LIVE
-   - Keyword: pferd verkaufen tipps (10/Mo., KD: N/A) → **-80% Rückgang** (vorher: 50)
-   - **Rankings:** Keine Top-20 Rankings (sehr niedriges Volumen)
 
 ---
 
@@ -125,15 +116,16 @@
      - "pferd anschaffungskosten" → **Rang 14** (70/Mo.)
      - Zusätzliche Long-Tail Rankings für Pferdekauf-Varianten
 
-2. **Pferd Kosten** (/pferde-ratgeber/pferd-kaufen/pferd-kosten)
+Die beiden hier versuche ich auch mit dem artikel /was-kostet-ein-pferd abzudecken, da content zu ähnlich:
+2. **Pferd Kosten** (/pferde-ratgeber/was-kostet-ein-pferd)
    - Keyword: pferd kosten (880/Mo., KD: 2)
-   - Begründung: Laufende Kosten-Übersicht für potenzielle Käufer, sehr niedriger KD
-   - **Status:** Geplant
+   - **Status:** Integriert in /was-kostet-ein-pferd
+   - **Ranking**: ?
 
-3. **Pferd Preis** (/pferde-ratgeber/pferd-kaufen/pferd-preis)
+3. **Pferd Preis** (/pferde-ratgeber/was-kostet-ein-pferd)
    - Keyword: pferd preis (880/Mo., KD: 16)
-   - Begründung: Kaufpreis-Faktoren und Marktübersicht
-   - **Status:** Geplant
+  - **Status:** Integriert in /was-kostet-ein-pferd
+   - **Ranking**: ?
 
 4. **Pferdekauf für Anfänger** (/pferde-ratgeber/pferd-kaufen/pferdekauf-anfaenger)
    - Keyword: pferdekauf anfänger (**KEINE DATEN**)
@@ -146,14 +138,6 @@
    - ⚠️ Korrektur: Ursprünglich geschätzt 300-600/Mo., tatsächlich nur 40/Mo.
    - Begründung: Download-Intent, PDF-Leadmagnet trotz niedrigem Volumen wertvoll für Leadgenerierung
    - **Status:** Geplant
-
----
-
-## 📄 Service & Legal Pages
-
-- **AGB** (/agb)
-- **Datenschutz** (/datenschutz)
-- **Impressum** (/impressum)
 
 ---
 
