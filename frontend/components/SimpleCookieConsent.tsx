@@ -17,18 +17,8 @@ const SimpleCookieConsent = () => {
 
   // Check existing consent on mount
   useEffect(() => {
-    // Initialize Datafast queue stub BEFORE checking consent
-    // This allows reject events to be queued even when the full script hasn't loaded yet
-    if (typeof window !== 'undefined' && !window.datafast) {
-      type DatafastFn = ((...args: unknown[]) => void) & { q?: unknown[][] };
-
-      const datafast = function(...args: unknown[]) {
-        const fn = datafast as DatafastFn;
-        (fn.q = fn.q || []).push(args);
-      } as DatafastFn;
-
-      window.datafast = datafast;
-    }
+    // DataFa.st queue is already initialized in _document.tsx
+    // No need to re-initialize here to avoid conflicts
 
     const existingConsent = new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie);
     if (existingConsent) {
