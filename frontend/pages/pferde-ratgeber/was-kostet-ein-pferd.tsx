@@ -1591,16 +1591,6 @@ export default function WasKostetEinPferd() {
             <FAQ faqs={faqItems} />
           </section>
 
-          {/* Final Note */}
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
-            <p className="text-lg text-gray-700">
-              <strong>Hinweis:</strong> Du möchtest wissen, was dein Pferd wert ist? Wenn du planst,{' '}
-              <Link href="/pferde-ratgeber/pferd-verkaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
-                dein Pferd zu verkaufen
-              </Link>
-              , kann eine professionelle Wertermittlung helfen, den fairen Marktpreis zu bestimmen und den Verkaufsprozess zu optimieren.
-            </p>
-          </div>
 
           {/* Related Articles */}
           <section className="mb-20">
