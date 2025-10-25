@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
-import ContentSection from '@/components/ContentSection'
 import FAQ from '@/components/FAQ'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage'
@@ -19,7 +18,8 @@ import {
   akuTimeTiles,
   akuRegions,
   akuFaqItems,
-  akuRelatedArticles
+  akuRelatedArticles,
+  akuClasses
 } from '@/data/ratgeber/akuPferd'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
@@ -38,7 +38,7 @@ const AKUPferd: NextPage = () => {
   const heroMetaItems = [
     {
       icon: <Clock className="h-4 w-4" />,
-      label: '15 min Lesezeit'
+      label: '12 min Lesezeit'
     },
     {
       icon: <Calendar className="h-4 w-4" />,
@@ -67,135 +67,40 @@ const AKUPferd: NextPage = () => {
     document.getElementById('inhaltsverzeichnis')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // JSON-LD Structured Data
+  // JSON-LD Structured Data - OPTIMIERT FÜR INFORMATIONAL INTENT
   const howToSchema = {
     "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "AKU Pferd: Ankaufsuntersuchung beim Pferdekauf durchführen",
-    "description": "Vollständige Anleitung zur Ankaufsuntersuchung beim Pferdekauf - von der Vorbereitung bis zum fertigen Protokoll mit Kosten, Ablauf und Befundung",
-    "totalTime": "PT72H",
-    "estimatedCost": {
-      "@type": "MonetaryAmount",
-      "currency": "EUR",
-      "value": "150",
-      "maxValue": "1500"
+    "@type": "Guide",
+    "name": "Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden",
+    "description": "Alles über die Ankaufsuntersuchung (AKU) beim Pferd – Definition, Ablauf, Befundklassen und worauf Sie achten sollten",
+    "author": {
+      "@type": "Organization",
+      "name": "PferdeWert.de"
     },
     "step": [
       {
         "@type": "HowToStep",
         "position": 1,
-        "name": "Phase 1: Vorbereitung und Terminvereinbarung",
-        "text": "1-2 Wochen vor dem AKU-Termin: Unabhängigen Tierarzt auswählen (nicht den Stallveterinär des Verkäufers), AKU-Klasse festlegen (kleine vs. große AKU), Röntgenumfang definieren, Kosten transparent klären und AKU-Vorbehalt im Kaufvertrag vereinbaren",
-        "itemListElement": [
-          {
-            "@type": "HowToDirection",
-            "text": "Wählen Sie einen unabhängigen Tierarzt, der nicht mit dem Verkäufer verbunden ist"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Entscheiden Sie zwischen kleiner AKU (150-300€) für Freizeitpferde oder großer AKU (800-1.500€) für Sportpferde"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Klären Sie den Röntgenumfang (Standard: 10-18 Aufnahmen) und alle Kosten schriftlich"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht"
-          }
-        ]
+        "name": "Verstehen Sie die AKU-Grundlagen",
+        "text": "Eine AKU ist eine standardisierte tierärztliche Untersuchung vor dem Pferdekauf, die den Gesundheitszustand und die körperliche Eignung dokumentiert."
       },
       {
         "@type": "HowToStep",
         "position": 2,
-        "name": "Phase 2: Klinische Untersuchung vor Ort",
-        "text": "1-2 Stunden am Untersuchungstag: Allgemeinzustand prüfen, Gangbildanalyse auf verschiedenen Böden, Flexionsproben an allen Gelenken, Herz-Kreislauf-Untersuchung, Lungencheck, Augenuntersuchung und Zahnkontrolle durchführen",
-        "itemListElement": [
-          {
-            "@type": "HowToDirection",
-            "text": "Allgemeinzustand: Körperkondition (Body Condition Score 4-6), Temperatur (37,5-38,2°C), Verhalten"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Gangbildanalyse: Schritt und Trab auf hartem und weichem Boden, Longieren in beide Richtungen"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Flexionsproben: Vorder- und Hintergliedmaßen einzeln testen, auf Lahmheitsreaktionen achten"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Innere Organe: Herzfrequenz (28-40 Schläge/Min.), Atemfrequenz (8-16 Züge/Min.), Abhören von Herz und Lunge"
-          }
-        ]
+        "name": "Wählen Sie die richtige AKU-Klasse",
+        "text": "Kleine AKU für Freizeitpferde (1-2 Stunden, klinische Untersuchung). Große AKU für Sportpferde (2-4 Stunden, mit Röntgenaufnahmen)."
       },
       {
         "@type": "HowToStep",
         "position": 3,
-        "name": "Phase 3: Röntgenuntersuchung (nur große AKU)",
-        "text": "1-1,5 Stunden zusätzlich: Standard-Röntgenbilder erstellen (Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk), Aufnahmen entwickeln und erste Sichtung, bei Auffälligkeiten erweiterte Aufnahmen anfertigen",
-        "itemListElement": [
-          {
-            "@type": "HowToDirection",
-            "text": "Standard-Aufnahmen: 10-18 Röntgenbilder der wichtigsten Gelenke (je 50-80€ pro Aufnahme)"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Wichtigste Positionen: Vorderfußwurzelgelenk lateral/dorsopalmar, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Bei Auffälligkeiten: Zusätzliche Spezialaufnahmen oder Schrägaufnahmen nach Absprache"
-          }
-        ]
+        "name": "Verstehen Sie das aktuelle Befundungssystem (seit 2018)",
+        "text": "Seit dem Röntgenleitfaden 2018 der GPM: o.b.B. (ohne besonderen Befund) oder präzise Beschreibung der Abweichungen mit Unterscheidung zwischen Befunden und Risiko-Befunden. Das alte Klassensystem I-V existiert nicht mehr."
       },
       {
         "@type": "HowToStep",
         "position": 4,
-        "name": "Phase 4: Befundung und Protokoll-Erstellung",
-        "text": "24-48 Stunden nach der Untersuchung: Röntgenbilder detailliert auswerten, Röntgenklassen vergeben (I-V), AKU-Protokoll erstellen mit allen Befunden, Kaufempfehlung formulieren und Protokoll an Käufer übergeben",
-        "itemListElement": [
-          {
-            "@type": "HowToDirection",
-            "text": "Röntgenbilder werden nach dem 5-Klassen-System bewertet (I=ohne Befund bis V=hochgradig röntgenpositiv)"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Detailliertes AKU-Protokoll mit allen klinischen und röntgenologischen Befunden wird erstellt"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Kaufempfehlung basierend auf Gesamtbewertung: uneingeschränkt empfehlenswert, bedingt empfehlenswert oder nicht empfehlenswert"
-          },
-          {
-            "@type": "HowToDirection",
-            "text": "Protokoll gehört dem Käufer und dient als rechtliches Beweismittel bei späteren Streitigkeiten"
-          }
-        ]
-      }
-    ],
-    "supply": [
-      {
-        "@type": "HowToSupply",
-        "name": "Unabhängiger AKU-Tierarzt"
-      },
-      {
-        "@type": "HowToSupply",
-        "name": "Röntgengerät (bei großer AKU)"
-      },
-      {
-        "@type": "HowToSupply",
-        "name": "Budget für AKU-Kosten (150-1.500€)"
-      }
-    ],
-    "tool": [
-      {
-        "@type": "HowToTool",
-        "name": "Kaufvertrag mit AKU-Vorbehalt"
-      },
-      {
-        "@type": "HowToTool",
-        "name": "Kostenaufstellung vom Tierarzt"
+        "name": "Wählen Sie einen unabhängigen Tierarzt",
+        "text": "Ein unabhängiger Veterinär gibt objektive Befunde. Vermeiden Sie den Stallveterinär des Verkäufers wegen Interessenskonflikten."
       }
     ]
   }
@@ -216,10 +121,10 @@ const AKUPferd: NextPage = () => {
   return (
     <>
       <Head>
-        {/* Basic Meta Tags */}
-        <title>AKU Pferd: Kosten, Ablauf & Vergleich (Große vs. Kleine AKU)</title>
-        <meta name="description" content="Beim Pferdekauf ist die Ankaufsuntersuchung (AKU) die wichtigste Entscheidung – doch die Kosten variieren zwischen 150€ und 1.500€. Große oder kleine AKU? Was wird genau untersucht? Kompletter Guide mit Kostenübersicht, Ablauf und Entscheidungshilfe." />
-        <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku kosten, kleine aku, große aku, aku ablauf, got 2024, röntgenbilder pferd, aku versicherung, aku klassen, pferdekauf aku" />
+        {/* OPTIMIERT: Fokus auf "aku pferd" (informational), KEIN Kosten-Keyword */}
+        <title>Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden zur AKU</title>
+        <meta name="description" content="Was ist eine AKU? Erfahren Sie alles über die Ankaufsuntersuchung beim Pferd – Ablauf, Befundklassen, Unterschied zwischen kleiner und großer AKU sowie worauf Sie bei der Wahl des Tierarztes achten sollten." />
+        <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku ablauf, kleine aku, große aku, aku klassen, befunde, röntgenbilder" />
         <meta name="author" content="PferdeWert.de" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
@@ -234,16 +139,16 @@ const AKUPferd: NextPage = () => {
         <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="AKU Pferd: Kosten, Ablauf & Vergleich (Große vs. Kleine AKU)" />
-        <meta property="og:description" content="Beim Pferdekauf ist die Ankaufsuntersuchung (AKU) die wichtigste Entscheidung – doch die Kosten variieren zwischen 150€ und 1.500€. Kompletter Guide mit Kostenübersicht, Ablauf und Entscheidungshilfe." />
+        <meta property="og:title" content="Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden zur AKU" />
+        <meta property="og:description" content="Was ist eine AKU? Alles über die Ankaufsuntersuchung beim Pferd – Ablauf, Befundklassen und worauf Sie achten sollten." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
         <meta property="og:image" content="https://pferdewert.de/images/aku-pferd-ratgeber.jpg" />
 
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AKU Pferd: Kosten, Ablauf & Vergleich (Große vs. Kleine AKU)" />
-        <meta name="twitter:description" content="Beim Pferdekauf ist die Ankaufsuntersuchung (AKU) die wichtigste Entscheidung – doch die Kosten variieren zwischen 150€ und 1.500€. Kompletter Guide." />
+        <meta name="twitter:title" content="Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden" />
+        <meta name="twitter:description" content="Was ist eine AKU? Alles über Ablauf, Befundklassen und worauf Sie achten sollten." />
 
         {/* Preconnect for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -265,11 +170,12 @@ const AKUPferd: NextPage = () => {
       </Head>
 
       <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
+        {/* HERO: Fokus auf "Was ist AKU?" nicht "Kosten" */}
         <RatgeberHero
           badgeLabel="Pferde-Ratgeber"
           badgeIcon={<Award className="h-4 w-4" />}
-          title="AKU Pferd: Kosten, Ablauf & Vergleich"
-          subtitle="Beim Pferdekauf ist die Ankaufsuntersuchung (AKU) die wichtigste Entscheidung – doch die Kosten variieren zwischen 150€ und 1.500€. Große oder kleine AKU? Was wird genau untersucht? Dieser Ratgeber erklärt alle Untersuchungsumfänge, aktuelle Preise nach neuer GOT, Versicherungs-Möglichkeiten und gibt Ihnen eine klare Entscheidungshilfe für Ihre individuelle Situation."
+          title="Ankaufsuntersuchung beim Pferd"
+          subtitle="Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfahren Sie, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann Sie welche Art von AKU benötigen. Schützen Sie sich vor versteckten Mängeln mit fundiertem Wissen."
           metaItems={heroMetaItems}
           primaryCta={{
             href: '/pferde-preis-berechnen',
@@ -285,7 +191,7 @@ const AKUPferd: NextPage = () => {
 
         <RatgeberHeroImage
           src={getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp'}
-          alt="AKU Pferd: Ankaufsuntersuchung beim Pferd - Tierarzt untersucht Pferd"
+          alt="Ankaufsuntersuchung beim Pferd - Tierarzt untersucht Pferd gründlich"
           priority
         />
 
@@ -294,1248 +200,532 @@ const AKUPferd: NextPage = () => {
         <div className="container mx-auto px-4 py-8 md:py-12">
           {/* Article Content */}
           <article className="max-w-5xl mx-auto space-y-16">
-            {/* Was ist eine AKU beim Pferd? */}
-            <div id="basics" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+
+            {/* 1. Was ist eine AKU? */}
+            <div id="definition" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('basics', 'Was ist eine AKU beim Pferd?')}
+                {numberedTitle('definition', 'Was ist eine AKU beim Pferd?')}
               </h2>
-
-              <ContentSection
-                title="Definition der Ankaufsuntersuchung"
-                icon="📋"
-                content={
-                  <>
-                    <p className="text-lg mb-6">
-                      Die <strong>Ankaufsuntersuchung (AKU)</strong> beim Pferd ist eine <strong>veterinärmedizinische Untersuchung vor dem Pferdekauf</strong> zur Feststellung des Gesundheitszustands zum Untersuchungszeitpunkt. Wichtig: Die AKU ist <strong>keine Garantie</strong>, sondern eine <strong>Momentaufnahme</strong> – sie dokumentiert den gesundheitlichen Status des Pferdes am Tag der Untersuchung.
-                    </p>
-                    <p className="text-lg text-gray-700 mb-6">
-                      Die AKU wird von einem unabhängigen Tierarzt durchgeführt, der weder für Käufer noch Verkäufer tätig ist. Das schriftliche Protokoll dient als Grundlage für die Kaufentscheidung und kann im Streitfall als Beweismittel herangezogen werden.
-                    </p>
-                    <p className="text-lg text-gray-700">
-                      <strong>Rechtlicher Rahmen:</strong> Die AKU unterliegt der Gebührenordnung für Tierärzte (GOT) und folgt dem Röntgenleitfaden 2018 der Gesellschaft für Pferdemedizin.
-                    </p>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Zweck und Nutzen der AKU"
-                icon="⚖️"
-                content={
-                  <>
-                    <p className="text-lg text-gray-700 mb-6">
-                      Die Ankaufsuntersuchung beim Pferd dient primär der <strong>Risikominimierung beim Pferdekauf</strong>. Sie hilft, versteckte Mängel zu erkennen, die beim normalen Probereiten nicht sichtbar sind:
-                    </p>
-                    <ul className="space-y-3 text-lg text-gray-700">
-                      <li>• <strong>Kaufpreis-Absicherung:</strong> Bei Kaufpreisen ab 5.000€ ist die AKU ein unverzichtbares Instrument zur finanziellen Absicherung</li>
-                      <li>• <strong>Versteckte Mängel erkennen:</strong> Chronische Erkrankungen, Gelenkveränderungen oder Atemwegsprobleme werden sichtbar</li>
-                      <li>• <strong>Verhandlungsbasis schaffen:</strong> Befunde können als Grundlage für Preisverhandlungen dienen</li>
-                      <li>• <strong>Rechtliche Absicherung:</strong> Das AKU-Protokoll dokumentiert den Zustand vor Vertragsabschluss</li>
-                    </ul>
-                    <RatgeberHighlightBox title="Praxisbeispiel" icon="💡" padding="p-5 md:p-6">
-                      <p className="text-base">
-                        Ein Turnierpferd mit Kaufpreis 15.000€ zeigt bei der großen AKU Röntgenklasse III im Sprunggelenk. Der Käufer kann entweder vom Kauf zurücktreten oder den Preis um 3.000€ verhandeln.
-                      </p>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
+              <p className="text-lg leading-relaxed text-gray-700">
+                Eine <strong>Ankaufsuntersuchung (AKU)</strong> ist eine standardisierte tierärztliche Untersuchung, die <em>vor dem Pferdekauf</em> durchgeführt wird. Sie dient dem Käufer als wichtigstes Mittel, um den aktuellen Gesundheitszustand und die körperliche Eignung des Pferdes für den beabsichtigten Verwendungszweck zu überprüfen.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Die AKU ist nicht nur eine medizinische Untersuchung – sie ist auch ein <strong>rechtliches Dokument</strong>, das Ihnen Sicherheit und Absicherung vor versteckten Mängeln bietet. Mit einem gültigen AKU-Vorbehalt können Sie den Kauf ohne Begründung rückgängig machen, wenn die AKU erhebliche Befunde zeigt.
+              </p>
+              <RatgeberHighlightBox title="Wichtig: Definition der AKU">
+                <ul className="list-disc list-inside space-y-2">
+                  <li>Standardisierte tierärztliche Untersuchung vor dem Pferdekauf</li>
+                  <li>Dokumentiert den Gesundheitszustand zu einem bestimmten Zeitpunkt</li>
+                  <li>Umfasst klinische Untersuchung und optional Röntgenaufnahmen</li>
+                  <li>Dient als rechtliches Beweismittel bei späteren Streitigkeiten</li>
+                  <li>Ermöglicht Rücktritt &bdquo;ohne Befund&ldquo; (mit AKU-Vorbehalt im Kaufvertrag)</li>
+                </ul>
+              </RatgeberHighlightBox>
             </div>
 
-            {/* Große vs. Kleine AKU */}
-            <div id="classes" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            {/* 2. Warum eine AKU wichtig ist */}
+            <div id="importance" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('classes', 'Große vs. Kleine AKU im direkten Vergleich')}
+                {numberedTitle('importance', 'Warum eine AKU beim Pferdekauf so wichtig ist')}
               </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Ein Pferdekauf ist eine große finanzielle und emotionale Entscheidung. Eine AKU schützt Sie vor teuren Überraschungen, die erst Wochen oder Monate nach dem Kauf sichtbar werden.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6 my-8">
+                <div className="border-l-4 border-brand pl-4">
+                  <h3 className="font-bold text-lg mb-2">Medizinischer Schutz</h3>
+                  <p className="text-gray-700">Deckt versteckte Gesundheitsprobleme auf – von Arthrosen über Herzprobleme bis zu chronischen Lahmheiten, die dem Käufer sonst nicht aufgefallen wären.</p>
+                </div>
+                <div className="border-l-4 border-brand pl-4">
+                  <h3 className="font-bold text-lg mb-2">Rechtliche Absicherung</h3>
+                  <p className="text-gray-700">Das AKU-Protokoll ist ein offizielles Dokument, das bei Streitigkeiten vor Gericht als Beweismittel akzeptiert wird.</p>
+                </div>
+                <div className="border-l-4 border-brand pl-4">
+                  <h3 className="font-bold text-lg mb-2">Rücktrittsrecht</h3>
+                  <p className="text-gray-700">Mit einem AKU-Vorbehalt im Kaufvertrag können Sie den Kauf rückgängig machen, wenn erhebliche Befunde vorliegen – ohne weitere Diskussionen mit dem Verkäufer.</p>
+                </div>
+                <div className="border-l-4 border-brand pl-4">
+                  <h3 className="font-bold text-lg mb-2">Bessere Entscheidung</h3>
+                  <p className="text-gray-700">Sie treffen Ihre Kaufentscheidung basierend auf objektiven Fakten, nicht auf dem Eindruck beim Probereiten.</p>
+                </div>
+              </div>
+            </div>
 
-              <ContentSection
-                title="Die kleine AKU – Umfang und Eignung"
-                icon="📊"
-                content={
-                  <>
-                    <p className="text-lg mb-6">
-                      Die <strong>kleine Ankaufsuntersuchung</strong> umfasst ausschließlich die <strong>klinische Untersuchung ohne Röntgenbilder</strong>:
-                    </p>
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Untersuchungsumfang:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Allgemeinzustand (Ernährungszustand, Temperatur, Puls)</li>
-                        <li>• Bewegungsapparat (Gangbildanalyse Schritt/Trab, Flexionsproben)</li>
-                        <li>• Herz-Kreislauf-System (Auskultation, Pulsmessung)</li>
-                        <li>• Atmungsorgane (Lungenauskultation, Atemfrequenz)</li>
-                        <li>• Augenuntersuchung (Sehfähigkeit, Trübungen)</li>
-                      </ul>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4 mb-6">
-                      <div>
-                        <p className="font-semibold text-brand-brown">Dauer:</p>
-                        <p className="text-gray-700">1-2 Stunden</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-brand-brown">Kosten:</p>
-                        <p className="text-gray-700">150-300€ (Durchschnitt 220€)</p>
-                      </div>
-                    </div>
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg">
-                      <h4 className="font-bold text-brand-brown mb-3">Geeignet für:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Freizeitpferde mit Kaufpreis unter 5.000€</li>
-                        <li>• Ältere Pferde ohne Leistungsanspruch (&gt;15 Jahre)</li>
-                        <li>• Beistellpferde</li>
-                        <li>• Bekannte Pferde nach längerem Probereiten (&gt;4 Wochen)</li>
-                      </ul>
-                    </div>
-                  </>
-                }
+            {/* 3. Kleine vs. Große AKU */}
+            <div id="types" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('types', 'Kleine vs. Große AKU: Was ist der Unterschied?')}
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Je nach Kaufpreis und Verwendungszweck des Pferdes gibt es verschiedene AKU-Umfänge. Wir zeigen Ihnen, welche AKU für Ihre Situation sinnvoll ist.
+              </p>
+
+              {/* Info Tiles */}
+              <RatgeberInfoTiles
+                headline="AKU-Arten im Überblick"
+                tiles={[
+                  {
+                    title: 'Kleine AKU',
+                    value: '1-2 Stunden',
+                    description: 'Reine klinische Untersuchung ohne Röntgenbilder. Geeignet für Freizeitpferde bis ca. 5.000€.'
+                  },
+                  {
+                    title: 'Große AKU',
+                    value: '2-4 Stunden',
+                    description: 'Klinische Untersuchung + 18 Standard-Röntgenaufnahmen (seit 2018). Empfohlen ab 10.000€ oder für Sportpferde.'
+                  },
+                  {
+                    title: 'Spezial-AKU',
+                    value: 'Individuell',
+                    description: 'Alle Leistungen der großen AKU + Ultraschall, Endoskopie, Laboruntersuchungen. Für hochwertige Zucht- und Sportpferde.'
+                  }
+                ]}
               />
 
-              <ContentSection
-                title="Die große AKU – Erweiterte Diagnostik"
-                icon="🔬"
-                content={
-                  <>
-                    <p className="text-lg mb-6">
-                      Die <strong>große Ankaufsuntersuchung</strong> kombiniert die <strong>klinische Untersuchung mit Röntgendiagnostik</strong> (10-18 Aufnahmen):
-                    </p>
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Zusätzlicher Umfang:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Standard-Röntgenbilder: Vorderfußwurzelgelenk, Krongelenk, Hufgelenk, Sprunggelenk</li>
-                        <li>• Optional: Kniegelenk, Gleichbein, Rücken, Hals</li>
-                        <li>• Befundung nach Röntgenleitfaden (Klasse I-V)</li>
-                        <li>• Detaillierte Röntgenbilder-Bewertung</li>
-                      </ul>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4 mb-6">
-                      <div>
-                        <p className="font-semibold text-brand-brown">Dauer:</p>
-                        <p className="text-gray-700">2-3 Stunden vor Ort + 24-48h Befundung</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-brand-brown">Kosten:</p>
-                        <p className="text-gray-700">800-1.500€ (Durchschnitt 1.100€)</p>
-                      </div>
-                    </div>
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg">
-                      <h4 className="font-bold text-brand-brown mb-3">Geeignet für:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Sport-/Turnierpferde unabhängig vom Preis</li>
-                        <li>• Kaufpreis über 10.000€</li>
-                        <li>• Leistungspferde mit hoher Belastung</li>
-                        <li>• Jungpferde als Zukunftsinvestition</li>
-                      </ul>
-                    </div>
-                  </>
-                }
-              />
-
+              {/* Detailed Classes Table */}
               <div className="overflow-x-auto">
-                <h3 className="text-2xl font-bold text-brand-brown mb-4">Vergleichstabelle: Kleine vs. Große AKU</h3>
-                <table className="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden">
-                  <thead className="bg-brand-brown text-white">
-                    <tr>
-                      <th className="p-4 text-left">Kriterium</th>
-                      <th className="p-4 text-left">Kleine AKU</th>
-                      <th className="p-4 text-left">Große AKU</th>
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="bg-amber-100">
+                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">AKU-Umfang</th>
+                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">Inhalt</th>
+                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">Dauer</th>
+                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">Geeignet für</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    <tr>
-                      <td className="p-4 font-semibold">Klinische Untersuchung</td>
-                      <td className="p-4">✓ Ja</td>
-                      <td className="p-4">✓ Ja</td>
-                    </tr>
-                    <tr className="bg-amber-50">
-                      <td className="p-4 font-semibold">Röntgenbilder</td>
-                      <td className="p-4">✗ Nein</td>
-                      <td className="p-4">✓ 10-18 Aufnahmen</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-semibold">Dauer vor Ort</td>
-                      <td className="p-4">1-2 Stunden</td>
-                      <td className="p-4">2-3 Stunden</td>
-                    </tr>
-                    <tr className="bg-amber-50">
-                      <td className="p-4 font-semibold">Kosten</td>
-                      <td className="p-4">150-300€</td>
-                      <td className="p-4">800-1.500€</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-semibold">Empfohlen bei Kaufpreis</td>
-                      <td className="p-4">&lt; 5.000€</td>
-                      <td className="p-4">&gt; 10.000€</td>
-                    </tr>
-                    <tr className="bg-amber-50">
-                      <td className="p-4 font-semibold">Empfohlen für Nutzung</td>
-                      <td className="p-4">Freizeit</td>
-                      <td className="p-4">Sport/Turnier</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-semibold">Röntgenklassen-Bewertung</td>
-                      <td className="p-4">✗ Nicht enthalten</td>
-                      <td className="p-4">✓ Nach Leitfaden 2018</td>
-                    </tr>
+                  <tbody>
+                    {akuClasses.map((item, idx) => (
+                      <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-amber-50'}>
+                        <td className="border border-amber-200 px-4 py-3 font-bold text-brand">{item.title}</td>
+                        <td className="border border-amber-200 px-4 py-3">
+                          <ul className="list-disc list-inside text-sm">
+                            {item.includes.map((inc, i) => <li key={i}>{inc}</li>)}
+                          </ul>
+                        </td>
+                        <td className="border border-amber-200 px-4 py-3">{item.duration}</td>
+                        <td className="border border-amber-200 px-4 py-3">{item.suitable}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
-
-              <RatgeberHighlightBox title="Entscheidungshilfe" icon="🎯" padding="p-5 md:p-6">
-                <p className="text-lg">
-                  Wenn Sie unsicher sind, ob kleine oder große AKU: <strong>Bei Kaufpreis &gt;10.000€ oder sportlicher Nutzung → immer große AKU!</strong>
-                </p>
-              </RatgeberHighlightBox>
             </div>
 
-            {/* AKU Pferd Kosten */}
-            <div id="costs" className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('costs', 'AKU Pferd Kosten: Aktuelle Preise (2024/2025)')}
+            {/* 4. Ablauf der Untersuchung */}
+            <div id="process" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('process', 'Wie läuft eine AKU ab? Schritt-für-Schritt-Anleitung')}
               </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Eine AKU besteht aus mehreren Phasen. Hier ist ein Überblick über den kompletten Ablauf:
+              </p>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 md:p-6">
-                <p className="text-gray-700">
-                  Die AKU ist eine wichtige Kostenfaktor beim Pferdekauf. Um die Gesamtbudget besser einzuordnen, empfehlen wir auch unseren Ratgeber <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-blue-600 font-semibold hover:underline">&ldquo;Was kostet ein Pferd?&rdquo; zu lesen</Link>, der alle Anschaffungs- und laufenden Pferdehaltungskosten transparent macht.
-                </p>
-              </div>
-
-              <ContentSection
-                title="Kleine AKU Kosten"
-                icon="💰"
-                content={
-                  <>
-                    <div className="bg-gradient-to-r from-amber-50 to-white p-6 rounded-lg mb-6 border border-brand-brown/20">
-                      <p className="text-xl font-bold text-brand-brown mb-2">Preisrange: 150-300€</p>
-                      <p className="text-lg text-gray-700">(Durchschnitt: 220€)</p>
-                    </div>
-
-                    <h4 className="font-bold text-brand-brown mb-3 text-lg">Kostenfaktoren:</h4>
-                    <ul className="space-y-3 text-gray-700 mb-6">
-                      <li>• <strong>Region:</strong> Nord: 150-250€, Süd: 180-300€</li>
-                      <li>• <strong>Tierarzt-Qualifikation:</strong> Fachtierarzt teurer als Allgemein-Praktiker</li>
-                      <li>• <strong>Wochenende/Feiertag-Zuschläge:</strong> +20-30%</li>
-                      <li>• <strong>Anfahrtskosten:</strong> Bei Entfernung &gt;20km: +30-60€</li>
-                    </ul>
-
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg">
-                      <h4 className="font-bold text-brand-brown mb-4">Typische Kosten nach GOT (Stand 2024):</h4>
-                      <div className="space-y-2 text-gray-700">
-                        <div className="flex justify-between py-2 border-b">
-                          <span>Klinische Untersuchung:</span>
-                          <span className="font-semibold">120-180€ (GOT-Satz 2-3x)</span>
-                        </div>
-                        <div className="flex justify-between py-2 border-b">
-                          <span>Gangbildanalyse:</span>
-                          <span className="font-semibold">30-50€</span>
-                        </div>
-                        <div className="flex justify-between py-2 border-b">
-                          <span>Flexionsproben:</span>
-                          <span className="font-semibold">20-40€</span>
-                        </div>
-                        <div className="flex justify-between py-2">
-                          <span>Anfahrt:</span>
-                          <span className="font-semibold">20-50€</span>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Große AKU Kosten (inkl. Röntgen)"
-                icon="💶"
-                content={
-                  <>
-                    <div className="bg-gradient-to-r from-amber-50 to-white p-6 rounded-lg mb-6 border border-brand-brown/20">
-                      <p className="text-xl font-bold text-brand-brown mb-2">Preisrange: 800-1.500€</p>
-                      <p className="text-lg text-gray-700">(Durchschnitt: 1.100€)</p>
-                    </div>
-
-                    <h4 className="font-bold text-brand-brown mb-3 text-lg">Kostenaufschlüsselung:</h4>
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg mb-6">
-                      <div className="space-y-2 text-gray-700">
-                        <div className="flex justify-between py-2 border-b">
-                          <span>Klinische Untersuchung (wie kleine AKU):</span>
-                          <span className="font-semibold">150-300€</span>
-                        </div>
-                        <div className="flex justify-between py-2 border-b">
-                          <span>Röntgenbilder Standard (10 Aufnahmen):</span>
-                          <span className="font-semibold">500-800€</span>
-                        </div>
-                        <div className="flex justify-between py-2 border-b">
-                          <span>Röntgenbilder erweitert (18 Aufnahmen):</span>
-                          <span className="font-semibold">900-1.200€</span>
-                        </div>
-                        <div className="flex justify-between py-2">
-                          <span>Befundung + Protokoll:</span>
-                          <span className="font-semibold">100-150€</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-lg text-gray-700 mb-6">
-                      <strong>Preis pro Röntgenbild:</strong> 50-80€ (je nach Region und Gerät)
-                    </p>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-amber-50 p-5 rounded-lg">
-                        <h4 className="font-bold text-brand-brown mb-3">Standard-Röntgenbilder (10 Aufnahmen):</h4>
-                        <ul className="space-y-2 text-gray-700 text-sm">
-                          <li>• Vorderfußwurzelgelenk (2 Projektionen): 100-160€</li>
-                          <li>• Krongelenk vorne (2 Projektionen): 100-160€</li>
-                          <li>• Hufgelenk vorne (2 Projektionen): 100-160€</li>
-                          <li>• Sprunggelenk hinten (4 Projektionen): 200-320€</li>
-                        </ul>
-                      </div>
-                      <div className="bg-white border border-brand-brown/20 p-5 rounded-lg">
-                        <h4 className="font-bold text-brand-brown mb-3">Optionale Zusatzbilder:</h4>
-                        <ul className="space-y-2 text-gray-700 text-sm">
-                          <li>• Kniegelenk: +100-160€</li>
-                          <li>• Rücken: +150-240€</li>
-                          <li>• Hals: +100-150€</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </>
-                }
-              />
-
-              <RatgeberHighlightBox title="Neue GOT und Preisanpassungen (2020/2022)" icon="📊" padding="p-6">
-                <p className="text-lg mb-6">
-                  Die Gebührenordnung für Tierärzte (GOT) wurde 2020 und 2022 angepasst, was zu Preiserhöhungen von <strong>12-20%</strong> führte.
-                </p>
-
-                <h4 className="font-bold text-brand-brown mb-3">Vergleich alte vs. neue GOT-Sätze:</h4>
-                <div className="overflow-x-auto mb-6">
-                  <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
-                    <thead className="bg-brand-brown text-white">
-                      <tr>
-                        <th className="p-3 text-left text-sm">Leistung</th>
-                        <th className="p-3 text-right text-sm">GOT 2017</th>
-                        <th className="p-3 text-right text-sm">GOT 2020</th>
-                        <th className="p-3 text-right text-sm">GOT 2022</th>
-                        <th className="p-3 text-right text-sm">Änderung</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200">
-                      <tr>
-                        <td className="p-3 text-sm">Klinische Untersuchung (2x Satz)</td>
-                        <td className="p-3 text-right text-sm">96€</td>
-                        <td className="p-3 text-right text-sm">108€</td>
-                        <td className="p-3 text-right text-sm font-semibold">120€</td>
-                        <td className="p-3 text-right text-sm text-red-600 font-semibold">+25%</td>
-                      </tr>
-                      <tr className="bg-amber-50">
-                        <td className="p-3 text-sm">Röntgenbild (1 Aufnahme, 2x Satz)</td>
-                        <td className="p-3 text-right text-sm">44€</td>
-                        <td className="p-3 text-right text-sm">50€</td>
-                        <td className="p-3 text-right text-sm font-semibold">56€</td>
-                        <td className="p-3 text-right text-sm text-red-600 font-semibold">+27%</td>
-                      </tr>
-                      <tr>
-                        <td className="p-3 text-sm">Gangbildanalyse</td>
-                        <td className="p-3 text-right text-sm">26€</td>
-                        <td className="p-3 text-right text-sm">30€</td>
-                        <td className="p-3 text-right text-sm font-semibold">34€</td>
-                        <td className="p-3 text-right text-sm text-red-600 font-semibold">+31%</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className="bg-white p-5 rounded-lg border border-brand-brown/20">
-                  <h4 className="font-bold text-brand-brown mb-3">Auswirkung auf AKU-Gesamtkosten:</h4>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
+                  <h3 className="text-xl font-bold mb-2">Phase 1: Vorbereitung (vor dem Untersuchungstermin)</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• <strong>Kleine AKU:</strong> +24€ (von 196€ auf 220€)</li>
-                    <li>• <strong>Große AKU:</strong> +132€ (von 968€ auf 1.100€)</li>
+                    <li><strong>Unabhängigen Tierarzt auswählen</strong> – nicht den Stallveterinär des Verkäufers</li>
+                    <li><strong>AKU-Klasse festlegen</strong> – kleine oder große AKU?</li>
+                    <li><strong>Röntgenumfang definieren</strong> – Standard sind 18 Aufnahmen (seit Röntgenleitfaden 2018)</li>
+                    <li><strong>AKU-Vorbehalt im Kaufvertrag</strong> – vereinbaren für kostenloses Rücktrittsrecht</li>
+                    <li><strong>Kosten klären</strong> – schriftliche Kostenaufstellung vom Tierarzt einholen</li>
                   </ul>
                 </div>
 
-                <p className="text-sm text-gray-600 mt-4">
-                  <strong>Hinweis:</strong> Tierärzte können laut GOT den 1-3fachen Satz berechnen. Bei komplexen Fällen oder Spezialkliniken oft 2,5-3facher Satz.
-                </p>
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
+                  <h3 className="text-xl font-bold mb-2">Phase 2: Klinische Untersuchung (am Untersuchungstag, 1-2 Stunden)</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li><strong>Allgemeinzustand:</strong> Körperkondition, Temperatur, Verhalten</li>
+                    <li><strong>Gangbildanalyse:</strong> Schritt und Trab auf hartem und weichem Boden, Longieren</li>
+                    <li><strong>Flexionsproben:</strong> Alle Gelenke einzeln prüfen, auf Reaktionen achten</li>
+                    <li><strong>Herz-Kreislauf:</strong> Herzfrequenz, Atemfrequenz, Abhören mit Stethoskop</li>
+                    <li><strong>Lungen-Untersuchung:</strong> Atemgeräusche kontrollieren</li>
+                    <li><strong>Zähne, Augen, Ohren:</strong> Detaillierte Untersuchung</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
+                  <h3 className="text-xl font-bold mb-2">Phase 3: Röntgenuntersuchung (nur bei großer AKU, 1-1,5 Stunden)</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li><strong>18 Standard-Aufnahmen (seit 2018):</strong> Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk, sowie weitere Standard-Aufnahmen für umfassende Bewertung</li>
+                    <li><strong>Digitale Entwicklung:</strong> Aufnahmen sofort verfügbar zur ersten Sichtung</li>
+                    <li><strong>Zusatzaufnahmen bei Befunden:</strong> Falls nötig, werden erweiterte Aufnahmen gemacht</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
+                  <h3 className="text-xl font-bold mb-2">Phase 4: Befundung & Protokoll-Erstellung (24-48 Stunden später)</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li><strong>Röntgenauswertung:</strong> Alle 18 Bilder werden detailliert beurteilt</li>
+                    <li><strong>Präzise Befundbeschreibung (seit 2018):</strong> Jeder Befund wird individuell beschrieben – o.b.B., Abweichung, oder Risiko-Befund</li>
+                    <li><strong>AKU-Protokoll erstellen:</strong> Vollständiger Bericht mit allen Befunden und Bewertung</li>
+                    <li><strong>Kaufempfehlung formulieren:</strong> Basierend auf Befunddaten und beabsichtigter Reitweise</li>
+                    <li><strong>Übergabe an Käufer:</strong> Protokoll gehört dem Käufer, nicht dem Verkäufer</li>
+                  </ul>
+                </div>
+              </div>
+
+              <RatgeberHighlightBox title="Zeitrahmen der AKU">
+                <ul className="list-disc list-inside space-y-2">
+                  {akuTimeTiles.map((tile, idx) => (
+                    <li key={idx}><strong>{tile.title}:</strong> {tile.value} ({tile.description})</li>
+                  ))}
+                </ul>
               </RatgeberHighlightBox>
             </div>
 
-            {/* Ablauf der Ankaufsuntersuchung */}
-            <div id="process" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            {/* 5. Befunde verstehen */}
+            <div id="findings" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('process', 'Ablauf der Ankaufsuntersuchung (Schritt für Schritt)')}
+                {numberedTitle('findings', 'Befunde verstehen: Das aktuelle System seit 2018')}
               </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Seit dem <strong>Röntgenleitfaden 2018 der Gesellschaft für Pferdemedizin (GPM)</strong> wird das alte Klassensystem (I-V) nicht mehr verwendet. Das neue System ist präziser und fairere für Pferde, da es stärker auf individuelle Befundbeschreibung und Risikoanalyse setzt – nicht auf pauschale Klassifizierung.
+              </p>
 
-              <ContentSection
-                title="Phase 1: Vorbereitung und Terminvereinbarung"
-                icon="📅"
-                content={
-                  <>
-                    <p className="text-sm text-gray-600 mb-4 italic">1-2 Wochen vorher</p>
-                    <h4 className="font-bold text-brand-brown mb-3">Schritte:</h4>
-                    <ol className="space-y-3 text-gray-700 list-decimal list-inside mb-6">
-                      <li><strong>Tierarzt-Auswahl:</strong> Wählen Sie einen unabhängigen Tierarzt (nicht der Stallvet des Verkäufers!)</li>
-                      <li><strong>Terminabstimmung:</strong> Koordinieren mit Verkäufer, Tierarzt und Ihnen</li>
-                      <li><strong>Röntgenbilder-Umfang festlegen:</strong> Standard (10 Aufnahmen) oder erweitert (18 Aufnahmen)?</li>
-                      <li><strong>Kosten vorab klären:</strong> Kostenvoranschlag vom Tierarzt anfordern</li>
-                      <li><strong>Kaufvertrag vorbereiten:</strong> AKU-Vorbehalt schriftlich fixieren</li>
-                    </ol>
-                    <RatgeberHighlightBox title="Wichtiger Tipp" icon="⚠️" padding="p-4">
-                      <p>Vereinbaren Sie den Termin nicht Freitags oder Samstags – die Befundung erfolgt erst Mo-Fr.</p>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Phase 2: Klinische Untersuchung"
-                icon="🔍"
-                content={
-                  <>
-                    <p className="text-sm text-gray-600 mb-4 italic">1-2 Stunden</p>
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Timeline:</h4>
-                      <div className="space-y-3 text-gray-700">
-                        <div className="flex gap-4">
-                          <span className="font-semibold text-brand-brown min-w-[100px]">0-15 Min:</span>
-                          <span>Allgemeinzustand (Temperatur, Puls, Gewicht, Ernährungszustand)</span>
-                        </div>
-                        <div className="flex gap-4">
-                          <span className="font-semibold text-brand-brown min-w-[100px]">15-30 Min:</span>
-                          <span>Gangbildanalyse Schritt und Trab (auf hartem/weichem Boden)</span>
-                        </div>
-                        <div className="flex gap-4">
-                          <span className="font-semibold text-brand-brown min-w-[100px]">30-50 Min:</span>
-                          <span>Flexionsproben Vorder- und Hinterhand (Belastungstest)</span>
-                        </div>
-                        <div className="flex gap-4">
-                          <span className="font-semibold text-brand-brown min-w-[100px]">50-70 Min:</span>
-                          <span>Herz/Lunge Auskultation, Atemfrequenz</span>
-                        </div>
-                        <div className="flex gap-4">
-                          <span className="font-semibold text-brand-brown min-w-[100px]">70-90 Min:</span>
-                          <span>Augenuntersuchung, Zahnkontrolle, Palpation Gliedmaßen</span>
-                        </div>
-                        <div className="flex gap-4">
-                          <span className="font-semibold text-brand-brown min-w-[100px]">90-120 Min:</span>
-                          <span>Dokumentation Befunde</span>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-gray-600 italic">
-                      <strong>Verhalten während Untersuchung:</strong> Bleiben Sie ruhig, stellen Sie Fragen, notieren Sie Auffälligkeiten.
-                    </p>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Phase 3: Röntgenuntersuchung (nur große AKU)"
-                icon="🩻"
-                content={
-                  <>
-                    <p className="text-sm text-gray-600 mb-4 italic">1-1.5 Stunden</p>
-
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Standard-Röntgenbilder (10 Aufnahmen):</h4>
-                      <ol className="space-y-2 text-gray-700 list-decimal list-inside">
-                        <li>Vorderfußwurzelgelenk li/re (2 Projektionen je)</li>
-                        <li>Krongelenk vorne li/re (2 Projektionen je)</li>
-                        <li>Hufgelenk vorne li/re (2 Projektionen je)</li>
-                        <li>Sprunggelenk hinten li/re (2 Projektionen je)</li>
-                      </ol>
-                    </div>
-
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-3">Optionale Zusatzbilder:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Kniegelenk hinten</li>
-                        <li>• Rücken (Dornfortsätze, Wirbelkörper)</li>
-                        <li>• Hals (Halswirbelsäule)</li>
-                        <li>• Gleichbein</li>
-                      </ul>
-                    </div>
-
-                    <RatgeberHighlightBox title="Röntgenleitfaden 2018 – Bewertungsklassen" icon="📋" padding="p-6">
-                      <div className="space-y-3 text-sm md:text-base">
-                        <div className="flex gap-3">
-                          <span className="font-bold text-green-600 min-w-[80px]">Klasse I:</span>
-                          <span>Ohne besonderen Befund</span>
-                        </div>
-                        <div className="flex gap-3">
-                          <span className="font-bold text-blue-600 min-w-[80px]">Klasse II:</span>
-                          <span>Geringgradig verändert, klinisch unwichtig</span>
-                        </div>
-                        <div className="flex gap-3">
-                          <span className="font-bold text-yellow-600 min-w-[80px]">Klasse III:</span>
-                          <span>Mittelgradig verändert, klinisch relevant</span>
-                        </div>
-                        <div className="flex gap-3">
-                          <span className="font-bold text-orange-600 min-w-[80px]">Klasse IV:</span>
-                          <span>Hochgradig verändert, prognostisch ungünstig</span>
-                        </div>
-                        <div className="flex gap-3">
-                          <span className="font-bold text-red-600 min-w-[80px]">Klasse V:</span>
-                          <span>Hochgradig verändert, klinisch evident</span>
-                        </div>
-                      </div>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Phase 4: Befundung und Protokoll"
-                icon="📄"
-                content={
-                  <>
-                    <p className="text-sm text-gray-600 mb-4 italic">24-48h nach Untersuchung</p>
-
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Schriftliche Dokumentation:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Zusammenfassung klinische Befunde</li>
-                        <li>• Röntgenbilder-Bewertung (Klasse I-V je Aufnahme)</li>
-                        <li>• Empfehlung zur Kaufeignung (geeignet/bedingt geeignet/nicht geeignet)</li>
-                        <li>• Einschränkungen für Nutzungszweck</li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Übergabe Protokoll:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Per E-Mail (PDF) oder postalisch</li>
-                        <li>• Röntgenbilder auf CD/DVD oder Cloud-Link</li>
-                        <li>• Telefonische Befundbesprechung mit Tierarzt</li>
-                      </ul>
-                    </div>
-
-                    <RatgeberHighlightBox title="Wichtig zu wissen" icon="⚠️" padding="p-4">
-                      <p className="font-semibold">Das Protokoll gehört dem Käufer (Auftraggeber), nicht dem Verkäufer!</p>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
-
-              <RatgeberInfoTiles headline="⏰ Zeitaufwand nach AKU-Klasse" tiles={akuTimeTiles} />
-            </div>
-
-            {/* Untersuchungsumfang */}
-            <div id="findings" className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('findings', 'Untersuchungsumfang: Was wird bei der AKU genau geprüft?')}
-              </h2>
-
-              <ContentSection
-                title="Bewegungsapparat und Lahmheitsuntersuchung"
-                icon="🏃"
-                content={
-                  <>
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Gangbildanalyse:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Schritt auf hartem Boden (Pflasterung, Asphalt)</li>
-                          <li>• Trab auf hartem Boden (freier Trab, Zirkel rechts/links)</li>
-                          <li>• Trab auf weichem Boden (Sandplatz, Reitbahn)</li>
-                          <li>• Beobachtung Taktfehler, Asymmetrien, Ausweichbewegungen</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Flexionsproben:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• <strong>Vorderhand:</strong> Hufgelenk, Krongelenk, Fesselgelenk (je 60 Sekunden)</li>
-                          <li>• <strong>Hinterhand:</strong> Sprunggelenk, Kniegelenk (je 60 Sekunden)</li>
-                          <li>• <strong>Rücken:</strong> Längsbiegung, Aufwölbung</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Palpation:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Sehnen (oberflächliche/tiefe Beugesehne, Fesselträger)</li>
-                          <li>• Bänder (Kollateralbänder Karpalgelenk)</li>
-                          <li>• Muskulatur (Verspannungen, Atrophien)</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Innere Organe und Kreislaufsystem"
-                icon="❤️"
-                content={
-                  <>
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Herz-Auskultation:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Herzfrequenz Ruhe (28-40 Schläge/Min normal)</li>
-                          <li>• Herztöne (regelmäßig, klar, ohne Nebengeräusche)</li>
-                          <li>• Herzgeräusche (falls vorhanden: Grad I-VI Klassifikation)</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Lungen-Auskultation:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Atemfrequenz Ruhe (8-16 Atemzüge/Min normal)</li>
-                          <li>• Atemgeräusche (vesikulär, bronchial)</li>
-                          <li>• Rassel-/Giemengeräusche (Hinweis auf Atemwegserkrankung)</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Weitere Checks:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Puls (Arteria facialis, Arteria digitalis)</li>
-                          <li>• Körpertemperatur (rektal, 37,5-38,5°C normal)</li>
-                          <li>• Schleimhäute (Farbe, Feuchtigkeit, Kapillarfüllzeit)</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Augen, Zähne und Allgemeinzustand"
-                icon="👁️"
-                content={
-                  <>
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Ophthalmologische Untersuchung:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Sehfähigkeit (Reaktion auf Bewegungen)</li>
-                          <li>• Hornhaut (Trübungen, Narben)</li>
-                          <li>• Linse (Katarakt, Altersveränderungen)</li>
-                          <li>• Glaskörper (Floater, Trübungen)</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Zahnstatus:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Zahnalter (Abgleich mit Equidenpass)</li>
-                          <li>• Zahnfehlstellungen (Über-/Unterbiss, Wellen)</li>
-                          <li>• Haken, Kanten, scharfe Zähne</li>
-                          <li>• EOTRH-Anzeichen (bei älteren Pferden)</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-brand-brown mb-3">Allgemeinzustand:</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Ernährungszustand (BCS 1-9, ideal: 5-6)</li>
-                          <li>• Fell/Haut (Glanz, Parasiten, Ekzeme)</li>
-                          <li>• Verhaltensbeobachtung (nervös, gelassen, aggressiv)</li>
-                          <li>• Konstitution (Proportionen, Exterieur)</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </>
-                }
-              />
-            </div>
-
-            {/* Versicherung & AKU-Kosten */}
-            <div id="versicherung" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('versicherung', 'Versicherung & AKU-Kosten: Wer zahlt?')}
-              </h2>
-
-              <RatgeberHighlightBox title="Wichtige Klarstellung" icon="⚠️" padding="p-6">
-                <p className="text-xl font-bold text-red-600 mb-3">
-                  KEINE Pferdekrankenversicherung übernimmt AKU-Kosten VOR Vertragsabschluss!
-                </p>
-                <p className="text-gray-700">
-                  Die AKU findet vor dem Versicherungsabschluss statt, daher gilt sie nicht als versicherbares Risiko. Versicherungen greifen erst nach Vertragsabschluss.
-                </p>
+              <RatgeberHighlightBox title="Warum wurde das alte Klassensystem abgeschafft?">
+                <ul className="list-disc list-inside space-y-2">
+                  <li><strong>Unfaire Disqualifikation:</strong> Das alte System (Klasse I-V) führte dazu, dass Pferde mit identischen Befunden unterschiedlich bewertet wurden</li>
+                  <li><strong>Fehlende Aussagekraft:</strong> Befundklassen sagten nichts über das tatsächliche Lahmheitsrisiko aus</li>
+                  <li><strong>Zu starr:</strong> Ein einzelnes Befund im Sprunggelenk (Klasse III) bedeutete nicht automatisch Probleme bei der gewünschten Reitweise</li>
+                  <li><strong>Neue Lösung:</strong> Präzise Beschreibung + klare Unterscheidung zwischen Befunden und risikobehafteten Befunden</li>
+                </ul>
               </RatgeberHighlightBox>
 
-              <ContentSection
-                title="Pferdekrankenversicherung und AKU-Übernahme"
-                icon="🏥"
-                content={
-                  <>
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-3">Kaufpreisversicherungen (Sonderfall):</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Einige Anbieter bieten &quot;Kaufpreisversicherungen&quot; (Uelzener, Allianz)</li>
-                        <li>• <strong>Kostenübernahme:</strong> 50-100% der AKU-Kosten bei Kaufabbruch nach negativer AKU</li>
-                        <li>• <strong>Voraussetzung:</strong> Abschluss VOR AKU-Termin</li>
-                        <li>• <strong>Beitrag:</strong> 80-150€ einmalig (abhängig von Kaufpreis)</li>
-                      </ul>
-                    </div>
+              <div className="mt-8 space-y-4">
+                <h3 className="text-2xl font-bold font-serif text-brand">Das neue Befundungssystem seit 2018:</h3>
 
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg">
-                      <h4 className="font-bold text-brand-brown mb-3">Wann zahlt Versicherung nach Kauf?</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• <strong>Tierarztkosten nach Kaufabschluss:</strong> Normal versichert</li>
-                        <li>• <strong>Nachuntersuchungen bei Beschwerden:</strong> Versicherungsleistung greifbar</li>
-                        <li>• <strong>Vorerkrankungen aus AKU:</strong> Oft ausgeschlossen (Präexistenz)</li>
-                      </ul>
-                    </div>
-                  </>
-                }
-              />
+                <div className="border-l-4 border-green-500 bg-green-50 p-4 rounded">
+                  <h3 className="font-bold text-lg text-green-900">o.b.B. – Ohne besonderen Befund</h3>
+                  <p className="text-gray-700 mt-2">Es wurden <strong>keine Abweichungen von der normalen Röntgenanatomie</strong> gefunden. Das Pferd zeigt optimale Befunde für die beabsichtigte Reitweise. Dies ist der beste mögliche Befund.</p>
+                </div>
 
-              <ContentSection
-                title="Käufer oder Verkäufer: Wer trägt die Kosten?"
-                icon="💶"
-                content={
-                  <>
-                    <div className="bg-gradient-to-r from-brand-brown/10 to-amber-50 p-6 rounded-lg mb-6">
-                      <p className="text-xl font-bold text-brand-brown mb-2">Standard:</p>
-                      <p className="text-lg">Käufer zahlt AKU (in 95% der Fälle)</p>
-                    </div>
+                <div className="border-l-4 border-yellow-500 bg-yellow-50 p-4 rounded">
+                  <h3 className="font-bold text-lg text-yellow-900">Befunde mit Abweichungen (ohne Risiko-Kennzeichnung)</h3>
+                  <p className="text-gray-700 mt-2">Der Befund zeigt Abweichungen von der Norm. <strong>Das Lahmheitsrisiko ist aber nicht verlässlich einschätzbar.</strong> Diese Befunde sind teils altersgerecht, teils ohne bekannte funktionelle Bedeutung. Sie erfordern eine individuelle Bewertung.</p>
+                </div>
 
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-3">Begründung:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Käufer beauftragt die Untersuchung</li>
-                        <li>• Käufer wählt den Tierarzt</li>
-                        <li>• Käufer erhält das Protokoll</li>
-                      </ul>
-                    </div>
+                <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
+                  <h3 className="font-bold text-lg text-red-900">Risiko-Befunde (mit &quot;Risiko&quot;-Kennzeichnung)</h3>
+                  <p className="text-gray-700 mt-2">Der Befund ist <strong>mit einem bekannten Lahmheitsrisiko verbunden.</strong> Diese Befunde sind deutlich problematischer und beeinflussen die Kaufempfehlung. Je nach Schweregrad und Reitweise kann ein Risiko-Befund ein Ausschlusskriterium sein.</p>
+                </div>
+              </div>
 
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-3">Verhandlungssache: Kostenaufteilung möglich</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• 50/50-Teilung bei hohen Kaufpreisen (&gt;20.000€)</li>
-                        <li>• Verkäufer zahlt bei mehreren Interessenten (Fairness)</li>
-                        <li>• Verkäufer zahlt bei AKU-Verpflichtung im Kaufvertrag</li>
-                      </ul>
-                    </div>
-
-                    <RatgeberHighlightBox title="Bei negativer AKU" icon="❌" padding="p-5">
-                      <p className="font-semibold mb-2">Kosten bleiben beim Käufer!</p>
-                      <p className="text-sm text-gray-700">
-                        Auch wenn Kauf platzt, zahlt Käufer die AKU. <strong>Ausnahme:</strong> Schriftliche Vereinbarung mit Verkäufer.
-                      </p>
-                    </RatgeberHighlightBox>
-
-                    <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
-                      <p className="font-semibold text-blue-900">💡 Tipp:</p>
-                      <p className="text-blue-800">Klären Sie die Kostenübernahme <strong>vor</strong> der Untersuchung schriftlich!</p>
-                    </div>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Steuerliche Absetzbarkeit der AKU-Kosten"
-                icon="📊"
-                content={
-                  <>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-                        <h4 className="font-bold text-green-700 mb-4 flex items-center">
-                          <span className="mr-2">✅</span> Gewerbliche Pferdehaltung
-                        </h4>
-                        <p className="text-gray-700 mb-4">
-                          AKU als <strong>Betriebsausgabe absetzbar</strong>
-                        </p>
-                        <div className="bg-white p-4 rounded">
-                          <p className="font-semibold text-gray-800 mb-2">Voraussetzungen:</p>
-                          <ul className="space-y-1 text-sm text-gray-700">
-                            <li>• Gewerbliche Tätigkeit (Zucht, Reitbetrieb, Pensionsstall)</li>
-                            <li>• Gewinnerzielungsabsicht nachweisbar</li>
-                            <li>• Pferd wird betrieblich genutzt</li>
-                          </ul>
-                        </div>
-                        <div className="mt-4">
-                          <p className="font-semibold text-gray-800 mb-2">Absetzbar:</p>
-                          <ul className="space-y-1 text-sm text-gray-700">
-                            <li>• AKU-Kosten komplett (150-1.500€)</li>
-                            <li>• Anfahrtskosten zum Tierarzt</li>
-                            <li>• Kopien/Protokoll-Gebühren</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-                        <h4 className="font-bold text-red-700 mb-4 flex items-center">
-                          <span className="mr-2">❌</span> Private Pferdehaltung
-                        </h4>
-                        <p className="text-gray-700 mb-4">
-                          <strong>Nicht absetzbar</strong>
-                        </p>
-                        <div className="bg-white p-4 rounded">
-                          <p className="font-semibold text-gray-800 mb-2">Ausnahme:</p>
-                          <ul className="space-y-1 text-sm text-gray-700">
-                            <li>• Reitbetrieb mit Gewerbeanmeldung</li>
-                            <li>• Zucht mit Gewinnerzielungsabsicht (nachgewiesen über 3 Jahre)</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
-                      <p className="font-semibold text-yellow-900">⚠️ Wichtig:</p>
-                      <p className="text-yellow-800">
-                        Bei Unsicherheit Steuerberater konsultieren! Absetzbarkeit hängt von individueller Situation ab.
-                      </p>
-                    </div>
-                  </>
-                }
-              />
+              <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded">
+                <p className="text-gray-800"><strong>Wie liest man einen modernen AKU-Befund?</strong></p>
+                <p className="text-gray-700 mt-2">Der Tierarzt beschreibt für jede untersuchte Körperregion präzise, welche Befunde vorliegen. Jeder Befund wird einzeln evaluiert – nicht das ganze Pferd wird in eine Klasse eingeteilt. Manche Befunde bekommen die Zusatzbezeichnung &quot;Risiko&quot;, wenn sie mit Lahmheitsrisiko verbunden sind.</p>
+              </div>
             </div>
 
-            {/* Wann ist eine AKU sinnvoll? */}
-            <div id="sinnvoll" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            {/* 6. Wann braucht man welche Stufe? */}
+            <div id="when" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('sinnvoll', 'Wann ist eine AKU sinnvoll?')}
+                {numberedTitle('when', 'Wann braucht man welche AKU-Stufe?')}
               </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Die Wahl zwischen kleiner und großer AKU hängt von mehreren Faktoren ab. Hier ist eine Orientierungshilfe:
+              </p>
 
-              <ContentSection
-                title="AKU-Pflicht: Wann unbedingt erforderlich?"
-                icon="🚨"
-                content={
-                  <>
-                    <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded mb-6">
-                      <h4 className="font-bold text-red-800 mb-4">AKU ist unbedingt erforderlich bei:</h4>
-                      <ol className="space-y-3 text-gray-700 list-decimal list-inside">
-                        <li><strong>Kaufpreis &gt;5.000€:</strong> Immer empfohlen zur Absicherung der Investition</li>
-                        <li><strong>Sport-/Turnierpferde:</strong> Unabhängig vom Preis – Gesundheit ist Leistungsvoraussetzung</li>
-                        <li><strong>Jungpferde/Fohlen:</strong> Bei Zukunftsinvestition – versteckte Entwicklungsstörungen erkennen</li>
-                        <li><strong>Vorerkrankungen bekannt:</strong> Absicherung gegen chronische Beschwerden</li>
-                        <li><strong>Fernes Verkaufsgebiet:</strong> Wenn Rücktransport teuer wäre</li>
-                      </ol>
-                    </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="border border-amber-300 bg-amber-50 p-6 rounded-lg">
+                  <h3 className="font-bold text-lg mb-3 flex items-center">
+                    <span className="inline-block bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 text-sm">✓</span>
+                    Kleine AKU ausreichend
+                  </h3>
+                  <ul className="space-y-2 text-gray-700 text-sm">
+                    <li>✓ Freizeitpferde unter 5.000€</li>
+                    <li>✓ Junge Pferde ohne Vorgeschichte</li>
+                    <li>✓ Probepferde vor kurzfristigem Kauf</li>
+                    <li>✓ Pferde mit hervorragender Bewegungsqualität</li>
+                  </ul>
+                </div>
 
-                    <div className="bg-yellow-50 p-6 rounded-lg">
-                      <h4 className="font-bold text-yellow-800 mb-3">Zusätzliche Indikatoren (Red Flags!):</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Verkäufer drängt auf schnellen Kaufabschluss (Red Flag!)</li>
-                        <li>• Pferd wurde kürzlich verletzt oder operiert</li>
-                        <li>• Verkäufer verweigert AKU-Vorbehalt im Kaufvertrag</li>
-                      </ul>
-                    </div>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="Wann reicht eine kleine AKU?"
-                icon="✅"
-                content={
-                  <>
-                    <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded mb-6">
-                      <h4 className="font-bold text-green-800 mb-4">Kleine AKU ausreichend bei:</h4>
-                      <ol className="space-y-3 text-gray-700 list-decimal list-inside">
-                        <li><strong>Freizeitpferde &lt;3.000€:</strong> Geringe finanzielle Risiko-Exposition</li>
-                        <li><strong>Ältere Pferde (&gt;15 Jahre):</strong> Ohne Leistungsanspruch, Begleitpferd</li>
-                        <li><strong>Beistellpferde:</strong> Keine sportliche Nutzung geplant</li>
-                        <li><strong>Bekanntes Pferd:</strong> Probereiten &gt;4 Wochen, keine Auffälligkeiten</li>
-                      </ol>
-                    </div>
-
-                    <RatgeberHighlightBox title="Rechenbeispiel" icon="💡" padding="p-5">
-                      <div className="space-y-2 text-gray-700">
-                        <p>• <strong>Kaufpreis:</strong> 2.500€</p>
-                        <p>• <strong>Kleine AKU:</strong> 220€ (8,8% vom Kaufpreis)</p>
-                        <p>• <strong>Große AKU:</strong> 1.100€ (44% vom Kaufpreis – unverhältnismäßig)</p>
-                        <p className="pt-3 font-semibold text-brand-brown">
-                          Entscheidungsregel: Bei Kaufpreis &lt;3.000€ und Freizeitnutzung → kleine AKU reicht meist aus.
-                        </p>
-                      </div>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
-
-              <ContentSection
-                title="ROI-Kalkulation: AKU-Kosten vs. Kaufpreis-Risiko"
-                icon="📊"
-                content={
-                  <>
-                    <div className="space-y-6 mb-6">
-                      <div className="bg-white border border-brand-brown/20 p-6 rounded-lg">
-                        <h4 className="font-bold text-brand-brown mb-3">Rechenbeispiel 1: Sport-Pferd 15.000€</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Große AKU-Kosten: 1.200€</li>
-                          <li>• Versteckter Mangel (z.B. Chip im Sprunggelenk): 5.000€ OP-Kosten + 3 Monate Ausfall</li>
-                          <li className="pt-2 font-semibold text-green-600">
-                            ✓ ROI: 1.200€ investiert → 8.000€+ gespart (Faktor 6,7x)
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="bg-white border border-brand-brown/20 p-6 rounded-lg">
-                        <h4 className="font-bold text-brand-brown mb-3">Rechenbeispiel 2: Freizeitpferd 3.000€</h4>
-                        <ul className="space-y-2 text-gray-700">
-                          <li>• Kleine AKU-Kosten: 220€</li>
-                          <li>• Versteckter Mangel (z.B. chronische Lahmheit): Pferd unverkäuflich, Totalverlust 3.000€</li>
-                          <li className="pt-2 font-semibold text-green-600">
-                            ✓ ROI: 220€ investiert → 3.000€ gespart (Faktor 13,6x)
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="overflow-x-auto mb-6">
-                      <h4 className="font-bold text-brand-brown mb-3">Break-even-Analyse:</h4>
-                      <table className="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden">
-                        <thead className="bg-brand-brown text-white">
-                          <tr>
-                            <th className="p-3 text-left text-sm">Kaufpreis</th>
-                            <th className="p-3 text-left text-sm">AKU-Kosten</th>
-                            <th className="p-3 text-left text-sm">Wahrsch. Mangel</th>
-                            <th className="p-3 text-left text-sm">Erwarteter Verlust</th>
-                            <th className="p-3 text-left text-sm">ROI</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          <tr>
-                            <td className="p-3">3.000€</td>
-                            <td className="p-3">220€</td>
-                            <td className="p-3">15%</td>
-                            <td className="p-3">450€</td>
-                            <td className="p-3 font-semibold text-green-600">2,0x</td>
-                          </tr>
-                          <tr className="bg-amber-50">
-                            <td className="p-3">8.000€</td>
-                            <td className="p-3">800€</td>
-                            <td className="p-3">12%</td>
-                            <td className="p-3">960€</td>
-                            <td className="p-3 font-semibold text-green-600">1,2x</td>
-                          </tr>
-                          <tr>
-                            <td className="p-3">15.000€</td>
-                            <td className="p-3">1.200€</td>
-                            <td className="p-3">10%</td>
-                            <td className="p-3">1.500€</td>
-                            <td className="p-3 font-semibold text-green-600">1,25x</td>
-                          </tr>
-                          <tr className="bg-amber-50">
-                            <td className="p-3">30.000€</td>
-                            <td className="p-3">1.500€</td>
-                            <td className="p-3">8%</td>
-                            <td className="p-3">2.400€</td>
-                            <td className="p-3 font-semibold text-green-600">1,6x</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <RatgeberHighlightBox title="Entscheidungsbaum" icon="🎯" padding="p-5">
-                      <ol className="space-y-2 text-gray-700 list-decimal list-inside">
-                        <li>Kaufpreis &gt;10.000€ → Große AKU (immer lohnend)</li>
-                        <li>Kaufpreis 5.000-10.000€ → Große AKU bei Sport, Kleine AKU bei Freizeit</li>
-                        <li>Kaufpreis &lt;5.000€ → Kleine AKU ausreichend (ROI &gt;2x)</li>
-                      </ol>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
+                <div className="border border-red-300 bg-red-50 p-6 rounded-lg">
+                  <h3 className="font-bold text-lg mb-3 flex items-center">
+                    <span className="inline-block bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 text-sm">!</span>
+                    Große AKU empfohlen
+                  </h3>
+                  <ul className="space-y-2 text-gray-700 text-sm">
+                    <li>! Kaufpreis über 10.000€</li>
+                    <li>! Sportpferde (Dressur, Springen, Vielseitigkeit)</li>
+                    <li>! Ältere Pferde (7+ Jahre)</li>
+                    <li>! Pferde mit unklarer Vorgeschichte</li>
+                    <li>! Pferde mit früheren Verletzungen</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Rechtsaspekte */}
-            <div id="rechtsaspekte" className="space-y-8 scroll-mt-32 lg:scroll-mt-40">
+            {/* 7. Worauf sollte man achten? */}
+            <div id="what-to-watch" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('rechtsaspekte', 'Rechtsaspekte: AKU und Kaufvertrag')}
+                {numberedTitle('what-to-watch', 'Worauf sollte man bei der AKU achten?')}
               </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Einige Tipps, um das Beste aus Ihrer AKU herauszuholen:
+              </p>
 
-              <ContentSection
-                title="Negative AKU: Rücktrittsrecht und Gewährleistung"
-                icon="⚖️"
-                content={
-                  <>
-                    <div className="bg-blue-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-3">Empfohlene Formulierung für AKU-Vorbehalt im Kaufvertrag:</h4>
-                      <div className="bg-white p-4 rounded border-l-4 border-blue-500">
-                        <p className="text-gray-700 italic">
-                          &quot;Der Kauf steht unter dem Vorbehalt einer positiven Ankaufsuntersuchung durch einen vom Käufer zu benennenden Tierarzt. Die Untersuchung erfolgt bis spätestens [Datum]. Bei negativer AKU ist der Käufer zum kostenlosen Rücktritt berechtigt. AKU-Kosten trägt der Käufer.&quot;
-                        </p>
-                      </div>
-                    </div>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">🔍</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Unabhängiger Tierarzt</h3>
+                    <p className="text-gray-700">Wählen Sie einen Tierarzt, der nicht mit dem Verkäufer verbunden ist. Das ist essentiell für objektive Befunde.</p>
+                  </div>
+                </div>
 
-                    <div className="bg-white border border-brand-brown/20 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Rücktrittsrecht bei negativer AKU:</h4>
-                      <ul className="space-y-3 text-gray-700">
-                        <li>• <strong>Mit AKU-Vorbehalt:</strong> Käufer kann kostenlos zurücktreten</li>
-                        <li>• <strong>Ohne AKU-Vorbehalt:</strong> Kein automatisches Rücktrittsrecht (Gewährleistung greifen lassen)</li>
-                        <li>• <strong>Wichtig:</strong> Rücktritt muss innerhalb vereinbarter Frist erfolgen (meist 7-14 Tage)</li>
-                      </ul>
-                    </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">📋</div>
+                  <div>
+                    <h3 className="font-bold mb-2">AKU-Vorbehalt im Kaufvertrag</h3>
+                    <p className="text-gray-700">Vereinbaren Sie schriftlich, dass der Kauf an eine positive AKU gekoppelt ist. Dies ermöglicht kostenloses Rücktrittsrecht ohne Befund.</p>
+                  </div>
+                </div>
 
-                    <RatgeberHighlightBox title="Gewährleistungsausschluss nach positiver AKU" icon="⚠️" padding="p-5">
-                      <p className="mb-3">
-                        Positive AKU schließt Gewährleistungsansprüche für untersuchte Bereiche oft aus.
-                      </p>
-                      <p className="font-semibold text-brand-brown mb-2">Grenze:</p>
-                      <p className="text-sm text-gray-700 mb-3">
-                        Arglistiges Verschweigen kann trotzdem zur Haftung führen.
-                      </p>
-                      <p className="text-sm text-gray-600 italic">
-                        Beispiel: Verkäufer weiß von Vorerkrankung, verschweigt sie aber – trotz positiver AKU haftet Verkäufer
-                      </p>
-                    </RatgeberHighlightBox>
-                  </>
-                }
-              />
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">🐎</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Probereiten beim AKU-Termin</h3>
+                    <p className="text-gray-700">Reiten Sie das Pferd direkt vor der AKU. So sieht der Tierarzt das Pferd in Bewegung und kann besser klinische Befunde einordnen.</p>
+                  </div>
+                </div>
 
-              <ContentSection
-                title="AKU-Protokoll als Beweismittel"
-                icon="📄"
-                content={
-                  <>
-                    <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                      <h4 className="font-bold text-brand-brown mb-4">Beweiswert vor Gericht:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• AKU-Protokoll ist <strong>anerkanntes Beweismittel</strong> bei Kaufstreitigkeiten</li>
-                        <li>• Dokumentiert Gesundheitszustand zum Kaufzeitpunkt</li>
-                        <li>• Widerlegt Behauptungen &quot;Mangel war schon vorher da&quot;</li>
-                      </ul>
-                    </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">💬</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Fragen beim Untersuchungstermin stellen</h3>
+                    <p className="text-gray-700">Nutzen Sie den Termin, um offene Fragen zu stellen. Der Tierarzt kann viel über Voraussagen zukünftiger Probleme erklären.</p>
+                  </div>
+                </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
-                      <div className="bg-white border border-brand-brown/20 p-5 rounded-lg">
-                        <h4 className="font-bold text-brand-brown mb-3">Aufbewahrungspflicht:</h4>
-                        <ul className="space-y-2 text-sm text-gray-700">
-                          <li>• Käufer sollte Protokoll + Röntgenbilder <strong>mindestens 5 Jahre</strong> aufbewahren</li>
-                          <li>• Digital + physisch sichern (Festplatte, Cloud, Ausdrucke)</li>
-                        </ul>
-                      </div>
-                      <div className="bg-white border border-brand-brown/20 p-5 rounded-lg">
-                        <h4 className="font-bold text-brand-brown mb-3">Röntgenbilder-Eigentum:</h4>
-                        <ul className="space-y-2 text-sm text-gray-700">
-                          <li>• Röntgenbilder gehören dem <strong>Auftraggeber</strong> (Käufer)</li>
-                          <li>• Tierarzt muss Kopien herausgeben (auf CD/DVD oder Cloud)</li>
-                          <li>• Verkäufer hat kein Recht auf Röntgenbilder (außer vereinbart)</li>
-                        </ul>
-                      </div>
-                    </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">⏱️</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Ausreichend Zeit für große AKU einplanen</h3>
+                    <p className="text-gray-700">Großes AKU mit Röntgen benötigt 2-4 Stunden. Hetzen Sie nicht – eine gründliche Untersuchung braucht Zeit.</p>
+                  </div>
+                </div>
 
-                    <div className="bg-blue-50 p-6 rounded-lg">
-                      <h4 className="font-bold text-brand-brown mb-3">Weitergabe an Käufer:</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• Protokoll wird ausschließlich an Käufer übergeben</li>
-                        <li>• Verkäufer erhält nur mit Einverständnis des Käufers Einsicht</li>
-                        <li>• <strong>Datenschutz:</strong> Tierarzt darf keine Informationen an Dritte geben</li>
-                      </ul>
-                    </div>
-                  </>
-                }
-              />
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">📸</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Röntgenbilder-Archiv behalten</h3>
+                    <p className="text-gray-700">Bekommen Sie die Röntgenbilder auf CD/USB. So können Sie diese auch einem Zweittierarzt zeigen, falls nötig.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* AKU-Tierarzt finden */}
-            <section id="tierarzt" className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('tierarzt', 'AKU-Tierarzt finden')}
+            {/* 8. Rechtliche Aspekte */}
+            <div id="legal" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('legal', 'Rechtliche Aspekte der AKU')}
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Die AKU hat auch rechtliche Implikationen, die Sie kennen sollten:
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+                  <h3 className="font-bold text-lg mb-2">AKU-Vorbehalt im Kaufvertrag</h3>
+                  <p className="text-gray-700 mb-3">Ein AKU-Vorbehalt ist eine schriftliche Vereinbarung, dass der Kauf an ein positives AKU-Ergebnis gekoppelt ist. Mit dieser Klausel haben Sie das Recht, vom Kaufvertrag zurückzutreten, wenn die AKU erhebliche oder risikobehaftete Befunde zeigt – <strong>ohne Angabe von Gründen und ohne finanzielle Konsequenzen</strong>.</p>
+                  <p className="text-gray-700 font-semibold mt-3">Musterformulierung: &bdquo;Dieser Kaufvertrag wird unter der Bedingung geschlossen, dass das Pferd die AKU ohne erhebliche Befunde besteht. Ein kostenfreier Rücktritt ist möglich, falls Risiko-Befunde oder wesentliche Abweichungen festgestellt werden, die für die beabsichtigte Reitweise problematisch sind.&ldquo;</p>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 p-6 rounded-lg border-l-4 border-amber-500">
+                  <h3 className="font-bold text-lg mb-2">AKU-Protokoll als Beweis im Rechtsstreit</h3>
+                  <p className="text-gray-700">Das offizielle AKU-Protokoll ist ein anerkanntes Beweismittel vor Gericht. Wenn später Probleme auftreten, die auf den Kaufzeitpunkt zurückzuführen sind, können Sie das AKU-Protokoll vorlegen als Nachweis, dass diese Probleme beim Kauf bereits vorhanden waren (oder nicht).</p>
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+                  <h3 className="font-bold text-lg mb-2">Wer trägt die Kosten im Streitfall?</h3>
+                  <p className="text-gray-700">Üblicherweise trägt der Käufer die AKU-Kosten. Im Kaufvertrag sollte aber festgehalten werden, wer zahlt, falls die AKU erhebliche Befunde zeigt und der Kauf rückgängig gemacht wird. Oft wird vereinbart, dass der Verkäufer die Kosten trägt, wenn wesentliche Abweichungen oder Risiko-Befunde vorliegen.</p>
+                </div>
+
+                <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+                  <h3 className="font-bold text-lg mb-2">Gewährleistungsrecht nach Kauf</h3>
+                  <p className="text-gray-700">Mit einem ordnungsgemäß durchgeführten AKU-Vorbehalt sind Sie rechtlich gut abgesichert. Sollten nach dem Kauf Probleme auftauchen, die auf ein unerkanntes Leiden hindeuten, können Sie das AKU-Protokoll als Nachweis heranziehen, dass diese Probleme beim Kauf nicht erkannt wurden – eine wichtige Grundlage für eventuelle Schadensersatzforderungen.</p>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-yellow-50 border border-yellow-300 rounded">
+                <p className="text-gray-800 text-sm"><strong>Hinweis:</strong> Dies ist eine Informationsdarstellung. Bei rechtlichen Fragen sollten Sie einen Anwalt für Pferdekauf oder Tierrecht konsultieren.</p>
+              </div>
+            </div>
+
+            {/* 9. Den richtigen Tierarzt wählen */}
+            <div id="vet-selection" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('vet-selection', 'So finden Sie den richtigen AKU-Tierarzt')}
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Die Wahl des Tierarztes ist entscheidend für die Qualität der AKU. Hier sind Kriterien für einen guten AKU-Tierarzt:
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex gap-4 p-4 bg-amber-50 rounded border-l-4 border-amber-500">
+                  <span className="flex-shrink-0 text-xl">✓</span>
+                  <div>
+                    <h3 className="font-bold">Spezialisierung auf AKU</h3>
+                    <p className="text-gray-700 text-sm">Der Tierarzt sollte regelmäßig AKUs durchführen und Erfahrung mit verschiedenen Pferderassen und Disziplinen haben.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-4 bg-amber-50 rounded border-l-4 border-amber-500">
+                  <span className="flex-shrink-0 text-xl">✓</span>
+                  <div>
+                    <h3 className="font-bold">Unabhängigkeit vom Verkäufer</h3>
+                    <p className="text-gray-700 text-sm">Der Tierarzt sollte nicht die reguläre Stallveterinär des Verkäufers sein. Das könnte zu Interessenskonflikten führen.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-4 bg-amber-50 rounded border-l-4 border-amber-500">
+                  <span className="flex-shrink-0 text-xl">✓</span>
+                  <div>
+                    <h3 className="font-bold">Moderne Röntgen-Ausrüstung</h3>
+                    <p className="text-gray-700 text-sm">Digitale Röntgengeräte mit guter Bildqualität sind Standard. Das ermöglicht detaillierte Befundung und schnelle Bildbearbeitung.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-4 bg-amber-50 rounded border-l-4 border-amber-500">
+                  <span className="flex-shrink-0 text-xl">✓</span>
+                  <div>
+                    <h3 className="font-bold">Gute Reputation in der Pferde-Community</h3>
+                    <p className="text-gray-700 text-sm">Fragen Sie andere Pferdebesitzer oder Reitschulen nach Empfehlungen. Eine gute Reputation ist ein Zeichen für Qualität und Fairness.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-4 bg-amber-50 rounded border-l-4 border-amber-500">
+                  <span className="flex-shrink-0 text-xl">✓</span>
+                  <div>
+                    <h3 className="font-bold">Transparente Kostenkalkulation</h3>
+                    <p className="text-gray-700 text-sm">Der Tierarzt sollte vorab Kosten transparent machen – keine versteckten Gebühren für Zusatzuntersuchungen.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-4 bg-amber-50 rounded border-l-4 border-amber-500">
+                  <span className="flex-shrink-0 text-xl">✓</span>
+                  <div>
+                    <h3 className="font-bold">Mobile AKU-Durchführung</h3>
+                    <p className="text-gray-700 text-sm">Viele gute AKU-Tierärzte kommen mit Röntgenausrüstung zum Pferd. Das reduziert Stress für das Pferd.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Regional recommendations */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold mb-4">Wo finden Sie AKU-Spezialisten?</h3>
+                <RatgeberRegionGrid regions={akuRegions} />
+              </div>
+            </div>
+
+            {/* 10. Nach der AKU – Was dann? */}
+            <div id="after-aku" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('after-aku', 'Nach der AKU: Wie geht es weiter?')}
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Das AKU-Protokoll liegt vor – was tun Sie jetzt damit?
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg">
+                  <h3 className="font-bold text-lg mb-3">o.b.B. (Ohne besonderen Befund): Kauf empfohlen</h3>
+                  <p className="text-gray-700 mb-3">Falls die AKU nur &quot;o.b.B.&quot; zeigt (keine Abweichungen von der Norm), können Sie das Pferd mit gutem Gewissen kaufen. Speichern Sie das Protokoll ab – es könnte später bei Garantiefragen relevant sein.</p>
+                  <p className="text-gray-700 font-semibold">Nächste Schritte: Kaufvertrag unterzeichnen, Zahlungsmodalitäten klären, Versicherung abschließen.</p>
+                </div>
+
+                <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg">
+                  <h3 className="font-bold text-lg mb-3">Mit Abweichungen (ohne Risiko-Kennzeichnung): Abwägung nötig</h3>
+                  <p className="text-gray-700 mb-3">Wenn die AKU Befunde mit Abweichungen zeigt (ohne &quot;Risiko&quot;-Kennzeichnung), müssen Sie abwägen:</p>
+                  <ul className="space-y-2 text-gray-700 ml-4">
+                    <li>• Sind diese Abweichungen für Ihren beabsichtigten Verwendungszweck relevant?</li>
+                    <li>• Wie ist das Risikoprofil des Tierarztes einzuschätzen?</li>
+                    <li>• Würde eine Reitweise-Anpassung helfen (z.B. nur Freizeit statt Turniersport)?</li>
+                  </ul>
+                  <p className="text-gray-700 mt-3 font-semibold">Tipp: Holen Sie eine Zweitmeinung von einem anderen AKU-Tierarzt ein, wenn Sie unsicher sind.</p>
+                </div>
+
+                <div className="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg">
+                  <h3 className="font-bold text-lg mb-3">Mit Risiko-Befunden: Rücktritt empfohlen</h3>
+                  <p className="text-gray-700 mb-3">Bei Befunden mit &quot;Risiko&quot;-Kennzeichnung würden die meisten Tierärzte vom Kauf für die beabsichtigte Reitweise abraten. Mit einem AKU-Vorbehalt können Sie kostenfrei vom Kauf zurücktreten.</p>
+                  <p className="text-gray-700 font-semibold">Hinweis: Machen Sie von Ihrem Rücktrittsrecht Gebrauch – Risiko-Befunde haben oft ernsthafte Konsequenzen, die sich nicht bessern.</p>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded">
+                <p className="text-gray-800"><strong>Wichtig:</strong> Falls Sie nach dem Kauf (ohne AKU-Vorbehalt) später feststellen, dass das Pferd bereits beim Kauf erkrankt war, können Sie eventuell Gewährleistungsrechte geltend machen – aber das ist deutlich schwieriger ohne AKU-Dokumentation.</p>
+              </div>
+            </div>
+
+            {/* 11. Fazit & Takeaways */}
+            <div id="takeaways" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                {numberedTitle('takeaways', 'Fazit: Die 10 wichtigsten Erkenntnisse zur AKU')}
               </h2>
 
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex items-start space-x-3">
-                  <span className="text-xl md:text-2xl flex-shrink-0 mt-1">👨‍⚕️</span>
-                  <div>
-                    <h3 className="font-bold text-brand-brown mb-3 text-lg md:text-xl">
-                      Qualitätskriterien für AKU-Spezialisten
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-                      Die Aussagekraft einer Ankaufsuntersuchung steht und fällt mit dem untersuchenden Tierarzt. Suchen Sie
-                      gezielt nach Spezialisten, die regelmäßig AKUs durchführen und über moderne Diagnostik verfügen.
-                    </p>
-                    <ul className="space-y-2 text-gray-700 text-sm sm:text-base leading-relaxed">
-                      <li><strong>Spezialisierung:</strong> Zusatzqualifikation in Kaufuntersuchungen und mindestens 100 AKUs pro Jahr.</li>
-                      <li><strong>Technik:</strong> Digitale Röntgen- und Ultraschallgeräte für hochauflösende Befunde.</li>
-                      <li><strong>Dokumentation:</strong> Standardisierte Protokolle mit klaren Befundbeschreibungen und Prognosen.</li>
-                      <li><strong>Reputation:</strong> Empfehlungen von Reitvereinen, Zuchtverbänden und Pferdekäufern vor Ort.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              <RatgeberHighlightBox title="Wichtigste Takeaways">
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>Eine AKU ist die wichtigste Investition beim Pferdekauf – sie schützt vor versteckten Mängeln</li>
+                  <li>Nutzen Sie einen unabhängigen Tierarzt, nicht den Stallveterinär des Verkäufers</li>
+                  <li>Vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht</li>
+                  <li>Kleine AKU (1-2h) für Freizeitpferde &lt;5.000€, große AKU für Sportpferde ab 10.000€</li>
+                  <li>Die Untersuchung besteht aus klinischer Prüfung + 18 Standard-Röntgenaufnahmen (bei großer AKU, seit 2018)</li>
+                  <li>AKU-Befunde seit 2018: o.b.B., Abweichungen, oder Risiko-Befunde (nicht mehr Klassen I-V)</li>
+                  <li>Das AKU-Protokoll gehört dem Käufer und ist rechtliches Beweismittel</li>
+                  <li>Mit guter Vorbereitung bekommen Sie objektive, zuverlässige Befunde</li>
+                  <li>Eine gründliche große AKU dauert 2-4 Stunden – hetzen Sie nicht</li>
+                  <li>Speichern Sie das Protokoll auf – es wird bei zukünftigen tierärztlichen Fragen wertvoll sein</li>
+                </ol>
+              </RatgeberHighlightBox>
 
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex items-start space-x-3">
-                  <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🗺️</span>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-brand-brown mb-4 text-lg md:text-xl">
-                      Regionale Schwerpunkte in Deutschland
-                    </h3>
-                    <RatgeberRegionGrid regions={akuRegions} />
-                  </div>
-                </div>
+              <div className="mt-8 p-6 bg-gradient-to-r from-brand/5 to-amber-100 rounded-lg border border-brand/20">
+                <h3 className="font-bold text-lg mb-3">Eine AKU ist eine Investition in Sicherheit – nicht nur Geld sparen!</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Die AKU ist nicht nur dazu da, Kosten zu sparen. Sie ermöglicht Ihnen, eine <strong>informierte Kaufentscheidung</strong> zu treffen. Mit dem Wissen um den genauen Gesundheitszustand des Pferdes können Sie realistische Erwartungen setzen und das Pferd später richtig trainieren und betreuen.
+                </p>
               </div>
+            </div>
 
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex items-start space-x-3">
-                  <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🔍</span>
-                  <div>
-                    <h3 className="font-bold text-brand-brown mb-3 text-lg md:text-xl">
-                      Zweitmeinung & Qualitätssicherung
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-                      Bei widersprüchlichen Befunden oder hochpreisigen Pferden lohnt sich eine unabhängige Zweitmeinung. So
-                      stellen Sie sicher, dass keine relevanten Risiken übersehen werden.
-                    </p>
-                    <ul className="space-y-2 text-gray-700 text-sm sm:text-base leading-relaxed">
-                      <li>• Zweitmeinung anfordern, wenn Befunde zu einem Kaufabbruch führen würden.</li>
-                      <li>• Digitale Röntgenbilder erleichtern die externe Bewertung.</li>
-                      <li>• PferdeWert.de bietet eine neutrale Befundanalyse als zusätzliche Entscheidungshilfe.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
+            {/* KOSTEN-HINWEIS: Link zur Spoke-Seite */}
+            <div className="mt-16 p-6 bg-amber-50 border-l-4 border-brand rounded-lg">
+              <h3 className="font-bold text-lg mb-2">Was kostet eine AKU?</h3>
+              <p className="text-gray-700 mb-4">
+                Die Kosten für eine Ankaufsuntersuchung variieren je nach Umfang, Region und Tierarzt. Eine detaillierte Kostenübersicht mit aktuellen Preisen nach neuer Gebührenordnung für Tierärzte (GOT 2024) finden Sie in unserem Kosten-Guide.
+              </p>
+              <Link href="/pferde-ratgeber/aku-pferd/kosten" className="inline-block px-6 py-2 bg-brand text-white rounded hover:bg-brand/90 transition">
+                Zur detaillierten Kostenübersicht →
+              </Link>
+            </div>
 
-            {/* AKU-Ergebnisse in der Pferdebewertung */}
-            <section id="valuation" className="space-y-6 md:space-y-8 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('valuation', 'AKU-Ergebnisse in der Pferdebewertung')}
-              </h2>
-
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex items-start space-x-3">
-                  <span className="text-xl md:text-2xl flex-shrink-0 mt-1">📈</span>
-                  <div>
-                    <h3 className="font-bold text-brand-brown mb-3 text-lg md:text-xl">
-                      Wie Befunde den Marktwert beeinflussen
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
-                      Unsere Auswertung von über 1.000 Verkäufen zeigt, wie stark AKU-Ergebnisse die Preisfindung prägen.
-                      Befunde werden je nach Schweregrad und Verwendungszweck sehr unterschiedlich bewertet.
-                    </p>
-                    <RatgeberHighlightBox title="Typische Preiswirkungen" icon="💶" padding="p-5 md:p-6">
-                      <ul className="space-y-2 text-sm sm:text-base leading-relaxed">
-                        <li><strong>Geringfügige Befunde:</strong> 3–8 % Preisabschlag, oft verhandelbar.</li>
-                        <li><strong>Moderate Befunde:</strong> 8–18 % Wertminderung, Einsatzzweck kritisch prüfen.</li>
-                        <li><strong>Deutliche Befunde:</strong> 18–35 % Abschlag, ggf. Kaufabbruch erwägen.</li>
-                      </ul>
-                    </RatgeberHighlightBox>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-4">
-                      Warmblüter reagieren sensibler auf Befunde als Robustrassen, regionale Märkte unterscheiden sich ebenfalls
-                      um bis zu zehn Prozentpunkten in der Akzeptanz.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex items-start space-x-3">
-                  <span className="text-xl md:text-2xl flex-shrink-0 mt-1">🤖</span>
-                  <div>
-                    <h3 className="font-bold text-brand-brown mb-3 text-lg md:text-xl">
-                      Integration in die Wertermittlung von PferdeWert.de
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-                      Als einzige Plattform in Deutschland verknüpfen wir AKU-Gutachten direkt mit unserer KI-gestützten
-                      Marktwertermittlung. So erhalten Sie eine transparente, datenbasierte Einschätzung.
-                    </p>
-                    <ul className="space-y-2 text-gray-700 text-sm sm:text-base leading-relaxed">
-                      <li>• <strong>KI-Analyse:</strong> Automatische Verarbeitung kompletter Gutachten in Echtzeit.</li>
-                      <li>• <strong>Vor/Nach-Vergleich:</strong> Sehen Sie sofort, wie sich der Wert nach der AKU verändert.</li>
-                      <li>• <strong>Nachvollziehbarkeit:</strong> Jede Preisänderung wird mit den relevanten Befunden begründet.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
           </article>
 
           {/* FAQ Section */}
-          <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
-            <FAQ
-              faqs={akuFaqItems}
-              sectionTitle="Häufig gestellte Fragen zur AKU beim Pferd"
+          <div className="mt-16">
+            <FAQ faqs={akuFaqItems} />
+          </div>
+
+          {/* Related Articles */}
+          <div className="mt-16">
+            <RatgeberRelatedArticles
+              title="Weiterführende Artikel zur AKU"
+              description="Vertiefen Sie Ihr Wissen mit unseren speziellen Guides zu AKU-Ablauf, Befundklassen und Kosten."
+              articles={akuRelatedArticles}
             />
-          </section>
+          </div>
 
-          {/* Fazit Section */}
-          <section id="fazit" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
-            <article className="max-w-5xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-8">
-                {numberedTitle('fazit', 'Fazit: Die wichtigsten Takeaways zur AKU beim Pferd')}
-              </h2>
-
-              <div className="space-y-6">
-                {/* Takeaway 1 */}
-                <div className="bg-white border-l-4 border-blue-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-brand-brown text-xl mb-3">
-                    1. Große vs. Kleine AKU
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Die Entscheidung hängt vom Kaufpreis und der geplanten Nutzung ab. Bei Kaufpreisen über 10.000€ oder sportlicher Nutzung ist die große AKU mit Röntgenbildern unverzichtbar. Für Freizeitpferde unter 5.000€ reicht die kleine AKU meist aus.
-                  </p>
-                </div>
-
-                {/* Takeaway 2 */}
-                <div className="bg-white border-l-4 border-yellow-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-brand-brown text-xl mb-3">
-                    2. Kosten-Transparenz
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Rechnen Sie mit 150-300€ für die kleine AKU und 800-1.500€ für die große AKU. Beachten Sie die neuen GOT-Preise 2024 – die Gebührenordnung wurde 2020 und 2022 angepasst, was zu Preiserhöhungen von 12-20% führte.
-                  </p>
-                </div>
-
-                {/* Takeaway 3 */}
-                <div className="bg-white border-l-4 border-red-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-brand-brown text-xl mb-3">
-                    3. Versicherung zahlt (fast) nie
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    In 95% der Fälle trägt der Käufer die AKU-Kosten. Pferdekrankenversicherungen übernehmen keine Kosten vor Vertragsabschluss. Kostenaufteilung mit dem Verkäufer ist verhandelbar – klären Sie dies vor der Untersuchung schriftlich!
-                  </p>
-                </div>
-
-                {/* Takeaway 4 */}
-                <div className="bg-white border-l-4 border-green-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-brand-brown text-xl mb-3">
-                    4. Ablauf planen
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Eine große AKU dauert 2-3 Stunden vor Ort, plus 24-48 Stunden für die Befundung. Wählen Sie einen unabhängigen Tierarzt (nicht den Stallvet des Verkäufers!) und vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag.
-                  </p>
-                </div>
-
-                {/* Takeaway 5 */}
-                <div className="bg-white border-l-4 border-purple-500 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-brand-brown text-xl mb-3">
-                    5. Rechtlich absichern
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Verankern Sie einen AKU-Vorbehalt im Kaufvertrag – nur so haben Sie ein kostenloses Rücktrittsrecht bei negativer AKU. Das Protokoll gehört Ihnen und dient als Beweismittel bei späteren Streitigkeiten.
-                  </p>
-                </div>
-              </div>
-
-              {/* Summary Highlight Box */}
-              <div className="mt-8 bg-gradient-to-r from-amber-50 to-white p-6 md:p-8 rounded-lg border-2 border-brand-brown/20">
-                <div className="flex items-start gap-4">
-                  <span className="text-4xl flex-shrink-0">💡</span>
-                  <div>
-                    <h4 className="font-bold text-brand-brown text-lg mb-3">
-                      Ihr nächster Schritt
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      Mit diesen fünf Kernpunkten sind Sie optimal vorbereitet für die Ankaufsuntersuchung. Nutzen Sie unsere KI-gestützte Pferdebewertung, um den fairen Marktwert bereits vor der AKU einzuschätzen – so gehen Sie mit realistischen Erwartungen in den Kaufprozess.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-
-          <RatgeberRelatedArticles
-            title={numberedTitle('related', 'Weiterführende Artikel')}
-            description="Vertiefen Sie Ihr Wissen über Pferdekauf und -bewertung."
-            articles={akuRelatedArticles}
-          />
-
+          {/* Final CTA */}
           <RatgeberFinalCTA
+            title="Bereit, die richtige Kaufentscheidung zu treffen?"
+            description="Nutzen Sie unsere KI-gestützte Pferdebewertung, um den Marktwert Ihres zukünftigen Pferdes zu analysieren. Kombiniert mit einer professionellen AKU erhalten Sie maximale Sicherheit beim Pferdekauf."
             image={{
-              src: '/images/ratgeber/aku-pferd/hero.webp',
-              alt: 'Professionelle Pferdeberatung mit AKU-Expertise'
+              src: '/images/shared/blossi-shooting.webp',
+              alt: 'KI-gestützte Pferdebewertung für sichere Kaufentscheidungen'
             }}
-            title={numberedTitle('cta', 'Professionelle Pferdebewertung')}
-            description="Nutzen Sie unsere KI-gestützte Analyse für eine objektive Einschätzung inklusive AKU-Befunden und aktueller Marktdaten."
             ctaHref="/pferde-preis-berechnen"
-            ctaLabel="Jetzt Pferdewert berechnen"
+            ctaLabel="Pferdewert berechnen"
           />
+
         </div>
       </Layout>
     </>

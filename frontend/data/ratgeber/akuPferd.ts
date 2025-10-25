@@ -31,20 +31,28 @@ export interface AkuRegionItem {
 
 export const akuRelatedArticles: RatgeberRelatedArticle[] = [
   {
-    href: '/pferde-ratgeber/aku-pferd/ablauf',
-    image: '/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp',
-    title: 'AKU Ablauf verstehen',
-    badge: 'AKU Guide',
-    readTime: '10 Min.',
-    description: 'Von Vorbereitung bis Befund – so läuft die Ankaufsuntersuchung Schritt für Schritt ab.'
-  },
-  {
     href: '/pferde-ratgeber/aku-pferd/kosten',
     image: '/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp',
     title: 'AKU Kosten 2025',
     badge: 'Kosten & Preise',
-    readTime: '7 Min.',
-    description: 'Transparente Kostenübersicht, Zusatzkosten und Spartipps für Käufer.'
+    readTime: '8 Min.',
+    description: 'Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.'
+  },
+  {
+    href: '/pferde-ratgeber/was-kostet-ein-pferd',
+    image: '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/pferd-kosten-uebersicht.webp',
+    title: 'Was kostet ein Pferd?',
+    badge: 'Kauf & Verkauf',
+    readTime: '14 Min.',
+    description: 'Detaillierte Übersicht aller Kosten: Kaufpreis, laufende Kosten und versteckte Ausgaben. So planst du dein Budget richtig.'
+  },
+  {
+    href: '/pferde-ratgeber/pferd-kaufen',
+    image: '/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp',
+    title: 'Pferd kaufen - Der komplette Ratgeber',
+    badge: 'Kauf & Verkauf',
+    readTime: '18 Min.',
+    description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.'
   }
 ]
 
