@@ -93,8 +93,8 @@ const AKUPferd: NextPage = () => {
       {
         "@type": "HowToStep",
         "position": 3,
-        "name": "Verstehen Sie die Befundklassen",
-        "text": "AKU-Befunde werden in 5 Klassen eingeteilt (I = ohne Befund bis V = hochgradig pathologisch). Diese klassifizieren den Einzelbefund für jedes Röntgenbild."
+        "name": "Verstehen Sie das aktuelle Befundungssystem (seit 2018)",
+        "text": "Seit dem Röntgenleitfaden 2018 der GPM: o.b.B. (ohne besonderen Befund) oder präzise Beschreibung der Abweichungen mit Unterscheidung zwischen Befunden und Risiko-Befunden. Das alte Klassensystem I-V existiert nicht mehr."
       },
       {
         "@type": "HowToStep",
@@ -272,7 +272,7 @@ const AKUPferd: NextPage = () => {
                   {
                     title: 'Große AKU',
                     value: '2-4 Stunden',
-                    description: 'Klinische Untersuchung + vollständige Röntgenaufnahmen (10-18 Bilder). Empfohlen ab 10.000€ oder für Sportpferde.'
+                    description: 'Klinische Untersuchung + 18 Standard-Röntgenaufnahmen (seit 2018). Empfohlen ab 10.000€ oder für Sportpferde.'
                   },
                   {
                     title: 'Spezial-AKU',
@@ -287,8 +287,8 @@ const AKUPferd: NextPage = () => {
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-amber-100">
-                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">AKU-Klasse</th>
-                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">Umfang</th>
+                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">AKU-Umfang</th>
+                      <th className="border border-amber-300 px-4 py-2 text-left font-bold">Inhalt</th>
                       <th className="border border-amber-300 px-4 py-2 text-left font-bold">Dauer</th>
                       <th className="border border-amber-300 px-4 py-2 text-left font-bold">Geeignet für</th>
                     </tr>
@@ -326,7 +326,7 @@ const AKUPferd: NextPage = () => {
                   <ul className="space-y-2 text-gray-700">
                     <li><strong>Unabhängigen Tierarzt auswählen</strong> – nicht den Stallveterinär des Verkäufers</li>
                     <li><strong>AKU-Klasse festlegen</strong> – kleine oder große AKU?</li>
-                    <li><strong>Röntgenumfang definieren</strong> – Standard ist 10-18 Aufnahmen</li>
+                    <li><strong>Röntgenumfang definieren</strong> – Standard sind 18 Aufnahmen (seit Röntgenleitfaden 2018)</li>
                     <li><strong>AKU-Vorbehalt im Kaufvertrag</strong> – vereinbaren für kostenloses Rücktrittsrecht</li>
                     <li><strong>Kosten klären</strong> – schriftliche Kostenaufstellung vom Tierarzt einholen</li>
                   </ul>
@@ -347,7 +347,7 @@ const AKUPferd: NextPage = () => {
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
                   <h3 className="text-xl font-bold mb-2">Phase 3: Röntgenuntersuchung (nur bei großer AKU, 1-1,5 Stunden)</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li><strong>Standard-Aufnahmen:</strong> Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk</li>
+                    <li><strong>18 Standard-Aufnahmen (seit 2018):</strong> Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk, sowie weitere Standard-Aufnahmen für umfassende Bewertung</li>
                     <li><strong>Digitale Entwicklung:</strong> Aufnahmen sofort verfügbar zur ersten Sichtung</li>
                     <li><strong>Zusatzaufnahmen bei Befunden:</strong> Falls nötig, werden erweiterte Aufnahmen gemacht</li>
                   </ul>
@@ -356,10 +356,10 @@ const AKUPferd: NextPage = () => {
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
                   <h3 className="text-xl font-bold mb-2">Phase 4: Befundung & Protokoll-Erstellung (24-48 Stunden später)</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li><strong>Röntgenauswertung:</strong> Alle Bilder werden detailliert beurteilt</li>
-                    <li><strong>Befundklassen vergeben:</strong> Jedes Röntgenbild wird in eine Klasse (I-V) eingeteilt</li>
-                    <li><strong>AKU-Protokoll erstellen:</strong> Vollständiger Bericht mit allen Befunden</li>
-                    <li><strong>Kaufempfehlung formulieren:</strong> Uneingeschränkt empfehlenswert bis nicht empfehlenswert</li>
+                    <li><strong>Röntgenauswertung:</strong> Alle 18 Bilder werden detailliert beurteilt</li>
+                    <li><strong>Präzise Befundbeschreibung (seit 2018):</strong> Jeder Befund wird individuell beschrieben – o.b.B., Abweichung, oder Risiko-Befund</li>
+                    <li><strong>AKU-Protokoll erstellen:</strong> Vollständiger Bericht mit allen Befunden und Bewertung</li>
+                    <li><strong>Kaufempfehlung formulieren:</strong> Basierend auf Befunddaten und beabsichtigter Reitweise</li>
                     <li><strong>Übergabe an Käufer:</strong> Protokoll gehört dem Käufer, nicht dem Verkäufer</li>
                   </ul>
                 </div>
@@ -377,41 +377,43 @@ const AKUPferd: NextPage = () => {
             {/* 5. Befunde verstehen */}
             <div id="findings" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('findings', 'AKU-Befunde verstehen: Die 5 Klassen')}
+                {numberedTitle('findings', 'Befunde verstehen: Das aktuelle System seit 2018')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                AKU-Befunde werden standardisiert in 5 Klassen eingeteilt. Diese Klassifizierung ist einheitlich und ermöglicht objektive Vergleiche zwischen verschiedenen Pferden.
+                Seit dem <strong>Röntgenleitfaden 2018 der Gesellschaft für Pferdemedizin (GPM)</strong> wird das alte Klassensystem (I-V) nicht mehr verwendet. Das neue System ist präziser und fairere für Pferde, da es stärker auf individuelle Befundbeschreibung und Risikoanalyse setzt – nicht auf pauschale Klassifizierung.
               </p>
 
-              <div className="space-y-4">
+              <RatgeberHighlightBox title="Warum wurde das alte Klassensystem abgeschafft?">
+                <ul className="list-disc list-inside space-y-2">
+                  <li><strong>Unfaire Disqualifikation:</strong> Das alte System (Klasse I-V) führte dazu, dass Pferde mit identischen Befunden unterschiedlich bewertet wurden</li>
+                  <li><strong>Fehlende Aussagekraft:</strong> Befundklassen sagten nichts über das tatsächliche Lahmheitsrisiko aus</li>
+                  <li><strong>Zu starr:</strong> Ein einzelnes Befund im Sprunggelenk (Klasse III) bedeutete nicht automatisch Probleme bei der gewünschten Reitweise</li>
+                  <li><strong>Neue Lösung:</strong> Präzise Beschreibung + klare Unterscheidung zwischen Befunden und risikobehafteten Befunden</li>
+                </ul>
+              </RatgeberHighlightBox>
+
+              <div className="mt-8 space-y-4">
+                <h3 className="text-2xl font-bold font-serif text-brand">Das neue Befundungssystem seit 2018:</h3>
+
                 <div className="border-l-4 border-green-500 bg-green-50 p-4 rounded">
-                  <h3 className="font-bold text-lg text-green-900">Klasse I – Ohne Befund</h3>
-                  <p className="text-gray-700">Vollständig normal, keine Abweichungen erkennbar. Optimalfund für einen Pferdekauf.</p>
+                  <h3 className="font-bold text-lg text-green-900">o.b.B. – Ohne besonderen Befund</h3>
+                  <p className="text-gray-700 mt-2">Es wurden <strong>keine Abweichungen von der normalen Röntgenanatomie</strong> gefunden. Das Pferd zeigt optimale Befunde für die beabsichtigte Reitweise. Dies ist der beste mögliche Befund.</p>
                 </div>
 
                 <div className="border-l-4 border-yellow-500 bg-yellow-50 p-4 rounded">
-                  <h3 className="font-bold text-lg text-yellow-900">Klasse II – Unwesentliche Abweichung</h3>
-                  <p className="text-gray-700">Kleine Veränderungen, die aber keine funktionelle Bedeutung haben. Meist kein Problem für die Reitweise des Käufers.</p>
-                </div>
-
-                <div className="border-l-4 border-orange-500 bg-orange-50 p-4 rounded">
-                  <h3 className="font-bold text-lg text-orange-900">Klasse III – Wesentliche Abweichung</h3>
-                  <p className="text-gray-700">Erkennbare Veränderungen mit möglicher funktioneller Bedeutung. Kaufempfehlung abhängig vom Verwendungszweck und der Schwere des Befunds.</p>
+                  <h3 className="font-bold text-lg text-yellow-900">Befunde mit Abweichungen (ohne Risiko-Kennzeichnung)</h3>
+                  <p className="text-gray-700 mt-2">Der Befund zeigt Abweichungen von der Norm. <strong>Das Lahmheitsrisiko ist aber nicht verlässlich einschätzbar.</strong> Diese Befunde sind teils altersgerecht, teils ohne bekannte funktionelle Bedeutung. Sie erfordern eine individuelle Bewertung.</p>
                 </div>
 
                 <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
-                  <h3 className="font-bold text-lg text-red-900">Klasse IV – Hochgradig pathologisch</h3>
-                  <p className="text-gray-700">Deutliche, hochgradige Veränderungen. Kaufempfehlung fraglich, oft nur für sehr erfahrene und nachsichtige Reiter geeignet.</p>
-                </div>
-
-                <div className="border-l-4 border-red-700 bg-red-100 p-4 rounded">
-                  <h3 className="font-bold text-lg text-red-900">Klasse V – Hochgradig pathologisch, nicht kaufbar</h3>
-                  <p className="text-gray-700">Massive Veränderungen, die den Einsatz des Pferdes erheblich einschränken. Kaufempfehlung negativ, Rücktritt empfohlen.</p>
+                  <h3 className="font-bold text-lg text-red-900">Risiko-Befunde (mit &quot;Risiko&quot;-Kennzeichnung)</h3>
+                  <p className="text-gray-700 mt-2">Der Befund ist <strong>mit einem bekannten Lahmheitsrisiko verbunden.</strong> Diese Befunde sind deutlich problematischer und beeinflussen die Kaufempfehlung. Je nach Schweregrad und Reitweise kann ein Risiko-Befund ein Ausschlusskriterium sein.</p>
                 </div>
               </div>
 
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded">
-                <p className="text-gray-800"><strong>Wichtig:</strong> Die Klasse wird für jeden einzelnen Befund (nicht für das ganze Pferd) vergeben. Ein Pferd kann z.B. Klasse I in der Wirbelsäule und Klasse III im Sprunggelenk haben.</p>
+              <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded">
+                <p className="text-gray-800"><strong>Wie liest man einen modernen AKU-Befund?</strong></p>
+                <p className="text-gray-700 mt-2">Der Tierarzt beschreibt für jede untersuchte Körperregion präzise, welche Befunde vorliegen. Jeder Befund wird einzeln evaluiert – nicht das ganze Pferd wird in eine Klasse eingeteilt. Manche Befunde bekommen die Zusatzbezeichnung &quot;Risiko&quot;, wenn sie mit Lahmheitsrisiko verbunden sind.</p>
               </div>
             </div>
 
@@ -526,8 +528,8 @@ const AKUPferd: NextPage = () => {
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
                   <h3 className="font-bold text-lg mb-2">AKU-Vorbehalt im Kaufvertrag</h3>
-                  <p className="text-gray-700 mb-3">Ein AKU-Vorbehalt ist eine schriftliche Vereinbarung, dass der Kauf an ein positives AKU-Ergebnis gekoppelt ist. Mit dieser Klausel haben Sie das Recht, vom Kaufvertrag zurückzutreten, wenn die AKU erhebliche Befunde zeigt – <strong>ohne Angabe von Gründen und ohne finanzielle Konsequenzen</strong>.</p>
-                  <p className="text-gray-700 font-semibold">Musterformulierung: &bdquo;Dieser Kaufvertrag wird unter der Bedingung geschlossen, dass das Pferd die AKU ohne Befund besteht. Ein Rücktritt ist kostenfrei möglich, falls die AKU als Klasse III oder höher bewertet wird.&ldquo;</p>
+                  <p className="text-gray-700 mb-3">Ein AKU-Vorbehalt ist eine schriftliche Vereinbarung, dass der Kauf an ein positives AKU-Ergebnis gekoppelt ist. Mit dieser Klausel haben Sie das Recht, vom Kaufvertrag zurückzutreten, wenn die AKU erhebliche oder risikobehaftete Befunde zeigt – <strong>ohne Angabe von Gründen und ohne finanzielle Konsequenzen</strong>.</p>
+                  <p className="text-gray-700 font-semibold mt-3">Musterformulierung: &bdquo;Dieser Kaufvertrag wird unter der Bedingung geschlossen, dass das Pferd die AKU ohne erhebliche Befunde besteht. Ein kostenfreier Rücktritt ist möglich, falls Risiko-Befunde oder wesentliche Abweichungen festgestellt werden, die für die beabsichtigte Reitweise problematisch sind.&ldquo;</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 p-6 rounded-lg border-l-4 border-amber-500">
@@ -537,7 +539,7 @@ const AKUPferd: NextPage = () => {
 
                 <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
                   <h3 className="font-bold text-lg mb-2">Wer trägt die Kosten im Streitfall?</h3>
-                  <p className="text-gray-700">Üblicherweise trägt der Käufer die AKU-Kosten. Im Kaufvertrag sollte aber festgehalten werden, wer zahlt, falls die AKU erhebliche Befunde zeigt und der Kauf rückgängig gemacht wird. Oft wird vereinbart, dass der Verkäufer die Kosten trägt, wenn erhebliche (Klasse III+) Befunde vorliegen.</p>
+                  <p className="text-gray-700">Üblicherweise trägt der Käufer die AKU-Kosten. Im Kaufvertrag sollte aber festgehalten werden, wer zahlt, falls die AKU erhebliche Befunde zeigt und der Kauf rückgängig gemacht wird. Oft wird vereinbart, dass der Verkäufer die Kosten trägt, wenn wesentliche Abweichungen oder Risiko-Befunde vorliegen.</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
@@ -628,26 +630,26 @@ const AKUPferd: NextPage = () => {
 
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-3">Ohne Befund (Klasse I-II): Kauf empfohlen</h3>
-                  <p className="text-gray-700 mb-3">Falls die AKU nur minimale oder gar keine Befunde zeigt, können Sie das Pferd mit gutem Gewissen kaufen. Speichern Sie das Protokoll ab – es könnte später bei Garantiefragen relevant sein.</p>
+                  <h3 className="font-bold text-lg mb-3">o.b.B. (Ohne besonderen Befund): Kauf empfohlen</h3>
+                  <p className="text-gray-700 mb-3">Falls die AKU nur &quot;o.b.B.&quot; zeigt (keine Abweichungen von der Norm), können Sie das Pferd mit gutem Gewissen kaufen. Speichern Sie das Protokoll ab – es könnte später bei Garantiefragen relevant sein.</p>
                   <p className="text-gray-700 font-semibold">Nächste Schritte: Kaufvertrag unterzeichnen, Zahlungsmodalitäten klären, Versicherung abschließen.</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-3">Mit Befunden (Klasse III): Abwägung nötig</h3>
-                  <p className="text-gray-700 mb-3">Wenn die AKU Klasse III Befunde zeigt (wesentliche Abweichungen), müssen Sie abwägen:</p>
+                  <h3 className="font-bold text-lg mb-3">Mit Abweichungen (ohne Risiko-Kennzeichnung): Abwägung nötig</h3>
+                  <p className="text-gray-700 mb-3">Wenn die AKU Befunde mit Abweichungen zeigt (ohne &quot;Risiko&quot;-Kennzeichnung), müssen Sie abwägen:</p>
                   <ul className="space-y-2 text-gray-700 ml-4">
-                    <li>• Sind diese Befunde für Ihren beabsichtigten Verwendungszweck relevant?</li>
-                    <li>• Wie wahrscheinlich ist eine Verschlimmerung?</li>
+                    <li>• Sind diese Abweichungen für Ihren beabsichtigten Verwendungszweck relevant?</li>
+                    <li>• Wie ist das Risikoprofil des Tierarztes einzuschätzen?</li>
                     <li>• Würde eine Reitweise-Anpassung helfen (z.B. nur Freizeit statt Turniersport)?</li>
                   </ul>
                   <p className="text-gray-700 mt-3 font-semibold">Tipp: Holen Sie eine Zweitmeinung von einem anderen AKU-Tierarzt ein, wenn Sie unsicher sind.</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-3">Mit hochgradig pathologischen Befunden (Klasse IV-V): Rücktritt empfohlen</h3>
-                  <p className="text-gray-700 mb-3">Bei Klasse IV-V Befunden würde die meisten Tierärzte vom Kauf abraten. Mit einem AKU-Vorbehalt können Sie kostenfrei vom Kauf zurücktreten.</p>
-                  <p className="text-gray-700 font-semibold">Hinweis: Machen Sie von Ihrem Rücktrittsrecht Gebrauch – diese Pferde haben meist ernsthafte Probleme, die sich nicht bessern.</p>
+                  <h3 className="font-bold text-lg mb-3">Mit Risiko-Befunden: Rücktritt empfohlen</h3>
+                  <p className="text-gray-700 mb-3">Bei Befunden mit &quot;Risiko&quot;-Kennzeichnung würden die meisten Tierärzte vom Kauf für die beabsichtigte Reitweise abraten. Mit einem AKU-Vorbehalt können Sie kostenfrei vom Kauf zurücktreten.</p>
+                  <p className="text-gray-700 font-semibold">Hinweis: Machen Sie von Ihrem Rücktrittsrecht Gebrauch – Risiko-Befunde haben oft ernsthafte Konsequenzen, die sich nicht bessern.</p>
                 </div>
               </div>
 
@@ -668,8 +670,8 @@ const AKUPferd: NextPage = () => {
                   <li>Nutzen Sie einen unabhängigen Tierarzt, nicht den Stallveterinär des Verkäufers</li>
                   <li>Vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht</li>
                   <li>Kleine AKU (1-2h) für Freizeitpferde &lt;5.000€, große AKU für Sportpferde ab 10.000€</li>
-                  <li>Die Untersuchung besteht aus klinischer Prüfung + Röntgenaufnahmen (bei großer AKU)</li>
-                  <li>AKU-Befunde werden in 5 Klassen eingeteilt: I (normal) bis V (nicht kaufbar)</li>
+                  <li>Die Untersuchung besteht aus klinischer Prüfung + 18 Standard-Röntgenaufnahmen (bei großer AKU, seit 2018)</li>
+                  <li>AKU-Befunde seit 2018: o.b.B., Abweichungen, oder Risiko-Befunde (nicht mehr Klassen I-V)</li>
                   <li>Das AKU-Protokoll gehört dem Käufer und ist rechtliches Beweismittel</li>
                   <li>Mit guter Vorbereitung bekommen Sie objektive, zuverlässige Befunde</li>
                   <li>Eine gründliche große AKU dauert 2-4 Stunden – hetzen Sie nicht</li>
