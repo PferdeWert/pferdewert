@@ -68,16 +68,6 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     changefreq: 'monthly'
   },
   {
-    slug: 'aku-pferd/klassen',
-    title: 'AKU Klassen erklärt',
-    description: 'Verstehe die verschiedenen AKU-Klassen und ihre Bedeutung für deinen Pferdekauf. Was bedeuten die einzelnen Klassen wirklich?',
-    category: 'Kauf & Verkauf',
-    readTime: '10 Min.',
-    image: '/images/ratgeber/aku-pferd/klassen/aku-klassen-uebersicht.webp', // Pferd in Stallbox – spezifisch für Klassenartikel
-    priority: '0.6',
-    changefreq: 'monthly'
-  },
-  {
     slug: 'aku-pferd/kosten',
     title: 'AKU Kosten im Detail',
     description: 'Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.',
@@ -128,6 +118,18 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     category: 'Kauf & Verkauf',
     readTime: '12 Min.',
     image: '/images/ratgeber/pferd-verkaufen/tipps/verkaufstipps-pferd.webp', // Eigenes Motiv für die Tipp-Sammlung
+    priority: '0.7',
+    changefreq: 'monthly'
+  },
+
+  // Pferdemarkt Guide
+  {
+    slug: 'pferdemarkt',
+    title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
+    description: 'Deutschlands größte Pferdemärkte: Havelberg mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inseraten. Tipps und Veranstaltungskalender.',
+    category: 'Kauf & Verkauf',
+    readTime: '12 Min.',
+    image: '/images/og/pferdemarkt-2025.jpg', // Havelberger Pferdemarkt Szenerie
     priority: '0.7',
     changefreq: 'monthly'
   }

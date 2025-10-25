@@ -23,11 +23,11 @@ Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
 Allow: /pferde-ratgeber/aku-pferd
 Allow: /pferde-ratgeber/aku-pferd/ablauf
-Allow: /pferde-ratgeber/aku-pferd/klassen
 Allow: /pferde-ratgeber/aku-pferd/kosten
 Allow: /pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd
 Allow: /pferde-ratgeber/pferd-verkaufen
 Allow: /pferde-ratgeber/pferd-verkaufen/tipps
+Allow: /pferde-ratgeber/pferdemarkt
 
 # Sitemap location
 Sitemap: https://www.pferdewert.de/sitemap.xml
