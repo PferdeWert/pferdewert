@@ -1,5 +1,6 @@
 import { NextPage } from "next"
 import Head from "next/head"
+import Link from "next/link"
 import { Calculator, Wallet, PiggyBank, MapPin, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
@@ -197,7 +198,12 @@ const AkuPferdKosten: NextPage = () => {
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Die Kosten der Ankaufsuntersuchung setzen sich aus dem gewählten Umfang (AKU-Klasse) und zusätzlichen Leistungen
-                wie Röntgen, Labor und Anfahrt zusammen. Plane je nach Kaufpreis und Anspruch 2–5 % des Kaufpreises ein.
+                wie Röntgen, Labor und Anfahrt zusammen. Plane je nach Kaufpreis und Anspruch 2–5 % des Kaufpreises ein. Für einen
+                vollständigen Überblick aller Pferdekaufskosten{" "}
+                <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-blue-600 hover:text-blue-800 underline">
+                  schau dir unseren Kostenratgeber an
+                </Link>
+                .
               </p>
 
               <RatgeberHighlightBox title="Kostenfaktoren" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>

@@ -1,5 +1,6 @@
 import { NextPage } from "next"
 import Head from "next/head"
+import Link from "next/link"
 import { ClipboardList, ShieldAlert, CheckCircle, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
@@ -247,7 +248,7 @@ const AkuPferdKlassen: NextPage = () => {
               <RatgeberHighlightBox title="Kosten je nach Befund" icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Die Klassifizierung beeinflusst den empfohlenen AKU-Umfang: Während Klassen 1–2 meist mit der kleinen bzw. großen AKU
-                  abgedeckt sind, erfordern Klassen 3–5 zusätzliche Diagnostik und Budget für Nachuntersuchungen.
+                  abgedeckt sind, erfordern Klassen 3–5 zusätzliche Diagnostik und Budget für Nachuntersuchungen. Die <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="font-semibold text-brand hover:text-blue-700 underline">Gesamtkosten für die Pferdehaltung</Link> sollten dabei ebenfalls berücksichtigt werden.
                 </p>
               </RatgeberHighlightBox>
             </section>

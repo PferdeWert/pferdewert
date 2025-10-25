@@ -689,7 +689,7 @@ export default function WasKostetEinPferd() {
             <RatgeberHighlightBox
               title="Wichtig beim Pferdekauf"
             >
-              Der Pferdepreis allein sagt nichts über die Gesamtkosten aus. Bedenken Sie immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
+              Der Pferdepreis allein sagt nichts über die Gesamtkosten aus. Bedenke immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
             </RatgeberHighlightBox>
           </section>
 

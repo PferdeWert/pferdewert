@@ -1,0 +1,61 @@
+{
+  "phase": "5A",
+  "primary_keyword": "pferdemarkt",
+  "timestamp": "2025-10-25T00:00:00Z",
+  "seo_analysis": {
+    "search_volume": 22200,
+    "competition_level": "LOW",
+    "keyword_difficulty": 22,
+    "cpc": 0.38,
+    "search_intent": "navigational",
+    "insight": "Dominiert durch Ehorses und Pferde.de - Opportunität für Ratgeber-Content zwischen Transaction (Online-Plattformen) und Events (Havelberg, Bietigheim)"
+  },
+  "metadata": {
+    "title": "Pferdemarkt 2025: Online Plattformen & traditionelle Märkte",
+    "title_length": 59,
+    "title_status": "OPTIMAL",
+    "description": "Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf.",
+    "description_length": 158,
+    "description_status": "OPTIMAL",
+    "keywords": "pferdemarkt, pferdemarkt deutschland, pferdemärkte, online pferdemarkt, havelberger pferdemarkt, bietigheimer pferdemarkt",
+    "canonical_url": "https://pferdewert.de/ratgeber/pferdemarkt",
+    "slug": "pferdemarkt",
+    "url_status": "NORMALIZED",
+    "url_optimizations": {
+      "removed_www": false,
+      "removed_trailing_slash": true,
+      "protocol_https": true,
+      "lowercase": true
+    }
+  },
+  "open_graph": {
+    "og_title": "Pferdemarkt 2025: Online Plattformen & traditionelle Märkte",
+    "og_description": "Pferdemarkt Deutschland: Entdecke Havelberg (200.000 Besucher), Bietigheim & Online-Plattformen. Praktische Tipps für sicheren Pferdekauf.",
+    "og_image": "https://pferdewert.de/images/og/pferdemarkt-2025.jpg",
+    "og_image_alt": "Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern",
+    "og_image_width": 1200,
+    "og_image_height": 630,
+    "og_type": "article",
+    "og_url": "https://pferdewert.de/ratgeber/pferdemarkt"
+  },
+  "twitter_card": {
+    "twitter_card": "summary_large_image",
+    "twitter_title": "Pferdemarkt 2025: Online & Traditionelle Märkte",
+    "twitter_description": "Havelberg, Bietigheim & Online-Plattformen: Finde das richtige Pferd auf 22.200+ monatliche Suchanfragen.",
+    "twitter_description_length": 113,
+    "twitter_image": "https://pferdewert.de/images/og/pferdemarkt-2025.jpg",
+    "twitter_creator": "@pferdewertde"
+  },
+  "image_specifications": {
+    "featured_image": {
+      "url": "https://pferdewert.de/images/pferdemarkt-havelberg-2025.webp",
+      "alt": "Havelberger Pferdemarkt 2025 - Größter Pferdemarkt Europas mit 200.000 Besuchern",
+      "width": 1200,
+      "height": 630,
+      "format": "webp",
+      "file_size_kb": 150,
+      "recommendation": "Custom Image empfohlen: Havelberg-Szenerie mit Menschenmenge und Pferden"
+    },
+    "fallback_image": "https://pferdewert.de/images/og-default.jpg"
+  }
+}

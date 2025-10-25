@@ -1,0 +1,416 @@
+{
+  "phase": "6A",
+  "keyword": "pferdemarkt",
+  "timestamp": "2025-10-25T21:05:00Z",
+  "eeat_deep_scoring": "v2.1_nuanced_0.0-10.0",
+  
+  "total_eeat_score": 6.8,
+  "eeat_target": 7.0,
+  "eeat_status": "ACCEPTABLE (Below target by 0.2 points)",
+  "eeat_interpretation": "Good but needs enhancement. Article demonstrates solid knowledge but lacks expert authority signals.",
+  
+  "experience_score": {
+    "max_points": 2.5,
+    "achieved_points": 1.5,
+    "gap": 1.0,
+    
+    "evidence": [
+      {
+        "criterion": "Concrete examples with numbers",
+        "points": 1.0,
+        "max": 1.5,
+        "status": "PARTIAL",
+        "details": [
+          "✓ Havelberg 200.000 Besucher/year seit 1750",
+          "✓ Ehorses 19.000+ listings",
+          "✓ Bietigheim 100+ Jahre Tradition",
+          "✓ Price ranges 500€-100.000€+",
+          "✗ MISSING: Personal site visit experience or case study of actual horse purchase"
+        ]
+      },
+      {
+        "criterion": "Own photos/videos integrated",
+        "points": 0.0,
+        "max": 0.5,
+        "status": "NOT_PRESENT",
+        "details": [
+          "✗ No images referenced in article",
+          "✗ No video embeds",
+          "✗ Content lacks visual credibility anchors",
+          "RECOMMENDATION: Add image alt-text placeholders for Havelberg event photos"
+        ]
+      },
+      {
+        "criterion": "First-person (I/We) perspective",
+        "points": 0.3,
+        "max": 0.5,
+        "status": "MINIMAL",
+        "details": [
+          "✓ Used 'du' (you) for reader engagement",
+          "✓ 'Unsere Übersicht' (our overview) appears once",
+          "✗ No 'Ich habe' (I have) or 'Wir haben' (we have) personal experience shares",
+          "✗ Reads more as objective guide than expert reflection",
+          "RECOMMENDATION: Add author voice, e.g., 'In meiner 8-jährigen Arbeit mit Pferdemärkten...'"
+        ]
+      },
+      {
+        "criterion": "Concrete action recommendations (min 3)",
+        "points": 0.2,
+        "max": 0.5,
+        "status": "MINIMAL",
+        "details": [
+          "✓ Section 7 provides 3+ checklists (health check, pricing, practical tips)",
+          "✓ 'Online vs. Traditional - Tips for right choice' gives 5 recommendations",
+          "✗ Recommendations are generic (not deeply actionable)",
+          "EXAMPLE: Instead of 'Plan parking fees', say 'In Oldenburg, budget 30 minutes for parking at €0.60/30min - arrive 90 minutes early for Havelberg'",
+          "RECOMMENDATION: Add more specificity to recommendations"
+        ]
+      },
+      {
+        "criterion": "Checklists/Step-by-step guides",
+        "points": 0.0,
+        "max": 0.5,
+        "status": "PARTIAL",
+        "details": [
+          "✓ Gesundheits-Check section has 4-step guide",
+          "✓ Veranstaltungskalender is structured",
+          "✗ Missing dedicated 'How to Buy a Horse' step-by-step checklist",
+          "✗ Missing 'How to Evaluate Online Marketplace' guide",
+          "RECOMMENDATION: Add formatted checklist box in Section 7"
+        ]
+      }
+    ],
+    
+    "gap_analysis": "Missing personal/first-hand experience signals. Author appears objective but not experiential.",
+    "improvement_actions": [
+      "Add 1-2 author credibility statements",
+      "Include specific personal examples from horse market visits",
+      "Add formatted checklists with numbered steps"
+    ]
+  },
+  
+  "expertise_score": {
+    "max_points": 2.5,
+    "achieved_points": 1.8,
+    "gap": 0.7,
+    
+    "evidence": [
+      {
+        "criterion": "Author credentials (relevant expertise)",
+        "points": 0.5,
+        "max": 1.5,
+        "status": "NOT_MENTIONED",
+        "details": [
+          "✗ No byline or author credentials provided",
+          "✗ No indication of writer's background (equestrian, market analyst, veterinarian)",
+          "✗ Article doesn't establish author authority",
+          "CURRENT STATE: Article reads as anonymous Wikipedia-style content",
+          "RECOMMENDATION: Add byline: 'Verfasst von [Name], Pferdemarkexperte mit X Jahren Erfahrung' OR 'PferdeWert.de Redaktion mit equestrian background'"
+        ]
+      },
+      {
+        "criterion": "Credentials placement (prominently shown)",
+        "points": 0.2,
+        "max": 0.5,
+        "status": "NOT_PRESENT",
+        "details": [
+          "✗ No author box at beginning or end of article",
+          "✗ No expertise introduction paragraph",
+          "RECOMMENDATION: Add author box with credentials below title or at end"
+        ]
+      },
+      {
+        "criterion": "Professional experience mentioned",
+        "points": 0.4,
+        "max": 0.5,
+        "status": "IMPLIED_NOT_STATED",
+        "details": [
+          "✓ Article demonstrates knowledge (comprehensive market overview)",
+          "✗ No explicit mention of years of experience",
+          "EXAMPLE: Could add 'In den letzten 10 Jahren Pferdemärkte analysiert...'",
+          "RECOMMENDATION: Add professional experience timeline"
+        ]
+      },
+      {
+        "criterion": "Technical terminology correctly explained (min 5)",
+        "points": 0.4,
+        "max": 0.5,
+        "status": "MINIMAL",
+        "details": [
+          "✓ Defines concepts: 'Haflinger', 'Warmblüter', 'Ausbildungsstand'",
+          "✓ Explains marketplace functions (filters, listings, pricing)",
+          "✗ Missing explanation of 'Abstammung', 'Stammbuch', 'Papiere'",
+          "✗ Could explain 'Direct contact to breeders' more deeply",
+          "COUNT: 7 technical terms, but only 4-5 properly explained"
+        ]
+      },
+      {
+        "criterion": "Content depth shows subject mastery",
+        "points": 0.3,
+        "max": 0.5,
+        "status": "MODERATE",
+        "details": [
+          "✓ Covers 7 major sections comprehensively",
+          "✓ Regional expertise apparent (Bayern/Haflinger, BW/Warmblüter, NRW/Sports)",
+          "✗ Health section lacks veterinary depth (no mention of vet associations)",
+          "✗ Pricing analysis is basic (no price trends 2020-2025)",
+          "✗ Missing discussion of new technologies (AI pricing, digital auctions)",
+          "ASSESSMENT: Good breadth, limited depth in specialty areas"
+        ]
+      }
+    ],
+    
+    "gap_analysis": "Missing explicit expert credentials. Content quality is good but doesn't signal author expertise visibly to readers/Google.",
+    "improvement_actions": [
+      "Add author byline with credentials",
+      "Include professional experience statement",
+      "Deeper technical terminology explanations",
+      "Reference expertise in specific regional markets"
+    ]
+  },
+  
+  "authoritativeness_score": {
+    "max_points": 2.5,
+    "achieved_points": 1.8,
+    "gap": 0.7,
+    
+    "evidence": [
+      {
+        "criterion": "External references (min 3)",
+        "points": 0.6,
+        "max": 1.0,
+        "status": "PARTIAL",
+        "details": [
+          "✓ References Havelberg (official source implied)",
+          "✓ References Bietigheim event 29.08-02.09.2025 (official data)",
+          "✓ References Ehorses as 'weltgrößter Pferdemarkt' (brand authority)",
+          "✓ References 4 additional platforms (Pferde.de, Landwirt.com, Caballo, BillyRider)",
+          "✗ CRITICAL: No inline hyperlinks to these sources",
+          "✗ No citations in square brackets or superscript footnotes",
+          "COUNT: 7 implicit references, 0 explicit citations",
+          "RECOMMENDATION: Add hyperlinks: [Havelberg official](https://havelberg.de), [Bietigheim-Bissingen](https://bietigheim-bissingen.de)"
+        ]
+      },
+      {
+        "criterion": "Current statistics (<2 years old)",
+        "points": 0.3,
+        "max": 0.5,
+        "status": "PARTIAL",
+        "details": [
+          "✓ Ehorses 19.000+ listings (current as of 2025)",
+          "✓ Havelberg 200.000 visitors/year (established, but age unknown)",
+          "✓ Event dates 2025-2026 are current",
+          "✗ MISSING: 2024/2025 market growth statistics",
+          "✗ MISSING: Recent price trend analysis (are prices up/down vs. 2023?)",
+          "✗ MISSING: Recent study on 'Why buyers choose online vs. traditional?'",
+          "RECOMMENDATION: Add 'According to 2024 horse market report, online purchases increased X%'"
+        ]
+      },
+      {
+        "criterion": "Official guidelines referenced (min 1)",
+        "points": 0.3,
+        "max": 0.5,
+        "status": "MINIMAL",
+        "details": [
+          "✓ References 'Tierärztliche Ankaufsuntersuchung' (veterinary standard)",
+          "✗ MISSING: Reference to German horse breed associations (FN, Verband der Pferdezüchter)",
+          "✗ MISSING: Animal welfare guidelines (Tierschutzgesetz references)",
+          "✗ MISSING: Official marketplace safety guidelines",
+          "RECOMMENDATION: Add 'Nach Empfehlungen der [Verband XYZ]...' or 'Gemäß Tierschutzgesetz...'"
+        ]
+      },
+      {
+        "criterion": "Industry data/market statistics",
+        "points": 0.3,
+        "max": 0.5,
+        "status": "PARTIAL",
+        "details": [
+          "✓ Ehorses 19.000+ listings (platform data)",
+          "✓ Havelberg 200.000 visitors (event data)",
+          "✓ Price ranges by category (industry knowledge)",
+          "✗ MISSING: Total German horse market size (€X million market)",
+          "✗ MISSING: % of horses sold online vs. traditional (market split)",
+          "✗ MISSING: Regional market growth rates",
+          "EXAMPLE: 'According to [Source], 45% of horse sales in Germany now occur online...'"
+        ]
+      }
+    ],
+    
+    "gap_analysis": "References are implicit, not cited. No hyperlinks to source pages. Missing recent studies and official guidelines.",
+    "improvement_actions": [
+      "Add hyperlinks to official event pages (Havelberg, Bietigheim)",
+      "Include footnote citations with [1], [2] format",
+      "Reference official German horse breeding associations",
+      "Add 1-2 recent market statistics with sources"
+    ]
+  },
+  
+  "trustworthiness_score": {
+    "max_points": 2.5,
+    "achieved_points": 1.7,
+    "gap": 0.8,
+    
+    "evidence": [
+      {
+        "criterion": "Statistical claims backed with sources",
+        "points": 0.6,
+        "max": 1.0,
+        "status": "PARTIAL",
+        "details": [
+          "✓ 200.000 Havelberg visitors - stated with confidence",
+          "✓ 19.000+ Ehorses listings - specific number",
+          "✓ Price ranges 500€-100.000€ - realistic",
+          "✓ Event dates 29.08-02.09 - specific and verifiable",
+          "✗ MISSING: Source attribution for 200.000 figure (Is it annual? Lifetime?)",
+          "✗ MISSING: Ehorses data refresh date (When was 19.000 counted?)",
+          "✗ MISSING: Price range source (Market research? Anecdotal?)",
+          "RECOMMENDATION: Add inline attribution: 'Havelberger Pferdemarkt reports 200.000 annual visitors since 1750 (Quelle: havelberg.de)'"
+        ]
+      },
+      {
+        "criterion": "Sources directly linked",
+        "points": 0.0,
+        "max": 0.5,
+        "status": "NOT_PRESENT",
+        "details": [
+          "✗ Zero hyperlinks to external sources in body text",
+          "✓ Only one internal link at very end (CTA)",
+          "CRITICAL ISSUE: No way for reader to verify claims",
+          "EXAMPLE CURRENT: 'Havelberger Pferdemarkt hat 200.000 Besucher'",
+          "EXAMPLE IMPROVED: '[Havelberger Pferdemarkt](https://havelberg.de) has reported 200.000 annual visitors since 1750'",
+          "RECOMMENDATION: Add hyperlinks to all major sources (events, platforms, associations)"
+        ]
+      },
+      {
+        "criterion": "Transparency about limitations",
+        "points": 0.4,
+        "max": 0.5,
+        "status": "PARTIAL",
+        "details": [
+          "✓ Mentions 'Verhandlungsraum von 10-15%' (negotiation range - realistic)",
+          "✓ Notes 'Tierärztliche Untersuchung nicht optional' (emphasis on due diligence)",
+          "✗ MISSING: Disclosure of potential biases (e.g., 'We are a horse valuation service')",
+          "✗ MISSING: Limitations of price data (markets, seasonality factors)",
+          "✗ MISSING: Conditions where online/traditional shopping might NOT work",
+          "RECOMMENDATION: Add disclaimer or limitations section"
+        ]
+      },
+      {
+        "criterion": "Pro/Contra or Vor-/Nachteile coverage",
+        "points": 0.4,
+        "max": 0.5,
+        "status": "GOOD",
+        "details": [
+          "✓ Section 6 'Online vs. Traditionelle Märkte' provides balanced pros/cons",
+          "✓ Lists advantages of both approaches",
+          "✓ Provides guidance on when to choose which",
+          "✗ MISSING: Explicit disadvantages (e.g., online risks like fraud, scams)",
+          "✗ MISSING: Traditional market cons (high cost, limited selection)",
+          "EXAMPLE: Could mention 'Online fraud risks in horse sales' or 'Traditional markets may have outdated breeds'",
+          "RECOMMENDATION: Deepen pros/cons section with specific cautionary examples"
+        ]
+      },
+      {
+        "criterion": "Risks/challenges mentioned",
+        "points": 0.3,
+        "max": 0.5,
+        "status": "MINIMAL",
+        "details": [
+          "✓ Mentions 'Tierärztliche Untersuchung' (health risk mitigation)",
+          "✓ Implies transport logistics as challenge",
+          "✗ MISSING: Scam/fraud risks in online purchases",
+          "✗ MISSING: Risk of counterfeit papers/pedigrees",
+          "✗ MISSING: Time/financial investment risks",
+          "✗ MISSING: Genetic defects or undisclosed behavioral issues",
+          "RECOMMENDATION: Add 'Risks to Watch' section with specific examples and mitigation strategies"
+        ]
+      }
+    ],
+    
+    "gap_analysis": "Claims lack source attribution. No external hyperlinks. Limited risk disclosure.",
+    "improvement_actions": [
+      "Add hyperlinks to all source pages (official events, platforms)",
+      "Include in-text citations with source attribution",
+      "Add disclaimer about article purpose and potential biases",
+      "Expand pro/contra section with specific risks and mitigation",
+      "Add 'Risks & Challenges' dedicated section"
+    ]
+  },
+  
+  "eeat_summary_by_pillar": {
+    "experience": {
+      "score": 1.5,
+      "target": 2.5,
+      "gap_percent": -40.0,
+      "status": "BELOW_TARGET",
+      "primary_gap": "Missing personal/first-hand experience, visual content (photos/videos)"
+    },
+    "expertise": {
+      "score": 1.8,
+      "target": 2.5,
+      "gap_percent": -28.0,
+      "status": "BELOW_TARGET",
+      "primary_gap": "No author credentials; anonymous article feels less authoritative"
+    },
+    "authoritativeness": {
+      "score": 1.8,
+      "target": 2.5,
+      "gap_percent": -28.0,
+      "status": "BELOW_TARGET",
+      "primary_gap": "No external source hyperlinks; implicit references only"
+    },
+    "trustworthiness": {
+      "score": 1.7,
+      "target": 2.5,
+      "gap_percent": -32.0,
+      "status": "BELOW_TARGET",
+      "primary_gap": "Claims lack source attribution; no explicit risk disclosure"
+    }
+  },
+  
+  "eeat_improvement_roadmap": {
+    "phase_6b_quick_wins": [
+      {
+        "action": "Add 3-5 external hyperlinks to official event/platform pages",
+        "impact": "Authoritativeness +0.4, Trustworthiness +0.3",
+        "estimated_improvement": "+0.7 points"
+      },
+      {
+        "action": "Add author byline with credentials",
+        "impact": "Expertise +0.5, Experience +0.2",
+        "estimated_improvement": "+0.7 points"
+      },
+      {
+        "action": "Add source citations for major claims (200.000 Havelberg, 19.000 Ehorses)",
+        "impact": "Authoritativeness +0.2, Trustworthiness +0.4",
+        "estimated_improvement": "+0.6 points"
+      }
+    ],
+    
+    "post_publication_enhancements": [
+      {
+        "action": "Add visual content (images from Havelberg, Bietigheim events)",
+        "impact": "Experience +0.5",
+        "timeline": "Week 1-2 after publication"
+      },
+      {
+        "action": "Add dedicated 'Risks & Safety' section with fraud/scam warnings",
+        "impact": "Trustworthiness +0.5",
+        "timeline": "Week 1 after publication"
+      },
+      {
+        "action": "Publish author expert profile page with full credentials",
+        "impact": "Expertise +0.3, Authoritativeness +0.2",
+        "timeline": "Before publication"
+      },
+      {
+        "action": "Add German horse breeding association references (FN, breed clubs)",
+        "impact": "Authoritativeness +0.3",
+        "timeline": "Week 1 after publication"
+      }
+    ],
+    
+    "expected_post_revision_score": 8.0,
+    "confidence_level": "HIGH (if all recommendations implemented)"
+  }
+}

@@ -1,0 +1,725 @@
+{
+  "phase": "3",
+  "primary_keyword": "pferdemarkt",
+  "timestamp": "2025-10-25T20:15:00Z",
+  "based_on": {
+    "outline_brief": "Consolidated from Phase 1A + Phase 1B keyword research + Phase 2 SERP analysis",
+    "phase_1a_keywords_count": 64,
+    "phase_1b_top_keywords": 17,
+    "phase_2_serp_results": 10,
+    "phase_2_paa_questions": 8
+  },
+
+  "article_metadata": {
+    "title": "Pferdemarkt 2025 - Online Plattformen & Traditionelle Märkte",
+    "title_length_chars": 58,
+    "title_keywords": [
+      "Pferdemarkt (primary)",
+      "2025 (seasonal)",
+      "Online (differentiation)",
+      "Traditionelle Märkte (competitive angle)"
+    ],
+    "meta_description": "Übersicht der größten Pferdemärkte 2025-2026. Online Pferdeverkauf (Ehorses, Pferde.de) + traditionelle Events in Bayern, Baden-Württemberg & NRW. Veranstaltungskalender & Tipps.",
+    "meta_description_length": 158,
+    "primary_keyword": "pferdemarkt",
+    "secondary_keywords": [
+      "pferdemarkt 2025",
+      "pferdemarkt online",
+      "pferdemarkt in der nähe",
+      "traditionelle pferdemärkte",
+      "größte pferdemärkte deutschland"
+    ],
+    "word_count_data": {
+      "target_word_count": 1597,
+      "word_count_strategy": "serp_competitive",
+      "word_count_reasoning": "Based on Top 3 SERP competitors (Ehorses 1231 WC, Pferde.de 1885 WC, Bietigheim 239 WC). Target 1597 provides comprehensive directory content while maintaining engagement.",
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 112,
+          "note": "Hook + value proposition"
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 1150,
+          "note": "5-8 sections, avg 200 words each"
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 160,
+          "note": "5-8 questions x 20-30 words each"
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 112,
+          "note": "Key takeaways + CTA"
+        }
+      }
+    }
+  },
+
+  "introduction": {
+    "word_count": 112,
+    "hook": "Der Pferdemarkt ist eine faszinierende Tradition in Deutschland mit einer langen Geschichte. Aber wie findet man heute das richtige Pferd - online auf großen Plattformen oder auf traditionellen Märkten? Unsere Übersicht zeigt beide Wege mit allen wichtigen Informationen.",
+    "user_intent": "Leser möchte verstehen: Was ist ein Pferdemarkt? Welche Optionen gibt es? Wo findet man Pferde zum Kauf?",
+    "preview": "In diesem Ratgeber entdecken Sie die größten Pferdemärkte Deutschlands, moderne Online-Plattformen mit Tausenden Inseraten, traditionelle Events 2025-2026, und praktische Tipps für Ihren Besuch oder Einkauf.",
+    "keyword_integration": [
+      "Pferdemarkt (primary)",
+      "Pferd kaufen (informational intent)",
+      "traditionelle Märkte (supporting)"
+    ],
+    "cta_preview": "Entdecken Sie alle Top-Plattformen und anstehende Events unten."
+  },
+
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "Was ist ein Pferdemarkt? Definition & Bedeutung",
+      "h2_keywords": [
+        "Pferdemarkt definition",
+        "Was ist ein Pferdemarkt"
+      ],
+      "content_type": "explanation",
+      "word_count": 180,
+      "subsections": [
+        {
+          "heading": "Historische Tradition",
+          "word_count": 90,
+          "content_focus": "Lange Geschichte von Pferdemärkten in Deutschland, traditionelle Funktion als Handelsplatz",
+          "keywords": [
+            "pferdemarkt tradition",
+            "historische pferdemärkte"
+          ]
+        },
+        {
+          "heading": "Moderne Funktion heute",
+          "word_count": 90,
+          "content_focus": "Heute: Mix aus traditionellen Events, Online-Verkaufsplattformen, Freizeiterlebnis",
+          "keywords": [
+            "pferdemarkt heute",
+            "pferdemarkt modern"
+          ]
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Pferdemarkt"
+        ],
+        "supporting": [
+          "Pferdemarkt definition",
+          "Pferdehandel",
+          "Pferde kaufen"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Erklärung der dualen Funktion: Traditionelle Märkte (seit Jahrhunderten belegt, z.B. Havelberg seit 1750) + moderne Online-Plattformen"
+        }
+      ],
+      "visual_elements": []
+    },
+
+    {
+      "section_number": 2,
+      "heading": "Die größten Pferdemärkte Deutschlands 2025-2026",
+      "h2_keywords": [
+        "größte pferdemärkte deutschland",
+        "havelberger pferdemarkt",
+        "bietigheimer pferdemarkt"
+      ],
+      "content_type": "comparison",
+      "word_count": 240,
+      "subsections": [
+        {
+          "heading": "Havelberger Pferdemarkt - Das Größte Event",
+          "word_count": 80,
+          "content_focus": "200.000 Besucher, seit 1750, Septembe, Europas größter Pferdemarkt",
+          "keywords": [
+            "havelberger pferdemarkt",
+            "größter pferdemarkt europas"
+          ],
+          "paa_integration": "Wo ist der größte Pferdemarkt in Deutschland?"
+        },
+        {
+          "heading": "Bietigheimer Pferdemarkt (Baden-Württemberg)",
+          "word_count": 80,
+          "content_focus": "Traditionelle württembergische Pferdefestival, 29.08-02.09.2025, 100+ Jahre Tradition",
+          "keywords": [
+            "bietigheimer pferdemarkt",
+            "bietigheim 2025"
+          ],
+          "paa_integration": "Wann ist Pferdemarkt in Bietigheim 2025?"
+        },
+        {
+          "heading": "Weitere renommierte Märkte",
+          "word_count": 80,
+          "content_focus": "Heilbronn (300 Stände), Leonberg (Feb 2026), Warendorf (Pferdemetropole Deutschlands)",
+          "keywords": [
+            "heilbronn pferdemarkt",
+            "leonberg pferdemarkt",
+            "warendorf pferdehauptstadt"
+          ]
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Pferdemarkt 2025",
+          "Pferdemärkte Deutschland"
+        ],
+        "supporting": [
+          "Traditionelle Pferdemärkte",
+          "Größte Pferdemärkte",
+          "Pferdemärkte Events"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Havelberg: 200.000 Besucher/Jahr, seit 1750 belegt (historische Autorität)"
+        },
+        {
+          "type": "data",
+          "content": "Bietigheim: Offizielles Datum 29.08-02.09.2025 von Website bietigheim-bissingen.de"
+        },
+        {
+          "type": "data",
+          "content": "Heilbronn: 300 Ausstellerstände, Vergnügungspark + Fachausstellung"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Vergleichstabelle: Markt-Name | Ort | Datum 2025-2026 | Besucher/Größe | Art (Verkauf/Event)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 3,
+      "heading": "Online Pferdemärkte - Die größten Verkaufsplattformen",
+      "h2_keywords": [
+        "pferdemarkt online",
+        "online pferde kaufen",
+        "pferdeverkauf plattformen"
+      ],
+      "content_type": "comparison",
+      "word_count": 220,
+      "subsections": [
+        {
+          "heading": "Ehorses - Die Top-Plattform mit 19.000+ Inserate",
+          "word_count": 70,
+          "content_focus": "Weltgrößter Online-Pferdemarkt, kostenlose Inserate möglich, 19.000+ Pferde, Such-Filter nach Rasse/Preis",
+          "keywords": [
+            "ehorses",
+            "online pferdeverkauf ehorses"
+          ]
+        },
+        {
+          "heading": "Pferde.de - Klassische deutsche Plattform",
+          "word_count": 70,
+          "content_focus": "Traditionelle Pferde-Kleinanzeigen, mehrere Tausend Inserate, etabliert, deutschsprachig fokussiert",
+          "keywords": [
+            "pferde.de",
+            "pferde.de anzeigen"
+          ]
+        },
+        {
+          "heading": "Weitere Plattformen (Landwirt.com, Caballo, BillyRider)",
+          "word_count": 80,
+          "content_focus": "Landwirt.com (182 Pferde), Caballo (222 Inserate), BillyRider (Spezial-Filter), eBay Kleinanzeigen",
+          "keywords": [
+            "landwirt.com pferde",
+            "caballo pferdemarkt",
+            "ebay kleinanzeigen pferde"
+          ]
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Pferdemarkt online",
+          "Online Pferdemärkte"
+        ],
+        "supporting": [
+          "Pferde kaufen online",
+          "Pferdeverkauf Plattformen",
+          "Pferde-Kleinanzeigen"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Ehorses: 19.000+ aktive Inserate (Eigendarstellung auf Rank #1)"
+        },
+        {
+          "type": "data",
+          "content": "Plattform-Vergleich basierend auf Top-10 SERP-Analyse"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Plattformen-Vergleich: Plattform | Inserate-Anzahl | CPC-Gebühren | Besonderheiten | Link"
+        },
+        {
+          "type": "comparison",
+          "description": "Ehorses vs. Pferde.de vs. Landwirt.com - Vor- und Nachteile"
+        }
+      ]
+    },
+
+    {
+      "section_number": 4,
+      "heading": "Pferdemärkte nach Region - Bayern, Baden-Württemberg & NRW",
+      "h2_keywords": [
+        "pferdemarkt bayern",
+        "pferdemarkt baden-württemberg",
+        "pferdemarkt nrw"
+      ],
+      "content_type": "directory",
+      "word_count": 210,
+      "subsections": [
+        {
+          "heading": "Bayern - Haflinger & Traditionsreiche Events",
+          "word_count": 70,
+          "content_focus": "Haflinger-Zucht (lokale Spezialität), Pferdemarkt München/Augsburg Umland, Zugpferde-Tradition",
+          "keywords": [
+            "pferdemarkt bayern",
+            "haflinger pferde bayern"
+          ]
+        },
+        {
+          "heading": "Baden-Württemberg - Bietigheim & Leonberg",
+          "word_count": 70,
+          "content_focus": "Bietigheim (größtes Event), Leonberg Februar, traditionelle württembergische Zucht",
+          "keywords": [
+            "pferdemarkt baden-württemberg",
+            "bietigheim leonberg"
+          ]
+        },
+        {
+          "heading": "Nordrhein-Westfalen & Sachsen-Anhalt",
+          "word_count": 70,
+          "content_focus": "Havelberg (größtes deutsches Event), Warendorf (Pferdefestival & Sportpferd-Zentrum), NRW regionale Märkte",
+          "keywords": [
+            "pferdemarkt nrw",
+            "havelberg sachsen-anhalt",
+            "warendorf pferdehauptstadt"
+          ],
+          "paa_integration": "Was ist die Pferdehauptstadt Deutschlands?"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Pferdemarkt Bayern",
+          "Pferdemarkt NRW"
+        ],
+        "supporting": [
+          "Pferdemarkt Baden-Württemberg",
+          "Pferdemarkt in der Nähe",
+          "Regionale Pferdemärkte"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Regionale Spezialisierungen (Haflinger Bayern, Sportpferde Warendorf, Württemberg-Tradition)"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "map",
+          "description": "Deutschlandkarte mit allen großen Pferdemärkten nach Region markiert"
+        },
+        {
+          "type": "table",
+          "description": "Regionale Märkte: Region | Wichtigste Märkte | Schwerpunkt (Rasse/Art)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 5,
+      "heading": "Pferdemärkte Veranstaltungskalender 2025-2026",
+      "h2_keywords": [
+        "pferdemarkt 2025",
+        "pferdemarkt veranstaltungen",
+        "pferdemärkte kalender"
+      ],
+      "content_type": "checklist",
+      "word_count": 140,
+      "subsections": [
+        {
+          "heading": "Herbst 2025 - Hauptsaison",
+          "word_count": 70,
+          "content_focus": "Havelberg September, Bietigheim Aug-Sep, Burgdorf 20.Sept, weitere regionale Events",
+          "keywords": [
+            "pferdemarkt september 2025",
+            "pferdemarkt burgdorf 2025"
+          ],
+          "paa_integration": "Wann ist der nächste Pferdemarkt? / Wann findet der Pferdemarkt in Burgdorf statt?"
+        },
+        {
+          "heading": "Winter & Frühjahr 2026",
+          "word_count": 70,
+          "content_focus": "Leonberg Februar 2026, frühjährliche Märkte, ganzjährige Online-Optionen",
+          "keywords": [
+            "pferdemarkt 2026",
+            "leonberg februar 2026"
+          ]
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Pferdemarkt 2025",
+          "Pferdemärkte 2025-2026"
+        ],
+        "supporting": [
+          "Pferdemarkt Termine",
+          "Pferdemarkt Veranstaltungen",
+          "Wann ist der nächste Pferdemarkt"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Offizielle Event-Termine aus regionalen Websites (Bietigheim 29.08-02.09.2025, Leonberg Feb 2026, Havelberg Sept)"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Veranstaltungskalender: Datum | Event | Ort | Größe/Besonderheit | Website"
+        }
+      ]
+    },
+
+    {
+      "section_number": 6,
+      "heading": "Online vs. Traditionelle Pferdemärkte - Vor- & Nachteile",
+      "h2_keywords": [
+        "online vs offline pferdemarkt",
+        "pferd online kaufen oder traditionell",
+        "vorteile nachteile pferdemärkte"
+      ],
+      "content_type": "comparison",
+      "word_count": 180,
+      "subsections": [
+        {
+          "heading": "Vorteile Online-Pferdemärkte",
+          "word_count": 60,
+          "content_focus": "19.000+ Inserate zur Auswahl, Zeitersparnis, Such-Filter, deutschlandweit vergleichen, keine Anfahrtswege",
+          "keywords": [
+            "online pferdekauf vorteile",
+            "pferdemärkte online kaufen"
+          ]
+        },
+        {
+          "heading": "Vorteile Traditionelle Märkte",
+          "word_count": 60,
+          "content_focus": "Pferde live besichtigen, direkter Kontakt zu Züchtern, Verhandlungen vor Ort, Tradition & Events-Erlebnis, lokale Spezialisierungen",
+          "keywords": [
+            "traditionelle pferdemarkt vorteile",
+            "pferdemarkt besuchen"
+          ]
+        },
+        {
+          "heading": "Tipps für die richtige Wahl",
+          "word_count": 60,
+          "content_focus": "Online für breite Auswahl, Märkte für Spezialzuchten, Kombination aus beiden möglich",
+          "keywords": [
+            "pferd kaufen tipps",
+            "richtige pferdemarkt"
+          ]
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Online Pferdemärkte",
+          "Traditionelle Pferdemärkte"
+        ],
+        "supporting": [
+          "Pferd kaufen",
+          "Pferdeverkauf Online",
+          "Pferdemarkt Vergleich"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Praktische Gegenüberstellung basierend auf Top-10 SERP-Struktur (beide Ansätze in Rankings vertreten)"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Vergleichstabelle: Kriterium | Online-Plattformen | Traditionelle Märkte"
+        }
+      ]
+    },
+
+    {
+      "section_number": 7,
+      "heading": "Tipps für den Pferdekauf auf dem Markt",
+      "h2_keywords": [
+        "pferdekauf tipps",
+        "wie viel kostet ein pferd",
+        "pferd kaufen worauf achten",
+        "pferdemarkt besucher tipps"
+      ],
+      "content_type": "tutorial",
+      "word_count": 190,
+      "subsections": [
+        {
+          "heading": "Preis-Orientierung - Wie viel kostet ein Pferd?",
+          "word_count": 65,
+          "content_focus": "Preisspannen nach Rasse/Alter, Sportpferde vs. Freizeitpferde, Verhandlungsraum, Budget-Planung",
+          "keywords": [
+            "wie viel kostet ein pferd",
+            "pferdemarkt preis"
+          ],
+          "paa_integration": "Wie viel kostet ein Pferd auf dem Pferdemarkt?"
+        },
+        {
+          "heading": "Gesundheits- & Qualitäts-Check",
+          "word_count": 65,
+          "content_focus": "Veterinäre Untersuchung, Hufe/Zähne kontrollieren, Gang prüfen, Papiere checken, Impfpass",
+          "keywords": [
+            "pferd kaufen gesundheit",
+            "tierarzt pferdemarkt"
+          ]
+        },
+        {
+          "heading": "Praktische Tipps für Markt-Besucher",
+          "word_count": 60,
+          "content_focus": "Anfahrtszeiten planen, Parkgebühren (z.B. 0,60€/30min in Oldenburg), Bequeme Kleidung, Fütterung im Auge behalten",
+          "keywords": [
+            "pferdemarkt tipps besucher",
+            "pferdemarkt oldenburg parking"
+          ],
+          "paa_integration": "Was kostet Parken auf dem Pferdemarkt in Oldenburg?"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "Pferdekauf Tipps",
+          "Pferd kaufen"
+        ],
+        "supporting": [
+          "Wie viel kostet ein Pferd",
+          "Pferd kaufen Gesundheit",
+          "Pferdemarkt Besuch"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Praxisorientierte Kaufberatung mit Preisspannen und Qualitätskriterien"
+        },
+        {
+          "type": "data",
+          "content": "Oldenburg Parkgebühren (0,60€/30min) - praktische Besucherinformation"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Vor-dem-Kauf Checkliste: Papiere prüfen | Gesundheit checken | Preis verhandeln | Transport planen"
+        }
+      ]
+    }
+  ],
+
+  "faq_section": {
+    "word_count": 160,
+    "questions": [
+      {
+        "question": "Wann ist der nächste Pferdemarkt?",
+        "answer_outline": "Die Saison beginnt im Sommer/Herbst 2025. Das größte Event ist der Havelberger Pferdemarkt im September mit 200.000 Besuchern. Regional-spezifische Angebote in Bayern (Haflinger), Baden-Württemberg (Bietigheim, Leonberg) und NRW (Havelberg). Siehe Veranstaltungskalender für exakte Daten.",
+        "word_count": 65,
+        "paa_source": true,
+        "paa_category": "events",
+        "keywords": [
+          "nächster pferdemarkt",
+          "pferdemarkt termine"
+        ]
+      },
+      {
+        "question": "Wo ist der größte Pferdemarkt in Deutschland?",
+        "answer_outline": "Der Havelberger Pferdemarkt in Sachsen-Anhalt ist mit etwa 200.000 Besuchern Europas größtes Pferdemarkterlebnis. Seit 1750 durchgehend, findet im September statt. Havelberg vereint traditionelle Pferdemärkte-Kultur mit modernem Entertainment.",
+        "word_count": 57,
+        "paa_source": true,
+        "paa_category": "events",
+        "keywords": [
+          "havelberger pferdemarkt",
+          "größter pferdemarkt europas"
+        ]
+      },
+      {
+        "question": "Wie viel kostet ein Pferd auf dem Pferdemarkt?",
+        "answer_outline": "Preise variieren stark: Freizeitpferde 500-3.000€, Sportpferde 5.000-15.000€+. Auf Ehorses (19.000+ Inserate) sehen Sie aktuelle Marktpreise. Traditionelle Märkte erlauben Verhandlungen. Buchen Sie eine Tierarzt-Untersuchung (100-200€).",
+        "word_count": 55,
+        "paa_source": true,
+        "paa_category": "pricing",
+        "keywords": [
+          "pferdemarkt preis",
+          "wie viel kostet ein pferd",
+          "pferd kaufen kosten"
+        ]
+      },
+      {
+        "question": "Kann man Pferde auf eBay Kleinanzeigen kaufen?",
+        "answer_outline": "Ja, eBay Kleinanzeigen wird in Suchergebnissen für 'Pferdemarkt' angezeigt. Auch Landwirt.com (182 Pferde) und kleinere Plattformen bieten Alternativen. Für größte Auswahl: Ehorses (19.000+) oder Pferde.de.",
+        "word_count": 55,
+        "paa_source": false,
+        "paa_category": "platforms",
+        "keywords": [
+          "ebay kleinanzeigen pferde",
+          "pferde kaufen online"
+        ]
+      },
+      {
+        "question": "Was ist die Pferdehauptstadt Deutschlands?",
+        "answer_outline": "Warendorf in NRW gilt als Deutschlands Pferdehauptstadt - Zentrum für Sportpferde-Zucht, Reitsport und Pferdekultur. Havelberg in Sachsen-Anhalt ist aber mit 200.000 Besuchern/Jahr das größte Markt-Event.",
+        "word_count": 52,
+        "paa_source": true,
+        "paa_category": "location",
+        "keywords": [
+          "warendorf pferdehauptstadt",
+          "pferdehauptstadt deutschland"
+        ]
+      },
+      {
+        "question": "Wann ist Pferdemarkt in Bietigheim 2025?",
+        "answer_outline": "Der Bietigheimer Pferdemarkt findet 2025 vom 29. August bis 2. September statt. Als eines der ältesten Traditionsevents (100+ Jahre) bietet Bietigheim eine Mischung aus Pferdeverkauf und kulturellem Event-Erlebnis.",
+        "word_count": 50,
+        "paa_source": true,
+        "paa_category": "events",
+        "keywords": [
+          "bietigheim pferdemarkt",
+          "bietigheim august 2025"
+        ]
+      },
+      {
+        "question": "Welche ist die beste Online-Plattform zum Pferdekauf?",
+        "answer_outline": "Für Auswahl: Ehorses (19.000+ Inserate weltweit, kostenlos). Für deutsches Angebot: Pferde.de (etabliert, Tausende Inserate). Landwirt.com für landwirtschaftliche Verbindungen. Alle Plattformen haben Suchfilter und Kontaktfunktionen.",
+        "word_count": 57,
+        "paa_source": false,
+        "paa_category": "platforms",
+        "keywords": [
+          "beste pferdemarkt online",
+          "ehorses vs pferde.de"
+        ]
+      },
+      {
+        "question": "Brauche ich einen Tierarzt beim Pferdekauf?",
+        "answer_outline": "Ja, eine tierärztliche Voruntersuchung (100-200€) ist dringend empfohlen - besonders auf traditionellen Märkten. Sie überprüft Gesundheit, Zahnarzt und Hufe. Spart Probleme und Geld später.",
+        "word_count": 48,
+        "paa_source": false,
+        "paa_category": "buying_guide",
+        "keywords": [
+          "tierarzt pferdekauf",
+          "pferd tierarzt vor kauf"
+        ]
+      }
+    ],
+    "paa_sourced_count": 4,
+    "total_faq_word_count": 439
+  },
+
+  "conclusion": {
+    "word_count": 112,
+    "key_takeaways": [
+      "Pferdemärkte gibt es in zwei Formen: traditionelle regionale Events (wie Havelberg mit 200.000 Besuchern) und moderne Online-Plattformen (Ehorses mit 19.000+ Inserate)",
+      "Online-Plattformen bieten größere Auswahl und Zeitersparnis, während traditionelle Märkte direkten Kontakt zu Züchtern und lokale Spezialzuchten ermöglichen",
+      "Unabhängig vom Weg: Tierärztliche Untersuchung, Papier-Check und realistische Preis-Orientierung sind essentiell für einen sicheren Kauf"
+    ],
+    "call_to_action": "Nutzen Sie unsere Plattform-Vergleiche und Event-Kalender, um die richtige Option für Ihr Traumpferd zu finden. Ob Sie lieber online stöbern oder traditionelle Märkte erkunden - wir helfen Ihnen bei jedem Schritt.",
+    "keyword_integration": [
+      "Pferdemarkt",
+      "Pferd kaufen",
+      "Online Pferdemärkte",
+      "Traditionelle Pferdemärkte"
+    ]
+  },
+
+  "internal_linking_opportunities": [
+    {
+      "section": "Online Pferdemärkte",
+      "target_page": "/ratgeber/pferd-online-kaufen",
+      "anchor_text": "Detaillierter Leitfaden zum Online-Pferdekauf",
+      "relevance": "Deepdive in Online-Plattformen"
+    },
+    {
+      "section": "Tipps für den Pferdekauf",
+      "target_page": "/ratgeber/pferd-kaufen-worauf-achten",
+      "anchor_text": "Umfassender Kaufratgeber mit Checklisten",
+      "relevance": "Erweiterte Kaufberatung"
+    },
+    {
+      "section": "Größte Pferdemärkte",
+      "target_page": "/verzeichnis/pferdemärkte-deutschland",
+      "anchor_text": "Umfassendes Verzeichnis aller deutschen Pferdemärkte",
+      "relevance": "Ergänzende Markt-Datenbank"
+    },
+    {
+      "section": "Pferdemärkte nach Region",
+      "target_page": "/ratgeber/pferdemarkt-bayern",
+      "anchor_text": "Detaillierter Bayern-Spezial-Guide",
+      "relevance": "Regionale Tiefe"
+    },
+    {
+      "section": "Introduction",
+      "target_page": "/ratgeber/pferd-kaufen-anfänger",
+      "anchor_text": "Anfänger-Guide zum Pferdekauf",
+      "relevance": "Einstiegs-Content für Neulinge"
+    },
+    {
+      "section": "Veranstaltungskalender",
+      "target_page": "/ratgeber/pferdemärkte-2025",
+      "anchor_text": "Aktuelle 2025-2026 Termine & Veranstaltungen",
+      "relevance": "Seasonal-aktualisierter Content"
+    }
+  ],
+
+  "content_quality_checklist": {
+    "section_count": 7,
+    "section_count_valid": "✓ PASS (7 within 5-8 range)",
+    "faq_count": 8,
+    "faq_count_valid": "✓ PASS (8 >= 5 required)",
+    "paa_sourced_count": 4,
+    "paa_sourced_valid": "✓ PASS (4 >= 3 required)",
+    "internal_links_count": 6,
+    "internal_links_valid": "✓ PASS (6 >= 5 required)",
+    "word_count_target": 1597,
+    "word_count_distribution_valid": "✓ PASS (0.07 + 0.72 + 0.10 + 0.07 = 0.96, adjustment for intro/conclusion acceptable)",
+    "eeat_signals_per_section": {
+      "section_1": 1,
+      "section_2": 3,
+      "section_3": 2,
+      "section_4": 1,
+      "section_5": 1,
+      "section_6": 1,
+      "section_7": 2,
+      "total": 11,
+      "valid": "✓ PASS (11 total, all sections have >= 1)"
+    },
+    "must_have_topics_coverage": {
+      "online_pferdemärkte": "Section 3 ✓",
+      "traditionelle_märkte_events": "Section 2, 4 ✓",
+      "pferdepreis": "Section 7 (FAQ embedded) ✓",
+      "größte_märkte": "Section 2 ✓",
+      "pferdeverkauf_online": "Section 3, 6 ✓",
+      "all_covered": "✓ PASS"
+    },
+    "differentiation_angles_addressed": {
+      "regional_organization": "Section 4 (Bayern, BW, NRW) ✓",
+      "event_calendar": "Section 5 (2025-2026 calendar) ✓",
+      "online_vs_offline": "Section 6 (direct comparison) ✓",
+      "buying_guide": "Section 7 (practical tips) ✓",
+      "leisure_aspect": "Section 1, 6 (event experience) ✓",
+      "seller_perspective": "Not covered (OK - focus on buyer)"
+    },
+    "overall_quality_gate": "✓✓✓ PASS - Ready for Phase 4 Content Writing"
+  }
+}

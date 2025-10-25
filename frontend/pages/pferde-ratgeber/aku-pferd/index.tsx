@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
@@ -490,6 +491,12 @@ const AKUPferd: NextPage = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand">
                 {numberedTitle('costs', 'AKU Pferd Kosten: Aktuelle Preise (2024/2025)')}
               </h2>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 md:p-6">
+                <p className="text-gray-700">
+                  Die AKU ist eine wichtige Kostenfaktor beim Pferdekauf. Um die Gesamtbudget besser einzuordnen, empfehlen wir auch unseren Ratgeber <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-blue-600 font-semibold hover:underline">&ldquo;Was kostet ein Pferd?&rdquo; zu lesen</Link>, der alle Anschaffungs- und laufenden Pferdehaltungskosten transparent macht.
+                </p>
+              </div>
 
               <ContentSection
                 title="Kleine AKU Kosten"

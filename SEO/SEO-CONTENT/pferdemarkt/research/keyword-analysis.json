@@ -1,0 +1,155 @@
+{
+  "analysis_date": "2025-10-25",
+  "total_keywords_analyzed": 17,
+  "top_20_selected": [
+    {
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "cpc": 0.38,
+      "difficulty": 22,
+      "intent": "navigational",
+      "total_score": 13.02
+    },
+    {
+      "keyword": "reiterhof in meiner nähe",
+      "search_volume": 8100,
+      "cpc": 0.8,
+      "difficulty": 32,
+      "intent": "commercial",
+      "total_score": 5.94
+    },
+    {
+      "keyword": "gamaschen pferd",
+      "search_volume": 4400,
+      "cpc": 1.2,
+      "difficulty": 20,
+      "intent": "transactional",
+      "total_score": 5.66
+    },
+    {
+      "keyword": "am pferdemarkt",
+      "search_volume": 2900,
+      "cpc": 0.38,
+      "difficulty": 18,
+      "intent": "navigational",
+      "total_score": 4.7
+    },
+    {
+      "keyword": "pferd reiten",
+      "search_volume": 4400,
+      "cpc": 0.65,
+      "difficulty": 29,
+      "intent": "commercial",
+      "total_score": 4.01
+    },
+    {
+      "keyword": "pferdemarkt 2025",
+      "search_volume": 1000,
+      "cpc": 0.38,
+      "difficulty": 3,
+      "intent": "navigational",
+      "total_score": 3.94
+    },
+    {
+      "keyword": "gnadenhof in der nähe",
+      "search_volume": 5400,
+      "cpc": 0.45,
+      "difficulty": 25,
+      "intent": "informational",
+      "total_score": 3.81
+    },
+    {
+      "keyword": "pferdemarkt in der nähe",
+      "search_volume": 390,
+      "cpc": 0.38,
+      "difficulty": 12,
+      "intent": "informational",
+      "total_score": 3.7
+    },
+    {
+      "keyword": "pferdemarkt bayern",
+      "search_volume": 170,
+      "cpc": 0.38,
+      "difficulty": 25,
+      "intent": "navigational",
+      "total_score": 3.61
+    },
+    {
+      "keyword": "pferdemarkt online",
+      "search_volume": 140,
+      "cpc": 0.38,
+      "difficulty": 27,
+      "intent": "navigational",
+      "total_score": 3.6
+    },
+    {
+      "keyword": "pferdemarkt deutschland",
+      "search_volume": 110,
+      "cpc": 0.38,
+      "difficulty": 25,
+      "intent": "navigational",
+      "total_score": 3.58
+    },
+    {
+      "keyword": "pferdemarkt nrw",
+      "search_volume": 110,
+      "cpc": 0.38,
+      "difficulty": 25,
+      "intent": "navigational",
+      "total_score": 3.58
+    },
+    {
+      "keyword": "pferdemarkt heute",
+      "search_volume": 90,
+      "cpc": 0.38,
+      "difficulty": 21,
+      "intent": "navigational",
+      "total_score": 3.58
+    },
+    {
+      "keyword": "pferdemarkt ebay kleinanzeigen",
+      "search_volume": 70,
+      "cpc": 0.38,
+      "difficulty": 3,
+      "intent": "navigational",
+      "total_score": 3.57
+    },
+    {
+      "keyword": "haflinger pferde",
+      "search_volume": 2900,
+      "cpc": 0.55,
+      "difficulty": 4,
+      "intent": "commercial",
+      "total_score": 3.11
+    },
+    {
+      "keyword": "pferde videos",
+      "search_volume": 2400,
+      "cpc": 0.3,
+      "difficulty": 15,
+      "intent": "navigational",
+      "total_score": 3.0
+    },
+    {
+      "keyword": "wieviel ps hat ein pferd",
+      "search_volume": 1900,
+      "cpc": 0.25,
+      "difficulty": 10,
+      "intent": "informational",
+      "total_score": 2.92
+    }
+  ],
+  "intent_distribution": {
+    "navigational": 10,
+    "commercial": 3,
+    "informational": 3,
+    "transactional": 1
+  },
+  "statistics": {
+    "avg_search_volume": 3334.0,
+    "avg_cpc": 0.47,
+    "avg_difficulty": 18.6,
+    "total_sv": 56680,
+    "total_cpc_value": 8.0
+  }
+}

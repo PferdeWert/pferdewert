@@ -1,0 +1,57 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pferdemarkt 2025: Online Plattformen & traditionelle Märkte",
+  "alternativeHeadline": "Pferdemarkt Deutschland - Havelberger Markt, Bietigheim & Online-Plattformen",
+  "description": "Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/pferdemarkt-havelberg-2025.webp",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    },
+    "sameAs": "https://pferdewert.de"
+  },
+  "datePublished": "2025-10-25",
+  "dateModified": "2025-10-25",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/ratgeber/pferdemarkt"
+  },
+  "articleBody": "Der Pferdemarkt ist mehr als nur ein Handelsplatz – es ist ein kulturelles Erlebnis mit jahrhundertealter Tradition. Heute vereint der Begriff zwei völlig unterschiedliche Konzepte: traditionelle regionale Märkte und digitale Verkaufsplattformen. Pferdemärkte haben in Deutschland eine beeindruckende Geschichte...",
+  "articleSection": "Ratgeber",
+  "keywords": [
+    "pferdemarkt",
+    "pferdemarkt deutschland",
+    "havelberger pferdemarkt",
+    "bietigheimer pferdemarkt",
+    "online pferdemarkt",
+    "ehorses",
+    "pferde kaufen"
+  ],
+  "wordCount": 2850,
+  "inLanguage": "de-DE",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "xpath": [
+      "/html/head/title",
+      "/html/body/article/h1",
+      "/html/body/article/h2[1]",
+      "/html/body/article/p[1]"
+    ]
+  }
+}

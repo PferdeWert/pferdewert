@@ -346,7 +346,7 @@ const PferdVerkaufen: NextPage = () => {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Wenn du dein Pferd verkaufen möchtest, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert deines Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern.
+              Wenn du dein Pferd verkaufen möchtest, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert deines Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern. Bedenke auch, dass neben dem Kaufpreis <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown hover:underline font-medium">zusätzliche Kosten wie Haltung und Unterhalt</Link> anfallen – eine wichtige Überlegung für Käufer.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">

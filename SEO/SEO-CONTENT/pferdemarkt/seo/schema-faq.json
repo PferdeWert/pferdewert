@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wann ist der nächste Pferdemarkt in Deutschland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Havelberger Pferdemarkt, Europas größtes Event, findet jährlich im September statt. 2025 ist der Termin vom 03.-06. September. Der Bietigheimer Pferdemarkt findet 2025 vom 29. August bis 2. September statt. Weitere Märkte: Heilbronn, Leonberg und regionale Events – meist im Herbst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der größte Pferdemarkt in Deutschland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Havelberger Pferdemarkt in Sachsen-Anhalt ist mit etwa 200.000 Besuchern pro Jahr Europas größtes Pferde-Event. Die Tradition reicht bis 1750 zurück. Das Event verbindet klassische Pferdemärkte mit modernem Unterhaltungsangebot: Live-Shows, Springwettbewerbe, Vergnügungspark und Kunsthandwerk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viele Pferde gibt es auf Online-Pferdemärkten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die größte Online-Plattform Ehorses bietet über 19.000 aktive Inserate von Pferden. Pferde.de bietet mehrere Tausend Inserate. Diese Online-Märkte ermöglichen es, bundesweit zu stöbern, ohne an Markt-Termine gebunden zu sein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet ein Pferd auf dem Pferdemarkt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Freizeitpferde kosten 500–3.000 Euro je nach Alter und Ausbildung. Einsteiger-Sportpferde: 5.000–12.000 Euro. Hochleistungs-Sportpferde: 15.000–100.000 Euro+. Auf Ehorses siehst du aktuelle Marktpreise. Verhandlungsraum von 10–15% ist üblich bei traditionellen Märkten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sollte ich online oder auf traditionellen Märkten kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Online-Plattformen (Ehorses, Pferde.de) bieten 19.000+ Inserate, Flexibilität und schnellen Vergleich. Traditionelle Märkte (Havelberg, Bietigheim) ermöglichen Live-Besichtigung, direkten Kontakt zu Züchtern und Verhandlungen vor Ort. Ideal: Online vorrecherchieren, dann zum Markt fahren für Live-Check."
+      }
+    }
+  ]
+}

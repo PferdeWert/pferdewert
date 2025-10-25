@@ -1,0 +1,135 @@
+{
+  "timestamp": "2025-10-25T00:00:00Z",
+  "keyword": "pferdemarkt",
+  "location": "Germany",
+  "language": "de",
+  "calls_executed": 3,
+  "data": {
+    "related_keywords": {
+      "api": "mcp__dataforseo__dataforseo_labs_google_related_keywords",
+      "primary_keyword": {
+        "keyword": "pferdemarkt",
+        "search_volume": 22200,
+        "competition": 0.09,
+        "competition_level": "LOW",
+        "cpc": 0.38,
+        "keyword_difficulty": 22,
+        "search_intent": "navigational"
+      },
+      "related_variations": [
+        {
+          "keyword": "pferdemarkt 2025",
+          "search_volume": 1000,
+          "keyword_difficulty": 3,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "pferdemarkt in der nähe",
+          "search_volume": 390,
+          "keyword_difficulty": 12,
+          "search_intent": "informational"
+        },
+        {
+          "keyword": "pferdemarkt bayern",
+          "search_volume": 170,
+          "keyword_difficulty": null,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "pferdemarkt online",
+          "search_volume": 140,
+          "keyword_difficulty": 27,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "pferdemarkt deutschland",
+          "search_volume": 110,
+          "keyword_difficulty": 25,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "pferdemarkt nrw",
+          "search_volume": 110,
+          "keyword_difficulty": null,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "pferdemarkt heute",
+          "search_volume": 90,
+          "keyword_difficulty": 21,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "pferdemarkt ebay kleinanzeigen",
+          "search_volume": 70,
+          "keyword_difficulty": 3,
+          "search_intent": "navigational"
+        }
+      ]
+    },
+    "keyword_ideas": {
+      "api": "mcp__dataforseo__dataforseo_labs_google_keyword_ideas",
+      "total_ideas": 15,
+      "high_volume_ideas": [
+        {
+          "keyword": "reiterhof in meiner nähe",
+          "search_volume": 8100,
+          "keyword_difficulty": 32,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "gnadenhof in der nähe",
+          "search_volume": 5400,
+          "keyword_difficulty": 25,
+          "search_intent": "informational"
+        },
+        {
+          "keyword": "pferd reiten",
+          "search_volume": 4400,
+          "keyword_difficulty": 29,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "gamaschen pferd",
+          "search_volume": 4400,
+          "keyword_difficulty": null,
+          "search_intent": "transactional"
+        },
+        {
+          "keyword": "haflinger pferde",
+          "search_volume": 2900,
+          "keyword_difficulty": 4,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "pferde videos",
+          "search_volume": 2400,
+          "keyword_difficulty": null,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "am pferdemarkt",
+          "search_volume": 2900,
+          "keyword_difficulty": null,
+          "search_intent": "navigational"
+        },
+        {
+          "keyword": "wieviel ps hat ein pferd",
+          "search_volume": 1900,
+          "keyword_difficulty": null,
+          "search_intent": "informational"
+        }
+      ]
+    },
+    "keyword_overview": {
+      "api": "mcp__dataforseo__dataforseo_labs_google_keyword_overview",
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "cpc": 0.38,
+      "competition_level": "LOW",
+      "keyword_difficulty": 22,
+      "search_intent": "navigational",
+      "monthly_trend": "22% quarterly growth"
+    }
+  }
+}

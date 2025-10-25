@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import React from "react"
 import Head from "next/head"
+import Link from "next/link"
 import { ClipboardList, Stethoscope, Microscope, FileText, CheckCircle, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
@@ -329,7 +330,7 @@ const AkuPferdAblauf: NextPage = () => {
               >
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Plane 2–5 % des Kaufpreises für die AKU ein. Für Freizeitpferde reicht meist Klasse II, bei Sport- und Zuchtpferden
-                  solltest du Klasse III oder höher wählen.
+                  solltest du Klasse III oder höher wählen. Unsere <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown font-semibold hover:underline">Kostenübersicht für die Pferdeanschaffung</Link> hilft dir, alle Ausgaben im Blick zu behalten.
                 </p>
               </RatgeberHighlightBox>
             </section>

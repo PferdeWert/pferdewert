@@ -231,7 +231,11 @@ const PferdeRatgeber: NextPage<RatgeberIndexProps> = ({ articles }) => {
             </h2>
 
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Nutzen Sie unsere KI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Einfach, schnell und datenbasiert.
+              Nutzen Sie unsere KI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Erfahren Sie mehr über die{' '}
+              <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand font-semibold hover:text-brand-brown transition-colors underline">
+                Kosten eines Pferdes
+              </Link>
+              {' '}und treffen Sie fundierte Entscheidungen. Einfach, schnell und datenbasiert.
             </p>
 
             <Link href="/pferde-preis-berechnen">

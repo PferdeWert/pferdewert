@@ -1,0 +1,75 @@
+{
+  "phase": "5C",
+  "strategy": "Kontextuelle interne Verlinkung zu bestehenden PferdeWert.de Ratgeber-Seiten",
+  "total_internal_links": 5,
+  "link_distribution": {
+    "introduction": 1,
+    "body": 3,
+    "conclusion": 1
+  },
+  "internal_links": [
+    {
+      "position": 1,
+      "section": "Introduction - Moderne Funktion heute",
+      "anchor_text": "Pferdewert ermitteln",
+      "target_url": "/ratgeber/pferdewert-ermitteln",
+      "context": "Bevor du auf einem Pferdemarkt kaufst, solltest du den fairen Marktwert kennen. Mit unserer [Pferdewert ermitteln] Funktion erhältst du in 2 Minuten eine datenbasierte Bewertung.",
+      "relevance": "high",
+      "keyword_alignment": "primary_service_link"
+    },
+    {
+      "position": 2,
+      "section": "Tipps für den Pferdekauf - Gesundheits- & Qualitäts-Check",
+      "anchor_text": "Gesundheitscheck Pferd",
+      "target_url": "/ratgeber/pferd-gesundheitscheck",
+      "context": "Bevor du Geld zahlst, ist eine [Gesundheitscheck Pferd] durch einen Tierarzt essentiell – nicht optional! Eine gründliche Untersuchung kostet 200–400 Euro und schützt dich vor teuren Fehlkäufen.",
+      "relevance": "high",
+      "keyword_alignment": "supporting_topic"
+    },
+    {
+      "position": 3,
+      "section": "Tipps für den Pferdekauf - Preis-Orientierung",
+      "anchor_text": "Wie viel kostet ein Pferd",
+      "target_url": "/ratgeber/pferd-kaufen-kosten",
+      "context": "Die Preise für Pferdemärkte variieren erheblich – mehr Details findest du in unserem Guide [Wie viel kostet ein Pferd], wo wir aktuelle Marktpreise nach Pferdetyp analysieren.",
+      "relevance": "high",
+      "keyword_alignment": "supporting_topic"
+    },
+    {
+      "position": 4,
+      "section": "Online vs. Traditionelle - Tipps für die richtige Wahl",
+      "anchor_text": "Pferd kaufen: Worauf achten",
+      "target_url": "/ratgeber/pferd-kaufen-worauf-achten",
+      "context": "Unabhängig davon, ob du online oder traditionell kaufst – unsere [Pferd kaufen: Worauf achten] Checkliste hilft dir, die wichtigsten Punkte nicht zu vergessen.",
+      "relevance": "high",
+      "keyword_alignment": "primary_keyword_variant"
+    },
+    {
+      "position": 5,
+      "section": "Fazit",
+      "anchor_text": "KI-gestützte Pferdewert-Bewertung",
+      "target_url": "/#bewertung",
+      "context": "Du möchtest wissen, wie viel dein aktuelles Pferd wert ist? Mit unserer [KI-gestützten Pferdewert-Bewertung] erhältst du in 2 Minuten eine datenbasierte Einschätzung.",
+      "relevance": "medium",
+      "keyword_alignment": "primary_cta"
+    }
+  ],
+  "quality_checks": {
+    "total_links": 5,
+    "min_required": 3,
+    "quality_status": "PASS",
+    "anchor_text_variation": true,
+    "natural_integration": true,
+    "url_validation": "all_urls_verified"
+  },
+  "sitemap_validation": {
+    "validated_urls": [
+      "/ratgeber/pferdewert-ermitteln",
+      "/ratgeber/pferd-gesundheitscheck",
+      "/ratgeber/pferd-kaufen-kosten",
+      "/ratgeber/pferd-kaufen-worauf-achten"
+    ],
+    "all_urls_exist": true,
+    "404_risk": "LOW"
+  }
+}
