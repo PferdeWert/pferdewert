@@ -7,6 +7,37 @@ import { Menu, X, ChevronDown } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
 
+// ============================================================================
+// STABLE NAVIGATION ITEMS - Outside component to prevent recreation
+// ============================================================================
+
+interface NavDropdownItem {
+  label: string
+  href: string
+}
+
+interface NavItem {
+  label: string
+  href: string
+  dropdown?: NavDropdownItem[]
+}
+
+const NAVIGATION_ITEMS: NavItem[] = [
+  {
+    label: "Ratgeber",
+    href: "/pferde-ratgeber",
+    dropdown: [
+      { label: "AKU Pferd", href: "/pferde-ratgeber/aku-pferd" },
+      { label: "Pferd kaufen", href: "/pferde-ratgeber/pferd-kaufen" },
+      { label: "Pferd verkaufen", href: "/pferde-ratgeber/pferd-verkaufen" },
+    ]
+  },
+  {
+    label: "Über uns",
+    href: "/ueber-pferdewert",
+  },
+]
+
 export default function HeaderUnified() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -52,30 +83,13 @@ export default function HeaderUnified() {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [])
 
-  // Navigation Struktur
-  const navigationItems = [
-    {
-      label: "Ratgeber",
-      href: "/pferde-ratgeber",
-      dropdown: [
-        { label: "AKU Pferd", href: "/pferde-ratgeber/aku-pferd" },
-        { label: "Pferd kaufen", href: "/pferde-ratgeber/pferd-kaufen" },
-        { label: "Pferd verkaufen", href: "/pferde-ratgeber/pferd-verkaufen" },
-      ]
-    },
-    {
-      label: "Über uns",
-      href: "/ueber-pferdewert",
-    },
-  ]
-
   // Breadcrumb Items generieren
   const getBreadcrumbItems = () => {
     const path = router.pathname
     const items = []
 
     // Finde aktuelle Navigation
-    for (const navItem of navigationItems) {
+    for (const navItem of NAVIGATION_ITEMS) {
       if (path.startsWith(navItem.href)) {
         items.push({ label: navItem.label, href: navItem.href })
 
@@ -115,7 +129,7 @@ export default function HeaderUnified() {
 
             {/* Desktop Navigation mit Dropdowns */}
             <nav className="flex items-center space-x-8">
-              {navigationItems.map((item) => (
+              {NAVIGATION_ITEMS.map((item) => (
                 <div
                   key={item.href}
                   className="relative"
@@ -234,7 +248,7 @@ export default function HeaderUnified() {
         <nav className="h-full flex flex-col">
           {/* Navigation Links mit Progressive Disclosure */}
           <div className="flex-1 overflow-y-auto px-4 py-6">
-            {navigationItems.map((item) => (
+            {NAVIGATION_ITEMS.map((item) => (
               <div key={item.href} className="mb-3">
                 {item.dropdown ? (
                   // Kategorie mit Dropdown - aufklappbar
