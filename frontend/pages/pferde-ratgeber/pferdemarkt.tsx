@@ -13,6 +13,7 @@ import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
+import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
 // SEO Metadata
 const seoMetadata = {
@@ -88,10 +89,7 @@ const tableOfContentsSections = [
   { id: 'faq', title: 'Häufig gestellte Fragen' }
 ]
 
-// HYDRATION FIX: Move heroMetaItems outside component to prevent infinite re-renders
-// Creating new array objects inside component body causes React to think component changed
-// This triggers Fast Refresh loops in development
-const getPferdemarktHeroMetaItems = () => [
+const getPferdemarktHeroMetaItems = () => createHeroMetaItems([
   {
     icon: <Clock className="h-4 w-4" />,
     label: '12 min Lesezeit'
@@ -112,7 +110,7 @@ const getPferdemarktHeroMetaItems = () => [
     icon: <Award className="h-4 w-4" />,
     label: 'Experten-Ratgeber'
   }
-]
+])
 
 const Pferdemarkt: NextPage = () => {
   const heroMetaItems = getPferdemarktHeroMetaItems()

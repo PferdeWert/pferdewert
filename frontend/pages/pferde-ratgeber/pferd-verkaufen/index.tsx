@@ -13,8 +13,9 @@ import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry';
+import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems';
 
-const getPferdVerkaufenHeroMetaItems = () => [
+const getPferdVerkaufenHeroMetaItems = () => createHeroMetaItems([
   {
     icon: <TrendingUp className="h-4 w-4" />,
     label: "7-Phasen-Prozess"
@@ -27,7 +28,7 @@ const getPferdVerkaufenHeroMetaItems = () => [
     icon: <FileCheck className="h-4 w-4" />,
     label: "Plattform-Vergleich"
   }
-];
+]);
 
 const PferdVerkaufen: NextPage = () => {
   const heroMetaItems = getPferdVerkaufenHeroMetaItems();

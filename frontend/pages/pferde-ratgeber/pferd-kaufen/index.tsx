@@ -17,6 +17,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
+import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 const sections = [
   { id: "preise", title: "Was kostet ein Pferd beim Pferdekauf 2025?" },
@@ -32,7 +33,7 @@ const sections = [
   { id: "fazit", title: "Fazit: Sicherer Pferdekauf" }
 ]
 
-const heroMetaItems = [
+const heroMetaItems = createHeroMetaItems([
   {
     icon: <TrendingUp className="h-4 w-4" />,
     label: "15 Min. Lesezeit"
@@ -45,7 +46,7 @@ const heroMetaItems = [
     icon: <CheckCircle className="h-4 w-4" />,
     label: "7-Schritte-Checkliste"
   }
-]
+])
 
 const priceTiles = [
   {

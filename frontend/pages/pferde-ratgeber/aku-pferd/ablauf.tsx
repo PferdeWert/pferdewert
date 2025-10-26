@@ -15,6 +15,7 @@ import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
+import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 interface PhaseStep {
   phase: string
@@ -38,7 +39,7 @@ const sections = [
   { id: "faq", title: "FAQ zum AKU-Ablauf" }
 ]
 
-const heroMetaItems = [
+const heroMetaItems = createHeroMetaItems([
   {
     icon: <ClipboardList className="h-4 w-4" />,
     label: "5 Phasen Schritt für Schritt"
@@ -51,7 +52,7 @@ const heroMetaItems = [
     icon: <CheckCircle className="h-4 w-4" />,
     label: "Checklisten & Vorbereitung"
   }
-]
+])
 
 const phaseSteps: PhaseStep[] = [
   {

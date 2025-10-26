@@ -33,12 +33,12 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 // ============================================================================
-// MAIN COMPONENT
+// HYDRATION FIX: Move array creation outside component
 // ============================================================================
-
-const PferdeRatgeber: NextPage = () => {
-  // Load articles from registry with defensive check
-  const ratgeberArtikel: RatgeberArtikelCard[] = (RATGEBER_ENTRIES || []).map((entry, index) => ({
+// Creating new array objects inside component body causes React to think component changed
+// This triggers Fast Refresh loops in development (same issue as fixed in commit 9cd340b)
+const getRatgeberArtikel = (): RatgeberArtikelCard[] =>
+  (RATGEBER_ENTRIES || []).map((entry, index) => ({
     id: index + 1,
     titel: entry.title,
     beschreibung: entry.description,
@@ -47,6 +47,14 @@ const PferdeRatgeber: NextPage = () => {
     bild: entry.image,
     link: getRatgeberPath(entry.slug),
   }))
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
+
+const PferdeRatgeber: NextPage = () => {
+  // Load articles from registry - function call ensures stable pattern
+  const ratgeberArtikel = getRatgeberArtikel()
 
   return (
     <>

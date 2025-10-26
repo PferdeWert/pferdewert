@@ -14,6 +14,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
+import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 const sections = [
   { id: "overview", title: "AKU Kosten im Überblick" },
@@ -24,7 +25,7 @@ const sections = [
   { id: "faq", title: "FAQ zu AKU Kosten" }
 ]
 
-const heroMetaItems = [
+const heroMetaItems = createHeroMetaItems([
   {
     icon: <Calculator className="h-4 w-4" />,
     label: "Kosten je Klasse erklärt"
@@ -37,7 +38,7 @@ const heroMetaItems = [
     icon: <PiggyBank className="h-4 w-4" />,
     label: "Spartipps vom Tierarzt"
   }
-]
+])
 
 const classCosts = [
   {

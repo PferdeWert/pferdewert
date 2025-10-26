@@ -23,11 +23,9 @@ import {
 } from '@/data/ratgeber/akuPferd'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
+import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
-// HYDRATION FIX: Move heroMetaItems outside component to prevent infinite re-renders
-// Creating new array objects inside component body causes React to think component changed
-// This triggers Fast Refresh loops in development
-const getHeroMetaItems = () => [
+const getHeroMetaItems = () => createHeroMetaItems([
   {
     icon: <Clock className="h-4 w-4" />,
     label: '12 min Lesezeit'
@@ -48,7 +46,7 @@ const getHeroMetaItems = () => [
     icon: <Award className="h-4 w-4" />,
     label: 'Experten-Ratgeber'
   }
-]
+])
 
 const AKUPferd: NextPage = () => {
   const getSectionNumber = (sectionId: string) => {
