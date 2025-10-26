@@ -54,7 +54,7 @@ export default function ReviewSchema({
   reviews = [],
   organization
 }: ReviewSchemaProps): React.JSX.Element {
-  
+
   // Generate individual review schemas
   const reviewSchemas = reviews.map(review => ({
     '@type': 'Review',
@@ -110,12 +110,14 @@ export default function ReviewSchema({
     })
   };
 
-  // Log schema generation for debugging
-  info('Review Schema generated:', {
-    itemReviewed: itemReviewed.name,
-    aggregateRating,
-    reviewCount: reviews.length
-  });
+  // Log schema generation for debugging (only on mount)
+  React.useEffect(() => {
+    info('Review Schema generated:', {
+      itemReviewed: itemReviewed.name,
+      aggregateRating,
+      reviewCount: reviews.length
+    });
+  }, [itemReviewed.name, aggregateRating, reviews.length]);
 
   return (
     <>
