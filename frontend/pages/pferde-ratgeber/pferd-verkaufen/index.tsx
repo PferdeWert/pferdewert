@@ -30,42 +30,19 @@ const getPferdVerkaufenHeroMetaItems = () => createHeroMetaItems([
   }
 ]);
 
-const PferdVerkaufen: NextPage = () => {
-  const heroMetaItems = getPferdVerkaufenHeroMetaItems();
+const sections = [
+  { id: 'pferdewert-ermitteln', title: 'Pferdewert ermitteln' },
+  { id: 'plattformen-vergleich', title: 'Plattformen-Vergleich' },
+  { id: 'verkaufsprozess', title: '7-Phasen-Verkaufsprozess' },
+  { id: 'verkaufsanzeige', title: 'Perfekte Verkaufsanzeige' },
+  { id: 'rechtliche-aspekte', title: 'Rechtliche Aspekte' },
+  { id: 'schnell-verkaufen', title: 'Schnell verkaufen' },
+  { id: 'emotionaler-aspekt', title: 'Emotionaler Aspekt' },
+  { id: 'fazit', title: 'Fazit' },
+  { id: 'faq', title: 'Häufige Fragen' }
+];
 
-  const sections = [
-    { id: 'pferdewert-ermitteln', title: 'Pferdewert ermitteln' },
-    { id: 'plattformen-vergleich', title: 'Plattformen-Vergleich' },
-    { id: 'verkaufsprozess', title: '7-Phasen-Verkaufsprozess' },
-    { id: 'verkaufsanzeige', title: 'Perfekte Verkaufsanzeige' },
-    { id: 'rechtliche-aspekte', title: 'Rechtliche Aspekte' },
-    { id: 'schnell-verkaufen', title: 'Schnell verkaufen' },
-    { id: 'emotionaler-aspekt', title: 'Emotionaler Aspekt' },
-    { id: 'fazit', title: 'Fazit' },
-    { id: 'faq', title: 'Häufige Fragen' }
-  ];
-
-  const handleNavigate = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContent = () => {
-    const element = document.getElementById('content-start');
-    if (element) {
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    }
-  };
-
-  const relatedArticles = [
+const relatedArticles = [
     {
       href: '/pferde-ratgeber/pferd-kaufen',
       image: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
@@ -90,9 +67,9 @@ const PferdVerkaufen: NextPage = () => {
       readTime: '10 min',
       description: 'Was kostet eine Ankaufsuntersuchung wirklich? Detaillierte Preisaufstellung nach AKU-Klassen mit Spartipps.'
     }
-  ];
+];
 
-  const faqItems = [
+const faqItems = [
     {
       question: 'Wie viel Geld ist mein Pferd wert?',
       answer: 'Der Wert hängt von 11 Faktoren ab: Alter (6-12 Jahre optimal), Ausbildung, Gesundheit, Abstammung, Disziplin, Charakter, Interieur, Exterieur, Erfolge, Haltung und Marktlage. Ein Freizeitpferd liegt zwischen €2.000-€5.000, ein L-Turnierpferd bei €15.000-€40.000. Nutzen Sie den PferdeWert.de Rechner für eine präzise, datenbasierte Bewertung in 2 Minuten basierend auf 10.000+ Verkaufsdaten.'
@@ -133,9 +110,9 @@ const PferdVerkaufen: NextPage = () => {
       question: 'Wie lange dauert der durchschnittliche Pferdeverkauf?',
       answer: 'Der durchschnittliche Pferdeverkauf dauert 6-9 Monate ohne professionelle Vorbereitung. Mit systematischem Ansatz (realistische Bewertung, professionelle Fotos, Multi-Channel-Strategie) lässt sich die Dauer auf 2-6 Wochen reduzieren. Kritisch: Preis 5-10% unter Marktwert setzen und im März-Juni starten (Hochsaison).'
     }
-  ];
+];
 
-  const jsonLdArticle = {
+const jsonLdArticle = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Pferd verkaufen: Der ultimative Leitfaden (2025)',
@@ -162,9 +139,9 @@ const PferdVerkaufen: NextPage = () => {
     },
     inLanguage: 'de-DE',
     keywords: 'pferd verkaufen, pferdewert ermitteln, pferd verkaufen plattformen, pferd verkaufen preis, pferd schnell verkaufen'
-  };
+};
 
-  const jsonLdBreadcrumb = {
+const jsonLdBreadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -187,6 +164,29 @@ const PferdVerkaufen: NextPage = () => {
         item: 'https://pferdewert.de/ratgeber/pferd-verkaufen'
       }
     ]
+};
+
+const PferdVerkaufen: NextPage = () => {
+  const heroMetaItems = getPferdVerkaufenHeroMetaItems();
+
+  const handleNavigate = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
+  const scrollToContent = () => {
+    const element = document.getElementById('content-start');
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   return (
