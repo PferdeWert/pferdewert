@@ -1,6 +1,5 @@
 // components/ReviewSchema.tsx
 import React from 'react';
-import Head from 'next/head';
 import { info } from '@/lib/log';
 
 interface ReviewData {
@@ -119,14 +118,14 @@ export default function ReviewSchema({
   });
 
   return (
-    <Head>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(mainSchema, null, 2)
         }}
       />
-      
+
       {/* Individual review schemas for better SEO coverage */}
       {reviews.length > 0 && reviews.map((review, index) => (
         <script
@@ -161,7 +160,7 @@ export default function ReviewSchema({
           }}
         />
       ))}
-    </Head>
+    </>
   );
 }
 

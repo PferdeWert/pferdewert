@@ -299,6 +299,12 @@ const Pferdemarkt: NextPage = () => {
           src="/images/ratgeber/pferdemarkt-hero.webp"
           alt="Pferdemarkt Deutschland 2025 - Springreiter auf Pferd bei Wettbewerb"
           priority
+          attribution={{
+            author: 'Usien',
+            license: 'CC BY-SA 3.0',
+            licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+            source: 'Wikimedia Commons'
+          }}
         />
 
         <RatgeberTableOfContents sections={tableOfContentsSections} onNavigate={handleTableOfContentsClick} />

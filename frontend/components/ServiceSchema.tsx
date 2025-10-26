@@ -1,6 +1,5 @@
 // components/ServiceSchema.tsx
 import React from 'react';
-import Head from 'next/head';
 import { info } from '@/lib/log';
 
 interface ServiceArea {
@@ -218,14 +217,14 @@ export default function ServiceSchema({
   });
 
   return (
-    <Head>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(cleanSchema, null, 2)
         }}
       />
-    </Head>
+    </>
   );
 }
 

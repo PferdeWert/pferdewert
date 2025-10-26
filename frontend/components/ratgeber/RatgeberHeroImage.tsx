@@ -1,17 +1,20 @@
 import Image from 'next/image'
+import { ImageAttribution } from '@/types/attribution'
 
 interface RatgeberHeroImageProps {
   src: string
   alt: string
   priority?: boolean
   objectPosition?: string
+  attribution?: ImageAttribution
 }
 
 const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({
   src,
   alt,
   priority = false,
-  objectPosition = 'center'
+  objectPosition = 'center',
+  attribution
 }) => {
   return (
     <section className="py-8">
@@ -27,6 +30,20 @@ const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({
             sizes="(min-width: 768px) 80vw, 100vw"
           />
         </div>
+        {attribution && (
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            Foto: {attribution.author} /{' '}
+            <a
+              href={attribution.licenseUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-700"
+            >
+              {attribution.license}
+            </a>
+            {attribution.source && ` / ${attribution.source}`}
+          </p>
+        )}
       </div>
     </section>
   )
