@@ -11,6 +11,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
+import { getRatgeberBySlug, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
 
 // SEO Metadata
@@ -18,8 +19,8 @@ const seoMetadata = {
   title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
   description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
   canonical_url: 'https://pferdewert.de/ratgeber/pferdemarkt',
-  og_image: 'https://pferdewert.de/images/ratgeber/aku-pferd/bisher-nicht-verwendet/aku-klassen-uebersicht.webp',
-  og_image_alt: 'Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern'
+  og_image: 'https://pferdewert.de/images/ratgeber/pferdemarkt-hero.webp',
+  og_image_alt: 'Pferdemarkt Deutschland 2025 - Springreiter auf Pferd bei Wettbewerb'
 }
 
 // FAQ Items
@@ -46,33 +47,34 @@ const pferdemarktFaqItems = [
   }
 ]
 
-// Related Articles
-const relatedArticles = [
-  {
-    href: '/pferde-ratgeber/pferd-kaufen-kosten',
-    image: '/images/ratgeber/pferd-kaufen-kosten.jpg',
-    title: 'Was kostet ein Pferd kaufen?',
-    description: 'Kompletter Preisüberblick von Freizeitpferden bis zu Sportpferden',
-    readTime: '8 Min.',
-    badge: 'Kosten'
-  },
-  {
-    href: '/pferde-ratgeber/aku-pferd',
-    image: '/images/ratgeber/aku-pferd/hero.webp',
-    title: 'Ankaufsuntersuchung beim Pferd',
-    description: 'AKU-Ablauf, Befundklassen und rechtliche Aspekte',
-    readTime: '12 Min.',
-    badge: 'Kaufberatung'
-  },
-  {
-    href: '/pferde-ratgeber/pferd-gesundheitscheck',
-    image: '/images/ratgeber/pferd-gesundheitscheck.jpg',
-    title: 'Pferd Gesundheitscheck',
-    description: 'Wie man die Gesundheit von Pferden richtig beurteilt',
-    readTime: '10 Min.',
-    badge: 'Gesundheit'
-  }
+// Related Articles - loaded from registry
+const relatedArticlesSlugs = [
+  'pferd-kaufen/was-kostet-ein-pferd',
+  'pferd-kaufen',
+  'aku-pferd'
 ]
+
+const relatedArticles = relatedArticlesSlugs
+  .map(slug => {
+    const entry = getRatgeberBySlug(slug)
+    if (!entry) return null
+    return {
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      title: entry.title,
+      description: entry.description,
+      readTime: entry.readTime,
+      badge: entry.category
+    }
+  })
+  .filter(Boolean) as Array<{
+    href: string
+    image: string
+    title: string
+    description: string
+    readTime: string
+    badge: string
+  }>
 
 // Table of Contents Sections
 const tableOfContentsSections = [
@@ -129,9 +131,9 @@ const Pferdemarkt: NextPage = () => {
     'description': 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf.',
     'image': {
       '@type': 'ImageObject',
-      'url': 'https://pferdewert.de/images/ratgeber/aku-pferd/bisher-nicht-verwendet/aku-klassen-uebersicht.webp',
+      'url': 'https://pferdewert.de/images/ratgeber/pferdemarkt-hero.webp',
       'width': 1200,
-      'height': 630
+      'height': 800
     },
     'author': {
       '@type': 'Organization',
@@ -291,8 +293,8 @@ const Pferdemarkt: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/aku-pferd/bisher-nicht-verwendet/aku-klassen-uebersicht.webp"
-          alt="Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern"
+          src="/images/ratgeber/pferdemarkt-hero.webp"
+          alt="Pferdemarkt Deutschland 2025 - Springreiter auf Pferd bei Wettbewerb"
           priority
         />
 
