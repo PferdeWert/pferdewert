@@ -10,12 +10,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 
-
-export default function PferdeWertHomepage() {
-  // Preise aus zentraler Konfiguration (importiert)
-
-  // FAQ Data
-  const faqItems = [
+// FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
+const faqItems = [
     {
       frage: "Was ist mein Pferd wert?",
       antwort: "Unser KI-Modell analysiert Verkaufsdaten, Rasse, Alter, Ausbildung, Gesundheitsstatus und mehr – so erhältst du eine realistische Preisspanne für dein Pferd, sofort und ohne Anmeldung."
@@ -80,8 +76,9 @@ export default function PferdeWertHomepage() {
       frage: "Erhalte ich eine Geld-zurück-Garantie?",
       antwort: "Ja, absolut! Falls du nicht zufrieden bist, erstatten wir dir den vollen Betrag zurück. Kein Risiko für dich."
     }
-  ];
+];
 
+export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
