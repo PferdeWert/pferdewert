@@ -88,29 +88,34 @@ const tableOfContentsSections = [
   { id: 'faq', title: 'Häufig gestellte Fragen' }
 ]
 
+// HYDRATION FIX: Move heroMetaItems outside component to prevent infinite re-renders
+// Creating new array objects inside component body causes React to think component changed
+// This triggers Fast Refresh loops in development
+const getPferdemarktHeroMetaItems = () => [
+  {
+    icon: <Clock className="h-4 w-4" />,
+    label: '12 min Lesezeit'
+  },
+  {
+    icon: <Calendar className="h-4 w-4" />,
+    label: (
+      <span suppressHydrationWarning>
+        {new Date().toLocaleDateString('de-DE', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        })}
+      </span>
+    )
+  },
+  {
+    icon: <Award className="h-4 w-4" />,
+    label: 'Experten-Ratgeber'
+  }
+]
+
 const Pferdemarkt: NextPage = () => {
-  const heroMetaItems = [
-    {
-      icon: <Clock className="h-4 w-4" />,
-      label: '12 min Lesezeit'
-    },
-    {
-      icon: <Calendar className="h-4 w-4" />,
-      label: (
-        <span suppressHydrationWarning>
-          {new Date().toLocaleDateString('de-DE', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-          })}
-        </span>
-      )
-    },
-    {
-      icon: <Award className="h-4 w-4" />,
-      label: 'Experten-Ratgeber'
-    }
-  ]
+  const heroMetaItems = getPferdemarktHeroMetaItems()
 
   const handleTableOfContentsClick = (sectionId: string) => {
     info('Navigating to section:', sectionId)

@@ -132,14 +132,6 @@ const relatedArticles = [
     badge: "AKU Guide",
     readTime: "10 Min.",
     description: "Von Vorbereitung bis Befund: So läuft die Ankaufsuntersuchung Schritt für Schritt ab."
-  },
-  {
-    href: "/pferde-ratgeber/aku-pferd/klassen",
-    image: getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-pferd/klassen/hero.webp',
-    title: "AKU Klassen erklärt",
-    badge: "AKU Guide",
-    readTime: "8 Min.",
-    description: "Welche Klasse ist die richtige? Bedeutung, Risiko und Kaufempfehlung im Überblick."
   }
 ]
 

@@ -175,14 +175,6 @@ const relatedArticles = [
     description: "Das komplette Grundwissen zur Ankaufsuntersuchung – Kosten, Klassen, Befunde und Entscheidungshilfen."
   },
   {
-    href: "/pferde-ratgeber/aku-pferd/klassen",
-    image: getRatgeberBySlug('aku-pferd/klassen')?.image || '/images/ratgeber/aku-pferd/klassen/hero.webp',
-    title: "AKU Klassen erklärt",
-    badge: "AKU Guide",
-    readTime: "8 Min.",
-    description: "Welche Klasse ist die richtige? Bedeutung, Risiko und Kaufempfehlung im Überblick."
-  },
-  {
     href: "/pferde-ratgeber/aku-pferd/kosten",
     image: getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten/hero.webp',
     title: "AKU Kosten transparent",

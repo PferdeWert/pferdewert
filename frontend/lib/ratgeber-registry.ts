@@ -129,7 +129,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Deutschlands größte Pferdemärkte: Havelberg mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inseraten. Tipps und Veranstaltungskalender.',
     category: 'Kauf & Verkauf',
     readTime: '12 Min.',
-    image: '/images/og/pferdemarkt-2025.jpg', // Havelberger Pferdemarkt Szenerie
+    image: '/images/ratgeber/pferdemarkt-hero.webp', // Springreiter auf Pferd bei Wettbewerb
     priority: '0.7',
     changefreq: 'monthly'
   }

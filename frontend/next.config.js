@@ -149,6 +149,11 @@ const nextConfig = {
         destination: '/pferde-ratgeber/pferd-kaufen',
         permanent: true,
       },
+      {
+        source: '/pferde-ratgeber/aku-pferd/klassen',
+        destination: '/pferde-ratgeber/aku-pferd',
+        permanent: true,
+      },
     ]
   },
 };

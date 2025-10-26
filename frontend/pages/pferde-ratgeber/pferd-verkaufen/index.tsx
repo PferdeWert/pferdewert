@@ -584,7 +584,7 @@ const PferdVerkaufen: NextPage = () => {
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ 1-2 Probereittermine vereinbaren (verschiedene Personen falls möglich)</li>
               <li>✓ Haftpflichtversicherung des Interessenten prüfen</li>
-              <li>✓ AKU durch Käufer-Tierarzt (Kosten trägt Käufer, <Link href="/pferde-ratgeber/aku-pferd/klassen" className="text-brand-brown hover:underline">AKU-Klassen erklärt</Link>)</li>
+              <li>✓ AKU durch Käufer-Tierarzt (Kosten trägt Käufer, <Link href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:underline">AKU erklärt</Link>)</li>
               <li>✓ AKU-Ergebnis transparent besprechen</li>
             </ul>
 
