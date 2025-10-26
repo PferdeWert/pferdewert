@@ -14,21 +14,23 @@ import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry';
 
+const getPferdVerkaufenHeroMetaItems = () => [
+  {
+    icon: <TrendingUp className="h-4 w-4" />,
+    label: "7-Phasen-Prozess"
+  },
+  {
+    icon: <Shield className="h-4 w-4" />,
+    label: "Rechtssichere Abwicklung"
+  },
+  {
+    icon: <FileCheck className="h-4 w-4" />,
+    label: "Plattform-Vergleich"
+  }
+];
+
 const PferdVerkaufen: NextPage = () => {
-  const heroMetaItems = [
-    {
-      icon: <TrendingUp className="h-4 w-4" />,
-      label: "7-Phasen-Prozess"
-    },
-    {
-      icon: <Shield className="h-4 w-4" />,
-      label: "Rechtssichere Abwicklung"
-    },
-    {
-      icon: <FileCheck className="h-4 w-4" />,
-      label: "Plattform-Vergleich"
-    }
-  ];
+  const heroMetaItems = getPferdVerkaufenHeroMetaItems();
 
   const sections = [
     { id: 'pferdewert-ermitteln', title: 'Pferdewert ermitteln' },
