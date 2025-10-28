@@ -1,0 +1,118 @@
+{
+  "api_calls_executed": 3,
+  "timestamp": "2025-10-28T13:45:00Z",
+  "calls": [
+    {
+      "call_name": "dataforseo_labs_google_related_keywords",
+      "parameters": {
+        "keyword": "Pferdekaufvertrag",
+        "location_name": "Germany",
+        "language_code": "de",
+        "depth": 1,
+        "limit": 20
+      },
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "keywords_returned": 9,
+      "top_keywords": [
+        {
+          "keyword": "pferdekaufvertrag",
+          "search_volume": 1000,
+          "competition_level": "LOW",
+          "cpc": 1.0,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "pferdekaufvertrag privat einfach",
+          "search_volume": 260,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferdekaufvertrag privat ohne gewährleistung",
+          "search_volume": 260,
+          "competition_level": "LOW",
+          "cpc": 0.79,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "pferdekaufvertrag privat pdf",
+          "search_volume": 170,
+          "competition_level": "LOW",
+          "cpc": 0.8,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferdekaufvertrag fn",
+          "search_volume": 140,
+          "competition_level": "LOW",
+          "cpc": 1.71,
+          "main_intent": "informational"
+        },
+        {
+          "keyword": "pferdekaufvertrag privat an privat",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "cpc": 0.86,
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferdekaufvertrag fn pdf",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        },
+        {
+          "keyword": "pferdekaufvertrag kostenlos",
+          "search_volume": 30,
+          "competition_level": "LOW",
+          "main_intent": "navigational"
+        },
+        {
+          "keyword": "pferdekaufvertrag privat word",
+          "search_volume": 20,
+          "competition_level": "LOW",
+          "main_intent": "commercial"
+        }
+      ]
+    },
+    {
+      "call_name": "dataforseo_labs_google_keyword_ideas",
+      "parameters": {
+        "keywords": ["Pferdekaufvertrag"],
+        "location_name": "Germany",
+        "language_code": "de",
+        "limit": 15
+      },
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "note": "Results appear to be category-based ideas, not direct pferdekaufvertrag variations",
+      "total_items_returned": 15
+    },
+    {
+      "call_name": "dataforseo_labs_google_keyword_overview",
+      "parameters": {
+        "keywords": ["Pferdekaufvertrag"],
+        "location_name": "Germany",
+        "language_code": "de"
+      },
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "primary_keyword": {
+        "keyword": "pferdekaufvertrag",
+        "search_volume": 1000,
+        "cpc": 1.0,
+        "competition_level": "LOW",
+        "competition_score": 0.03,
+        "low_top_of_page_bid": 0.51,
+        "high_top_of_page_bid": 0.93,
+        "main_intent": "informational",
+        "avg_backlinks": 0.3,
+        "dofollow_backlinks": 0.2,
+        "rank_score": 48.7,
+        "main_domain_rank": 316,
+        "monthly_trend": -23
+      }
+    }
+  ]
+}

@@ -12,7 +12,7 @@ import fs from 'fs';
 import path from 'path';
 
 const TEST_PAYLOAD = {
-  event: 'article.published',
+  event_type: 'publish_articles',
   timestamp: new Date().toISOString(),
   data: {
     articles: [

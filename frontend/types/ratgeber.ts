@@ -26,7 +26,7 @@ export interface OutrankArticlePayload {
  * Complete webhook event structure from Outrank.so
  */
 export interface OutrankWebhookEvent {
-  event: 'article.published' | 'article.updated' | 'article.deleted';
+  event_type: 'publish_articles';
   timestamp: string; // ISO 8601
   data: {
     articles: OutrankArticlePayload[];

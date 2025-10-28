@@ -251,6 +251,32 @@ export function verifyHmacSignature(
  */
 export class WebhookRateLimiter {
   private requests: Map<string, number[]> = new Map();
+  private cleanup: NodeJS.Timeout | null = null;
+
+  constructor() {
+    // Periodically cleanup old entries to prevent memory leak
+    this.cleanup = setInterval(() => {
+      this.cleanupOldRequests();
+    }, 5 * 60 * 1000); // Every 5 minutes
+  }
+
+  /**
+   * Cleans up old request timestamps outside any time window
+   */
+  private cleanupOldRequests(): void {
+    const now = Date.now();
+    const maxWindowMs = WEBHOOK_RATE_LIMIT.WINDOW_MS;
+
+    for (const [key, timestamps] of this.requests.entries()) {
+      const recentRequests = timestamps.filter((ts) => ts > now - maxWindowMs);
+
+      if (recentRequests.length === 0) {
+        this.requests.delete(key);
+      } else {
+        this.requests.set(key, recentRequests);
+      }
+    }
+  }
 
   /**
    * Checks if request should be rate limited
@@ -292,4 +318,29 @@ export class WebhookRateLimiter {
   reset(): void {
     this.requests.clear();
   }
+
+  /**
+   * Cleanup resources (call on server shutdown)
+   */
+  destroy(): void {
+    if (this.cleanup) {
+      clearInterval(this.cleanup);
+      this.cleanup = null;
+    }
+    this.requests.clear();
+  }
+}
+
+/**
+ * Extracts client IP address from request headers
+ *
+ * Handles X-Forwarded-For header (for proxied requests) and falls back to direct connection IP
+ *
+ * @param req - NextApiRequest object
+ * @returns Client IP address
+ */
+export function getClientIp(req: { headers: Record<string, unknown>; socket?: { remoteAddress?: string } }): string {
+  const forwardedFor = req.headers['x-forwarded-for'];
+  const clientIp = typeof forwardedFor === 'string' ? forwardedFor.split(',')[0].trim() : null;
+  return clientIp || (req.headers['x-real-ip'] as string) || req.socket?.remoteAddress || 'unknown';
 }

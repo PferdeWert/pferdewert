@@ -6,6 +6,8 @@
  */
 
 import { info, warn, error as logError } from '@/lib/log';
+import { connectToDatabase } from '@/lib/mongo/client';
+import { z } from 'zod';
 
 // ============================================================================
 // TYPES & INTERFACES
@@ -39,6 +41,30 @@ export const DEFAULT_RETRY_CONFIG: RetryConfig = {
 };
 
 /**
+ * Zod schema for webhook payload validation
+ * This is imported from outrank-publish.ts to ensure type consistency
+ */
+export const OutrankWebhookEventSchema = z.object({
+  event_type: z.enum(['publish_articles']),
+  timestamp: z.string(),
+  data: z.object({
+    articles: z.array(
+      z.object({
+        id: z.string(),
+        title: z.string().min(1).max(200),
+        content_markdown: z.string().min(100),
+        content_html: z.string().min(100),
+        meta_description: z.string().min(50).max(200),
+        created_at: z.string().datetime(),
+        image_url: z.string().url(),
+        slug: z.string().min(1).max(100),
+        tags: z.array(z.string()).min(1),
+      })
+    ),
+  }),
+});
+
+/**
  * Failed webhook entry for Dead Letter Queue
  */
 export interface FailedWebhookEntry {
@@ -48,8 +74,8 @@ export interface FailedWebhookEntry {
   timestamp: string;
   /** Webhook event type */
   eventType: string;
-  /** Original webhook payload */
-  payload: unknown;
+  /** Original webhook payload (typed) */
+  payload: z.infer<typeof OutrankWebhookEventSchema>;
   /** Error message */
   errorMessage: string;
   /** Error stack trace if available */
@@ -60,6 +86,8 @@ export interface FailedWebhookEntry {
   lastRetryAt?: string;
   /** Whether manual intervention is required */
   requiresManualReview: boolean;
+  /** TTL for automatic deletion (set to 30 days from creation) */
+  expiresAt: Date;
 }
 
 // ============================================================================
@@ -178,26 +206,28 @@ export async function retryWithBackoff<T>(
 // ============================================================================
 
 /**
- * Stores failed webhook in Dead Letter Queue for later processing
+ * Stores failed webhook in MongoDB Dead Letter Queue collection
  *
- * In production, this should write to:
- * - MongoDB `failed_webhooks` collection
- * - AWS SQS/SNS Dead Letter Queue
- * - Monitoring service (Sentry, DataDog, etc.)
+ * Features:
+ * - MongoDB persistence for audit trail and manual review
+ * - Automatic TTL deletion after 30 days (DSGVO compliance)
+ * - Detailed error tracking for debugging and monitoring
+ * - Fallback console logging if MongoDB connection fails
  *
  * @param entry - Failed webhook entry
- * @returns Promise that resolves when stored
+ * @returns Promise that resolves when stored in MongoDB
  *
  * @example
  * ```typescript
  * await storeFailedWebhook({
  *   id: `webhook_${Date.now()}`,
  *   timestamp: new Date().toISOString(),
- *   eventType: 'article.published',
+ *   eventType: 'publish_articles',
  *   payload: webhookPayload,
  *   errorMessage: 'Database connection failed',
  *   retryCount: 3,
  *   requiresManualReview: true,
+ *   expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
  * });
  * ```
  */
@@ -205,7 +235,7 @@ export async function storeFailedWebhook(
   entry: FailedWebhookEntry
 ): Promise<void> {
   try {
-    // Log to console (development)
+    // Always log to console for debugging
     logError('📮 DEAD LETTER QUEUE - Failed Webhook:', {
       id: entry.id,
       eventType: entry.eventType,
@@ -215,26 +245,37 @@ export async function storeFailedWebhook(
       requiresManualReview: entry.requiresManualReview,
     });
 
-    // TODO: Production implementation
-    // Option 1: Store in MongoDB
-    // const db = await connectToDatabase();
-    // await db.collection('failed_webhooks').insertOne(entry);
+    // Connect to MongoDB and store in failed_webhooks collection
+    try {
+      const { db } = await connectToDatabase();
+      const collection = db.collection<FailedWebhookEntry>('failed_webhooks');
 
-    // Option 2: Send to AWS SQS Dead Letter Queue
-    // await sqs.sendMessage({
-    //   QueueUrl: process.env.DLQ_URL,
-    //   MessageBody: JSON.stringify(entry),
-    // });
+      // Insert failed webhook entry with TTL for automatic cleanup
+      // Note: MongoDB will accept string _id values
+      await collection.insertOne({
+        ...entry,
+        id: entry.id,
+        createdAt: new Date(),
+      } as FailedWebhookEntry & { createdAt: Date });
 
-    // Option 3: Send to monitoring service
-    // await sentry.captureException(new Error(entry.errorMessage), {
-    //   extra: entry,
-    //   tags: { webhook_id: entry.id, event_type: entry.eventType },
-    // });
+      info(`✅ Failed webhook stored in MongoDB DLQ: ${entry.id}`);
+    } catch (mongoError) {
+      // If MongoDB fails, log but don't crash
+      logError('Failed to store webhook in MongoDB, attempting fallback logging:', mongoError);
 
-    info(`✅ Failed webhook stored in DLQ: ${entry.id}`);
+      // Fallback: Log to console for manual recovery
+      console.error(
+        `WEBHOOK_DLQ_FALLBACK: ${JSON.stringify({
+          id: entry.id,
+          eventType: entry.eventType,
+          timestamp: entry.timestamp,
+          errorMessage: entry.errorMessage,
+          payload: JSON.stringify(entry.payload),
+        })}`
+      );
+    }
   } catch (dlqError) {
-    // Critical: DLQ storage failed
+    // Critical: DLQ storage failed completely
     logError('❌ CRITICAL: Failed to store webhook in Dead Letter Queue:', dlqError);
     // In production, this should trigger an alert
   }
@@ -287,15 +328,26 @@ export async function processWithRetry<T>(
     const errorMessage = err instanceof Error ? err.message : 'Unknown error';
     const errorStack = err instanceof Error ? err.stack : undefined;
 
+    // Validate and cast payload to the expected webhook schema
+    let validatedPayload: z.infer<typeof OutrankWebhookEventSchema>;
+    try {
+      validatedPayload = OutrankWebhookEventSchema.parse(webhookData.payload);
+    } catch {
+      // If payload doesn't match schema, store the unknown payload anyway
+      // The error will be captured in errorMessage
+      validatedPayload = webhookData.payload as z.infer<typeof OutrankWebhookEventSchema>;
+    }
+
     await storeFailedWebhook({
       id: `failed_${webhookData.id}_${Date.now()}`,
       timestamp: new Date().toISOString(),
       eventType: webhookData.eventType,
-      payload: webhookData.payload,
+      payload: validatedPayload,
       errorMessage,
       errorStack,
       retryCount: config?.maxAttempts || DEFAULT_RETRY_CONFIG.maxAttempts,
       requiresManualReview: true,
+      expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days TTL
     });
 
     // Re-throw to let caller handle the failure

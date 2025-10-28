@@ -16,7 +16,7 @@ import { promisify } from 'util';
 import { connectToDatabase } from '@/lib/mongo/client';
 import { getRatgeberRepository } from '@/lib/mongo/ratgeber-repository';
 import { info, error as logError, warn } from '@/lib/log';
-import { validateWebhookToken } from '@/lib/webhook-security';
+import { validateWebhookToken, getClientIp, WebhookRateLimiter } from '@/lib/webhook-security';
 import { storeFailedWebhook } from '@/lib/webhook-utils';
 import type { FailedWebhookEntry } from '@/lib/webhook-utils';
 
@@ -39,7 +39,7 @@ const OutrankArticleSchema = z.object({
 });
 
 const OutrankWebhookEventSchema = z.object({
-  event: z.enum(['article.published', 'article.updated', 'article.deleted']),
+  event_type: z.enum(['publish_articles']),
   timestamp: z.string(),
   data: z.object({
     articles: z.array(OutrankArticleSchema),
@@ -66,6 +66,7 @@ interface WebhookResponse {
   results: ProcessingResult[];
   timestamp: string;
   failed_list_revalidations?: string[];
+  warnings?: string[];
 }
 
 interface WebhookValidationResponse {
@@ -73,6 +74,16 @@ interface WebhookValidationResponse {
   message: string;
   timestamp: string;
 }
+
+// ============================================================================
+// RATE LIMITER INSTANCE
+// ============================================================================
+
+/**
+ * Global rate limiter instance for webhook requests
+ * Tracks requests per IP address
+ */
+const rateLimiter = new WebhookRateLimiter();
 
 // ============================================================================
 // AUTHENTICATION MIDDLEWARE
@@ -113,15 +124,19 @@ async function sendToDeadLetterQueue(
   errorMessage: string,
   errorStack?: string
 ): Promise<void> {
+  const now = new Date();
+  const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days for DSGVO compliance
+
   const failedEntry: FailedWebhookEntry = {
     id: `outrank_${event.timestamp}_${Date.now()}`,
-    timestamp: new Date().toISOString(),
-    eventType: event.event,
+    timestamp: now.toISOString(),
+    eventType: event.event_type,
     payload: event,
     errorMessage,
     errorStack,
     retryCount: 0,
     requiresManualReview: true,
+    expiresAt,
   };
 
   await storeFailedWebhook(failedEntry);
@@ -170,14 +185,22 @@ async function revalidateListPages(res: NextApiResponse): Promise<string[]> {
   return failedPaths;
 }
 
-async function regenerateSitemap(): Promise<void> {
+/**
+ * Regenerates sitemap and returns error information if it fails
+ *
+ * @returns Error message if sitemap regeneration fails, null if successful
+ */
+async function regenerateSitemap(): Promise<string | null> {
   try {
     info('🔄 Regenerating sitemap.xml and robots.txt...');
     await execAsync('npm run sitemap');
     info('✅ Sitemap and robots.txt regenerated successfully');
+    return null; // Success
   } catch (err) {
+    const errorMsg = err instanceof Error ? err.message : 'Unknown error';
     logError('Failed to regenerate sitemap:', err);
-    // Non-critical error - log but don't fail the entire webhook
+    // Return error but don't fail the entire webhook (non-critical)
+    return `Sitemap regeneration failed: ${errorMsg}`;
   }
 }
 
@@ -223,9 +246,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<WebhookResponse | WebhookValidationResponse | { error: string }>
 ) {
+  // Extract client IP for rate limiting
+  const clientIp = getClientIp(req);
+
   // Log incoming request details for debugging
   info('📥 Incoming webhook request:', {
     method: req.method,
+    clientIp,
     headers: {
       authorization: req.headers.authorization ? 'Present' : 'Missing',
       'content-type': req.headers['content-type'],
@@ -233,7 +260,15 @@ export default async function handler(
     timestamp: new Date().toISOString(),
   });
 
-  // Step 1: Authentication (required for both GET and POST)
+  // Step 1: Rate Limiting (before authentication to avoid timing leaks)
+  if (!rateLimiter.check(clientIp)) {
+    warn(`Rate limit exceeded for IP: ${clientIp}`);
+    return res.status(429).json({
+      error: 'Too many requests - rate limit exceeded. Maximum 100 requests per minute.',
+    });
+  }
+
+  // Step 2: Authentication (required for both GET and POST)
   if (!authenticateWebhook(req)) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
@@ -263,7 +298,7 @@ export default async function handler(
   let webhookEvent: z.infer<typeof OutrankWebhookEventSchema> | undefined;
 
   try {
-    // Step 2: Validate webhook payload with Zod
+    // Step 3: Validate webhook payload with Zod
     const validationResult = OutrankWebhookEventSchema.safeParse(req.body);
 
     if (!validationResult.success) {
@@ -291,22 +326,22 @@ export default async function handler(
 
     info(`Processing ${articles.length} articles from webhook`);
 
-    // Step 3: Connect to MongoDB
+    // Step 4: Connect to MongoDB
     const { db } = await connectToDatabase();
     const repository = getRatgeberRepository(db);
 
-    // Step 4: Process all articles in parallel to avoid timeouts
+    // Step 5: Process all articles in parallel to avoid timeouts
     const results = await Promise.all(
       articles.map((article) => processArticle(repository, article, res))
     );
 
-    // Step 5: Trigger ISR revalidation for list pages
+    // Step 6: Trigger ISR revalidation for list pages
     const failedListRevalidations = await revalidateListPages(res);
 
-    // Step 6: Regenerate sitemap for SEO discovery (fire-and-forget, non-blocking)
-    regenerateSitemap(); // Don't await - runs in background without blocking response
+    // Step 7: Regenerate sitemap for SEO discovery and track errors
+    const sitemapError = await regenerateSitemap();
 
-    // Step 7: Calculate statistics
+    // Step 8: Calculate statistics
     const successCount = results.filter((r) => r.status === 'success').length;
     const failedCount = results.filter((r) => r.status === 'failed').length;
     const skippedCount = results.filter((r) => r.status === 'skipped').length;
@@ -318,7 +353,13 @@ export default async function handler(
       skipped: skippedCount,
     });
 
-    // Step 7: Return response
+    // Step 9: Return response with warnings if applicable
+    const warnings: string[] = [];
+
+    if (sitemapError) {
+      warnings.push(sitemapError);
+    }
+
     const response: WebhookResponse = {
       success: failedCount === 0,
       processed: successCount,
@@ -327,6 +368,7 @@ export default async function handler(
       results,
       timestamp: new Date().toISOString(),
       ...(failedListRevalidations.length > 0 && { failed_list_revalidations: failedListRevalidations }),
+      ...(warnings.length > 0 && { warnings }),
     };
 
     return res.status(200).json(response);

@@ -22,7 +22,7 @@ import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 const sections = [
   { id: "preise", title: "Was kostet ein Pferd beim Pferdekauf 2025?" },
   { id: "bewertung-5-saeulen", title: "5 Säulen der Pferdebewertung beim Pferdekauf" },
-  { id: "checkliste", title: "7-Schritte-Checkliste zum Pferdekauf" },
+  { id: "checkliste", title: "Checkliste Pferdekauf: Darauf sollten Sie achten" },
   { id: "red-flags", title: "Red Flags beim Pferdekauf" },
   { id: "anfaenger", title: "Pferd kaufen für Anfänger" },
   { id: "regionen", title: "Regionale Unterschiede beim Pferdekauf" },
@@ -44,7 +44,7 @@ const heroMetaItems = createHeroMetaItems([
   },
   {
     icon: <CheckCircle className="h-4 w-4" />,
-    label: "7-Schritte-Checkliste"
+    label: "Vollständige Checkliste"
   }
 ])
 
@@ -804,307 +804,127 @@ const PferdKaufen: NextPage = () => {
               </div>
             </section>
 
-            {/* 7-Schritte-Checkliste */}
+            {/* Checkliste Pferdekauf */}
             <section id="checkliste" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                Die 7-Schritte-Checkliste: So kaufst Du Dein Traumpferd
+                Checkliste Pferdekauf: Darauf sollten Sie achten
               </h2>
+
               <p className="text-lg text-gray-700 leading-relaxed">
-                Der strukturierte Ablauf beim erfolgreichen Pferdekauf verhindert teure Fehler und emotionale Spontankäufe. Folge dieser
-                bewährten Checkliste:
+                Ein Pferd zu kaufen ist eine der größten Entscheidungen im Leben eines Reiters – nicht nur emotional, sondern auch finanziell. Eine strukturierte Checkliste hilft Ihnen, keine wichtigen Punkte zu übersehen und böse Überraschungen zu vermeiden. Wir begleiten Sie durch alle Phasen: von der Vorbereitung über die sorgfältige Prüfung bis zu den rechtlichen Schritten nach dem Kauf.
               </p>
 
-              {/* Schritt 1 */}
+              {/* Vor dem Kauf */}
               <ContentSection
-                title="Schritt 1: Budget beim Pferdekauf und Folgekosten kalkulieren"
-                icon="1️⃣"
+                title="Vor dem Kauf: Realistische Vorbereitung"
+                icon="✓"
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Der Kaufpreis beim Pferdekauf ist nur der Anfang. Die <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown font-semibold hover:underline">laufenden Kosten für Pferdehaltung</Link> übersteigen den Anschaffungspreis
-                      oft bereits im ersten Jahr:
+                      Bevor die Suche nach dem perfekten Pferd beginnt, müssen Sie ehrlich prüfen, ob Sie bereit sind.
                     </p>
 
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Monatliche Fixkosten</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• <strong>Stallmiete:</strong> 200€ bis 600€ je nach Region und Ausstattung</li>
-                      <li>• <strong>Futter und Einstreu:</strong> 100€ bis 200€ (Heu, Kraftfutter, Mineralfutter, Stroh)</li>
-                      <li>• <strong>Versicherung:</strong> 15€ bis 50€ (Haftpflicht obligatorisch, OP-Versicherung empfohlen)</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Regelmäßige Kosten</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• <strong>Hufschmied:</strong> 40€ bis 120€ alle 6-8 Wochen</li>
-                      <li>• <strong>Tierarzt (Routine):</strong> 500€ bis 1.500€ pro Jahr</li>
-                      <li>• <strong>Reitunterricht:</strong> 30€ bis 60€ pro Stunde</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Einmalige/unregelmäßige Kosten</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• <strong>Sattel und Trense:</strong> 800€ bis 3.000€</li>
-                      <li>• <strong>Decken, Putzzeug, Ausrüstung:</strong> 300€ bis 800€</li>
-                      <li>• <strong>Notfall-Reserve:</strong> 1.000€ bis 3.000€ für unvorhergesehene Tierarztkosten</li>
-                    </ul>
-
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
-                      Rechnen Sie mit <strong>4.000€ bis 8.000€ laufenden Kosten pro Jahr</strong> – zusätzlich zum Kaufpreis.
-                      Unsere <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown font-semibold hover:underline">detaillierte Übersicht der Pferdehaltungskosten</Link> hilft Ihnen bei der realistischen Budgetplanung.
-                      Stellen Sie sicher, dass Ihr Budget diese Summen dauerhaft tragen kann.
-                    </p>
-                  </div>
-                }
-              />
-
-              {/* Schritt 2 */}
-              <ContentSection
-                title="Schritt 2: Anforderungen für Ihren Pferdekauf"
-                icon="2️⃣"
-                content={
-                  <div className="space-y-4">
-                    <p className="text-gray-700 leading-relaxed">
-                      Bevor Sie mit der Suche beginnen, klären Sie diese essentiellen Fragen:
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Ihr Erfahrungslevel beim Pferdekauf</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• Anfänger brauchen ein erfahrenes, ausgeglichenes Pferd</li>
-                      <li>• Fortgeschrittene können jüngere oder anspruchsvollere Pferde bewältigen</li>
-                      <li>• Profis können auch Problempferde oder junge Pferde ausbilden</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Verwendungszweck</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• Freizeitreiten (Ausritte, leichte Dressur)</li>
-                      <li>• Turnierreiten (Dressur, Springen, Vielseitigkeit)</li>
-                      <li>• Zucht (Stutenmaterial, Deckhengste)</li>
-                      <li>• Bodenarbeit und Horsemanship</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Ideales Alter</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• 3-5 Jahre: jung, braucht weitere Ausbildung</li>
-                      <li>• 6-12 Jahre: beste Jahre, voll leistungsfähig</li>
-                      <li>• 13-18 Jahre: erfahren, oft ruhiger</li>
-                      <li>• 19+ Jahre: Freizeitpferde, günstigere Rentner-Pferde</li>
-                    </ul>
-
-                    <p className="text-gray-700 leading-relaxed font-medium">
-                      Je klarer Ihre Anforderungen, desto gezielter können Sie suchen und desto schneller finden Sie das passende
-                      Pferd.
-                    </p>
-                  </div>
-                }
-              />
-
-              {/* Schritt 3 */}
-              <ContentSection
-                title="Schritt 3: Seriöse Verkaufsplattformen beim Pferdekauf"
-                icon="3️⃣"
-                content={
-                  <div className="space-y-4">
-                    <p className="text-gray-700 leading-relaxed">
-                      Die großen Online-Pferdemarktplätze zum Pferdekauf bieten die größte Auswahl:
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Top Pferdemarkt-Plattformen</h3>
                     <ul className="space-y-3 text-gray-700 leading-relaxed">
                       <li>
-                        <strong>ehorses.de:</strong> Größter europäischer Pferdemarkt mit über 19.000 Verkaufspferden. Detaillierte
-                        Suchfilter nach Rasse, Alter, Preis, Stockmaß und Region.
+                        <strong className="text-brand-brown">✓ Budget und laufende Kosten klären</strong> – Berechnen Sie nicht nur den Kaufpreis, sondern auch monatliche Kosten für Stall (200–600 Euro), Futter, Tierarzt, Hufschmied und Versicherungen. Viele angehende Pferdebesitzer unterschätzen die laufenden Ausgaben erheblich. Lesen Sie auch unseren Ratgeber <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown font-semibold hover:underline">Was kostet ein Pferd?</Link>, um realistische Zahlen für Ihre Region zu erhalten.
                       </li>
                       <li>
-                        <strong>pferde.de:</strong> Etabliertes deutsches Pferdeportal mit Kleinanzeigen und Community-Funktionen.
-                        Private Anbieter und professionelle Händler.
+                        <strong className="text-brand-brown">✓ Stall suchen und besichtigen</strong> – Der Stall ist das Zuhause Ihres zukünftigen Pferdes. Besichtigen Sie mehrere Ställe, achten Sie auf Sauberkeit, Haltungsform (Box, Paddock, Weide), Fütterungsqualität und den Umgang des Personals mit Pferden.
                       </li>
                       <li>
-                        <strong>billyrider.de:</strong> Gezielt an Reiter-Community mit Fokus auf Freizeitpferde und praktischen
-                        Filterfunktionen.
+                        <strong className="text-brand-brown">✓ Grundausstattung planen</strong> – Sorgen Sie für Sattel (passend zu Ihrem Pferd!), Trense, Halfter, Putzzeug, Decken und Stallzubehör. Viele Kosten entstehen hier bereits beim Kauf.
                       </li>
                       <li>
-                        <strong>kleinanzeigen.de:</strong> Regionale Nähe, oft Privatverkäufe aus der Umgebung.
+                        <strong className="text-brand-brown">✓ Fachleute suchen</strong> – Reservieren Sie einen vertrauenswürdigen Tierarzt und einen Hufschmied. Ein guter Trainer für die erste Zeit ist ebenfalls sinnvoll.
                       </li>
                       <li>
-                        <strong>Lokale Züchter und Händler:</strong> Persönliche Beratung, Gewährleistung, oft bereits durchgeführte
-                        AKU. Preise meist 10-20% höher.
+                        <strong className="text-brand-brown">✓ Reiterfahrung realistisch einschätzen</strong> – Seien Sie ehrlich: Welchen Ausbildungsstand sollte das Pferd haben, damit Sie damit arbeiten können? Ein unerfahrener Reiter mit einem Anfängerpferd ist eine gute Kombination.
                       </li>
-                    </ul>
-
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
-                      <strong className="text-brand-brown">Kritischer Tipp:</strong> Bevor Sie in Kaufverhandlungen gehen, sollten Sie wissen, ob der angebotene Preis fair ist. Mit der
-                      KI-Bewertung von PferdeWert.de erhalten Sie in 2 Minuten eine objektive Einschätzung des Marktwerts. So
-                      starten Sie die Verhandlung mit klarem Preiswissen und vermeiden Überzahlung.
-                    </p>
-                  </div>
-                }
-              />
-
-              {/* Schritt 4 */}
-              <ContentSection
-                title="Schritt 4: Besichtigung beim Pferdekauf professionell vorbereiten"
-                icon="4️⃣"
-                content={
-                  <div className="space-y-4">
-                    <p className="text-gray-700 leading-relaxed">
-                      Die erste Besichtigung entscheidet oft über Kauf oder Absage. Bereiten Sie sich gründlich vor:
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Checkliste für die Besichtigung</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• Nehmen Sie eine erfahrene Person mit (Reitlehrer, Trainer, erfahrener Reiter)</li>
-                      <li>• Beobachten Sie das Pferd zunächst in der Box und auf der Weide</li>
-                      <li>• Lassen Sie den Verkäufer das Pferd putzen, satteln und vorführen</li>
-                      <li>• Achten Sie auf Handling: Ist das Pferd beim Führen, Putzen und Satteln brav?</li>
-                      <li>• Beobachten Sie Gang und Bewegung an der Hand (alle Gangarten)</li>
-                      <li>• Lassen Sie den Verkäufer das Pferd zuerst reiten</li>
-                      <li>• Vereinbaren Sie einen Probetermin zum Selbereiten</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Proberitte beim Pferdekauf organisieren</h3>
-                    <p className="text-gray-700 leading-relaxed mb-3">
-                      Bestehen Sie auf mindestens einen, besser zwei Probetermine an verschiedenen Tagen. Testen Sie das Pferd in
-                      verschiedenen Situationen:
-                    </p>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• In der Halle/auf dem Platz</li>
-                      <li>• Im Gelände</li>
-                      <li>• In allen Gangarten</li>
-                      <li>• Bei leichten Übungen passend zum Ausbildungsstand</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Warnsignale ernst nehmen</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• Pferd ist schwer einzufangen oder zu satteln</li>
-                      <li>• Verkäufer verweigert Proberitte oder will dabei bleiben</li>
-                      <li>• Pferd zeigt Ängstlichkeit oder Aggressivität</li>
-                      <li>• Unklare Aussagen zu Vorerkrankungen oder Geschichte</li>
-                      <li>• Verkäufer drängt zu schneller Kaufentscheidung</li>
                     </ul>
                   </div>
                 }
               />
 
-              {/* Schritt 5 */}
+              {/* Während des Kaufs */}
               <ContentSection
-                title="Schritt 5: Ankaufsuntersuchung (AKU) durchführen"
-                icon="5️⃣"
+                title="Während des Kaufs: Sorgfältige Prüfung"
+                icon="🔍"
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Die Ankaufsuntersuchung ist der wichtigste Schritt zum Schutz vor Fehlkäufen. <strong>Niemals sollten Sie ein
-                      Pferd ohne AKU kaufen.</strong>
+                      Hier entscheidet sich, ob Sie ein gesundes Pferd mit klarer Historie oder ein Überraschungspaket erwerben.
                     </p>
 
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Was ist eine AKU?</h3>
+                    <ul className="space-y-3 text-gray-700 leading-relaxed">
+                      <li>
+                        <strong className="text-brand-brown">✓ Pferdehistorie erfragen und überprüfen</strong> – Fragen Sie nach früheren Besitzern (wie viele?), Krankheiten, Verletzungen, Turniererfahrung und Ausbildungsstand. Der Grund für den Verkauf ist ebenfalls wichtig – &quot;Privatverkauf, zu wenig Zeit&quot; ist normal; &quot;aggressiv, schwierig zu handhaben&quot; sollte Sie alarmieren.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Professionelle Ankaufsuntersuchung (AKU) durchführen</strong> – Das ist die wichtigste Investition beim Pferdekauf. Ein unabhängiger Tierarzt prüft Herz, Lunge, Bewegungsapparat und Augen gründlich. Der AKU-Bericht ist Ihre Versicherung gegen versteckte Mängel. Lesen Sie mehr über den Ablauf und die Kosten in unserem Ratgeber <Link href="/pferde-ratgeber/aku-pferd" className="text-brand-brown font-semibold hover:underline">Ankaufsuntersuchung Pferd</Link>.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Equidenpass und Papiere prüfen</strong> – Verlangen Sie das Original des Equidenpasses. Überprüfen Sie: Stimmt die Beschreibung des Pferdes? Sind alle Impfungen dokumentiert? Wer ist aktuell als Eigentümer eingetragen?
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Mehrmals probereiten</strong> – Reiten Sie das Pferd nicht nur einmal, sondern 3–5 Mal unter verschiedenen Bedingungen. Bringen Sie einen erfahrenen Trainer oder Freund mit, um eine zweite Meinung zu erhalten.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Fütterung und Gewohnheiten erfragen</strong> – Welches Futter bekommt das Pferd? Wie lange steht es täglich auf der Weide? Diese Informationen helfen Ihnen bei der Eingewöhnung.
+                      </li>
+                    </ul>
+                  </div>
+                }
+              />
+
+              {/* Nach dem Kauf */}
+              <ContentSection
+                title="Nach dem Kauf: Rechtliche Sicherheit"
+                icon="📋"
+                content={
+                  <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Eine Ankaufsuntersuchung ist eine veterinärmedizinische Untersuchung, die den Gesundheitszustand eines Pferdes
-                      vor dem Kauf objektiv bewertet. Ein Tierarzt prüft das Pferd systematisch auf Erkrankungen, Verletzungen und
-                      Mängel.
+                      Diese Schritte schützen Sie rechtlich und organisieren Ihren neuen Alltag.
                     </p>
 
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">AKU-Varianten und Kosten</h3>
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Kleine AKU: 150€ – 250€</h4>
-                        <p className="text-gray-700 leading-relaxed">Klinische Untersuchung ohne Röntgen, für günstige Freizeitpferde</p>
-                      </div>
+                    <ul className="space-y-3 text-gray-700 leading-relaxed">
+                      <li>
+                        <strong className="text-brand-brown">✓ Schriftlicher Kaufvertrag abschließen</strong> – Ein Kaufvertrag sollte enthalten: genaue Pferdebeschreibung (Name, Rasse, Geburtsdatum, Abzeichen), Kaufpreis, Ausbildungsstand, Zweck des Pferdes, Gewährleistungsfristen und Unterschriften beider Parteien.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Versicherungen abschließen</strong> – Zwei Versicherungen sind Standard: Haftpflichtversicherung (für Schäden, die Ihr Pferd anrichtet) und OP-Versicherung (für teure Tierarzt-Operationen). Diese sind keine Luxus, sondern notwendiger Schutz.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Besitzerwechsel im Equidenpass beantragen</strong> – Die FN oder die zuständige Behörde bucht Sie als neuen Eigentümer ein. Das ist rechtlich wichtig.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Transport organisieren</strong> – Tiergerechter Transport mit erfahrenem Fahrer ist essentiell. Reservieren Sie Pferdetransporter frühzeitig.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ Pensionsvertrag mit dem Stall</strong> – Unterschreiben Sie einen Vertrag, der Stallgebühren, Zusatzleistungen, Haftung und Kündigungsfristen regelt.
+                      </li>
+                      <li>
+                        <strong className="text-brand-brown">✓ AKU-Bericht und alle Dokumente archivieren</strong> – Bewahren Sie den AKU-Bericht, den Kaufvertrag, den Equidenpass und Impfnachweise sicher auf.
+                      </li>
+                    </ul>
 
-                      <div>
-                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Große AKU: 400€ – 600€</h4>
-                        <p className="text-gray-700 leading-relaxed">
-                          Inklusive Röntgen der wichtigsten Gliedmaßen, Standard für Turnierpferde
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-lg font-semibold text-brand-brown mb-1">Erweiterte AKU: 800€ – 1.200€</h4>
-                        <p className="text-gray-700 leading-relaxed">
-                          Zusätzlich Ultraschall, Endoskopie, Blutbild – für teure Sportpferde
-                        </p>
-                      </div>
+                    <div className="bg-brand-green/10 border-l-4 border-brand-green p-6 rounded-lg mt-6">
+                      <h3 className="text-xl font-serif font-bold text-brand mb-3">
+                        Lohnt sich der finanzielle Mehraufwand?
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        Sie haben Ihr Pferd gekauft und fragen sich jetzt: &quot;Was ist mein Pferd überhaupt wert?&quot; Besonders bei älteren Pferden oder nach Unfällen ist eine fundierte Werteinschätzung sinnvoll.
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        Unsere KI-gestützte Bewertung analysiert Alter, Rasse, Ausbildungsstand, Gesundheit und Markttrends – und liefert Ihnen in nur <strong>2 Minuten</strong> eine professionelle Einschätzung des aktuellen Pferdewertes.
+                      </p>
+                      <Link
+                        href="/pferde-preis-berechnen"
+                        className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-brand-brown text-white rounded-lg hover:bg-brand-brown/90 transition-colors font-semibold"
+                      >
+                        Jetzt Pferd bewerten
+                        <ArrowRight className="w-5 h-5" />
+                      </Link>
                     </div>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Worauf die AKU achtet</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• Herz und Lunge (Belastbarkeit)</li>
-                      <li>• Augen (Sehvermögen)</li>
-                      <li>• Zähne und Kiefer</li>
-                      <li>• Gliedmaßen und Hufe (Lahmheiten, Verschleiß)</li>
-                      <li>• Rücken und Sattelbereich</li>
-                      <li>• Röntgenbilder (Arthrose, Chips, Hufrollenentzündung)</li>
-                    </ul>
-
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
-                      <strong className="text-brand-brown">Wichtig:</strong> Der Käufer wählt den Tierarzt und bezahlt die AKU. Akzeptieren Sie niemals einen vom Verkäufer organisierten
-                      Tierarzt – hier besteht Interessenkonflikt.
-                    </p>
-                  </div>
-                }
-              />
-
-              {/* Schritt 6 */}
-              <ContentSection
-                title="Schritt 6: Kaufvertrag und Rechtliches"
-                icon="6️⃣"
-                content={
-                  <div className="space-y-4">
-                    <p className="text-gray-700 leading-relaxed">
-                      Ein schriftlicher Kaufvertrag ist beim Pferdekauf rechtlich nicht vorgeschrieben, aber dringend empfohlen:
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Wichtige Vertragsklauseln</h3>
-                    <ul className="space-y-2 text-gray-700 leading-relaxed">
-                      <li>• Vollständige Angaben zu Käufer und Verkäufer</li>
-                      <li>• Detaillierte Pferdebeschreibung (Name, Rasse, Alter, Farbe, Abzeichen, Chipnummer)</li>
-                      <li>• Kaufpreis und Zahlungsmodalitäten</li>
-                      <li>• Übergabedatum</li>
-                      <li>• Aussagen zu Gesundheit und bekannten Mängeln</li>
-                      <li>• Regelung zur AKU (wer zahlt, welche Klasse)</li>
-                      <li>• Rücktrittsregelung bei negativer AKU</li>
-                      <li>• Gewährleistungsausschluss oder -einschluss</li>
-                    </ul>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Gewährleistung und Sachmängelhaftung</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Bei privaten Verkäufen wird die Gewährleistung meist ausgeschlossen (&ldquo;gekauft wie gesehen&rdquo;). Dies ist rechtlich
-                      zulässig. Bei Händlern gilt die gesetzliche Gewährleistung von 2 Jahren, oft verkürzt auf 1 Jahr.
-                    </p>
-
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
-                      <strong className="text-brand-brown">Tipp:</strong> Dokumentieren Sie den Zustand des Pferdes bei Übergabe mit Fotos und notieren Sie eventuelle Besonderheiten im
-                      Übergabeprotokoll.
-                    </p>
-                  </div>
-                }
-              />
-
-              {/* Schritt 7 */}
-              <ContentSection
-                title="Schritt 7: Transport und Eingewöhnung"
-                icon="7️⃣"
-                content={
-                  <div className="space-y-4">
-                    <p className="text-gray-700 leading-relaxed">
-                      Nach erfolgreichem Kauf steht der Transport in den neuen Stall an:
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Professioneller Pferdetransport</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Nutzen Sie erfahrene Pferdetransport-Unternehmen (Kosten: 1€ – 2,50€ pro km). Vergewissern Sie sich, dass der
-                      Transporter versichert ist und die Fahrer Erfahrung mit Pferden haben.
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Versicherung sofort aktivieren</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Schließe die Pferdehaftpflichtversicherung bereits vor der Übergabe ab, sodass das Pferd vom Moment des
-                      Eigentumswechsels an versichert ist. Die Pferdehaftpflicht ist in Deutschland nicht gesetzlich vorgeschrieben,
-                      aber absolut essentiell – Schäden durch Pferde können sechsstellige Summen erreichen.
-                    </p>
-
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Eingewöhnungsphase</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Plane 2-4 Wochen Eingewöhnungszeit ein. Das Pferd muss sich an neue Umgebung, Boxennachbarn,
-                      Fütterungszeiten und deine Handhabung gewöhnen. Starte mit leichter Arbeit und steigere langsam.
-                    </p>
                   </div>
                 }
               />

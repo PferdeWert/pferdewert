@@ -1,0 +1,36 @@
+fix(webhooks): resolve Outrank schema mismatch causing 400 errors
+
+BREAKING CHANGE: None (internal fix, webhook format was incorrect)
+
+The Outrank webhook was failing with 400 Bad Request errors because:
+- Outrank sends: event_type: "publish_articles"
+- Our schema expected: event: "article.published"
+
+This schema mismatch caused Zod validation to reject all payloads.
+
+Changes:
+1. Update Zod schema in outrank-publish.ts (lines 42, 119):
+   - Rename field: event → event_type
+   - Update enum: ['article.published', ...] → ['publish_articles']
+   - Fix Dead Letter Queue field reference
+
+2. Update TypeScript interface in types/ratgeber.ts (line 29):
+   - Rename field: event → event_type
+   - Change type: union → literal 'publish_articles'
+
+3. Update test payload in test-webhook-sitemap.mjs (line 15):
+   - Match actual Outrank webhook format
+
+Verification:
+- TypeScript compilation: PASSED
+- ESLint validation: PASSED
+- Schema consistency: PASSED
+- All acceptance criteria met
+
+The webhook handler will now correctly accept and process Outrank
+article publishing events with proper Zod validation and type safety.
+
+Files changed:
+- frontend/pages/api/webhooks/outrank-publish.ts (2 changes, lines 42, 119)
+- frontend/types/ratgeber.ts (1 change, line 29)
+- frontend/scripts/test-webhook-sitemap.mjs (1 change, line 15)

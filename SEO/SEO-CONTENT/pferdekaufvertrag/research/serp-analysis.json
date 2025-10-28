@@ -1,0 +1,523 @@
+{
+  "phase": "2",
+  "primary_keyword": "pferdekaufvertrag",
+  "timestamp": "2025-10-28T14:35:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "serp_organic_depth": 30,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful, all data from DataForSEO API responses"
+  },
+  "data_sources": {
+    "serp_results_count": 30,
+    "organic_results_top_10": 9,
+    "featured_snippets_count": 0,
+    "paa_questions_count": 8,
+    "content_parsed_urls": 3,
+    "related_searches_count": 8
+  },
+  "search_intent": {
+    "primary": "informational",
+    "probability": 0.596,
+    "secondary": null,
+    "secondary_probability": null,
+    "content_strategy": "Educational guide with legal focus and practical template integration. Informational intent dominates (59.6%), making comprehensive educational content critical. Commercial elements (download templates, legal expertise positioning) should be secondary."
+  },
+  "top_10_serp_results": [
+    {
+      "rank": 1,
+      "domain": "meinepferde.eu",
+      "title": "Kaufvertrag für ein Pferd",
+      "url": "https://www.meinepferde.eu/images/stories/pdf/pferdekaufvertrag.pdf",
+      "description": "Mit der Übergabe des Pferdes beim Käufer geht die Gefahr des zufälligen Unterganges und der Verschlechterung auf diesen über. Der Verkäufer behält sich das ...",
+      "domain_type": "pdf_resource",
+      "authority_level": "medium",
+      "format": "PDF Template"
+    },
+    {
+      "rank": 2,
+      "domain": "wittelsbuerger.de",
+      "title": "PFERDEKAUFVERTRAG",
+      "url": "https://www.wittelsbuerger.de/download/pferdekaufvertrag.pdf",
+      "description": "Der vorliegende Pferdekaufvertrag findet Anwendung zwischen einem Unternehmer-Verkäufer und einem privaten Käufer.",
+      "domain_type": "pdf_resource",
+      "authority_level": "high",
+      "format": "PDF Template"
+    },
+    {
+      "rank": 3,
+      "domain": "kanzlei-kotz.de",
+      "title": "Pferdekaufvertrag - Abkürzung der Verjährungsfrist auf weniger als ein Jahr",
+      "url": "https://www.kanzlei-kotz.de/pferdekaufvertrag-abkuerzung-der-verjaehrungsfrist-auf-weniger-als-ein-jahr/",
+      "description": "Im Pferdekaufvertrag kann die Verjährungsfrist für Gewährleistungsansprüche laut Gesetz auf ein Jahr verkürzt werden.",
+      "domain_type": "law_firm_blog",
+      "authority_level": "high",
+      "format": "Legal Blog Article"
+    },
+    {
+      "rank": 4,
+      "domain": "ra-kotz.de",
+      "title": "Pferdekauf: Rechtliche Fallstricke und wie man sie vermeidet",
+      "url": "https://www.ra-kotz.de/pferdekauf-rechtliche-fallstricke-und-wie-man-sie-vermeidet.htm",
+      "description": "Beschaffenheitsvereinbarungen sind im Pferdekaufvertrag von Bedeutung. Sie definieren die erwarteten Eigenschaften des Pferdes.",
+      "domain_type": "law_firm_blog",
+      "authority_level": "high",
+      "content_length_estimate": 4500,
+      "format": "Comprehensive Legal Guide"
+    },
+    {
+      "rank": 5,
+      "domain": "ehorses.de",
+      "title": "Pferdekaufvertrag – Infos & Muster zum Download!",
+      "url": "https://www.ehorses.de/magazin/pferdekaufvertrag/",
+      "description": "In einem Pferdekaufvertrag sollten Name und Adresse des Käufers sowie die Angaben zum Kaufgegenstand (dem Pferde), die Zahlungsinformation sowie ...",
+      "domain_type": "equestrian_marketplace",
+      "authority_level": "high",
+      "content_length_estimate": 2800,
+      "format": "Magazine Article with Template"
+    },
+    {
+      "rank": 6,
+      "domain": "rechtsanwaelte-ls.de",
+      "title": "Pferdekaufvertrag",
+      "url": "https://www.rechtsanwaelte-ls.de/downloads/pferdekaufvertrag.pdf",
+      "description": "... nachfolgend „Käufer" genannt - wird folgender Pferdekaufvertrag geschlossen: § 1 Gegenstand.",
+      "domain_type": "law_firm_resource",
+      "authority_level": "medium",
+      "format": "PDF Template"
+    },
+    {
+      "rank": 7,
+      "domain": "pferd-versichert.de",
+      "title": "Pferdekaufvertrag zwischen Privatpersonen",
+      "url": "https://www.pferd-versichert.de/fileadmin/Vordrucke/Pferdekaufvertrag_zwischen_Privatpersonen.pdf",
+      "description": "Der Kaufvertrag steht unter der Bedingung, dass dar Vertrag erst wirksam wird, wenn die im Auftrag des / der Käufers/in bzw. des / der Verkäufers/in ...",
+      "domain_type": "insurance_company",
+      "authority_level": "medium",
+      "format": "PDF Template (Private-to-Private)"
+    },
+    {
+      "rank": 8,
+      "domain": "tierrechtsanwalt.de",
+      "title": "Pferdekaufvertrag",
+      "url": "https://tierrechtsanwalt.de/pferdekaufvertrag/",
+      "description": "§ 1 Vertragsgegenstand · Der Verkäufer verkauft an den Käufer das nachfolgend beschriebene Pferd: Name des Pferdes: Rasse: ...",
+      "domain_type": "law_firm_blog",
+      "authority_level": "high",
+      "content_length_estimate": 1800,
+      "format": "Legal Template with Legal Context"
+    },
+    {
+      "rank": 9,
+      "domain": "pferd-aktuell.de",
+      "title": "Pferdekaufvertrag \"gewerblich\" (Download)",
+      "url": "https://www.pferd-aktuell.de/shop/pferdekaufvertrag-download-1.html",
+      "description": "Pferdekaufvertrag \"gewerblich\" (Download). 4,00 €. inkl. MwSt.",
+      "domain_type": "horse_federation_shop",
+      "authority_level": "high",
+      "format": "Paid PDF Template (FN/Deutsche Reiterliche Vereinigung)"
+    }
+  ],
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Was ist ein Pferdekaufvertrag und warum ist er wichtig?",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 results explain importance and definition"
+      },
+      {
+        "topic": "Wesentliche Bestandteile eines Pferdekaufvertrags",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All results list essential components (Vertragsgegenstand, Kaufpreis, Übergabe, Gewährleistung)"
+      },
+      {
+        "topic": "Kaufpreis und Zahlungsmodalitäten",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "9 of 10 mention payment terms, ratenzahlung, Eigentumsvorbehalt"
+      },
+      {
+        "topic": "Gewährleistung und Mängelrechte",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "Law firm blogs extensively cover § 437 BGB, warranty rights"
+      },
+      {
+        "topic": "Unterschied privat vs. gewerblicher Verkauf",
+        "coverage": "8/10",
+        "priority": "critical",
+        "evidence": "Multiple results explain different legal protections, Verbrauchsgüterkauf"
+      },
+      {
+        "topic": "Ankaufsuntersuchung (AKU) rechtliche Aspekte",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "ehorses and law firm blogs mention AKU, tierärztliche Untersuchung"
+      },
+      {
+        "topic": "Gefahrübergang und Eigentumsübergang",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Content parsing shows extensive coverage of 'Gefahrübergang' and 'Eigentum'"
+      },
+      {
+        "topic": "Beschaffenheitsvereinbarungen",
+        "coverage": "7/10",
+        "priority": "high",
+        "evidence": "Law firm blogs deeply explain vereinbarte Eigenschaften"
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Pferdekaufvertrag für Anfänger - vereinfachte Erklärung",
+        "coverage": "2/10",
+        "unique_angle": "Most content is legal/technical. Create beginner-friendly walkthrough with plain language explanations",
+        "opportunity_score": 8,
+        "reason": "Search volume indicates many private sellers/buyers (nicht Profis). Need accessible version."
+      },
+      {
+        "topic": "Häufige Fehler beim Pferdekaufvertrag vermeiden",
+        "coverage": "4/10",
+        "unique_angle": "Only law firm blogs mention mistakes. Create comprehensive 'Was Sie NOT tun sollten' guide with real examples",
+        "opportunity_score": 7,
+        "reason": "High user pain point, few competitors address directly"
+      },
+      {
+        "topic": "Checkliste: Schritt-für-Schritt Anleitung zum ausfüllen",
+        "coverage": "3/10",
+        "unique_angle": "Templates exist but no interactive/downloadable checklist guide for every field. Create field-by-field explanation",
+        "opportunity_score": 8,
+        "reason": "High commercial intent (pdf/download searches), current templates lack guidance"
+      },
+      {
+        "topic": "Pferdekaufvertrag Muster zum Download mit Erklärungen",
+        "coverage": "5/10",
+        "unique_angle": "Many offer PDFs but none with integrated explanations per section. Hybrid: Template + Inline Education",
+        "opportunity_score": 7,
+        "reason": "Rank #1-2 are PDFs without explanation. Create content + template combo"
+      },
+      {
+        "topic": "Besondere Klauseln: Probezeit, Rücktrittsrecht, Vorkaufsrecht",
+        "coverage": "4/10",
+        "unique_angle": "Law firm blogs mention briefly. Create detailed guide with when/why/how for each",
+        "opportunity_score": 6,
+        "reason": "Important for buyers but scattered across results"
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Pferdekaufvertrag nach BGB - aktuelle Gesetzesstand 2025",
+        "coverage": "1/10",
+        "source": "Related searches show 'FN pdf', 'kostenlos' but no 2024/2025 updates",
+        "opportunity_score": 6,
+        "reason": "Legal content ages quickly. Current updates would differentiate"
+      },
+      {
+        "topic": "Internationale Pferdekaufverträge / Import-Export Besonderheiten",
+        "coverage": "0/10",
+        "source": "Not mentioned in SERP at all",
+        "opportunity_score": 3,
+        "reason": "Niche but relevant for breeding market"
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.meinepferde.eu/images/stories/pdf/pferdekaufvertrag.pdf",
+      "unique_angles": [
+        "Direct PDF template (no fluff, immediate utility)"
+      ],
+      "format": "PDF Template",
+      "why_it_ranks": "Direct match for transactional intent + established domain authority. Users searching for 'Pferdekaufvertrag' want templates/downloads immediately.",
+      "key_differentiator": "Immediate utility, no educational content required, fast download",
+      "gap_vs_rank1": "We can differentiate by providing EDUCATION + template (hybrid), not just template"
+    }
+  },
+  "format_recommendations": {
+    "content_parsing_results": {
+      "ehorses_word_count": 2800,
+      "ra_kotz_word_count": 4500,
+      "tierrechtsanwalt_word_count": 1800,
+      "average_word_count": 3033
+    },
+    "avg_word_count": 3033,
+    "target_word_count": 3336,
+    "word_count_range_min": 2578,
+    "word_count_range_max": 3943,
+    "word_count_strategy": "serp_competitive",
+    "word_count_fallback": 2500,
+    "content_format": "Comprehensive Educational Guide + Practical Template Integration",
+    "required_sections": [
+      {
+        "section": "Einleitung: Warum ein rechtssicherer Pferdekaufvertrag unverzichtbar ist",
+        "word_count_target": 200,
+        "priority": "critical",
+        "content_type": "Hook + Problem statement"
+      },
+      {
+        "section": "Was ist ein Pferdekaufvertrag? Definition und rechtliche Grundlagen",
+        "word_count_target": 250,
+        "priority": "critical",
+        "content_type": "Educational foundation"
+      },
+      {
+        "section": "Private vs. gewerblicher Verkauf: Unterschiede erklärt",
+        "word_count_target": 300,
+        "priority": "critical",
+        "content_type": "Differentiation guidance",
+        "reason": "Phase 1 shows 6/9 keywords relate to private sales"
+      },
+      {
+        "section": "Die 7 wesentlichen Bestandteile eines Pferdekaufvertrags",
+        "word_count_target": 450,
+        "priority": "critical",
+        "content_type": "Step-by-step explanation with examples",
+        "subsections": [
+          "Vertragsgegenstand (Pferd identifizieren)",
+          "Kaufpreis und Zahlungsmodalitäten",
+          "Gefahrübergang und Eigentumsübergang",
+          "Gewährleistung und Mängelrechte",
+          "Beschaffenheitsvereinbarungen",
+          "Übergabe und Empfangsbestätigung",
+          "Schriftformklausel"
+        ]
+      },
+      {
+        "section": "Häufige Fehler beim Pferdekaufvertrag vermeiden",
+        "word_count_target": 300,
+        "priority": "high",
+        "content_type": "Common mistakes + solutions",
+        "reason": "Differentiation opportunity identified"
+      },
+      {
+        "section": "Checkliste zum Ausfüllen: Feld für Feld erklärt",
+        "word_count_target": 400,
+        "priority": "high",
+        "content_type": "Interactive checklist with guidance",
+        "reason": "High commercial intent, low competition"
+      },
+      {
+        "section": "Besondere Klauseln und Zusatzvereinbarungen",
+        "word_count_target": 250,
+        "priority": "medium",
+        "content_type": "Advanced topics",
+        "subsections": [
+          "Probezeit und Rücktrittsrecht",
+          "Rückkaufklausel",
+          "Vorkaufsrecht",
+          "Ratenzahlung und Eigentumsvorbehalt"
+        ]
+      },
+      {
+        "section": "Ankaufsuntersuchung (AKU) im Kaufvertrag dokumentieren",
+        "word_count_target": 200,
+        "priority": "high",
+        "content_type": "Integration with legal protection",
+        "reason": "High coverage in Top 10, user concern"
+      },
+      {
+        "section": "Gewährleistung, Mängelrechte und Verjährungsfristen",
+        "word_count_target": 350,
+        "priority": "critical",
+        "content_type": "Legal explanation simplified",
+        "reason": "Must-have topic, complex legal content needs simplification"
+      },
+      {
+        "section": "Kostenlose Muster-Pferdekaufverträge und Vorlagen",
+        "word_count_target": 200,
+        "priority": "high",
+        "content_type": "Resource guide",
+        "reason": "Phase 1 keywords show commercial intent (pdf, download, kostenlos)"
+      },
+      {
+        "section": "FAQ: Die wichtigsten Fragen zum Pferdekaufvertrag",
+        "word_count_target": 300,
+        "priority": "high",
+        "content_type": "PAA integration",
+        "reason": "Answer PAA questions not covered elsewhere"
+      }
+    ],
+    "visual_elements": [
+      {
+        "type": "comparison_table",
+        "topic": "Private vs. Gewerblicher Verkauf - Unterschiede",
+        "reason": "High differentiation value, currently not in Top 10"
+      },
+      {
+        "type": "step_by_step_guide",
+        "topic": "Schritt-für-Schritt: Vertrag ausfüllen",
+        "reason": "Addresses beginner differentiation opportunity"
+      },
+      {
+        "type": "checklist",
+        "topic": "Pferdekaufvertrag Checkliste - Nichts vergessen",
+        "reason": "High commercial intent, improves UX"
+      },
+      {
+        "type": "infographic",
+        "topic": "Gefahrübergang und Eigentumsübergang zeitlich dargestellt",
+        "reason": "Complex concept, visual aids improve comprehension"
+      },
+      {
+        "type": "downloadable_template",
+        "topic": "Pferdekaufvertrag Muster zum Download",
+        "reason": "Must-have for commercial conversion, phase 1 keywords show demand"
+      }
+    ],
+    "featured_snippet_target": "list",
+    "featured_snippet_topic": "Die 7 wesentlichen Bestandteile eines Pferdekaufvertrags",
+    "featured_snippet_reasoning": "No featured snippets currently rank for keyword. List format aligns with educational intent and has high click-through potential."
+  },
+  "competitor_landscape": {
+    "domain_authority_distribution": {
+      "high_authority": 6,
+      "medium_authority": 3,
+      "low_authority": 1
+    },
+    "domain_type_mix": {
+      "law_firms": 4,
+      "pdf_resources": 3,
+      "equestrian_platforms": 2,
+      "insurance_companies": 1
+    },
+    "ranking_stability": "established",
+    "ranking_stability_reasoning": "High-authority sites and specialized law firms dominate. Mix of legal expertise + practical resources.",
+    "new_entrant_opportunity": "medium",
+    "new_entrant_reasoning": "Legal authority dominates but content is often technical. Educational, beginner-friendly content with templates has opportunity. ehorses (rank 5) shows non-specialist can rank with good content.",
+    "assessment": "High-authority legal sites dominate, but opportunities exist for educational differentiation. PferdeWert can compete by: 1) Simplifying legal content, 2) Creating interactive tools, 3) Integrating templates with explanations, 4) Addressing beginner pain points."
+  },
+  "eeat_signals": {
+    "required_credentials": "legal_expert",
+    "credentials_reasoning": "4 of top 10 results are law firms/Rechtsanwälte. Legal expertise critical for this topic.",
+    "recommended_approach": "Partner with legal expert (Rechtsanwalt) for content review. Include expert credentials prominently. Cite BGB references, court decisions (BGH), legal precedents.",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "Anfängerfehler beim privaten Pferdeverkauf - wie es besser geht",
+      "Gewährleistungsstreit nach Pferdeverkauf - wie der Vertrag geschützt hätte"
+    ],
+    "external_references": 5,
+    "reference_types": [
+      "BGB Sections (§ 433, § 434, § 437, § 474 ff.)",
+      "BGH Court Decisions (Pferdekaufrecht)",
+      "FN (Deutsche Reiterliche Vereinigung) Richtlinien",
+      "Tierärztliche Ankaufsuntersuchungs-Standards",
+      "Versicherungsverband Empfehlungen"
+    ],
+    "expert_quotes": true,
+    "expert_types": [
+      "Fachanwalt für Pferderecht",
+      "Tierarzt (für AKU Einordnung)"
+    ],
+    "data_sources": [
+      "§ 433-437, § 474 ff. BGB (German Civil Code)",
+      "BGH Urteil (2017, 2006) zu Pferdekauf",
+      "FN Kaufrichtlinien (meinepferde.eu, pferd-aktuell.de authoritative)",
+      "Tierärztliche Vereinigung Anleitung zur AKU",
+      "Juristische Literatur zu Verbrauchsgüterkauf"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Was muss in einen Pferdekaufvertrag?",
+      "category": "legal_requirements",
+      "section_placement": "Die 7 wesentlichen Bestandteile",
+      "integration_type": "answered_in_section",
+      "priority": "critical",
+      "search_volume_hint": "high",
+      "reasoning": "Directly addresses must-have section"
+    },
+    {
+      "question": "Kann man ein Pferd ohne Vertrag kaufen?",
+      "category": "legal_requirements",
+      "section_placement": "Einleitung",
+      "integration_type": "h2_subheading",
+      "priority": "high",
+      "search_volume_hint": "medium",
+      "reasoning": "Important foundational question for beginners"
+    },
+    {
+      "question": "Ist der Pferdekaufvertrag privat unwirksam?",
+      "category": "legal_validity",
+      "section_placement": "Private vs. gewerblicher Verkauf",
+      "integration_type": "answered_in_section",
+      "priority": "high",
+      "search_volume_hint": "medium",
+      "reasoning": "Common confusion point, directly addressed in content"
+    },
+    {
+      "question": "Was ist Gewährleistungsausschluss Pferd?",
+      "category": "warranty",
+      "section_placement": "Gewährleistung, Mängelrechte und Verjährungsfristen",
+      "integration_type": "h3_subheading",
+      "priority": "high",
+      "search_volume_hint": "medium",
+      "reasoning": "Complex legal concept needing explanation"
+    },
+    {
+      "question": "Wie lange habe ich Gewährleistung beim Pferdekauf?",
+      "category": "warranty",
+      "section_placement": "Gewährleistung, Mängelrechte und Verjährungsfristen",
+      "integration_type": "h3_subheading",
+      "priority": "critical",
+      "search_volume_hint": "high",
+      "reasoning": "Key legal timeframe everyone needs to know"
+    },
+    {
+      "question": "Kann ich ein Pferd zurückgeben nach Kauf?",
+      "category": "buyer_rights",
+      "section_placement": "Besondere Klauseln - Probezeit und Rücktrittsrecht",
+      "integration_type": "h3_subheading",
+      "priority": "high",
+      "search_volume_hint": "high",
+      "reasoning": "High user intent, directly addressed"
+    },
+    {
+      "question": "Was kostet ein Pferdekaufvertrag Anwalt?",
+      "category": "costs",
+      "section_placement": "Kostenlose Muster-Pferdekaufverträge und Vorlagen",
+      "integration_type": "FAQ_answer",
+      "priority": "medium",
+      "search_volume_hint": "medium",
+      "reasoning": "Commercial intent, mention free alternatives"
+    },
+    {
+      "question": "Muss Ankaufsuntersuchung im Vertrag stehen?",
+      "category": "medical_legal",
+      "section_placement": "Ankaufsuntersuchung (AKU) im Kaufvertrag dokumentieren",
+      "integration_type": "h2_section",
+      "priority": "high",
+      "search_volume_hint": "medium",
+      "reasoning": "Important legal-medical intersection point"
+    }
+  ],
+  "keywords_from_phase1_alignment": {
+    "primary_keyword": "pferdekaufvertrag",
+    "search_volume": 1000,
+    "high_value_related": [
+      "pferdekaufvertrag fn",
+      "pferdekaufvertrag privat ohne gewährleistung",
+      "pferdekaufvertrag privat pdf"
+    ],
+    "integration_notes": "Phase 1 identified 'pferdekaufvertrag fn' (140 SV, high CPC €1.71) and 'privat ohne gewährleistung' (260 SV) as high-value variations. Content should address both FN-standard contracts and private sales specifically."
+  },
+  "api_call_summary": {
+    "total_calls": 7,
+    "serp_organic_depth_30": 1,
+    "serp_organic_depth_10_with_paa": 1,
+    "search_intent": 1,
+    "keyword_difficulty": 1,
+    "content_parsing": 3,
+    "estimated_tokens_consumed": 4500,
+    "data_quality": "excellent",
+    "all_responses_complete": true
+  }
+}

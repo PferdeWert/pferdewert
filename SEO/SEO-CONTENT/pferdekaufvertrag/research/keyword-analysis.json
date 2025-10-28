@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "primary_keyword": "pferdekaufvertrag",
+    "analysis_date": "2025-10-28",
+    "total_keywords_analyzed": 9,
+    "top_keywords_selected": 9,
+    "statistics": {
+      "average_search_volume": 220.0,
+      "average_cpc": 0.57,
+      "average_relevance_score": 2.64
+    }
+  },
+  "clusters": {
+    "informational": 6,
+    "commercial": 3,
+    "long_tail": 0,
+    "navigational": 0,
+    "general": 0
+  },
+  "top_20_keywords": [
+    {
+      "keyword": "pferdekaufvertrag fn",
+      "search_volume": 140,
+      "cpc": 1.71,
+      "main_intent": "informational",
+      "word_count": 2,
+      "relevance_score": 5.79
+    },
+    {
+      "keyword": "pferdekaufvertrag privat an privat",
+      "search_volume": 50,
+      "cpc": 0.86,
+      "main_intent": "commercial",
+      "word_count": 4,
+      "relevance_score": 3.8
+    },
+    {
+      "keyword": "pferdekaufvertrag",
+      "search_volume": 1000,
+      "cpc": 1.0,
+      "main_intent": "informational",
+      "word_count": 1,
+      "relevance_score": 3.7
+    },
+    {
+      "keyword": "pferdekaufvertrag privat ohne gewährleistung",
+      "search_volume": 260,
+      "cpc": 0.79,
+      "main_intent": "informational",
+      "word_count": 4,
+      "relevance_score": 3.67
+    },
+    {
+      "keyword": "pferdekaufvertrag privat pdf",
+      "search_volume": 170,
+      "cpc": 0.8,
+      "main_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 3.37
+    },
+    {
+      "keyword": "pferdekaufvertrag privat einfach",
+      "search_volume": 260,
+      "cpc": 0.0,
+      "main_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 1.0
+    },
+    {
+      "keyword": "pferdekaufvertrag fn pdf",
+      "search_volume": 50,
+      "cpc": 0.0,
+      "main_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 0.92
+    },
+    {
+      "keyword": "pferdekaufvertrag privat word",
+      "search_volume": 20,
+      "cpc": 0.0,
+      "main_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 0.91
+    },
+    {
+      "keyword": "pferdekaufvertrag kostenlos",
+      "search_volume": 30,
+      "cpc": 0.0,
+      "main_intent": "navigational",
+      "word_count": 2,
+      "relevance_score": 0.61
+    }
+  ]
+}

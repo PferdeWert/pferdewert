@@ -1,0 +1,642 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - dialog "Cookie-Einwilligung" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: 🐎
+        - heading "Hilf uns, die beste Pferdebewertung zu entwickeln!" [level=3] [ref=e6]
+        - paragraph [ref=e7]: Deine anonymen Daten helfen uns, PferdeWert.de noch genauer und besser zu machen.
+      - button "learn more about cookies" [ref=e8] [cursor=pointer]: Datenschutz
+    - generic [ref=e9]:
+      - button "deny cookies" [ref=e10] [cursor=pointer]: Optionen
+      - button "allow cookies" [active] [ref=e11] [cursor=pointer]: Alle akzeptieren
+  - generic [ref=e13]:
+    - banner [ref=e14]:
+      - generic [ref=e16]:
+        - link "PferdeWert PferdeWert" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img "PferdeWert" [ref=e18] [cursor=pointer]
+          - generic [ref=e19] [cursor=pointer]: PferdeWert
+        - navigation [ref=e20]:
+          - link "Ratgeber" [ref=e22] [cursor=pointer]:
+            - /url: /pferde-ratgeber
+            - generic [ref=e23] [cursor=pointer]: Ratgeber
+            - img [ref=e24] [cursor=pointer]
+          - link "Über uns" [ref=e27] [cursor=pointer]:
+            - /url: /ueber-pferdewert
+            - generic [ref=e28] [cursor=pointer]: Über uns
+          - link "Beispiel-Analyse" [ref=e29] [cursor=pointer]:
+            - /url: /beispiel-analyse
+          - link "Jetzt bewerten" [ref=e30] [cursor=pointer]:
+            - /url: /pferde-preis-berechnen
+    - main [ref=e31]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - img [ref=e36]
+          - text: Pferde-Ratgeber
+        - heading "Ankaufsuntersuchung beim Pferd" [level=1] [ref=e39]
+        - paragraph [ref=e40]: Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfährst du, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann du welche Art von AKU benötigst. Schütze dich vor versteckten Mängeln mit fundiertem Wissen.
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img [ref=e43]
+            - text: 12 min Lesezeit
+          - generic [ref=e46]:
+            - img [ref=e47]
+            - generic [ref=e49]: 28. Oktober 2025
+          - generic [ref=e50]:
+            - img [ref=e51]
+            - text: Experten-Ratgeber
+        - generic [ref=e54]:
+          - link "Pferdewert jetzt berechnen" [ref=e55] [cursor=pointer]:
+            - /url: /pferde-preis-berechnen
+            - text: Pferdewert jetzt berechnen
+            - img [ref=e56] [cursor=pointer]
+          - button "Zum Inhalt" [ref=e58] [cursor=pointer]:
+            - text: Zum Inhalt
+            - img [ref=e59] [cursor=pointer]
+      - img "Ankaufsuntersuchung beim Pferd - Tierarzt untersucht Pferd gründlich" [ref=e64]
+      - navigation "Inhaltsverzeichnis" [ref=e65]:
+        - generic [ref=e67]:
+          - heading "Inhaltsverzeichnis" [level=2] [ref=e68]
+          - list [ref=e69]:
+            - listitem [ref=e70]:
+              - link "1. Was ist eine AKU?" [ref=e71] [cursor=pointer]:
+                - /url: "#definition"
+                - generic [ref=e72] [cursor=pointer]: "1."
+                - generic [ref=e73] [cursor=pointer]: Was ist eine AKU?
+            - listitem [ref=e74]:
+              - link "2. Warum eine AKU wichtig ist" [ref=e75] [cursor=pointer]:
+                - /url: "#importance"
+                - generic [ref=e76] [cursor=pointer]: "2."
+                - generic [ref=e77] [cursor=pointer]: Warum eine AKU wichtig ist
+            - listitem [ref=e78]:
+              - link "3. Kleine vs. Große AKU" [ref=e79] [cursor=pointer]:
+                - /url: "#types"
+                - generic [ref=e80] [cursor=pointer]: "3."
+                - generic [ref=e81] [cursor=pointer]: Kleine vs. Große AKU
+            - listitem [ref=e82]:
+              - link "4. Ablauf der Untersuchung" [ref=e83] [cursor=pointer]:
+                - /url: "#process"
+                - generic [ref=e84] [cursor=pointer]: "4."
+                - generic [ref=e85] [cursor=pointer]: Ablauf der Untersuchung
+            - listitem [ref=e86]:
+              - link "5. Befunde verstehen (aktuelles System seit 2018)" [ref=e87] [cursor=pointer]:
+                - /url: "#findings"
+                - generic [ref=e88] [cursor=pointer]: "5."
+                - generic [ref=e89] [cursor=pointer]: Befunde verstehen (aktuelles System seit 2018)
+            - listitem [ref=e90]:
+              - link "6. Wann braucht man welche Stufe?" [ref=e91] [cursor=pointer]:
+                - /url: "#when"
+                - generic [ref=e92] [cursor=pointer]: "6."
+                - generic [ref=e93] [cursor=pointer]: Wann braucht man welche Stufe?
+            - listitem [ref=e94]:
+              - link "7. Worauf sollte man achten?" [ref=e95] [cursor=pointer]:
+                - /url: "#what-to-watch"
+                - generic [ref=e96] [cursor=pointer]: "7."
+                - generic [ref=e97] [cursor=pointer]: Worauf sollte man achten?
+            - listitem [ref=e98]:
+              - link "8. Rechtliche Aspekte" [ref=e99] [cursor=pointer]:
+                - /url: "#legal"
+                - generic [ref=e100] [cursor=pointer]: "8."
+                - generic [ref=e101] [cursor=pointer]: Rechtliche Aspekte
+            - listitem [ref=e102]:
+              - link "9. Den richtigen Tierarzt wählen" [ref=e103] [cursor=pointer]:
+                - /url: "#vet-selection"
+                - generic [ref=e104] [cursor=pointer]: "9."
+                - generic [ref=e105] [cursor=pointer]: Den richtigen Tierarzt wählen
+            - listitem [ref=e106]:
+              - link "10. Nach der AKU – Was dann?" [ref=e107] [cursor=pointer]:
+                - /url: "#after-aku"
+                - generic [ref=e108] [cursor=pointer]: "10."
+                - generic [ref=e109] [cursor=pointer]: Nach der AKU – Was dann?
+            - listitem [ref=e110]:
+              - link "11. Fazit & Wichtigste Erkenntnisse" [ref=e111] [cursor=pointer]:
+                - /url: "#takeaways"
+                - generic [ref=e112] [cursor=pointer]: "11."
+                - generic [ref=e113] [cursor=pointer]: Fazit & Wichtigste Erkenntnisse
+      - generic [ref=e114]:
+        - article [ref=e115]:
+          - generic [ref=e116]:
+            - heading "1. Was ist eine AKU beim Pferd?" [level=2] [ref=e117]
+            - paragraph [ref=e118]:
+              - text: Die
+              - strong [ref=e119]: Ankaufsuntersuchung (AKU) beim Pferd
+              - text: ist eine tierärztliche Untersuchung vor dem Pferdekauf, die den Gesundheitszustand des Pferdes objektiv bewertet. In diesem Ratgeber erfährst du alles über den Ablauf der AKU, Unterschiede zwischen kleiner und großer AKU, und wann welche Untersuchung sinnvoll ist.
+            - paragraph [ref=e120]:
+              - text: Eine
+              - strong [ref=e121]: Ankaufsuntersuchung (AKU)
+              - text: ist eine standardisierte tierärztliche Untersuchung, die
+              - emphasis [ref=e122]: vor dem Pferdekauf
+              - text: durchgeführt wird. Sie dient dir als wichtigstes Mittel, um den aktuellen Gesundheitszustand und die körperliche Eignung des Pferdes für den beabsichtigten Verwendungszweck zu überprüfen.
+            - paragraph [ref=e123]:
+              - text: Die AKU ist nicht nur eine medizinische Untersuchung – sie ist auch ein
+              - strong [ref=e124]: rechtliches Dokument
+              - text: ", das dir Sicherheit und Absicherung vor versteckten Mängeln bietet. Mit einem gültigen AKU-Vorbehalt kannst du den Kauf ohne Begründung rückgängig machen, wenn die AKU erhebliche Befunde zeigt."
+            - generic [ref=e127]:
+              - 'heading "Wichtig: Definition der AKU" [level=3] [ref=e128]'
+              - list [ref=e130]:
+                - listitem [ref=e131]: Standardisierte tierärztliche Untersuchung vor dem Pferdekauf
+                - listitem [ref=e132]: Dokumentiert den Gesundheitszustand zu einem bestimmten Zeitpunkt
+                - listitem [ref=e133]: Umfasst klinische Untersuchung und optional Röntgenaufnahmen
+                - listitem [ref=e134]: Dient als rechtliches Beweismittel bei späteren Streitigkeiten
+                - listitem [ref=e135]: Ermöglicht Rücktritt „ohne Befund“ (mit AKU-Vorbehalt im Kaufvertrag)
+          - generic [ref=e136]:
+            - heading "2. Warum eine AKU beim Pferdekauf so wichtig ist" [level=2] [ref=e137]
+            - paragraph [ref=e138]: Ein Pferdekauf ist eine große finanzielle und emotionale Entscheidung. Eine AKU schützt dich vor teuren Überraschungen, die erst Wochen oder Monate nach dem Kauf sichtbar werden.
+            - generic [ref=e139]:
+              - generic [ref=e140]:
+                - heading "Medizinischer Schutz" [level=3] [ref=e141]
+                - paragraph [ref=e142]: Deckt versteckte Gesundheitsprobleme auf – von Arthrosen über Herzprobleme bis zu chronischen Lahmheiten, die dem Käufer sonst nicht aufgefallen wären.
+              - generic [ref=e143]:
+                - heading "Rechtliche Absicherung" [level=3] [ref=e144]
+                - paragraph [ref=e145]: Das AKU-Protokoll ist ein offizielles Dokument, das bei Streitigkeiten vor Gericht als Beweismittel akzeptiert wird.
+              - generic [ref=e146]:
+                - heading "Rücktrittsrecht" [level=3] [ref=e147]
+                - paragraph [ref=e148]: Mit einem AKU-Vorbehalt im Kaufvertrag kannst du den Kauf rückgängig machen, wenn erhebliche Befunde vorliegen – ohne weitere Diskussionen mit dem Verkäufer.
+              - generic [ref=e149]:
+                - heading "Bessere Entscheidung" [level=3] [ref=e150]
+                - paragraph [ref=e151]: Du triffst deine Kaufentscheidung basierend auf objektiven Fakten, nicht auf dem Eindruck beim Probereiten.
+          - generic [ref=e152]:
+            - 'heading "3. Kleine vs. Große AKU: Was ist der Unterschied?" [level=2] [ref=e153]'
+            - paragraph [ref=e154]: Je nach Kaufpreis und Verwendungszweck des Pferdes gibt es verschiedene AKU-Umfänge. Wir zeigen dir, welche AKU für deine Situation sinnvoll ist.
+            - generic [ref=e155]:
+              - heading "AKU-Arten im Überblick" [level=3] [ref=e156]
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - heading "Kleine AKU" [level=4] [ref=e159]
+                  - generic [ref=e160]: 1-2 Stunden
+                  - generic [ref=e161]: Reine klinische Untersuchung ohne Röntgenbilder. Geeignet für Freizeitpferde bis ca. 5.000€.
+                - generic [ref=e162]:
+                  - heading "Große AKU" [level=4] [ref=e163]
+                  - generic [ref=e164]: 2-4 Stunden
+                  - generic [ref=e165]: Klinische Untersuchung + 18 Standard-Röntgenaufnahmen (seit 2018). Empfohlen ab 10.000€ oder für Sportpferde.
+                - generic [ref=e166]:
+                  - heading "Spezial-AKU" [level=4] [ref=e167]
+                  - generic [ref=e168]: Individuell
+                  - generic [ref=e169]: Alle Leistungen der großen AKU + Ultraschall, Endoskopie, Laboruntersuchungen. Für hochwertige Zucht- und Sportpferde.
+            - table [ref=e171]:
+              - rowgroup [ref=e172]:
+                - row "AKU-Umfang Inhalt Dauer Geeignet für" [ref=e173]:
+                  - cell "AKU-Umfang" [ref=e174]
+                  - cell "Inhalt" [ref=e175]
+                  - cell "Dauer" [ref=e176]
+                  - cell "Geeignet für" [ref=e177]
+              - rowgroup [ref=e178]:
+                - row "Kleine AKU Klinische Untersuchung Bewegungsanalyse Flexionsproben Basisröntgen (2-4 Aufnahmen) 1-2 Stunden Freizeitpferde bis 5.000€" [ref=e179]:
+                  - cell "Kleine AKU" [ref=e180]
+                  - cell "Klinische Untersuchung Bewegungsanalyse Flexionsproben Basisröntgen (2-4 Aufnahmen)" [ref=e181]:
+                    - list [ref=e182]:
+                      - listitem [ref=e183]: Klinische Untersuchung
+                      - listitem [ref=e184]: Bewegungsanalyse
+                      - listitem [ref=e185]: Flexionsproben
+                      - listitem [ref=e186]: Basisröntgen (2-4 Aufnahmen)
+                  - cell "1-2 Stunden" [ref=e187]
+                  - cell "Freizeitpferde bis 5.000€" [ref=e188]
+                - row "Große AKU Alle Punkte der Kleinen AKU Erweiterte Röntgenaufnahmen (18 Standard-Aufnahmen seit 2018) Belastungstest Herz-Kreislauf-Untersuchung 2-4 Stunden Sportpferde ab 10.000€" [ref=e189]:
+                  - cell "Große AKU" [ref=e190]
+                  - cell "Alle Punkte der Kleinen AKU Erweiterte Röntgenaufnahmen (18 Standard-Aufnahmen seit 2018) Belastungstest Herz-Kreislauf-Untersuchung" [ref=e191]:
+                    - list [ref=e192]:
+                      - listitem [ref=e193]: Alle Punkte der Kleinen AKU
+                      - listitem [ref=e194]: Erweiterte Röntgenaufnahmen (18 Standard-Aufnahmen seit 2018)
+                      - listitem [ref=e195]: Belastungstest
+                      - listitem [ref=e196]: Herz-Kreislauf-Untersuchung
+                  - cell "2-4 Stunden" [ref=e197]
+                  - cell "Sportpferde ab 10.000€" [ref=e198]
+                - row "Spezialisierte AKU Alle Punkte der Großen AKU Ultraschall Endoskopie Spezialröntgen Laboruntersuchungen Mehrere Termine Hochwertige Sport- und Zuchtpferde" [ref=e199]:
+                  - cell "Spezialisierte AKU" [ref=e200]
+                  - cell "Alle Punkte der Großen AKU Ultraschall Endoskopie Spezialröntgen Laboruntersuchungen" [ref=e201]:
+                    - list [ref=e202]:
+                      - listitem [ref=e203]: Alle Punkte der Großen AKU
+                      - listitem [ref=e204]: Ultraschall
+                      - listitem [ref=e205]: Endoskopie
+                      - listitem [ref=e206]: Spezialröntgen
+                      - listitem [ref=e207]: Laboruntersuchungen
+                  - cell "Mehrere Termine" [ref=e208]
+                  - cell "Hochwertige Sport- und Zuchtpferde" [ref=e209]
+          - generic [ref=e210]:
+            - heading "💰 Was kostet eine AKU?" [level=3] [ref=e211]
+            - paragraph [ref=e212]:
+              - text: Die Kosten variieren je nach AKU-Klasse und Region zwischen
+              - strong [ref=e213]: 150€ und 2.000€
+              - text: ". Für eine vollständige Kostenaufschlüsselung mit Preisen für 2025, regionale Unterschiede und Budgetplanungs-Tipps empfehlen wir unseren detaillierten Kostenguide:"
+            - link "AKU-Kosten im Detail ansehen" [ref=e214] [cursor=pointer]:
+              - /url: /pferde-ratgeber/aku-pferd/kosten
+              - text: AKU-Kosten im Detail ansehen
+              - img [ref=e215] [cursor=pointer]
+          - generic [ref=e217]:
+            - heading "4. Wie läuft eine AKU ab? Schritt-für-Schritt-Anleitung" [level=2] [ref=e218]
+            - paragraph [ref=e219]: "Eine AKU besteht aus mehreren Phasen. Hier ist ein Überblick über den kompletten Ablauf:"
+            - generic [ref=e220]:
+              - generic [ref=e221]:
+                - 'heading "Phase 1: Vorbereitung (vor dem Untersuchungstermin)" [level=3] [ref=e222]'
+                - list [ref=e223]:
+                  - listitem [ref=e224]:
+                    - strong [ref=e225]: Unabhängigen Tierarzt auswählen
+                    - text: – nicht den Stallveterinär des Verkäufers
+                  - listitem [ref=e226]:
+                    - strong [ref=e227]: AKU-Klasse festlegen
+                    - text: – kleine oder große AKU?
+                  - listitem [ref=e228]:
+                    - strong [ref=e229]: Röntgenumfang definieren
+                    - text: – Standard sind 18 Aufnahmen (seit Röntgenleitfaden 2018)
+                  - listitem [ref=e230]:
+                    - strong [ref=e231]: AKU-Vorbehalt im Kaufvertrag
+                    - text: – vereinbaren für kostenloses Rücktrittsrecht
+                  - listitem [ref=e232]:
+                    - strong [ref=e233]: Kosten klären
+                    - text: – schriftliche Kostenaufstellung vom Tierarzt einholen
+              - generic [ref=e234]:
+                - 'heading "Phase 2: Klinische Untersuchung (am Untersuchungstag, 1-2 Stunden)" [level=3] [ref=e235]'
+                - list [ref=e236]:
+                  - listitem [ref=e237]:
+                    - strong [ref=e238]: "Allgemeinzustand:"
+                    - text: Körperkondition, Temperatur, Verhalten
+                  - listitem [ref=e239]:
+                    - strong [ref=e240]: "Gangbildanalyse:"
+                    - text: Schritt und Trab auf hartem und weichem Boden, Longieren
+                  - listitem [ref=e241]:
+                    - strong [ref=e242]: "Flexionsproben:"
+                    - text: Alle Gelenke einzeln prüfen, auf Reaktionen achten
+                  - listitem [ref=e243]:
+                    - strong [ref=e244]: "Herz-Kreislauf:"
+                    - text: Herzfrequenz, Atemfrequenz, Abhören mit Stethoskop
+                  - listitem [ref=e245]:
+                    - strong [ref=e246]: "Lungen-Untersuchung:"
+                    - text: Atemgeräusche kontrollieren
+                  - listitem [ref=e247]:
+                    - strong [ref=e248]: "Zähne, Augen, Ohren:"
+                    - text: Detaillierte Untersuchung
+              - generic [ref=e249]:
+                - 'heading "Phase 3: Röntgenuntersuchung (nur bei großer AKU, 1-1,5 Stunden)" [level=3] [ref=e250]'
+                - list [ref=e251]:
+                  - listitem [ref=e252]:
+                    - strong [ref=e253]: "18 Standard-Aufnahmen (seit 2018):"
+                    - text: Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk, sowie weitere Standard-Aufnahmen für umfassende Bewertung
+                  - listitem [ref=e254]:
+                    - strong [ref=e255]: "Digitale Entwicklung:"
+                    - text: Aufnahmen sofort verfügbar zur ersten Sichtung
+                  - listitem [ref=e256]:
+                    - strong [ref=e257]: "Zusatzaufnahmen bei Befunden:"
+                    - text: Falls nötig, werden erweiterte Aufnahmen gemacht
+              - generic [ref=e258]:
+                - 'heading "Phase 4: Befundung & Protokoll-Erstellung (24-48 Stunden später)" [level=3] [ref=e259]'
+                - list [ref=e260]:
+                  - listitem [ref=e261]:
+                    - strong [ref=e262]: "Röntgenauswertung:"
+                    - text: Alle 18 Bilder werden detailliert beurteilt
+                  - listitem [ref=e263]:
+                    - strong [ref=e264]: "Präzise Befundbeschreibung (seit 2018):"
+                    - text: Jeder Befund wird individuell beschrieben – o.b.B., Abweichung, oder Risiko-Befund
+                  - listitem [ref=e265]:
+                    - strong [ref=e266]: "AKU-Protokoll erstellen:"
+                    - text: Vollständiger Bericht mit allen Befunden und Bewertung
+                  - listitem [ref=e267]:
+                    - strong [ref=e268]: "Kaufempfehlung formulieren:"
+                    - text: Basierend auf Befunddaten und beabsichtigter Reitweise
+                  - listitem [ref=e269]:
+                    - strong [ref=e270]: "Übergabe an Käufer:"
+                    - text: Protokoll gehört dem Käufer, nicht dem Verkäufer
+            - generic [ref=e273]:
+              - heading "Zeitrahmen der AKU" [level=3] [ref=e274]
+              - list [ref=e276]:
+                - listitem [ref=e277]:
+                  - strong [ref=e278]: "Kleine AKU:"
+                  - text: 1-2 Stunden (Basis-Untersuchung mit wenigen Röntgenaufnahmen)
+                - listitem [ref=e279]:
+                  - strong [ref=e280]: "Große AKU:"
+                  - text: 2-4 Stunden (Erweiterte Untersuchung mit vollständigen Röntgenbildern)
+                - listitem [ref=e281]:
+                  - strong [ref=e282]: "Spezialisierte AKU:"
+                  - text: 4+ Stunden (Komplette Untersuchung mit Zusatzverfahren, oft über mehrere Termine)
+          - generic [ref=e283]:
+            - 'heading "5. Befunde verstehen: Das aktuelle System seit 2018" [level=2] [ref=e284]'
+            - paragraph [ref=e285]:
+              - text: Seit dem
+              - strong [ref=e286]: Röntgenleitfaden 2018 der Gesellschaft für Pferdemedizin (GPM)
+              - text: wird das alte Klassensystem (I-V) nicht mehr verwendet. Das neue System ist präziser und fairere für Pferde, da es stärker auf individuelle Befundbeschreibung und Risikoanalyse setzt – nicht auf pauschale Klassifizierung.
+            - generic [ref=e289]:
+              - heading "Warum wurde das alte Klassensystem abgeschafft?" [level=3] [ref=e290]
+              - list [ref=e292]:
+                - listitem [ref=e293]:
+                  - strong [ref=e294]: "Unfaire Disqualifikation:"
+                  - text: Das alte System (Klasse I-V) führte dazu, dass Pferde mit identischen Befunden unterschiedlich bewertet wurden
+                - listitem [ref=e295]:
+                  - strong [ref=e296]: "Fehlende Aussagekraft:"
+                  - text: Befundklassen sagten nichts über das tatsächliche Lahmheitsrisiko aus
+                - listitem [ref=e297]:
+                  - strong [ref=e298]: "Zu starr:"
+                  - text: Ein einzelnes Befund im Sprunggelenk (Klasse III) bedeutete nicht automatisch Probleme bei der gewünschten Reitweise
+                - listitem [ref=e299]:
+                  - strong [ref=e300]: "Neue Lösung:"
+                  - text: Präzise Beschreibung + klare Unterscheidung zwischen Befunden und risikobehafteten Befunden
+            - generic [ref=e301]:
+              - heading "Das neue Befundungssystem seit 2018:" [level=3] [ref=e302]
+              - generic [ref=e303]:
+                - heading "o.b.B. – Ohne besonderen Befund" [level=3] [ref=e304]
+                - paragraph [ref=e305]:
+                  - text: Es wurden
+                  - strong [ref=e306]: keine Abweichungen von der normalen Röntgenanatomie
+                  - text: gefunden. Das Pferd zeigt optimale Befunde für die beabsichtigte Reitweise. Dies ist der beste mögliche Befund.
+              - generic [ref=e307]:
+                - heading "Befunde mit Abweichungen (ohne Risiko-Kennzeichnung)" [level=3] [ref=e308]
+                - paragraph [ref=e309]:
+                  - text: Der Befund zeigt Abweichungen von der Norm.
+                  - strong [ref=e310]: Das Lahmheitsrisiko ist aber nicht verlässlich einschätzbar.
+                  - text: Diese Befunde sind teils altersgerecht, teils ohne bekannte funktionelle Bedeutung. Sie erfordern eine individuelle Bewertung.
+              - generic [ref=e311]:
+                - heading "Risiko-Befunde (mit \"Risiko\"-Kennzeichnung)" [level=3] [ref=e312]
+                - paragraph [ref=e313]:
+                  - text: Der Befund ist
+                  - strong [ref=e314]: mit einem bekannten Lahmheitsrisiko verbunden.
+                  - text: Diese Befunde sind deutlich problematischer und beeinflussen die Kaufempfehlung. Je nach Schweregrad und Reitweise kann ein Risiko-Befund ein Ausschlusskriterium sein.
+            - generic [ref=e315]:
+              - paragraph [ref=e316]:
+                - strong [ref=e317]: Wie liest man einen modernen AKU-Befund?
+              - paragraph [ref=e318]: Der Tierarzt beschreibt für jede untersuchte Körperregion präzise, welche Befunde vorliegen. Jeder Befund wird einzeln evaluiert – nicht das ganze Pferd wird in eine Klasse eingeteilt. Manche Befunde bekommen die Zusatzbezeichnung "Risiko", wenn sie mit Lahmheitsrisiko verbunden sind.
+          - generic [ref=e319]:
+            - heading "6. Wann braucht man welche AKU-Stufe?" [level=2] [ref=e320]
+            - paragraph [ref=e321]: "Die Wahl zwischen kleiner und großer AKU hängt von mehreren Faktoren ab. Hier ist eine Orientierungshilfe:"
+            - generic [ref=e322]:
+              - generic [ref=e323]:
+                - heading "✓ Kleine AKU ausreichend" [level=3] [ref=e324]:
+                  - generic [ref=e325]: ✓
+                  - text: Kleine AKU ausreichend
+                - list [ref=e326]:
+                  - listitem [ref=e327]: ✓ Freizeitpferde unter 5.000€
+                  - listitem [ref=e328]: ✓ Junge Pferde ohne Vorgeschichte
+                  - listitem [ref=e329]: ✓ Probepferde vor kurzfristigem Kauf
+                  - listitem [ref=e330]: ✓ Pferde mit hervorragender Bewegungsqualität
+              - generic [ref=e331]:
+                - heading "! Große AKU empfohlen" [level=3] [ref=e332]:
+                  - generic [ref=e333]: "!"
+                  - text: Große AKU empfohlen
+                - list [ref=e334]:
+                  - listitem [ref=e335]: "! Kaufpreis über 10.000€"
+                  - listitem [ref=e336]: "! Sportpferde (Dressur, Springen, Vielseitigkeit)"
+                  - listitem [ref=e337]: "! Ältere Pferde (7+ Jahre)"
+                  - listitem [ref=e338]: "! Pferde mit unklarer Vorgeschichte"
+                  - listitem [ref=e339]: "! Pferde mit früheren Verletzungen"
+          - generic [ref=e340]:
+            - heading "7. Worauf sollte man bei der AKU achten?" [level=2] [ref=e341]
+            - paragraph [ref=e342]: "Einige Tipps, um das Beste aus deiner AKU herauszuholen:"
+            - generic [ref=e343]:
+              - generic [ref=e344]:
+                - generic [ref=e345]: 🔍
+                - generic [ref=e346]:
+                  - heading "Unabhängiger Tierarzt" [level=3] [ref=e347]
+                  - paragraph [ref=e348]: Wähle einen Tierarzt, der nicht mit dem Verkäufer verbunden ist. Das ist essentiell für objektive Befunde.
+              - generic [ref=e349]:
+                - generic [ref=e350]: 📋
+                - generic [ref=e351]:
+                  - heading "AKU-Vorbehalt im Kaufvertrag" [level=3] [ref=e352]
+                  - paragraph [ref=e353]: Vereinbare schriftlich, dass der Kauf an eine positive AKU gekoppelt ist. Dies ermöglicht kostenloses Rücktrittsrecht ohne Befund.
+              - generic [ref=e354]:
+                - generic [ref=e355]: 🐎
+                - generic [ref=e356]:
+                  - heading "Probereiten beim AKU-Termin" [level=3] [ref=e357]
+                  - paragraph [ref=e358]: Reite das Pferd direkt vor der AKU. So sieht der Tierarzt das Pferd in Bewegung und kann besser klinische Befunde einordnen.
+              - generic [ref=e359]:
+                - generic [ref=e360]: 💬
+                - generic [ref=e361]:
+                  - heading "Fragen beim Untersuchungstermin stellen" [level=3] [ref=e362]
+                  - paragraph [ref=e363]: Nutze den Termin, um offene Fragen zu stellen. Der Tierarzt kann viel über Voraussagen zukünftiger Probleme erklären.
+              - generic [ref=e364]:
+                - generic [ref=e365]: ⏱️
+                - generic [ref=e366]:
+                  - heading "Ausreichend Zeit für große AKU einplanen" [level=3] [ref=e367]
+                  - paragraph [ref=e368]: Großes AKU mit Röntgen benötigt 2-4 Stunden. Hetz nicht – eine gründliche Untersuchung braucht Zeit.
+              - generic [ref=e369]:
+                - generic [ref=e370]: 📸
+                - generic [ref=e371]:
+                  - heading "Röntgenbilder-Archiv behalten" [level=3] [ref=e372]
+                  - paragraph [ref=e373]: Bekomme die Röntgenbilder auf CD/USB. So kannst du diese auch einem Zweittierarzt zeigen, falls nötig.
+          - generic [ref=e374]:
+            - heading "8. Rechtliche Aspekte der AKU" [level=2] [ref=e375]
+            - paragraph [ref=e376]: "Die AKU hat auch rechtliche Implikationen, die du kennen solltest:"
+            - generic [ref=e377]:
+              - generic [ref=e378]:
+                - heading "AKU-Vorbehalt im Kaufvertrag" [level=3] [ref=e379]
+                - paragraph [ref=e380]:
+                  - text: Ein AKU-Vorbehalt ist eine schriftliche Vereinbarung, dass der Kauf an ein positives AKU-Ergebnis gekoppelt ist. Mit dieser Klausel hast du das Recht, vom Kaufvertrag zurückzutreten, wenn die AKU erhebliche oder risikobehaftete Befunde zeigt –
+                  - strong [ref=e381]: ohne Angabe von Gründen und ohne finanzielle Konsequenzen
+                  - text: .
+                - paragraph [ref=e382]: "Musterformulierung: „Dieser Kaufvertrag wird unter der Bedingung geschlossen, dass das Pferd die AKU ohne erhebliche Befunde besteht. Ein kostenfreier Rücktritt ist möglich, falls Risiko-Befunde oder wesentliche Abweichungen festgestellt werden, die für die beabsichtigte Reitweise problematisch sind.“"
+              - generic [ref=e383]:
+                - heading "AKU-Protokoll als Beweis im Rechtsstreit" [level=3] [ref=e384]
+                - paragraph [ref=e385]: Das offizielle AKU-Protokoll ist ein anerkanntes Beweismittel vor Gericht. Wenn später Probleme auftreten, die auf den Kaufzeitpunkt zurückzuführen sind, kannst du das AKU-Protokoll vorlegen als Nachweis, dass diese Probleme beim Kauf bereits vorhanden waren (oder nicht).
+              - generic [ref=e386]:
+                - heading "Wer trägt die Kosten im Streitfall?" [level=3] [ref=e387]
+                - paragraph [ref=e388]: Üblicherweise trägt der Käufer die AKU-Kosten. Im Kaufvertrag sollte aber festgehalten werden, wer zahlt, falls die AKU erhebliche Befunde zeigt und der Kauf rückgängig gemacht wird. Oft wird vereinbart, dass der Verkäufer die Kosten trägt, wenn wesentliche Abweichungen oder Risiko-Befunde vorliegen.
+              - generic [ref=e389]:
+                - heading "Gewährleistungsrecht nach Kauf" [level=3] [ref=e390]
+                - paragraph [ref=e391]: Mit einem ordnungsgemäß durchgeführten AKU-Vorbehalt bist du rechtlich gut abgesichert. Sollten nach dem Kauf Probleme auftauchen, die auf ein unerkanntes Leiden hindeuten, kannst du das AKU-Protokoll als Nachweis heranziehen, dass diese Probleme beim Kauf nicht erkannt wurden – eine wichtige Grundlage für eventuelle Schadensersatzforderungen.
+            - paragraph [ref=e393]:
+              - strong [ref=e394]: "Hinweis:"
+              - text: Dies ist eine Informationsdarstellung. Bei rechtlichen Fragen solltest du einen Anwalt für Pferdekauf oder Tierrecht konsultieren.
+          - generic [ref=e395]:
+            - heading "9. So findest du den richtigen AKU-Tierarzt" [level=2] [ref=e396]
+            - paragraph [ref=e397]: "Die Wahl des Tierarztes ist entscheidend für die Qualität der AKU. Hier sind Kriterien für einen guten AKU-Tierarzt:"
+            - generic [ref=e398]:
+              - generic [ref=e399]:
+                - generic [ref=e400]: ✓
+                - generic [ref=e401]:
+                  - heading "Spezialisierung auf AKU" [level=3] [ref=e402]
+                  - paragraph [ref=e403]: Der Tierarzt sollte regelmäßig AKUs durchführen und Erfahrung mit verschiedenen Pferderassen und Disziplinen haben.
+              - generic [ref=e404]:
+                - generic [ref=e405]: ✓
+                - generic [ref=e406]:
+                  - heading "Unabhängigkeit vom Verkäufer" [level=3] [ref=e407]
+                  - paragraph [ref=e408]: Der Tierarzt sollte nicht die reguläre Stallveterinär des Verkäufers sein. Das könnte zu Interessenskonflikten führen.
+              - generic [ref=e409]:
+                - generic [ref=e410]: ✓
+                - generic [ref=e411]:
+                  - heading "Moderne Röntgen-Ausrüstung" [level=3] [ref=e412]
+                  - paragraph [ref=e413]: Digitale Röntgengeräte mit guter Bildqualität sind Standard. Das ermöglicht detaillierte Befundung und schnelle Bildbearbeitung.
+              - generic [ref=e414]:
+                - generic [ref=e415]: ✓
+                - generic [ref=e416]:
+                  - heading "Gute Reputation in der Pferde-Community" [level=3] [ref=e417]
+                  - paragraph [ref=e418]: Frage andere Pferdebesitzer oder Reitschulen nach Empfehlungen. Eine gute Reputation ist ein Zeichen für Qualität und Fairness.
+              - generic [ref=e419]:
+                - generic [ref=e420]: ✓
+                - generic [ref=e421]:
+                  - heading "Transparente Kostenkalkulation" [level=3] [ref=e422]
+                  - paragraph [ref=e423]: Der Tierarzt sollte vorab Kosten transparent machen – keine versteckten Gebühren für Zusatzuntersuchungen.
+              - generic [ref=e424]:
+                - generic [ref=e425]: ✓
+                - generic [ref=e426]:
+                  - heading "Mobile AKU-Durchführung" [level=3] [ref=e427]
+                  - paragraph [ref=e428]: Viele gute AKU-Tierärzte kommen mit Röntgenausrüstung zum Pferd. Das reduziert Stress für das Pferd.
+            - generic [ref=e429]:
+              - heading "Wo findest du AKU-Spezialisten?" [level=3] [ref=e430]
+              - generic [ref=e431]:
+                - generic [ref=e433]:
+                  - generic [ref=e434]: 📍
+                  - generic [ref=e435]:
+                    - heading "Bayern" [level=3] [ref=e436]
+                    - paragraph [ref=e438]: Warmblut-Zentren mit hochspezialisierten Praxen und besonders detaillierten Gutachten – ideal für Sport- und Zuchtpferde.
+                - generic [ref=e440]:
+                  - generic [ref=e441]: 📍
+                  - generic [ref=e442]:
+                    - heading "Niedersachsen" [level=3] [ref=e443]
+                    - paragraph [ref=e445]: Größte Dichte an AKU-Tierärzten. Generationenlange Erfahrung mit unterschiedlichen Warmblutlinien und deren typischen Befundmustern.
+                - generic [ref=e447]:
+                  - generic [ref=e448]: 📍
+                  - generic [ref=e449]:
+                    - heading "Nordrhein-Westfalen" [level=3] [ref=e450]
+                    - paragraph [ref=e452]: Fokus auf Freizeit- und Schulpferde. Angebote sind oftmals flexibel und auf städtische Pferdehalter zugeschnitten.
+          - generic [ref=e453]:
+            - 'heading "10. Nach der AKU: Wie geht es weiter?" [level=2] [ref=e454]'
+            - paragraph [ref=e455]: Das AKU-Protokoll liegt vor – was machst du jetzt damit?
+            - generic [ref=e456]:
+              - generic [ref=e457]:
+                - 'heading "o.b.B. (Ohne besonderen Befund): Kauf empfohlen" [level=3] [ref=e458]'
+                - paragraph [ref=e459]: Falls die AKU nur "o.b.B." zeigt (keine Abweichungen von der Norm), kannst du das Pferd mit gutem Gewissen kaufen. Speichere das Protokoll ab – es könnte später bei Garantiefragen relevant sein.
+                - paragraph [ref=e460]: "Nächste Schritte: Kaufvertrag unterzeichnen, Zahlungsmodalitäten klären, Versicherung abschließen."
+              - generic [ref=e461]:
+                - 'heading "Mit Abweichungen (ohne Risiko-Kennzeichnung): Abwägung nötig" [level=3] [ref=e462]'
+                - paragraph [ref=e463]: "Wenn die AKU Befunde mit Abweichungen zeigt (ohne \"Risiko\"-Kennzeichnung), musst du abwägen:"
+                - list [ref=e464]:
+                  - listitem [ref=e465]: • Sind diese Abweichungen für deinen beabsichtigten Verwendungszweck relevant?
+                  - listitem [ref=e466]: • Wie ist das Risikoprofil des Tierarztes einzuschätzen?
+                  - listitem [ref=e467]: • Würde eine Reitweise-Anpassung helfen (z.B. nur Freizeit statt Turniersport)?
+                - paragraph [ref=e468]: "Tipp: Hole eine Zweitmeinung von einem anderen AKU-Tierarzt ein, wenn du unsicher bist."
+              - generic [ref=e469]:
+                - 'heading "Mit Risiko-Befunden: Rücktritt empfohlen" [level=3] [ref=e470]'
+                - paragraph [ref=e471]: Bei Befunden mit "Risiko"-Kennzeichnung würden die meisten Tierärzte vom Kauf für die beabsichtigte Reitweise abraten. Mit einem AKU-Vorbehalt kannst du kostenfrei vom Kauf zurücktreten.
+                - paragraph [ref=e472]: "Hinweis: Nutze dein Rücktrittsrecht – Risiko-Befunde haben oft ernsthafte Konsequenzen, die sich nicht bessern."
+            - paragraph [ref=e474]:
+              - strong [ref=e475]: "Wichtig:"
+              - text: Falls du nach dem Kauf (ohne AKU-Vorbehalt) später feststellen solltest, dass das Pferd bereits beim Kauf erkrankt war, kannst du eventuell Gewährleistungsrechte geltend machen – aber das ist deutlich schwieriger ohne AKU-Dokumentation.
+          - generic [ref=e476]:
+            - 'heading "11. Fazit: Die 10 wichtigsten Erkenntnisse zur AKU" [level=2] [ref=e477]'
+            - generic [ref=e480]:
+              - heading "Wichtigste Takeaways" [level=3] [ref=e481]
+              - list [ref=e483]:
+                - listitem [ref=e484]: Eine AKU ist die wichtigste Investition beim Pferdekauf – sie schützt vor versteckten Mängeln
+                - listitem [ref=e485]: Nutze einen unabhängigen Tierarzt, nicht den Stallveterinär des Verkäufers
+                - listitem [ref=e486]: Vereinbare einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht
+                - listitem [ref=e487]: Kleine AKU (1-2h) für Freizeitpferde <5.000€, große AKU für Sportpferde ab 10.000€
+                - listitem [ref=e488]: Die Untersuchung besteht aus klinischer Prüfung + 18 Standard-Röntgenaufnahmen (bei großer AKU, seit 2018)
+                - listitem [ref=e489]: "AKU-Befunde seit 2018: o.b.B., Abweichungen, oder Risiko-Befunde (nicht mehr Klassen I-V)"
+                - listitem [ref=e490]: Das AKU-Protokoll gehört dir und ist rechtliches Beweismittel
+                - listitem [ref=e491]: Mit guter Vorbereitung bekommst du objektive, zuverlässige Befunde
+                - listitem [ref=e492]: Eine gründliche große AKU dauert 2-4 Stunden – hetz nicht
+                - listitem [ref=e493]: Speichere das Protokoll ab – es wird bei zukünftigen tierärztlichen Fragen wertvoll sein
+            - generic [ref=e494]:
+              - heading "Eine AKU ist eine Investition in Sicherheit – nicht nur Geld sparen!" [level=3] [ref=e495]
+              - paragraph [ref=e496]:
+                - text: Die AKU ist nicht nur dazu da, Kosten zu sparen. Sie ermöglicht dir, eine
+                - strong [ref=e497]: informierte Kaufentscheidung
+                - text: zu treffen. Mit dem Wissen um den genauen Gesundheitszustand des Pferdes kannst du realistische Erwartungen setzen und das Pferd später richtig trainieren und betreuen.
+          - generic [ref=e498]:
+            - heading "Was kostet eine AKU?" [level=3] [ref=e499]
+            - paragraph [ref=e500]: Die Kosten für eine Ankaufsuntersuchung variieren je nach Umfang, Region und Tierarzt. Eine detaillierte Kostenübersicht mit aktuellen Preisen nach neuer Gebührenordnung für Tierärzte (GOT 2024) findest du in unserem Kosten-Guide.
+            - link "Zur detaillierten Kostenübersicht →" [ref=e501] [cursor=pointer]:
+              - /url: /pferde-ratgeber/aku-pferd/kosten
+        - generic [ref=e504]:
+          - generic [ref=e505]:
+            - heading "Häufige Fragen zur Ankaufsuntersuchung" [level=2] [ref=e506]
+            - paragraph [ref=e507]: Alles was du über die Ankaufsuntersuchung und Gesundheitschecks wissen möchtest
+          - generic [ref=e508]:
+            - group [ref=e509]:
+              - generic "Was ist eine Ankaufsuntersuchung (AKU) beim Pferd?" [ref=e510] [cursor=pointer]:
+                - generic [ref=e511] [cursor=pointer]: Was ist eine Ankaufsuntersuchung (AKU) beim Pferd?
+                - img [ref=e512] [cursor=pointer]
+            - group [ref=e514]:
+              - generic "Warum ist eine AKU beim Pferdekauf so wichtig?" [ref=e515] [cursor=pointer]:
+                - generic [ref=e516] [cursor=pointer]: Warum ist eine AKU beim Pferdekauf so wichtig?
+                - img [ref=e517] [cursor=pointer]
+            - group [ref=e519]:
+              - generic "Wo ist der Unterschied zwischen kleiner und großer AKU?" [ref=e520] [cursor=pointer]:
+                - generic [ref=e521] [cursor=pointer]: Wo ist der Unterschied zwischen kleiner und großer AKU?
+                - img [ref=e522] [cursor=pointer]
+            - group [ref=e524]:
+              - generic "Wie läuft eine Ankaufsuntersuchung ab?" [ref=e525] [cursor=pointer]:
+                - generic [ref=e526] [cursor=pointer]: Wie läuft eine Ankaufsuntersuchung ab?
+                - img [ref=e527] [cursor=pointer]
+            - group [ref=e529]:
+              - generic "Wie funktioniert die Befundung seit dem Röntgenleitfaden 2018?" [ref=e530] [cursor=pointer]:
+                - generic [ref=e531] [cursor=pointer]: Wie funktioniert die Befundung seit dem Röntgenleitfaden 2018?
+                - img [ref=e532] [cursor=pointer]
+            - group [ref=e534]:
+              - generic "Wer sollte eine AKU durchführen – der Tierarzt des Verkäufers?" [ref=e535] [cursor=pointer]:
+                - generic [ref=e536] [cursor=pointer]: Wer sollte eine AKU durchführen – der Tierarzt des Verkäufers?
+                - img [ref=e537] [cursor=pointer]
+            - group [ref=e539]:
+              - generic "Wie lange dauert eine Ankaufsuntersuchung?" [ref=e540] [cursor=pointer]:
+                - generic [ref=e541] [cursor=pointer]: Wie lange dauert eine Ankaufsuntersuchung?
+                - img [ref=e542] [cursor=pointer]
+            - group [ref=e544]:
+              - generic "Wann sollte ich eine große AKU wählen?" [ref=e545] [cursor=pointer]:
+                - generic [ref=e546] [cursor=pointer]: Wann sollte ich eine große AKU wählen?
+                - img [ref=e547] [cursor=pointer]
+            - group [ref=e549]:
+              - generic "Kann ich die AKU nutzen, um den Kaufpreis zu verhandeln?" [ref=e550] [cursor=pointer]:
+                - generic [ref=e551] [cursor=pointer]: Kann ich die AKU nutzen, um den Kaufpreis zu verhandeln?
+                - img [ref=e552] [cursor=pointer]
+          - link "Jetzt Pferdewert berechnen" [ref=e555] [cursor=pointer]:
+            - /url: /pferde-preis-berechnen
+        - generic [ref=e558]:
+          - generic [ref=e559]:
+            - heading "Weiterführende Artikel zur AKU" [level=2] [ref=e560]
+            - paragraph [ref=e561]: Vertiefe dein Wissen mit unseren speziellen Guides zu AKU-Ablauf, Befundklassen und Kosten.
+          - generic [ref=e562]:
+            - 'link "AKU Ablauf Schritt für Schritt Kauf & Verkauf 12 Min. AKU Ablauf Schritt für Schritt So läuft eine Ankaufsuntersuchung ab: Von der Vorbereitung bis zum Befund. Alle Untersuchungsschritte verständlich erklärt. Artikel lesen" [ref=e563] [cursor=pointer]':
+              - /url: /pferde-ratgeber/aku-pferd/ablauf
+              - img "AKU Ablauf Schritt für Schritt" [ref=e565] [cursor=pointer]
+              - generic [ref=e566] [cursor=pointer]:
+                - generic [ref=e567] [cursor=pointer]:
+                  - generic [ref=e568] [cursor=pointer]: Kauf & Verkauf
+                  - generic [ref=e569] [cursor=pointer]: 12 Min.
+                - heading "AKU Ablauf Schritt für Schritt" [level=3] [ref=e570] [cursor=pointer]
+                - paragraph [ref=e571] [cursor=pointer]: "So läuft eine Ankaufsuntersuchung ab: Von der Vorbereitung bis zum Befund. Alle Untersuchungsschritte verständlich erklärt."
+                - generic [ref=e572] [cursor=pointer]: Artikel lesen
+            - link "AKU Kosten im Detail Kauf & Verkauf 8 Min. AKU Kosten im Detail Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU. Artikel lesen" [ref=e573] [cursor=pointer]:
+              - /url: /pferde-ratgeber/aku-pferd/kosten
+              - img "AKU Kosten im Detail" [ref=e575] [cursor=pointer]
+              - generic [ref=e576] [cursor=pointer]:
+                - generic [ref=e577] [cursor=pointer]:
+                  - generic [ref=e578] [cursor=pointer]: Kauf & Verkauf
+                  - generic [ref=e579] [cursor=pointer]: 8 Min.
+                - heading "AKU Kosten im Detail" [level=3] [ref=e580] [cursor=pointer]
+                - paragraph [ref=e581] [cursor=pointer]: Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.
+                - generic [ref=e582] [cursor=pointer]: Artikel lesen
+            - link "Pferd kaufen - Der komplette Ratgeber Kauf & Verkauf 18 Min. Pferd kaufen - Der komplette Ratgeber Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung. Artikel lesen" [ref=e583] [cursor=pointer]:
+              - /url: /pferde-ratgeber/pferd-kaufen
+              - img "Pferd kaufen - Der komplette Ratgeber" [ref=e585] [cursor=pointer]
+              - generic [ref=e586] [cursor=pointer]:
+                - generic [ref=e587] [cursor=pointer]:
+                  - generic [ref=e588] [cursor=pointer]: Kauf & Verkauf
+                  - generic [ref=e589] [cursor=pointer]: 18 Min.
+                - heading "Pferd kaufen - Der komplette Ratgeber" [level=3] [ref=e590] [cursor=pointer]
+                - paragraph [ref=e591] [cursor=pointer]: Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.
+                - generic [ref=e592] [cursor=pointer]: Artikel lesen
+        - generic [ref=e595]:
+          - img "KI-gestützte Pferdebewertung für sichere Kaufentscheidungen" [ref=e597]
+          - heading "Bereit, die richtige Kaufentscheidung zu treffen?" [level=2] [ref=e598]
+          - paragraph [ref=e599]: Nutze unsere KI-gestützte Pferdebewertung, um den Marktwert deines zukünftigen Pferdes zu analysieren. Kombiniert mit einer professionellen AKU erhältst du maximale Sicherheit beim Pferdekauf.
+          - link "Pferdewert berechnen" [ref=e600] [cursor=pointer]:
+            - /url: /pferde-preis-berechnen
+            - button "Pferdewert berechnen" [ref=e601] [cursor=pointer]
+    - contentinfo [ref=e602]:
+      - navigation "Footer Navigation" [ref=e603]:
+        - list [ref=e604]:
+          - listitem [ref=e605]:
+            - link "Pferd bewerten" [ref=e606] [cursor=pointer]:
+              - /url: /pferde-preis-berechnen
+          - listitem [ref=e607]:
+            - link "Beispiel-Analyse" [ref=e608] [cursor=pointer]:
+              - /url: /beispiel-analyse
+          - listitem [ref=e609]:
+            - group [ref=e610]:
+              - generic "Rechtliches" [ref=e611] [cursor=pointer]:
+                - text: Rechtliches
+                - img [ref=e612] [cursor=pointer]
+      - paragraph [ref=e614]: © 2025 PferdeWert – alle Rechte vorbehalten
+  - alert [ref=e615]
+  - button "Open Next.js Dev Tools" [ref=e621] [cursor=pointer]:
+    - img [ref=e622] [cursor=pointer]
+```
