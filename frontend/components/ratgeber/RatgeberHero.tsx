@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { validateCtaProps } from '@/utils/dev-warnings'
 
@@ -43,10 +43,16 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   secondaryCta
 }) => {
   // DEV-ONLY: Validate props to catch Fast Refresh issues early
-  if (process.env.NODE_ENV === 'development') {
-    validateCtaProps(primaryCta, 'primaryCta', 'RatgeberHero')
-    validateCtaProps(secondaryCta, 'secondaryCta', 'RatgeberHero')
-  }
+  // CRITICAL: Must use useEffect with empty dependency array to avoid infinite reload loops
+  // Calling validation directly in component body causes console output on every render,
+  // which triggers Fast Refresh cycles and infinite loops
+   
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      validateCtaProps(primaryCta, 'primaryCta', 'RatgeberHero')
+      validateCtaProps(secondaryCta, 'secondaryCta', 'RatgeberHero')
+    }
+  }, []) // Empty dependency array: run validation only once on mount
 
   const normalizedSecondaryLabel = secondaryCta?.label
     ? secondaryCta.label.trim().toLowerCase()
