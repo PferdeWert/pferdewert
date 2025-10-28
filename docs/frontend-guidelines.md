@@ -728,7 +728,90 @@ test('shows correct price and handles click', async () => {
 
 ## ⚠️ Fast Refresh Anti-Patterns
 
-### Problem: useRouter() in useCallback Dependencies
+**CRITICAL**: These patterns cause infinite reload loops that break the entire dev experience. Follow these rules strictly.
+
+### Problem 1: JSX Objects Created Inside Components (MOST COMMON)
+
+**NEVER create JSX objects (like icons) inside component render** - this is the #1 cause of Fast Refresh loops.
+
+**Why This Happens:**
+- Every render creates NEW JSX object instances with different references
+- React compares props by reference, sees "new" object → triggers re-render
+- Re-render creates more new objects → another re-render → infinite loop
+- Next.js Fast Refresh detects this and forces full page reload continuously
+- Symptoms: `⚠ Fast Refresh had to perform a full reload` repeating endlessly
+
+**❌ WRONG - Causes Infinite Loop:**
+```typescript
+const MyPage: NextPage = () => {
+  return (
+    <RatgeberHero
+      title="My Title"
+      primaryCta={{
+        label: "Click me",
+        // ❌ PROBLEM: Icon created inline on every render
+        icon: <ArrowRight className="h-5 w-5" />
+      }}
+      secondaryCta={{
+        label: "Learn more",
+        // ❌ PROBLEM: Icon created inline on every render
+        icon: <ChevronDown className="h-5 w-5" />
+      }}
+    />
+  );
+};
+```
+
+**✅ CORRECT - Define Icons at Module Level:**
+```typescript
+import { ArrowRight, ChevronDown } from 'lucide-react';
+
+// ✅ SOLUTION: Create JSX objects OUTSIDE component (module level)
+const primaryCtaIcon = <ArrowRight className="h-5 w-5" />;
+const secondaryCtaIcon = <ChevronDown className="h-5 w-5" />;
+
+const MyPage: NextPage = () => {
+  return (
+    <RatgeberHero
+      title="My Title"
+      primaryCta={{
+        label: "Click me",
+        icon: primaryCtaIcon  // ✅ Stable reference
+      }}
+      secondaryCta={{
+        label: "Learn more",
+        icon: secondaryCtaIcon  // ✅ Stable reference
+      }}
+    />
+  );
+};
+```
+
+**Alternative Solution - Use Icon Components:**
+```typescript
+// ✅ ALTERNATIVE: Pass icon component and props separately
+const MyPage: NextPage = () => {
+  return (
+    <RatgeberHero
+      title="My Title"
+      primaryCta={{
+        label: "Click me",
+        iconComponent: ArrowRight,  // ✅ Component reference (stable)
+        iconClassName: "h-5 w-5"
+      }}
+    />
+  );
+};
+```
+
+**Common Locations This Breaks:**
+1. **Hero CTAs** - primary/secondary buttons with icons
+2. **Meta items** - Arrays with icon objects
+3. **Button props** - Any component prop accepting JSX
+4. **Navigation items** - Dropdown menus with icons
+5. **Table cells** - Columns with inline icons/badges
+
+### Problem 2: useRouter() in useCallback Dependencies
 
 **NEVER include `useRouter()` in useCallback dependency arrays** - this causes infinite Fast Refresh loops.
 

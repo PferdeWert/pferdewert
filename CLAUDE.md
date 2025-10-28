@@ -16,6 +16,10 @@
 - **No `require()`**: ES6 imports only
 
 ## Common Anti-Patterns to Avoid
+- ❌ **Inline JSX in Component Props** - causes infinite Fast Refresh loops (most common!)
+  - ❌ `<Hero primaryCta={{ icon: <ArrowRight /> }} />`
+  - ✅ `const icon = <ArrowRight />; <Hero primaryCta={{ icon }} />`
+  - See [frontend-guidelines.md](docs/frontend-guidelines.md) lines 729-813 for details
 - ❌ `useEffect(async () => {})` - breaks React rules
 - ✅ Create async function inside useEffect
 - ❌ Missing dependency arrays in useEffect
@@ -68,12 +72,15 @@ When you need detailed information about specific areas, refer to these docs:
 - **[extended-guides.md](docs/extended-guides.md)** - Specialized agents, MCP troubleshooting, server access, additional guides
 
 ### Specialized Guides
-- **[frontend-guidelines.md](docs/frontend-guidelines.md)** - React/Next.js standards
+- **[frontend-guidelines.md](docs/frontend-guidelines.md)** - React/Next.js standards, **includes Fast Refresh Anti-Patterns** (lines 729-813)
 - **[typescript-guidelines.md](docs/typescript-guidelines.md)** - TS/ESLint rules
 - **[design-guidelines.md](docs/design-guidelines.md)** - UI/UX patterns
 - **[agents.md](docs/agents.md)** - pferdewert-* specialized agents
 - **[security-fixes.md](docs/security-fixes.md)** - Security implementation guide
 - **[troubleshooting-evaluations.md](docs/troubleshooting-evaluations.md)** - Evaluation debugging scripts
+- **[image-attribution-guide.md](docs/image-attribution-guide.md)** - Image licensing & attribution (Wikimedia, CC licenses) - **Load only when adding new external images**
+- **[code-review-checklist.md](docs/code-review-checklist.md)** - PR review checklist with Fast Refresh prevention checks
+- **[eslint-fast-refresh-prevention.md](docs/eslint-fast-refresh-prevention.md)** - ESLint rules and prevention strategies for Fast Refresh loops
 
 ### Advanced Topics
 - **[gemini/setup.md](docs/gemini/setup.md)** - Gemini CLI setup and integration
