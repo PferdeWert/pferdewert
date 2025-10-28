@@ -150,7 +150,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.',
     category: 'Finanzen & Recht',
     readTime: '12 Min.',
-    image: '/images/ratgeber/pferdekaufvertrag-guide.jpg',
+    image: '/images/ratgeber/horses-mountain-field-spain.webp',
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
