@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+
   // Performance optimizations (swcMinify is now default in Next.js 15)
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

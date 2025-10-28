@@ -74,30 +74,30 @@ const relatedArticles = getRelatedArticles('was-kostet-ein-pferd').map(entry => 
   readTime: entry.readTime
 }))
 
-export default function WasKostetEinPferd() {
-  // Extract icons to prevent Fast Refresh infinite loops
-  const calculatorIcon = <Calculator className="w-5 h-5" />
-  const shieldAlertIcon = <ShieldAlert className="h-5 w-5 text-brand-brown" />
+// FAST REFRESH FIX: Define icons at module level to prevent recreation on every render
+const CALCULATOR_ICON = <Calculator className="w-5 h-5" />
+const SHIELD_ALERT_ICON = <ShieldAlert className="h-5 w-5 text-brand-brown" />
 
-  // Extract onClick handlers to prevent Fast Refresh infinite loops
-  const handleScrollToAnschaffung = () => {
-    document.getElementById('anschaffungskosten')?.scrollIntoView({ behavior: 'smooth' })
-  }
+// FAST REFRESH FIX: Define onClick handlers at module level
+const handleScrollToAnschaffung = () => {
+  document.getElementById('anschaffungskosten')?.scrollIntoView({ behavior: 'smooth' })
+}
 
-  // Extract CTA objects to prevent Fast Refresh infinite loops
-  const primaryCta = {
-    href: '/pferde-preis-berechnen',
-    label: 'Jetzt Pferd bewerten',
-    icon: calculatorIcon
-  }
+// FAST REFRESH FIX: Define CTA objects at module level
+const PRIMARY_CTA = {
+  href: '/pferde-preis-berechnen',
+  label: 'Jetzt Pferd bewerten',
+  icon: CALCULATOR_ICON
+}
 
-  const secondaryCta = {
-    onClick: handleScrollToAnschaffung,
-    label: 'Mehr erfahren'
-  }
+const SECONDARY_CTA = {
+  onClick: handleScrollToAnschaffung,
+  label: 'Mehr erfahren'
+}
 
-  // JSON-LD Article Schema
-  const articleSchema = {
+// FAST REFRESH FIX: Define JSON-LD schemas at module level to prevent recreation on every render
+// JSON-LD Article Schema
+const ARTICLE_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Was kostet ein Pferd? Pferd Kosten & Preis 2025 - Vollständige Übersicht',
@@ -172,8 +172,8 @@ export default function WasKostetEinPferd() {
     ]
   }
 
-  // JSON-LD Breadcrumb Schema
-  const breadcrumbSchema = {
+// JSON-LD Breadcrumb Schema
+const BREADCRUMB_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -198,8 +198,7 @@ export default function WasKostetEinPferd() {
     ]
   }
 
-
-
+export default function WasKostetEinPferd() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -242,11 +241,11 @@ export default function WasKostetEinPferd() {
         {/* JSON-LD Schemas */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_SCHEMA) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
         />
       </Head>
 
@@ -254,8 +253,8 @@ export default function WasKostetEinPferd() {
       <RatgeberHero
           title="Was kostet ein Pferd?"
           subtitle="Vollständige Kostenübersicht 2025: Von der Anschaffung bis zum monatlichen Unterhalt"
-          primaryCta={primaryCta}
-          secondaryCta={secondaryCta}
+          primaryCta={PRIMARY_CTA}
+          secondaryCta={SECONDARY_CTA}
         />
 
       <RatgeberHeroImage
@@ -924,7 +923,7 @@ export default function WasKostetEinPferd() {
 
             <RatgeberHighlightBox
               title="Wichtiger Hinweis"
-              icon={shieldAlertIcon}
+              icon={SHIELD_ALERT_ICON}
             >
               <p className="text-base text-gray-700 leading-relaxed">
                 Regelmäßige Hufpflege ist keine optionale Ausgabe. Vernachlässigte Hufe führen zu schwerwiegenden gesundheitlichen Problemen, die langfristig deutlich teurer werden (Hufgeschwüre, Fehlstellungen, Lahmheiten).
@@ -963,7 +962,7 @@ export default function WasKostetEinPferd() {
 
               <RatgeberHighlightBox
                 title="WICHTIG"
-                icon={shieldAlertIcon}
+                icon={SHIELD_ALERT_ICON}
               >
                 <p className="text-base text-gray-700 leading-relaxed">
                   Diese Kosten decken NUR die Grundversorgung. Notfälle, Verletzungen oder chronische Erkrankungen sind hier NICHT enthalten und können schnell mehrere Tausend Euro kosten.

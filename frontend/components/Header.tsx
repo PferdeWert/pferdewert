@@ -1,6 +1,6 @@
 // frontend/components/HeaderUnified.tsx
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X, ChevronDown } from "lucide-react"
@@ -83,8 +83,10 @@ export default function HeaderUnified() {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [])
 
-  // Breadcrumb Items generieren
-  const getBreadcrumbItems = () => {
+  // FAST REFRESH FIX: Memoize breadcrumb items to prevent recreation on every render
+  // Without useMemo, getBreadcrumbItems() returns a new array reference on every render,
+  // triggering Fast Refresh to detect changes even when the content is identical
+  const breadcrumbItems = useMemo(() => {
     const path = router.pathname
     const items = []
 
@@ -105,7 +107,7 @@ export default function HeaderUnified() {
     }
 
     return items
-  }
+  }, [router.pathname]) // Only recompute when pathname changes
 
   return (
     <>
@@ -217,9 +219,9 @@ export default function HeaderUnified() {
           </div>
 
           {/* Mobile Breadcrumb Navigation */}
-          {!isMenuOpen && getBreadcrumbItems().length > 0 && (
+          {!isMenuOpen && breadcrumbItems.length > 0 && (
             <div className="px-4 py-2 border-t border-gray-100 bg-gray-50">
-              <Breadcrumbs items={getBreadcrumbItems()} />
+              <Breadcrumbs items={breadcrumbItems} />
             </div>
           )}
         </div>

@@ -50,13 +50,20 @@ export function warnIfUnstableReference(
 
 /**
  * Validates CTA props for Fast Refresh stability
+ * TEMPORARILY DISABLED: This validation was causing infinite Fast Refresh loops
+ * because console.warn triggers Fast Refresh reloads, creating a feedback loop.
+ * TODO: Re-enable with a rate-limiting mechanism or different detection method
  */
 export function validateCtaProps(
-  cta: { icon?: ReactNode } | undefined,
-  ctaName: string,
-  componentName: string
+  cta: { icon?: ReactNode } | undefined
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 ): void {
+  // Temporarily disabled to prevent infinite Fast Refresh loops
+  return
+
+  /* Original code - commented out to break infinite reload loop
   if (!cta) return
 
   warnIfUnstableReference(cta.icon, `${ctaName}.icon`, componentName)
+  */
 }
