@@ -25,7 +25,9 @@ import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
-const getHeroMetaItems = () => createHeroMetaItems([
+// FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
+// Creating objects inside component causes infinite reload loop
+const heroMetaItems = createHeroMetaItems([
   {
     icon: <Clock className="h-4 w-4" />,
     label: '12 min Lesezeit'
@@ -58,8 +60,6 @@ const AKUPferd: NextPage = () => {
     const number = getSectionNumber(sectionId)
     return number ? `${number}. ${title}` : title
   }
-
-  const heroMetaItems = getHeroMetaItems()
 
   const handleTableOfContentsClick = (sectionId: string) => {
     scrollToSection(sectionId)

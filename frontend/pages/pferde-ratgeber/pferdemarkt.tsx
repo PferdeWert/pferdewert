@@ -21,7 +21,7 @@ const seoMetadata = {
   description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
   canonical_url: 'https://pferdewert.de/ratgeber/pferdemarkt',
   og_image: 'https://pferdewert.de/images/ratgeber/pferdemarkt-hero.webp',
-  og_image_alt: 'Pferdemarkt Deutschland 2025 - Springreiter auf Pferd bei Wettbewerb'
+  og_image_alt: 'Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern'
 }
 
 // FAQ Items
@@ -89,7 +89,9 @@ const tableOfContentsSections = [
   { id: 'faq', title: 'Häufig gestellte Fragen' }
 ]
 
-const getPferdemarktHeroMetaItems = () => createHeroMetaItems([
+// FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
+// Creating objects inside component causes infinite reload loop
+const heroMetaItems = createHeroMetaItems([
   {
     icon: <Clock className="h-4 w-4" />,
     label: '12 min Lesezeit'
@@ -113,7 +115,6 @@ const getPferdemarktHeroMetaItems = () => createHeroMetaItems([
 ])
 
 const Pferdemarkt: NextPage = () => {
-  const heroMetaItems = getPferdemarktHeroMetaItems()
 
   const handleTableOfContentsClick = (sectionId: string) => {
     info('Navigating to section:', sectionId)
@@ -297,7 +298,7 @@ const Pferdemarkt: NextPage = () => {
 
         <RatgeberHeroImage
           src="/images/ratgeber/pferdemarkt-hero.webp"
-          alt="Pferdemarkt Deutschland 2025 - Springreiter auf Pferd bei Wettbewerb"
+          alt="Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern"
           priority
           attribution={{
             author: 'Usien',

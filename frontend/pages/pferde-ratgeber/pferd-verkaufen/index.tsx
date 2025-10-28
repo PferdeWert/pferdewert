@@ -15,7 +15,9 @@ import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry';
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems';
 
-const getPferdVerkaufenHeroMetaItems = () => createHeroMetaItems([
+// FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
+// Creating objects inside component causes infinite reload loop
+const heroMetaItems = createHeroMetaItems([
   {
     icon: <TrendingUp className="h-4 w-4" />,
     label: "7-Phasen-Prozess"
@@ -167,7 +169,6 @@ const jsonLdBreadcrumb = {
 };
 
 const PferdVerkaufen: NextPage = () => {
-  const heroMetaItems = getPferdVerkaufenHeroMetaItems();
 
   const handleNavigate = (id: string) => {
     const element = document.getElementById(id);
