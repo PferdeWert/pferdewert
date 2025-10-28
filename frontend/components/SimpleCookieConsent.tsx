@@ -35,6 +35,10 @@ const SimpleCookieConsent = () => {
   const setHasConsentRef = useRef(setHasConsent);
   const setShowCookieModalRef = useRef(setShowCookieModal);
 
+  // FAST REFRESH FIX: Ref for handleConsentDecision to break dependency chain
+  // This prevents: handleConsentDecision → initCookieConsentConfig → initCookieConsent loop
+  const handleConsentDecisionRef = useRef<((value: ConsentValue) => void) | null>(null);
+
   // Keep refs up-to-date with current setters
   useEffect(() => {
     setHasConsentRef.current = setHasConsent;
@@ -57,6 +61,7 @@ const SimpleCookieConsent = () => {
   }, []);
 
   // Handle consent decision from banner or modal
+  // FAST REFRESH FIX: useCallback with empty deps - all state accessed via refs
   const handleConsentDecision = useCallback((consentValueParam: ConsentValue) => {
     // Cleanup: Overflow zurücksetzen
     document.body.style.overflow = '';
@@ -136,17 +141,23 @@ const SimpleCookieConsent = () => {
 
     // Update document.cookie with proper flags
     document.cookie = `${CONSENT_COOKIE}=${consentValueParam}; path=/; max-age=31536000; SameSite=Lax; Secure`;
-  }, []);
+  }, []); // FAST REFRESH FIX: Empty deps - all state accessed via refs
+
+  // FAST REFRESH FIX: Store function in ref to use in event handlers
+  useEffect(() => {
+    handleConsentDecisionRef.current = handleConsentDecision;
+  }, [handleConsentDecision]);
 
   // Handle settings from modal
   const handleModalSave = useCallback(
     (settings: CookieSettings) => {
       const consentValue = settings.analytics ? 'analytics_only' : 'necessary_only';
-      handleConsentDecision(consentValue);
+      // FAST REFRESH FIX: Use ref to avoid dependency chain
+      handleConsentDecisionRef.current?.(consentValue);
       // FAST REFRESH FIX: Use ref instead of direct setter
       setShowCookieModalRef.current(false);
     },
-    [handleConsentDecision]
+    [] // FAST REFRESH FIX: Empty deps - all state accessed via refs
   );
 
   const initCookieConsentConfig = useCallback((cookieConsent: typeof window.cookieconsent) => {
@@ -260,11 +271,21 @@ const SimpleCookieConsent = () => {
           const styleButtonsWhenReady = () => {
             const allowButton = popup.querySelector<HTMLElement>('.cc-allow');
             const denyButton = popup.querySelector<HTMLElement>('.cc-deny');
+            const compliance = popup.querySelector<HTMLElement>('.cc-compliance');
 
-            if (!allowButton || !denyButton) {
+            if (!allowButton || !denyButton || !compliance) {
               requestAnimationFrame(styleButtonsWhenReady);
               return;
             }
+
+            // FIX: Force vertical button layout (library defaults to horizontal)
+            compliance.style.cssText = `
+              display: flex !important;
+              flex-direction: column !important;
+              gap: 0.75rem !important;
+              margin-top: 1.5rem !important;
+              width: 100% !important;
+            `;
 
             // PRIMARY CTA: "Alle akzeptieren" - PferdeWert Brand Brown
             // Styles gemäß Brand Style Guide: bg-brand-brown (#92400e), text-white, px-8 py-4, rounded-lg, font-semibold
@@ -279,9 +300,10 @@ const SimpleCookieConsent = () => {
               font-size: 1rem !important;
               cursor: pointer !important;
               transition: all 0.2s ease !important;
-              margin-bottom: 0.75rem !important;
+              margin: 0 !important;
               text-decoration: none !important;
               box-sizing: border-box !important;
+              display: block !important;
             `;
 
             allowButton.addEventListener('mouseenter', () => {
@@ -304,8 +326,10 @@ const SimpleCookieConsent = () => {
               font-size: 1rem !important;
               cursor: pointer !important;
               transition: all 0.2s ease !important;
+              margin: 0 !important;
               text-decoration: none !important;
               box-sizing: border-box !important;
+              display: block !important;
             `;
 
             denyButton.addEventListener('mouseenter', () => {
@@ -365,6 +389,13 @@ const SimpleCookieConsent = () => {
       onStatusChange: (status: string) => {
         // Handle deny button click - open modal instead of immediately denying
         if (status === 'deny') {
+          // CRITICAL FIX: Hide banner popup when modal opens to prevent double overlay
+          const popup = document.querySelector('.cc-window') as HTMLElement;
+          if (popup) {
+            popup.style.display = 'none';
+            info('Banner hidden for modal display');
+          }
+
           // FAST REFRESH FIX: Use ref to avoid closure dependency issues
           setShowCookieModalRef.current(true);
           info('Opening cookie settings modal');
@@ -373,7 +404,8 @@ const SimpleCookieConsent = () => {
 
         // Handle allow button click - accept all
         if (status === 'allow') {
-          handleConsentDecision('allow');
+          // FAST REFRESH FIX: Use ref to break dependency chain
+          handleConsentDecisionRef.current?.('allow');
         }
       },
     });
@@ -386,7 +418,7 @@ const SimpleCookieConsent = () => {
     };
 
     info('SimpleCookieConsent initialized with mobile optimization');
-  }, [handleConsentDecision]); // FAST REFRESH FIX: Correct dependency (refs don't need to be listed)
+  }, []); // FAST REFRESH FIX: Empty deps - handleConsentDecision accessed via ref
 
   /** useCallback verhindert Re-Creation bei jedem Render */
   const initCookieConsent = useCallback(() => {
@@ -416,12 +448,17 @@ const SimpleCookieConsent = () => {
     initCookieConsentConfig(cookieConsent);
   }, [initCookieConsentConfig]);
 
+  // FAST REFRESH FIX: Stable callback for modal close to prevent infinite re-renders
+  const handleModalClose = useCallback(() => {
+    setShowCookieModalRef.current(false);
+  }, []); // Empty deps - uses ref
+
   return (
     <>
       {/* Cookie Settings Modal */}
       <CookieSettingsModal
         isOpen={showCookieModal}
-        onClose={() => setShowCookieModal(false)}
+        onClose={handleModalClose}
         onSave={handleModalSave}
       />
 

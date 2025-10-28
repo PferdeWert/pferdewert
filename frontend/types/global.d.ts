@@ -1,4 +1,6 @@
 // frontend/types/global.d.ts
+// Enhanced with granular cookie consent types
+
 declare global {
   interface Window {
     cookieconsent?: {
@@ -13,6 +15,15 @@ declare global {
       (event: string, data?: Record<string, unknown>): void;
     };
     va?: (command: 'track', eventName: string, properties?: Record<string, unknown>) => void;
+  }
+
+  // Cookie consent values for granular control
+  type CookieConsentValue = 'allow' | 'analytics_only' | 'necessary_only';
+
+  // Cookie settings interface for modal
+  interface CookieSettings {
+    necessary: boolean;
+    analytics: boolean;
   }
 }
 
