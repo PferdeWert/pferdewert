@@ -1,3 +1,7 @@
+// DEPRECATED: Diese Seite wird automatisch zu /pferde-ratgeber/aku-pferd weitergeleitet (301-Redirect)
+// Alle Inhalte wurden in die Hub-Seite (index.tsx) integriert, um Keyword-Kannibalisierung zu vermeiden
+// Redirect in next.config.js konfiguriert - diese Datei kann langfristig gelöscht werden
+
 import { NextPage } from "next"
 import React from "react"
 import Head from "next/head"
@@ -53,6 +57,10 @@ const heroMetaItems = createHeroMetaItems([
     label: "Checklisten & Vorbereitung"
   }
 ])
+
+// FAST REFRESH FIX: CTA icons at module level to prevent recreation
+const primaryCtaIcon = <CheckCircle className="h-5 w-5" />
+const secondaryCtaIcon = <ChevronDown className="h-5 w-5" />
 
 const phaseSteps: PhaseStep[] = [
   {
@@ -203,11 +211,11 @@ const AkuPferdAblauf: NextPage = () => {
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Pferdewert mit AKU berechnen",
-            icon: <CheckCircle className="h-5 w-5" />
+            icon: primaryCtaIcon
           }}
           secondaryCta={{
             label: "Zum Inhalt",
-            icon: <ChevronDown className="h-5 w-5" />,
+            icon: secondaryCtaIcon,
             onClick: handleScrollToToc
           }}
         />
