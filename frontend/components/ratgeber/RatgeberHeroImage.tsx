@@ -17,7 +17,7 @@ const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({
   attribution
 }) => {
   return (
-    <section className="py-8">
+    <section className="py-8" suppressHydrationWarning>
       <div className="container mx-auto px-4">
         <div className="relative w-full h-[400px] md:h-[500px]">
           <Image
@@ -28,6 +28,7 @@ const RatgeberHeroImage: React.FC<RatgeberHeroImageProps> = ({
             className="object-cover rounded-lg shadow-lg"
             style={{ objectPosition }}
             sizes="(min-width: 768px) 80vw, 100vw"
+            suppressHydrationWarning
           />
         </div>
         {attribution && (
