@@ -2,25 +2,6 @@
 
 **Zuletzt aktualisiert:** 2025-10-28
 
-## ⚠️ KRITISCHE ERKENNTNISSE (Update 2025-10-28)
-
-**1. KEYWORD-KANNIBALISIERUNG im AKU-Cluster:**
-- Hub-Seite `/aku-pferd` rankt hauptsächlich für "Kosten"-Keywords (Rang 5-21)
-- Kosten-Spoke `/aku-pferd/kosten` rankt für dieselben Keywords (Rang 9-11)
-- **Problem**: Interne Konkurrenz verhindert bessere Rankings
-- **Lösung**: Hub-Content umstrukturieren → weniger Kosten, mehr Überblick
-
-**2. HAUPTKEYWORD "aku pferd" (480/Mo.) NICHT DURCH HUB ABGEDECKT:**
-- Ablauf-Seite rankt auf Rang 28 für Hauptkeyword (statt Hub!)
-- Hub-Seite rankt nur auf Rang 72 für "ankaufsuntersuchung pferd" (390/Mo.)
-- **SERP-Intent**: Top-Ergebnisse zeigen Overview + Erklärung, nicht Kosten
-- **Content-Gap**: Hub braucht mehr "Was ist AKU?"-Content
-
-**3. DRASTISCHE Suchvolumen-Rückgänge im AKU-Cluster:**
-- "aku pferd ablauf": **10/Mo.**
-- "aku pferd klassen": **KEINE DATEN** (vorher: 590)
-- "kosten aku pferd 2024": **-92% yearly** (140/Mo., stark rückläufig)
-
 **Auswirkung:** Der AKU-Cluster ist nicht mehr das Hauptvolumen-Cluster. Fokus sollte auf "Pferd Kaufen" (47.200/Mo.) liegen.
 
  **Generische Entscheidungsmatrix**                                                │
@@ -69,23 +50,12 @@
 ### Hub: AKU Pferd (/pferde-ratgeber/aku-pferd) ✅ LIVE
 - **Ziel-Keyword**: aku pferd (480/Mo., KD: N/A)
 - **Navigation**: Ratgeber Dropdown
+-> 28.10.25 rewrite content mit mehr fokus auf dem keyword "aku pferd", wegen kanibalisierung mit der page aku-pferd/kosten. 
 - **Aktuelle Rankings (DataForSEO, 2025-10-28):**
   - "kosten aku pferd 2024" → **Rang 5** (140/Mo., **Trend: -92% yearly** ⚠️)
   - "was kostet eine aku pferd" → **Rang 9** (70/Mo.)
   - "pferd ankaufsuntersuchung kosten" → **Rang 21** (210/Mo.)
   - "ankaufsuntersuchung pferd" → **Rang 72** (390/Mo.)
-
-- **⚠️ Kannibalisierungs-Problem:**
-  - Hub-Seite rankt hauptsächlich für "Kosten"-Keywords
-  - Konflikt mit dedizierter Kosten-Spoke-Seite (/kosten) für dieselben Keywords
-  - **Hauptkeyword "aku pferd"**: Ablauf-Seite rankt auf Rang 28 (statt Hub!)
-
-- **🎯 Optimierungs-Strategie:**
-  1. **Hub-Content umstrukturieren**: Weniger Kosten-Fokus, mehr Überblick & Ablauf
-  2. **Kosten-Content konsolidieren**: Alle Kosten-Infos auf `/kosten` Spoke-Seite
-  3. **Interne Verlinkung**: Hub sollte zu Kosten-Spoke verlinken, nicht konkurrieren
-  4. **SERP-Intent**: Top-Ergebnisse für "aku pferd" zeigen: Erklärung + Überblick, nicht Kosten
-  5. **Content-Gap**: Hub braucht mehr "Was ist AKU?"-Content für Hauptkeyword
 
 ### Spokes (Sitemap-only):
 
@@ -95,14 +65,7 @@
      - "aku pferd kosten" → **Rang 9** (260/Mo., **Trend: +24% quarterly, -19% yearly**)
      - "kosten aku pferd" → **Rang 11** (260/Mo., **Trend: -34% yearly**)
    - **✅ Starke Performance**: Kosten-Seite etabliert sich als Authority für Kosten-Queries
-   - **⚠️ Kannibalisierung**: Hub-Seite konkurriert für ähnliche Keywords (siehe oben)
-
-2. **AKU Pferd Ablauf** (/pferde-ratgeber/aku-pferd/ablauf) ✅ LIVE
-   - Keyword: aku pferd ablauf (10/Mo., KD: N/A)
-   - **Rankings (DataForSEO, 2025-10-28):**
-     - **"aku pferd" → Rang 28** (480/Mo.) - **NEU entdeckt!** ⚠️
-   - **⚠️ Problem**: Ablauf-Seite rankt für Hauptkeyword statt Hub-Seite
-   - **Suchvolumen**: Sehr niedrig (10/Mo.), Keyword fast bedeutungslos
+   - 28.10.25 /aku-pferd/index haben wir die kosten themen rausgenommen, hoffentlicht stärkt das diese page hier nochmal..
 
 ---
 
@@ -126,6 +89,12 @@
 - **Navigation**: Ratgeber Dropdown
 - **Rankings:** Keine Top-20 Rankings (sehr hohe Competition, großes Volumen)
 
+Das hier ist zu schwach für eigene page, bauen wir ein in die /pferd-kaufen: 
+**Checkliste Pferdekauf** (/pferde-ratgeber/pferd-kaufen/checkliste-pferdekauf)
+   - Keyword: checkliste pferdekauf (40/Mo., KD: 7)
+   - ⚠️ Korrektur: Ursprünglich geschätzt 300-600/Mo., tatsächlich nur 40/Mo.
+   - Begründung: Download-Intent, PDF-Leadmagnet trotz niedrigem Volumen wertvoll für Leadgenerierung
+   - **Status:** Geplant
 ### Spokes (Sitemap-only):
 
 1. **Was kostet ein Pferd** (/pferde-ratgeber/was-kostet-ein-pferd) ✅ LIVE
@@ -151,18 +120,6 @@ Die beiden hier versuche ich auch mit dem artikel /was-kostet-ein-pferd abzudeck
    - Keyword: pferd preis (880/Mo., KD: 16)
   - **Status:** Integriert in /was-kostet-ein-pferd
    - **Ranking**: ?
-
-4. **Pferdekauf für Anfänger** (/pferde-ratgeber/pferd-kaufen/pferdekauf-anfaenger)
-   - Keyword: pferdekauf anfänger (**KEINE DATEN**)
-   - ⚠️ Hinweis: Keyword nicht messbar in DataForSEO, möglicherweise zu spezifisch
-   - Begründung: SERP-Gap für Einsteiger-Content
-   - **Status:** Geplant (Keyword-Validierung empfohlen)
-
-5. **Checkliste Pferdekauf** (/pferde-ratgeber/pferd-kaufen/checkliste-pferdekauf)
-   - Keyword: checkliste pferdekauf (40/Mo., KD: 7)
-   - ⚠️ Korrektur: Ursprünglich geschätzt 300-600/Mo., tatsächlich nur 40/Mo.
-   - Begründung: Download-Intent, PDF-Leadmagnet trotz niedrigem Volumen wertvoll für Leadgenerierung
-   - **Status:** Geplant
 
 ---
 
