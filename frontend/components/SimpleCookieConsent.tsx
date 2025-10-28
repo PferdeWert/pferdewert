@@ -2,7 +2,6 @@
 // Production-Ready: Optimized for Lighthouse Best Practices
 
 import { useCallback, useState, useEffect } from 'react';
-import { useRouter } from 'next/router'; // Pages Router
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { info, error as logError } from '@/lib/log';
@@ -17,7 +16,6 @@ interface PopupElementWithHandler extends HTMLElement {
 }
 
 const SimpleCookieConsent = () => {
-  const router = useRouter();
   // Remove unused isScriptLoaded state for cleaner code
   const [hasConsent, setHasConsent] = useState<boolean | null>(null);
 
@@ -280,11 +278,11 @@ const SimpleCookieConsent = () => {
     window.showCookieSettings = () => {
       info('Reopening cookie banner');
       document.cookie = `${CONSENT_COOKIE}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-      router.reload(); // Pages Router: reload() statt refresh()
+      window.location.reload(); // FAST REFRESH FIX: Use window.location instead of router to prevent dependency chain
     };
 
     info('SimpleCookieConsent initialized with mobile optimization');
-  }, [setHasConsent, router]);
+  }, [setHasConsent]);
 
   /** useCallback verhindert Re-Creation bei jedem Render */
   const initCookieConsent = useCallback(() => {

@@ -726,6 +726,57 @@ test('shows correct price and handles click', async () => {
 });
 ```
 
+## ⚠️ Fast Refresh Anti-Patterns
+
+### Problem: useRouter() in useCallback Dependencies
+
+**NEVER include `useRouter()` in useCallback dependency arrays** - this causes infinite Fast Refresh loops.
+
+**Why This Happens:**
+- `useRouter()` returns a new object on every render in Next.js
+- When included in `useCallback` dependencies, it forces recreation on every render
+- This triggers Fast Refresh, which causes another render → infinite loop
+- Symptoms: Page reloads continuously, only stops after clearing browser data
+
+**❌ WRONG - Causes Infinite Loop:**
+```typescript
+import { useRouter } from 'next/router';
+
+const Component = () => {
+  const router = useRouter();
+
+  const someCallback = useCallback(() => {
+    // ... some logic
+    router.reload(); // Using router in callback
+  }, [router]); // ❌ PROBLEM: router in dependencies
+
+  return <button onClick={someCallback}>Click</button>;
+};
+```
+
+**✅ CORRECT - Use window.location instead:**
+```typescript
+// No useRouter import needed
+
+const Component = () => {
+  const someCallback = useCallback(() => {
+    // ... some logic
+    window.location.reload(); // Use native browser API
+  }, []); // ✅ No unstable dependencies
+
+  return <button onClick={someCallback}>Click</button>;
+};
+```
+
+**When to Use Each:**
+- **`window.location.reload()`**: Full page reset (cookie changes, auth state changes)
+- **`router.reload()`**: Soft refresh for data updates (needs router in scope, avoid in callbacks)
+
+**Related Issues Fixed:**
+- `SimpleCookieConsent.tsx:281` - Removed router dependency causing daily reload loops
+
+---
+
 ## 🔄 Common Patterns
 
 ### Loading States
