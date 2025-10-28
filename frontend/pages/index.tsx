@@ -78,36 +78,47 @@ const faqItems = [
     }
 ];
 
-// FAST REFRESH FIX: Features array moved outside component to prevent infinite re-renders
-// Creating arrays with JSX elements inside component caused new object reference on each render
+// FAST REFRESH FIX: Pre-compute FAQ schema at module level
+// The .map() in JSX creates new objects causing infinite Fast Refresh loops
+const FAQ_SCHEMA_ENTITIES = faqItems.map(item => ({
+  "@type": "Question",
+  "name": item.frage,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": item.antwort
+  }
+}));
+
+// FAST REFRESH FIX: Store only data (no JSX!) at module level
+// Icon components MUST be created inside the component to prevent infinite re-renders
 const FEATURES_DATA = [
   {
-    icon: <Clock className="w-8 h-8 text-brand-brown" />,
+    iconType: "Clock",
     title: "Blitzschnell",
     description: "Professionelle Pferdepreis-Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
   },
   {
-    icon: <Shield className="w-8 h-8 text-brand-brown" />,
+    iconType: "Shield",
     title: "100% Transparent",
     description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung aller Faktoren.",
   },
   {
-    icon: <Award className="w-8 h-8 text-brand-brown" />,
+    iconType: "Award",
     title: "Expertenwissen",
     description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
   },
   {
-    icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
+    iconType: "TrendingUp",
     title: "Marktgerecht",
     description: "Aktuelle Pferdepreise und Markttrends fließen in jede Pferdepreis-Bewertung mit ein.",
   },
   {
-    icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
+    iconType: "CheckCircle",
     title: "Geld-zurück-Garantie",
     description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
   },
   {
-    icon: <Users className="w-8 h-8 text-brand-brown" />,
+    iconType: "Users",
     title: "Vertrauenswürdig",
     description: "Professionelle Pferdepreis-Bewertungen für Pferdebesitzer deutschlandweit.",
   },
@@ -223,14 +234,7 @@ export default function PferdeWertHomepage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": faqItems.map(item => ({
-                "@type": "Question",
-                "name": item.frage,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": item.antwort
-                }
-              }))
+              "mainEntity": FAQ_SCHEMA_ENTITIES
             })
           }}
         />
@@ -453,17 +457,28 @@ export default function PferdeWertHomepage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {FEATURES_DATA.map((feature, index) => (
-                <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
-                  <div className="p-8 text-center">
-                    <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      {feature.icon}
+              {FEATURES_DATA.map((feature, index) => {
+                // FAST REFRESH FIX: Create icon components dynamically inside render
+                const IconComponent =
+                  feature.iconType === "Clock" ? Clock :
+                  feature.iconType === "Shield" ? Shield :
+                  feature.iconType === "Award" ? Award :
+                  feature.iconType === "TrendingUp" ? TrendingUp :
+                  feature.iconType === "CheckCircle" ? CheckCircle :
+                  feature.iconType === "Users" ? Users : Clock;
+
+                return (
+                  <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
+                    <div className="p-8 text-center">
+                      <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <IconComponent className="w-8 h-8 text-brand-brown" />
+                      </div>
+                      <h3 className="text-h3 font-bold text-gray-900 mb-3">{feature.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                     </div>
-                    <h3 className="text-h3 font-bold text-gray-900 mb-3">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
