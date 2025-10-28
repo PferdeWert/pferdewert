@@ -158,18 +158,6 @@ const Pferdemarkt: NextPage = () => {
     'inLanguage': 'de-DE'
   }
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    'mainEntity': pferdemarktFaqItems.map(item => ({
-      '@type': 'Question',
-      'name': item.question,
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': item.answer
-      }
-    }))
-  }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -247,10 +235,6 @@ const Pferdemarkt: NextPage = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <script
           type="application/ld+json"

@@ -5,6 +5,7 @@ import { FAQProps, FAQItem } from '../types/faq.types';
 const FAQ: React.FC<FAQProps> = ({
   faqs,
   sectionTitle = "Häufige Fragen",
+  sectionSubtitle,
   withSchema = true,
   className = ""
 }) => {
@@ -41,9 +42,11 @@ const FAQ: React.FC<FAQProps> = ({
           {sectionTitle && (
             <div className="text-center mb-16">
               <h2 className="text-h2 font-serif text-brand mb-4">{sectionTitle}</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Alles was du über Pferdepreis berechnen und Pferdebewertung wissen möchtest
-              </p>
+              {sectionSubtitle && (
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  {sectionSubtitle}
+                </p>
+              )}
             </div>
           )}
           <div className="space-y-4"> {/* Reduzierter Abstand für bessere Dichte */}
