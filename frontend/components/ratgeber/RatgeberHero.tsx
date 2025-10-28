@@ -29,6 +29,9 @@ interface RatgeberHeroProps {
   secondaryCta?: RatgeberHeroSecondaryCta
 }
 
+// FAST REFRESH FIX: Define default scroll icon at module level to prevent recreation
+const DEFAULT_SCROLL_ICON = <ChevronDown className="h-5 w-5" />
+
 const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   badgeLabel,
   badgeIcon,
@@ -42,7 +45,7 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
     ? secondaryCta.label.trim().toLowerCase()
     : undefined
   const isScrollToContentCta = normalizedSecondaryLabel === 'zum inhalt'
-  const resolvedSecondaryIcon = isScrollToContentCta ? <ChevronDown className="h-5 w-5" /> : secondaryCta?.icon
+  const resolvedSecondaryIcon = isScrollToContentCta ? DEFAULT_SCROLL_ICON : secondaryCta?.icon
 
   return (
     <section className="py-12 md:py-16">
