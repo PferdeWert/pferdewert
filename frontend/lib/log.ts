@@ -1,31 +1,44 @@
 // lib/log.ts
 
-const debug = process.env.NODE_ENV === "development";
+const isDevelopment = process.env.NODE_ENV === "development";
+const isProduction = process.env.NODE_ENV === "production";
 
 /**
- * Loggt in der Entwicklung allgemeine Informationen.
+ * Loggt allgemeine Informationen (nur Development).
  */
 export const log = (...args: unknown[]) => {
-  if (debug) console.log(...args);
+  if (isDevelopment) console.log(...args);
 };
 
 /**
- * Loggt in der Entwicklung strukturierte Info-Nachrichten.
+ * Loggt strukturierte Info-Nachrichten.
+ * In Production: Nur für wichtige Events (Webhook, Payment, etc.)
  */
 export const info = (...args: unknown[]) => {
-  if (debug) console.info(...args);
+  // In Production: Log wenn Message mit [WEBHOOK], [PAYMENT], [CRITICAL] startet
+  if (isDevelopment) {
+    console.info(...args);
+  } else if (isProduction) {
+    const firstArg = String(args[0] || '');
+    if (firstArg.includes('[WEBHOOK]') ||
+        firstArg.includes('[PAYMENT]') ||
+        firstArg.includes('[CRITICAL]') ||
+        firstArg.includes('[EMAIL]')) {
+      console.info(...args);
+    }
+  }
 };
 
 /**
- * Loggt in der Entwicklung Warnungen.
+ * Loggt Warnungen (immer, auch in Production).
  */
 export const warn = (...args: unknown[]) => {
-  if (debug) console.warn(...args);
+  console.warn(...args);
 };
 
 /**
- * Loggt in der Entwicklung Fehler.
+ * Loggt Fehler (immer, auch in Production).
  */
 export const error = (...args: unknown[]) => {
-  if (debug) console.error(...args);
+  console.error(...args);
 };
