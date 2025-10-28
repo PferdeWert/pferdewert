@@ -54,7 +54,30 @@
 - **RatgeberHero / RatgeberHeroImage**: Standard-Hero mit Badge, Meta-Row und CTA-Buttons; Bilder immer via `RatgeberHeroImage`.
   - Sekundärer CTA `"Zum Inhalt"` nutzt immer das `ChevronDown` Icon (`lucide-react`, `h-5 w-5`).
 - **RatgeberTableOfContents**: Nutzt `sections`-Array `{ id, title }` + `onNavigate` (scroll helper).
-- **FAQ**: Immer unter `id="faq"`, Schema-Daten via Komponente automatisch.
+- **FAQ**: FAQ-Komponente mit automatischer Schema-Generierung
+  - **Props**: `faqs` (required), `sectionTitle` (optional), `sectionSubtitle` (optional), `withSchema` (default: true)
+  - **Platzierung**: Immer unter `id="faq"` im Content
+  - **Schema**: FAQPage Schema wird automatisch generiert (siehe Abschnitt 9)
+  - **⚠️ WICHTIG**: Wenn dein Content bereits eine H2-Überschrift wie "Häufige Fragen" oder "FAQ" hat, NICHT den `sectionTitle` Prop verwenden! Das würde zu doppelten Headlines führen.
+  - **Standard-Verwendung** (mit Component-Titel):
+    ```tsx
+    <div id="faq" className="mt-16">
+      <FAQ
+        sectionTitle="Häufige Fragen zum Pferdekauf"
+        sectionSubtitle="Alles was du über den Pferdekauf wissen möchtest"
+        faqs={faqItems}
+      />
+    </div>
+    ```
+  - **Alternative** (bei bestehender H2 im Content):
+    ```tsx
+    <section id="faq" className="mt-16">
+      <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-8">
+        Häufig gestellte Fragen
+      </h2>
+      <FAQ faqs={faqItems} sectionTitle="" /> {/* Leerer sectionTitle unterdrückt Component-Titel */}
+    </section>
+    ```
 - **RatgeberRelatedArticles**: Max. drei Einträge; bei <3 Artikeln automatisch mittig ausgerichtet (`md:w-[320px]`). Datenstruktur `{ href, image, title, badge, readTime, description }`.
   - **Datenquelle**: Nutze `getRatgeberBySlug()` aus Registry für konsistente Bildpfade.
 - **RatgeberFinalCTA**: Abschluss-CTA mit Bild + Button "Jetzt Pferdewert berechnen".
@@ -197,8 +220,21 @@ const faqItems = [
 ]
 
 // 2. FAQ Component verwenden (generiert Schema automatisch)
-<FAQ faqs={faqItems} />
+<FAQ
+  faqs={faqItems}
+  sectionTitle="Häufige Fragen zu Pferdekosten"
+  sectionSubtitle="Alles was du über Kosten und Preise wissen möchtest"
+/>
 ```
+
+**Verfügbare Props:**
+- `faqs` (required): Array von FAQ Items mit `question` und `answer`
+- `sectionTitle` (optional): Überschrift für die FAQ Section (wird als H2 gerendert)
+- `sectionSubtitle` (optional): Untertitel/Beschreibung unter der Überschrift
+- `withSchema` (optional, default: `true`): Steuert die automatische Schema-Generierung
+- `className` (optional): Zusätzliche CSS-Klassen
+
+**⚠️ Wichtig**: Wenn dein Content bereits eine H2-Überschrift für die FAQ Section hat, setze `sectionTitle=""` um doppelte Headlines zu vermeiden.
 
 **❌ FALSCH - Manuelles Schema erstellt Duplikate:**
 ```tsx
