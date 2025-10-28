@@ -16,7 +16,7 @@ import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
-import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
+import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
 import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 const sections = [
@@ -144,32 +144,14 @@ const faqItems: FAQItem[] = [
   }
 ]
 
-const relatedArticles = [
-  {
-    href: "/pferde-ratgeber/aku-pferd",
-    image: getRatgeberBySlug("aku-pferd")?.image || "/images/ratgeber/aku-pferd/hero.webp",
-    title: "AKU Pferd: Der komplette Guide",
-    badge: "AKU Guide",
-    readTime: "12 Min.",
-    description: "Alle Fakten zur Ankaufsuntersuchung – ideal zur Vorbereitung auf den Pferdekauf."
-  },
-  {
-    href: "/pferde-ratgeber/pferd-verkaufen",
-    image: getRatgeberBySlug("pferd-verkaufen")?.image || "/images/ratgeber/pferd-verkaufen/hero.webp",
-    title: "Pferd verkaufen: Optimaler Preis mit KI",
-    badge: "Verkauf",
-    readTime: "9 Min.",
-    description: "Alles für den erfolgreichen Verkauf – Preisstrategie, Inserate und Verhandlung."
-  },
-  {
-    href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: getRatgeberBySlug("aku-pferd/ablauf")?.image || "/images/ratgeber/aku-pferd/ablauf/hero.webp",
-    title: "AKU Ablauf verstehen",
-    badge: "AKU Guide",
-    readTime: "10 Min.",
-    description: "Von Vorbereitung bis Befund – so läuft die Ankaufsuntersuchung Schritt für Schritt."
-  }
-]
+const relatedArticles = getRelatedArticles('pferd-kaufen').map(entry => ({
+  href: getRatgeberPath(entry.slug),
+  image: entry.image,
+  title: entry.title,
+  badge: entry.category,
+  readTime: entry.readTime,
+  description: entry.description
+}))
 
 const PferdKaufen: NextPage = () => {
   const handleNavigate = (id: string) => scrollToSection(id)
@@ -429,7 +411,7 @@ const PferdKaufen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp'}
+          src='/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp'
           alt="Pferd kaufen – der ultimative Ratgeber für 2025"
           priority
         />
@@ -1907,7 +1889,7 @@ const PferdKaufen: NextPage = () => {
           {/* Final CTA */}
           <RatgeberFinalCTA
             image={{
-              src: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
+              src: '/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp',
               alt: "Pferdebewertung vor dem Kauf"
             }}
             title="Bereit für deinen fairen Pferdekauf?"

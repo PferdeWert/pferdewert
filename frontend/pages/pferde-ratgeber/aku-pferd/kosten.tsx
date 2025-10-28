@@ -13,7 +13,7 @@ import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
-import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
+import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
 import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 const sections = [
@@ -22,6 +22,7 @@ const sections = [
   { id: "zusatzkosten", title: "Zusatzkosten & Faktoren" },
   { id: "regionen", title: "Regionale Preisunterschiede" },
   { id: "spartipps", title: "Spartipps & Budgetplanung" },
+  { id: "wer-zahlt", title: "Wer zahlt die AKU?" },
   { id: "faq", title: "FAQ zu AKU Kosten" }
 ]
 
@@ -114,27 +115,32 @@ const faqItems: FAQItem[] = [
     question: "Kann ich bei der AKU sparen?",
     answer:
       "Ja: Wähle Tierärzte mit kurzer Anfahrt, kombiniere Termine mit anderen Käufern und lass nur sinnvolle Zusatzdiagnostik durchführen."
+  },
+  {
+    question: "Was ist ein realistisches Budget für die AKU?",
+    answer:
+      "Plane 2–5 % des Kaufpreises für die AKU ein. Für ein Pferd zu 10.000€ solltest du also 200–500€ einplanen. Dazu kommen optional: Anfahrtskosten (40–180€), Sedierung (45–120€), und Zusatzuntersuchungen (100–250€)."
+  },
+  {
+    question: "Kann ich bei der AKU Geld sparen?",
+    answer:
+      "Ja: (1) Wähle Tierärzte in der Nähe (Anfahrtskosten sparen), (2) Kombiniere Termine mit anderen Käufern (Anfahrt teilen), (3) Wähle Wochentage statt Wochenende (keine Zuschläge), (4) Überlege, welche Zusatzdiagnostik wirklich nötig ist."
+  },
+  {
+    question: "Sind alte Röntgenbilder günstiger?",
+    answer:
+      "Ja, aber nicht empfohlen: Alte Röntgenbilder (älter als 6 Monate) sind für Kaufentscheidungen weniger aussagekräftig, da sich Befunde schnell ändern. Eine neue AKU mit aktuellen Bildern ist die sichere Wahl – auch wenn sie etwas kostet."
   }
 ]
 
-const relatedArticles = [
-  {
-    href: "/pferde-ratgeber/aku-pferd",
-    image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
-    title: "AKU Pferd Überblick",
-    badge: "AKU Guide",
-    readTime: "12 Min.",
-    description: "Das komplette Grundwissen zu Ablauf, Klassen, Kosten und Befunden der AKU."
-  },
-  {
-    href: "/pferde-ratgeber/aku-pferd/ablauf",
-    image: getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp',
-    title: "AKU Ablauf verstehen",
-    badge: "AKU Guide",
-    readTime: "10 Min.",
-    description: "Von Vorbereitung bis Befund: So läuft die Ankaufsuntersuchung Schritt für Schritt ab."
-  }
-]
+const relatedArticles = getRelatedArticles('aku-pferd/kosten').map(entry => ({
+  href: getRatgeberPath(entry.slug),
+  image: entry.image,
+  title: entry.title,
+  badge: entry.category,
+  readTime: entry.readTime,
+  description: entry.description
+}))
 
 const AkuPferdKosten: NextPage = () => {
   const handleNavigate = (id: string) => scrollToSection(id)
@@ -148,10 +154,10 @@ const AkuPferdKosten: NextPage = () => {
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <>
         <Head>
-          <title>AKU Pferd Kosten 2025: Transparente Übersicht | PferdeWert</title>
+          <title>AKU Pferd Kosten 2025: Kleine & Große AKU Preise | PferdeWert</title>
           <meta
             name="description"
-            content="Alle Kosten der Ankaufsuntersuchung im Überblick: Preise pro Klasse, Zusatzkosten, regionale Unterschiede und Spartipps."
+            content="AKU Pferd Kosten 2025: ✓ Kleine AKU 150–300€ ✓ Große AKU 400–800€ ✓ Regionale Unterschiede ✓ Wer zahlt? ✓ Spartipps vom Experten"
           />
         </Head>
 
@@ -174,7 +180,7 @@ const AkuPferdKosten: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten/hero.webp'}
+          src='/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp'
           alt="Käufer bewertet Pferd und kalkuliert AKU-Kosten"
           priority
         />
@@ -183,6 +189,20 @@ const AkuPferdKosten: NextPage = () => {
 
         <div className="container mx-auto px-4 py-8 md:py-12">
           <article className="max-w-5xl mx-auto space-y-16">
+            {/* Kontextbox: Link zur Hub-Seite */}
+            <div className="bg-amber-50 border-l-4 border-brand p-6 rounded-lg mb-8">
+              <p className="text-gray-700 mb-2">
+                <strong>Noch nicht vertraut mit der AKU?</strong> Unser Hauptratgeber erklärt dir den kompletten Ablauf,
+                den Unterschied zwischen kleiner und großer AKU sowie die verschiedenen Befundklassen.
+              </p>
+              <Link
+                href="/pferde-ratgeber/aku-pferd"
+                className="text-blue-600 hover:text-blue-800 underline font-semibold inline-flex items-center gap-2"
+              >
+                → Zum AKU-Überblick-Ratgeber
+              </Link>
+            </div>
+
             <section id="overview" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">AKU Kosten im Überblick</h2>
 
@@ -289,6 +309,55 @@ const AkuPferdKosten: NextPage = () => {
                     <li key={tip}>• {tip}</li>
                   ))}
                 </ul>
+              </RatgeberHighlightBox>
+            </section>
+
+            {/* Wer zahlt die AKU? */}
+            <section id="wer-zahlt" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                Wer zahlt die AKU beim Pferdekauf?
+              </h2>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Die Kostenfrage beim Pferdekauf ist häufig Anlass für Konflikte. Hier zeigen wir,
+                wer grundsätzlich bezahlt und welche Regelungen möglich sind.
+              </p>
+
+              <RatgeberHighlightBox title="Standardfall: Der Käufer zahlt" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
+                <p className="text-gray-700 mb-3">
+                  <strong>Grundregel:</strong> Wer die AKU in Auftrag gibt, zahlt sie – in den meisten Fällen ist das der Käufer.
+                  Der Käufer hat ein berechtigtes Interesse an objektiven Befunden vor seiner Kaufentscheidung.
+                </p>
+              </RatgeberHighlightBox>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8 mb-4">
+                Alternative Kostenmodelle
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+                  <h4 className="font-bold text-lg mb-2">Kostenteilung (50/50)</h4>
+                  <p className="text-gray-700 text-sm">
+                    Käufer und Verkäufer teilen sich die Kosten hälftig. Das ist eine faire Lösung,
+                    wenn beide vom objektiven Befund profitieren möchten.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 border border-green-200 p-6 rounded-lg">
+                  <h4 className="font-bold text-lg mb-2">Ergebnisabhängige Zahlung</h4>
+                  <p className="text-gray-700 text-sm">
+                    <strong>Ohne Befund:</strong> Käufer zahlt | <strong>Mit Befund:</strong> Verkäufer zahlt.
+                    Dies ist verbreitet bei Kaufabbruch aufgrund kritischer Befunde.
+                  </p>
+                </div>
+              </div>
+
+              <RatgeberHighlightBox title="Wichtig: Schriftliche Festlegung" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
+                <p className="text-gray-700">
+                  <strong>Vereinbare alle Kostenpunkte schriftlich im Kaufvertrag oder per E-Mail</strong>,
+                  um später Streitigkeiten zu vermeiden. Dies gilt besonders, wenn die Kostenübernahme
+                  an das Ergebnis der AKU gekoppelt ist (z.B. &ldquo;ohne Befund&rdquo;).
+                </p>
               </RatgeberHighlightBox>
             </section>
           </article>

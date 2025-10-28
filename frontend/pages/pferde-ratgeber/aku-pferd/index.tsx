@@ -50,6 +50,11 @@ const heroMetaItems = createHeroMetaItems([
   }
 ])
 
+// FAST REFRESH FIX: CTA icons at module level to prevent recreation
+const primaryCtaIcon = <ArrowRight className="w-5 h-5" />
+const secondaryCtaIcon = <ChevronDown className="w-5 h-5" />
+const kostenLinkIcon = <ArrowRight className="h-5 w-5" />
+
 const AKUPferd: NextPage = () => {
   const getSectionNumber = (sectionId: string) => {
     const index = akuSections.findIndex(section => section.id === sectionId)
@@ -75,7 +80,7 @@ const AKUPferd: NextPage = () => {
     "@context": "https://schema.org",
     "@type": "Guide",
     "name": "Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden",
-    "description": "Alles über die Ankaufsuntersuchung (AKU) beim Pferd – Definition, Ablauf, Befundklassen und worauf Sie achten sollten",
+    "description": "Alles über die Ankaufsuntersuchung (AKU) beim Pferd – Definition, Ablauf, Befundklassen und worauf du achten solltest",
     "author": {
       "@type": "Organization",
       "name": "PferdeWert.de"
@@ -84,26 +89,26 @@ const AKUPferd: NextPage = () => {
       {
         "@type": "HowToStep",
         "position": 1,
-        "name": "Verstehen Sie die AKU-Grundlagen",
+        "name": "Verstehe die AKU-Grundlagen",
         "text": "Eine AKU ist eine standardisierte tierärztliche Untersuchung vor dem Pferdekauf, die den Gesundheitszustand und die körperliche Eignung dokumentiert."
       },
       {
         "@type": "HowToStep",
         "position": 2,
-        "name": "Wählen Sie die richtige AKU-Klasse",
+        "name": "Wähle die richtige AKU-Klasse",
         "text": "Kleine AKU für Freizeitpferde (1-2 Stunden, klinische Untersuchung). Große AKU für Sportpferde (2-4 Stunden, mit Röntgenaufnahmen)."
       },
       {
         "@type": "HowToStep",
         "position": 3,
-        "name": "Verstehen Sie das aktuelle Befundungssystem (seit 2018)",
+        "name": "Verstehe das aktuelle Befundungssystem (seit 2018)",
         "text": "Seit dem Röntgenleitfaden 2018 der GPM: o.b.B. (ohne besonderen Befund) oder präzise Beschreibung der Abweichungen mit Unterscheidung zwischen Befunden und Risiko-Befunden. Das alte Klassensystem I-V existiert nicht mehr."
       },
       {
         "@type": "HowToStep",
         "position": 4,
-        "name": "Wählen Sie einen unabhängigen Tierarzt",
-        "text": "Ein unabhängiger Veterinär gibt objektive Befunde. Vermeiden Sie den Stallveterinär des Verkäufers wegen Interessenskonflikten."
+        "name": "Wähle einen unabhängigen Tierarzt",
+        "text": "Ein unabhängiger Veterinär gibt objektive Befunde. Vermeide den Stallveterinär des Verkäufers wegen Interessenskonflikten."
       }
     ]
   }
@@ -125,8 +130,8 @@ const AKUPferd: NextPage = () => {
     <>
       <Head>
         {/* OPTIMIERT: Fokus auf "aku pferd" (informational), KEIN Kosten-Keyword */}
-        <title>Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden zur AKU</title>
-        <meta name="description" content="Was ist eine AKU? Erfahren Sie alles über die Ankaufsuntersuchung beim Pferd – Ablauf, Befundklassen, Unterschied zwischen kleiner und großer AKU sowie worauf Sie bei der Wahl des Tierarztes achten sollten." />
+        <title>AKU Pferd: Ablauf, Überblick & Leitfaden der Ankaufsuntersuchung | PferdeWert</title>
+        <meta name="description" content="Was ist eine AKU beim Pferd? ✓ Ablauf der Ankaufsuntersuchung ✓ Kleine vs. Große AKU ✓ Zeitaufwand ✓ Expertenwissen für Pferdekäufer" />
         <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku ablauf, kleine aku, große aku, aku klassen, befunde, röntgenbilder" />
         <meta name="author" content="PferdeWert.de" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -143,7 +148,7 @@ const AKUPferd: NextPage = () => {
 
         {/* Open Graph */}
         <meta property="og:title" content="Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden zur AKU" />
-        <meta property="og:description" content="Was ist eine AKU? Alles über die Ankaufsuntersuchung beim Pferd – Ablauf, Befundklassen und worauf Sie achten sollten." />
+        <meta property="og:description" content="Was ist eine AKU? Alles über die Ankaufsuntersuchung beim Pferd – Ablauf, Befundklassen und worauf du achten solltest." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
         <meta property="og:image" content="https://pferdewert.de/images/aku-pferd-ratgeber.jpg" />
@@ -151,7 +156,7 @@ const AKUPferd: NextPage = () => {
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden" />
-        <meta name="twitter:description" content="Was ist eine AKU? Alles über Ablauf, Befundklassen und worauf Sie achten sollten." />
+        <meta name="twitter:description" content="Was ist eine AKU? Alles über Ablauf, Befundklassen und worauf du achten solltest." />
 
         {/* Preconnect for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -178,16 +183,16 @@ const AKUPferd: NextPage = () => {
           badgeLabel="Pferde-Ratgeber"
           badgeIcon={<Award className="h-4 w-4" />}
           title="Ankaufsuntersuchung beim Pferd"
-          subtitle="Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfahren Sie, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann Sie welche Art von AKU benötigen. Schützen Sie sich vor versteckten Mängeln mit fundiertem Wissen."
+          subtitle="Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfährst du, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann du welche Art von AKU benötigst. Schütze dich vor versteckten Mängeln mit fundiertem Wissen."
           metaItems={heroMetaItems}
           primaryCta={{
             href: '/pferde-preis-berechnen',
             label: 'Pferdewert jetzt berechnen',
-            icon: <ArrowRight className="w-5 h-5" />
+            icon: primaryCtaIcon
           }}
           secondaryCta={{
             label: 'Zum Inhalt',
-            icon: <ChevronDown className="w-5 h-5" />,
+            icon: secondaryCtaIcon,
             onClick: handleScrollToToc
           }}
         />
@@ -209,11 +214,14 @@ const AKUPferd: NextPage = () => {
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
                 {numberedTitle('definition', 'Was ist eine AKU beim Pferd?')}
               </h2>
-              <p className="text-lg leading-relaxed text-gray-700">
-                Eine <strong>Ankaufsuntersuchung (AKU)</strong> ist eine standardisierte tierärztliche Untersuchung, die <em>vor dem Pferdekauf</em> durchgeführt wird. Sie dient dem Käufer als wichtigstes Mittel, um den aktuellen Gesundheitszustand und die körperliche Eignung des Pferdes für den beabsichtigten Verwendungszweck zu überprüfen.
+              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+                Die <strong>Ankaufsuntersuchung (AKU) beim Pferd</strong> ist eine tierärztliche Untersuchung vor dem Pferdekauf, die den Gesundheitszustand des Pferdes objektiv bewertet. In diesem Ratgeber erfährst du alles über den Ablauf der AKU, Unterschiede zwischen kleiner und großer AKU, und wann welche Untersuchung sinnvoll ist.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
-                Die AKU ist nicht nur eine medizinische Untersuchung – sie ist auch ein <strong>rechtliches Dokument</strong>, das Ihnen Sicherheit und Absicherung vor versteckten Mängeln bietet. Mit einem gültigen AKU-Vorbehalt können Sie den Kauf ohne Begründung rückgängig machen, wenn die AKU erhebliche Befunde zeigt.
+                Eine <strong>Ankaufsuntersuchung (AKU)</strong> ist eine standardisierte tierärztliche Untersuchung, die <em>vor dem Pferdekauf</em> durchgeführt wird. Sie dient dir als wichtigstes Mittel, um den aktuellen Gesundheitszustand und die körperliche Eignung des Pferdes für den beabsichtigten Verwendungszweck zu überprüfen.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Die AKU ist nicht nur eine medizinische Untersuchung – sie ist auch ein <strong>rechtliches Dokument</strong>, das dir Sicherheit und Absicherung vor versteckten Mängeln bietet. Mit einem gültigen AKU-Vorbehalt kannst du den Kauf ohne Begründung rückgängig machen, wenn die AKU erhebliche Befunde zeigt.
               </p>
               <RatgeberHighlightBox title="Wichtig: Definition der AKU">
                 <ul className="list-disc list-inside space-y-2">
@@ -232,7 +240,7 @@ const AKUPferd: NextPage = () => {
                 {numberedTitle('importance', 'Warum eine AKU beim Pferdekauf so wichtig ist')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Ein Pferdekauf ist eine große finanzielle und emotionale Entscheidung. Eine AKU schützt Sie vor teuren Überraschungen, die erst Wochen oder Monate nach dem Kauf sichtbar werden.
+                Ein Pferdekauf ist eine große finanzielle und emotionale Entscheidung. Eine AKU schützt dich vor teuren Überraschungen, die erst Wochen oder Monate nach dem Kauf sichtbar werden.
               </p>
               <div className="grid md:grid-cols-2 gap-6 my-8">
                 <div className="border-l-4 border-brand pl-4">
@@ -245,11 +253,11 @@ const AKUPferd: NextPage = () => {
                 </div>
                 <div className="border-l-4 border-brand pl-4">
                   <h3 className="font-bold text-lg mb-2">Rücktrittsrecht</h3>
-                  <p className="text-gray-700">Mit einem AKU-Vorbehalt im Kaufvertrag können Sie den Kauf rückgängig machen, wenn erhebliche Befunde vorliegen – ohne weitere Diskussionen mit dem Verkäufer.</p>
+                  <p className="text-gray-700">Mit einem AKU-Vorbehalt im Kaufvertrag kannst du den Kauf rückgängig machen, wenn erhebliche Befunde vorliegen – ohne weitere Diskussionen mit dem Verkäufer.</p>
                 </div>
                 <div className="border-l-4 border-brand pl-4">
                   <h3 className="font-bold text-lg mb-2">Bessere Entscheidung</h3>
-                  <p className="text-gray-700">Sie treffen Ihre Kaufentscheidung basierend auf objektiven Fakten, nicht auf dem Eindruck beim Probereiten.</p>
+                  <p className="text-gray-700">Du triffst deine Kaufentscheidung basierend auf objektiven Fakten, nicht auf dem Eindruck beim Probereiten.</p>
                 </div>
               </div>
             </div>
@@ -260,7 +268,7 @@ const AKUPferd: NextPage = () => {
                 {numberedTitle('types', 'Kleine vs. Große AKU: Was ist der Unterschied?')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Je nach Kaufpreis und Verwendungszweck des Pferdes gibt es verschiedene AKU-Umfänge. Wir zeigen Ihnen, welche AKU für Ihre Situation sinnvoll ist.
+                Je nach Kaufpreis und Verwendungszweck des Pferdes gibt es verschiedene AKU-Umfänge. Wir zeigen dir, welche AKU für deine Situation sinnvoll ist.
               </p>
 
               {/* Info Tiles */}
@@ -312,6 +320,23 @@ const AKUPferd: NextPage = () => {
                   </tbody>
                 </table>
               </div>
+            </div>
+
+            {/* 3.1 Kosten-CTA-Box */}
+            <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded-lg my-8">
+              <h3 className="text-xl font-bold text-brand mb-3">💰 Was kostet eine AKU?</h3>
+              <p className="text-gray-700 mb-4">
+                Die Kosten variieren je nach AKU-Klasse und Region zwischen <strong>150€ und 2.000€</strong>.
+                Für eine vollständige Kostenaufschlüsselung mit Preisen für 2025, regionale Unterschiede
+                und Budgetplanungs-Tipps empfehlen wir unseren detaillierten Kostenguide:
+              </p>
+              <Link
+                href="/pferde-ratgeber/aku-pferd/kosten"
+                className="inline-flex items-center gap-2 bg-brand text-white px-6 py-3 rounded-lg hover:bg-brand-dark transition-colors font-semibold"
+              >
+                AKU-Kosten im Detail ansehen
+                {kostenLinkIcon}
+              </Link>
             </div>
 
             {/* 4. Ablauf der Untersuchung */}
@@ -465,7 +490,7 @@ const AKUPferd: NextPage = () => {
                 {numberedTitle('what-to-watch', 'Worauf sollte man bei der AKU achten?')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Einige Tipps, um das Beste aus Ihrer AKU herauszuholen:
+                Einige Tipps, um das Beste aus deiner AKU herauszuholen:
               </p>
 
               <div className="space-y-4">
@@ -473,7 +498,7 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">🔍</div>
                   <div>
                     <h3 className="font-bold mb-2">Unabhängiger Tierarzt</h3>
-                    <p className="text-gray-700">Wählen Sie einen Tierarzt, der nicht mit dem Verkäufer verbunden ist. Das ist essentiell für objektive Befunde.</p>
+                    <p className="text-gray-700">Wähle einen Tierarzt, der nicht mit dem Verkäufer verbunden ist. Das ist essentiell für objektive Befunde.</p>
                   </div>
                 </div>
 
@@ -481,7 +506,7 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">📋</div>
                   <div>
                     <h3 className="font-bold mb-2">AKU-Vorbehalt im Kaufvertrag</h3>
-                    <p className="text-gray-700">Vereinbaren Sie schriftlich, dass der Kauf an eine positive AKU gekoppelt ist. Dies ermöglicht kostenloses Rücktrittsrecht ohne Befund.</p>
+                    <p className="text-gray-700">Vereinbare schriftlich, dass der Kauf an eine positive AKU gekoppelt ist. Dies ermöglicht kostenloses Rücktrittsrecht ohne Befund.</p>
                   </div>
                 </div>
 
@@ -489,7 +514,7 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">🐎</div>
                   <div>
                     <h3 className="font-bold mb-2">Probereiten beim AKU-Termin</h3>
-                    <p className="text-gray-700">Reiten Sie das Pferd direkt vor der AKU. So sieht der Tierarzt das Pferd in Bewegung und kann besser klinische Befunde einordnen.</p>
+                    <p className="text-gray-700">Reite das Pferd direkt vor der AKU. So sieht der Tierarzt das Pferd in Bewegung und kann besser klinische Befunde einordnen.</p>
                   </div>
                 </div>
 
@@ -497,7 +522,7 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">💬</div>
                   <div>
                     <h3 className="font-bold mb-2">Fragen beim Untersuchungstermin stellen</h3>
-                    <p className="text-gray-700">Nutzen Sie den Termin, um offene Fragen zu stellen. Der Tierarzt kann viel über Voraussagen zukünftiger Probleme erklären.</p>
+                    <p className="text-gray-700">Nutze den Termin, um offene Fragen zu stellen. Der Tierarzt kann viel über Voraussagen zukünftiger Probleme erklären.</p>
                   </div>
                 </div>
 
@@ -505,7 +530,7 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">⏱️</div>
                   <div>
                     <h3 className="font-bold mb-2">Ausreichend Zeit für große AKU einplanen</h3>
-                    <p className="text-gray-700">Großes AKU mit Röntgen benötigt 2-4 Stunden. Hetzen Sie nicht – eine gründliche Untersuchung braucht Zeit.</p>
+                    <p className="text-gray-700">Großes AKU mit Röntgen benötigt 2-4 Stunden. Hetz nicht – eine gründliche Untersuchung braucht Zeit.</p>
                   </div>
                 </div>
 
@@ -513,7 +538,7 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">📸</div>
                   <div>
                     <h3 className="font-bold mb-2">Röntgenbilder-Archiv behalten</h3>
-                    <p className="text-gray-700">Bekommen Sie die Röntgenbilder auf CD/USB. So können Sie diese auch einem Zweittierarzt zeigen, falls nötig.</p>
+                    <p className="text-gray-700">Bekomme die Röntgenbilder auf CD/USB. So kannst du diese auch einem Zweittierarzt zeigen, falls nötig.</p>
                   </div>
                 </div>
               </div>
@@ -525,19 +550,19 @@ const AKUPferd: NextPage = () => {
                 {numberedTitle('legal', 'Rechtliche Aspekte der AKU')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Die AKU hat auch rechtliche Implikationen, die Sie kennen sollten:
+                Die AKU hat auch rechtliche Implikationen, die du kennen solltest:
               </p>
 
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
                   <h3 className="font-bold text-lg mb-2">AKU-Vorbehalt im Kaufvertrag</h3>
-                  <p className="text-gray-700 mb-3">Ein AKU-Vorbehalt ist eine schriftliche Vereinbarung, dass der Kauf an ein positives AKU-Ergebnis gekoppelt ist. Mit dieser Klausel haben Sie das Recht, vom Kaufvertrag zurückzutreten, wenn die AKU erhebliche oder risikobehaftete Befunde zeigt – <strong>ohne Angabe von Gründen und ohne finanzielle Konsequenzen</strong>.</p>
+                  <p className="text-gray-700 mb-3">Ein AKU-Vorbehalt ist eine schriftliche Vereinbarung, dass der Kauf an ein positives AKU-Ergebnis gekoppelt ist. Mit dieser Klausel hast du das Recht, vom Kaufvertrag zurückzutreten, wenn die AKU erhebliche oder risikobehaftete Befunde zeigt – <strong>ohne Angabe von Gründen und ohne finanzielle Konsequenzen</strong>.</p>
                   <p className="text-gray-700 font-semibold mt-3">Musterformulierung: &bdquo;Dieser Kaufvertrag wird unter der Bedingung geschlossen, dass das Pferd die AKU ohne erhebliche Befunde besteht. Ein kostenfreier Rücktritt ist möglich, falls Risiko-Befunde oder wesentliche Abweichungen festgestellt werden, die für die beabsichtigte Reitweise problematisch sind.&ldquo;</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 p-6 rounded-lg border-l-4 border-amber-500">
                   <h3 className="font-bold text-lg mb-2">AKU-Protokoll als Beweis im Rechtsstreit</h3>
-                  <p className="text-gray-700">Das offizielle AKU-Protokoll ist ein anerkanntes Beweismittel vor Gericht. Wenn später Probleme auftreten, die auf den Kaufzeitpunkt zurückzuführen sind, können Sie das AKU-Protokoll vorlegen als Nachweis, dass diese Probleme beim Kauf bereits vorhanden waren (oder nicht).</p>
+                  <p className="text-gray-700">Das offizielle AKU-Protokoll ist ein anerkanntes Beweismittel vor Gericht. Wenn später Probleme auftreten, die auf den Kaufzeitpunkt zurückzuführen sind, kannst du das AKU-Protokoll vorlegen als Nachweis, dass diese Probleme beim Kauf bereits vorhanden waren (oder nicht).</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
@@ -547,19 +572,19 @@ const AKUPferd: NextPage = () => {
 
                 <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
                   <h3 className="font-bold text-lg mb-2">Gewährleistungsrecht nach Kauf</h3>
-                  <p className="text-gray-700">Mit einem ordnungsgemäß durchgeführten AKU-Vorbehalt sind Sie rechtlich gut abgesichert. Sollten nach dem Kauf Probleme auftauchen, die auf ein unerkanntes Leiden hindeuten, können Sie das AKU-Protokoll als Nachweis heranziehen, dass diese Probleme beim Kauf nicht erkannt wurden – eine wichtige Grundlage für eventuelle Schadensersatzforderungen.</p>
+                  <p className="text-gray-700">Mit einem ordnungsgemäß durchgeführten AKU-Vorbehalt bist du rechtlich gut abgesichert. Sollten nach dem Kauf Probleme auftauchen, die auf ein unerkanntes Leiden hindeuten, kannst du das AKU-Protokoll als Nachweis heranziehen, dass diese Probleme beim Kauf nicht erkannt wurden – eine wichtige Grundlage für eventuelle Schadensersatzforderungen.</p>
                 </div>
               </div>
 
               <div className="mt-6 p-4 bg-yellow-50 border border-yellow-300 rounded">
-                <p className="text-gray-800 text-sm"><strong>Hinweis:</strong> Dies ist eine Informationsdarstellung. Bei rechtlichen Fragen sollten Sie einen Anwalt für Pferdekauf oder Tierrecht konsultieren.</p>
+                <p className="text-gray-800 text-sm"><strong>Hinweis:</strong> Dies ist eine Informationsdarstellung. Bei rechtlichen Fragen solltest du einen Anwalt für Pferdekauf oder Tierrecht konsultieren.</p>
               </div>
             </div>
 
             {/* 9. Den richtigen Tierarzt wählen */}
             <div id="vet-selection" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('vet-selection', 'So finden Sie den richtigen AKU-Tierarzt')}
+                {numberedTitle('vet-selection', 'So findest du den richtigen AKU-Tierarzt')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
                 Die Wahl des Tierarztes ist entscheidend für die Qualität der AKU. Hier sind Kriterien für einen guten AKU-Tierarzt:
@@ -594,7 +619,7 @@ const AKUPferd: NextPage = () => {
                   <span className="flex-shrink-0 text-xl">✓</span>
                   <div>
                     <h3 className="font-bold">Gute Reputation in der Pferde-Community</h3>
-                    <p className="text-gray-700 text-sm">Fragen Sie andere Pferdebesitzer oder Reitschulen nach Empfehlungen. Eine gute Reputation ist ein Zeichen für Qualität und Fairness.</p>
+                    <p className="text-gray-700 text-sm">Frage andere Pferdebesitzer oder Reitschulen nach Empfehlungen. Eine gute Reputation ist ein Zeichen für Qualität und Fairness.</p>
                   </div>
                 </div>
 
@@ -617,7 +642,7 @@ const AKUPferd: NextPage = () => {
 
               {/* Regional recommendations */}
               <div className="mt-8">
-                <h3 className="text-xl font-bold mb-4">Wo finden Sie AKU-Spezialisten?</h3>
+                <h3 className="text-xl font-bold mb-4">Wo findest du AKU-Spezialisten?</h3>
                 <RatgeberRegionGrid regions={akuRegions} />
               </div>
             </div>
@@ -628,36 +653,36 @@ const AKUPferd: NextPage = () => {
                 {numberedTitle('after-aku', 'Nach der AKU: Wie geht es weiter?')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Das AKU-Protokoll liegt vor – was tun Sie jetzt damit?
+                Das AKU-Protokoll liegt vor – was machst du jetzt damit?
               </p>
 
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg">
                   <h3 className="font-bold text-lg mb-3">o.b.B. (Ohne besonderen Befund): Kauf empfohlen</h3>
-                  <p className="text-gray-700 mb-3">Falls die AKU nur &quot;o.b.B.&quot; zeigt (keine Abweichungen von der Norm), können Sie das Pferd mit gutem Gewissen kaufen. Speichern Sie das Protokoll ab – es könnte später bei Garantiefragen relevant sein.</p>
+                  <p className="text-gray-700 mb-3">Falls die AKU nur &quot;o.b.B.&quot; zeigt (keine Abweichungen von der Norm), kannst du das Pferd mit gutem Gewissen kaufen. Speichere das Protokoll ab – es könnte später bei Garantiefragen relevant sein.</p>
                   <p className="text-gray-700 font-semibold">Nächste Schritte: Kaufvertrag unterzeichnen, Zahlungsmodalitäten klären, Versicherung abschließen.</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg">
                   <h3 className="font-bold text-lg mb-3">Mit Abweichungen (ohne Risiko-Kennzeichnung): Abwägung nötig</h3>
-                  <p className="text-gray-700 mb-3">Wenn die AKU Befunde mit Abweichungen zeigt (ohne &quot;Risiko&quot;-Kennzeichnung), müssen Sie abwägen:</p>
+                  <p className="text-gray-700 mb-3">Wenn die AKU Befunde mit Abweichungen zeigt (ohne &quot;Risiko&quot;-Kennzeichnung), musst du abwägen:</p>
                   <ul className="space-y-2 text-gray-700 ml-4">
-                    <li>• Sind diese Abweichungen für Ihren beabsichtigten Verwendungszweck relevant?</li>
+                    <li>• Sind diese Abweichungen für deinen beabsichtigten Verwendungszweck relevant?</li>
                     <li>• Wie ist das Risikoprofil des Tierarztes einzuschätzen?</li>
                     <li>• Würde eine Reitweise-Anpassung helfen (z.B. nur Freizeit statt Turniersport)?</li>
                   </ul>
-                  <p className="text-gray-700 mt-3 font-semibold">Tipp: Holen Sie eine Zweitmeinung von einem anderen AKU-Tierarzt ein, wenn Sie unsicher sind.</p>
+                  <p className="text-gray-700 mt-3 font-semibold">Tipp: Hole eine Zweitmeinung von einem anderen AKU-Tierarzt ein, wenn du unsicher bist.</p>
                 </div>
 
                 <div className="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg">
                   <h3 className="font-bold text-lg mb-3">Mit Risiko-Befunden: Rücktritt empfohlen</h3>
-                  <p className="text-gray-700 mb-3">Bei Befunden mit &quot;Risiko&quot;-Kennzeichnung würden die meisten Tierärzte vom Kauf für die beabsichtigte Reitweise abraten. Mit einem AKU-Vorbehalt können Sie kostenfrei vom Kauf zurücktreten.</p>
-                  <p className="text-gray-700 font-semibold">Hinweis: Machen Sie von Ihrem Rücktrittsrecht Gebrauch – Risiko-Befunde haben oft ernsthafte Konsequenzen, die sich nicht bessern.</p>
+                  <p className="text-gray-700 mb-3">Bei Befunden mit &quot;Risiko&quot;-Kennzeichnung würden die meisten Tierärzte vom Kauf für die beabsichtigte Reitweise abraten. Mit einem AKU-Vorbehalt kannst du kostenfrei vom Kauf zurücktreten.</p>
+                  <p className="text-gray-700 font-semibold">Hinweis: Nutze dein Rücktrittsrecht – Risiko-Befunde haben oft ernsthafte Konsequenzen, die sich nicht bessern.</p>
                 </div>
               </div>
 
               <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded">
-                <p className="text-gray-800"><strong>Wichtig:</strong> Falls Sie nach dem Kauf (ohne AKU-Vorbehalt) später feststellen, dass das Pferd bereits beim Kauf erkrankt war, können Sie eventuell Gewährleistungsrechte geltend machen – aber das ist deutlich schwieriger ohne AKU-Dokumentation.</p>
+                <p className="text-gray-800"><strong>Wichtig:</strong> Falls du nach dem Kauf (ohne AKU-Vorbehalt) später feststellen solltest, dass das Pferd bereits beim Kauf erkrankt war, kannst du eventuell Gewährleistungsrechte geltend machen – aber das ist deutlich schwieriger ohne AKU-Dokumentation.</p>
               </div>
             </div>
 
@@ -670,22 +695,22 @@ const AKUPferd: NextPage = () => {
               <RatgeberHighlightBox title="Wichtigste Takeaways">
                 <ol className="list-decimal list-inside space-y-2">
                   <li>Eine AKU ist die wichtigste Investition beim Pferdekauf – sie schützt vor versteckten Mängeln</li>
-                  <li>Nutzen Sie einen unabhängigen Tierarzt, nicht den Stallveterinär des Verkäufers</li>
-                  <li>Vereinbaren Sie einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht</li>
+                  <li>Nutze einen unabhängigen Tierarzt, nicht den Stallveterinär des Verkäufers</li>
+                  <li>Vereinbare einen AKU-Vorbehalt im Kaufvertrag für kostenloses Rücktrittsrecht</li>
                   <li>Kleine AKU (1-2h) für Freizeitpferde &lt;5.000€, große AKU für Sportpferde ab 10.000€</li>
                   <li>Die Untersuchung besteht aus klinischer Prüfung + 18 Standard-Röntgenaufnahmen (bei großer AKU, seit 2018)</li>
                   <li>AKU-Befunde seit 2018: o.b.B., Abweichungen, oder Risiko-Befunde (nicht mehr Klassen I-V)</li>
-                  <li>Das AKU-Protokoll gehört dem Käufer und ist rechtliches Beweismittel</li>
-                  <li>Mit guter Vorbereitung bekommen Sie objektive, zuverlässige Befunde</li>
-                  <li>Eine gründliche große AKU dauert 2-4 Stunden – hetzen Sie nicht</li>
-                  <li>Speichern Sie das Protokoll auf – es wird bei zukünftigen tierärztlichen Fragen wertvoll sein</li>
+                  <li>Das AKU-Protokoll gehört dir und ist rechtliches Beweismittel</li>
+                  <li>Mit guter Vorbereitung bekommst du objektive, zuverlässige Befunde</li>
+                  <li>Eine gründliche große AKU dauert 2-4 Stunden – hetz nicht</li>
+                  <li>Speichere das Protokoll ab – es wird bei zukünftigen tierärztlichen Fragen wertvoll sein</li>
                 </ol>
               </RatgeberHighlightBox>
 
               <div className="mt-8 p-6 bg-gradient-to-r from-brand/5 to-amber-100 rounded-lg border border-brand/20">
                 <h3 className="font-bold text-lg mb-3">Eine AKU ist eine Investition in Sicherheit – nicht nur Geld sparen!</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Die AKU ist nicht nur dazu da, Kosten zu sparen. Sie ermöglicht Ihnen, eine <strong>informierte Kaufentscheidung</strong> zu treffen. Mit dem Wissen um den genauen Gesundheitszustand des Pferdes können Sie realistische Erwartungen setzen und das Pferd später richtig trainieren und betreuen.
+                  Die AKU ist nicht nur dazu da, Kosten zu sparen. Sie ermöglicht dir, eine <strong>informierte Kaufentscheidung</strong> zu treffen. Mit dem Wissen um den genauen Gesundheitszustand des Pferdes kannst du realistische Erwartungen setzen und das Pferd später richtig trainieren und betreuen.
                 </p>
               </div>
             </div>
@@ -694,7 +719,7 @@ const AKUPferd: NextPage = () => {
             <div className="mt-16 p-6 bg-amber-50 border-l-4 border-brand rounded-lg">
               <h3 className="font-bold text-lg mb-2">Was kostet eine AKU?</h3>
               <p className="text-gray-700 mb-4">
-                Die Kosten für eine Ankaufsuntersuchung variieren je nach Umfang, Region und Tierarzt. Eine detaillierte Kostenübersicht mit aktuellen Preisen nach neuer Gebührenordnung für Tierärzte (GOT 2024) finden Sie in unserem Kosten-Guide.
+                Die Kosten für eine Ankaufsuntersuchung variieren je nach Umfang, Region und Tierarzt. Eine detaillierte Kostenübersicht mit aktuellen Preisen nach neuer Gebührenordnung für Tierärzte (GOT 2024) findest du in unserem Kosten-Guide.
               </p>
               <Link href="/pferde-ratgeber/aku-pferd/kosten" className="inline-block px-6 py-2 bg-brand text-white rounded hover:bg-brand/90 transition">
                 Zur detaillierten Kostenübersicht →
@@ -712,7 +737,7 @@ const AKUPferd: NextPage = () => {
           <div className="mt-16">
             <RatgeberRelatedArticles
               title="Weiterführende Artikel zur AKU"
-              description="Vertiefen Sie Ihr Wissen mit unseren speziellen Guides zu AKU-Ablauf, Befundklassen und Kosten."
+              description="Vertiefe dein Wissen mit unseren speziellen Guides zu AKU-Ablauf, Befundklassen und Kosten."
               articles={akuRelatedArticles}
             />
           </div>
@@ -720,7 +745,7 @@ const AKUPferd: NextPage = () => {
           {/* Final CTA */}
           <RatgeberFinalCTA
             title="Bereit, die richtige Kaufentscheidung zu treffen?"
-            description="Nutzen Sie unsere KI-gestützte Pferdebewertung, um den Marktwert Ihres zukünftigen Pferdes zu analysieren. Kombiniert mit einer professionellen AKU erhalten Sie maximale Sicherheit beim Pferdekauf."
+            description="Nutze unsere KI-gestützte Pferdebewertung, um den Marktwert deines zukünftigen Pferdes zu analysieren. Kombiniert mit einer professionellen AKU erhältst du maximale Sicherheit beim Pferdekauf."
             image={{
               src: '/images/shared/blossi-shooting.webp',
               alt: 'KI-gestützte Pferdebewertung für sichere Kaufentscheidungen'

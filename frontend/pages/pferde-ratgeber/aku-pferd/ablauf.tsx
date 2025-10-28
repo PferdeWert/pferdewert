@@ -14,7 +14,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
-import { getRatgeberBySlug } from "@/lib/ratgeber-registry"
+import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
 import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 interface PhaseStep {
@@ -166,24 +166,14 @@ const faqItems: FAQItem[] = [
   }
 ]
 
-const relatedArticles = [
-  {
-    href: "/pferde-ratgeber/aku-pferd",
-    image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
-    title: "AKU Pferd Überblick",
-    badge: "AKU Guide",
-    readTime: "12 Min.",
-    description: "Das komplette Grundwissen zur Ankaufsuntersuchung – Kosten, Klassen, Befunde und Entscheidungshilfen."
-  },
-  {
-    href: "/pferde-ratgeber/aku-pferd/kosten",
-    image: getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten/hero.webp',
-    title: "AKU Kosten transparent",
-    badge: "Kosten & Preise",
-    readTime: "7 Min.",
-    description: "Alle Kosten je AKU-Klasse, regionale Unterschiede und wie du clever planst."
-  }
-]
+const relatedArticles = getRelatedArticles('aku-pferd/ablauf').map(entry => ({
+  href: getRatgeberPath(entry.slug),
+  image: entry.image,
+  title: entry.title,
+  badge: entry.category,
+  readTime: entry.readTime,
+  description: entry.description
+}))
 
 const AkuPferdAblauf: NextPage = () => {
   const handleNavigate = (id: string) => scrollToSection(id)
@@ -223,7 +213,7 @@ const AkuPferdAblauf: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src={getRatgeberBySlug('aku-pferd/ablauf')?.image || '/images/ratgeber/aku-pferd/ablauf/hero.webp'}
+          src='/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp'
           alt="Tierarzt führt Ankaufsuntersuchung bei Pferd durch"
           priority
         />

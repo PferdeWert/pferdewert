@@ -11,7 +11,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
-import { getRatgeberBySlug, getRatgeberPath } from '@/lib/ratgeber-registry'
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
@@ -48,34 +48,16 @@ const pferdemarktFaqItems = [
   }
 ]
 
-// Related Articles - loaded from registry
-const relatedArticlesSlugs = [
-  'pferd-kaufen/was-kostet-ein-pferd',
-  'pferd-kaufen',
-  'aku-pferd'
-]
-
-const relatedArticles = relatedArticlesSlugs
-  .map(slug => {
-    const entry = getRatgeberBySlug(slug)
-    if (!entry) return null
-    return {
-      href: getRatgeberPath(entry.slug),
-      image: entry.image,
-      title: entry.title,
-      description: entry.description,
-      readTime: entry.readTime,
-      badge: entry.category
-    }
-  })
-  .filter(Boolean) as Array<{
-    href: string
-    image: string
-    title: string
-    description: string
-    readTime: string
-    badge: string
-  }>
+// Related Articles - using hybrid architecture from registry
+const relatedArticles = getRelatedArticles('pferdemarkt')
+  .map(entry => ({
+    href: getRatgeberPath(entry.slug),
+    image: entry.image,
+    title: entry.title,
+    description: entry.description,
+    readTime: entry.readTime,
+    badge: entry.category
+  }))
 
 // Table of Contents Sections
 const tableOfContentsSections = [
@@ -297,7 +279,7 @@ const Pferdemarkt: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/pferdemarkt-hero.webp"
+          src="/images/ratgeber/pferdemarkt-hero-v2.webp"
           alt="Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern"
           priority
           attribution={{

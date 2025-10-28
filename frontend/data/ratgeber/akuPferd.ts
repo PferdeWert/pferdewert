@@ -1,5 +1,6 @@
 import { RatgeberRelatedArticle } from '@/components/ratgeber/RatgeberRelatedArticles'
 import { FAQItem } from '@/types/faq.types'
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 
 export interface RatgeberSectionItem {
   id: string
@@ -29,32 +30,14 @@ export interface AkuRegionItem {
 // Spoke-Seite "/kosten" ist jetzt exclusive für Kosten-Keywords zuständig
 // Keine Kosten-Daten auf Hub-Seite (nur Link zur Spoke-Seite)
 
-export const akuRelatedArticles: RatgeberRelatedArticle[] = [
-  {
-    href: '/pferde-ratgeber/aku-pferd/kosten',
-    image: '/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp',
-    title: 'AKU Kosten 2025',
-    badge: 'Kosten & Preise',
-    readTime: '8 Min.',
-    description: 'Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.'
-  },
-  {
-    href: '/pferde-ratgeber/was-kostet-ein-pferd',
-    image: '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/pferd-kosten-uebersicht.webp',
-    title: 'Was kostet ein Pferd?',
-    badge: 'Kauf & Verkauf',
-    readTime: '14 Min.',
-    description: 'Detaillierte Übersicht aller Kosten: Kaufpreis, laufende Kosten und versteckte Ausgaben. So planst du dein Budget richtig.'
-  },
-  {
-    href: '/pferde-ratgeber/pferd-kaufen',
-    image: '/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp',
-    title: 'Pferd kaufen - Der komplette Ratgeber',
-    badge: 'Kauf & Verkauf',
-    readTime: '18 Min.',
-    description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.'
-  }
-]
+export const akuRelatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('aku-pferd').map(entry => ({
+  href: getRatgeberPath(entry.slug),
+  image: entry.image,
+  title: entry.title,
+  badge: entry.category,
+  readTime: entry.readTime,
+  description: entry.description
+}))
 
 // ÜBERARBEITET: Fokus auf INFORMATIONAL CONTENT, nicht Kosten
 export const akuSections: RatgeberSectionItem[] = [
@@ -136,11 +119,11 @@ export const akuRegions: AkuRegionItem[] = [
 export const akuFaqItems: FAQItem[] = [
   {
     question: 'Was ist eine Ankaufsuntersuchung (AKU) beim Pferd?',
-    answer: 'Eine Ankaufsuntersuchung ist eine standardisierte tierärztliche Untersuchung, die vor dem Pferdekauf durchgeführt wird. Sie dient dazu, den aktuellen Gesundheitszustand und die körperliche Eignung des Pferdes für den beabsichtigten Verwendungszweck zu überprüfen. Die AKU gibt dem Käufer Sicherheit und rechtliche Absicherung vor versteckten Mängeln.'
+    answer: 'Eine Ankaufsuntersuchung ist eine standardisierte tierärztliche Untersuchung, die vor dem Pferdekauf durchgeführt wird. Sie dient dir dazu, den aktuellen Gesundheitszustand und die körperliche Eignung des Pferdes für den beabsichtigten Verwendungszweck zu überprüfen. Die AKU gibt dir Sicherheit und rechtliche Absicherung vor versteckten Mängeln.'
   },
   {
     question: 'Warum ist eine AKU beim Pferdekauf so wichtig?',
-    answer: 'Eine AKU schützt Sie vor teuren Überraschungen nach dem Kauf. Sie dokumentiert den Gesundheitszustand zum Kaufzeitpunkt, ermöglicht Rücktritt „ohne Befund", bietet rechtliche Absicherung bei späteren Problemen und hilft Ihnen, die richtige Kaufentscheidung zu treffen. Eine AKU zahlt sich oft schon beim ersten Großschadenfall mehrfach aus.'
+    answer: 'Eine AKU schützt dich vor teuren Überraschungen nach dem Kauf. Sie dokumentiert den Gesundheitszustand zum Kaufzeitpunkt, ermöglicht Rücktritt „ohne Befund", bietet dir rechtliche Absicherung bei späteren Problemen und hilft dir, die richtige Kaufentscheidung zu treffen. Eine AKU zahlt sich oft schon beim ersten Großschadenfall mehrfach aus.'
   },
   {
     question: 'Wo ist der Unterschied zwischen kleiner und großer AKU?',
@@ -148,7 +131,7 @@ export const akuFaqItems: FAQItem[] = [
   },
   {
     question: 'Wie läuft eine Ankaufsuntersuchung ab?',
-    answer: 'Die AKU gliedert sich in: (1) Allgemeine Untersuchung (Herz, Lunge, Zähne, Augen), (2) Bewegungsanalyse (Schritt, Trab, Longieren), (3) Flexionsproben (alle Gelenke), (4) Röntgenaufnahmen (bei großer AKU), (5) Befundung und Protokoll-Erstellung (nach 1-2 Tagen). Der ganze Prozess dauert von Termin bis Protokoll etwa 2-3 Tage.'
+    answer: 'Die AKU gliedert sich in: (1) Allgemeine Untersuchung (Herz, Lunge, Zähne, Augen), (2) Bewegungsanalyse (Schritt, Trab, Longieren), (3) Flexionsproben (alle Gelenke), (4) Röntgenaufnahmen (bei großer AKU), (5) Befundung und Protokoll-Erstellung (nach 1-2 Tagen). Der ganze Prozess dauert von deinem Termin bis zum Protokoll etwa 2-3 Tage.'
   },
   {
     question: 'Wie funktioniert die Befundung seit dem Röntgenleitfaden 2018?',
@@ -156,6 +139,18 @@ export const akuFaqItems: FAQItem[] = [
   },
   {
     question: 'Wer sollte eine AKU durchführen – der Tierarzt des Verkäufers?',
-    answer: 'Nein, unbedingt ein unabhängiger Tierarzt, den Sie selbst auswählen. Der Stallveterinär des Verkäufers hat einen Interessenskonflikt. Ein unabhängiger Tierarzt gibt Ihnen objektive Befunde und rechtliche Sicherheit. Tipp: Wählen Sie einen erfahrenen AKU-Spezialisten mit guter Reputation.'
+    answer: 'Nein, unbedingt ein unabhängiger Tierarzt, den du selbst auswählst. Der Stallveterinär des Verkäufers hat einen Interessenskonflikt. Ein unabhängiger Tierarzt gibt dir objektive Befunde und rechtliche Sicherheit. Tipp: Wähle einen erfahrenen AKU-Spezialisten mit guter Reputation.'
+  },
+  {
+    question: 'Wie lange dauert eine Ankaufsuntersuchung?',
+    answer: 'Eine kleine AKU dauert etwa 1-2 Stunden (nur klinische Untersuchung). Eine große AKU mit Röntgenaufnahmen dauert 2-4 Stunden insgesamt: etwa 1-2 Stunden klinisch, plus 30-60 Minuten für Röntgenaufnahmen und Befundung. Das AKU-Protokoll wird meist 1-2 Tage nach deinem Termin fertiggestellt.'
+  },
+  {
+    question: 'Wann sollte ich eine große AKU wählen?',
+    answer: 'Eine große AKU ist empfohlen, wenn der Kaufpreis über 10.000€ liegt, es sich um ein Sportpferd handelt, das Pferd älter als 7 Jahre ist, oder die Vorgeschichte unklar ist. Für Freizeitpferde bis 5.000€ reicht oft eine kleine AKU. Generell: Bei höherem Investitionsschutz und mehr Unsicherheit solltest du dich für die große AKU entscheiden.'
+  },
+  {
+    question: 'Kann ich die AKU nutzen, um den Kaufpreis zu verhandeln?',
+    answer: 'Ja. Mit AKU-Vorbehalt im Kaufvertrag kannst du den Kauf ohne Kosten rückgängig machen, falls risikobehaftete Befunde auftreten. Befunde können auch Basis für Preisverhandlungen sein – insbesondere wenn die Befunde zwar vorhanden sind, aber das Pferd nicht für deine beabsichtigte Reitweise problematisch ist.'
   }
 ]

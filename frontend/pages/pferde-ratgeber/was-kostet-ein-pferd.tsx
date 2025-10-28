@@ -9,7 +9,7 @@ import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { Calculator, ShieldAlert } from 'lucide-react'
-import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -65,14 +65,10 @@ const faqItems = [
 ]
 
 // Related articles - Using central registry for correct image paths
-const relatedArticles = [
-  getRatgeberBySlug('pferd-kaufen'),
-  getRatgeberBySlug('aku-pferd'),
-  getRatgeberBySlug('pferd-verkaufen')
-].filter((entry): entry is NonNullable<typeof entry> => entry !== undefined).map(entry => ({
+const relatedArticles = getRelatedArticles('was-kostet-ein-pferd').map(entry => ({
   title: entry.title,
   description: entry.description,
-  href: `/pferde-ratgeber/${entry.slug}`,
+  href: getRatgeberPath(entry.slug),
   image: entry.image,
   badge: entry.category,
   readTime: entry.readTime

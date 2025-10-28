@@ -12,7 +12,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
-import { getRatgeberBySlug } from '@/lib/ratgeber-registry';
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems';
 
 // FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
@@ -44,32 +44,14 @@ const sections = [
   { id: 'faq', title: 'Häufige Fragen' }
 ];
 
-const relatedArticles = [
-    {
-      href: '/pferde-ratgeber/pferd-kaufen',
-      image: getRatgeberBySlug('pferd-kaufen')?.image || '/images/ratgeber/pferd-kaufen/hero.webp',
-      title: 'Pferd kaufen: Der ultimative Ratgeber für 2025',
-      badge: 'Kaufberatung',
-      readTime: '11 min',
-      description: 'Umfassender Ratgeber zum Pferdekauf mit Preisübersicht, Checkliste, Anfänger-Tipps und AI-Bewertung für faire Preise.'
-    },
-    {
-      href: '/pferde-ratgeber/aku-pferd',
-      image: getRatgeberBySlug('aku-pferd')?.image || '/images/ratgeber/aku-pferd/hero.webp',
-      title: 'AKU beim Pferd: Kosten, Ablauf & Klassen 2025',
-      badge: 'Kaufsicherheit',
-      readTime: '12 min',
-      description: 'Alles zur Ankaufsuntersuchung: Welche AKU-Klasse brauchst du? Was wird untersucht? Kompletter Ratgeber für Pferdekäufer.'
-    },
-    {
-      href: '/pferde-ratgeber/aku-pferd/kosten',
-      image: getRatgeberBySlug('aku-pferd/kosten')?.image || '/images/ratgeber/aku-pferd/kosten.webp',
-      title: 'AKU Pferd Kosten 2025: Kompletter Preisüberblick',
-      badge: 'Kosten',
-      readTime: '10 min',
-      description: 'Was kostet eine Ankaufsuntersuchung wirklich? Detaillierte Preisaufstellung nach AKU-Klassen mit Spartipps.'
-    }
-];
+const relatedArticles = getRelatedArticles('pferd-verkaufen').map(entry => ({
+  href: getRatgeberPath(entry.slug),
+  image: entry.image,
+  title: entry.title,
+  badge: entry.category,
+  readTime: entry.readTime,
+  description: entry.description
+}));
 
 const faqItems = [
     {
@@ -249,7 +231,7 @@ const PferdVerkaufen: NextPage = () => {
           }}
         />
         <RatgeberHeroImage
-          src={getRatgeberBySlug('pferd-verkaufen')?.image || '/images/ratgeber/pferd-verkaufen/hero.webp'}
+          src='/images/ratgeber/pferd-verkaufen/pferd-verkaufen-beratung.webp'
           alt="Erfolgreicher Pferdeverkauf mit zufriedenem Verkäufer und neuem Besitzer"
         />
       </div>
