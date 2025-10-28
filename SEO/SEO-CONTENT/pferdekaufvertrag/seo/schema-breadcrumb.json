@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://pferdewert.de"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ratgeber",
+      "item": "https://pferdewert.de/ratgeber"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Pferdekaufvertrag",
+      "item": "https://pferdewert.de/ratgeber/pferdekaufvertrag"
+    }
+  ]
+}

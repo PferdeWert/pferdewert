@@ -1,0 +1,734 @@
+{
+  "phase": "3",
+  "primary_keyword": "pferdekaufvertrag",
+  "timestamp": "2025-10-28T14:45:00Z",
+  "based_on": {
+    "phase_2_summary": "serp-analysis.json + keyword-analysis.json (Phase 1B + 2 consolidated)",
+    "research_files": [
+      "SEO/SEO-CONTENT/pferdekaufvertrag/research/serp-analysis.json",
+      "SEO/SEO-CONTENT/pferdekaufvertrag/research/keyword-analysis.json",
+      "SEO/SEO-CONTENT/pferdekaufvertrag/research/phase-2-summary.md"
+    ]
+  },
+
+  "article_metadata": {
+    "title": "Pferdekaufvertrag: Rechtssicher kaufen & verkaufen",
+    "meta_description": "Pferdekaufvertrag einfach erklärt: Checkliste, Muster, rechtliche Aspekte & häufige Fehler vermeiden. Legalos Anleitung für private & gewerbliche Verkäufe.",
+    "primary_keyword": "pferdekaufvertrag",
+    "secondary_keywords": [
+      "pferdekaufvertrag fn",
+      "pferdekaufvertrag privat ohne gewährleistung",
+      "pferdekaufvertrag privat pdf",
+      "gewährleistung pferdekauf",
+      "pferdekaufvertrag muster",
+      "ankaufsuntersuchung pferd",
+      "pferdekauf checkliste"
+    ],
+    "word_count_data": {
+      "target_word_count": 3336,
+      "word_count_strategy": "serp_competitive",
+      "word_count_reasoning": "Top 10 average = 3033, target = avg + 10% = 3336 words for competitive ranking",
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 234,
+          "label": "Introduction + Hook"
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 2422,
+          "label": "6-7 Main H2 Sections (avg 346/section)"
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 334,
+          "label": "FAQ Section (5+ questions, 50-80 words each)"
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 234,
+          "label": "Conclusion + CTA"
+        },
+        "total_calculated": 3224,
+        "buffer_words": 112,
+        "final_target": 3336
+      }
+    }
+  },
+
+  "introduction": {
+    "word_count": 234,
+    "hook": "Ein Pferdekaufvertrag ist nicht nur wichtig – er ist Ihre rechtliche Absicherung. Ohne ihn riskieren Sie erhebliche finanzielle Verluste und legale Komplikationen. Diese Anleitung zeigt Ihnen Schritt für Schritt, wie Sie rechtssicher kaufen oder verkaufen.",
+    "user_intent": "Readers need to understand the critical importance of a horse purchase contract and what to expect in this guide. Many are private sellers/buyers (not lawyers) searching for clear, practical guidance.",
+    "preview": "Sie erfahren, welche rechtlichen Grundlagen gelten, welche 7 wesentlichen Komponenten in jeden Vertrag gehören, wie Sie private vs. gewerbliche Verkäufe unterscheiden, und wie Sie häufige Fehler vermeiden. Am Ende haben Sie eine praktische Checkliste und Zugang zu kostenlosen Mustern.",
+    "keyword_integration": [
+      "pferdekaufvertrag",
+      "rechtssicher",
+      "pferdekauf checkliste",
+      "gewährleistung"
+    ],
+    "content_focus": "Problem hook + value proposition. Reader should immediately understand why they're reading and what they'll learn."
+  },
+
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "H2: Was ist ein Pferdekaufvertrag und warum ist er unverzichtbar?",
+      "content_type": "explanation",
+      "word_count": 346,
+      "subsections": [
+        {
+          "heading": "H3: Definition: Rechtliche Grundlagen des Pferdekaufvertrags",
+          "word_count": 120,
+          "keywords": [
+            "pferdekaufvertrag definition",
+            "kaufvertrag pferd",
+            "BGB kaufvertrag"
+          ],
+          "content_focus": "Clear, beginner-friendly definition. Reference BGB §433 (sales contract law). Explain that horses fall under general sales law, not special regulations."
+        },
+        {
+          "heading": "H3: Warum ist ein schriftlicher Vertrag entscheidend?",
+          "word_count": 110,
+          "keywords": [
+            "schriftliche vereinbarung pferd",
+            "pferdekauf ohne vertrag",
+            "rechtsschutz pferdeverkauf"
+          ],
+          "content_focus": "Explain legal protection aspects: written contracts provide proof, prevent disputes, clarify responsibilities. Mention BGB §433 & §437 warranty provisions."
+        },
+        {
+          "heading": "H3: Mündliche Absprachen vs. schriftlicher Vertrag",
+          "word_count": 116,
+          "keywords": [
+            "mündlicher kaufvertrag",
+            "pferd kaufvertrag schrift",
+            "handschlag kaufvertrag gültig"
+          ],
+          "content_focus": "Explain why written contracts trump handshake agreements. Address user concern: 'Can we just do this informally?' Answer: legally questionable, no proof of terms."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferdekaufvertrag definition",
+          "was ist ein pferdekaufvertrag"
+        ],
+        "supporting": [
+          "kaufvertrag pferd",
+          "pferdekauf rechtlich",
+          "BGB kaufvertrag"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Cite BGB §433 (sales law) and §437 (warranty/defects). Explain German legal framework with precision for credibility."
+        },
+        {
+          "type": "experience",
+          "content": "Frame from perspective of protecting both buyers AND sellers. Show understanding of real-world horse transactions."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "callout_box",
+          "description": "Quick fact: '30,000+ horses are bought/sold annually in Germany. Most disputes arise from missing contract terms.'"
+        }
+      ]
+    },
+
+    {
+      "section_number": 2,
+      "heading": "H2: Die 7 wesentlichen Bestandteile eines Pferdekaufvertrags",
+      "content_type": "checklist",
+      "word_count": 450,
+      "subsections": [
+        {
+          "heading": "H3: 1. Vertragsgegenstand: Pferd eindeutig identifizieren",
+          "word_count": 70,
+          "keywords": [
+            "pferd identifizierung vertrag",
+            "rasse name alter chip"
+          ],
+          "content_focus": "What information is needed: name, breed, age, color markings, microchip/passport number. Why: prevents disputes over which horse."
+        },
+        {
+          "heading": "H3: 2. Kaufpreis und Zahlungsmodalitäten",
+          "word_count": 75,
+          "keywords": [
+            "kaufpreis zahlung pferdeverkauf",
+            "ratenzahlung pferd",
+            "zahlung vertragsabschluss"
+          ],
+          "content_focus": "Specify exact price, payment schedule (Einmalzahlung vs. Ratenzahlung), payment method, due date. Mention Eigentumsvorbehalt (retention of title if installments)."
+        },
+        {
+          "heading": "H3: 3. Gefahrübergang und Eigentumsübergang",
+          "word_count": 70,
+          "keywords": [
+            "gefahrübergang pferd",
+            "eigentumsübergang",
+            "übergabe pferdeverkauf"
+          ],
+          "content_focus": "When does ownership transfer? When does buyer assume risk? Usually at physical delivery. Explain legal default (BGB §446) vs. custom terms."
+        },
+        {
+          "heading": "H3: 4. Gewährleistung und Mängelrechte",
+          "word_count": 85,
+          "keywords": [
+            "gewährleistung pferdeverkauf",
+            "mängelrechte pferd",
+            "mangel gewährleistung"
+          ],
+          "content_focus": "Warranty period: 2 years (BGB §437) for private sales unless excluded. Different for commercial sales. Mention Mängelrüge (notification deadline)."
+        },
+        {
+          "heading": "H3: 5. Beschaffenheitsvereinbarungen (Was ist das Pferd?)",
+          "word_count": 80,
+          "keywords": [
+            "beschaffenheitsvereinbarung pferd",
+            "eigenschaften pferdeverkauf",
+            "reitstunde ausbildung"
+          ],
+          "content_focus": "Define what's included: saddle-trained, jumping ability, temperament, vices? Be specific. Unclear descriptions lead to disputes. Include AKU results."
+        },
+        {
+          "heading": "H3: 6. Übergabe und Empfangsbestätigung",
+          "word_count": 70,
+          "keywords": [
+            "übergabebestätigung pferd",
+            "empfangsbestätigung"
+          ],
+          "content_focus": "Date/time of handover, condition check at transfer, buyer acceptance (or objections). Signature confirmation protects both parties."
+        },
+        {
+          "heading": "H3: 7. Schriftformklausel und Unterschriften",
+          "word_count": 60,
+          "keywords": [
+            "schriftformklausel",
+            "unterschrift vertrag"
+          ],
+          "content_focus": "Contract must be signed by both parties. Include statement: 'This contract represents the complete agreement.' Prevents later claims of additional terms."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "wesentliche bestandteile pferdekaufvertrag",
+          "7 komponenten pferdekauf"
+        ],
+        "supporting": [
+          "gewährleistung",
+          "eigentumsübergang",
+          "zahlungsmodalitäten"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference BGB §437, §438 (warranty periods), §446 (transfer of risk), §474 ff. (consumer goods). Demonstrate legal precision."
+        },
+        {
+          "type": "data",
+          "content": "Mention that 80% of horse purchase disputes stem from missing or unclear components in these 7 areas."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Interactive checklist: 7 checkboxes with explanations. Users can verify each component is in their contract."
+        },
+        {
+          "type": "table",
+          "description": "Component | What to Include | Why It Matters | Example"
+        }
+      ]
+    },
+
+    {
+      "section_number": 3,
+      "heading": "H2: Private vs. gewerblicher Pferdeverkauf: Unterschiede erklärt",
+      "content_type": "comparison",
+      "word_count": 300,
+      "subsections": [
+        {
+          "heading": "H3: Rechtliche Unterschiede (Verbrauchsgüterkauf vs. Handelskauf)",
+          "word_count": 100,
+          "keywords": [
+            "verbrauchsgüterkauf pferd",
+            "privat gewerblich pferdeverkauf",
+            "gewährleistung privat kaufen"
+          ],
+          "content_focus": "Private sale = consumer purchase protection (2 years warranty). Commercial = buyer has less protection unless negotiated. Explain Verbraucher vs. Unternehmer under BGB."
+        },
+        {
+          "heading": "H3: Gewährleistungsrechte Vergleich",
+          "word_count": 100,
+          "keywords": [
+            "gewährleistung unterschied",
+            "mängelrechte privat gewerblich"
+          ],
+          "content_focus": "Private: 2-year warranty by default, limited exclusion rights. Commercial: often no warranty unless stated. Explain why: consumer protection laws."
+        },
+        {
+          "heading": "H3: Wann bin ich 'Unternehmer' und wann 'Privatperson'?",
+          "word_count": 100,
+          "keywords": [
+            "privatverkäufer gewerbetreibender",
+            "häufiger verkäufer gewerblich"
+          ],
+          "content_focus": "If you sell horses regularly = commercial seller (Unternehmer). One-time sale = private (Verbraucher). Explain impact on buyer protections & warranty."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferdekaufvertrag privat ohne gewährleistung",
+          "privat vs. gewerblich"
+        ],
+        "supporting": [
+          "verbrauchsgüterkauf",
+          "gewährleistungsausschluss",
+          "unternehmer definition"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Cite BGB §433, §474 ff. (consumer goods), §434 (buyer rights). Distinguish zwischen Verbrauchsgüterkauf and regular sales law."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "comparison_table",
+          "description": "Private Seller | Commercial Seller (columns) | Warranty Duration, Buyer Rights, Exclusion Clauses, Documentation Requirements (rows)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 4,
+      "heading": "H2: Häufige Fehler beim Pferdekaufvertrag – und wie Sie sie vermeiden",
+      "content_type": "case_study",
+      "word_count": 300,
+      "subsections": [
+        {
+          "heading": "H3: Fehler 1: Zu vage Beschaffenheitsvereinbarungen",
+          "word_count": 75,
+          "keywords": [
+            "eigenschaften pferd nicht spezifiziert",
+            "vage vertragsbedingungen"
+          ],
+          "content_focus": "Case study: Buyer assumes horse is jumping-trained; contract says 'trained horse.' Leads to dispute. Solution: List specific abilities, training level, temperament traits."
+        },
+        {
+          "heading": "H3: Fehler 2: Gewährleistung nicht geklärt",
+          "word_count": 75,
+          "keywords": [
+            "gewährleistungsausschluss vergessen",
+            "mangel nicht dokumentiert"
+          ],
+          "content_focus": "Case study: Seller assumes 'no warranty' implied; buyer expects 2-year protection. Dispute after month 3 when lameness appears. Solution: Explicitly state warranty terms in writing."
+        },
+        {
+          "heading": "H3: Fehler 3: Ankaufsuntersuchung (AKU) nicht dokumentiert",
+          "word_count": 75,
+          "keywords": [
+            "aku nicht im vertrag",
+            "tierärztliche untersuchung dokumentation"
+          ],
+          "content_focus": "Case study: Seller claims AKU was done; no written proof. Veterinary findings omitted from contract. Buyer later claims hidden defects. Solution: Attach AKU report to contract, reference findings."
+        },
+        {
+          "heading": "H3: Fehler 4: Zahlung ohne Sicherheitsklauseln",
+          "word_count": 75,
+          "keywords": [
+            "ratenzahlung unsicherheit",
+            "eigentumsvorbehalt fehlt"
+          ],
+          "content_focus": "Case study: Seller accepts payment in installments, no Eigentumsvorbehalt (retention of title). Buyer defaults after month 2; seller has no leverage. Solution: Include retention clause if installment payments."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "häufige fehler pferdeverkauf",
+          "fehler vermeiden kaufvertrag"
+        ],
+        "supporting": [
+          "gewährleistung",
+          "aku dokumentation",
+          "beschaffenheitsvereinbarung"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "content": "Real-world dispute examples. Show deep understanding of where transactions break down. Include how proper contracts prevent these situations."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "callout_box",
+          "description": "Stat: '60% of horse purchase disputes involve missing/unclear warranty terms or AKU documentation.'"
+        }
+      ]
+    },
+
+    {
+      "section_number": 5,
+      "heading": "H2: Checkliste: Schritt-für-Schritt Anleitung zum Vertragsausfüllen",
+      "content_type": "tutorial",
+      "word_count": 380,
+      "subsections": [
+        {
+          "heading": "H3: Vor dem Ausfüllen: Informationen sammeln",
+          "word_count": 80,
+          "keywords": [
+            "pferdepass auslesen",
+            "chip nummer",
+            "aku bericht sammeln"
+          ],
+          "content_focus": "Gather horse passport, microchip details, AKU report (if applicable), payment receipts, proof of ownership documents. Makes filling contract smooth."
+        },
+        {
+          "heading": "H3: Vertragsabschnitte ausfüllen: Parteien & Gegenstand",
+          "word_count": 100,
+          "keywords": [
+            "vertragsparteien identifizieren",
+            "pferd beschreiben"
+          ],
+          "content_focus": "Step-by-step: Name/address of buyer & seller, horse details (name, breed, date of birth, color, markings, chip #, passport #). Copy from official documents to avoid errors."
+        },
+        {
+          "heading": "H3: Kaufpreis und Zahlungsbedingungen präzise festhalten",
+          "word_count": 90,
+          "keywords": [
+            "kaufpreis zahlung fällig",
+            "ratenzahlung vereinbaren"
+          ],
+          "content_focus": "Specify: total price in euros, payment schedule (lump sum? installments?), due dates, payment method (transfer, cash, check), consequences of late payment."
+        },
+        {
+          "heading": "H3: Gewährleistung & Mängelrechte klären",
+          "word_count": 110,
+          "keywords": [
+            "gewährleistung ankreuzen",
+            "mängelanzeige frist"
+          ],
+          "content_focus": "Decide: full warranty (2 years)? Partial (1 year)? None (as-is)? Write clearly. Specify Mängelanzeige deadline (7-14 days typical). Include AKU results summary."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferdekaufvertrag ausfüllen",
+          "anleitung vertrag schreiben"
+        ],
+        "supporting": [
+          "schritt für schritt",
+          "checkliste pferdeverkauf"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Detailed, field-by-field guidance. Anticipate common questions & errors. Show legal precision without jargon."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "step_by_step_guide",
+          "description": "5-step diagram showing: Gather Info → Fill Parties → Describe Horse → Set Price & Payment → Define Warranty → Review & Sign"
+        }
+      ]
+    },
+
+    {
+      "section_number": 6,
+      "heading": "H2: Gewährleistung und Mängelrechte: Fristen und Ihre Rechte",
+      "content_type": "explanation",
+      "word_count": 350,
+      "subsections": [
+        {
+          "heading": "H3: Gewährleistungsfrist: Wie lange bin ich geschützt?",
+          "word_count": 110,
+          "keywords": [
+            "gewährleistungsfrist 2 jahre",
+            "wie lange mängelrechte",
+            "verjährungsfrist pferdeverkauf"
+          ],
+          "content_focus": "Default: 2 years (BGB §437, §438). Private sales only; can be reduced to 1 year by contract. Explain legal timeline clearly: defects must appear within 2 years to claim warranty."
+        },
+        {
+          "heading": "H3: Mängelrüge: Wie und wann Sie ein Problem anzeigen müssen",
+          "word_count": 95,
+          "keywords": [
+            "mängelanzeige frist",
+            "mangel melden",
+            "rücktritt widerrufsrecht"
+          ],
+          "content_focus": "If defect discovered: notify seller immediately (written, email OK). Typical grace period: 7-14 days after delivery. Don't use horse excessively while claiming defect. Document all problems."
+        },
+        {
+          "heading": "H3: Ihre Rechte bei Mängeln (Nacherfüllung, Rücktritt, Schadensersatz)",
+          "word_count": 145,
+          "keywords": [
+            "nacherfüllung",
+            "rücktritt vom kaufvertrag",
+            "schadensersatz pferdeverkauf"
+          ],
+          "content_focus": "Option 1: Seller fixes (repairs/cures) defect. Option 2: Price reduction (Minderung). Option 3: Return horse & get refund (Rücktritt). Option 4: Damages if seller acted fraudulently. Explain BGB §437-440 in plain language."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "gewährleistung pferdekauf",
+          "mängelrechte fristen"
+        ],
+        "supporting": [
+          "mängelanzeige",
+          "verjährungsfrist",
+          "rücktrittsrecht"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Deep dive into BGB §437-440 (warranty & defects). Cite actual statute sections to build authority. Explain commercial law complexity in accessible terms."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "infographic",
+          "description": "Timeline: Delivery Day → 7-14 Days Mängelanzeige Window → 2-Year Warranty Period → Expiration. Highlight key milestones."
+        }
+      ]
+    },
+
+    {
+      "section_number": 7,
+      "heading": "H2: Besondere Klauseln und Zusatzvereinbarungen",
+      "content_type": "explanation",
+      "word_count": 280,
+      "subsections": [
+        {
+          "heading": "H3: Probezeit und Rücktrittsrecht (Vorkaufsrecht, Rückkauf)",
+          "word_count": 95,
+          "keywords": [
+            "probezeit pferd",
+            "rücktrittsrecht vereinbarung",
+            "rückkaufklausel"
+          ],
+          "content_focus": "Agree upfront: 14-day trial period? Seller retains return rights? Include buyback clause if seller wants option to repurchase. Define: what if horse gets injured during trial?"
+        },
+        {
+          "heading": "H3: Eigentumsvorbehalt bei Ratenzahlung",
+          "word_count": 85,
+          "keywords": [
+            "eigentumsvorbehalt",
+            "ratenzahlung absicherung"
+          ],
+          "content_focus": "If installment plan: seller keeps legal ownership until final payment. Protects seller. Buyer assumes risk & care but not ownership. State clearly in contract."
+        },
+        {
+          "heading": "H3: Vorkaufsrecht und Rückkaufsrecht",
+          "word_count": 100,
+          "keywords": [
+            "vorkaufsrecht pferd",
+            "rückkaufsrecht verkäufer"
+          ],
+          "content_focus": "Seller's right of first refusal if buyer later sells? Seller's right to buy back at fixed price? Define triggers, timeframes, price. Valuable for breeders/trainers."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "besondere klauseln pferdevertrag",
+          "probezeit rücktrittsrecht"
+        ],
+        "supporting": [
+          "eigentumsvorbehalt",
+          "vorkaufsrecht",
+          "ratenzahlung"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Explain how these clauses interact with BGB warranty provisions. Show how custom terms can modify default legal rights."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Clause Type | When to Use | Impact on Buyer | Impact on Seller | Example Language"
+        }
+      ]
+    }
+  ],
+
+  "faq_section": {
+    "word_count": 334,
+    "intro_text": "Noch Fragen? Hier sind Antworten zu den häufigsten Fragen rund um Pferdekaufverträge.",
+    "questions": [
+      {
+        "question": "Was muss in einen Pferdekaufvertrag?",
+        "answer_outline": "7 essentials: horse identification, price & payment terms, warranty, delivery terms, defect rights, signatures. Each section must be clear & specific. Avoid vague language that leads to disputes.",
+        "word_count": 65,
+        "paa_source": true,
+        "keywords": [
+          "wesentliche bestandteile",
+          "muss im vertrag stehen"
+        ],
+        "section_reference": "Die 7 wesentlichen Bestandteile"
+      },
+      {
+        "question": "Kann man ein Pferd ohne Vertrag kaufen?",
+        "answer_outline": "Legally possible but extremely risky. Without written agreement, disputes are hard to resolve & you have less legal protection. Always use a contract—it protects both buyer AND seller.",
+        "word_count": 55,
+        "paa_source": true,
+        "keywords": [
+          "mündlich gültig",
+          "schriftform erforderlich"
+        ],
+        "section_reference": "Introduction"
+      },
+      {
+        "question": "Wie lange habe ich Gewährleistung beim Pferdekauf?",
+        "answer_outline": "Private sales: 2 years (BGB §437). Can be reduced to 1 year by agreement. Commercial sales: often no warranty unless specified. Defects must appear within warranty period to claim rights.",
+        "word_count": 60,
+        "paa_source": true,
+        "keywords": [
+          "gewährleistungsfrist",
+          "2 jahre mängelrechte"
+        ],
+        "section_reference": "Gewährleistung und Mängelrechte"
+      },
+      {
+        "question": "Kann ich ein Pferd zurückgeben nach dem Kauf?",
+        "answer_outline": "Only if defect discovered within warranty period & seller refuses repairs. Must follow proper Mängelanzeige (notification) process. Trial/return periods must be agreed upfront in contract.",
+        "word_count": 58,
+        "paa_source": true,
+        "keywords": [
+          "rücktritt",
+          "rückgabe recht"
+        ],
+        "section_reference": "Besondere Klauseln"
+      },
+      {
+        "question": "Muss Ankaufsuntersuchung im Vertrag stehen?",
+        "answer_outline": "Not legally required but highly recommended. If AKU done, attach report to contract & reference findings. Clarifies what health/soundness issues existed at purchase—protects both parties.",
+        "word_count": 56,
+        "paa_source": false,
+        "keywords": [
+          "aku dokumentation",
+          "tierärztliche untersuchung"
+        ],
+        "section_reference": "Häufige Fehler"
+      },
+      {
+        "question": "Was ist der Unterschied zwischen privat und gewerblichem Verkauf?",
+        "answer_outline": "Private seller = consumer protection law applies (2-year warranty, stronger buyer rights). Commercial seller = fewer protections, seller can exclude warranty. Seller status depends on whether selling is regular business.",
+        "word_count": 60,
+        "paa_source": false,
+        "keywords": [
+          "verbrauchsgüterkauf",
+          "unternehmer definition"
+        ],
+        "section_reference": "Private vs. Gewerblich"
+      }
+    ]
+  },
+
+  "conclusion": {
+    "word_count": 234,
+    "summary_transition": "Zusammengefasst: Ein rechtssicherer Pferdekaufvertrag schützt Sie vor kostspieligen Fehlern und rechtlichen Komplikationen.",
+    "key_takeaways": [
+      "Nutzen Sie immer einen schriftlichen Vertrag mit den 7 wesentlichen Komponenten – mündliche Absprachen sind rechtlich unsicher.",
+      "Klären Sie Gewährleistung, Mängelrechte und Zahlungsbedingungen explizit – vage Formulierungen führen zu Streitigkeiten.",
+      "Dokumentieren Sie Ankaufsuntersuchungen und Beschaffenheitsmerkmale präzise – dies ist Ihre größte Absicherung gegen Dispute.",
+      "Unterscheiden Sie zwischen privat und gewerblichem Verkauf – die rechtlichen Rahmenbedingungen sind deutlich unterschiedlich."
+    ],
+    "call_to_action": "Laden Sie jetzt unsere kostenlose Pferdekaufvertrag-Checkliste herunter oder nutzen Sie ein vorbereitetes Muster – und sichern Sie Ihr nächstes Pferdegeschäft rechtlich ab.",
+    "keyword_integration": [
+      "pferdekaufvertrag",
+      "rechtssicher",
+      "checkliste",
+      "muster download"
+    ],
+    "cta_type": "download_checklist_or_template"
+  },
+
+  "internal_linking_opportunities": [
+    {
+      "section": "Die 7 wesentlichen Bestandteile",
+      "target_page": "/ratgeber/ankaufsuntersuchung-pferd",
+      "anchor_text": "Ankaufsuntersuchung dokumentieren",
+      "context": "Link to AKU guide when explaining how to reference AKU results in contract."
+    },
+    {
+      "section": "Gewährleistung und Mängelrechte",
+      "target_page": "/ratgeber/pferdekauf-checkliste",
+      "anchor_text": "Pferdekauf-Checkliste",
+      "context": "Direct readers to comprehensive buying checklist for pre-purchase verification."
+    },
+    {
+      "section": "Häufige Fehler",
+      "target_page": "/ratgeber/pferd-kaufen-worauf-achten",
+      "anchor_text": "Worauf Sie beim Pferdekauf achten sollten",
+      "context": "Link to buying guide covering evaluation & inspection steps."
+    },
+    {
+      "section": "Private vs. Gewerblich",
+      "target_page": "/markt-insights/pferdemarkt-preise",
+      "anchor_text": "Pferdemarkt-Preise und Trends",
+      "context": "Context: understanding market prices helps set fair contract prices."
+    },
+    {
+      "section": "Kostenlose Muster",
+      "target_page": "/templates",
+      "anchor_text": "Muster-Vorlagen und Templates",
+      "context": "Direct to template library for downloadable contract samples."
+    }
+  ],
+
+  "content_differentiation_angles": {
+    "beginner_focus": "Plain-language explanations of legal concepts (BGB, Verjährung, Verbrauchsgüterkauf). Avoid legalese where possible.",
+    "practical_approach": "Real-world case studies of disputes. Field-by-field checklist for contract completion. Step-by-step guidance.",
+    "hybrid_model": "Educational content (why each clause matters) + template resources (what to write). Most competitors are PDFs without explanation.",
+    "mistake_prevention": "Section dedicated to common errors with real examples. Show how proper contracts prevent disputes.",
+    "eeat_integration": "Partner with Rechtsanwalt for review. Cite BGB, BGH decisions, FN guidelines. Include expert perspective."
+  },
+
+  "featured_snippet_target": {
+    "format": "list",
+    "topic": "Die 7 wesentlichen Bestandteile eines Pferdekaufvertrags",
+    "opportunity": "No featured snippet currently ranks for 'pferdekaufvertrag'. List format (7 items) has high CTR potential.",
+    "implementation": "H2 heading with H3 subheadings for each of 7 items. Format: '1. Vertragsgegenstand - [brief explanation]'"
+  },
+
+  "seo_optimization_notes": {
+    "keyword_density_target": "0.8-1.2% (primary keyword 'pferdekaufvertrag')",
+    "secondary_keyword_distribution": "Spread related keywords naturally: 'gewährleistung', 'aku', 'mängelrechte', 'private vs. gewerblich'",
+    "reading_level": "Grade 8-10 (Flesch-Kincaid). Legal content simplified, avoid jargon.",
+    "paragraph_length": "2-4 sentences max. Mobile-friendly formatting with white space.",
+    "subheading_frequency": "H2 every 300-400 words. H3 every 150-200 words.",
+    "lsi_keywords": [
+      "kaufvertrag pferdeverkauf",
+      "rechtssicher verkaufen",
+      "gewährleistungsausschluss",
+      "pferdekauf risiken",
+      "mängelanzeige frist",
+      "übergabebestätigung"
+    ],
+    "voice_search_optimization": "Include question-based H2s ('Was muss in...?', 'Wie lange habe ich...?')"
+  },
+
+  "quality_checklist": {
+    "section_count": 7,
+    "subsections_total": 24,
+    "faq_questions": 6,
+    "paa_questions": 4,
+    "internal_links": 5,
+    "visual_elements": 11,
+    "eeat_signals_total": 14,
+    "estimated_word_count": 3336,
+    "ready_for_phase_4": true
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "phase": "5C",
+  "primary_keyword": "pferdekaufvertrag",
+  "timestamp": "2025-10-28T14:50:00Z",
+  "total_internal_links": 5,
+  "linking_strategy": "contextual_with_semantic_relevance",
+  "internal_links": [
+    {
+      "position": 1,
+      "section": "Einleitung",
+      "anchor_text": "Pferdewert ermitteln",
+      "target_url": "https://pferdewert.de/ratgeber/pferdewert-ermitteln",
+      "context": "Bevor du einen Pferdekaufvertrag unterschreibst, solltest du den fairen Marktwert kennen. Nutze unsere Funktion zum Pferdewert ermitteln.",
+      "relevance": "high",
+      "keyword_match": "semantic",
+      "link_type": "primary_service"
+    },
+    {
+      "position": 2,
+      "section": "Ankaufsuntersuchung",
+      "anchor_text": "Pferd Gesundheitscheck Kosten",
+      "target_url": "https://pferdewert.de/ratgeber/pferd-gesundheitscheck-kosten",
+      "context": "Die Pferd Gesundheitscheck Kosten variieren je nach Umfang der Untersuchung und sollten im Kaufvertrag dokumentiert werden.",
+      "relevance": "high",
+      "keyword_match": "semantic",
+      "link_type": "supporting_content"
+    },
+    {
+      "position": 3,
+      "section": "Gewährleistung",
+      "anchor_text": "Pferd kaufen worauf achten",
+      "target_url": "https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten",
+      "context": "Ein rechtssicherer Vertrag ist essentiell, wenn du ein Pferd kaufen möchtest. Lese auch unsere umfassende Anleitung Pferd kaufen worauf achten.",
+      "relevance": "high",
+      "keyword_match": "semantic",
+      "link_type": "related_topic"
+    },
+    {
+      "position": 4,
+      "section": "Fehler vermeiden",
+      "anchor_text": "Pferd verkaufen Tipps",
+      "target_url": "https://pferdewert.de/ratgeber/pferd-verkaufen-tipps",
+      "context": "Falls du selbst ein Pferd verkaufen möchtest, gelten ähnliche Regeln. Erfahre in unserem Leitfaden Pferd verkaufen Tipps, worauf Verkäufer achten sollten.",
+      "relevance": "medium",
+      "keyword_match": "semantic",
+      "link_type": "related_topic"
+    },
+    {
+      "position": 5,
+      "section": "Kostenloses Muster",
+      "anchor_text": "Pferdemarkt Plattform",
+      "target_url": "https://pferdewert.de/pferdemarkt",
+      "context": "Viele Käufer und Verkäufer nutzen unsere Pferdemarkt Plattform, um Verträge sicher abzuwickeln.",
+      "relevance": "medium",
+      "keyword_match": "brand_related",
+      "link_type": "service_related"
+    }
+  ],
+  "linking_rules_compliance": {
+    "contextual_relevance": true,
+    "anchor_text_natural": true,
+    "first_200_words_max_1_link": true,
+    "total_links_3_to_8": true,
+    "sitemap_validation": "pending",
+    "external_links_count": 3,
+    "external_links": [
+      {
+        "anchor_text": "BGB §433",
+        "target_url": "https://www.gesetze-im-internet.de/bgb/__433.html",
+        "context": "Nach BGB §433 sind die Rechtsgrundlagen für Kaufverträge definiert.",
+        "type": "legal_reference"
+      },
+      {
+        "anchor_text": "Deutsche Reiterliche Vereinigung (FN)",
+        "target_url": "https://www.fn-dokumente.de",
+        "context": "Die FN bietet offizielle Richtlinien und Muster für Pferdekaufverträge.",
+        "type": "official_resource"
+      },
+      {
+        "anchor_text": "BGH Rechtsprechung Pferdekauf",
+        "target_url": "https://www.bundesgerichtshof.de",
+        "context": "Bundesgerichtshof Entscheidungen zu Pferdekauf-Rechtsstreitigkeiten.",
+        "type": "legal_precedent"
+      }
+    ]
+  },
+  "quality_metrics": {
+    "internal_links_count": 5,
+    "internal_links_status": "optimal",
+    "external_links_count": 3,
+    "external_links_status": "optimal",
+    "anchor_text_variation": 5,
+    "anchor_text_status": "good",
+    "link_placement_strategy": "distributed",
+    "link_placement_status": "optimal"
+  },
+  "validation_summary": {
+    "status": "SUCCESS",
+    "errors": [],
+    "warnings": [],
+    "info": [
+      "All 5 internal links are contextually relevant",
+      "Primary service (Pferdewert ermitteln) linked 1x as required",
+      "Related content (Gesundheitscheck, Pferd kaufen) linked 2x",
+      "External legal references (BGB, FN) provide E-E-A-T signals",
+      "Link distribution follows best practices (spread across sections)"
+    ]
+  }
+}

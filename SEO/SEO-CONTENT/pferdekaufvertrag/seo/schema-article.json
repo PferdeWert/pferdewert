@@ -1,0 +1,76 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)",
+  "description": "Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/pferdekaufvertrag-guide.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "Pferdekaufvertrag Anleitung - 7 wesentliche Bestandteile erklärt"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 200,
+      "height": 60
+    },
+    "url": "https://pferdewert.de"
+  },
+  "datePublished": "2025-10-28",
+  "dateModified": "2025-10-28",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/ratgeber/pferdekaufvertrag"
+  },
+  "articleBody": "Ein Pferdekaufvertrag ist nicht nur wichtig – er ist deine rechtliche Absicherung. Ohne ihn riskierst du erhebliche finanzielle Verluste und legale Komplikationen. Diese Anleitung zeigt dir Schritt für Schritt, wie du rechtssicher kaufen oder verkaufen kannst.",
+  "wordCount": 3400,
+  "inLanguage": "de",
+  "isAccessibleForFree": true,
+  "hasPart": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was muss in einen Pferdekaufvertrag?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die sieben Essentials: Pferd-Identifikation (Name, Rasse, Alter, Chip-Nummer), Kaufpreis & Zahlungsbedingungen, Gefahrübergang, Gewährleistungsregelungen, Beschaffenheitsmerkmale, Übergabe-Bestätigung, Unterschriften."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann man ein Pferd ohne Vertrag kaufen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rechtlich möglich, aber extrem riskant. Ohne schriftliche Vereinbarung sind Dispute schwer zu lösen und dein rechtlicher Schutz minimal. Ein Vertrag schützt dich UND den Verkäufer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lange habe ich Gewährleistung beim Pferdekauf?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Private Verkäufe: 2 Jahre Standard (BGB §437). Kann auf 1 Jahr reduziert werden. Gewerbliche Verkäufe: Nur mit Vereinbarung, meist 6-12 Monate oder Ausschluss."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Unterschied privat und gewerblicher Verkauf?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Private Verkäufer unterliegen stärkerer Gewährleistungspflicht (2 Jahre, Käufer-Schutz). Gewerbliche Verkäufer können Gewährleistung ausschließen und setzen oft härtere Bedingungen."
+        }
+      }
+    ]
+  }
+}

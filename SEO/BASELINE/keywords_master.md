@@ -1,34 +1,55 @@
 # Keywords Master - PferdeWert.de
 
+**Zuletzt aktualisiert:** 2025-10-28 (mit DataForSEO Live-Daten)
+
+## 🔥 KRITISCHE ERKENNTNISSE (Update 2025-10-28)
+
+### TOP-3 Keywords nach Kaufintention (CPC-basiert):
+1. **"pferdekaufvertrag"** (1.000/Mo., **CPC: 1,00€**, Backlinks: 0.3) - 🔥 HÖCHSTE KAUFINTENTION!
+2. **"pferd kaufvertrag"** (260/Mo., CPC: 0,93€) - Synonym zu #1
+3. **"pferdetransport kosten"** (320/Mo., CPC: 0,87€) - Post-Purchase Intent
+
+### Breed-Spezifische Kaufratgeber (Combined: 6.700/Mo.):
+- **dressurpferd kaufen** (2.400/Mo., CPC: 0,14€)
+- **springpferd kaufen** (2.400/Mo., CPC: 0,09€, +53% yearly 🚀)
+- **freizeitpferd kaufen** (1.900/Mo., CPC: 0,13€, 100% weiblich)
+- **anfängerpferd kaufen** (880/Mo., CPC: 0,15€)
+
+### ⚠️ WARNUNG: Niedrige Kaufintention trotz hohem Volumen:
+- "wie alt werden pferde" (9.900/Mo.) - Rein informational
+- "kolik pferd" (5.400/Mo.) - Notfall-Suche, keine Kaufintention
+
+---
+
 ## 🎯 Index Page SEO-Strategie
 
 ### Primäres Ziel-Keyword
-**"pferde preis"** (880 Suchanfragen/Monat, LOW Competition)
+**"pferde preis"** (880 Suchanfragen/Monat, LOW Competition, CPC: 0,26€)
 - Perfekt für Index Page: Hohe Suchvolumen + niedrige Konkurrenz
 - Klarer kommerzieller Intent (Menschen wollen Preisinformationen)
 - Direkter Match mit Service-Angebot
 
 ### Sekundäre Ziel-Keywords
-- **"wie viel ist mein pferd wert"** (90 Suchanfragen) - Aktuell Rang #5, leicht zu verbessern
-- **"was ist mein pferd wert"** (30 Suchanfragen) - Ähnlicher Intent, guter Longtail
+- **"wie viel ist mein pferd wert"** (90 Suchanfragen) - Aktuell Rang #2, halten/verbessern
+- **"was ist mein pferd wert"** (20 Suchanfragen) - Ähnlicher Intent, guter Longtail
 - **"pferdebewertung"** - Support-Keyword für Service-Fokus
 - **"pferdewert berechnen"** - Tool-spezifischer Intent
 
 ### Aktuelle Rankings (Starke Basis)
-✅ **Rang #2** für "wieviel ist mein pferd wert rechner" (70 Suchanfragen)
-✅ **Rang #5** für "wie viel ist mein pferd wert" (90 Suchanfragen)
+✅ **Rang #1** für "wieviel ist mein pferd wert rechner" (70 Suchanfragen)
+✅ **Rang #2** für "wie viel ist mein pferd wert" (90 Suchanfragen)
 
 ### SEO-Umsetzung Index Page
 1. **Title Tag**: "pferde preis" als Haupt-Keyword
 2. **H1**: Optimierung für "pferde preis" + "pferdebewertung"
-3. **Content-Fokus**: "wie viel ist mein pferd wert" (Rang #5 → Top 3 verbessern)
+3. **Content-Fokus**: "wie viel ist mein pferd wert" (Rang #2 → halten)
 4. **Intent-Match**: Spezifische Pferdewert-Ermittlung, nicht generische Marktinfos
 
 ---
 
 ## Keyword-Analyse Zusammenfassung
-**Analysedatum**: 20. September 2025
-**Tool**: DataForSEO Google Ads API
+**Analysedatum**: 28. Oktober 2025
+**Tool**: DataForSEO Labs API (Live-Daten)
 **Markt**: Deutschland (DE)
 
 ---
@@ -108,14 +129,49 @@
 
 ---
 
-## 🎯 Neue Strategic Keywords (Aus Performance-Analyse)
+## 🎯 Neue Strategic Keywords (DataForSEO Live-Update 2025-10-28)
 
-### High-Priority Additions
-| Keyword | Suchvolumen | Status | Priorität | Neue Seite |
-|---------|-------------|---------|-----------|-------------|
-| **pferde preis berechnen** | 115 | Position 12.3 | 🔴 P1 | Index optimieren |
-| **dressurpferd kaufen** | 2.400 | n/r | 🔴 P1 | /dressurpferd-kaufen |
-| **pferdewert rechner** | 50 | n/r | 🔴 P1 | Brand-Keyword |
+### 🔥 HÖCHSTE PRIORITÄT - Kaufvertrag-Cluster
+| Keyword | Suchvolumen | CPC | Competition | Backlinks | Priorität | Neue Seite |
+|---------|-------------|-----|-------------|-----------|-----------|-------------|
+| **pferdekaufvertrag** | **1.000/Mo.** | **1,00€** 🔥 | LOW (3) | **0.3** | **🔴 P1** | **/pferdekaufvertrag** |
+| pferd kaufvertrag | 260/Mo. | 0,93€ | LOW (5) | 1.4 | 🔴 P1 | → im Hauptartikel |
+| pferdekauf vertrag | 1.000/Mo. | 1,00€ | LOW (3) | 8.3 | 🔴 P1 | → Synonym-Variante |
+
+**Begründung P1:**
+- Höchster CPC aller Keywords = maximale Kaufintention
+- Extrem niedrige Competition (Backlinks: 0.3!)
+- Nutzer ist GERADE beim Pferdekauf
+- Perfekter Hook für Tool: "Kaufpreis richtig festlegen"
+- Zielgruppe: 100% männlich, 35-44 Jahre (Clickstream: 642/Mo.)
+
+### High-Priority Breed-Spezifische Keywords
+| Keyword | Suchvolumen | CPC | Trend | Zielgruppe | Priorität | Neue Seite |
+|---------|-------------|-----|-------|------------|-----------|-------------|
+| **dressurpferd kaufen** | 2.400/Mo. | 0,14€ | -21% yearly | Mixed | 🟡 P2 | /dressurpferd-kaufen |
+| **springpferd kaufen** | 2.400/Mo. | 0,09€ | **+53% yearly** 🚀 | Mixed | 🟡 P2 | /springpferd-kaufen |
+| **freizeitpferd kaufen** | 1.900/Mo. | 0,13€ | -16% yearly | 100% weiblich, 35-44 | 🟢 P3 | /freizeitpferd-kaufen |
+| **anfängerpferd kaufen** | 880/Mo. | 0,15€ | -18% yearly | 100% männlich, 35-44 | 🟡 P2 | /anfaengerpferd-kaufen |
+
+**Begründung P2-P3:**
+- Commercial + Transactional Intent
+- Combined Volume: 6.700/Mo.
+- Segment-spezifische Preisberatung möglich
+- Springpferd = Wachstumsmarkt (+53%!)
+
+### Integration in bestehende Artikel (KEINE neue Page)
+| Keyword | Suchvolumen | KD | Aktion | Grund |
+|---------|-------------|-----|---------|-------|
+| **pferdehaltung kosten** | 90/Mo. | 3 | → H2 in `/was-kostet-ein-pferd` | Zu niedriges Volumen (<200), 80% Overlap |
+| checkliste pferdekauf | 40/Mo. | 7 | → H2 in `/pferd-kaufen` | Zu niedriges Volumen |
+
+### Research Targets (für spätere Analyse)
+| Keyword | Suchvolumen | CPC | Opportunity |
+|---------|-------------|-----|-------------|
+| pferdetransport kosten | 320/Mo. | 0,87€ | Post-Purchase Service |
+| haflinger preis | 260/Mo. | 0,57€ | Breed-spezifisch |
+| quarter horse preis | 90/Mo. | - | Breed-spezifisch |
+| pferdekauf beratung | 20/Mo. | 0,82€ | High-Intent Longtail |
 
 ### Regionale Expansion Keywords
 | Keyword | Suchvolumen | Business Impact | Content-Strategie |

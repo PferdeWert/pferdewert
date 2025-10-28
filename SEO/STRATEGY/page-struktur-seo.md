@@ -1,8 +1,11 @@
 # Page-Struktur SEO - PferdeWert.de
 
-**Zuletzt aktualisiert:** 2025-10-28
+**Zuletzt aktualisiert:** 2025-10-28 (mit DataForSEO Live-Daten)
 
-**Auswirkung:** Der AKU-Cluster ist nicht mehr das Hauptvolumen-Cluster. Fokus sollte auf "Pferd Kaufen" (47.200/Mo.) liegen.
+**🔥 KRITISCHE ERKENNTNIS:**
+- **Kaufvertrag-Keywords** (1.000/Mo., CPC 1,00€) = HÖCHSTE Kaufintention aller Keywords!
+- **Breed-spezifische Kauf-Keywords** (Dressur/Spring/Freizeit) = 6.700/Mo. kombiniert
+- **Gesundheits-Cluster** = Niedrige Conversion-Wahrscheinlichkeit ⚠️
 
  **Generische Entscheidungsmatrix**                                                │
      │                                                                                  │
@@ -90,11 +93,10 @@
 - **Rankings:** Keine Top-20 Rankings (sehr hohe Competition, großes Volumen)
 
 Das hier ist zu schwach für eigene page, bauen wir ein in die /pferd-kaufen: 
-**Checkliste Pferdekauf** (/pferde-ratgeber/pferd-kaufen/checkliste-pferdekauf)
+**Checkliste Pferdekauf** (/pferde-ratgeber/pferd-kaufen)
    - Keyword: checkliste pferdekauf (40/Mo., KD: 7)
-   - ⚠️ Korrektur: Ursprünglich geschätzt 300-600/Mo., tatsächlich nur 40/Mo.
-   - Begründung: Download-Intent, PDF-Leadmagnet trotz niedrigem Volumen wertvoll für Leadgenerierung
-   - **Status:** Geplant
+   - **Status:** Integriert in /pferd-kaufen
+
 ### Spokes (Sitemap-only):
 
 1. **Was kostet ein Pferd** (/pferde-ratgeber/was-kostet-ein-pferd) ✅ LIVE
@@ -123,29 +125,90 @@ Die beiden hier versuche ich auch mit dem artikel /was-kostet-ein-pferd abzudeck
 
 ---
 
-## 📋 Content Cluster: Pferde Gesundheit
+## 📋 Content Cluster: Pferdekaufvertrag (NEU - HÖCHSTE PRIORITÄT!)
+
+**Total Search Volume:** ~1.000/Monat
+**🔥 CPC: 1,00€ = HÖCHSTE KAUFINTENTION aller Keywords!**
+
+### Hub: Pferdekaufvertrag (/pferde-ratgeber/pferdekaufvertrag)
+- **Ziel-Keyword**: pferdekaufvertrag (1.000/Mo., KD: N/A, CPC: 1,00€)
+- **Competition**: LOW (3), Avg. Backlinks: 0.3 (EXTREM NIEDRIG!)
+- **Search Intent**: Informational (aber CPC zeigt: Nutzer IST beim Kauf!)
+- **Zielgruppe**: 100% männlich, 35-44 Jahre, 642 Clickstream-Volumen
+- **Navigation**: Ratgeber Dropdown
+- **Begründung**: Nutzer ist GERADE beim Pferdekauf - perfekter Moment für Tool-Erwähnung
+- **Hook zu Tool**: "Kaufpreis richtig festlegen - Was ist ein fairer Preis?"
+- **Status:** 🎯 JETZT ERSTELLEN!
+- **Content-Strategie**:
+  - Kostenlose Kaufvertrags-Vorlage (PDF-Leadmagnet)
+  - Rechtliche Pflichtangaben
+  - Kaufpreis-Sektion mit Tool-CTA
+  - Gewährleistung & AKU-Bezug
+
+### Alternative Keywords (für spätere Integration):
+- "pferd kaufvertrag" (260/Mo., CPC: 0,93€) - Synonym, bereits im Hauptartikel abgedeckt
+- "pferdekauf vertrag" (1.000/Mo., CPC: 1,00€) - Synonym-Variante
+
+---
+
+## 📋 Content Cluster: Breed-Spezifische Kaufratgeber (HOHE PRIORITÄT)
+
+**Total Search Volume:** ~6.700/Monat
+**Kaufintention:** ⭐⭐⭐⭐⭐ (Commercial + Transactional)
+
+### Geplante Spoke-Artikel (unter /pferd-kaufen):
+
+1. **Anfängerpferd kaufen** (/pferde-ratgeber/pferd-kaufen/anfaengerpferd-kaufen)
+   - Keyword: anfängerpferd kaufen (880/Mo., CPC: 0,15€, KD: N/A)
+   - Zielgruppe: 100% männlich, 35-44 Jahre
+   - Search Intent: Commercial + Transactional
+   - **Status:** Geplant (P2)
+
+2. **Dressurpferd kaufen** (/pferde-ratgeber/pferd-kaufen/dressurpferd-kaufen)
+   - Keyword: dressurpferd kaufen (2.400/Mo., CPC: 0,14€, KD: N/A)
+   - Trend: -21% yearly (stabil)
+   - Search Intent: Commercial + Transactional
+   - **Status:** Geplant (P2)
+
+3. **Springpferd kaufen** (/pferde-ratgeber/pferd-kaufen/springpferd-kaufen)
+   - Keyword: springpferd kaufen (2.400/Mo., CPC: 0,09€, KD: N/A)
+   - Trend: **+53% yearly** 🚀 (WACHSTUMSMARKT!)
+   - Search Intent: Commercial + Navigational
+   - **Status:** Geplant (P2)
+
+4. **Freizeitpferd kaufen** (/pferde-ratgeber/pferd-kaufen/freizeitpferd-kaufen)
+   - Keyword: freizeitpferd kaufen (1.900/Mo., CPC: 0,13€, KD: N/A)
+   - Zielgruppe: 100% weiblich, 35-44 Jahre
+   - Search Intent: Commercial + Navigational
+   - **Status:** Geplant (P3)
+
+---
+
+## 📋 Content Cluster: Pferde Gesundheit ⚠️ NIEDRIGE CONVERSION-PRIORITÄT
 
 **Total Search Volume:** 15.390/Monat (Hub: 9.900 + Spokes: 5.490)
+**⚠️ WARNUNG: Hoher Traffic, aber NIEDRIGE Kaufintention!**
 
 ### Hub: Pferde Gesundheit (/pferde-ratgeber/pferde-gesundheit)
 - **Ziel-Keywords**: pferde gesundheit (90/Mo., KD: 13), wie alt werden pferde (9.900/Mo., KD: N/A)
 - **Primary Keyword**: wie alt werden pferde (9.900/Mo., KD: N/A)
 - **Navigation**: Ratgeber Dropdown
-- **Begründung**: Hochvolumen informational keyword. Hub deckt Gesundheitsthemen ab, mit Fokus auf Lebenserwartung als Einstieg.
-- **Status:** Geplant
+- **⚠️ Problem**: Rein informational - Nutzer will nicht kaufen/verkaufen/bewerten
+- **Begründung**: Traffic-Generation, aber niedrige Tool-Conversion erwartet
+- **Status:** Geplant (P4 - niedrige Priorität)
 - **Rankings:** N/A (noch nicht live)
 
 ### Spokes (Sitemap-only):
 
 1. **Wie alt werden Pferde** (/pferde-ratgeber/pferde-gesundheit/wie-alt-werden-pferde)
    - Keyword: wie alt werden pferde (9.900/Mo., KD: N/A)
-   - Begründung: Dedicated deep-dive in Lebenserwartung und Altersfaktoren
-   - **Status:** Geplant
+   - Search Intent: Rein informational
+   - **Status:** Geplant (P4)
 
 2. **Kolik beim Pferd** (/pferde-ratgeber/pferde-gesundheit/kolik-pferd)
    - Keyword: kolik pferd (5.400/Mo., KD: N/A)
-   - Begründung: Kritisches Gesundheitsthema. Gesundheitszustand beeinflusst Pferdewert direkt.
-   - **Status:** Geplant
+   - Search Intent: Notfall-Suche, keine Kaufintention
+   - **Status:** Geplant (P4)
 
 ---
 
@@ -156,12 +219,19 @@ Die beiden hier versuche ich auch mit dem artikel /was-kostet-ein-pferd abzudeck
 PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
 ```
 
-### Ratgeber-Dropdown (aktualisiert)
-- AKU Pferd
+### Ratgeber-Dropdown (aktualisiert nach Kaufintention)
+**Priorität 1 (Hohe Kaufintention):**
+- Pferdekaufvertrag (NEU - HÖCHSTE PRIORITÄT!)
 - Pferd kaufen
 - Pferd verkaufen
-- Wie alt werden Pferde (NEU)
-- Pferd Kosten (NEU)
+
+**Priorität 2 (Mittlere Kaufintention):**
+- AKU Pferd
+- Was kostet ein Pferd
+
+**Priorität 3-4 (Niedrige Kaufintention):**
+- Wie alt werden Pferde (Traffic-Fokus, niedrige Conversion)
+- Pferde Gesundheit (Traffic-Fokus, niedrige Conversion)
 
 ---
 
@@ -176,16 +246,22 @@ PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
 
 **Letzte Aktualisierung:** 2025-10-25
 
-**Nächste Research-Targets:**
-- "pferdehaltung kosten" (90/Mo., KD: 3) - niedrige Difficulty, guter Einstiegspunkt
-- "pferd kaufvertrag" (260/Mo., KD: N/A) - rechtliche Aspekte mit mittlerem Volumen
-- "gesundheitscheck pferd" (20/Mo., KD: N/A) - pre-purchase examination (niedriges Volumen)
+**🎯 Top-Priority Keywords (2025-10-28):**
+1. **"pferdekaufvertrag"** (1.000/Mo., CPC 1,00€, KD: N/A, Backlinks: 0.3) - 🔥 HÖCHSTE KAUFINTENTION!
+2. **"anfängerpferd kaufen"** (880/Mo., CPC 0,15€, KD: N/A) - Commercial + Transactional
+3. **"dressurpferd kaufen"** (2.400/Mo., CPC 0,14€, KD: N/A) - Highest Volume Breed
+4. **"springpferd kaufen"** (2.400/Mo., CPC 0,09€, +53% yearly) - Wachstumsmarkt!
+5. **"freizeitpferd kaufen"** (1.900/Mo., CPC 0,13€, KD: N/A) - Zielgruppe: 100% weiblich
+
+**Integration in bestehende Artikel:**
+- "pferdehaltung kosten" (90/Mo., KD: 3) → Integrieren in `/was-kostet-ein-pferd` als H2
 
 ---
 
 ## 📈 Keyword Research Zusammenfassung (DataForSEO)
 
-**Gesamtvolumen aller recherchierten Keywords:** ~62.000/Monat (Update 2025-10-25)
+**Gesamtvolumen aller recherchierten Keywords:** ~70.000/Monat (Update 2025-10-28)
+**🔥 NEU: Kaufvertrag + Breed-Keywords hinzugefügt (+7.700/Mo.)**
 
 ### Hochvolumen-Keywords (>5.000/Mo.):
 | Keyword | Suchvolumen | KD | Status | Ranking |
@@ -195,29 +271,37 @@ PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
 | kolik pferd | 5.400/Mo. | N/A | Geplant (Spoke) | N/A |
 
 ### Mittelvolumen-Keywords (500-5.000/Mo.):
-| Keyword | Suchvolumen | KD | Status | Ranking |
-|---------|-------------|-----|--------|---------|
-| was kostet ein pferd | 2.900/Mo. | N/A | ✅ LIVE | Rang 10-20 (Long-Tail) |
-| pferd verkaufen | 1.300/Mo. | 23 | ✅ LIVE (Hub) | Keine Top-20 |
-| pferd kosten | 880/Mo. | 2 | Geplant | N/A |
-| pferd preis | 880/Mo. | 16 | Geplant | N/A |
+| Keyword | Suchvolumen | KD | CPC | Status | Ranking |
+|---------|-------------|-----|-----|--------|---------|
+| **dressurpferd kaufen** | **2.400/Mo.** | N/A | **0,14€** | 🎯 P2 Geplant | N/A |
+| **springpferd kaufen** | **2.400/Mo.** | N/A | **0,09€** | 🎯 P2 Geplant | N/A |
+| was kostet ein pferd | 2.900/Mo. | N/A | 0,20€ | ✅ LIVE | Rang 10-20 (Long-Tail) |
+| **freizeitpferd kaufen** | **1.900/Mo.** | N/A | **0,13€** | 🎯 P3 Geplant | N/A |
+| pferd verkaufen | 1.300/Mo. | 23 | 0,36€ | ✅ LIVE (Hub) | Keine Top-20 |
+| **pferdekaufvertrag** | **1.000/Mo.** | N/A | **1,00€** 🔥 | **🎯 P1 JETZT!** | N/A |
+| **anfängerpferd kaufen** | **880/Mo.** | N/A | **0,15€** | 🎯 P2 Geplant | N/A |
+| pferd kosten | 880/Mo. | 2 | 0,26€ | Geplant | N/A |
+| pferd preis | 880/Mo. | 16 | 0,26€ | Geplant | N/A |
 
 ### Niedrigvolumen-Keywords (<500/Mo.):
-| Keyword | Suchvolumen | KD | Status | Ranking |
-|---------|-------------|-----|--------|---------|
-| aku pferd | **480/Mo.** ⚠️ | N/A | ✅ LIVE (Hub) | Rang 5-9 |
-| aku pferd kosten | **260/Mo.** ⚠️ | N/A | ✅ LIVE | Rang 9-11 |
-| pferd kaufvertrag | 260/Mo. | N/A | Research Target | N/A |
-| wie viel ist mein pferd wert | 90/Mo. | N/A | ✅ LIVE | **Rang 2** |
-| pferde gesundheit | 90/Mo. | 13 | Geplant (Hub) | N/A |
-| pferdehaltung kosten | 90/Mo. | 3 | Research Target | N/A |
-| checkliste pferdekauf | 40/Mo. | 7 | Geplant (Spoke) | N/A |
-| was ist mein pferd wert | 20/Mo. | N/A | ✅ LIVE | N/A |
-| pferde preis rechner | 20/Mo. | 47 | ✅ LIVE | Keine Top-20 |
-| pferdepreis rechner | 20/Mo. | 47 | ✅ LIVE | Keine Top-20 |
-| gesundheitscheck pferd | 20/Mo. | N/A | Research Target | N/A |
-| aku pferd ablauf | **10/Mo.** ⚠️ | N/A | ✅ LIVE | Keine Top-20 |
-| pferd verkaufen tipps | **10/Mo.** ⚠️ | N/A | ✅ LIVE | Keine Top-20 |
+| Keyword | Suchvolumen | KD | CPC | Status | Ranking |
+|---------|-------------|-----|-----|--------|---------|
+| aku pferd | **480/Mo.** ⚠️ | N/A | - | ✅ LIVE (Hub) | Rang 5-9 |
+| pferdetransport kosten | 320/Mo. | N/A | 0,87€ | Research Target | N/A |
+| pferd kaufvertrag | 260/Mo. | N/A | 0,93€ | → in Kaufvertrag | N/A |
+| aku pferd kosten | **260/Mo.** ⚠️ | N/A | - | ✅ LIVE | Rang 9-11 |
+| haflinger preis | 260/Mo. | N/A | 0,57€ | Research Target | N/A |
+| wie viel ist mein pferd wert | 90/Mo. | N/A | - | ✅ LIVE | **Rang 2** |
+| quarter horse preis | 90/Mo. | KD: 5 | - | Research Target | N/A |
+| pferde gesundheit | 90/Mo. | 13 | - | ⚠️ P4 Geplant | N/A |
+| **pferdehaltung kosten** | **90/Mo.** | **3** | - | **→ in /was-kostet-ein-pferd** | N/A |
+| checkliste pferdekauf | 40/Mo. | 7 | - | → in /pferd-kaufen | N/A |
+| pferdekauf beratung | 20/Mo. | N/A | 0,82€ | Research Target | N/A |
+| was ist mein pferd wert | 20/Mo. | N/A | - | ✅ LIVE | N/A |
+| pferde preis rechner | 20/Mo. | 47 | - | ✅ LIVE | Keine Top-20 |
+| pferdepreis rechner | 20/Mo. | 47 | - | ✅ LIVE | Keine Top-20 |
+| aku pferd ablauf | **10/Mo.** ⚠️ | N/A | - | ✅ LIVE | Keine Top-20 |
+| pferd verkaufen tipps | **10/Mo.** ⚠️ | N/A | - | ✅ LIVE | Keine Top-20 |
 
 ### Keine Daten verfügbar:
 - pferdewert (Brand-Keyword)

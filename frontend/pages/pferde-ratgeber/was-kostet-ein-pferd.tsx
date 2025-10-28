@@ -79,6 +79,23 @@ export default function WasKostetEinPferd() {
   const calculatorIcon = <Calculator className="w-5 h-5" />
   const shieldAlertIcon = <ShieldAlert className="h-5 w-5 text-brand-brown" />
 
+  // Extract onClick handlers to prevent Fast Refresh infinite loops
+  const handleScrollToAnschaffung = () => {
+    document.getElementById('anschaffungskosten')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Extract CTA objects to prevent Fast Refresh infinite loops
+  const primaryCta = {
+    href: '/pferde-preis-berechnen',
+    label: 'Jetzt Pferd bewerten',
+    icon: calculatorIcon
+  }
+
+  const secondaryCta = {
+    onClick: handleScrollToAnschaffung,
+    label: 'Mehr erfahren'
+  }
+
   // JSON-LD Article Schema
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -237,17 +254,8 @@ export default function WasKostetEinPferd() {
       <RatgeberHero
           title="Was kostet ein Pferd?"
           subtitle="Vollständige Kostenübersicht 2025: Von der Anschaffung bis zum monatlichen Unterhalt"
-          primaryCta={{
-            href: '/pferde-preis-berechnen',
-            label: 'Jetzt Pferd bewerten',
-            icon: calculatorIcon
-          }}
-          secondaryCta={{
-            onClick: () => {
-              document.getElementById('anschaffungskosten')?.scrollIntoView({ behavior: 'smooth' })
-            },
-            label: 'Mehr erfahren'
-          }}
+          primaryCta={primaryCta}
+          secondaryCta={secondaryCta}
         />
 
       <RatgeberHeroImage
