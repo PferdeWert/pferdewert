@@ -20,7 +20,7 @@ const seoMetadata = {
   title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
   description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
   canonical_url: 'https://pferdewert.de/ratgeber/pferdemarkt',
-  og_image: 'https://pferdewert.de/images/ratgeber/pferdemarkt-hero.webp',
+  og_image: 'https://pferdewert.de/images/ratgeber/horse-market-havelberg-crowd.webp',
   og_image_alt: 'Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern'
 }
 
@@ -117,7 +117,7 @@ const Pferdemarkt: NextPage = () => {
     'description': 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf.',
     'image': {
       '@type': 'ImageObject',
-      'url': 'https://pferdewert.de/images/ratgeber/pferdemarkt-hero.webp',
+      'url': 'https://pferdewert.de/images/ratgeber/horse-market-havelberg-crowd.webp',
       'width': 1200,
       'height': 800
     },
@@ -263,7 +263,7 @@ const Pferdemarkt: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/pferdemarkt-hero-v2.webp"
+          src="/images/ratgeber/horse-market-havelberg-crowd.webp"
           alt="Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern"
           priority
           attribution={{

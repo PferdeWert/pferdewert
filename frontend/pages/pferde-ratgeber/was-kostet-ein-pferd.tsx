@@ -258,7 +258,7 @@ export default function WasKostetEinPferd() {
         />
 
       <RatgeberHeroImage
-        src="/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/pferd-kosten-uebersicht.webp"
+        src="/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/horse-chestnut-eating-hay-stable-window.webp"
         alt="Was kostet ein Pferd? Kostenübersicht"
         priority
       />

@@ -15,6 +15,10 @@ interface BreadcrumbsProps {
   className?: string
 }
 
+// FAST REFRESH FIX: Define icons at module level to prevent recreation on every render
+const HOME_ICON = <Home className="w-4 h-4" />
+const CHEVRON_RIGHT_ICON = <ChevronRight className="w-4 h-4 text-gray-400" />
+
 export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
   return (
     <nav className={`flex items-center space-x-2 text-sm text-gray-600 ${className}`} aria-label="Breadcrumb">
@@ -24,12 +28,12 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
         className="text-gray-500 hover:text-brand-brown transition-colors p-1 rounded"
         aria-label="Startseite"
       >
-        <Home className="w-4 h-4" />
+        {HOME_ICON}
       </Link>
 
       {items.map((item, index) => (
         <div key={index} className="flex items-center space-x-2">
-          <ChevronRight className="w-4 h-4 text-gray-400" />
+          {CHEVRON_RIGHT_ICON}
           {item.current ? (
             <span className="font-medium text-gray-900" aria-current="page">
               {item.label}

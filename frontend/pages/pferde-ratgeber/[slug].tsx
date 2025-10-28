@@ -31,7 +31,29 @@ interface RatgeberArticlePageProps {
 
 const ARTICLE_REVALIDATE_SECONDS = 86400; // 24 hours
 const RELATED_ARTICLES_COUNT = 3;
-const DEFAULT_READING_TIME = '2 Minuten Lesezeit';
+const WORDS_PER_MINUTE = 200; // German text reading speed
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+
+/**
+ * Calculate reading time based on content length
+ * Removes HTML tags and counts words
+ * German reading speed: 200 words/minute
+ */
+function calculateReadingTime(html: string): number {
+  // Remove HTML tags with regex
+  const plainText = html.replace(/<[^>]*>/g, '');
+
+  // Count words (split by whitespace and filter empty)
+  const wordCount = plainText
+    .split(/\s+/)
+    .filter((word) => word.length > 0).length;
+
+  // Calculate reading time with minimum of 1 minute
+  return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+}
 
 // ============================================================================
 // ISR: STATIC PATH GENERATION
@@ -55,7 +77,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       fallback: 'blocking',
     };
   } catch (err) {
-    error('Failed to generate static paths:', err);
+    error('Failed to generate static paths', { error: err });
     return {
       paths: [],
       fallback: 'blocking',
@@ -107,7 +129,7 @@ export const getStaticProps: GetStaticProps<
       revalidate: ARTICLE_REVALIDATE_SECONDS,
     };
   } catch (err) {
-    error('Failed to fetch article:', err);
+    error('Failed to fetch article', { slug: params?.slug, error: err });
     return { notFound: true };
   }
 };
@@ -126,6 +148,7 @@ export default function RatgeberArticlePage({
     article.pferdewert.edited_content_html || article.outrank.content_html;
   const featuredImage =
     article.pferdewert.featured_image || article.outrank.image_url;
+  const readingTime = calculateReadingTime(displayContent);
 
   return (
     <Layout>
@@ -225,7 +248,7 @@ export default function RatgeberArticlePage({
 
             <div className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
-              <span>{DEFAULT_READING_TIME}</span>
+              <span>{readingTime} Minuten Lesezeit</span>
             </div>
           </div>
 

@@ -141,6 +141,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'pferd-kaufen',
       'aku-pferd'
     ]
+  },
+
+  // Pferdekaufvertrag Guide
+  {
+    slug: 'pferdekaufvertrag',
+    title: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.',
+    category: 'Finanzen & Recht',
+    readTime: '12 Min.',
+    image: '/images/ratgeber/pferdekaufvertrag-guide.jpg',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'aku-pferd',
+      'pferd-verkaufen'
+    ]
   }
 ];
 

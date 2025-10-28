@@ -3,8 +3,18 @@
 **Design-Philosophie: Text First** – Ratgeberseiten sind Blog-Artikel mit semantischem HTML als Basis. Boxen werden nur sparsam für strategische Zwecke eingesetzt (max. 2-4 pro Artikel).
 
 ### 1. Seitenaufbau
+
+**⚠️ KRITISCH: Layout Props**
+Alle Ratgeber-Seiten MÜSSEN das Layout mit diesen Props verwenden:
+```tsx
+<Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
+```
+- `fullWidth={true}` → Vollbreite Layout aktivieren
+- `background="bg-gradient-to-b from-amber-50 to-white"` → Sanfter Amber-Gradient
+- **NIEMALS** Layout ohne diese Props verwenden!
+
 1. **Hero**
-   - Hintergrund (Layout + Hero): `bg-gradient-to-b from-amber-50 to-white`.
+   - Hintergrund über Layout Props (siehe oben)
    - Optionales Badge (`Award` Icon) mit `bg-brand-light` und `text-brand/80`.
    - Haupttitel in Playfair Display, `text-brand`.
    - Subheadline `text-brand/80` (max. 2–3 Sätze).
@@ -12,6 +22,8 @@
    - Primär-CTA: `bg-brand-brown` → Hover `bg-brand-brownDark`, Sekundär-CTA: Outline mit `border-brand-brown`.
 2. **Hero Image**
    - `next/image` mit `priority`, 4:3 Zuschnitt, `rounded-xl` + `shadow-lg`.
+   - **Naming Convention**: Inhaltsbasiert (siehe Section 6 "Media & Assets")
+   - Bilder im Ordner: `/public/images/ratgeber/`
 3. **Inhaltsverzeichnis**
    - Überschrift `text-brand`, Links `text-brand/80`, Hover `text-brand-brown`.
 4. **Content Body (TEXT FIRST!)**
@@ -58,24 +70,32 @@
   - **Props**: `faqs` (required), `sectionTitle` (optional), `sectionSubtitle` (optional), `withSchema` (default: true)
   - **Platzierung**: Immer unter `id="faq"` im Content
   - **Schema**: FAQPage Schema wird automatisch generiert (siehe Abschnitt 9)
-  - **⚠️ WICHTIG**: Wenn dein Content bereits eine H2-Überschrift wie "Häufige Fragen" oder "FAQ" hat, NICHT den `sectionTitle` Prop verwenden! Das würde zu doppelten Headlines führen.
-  - **Standard-Verwendung** (mit Component-Titel):
+  - **⚠️ KRITISCH**: IMMER `sectionSubtitle` themenspezifisch anpassen!
+  - **Standard-Verwendung** (PFLICHT für neue Ratgeber):
     ```tsx
-    <div id="faq" className="mt-16">
-      <FAQ
-        sectionTitle="Häufige Fragen zum Pferdekauf"
-        sectionSubtitle="Alles was du über den Pferdekauf wissen möchtest"
-        faqs={faqItems}
-      />
-    </div>
+    <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
+      <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <FAQ
+          faqs={faqItems}
+          sectionTitle="Häufig gestellte Fragen"  // Standard-Headline (nicht ändern)
+          sectionSubtitle="[Themenspezifische Beschreibung was beantwortet wird]"  // PFLICHT anpassen!
+        />
+      </div>
+    </section>
     ```
-  - **Alternative** (bei bestehender H2 im Content):
+  - **Beispiele für gute sectionSubtitle:**
+    - "Die wichtigsten Antworten zu Verträgen, Gewährleistung und rechtlichen Aspekten beim Pferdekauf"
+    - "Alles was du über Kosten, Versicherung und Haltung wissen möchtest"
+    - "Häufige Fragen zu Vorbereitung, Untersuchung und rechtlichen Themen"
+    - "Die wichtigsten Fragen zu Pferdemärkten, Online-Plattformen und Kauftipps beantwortet"
+  - **❌ NIEMALS**: `sectionTitle=""` oder fehlende `sectionSubtitle` bei neuen Ratgebern!
+  - **Alternative** (NUR bei Legacy-Content mit bestehender H2):
     ```tsx
     <section id="faq" className="mt-16">
       <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-8">
         Häufig gestellte Fragen
       </h2>
-      <FAQ faqs={faqItems} sectionTitle="" /> {/* Leerer sectionTitle unterdrückt Component-Titel */}
+      <FAQ faqs={faqItems} sectionTitle="" /> {/* Nur bei bestehenden H2 Headlines! */}
     </section>
     ```
 - **RatgeberRelatedArticles**: Max. drei Einträge; bei <3 Artikeln automatisch mittig ausgerichtet (`md:w-[320px]`). Datenstruktur `{ href, image, title, badge, readTime, description }`.
@@ -113,6 +133,43 @@
 - Tabellen: Nutze semantic HTML `<table>` oder einfache Listen statt grid mit Boxen.
 
 ### 6. Media & Assets
+
+**⚠️ KRITISCH: Bildbenennungs-Schema**
+
+**Best Practice: Sprechende, inhaltsbasierte Namen**
+
+Bilder MÜSSEN nach ihrem **INHALT** benannt werden, nicht nach ihrer Verwendung:
+
+✅ **RICHTIG - Beschreibt Bildinhalt:**
+- `horses-mountain-field-spain.webp` (Pferde auf Bergwiese in Spanien)
+- `horse-brown-portrait-stable.webp` (Braunes Pferd Portrait im Stall)
+- `horses-grazing-meadow-sunset.webp` (Pferde beim Grasen bei Sonnenuntergang)
+- `horse-riding-training-arena.webp` (Reittraining in der Arena)
+
+❌ **FALSCH - Verwendungsbezogene Namen:**
+- `pferdekaufvertrag-hero.webp` ← Was ist auf dem Bild? Nicht erkennbar!
+- `page-header-image.webp` ← Keine Ahnung vom Inhalt
+- `hero-1.webp` ← Komplett nutzlos
+
+**Vorteile inhaltsbasierter Namen:**
+- ✅ **Wiederverwendbarkeit**: Gleiches Bild kann auf mehreren Seiten genutzt werden
+- ✅ **Keine Duplikate**: Bild existiert nur einmal im System
+- ✅ **Cache-Effizienz**: Bild wird einmal geladen, überall gecacht
+- ✅ **Erkennbarkeit**: Entwickler wissen sofort, was auf dem Bild ist
+- ✅ **SEO-Bonus**: Sprechender Dateiname hilft Google Image Search
+
+**Naming Convention:**
+- Format: `[subject]-[location/context]-[details].webp`
+- Kleinbuchstaben, Bindestriche statt Leerzeichen
+- Deutsch oder Englisch, aber konsistent
+- Beispiele:
+  - `horses-mountain-field-spain.webp`
+  - `pferde-weide-sonnenuntergang.webp`
+  - `horse-jumping-competition.webp`
+
+**Speicherort**: `/public/images/ratgeber/` (zentral für alle Ratgeber-Bilder)
+
+**Weitere Media-Richtlinien:**
 - Bilder nur via `next/image` + `sizes` Attribut.
 - Formate: `.webp` bevorzugen.
 - Emotionale, authentische Pferde-/Menschen-Bilder (kein Stock-Look).

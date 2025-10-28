@@ -14,6 +14,13 @@ import { useEffect, useRef } from 'react';
 import { info } from '@/lib/log';
 import { InternalLink } from '@/types/ratgeber';
 
+// Constants for internal link positioning within article content
+const INTERNAL_LINK_POSITIONS = {
+  INTRO_PERCENT: 0.15, // 15% into content
+  BODY_PERCENT: 0.5, // 50% into content
+  OUTRO_PERCENT: 0.85, // 85% into content
+} as const;
+
 interface ArticleContentProps {
   html: string;
   internalLinks?: InternalLink[];
@@ -60,9 +67,9 @@ export default function ArticleContent({ html, internalLinks = [] }: ArticleCont
 
     // Calculate positions based on total paragraph count
     const positions = {
-      intro: Math.floor(totalParagraphs * 0.15), // 15% into content
-      body: Math.floor(totalParagraphs * 0.5), // 50% into content
-      outro: Math.floor(totalParagraphs * 0.85), // 85% into content
+      intro: Math.floor(totalParagraphs * INTERNAL_LINK_POSITIONS.INTRO_PERCENT),
+      body: Math.floor(totalParagraphs * INTERNAL_LINK_POSITIONS.BODY_PERCENT),
+      outro: Math.floor(totalParagraphs * INTERNAL_LINK_POSITIONS.OUTRO_PERCENT),
     };
 
     info('ArticleContent: Calculated link injection positions', {

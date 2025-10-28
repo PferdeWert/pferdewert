@@ -231,7 +231,7 @@ const PferdVerkaufen: NextPage = () => {
           }}
         />
         <RatgeberHeroImage
-          src='/images/ratgeber/pferd-verkaufen/pferd-verkaufen-beratung.webp'
+          src='/images/ratgeber/pferd-verkaufen/woman-horse-portrait-outdoor-bonding.webp'
           alt="Erfolgreicher Pferdeverkauf mit zufriedenem Verkäufer und neuem Besitzer"
         />
       </div>

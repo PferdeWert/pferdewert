@@ -180,7 +180,7 @@ const AkuPferdKosten: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src='/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp'
+          src='/images/ratgeber/aku-pferd/kosten/woman-handler-horse-halter-outdoor.webp'
           alt="Käufer bewertet Pferd und kalkuliert AKU-Kosten"
           priority
         />

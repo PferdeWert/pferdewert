@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import Link from "next/link"
+import { useMemo } from "react"
 import { ArrowRight, TrendingUp, Shield, CheckCircle, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
 
 import Layout from "@/components/Layout"
@@ -32,21 +33,6 @@ const sections = [
   { id: "faq", title: "FAQ zum Pferdekauf" },
   { id: "fazit", title: "Fazit: Sicherer Pferdekauf" }
 ]
-
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: <TrendingUp className="h-4 w-4" />,
-    label: "15 Min. Lesezeit"
-  },
-  {
-    icon: <Shield className="h-4 w-4" />,
-    label: "Aktualisiert Oktober 2025"
-  },
-  {
-    icon: <CheckCircle className="h-4 w-4" />,
-    label: "Vollständige Checkliste"
-  }
-])
 
 const priceTiles = [
   {
@@ -144,16 +130,36 @@ const faqItems: FAQItem[] = [
   }
 ]
 
-const relatedArticles = getRelatedArticles('pferd-kaufen').map(entry => ({
-  href: getRatgeberPath(entry.slug),
-  image: entry.image,
-  title: entry.title,
-  badge: entry.category,
-  readTime: entry.readTime,
-  description: entry.description
-}))
-
 const PferdKaufen: NextPage = () => {
+  // Memoized values to prevent Fast Refresh loops
+  const heroMetaItems = useMemo(() =>
+    createHeroMetaItems([
+      {
+        icon: <TrendingUp className="h-4 w-4" />,
+        label: "15 Min. Lesezeit"
+      },
+      {
+        icon: <Shield className="h-4 w-4" />,
+        label: "Aktualisiert Oktober 2025"
+      },
+      {
+        icon: <CheckCircle className="h-4 w-4" />,
+        label: "Vollständige Checkliste"
+      }
+    ]), []
+  )
+
+  const relatedArticles = useMemo(() =>
+    getRelatedArticles('pferd-kaufen').map(entry => ({
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      title: entry.title,
+      badge: entry.category,
+      readTime: entry.readTime,
+      description: entry.description
+    })), []
+  )
+
   const handleNavigate = (id: string) => scrollToSection(id)
 
   const handleScrollToToc = () => {
@@ -392,7 +398,7 @@ const PferdKaufen: NextPage = () => {
         />
 
         <RatgeberHeroImage
-          src='/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp'
+          src='/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp'
           alt="Pferd kaufen – der ultimative Ratgeber für 2025"
           priority
         />
@@ -1698,7 +1704,7 @@ const PferdKaufen: NextPage = () => {
           {/* Final CTA */}
           <RatgeberFinalCTA
             image={{
-              src: '/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp',
+              src: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp',
               alt: "Pferdebewertung vor dem Kauf"
             }}
             title="Bereit für deinen fairen Pferdekauf?"
