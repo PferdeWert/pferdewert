@@ -78,6 +78,41 @@ const faqItems = [
     }
 ];
 
+// FAST REFRESH FIX: Features array moved outside component to prevent infinite re-renders
+// Creating arrays with JSX elements inside component caused new object reference on each render
+const FEATURES_DATA = [
+  {
+    icon: <Clock className="w-8 h-8 text-brand-brown" />,
+    title: "Blitzschnell",
+    description: "Professionelle Pferdepreis-Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
+  },
+  {
+    icon: <Shield className="w-8 h-8 text-brand-brown" />,
+    title: "100% Transparent",
+    description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung aller Faktoren.",
+  },
+  {
+    icon: <Award className="w-8 h-8 text-brand-brown" />,
+    title: "Expertenwissen",
+    description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
+  },
+  {
+    icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
+    title: "Marktgerecht",
+    description: "Aktuelle Pferdepreise und Markttrends fließen in jede Pferdepreis-Bewertung mit ein.",
+  },
+  {
+    icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
+    title: "Geld-zurück-Garantie",
+    description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
+  },
+  {
+    icon: <Users className="w-8 h-8 text-brand-brown" />,
+    title: "Vertrauenswürdig",
+    description: "Professionelle Pferdepreis-Bewertungen für Pferdebesitzer deutschlandweit.",
+  },
+];
+
 export default function PferdeWertHomepage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -418,38 +453,7 @@ export default function PferdeWertHomepage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: <Clock className="w-8 h-8 text-brand-brown" />,
-                  title: "Blitzschnell",
-                  description: "Professionelle Pferdepreis-Bewertung in nur 2 Minuten – ohne Wartezeit, ohne Terminvereinbarung.",
-                },
-                {
-                  icon: <Shield className="w-8 h-8 text-brand-brown" />,
-                  title: "100% Transparent",
-                  description: "Nachvollziehbare Bewertungskriterien und detaillierte Erklärung aller Faktoren.",
-                },
-                {
-                  icon: <Award className="w-8 h-8 text-brand-brown" />,
-                  title: "Expertenwissen",
-                  description: "Entwickelt von erfahrenen Reitern und Pferdeexperten.",
-                },
-                {
-                  icon: <TrendingUp className="w-8 h-8 text-brand-brown" />,
-                  title: "Marktgerecht",
-                  description: "Aktuelle Pferdepreise und Markttrends fließen in jede Pferdepreis-Bewertung mit ein.",
-                },
-                {
-                  icon: <CheckCircle className="w-8 h-8 text-brand-brown" />,
-                  title: "Geld-zurück-Garantie",
-                  description: "Nicht zufrieden? Wir erstatten dir den vollen Betrag zurück.",
-                },
-                {
-                  icon: <Users className="w-8 h-8 text-brand-brown" />,
-                  title: "Vertrauenswürdig",
-                  description: "Professionelle Pferdepreis-Bewertungen für Pferdebesitzer deutschlandweit.",
-                },
-              ].map((feature, index) => (
+              {FEATURES_DATA.map((feature, index) => (
                 <div key={index} className="border-0 shadow-soft hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl">
                   <div className="p-8 text-center">
                     <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
