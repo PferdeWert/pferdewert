@@ -22,7 +22,6 @@ Allow: /pferd-verkaufen
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
 Allow: /pferde-ratgeber/aku-pferd
-Allow: /pferde-ratgeber/aku-pferd/ablauf
 Allow: /pferde-ratgeber/aku-pferd/kosten
 Allow: /pferde-ratgeber/was-kostet-ein-pferd
 Allow: /pferde-ratgeber/pferd-verkaufen

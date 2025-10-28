@@ -154,6 +154,11 @@ const nextConfig = {
         destination: '/pferde-ratgeber/aku-pferd',
         permanent: true,
       },
+      {
+        source: '/pferde-ratgeber/aku-pferd/ablauf',
+        destination: '/pferde-ratgeber/aku-pferd',
+        statusCode: 301,
+      },
     ]
   },
 };

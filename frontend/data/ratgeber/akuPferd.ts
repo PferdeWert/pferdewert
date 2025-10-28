@@ -152,5 +152,21 @@ export const akuFaqItems: FAQItem[] = [
   {
     question: 'Kann ich die AKU nutzen, um den Kaufpreis zu verhandeln?',
     answer: 'Ja. Mit AKU-Vorbehalt im Kaufvertrag kannst du den Kauf ohne Kosten rückgängig machen, falls risikobehaftete Befunde auftreten. Befunde können auch Basis für Preisverhandlungen sein – insbesondere wenn die Befunde zwar vorhanden sind, aber das Pferd nicht für deine beabsichtigte Reitweise problematisch ist.'
+  },
+  {
+    question: 'Darf der Verkäufer bei der AKU dabei sein?',
+    answer: 'Ja, der Verkäufer kann anwesend sein. Er hat aber kein Mitspracherecht beim Ablauf oder den Befunden. Manche Käufer bevorzugen eine AKU ohne Verkäufer, um vollständig neutral zu bleiben. Das Protokoll gehört dem Käufer – der Verkäufer erhält nur eine Kopie, falls beide zustimmen.'
+  },
+  {
+    question: 'Was passiert, wenn die AKU erhebliche Befunde zeigt?',
+    answer: 'Mit AKU-Vorbehalt im Kaufvertrag hast du mehrere Optionen: (1) Kostenloses Rücktrittsrecht – du lehnst ab und der Kauf wird rückgängig gemacht. (2) Preisverhandlung – du verhandelst einen niedrigeren Preis basierend auf den Befunden. (3) Zweitmeinung – du holst einen anderen Tierarzt zur Bestätigung. Risiko-Befunde sind meist ein Ausschlusskriterium für die beabsichtigte Reitweise.'
+  },
+  {
+    question: 'Sollte ich das Pferd vor der AKU sedieren?',
+    answer: 'Nein! Das Pferd sollte nicht sediert sein vor oder bei der AKU, besonders nicht vor der Bewegungsuntersuchung. Der Tierarzt braucht die natürliche Bewegung und Reaktionen des Pferdes, um Lahmheiten zu erkennen. Sedation würde die Bewegungsanalyse verfälschen und zu fehlerhaften Befunden führen.'
+  },
+  {
+    question: 'Wer bekommt das Röntgenprotokoll und die Bilder?',
+    answer: 'Das komplette Röntgenprotokoll mit allen Bildern gehört dem Käufer – das ist dein Eigentum. Lass dir die Röntgenbilder auf CD/USB aushändigen. So hast du das Archiv für spätere Fragen, Versicherung oder Wiederverkauf des Pferdes. Wichtig: Schriftlich klären, dass du alle Unterlagen erhältst!'
   }
 ]

@@ -350,10 +350,12 @@ const AKUPferd: NextPage = () => {
 
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
-                  <h3 className="text-xl font-bold mb-2">Phase 1: Vorbereitung (vor dem Untersuchungstermin)</h3>
+                  <h3 className="text-xl font-bold mb-2">Phase 1: Vorbericht & Anamnese (vor der Untersuchung)</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li><strong>Unabhängigen Tierarzt auswählen</strong> – nicht den Stallveterinär des Verkäufers</li>
                     <li><strong>AKU-Klasse festlegen</strong> – kleine oder große AKU?</li>
+                    <li><strong>Vorgeschichte dokumentieren</strong> – frühere Verletzungen, Erkrankungen, bisherige Nutzung</li>
+                    <li><strong>Haltung und Training abklären</strong> – Informationen zu Fütterung, Trainingsniveau, Verhalten im Alltag</li>
                     <li><strong>Röntgenumfang definieren</strong> – Standard sind 18 Aufnahmen (seit Röntgenleitfaden 2018)</li>
                     <li><strong>AKU-Vorbehalt im Kaufvertrag</strong> – vereinbaren für kostenloses Rücktrittsrecht</li>
                     <li><strong>Kosten klären</strong> – schriftliche Kostenaufstellung vom Tierarzt einholen</li>
@@ -361,34 +363,41 @@ const AKUPferd: NextPage = () => {
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
-                  <h3 className="text-xl font-bold mb-2">Phase 2: Klinische Untersuchung (am Untersuchungstag, 1-2 Stunden)</h3>
+                  <h3 className="text-xl font-bold mb-2">Phase 2: Allgemeine klinische Untersuchung (1-2 Stunden)</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li><strong>Allgemeinzustand:</strong> Körperkondition, Temperatur, Verhalten</li>
-                    <li><strong>Gangbildanalyse:</strong> Schritt und Trab auf hartem und weichem Boden, Longieren</li>
-                    <li><strong>Flexionsproben:</strong> Alle Gelenke einzeln prüfen, auf Reaktionen achten</li>
-                    <li><strong>Herz-Kreislauf:</strong> Herzfrequenz, Atemfrequenz, Abhören mit Stethoskop</li>
-                    <li><strong>Lungen-Untersuchung:</strong> Atemgeräusche kontrollieren</li>
-                    <li><strong>Zähne, Augen, Ohren:</strong> Detaillierte Untersuchung</li>
+                    <li><strong>Allgemeinzustand:</strong> Körperkondition, Temperatur, Verhalten, äußere Verletzungen</li>
+                    <li><strong>Herz-Kreislauf & Lungen:</strong> Herzfrequenz, Atemfrequenz, Abhören mit Stethoskop, Atemgeräusche</li>
+                    <li><strong>Schleimhäute & Reflexe:</strong> Allgemeine Gesundheitsindikatoren prüfen</li>
+                    <li><strong>Zähne, Augen, Ohren:</strong> Detaillierte Untersuchung von Gebiss und Sinnesorganen</li>
                   </ul>
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
-                  <h3 className="text-xl font-bold mb-2">Phase 3: Röntgenuntersuchung (nur bei großer AKU, 1-1,5 Stunden)</h3>
+                  <h3 className="text-xl font-bold mb-2">Phase 3: Bewegungsuntersuchung & Flexionstests (1-1,5 Stunden)</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li><strong>18 Standard-Aufnahmen (seit 2018):</strong> Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk, sowie weitere Standard-Aufnahmen für umfassende Bewertung</li>
-                    <li><strong>Digitale Entwicklung:</strong> Aufnahmen sofort verfügbar zur ersten Sichtung</li>
-                    <li><strong>Zusatzaufnahmen bei Befunden:</strong> Falls nötig, werden erweiterte Aufnahmen gemacht</li>
+                    <li><strong>Gangwerk analysieren:</strong> Schritt und Trab auf hartem und weichem Boden, Longieren in allen Gangarten</li>
+                    <li><strong>Flexionsproben:</strong> Gelenke werden einzeln gebeugt, um versteckte Lahmheiten zu erkennen</li>
+                    <li><strong>Belastungstest:</strong> Pferd wird unter Belastung beobachtet, um Reaktionen auf harte Untergründe zu sehen</li>
                   </ul>
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
-                  <h3 className="text-xl font-bold mb-2">Phase 4: Befundung & Protokoll-Erstellung (24-48 Stunden später)</h3>
+                  <h3 className="text-xl font-bold mb-2">Phase 4: Röntgenuntersuchung (nur bei großer AKU, 1-1,5 Stunden)</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li><strong>Röntgenauswertung:</strong> Alle 18 Bilder werden detailliert beurteilt</li>
+                    <li><strong>18 Standard-Aufnahmen (seit 2018):</strong> Vorderfußwurzelgelenk, Fesselgelenk vorne/hinten, Hufgelenk, Sprunggelenk, Kniegelenk, sowie weitere Standard-Aufnahmen gemäß Röntgenleitfaden</li>
+                    <li><strong>Digitale Aufnahmen:</strong> Moderne digitale Röntgengeräte ermöglichen sofortige Verfügbarkeit der Bilder</li>
+                    <li><strong>Zusatzaufnahmen bei Befunden:</strong> Falls nötig, werden erweiterte Aufnahmen gemacht (z.B. Rücken, Hals, Schulter)</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-brand p-6 rounded">
+                  <h3 className="text-xl font-bold mb-2">Phase 5: Befundung & Protokoll-Erstellung (24-48 Stunden später)</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li><strong>Röntgenauswertung:</strong> Alle Bilder werden detailliert beurteilt und dokumentiert</li>
                     <li><strong>Präzise Befundbeschreibung (seit 2018):</strong> Jeder Befund wird individuell beschrieben – o.b.B., Abweichung, oder Risiko-Befund</li>
-                    <li><strong>AKU-Protokoll erstellen:</strong> Vollständiger Bericht mit allen Befunden und Bewertung</li>
-                    <li><strong>Kaufempfehlung formulieren:</strong> Basierend auf Befunddaten und beabsichtigter Reitweise</li>
-                    <li><strong>Übergabe an Käufer:</strong> Protokoll gehört dem Käufer, nicht dem Verkäufer</li>
+                    <li><strong>AKU-Protokoll erstellen:</strong> Vollständiger schriftlicher Bericht mit allen Befunden und Bewertung</li>
+                    <li><strong>Kaufempfehlung formulieren:</strong> Tierarzt bewertet, ob das Pferd kauftauglich ist – basierend auf Befunddaten und beabsichtigter Reitweise</li>
+                    <li><strong>Übergabe an Käufer:</strong> Protokoll und Röntgenbilder gehören dem Käufer, nicht dem Verkäufer</li>
                   </ul>
                 </div>
               </div>
@@ -487,50 +496,74 @@ const AKUPferd: NextPage = () => {
             {/* 7. Worauf sollte man achten? */}
             <div id="what-to-watch" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                {numberedTitle('what-to-watch', 'Worauf sollte man bei der AKU achten?')}
+                {numberedTitle('what-to-watch', 'Checkliste: Worauf sollte man bei der AKU achten?')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Einige Tipps, um das Beste aus deiner AKU herauszuholen:
+                Mit dieser Checkliste bereitest du dich optimal vor und holst das Beste aus deiner AKU:
               </p>
 
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 text-2xl">🔍</div>
                   <div>
-                    <h3 className="font-bold mb-2">Unabhängiger Tierarzt</h3>
-                    <p className="text-gray-700">Wähle einen Tierarzt, der nicht mit dem Verkäufer verbunden ist. Das ist essentiell für objektive Befunde.</p>
+                    <h3 className="font-bold mb-2">Unabhängiger Tierarzt wählen</h3>
+                    <p className="text-gray-700">Wähle einen Tierarzt, der nicht mit dem Verkäufer verbunden ist. Das ist essentiell für objektive Befunde. Kein Stallveterinär des Verkäufers!</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 text-2xl">📋</div>
                   <div>
+                    <h3 className="font-bold mb-2">Termin frühzeitig vereinbaren</h3>
+                    <p className="text-gray-700">Plane ausreichend Zeit ein – besonders bei großer AKU. Manche Tierärzte sind mehrere Wochen ausgebucht. Je früher du einen Termin vereinbarst, desto besser.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">📝</div>
+                  <div>
                     <h3 className="font-bold mb-2">AKU-Vorbehalt im Kaufvertrag</h3>
-                    <p className="text-gray-700">Vereinbare schriftlich, dass der Kauf an eine positive AKU gekoppelt ist. Dies ermöglicht kostenloses Rücktrittsrecht ohne Befund.</p>
+                    <p className="text-gray-700">Vereinbare schriftlich, dass der Kauf an eine positive AKU gekoppelt ist. Dies ermöglicht kostenloses Rücktrittsrecht ohne Befund. Klare Formulierung ist wichtig!</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 text-2xl">🐎</div>
                   <div>
-                    <h3 className="font-bold mb-2">Probereiten beim AKU-Termin</h3>
-                    <p className="text-gray-700">Reite das Pferd direkt vor der AKU. So sieht der Tierarzt das Pferd in Bewegung und kann besser klinische Befunde einordnen.</p>
+                    <h3 className="font-bold mb-2">Probereiten vor der AKU</h3>
+                    <p className="text-gray-700">Reite das Pferd direkt vor der AKU. So sieht der Tierarzt das Pferd in Bewegung und kann klinische Befunde besser einordnen. Aber: Pferd nicht sedieren vor der Untersuchung!</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">✨</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Hufe sauber präsentieren</h3>
+                    <p className="text-gray-700">Präsentiere das Pferd gepflegt – saubere und gepflegte Hufe sind wichtig für die Untersuchung. Das hilft dem Tierarzt bei der Beurteilung.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 text-2xl">💬</div>
                   <div>
-                    <h3 className="font-bold mb-2">Fragen beim Untersuchungstermin stellen</h3>
-                    <p className="text-gray-700">Nutze den Termin, um offene Fragen zu stellen. Der Tierarzt kann viel über Voraussagen zukünftiger Probleme erklären.</p>
+                    <h3 className="font-bold mb-2">Voruntersuchungen bereitstellen</h3>
+                    <p className="text-gray-700">Falls vorhanden, stelle vorhandene Röntgenbilder oder frühere AKU-Berichte zur Verfügung. Das gibt dem Tierarzt wichtigen Kontext.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">💰</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Kosten und Zusatzgebühren klären</h3>
+                    <p className="text-gray-700">Kläre vorab mit dem Tierarzt: Was kostet die AKU? Fallen Zusatzkosten an (Anfahrt, Sedierung, Zusatzaufnahmen)? Budget für Überraschungen einplanen!</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 text-2xl">⏱️</div>
                   <div>
-                    <h3 className="font-bold mb-2">Ausreichend Zeit für große AKU einplanen</h3>
-                    <p className="text-gray-700">Großes AKU mit Röntgen benötigt 2-4 Stunden. Hetz nicht – eine gründliche Untersuchung braucht Zeit.</p>
+                    <h3 className="font-bold mb-2">Ausreichend Zeit einplanen</h3>
+                    <p className="text-gray-700">Kleine AKU: 1-2 Stunden. Große AKU mit Röntgen: 2-4 Stunden. Hetz nicht – eine gründliche Untersuchung braucht Zeit. Block den ganzen Termin!</p>
                   </div>
                 </div>
 
@@ -538,7 +571,23 @@ const AKUPferd: NextPage = () => {
                   <div className="flex-shrink-0 text-2xl">📸</div>
                   <div>
                     <h3 className="font-bold mb-2">Röntgenbilder-Archiv behalten</h3>
-                    <p className="text-gray-700">Bekomme die Röntgenbilder auf CD/USB. So kannst du diese auch einem Zweittierarzt zeigen, falls nötig.</p>
+                    <p className="text-gray-700">Lass dir die Röntgenbilder auf CD/USB aushändigen. So kannst du diese auch einem Zweittierarzt zeigen oder später wieder abrufen – für Versicherung oder Wiederverkauf.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">📄</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Vollständiges AKU-Protokoll sichern</h3>
+                    <p className="text-gray-700">Das AKU-Protokoll gehört dem Käufer, nicht dem Verkäufer. Stelle sicher, dass du alle Unterlagen erhältst: Bericht, Röntgenbilder, Unterschrift des Tierarztes.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 text-2xl">❓</div>
+                  <div>
+                    <h3 className="font-bold mb-2">Fragen beim Untersuchungstermin stellen</h3>
+                    <p className="text-gray-700">Nutze den Termin, um offene Fragen zu stellen. Der Tierarzt kann viel über die Befunde, Risiken und zukünftige Probleme erklären. Sei aktiv und neugierig!</p>
                   </div>
                 </div>
               </div>

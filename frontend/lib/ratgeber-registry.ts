@@ -60,21 +60,10 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'aku-pferd/ablauf',
       'aku-pferd/kosten',
-      'pferd-kaufen'
+      'pferd-kaufen',
+      'was-kostet-ein-pferd'
     ]
-  },
-  {
-    slug: 'aku-pferd/ablauf',
-    title: 'AKU Ablauf Schritt für Schritt',
-    description: 'So läuft eine Ankaufsuntersuchung ab: Von der Vorbereitung bis zum Befund. Alle Untersuchungsschritte verständlich erklärt.',
-    category: 'Kauf & Verkauf',
-    readTime: '12 Min.',
-    image: '/images/ratgeber/aku-pferd/ablauf/aku-ablauf-untersuchung.webp', // Tierarzt führt Ankaufsuntersuchung durch
-    priority: '0.6',
-    changefreq: 'monthly',
-    relatedSlugs: ['aku-pferd', 'aku-pferd/kosten', 'pferd-kaufen']
   },
   {
     slug: 'aku-pferd/kosten',
@@ -85,7 +74,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     image: '/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp', // Außenaufnahme mit Besitzerin – passend zum Kostenthema
     priority: '0.6',
     changefreq: 'monthly',
-    relatedSlugs: ['aku-pferd/ablauf', 'aku-pferd', 'pferd-kaufen']
+    relatedSlugs: ['aku-pferd', 'pferd-kaufen', 'was-kostet-ein-pferd']
   },
 
   // Pferd Kaufen Series
