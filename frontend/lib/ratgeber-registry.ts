@@ -56,7 +56,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.',
     category: 'Kauf & Verkauf',
     readTime: '15 Min.',
-    image: '/images/ratgeber/aku-pferd/aku-pferd-untersuchung.webp', // Tierärztin untersucht Pferd – zentrales Motiv für die Gesamtübersicht
+    image: '/images/ratgeber/aku-pferd/veterinarian-examining-horse-head-outdoor.webp', // Tierärztin untersucht Pferd – zentrales Motiv für die Gesamtübersicht
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
@@ -71,7 +71,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Was kostet eine Ankaufsuntersuchung? Alle Preise und Faktoren im Überblick - von der kleinen bis zur großen AKU.',
     category: 'Kauf & Verkauf',
     readTime: '8 Min.',
-    image: '/images/ratgeber/aku-pferd/kosten/aku-kosten-tierarzt.webp', // Außenaufnahme mit Besitzerin – passend zum Kostenthema
+    image: '/images/ratgeber/aku-pferd/kosten/woman-handler-horse-halter-outdoor.webp', // Außenaufnahme mit Besitzerin – passend zum Kostenthema
     priority: '0.6',
     changefreq: 'monthly',
     relatedSlugs: ['aku-pferd', 'pferd-kaufen', 'was-kostet-ein-pferd']
@@ -84,7 +84,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.',
     category: 'Kauf & Verkauf',
     readTime: '18 Min.',
-    image: '/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp', // Trainingsszene – ideal für Kaufberatung
+    image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp', // Trainingsszene – ideal für Kaufberatung
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
@@ -99,7 +99,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Detaillierte Übersicht aller Kosten: Kaufpreis, laufende Kosten und versteckte Ausgaben. So planst du dein Budget richtig.',
     category: 'Kauf & Verkauf',
     readTime: '14 Min.',
-    image: '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/pferd-kosten-uebersicht.webp', // Stallaufnahme – fokussiert auf Kosten & Versorgung
+    image: '/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/horse-chestnut-eating-hay-stable-window.webp', // Stallaufnahme – fokussiert auf Kosten & Versorgung
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
@@ -116,7 +116,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.',
     category: 'Kauf & Verkauf',
     readTime: '16 Min.',
-    image: '/images/ratgeber/pferd-verkaufen/pferd-verkaufen-beratung.webp', // Hauptmotiv für den Verkaufsratgeber
+    image: '/images/ratgeber/pferd-verkaufen/woman-horse-portrait-outdoor-bonding.webp', // Hauptmotiv für den Verkaufsratgeber
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
