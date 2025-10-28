@@ -55,15 +55,15 @@ export function warnIfUnstableReference(
  * TODO: Re-enable with a rate-limiting mechanism or different detection method
  */
 export function validateCtaProps(
-  cta: { icon?: ReactNode } | undefined
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _cta: { icon?: ReactNode } | undefined
 ): void {
   // Temporarily disabled to prevent infinite Fast Refresh loops
   return
 
   /* Original code - commented out to break infinite reload loop
-  if (!cta) return
+  if (!_cta) return
 
-  warnIfUnstableReference(cta.icon, `${ctaName}.icon`, componentName)
+  warnIfUnstableReference(_cta.icon, `${ctaName}.icon`, componentName)
   */
 }

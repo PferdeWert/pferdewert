@@ -48,8 +48,8 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   // which triggers Fast Refresh cycles and infinite loops
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
-      validateCtaProps(primaryCta, 'primaryCta', 'RatgeberHero')
-      validateCtaProps(secondaryCta, 'secondaryCta', 'RatgeberHero')
+      validateCtaProps(primaryCta)
+      validateCtaProps(secondaryCta)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) // Empty dependency array: run validation only once on mount
