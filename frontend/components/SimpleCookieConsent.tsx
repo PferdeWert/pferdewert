@@ -424,24 +424,31 @@ const SimpleCookieConsent = () => {
   const initCookieConsent = useCallback(() => {
     info('Cookie script loaded');
 
-    // Exit early if consent already exists (eigener Cookie-Name!)
-    if (new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie)) {
-      info('Consent already exists');
+    // ROBUST FIX: Exit early if ANY consent cookie exists (not just allow/deny)
+    // This prevents infinite reload loops when cookie has values like 'analytics_only' or 'necessary_only'
+    if (document.cookie.includes(`${CONSENT_COOKIE}=`)) {
+      info('Consent cookie already exists - skipping banner initialization');
       return;
     }
 
-    // Enhanced error handling with retry mechanism
+    // Enhanced error handling with retry mechanism + guard against multiple retries
     const cookieConsent = window.cookieconsent;
     if (!cookieConsent?.initialise) {
-      logError('CookieConsent library not found - retrying in 100ms');
-      setTimeout(() => {
-        const retryConsent = window.cookieconsent;
-        if (!retryConsent?.initialise) {
-          logError('CookieConsent library failed to load after retry');
-          return;
-        }
-        initCookieConsentConfig(retryConsent);
-      }, 100);
+      logError('CookieConsent library not found - retrying once in 100ms');
+
+      // ROBUST FIX: Use flag to prevent multiple retry attempts that could cause loops
+      if (!(window as typeof window & { _cookieConsentRetried?: boolean })._cookieConsentRetried) {
+        (window as typeof window & { _cookieConsentRetried?: boolean })._cookieConsentRetried = true;
+
+        setTimeout(() => {
+          const retryConsent = window.cookieconsent;
+          if (!retryConsent?.initialise) {
+            logError('CookieConsent library failed to load after retry');
+            return;
+          }
+          initCookieConsentConfig(retryConsent);
+        }, 100);
+      }
       return;
     }
 

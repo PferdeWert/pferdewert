@@ -22,7 +22,7 @@ export default function CookieSettingsModal({
   onClose,
   onSave,
 }: CookieSettingsModalProps) {
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(true); // Default: Analytics aktiviert
   const modalRef = useRef<HTMLDivElement>(null);
   const initialFocusRef = useRef<HTMLButtonElement>(null);
 
@@ -212,23 +212,23 @@ export default function CookieSettingsModal({
 
           {/* Buttons */}
           <div className="space-y-3">
-            {/* Primär: Auswahl speichern */}
+            {/* Primär: Alle akzeptieren */}
             <button
               ref={initialFocusRef}
-              onClick={handleSave}
-              className="w-full px-6 py-3 bg-brand-brown hover:bg-brand-brownDark text-white font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-brown focus:ring-offset-2 text-base"
-              aria-label="Auswahl speichern und Modal schließen"
-            >
-              Auswahl speichern
-            </button>
-
-            {/* Sekundär: Alle akzeptieren */}
-            <button
               onClick={handleAllAccept}
-              className="w-full px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 text-base"
+              className="w-full px-6 py-3 bg-brand-brown hover:bg-brand-brownDark text-white font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-brown focus:ring-offset-2 text-base"
               aria-label="Alle Cookies akzeptieren und Modal schließen"
             >
               Alle akzeptieren
+            </button>
+
+            {/* Sekundär: Auswahl speichern */}
+            <button
+              onClick={handleSave}
+              className="w-full px-6 py-3 bg-white hover:bg-gray-50 text-brand-brown font-semibold rounded-lg border-2 border-brand-brown transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-brown focus:ring-offset-2 text-base"
+              aria-label="Auswahl speichern und Modal schließen"
+            >
+              Auswahl speichern
             </button>
           </div>
 
