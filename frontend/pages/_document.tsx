@@ -49,6 +49,13 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
         />
+
+        {/* Cookie Consent CSS - Required for buttons to work properly */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+          crossOrigin="anonymous"
+        />
       </Head>
       <body className="antialiased">
         <noscript>

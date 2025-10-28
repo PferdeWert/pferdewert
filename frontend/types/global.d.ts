@@ -6,6 +6,7 @@ declare global {
     };
     showCookieSettings?: () => void;
     gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
+    dataLayer?: unknown[];
     datafast?: {
       q?: unknown[];
       (event: 'payment', data: { amount: number; currency: string; transaction_id: string }): void;

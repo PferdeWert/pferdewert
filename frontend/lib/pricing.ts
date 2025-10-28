@@ -142,13 +142,5 @@ export const validatePricing = (): boolean => {
 };
 
 // ===== DEVELOPMENT HELPERS =====
-if (process.env.NODE_ENV === 'development') {
-  import('@/lib/log').then(({ log }) => {
-    log('💰 PferdeWert Pricing Config loaded:', {
-      current: PRICING_FORMATTED.current,
-      decoy: PRICING_FORMATTED.decoy,
-      stripeId: STRIPE_CONFIG.priceId,
-      valid: validatePricing()
-    });
-  });
-}
+// Note: Development logging removed to prevent Fast Refresh loops
+// Pricing config can be inspected via browser console or React DevTools

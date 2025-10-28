@@ -121,7 +121,7 @@ const nextConfig = {
       },
       {
         source: '/was-kostet-ein-pferd',
-        destination: '/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd',
+        destination: '/pferde-ratgeber/was-kostet-ein-pferd',
         statusCode: 301,
       },
       {

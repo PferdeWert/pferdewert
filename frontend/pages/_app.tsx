@@ -1,6 +1,6 @@
 // frontend/pages/_app.tsx
 import "@/styles/globals.css";
-// ✅ LIGHTHOUSE OPTIMIZED: cookieconsent.min.css now loaded via CDN with source maps
+// ✅ LIGHTHOUSE OPTIMIZED: cookieconsent.min.css loaded in _document.tsx via CDN
 import type { AppProps } from "next/app";
 import { JSX } from "react";
 import { Analytics } from "@vercel/analytics/next";
