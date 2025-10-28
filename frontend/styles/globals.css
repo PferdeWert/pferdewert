@@ -236,3 +236,245 @@ section + section {
 .btn-icon {
   @apply p-3 rounded-full w-10 h-10 flex items-center justify-center;
 }
+
+/* ===== Cookie Banner Styles (FIX: Moved from inline styles to prevent Fast Refresh loop) ===== */
+
+/* Body scroll lock when cookie banner is open on mobile */
+body.cookie-banner-open {
+  overflow: hidden;
+}
+
+/* Cookie Banner Base Styles */
+.cc-window.pferdewert-cookie-banner {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: #ffffff !important;
+  z-index: 10000 !important;
+}
+
+/* Mobile Cookie Banner Styles */
+.cc-window.pferdewert-cookie-banner.mobile {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  height: auto !important;
+  max-height: 70vh !important;
+  overflow-y: auto !important;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 16px 16px 0 0 !important;
+  padding: 2rem 1.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  transform: none !important;
+}
+
+/* Desktop Cookie Banner Styles */
+.cc-window.pferdewert-cookie-banner.desktop {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 90% !important;
+  max-width: 480px !important;
+  padding: 2rem 1.5rem !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  bottom: auto !important;
+  right: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+/* Cookie Banner Buttons */
+.cc-window.pferdewert-cookie-banner .cc-allow,
+.cc-window.pferdewert-cookie-banner .cc-deny {
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Mobile button styles */
+.cc-window.pferdewert-cookie-banner.mobile .cc-allow,
+.cc-window.pferdewert-cookie-banner.mobile .cc-deny {
+  padding: 1rem 1.5rem !important;
+  width: 100% !important;
+  margin: 0 0 0.75rem 0 !important;
+  flex: 1 !important;
+}
+
+/* Desktop button styles */
+.cc-window.pferdewert-cookie-banner.desktop .cc-allow,
+.cc-window.pferdewert-cookie-banner.desktop .cc-deny {
+  padding: 0.75rem 1.5rem !important;
+  width: auto !important;
+  margin: 0 0.25rem !important;
+  min-width: 160px !important;
+}
+
+/* Allow button (PferdeWert brown) */
+.cc-window.pferdewert-cookie-banner .cc-allow {
+  background-color: #8B4513 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3) !important;
+}
+
+/* Deny button (gray) */
+.cc-window.pferdewert-cookie-banner .cc-deny {
+  background-color: #6c757d !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3) !important;
+}
+
+/* Button container */
+.cc-window.pferdewert-cookie-banner .cc-compliance {
+  display: flex !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 1rem !important;
+}
+
+.cc-window.pferdewert-cookie-banner.mobile .cc-compliance {
+  flex-direction: column !important;
+}
+
+.cc-window.pferdewert-cookie-banner.desktop .cc-compliance {
+  flex-direction: row !important;
+}
+
+/* ===== Task 3: Cookie Consent Banner Enhanced CSS Classes ===== */
+
+/* Cookie Banner Mobile Variant */
+.cc-cookie-banner-mobile {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 70vh !important;
+  margin: 0 !important;
+  padding: 1.5rem !important;
+  border-radius: 12px 12px 0 0 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+  overflow-y: auto !important;
+  z-index: 9999 !important;
+  animation: slideUp 0.3s ease-out !important;
+}
+
+/* Cookie Banner Desktop Variant */
+.cc-cookie-banner-desktop {
+  position: fixed !important;
+  bottom: 1rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90% !important;
+  max-width: 600px !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  z-index: 9999 !important;
+}
+
+/* Cookie Message Styling */
+.cc-cookie-message {
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.6 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Cookie Message Emoji */
+.cc-cookie-message-emoji {
+  font-size: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Cookie Buttons Container */
+.cc-cookie-buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+}
+
+/* Primary Cookie Button (Allow/Accept) */
+.cc-cookie-button-primary {
+  background-color: #8B4513 !important;
+  color: white !important;
+  padding: 0.875rem 1.5rem !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.95rem !important;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3) !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cc-cookie-button-primary:hover {
+  background-color: #6B3410 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4) !important;
+}
+
+.cc-cookie-button-primary:focus {
+  outline: 2px solid #3B82F6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Secondary Cookie Button (Deny/Decline) */
+.cc-cookie-button-secondary {
+  background-color: #6c757d !important;
+  color: white !important;
+  padding: 0.875rem 1.5rem !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.95rem !important;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3) !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cc-cookie-button-secondary:hover {
+  background-color: #5a6268 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4) !important;
+}
+
+.cc-cookie-button-secondary:focus {
+  outline: 2px solid #3B82F6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Slide Up Animation for Mobile Banner */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -5,10 +5,16 @@ import { useCallback, useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // Pages Router
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { info, error as logError } from '@/lib/log';
 
 // WICHTIG: eigener Cookie-Name, damit wir nicht mit library-internen kollidieren
 const CONSENT_COOKIE = 'pferdewert_cookie_consent';
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // Google Analytics ID
+
+// Type for popup element with accessibility handler
+interface PopupElementWithHandler extends HTMLElement {
+  _keydownHandler?: (e: KeyboardEvent) => void;
+}
 
 const SimpleCookieConsent = () => {
   const router = useRouter();
@@ -33,17 +39,17 @@ const SimpleCookieConsent = () => {
     // Conversion-optimierte Konfiguration für PferdeWert.de
     cookieConsent.initialise({
       type: 'opt-in',
-      
+
       palette: {
         popup: { background: '#ffffff', text: '#2d2d2d' },
         button: { background: 'var(--brand-brown)', text: '#ffffff' }, // PferdeWert Braun
       },
-      
+
       position: 'bottom',
       theme: 'classic',
-      
+
       content: {
-        // 🎯 CONVERSION-OPTIMIERT: Emotional + Pferdespezifisch
+        // Conversion-optimiert: Emotional + Pferdespezifisch
         message: `
           <div style="text-align: center; margin-bottom: 1rem;">
             <div style="font-size: 2rem; margin-bottom: 0.75rem;">🐎</div>
@@ -55,7 +61,7 @@ const SimpleCookieConsent = () => {
             </p>
           </div>
         `,
-        allow: 'Einwilligen',  
+        allow: 'Einwilligen',
         deny: 'Ablehnen',      // In Zukunft evtl. "Optionen verwalten einfügen mit zweiter Page dahinter
         link: 'Datenschutz',
         href: '/datenschutz',
@@ -75,15 +81,16 @@ const SimpleCookieConsent = () => {
           document.body.style.overflow = 'hidden';
         }
 
-        // 📱 MOBILE-OPTIMIERUNG: Banner-Styling anpassen
+        // Mobile-Optimierung: Banner-Styling anpassen
         const popup = document.querySelector('.cc-window') as HTMLElement;
         if (popup) {
           popup.setAttribute('role', 'dialog');
           popup.setAttribute('aria-live', 'assertive');
           popup.setAttribute('aria-label', 'Cookie-Einwilligung');
-          
+          popup.setAttribute('aria-modal', 'true');
+
           const isMobile = window.innerWidth < 768;
-          
+
           if (isMobile) {
             // Mobile: 50% Bildschirmhöhe, sehr prominent
             popup.style.cssText = `
@@ -133,71 +140,66 @@ const SimpleCookieConsent = () => {
             `;
           }
 
-          // 🎯 GLEICHE BUTTON-GRÖSSEN für faire UX
-          setTimeout(() => {
-            const allowButton = popup.querySelector('.cc-allow') as HTMLElement;
-            const denyButton = popup.querySelector('.cc-deny') as HTMLElement;
-            
-            // BEIDE BUTTONS: Gleiche Größe, untereinander auf Mobile
-            const buttonStyles = `
-            padding: ${isMobile ? '1rem 1.5rem' : '0.75rem 1.5rem'} !important;
-            border-radius: 8px !important;
-            border: none !important;
-            font-size: 1rem !important;
-            font-weight: 600 !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease !important;
-            width: ${isMobile ? '100%' : 'auto'} !important;
-            margin: ${isMobile ? '0 0 0.75rem 0' : '0 0.25rem'} !important;
-            display: inline-block !important;
-            text-align: center !important;
-            min-width: ${isMobile ? 'auto' : '160px'} !important;
-            box-sizing: border-box !important;
-            flex: 1 !important; /* Gleiche Breite auf Mobile */
-          `;
+          // Task 4: Replace inline styles with CSS classes
+          const styleButtonsWhenReady = () => {
+            const allowButton = popup.querySelector<HTMLElement>('.cc-allow');
+            const denyButton = popup.querySelector<HTMLElement>('.cc-deny');
 
-if (allowButton) {
-  allowButton.style.cssText = buttonStyles + `
-    background-color: #8B4513 !important;
-    color: #ffffff !important;
-    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3) !important;
-  `;
-}
-
-if (denyButton) {
-  denyButton.style.cssText = buttonStyles + `
-    background-color: #6c757d !important;
-    color: #ffffff !important;
-    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3) !important;
-  `;
-}
-
-            // Button Container anpassen
-            const compliance = popup.querySelector('.cc-compliance') as HTMLElement;
-            if (compliance) {
-              compliance.style.cssText = `
-                display: flex !important;
-                ${isMobile ? 'flex-direction: column' : 'flex-direction: row'} !important;
-                gap: 0.5rem !important;
-                align-items: center !important;
-                justify-content: center !important;
-                margin-top: 1rem !important;
-              `;
+            if (!allowButton || !denyButton) {
+              requestAnimationFrame(styleButtonsWhenReady);
+              return;
             }
-          }, 100);
-        }
 
-        console.log('🍪 Banner opened');
+            allowButton.classList.add('cc-cookie-button-primary');
+            denyButton.classList.add('cc-cookie-button-secondary');
+          };
+
+          styleButtonsWhenReady();
+
+          // Task 1: Add keyboard handling for accessibility
+          const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+              const denyButton = popup.querySelector<HTMLElement>('.cc-deny');
+              if (denyButton) {
+                denyButton.click();
+              }
+            }
+          };
+
+          popup.addEventListener('keydown', handleKeyDown);
+
+          // Set initial focus to allow button for accessibility
+          setTimeout(() => {
+            const allowButton = popup.querySelector<HTMLElement>('.cc-allow');
+            if (allowButton) {
+              allowButton.focus();
+              info('Cookie banner focused on allow button');
+            }
+          }, 150);
+
+          // Store reference to handler for cleanup
+          (popup as PopupElementWithHandler)._keydownHandler = handleKeyDown;
+
+          info('Cookie banner opened with accessibility features');
+        }
       },
 
       onPopupClose: () => {
         // Cleanup: Overflow zurücksetzen
         document.body.style.overflow = '';
-        console.log('🍪 Banner closed');
+
+        // Task 1: Cleanup keyboard event listener
+        const popup = document.querySelector('.cc-window') as PopupElementWithHandler;
+        if (popup && popup._keydownHandler) {
+          popup.removeEventListener('keydown', popup._keydownHandler);
+          delete popup._keydownHandler;
+        }
+
+        info('Cookie banner closed');
       },
 
       onStatusChange: (status: string) => {
-        console.log(`🍪 Status changed: ${status}`);
+        info('Cookie status changed:', status);
 
         // Cleanup: Overflow zurücksetzen
         document.body.style.overflow = '';
@@ -205,7 +207,7 @@ if (denyButton) {
         const granted = status === 'allow';
         setHasConsent(granted);
 
-        // 📊 Track Cookie Banner Interaction (100% GRATIS)
+        // Track Cookie Banner Interaction
         if (typeof window !== 'undefined') {
           // MongoDB Tracking
           fetch('/api/track-consent', {
@@ -214,12 +216,12 @@ if (denyButton) {
             body: JSON.stringify({ action: granted ? 'accept' : 'reject' })
           }).catch(() => {}); // Silent fail
 
-          // DataFa.st Event Tracking (gratis Custom Events!)
+          // DataFa.st Event Tracking
           if (window.datafast) {
             window.datafast(granted ? 'cookie_accepted' : 'cookie_rejected');
           }
 
-          console.log(`📊 Consent tracked: ${granted ? 'accepted' : 'rejected'}`);
+          info('Consent tracked:', granted ? 'accepted' : 'rejected');
         }
 
         // Google Consent Mode v2 - Enhanced for @next/third-parties
@@ -240,7 +242,7 @@ if (denyButton) {
               cookie_expires: 63072000, // 2 years in seconds
               cookie_flags: 'SameSite=Lax;Secure',
             });
-            console.log('📊 Enhanced GA4 tracking enabled');
+            info('Enhanced GA4 tracking enabled');
           }
         }
 
@@ -255,14 +257,14 @@ if (denyButton) {
             datafastScript.src = 'https://datafa.st/js/script.js';
             document.head.appendChild(datafastScript);
 
-            console.log('📊 DataFa.st tracking enabled after consent');
+            info('DataFa.st tracking enabled after consent');
           }
         }
 
         if (granted) {
-          console.log('✅ Analytics enabled - User accepted cookies');
+          info('Analytics enabled - User accepted cookies');
         } else {
-          console.log('⚙️ Analytics disabled - User declined cookies');
+          info('Analytics disabled - User declined cookies');
         }
 
         // Banner sauber entfernen
@@ -276,32 +278,32 @@ if (denyButton) {
 
     // Global function for re-opening banner
     window.showCookieSettings = () => {
-      console.log('🍪 Reopening cookie banner');
+      info('Reopening cookie banner');
       document.cookie = `${CONSENT_COOKIE}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
       router.reload(); // Pages Router: reload() statt refresh()
     };
 
-    console.log('🍪 SimpleCookieConsent initialized with mobile optimization');
+    info('SimpleCookieConsent initialized with mobile optimization');
   }, [setHasConsent, router]);
 
   /** useCallback verhindert Re-Creation bei jedem Render */
   const initCookieConsent = useCallback(() => {
-    console.log('🍪 Cookie Script loaded');
+    info('Cookie script loaded');
 
     // Exit early if consent already exists (eigener Cookie-Name!)
     if (new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie)) {
-      console.log('🍪 Consent already exists');
+      info('Consent already exists');
       return;
     }
 
     // Enhanced error handling with retry mechanism
     const cookieConsent = window.cookieconsent;
     if (!cookieConsent?.initialise) {
-      console.error('❌ CookieConsent library not found - retrying in 100ms');
+      logError('CookieConsent library not found - retrying in 100ms');
       setTimeout(() => {
         const retryConsent = window.cookieconsent;
         if (!retryConsent?.initialise) {
-          console.error('❌ CookieConsent library failed to load after retry');
+          logError('CookieConsent library failed to load after retry');
           return;
         }
         initCookieConsentConfig(retryConsent);
@@ -314,18 +316,18 @@ if (denyButton) {
 
   return (
     <>
-      {/* ✅ LIGHTHOUSE OPTIMIZED: Use @next/third-parties for better performance */}
+      {/* LIGHTHOUSE OPTIMIZED: Use @next/third-parties for better performance */}
       {GA_ID && hasConsent && (
         <GoogleAnalytics gaId={GA_ID} />
       )}
-      
+
       {/* Initialize gtag with consent mode */}
       {GA_ID && (
         <Script id="gtag-consent-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            
+
             // Consent Mode v2: Default denied (GDPR compliant)
             gtag('consent', 'default', {
               ad_storage: 'denied',
@@ -335,21 +337,20 @@ if (denyButton) {
               functionality_storage: 'granted',
               security_storage: 'granted'
             });
-            
+
             gtag('js', new Date());
-            console.log('🔒 Consent Mode v2 initialized');
           `}
         </Script>
       )}
 
-      {/* ✅ LIGHTHOUSE OPTIMIZED: Modern Cookie Consent with CDN + source maps */}
+      {/* LIGHTHOUSE OPTIMIZED: Modern Cookie Consent with CDN + source maps */}
       <Script
         src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
         crossOrigin="anonymous"
         strategy="lazyOnload"
         onLoad={initCookieConsent}
         onError={() => {
-          console.error('Failed to load cookieconsent from CDN, falling back to local');
+          logError('Failed to load cookieconsent from CDN, falling back to local');
           // Fallback to local file
           const script = document.createElement('script');
           script.src = '/js/cookieconsent.min.js';
@@ -357,7 +358,7 @@ if (denyButton) {
           document.head.appendChild(script);
         }}
       />
-      
+
     </>
   );
 };
