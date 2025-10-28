@@ -75,6 +75,10 @@ const relatedArticles = getRelatedArticles('was-kostet-ein-pferd').map(entry => 
 }))
 
 export default function WasKostetEinPferd() {
+  // Extract icons to prevent Fast Refresh infinite loops
+  const calculatorIcon = <Calculator className="w-5 h-5" />
+  const shieldAlertIcon = <ShieldAlert className="h-5 w-5 text-brand-brown" />
+
   // JSON-LD Article Schema
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -236,7 +240,7 @@ export default function WasKostetEinPferd() {
           primaryCta={{
             href: '/pferde-preis-berechnen',
             label: 'Jetzt Pferd bewerten',
-            icon: <Calculator className="w-5 h-5" />
+            icon: calculatorIcon
           }}
           secondaryCta={{
             onClick: () => {
@@ -912,7 +916,7 @@ export default function WasKostetEinPferd() {
 
             <RatgeberHighlightBox
               title="Wichtiger Hinweis"
-              icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}
+              icon={shieldAlertIcon}
             >
               <p className="text-base text-gray-700 leading-relaxed">
                 Regelmäßige Hufpflege ist keine optionale Ausgabe. Vernachlässigte Hufe führen zu schwerwiegenden gesundheitlichen Problemen, die langfristig deutlich teurer werden (Hufgeschwüre, Fehlstellungen, Lahmheiten).
@@ -951,7 +955,7 @@ export default function WasKostetEinPferd() {
 
               <RatgeberHighlightBox
                 title="WICHTIG"
-                icon={<ShieldAlert className="h-5 w-5 text-brand-brown" />}
+                icon={shieldAlertIcon}
               >
                 <p className="text-base text-gray-700 leading-relaxed">
                   Diese Kosten decken NUR die Grundversorgung. Notfälle, Verletzungen oder chronische Erkrankungen sind hier NICHT enthalten und können schnell mehrere Tausend Euro kosten.
