@@ -1,5 +1,5 @@
 // components/ReviewSchema.tsx
-import React from 'react';
+import React, { useMemo } from 'react';
 
 interface ReviewData {
   reviewBody: string;
@@ -54,8 +54,9 @@ export default function ReviewSchema({
   organization
 }: ReviewSchemaProps): React.JSX.Element {
 
-  // Generate individual review schemas
-  const reviewSchemas = reviews.map(review => ({
+  // FAST REFRESH FIX: Memoize review schemas to prevent object recreation on every render
+  // The .map() creates new objects causing Fast Refresh infinite loops
+  const reviewSchemas = useMemo(() => reviews.map(review => ({
     '@type': 'Review',
     'reviewBody': review.reviewBody,
     'reviewRating': {
@@ -76,10 +77,10 @@ export default function ReviewSchema({
       '@type': 'Organization',
       'name': 'PferdeWert'
     }
-  }));
+  })), [reviews]);
 
-  // Main schema for the service/organization being reviewed
-  const mainSchema = {
+  // FAST REFRESH FIX: Memoize main schema to prevent object recreation
+  const mainSchema = useMemo(() => ({
     '@context': 'https://schema.org',
     '@type': itemReviewed.type,
     'name': itemReviewed.name,
@@ -107,7 +108,7 @@ export default function ReviewSchema({
         'sameAs': organization.sameAs
       }
     })
-  };
+  }), [itemReviewed, aggregateRating, reviews.length, reviewSchemas, organization]);
 
   // CRITICAL FIX: Removed useEffect to prevent Fast Refresh infinite loop
   // The aggregateRating object in dependencies was causing instability

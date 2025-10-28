@@ -10,8 +10,6 @@ const nextConfig = {
   // Bundle optimization
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-markdown'],
-    // Optimize Fast Refresh for stability
-    turbo: false,
   },
   
   // Webpack optimization for better chunk splitting
