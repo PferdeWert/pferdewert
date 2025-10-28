@@ -378,10 +378,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             <hr style="margin: 20px 0; border: 1px solid #eee;">
 
-            ${attributionSource ? `
-              <p><strong>📊 Marketing Quelle:</strong> ${attributionSource}</p>
-              <hr style="margin: 20px 0; border: 1px solid #eee;">
-            ` : ''}
+            <p><strong>📊 Marketing Quelle:</strong> ${attributionSource || 'nicht angegeben'}</p>
           `;
 
           // Send admin notification email
