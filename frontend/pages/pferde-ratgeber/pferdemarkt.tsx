@@ -690,7 +690,11 @@ const Pferdemarkt: NextPage = () => {
 
           {/* FAQ Section */}
           <div id="faq" className="mt-16">
-            <FAQ faqs={pferdemarktFaqItems} />
+            <FAQ
+              sectionTitle="Häufige Fragen zum Pferdemarkt"
+              sectionSubtitle="Alles was du über den deutschen Pferdemarkt und Kauforte wissen möchtest"
+              faqs={pferdemarktFaqItems}
+            />
           </div>
 
           {/* Related Articles */}

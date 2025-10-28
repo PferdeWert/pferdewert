@@ -1020,7 +1020,11 @@ const PferdVerkaufen: NextPage = () => {
           </section>
 
           {/* FAQ */}
-          <FAQ faqs={faqItems} />
+          <FAQ
+            sectionTitle="Häufige Fragen zum Pferdeverkauf"
+            sectionSubtitle="Alles was du über den erfolgreichen Pferdeverkauf wissen möchtest"
+            faqs={faqItems}
+          />
 
           {/* Related Articles */}
           <RatgeberRelatedArticles

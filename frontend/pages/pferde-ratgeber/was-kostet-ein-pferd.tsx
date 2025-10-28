@@ -1564,10 +1564,11 @@ export default function WasKostetEinPferd() {
 
           {/* Section 8: FAQ */}
           <section id="faq" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              FAQ - Häufige Fragen zu Pferdekosten
-            </h2>
-            <FAQ faqs={faqItems} />
+            <FAQ
+              faqs={faqItems}
+              sectionTitle="Häufige Fragen zu Pferdekosten"
+              sectionSubtitle="Alles was du über Pferdehaltungskosten und Finanzplanung wissen möchtest"
+            />
           </section>
 
 

@@ -1053,6 +1053,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <FAQ
           faqs={faqData}
           sectionTitle="Häufige Fragen zur Pferdepreis-Berechnung"
+          sectionSubtitle="Alles was du über Pferdepreisberechnung und Pferdebewertung wissen möchtest"
         />
     </Layout>
   );

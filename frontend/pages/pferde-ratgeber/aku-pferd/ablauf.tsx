@@ -346,7 +346,11 @@ const AkuPferdAblauf: NextPage = () => {
           </article>
 
           <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
-            <FAQ sectionTitle="Häufig gestellte Fragen zum AKU-Ablauf" faqs={faqItems} />
+            <FAQ
+              sectionTitle="Häufig gestellte Fragen zum AKU-Ablauf"
+              sectionSubtitle="Alles was du über den Ablauf der Ankaufsuntersuchung wissen möchtest"
+              faqs={faqItems}
+            />
           </section>
 
           <RatgeberRelatedArticles

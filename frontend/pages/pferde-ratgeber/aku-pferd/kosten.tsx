@@ -363,7 +363,11 @@ const AkuPferdKosten: NextPage = () => {
           </article>
 
           <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
-            <FAQ sectionTitle="Häufig gestellte Fragen zu AKU Kosten" faqs={faqItems} />
+            <FAQ
+              sectionTitle="Häufig gestellte Fragen zu AKU Kosten"
+              sectionSubtitle="Alles was du über die Kosten der Ankaufsuntersuchung wissen möchtest"
+              faqs={faqItems}
+            />
           </section>
 
           <RatgeberRelatedArticles

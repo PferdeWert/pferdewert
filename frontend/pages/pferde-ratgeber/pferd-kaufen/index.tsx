@@ -1807,7 +1807,11 @@ const PferdKaufen: NextPage = () => {
 
           {/* FAQ */}
           <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
-            <FAQ sectionTitle="Häufig gestellte Fragen zum Pferdekauf" faqs={faqItems} />
+            <FAQ
+              sectionTitle="Häufig gestellte Fragen zum Pferdekauf"
+              sectionSubtitle="Alles was du über den Pferdekauf und die richtige Auswahl wissen möchtest"
+              faqs={faqItems}
+            />
           </section>
 
           {/* Related Articles */}

@@ -730,7 +730,11 @@ const AKUPferd: NextPage = () => {
 
           {/* FAQ Section */}
           <div className="mt-16">
-            <FAQ faqs={akuFaqItems} />
+            <FAQ
+              sectionTitle="Häufige Fragen zur Ankaufsuntersuchung"
+              sectionSubtitle="Alles was du über die Ankaufsuntersuchung und Gesundheitschecks wissen möchtest"
+              faqs={akuFaqItems}
+            />
           </div>
 
           {/* Related Articles */}
