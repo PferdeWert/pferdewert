@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -32,19 +33,20 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-// ============================================================================
-// HYDRATION FIX: Create array ONCE at module level
-// ============================================================================
-// Creating array at module level (not in component or function call) ensures:
-// 1. Stable reference across renders - prevents Fast Refresh loops
-// 2. Array exists before component mounts - prevents undefined errors
-// 3. SSR/hydration consistency - same data on server and client
-// (Same pattern as fixed in commits 9cd340b, 23df71f, b34ddbd)
+// RATGEBER_ARTIKEL moved inside component with useMemo to prevent Fast Refresh loops
 
-// Defensive check: Ensure RATGEBER_ENTRIES exists and is an array
-// This protects against Fast Refresh issues where imports might be temporarily undefined
-const RATGEBER_ARTIKEL: RatgeberArtikelCard[] = (RATGEBER_ENTRIES && Array.isArray(RATGEBER_ENTRIES))
-  ? RATGEBER_ENTRIES.map((entry, index) => ({
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
+
+const PferdeRatgeber: NextPage = () => {
+  // CRITICAL: Create array with useMemo to prevent Fast Refresh loops
+  // The .map() creates new object instances, so it MUST be memoized
+  const ratgeberArtikel = useMemo<RatgeberArtikelCard[]>(() => {
+    if (!RATGEBER_ENTRIES || !Array.isArray(RATGEBER_ENTRIES)) {
+      return []
+    }
+    return RATGEBER_ENTRIES.map((entry, index) => ({
       id: index + 1,
       titel: entry.title,
       beschreibung: entry.description,
@@ -53,15 +55,7 @@ const RATGEBER_ARTIKEL: RatgeberArtikelCard[] = (RATGEBER_ENTRIES && Array.isArr
       bild: entry.image,
       link: getRatgeberPath(entry.slug),
     }))
-  : []
-
-// ============================================================================
-// MAIN COMPONENT
-// ============================================================================
-
-const PferdeRatgeber: NextPage = () => {
-  // Use pre-generated array directly - no function call needed
-  const ratgeberArtikel = RATGEBER_ARTIKEL
+  }, [])
 
   return (
     <>
