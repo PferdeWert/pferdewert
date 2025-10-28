@@ -150,12 +150,8 @@ export default function RatgeberPage() {
           __html: JSON.stringify(metaData.structured_data.article)
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(metaData.structured_data.faq)
-        }}
-      />
+      {/* ⚠️ WICHTIG: FAQ Schema wird automatisch vom <FAQ> Component generiert!
+          NICHT manuell hinzufügen, um Duplikate zu vermeiden! */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -181,7 +177,71 @@ export default function RatgeberPage() {
 
 **Hinweis:** Die Meta-Daten sind **NICHT** Teil des sichtbaren Artikel-Contents, sondern ausschließlich für SEO und Social Media Previews im `<Head>`.
 
-### 9. Code-Snippets & Beispiele
+### 9. Structured Data & Schema Management
+
+**⚠️ WICHTIG: FAQ Schema wird automatisch generiert – KEINE manuellen Duplikate!**
+
+#### FAQ Schema Richtlinien
+
+Das `<FAQ>` Component generiert automatisch ein FAQPage Schema basierend auf den `faqs` Props. **NIEMALS** manuell ein FAQPage Schema im `<Head>` definieren!
+
+**✅ RICHTIG - Automatisches Schema via Component:**
+```tsx
+// 1. FAQ Items in der Page definieren
+const faqItems = [
+  {
+    question: 'Wie viel kostet ein Pferd?',
+    answer: 'Ein Pferd kostet zwischen 2.500€ und 20.000€...'
+  },
+  // weitere FAQs...
+]
+
+// 2. FAQ Component verwenden (generiert Schema automatisch)
+<FAQ faqs={faqItems} />
+```
+
+**❌ FALSCH - Manuelles Schema erstellt Duplikate:**
+```tsx
+// NICHT MACHEN! Verursacht "Feld FAQPage doppelt" Fehler in Search Console
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqItems.map(item => ({...}))
+}
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+/>
+```
+
+#### Schema Checkliste für neue Ratgeber Pages
+
+**Im `<Head>` einfügen:**
+- ✅ Article Schema (aus `structured_data.article`)
+- ✅ Breadcrumb Schema (aus `structured_data.breadcrumb`)
+- ❌ **KEIN** FAQPage Schema (wird vom `<FAQ>` Component generiert)
+
+**Im Body verwenden:**
+- ✅ `<FAQ faqs={faqItems} />` Component (generiert Schema automatisch)
+
+#### Weitere Schemas
+
+**Service Schema** (optional, bei Erwähnung der AI-Bewertung):
+```tsx
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  'name': 'KI-gestützte Pferdebewertung',
+  'provider': {
+    '@type': 'Organization',
+    'name': 'PferdeWert.de'
+  },
+  'description': 'Professionelle Pferdebewertung in 2 Minuten'
+}
+```
+
+### 10. Code-Snippets & Beispiele
 
 **Text-First mit strategischen Boxen:**
 ```tsx
@@ -228,7 +288,7 @@ export default function RatgeberPage() {
 
 **Interne Verlinkung:** Jede Ratgeberseite mit einem Abschnitt „Weiterführende Artikel" muss einen Eintrag zum zentralen AKU-Hub unter `/aku-pferd` enthalten.
 
-### 10. Deployment Checklist für neue Ratgeber
+### 11. Deployment Checklist für neue Ratgeber
 
 **WICHTIG**: Alle Ratgeber-Artikel werden zentral über das Ratgeber-Registry verwaltet. Dieses System automatisiert die Sitemap-Generierung und die Anzeige auf der Übersichtsseite.
 
