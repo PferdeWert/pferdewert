@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useMemo } from 'react';
 import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck, CheckCircle } from 'lucide-react';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
@@ -43,15 +44,6 @@ const sections = [
   { id: 'fazit', title: 'Fazit' },
   { id: 'faq', title: 'Häufige Fragen' }
 ];
-
-const relatedArticles = getRelatedArticles('pferd-verkaufen').map(entry => ({
-  href: getRatgeberPath(entry.slug),
-  image: entry.image,
-  title: entry.title,
-  badge: entry.category,
-  readTime: entry.readTime,
-  description: entry.description
-}));
 
 const faqItems = [
     {
@@ -151,6 +143,20 @@ const jsonLdBreadcrumb = {
 };
 
 const PferdVerkaufen: NextPage = () => {
+  // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
+  // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
+  const relatedArticles = useMemo(
+    () =>
+      getRelatedArticles('pferd-verkaufen').map((entry) => ({
+        href: getRatgeberPath(entry.slug),
+        image: entry.image,
+        title: entry.title,
+        badge: entry.category,
+        readTime: entry.readTime,
+        description: entry.description,
+      })),
+    []
+  )
 
   const handleNavigate = (id: string) => {
     const element = document.getElementById(id);

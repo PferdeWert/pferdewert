@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import Link from "next/link"
+import { useMemo } from "react"
 import { Calculator, Wallet, PiggyBank, MapPin, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
@@ -133,16 +134,22 @@ const faqItems: FAQItem[] = [
   }
 ]
 
-const relatedArticles = getRelatedArticles('aku-pferd/kosten').map(entry => ({
-  href: getRatgeberPath(entry.slug),
-  image: entry.image,
-  title: entry.title,
-  badge: entry.category,
-  readTime: entry.readTime,
-  description: entry.description
-}))
-
 const AkuPferdKosten: NextPage = () => {
+  // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
+  // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
+  const relatedArticles = useMemo(
+    () =>
+      getRelatedArticles('aku-pferd/kosten').map((entry) => ({
+        href: getRatgeberPath(entry.slug),
+        image: entry.image,
+        title: entry.title,
+        badge: entry.category,
+        readTime: entry.readTime,
+        description: entry.description,
+      })),
+    []
+  )
+
   const handleNavigate = (id: string) => scrollToSection(id)
 
   const handleScrollToToc = () => {

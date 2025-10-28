@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import { useMemo } from 'react'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown, AlertCircle } from 'lucide-react'
 
 import Layout from '@/components/Layout'
@@ -48,17 +49,6 @@ const pferdemarktFaqItems = [
   }
 ]
 
-// Related Articles - using hybrid architecture from registry
-const relatedArticles = getRelatedArticles('pferdemarkt')
-  .map(entry => ({
-    href: getRatgeberPath(entry.slug),
-    image: entry.image,
-    title: entry.title,
-    description: entry.description,
-    readTime: entry.readTime,
-    badge: entry.category
-  }))
-
 // Table of Contents Sections
 const tableOfContentsSections = [
   { id: 'definition', title: 'Was ist ein Pferdemarkt?' },
@@ -97,6 +87,20 @@ const heroMetaItems = createHeroMetaItems([
 ])
 
 const Pferdemarkt: NextPage = () => {
+  // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
+  // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
+  const relatedArticles = useMemo(
+    () =>
+      getRelatedArticles('pferdemarkt').map((entry) => ({
+        href: getRatgeberPath(entry.slug),
+        image: entry.image,
+        title: entry.title,
+        description: entry.description,
+        readTime: entry.readTime,
+        badge: entry.category,
+      })),
+    []
+  )
 
   const handleTableOfContentsClick = (sectionId: string) => {
     info('Navigating to section:', sectionId)
