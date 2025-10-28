@@ -33,28 +33,35 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 // ============================================================================
-// HYDRATION FIX: Move array creation outside component
+// HYDRATION FIX: Create array ONCE at module level
 // ============================================================================
-// Creating new array objects inside component body causes React to think component changed
-// This triggers Fast Refresh loops in development (same issue as fixed in commit 9cd340b)
-const getRatgeberArtikel = (): RatgeberArtikelCard[] =>
-  (RATGEBER_ENTRIES || []).map((entry, index) => ({
-    id: index + 1,
-    titel: entry.title,
-    beschreibung: entry.description,
-    kategorie: entry.category,
-    lesezeit: entry.readTime,
-    bild: entry.image,
-    link: getRatgeberPath(entry.slug),
-  }))
+// Creating array at module level (not in component or function call) ensures:
+// 1. Stable reference across renders - prevents Fast Refresh loops
+// 2. Array exists before component mounts - prevents undefined errors
+// 3. SSR/hydration consistency - same data on server and client
+// (Same pattern as fixed in commits 9cd340b, 23df71f, b34ddbd)
+
+// Defensive check: Ensure RATGEBER_ENTRIES exists and is an array
+// This protects against Fast Refresh issues where imports might be temporarily undefined
+const RATGEBER_ARTIKEL: RatgeberArtikelCard[] = (RATGEBER_ENTRIES && Array.isArray(RATGEBER_ENTRIES))
+  ? RATGEBER_ENTRIES.map((entry, index) => ({
+      id: index + 1,
+      titel: entry.title,
+      beschreibung: entry.description,
+      kategorie: entry.category,
+      lesezeit: entry.readTime,
+      bild: entry.image,
+      link: getRatgeberPath(entry.slug),
+    }))
+  : []
 
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
 
 const PferdeRatgeber: NextPage = () => {
-  // Load articles from registry - function call ensures stable pattern
-  const ratgeberArtikel = getRatgeberArtikel()
+  // Use pre-generated array directly - no function call needed
+  const ratgeberArtikel = RATGEBER_ARTIKEL
 
   return (
     <>
@@ -107,7 +114,7 @@ const PferdeRatgeber: NextPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {ratgeberArtikel.map((artikel) => (
+              {ratgeberArtikel?.map((artikel) => (
                 <Link
                   key={artikel.id}
                   href={artikel.link}

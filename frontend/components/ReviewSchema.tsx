@@ -1,6 +1,5 @@
 // components/ReviewSchema.tsx
 import React from 'react';
-import { info } from '@/lib/log';
 
 interface ReviewData {
   reviewBody: string;
@@ -110,14 +109,10 @@ export default function ReviewSchema({
     })
   };
 
-  // Log schema generation for debugging (only on mount)
-  React.useEffect(() => {
-    info('Review Schema generated:', {
-      itemReviewed: itemReviewed.name,
-      aggregateRating,
-      reviewCount: reviews.length
-    });
-  }, [itemReviewed.name, aggregateRating, reviews.length]);
+  // CRITICAL FIX: Removed useEffect to prevent Fast Refresh infinite loop
+  // The aggregateRating object in dependencies was causing instability
+  // Log once on module load instead of on every render
+  // info('Review Schema generated:', { itemReviewed: itemReviewed.name });
 
   return (
     <>
