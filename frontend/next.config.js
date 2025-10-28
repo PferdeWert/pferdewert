@@ -46,6 +46,8 @@ const nextConfig = {
 
   // Security headers and CSP configuration
   async headers() {
+    const isDev = process.env.NODE_ENV === 'development';
+
     return [
       {
         source: '/(.*)',
@@ -69,6 +71,40 @@ const nextConfig = {
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload'
+          }
+        ]
+      },
+      // HTML pages caching - prevent caching in development
+      {
+        source: '/pferde-ratgeber/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: isDev
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400'
+          }
+        ]
+      },
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: isDev
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400'
+          }
+        ]
+      },
+      {
+        source: '/pferde-preis-berechnen',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: isDev
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400'
           }
         ]
       },
