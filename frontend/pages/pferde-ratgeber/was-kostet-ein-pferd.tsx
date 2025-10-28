@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
@@ -64,15 +65,7 @@ const faqItems = [
   }
 ]
 
-// Related articles - Using central registry for correct image paths
-const relatedArticles = getRelatedArticles('was-kostet-ein-pferd').map(entry => ({
-  title: entry.title,
-  description: entry.description,
-  href: getRatgeberPath(entry.slug),
-  image: entry.image,
-  badge: entry.category,
-  readTime: entry.readTime
-}))
+// Related articles will be created inside component with useMemo to prevent Fast Refresh loops
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation on every render
 const CALCULATOR_ICON = <Calculator className="w-5 h-5" />
@@ -199,6 +192,18 @@ const BREADCRUMB_SCHEMA = {
   }
 
 export default function WasKostetEinPferd() {
+  // CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
+  const relatedArticles = useMemo(() =>
+    getRelatedArticles('was-kostet-ein-pferd').map(entry => ({
+      title: entry.title,
+      description: entry.description,
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      badge: entry.category,
+      readTime: entry.readTime
+    })),
+  [])
+
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
