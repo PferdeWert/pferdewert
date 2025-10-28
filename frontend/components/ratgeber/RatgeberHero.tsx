@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { validateCtaProps } from '@/utils/dev-warnings'
 
 export interface RatgeberHeroMetaItem {
   icon: ReactNode
@@ -41,6 +42,12 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   primaryCta,
   secondaryCta
 }) => {
+  // DEV-ONLY: Validate props to catch Fast Refresh issues early
+  if (process.env.NODE_ENV === 'development') {
+    validateCtaProps(primaryCta, 'primaryCta', 'RatgeberHero')
+    validateCtaProps(secondaryCta, 'secondaryCta', 'RatgeberHero')
+  }
+
   const normalizedSecondaryLabel = secondaryCta?.label
     ? secondaryCta.label.trim().toLowerCase()
     : undefined
