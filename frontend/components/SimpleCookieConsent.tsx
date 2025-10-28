@@ -1,35 +1,153 @@
 // frontend/components/SimpleCookieConsent.tsx
-// Production-Ready: Optimized for Lighthouse Best Practices
+// Production-Ready: Conversion-Optimized with Granular Cookie Control
+// GDPR-Konform: Opt-in, Granular Choice, Proper Rejection Path
 
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { info, error as logError } from '@/lib/log';
+import CookieSettingsModal from './CookieSettingsModal';
 
 // WICHTIG: eigener Cookie-Name, damit wir nicht mit library-internen kollidieren
 const CONSENT_COOKIE = 'pferdewert_cookie_consent';
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // Google Analytics ID
+
+// Cookie Consent Values
+type ConsentValue = 'allow' | 'analytics_only' | 'necessary_only';
 
 // Type for popup element with accessibility handler
 interface PopupElementWithHandler extends HTMLElement {
   _keydownHandler?: (e: KeyboardEvent) => void;
 }
 
+interface CookieSettings {
+  necessary: boolean;
+  analytics: boolean;
+}
+
 const SimpleCookieConsent = () => {
-  // Remove unused isScriptLoaded state for cleaner code
+  // State Management
   const [hasConsent, setHasConsent] = useState<boolean | null>(null);
+  const [showCookieModal, setShowCookieModal] = useState(false);
+
+  // FAST REFRESH FIX: Stable refs for state setters to prevent infinite loops
+  // These refs ensure callbacks inside cookie banner config don't trigger re-renders
+  const setHasConsentRef = useRef(setHasConsent);
+  const setShowCookieModalRef = useRef(setShowCookieModal);
+
+  // Keep refs up-to-date with current setters
+  useEffect(() => {
+    setHasConsentRef.current = setHasConsent;
+    setShowCookieModalRef.current = setShowCookieModal;
+  }, [setHasConsent, setShowCookieModal]);
 
   // Check existing consent on mount
   useEffect(() => {
     // DataFa.st queue is already initialized in _document.tsx
     // No need to re-initialize here to avoid conflicts
 
-    const existingConsent = new RegExp(`${CONSENT_COOKIE}=(allow|deny)`).test(document.cookie);
-    if (existingConsent) {
-      const isAllowed = document.cookie.includes(`${CONSENT_COOKIE}=allow`);
+    const cookiePattern = new RegExp(`${CONSENT_COOKIE}=([a-z_]+)`);
+    const match = document.cookie.match(cookiePattern);
+
+    if (match) {
+      const value = match[1] as ConsentValue;
+      const isAllowed = value === 'allow' || value === 'analytics_only';
       setHasConsent(isAllowed);
     }
   }, []);
+
+  // Handle consent decision from banner or modal
+  const handleConsentDecision = useCallback((consentValueParam: ConsentValue) => {
+    // Cleanup: Overflow zurücksetzen
+    document.body.style.overflow = '';
+
+    const granted = consentValueParam === 'allow' || consentValueParam === 'analytics_only';
+    const analyticsEnabled = consentValueParam === 'allow' || consentValueParam === 'analytics_only';
+
+    // FAST REFRESH FIX: Use ref instead of direct setter to prevent dependency chain
+    setHasConsentRef.current(granted);
+
+    // Track Cookie Banner Interaction
+    if (typeof window !== 'undefined') {
+      // MongoDB Tracking
+      fetch('/api/track-consent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: granted ? 'accept' : 'reject',
+          consentValue: consentValueParam,
+        }),
+      }).catch(() => {}); // Silent fail
+
+      // DataFa.st Event Tracking
+      if (window.datafast) {
+        window.datafast(granted ? 'cookie_accepted' : 'cookie_rejected');
+      }
+
+      info('Consent tracked:', { action: granted ? 'accepted' : 'rejected', consentValue: consentValueParam });
+    }
+
+    // Google Consent Mode v2 - Enhanced for @next/third-parties
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
+        ad_storage: analyticsEnabled ? 'granted' : 'denied',
+        analytics_storage: analyticsEnabled ? 'granted' : 'denied',
+        ad_user_data: analyticsEnabled ? 'granted' : 'denied',
+        ad_personalization: analyticsEnabled ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+      });
+
+      if (analyticsEnabled && GA_ID) {
+        window.gtag('config', GA_ID, {
+          page_path: window.location.pathname,
+          anonymize_ip: true,
+          cookie_expires: 63072000, // 2 years in seconds
+          cookie_flags: 'SameSite=Lax;Secure',
+        });
+        info('Enhanced GA4 tracking enabled');
+      }
+    }
+
+    // DataFa.st Analytics - Only load after consent
+    if (analyticsEnabled && typeof window !== 'undefined') {
+      // Load DataFa.st script dynamically after consent
+      if (!document.querySelector('[data-website-id="68d59a9dcb0e8d111148811a"]')) {
+        const datafastScript = document.createElement('script');
+        datafastScript.defer = true;
+        datafastScript.setAttribute('data-website-id', '68d59a9dcb0e8d111148811a');
+        datafastScript.setAttribute('data-domain', 'Pferdewert.de');
+        datafastScript.src = 'https://datafa.st/js/script.js';
+        document.head.appendChild(datafastScript);
+
+        info('DataFa.st tracking enabled after consent');
+      }
+    }
+
+    if (analyticsEnabled) {
+      info('Analytics enabled - User accepted cookies');
+    } else {
+      info('Analytics disabled - User declined cookies');
+    }
+
+    // Banner sauber entfernen
+    const popup = document.querySelector('.cc-window');
+    popup?.remove();
+
+    // Update document.cookie with proper flags
+    document.cookie = `${CONSENT_COOKIE}=${consentValueParam}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+  }, []);
+
+  // Handle settings from modal
+  const handleModalSave = useCallback(
+    (settings: CookieSettings) => {
+      const consentValue = settings.analytics ? 'analytics_only' : 'necessary_only';
+      handleConsentDecision(consentValue);
+      // FAST REFRESH FIX: Use ref instead of direct setter
+      setShowCookieModalRef.current(false);
+    },
+    [handleConsentDecision]
+  );
 
   const initCookieConsentConfig = useCallback((cookieConsent: typeof window.cookieconsent) => {
     if (!cookieConsent?.initialise) return;
@@ -40,7 +158,7 @@ const SimpleCookieConsent = () => {
 
       palette: {
         popup: { background: '#ffffff', text: '#2d2d2d' },
-        button: { background: 'var(--brand-brown)', text: '#ffffff' }, // PferdeWert Braun
+        button: { background: '#92400e', text: '#ffffff' }, // PferdeWert Brand Brown (#92400e)
       },
 
       position: 'bottom',
@@ -59,8 +177,8 @@ const SimpleCookieConsent = () => {
             </p>
           </div>
         `,
-        allow: 'Einwilligen',
-        deny: 'Ablehnen',      // In Zukunft evtl. "Optionen verwalten einfügen mit zweiter Page dahinter
+        allow: 'Alle akzeptieren',
+        deny: 'Optionen',
         link: 'Datenschutz',
         href: '/datenschutz',
       },
@@ -138,7 +256,7 @@ const SimpleCookieConsent = () => {
             `;
           }
 
-          // Task 4: Replace inline styles with CSS classes
+          // Optimize button styling for better UX - PferdeWert Brand Style Guide compliant
           const styleButtonsWhenReady = () => {
             const allowButton = popup.querySelector<HTMLElement>('.cc-allow');
             const denyButton = popup.querySelector<HTMLElement>('.cc-deny');
@@ -148,19 +266,67 @@ const SimpleCookieConsent = () => {
               return;
             }
 
-            allowButton.classList.add('cc-cookie-button-primary');
-            denyButton.classList.add('cc-cookie-button-secondary');
+            // PRIMARY CTA: "Alle akzeptieren" - PferdeWert Brand Brown
+            // Styles gemäß Brand Style Guide: bg-brand-brown (#92400e), text-white, px-8 py-4, rounded-lg, font-semibold
+            allowButton.style.cssText = `
+              width: 100% !important;
+              padding: 1rem 2rem !important;
+              background-color: #92400e !important;
+              color: white !important;
+              border: none !important;
+              border-radius: 8px !important;
+              font-weight: 600 !important;
+              font-size: 1rem !important;
+              cursor: pointer !important;
+              transition: all 0.2s ease !important;
+              margin-bottom: 0.75rem !important;
+              text-decoration: none !important;
+              box-sizing: border-box !important;
+            `;
+
+            allowButton.addEventListener('mouseenter', () => {
+              allowButton.style.backgroundColor = '#78350f !important'; // brand-brownDark hover
+            });
+            allowButton.addEventListener('mouseleave', () => {
+              allowButton.style.backgroundColor = '#92400e !important';
+            });
+
+            // SECONDARY CTA: "Optionen" - White with Brand Brown Border
+            // Styles gemäß Brand Style Guide: bg-white, border-2 border-brand-brown, text-brand-brown, px-8 py-4, rounded-lg, font-semibold
+            denyButton.style.cssText = `
+              width: 100% !important;
+              padding: 1rem 2rem !important;
+              background-color: white !important;
+              color: #92400e !important;
+              border: 2px solid #92400e !important;
+              border-radius: 8px !important;
+              font-weight: 600 !important;
+              font-size: 1rem !important;
+              cursor: pointer !important;
+              transition: all 0.2s ease !important;
+              text-decoration: none !important;
+              box-sizing: border-box !important;
+            `;
+
+            denyButton.addEventListener('mouseenter', () => {
+              denyButton.style.backgroundColor = 'rgba(146, 64, 14, 0.05) !important'; // brand-brown/5 for subtle hover
+              denyButton.style.borderColor = '#78350f !important'; // Darker border on hover
+              denyButton.style.color = '#78350f !important';
+            });
+            denyButton.addEventListener('mouseleave', () => {
+              denyButton.style.backgroundColor = 'white !important';
+              denyButton.style.borderColor = '#92400e !important';
+              denyButton.style.color = '#92400e !important';
+            });
           };
 
           styleButtonsWhenReady();
 
-          // Task 1: Add keyboard handling for accessibility
+          // Keyboard handling for accessibility - ESC opens modal instead of deny
           const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
-              const denyButton = popup.querySelector<HTMLElement>('.cc-deny');
-              if (denyButton) {
-                denyButton.click();
-              }
+              // FAST REFRESH FIX: Use ref to avoid closure dependency issues
+              setShowCookieModalRef.current(true);
             }
           };
 
@@ -197,80 +363,18 @@ const SimpleCookieConsent = () => {
       },
 
       onStatusChange: (status: string) => {
-        info('Cookie status changed:', status);
-
-        // Cleanup: Overflow zurücksetzen
-        document.body.style.overflow = '';
-
-        const granted = status === 'allow';
-        setHasConsent(granted);
-
-        // Track Cookie Banner Interaction
-        if (typeof window !== 'undefined') {
-          // MongoDB Tracking
-          fetch('/api/track-consent', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: granted ? 'accept' : 'reject' })
-          }).catch(() => {}); // Silent fail
-
-          // DataFa.st Event Tracking
-          if (window.datafast) {
-            window.datafast(granted ? 'cookie_accepted' : 'cookie_rejected');
-          }
-
-          info('Consent tracked:', granted ? 'accepted' : 'rejected');
+        // Handle deny button click - open modal instead of immediately denying
+        if (status === 'deny') {
+          // FAST REFRESH FIX: Use ref to avoid closure dependency issues
+          setShowCookieModalRef.current(true);
+          info('Opening cookie settings modal');
+          return;
         }
 
-        // Google Consent Mode v2 - Enhanced for @next/third-parties
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('consent', 'update', {
-            ad_storage: granted ? 'granted' : 'denied',
-            analytics_storage: granted ? 'granted' : 'denied',
-            ad_user_data: granted ? 'granted' : 'denied',
-            ad_personalization: granted ? 'granted' : 'denied',
-            functionality_storage: 'granted',
-            security_storage: 'granted',
-          });
-
-          if (granted && GA_ID) {
-            window.gtag('config', GA_ID, {
-              page_path: window.location.pathname,
-              anonymize_ip: true,
-              cookie_expires: 63072000, // 2 years in seconds
-              cookie_flags: 'SameSite=Lax;Secure',
-            });
-            info('Enhanced GA4 tracking enabled');
-          }
+        // Handle allow button click - accept all
+        if (status === 'allow') {
+          handleConsentDecision('allow');
         }
-
-        // DataFa.st Analytics - Only load after consent
-        if (granted && typeof window !== 'undefined') {
-          // Load DataFa.st script dynamically after consent
-          if (!document.querySelector('[data-website-id="68d59a9dcb0e8d111148811a"]')) {
-            const datafastScript = document.createElement('script');
-            datafastScript.defer = true;
-            datafastScript.setAttribute('data-website-id', '68d59a9dcb0e8d111148811a');
-            datafastScript.setAttribute('data-domain', 'Pferdewert.de');
-            datafastScript.src = 'https://datafa.st/js/script.js';
-            document.head.appendChild(datafastScript);
-
-            info('DataFa.st tracking enabled after consent');
-          }
-        }
-
-        if (granted) {
-          info('Analytics enabled - User accepted cookies');
-        } else {
-          info('Analytics disabled - User declined cookies');
-        }
-
-        // Banner sauber entfernen
-        const popup = document.querySelector('.cc-window');
-        popup?.remove();
-
-        // Update document.cookie with proper flags
-        document.cookie = `${CONSENT_COOKIE}=${status}; path=/; max-age=31536000; SameSite=Lax; Secure`;
       },
     });
 
@@ -282,7 +386,7 @@ const SimpleCookieConsent = () => {
     };
 
     info('SimpleCookieConsent initialized with mobile optimization');
-  }, [setHasConsent]);
+  }, [handleConsentDecision]); // FAST REFRESH FIX: Correct dependency (refs don't need to be listed)
 
   /** useCallback verhindert Re-Creation bei jedem Render */
   const initCookieConsent = useCallback(() => {
@@ -314,6 +418,13 @@ const SimpleCookieConsent = () => {
 
   return (
     <>
+      {/* Cookie Settings Modal */}
+      <CookieSettingsModal
+        isOpen={showCookieModal}
+        onClose={() => setShowCookieModal(false)}
+        onSave={handleModalSave}
+      />
+
       {/* LIGHTHOUSE OPTIMIZED: Use @next/third-parties for better performance */}
       {GA_ID && hasConsent && (
         <GoogleAnalytics gaId={GA_ID} />
