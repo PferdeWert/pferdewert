@@ -20,10 +20,9 @@ interface RelatedArticlesProps {
 
 interface RelatedArticleCardProps {
   article: Pick<RatgeberArticle, '_id' | 'outrank' | 'pferdewert' | 'seo'>;
-  index: number;
 }
 
-function RelatedArticleCard({ article, index }: RelatedArticleCardProps) {
+function RelatedArticleCard({ article }: RelatedArticleCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   // Use pferdewert featured image if available, fallback to outrank image
@@ -52,7 +51,7 @@ function RelatedArticleCard({ article, index }: RelatedArticleCardProps) {
               imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
             } group-hover:scale-110`}
             onLoadingComplete={() => setImageLoaded(true)}
-            priority={index < 3}
+            loading="lazy"
           />
         </div>
 
@@ -130,11 +129,10 @@ export default function RelatedArticles({ articles }: RelatedArticlesProps) {
 
       {/* Grid: 1 column mobile, 3 columns desktop */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {articles.map((article, index) => (
+        {articles.map((article) => (
           <RelatedArticleCard
             key={article._id}
             article={article}
-            index={index}
           />
         ))}
       </div>
