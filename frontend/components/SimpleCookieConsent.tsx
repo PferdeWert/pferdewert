@@ -20,10 +20,7 @@ interface PopupElementWithHandler extends HTMLElement {
   _keydownHandler?: (e: KeyboardEvent) => void;
 }
 
-interface CookieSettings {
-  necessary: boolean;
-  analytics: boolean;
-}
+// CookieSettings interface is defined globally in types/global.d.ts
 
 const SimpleCookieConsent = () => {
   // State Management
@@ -151,7 +148,19 @@ const SimpleCookieConsent = () => {
   // Handle settings from modal
   const handleModalSave = useCallback(
     (settings: CookieSettings) => {
-      const consentValue = settings.analytics ? 'analytics_only' : 'necessary_only';
+      // Determine consent value based on user choice
+      // fullConsent: true = "Alle akzeptieren" clicked → 'allow'
+      // fullConsent: false/undefined + analytics: true → 'analytics_only'
+      // analytics: false → 'necessary_only'
+      let consentValue: CookieConsentValue;
+      if (settings.fullConsent) {
+        consentValue = 'allow';
+      } else if (settings.analytics) {
+        consentValue = 'analytics_only';
+      } else {
+        consentValue = 'necessary_only';
+      }
+
       // FAST REFRESH FIX: Use ref to avoid dependency chain
       handleConsentDecisionRef.current?.(consentValue);
       // FAST REFRESH FIX: Use ref instead of direct setter

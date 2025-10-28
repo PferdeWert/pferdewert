@@ -24,6 +24,7 @@ declare global {
   interface CookieSettings {
     necessary: boolean;
     analytics: boolean;
+    fullConsent?: true; // Set to true ONLY when user clicks "Alle akzeptieren" (results in consent='allow')
   }
 }
 

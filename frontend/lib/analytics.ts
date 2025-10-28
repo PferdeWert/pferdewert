@@ -2,9 +2,21 @@
 // GA4 Analytics Configuration for PferdeWert.de + DataFast Custom Events
 
 import { PRICING } from '@/lib/pricing';
-import { info, warn } from '@/lib/log';
+import { info, warn, error } from '@/lib/log';
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
+
+// Helper function to check if analytics consent has been granted
+// Checks both 'allow' (full consent) and 'analytics_only' (granular consent)
+const hasAnalyticsConsent = (): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  const match = document.cookie.match(/pferdewert_cookie_consent=([a-z_]+)/);
+  if (!match) return false;
+
+  const consentValue = match[1];
+  return consentValue === 'allow' || consentValue === 'analytics_only';
+};
 
 // DataFast Custom Events Helper
 const sendDataFastEvent = (eventName: string, eventData: Record<string, unknown> = {}): void => {
@@ -20,7 +32,14 @@ const sendDataFastEvent = (eventName: string, eventData: Record<string, unknown>
 
 // Track page views
 export const trackPageView = (url: string): void => {
+  // Check cookie consent first
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackPageView");
+    return;
+  }
+
   if (typeof window !== "undefined" && window.gtag) {
+    info("🎯 [GA4] Firing page view", { url });
     window.gtag("config", GA_TRACKING_ID, {
       page_location: url,
     });
@@ -29,7 +48,14 @@ export const trackPageView = (url: string): void => {
 
 // Track form progression through wizard steps
 export const trackFormProgress = (stepNumber: number, stepName: string): void => {
+  // Check cookie consent first
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackFormProgress");
+    return;
+  }
+
   if (typeof window !== "undefined" && window.gtag) {
+    info("🎯 [GA4] Firing form_progress event", { stepNumber, stepName });
     window.gtag("event", "form_progress", {
       event_category: "Engagement",
       event_label: `${stepName} - Step ${stepNumber}`,
@@ -50,13 +76,13 @@ export const trackFormProgress = (stepNumber: number, stepName: string): void =>
 // Track when user starts the valuation process
 export const trackValuationStart = (): void => {
   // Check cookie consent first
-  if (typeof window !== "undefined" && !document.cookie.includes("pferdewert_cookie_consent=allow")) {
-    console.warn("🎯 [GA4] Cookie consent not granted, skipping trackValuationStart");
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackValuationStart");
     return;
   }
 
   if (typeof window !== "undefined" && window.gtag) {
-    console.log("🎯 [GA4] Firing pferde_bewertung_started event");
+    info("🎯 [GA4] Firing pferde_bewertung_started event");
     window.gtag("event", "pferde_bewertung_started", {
       event_category: "Conversion Funnel",
       event_label: "Valuation Process Started",
@@ -66,7 +92,7 @@ export const trackValuationStart = (): void => {
       timestamp: new Date().toISOString()
     });
   } else {
-    console.warn("🎯 [GA4] trackValuationStart called but gtag not available");
+    warn("🎯 [GA4] trackValuationStart called but gtag not available");
   }
 
   // DataFast Custom Event
@@ -80,15 +106,15 @@ export const trackValuationStart = (): void => {
 // Track payment initiation (begin_checkout)
 export const trackPaymentStart = (formData: Record<string, unknown>): void => {
   // Check cookie consent first
-  if (typeof window !== "undefined" && !document.cookie.includes("pferdewert_cookie_consent=allow")) {
-    console.warn("🎯 [GA4] Cookie consent not granted, skipping trackPaymentStart");
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackPaymentStart");
     return;
   }
 
   // Enhanced error handling and retry mechanism for GA4 timing issues
   const sendEvent = () => {
     if (typeof window !== "undefined" && window.gtag) {
-      console.log("🎯 [GA4] Firing begin_checkout event", formData);
+      info("🎯 [GA4] Firing begin_checkout event", formData);
       // Enhanced E-commerce begin_checkout event
       window.gtag("event", "begin_checkout", {
         event_category: "E-commerce",
@@ -136,12 +162,12 @@ export const trackPaymentStart = (formData: Record<string, unknown>): void => {
   if (sendEvent()) return;
 
   // Retry with delays for GA4 initialization timing
-  console.warn("🎯 [GA4] gtag not ready, retrying begin_checkout...");
+  warn("🎯 [GA4] gtag not ready, retrying begin_checkout...");
   setTimeout(() => {
     if (!sendEvent()) {
       setTimeout(() => {
         if (!sendEvent()) {
-          console.error("🎯 [GA4] Failed to send begin_checkout after retries");
+          error("🎯 [GA4] Failed to send begin_checkout after retries");
         }
       }, 500);
     }
@@ -150,18 +176,18 @@ export const trackPaymentStart = (formData: Record<string, unknown>): void => {
 
 // Track successful horse valuation completion (main conversion)
 export const trackValuationCompleted = (
-  sessionId: string, 
+  sessionId: string,
   bewertungId: string,
   paymentMethod?: string
 ): void => {
   // Check cookie consent first
-  if (typeof window !== "undefined" && !document.cookie.includes("pferdewert_cookie_consent=allow")) {
-    console.warn("🎯 [GA4] Cookie consent not granted, skipping trackValuationCompleted");
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackValuationCompleted");
     return;
   }
 
   if (typeof window !== "undefined" && window.gtag) {
-    console.log("🎯 [GA4] Firing purchase event", { sessionId, bewertungId, paymentMethod });
+    info("🎯 [GA4] Firing purchase event", { sessionId, bewertungId, paymentMethod });
     // Enhanced E-commerce purchase event
     window.gtag("event", "purchase", {
       transaction_id: sessionId,
@@ -207,8 +233,8 @@ export const trackValuationCompleted = (
 // Track PDF download (secondary conversion)
 export const trackPDFDownload = (bewertungId: string): void => {
   // Check cookie consent first
-  if (typeof window !== "undefined" && !document.cookie.includes("pferdewert_cookie_consent=allow")) {
-    console.warn("🎯 [GA4] Cookie consent not granted, skipping trackPDFDownload");
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackPDFDownload");
     return;
   }
 
@@ -238,8 +264,8 @@ export const trackPDFDownload = (bewertungId: string): void => {
 // Track form abandonment for optimization insights
 export const trackFormAbandonment = (lastCompletedStep: number, totalSteps: number): void => {
   // Check cookie consent first
-  if (typeof window !== "undefined" && !document.cookie.includes("pferdewert_cookie_consent=allow")) {
-    console.warn("🎯 [GA4] Cookie consent not granted, skipping trackFormAbandonment");
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackFormAbandonment");
     return;
   }
 
@@ -268,8 +294,8 @@ export const trackFormAbandonment = (lastCompletedStep: number, totalSteps: numb
 // Track regional keyword performance (for SEO insights)
 export const trackRegionalKeyword = (region: string, keyword: string): void => {
   // Check cookie consent first
-  if (typeof window !== "undefined" && !document.cookie.includes("pferdewert_cookie_consent=allow")) {
-    console.warn("🎯 [GA4] Cookie consent not granted, skipping trackRegionalKeyword");
+  if (!hasAnalyticsConsent()) {
+    warn("🎯 [GA4] Cookie consent not granted, skipping trackRegionalKeyword");
     return;
   }
 

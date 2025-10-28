@@ -12,10 +12,7 @@ interface CookieSettingsModalProps {
   onSave: (settings: CookieSettings) => void;
 }
 
-interface CookieSettings {
-  necessary: boolean; // Immer true, aber für Completeness
-  analytics: boolean;
-}
+// CookieSettings interface is defined globally in types/global.d.ts
 
 export default function CookieSettingsModal({
   isOpen,
@@ -92,6 +89,7 @@ export default function CookieSettingsModal({
     const settings: CookieSettings = {
       necessary: true,
       analytics: true,
+      fullConsent: true, // Indicates "Alle akzeptieren" was clicked
     };
     onSave(settings);
     onClose();
