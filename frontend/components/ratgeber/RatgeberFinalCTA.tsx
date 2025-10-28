@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { memo } from 'react'
 
 interface RatgeberFinalCTAProps {
   image: {
@@ -49,4 +50,29 @@ const RatgeberFinalCTA: React.FC<RatgeberFinalCTAProps> = ({ image, title, descr
   )
 }
 
-export default RatgeberFinalCTA
+// FAST REFRESH FIX: Memoize component with deep comparison for image object
+// This prevents re-renders when image object is recreated with same values
+export default memo(RatgeberFinalCTA, (prevProps, nextProps) => {
+  // Compare primitive props
+  if (
+    prevProps.title !== nextProps.title ||
+    prevProps.description !== nextProps.description ||
+    prevProps.ctaHref !== nextProps.ctaHref ||
+    prevProps.ctaLabel !== nextProps.ctaLabel
+  ) {
+    return false
+  }
+
+  // Deep compare image object
+  if (
+    prevProps.image.src !== nextProps.image.src ||
+    prevProps.image.alt !== nextProps.image.alt ||
+    prevProps.image.width !== nextProps.image.width ||
+    prevProps.image.height !== nextProps.image.height
+  ) {
+    return false
+  }
+
+  // Props are equal
+  return true
+})

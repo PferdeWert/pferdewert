@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { memo } from 'react'
 
 export interface RatgeberRelatedArticle {
   href: string
@@ -83,4 +84,39 @@ const RatgeberRelatedArticles: React.FC<RatgeberRelatedArticlesProps> = ({
   )
 }
 
-export default RatgeberRelatedArticles
+// FAST REFRESH FIX: Memoize component with deep comparison for articles array
+// This prevents re-renders when articles array is recreated with same values
+export default memo(RatgeberRelatedArticles, (prevProps, nextProps) => {
+  // Compare primitive props
+  if (
+    prevProps.title !== nextProps.title ||
+    prevProps.description !== nextProps.description
+  ) {
+    return false
+  }
+
+  // Compare articles array length
+  if (prevProps.articles.length !== nextProps.articles.length) {
+    return false
+  }
+
+  // Deep compare each article in the array
+  for (let i = 0; i < prevProps.articles.length; i++) {
+    const prevArticle = prevProps.articles[i]
+    const nextArticle = nextProps.articles[i]
+
+    if (
+      prevArticle.href !== nextArticle.href ||
+      prevArticle.image !== nextArticle.image ||
+      prevArticle.title !== nextArticle.title ||
+      prevArticle.badge !== nextArticle.badge ||
+      prevArticle.readTime !== nextArticle.readTime ||
+      prevArticle.description !== nextArticle.description
+    ) {
+      return false
+    }
+  }
+
+  // Props are equal
+  return true
+})

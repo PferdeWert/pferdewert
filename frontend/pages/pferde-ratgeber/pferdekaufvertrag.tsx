@@ -53,16 +53,6 @@ const faqItems = [
   }
 ]
 
-// Related articles - Using central registry for correct image paths
-const relatedArticles = getRelatedArticles('pferdekaufvertrag').map(entry => ({
-  title: entry.title,
-  description: entry.description,
-  href: getRatgeberPath(entry.slug),
-  image: entry.image,
-  badge: entry.category,
-  readTime: entry.readTime
-}))
-
 export default function Pferdekaufvertrag() {
   // Memoize icon to prevent Fast Refresh infinite loops
   const warningIcon = useMemo(
@@ -74,6 +64,37 @@ export default function Pferdekaufvertrag() {
   const handleScrollToContent = useCallback(() => {
     document.getElementById('sieben-bestandteile')?.scrollIntoView({ behavior: 'smooth' })
   }, [])
+
+  // Memoize CTA objects to prevent Fast Refresh infinite loops
+  const primaryCta = useMemo(() => ({
+    label: 'Jetzt Pferdewert berechnen',
+    href: '/pferde-preis-berechnen'
+  }), [])
+
+  const secondaryCta = useMemo(() => ({
+    label: 'Zum Inhalt',
+    onClick: handleScrollToContent
+  }), [handleScrollToContent])
+
+  // Memoize image object to prevent Fast Refresh infinite loops
+  const finalCtaImage = useMemo(() => ({
+    src: '/images/shared/blossi-shooting.webp',
+    alt: 'Pferdebesitzer mit Pferd',
+    width: 800,
+    height: 600
+  }), [])
+
+  // CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
+  const relatedArticles = useMemo(() =>
+    getRelatedArticles('pferdekaufvertrag').map(entry => ({
+      title: entry.title,
+      description: entry.description,
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      badge: entry.category,
+      readTime: entry.readTime
+    })), []
+  )
 
   // JSON-LD Article Schema - memoized to prevent Fast Refresh loops
   const articleSchema = useMemo(() => ({
@@ -144,7 +165,7 @@ export default function Pferdekaufvertrag() {
   }), [])
 
   return (
-    <Layout>
+    <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         {/* Basic Meta Tags */}
         <title>Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)</title>
@@ -193,20 +214,21 @@ export default function Pferdekaufvertrag() {
           badgeLabel="Rechtsguide"
           title="Pferdekaufvertrag: Rechtssicherer Kaufvertrag"
           subtitle="Rechtliche Absicherung beim Pferdekauf und -verkauf: Die 7 wesentlichen Bestandteile, häufige Fehler und praktische Checklisten"
-          primaryCta={{
-            label: 'Jetzt Pferdewert berechnen',
-            href: '/pferde-preis-berechnen'
-          }}
-          secondaryCta={{
-            label: 'Zum Inhalt',
-            onClick: handleScrollToContent
-          }}
+          primaryCta={primaryCta}
+          secondaryCta={secondaryCta}
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/pferd-kaufen/pferd-kaufen-ratgeber.webp"
-          alt="Pferdekaufvertrag Anleitung - 7 wesentliche Bestandteile erklärt"
+          src="/images/ratgeber/horses-mountain-field-spain.webp"
+          alt="Pferde auf Bianditz Berg in Navarra, Spanien - Symbolbild für Pferdekaufvertrag"
           priority
+          attribution={{
+            author: 'Mikel Ortega',
+            license: 'CC BY-SA 2.0',
+            licenseUrl: 'https://creativecommons.org/licenses/by-sa/2.0',
+            source: 'Wikimedia Commons',
+            originalUrl: 'https://commons.wikimedia.org/wiki/File:Biandintz_eta_zaldiak_-_modified2.jpg'
+          }}
         />
 
         {/* Table of Contents */}
@@ -282,7 +304,11 @@ export default function Pferdekaufvertrag() {
         {/* FAQ Section */}
         <section id="faq" className="mt-16 scroll-mt-32 lg:scroll-mt-40">
           <div className="max-w-3xl mx-auto px-4 md:px-6">
-            <FAQ faqs={faqItems} sectionTitle="" />
+            <FAQ
+              faqs={faqItems}
+              sectionTitle="Häufig gestellte Fragen zum Pferdekaufvertrag"
+              sectionSubtitle="Die wichtigsten Antworten zu Verträgen, Gewährleistung und rechtlichen Aspekten beim Pferdekauf"
+            />
           </div>
         </section>
 
@@ -295,12 +321,7 @@ export default function Pferdekaufvertrag() {
 
         {/* Final CTA */}
         <RatgeberFinalCTA
-          image={{
-            src: '/images/shared/blossi-shooting.webp',
-            alt: 'Pferdebesitzer mit Pferd',
-            width: 800,
-            height: 600
-          }}
+          image={finalCtaImage}
           title="Bereit, deinen Pferdepreis zu ermitteln?"
           description="Nutzen Sie unsere KI-gestützte Bewertung, um den genauen Marktwert deines Pferdes zu erfahren &ndash; in nur 2 Minuten."
           ctaHref="/pferde-preis-berechnen"

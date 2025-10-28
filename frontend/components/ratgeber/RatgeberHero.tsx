@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ReactNode, useEffect } from 'react'
+import { ReactNode, useEffect, memo } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { validateCtaProps } from '@/utils/dev-warnings'
 
@@ -116,4 +116,36 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   )
 }
 
-export default RatgeberHero
+// FAST REFRESH FIX: Memoize component with deep comparison for CTA objects
+// This prevents re-renders when CTA objects are recreated with same values
+export default memo(RatgeberHero, (prevProps, nextProps) => {
+  // Compare primitive props
+  if (
+    prevProps.badgeLabel !== nextProps.badgeLabel ||
+    prevProps.title !== nextProps.title ||
+    prevProps.subtitle !== nextProps.subtitle
+  ) {
+    return false
+  }
+
+  // Deep compare primaryCta object
+  if (
+    prevProps.primaryCta.href !== nextProps.primaryCta.href ||
+    prevProps.primaryCta.label !== nextProps.primaryCta.label
+  ) {
+    return false
+  }
+
+  // Deep compare secondaryCta object (handle undefined)
+  if (prevProps.secondaryCta !== nextProps.secondaryCta) {
+    if (!prevProps.secondaryCta || !nextProps.secondaryCta) {
+      return false
+    }
+    if (prevProps.secondaryCta.label !== nextProps.secondaryCta.label) {
+      return false
+    }
+  }
+
+  // Props are equal
+  return true
+})
