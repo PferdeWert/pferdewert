@@ -826,7 +826,7 @@ const PferdKaufen: NextPage = () => {
 
                     <ul className="space-y-3 text-gray-700 leading-relaxed">
                       <li>
-                        <strong className="text-brand-brown">✓ Budget und laufende Kosten klären</strong> – Berechnen Sie nicht nur den Kaufpreis, sondern auch monatliche Kosten für Stall (200–600 Euro), Futter, Tierarzt, Hufschmied und Versicherungen. Viele angehende Pferdebesitzer unterschätzen die laufenden Ausgaben erheblich. Lesen Sie auch unseren Ratgeber <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown font-semibold hover:underline">Was kostet ein Pferd?</Link>, um realistische Zahlen für Ihre Region zu erhalten.
+                        <strong className="text-brand-brown">✓ Budget und laufende Kosten klären</strong> – Berechnen Sie nicht nur den Kaufpreis, sondern auch monatliche Kosten für Stall (200–600 Euro), Futter, Tierarzt, Hufschmied und Versicherungen. Viele angehende Pferdebesitzer unterschätzen die laufenden Ausgaben erheblich. Lesen Sie unseren Ratgeber <Link href="/pferde-ratgeber/was-kostet-ein-pferd#pferdehaltung-kosten-monatlich" className="text-brand-brown font-semibold hover:underline">Pferdehaltung Kosten monatlich</Link>, um eine detaillierte Kostenübersicht mit realistischen Zahlen für Ihre Region zu erhalten.
                       </li>
                       <li>
                         <strong className="text-brand-brown">✓ Stall suchen und besichtigen</strong> – Der Stall ist das Zuhause Ihres zukünftigen Pferdes. Besichtigen Sie mehrere Ställe, achten Sie auf Sauberkeit, Haltungsform (Box, Paddock, Weide), Fütterungsqualität und den Umgang des Personals mit Pferden.
@@ -1394,7 +1394,11 @@ const PferdKaufen: NextPage = () => {
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
                         Kalkuliere realistisch mit mindestens 5.000€ Jahreskosten. Lege eine Notfallreserve von 2.000€ für
-                        unvorhergesehene Tierarztkosten an.
+                        unvorhergesehene Tierarztkosten an. Unsere detaillierte{' '}
+                        <Link href="/pferde-ratgeber/was-kostet-ein-pferd#pferdehaltung-kosten-monatlich" className="text-brand-brown font-semibold hover:underline">
+                          Übersicht der monatlichen Pferdehaltung Kosten
+                        </Link>{' '}
+                        hilft dir bei der realistischen Budgetplanung.
                       </p>
                     </div>
                   </div>

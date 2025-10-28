@@ -15,7 +15,7 @@ import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 const sections = [
   { id: 'anschaffungskosten', title: 'Anschaffungskosten eines Pferdes' },
   { id: 'pferd-preis-nach-rasse', title: 'Pferdepreise nach Rasse' },
-  { id: 'monatliche-kosten', title: 'Pferdekosten monatlich: Komplette Kostenübersicht' },
+  { id: 'pferdehaltung-kosten-monatlich', title: 'Pferdehaltung Kosten monatlich: Komplette Kostenübersicht' },
   { id: 'jaehrliche-kosten', title: 'Pferdekosten jährlich: Jährliche Fixkosten im Detail' },
   { id: 'versteckte-kosten', title: 'Versteckte Kosten, die oft vergessen werden' },
   { id: 'budget-szenarien', title: 'Budget-Szenarien: 3 realistische Beispiele' },
@@ -673,20 +673,20 @@ export default function WasKostetEinPferd() {
           </section>
 
           {/* Section 3: Monatliche Kosten */}
-          <section id="monatliche-kosten" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
+          <section id="pferdehaltung-kosten-monatlich" className="mb-20 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Pferdekosten monatlich: Komplette Kostenübersicht
+              Pferdehaltung Kosten monatlich: Komplette Kostenübersicht
             </h2>
 
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Die monatlichen Fixkosten sind der größte laufende Posten bei der Pferdehaltung. Diese Ausgaben fallen regelmäßig an und sollten in keinem Monat unterschätzt werden.
+                Die <strong>Pferdehaltung Kosten</strong> setzen sich aus regelmäßigen monatlichen Fixkosten zusammen, die für den Unterhalt eines Pferdes notwendig sind. Der monatliche Unterhalt eines Pferdes ist der größte laufende Posten in der Pferdehaltung. Mit den richtigen Kenntnissen über die <strong>laufenden Kosten der Pferdehaltung</strong> können Sie ein realistisches Pferdehaltung Budget planen und versteckte Ausgaben vermeiden. Diese Ausgaben für die Pferdehaltung fallen regelmäßig an und sollten in keinem Monat unterschätzt werden.
               </p>
             </div>
 
             {/* Comprehensive Monthly Cost Breakdown Table */}
             <div className="mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Detaillierte Übersicht: Pferdekosten pro Monat</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Detaillierte Übersicht: Pferdehaltung Kosten pro Monat</h3>
 
               <table className="w-full mb-8">
                 <thead>
@@ -738,14 +738,20 @@ export default function WasKostetEinPferd() {
               </table>
 
               <RatgeberHighlightBox
-                title="Realistische Budgetplanung"
+                title="Pferdehaltung Kosten auf einen Blick"
               >
-                Die durchschnittlichen monatlichen Pferdekosten liegen bei 580€ - 880€. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können das Budget schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist empfehlenswert.
+                Die durchschnittlichen <strong>Pferdehaltung Kosten monatlich</strong> liegen bei <strong>580€ - 880€</strong> für die reguläre Pferdehaltung. Der monatliche Unterhalt eines Pferdes setzt sich aus Stallmiete, Futter, Hufpflege, Tierarzt und Versicherungen zusammen. Budget immer nach oben planen: Unvorhergesehene Tierarztkosten, Zusatzfutter im Winter oder Notfall-Hufbeschlag können die laufenden Kosten der Pferdehaltung schnell erhöhen. Eine Rücklage von mindestens 2.000€ für Notfälle ist essentiell für ein solides Pferdehaltung Budget.
               </RatgeberHighlightBox>
             </div>
 
             {/* Stallmiete und Unterbringung - Converted to semantic comparison table */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Stallmiete und Unterbringung</h3>
+
+            <div className="prose prose-lg max-w-none mb-6">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Die Stallmiete ist häufig der größte Kostenfaktor in der Pferdehaltung. Die genaue Höhe der Pferdehaltung Kosten für die Unterbringung hängt stark von der gewählten Haltungsform ab. Ob Offenstall, Boxenhaltung oder Vollpension – jede Form hat unterschiedliche Auswirkungen auf Ihr Pferdehaltung Budget.
+              </p>
+            </div>
 
             <div className="mb-12">
               <table className="w-full mb-8">
@@ -809,6 +815,12 @@ export default function WasKostetEinPferd() {
             {/* Futter und Einstreu - Semantic table structure */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Futter und Einstreu</h3>
 
+            <div className="prose prose-lg max-w-none mb-6">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Neben der Stallmiete macht das Futter einen großen Teil der laufenden Kosten der Pferdehaltung aus. Die Futterausgaben variieren je nach Pferdetyp, Jahreszeit und Aktivitätsniveau. Eine realistische Planung dieser Pferdehaltung Kosten ist für Ihr Budget essentiell.
+              </p>
+            </div>
+
             <div className="mb-12">
               <div className="space-y-6">
                 <div>
@@ -848,6 +860,12 @@ export default function WasKostetEinPferd() {
 
             {/* Hufpflege - Semantic comparison table */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Hufpflege</h3>
+
+            <div className="prose prose-lg max-w-none mb-6">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Die regelmäßige Hufpflege ist ein unverzichtbarer Teil der Pferdehaltung Kosten und des monatlichen Unterhalts eines Pferdes. Diese Kosten für den Hufschmied oder die Hufpflege fallen regelmäßig an und sollten nicht in Ihrem Pferdehaltung Budget unterschätzt werden.
+              </p>
+            </div>
 
             <div className="mb-12">
               <table className="w-full mb-8">
@@ -905,6 +923,12 @@ export default function WasKostetEinPferd() {
             <div className="mt-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Tierarztkosten (Basisversorgung)</h3>
 
+              <div className="prose prose-lg max-w-none mb-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Die Tierarztkosten für die Grundversorgung sind ein fester Bestandteil der laufenden Kosten der Pferdehaltung. Diese Ausgaben sind notwendig für die Gesundheit und das Wohlbefinden Ihres Pferdes und sollten in keinem realistischen Pferdehaltung Budget fehlen.
+                </p>
+              </div>
+
               <div className="space-y-3 mb-8">
                 <div className="flex justify-between items-center pb-2 border-b border-gray-200">
                   <span className="text-lg text-gray-700">Routineimpfungen (Tetanus, Influenza, Herpes)</span>
@@ -938,6 +962,12 @@ export default function WasKostetEinPferd() {
             {/* Versicherungen - Semantic structure with importance indicators */}
             <div className="mt-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Versicherungen</h3>
+
+              <div className="prose prose-lg max-w-none mb-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Versicherungen sind ein wichtiger Teil der Pferdehaltung Kosten und des monatlichen Unterhalts eines Pferdes. Diese Ausgaben schützen Sie vor unerwarteten finanziellen Belastungen und sollten in Ihrem Pferdehaltung Budget berücksichtigt werden. Die laufenden Kosten der Pferdehaltung für Versicherungen variieren je nach Leistungsumfang.
+                </p>
+              </div>
 
               <div className="space-y-6 mb-8">
                 <div>
