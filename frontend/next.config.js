@@ -6,10 +6,12 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  
+
   // Bundle optimization
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-markdown'],
+    // Optimize Fast Refresh for stability
+    turbo: false,
   },
   
   // Webpack optimization for better chunk splitting
@@ -35,6 +37,17 @@ const nextConfig = {
         },
       };
     }
+
+    // Fast Refresh optimization for development
+    if (dev) {
+      // Reduce aggressive Fast Refresh behavior
+      config.watchOptions = {
+        poll: 1000, // Check for changes every second
+        aggregateTimeout: 300, // Delay rebuild after first change
+        ignored: ['**/node_modules', '**/.next', '**/.git'],
+      };
+    }
+
     return config;
   },
   
