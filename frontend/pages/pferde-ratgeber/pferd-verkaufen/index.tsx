@@ -111,7 +111,7 @@ const jsonLdArticle = {
     dateModified: '2025-01-09',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/ratgeber/pferd-verkaufen'
+      '@id': 'https://pferdewert.de/pferde-ratgeber/pferd-verkaufen'
     },
     inLanguage: 'de-DE',
     keywords: 'pferd verkaufen, pferdewert ermitteln, pferd verkaufen plattformen, pferd verkaufen preis, pferd schnell verkaufen'
@@ -131,13 +131,13 @@ const jsonLdBreadcrumb = {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://pferdewert.de/ratgeber'
+        item: 'https://pferdewert.de/pferde-ratgeber'
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Pferd verkaufen',
-        item: 'https://pferdewert.de/ratgeber/pferd-verkaufen'
+        item: 'https://pferdewert.de/pferde-ratgeber/pferd-verkaufen'
       }
     ]
 };

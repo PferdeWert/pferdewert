@@ -206,6 +206,16 @@ const nextConfig = {
         destination: '/pferde-ratgeber/aku-pferd',
         statusCode: 301,
       },
+      {
+        source: '/ratgeber/pferdemarkt',
+        destination: '/pferde-ratgeber/pferdemarkt',
+        permanent: true,
+      },
+      {
+        source: '/ratgeber/pferd-verkaufen',
+        destination: '/pferde-ratgeber/pferd-verkaufen',
+        permanent: true,
+      },
     ]
   },
 };
