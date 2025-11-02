@@ -5,6 +5,7 @@
  */
 
 import { ArticleStructuredData } from '@/types/ratgeber';
+import { warn } from '@/lib/log';
 
 interface ArticleSchemaProps {
   data: ArticleStructuredData;
@@ -42,7 +43,7 @@ interface ArticleSchemaProps {
  *     },
  *     mainEntityOfPage: {
  *       '@type': 'WebPage',
- *       '@id': 'https://pferdewert.de/ratgeber/pferd-kaufen'
+ *       '@id': 'https://pferdewert.de/pferde-ratgeber/pferd-kaufen'
  *     }
  *   }}
  * />
@@ -51,7 +52,7 @@ interface ArticleSchemaProps {
 export default function ArticleSchema({ data }: ArticleSchemaProps) {
   // Validate required fields to prevent invalid JSON-LD
   if (!data.headline || !data.image || !data.datePublished || !data.author || !data.publisher) {
-    console.warn('ArticleSchema: Missing required fields for valid Schema.org markup');
+    warn('ArticleSchema: Missing required fields for valid Schema.org markup');
     return null;
   }
 

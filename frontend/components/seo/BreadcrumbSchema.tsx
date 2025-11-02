@@ -24,8 +24,8 @@ interface BreadcrumbSchemaProps {
  * <BreadcrumbSchema
  *   items={[
  *     { name: 'Home', url: 'https://pferdewert.de' },
- *     { name: 'Ratgeber', url: 'https://pferdewert.de/ratgeber' },
- *     { name: 'Pferd kaufen', url: 'https://pferdewert.de/ratgeber/pferd-kaufen' }
+ *     { name: 'Ratgeber', url: 'https://pferdewert.de/pferde-ratgeber' },
+ *     { name: 'Pferd kaufen', url: 'https://pferdewert.de/pferde-ratgeber/pferd-kaufen' }
  *   ]}
  * />
  * ```

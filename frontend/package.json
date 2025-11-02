@@ -8,6 +8,7 @@
   "scripts": {
     "predev": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",
     "dev": "cross-env PORT=3000 next dev",
+    "prebuild": "npm run check-urls",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -19,7 +20,8 @@
     "test:e2e": "playwright test",
     "fix-order": "node scripts/fix-order.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "seo": "node scripts/seo-process.mjs"
+    "seo": "node scripts/seo-process.mjs",
+    "check-urls": "node scripts/check-ratgeber-urls.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^15.4.6",
