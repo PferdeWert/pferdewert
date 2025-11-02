@@ -20,8 +20,8 @@ const INCORRECT_PATTERNS = [
   /'@id':\s*['"`][^'"]*\/ratgeber\/[^'"]*['"`]/,
   // Breadcrumb items
   /item:\s*['"`][^'"]*\/ratgeber\/[^'"]*['"`]/,
-  // href attributes (excluding /ratgeber/pferdemarkt and similar redirects in next.config.js)
-  /href=['"`]\/ratgeber\/(?!pferdemarkt|pferd-verkaufen)[^'"]*['"`]/,
+  // href attributes - catch ALL /ratgeber URLs (redirects only allowed in next.config.js)
+  /href=['"`]\/ratgeber\/[^'"]*['"`]/,
 ];
 
 // Files to check
