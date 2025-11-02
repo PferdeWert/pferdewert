@@ -8,6 +8,7 @@
   "scripts": {
     "predev": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",
     "dev": "cross-env PORT=3000 next dev",
+    "prebuild": "npm run check-urls",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
