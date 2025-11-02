@@ -209,12 +209,12 @@ const nextConfig = {
       {
         source: '/ratgeber/pferdemarkt',
         destination: '/pferde-ratgeber/pferdemarkt',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/ratgeber/pferd-verkaufen',
         destination: '/pferde-ratgeber/pferd-verkaufen',
-        permanent: true,
+        statusCode: 301,
       },
     ]
   },
