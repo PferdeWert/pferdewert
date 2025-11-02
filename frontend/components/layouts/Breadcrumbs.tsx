@@ -48,8 +48,8 @@ function ChevronRight() {
  * <Breadcrumbs
  *   items={[
  *     { name: 'Home', url: '/' },
- *     { name: 'Ratgeber', url: '/ratgeber' },
- *     { name: 'Pferd kaufen', url: '/ratgeber/pferd-kaufen' }
+ *     { name: 'Ratgeber', url: '/pferde-ratgeber' },
+ *     { name: 'Pferd kaufen', url: '/pferde-ratgeber/pferd-kaufen' }
  *   ]}
  * />
  * ```

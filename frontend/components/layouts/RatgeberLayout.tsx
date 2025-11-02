@@ -46,11 +46,11 @@ interface RatgeberLayoutProps {
  * <RatgeberLayout
  *   pageTitle="Pferd kaufen - Der ultimative Ratgeber"
  *   metaDescription="Alles was Sie über den Pferdekauf wissen müssen"
- *   canonicalUrl="https://pferdewert.de/ratgeber/pferd-kaufen"
+ *   canonicalUrl="https://pferdewert.de/pferde-ratgeber/pferd-kaufen"
  *   breadcrumbs={[
  *     { name: 'Home', url: '/' },
- *     { name: 'Ratgeber', url: '/ratgeber' },
- *     { name: 'Pferd kaufen', url: '/ratgeber/pferd-kaufen' }
+ *     { name: 'Ratgeber', url: '/pferde-ratgeber' },
+ *     { name: 'Pferd kaufen', url: '/pferde-ratgeber/pferd-kaufen' }
  *   ]}
  *   articleSchema={articleData}
  * >
@@ -166,34 +166,22 @@ export default function RatgeberLayout({
                   </h3>
                   <nav className="space-y-2">
                     <Link
-                      href="/ratgeber/pferdekauf"
+                      href="/pferde-ratgeber/pferd-kaufen"
                       className="block text-gray-700 hover:text-blue-600 transition-colors"
                     >
                       Pferdekauf
                     </Link>
                     <Link
-                      href="/ratgeber/pferdeverkauf"
+                      href="/pferde-ratgeber/pferd-verkaufen"
                       className="block text-gray-700 hover:text-blue-600 transition-colors"
                     >
                       Pferdeverkauf
                     </Link>
                     <Link
-                      href="/ratgeber/pferdehaltung"
+                      href="/pferde-ratgeber"
                       className="block text-gray-700 hover:text-blue-600 transition-colors"
                     >
-                      Pferdehaltung
-                    </Link>
-                    <Link
-                      href="/ratgeber/pferdegesundheit"
-                      className="block text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      Pferdegesundheit
-                    </Link>
-                    <Link
-                      href="/ratgeber/pferdetraining"
-                      className="block text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      Pferdetraining
+                      Alle Ratgeber
                     </Link>
                   </nav>
 
@@ -239,22 +227,22 @@ export default function RatgeberLayout({
                 </h5>
                 <nav className="space-y-2">
                   <Link
-                    href="/ratgeber/pferdekauf"
+                    href="/pferde-ratgeber/pferd-kaufen"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Pferdekauf
                   </Link>
                   <Link
-                    href="/ratgeber/pferdeverkauf"
+                    href="/pferde-ratgeber/pferd-verkaufen"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Pferdeverkauf
                   </Link>
                   <Link
-                    href="/ratgeber/pferdehaltung"
+                    href="/pferde-ratgeber"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
-                    Pferdehaltung
+                    Alle Ratgeber
                   </Link>
                 </nav>
               </div>

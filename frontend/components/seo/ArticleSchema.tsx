@@ -42,7 +42,7 @@ interface ArticleSchemaProps {
  *     },
  *     mainEntityOfPage: {
  *       '@type': 'WebPage',
- *       '@id': 'https://pferdewert.de/ratgeber/pferd-kaufen'
+ *       '@id': 'https://pferdewert.de/pferde-ratgeber/pferd-kaufen'
  *     }
  *   }}
  * />
