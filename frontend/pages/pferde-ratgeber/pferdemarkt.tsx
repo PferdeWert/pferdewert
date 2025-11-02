@@ -20,7 +20,7 @@ import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 const seoMetadata = {
   title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
   description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
-  canonical_url: 'https://pferdewert.de/ratgeber/pferdemarkt',
+  canonical_url: 'https://pferdewert.de/pferde-ratgeber/pferdemarkt',
   og_image: 'https://pferdewert.de/images/ratgeber/horse-market-havelberg-crowd.webp',
   og_image_alt: 'Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern'
 }
@@ -145,7 +145,7 @@ const Pferdemarkt: NextPage = () => {
     'dateModified': '2025-10-25',
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/ratgeber/pferdemarkt'
+      '@id': 'https://pferdewert.de/pferde-ratgeber/pferdemarkt'
     },
     'articleBody': 'Der Pferdemarkt ist eine faszinierende Tradition in Deutschland mit einer langen Geschichte. In diesem Ratgeber entdeckst du die größten Pferdemärkte Deutschlands, moderne Online-Plattformen mit Tausenden Inseraten, traditionelle Events 2025–2026, und praktische Tipps für deinen Besuch oder Einkauf.',
     'articleSection': 'Ratgeber',
@@ -177,13 +177,13 @@ const Pferdemarkt: NextPage = () => {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Ratgeber',
-        'item': 'https://pferdewert.de/ratgeber'
+        'item': 'https://pferdewert.de/pferde-ratgeber'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
-        'item': 'https://pferdewert.de/ratgeber/pferdemarkt'
+        'item': 'https://pferdewert.de/pferde-ratgeber/pferdemarkt'
       }
     ]
   }
