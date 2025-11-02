@@ -19,7 +19,8 @@
     "test:e2e": "playwright test",
     "fix-order": "node scripts/fix-order.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "seo": "node scripts/seo-process.mjs"
+    "seo": "node scripts/seo-process.mjs",
+    "check-urls": "node scripts/check-ratgeber-urls.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^15.4.6",
