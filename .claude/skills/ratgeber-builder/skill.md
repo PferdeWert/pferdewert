@@ -24,9 +24,9 @@ Erstellt aus SEO-Content automatisch eine fertige Ratgeber-Seite nach den Design
    - Hero mit Badge, Meta-Row, CTAs
    - Hero Image (inhaltsbasierte Benennung)
    - Table of Contents
-   - Content Body (Text First mit max. 2-4 strategischen HighlightBoxen)
+   - Content Body (Text First mit max. 2-4 strategischen HighlightBoxen + 5-7 inline Links)
    - FAQ Section mit automatischem Schema
-   - Related Articles
+   - Related Articles Component (3 Artikel-Karten)
    - Final CTA
 
 3. **Befolgt alle Design-Guidelines**:
@@ -80,6 +80,30 @@ Erstellt aus SEO-Content automatisch eine fertige Ratgeber-Seite nach den Design
 </section>
 ```
 - **NIEMALS** manuelles FAQ Schema im `<Head>` (wird automatisch generiert!)
+
+### Interne Verlinkung im Text (WICHTIG!)
+- **Anzahl**: 5-7 kontextbasierte inline Links im Fließtext
+- **Platzierung**: Natürlich im Text eingebettet, wo thematisch passend
+- **Quelle**: Aus `/frontend/lib/ratgeber-registry.ts` holen
+- **Format**: `<Link href="/pferde-ratgeber/[slug]">Ankertext</Link>`
+- **Kriterien für Auswahl**:
+  - Thematische Relevanz zum umgebenden Absatz
+  - Natürlicher Lesefluss bleibt erhalten
+  - Mehrwert für den Leser (weiterführende Informationen)
+  - Verteilung über den gesamten Artikel
+  - Nicht zu viele Links in einem Absatz (max. 1-2)
+- **Beispiele für kontextbasierte inline Links**:
+  - Bei "Dressurpferd kaufen" Text über AKU → Link zu "Ankaufsuntersuchung beim Pferd"
+  - Bei Erwähnung von Kaufvertrag → Link zu "Pferdekaufvertrag"
+  - Bei "Springpferd kaufen" → Link zu "Dressurpferd kaufen" oder umgekehrt
+  - Bei Erwähnung von Versicherungen → Link zu "Pferdehaftpflicht"
+
+### Related Articles Component
+- **Anzahl**: Immer 3 Artikel
+- **Component**: `<RatgeberRelatedArticles articles={relatedArticles} />`
+- **Platzierung**: Nach FAQ, vor Final CTA
+- **Auswahl**: Thematisch am engsten verwandt
+- **Quelle**: Aus `/frontend/lib/ratgeber-registry.ts` holen
 
 ### Final CTA
 - **Standard Image**: `/images/shared/blossi-shooting.webp`
@@ -203,10 +227,15 @@ export default function RatgeberPage() {
 - FAQ Component generiert Schema automatisch
 - Layout Props korrekt setzen
 - CTAs zu `/pferde-preis-berechnen`
+- 5-7 inline Links im Text zu anderen Ratgebern
+- 3 Related Articles am Ende (Component)
 - "KI" statt "AI"
 - "2 Minuten" für Evaluations-Dauer
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Zuletzt aktualisiert:** 2025-11-09
+**Changelog:**
+- v1.1.0: Interne Verlinkung im Text hinzugefügt (5-7 inline Links) + Related Articles Component Klarstellung (3 Artikel-Karten)
+- v1.0.0: Initial Release
