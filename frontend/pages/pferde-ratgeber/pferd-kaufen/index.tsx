@@ -543,7 +543,11 @@ const PferdKaufen: NextPage = () => {
                     </ul>
 
                     <p className="text-gray-700 leading-relaxed mt-4">
-                      Die <strong>Kosten einer Ankaufsuntersuchung</strong> variieren je nach Umfang zwischen 150€ (kleine AKU) und 500€ (große AKU mit Röntgen). Weitere Informationen zur professionellen Durchführung finden Sie bei der{" "}
+                      Eine professionelle AKU ist Pflicht vor jedem Pferdekauf. Weitere Informationen zur{" "}
+                      <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown hover:underline font-semibold">
+                        Ankaufsuntersuchung und ihren Kosten
+                      </Link>{" "}
+                      finden Sie in unserem detaillierten Ratgeber. Standards und Richtlinien werden von der{" "}
                       <a
                         href="https://www.bundestieraerztekammer.de"
                         target="_blank"
@@ -551,7 +555,8 @@ const PferdKaufen: NextPage = () => {
                         className="text-brand-brown hover:underline font-semibold"
                       >
                         Bundestierärztekammer
-                      </a>.
+                      </a>{" "}
+                      festgelegt.
                     </p>
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Einfluss auf den Wert:</h3>
