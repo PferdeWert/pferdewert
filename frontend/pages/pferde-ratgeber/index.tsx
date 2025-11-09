@@ -29,11 +29,8 @@ interface PageProps {
 // ============================================================================
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  // Debug logging
-  console.log('getStaticProps called')
-  console.log('RATGEBER_ENTRIES:', RATGEBER_ENTRIES)
-  console.log('RATGEBER_ENTRIES type:', typeof RATGEBER_ENTRIES)
-  console.log('RATGEBER_ENTRIES isArray:', Array.isArray(RATGEBER_ENTRIES))
+  // Dynamic import to avoid Fast Refresh issues
+  const { RATGEBER_ENTRIES, getRatgeberPath } = await import('@/lib/ratgeber-registry')
 
   // Transform registry entries into article cards at build time
   const artikel: RatgeberArtikelCard[] = (RATGEBER_ENTRIES || []).map((entry: RatgeberEntry, index: number) => ({
@@ -45,8 +42,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
     bild: entry.image,
     link: getRatgeberPath(entry.slug),
   }))
-
-  console.log('Transformed artikel:', artikel.length, 'items')
 
   return {
     props: {
@@ -62,11 +57,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
 // ============================================================================
 
 const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
-  console.log('PferdeRatgeber render, artikel:', artikel)
-  console.log('artikel type:', typeof artikel)
-  console.log('artikel isArray:', Array.isArray(artikel))
-  console.log('artikel length:', artikel?.length)
-
   return (
     <>
       <Head>
