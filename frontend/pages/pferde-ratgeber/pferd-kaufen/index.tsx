@@ -461,7 +461,11 @@ const PferdKaufen: NextPage = () => {
 
               <ul className="space-y-3 text-gray-700 leading-relaxed">
                 <li>
-                  <strong>Ausbildungsstand:</strong> Ein rohes 3-jähriges Pferd kostet deutlich weniger als ein turniererfahrenes 8-jähriges mit A-Dressur-Erfolgen. Jeder Ausbildungsschritt erhöht den Wert spürbar.
+                  <strong>Ausbildungsstand:</strong> Ein rohes 3-jähriges Pferd kostet deutlich weniger als ein turniererfahrenes 8-jähriges{" "}
+                  <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand-brown hover:underline">
+                    Dressurpferd
+                  </Link>{" "}
+                  mit A-Erfolgen. Jeder Ausbildungsschritt erhöht den Wert spürbar.
                 </li>
                 <li>
                   <strong>Gesundheitszustand:</strong> Pferde mit positiver Ankaufsuntersuchung (AKU) und aktuellen Röntgenbildern erzielen 20-30% höhere Preise. Vorerkrankungen können den Wert um 30-50% senken.
@@ -482,7 +486,11 @@ const PferdKaufen: NextPage = () => {
               </h3>
 
               <p className="text-gray-700 leading-relaxed">
-                Der Standort beeinflusst den Pferdemarkt erheblich. In traditionellen Zuchtregionen mit hoher Pferdedichte sind die Preise anders strukturiert als in Großstadtnähe oder strukturschwachen Gebieten:
+                Der Standort beeinflusst den{" "}
+                <Link href="/pferde-ratgeber/pferdemarkt" className="text-brand-brown hover:underline">
+                  Pferdemarkt
+                </Link>{" "}
+                erheblich. In traditionellen Zuchtregionen mit hoher Pferdedichte sind die Preise anders strukturiert als in Großstadtnähe oder strukturschwachen Gebieten:
               </p>
 
               <ul className="space-y-3 text-gray-700 leading-relaxed mt-4">
@@ -704,7 +712,10 @@ const PferdKaufen: NextPage = () => {
                     <ul className="space-y-2 text-gray-700 leading-relaxed">
                       <li>• <strong>Raumgreifende Gänge:</strong> Aktive Hinterhand, Schwung, Kadenz → Aufpreis 10-20%</li>
                       <li>• <strong>Taktreinheit:</strong> Klarer, gleichmäßiger Takt in allen Gangarten → Aufpreis 5-10%</li>
-                      <li>• <strong>Springvermögen:</strong> Natürliche Springanlage mit guter Technik → Aufpreis 15-30% (bei Springpferden)</li>
+                      <li>• <strong>Springvermögen:</strong> Natürliche Springanlage mit guter Technik → Aufpreis 15-30% (bei{" "}
+                        <Link href="/pferde-ratgeber/springpferd-kaufen" className="text-brand-brown hover:underline">
+                          Springpferden
+                        </Link>)</li>
                       <li>• <strong>Balance und Geschmeidigkeit:</strong> Leichtfüßigkeit, gute Biegsamkeit → Aufpreis 10-15%</li>
                     </ul>
 
@@ -922,7 +933,7 @@ const PferdKaufen: NextPage = () => {
 
                     <ul className="space-y-3 text-gray-700 leading-relaxed">
                       <li>
-                        <strong className="text-brand-brown">✓ Schriftlicher Kaufvertrag abschließen</strong> – Ein Kaufvertrag sollte enthalten: genaue Pferdebeschreibung (Name, Rasse, Geburtsdatum, Abzeichen), Kaufpreis, Ausbildungsstand, Zweck des Pferdes, Gewährleistungsfristen und Unterschriften beider Parteien.
+                        <strong className="text-brand-brown">✓ Schriftlicher <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">Pferdekaufvertrag</Link> abschließen</strong> – Ein Kaufvertrag sollte enthalten: genaue Pferdebeschreibung (Name, Rasse, Geburtsdatum, Abzeichen), Kaufpreis, Ausbildungsstand, Zweck des Pferdes, Gewährleistungsfristen und Unterschriften beider Parteien.
                       </li>
                       <li>
                         <strong className="text-brand-brown">✓ Versicherungen abschließen</strong> – Zwei Versicherungen sind Standard: Haftpflichtversicherung (für Schäden, die Ihr Pferd anrichtet) und OP-Versicherung (für teure Tierarzt-Operationen). Diese sind keine Luxus, sondern notwendiger Schutz.
@@ -1478,7 +1489,10 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Bestehe auf einem schriftlichen <strong>Pferdekaufvertrag</strong>, auch bei Privatkäufen von netten Menschen. Nutze
+                        Bestehe auf einem schriftlichen{" "}
+                        <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">
+                          Pferdekaufvertrag
+                        </Link>, auch bei Privatkäufen von netten Menschen. Nutze
                         Muster-Verträge von der{" "}
                         <a
                           href="https://www.pferd-aktuell.de/shop/kaufvertrag-pferd"
