@@ -16,19 +16,26 @@ import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems';
 
-// FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
-// Creating objects inside component causes infinite reload loop
+// FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
+// Creating JSX objects inside component or passing them inline causes reference changes on every render
+const trendingUpIcon = <TrendingUp className="h-4 w-4" />;
+const shieldIcon = <Shield className="h-4 w-4" />;
+const fileCheckIcon = <FileCheck className="h-4 w-4" />;
+const calculatorIcon = <Calculator className="h-5 w-5" />;
+const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
+const bookOpenIcon = <BookOpen className="h-4 w-4" />;
+
 const heroMetaItems = createHeroMetaItems([
   {
-    icon: <TrendingUp className="h-4 w-4" />,
+    icon: trendingUpIcon,
     label: "7-Phasen-Prozess"
   },
   {
-    icon: <Shield className="h-4 w-4" />,
+    icon: shieldIcon,
     label: "Rechtssichere Abwicklung"
   },
   {
-    icon: <FileCheck className="h-4 w-4" />,
+    icon: fileCheckIcon,
     label: "Plattform-Vergleich"
   }
 ]);
@@ -221,19 +228,19 @@ const PferdVerkaufen: NextPage = () => {
       <div className="bg-gradient-to-b from-amber-50 to-white">
         <RatgeberHero
           badgeLabel="Verkaufsratgeber"
-          badgeIcon={<BookOpen className="h-4 w-4" />}
+          badgeIcon={bookOpenIcon}
           title="Pferd verkaufen: Der ultimative Leitfaden (2025)"
           subtitle="Du möchtest dein Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit. Dieser Leitfaden zeigt dir den 7-Phasen-Verkaufsprozess, den Plattform-Vergleich (eHorses vs. pferde.de) und die rechtliche Absicherung. Inklusive emotionaler Begleitung beim Abschied vom Partner Pferd."
           metaItems={heroMetaItems}
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Jetzt Pferdewert berechnen",
-            icon: <Calculator className="h-5 w-5" />
+            icon: calculatorIcon
           }}
           secondaryCta={{
             label: "Zum Inhalt",
             onClick: scrollToContent,
-            icon: <ChevronDown className="h-5 w-5" />
+            icon: chevronDownIcon
           }}
         />
         <RatgeberHeroImage

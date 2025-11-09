@@ -20,6 +20,16 @@ This file documents the sources and licenses for all third-party images used in 
 - **Via**: Wikimedia Commons
 - **Changes**: [TO BE ADDED]
 
+### /public/images/ratgeber/springpferd-hero-jumping.webp
+- **Original Title**: "John Whitaker and Argento jumping at Olympia 2017"
+- **Source**: https://commons.wikimedia.org/wiki/File:John_Whitaker_and_Argento_jumping_at_Olympia_2017.jpg
+- **Author**: Lady-shirakawa
+- **License**: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)
+- **Via**: Wikimedia Commons
+- **Changes**: Resized from 6000px to 1920px width, converted to WebP format (85% quality)
+- **Date**: 15 December 2017
+- **Depicts**: John Whitaker (equestrian) and Argento (horse) jumping at Olympia show jumping competition
+
 ---
 
 ## AKU-Pferd Section

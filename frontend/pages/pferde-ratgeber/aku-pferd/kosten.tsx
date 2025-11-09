@@ -17,6 +17,13 @@ import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
 import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
+// FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
+const calculatorIcon = <Calculator className="h-4 w-4" />;
+const walletIcon = <Wallet className="h-4 w-4" />;
+const piggyBankIcon = <PiggyBank className="h-4 w-4" />;
+const calculatorIconLarge = <Calculator className="h-5 w-5" />;
+const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
+
 const sections = [
   { id: "overview", title: "AKU Kosten im Überblick" },
   { id: "klassen", title: "Kosten pro AKU-Klasse" },
@@ -29,15 +36,15 @@ const sections = [
 
 const heroMetaItems = createHeroMetaItems([
   {
-    icon: <Calculator className="h-4 w-4" />,
+    icon: calculatorIcon,
     label: "Kosten je Klasse erklärt"
   },
   {
-    icon: <Wallet className="h-4 w-4" />,
+    icon: walletIcon,
     label: "Budgetplanung inklusive"
   },
   {
-    icon: <PiggyBank className="h-4 w-4" />,
+    icon: piggyBankIcon,
     label: "Spartipps vom Tierarzt"
   }
 ])
@@ -170,18 +177,18 @@ const AkuPferdKosten: NextPage = () => {
 
         <RatgeberHero
           badgeLabel="AKU Guide"
-          badgeIcon={<Calculator className="h-4 w-4" />}
+          badgeIcon={calculatorIcon}
           title="AKU Kosten transparent erklärt"
           subtitle="Von der kleinen AKU bis zur Spezialdiagnostik – erfahre, welche Kosten auf dich zukommen und wie du klug planst."
           metaItems={heroMetaItems}
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Pferdewert mit AKU berechnen",
-            icon: <Calculator className="h-5 w-5" />
+            icon: calculatorIconLarge
           }}
           secondaryCta={{
             label: "Zum Inhalt",
-            icon: <ChevronDown className="h-5 w-5" />,
+            icon: chevronDownIcon,
             onClick: handleScrollToToc
           }}
         />

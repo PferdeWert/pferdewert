@@ -25,15 +25,20 @@ import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
-// FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
-// Creating objects inside component causes infinite reload loop
+// FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
+const clockIcon = <Clock className="h-4 w-4" />;
+const calendarIcon = <Calendar className="h-4 w-4" />;
+const awardIcon = <Award className="h-4 w-4" />;
+const primaryCtaIcon = <ArrowRight className="w-5 h-5" />;
+const secondaryCtaIcon = <ChevronDown className="w-5 h-5" />;
+
 const heroMetaItems = createHeroMetaItems([
   {
-    icon: <Clock className="h-4 w-4" />,
+    icon: clockIcon,
     label: '12 min Lesezeit'
   },
   {
-    icon: <Calendar className="h-4 w-4" />,
+    icon: calendarIcon,
     label: (
       <span suppressHydrationWarning>
         {new Date().toLocaleDateString('de-DE', {
@@ -45,14 +50,10 @@ const heroMetaItems = createHeroMetaItems([
     )
   },
   {
-    icon: <Award className="h-4 w-4" />,
+    icon: awardIcon,
     label: 'Experten-Ratgeber'
   }
 ])
-
-// FAST REFRESH FIX: CTA icons at module level to prevent recreation
-const primaryCtaIcon = <ArrowRight className="w-5 h-5" />
-const secondaryCtaIcon = <ChevronDown className="w-5 h-5" />
 const kostenLinkIcon = <ArrowRight className="h-5 w-5" />
 
 const AKUPferd: NextPage = () => {
@@ -181,7 +182,7 @@ const AKUPferd: NextPage = () => {
         {/* HERO: Fokus auf "Was ist AKU?" nicht "Kosten" */}
         <RatgeberHero
           badgeLabel="Pferde-Ratgeber"
-          badgeIcon={<Award className="h-4 w-4" />}
+          badgeIcon={awardIcon}
           title="Ankaufsuntersuchung beim Pferd"
           subtitle="Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfährst du, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann du welche Art von AKU benötigst. Schütze dich vor versteckten Mängeln mit fundiertem Wissen."
           metaItems={heroMetaItems}

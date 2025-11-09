@@ -16,6 +16,13 @@ import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
+// FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
+const clockIcon = <Clock className="h-4 w-4" />;
+const calendarIcon = <Calendar className="h-4 w-4" />;
+const awardIcon = <Award className="h-4 w-4" />;
+const arrowRightIcon = <ArrowRight className="w-5 h-5" />;
+const chevronDownIcon = <ChevronDown className="w-5 h-5" />;
+
 // SEO Metadata
 const seoMetadata = {
   title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
@@ -62,14 +69,13 @@ const tableOfContentsSections = [
 ]
 
 // FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
-// Creating objects inside component causes infinite reload loop
 const heroMetaItems = createHeroMetaItems([
   {
-    icon: <Clock className="h-4 w-4" />,
+    icon: clockIcon,
     label: '12 min Lesezeit'
   },
   {
-    icon: <Calendar className="h-4 w-4" />,
+    icon: calendarIcon,
     label: (
       <span suppressHydrationWarning>
         {new Date().toLocaleDateString('de-DE', {
@@ -81,7 +87,7 @@ const heroMetaItems = createHeroMetaItems([
     )
   },
   {
-    icon: <Award className="h-4 w-4" />,
+    icon: awardIcon,
     label: 'Experten-Ratgeber'
   }
 ])
@@ -250,18 +256,18 @@ const Pferdemarkt: NextPage = () => {
         {/* HERO */}
         <RatgeberHero
           badgeLabel="Pferde-Ratgeber"
-          badgeIcon={<Award className="h-4 w-4" />}
+          badgeIcon={awardIcon}
           title="Pferdemarkt 2025"
           subtitle="Ob online auf großen Plattformen wie Ehorses mit 19.000+ Inseraten oder auf traditionellen Events wie Havelberg mit 200.000 Besuchern – in diesem Ratgeber entdeckst du alle wichtigen Pferdemärkte Deutschlands 2025–2026, praktische Kauftipps und einen Vergleich der besten Optionen für deinen Pferdekauf."
           metaItems={heroMetaItems}
           primaryCta={{
             href: '/pferde-preis-berechnen',
             label: 'Pferdewert jetzt berechnen',
-            icon: <ArrowRight className="w-5 h-5" />
+            icon: arrowRightIcon
           }}
           secondaryCta={{
             label: 'Zum Inhalt',
-            icon: <ChevronDown className="w-5 h-5" />,
+            icon: chevronDownIcon,
             onClick: handleScrollToToc
           }}
         />

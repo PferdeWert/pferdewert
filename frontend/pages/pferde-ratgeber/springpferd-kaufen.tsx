@@ -241,15 +241,15 @@ export default function SpringpferdKaufen() {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/horses-mountain-field-spain.webp"
-          alt="Pferde auf Bergwiese - Symbolbild für Springpferd kaufen"
+          src="/images/ratgeber/springpferd-hero-jumping.webp"
+          alt="Springpferd und Reiter John Whitaker beim Sprung über Hindernis bei Olympia 2017"
           priority
           attribution={{
-            author: 'Mikel Ortega',
-            license: 'CC BY-SA 2.0',
-            licenseUrl: 'https://creativecommons.org/licenses/by-sa/2.0',
+            author: 'Lady-shirakawa',
+            license: 'CC BY-SA 4.0',
+            licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
             source: 'Wikimedia Commons',
-            originalUrl: 'https://commons.wikimedia.org/wiki/File:Biandintz_eta_zaldiak_-_modified2.jpg'
+            originalUrl: 'https://commons.wikimedia.org/wiki/File:John_Whitaker_and_Argento_jumping_at_Olympia_2017.jpg'
           }}
         />
 
