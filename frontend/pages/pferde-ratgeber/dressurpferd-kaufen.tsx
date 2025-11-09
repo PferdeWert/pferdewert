@@ -197,7 +197,7 @@ export default function DressurpferdKaufen() {
         <RatgeberHero
           badgeLabel="Kauf & Verkauf"
           title="Dressurpferd kaufen: Der ultimative Ratgeber für deinen sicheren Kauf"
-          subtitle="Erfahre alles über Preise, Qualitätskriterien und Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix – mit professioneller KI-Bewertung in 2 Minuten."
+          subtitle="Erfahre alles über Preise, Qualitätskriterien und Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix – fundierte Informationen für deine sichere Kaufentscheidung."
           metaItems={[
             { icon: clockIcon, label: '14 Min. Lesezeit' },
             { icon: userIcon, label: 'PferdeWert Redaktion' }
@@ -213,6 +213,7 @@ export default function DressurpferdKaufen() {
           src="/images/ratgeber/dressage-rider-competition-arena.webp"
           alt="Professionelle Dressurreiterin mit Pferd im Wettkampf beim FEI World Cup"
           priority={true}
+          objectPosition="center 20%"
           attribution={{
             author: 'Eponimm',
             license: 'CC BY-SA 4.0',
