@@ -321,7 +321,11 @@ export default function WasKostetEinPferd() {
 
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Die Anschaffung eines Pferdes ist eine bedeutende finanzielle Entscheidung. Die Kosten variieren stark je nach Rasse, Alter, Ausbildungsstand und gesundheitlichem Zustand des Pferdes.
+                Die Anschaffung eines Pferdes ist eine bedeutende finanzielle Entscheidung. Die Kosten variieren stark je nach Rasse, Alter, Ausbildungsstand und gesundheitlichem Zustand des Pferdes. Eine gute Übersicht über aktuelle Marktpreise bietet unser{' '}
+                <Link href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  Pferdemarkt-Ratgeber
+                </Link>{' '}
+                mit den wichtigsten Online-Plattformen und traditionellen Märkten in Deutschland.
               </p>
             </div>
 
@@ -339,7 +343,17 @@ export default function WasKostetEinPferd() {
             <h4 className="text-xl font-bold text-brand-brown mb-3">Sportpferd</h4>
             <p className="text-lg text-gray-700 mb-2"><strong>Preisspanne:</strong> 8.000€ - 30.000€+ (Durchschnitt: ~15.000€)</p>
             <ul className="text-lg text-gray-700 space-y-2 mb-8">
-              <li>• Spezialisierte Ausbildung (Dressur, Springen, Vielseitigkeit)</li>
+              <li>
+                • Spezialisierte Ausbildung (
+                <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  Dressur
+                </Link>
+                ,
+                <Link href="/pferde-ratgeber/springpferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  Springen
+                </Link>
+                , Vielseitigkeit)
+              </li>
               <li>• Jüngere Pferde mit nachgewiesenem Potenzial</li>
               <li>• Oft mit Abstammungsnachweisen und Turnierresultaten</li>
             </ul>
@@ -407,6 +421,17 @@ export default function WasKostetEinPferd() {
               <p className="text-lg font-bold text-gray-900 mb-2">Warum ist die AKU so wichtig?</p>
               <p className="text-lg text-gray-700">
                 Ein Pferd mit unentdeckten gesundheitlichen Problemen kann langfristig deutlich teurer werden als die einmaligen AKU-Kosten. Chronische Erkrankungen wie Hufrollenentzündung, Atemwegserkrankungen oder Rückenprobleme können zu dauerhaften Tierarztkosten von mehreren Tausend Euro pro Jahr führen.
+              </p>
+            </div>
+
+            {/* Pferdekaufvertrag */}
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+              <p className="text-lg text-gray-700">
+                Nach erfolgreicher AKU solltest du den Kauf rechtssicher mit einem{' '}
+                <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  Pferdekaufvertrag
+                </Link>{' '}
+                abschließen. Dies schützt beide Parteien und klärt wichtige Details wie Gewährleistung, Rücktrittsbedingungen und vereinbarte Mängel.
               </p>
             </div>
 
@@ -479,7 +504,10 @@ export default function WasKostetEinPferd() {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <p className="text-lg font-bold text-gray-900 mb-2">Spartipp</p>
               <p className="text-lg text-gray-700">
-                Viele Gegenstände können gebraucht gekauft werden. Online-Plattformen wie ehorses.de, eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises.
+                Viele Gegenstände können gebraucht gekauft werden. Online-Plattformen wie{' '}
+                <Link href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  ehorses.de und weitere Pferdemärkte
+                </Link>, eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises.
               </p>
             </div>
 
@@ -496,7 +524,11 @@ export default function WasKostetEinPferd() {
 
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Der Pferdepreis variiert stark je nach Rasse, Ausbildungsstand und Verwendungszweck. Während manche Rassen bereits als Jungpferde höhere Preise erzielen, können gut ausgebildete Turnierpferde deutlich höhere Summen erreichen. Die folgende Übersicht zeigt realistische Preisspannen für beliebte Pferderassen in Deutschland.
+                Der Pferdepreis variiert stark je nach Rasse, Ausbildungsstand und Verwendungszweck. Während manche Rassen bereits als Jungpferde höhere Preise erzielen, können gut ausgebildete Turnierpferde deutlich höhere Summen erreichen. Einen aktuellen Überblick über die wichtigsten{' '}
+                <Link href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  Pferdemärkte und Online-Plattformen
+                </Link>{' '}
+                findest du in unserem Pferdemarkt-Ratgeber. Die folgende Übersicht zeigt realistische Preisspannen für beliebte Pferderassen in Deutschland.
               </p>
             </div>
 

@@ -278,6 +278,10 @@ export default function SpringpferdKaufen() {
               Bei den Rassen haben sich besonders <strong>Holsteiner, Oldenburger, KWPN</strong> (niederländisches Warmblut) und <strong>Selle Français</strong> als erfolgreiche Springpferderassen etabliert. Diese Zuchtlinien werden seit Generationen auf Springeignung selektiert und bringen entsprechende genetische Voraussetzungen mit. Doch auch andere Warmblüter oder Kreuzungen können hervorragende Springer werden – letztlich zählt die individuelle Veranlagung mehr als der Papiernachweis.
             </p>
 
+            <p className="text-lg text-gray-700 leading-relaxed">
+              → Interessierst du dich für andere Disziplinen? Lies unseren Ratgeber zum <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand-brown hover:underline font-semibold">Dressurpferd kaufen</Link>.
+            </p>
+
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
               Altersaspekte: Jungpferd vs. Turnierpferd
             </h3>
@@ -428,6 +432,10 @@ export default function SpringpferdKaufen() {
                 </div>
               </li>
             </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              → Alle Details zu AKU-Kosten und Preisfaktoren findest du in unserem <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown hover:underline font-semibold">AKU-Kosten-Ratgeber</Link>.
+            </p>
 
             <RatgeberHighlightBox title="Experten-Tipp: Eigener Tierarzt" icon={shieldIcon}>
               <p className="text-lg text-gray-700 leading-relaxed">

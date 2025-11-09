@@ -230,6 +230,10 @@ const AkuPferdKosten: NextPage = () => {
                 <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-blue-600 hover:text-blue-800 underline">
                   schau dir unseren Kostenratgeber an
                 </Link>
+                . Mehr zum gesamten Kaufprozess findest du in unserem{" "}
+                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                  Pferdekauf-Ratgeber
+                </Link>
                 .
               </p>
 
@@ -268,8 +272,15 @@ const AkuPferdKosten: NextPage = () => {
 
               <RatgeberHighlightBox title="Faustregel" icon={<Calculator className="h-5 w-5 text-brand-brown" />}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Freizeitpferde bis 5.000 € kommen mit Klasse II aus. Für hochwertige Sport- oder Zuchtpferde solltest du Klasse III
-                  oder Spezialdiagnostik einplanen – so minimierst du Folgerisiken.
+                  Freizeitpferde bis 5.000 € kommen mit Klasse II aus. Für hochwertige{" "}
+                  <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                    Dressurpferde
+                  </Link>
+                  {" "}oder{" "}
+                  <Link href="/pferde-ratgeber/springpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                    Springpferde
+                  </Link>
+                  {" "}solltest du Klasse III oder Spezialdiagnostik einplanen – so minimierst du Folgerisiken.
                 </p>
               </RatgeberHighlightBox>
             </section>
@@ -290,7 +301,12 @@ const AkuPferdKosten: NextPage = () => {
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Je spezialisierter die Praxis und je umfangreicher die Diagnostik, desto höher die Kosten. Kläre im Vorfeld, ob
-                du sämtliche Zusatzleistungen wirklich benötigst – und lass dir die Preisstruktur transparent erklären.
+                du sämtliche Zusatzleistungen wirklich benötigst – und lass dir die Preisstruktur transparent erklären. Bei Pferden
+                aus Online-Inseraten oder vom{" "}
+                <Link href="/pferde-ratgeber/pferdemarkt" className="text-blue-600 hover:text-blue-800 underline">
+                  Pferdemarkt
+                </Link>
+                {" "}solltest du besonders auf eine umfassende AKU achten.
               </p>
             </section>
 
@@ -366,11 +382,23 @@ const AkuPferdKosten: NextPage = () => {
                 </div>
               </div>
 
+              <p className="text-lg text-gray-700 leading-relaxed mt-8">
+                <strong>Tipp:</strong> Vereinbare die Kostenregelung frühzeitig im Kaufprozess. In unserem{" "}
+                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                  umfassenden Ratgeber zum Pferdekauf
+                </Link>
+                {" "}erfährst du, wie du den gesamten Kaufablauf strukturiert angehst.
+              </p>
+
               <RatgeberHighlightBox title="Wichtig: Schriftliche Festlegung" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
                 <p className="text-gray-700">
-                  <strong>Vereinbare alle Kostenpunkte schriftlich im Kaufvertrag oder per E-Mail</strong>,
-                  um später Streitigkeiten zu vermeiden. Dies gilt besonders, wenn die Kostenübernahme
-                  an das Ergebnis der AKU gekoppelt ist (z.B. &ldquo;ohne Befund&rdquo;).
+                  <strong>Vereinbare alle Kostenpunkte schriftlich im{" "}
+                  <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+                    Pferdekaufvertrag
+                  </Link>
+                  {" "}oder per E-Mail</strong>, um später Streitigkeiten zu vermeiden. Dies gilt besonders, wenn die Kostenübernahme
+                  an das Ergebnis der AKU gekoppelt ist (z.B. &ldquo;ohne Befund&rdquo;). In unserem Kaufvertrags-Ratgeber findest du
+                  alle wichtigen Klauseln und ein kostenloses Muster.
                 </p>
               </RatgeberHighlightBox>
             </section>

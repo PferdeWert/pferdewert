@@ -239,7 +239,7 @@ export default function DressurpferdKaufen() {
               Du möchtest ein <strong>Dressurpferd kaufen</strong>, bist dir aber unsicher, wo du anfangen sollst? Der Kauf eines Dressurpferdes ist eine bedeutende Entscheidung – sowohl emotional als auch finanziell. Mit über 2.400 monatlichen Suchanfragen allein in Deutschland zeigt sich das enorme Interesse am Dressurreitsport. Doch der Markt ist vielfältig: Vom Jungpferd mit Potenzial bis zum ausgebildeten Grand Prix-Pferd reicht das Angebot.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Viele Käufer, die ein <strong>Dressurpferd kaufen</strong> möchten, sind unsicher bezüglich der richtigen Preiseinschätzung, der Qualitätskriterien und der passenden Kaufquelle. Ein übereilter Kauf kann zu Enttäuschungen, gesundheitlichen Problemen oder hohen Folgekosten führen. In diesem umfassenden Ratgeber erfährst du alles Wichtige: Von der Preisgestaltung nach Ausbildungsstand über Qualitätskriterien bis zur Auswahl der richtigen Kaufquelle. Eine objektive Bewertung ist dabei entscheidend – genau hier setzt PferdeWert mit seiner KI-gestützten Analyse an.
+              Viele Käufer, die ein <strong>Dressurpferd kaufen</strong> möchten, sind unsicher bezüglich der richtigen Preiseinschätzung, der Qualitätskriterien und der passenden Kaufquelle. Ein übereilter Kauf kann zu Enttäuschungen, gesundheitlichen Problemen oder hohen Folgekosten führen. In diesem umfassenden Ratgeber erfährst du alles Wichtige: Von der Preisgestaltung nach Ausbildungsstand über Qualitätskriterien bis zur Auswahl der richtigen Kaufquelle. Eine objektive Bewertung ist dabei entscheidend – genau hier setzt PferdeWert mit seiner KI-gestützten Analyse an. Für einen umfassenden Überblick über den gesamten Pferdekauf-Prozess lies auch unseren <Link href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</Link>.
             </p>
           </section>
 
@@ -455,7 +455,7 @@ export default function DressurpferdKaufen() {
               Was muss ich beim Pferdekauf beachten?
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die wichtigsten Aspekte, wenn du ein <strong>Dressurpferd kaufen</strong> möchtest, gehen über die bloße Auswahl des Pferdes hinaus. Rechtliche und praktische Vorkehrungen schützen dich vor bösen Überraschungen.
+              Die wichtigsten Aspekte, wenn du ein <strong>Dressurpferd kaufen</strong> möchtest, gehen über die bloße Auswahl des Pferdes hinaus. Rechtliche und praktische Vorkehrungen schützen dich vor bösen Überraschungen. Unser <Link href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">Pferdekauf-Ratgeber</Link> bietet eine umfassende Checkliste für den gesamten Kaufprozess.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
