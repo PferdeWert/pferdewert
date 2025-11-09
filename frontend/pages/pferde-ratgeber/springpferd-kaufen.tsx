@@ -267,6 +267,10 @@ export default function SpringpferdKaufen() {
             <p className="text-lg text-gray-700 leading-relaxed">
               Die große Auswahl an Verkaufspferden, die teilweise enormen Preisunterschiede und die langfristige Verantwortung machen den Pferdekauf zu einer der wichtigsten Entscheidungen im Reiterleben. Dieser Ratgeber begleitet dich durch den gesamten Kaufprozess – von der Definition deiner Anforderungen über die Suche nach dem passenden Partner bis hin zur rechtssicheren Abwicklung. So triffst du eine fundierte Kaufentscheidung, die dich und dein zukünftiges Springpferd lange glücklich macht.
             </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Tipp:</strong> In unserem <a href="/pferde-ratgeber/pferd-kaufen" className="text-brand-brown hover:underline font-semibold">umfassenden Pferdekauf-Ratgeber</a> findest du weitere allgemeine Tipps, die für alle Pferdetypen gelten.
+            </p>
           </section>
 
           {/* Section 1: Eigenschaften */}
@@ -358,6 +362,10 @@ export default function SpringpferdKaufen() {
             <p className="text-lg text-gray-700 leading-relaxed">
               Wichtige Preisfaktoren sind die Abstammung (erfolgreiche Blutlinien erzielen höhere Preise), dokumentierte Turniererfolge, das Alter (6-10 Jahre sind Premium), der Gesundheitszustand und natürlich das individuelle Springtalent. Lasse dich nicht von augenscheinlichen Schnäppchen blenden – oft stecken gesundheitliche Probleme oder Ausbildungsdefizite dahinter.
             </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              → Mehr Details zu Anschaffungs- und laufenden Kosten findest du in unserem <a href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown hover:underline font-semibold">kompletten Pferde-Kosten-Guide</a>.
+            </p>
           </section>
 
           {/* Section 3: Verkaufsquellen */}
@@ -396,6 +404,10 @@ export default function SpringpferdKaufen() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Auch internationale Märkte sind interessant: Die <strong>Niederlande, Belgien und Frankreich</strong> haben eine lange Tradition in der Springpferdezucht. Beachte aber zusätzliche Kosten für Transport, eventuell Quarantäne und Sprachbarrieren bei der Kommunikation.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              → Entdecke mehr Verkaufsquellen und Plattformen in unserem <a href="/pferde-ratgeber/pferdemarkt" className="text-brand-brown hover:underline font-semibold">Pferdemarkt-Guide</a>.
             </p>
           </section>
 
@@ -438,6 +450,10 @@ export default function SpringpferdKaufen() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Bei Springpferden ist besonders das Röntgen der Beine wichtig, da diese enormen Belastungen ausgesetzt sind. Viele Käufer entscheiden sich daher für ein erweitertes Röntgenpaket. Auch Ultraschalluntersuchungen der Sehnen können sinnvoll sein, besonders bei älteren Turnierpferden.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              → Ausführliche Informationen zu Ablauf, Kosten und Checkliste findest du in unserem <a href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:underline font-semibold">detaillierten AKU-Ratgeber</a>.
             </p>
           </section>
 
@@ -522,6 +538,10 @@ export default function SpringpferdKaufen() {
             <p className="text-lg text-gray-700 leading-relaxed">
               Denke auch an Versicherungen: Eine <strong>Pferdehaftpflichtversicherung</strong> ist in den meisten Bundesländern zwar nicht gesetzlich vorgeschrieben, aber dringend empfohlen (Kosten ab ca. 60€/Jahr). Eine <strong>OP-Versicherung</strong> (ca. 200-400€/Jahr) übernimmt die oft sehr hohen Kosten bei notwendigen Operationen.
             </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              → Inklusive rechtssicherer Vertragsvorlage und allen wichtigen Klauseln: Unser <a href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">kompletter Pferdekaufvertrag-Ratgeber</a>.
+            </p>
           </section>
 
           {/* Fazit */}
@@ -545,7 +565,7 @@ export default function SpringpferdKaufen() {
             </RatgeberHighlightBox>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Nimm dir Zeit für diese wichtige Entscheidung – das richtige Pferd ist einen langen Suchprozess wert. Ein harmonisches Team aus Reiter und Pferd entsteht nicht über Nacht, aber mit dem passenden Partner an deiner Seite stehen dir alle Türen im Springsport offen. Falls du bei der Bewertung eines Verkaufspferdes unsicher bist, kann eine professionelle Pferdebewertung zusätzliche Sicherheit geben und dir helfen, den fairen Marktwert einzuschätzen.
+              Nimm dir Zeit für diese wichtige Entscheidung – das richtige Pferd ist einen langen Suchprozess wert. Ein harmonisches Team aus Reiter und Pferd entsteht nicht über Nacht, aber mit dem passenden Partner an deiner Seite stehen dir alle Türen im Springsport offen. Falls du bei der Bewertung eines Verkaufspferdes unsicher bist, kann eine <a href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-semibold">professionelle Pferdebewertung</a> zusätzliche Sicherheit geben und dir helfen, den fairen Marktwert einzuschätzen.
             </p>
           </section>
         </div>
