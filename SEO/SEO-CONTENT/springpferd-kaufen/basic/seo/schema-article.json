@@ -1,0 +1,81 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Springpferd kaufen: Der ultimative Ratgeber für den perfekten Partner",
+  "description": "Umfassender Ratgeber zum Kauf eines Springpferdes: Auswahlkriterien, Preise, seriöse Verkaufsquellen, Ankaufsuntersuchung, Probereiten und rechtliche Aspekte beim Pferdekauf.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/ratgeber/springpferd-kaufen-hero.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    }
+  },
+  "datePublished": "2025-01-09T10:00:00+01:00",
+  "dateModified": "2025-01-09T10:00:00+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/ratgeber/springpferd-kaufen"
+  },
+  "articleSection": "Pferdekauf",
+  "keywords": [
+    "Springpferd kaufen",
+    "Springpferd Preis",
+    "Ankaufsuntersuchung",
+    "Pferdekauf Ratgeber",
+    "Springreiten",
+    "Probereiten",
+    "Kaufvertrag Pferd"
+  ],
+  "wordCount": 1450,
+  "inLanguage": "de-DE",
+  "about": {
+    "@type": "Thing",
+    "name": "Springpferdekauf",
+    "description": "Der Prozess des Kaufs eines Springpferdes, einschließlich Auswahlkriterien, Preisgestaltung und rechtlicher Aspekte"
+  },
+  "mentions": [
+    {
+      "@type": "Thing",
+      "name": "Ankaufsuntersuchung",
+      "description": "Tierärztliche Untersuchung vor dem Pferdekauf"
+    },
+    {
+      "@type": "Thing",
+      "name": "Springreiten",
+      "description": "Pferdesportdisziplin mit Hindernissen"
+    },
+    {
+      "@type": "Thing",
+      "name": "Holsteiner",
+      "description": "Deutsche Pferderasse für Springreiten"
+    }
+  ],
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2"
+    ]
+  }
+}

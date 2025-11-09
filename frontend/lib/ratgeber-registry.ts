@@ -158,6 +158,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'aku-pferd',
       'pferd-verkaufen'
     ]
+  },
+
+  // Springpferd kaufen Guide
+  {
+    slug: 'springpferd-kaufen',
+    title: 'Springpferd kaufen: Ratgeber, Preise & Tipps',
+    description: 'Springpferd kaufen leicht gemacht: Auswahlkriterien, Preise (10.000-100.000€+), seriöse Züchter, AKU-Tipps & Kaufvertrag. Jetzt informieren!',
+    category: 'Kauf & Verkauf',
+    readTime: '12 Min.',
+    image: '/images/ratgeber/horses-mountain-field-spain.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'aku-pferd',
+      'pferdekaufvertrag'
+    ]
   }
 ];
 
