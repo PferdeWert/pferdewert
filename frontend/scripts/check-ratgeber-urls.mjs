@@ -25,6 +25,7 @@ const INCORRECT_PATTERNS = [
 ];
 
 // Files to check (for documentation, actual implementation uses hardcoded paths)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _FILES_TO_CHECK = [
   'pages/**/*.{ts,tsx}',
   'components/**/*.{ts,tsx}',
@@ -32,6 +33,7 @@ const _FILES_TO_CHECK = [
 ];
 
 // Files to exclude (for documentation, actual implementation uses hardcoded exclude lists)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _EXCLUDE_PATTERNS = [
   '**/node_modules/**',
   '**/.next/**',
