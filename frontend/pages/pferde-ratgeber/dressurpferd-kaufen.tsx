@@ -17,6 +17,18 @@ const shieldIcon = <ShieldCheck className="w-5 h-5" />;
 const clockIcon = <Clock className="h-4 w-4" />;
 const userIcon = <User className="h-4 w-4" />;
 
+// FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
+const heroMetaItems = [
+  { icon: clockIcon, label: '14 Min. Lesezeit' },
+  { icon: userIcon, label: 'PferdeWert Redaktion' }
+];
+
+const heroPrimaryCta = {
+  label: 'Jetzt Pferdewert berechnen',
+  href: '/pferde-preis-berechnen',
+  icon: sparklesIcon
+};
+
 export default function DressurpferdKaufen() {
   const sections = [
     { id: 'preise', title: 'Was kostet ein gutes Dressurpferd?' },
@@ -198,15 +210,8 @@ export default function DressurpferdKaufen() {
           badgeLabel="Kauf & Verkauf"
           title="Dressurpferd kaufen: Der ultimative Ratgeber für deinen sicheren Kauf"
           subtitle="Erfahre alles über Preise, Qualitätskriterien und Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix – fundierte Informationen für deine sichere Kaufentscheidung."
-          metaItems={[
-            { icon: clockIcon, label: '14 Min. Lesezeit' },
-            { icon: userIcon, label: 'PferdeWert Redaktion' }
-          ]}
-          primaryCta={{
-            label: 'Jetzt Pferdewert berechnen',
-            href: '/pferde-preis-berechnen',
-            icon: sparklesIcon
-          }}
+          metaItems={heroMetaItems}
+          primaryCta={heroPrimaryCta}
         />
 
         <RatgeberHeroImage
