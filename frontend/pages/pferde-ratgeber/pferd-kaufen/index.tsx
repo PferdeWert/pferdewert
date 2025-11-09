@@ -179,14 +179,14 @@ const PferdKaufen: NextPage = () => {
       <>
         <Head>
           {/* Primary Meta Tags */}
-          <title>Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025</title>
+          <title>Pferd kaufen 2025: Ultimativer Ratgeber mit Checkliste & Bewertung</title>
           <meta
             name="description"
-            content="Was kostet ein Pferd 2025? Aktuelle Preise (1.000-50.000€), professionelle Bewertungskriterien, AKU-Guide & Checkliste für sicheren Pferdekauf. Jetzt informieren!"
+            content="Pferd kaufen 2025: Kompletter Ratgeber mit 7-Schritte-Checkliste, AKU-Guide, Bewertungskriterien & Preisübersicht (1.000-50.000€). Worauf achten? Jetzt informieren!"
           />
           <meta
             name="keywords"
-            content="pferd kaufen, pferd kaufen anfänger, dressurpferde kaufen, was kostet ein pferd, pferd kaufen preis, pferdebewertung, aku pferd, pferd kaufen checkliste"
+            content="pferd kaufen, pferd kaufen anfänger, dressurpferde kaufen, springpferd kaufen, pferd kaufen worauf achten, pferdebewertung, aku pferd, pferd kaufen checkliste, pferdekaufvertrag"
           />
           <meta name="author" content="PferdeWert.de" />
           <meta name="robots" content="index, follow" />
@@ -198,14 +198,14 @@ const PferdKaufen: NextPage = () => {
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="article" />
           <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-kaufen" />
-          <meta property="og:title" content="Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025" />
-          <meta property="og:description" content="Was kostet ein Pferd 2025? Aktuelle Preise (1.000-50.000€), professionelle Bewertungskriterien, AKU-Guide & Checkliste für sicheren Pferdekauf." />
+          <meta property="og:title" content="Pferd kaufen 2025: Ultimativer Ratgeber mit Checkliste & Bewertung" />
+          <meta property="og:description" content="Pferd kaufen 2025: Kompletter Ratgeber mit 7-Schritte-Checkliste, AKU-Guide, Bewertungskriterien & Preisübersicht (1.000-50.000€). Worauf achten?" />
           <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025" />
-          <meta name="twitter:description" content="Was kostet ein Pferd 2025? Aktuelle Preise (1.000-50.000€), professionelle Bewertungskriterien, AKU-Guide & Checkliste für sicheren Pferdekauf." />
+          <meta name="twitter:title" content="Pferd kaufen 2025: Ultimativer Ratgeber mit Checkliste & Bewertung" />
+          <meta name="twitter:description" content="Pferd kaufen 2025: Kompletter Ratgeber mit 7-Schritte-Checkliste, AKU-Guide, Bewertungskriterien & Preisübersicht (1.000-50.000€). Worauf achten?" />
           <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
 
           {/* Article Schema */}
