@@ -22,24 +22,22 @@ const RatgeberTableOfContents: React.FC<RatgeberTableOfContentsProps> = ({ secti
 
   return (
     <nav id="inhaltsverzeichnis" aria-label="Inhaltsverzeichnis" className="py-12">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-xl md:text-2xl font-semibold text-brand mb-4">Inhaltsverzeichnis</h2>
-          <ol className="space-y-2 text-brand/80 text-base md:text-lg list-none pl-0">
-            {sections.map((section, index) => (
-              <li key={section.id} className="leading-relaxed">
-                <a
-                  href={`#${section.id}`}
-                  onClick={event => handleClick(event, section.id)}
-                  className="flex items-center gap-3 hover:text-brand-brown transition-colors"
-                >
-                  <span className="font-semibold">{index + 1}.</span>
-                  <span>{section.title}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </div>
+      <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <h2 className="font-serif text-xl md:text-2xl font-semibold text-brand mb-4">Inhaltsverzeichnis</h2>
+        <ol className="space-y-2 text-brand/80 text-base md:text-lg list-none pl-0">
+          {sections.map((section, index) => (
+            <li key={section.id} className="leading-relaxed">
+              <a
+                href={`#${section.id}`}
+                onClick={event => handleClick(event, section.id)}
+                className="flex items-center gap-3 hover:text-brand-brown transition-colors"
+              >
+                <span className="font-semibold">{index + 1}.</span>
+                <span>{section.title}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
       </div>
     </nav>
   )

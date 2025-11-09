@@ -10,6 +10,7 @@ import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { ShieldAlert, AlertTriangle, CheckCircle } from 'lucide-react'
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -91,33 +92,18 @@ export default function SpringpferdKaufen() {
     height: 600
   }), [])
 
-  // Related articles - memoized to prevent Fast Refresh loops
-  const relatedArticles = useMemo(() => [
-    {
-      title: 'Pferd kaufen: Der ultimative Ratgeber',
-      description: 'Alles was du beim Pferdekauf beachten musst – von der Suche bis zum Kaufvertrag.',
-      href: '/pferde-ratgeber/pferd-kaufen',
-      image: '/images/ratgeber/horses-mountain-field-spain.webp',
-      badge: 'Kaufratgeber',
-      readTime: '15 Min.'
-    },
-    {
-      title: 'AKU beim Pferd: Kosten, Ablauf & Checkliste',
-      description: 'Was kostet eine Ankaufsuntersuchung und was wird untersucht?',
-      href: '/pferde-ratgeber/aku-pferd',
-      image: '/images/ratgeber/horse-vet-examination.webp',
-      badge: 'Gesundheit',
-      readTime: '10 Min.'
-    },
-    {
-      title: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag',
-      description: 'Die 7 wesentlichen Bestandteile eines rechtssicheren Pferdekaufvertrags.',
-      href: '/pferde-ratgeber/pferdekaufvertrag',
-      image: '/images/ratgeber/contract-signing.webp',
-      badge: 'Rechtsguide',
-      readTime: '12 Min.'
-    }
-  ], [])
+  // Related articles - use registry for consistent data
+  const relatedArticles = useMemo(() => {
+    const entries = getRelatedArticles('springpferd-kaufen')
+    return entries.map(entry => ({
+      title: entry.title,
+      description: entry.description,
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      badge: entry.category,
+      readTime: entry.readTime
+    }))
+  }, [])
 
   // JSON-LD Article Schema - memoized to prevent Fast Refresh loops
   const articleSchema = useMemo(() => ({
