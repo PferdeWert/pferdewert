@@ -10,6 +10,12 @@
 - **Use "KI" not "AI"**: German market prefers "KI" (Künstliche Intelligenz) over "AI" in all content and UI
 - **Evaluation Duration is ALWAYS "2 Minuten"**: NEVER use "3 Minuten" or any other duration in content, UI, or AI-generated text - this is a critical accuracy requirement
 
+## SEO & URL Structure
+- **Ratgeber Base Path**: `/pferde-ratgeber/` - NEVER use `/ratgeber/` or nested paths like `/ratgeber/pferdekauf/`
+- **URL Format**: `https://pferdewert.de/pferde-ratgeber/{article-slug}` (flat structure, no categories)
+- **Full Guidelines**: See [SEO/URL-STRUCTURE-GUIDELINES.md](SEO/URL-STRUCTURE-GUIDELINES.md) for complete URL rules
+- **SEO Process**: See [SEO/SEO-PROZESS/](SEO/SEO-PROZESS/) for content creation workflow
+
 ## Critical Coding Patterns
 - **Custom Logger**: `import { info, warn, error } from '@/lib/log'` - NEVER use console.log
 - **No `any` type**: ESLint enforced, use proper interfaces

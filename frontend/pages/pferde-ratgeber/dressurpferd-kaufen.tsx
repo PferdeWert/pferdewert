@@ -210,9 +210,15 @@ export default function DressurpferdKaufen() {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/dressage-horse-training-arena.webp"
-          alt="Elegantes Dressurpferd in professioneller Trainingsarena bei der Arbeit"
+          src="/images/ratgeber/dressage-rider-competition-arena.webp"
+          alt="Professionelle Dressurreiterin mit Pferd im Wettkampf beim FEI World Cup"
           priority={true}
+          attribution={{
+            author: 'Eponimm',
+            license: 'CC BY-SA 4.0',
+            licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+            source: 'Wikimedia Commons'
+          }}
         />
 
         {/* Table of Contents */}

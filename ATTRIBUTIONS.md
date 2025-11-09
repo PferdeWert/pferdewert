@@ -30,6 +30,16 @@ This file documents the sources and licenses for all third-party images used in 
 - **Date**: 15 December 2017
 - **Depicts**: John Whitaker (equestrian) and Argento (horse) jumping at Olympia show jumping competition
 
+### /public/images/ratgeber/dressage-rider-competition-arena.webp
+- **Original Title**: "2018FEI-WORLD-CUP-DRESSAGE-Morgan-Barbancon"
+- **Source**: https://commons.wikimedia.org/wiki/File:2018FEI-WORLD-CUP-DRESSAGE-Morgan-Barbancon.jpg
+- **Author**: Eponimm
+- **License**: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)
+- **Via**: Wikimedia Commons
+- **Changes**: Converted to WebP format (85% quality)
+- **Date**: 14 April 2018
+- **Depicts**: Morgan Barbançon Mestre riding at FEI World Cup Dressage Finals 2018
+
 ---
 
 ## AKU-Pferd Section

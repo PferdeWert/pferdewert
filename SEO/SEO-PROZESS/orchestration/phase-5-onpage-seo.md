@@ -151,7 +151,7 @@ Beispiele:
     "title": "Pferd kaufen: 5 Experten-Tipps für sicheren Pferdekauf",
     "description": "Vermeide teure Fehler beim Pferdekauf! Unsere Checkliste zeigt, worauf du achten musst.",
     "image": "https://pferdewert.de/images/pferdekauf-guide.jpg",
-    "url": "https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
+    "url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten"
   }
 }
 ```
@@ -215,14 +215,18 @@ Nur funktionale Parameter behalten:
 
 **4. Canonical URL Format**:
 ```
-https://pferdewert.de/{content-type}/{url-slug}
+https://pferdewert.de/pferde-ratgeber/{url-slug}
 
 Beispiele:
-✅ https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten
-✅ https://pferdewert.de/ratgeber/pferdekauf-vertrag
-❌ https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten/ (www + trailing slash)
-❌ https://pferdewert.de/ratgeber/artikel?utm_source=facebook (tracking param)
+✅ https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten
+✅ https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag
+✅ https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen
+❌ https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten/ (www + trailing slash)
+❌ https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten (WRONG - old base path)
+❌ https://pferdewert.de/pferde-ratgeber/artikel?utm_source=facebook (tracking param)
 ```
+
+**CRITICAL**: Base path is `/pferde-ratgeber/` NOT `/ratgeber/`. See `SEO/URL-STRUCTURE-GUIDELINES.md` for full details.
 
 **5. Cross-Domain Canonicals** (falls anwendbar):
 Falls Content auf mehreren Domains existiert (z.B. Staging, Partner-Sites):
@@ -279,7 +283,7 @@ Falls Content auf mehreren Domains existiert (z.B. Staging, Partner-Sites):
   "dateModified": "2025-01-04",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://pferdewert.de/ratgeber/{slug}"
+    "@id": "https://pferdewert.de/pferde-ratgeber/{slug}"
   }
 }
 ```
@@ -383,13 +387,13 @@ Falls Content auf mehreren Domains existiert (z.B. Staging, Partner-Sites):
       "@type": "ListItem",
       "position": 2,
       "name": "Ratgeber",
-      "item": "https://pferdewert.de/ratgeber"
+      "item": "https://pferdewert.de/pferde-ratgeber"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Pferd kaufen: Worauf achten",
-      "item": "https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
+      "item": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten"
     }
   ]
 }
@@ -446,21 +450,21 @@ Falls Content auf mehreren Domains existiert (z.B. Staging, Partner-Sites):
     {
       "section": "Einleitung",
       "anchor_text": "Pferdewert ermitteln",
-      "target_url": "/ratgeber/pferdewert-ermitteln",
+      "target_url": "/pferde-ratgeber/pferdewert-ermitteln",
       "context": "Bevor du ein Pferd kaufst, solltest du den fairen Marktwert kennen. Nutze unsere [Pferdewert ermitteln] Funktion.",
       "relevance": "high"
     },
     {
       "section": "Gesundheitscheck",
       "anchor_text": "Pferd Gesundheitscheck Kosten",
-      "target_url": "/ratgeber/pferd-gesundheitscheck-kosten",
+      "target_url": "/pferde-ratgeber/pferd-gesundheitscheck-kosten",
       "context": "Die [Pferd Gesundheitscheck Kosten] variieren je nach Umfang der Untersuchung.",
       "relevance": "high"
     },
     {
       "section": "Kaufvertrag",
       "anchor_text": "Pferdekauf Kaufvertrag Muster",
-      "target_url": "/ratgeber/pferdekauf-kaufvertrag",
+      "target_url": "/pferde-ratgeber/pferdekaufvertrag",
       "context": "Verwende unser [Pferdekauf Kaufvertrag Muster] um rechtlich abgesichert zu sein.",
       "relevance": "medium"
     }
@@ -572,7 +576,7 @@ Speichere Ergebnisse in `SEO/SEO-CONTENT/{keyword-slug}/seo/`:
     "title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de",
     "description": "Pferd kaufen: Unsere Experten-Checkliste hilft dir, Fehler zu vermeiden. Erfahre, worauf du bei Gesundheitscheck & Kaufvertrag achten musst.",
     "keywords": "pferd kaufen worauf achten, pferdekauf tipps, gesundes pferd kaufen",
-    "canonical_url": "https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten",
+    "canonical_url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten",
     "slug": "pferd-kaufen-worauf-achten"
   },
   "open_graph": {
@@ -580,7 +584,7 @@ Speichere Ergebnisse in `SEO/SEO-CONTENT/{keyword-slug}/seo/`:
     "og_description": "Vermeide teure Fehler beim Pferdekauf! Unsere Checkliste zeigt, worauf du achten musst.",
     "og_image": "https://pferdewert.de/images/pferdekauf-guide.jpg",
     "og_type": "article",
-    "og_url": "https://pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
+    "og_url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten"
   },
   "twitter_card": {
     "twitter_card": "summary_large_image",
@@ -634,7 +638,7 @@ Breadcrumb Navigation Schema.
     {
       "section": "Einleitung",
       "anchor_text": "Pferdewert ermitteln",
-      "target_url": "/ratgeber/pferdewert-ermitteln",
+      "target_url": "/pferde-ratgeber/pferdewert-ermitteln",
       "relevance": "high"
     }
   ]
