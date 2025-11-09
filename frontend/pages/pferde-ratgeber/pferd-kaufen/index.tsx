@@ -110,7 +110,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "Was sollte man beim Pferdekauf beachten?",
-    answer: "Die Top-Tipps beim Pferdekauf sind diese 6 Punkte: 1) Durchführung einer professionellen Ankaufsuntersuchung (AKU), 2) Mehrfaches Probereiten unter verschiedenen Bedingungen, 3) Prüfung aller Papiere und Dokumente, 4) Objektive Pferdebewertung (z.B. mit AI-Tools), 5) Schriftlicher Kaufvertrag mit allen Details, 6) Vermeidung von Red Flags wie unrealistisch niedrigen Preisen oder fehlenden Papieren."
+    answer: "Die Top-Tipps beim Pferdekauf sind diese 6 Punkte: 1) Durchführung einer professionellen Ankaufsuntersuchung (AKU), 2) Mehrfaches Probereiten unter verschiedenen Bedingungen, 3) Prüfung aller Papiere und Dokumente, 4) Objektive Pferdebewertung (z.B. mit KI-Tools), 5) Schriftlicher Kaufvertrag mit allen Details, 6) Vermeidung von Red Flags wie unrealistisch niedrigen Preisen oder fehlenden Papieren."
   },
   {
     question: "Wie läuft eine Ankaufsuntersuchung (AKU) ab?",
@@ -216,7 +216,7 @@ const PferdKaufen: NextPage = () => {
                 "@context": "https://schema.org",
                 "@type": "Article",
                 "headline": "Pferd kaufen: Der ultimative Ratgeber 2025",
-                "description": "Alles über Pferdekauf: Preise, Bewertung, AKU, Kaufvertrag & Red Flags. Mit AI-gestütztem Bewertungstool.",
+                "description": "Alles über Pferdekauf: Preise, Bewertung, AKU, Kaufvertrag & Red Flags. Mit KI-gestütztem Bewertungstool.",
                 "author": {
                   "@type": "Organization",
                   "name": "PferdeWert.de"
@@ -1232,7 +1232,7 @@ const PferdKaufen: NextPage = () => {
                       <p className="text-blue-800 font-semibold">💡 Tipp:</p>
                       <p className="text-blue-700 mt-2">
                         Lass Dir den <strong>Chip auslesen</strong> und vergleiche die Nummer mit dem Equidenpass.
-                        Das gibt Dir Sicherheit, dass Pferd und Papiere zusammengehören. Die meisten Tierärzte machen das kostenlos.
+                        Das gibt Dir Sicherheit, dass Pferd und Papiere zusammengehören. Die meisten Tierärzte können dies im Rahmen der AKU durchführen.
                       </p>
                     </div>
                   </div>
