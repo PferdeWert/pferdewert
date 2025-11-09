@@ -255,7 +255,7 @@ export default function DressurpferdKaufen() {
               Grundsätzlich gilt: Je höher der Ausbildungsstand, desto höher der Preis. Ein junges, unausgebildetes Pferd mit vielversprechender Abstammung kostet zwischen 8.000 und 15.000 EUR. <strong>M-fertige Dressurpferde</strong> liegen im Bereich von 20.000 bis 40.000 EUR, während hochausgebildete S-Dressurpferde 40.000 bis 80.000 EUR kosten können. <strong>Grand Prix Dressurpferde kaufen</strong> bedeutet eine Investition von mindestens 80.000 EUR aufwärts – Spitzenpferde können auch sechsstellige Summen erreichen.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Neben dem reinen Kaufpreis solltest du Zusatzkosten einplanen: Die Ankaufsuntersuchung (AKU) kostet zwischen 300 und 1.500 EUR je nach Umfang. Hinzu kommen Transportkosten, erste Ausstattung und gegebenenfalls Einstallungskosten. Langfristig sind die monatlichen Unterhaltungskosten (Pension, Futter, Hufschmied, Tierarzt) oft höher als die anfängliche Investition.
+              Neben dem reinen Kaufpreis solltest du Zusatzkosten einplanen: Die Ankaufsuntersuchung (AKU) kostet zwischen 300 und 1.500 EUR je nach Umfang. Hinzu kommen Transportkosten, erste Ausstattung und gegebenenfalls Einstallungskosten. Langfristig sind die monatlichen Unterhaltungskosten (Pension, Futter, Hufschmied, Tierarzt) oft höher als die anfängliche Investition. Eine <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">detaillierte Kostenübersicht aller laufenden Ausgaben</Link> hilft dir bei der realistischen Budgetplanung.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -326,6 +326,9 @@ export default function DressurpferdKaufen() {
                 <strong>Trakehner</strong>: Edle Erscheinung, sensibles Wesen und elastische Bewegungen durch Vollblutführung zeichnen Trakehner aus. Sie erfordern einen feinfühligen Reiter und sind weniger für robuste Reitweisen geeignet.
               </li>
             </ol>
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              <strong>Hinweis:</strong> Die Anforderungen an ein Dressurpferd unterscheiden sich deutlich von denen anderer Disziplinen. Während Dressurpferde vor allem Bewegungsqualität und Ausdruckskraft benötigen, sind bei Springpferden andere Eigenschaften gefragt. Unser <Link href="/pferde-ratgeber/springpferd-kaufen" className="text-brand hover:text-brand-dark underline">Springpferd-Kaufratgeber</Link> zeigt die spezifischen Auswahlkriterien dieser Disziplin.
+            </p>
           </section>
 
           {/* Section: Qualität erkennen */}
@@ -410,6 +413,13 @@ export default function DressurpferdKaufen() {
             <p className="text-lg text-gray-700 leading-relaxed">
               <strong>Nachteile</strong>: Keine Garantien oder Rückgaberechte sind der größte Nachteil. Du trägst das volle Risiko. Mehr Eigenverantwortung ist erforderlich – von der Begutachtung über die AKU bis zum Kaufvertrag.
             </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Online-Plattformen: Die moderne Suche
+            </h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Online-Plattformen wie ehorses.de oder rimondo.com vereinen alle Verkäufertypen und sind ideal für die erste Suchphase. Hier findest du Züchter, Privatverkäufer und Händler an einem Ort. Unser <Link href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">umfassender Pferdemarkt-Guide</Link> zeigt dir die besten Plattformen und traditionellen Märkte für deine Suche.
+            </p>
           </section>
 
           {/* Section: Regional */}
@@ -434,6 +444,9 @@ export default function DressurpferdKaufen() {
             <p className="text-lg text-gray-700 leading-relaxed">
               <strong>Regionale Preisunterschiede</strong> sind minimal und eher angebotsabhängig als regional bedingt. Ein gutes Pferd kostet in Bayern ähnlich viel wie in NRW – Qualität hat überall ihren Preis.
             </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Neben der regionalen Online-Suche lohnt sich auch der Besuch traditioneller Pferdemärkte. Hier kannst du Pferde live erleben und direkt mit Verkäufern sprechen. Der <Link href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">Pferdemarkt-Ratgeber</Link> zeigt dir Deutschlands größte Märkte mit über 200.000 Besuchern und einen kompletten Veranstaltungskalender.
+            </p>
           </section>
 
           {/* Section: Checkliste */}
@@ -449,14 +462,14 @@ export default function DressurpferdKaufen() {
               Die Ankaufsuntersuchung (AKU)
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die AKU ist deine wichtigste Absicherung gegen versteckte Gesundheitsmängel.
+              Die AKU ist deine wichtigste Absicherung gegen versteckte Gesundheitsmängel. In unserem <Link href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">detaillierten AKU-Ratgeber</Link> erfährst du alles über Ablauf, Bewertung und wie Befunde den Pferdewert beeinflussen.
             </p>
             <ul className="space-y-4 text-lg text-gray-700">
               <li>
                 <strong>Kleine AKU (ca. 300-500 EUR)</strong>: Allgemeinuntersuchung, Herz-Kreislauf-Check, Atemwege, Bewegungsapparat, Augen. Sie reicht für günstige Freizeitpferde aus.
               </li>
               <li>
-                <strong>Große AKU (ca. 800-1.500 EUR)</strong>: Beinhaltet zusätzlich Röntgenbilder (meist 18 Standardaufnahmen), Blutuntersuchung, intensive Lahmheitsuntersuchung. Bei M-fertigen Pferden und höher solltest du immer die große AKU wählen.
+                <strong>Große AKU (ca. 800-1.500 EUR)</strong>: Beinhaltet zusätzlich Röntgenbilder (meist 18 Standardaufnahmen), Blutuntersuchung, intensive Lahmheitsuntersuchung. Bei M-fertigen Pferden und höher solltest du immer die große AKU wählen. Eine <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand hover:text-brand-dark underline">detaillierte Kostenaufschlüsselung</Link> hilft dir bei der Budgetplanung.
               </li>
             </ul>
 

@@ -1,11 +1,10 @@
-import { useMemo } from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import { RATGEBER_ENTRIES, getRatgeberPath } from '@/lib/ratgeber-registry'
+import type { RatgeberEntry } from '@/lib/ratgeber-registry'
 
 // ============================================================================
 // TYPES
@@ -21,41 +20,52 @@ interface RatgeberArtikelCard {
   link: string
 }
 
+interface PageProps {
+  artikel: RatgeberArtikelCard[]
+}
+
 // ============================================================================
 // ISR: STATIC PROPS WITH REVALIDATION
 // ============================================================================
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<PageProps> = async () => {
+  // Debug logging
+  console.log('getStaticProps called')
+  console.log('RATGEBER_ENTRIES:', RATGEBER_ENTRIES)
+  console.log('RATGEBER_ENTRIES type:', typeof RATGEBER_ENTRIES)
+  console.log('RATGEBER_ENTRIES isArray:', Array.isArray(RATGEBER_ENTRIES))
+
+  // Transform registry entries into article cards at build time
+  const artikel: RatgeberArtikelCard[] = (RATGEBER_ENTRIES || []).map((entry: RatgeberEntry, index: number) => ({
+    id: index + 1,
+    titel: entry.title,
+    beschreibung: entry.description,
+    kategorie: entry.category,
+    lesezeit: entry.readTime,
+    bild: entry.image,
+    link: getRatgeberPath(entry.slug),
+  }))
+
+  console.log('Transformed artikel:', artikel.length, 'items')
+
   return {
-    props: {},
+    props: {
+      artikel,
+    },
     // Revalidate every day (registry is static)
     revalidate: 86400,
   }
 }
 
-// RATGEBER_ARTIKEL moved inside component with useMemo to prevent Fast Refresh loops
-
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
 
-const PferdeRatgeber: NextPage = () => {
-  // CRITICAL: Create array with useMemo to prevent Fast Refresh loops
-  // The .map() creates new object instances, so it MUST be memoized
-  const ratgeberArtikel = useMemo<RatgeberArtikelCard[]>(() => {
-    if (!RATGEBER_ENTRIES || !Array.isArray(RATGEBER_ENTRIES)) {
-      return []
-    }
-    return RATGEBER_ENTRIES.map((entry, index) => ({
-      id: index + 1,
-      titel: entry.title,
-      beschreibung: entry.description,
-      kategorie: entry.category,
-      lesezeit: entry.readTime,
-      bild: entry.image,
-      link: getRatgeberPath(entry.slug),
-    }))
-  }, [])
+const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
+  console.log('PferdeRatgeber render, artikel:', artikel)
+  console.log('artikel type:', typeof artikel)
+  console.log('artikel isArray:', Array.isArray(artikel))
+  console.log('artikel length:', artikel?.length)
 
   return (
     <>
@@ -108,57 +118,63 @@ const PferdeRatgeber: NextPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {ratgeberArtikel?.map((artikel) => (
-                <Link
-                  key={artikel.id}
-                  href={artikel.link}
-                  className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
-                  aria-label={`${artikel.titel} lesen`}
-                >
-                  <article className="flex flex-col h-full">
-                    {/* Image Container - Fixed aspect ratio */}
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={artikel.bild}
-                        alt={artikel.titel}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-
-                    {/* Content Container - Flex grow to push button to bottom */}
-                    <div className="p-6 flex flex-col flex-grow">
-                      {/* Meta Information */}
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`text-xs font-medium px-2.5 py-1 rounded ${
-                          artikel.kategorie === 'Gesundheit'
-                            ? 'bg-blue-50 text-blue-700'
-                            : 'bg-amber-50 text-amber-700'
-                        }`}>
-                          {artikel.kategorie}
-                        </span>
-                        <span className="text-xs text-gray-500">{artikel.lesezeit}</span>
+              {artikel && artikel.length > 0 ? (
+                artikel.map((art) => (
+                  <Link
+                    key={art.id}
+                    href={art.link}
+                    className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
+                    aria-label={`${art.titel} lesen`}
+                  >
+                    <article className="flex flex-col h-full">
+                      {/* Image Container - Fixed aspect ratio */}
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <Image
+                          src={art.bild}
+                          alt={art.titel}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
 
-                      {/* Title - Fixed height for alignment */}
-                      <h3 className="text-xl font-serif font-bold mb-3 text-brand group-hover:text-brand-brown transition-colors line-clamp-2 min-h-[3.5rem]">
-                        {artikel.titel}
-                      </h3>
+                      {/* Content Container - Flex grow to push button to bottom */}
+                      <div className="p-6 flex flex-col flex-grow">
+                        {/* Meta Information */}
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className={`text-xs font-medium px-2.5 py-1 rounded ${
+                            art.kategorie === 'Gesundheit'
+                              ? 'bg-blue-50 text-blue-700'
+                              : 'bg-amber-50 text-amber-700'
+                          }`}>
+                            {art.kategorie}
+                          </span>
+                          <span className="text-xs text-gray-500">{art.lesezeit}</span>
+                        </div>
 
-                      {/* Description - Flex grow to fill space */}
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
-                        {artikel.beschreibung}
-                      </p>
+                        {/* Title - Fixed height for alignment */}
+                        <h3 className="text-xl font-serif font-bold mb-3 text-brand group-hover:text-brand-brown transition-colors line-clamp-2 min-h-[3.5rem]">
+                          {art.titel}
+                        </h3>
 
-                      {/* Visual Button Indicator - Always at bottom */}
-                      <div className="mt-auto w-full border-2 border-brand-brown text-brand-brown group-hover:bg-brand-brown group-hover:text-white transition-colors py-2.5 px-4 rounded-lg text-sm font-medium text-center">
-                        Artikel lesen
+                        {/* Description - Flex grow to fill space */}
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
+                          {art.beschreibung}
+                        </p>
+
+                        {/* Visual Button Indicator - Always at bottom */}
+                        <div className="mt-auto w-full border-2 border-brand-brown text-brand-brown group-hover:bg-brand-brown group-hover:text-white transition-colors py-2.5 px-4 rounded-lg text-sm font-medium text-center">
+                          Artikel lesen
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                </Link>
-              ))}
+                    </article>
+                  </Link>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-12">
+                  <p className="text-gray-600">Keine Ratgeber-Artikel verfügbar.</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
