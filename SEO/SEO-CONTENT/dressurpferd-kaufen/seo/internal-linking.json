@@ -1,0 +1,67 @@
+{
+  "internal_links": [
+    {
+      "anchor_text": "KI-gestützte Analyse in nur 2 Minuten",
+      "target_url": "/pferdebewertung",
+      "context": "Wie erkenne ich ein talentiertes Dressurpferd",
+      "placement": "Section H2 - PferdeWert Integration",
+      "link_type": "service_cta",
+      "priority": "high"
+    },
+    {
+      "anchor_text": "PferdeWert-Service",
+      "target_url": "/pferdebewertung",
+      "context": "Fazit - Call-to-Action",
+      "placement": "Conclusion",
+      "link_type": "service_cta",
+      "priority": "high"
+    },
+    {
+      "anchor_text": "Vergleich mit aktuellen Marktpreisen",
+      "target_url": "/pferdebewertung",
+      "context": "PferdeWert nutzen für objektive Bewertung",
+      "placement": "Section H3",
+      "link_type": "service_feature",
+      "priority": "high"
+    },
+    {
+      "anchor_text": "Pferd kaufen Ratgeber",
+      "target_url": "/ratgeber/pferdekauf",
+      "context": "Was muss ich beim Pferdekauf beachten",
+      "placement": "Section H2 - Introduction",
+      "link_type": "hub_content",
+      "priority": "medium"
+    },
+    {
+      "anchor_text": "monatlichen Unterhaltungskosten",
+      "target_url": "/ratgeber/pferdehaltung/kosten",
+      "context": "Was kostet ein gutes Dressurpferd - Langfristige Kosten",
+      "placement": "Section H2",
+      "link_type": "related_content",
+      "priority": "medium"
+    },
+    {
+      "anchor_text": "Ankaufsuntersuchung Guide",
+      "target_url": "/ratgeber/pferdekauf/ankaufsuntersuchung",
+      "context": "Die Ankaufsuntersuchung (AKU)",
+      "placement": "Section H3",
+      "link_type": "related_content",
+      "priority": "medium"
+    }
+  ],
+  "total_links": 6,
+  "service_cta_links": 3,
+  "hub_links": 1,
+  "related_content_links": 2,
+  "link_distribution": {
+    "introduction": 0,
+    "body": 4,
+    "conclusion": 2
+  },
+  "notes": [
+    "Primary focus on PferdeWert service CTAs (3 strategically placed links)",
+    "Hub link to main Pferdekauf ratgeber for topical authority",
+    "Related content links to support additional user needs",
+    "All links contextually relevant and natural within content flow"
+  ]
+}

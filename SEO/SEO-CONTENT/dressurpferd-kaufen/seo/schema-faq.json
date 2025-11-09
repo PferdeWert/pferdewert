@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet ein gutes Dressurpferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Preise für Dressurpferde variieren stark nach Ausbildungsstand: A-Niveau kostet 8.000-15.000 EUR, L-Niveau 15.000-25.000 EUR, M-fertige Pferde 20.000-40.000 EUR, S-Niveau 40.000-80.000 EUR und Grand Prix Pferde ab 80.000 EUR aufwärts. Zusätzlich zum Kaufpreis müssen Ankaufsuntersuchung (300-1.500 EUR), Transport und laufende Kosten eingeplant werden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Rassen eignen sich für die Dressur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die erfolgreichsten Dressurpferderassen sind: Hannoveraner (ausgeglichenes Temperament, exzellente Grundgangarten), Oldenburger (kraftvolle Bewegungen), Westfale (vielseitig und zuverlässig), KWPN (modern, viel Ausdruck) und Trakehner (edel, sensibel, elastische Bewegungen). Deutsche Warmblüter dominieren aufgrund ihrer Bewegungsqualität und Ausbildbarkeit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie erkenne ich ein talentiertes Dressurpferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Achten Sie auf exzellente Bewegungsqualität (Takt, Losgelassenheit, Schwung in allen drei Gangarten), korrektes Exterieur (gute Gliedmaßenstellung, ausbalancierter Körperbau), positives Interieur (Lernbereitschaft, Nervenstärke) und gute Rittigkeit. Warnsignale sind Taktfehler, extremes Temperament oder Widersetzlichkeiten. Eine KI-gestützte Bewertung durch PferdeWert liefert in 2 Minuten eine objektive Einschätzung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was bedeutet M-fertig bei Dressurpferden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "M-fertig bedeutet, dass das Pferd alle Lektionen der mittelschweren Klasse (M) sicher beherrscht und turnierreif ist. Dazu gehören: Travers, Renvers, Traversalen, fliegende Galoppwechsel (alle 3-4 Sprünge), starke Versammlung in allen Gangarten, Außengalopp und Kurzkehrt. Preislich liegen M-fertige Pferde zwischen 20.000 und 40.000 EUR. Ideal sind Pferde zwischen 7 und 12 Jahren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo kann ich ein Dressurpferd kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drei Hauptquellen stehen zur Verfügung: Züchter (direkter Kontakt, Abstammung bekannt, oft Jungpferde), Privatverkäufer (günstigere Preise, persönliche Geschichte, mehr Risiko) und professionelle Händler (große Auswahl, professionelle Abwicklung, höhere Preise). Online-Plattformen wie ehorses.de oder rimondo.com vereinen alle Verkäufertypen und sind ideal für die erste Suchphase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie wichtig ist eine Ankaufsuntersuchung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Ankaufsuntersuchung (AKU) ist unverzichtbar zum Schutz vor versteckten Gesundheitsmängeln. Eine kleine AKU (300-500 EUR) umfasst Allgemeinuntersuchung, Herz-Kreislauf, Atemwege und Bewegungsapparat. Eine große AKU (800-1.500 EUR) beinhaltet zusätzlich Röntgenbilder, Blutuntersuchung und intensive Lahmheitsuntersuchung. Bei M-fertigen Pferden und höher sollte immer die große AKU gewählt werden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sollte ich vom Züchter oder privat kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beide Quellen haben Vor- und Nachteile: Züchter bieten transparente Abstammung, professionelle Aufzucht und meist Probereiten, verkaufen aber hauptsächlich Jungpferde zu höheren Preisen. Privatkäufe sind günstiger mit persönlicher Geschichte, aber ohne Garantien und mit höherem Eigenrisiko. Die Wahl hängt von Ihrem Erfahrungslevel, Budget und gewünschtem Ausbildungsstand ab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche regionalen Märkte sind für Dressurpferde empfehlenswert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NRW ist das Zentrum der deutschen Pferdezucht mit dem größten Angebot. Niedersachsen ist die Heimat der Hannoveraner-Zucht mit exzellenten Zuchtlinien. Bayern bietet traditionelle Zuchtgebiete mit hoher Qualität. Regionale Preisunterschiede sind minimal. Überregionale Suche vergrößert die Auswahl, erfordert aber höhere Reise- und Transportkosten (200-800 EUR)."
+      }
+    }
+  ]
+}

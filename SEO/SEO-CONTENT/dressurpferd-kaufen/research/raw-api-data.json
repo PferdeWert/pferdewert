@@ -1,0 +1,123 @@
+{
+  "timestamp": "2025-11-09T15:54:00Z",
+  "primary_keyword": "Dressurpferd kaufen",
+  "location": "Germany",
+  "language": "de",
+  "api_calls": {
+    "keyword_overview": {
+      "status": "success",
+      "data": {
+        "keyword": "dressurpferd kaufen",
+        "search_volume": 2400,
+        "competition": 0.07,
+        "competition_level": "LOW",
+        "cpc": 0.14,
+        "search_intent": "commercial",
+        "monthly_searches": {
+          "2025-09": 1900,
+          "2025-08": 2400,
+          "2025-07": 2400,
+          "2025-06": 2400,
+          "2025-05": 2400,
+          "2025-04": 2400,
+          "2025-03": 2400,
+          "2025-02": 1900,
+          "2025-01": 2400,
+          "2024-12": 2400,
+          "2024-11": 1900,
+          "2024-10": 2400
+        }
+      }
+    },
+    "keyword_suggestions": {
+      "status": "success",
+      "total_results": 50,
+      "top_keywords": [
+        {
+          "keyword": "dressurpferd kaufen vom züchter",
+          "search_volume": 170,
+          "competition": 0.09,
+          "cpc": 0.64
+        },
+        {
+          "keyword": "dressurpferd kaufen nrw",
+          "search_volume": 170,
+          "competition": 0.11,
+          "cpc": 0.11
+        },
+        {
+          "keyword": "dressurpferd kaufen bayern",
+          "search_volume": 110,
+          "competition": 0.08,
+          "cpc": 0.1
+        },
+        {
+          "keyword": "dressurpferd kaufen von privat",
+          "search_volume": 90,
+          "competition": 0.09,
+          "cpc": 0.06
+        },
+        {
+          "keyword": "dressurpferd kaufen deutschland",
+          "search_volume": 70,
+          "competition": 0.08,
+          "cpc": 0.03
+        }
+      ]
+    },
+    "related_keywords": {
+      "status": "success",
+      "total_results": 9,
+      "keywords": [
+        {
+          "keyword": "dressurpferde kaufen vom züchter",
+          "search_volume": 170,
+          "competition": 0.05,
+          "cpc": 0.15
+        },
+        {
+          "keyword": "s-dressurpferd in gute hände",
+          "search_volume": 140,
+          "competition": 0.09,
+          "cpc": 0.18
+        },
+        {
+          "keyword": "dressurpferde kaufen bayern",
+          "search_volume": 110,
+          "competition": 0.08,
+          "cpc": 0.1
+        },
+        {
+          "keyword": "dressurpferd kaufen von privat",
+          "search_volume": 90,
+          "competition": 0.09,
+          "cpc": 0.06
+        },
+        {
+          "keyword": "dressurpferd kaufen m fertig",
+          "search_volume": 50,
+          "competition": 0.15,
+          "cpc": 0.24
+        },
+        {
+          "keyword": "exzellente dressurpferde kaufen",
+          "search_volume": 50,
+          "competition": 0.18,
+          "cpc": 0.33
+        },
+        {
+          "keyword": "dressurpferd preis",
+          "search_volume": 30,
+          "competition": null,
+          "cpc": null
+        },
+        {
+          "keyword": "grand prix dressurpferd kaufen",
+          "search_volume": 30,
+          "competition": 0.08,
+          "cpc": 0.49
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "analysis_date": "2025-11-09",
+  "keyword": "Dressurpferd kaufen",
+  "gaps_identified": 23,
+  "missing_topics": [
+    {
+      "topic": "Comprehensive Price Guide by Level",
+      "priority": "high",
+      "reason": "Only position 3 shows price (45,000 EUR), no systematic breakdown by A/L/M/S/GP levels",
+      "opportunity": "Create definitive pricing guide with ranges per level, backed by market data",
+      "h2_suggestion": "Preise für Dressurpferde: Was kostet ein Pferd nach Ausbildungsstand?"
+    },
+    {
+      "topic": "Breed Comparison for Dressage",
+      "priority": "high",
+      "reason": "People also search shows specific breeds (Hannoveraner, Oldenburger, KWPN, Westfale) but no comparison",
+      "opportunity": "Compare characteristics, prices, and suitability of top dressage breeds",
+      "h2_suggestion": "Die besten Rassen für die Dressur im Vergleich"
+    },
+    {
+      "topic": "Step-by-Step Buying Process Guide",
+      "priority": "high",
+      "reason": "Competitors focus on listings, not on the actual buying journey",
+      "opportunity": "Create actionable checklist from search to final purchase",
+      "h2_suggestion": "In 7 Schritten zum perfekten Dressurpferd"
+    },
+    {
+      "topic": "Red Flags and Warning Signs",
+      "priority": "high",
+      "reason": "No competitor addresses what to avoid or buyer protection",
+      "opportunity": "Build trust by educating about common pitfalls and scams",
+      "h2_suggestion": "Warnsignale beim Pferdekauf: Diese Red Flags sollten Sie kennen"
+    },
+    {
+      "topic": "Veterinary Examination Checklist",
+      "priority": "high",
+      "reason": "Position 7 mentions 'TÜV' but no detailed examination guide exists",
+      "opportunity": "Dressage-specific vet check requirements (joints, back, movements)",
+      "h2_suggestion": "Ankaufsuntersuchung (AKU): Der komplette Leitfaden"
+    },
+    {
+      "topic": "Regional Market Differences",
+      "priority": "medium",
+      "reason": "Related searches show Bayern, NRW interest but no regional analysis",
+      "opportunity": "Compare prices, availability, and characteristics by region",
+      "h2_suggestion": "Regionale Unterschiede: Wo kauft man am besten?"
+    },
+    {
+      "topic": "Breeder vs. Private vs. Dealer Comparison",
+      "priority": "high",
+      "reason": "Related searches distinguish 'vom Züchter' vs 'von privat' but no comparison guide",
+      "opportunity": "Objective pros/cons analysis of each purchase channel",
+      "h2_suggestion": "Züchter, Privat oder Händler: Welcher Kaufweg ist der richtige?"
+    },
+    {
+      "topic": "Age vs. Training Level Matrix",
+      "priority": "medium",
+      "reason": "Position 5 mentions 'alle Altersklassen' but no guidance on age/level correlation",
+      "opportunity": "Help buyers understand realistic age/training combinations",
+      "h2_suggestion": "Alter und Ausbildungsstand: Was passt zusammen?"
+    },
+    {
+      "topic": "Movement Quality Evaluation",
+      "priority": "high",
+      "reason": "Position 3 mentions 'schöne Bewegungen' but no evaluation criteria",
+      "opportunity": "Teach buyers how to assess quality of gaits for dressage",
+      "h2_suggestion": "Bewegungsqualität beurteilen: Worauf Profis achten"
+    },
+    {
+      "topic": "Trial Period Best Practices",
+      "priority": "medium",
+      "reason": "No competitor mentions trial riding or probation periods",
+      "opportunity": "Guide on arranging and maximizing trial periods",
+      "h2_suggestion": "Probezeit optimal nutzen: So testen Sie Ihr Wunschpferd"
+    },
+    {
+      "topic": "Post-Purchase Planning",
+      "priority": "medium",
+      "reason": "Position 7 mentions 'professioneller Beritt nach Kauf' but no comprehensive planning",
+      "opportunity": "Cover insurance, training continuation, stable search",
+      "h2_suggestion": "Nach dem Kauf: Die ersten 30 Tage mit Ihrem neuen Dressurpferd"
+    },
+    {
+      "topic": "Contract and Legal Considerations",
+      "priority": "medium",
+      "reason": "No competitor addresses legal aspects of horse purchase",
+      "opportunity": "Sample contract points, warranty, liability",
+      "h2_suggestion": "Kaufvertrag und rechtliche Absicherung"
+    },
+    {
+      "topic": "Financing Options",
+      "priority": "low",
+      "reason": "No mention of payment plans or financing despite high prices",
+      "opportunity": "Discuss payment methods and financing possibilities",
+      "h2_suggestion": "Finanzierung: Wie Sie den Kauf stemmen können"
+    },
+    {
+      "topic": "Seasonal Market Timing",
+      "priority": "low",
+      "reason": "No guidance on best time of year to purchase",
+      "opportunity": "Advise on market dynamics throughout the year",
+      "h2_suggestion": "Wann kaufen? Der beste Zeitpunkt im Jahr"
+    },
+    {
+      "topic": "Online vs. In-Person Evaluation",
+      "priority": "medium",
+      "reason": "Post-COVID trend not addressed by any competitor",
+      "opportunity": "Guide on evaluating horses through videos and remote assessment",
+      "h2_suggestion": "Online-Besichtigung: So bewerten Sie Pferde aus der Ferne"
+    }
+  ],
+  "underserved_questions": [
+    {
+      "question": "Was kostet ein gutes Dressurpferd?",
+      "current_coverage": "Minimal - only one competitor shows specific price",
+      "opportunity": "Create comprehensive price ranges by level with examples",
+      "intent": "informational/commercial",
+      "priority": "critical"
+    },
+    {
+      "question": "Was bedeutet M-fertig bei Dressurpferden?",
+      "current_coverage": "None - technical term not explained",
+      "opportunity": "Define all level terminology (A/L/M/S/GP-fertig)",
+      "intent": "informational",
+      "priority": "high"
+    },
+    {
+      "question": "Wie erkenne ich ein talentiertes Dressurpferd?",
+      "current_coverage": "Vague mentions of 'balance' and 'movements'",
+      "opportunity": "Detailed guide on talent indicators and potential assessment",
+      "intent": "commercial/informational",
+      "priority": "high"
+    },
+    {
+      "question": "Sollte ich vom Züchter oder Privat kaufen?",
+      "current_coverage": "None - despite being in related searches",
+      "opportunity": "Objective comparison with decision framework",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "question": "Welche Papiere brauche ich beim Pferdekauf?",
+      "current_coverage": "None",
+      "opportunity": "Complete documentation checklist (passport, papers, health records)",
+      "intent": "commercial/transactional",
+      "priority": "medium"
+    },
+    {
+      "question": "Wie wichtig ist eine Ankaufsuntersuchung?",
+      "current_coverage": "One mention of 'TÜV liegt vor'",
+      "opportunity": "Explain importance, scope, and interpretation of AKU",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "question": "Was sind die laufenden Kosten eines Dressurpferds?",
+      "current_coverage": "None",
+      "opportunity": "Monthly cost breakdown (stable, feed, farrier, vet, training)",
+      "intent": "informational/commercial",
+      "priority": "medium"
+    },
+    {
+      "question": "Wie verhandle ich den Preis fair?",
+      "current_coverage": "None",
+      "opportunity": "Negotiation tips and price factors to consider",
+      "intent": "commercial/transactional",
+      "priority": "low"
+    }
+  ],
+  "differentiation_opportunities": [
+    {
+      "opportunity": "PferdeWert AI Evaluation Integration",
+      "description": "Unique selling point: Offer objective AI-powered horse evaluation before purchase",
+      "implementation": "CTA boxes throughout content offering evaluation service",
+      "competitive_advantage": "No competitor offers data-driven evaluation tool",
+      "priority": "critical",
+      "placement": [
+        "After 'Movement Quality' section",
+        "In 'Red Flags' section",
+        "In 'Trial Period' section"
+      ]
+    },
+    {
+      "opportunity": "Interactive Price Calculator",
+      "description": "Tool to estimate fair price based on age, level, breed, location",
+      "implementation": "Embed calculator widget in price section",
+      "competitive_advantage": "Only position 3 shows any pricing data",
+      "priority": "high"
+    },
+    {
+      "opportunity": "Regional Market Data Visualization",
+      "description": "Charts showing price ranges and availability by German region",
+      "implementation": "Data tables and maps in regional section",
+      "competitive_advantage": "No competitor provides data-driven regional insights",
+      "priority": "medium"
+    },
+    {
+      "opportunity": "Downloadable Buyer's Checklist PDF",
+      "description": "Lead magnet: Comprehensive checklist for dressage horse purchase",
+      "implementation": "Email gate for PDF download",
+      "competitive_advantage": "Builds email list while providing value",
+      "priority": "high"
+    },
+    {
+      "opportunity": "Video: How to Assess Movement Quality",
+      "description": "Educational video showing what to look for in gaits",
+      "implementation": "Embedded YouTube video or native video",
+      "competitive_advantage": "Visual learning aids for complex topic",
+      "priority": "medium"
+    },
+    {
+      "opportunity": "Expert Interview Quotes",
+      "description": "Insights from professional riders, trainers, and vets",
+      "implementation": "Quote boxes throughout content for E-A-T",
+      "competitive_advantage": "Builds expertise and trust signals",
+      "priority": "medium"
+    },
+    {
+      "opportunity": "Success Stories / Case Studies",
+      "description": "Real examples of successful purchases with lessons learned",
+      "implementation": "Featured boxes with photos and stories",
+      "competitive_advantage": "Emotional connection and social proof",
+      "priority": "low"
+    }
+  ],
+  "content_structure_recommendations": {
+    "introduction": {
+      "length": "150-200 words",
+      "focus": "Address both excitement and anxiety of buying a dressage horse",
+      "include": ["Market overview", "Why this guide helps", "What readers will learn"]
+    },
+    "main_sections": [
+      {
+        "h2": "Preise für Dressurpferde nach Ausbildungsstand",
+        "h3s": ["A-Dressur", "L-Dressur", "M-Dressur", "S-Dressur", "Grand Prix"],
+        "features": ["Price ranges table", "Interactive calculator CTA", "Example listings"]
+      },
+      {
+        "h2": "Die besten Rassen für die Dressur",
+        "h3s": ["Hannoveraner", "Oldenburger", "KWPN", "Westfale", "Andere Warmblutrassen"],
+        "features": ["Comparison table", "Breed characteristics", "Price differences"]
+      },
+      {
+        "h2": "Züchter, Privat oder Händler: Der richtige Kaufweg",
+        "h3s": ["Vom Züchter kaufen", "Privatkauf", "Professionelle Händler", "Entscheidungshilfe"],
+        "features": ["Pros/cons table", "Cost comparison", "Trust indicators"]
+      },
+      {
+        "h2": "In 7 Schritten zum perfekten Dressurpferd",
+        "h3s": ["Schritt 1: Anforderungen definieren", "Schritt 2: Budget festlegen", "Schritt 3: Suche starten", "Schritt 4: Besichtigungen", "Schritt 5: Probezeit", "Schritt 6: Ankaufsuntersuchung", "Schritt 7: Vertragsabschluss"],
+        "features": ["Process flowchart", "Timeline", "Checklist boxes"]
+      },
+      {
+        "h2": "Bewegungsqualität und Talent erkennen",
+        "h3s": ["Schritt im Überblick", "Trab beurteilen", "Galopp bewerten", "Talentindikatoren"],
+        "features": ["PferdeWert evaluation CTA", "Video embed", "Expert quotes"]
+      },
+      {
+        "h2": "Ankaufsuntersuchung (AKU): Der komplette Leitfaden",
+        "h3s": ["Was wird untersucht?", "Kosten der AKU", "Röntgenbilder interpretieren", "Risikoklassen"],
+        "features": ["AKU checklist", "Cost breakdown", "Red flags list"]
+      },
+      {
+        "h2": "Warnsignale und Red Flags beim Pferdekauf",
+        "h3s": ["Gesundheitliche Warnsignale", "Verhaltens-Red Flags", "Unseriöse Verkäufer erkennen"],
+        "features": ["Warning icons", "PferdeWert evaluation CTA", "Safety tips"]
+      },
+      {
+        "h2": "Nach dem Kauf: Erfolgreich starten",
+        "h3s": ["Erste 30 Tage", "Versicherung", "Training fortsetzen", "Stallsuche"],
+        "features": ["30-day checklist", "Cost calculator", "Resource links"]
+      }
+    ],
+    "conclusion": {
+      "length": "100-150 words",
+      "include": ["Summary of key points", "Encouragement", "Final PferdeWert CTA"]
+    },
+    "sidebar_elements": [
+      "Quick navigation menu",
+      "Price calculator widget",
+      "PferdeWert evaluation CTA box",
+      "Related articles",
+      "Downloadable checklist"
+    ]
+  },
+  "keyword_integration_opportunities": {
+    "primary_keyword": {
+      "keyword": "Dressurpferd kaufen",
+      "target_density": "1.2-1.5%",
+      "placements": ["Title", "H1", "First 100 words", "Conclusion", "Meta description"]
+    },
+    "secondary_keywords": [
+      {
+        "keyword": "Dressurpferd kaufen vom Züchter",
+        "integration": "Dedicated H3 section in buying channel comparison"
+      },
+      {
+        "keyword": "Dressurpferd kaufen M fertig",
+        "integration": "Price section and level explanation"
+      },
+      {
+        "keyword": "S Dressurpferd in gute Hände",
+        "integration": "High-level horse section and responsible ownership angle"
+      },
+      {
+        "keyword": "Dressurpferd preis",
+        "integration": "Primary focus of price guide section"
+      },
+      {
+        "keyword": "Grand Prix Dressurpferd kaufen",
+        "integration": "Top-level price tier and considerations"
+      }
+    ],
+    "lsi_keywords": [
+      "Warmblut",
+      "Hannoveraner",
+      "Oldenburger",
+      "Turnierpferd",
+      "Ausbildungsstand",
+      "Ankaufsuntersuchung",
+      "Dressurausbildung",
+      "Reitpferd"
+    ]
+  },
+  "competitor_gap_summary": {
+    "top_3_missing_elements": [
+      "Educational content - all competitors are transactional marketplaces",
+      "Price transparency - only 1 of 10 shows any pricing",
+      "Buyer guidance - no step-by-step buying process anywhere"
+    ],
+    "pferdewert_advantages": [
+      "Can provide comprehensive educational content (not just listings)",
+      "AI evaluation tool is unique in market",
+      "Can build trust through expertise demonstration",
+      "No conflict of interest (not selling horses directly)"
+    ]
+  },
+  "validation": {
+    "missing_topics_count": 15,
+    "underserved_questions_count": 8,
+    "differentiation_opportunities_count": 7,
+    "total_gaps_identified": 30,
+    "priority_high_gaps": 11,
+    "priority_critical_gaps": 2,
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "overall_score": 8.2,
+  "measurement_date": "2025-11-09",
+  "keyword": "Dressurpferd kaufen",
+  "scoring_methodology": "Signal count and quality assessment on 0-10 scale",
+
+  "experience": {
+    "score": 8.0,
+    "signals_found": 4,
+    "target": 3,
+    "status": "pass",
+    "examples": [
+      {
+        "type": "market_experience",
+        "evidence": "Detailed market knowledge reflected in price ranges across all levels (A: 8.000-15.000 EUR, L: 15.000-25.000 EUR, M: 20.000-40.000 EUR, S: 40.000-80.000 EUR, GP: 80.000+ EUR)",
+        "location": "H2: Was kostet ein gutes Dressurpferd",
+        "strength": "high"
+      },
+      {
+        "type": "buyer_experience",
+        "evidence": "Addresses real buyer concerns: 'Viele Käufer... sind unsicher bezüglich der richtigen Preiseinschätzung, der Qualitätskriterien und der passenden Kaufquelle. Ein übereilter Kauf kann zu Enttäuschungen, gesundheitlichen Problemen oder hohen Folgekosten führen'",
+        "location": "Introduction",
+        "strength": "high"
+      },
+      {
+        "type": "regional_experience",
+        "evidence": "Detailed regional market insights for NRW (Münsterland, Rheinland), Bayern (Südbayern), Niedersachsen (Verden, Celle), showing firsthand knowledge of German horse markets",
+        "location": "H2: Regionale Märkte",
+        "strength": "high"
+      },
+      {
+        "type": "practical_insights",
+        "evidence": "Specific practical advice like 'Probereiten sollte mehrfach und unter verschiedenen Bedingungen erfolgen. Teste das Pferd in der Halle, auf dem Außenplatz, bei schlechtem Wetter und mit anderen Pferden'",
+        "location": "H2: Was muss ich beim Pferdekauf beachten",
+        "strength": "medium"
+      }
+    ],
+    "assessment": "Strong experience signals throughout, particularly in market knowledge and practical buyer guidance. While not using explicit first-person language, the depth of practical insights demonstrates clear firsthand experience."
+  },
+
+  "expertise": {
+    "score": 8.3,
+    "signals_found": 6,
+    "target": 3,
+    "status": "pass",
+    "examples": [
+      {
+        "type": "technical_terminology",
+        "evidence": "Accurate use of advanced dressage terminology: 'M-fertig', 'Piaffe', 'Passage', 'Travers', 'Renvers', 'Traversalen', 'fliegende Galoppwechsel', 'Einer-Wechsel', 'Kurzkehrt', 'Versammlung', 'Bergauf-Tendenz'",
+        "location": "Throughout, especially H2: Ausbildungsstand-spezifische Kaufkriterien",
+        "strength": "high"
+      },
+      {
+        "type": "breed_expertise",
+        "evidence": "Detailed breed knowledge: 'Hannoveraner... ausgeglichenes Temperament, exzellente Grundgangarten', 'KWPN bringt modernes Blut und viel Ausdruck', 'Trakehner... durch ihre Vollblutführung besonders elastische Bewegungen'",
+        "location": "H2: Welche Rassen eignen sich",
+        "strength": "high"
+      },
+      {
+        "type": "veterinary_knowledge",
+        "evidence": "Comprehensive veterinary expertise: 'Kleine AKU (ca. 300-500 EUR) umfasst: Allgemeinuntersuchung, Herz-Kreislauf-Check, Atemwege, Bewegungsapparat, Augen', '18 Standardaufnahmen', 'Röntgenbilder zeigen Veränderungen an Gelenken, Knochen und Sehnen'",
+        "location": "H3: Die Ankaufsuntersuchung (AKU)",
+        "strength": "high"
+      },
+      {
+        "type": "legal_expertise",
+        "evidence": "Legal knowledge demonstrated: 'Gewährleistungsausschluss', 'Equidenpass (Pflicht!)', 'gesetzliche Gewährleistungsfristen (2 Jahre)', 'arglistig verschweigt', 'FN (Deutsche Reiterliche Vereinigung) bietet Musterverträge'",
+        "location": "H3: Der Kaufvertrag",
+        "strength": "high"
+      },
+      {
+        "type": "movement_analysis",
+        "evidence": "Detailed movement analysis: 'Achte auf Takt, Losgelassenheit und Schwung in allen drei Grundgangarten', 'raumgreifenden, taktsicheren Schritt mit gutem Übertritt der Hinterhand', 'elastisch sein, mit Schwungentwicklung aus der Hinterhand', 'bergauf springen, nicht auf die Vorhand fallen'",
+        "location": "H2: Wie erkenne ich ein talentiertes Dressurpferd",
+        "strength": "high"
+      },
+      {
+        "type": "market_analysis",
+        "evidence": "Expert market analysis with specific data: 'über 2.400 monatlichen Suchanfragen', price segmentation by level, regional market differences, 'Züchter verkaufen überwiegend Jungpferde oder junge, angerittene Pferde'",
+        "location": "Multiple sections",
+        "strength": "high"
+      }
+    ],
+    "assessment": "Exceptional expertise demonstrated across multiple domains: dressage technique, veterinary knowledge, legal requirements, breed characteristics, and market dynamics. Technical terminology is used accurately and appropriately throughout."
+  },
+
+  "authoritativeness": {
+    "score": 7.5,
+    "signals_found": 3,
+    "target": 2,
+    "status": "pass",
+    "examples": [
+      {
+        "type": "statistical_data",
+        "evidence": "'über 2.400 monatlichen Suchanfragen allein in Deutschland zeigt sich das enorme Interesse am Dressurreitsport'",
+        "location": "Introduction",
+        "strength": "medium",
+        "note": "Real market data, though could benefit from explicit source citation"
+      },
+      {
+        "type": "market_data",
+        "evidence": "Detailed price ranges across all levels based on current market data, demonstrating access to authoritative market information",
+        "location": "H2: Was kostet ein gutes Dressurpferd",
+        "strength": "high"
+      },
+      {
+        "type": "industry_reference",
+        "evidence": "Reference to authoritative organization: 'Die FN (Deutsche Reiterliche Vereinigung) bietet Musterverträge an, die rechtlich geprüft sind'",
+        "location": "H3: Der Kaufvertrag",
+        "strength": "high"
+      }
+    ],
+    "assessment": "Good authoritativeness signals with market data and industry references. Could be strengthened with more explicit citations to external authorities (e.g., veterinary associations, breeding federations). However, the integration of PferdeWert service as an objective evaluation tool adds authority."
+  },
+
+  "trustworthiness": {
+    "score": 8.0,
+    "signals_found": 5,
+    "target": 3,
+    "status": "pass",
+    "examples": [
+      {
+        "type": "risk_transparency",
+        "evidence": "Clear warnings about risks: 'Warnung: Zu günstige Angebote solltest du kritisch prüfen. Ein scheinbares Schnäppchen kann sich durch Gesundheitsprobleme, Ausbildungsdefizite oder Verhaltensauffälligkeiten als teure Fehlinvestition entpuppen'",
+        "location": "H2: Was kostet ein gutes Dressurpferd",
+        "strength": "high"
+      },
+      {
+        "type": "balanced_perspective",
+        "evidence": "Balanced presentation of all buying sources with explicit Vor- und Nachteile for Züchter, Privatverkäufer, and Händler - not pushing one option",
+        "location": "H2: Wo kann ich ein Dressurpferd kaufen",
+        "strength": "high"
+      },
+      {
+        "type": "honest_limitations",
+        "evidence": "'Nicht jeder Befund ist ein Ausschlusskriterium. Manche Veränderungen sind altersbedingt und führen nicht zwingend zu Problemen. Wichtig ist die Gesamtbeurteilung im Kontext'",
+        "location": "H3: Die Ankaufsuntersuchung",
+        "strength": "high"
+      },
+      {
+        "type": "clear_disclaimers",
+        "evidence": "'Ankaufsuntersuchung (AKU) ist unverzichtbar', 'Im Privatverkauf wird Gewährleistung meist ausgeschlossen', 'Ohne Equidenpass darfst du das Pferd rechtlich nicht halten'",
+        "location": "H2: Was muss ich beim Pferdekauf beachten",
+        "strength": "high"
+      },
+      {
+        "type": "no_overblown_claims",
+        "evidence": "Realistic expectations throughout - acknowledges challenges, complexity, and need for professional help: 'Ein oder zwei Besuche reichen nicht', 'Hole dir Unterstützung von einem erfahrenen Trainer oder Bereiter'",
+        "location": "Fazit",
+        "strength": "high"
+      }
+    ],
+    "assessment": "Excellent trustworthiness demonstrated through transparent risk communication, balanced perspectives, honest limitations, and realistic expectations. The content does not oversell or make unrealistic promises, which builds trust with readers."
+  },
+
+  "quality_indicators": {
+    "service_integration": {
+      "approach": "balanced",
+      "note": "PferdeWert service integrated naturally as a tool (not aggressively promoted), positioned as 'objektive Bewertung' which aligns with editorial neutrality",
+      "cta_count": 3,
+      "positioning": "professional, paid service - transparency builds trust"
+    },
+    "content_depth": {
+      "assessment": "comprehensive",
+      "word_count": 2643,
+      "topics_covered": 8,
+      "detail_level": "high - covers everything from basic concepts to advanced considerations"
+    },
+    "audience_appropriateness": {
+      "target": "Anfänger bis Fortgeschrittene",
+      "tone": "accessible yet expert",
+      "technical_level": "appropriate - explains terminology while maintaining expertise"
+    }
+  },
+
+  "improvement_opportunities": [
+    "Consider adding explicit author bio/credentials to further strengthen authoritativeness",
+    "Could include more direct citations to external authoritative sources (veterinary associations, breeding federations)",
+    "Adding expert quotes or testimonials could enhance experience signals",
+    "Consider including case studies or specific buyer success/failure stories for stronger experience demonstration"
+  ],
+
+  "overall_assessment": "Strong E-E-A-T profile with score of 8.2/10. Particularly strong in Expertise (8.3) and Trustworthiness (8.0), which are critical for YMYL (Your Money Your Life) related content like high-value purchases. Experience (8.0) is well-demonstrated through practical insights. Authoritativeness (7.5) is solid but could be enhanced with more external citations. Overall, content meets and exceeds minimum requirements for quality ranking."
+}

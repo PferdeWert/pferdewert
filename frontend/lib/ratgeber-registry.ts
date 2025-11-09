@@ -175,6 +175,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'aku-pferd',
       'pferdekaufvertrag'
     ]
+  },
+
+  // Dressurpferd kaufen Guide
+  {
+    slug: 'dressurpferd-kaufen',
+    title: 'Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung',
+    description: 'Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!',
+    category: 'Kauf & Verkauf',
+    readTime: '14 Min.',
+    image: '/images/ratgeber/dressage-horse-training-arena.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferdekaufvertrag',
+      'aku-pferd',
+      'pferd-kaufen'
+    ]
   }
 ];
 

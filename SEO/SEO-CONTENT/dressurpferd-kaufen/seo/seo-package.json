@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "keyword": "Dressurpferd kaufen",
+    "phase": "Phase 5 - Metadata Optimization",
+    "created": "2025-11-09",
+    "status": "completed",
+    "validator": "automated"
+  },
+  "validation": {
+    "title": {
+      "value": "Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung",
+      "length": 57,
+      "status": "PASS",
+      "max_length": 60,
+      "contains_keyword": true
+    },
+    "meta_description": {
+      "value": "Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!",
+      "length": 143,
+      "status": "PASS",
+      "max_length": 155,
+      "contains_keyword": true
+    },
+    "schemas": {
+      "article": {
+        "file": "schema-article.json",
+        "type": "Article",
+        "status": "PASS",
+        "required_fields": [
+          "headline",
+          "description",
+          "author",
+          "publisher",
+          "datePublished",
+          "mainEntityOfPage"
+        ]
+      },
+      "faq": {
+        "file": "schema-faq.json",
+        "type": "FAQPage",
+        "status": "PASS",
+        "question_count": 8,
+        "paa_coverage": "80%"
+      },
+      "breadcrumb": {
+        "file": "schema-breadcrumb.json",
+        "type": "BreadcrumbList",
+        "status": "PASS",
+        "depth": 4
+      }
+    },
+    "internal_linking": {
+      "file": "internal-linking.json",
+      "total_links": 6,
+      "service_cta_count": 3,
+      "status": "PASS",
+      "distribution": "balanced"
+    }
+  },
+  "files_created": [
+    "seo/metadata.json",
+    "seo/schema-article.json",
+    "seo/schema-faq.json",
+    "seo/schema-breadcrumb.json",
+    "seo/internal-linking.json",
+    "seo/seo-package.json"
+  ],
+  "seo_metrics": {
+    "primary_keyword": "Dressurpferd kaufen",
+    "keyword_density": "0.95%",
+    "focus_keywords_count": 7,
+    "word_count": 2643,
+    "reading_time": "14 Minuten",
+    "h2_count": 8,
+    "h3_count": 6,
+    "paa_questions_addressed": 8
+  },
+  "technical_seo": {
+    "canonical_url": "/ratgeber/pferdekauf/dressurpferd-kaufen",
+    "robots": "index, follow",
+    "og_tags": true,
+    "twitter_cards": true,
+    "structured_data": true
+  },
+  "content_optimization": {
+    "e_e_a_t_signals": 5,
+    "service_integration": "PferdeWert KI-Bewertung (3 CTAs)",
+    "value_proposition": "Objektive Bewertung in 2 Minuten",
+    "target_audience": "Dressurreiter, Pferdekäufer (Anfänger bis Fortgeschrittene)"
+  },
+  "next_steps": {
+    "phase": "Phase 6 - Quality Check & Publishing",
+    "actions": [
+      "Technical SEO validation",
+      "Schema markup testing (Google Rich Results Test)",
+      "Internal links implementation",
+      "Image optimization & alt text",
+      "Final content review",
+      "Publishing preparation"
+    ]
+  }
+}

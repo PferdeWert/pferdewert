@@ -28,6 +28,7 @@ Allow: /pferde-ratgeber/pferd-verkaufen
 Allow: /pferde-ratgeber/pferdemarkt
 Allow: /pferde-ratgeber/pferdekaufvertrag
 Allow: /pferde-ratgeber/springpferd-kaufen
+Allow: /pferde-ratgeber/dressurpferd-kaufen
 
 # Sitemap location
 Sitemap: https://www.pferdewert.de/sitemap.xml
