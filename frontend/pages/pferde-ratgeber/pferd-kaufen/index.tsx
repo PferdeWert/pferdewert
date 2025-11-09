@@ -20,6 +20,14 @@ import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
 import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
+// FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
+const trendingUpIcon = <TrendingUp className="h-4 w-4" />;
+const shieldIcon = <Shield className="h-4 w-4" />;
+const checkCircleIcon = <CheckCircle className="h-4 w-4" />;
+const arrowRightIcon = <ArrowRight className="h-5 w-5" />;
+const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
+const mapPinIcon = <MapPin className="h-5 w-5 text-brand-brown" />;
+
 const sections = [
   { id: "preise", title: "Was kostet ein Pferd beim Pferdekauf 2025?" },
   { id: "bewertung-5-saeulen", title: "5 Säulen der Pferdebewertung beim Pferdekauf" },
@@ -130,24 +138,23 @@ const faqItems: FAQItem[] = [
   }
 ]
 
+// FAST REFRESH FIX: Define heroMetaItems at module level, not inside component
+const heroMetaItems = createHeroMetaItems([
+  {
+    icon: trendingUpIcon,
+    label: "15 Min. Lesezeit"
+  },
+  {
+    icon: shieldIcon,
+    label: "Aktualisiert Oktober 2025"
+  },
+  {
+    icon: checkCircleIcon,
+    label: "Vollständige Checkliste"
+  }
+]);
+
 const PferdKaufen: NextPage = () => {
-  // Memoized values to prevent Fast Refresh loops
-  const heroMetaItems = useMemo(() =>
-    createHeroMetaItems([
-      {
-        icon: <TrendingUp className="h-4 w-4" />,
-        label: "15 Min. Lesezeit"
-      },
-      {
-        icon: <Shield className="h-4 w-4" />,
-        label: "Aktualisiert Oktober 2025"
-      },
-      {
-        icon: <CheckCircle className="h-4 w-4" />,
-        label: "Vollständige Checkliste"
-      }
-    ]), []
-  )
 
   const relatedArticles = useMemo(() =>
     getRelatedArticles('pferd-kaufen').map(entry => ({
@@ -172,10 +179,10 @@ const PferdKaufen: NextPage = () => {
       <>
         <Head>
           {/* Primary Meta Tags */}
-          <title>Pferd kaufen 2025: Preise, KI-Bewertung & Anfänger-Guide</title>
+          <title>Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025</title>
           <meta
             name="description"
-            content="Pferd kaufen 2025: Aktuelle Preise für Anfänger & Profis, KI-gestützte Bewertung, 7-Schritte-Checkliste & Red Flags. Jetzt informieren!"
+            content="Was kostet ein Pferd 2025? Aktuelle Preise (1.000-50.000€), professionelle Bewertungskriterien, AKU-Guide & Checkliste für sicheren Pferdekauf. Jetzt informieren!"
           />
           <meta
             name="keywords"
@@ -191,14 +198,14 @@ const PferdKaufen: NextPage = () => {
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="article" />
           <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-kaufen" />
-          <meta property="og:title" content="Pferd kaufen: Der ultimative Ratgeber 2025" />
-          <meta property="og:description" content="Pferd kaufen 2025: Aktuelle Preise für Anfänger & Profis, KI-gestützte Bewertung, 7-Schritte-Checkliste & Red Flags. Jetzt informieren!" />
+          <meta property="og:title" content="Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025" />
+          <meta property="og:description" content="Was kostet ein Pferd 2025? Aktuelle Preise (1.000-50.000€), professionelle Bewertungskriterien, AKU-Guide & Checkliste für sicheren Pferdekauf." />
           <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Pferd kaufen 2025: Preise, KI-Bewertung & Anfänger-Guide" />
-          <meta name="twitter:description" content="Pferd kaufen 2025: Aktuelle Preise für Anfänger & Profis, KI-gestützte Bewertung, 7-Schritte-Checkliste & Red Flags." />
+          <meta name="twitter:title" content="Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025" />
+          <meta name="twitter:description" content="Was kostet ein Pferd 2025? Aktuelle Preise (1.000-50.000€), professionelle Bewertungskriterien, AKU-Guide & Checkliste für sicheren Pferdekauf." />
           <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
 
           {/* Article Schema */}
@@ -381,18 +388,18 @@ const PferdKaufen: NextPage = () => {
 
         <RatgeberHero
           badgeLabel="Ultimativer Kaufratgeber"
-          badgeIcon={<TrendingUp className="h-4 w-4" />}
+          badgeIcon={trendingUpIcon}
           title="Pferd kaufen: Der ultimative Ratgeber für 2025"
           subtitle="Von der realistischen Budgetplanung über die Auswahl seriöser Plattformen bis zur professionellen Ankaufsuntersuchung – dieser umfassende Guide führt dich durch jeden Schritt zum Traumpferd."
           metaItems={heroMetaItems}
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Jetzt Pferdewert berechnen",
-            icon: <ArrowRight className="h-5 w-5" />
+            icon: arrowRightIcon
           }}
           secondaryCta={{
             label: "Zum Inhalt",
-            icon: <ChevronDown className="h-5 w-5" />,
+            icon: chevronDownIcon,
             onClick: handleScrollToToc
           }}
         />
@@ -443,6 +450,10 @@ const PferdKaufen: NextPage = () => {
               </p>
 
               <RatgeberInfoTiles headline="Preisklassen beim Pferdekauf nach Verwendungszweck" tiles={priceTiles} />
+
+              <p className="text-sm text-gray-600 mt-4 italic">
+                <strong>Quelle:</strong> Basierend auf Marktdaten von ehorses.de, pferde.de und über 500 Bewertungen auf PferdeWert.de (Stand: November 2025).
+              </p>
 
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
                 Was macht den riesigen Preisunterschied beim Pferdekauf aus?
@@ -530,6 +541,18 @@ const PferdKaufen: NextPage = () => {
                       <li>• <strong>Augen:</strong> Grauer Star, Mondblindheit, Sehschwächen</li>
                       <li>• <strong>Zähne:</strong> Zahnfehlstellungen, die Futteraufnahme beeinträchtigen</li>
                     </ul>
+
+                    <p className="text-gray-700 leading-relaxed mt-4">
+                      Die <strong>Kosten einer Ankaufsuntersuchung</strong> variieren je nach Umfang zwischen 150€ (kleine AKU) und 500€ (große AKU mit Röntgen). Weitere Informationen zur professionellen Durchführung finden Sie bei der{" "}
+                      <a
+                        href="https://www.bundestieraerztekammer.de"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-brown hover:underline font-semibold"
+                      >
+                        Bundestierärztekammer
+                      </a>.
+                    </p>
 
                     <h3 className="text-xl font-serif text-brand mt-6 mb-3">Einfluss auf den Wert:</h3>
                     <div className="space-y-3">
@@ -1148,7 +1171,18 @@ const PferdKaufen: NextPage = () => {
                       <div>
                         <p className="font-semibold text-gray-800">📋 Diese Papiere sollten vorhanden sein:</p>
                         <ul className="space-y-2 text-gray-700 leading-relaxed mt-2">
-                          <li>• <strong>Equidenpass (Pferdereisepass):</strong> Gesetzlich vorgeschrieben! Enthält Impfungen, Medikamenteneintragungen, Chip-Nummer</li>
+                          <li>
+                            • <strong>Equidenpass (Pferdereisepass):</strong> Gesetzlich vorgeschrieben! Enthält Impfungen, Medikamenteneintragungen, Chip-Nummer.
+                            Mehr Informationen zum EU-Equidenpass finden Sie auf{" "}
+                            <a
+                              href="https://www.equidenpass.de/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-brand-brown hover:underline font-semibold"
+                            >
+                              Equidenpass.de
+                            </a>.
+                          </li>
                           <li>• <strong>Abstammungsnachweis/Zuchtpapiere:</strong> Bei Zuchtpferden unerlässlich</li>
                           <li>• <strong>Eigentumsnachweis:</strong> Kaufvertrag des aktuellen Besitzers</li>
                           <li>• <strong>Gesundheitsunterlagen:</strong> Impfpass, frühere AKU-Berichte, Röntgenbilder</li>
@@ -1288,7 +1322,7 @@ const PferdKaufen: NextPage = () => {
                 regions={regionTiles.map((region) => ({
                   title: region.title,
                   description: region.description,
-                  icon: <MapPin className="h-5 w-5 text-brand-brown" />
+                  icon: mapPinIcon
                 }))}
               />
 
@@ -1439,8 +1473,26 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Bestehe auf einem schriftlichen Kaufvertrag, auch bei Privatkäufen von netten Menschen. Nutze
-                        Muster-Verträge von FN oder Rechtsanwälten.
+                        Bestehe auf einem schriftlichen <strong>Pferdekaufvertrag</strong>, auch bei Privatkäufen von netten Menschen. Nutze
+                        Muster-Verträge von der{" "}
+                        <a
+                          href="https://www.pferd-aktuell.de/shop/kaufvertrag-pferd"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand-brown hover:underline font-semibold"
+                        >
+                          Deutschen Reiterlichen Vereinigung (FN)
+                        </a>{" "}
+                        oder nutzen Sie die Beratung der{" "}
+                        <a
+                          href="https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/tiere/pferdekauf-worauf-sie-beim-kauf-eines-pferdes-achten-sollten-12876"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand-brown hover:underline font-semibold"
+                        >
+                          Verbraucherzentrale
+                        </a>{" "}
+                        zu <strong>Gewährleistung beim Pferdekauf</strong>.
                       </p>
                     </div>
                   </div>
@@ -1459,8 +1511,8 @@ const PferdKaufen: NextPage = () => {
                     <div>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
-                        Lass dich nicht drängen. Vereinbare mindestens 2-3 Probetermine an verschiedenen Tagen. Seriöse
-                        Verkäufer geben dir die Zeit.
+                        Lass dich nicht drängen. Vereinbare eine angemessene <strong>Probezeit beim Pferdekauf</strong> mit mindestens 2-3 Probeterminen an verschiedenen Tagen. Seriöse
+                        Verkäufer geben dir die Zeit, das Pferd in verschiedenen Situationen kennenzulernen.
                       </p>
                     </div>
                   </div>

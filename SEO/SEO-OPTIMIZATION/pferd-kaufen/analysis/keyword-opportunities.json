@@ -1,0 +1,169 @@
+{
+  "analysis_date": "2025-11-09T16:05:00Z",
+  "primary_keyword": "pferd kaufen",
+  "primary_keyword_stats": {
+    "search_volume": 40500,
+    "competition": "LOW",
+    "keyword_difficulty": 25,
+    "search_intent": "commercial/transactional",
+    "current_ranking": "NOT in Top 10",
+    "problem": "SERP dominated by marketplace platforms (ehorses.de, kleinanzeigen.de) - WRONG search intent for ratgeber content"
+  },
+  "secondary_keywords_current": [
+    {
+      "keyword": "dressurpferd kaufen",
+      "search_volume": 2400,
+      "competition": "LOW",
+      "search_intent": "commercial",
+      "integrated_in_article": true
+    },
+    {
+      "keyword": "springpferd kaufen",
+      "search_volume": 2400,
+      "competition": "LOW",
+      "search_intent": "commercial",
+      "integrated_in_article": true
+    },
+    {
+      "keyword": "pferd kaufen anfänger",
+      "search_volume": 40,
+      "competition": "LOW",
+      "search_intent": "commercial",
+      "integrated_in_article": true
+    },
+    {
+      "keyword": "pferd kaufen preis",
+      "search_volume": 320,
+      "competition": "LOW",
+      "search_intent": "commercial",
+      "integrated_in_article": true
+    },
+    {
+      "keyword": "pferd kaufen checkliste",
+      "search_volume": 10,
+      "competition": "LOW",
+      "keyword_difficulty": 48,
+      "search_intent": "informational",
+      "integrated_in_article": true
+    },
+    {
+      "keyword": "pferd kaufen online",
+      "search_volume": 140,
+      "competition": "LOW",
+      "keyword_difficulty": 40,
+      "search_intent": "navigational",
+      "integrated_in_article": true
+    }
+  ],
+  "better_target_keywords_informational": {
+    "rationale": "PferdeWert.de ist ein RATGEBER, kein Pferdemarkt. Informational Keywords passen besser zum Content Intent.",
+    "recommendations": [
+      {
+        "keyword": "was kostet ein pferd",
+        "search_volume": "High (estimated 5000+)",
+        "competition": "LOW",
+        "search_intent": "informational",
+        "opportunity_score": 9.5,
+        "reason": "Perfect fit für Ratgeber, hoher Traffic-Potential",
+        "integrated_in_article": "Partial - needs H2 optimization"
+      },
+      {
+        "keyword": "pferd bewerten",
+        "search_volume": "Medium (estimated 500-2000)",
+        "competition": "LOW",
+        "search_intent": "informational",
+        "opportunity_score": 9.0,
+        "reason": "Direkt related zu PferdeWert.de Service",
+        "integrated_in_article": "Yes - in '5 Säulen' section"
+      },
+      {
+        "keyword": "aku pferd",
+        "search_volume": "Unknown",
+        "competition": "LOW",
+        "search_intent": "informational",
+        "opportunity_score": 8.5,
+        "reason": "High-value informational keyword",
+        "integrated_in_article": "Yes - needs dedicated H2"
+      },
+      {
+        "keyword": "pferd kaufen worauf achten",
+        "search_volume": "Medium (estimated 200-800)",
+        "competition": "LOW",
+        "search_intent": "informational",
+        "opportunity_score": 8.8,
+        "reason": "Perfect fit für Checkliste section",
+        "integrated_in_article": "Partial - in Checkliste"
+      },
+      {
+        "keyword": "faire preise pferd",
+        "search_volume": "Low (estimated 100-300)",
+        "competition": "LOW",
+        "search_intent": "informational",
+        "opportunity_score": 8.0,
+        "reason": "Unique angle, less competition",
+        "integrated_in_article": "Yes - dedicated H2 section"
+      },
+      {
+        "keyword": "red flags pferdekauf",
+        "search_volume": "Low (estimated 50-200)",
+        "competition": "LOW",
+        "search_intent": "informational",
+        "opportunity_score": 7.5,
+        "reason": "Niche but high-value",
+        "integrated_in_article": "Yes - dedicated H2 section"
+      }
+    ]
+  },
+  "missing_lsi_keywords": [
+    "ankaufsuntersuchung kosten",
+    "pferdekaufvertrag muster",
+    "probezeit pferdekauf",
+    "gewährleistung pferdekauf",
+    "sachverständiger pferdekauf",
+    "pferd vor kauf testen",
+    "verkäufer überschätzt pferd",
+    "marktpreise pferde 2025"
+  ],
+  "quick_wins_low_hanging_fruit": [
+    {
+      "keyword": "pferd kaufen preis",
+      "search_volume": 320,
+      "current_ranking": "Unknown",
+      "opportunity": "Already covered extensively in article, needs Title/Meta optimization",
+      "action": "Add 'Preise 2025' to Title and Meta"
+    },
+    {
+      "keyword": "pferd kaufen checkliste",
+      "search_volume": 10,
+      "keyword_difficulty": 48,
+      "current_ranking": "Unknown",
+      "opportunity": "Already has dedicated H2 section, needs better internal linking",
+      "action": "Add 'Checkliste' to Title, create downloadable PDF"
+    }
+  ],
+  "long_tail_opportunities": [
+    "pferd kaufen für anfänger tipps",
+    "pferd kaufen ohne betrug",
+    "pferd kaufen richtige fragen stellen",
+    "pferd kaufen alter beachten",
+    "pferd kaufen rasse für anfänger",
+    "pferd kaufen regional unterschiede",
+    "pferd kaufen saisonale preise"
+  ],
+  "strategic_recommendation": {
+    "primary_focus": "Shift from 'pferd kaufen' (transactional) to 'was kostet ein pferd' + 'pferd bewerten' (informational)",
+    "title_optimization": "Change from 'Pferd kaufen 2025' to 'Pferd kaufen: Was kostet ein Pferd? Preise, Bewertung & Checkliste 2025'",
+    "content_additions": [
+      "Erweitere 'Was kostet ein pferd' Section mit mehr Details",
+      "Füge LSI Keywords in bestehende Sections ein",
+      "Erstelle FAQ Schema für alle 8 bestehenden FAQ Questions",
+      "Füge mehr E-E-A-T Signale hinzu (Quellen, Statistiken)"
+    ],
+    "internal_linking": [
+      "Link zu 'was-kostet-ein-pferd' Artikel (wenn vorhanden)",
+      "Link zu PferdeWert Bewertungstool",
+      "Link zu Pferdekaufvertrag Artikel"
+    ]
+  },
+  "total_new_search_volume_potential": "8000+ monthly searches from better-targeted informational keywords"
+}

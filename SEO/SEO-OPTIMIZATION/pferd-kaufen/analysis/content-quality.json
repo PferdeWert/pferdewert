@@ -1,0 +1,288 @@
+{
+  "overall_quality_score": 8.5,
+  "analysis_date": "2025-11-09T16:06:00Z",
+
+  "content_metrics": {
+    "word_count": 5104,
+    "word_count_rating": "excellent",
+    "word_count_vs_competitors": "Above average (competitors typically 3000-4500 words)",
+    "paragraph_count": 17,
+    "average_paragraph_length": 300,
+    "readability": {
+      "flesch_kincaid": 23.847,
+      "automated_readability_index": 16.23,
+      "coleman_liau": 20.142,
+      "rating": "complex",
+      "issue": "Scores indicate complex/academic text - may be too difficult for average reader",
+      "recommendation": "Simplify sentences, use shorter paragraphs, add more transitions"
+    }
+  },
+
+  "structure_quality": {
+    "h1_count": 1,
+    "h1_optimized": true,
+    "h1_text": "Pferd kaufen: Der ultimative Ratgeber für 2025",
+    "h2_count": 29,
+    "h3_count": 59,
+    "h4_count": 19,
+    "h5_count": 2,
+    "heading_hierarchy": "excellent",
+    "table_of_contents": true,
+    "rating": 9.5,
+    "strengths": [
+      "Clear hierarchical structure",
+      "Comprehensive H2 sections cover all aspects",
+      "Good use of H3/H4 for sub-topics",
+      "Table of Contents present"
+    ]
+  },
+
+  "keyword_integration": {
+    "primary_keyword_density": "~1.2%",
+    "primary_keyword_in_title": true,
+    "primary_keyword_in_h1": true,
+    "primary_keyword_in_first_paragraph": true,
+    "primary_keyword_in_meta": true,
+    "secondary_keywords_integrated": [
+      "dressurpferd kaufen",
+      "springpferd kaufen",
+      "pferd kaufen anfänger",
+      "pferd kaufen preis",
+      "aku pferd",
+      "pferdebewertung",
+      "pferd kaufen checkliste"
+    ],
+    "rating": 8.5,
+    "issue": "Keyword density good, but focus on transactional 'pferd kaufen' instead of informational variants",
+    "recommendation": "Add more informational long-tail keywords like 'was kostet ein pferd', 'pferd bewerten vor kauf'"
+  },
+
+  "eeat_signals": {
+    "experience": {
+      "score": 7.0,
+      "evidence": [
+        "Praktische Beispiele in Preisklassen",
+        "Detaillierte Checklisten",
+        "Regional-spezifische Informationen"
+      ],
+      "missing": [
+        "Keine persönlichen Erfahrungsberichte",
+        "Keine 'In unserer Erfahrung...' Statements",
+        "Keine Fallstudien oder Beispiele"
+      ],
+      "recommendation": "Füge 2-3 praktische Beispiele mit echten Szenarien hinzu"
+    },
+    "expertise": {
+      "score": 8.0,
+      "evidence": [
+        "Detaillierte technische Informationen zu AKU",
+        "5-Säulen Bewertungsmodell",
+        "Umfangreiche Preisanalysen",
+        "Regionale Marktkenntnis"
+      ],
+      "missing": [
+        "Keine Autorenangabe oder Credentials",
+        "Keine Zitate von Experten",
+        "Keine Referenzen zu Fachorganisationen"
+      ],
+      "recommendation": "Füge Expertenzitate oder Verweise auf Tierärzte/Sachverständige hinzu"
+    },
+    "authoritativeness": {
+      "score": 6.5,
+      "evidence": [
+        "PferdeWert.de KI-Tool erwähnt",
+        "Strukturierte, professionelle Darstellung"
+      ],
+      "missing": [
+        "Nur 1 externer Link (sehr schwach!)",
+        "Keine Quellenangaben für Statistiken",
+        "Keine Referenzen zu Autoritäts-Seiten",
+        "Keine Branchenzertifizierungen erwähnt"
+      ],
+      "recommendation": "CRITICAL: Füge 4-5 externe Links zu Autoritäts-Quellen hinzu (z.B. FN, Tierärztekammer, Equidenpass-Infos)"
+    },
+    "trustworthiness": {
+      "score": 7.5,
+      "evidence": [
+        "Transparente Preisangaben",
+        "Warnung vor Red Flags",
+        "Objektive Darstellung von Vor-/Nachteilen",
+        "Aktualisierungsdatum vorhanden (Oktober 2025)"
+      ],
+      "missing": [
+        "Keine Quellenangaben",
+        "Keine Datenschutz-/Haftungshinweise",
+        "Keine 'Zuletzt geprüft' Angaben"
+      ],
+      "recommendation": "Füge Quellen für Preisangaben hinzu, erwähne Datenerhebungsmethodik"
+    },
+    "overall_eeat_score": 7.25,
+    "critical_issues": [
+      "NUR 1 EXTERNER LINK - Google erwartet 3-5 für E-E-A-T",
+      "Keine Quellenangaben für Preise und Statistiken",
+      "Keine Autoreninfo oder Credentials"
+    ]
+  },
+
+  "internal_linking": {
+    "count": 13,
+    "rating": "good",
+    "linked_pages": "ratgeber articles, service pages",
+    "missing_opportunities": [
+      "Link zu 'was-kostet-ein-pferd' Artikel (if exists)",
+      "Link zu 'pferd-verkaufen' Artikel",
+      "Link zu 'pferdekaufvertrag' Artikel",
+      "More links to PferdeWert Bewertungstool",
+      "Link zu 'AKU' dedicated article (if exists)"
+    ],
+    "recommendation": "Füge 3-5 weitere strategische interne Links hinzu"
+  },
+
+  "external_linking": {
+    "count": 1,
+    "rating": "poor",
+    "critical_issue": "ONLY 1 EXTERNAL LINK - this severely hurts E-E-A-T score!",
+    "recommended_external_links": [
+      {
+        "anchor": "Deutsche Reiterliche Vereinigung (FN)",
+        "url_type": "https://www.pferd-aktuell.de",
+        "reason": "Autoritäts-Quelle für Pferdemarkt-Daten",
+        "section": "Preisübersicht or Marktanalyse"
+      },
+      {
+        "anchor": "Equidenpass Pflicht EU",
+        "url_type": "gov or official EU source",
+        "reason": "Regulatory authority",
+        "section": "Papiere und Dokumente"
+      },
+      {
+        "anchor": "Bundestierärztekammer",
+        "url_type": "https://www.bundestieraerztekammer.de",
+        "reason": "Authority for AKU information",
+        "section": "AKU Section"
+      },
+      {
+        "anchor": "Verbraucherzentrale Pferdekauf",
+        "url_type": "verbraucherzentrale.de",
+        "reason": "Consumer protection authority",
+        "section": "Red Flags or Kaufvertrag"
+      }
+    ],
+    "recommendation": "CRITICAL PRIORITY: Add 4 external authority links ASAP"
+  },
+
+  "multimedia_content": {
+    "images_count": 5,
+    "images_rating": "adequate",
+    "videos": 0,
+    "infographics": 0,
+    "tables": 0,
+    "recommendation": "Consider adding: Preis-Tabelle als Infographic, Video-Embed (YouTube Pferdekauf-Guide), Checkliste als downloadable PDF"
+  },
+
+  "user_engagement_elements": {
+    "faq_section": true,
+    "faq_count": 8,
+    "faq_schema": "needs verification",
+    "interactive_elements": false,
+    "downloadable_resources": false,
+    "calls_to_action": true,
+    "recommendation": "Add downloadable Checkliste PDF, consider interactive Preiskalkulator"
+  },
+
+  "mobile_optimization": {
+    "cumulative_layout_shift": 0,
+    "rating": "excellent",
+    "issues": "None detected"
+  },
+
+  "schema_markup": {
+    "article_schema": "likely present",
+    "faq_schema": "needs verification",
+    "breadcrumb_schema": "likely present",
+    "rating": 8.0,
+    "recommendation": "Verify FAQ schema is properly implemented for all 8 questions"
+  },
+
+  "content_freshness": {
+    "last_updated": "Oktober 2025",
+    "date_in_content": true,
+    "year_in_title": true,
+    "rating": "excellent",
+    "recommendation": "Update to 'November 2025' or 'Aktualisiert 2025' to maintain freshness"
+  },
+
+  "content_gaps": {
+    "missing_topics": [
+      "Versicherungen nach Pferdekauf (mentioned in FAQ, could be H2)",
+      "Rechtliche Aspekte Pferdekauf (Gewährleistung, Rückgabe)",
+      "Pferd transportieren nach Kauf",
+      "Eingewöhnung neues Pferd (first weeks)",
+      "Kosten-Beispielrechnung (detailliert)"
+    ],
+    "competitor_topics_we_miss": [
+      "Pferdekauf aus dem Ausland",
+      "Fohlen vs. ausgebildetes Pferd kaufen",
+      "Pferd mit Problemen kaufen (Reha-Pferde)"
+    ]
+  },
+
+  "strengths": [
+    "Excellent word count (5104 words)",
+    "Outstanding on-page SEO score (97.44/100)",
+    "Comprehensive coverage of topic",
+    "Well-structured with clear hierarchy",
+    "Good keyword integration",
+    "Strong regional information",
+    "Helpful checklists and price breakdowns",
+    "8 well-crafted FAQ questions"
+  ],
+
+  "weaknesses": [
+    "CRITICAL: Only 1 external link (needs 3-5 for E-E-A-T)",
+    "Too complex readability (Flesch-Kincaid 23.8)",
+    "Missing author credentials/bio",
+    "No source citations for prices and statistics",
+    "No downloadable resources",
+    "Could use more practical examples/case studies",
+    "Missing some competitor topics"
+  ],
+
+  "priority_improvements": [
+    {
+      "priority": 1,
+      "action": "Add 4 external authority links",
+      "impact": "high",
+      "effort": "low",
+      "eeat_improvement": "+1.5 points"
+    },
+    {
+      "priority": 2,
+      "action": "Simplify sentences for better readability",
+      "impact": "medium",
+      "effort": "medium",
+      "eeat_improvement": "+0.5 points"
+    },
+    {
+      "priority": 3,
+      "action": "Add source citations for prices",
+      "impact": "high",
+      "effort": "low",
+      "eeat_improvement": "+1.0 points"
+    },
+    {
+      "priority": 4,
+      "action": "Add 2-3 practical examples/case studies",
+      "impact": "medium",
+      "effort": "medium",
+      "eeat_improvement": "+0.8 points"
+    },
+    {
+      "priority": 5,
+      "action": "Optimize for informational keywords instead of transactional",
+      "impact": "high",
+      "effort": "low",
+      "eeat_improvement": "0 (but higher ranking potential)"
+    }
+  ]
+}

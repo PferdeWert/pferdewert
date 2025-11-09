@@ -1,0 +1,43 @@
+{
+  "keyword": "pferd kaufen",
+  "search_volume": 40500,
+  "competition": "LOW",
+  "keyword_difficulty": 25,
+  "serp_type": "transactional_marketplaces",
+  "top_10_competitors": [
+    {"rank": 1, "domain": "ehorses.de", "type": "pferdemarkt"},
+    {"rank": 2, "domain": "kleinanzeigen.de", "type": "kleinanzeigen"},
+    {"rank": 3, "domain": "pferde-winkel.de", "type": "händler"},
+    {"rank": 4, "domain": "deine-tierwelt.de", "type": "pferdemarkt"},
+    {"rank": 5, "domain": "sporthorses.de", "type": "pferdemarkt"},
+    {"rank": 6, "domain": "pferde.de", "type": "pferdemarkt"},
+    {"rank": 7, "domain": "ehorses.de", "type": "pferdemarkt"},
+    {"rank": 8, "domain": "rimondo.com", "type": "pferdemarkt"},
+    {"rank": 9, "domain": "billyrider.de", "type": "pferdemarkt"},
+    {"rank": 10, "domain": "ehorses.de", "type": "pferdemarkt"}
+  ],
+  "related_searches": [
+    "pferd kaufen nähe berlin",
+    "pferd kaufen nähe münchen",
+    "Pferd kaufen Preis",
+    "Pferd kaufen eBay",
+    "Pferde kaufen in der Nähe",
+    "Pferd kaufen Anfänger"
+  ],
+  "critical_insight": {
+    "problem": "PferdeWert.de ist KEIN Pferdemarkt, konkurriert aber mit Marktplätzen",
+    "search_intent_mismatch": "User wollen Pferde KAUFEN (transactional), nicht Ratgeber lesen (informational)",
+    "recommendation": "Fokus auf informational long-tail Keywords statt transactional Head-Term 'pferd kaufen'",
+    "better_target_keywords": [
+      "pferd kaufen checkliste",
+      "pferd kaufen anfänger tipps",
+      "pferd kaufen worauf achten",
+      "was kostet ein pferd",
+      "pferd kaufen aku",
+      "pferd bewerten vor kauf",
+      "faire preise beim pferdekauf"
+    ]
+  },
+  "pferdewert_current_position": "NOT in Top 10 for 'pferd kaufen'",
+  "analyzed_at": "2025-11-09T16:02:00Z"
+}

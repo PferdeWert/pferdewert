@@ -1,0 +1,72 @@
+{
+  "overall_score": 97.44,
+  "word_count": 5104,
+  "title": {
+    "text": "Pferd kaufen 2025: Preise, KI-Bewertung & Anfänger-Guide",
+    "length": 56,
+    "status": "optimal",
+    "recommendation": "Title ist perfekt optimiert"
+  },
+  "meta_description": {
+    "text": "Pferd kaufen 2025: Aktuelle Preise für Anfänger & Profis, KI-gestützte Bewertung, 7-Schritte-Checkliste & Red Flags. Jetzt informieren!",
+    "length": 135,
+    "status": "good",
+    "recommendation": "Könnte 15-25 Zeichen länger sein für optimale CTR (Ziel: 150-160)"
+  },
+  "heading_structure": {
+    "h1_count": 1,
+    "h2_count": 29,
+    "h3_count": 59,
+    "h4_count": 19,
+    "h5_count": 2,
+    "status": "excellent",
+    "recommendation": "Sehr detaillierte Struktur mit guter Hierarchie"
+  },
+  "links": {
+    "internal": 13,
+    "external": 1,
+    "status": "good",
+    "recommendation": "Mehr externe Links zu Autoritäts-Quellen für E-E-A-T (+3-5 Links)"
+  },
+  "content_quality": {
+    "plain_text_word_count": 5104,
+    "plain_text_rate": 0.301,
+    "description_to_content_consistency": 0.889,
+    "title_to_content_consistency": 1.0,
+    "meta_keywords_to_content_consistency": 1.0,
+    "status": "excellent"
+  },
+  "readability": {
+    "flesch_kincaid": 23.847,
+    "automated_readability_index": 16.23,
+    "coleman_liau": 20.142,
+    "dale_chall": 15.644,
+    "smog": 14.759,
+    "status": "complex",
+    "recommendation": "Scores sind hoch = komplexer Text. Könnte durch kürzere Sätze vereinfacht werden."
+  },
+  "page_speed": {
+    "time_to_interactive": 110,
+    "dom_complete": 244,
+    "cumulative_layout_shift": 0,
+    "status": "excellent",
+    "recommendation": "Page Speed ist exzellent, keine Optimierung nötig"
+  },
+  "technical_seo": {
+    "is_https": true,
+    "is_www": true,
+    "has_html_doctype": true,
+    "canonical_set": true,
+    "og_tags": true,
+    "twitter_tags": true,
+    "images_count": 5,
+    "status": "excellent",
+    "recommendation": "Alle technischen SEO-Faktoren optimal"
+  },
+  "quick_wins": [
+    "Meta Description um 15-25 Zeichen verlängern (aktuell 135, optimal 150-160)",
+    "3-5 externe Links zu Autoritäts-Quellen hinzufügen (aktuell nur 1)",
+    "Readability durch kürzere Sätze verbessern (Flesch-Kincaid Score senken)"
+  ],
+  "analyzed_at": "2025-11-09T16:00:51Z"
+}
