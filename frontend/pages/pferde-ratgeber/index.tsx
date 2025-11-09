@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import type { RatgeberEntry } from '@/lib/ratgeber-registry'
+import { RATGEBER_ENTRIES, getRatgeberPath, type RatgeberEntry } from '@/lib/ratgeber-registry'
 
 // ============================================================================
 // TYPES
@@ -29,11 +29,8 @@ interface PageProps {
 // ============================================================================
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  // Dynamic import to avoid Fast Refresh issues
-  const { RATGEBER_ENTRIES, getRatgeberPath } = await import('@/lib/ratgeber-registry')
-
   // Transform registry entries into article cards at build time
-  const artikel: RatgeberArtikelCard[] = (RATGEBER_ENTRIES || []).map((entry: RatgeberEntry, index: number) => ({
+  const artikel: RatgeberArtikelCard[] = RATGEBER_ENTRIES.map((entry: RatgeberEntry, index: number) => ({
     id: index + 1,
     titel: entry.title,
     beschreibung: entry.description,
