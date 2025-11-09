@@ -24,15 +24,15 @@ const INCORRECT_PATTERNS = [
   /href=['"`]\/ratgeber\/[^'"]*['"`]/,
 ];
 
-// Files to check
-const FILES_TO_CHECK = [
+// Files to check (for documentation, actual implementation uses hardcoded paths)
+const _FILES_TO_CHECK = [
   'pages/**/*.{ts,tsx}',
   'components/**/*.{ts,tsx}',
   'lib/**/*.{ts,tsx}',
 ];
 
-// Files to exclude
-const EXCLUDE_PATTERNS = [
+// Files to exclude (for documentation, actual implementation uses hardcoded exclude lists)
+const _EXCLUDE_PATTERNS = [
   '**/node_modules/**',
   '**/.next/**',
   '**/next.config.js', // Redirects are OK here
@@ -62,8 +62,8 @@ function findFiles(dir, extensions, exclude = []) {
         results.push(filePath);
       }
     }
-  } catch (err) {
-    // Directory doesn't exist or not accessible
+  } catch {
+    // Directory doesn't exist or not accessible - silently ignore
   }
 
   return results;
