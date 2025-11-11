@@ -1,0 +1,16 @@
+{
+  "backup_created": "2025-11-11T15:56:00+01:00",
+  "backup_branch": "backup/seo-optimizer-springpferd-kaufen-20251111",
+  "original_file": "frontend/pages/pferde-ratgeber/springpferd-kaufen.tsx",
+  "current_commit": "HEAD",
+  "rollback_instructions": {
+    "option_1": "git checkout backup/seo-optimizer-springpferd-kaufen-20251111",
+    "option_2": "git revert HEAD",
+    "option_3": "git checkout HEAD~1 -- frontend/pages/pferde-ratgeber/springpferd-kaufen.tsx"
+  },
+  "safety_checks": [
+    "✅ Backup branch created",
+    "✅ Original file unmodified",
+    "✅ Rollback path documented"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "url": "https://www.pferdewert.de/pferde-ratgeber/springpferd-kaufen",
+  "onpage_score": 97.44,
+  "analysis_date": "2025-11-11",
+  "metrics": {
+    "word_count": 2001,
+    "title_length": 57,
+    "description_length": 140,
+    "internal_links": 16,
+    "external_links": 2,
+    "images_count": 6,
+    "h1_count": 1,
+    "h2_count": 11,
+    "h3_count": 18
+  },
+  "performance": {
+    "time_to_interactive": 418,
+    "cumulative_layout_shift": 0,
+    "dom_complete": 910
+  },
+  "strengths": [
+    "Excellent on-page score (97.44/100)",
+    "Comprehensive content (2001 words)",
+    "Well-structured heading hierarchy",
+    "Good internal linking structure",
+    "Fast page load times",
+    "Zero CLS (no layout shift)"
+  ],
+  "technical_seo": {
+    "https": true,
+    "canonical": "https://pferdewert.de/pferde-ratgeber/springpferd-kaufen",
+    "robots": "index, follow",
+    "structured_data": ["Article Schema", "Breadcrumb Schema"],
+    "og_tags": true,
+    "twitter_cards": true
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "primary_keyword": "springpferd kaufen",
+  "search_volume": 2400,
+  "competition": "LOW",
+  "cpc": 0.11,
+  "current_ranking": "Unknown (needs verification)",
+
+  "related_keywords": [
+    {
+      "keyword": "springpferd kaufen preis",
+      "status": "missing",
+      "priority": "high",
+      "reason": "High commercial intent, directly addresses price concerns"
+    },
+    {
+      "keyword": "springpferd kaufen in der nähe",
+      "search_volume": 70,
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Local search intent, growing trend (+75% yearly)"
+    },
+    {
+      "keyword": "springpferd kaufen deutschland",
+      "search_volume": 70,
+      "status": "present_in_meta",
+      "priority": "medium",
+      "reason": "Already in meta, could be strengthened in content"
+    },
+    {
+      "keyword": "springpferd kaufen günstig",
+      "status": "partially_covered",
+      "priority": "high",
+      "reason": "Budget-conscious searchers, mentioned but not H2"
+    },
+    {
+      "keyword": "springpferd kaufen züchter",
+      "status": "covered",
+      "priority": "medium",
+      "reason": "Already covered in 'Züchter und Ausbildungsbetriebe' section"
+    },
+    {
+      "keyword": "springpferd kaufen bayern",
+      "search_volume": 140,
+      "status": "missing",
+      "priority": "low",
+      "reason": "Regional but low volume, could add to 'Wo finde ich' section"
+    },
+    {
+      "keyword": "springpferd kaufen nrw",
+      "search_volume": 140,
+      "status": "missing",
+      "priority": "low",
+      "reason": "Regional but declining trend (-36% yearly)"
+    },
+    {
+      "keyword": "wo kann man gute springpferde kaufen",
+      "status": "covered",
+      "priority": "low",
+      "reason": "Already covered in 'Wo finde ich seriöse Verkaufspferde'"
+    }
+  ],
+
+  "quick_wins": [
+    {
+      "keyword": "springpferd kaufen preis",
+      "action": "Add as H3 under 'Preise' section or strengthen existing pricing content",
+      "expected_difficulty": "easy",
+      "estimated_volume": "150-300/month (estimated)"
+    },
+    {
+      "keyword": "springpferd kaufen günstig",
+      "action": "Add H3 'Günstig ein Springpferd kaufen: Realistische Erwartungen' in Preise section",
+      "expected_difficulty": "easy",
+      "estimated_volume": "100-200/month (estimated)"
+    }
+  ],
+
+  "content_gaps": [
+    {
+      "topic": "Preisfokussierte Keywords fehlen als Überschriften",
+      "impact": "high",
+      "recommendation": "Explizite H3s für 'preis' und 'günstig' Keywords hinzufügen"
+    },
+    {
+      "topic": "Regionale Kaufoptionen nur generisch",
+      "impact": "medium",
+      "recommendation": "Kurze Erwähnung von Bayern, NRW, Norddeutschland als Springpferd-Zentren"
+    },
+    {
+      "topic": "Vergleich Online vs. Offline Kauf fehlt",
+      "impact": "low",
+      "recommendation": "Optional: Vor-/Nachteile Online-Plattformen vs. persönlicher Besuch"
+    }
+  ],
+
+  "competitive_keywords": [
+    "ehorses",
+    "rimondo",
+    "verkaufspferde",
+    "pferdemarkt"
+  ],
+
+  "summary": {
+    "total_related": 8,
+    "covered": 3,
+    "partially_covered": 1,
+    "missing": 4,
+    "quick_win_opportunities": 2,
+    "estimated_monthly_traffic_potential": "+250-500 visits/month"
+  }
+}

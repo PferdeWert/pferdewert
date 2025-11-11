@@ -1,0 +1,84 @@
+{
+  "comparison_date": "2025-11-11",
+  "article_url": "https://www.pferdewert.de/pferde-ratgeber/springpferd-kaufen",
+
+  "before": {
+    "word_count": 2001,
+    "h1_count": 1,
+    "h2_count": 11,
+    "h3_count": 18,
+    "faq_count": 6,
+    "onpage_score": 97.44,
+    "meta_title_length": 57,
+    "meta_description_length": 140,
+    "internal_links": 16,
+    "keyword_coverage": {
+      "springpferd kaufen": "✅ Primary",
+      "springpferd kaufen preis": "❌ Not as H3",
+      "springpferd kaufen günstig": "❌ Not as H3",
+      "springpferd kaufen bayern": "❌ Not mentioned",
+      "springpferd kaufen nrw": "❌ Not mentioned"
+    }
+  },
+
+  "after": {
+    "word_count": 2251,
+    "h1_count": 1,
+    "h2_count": 11,
+    "h3_count": 20,
+    "faq_count": 7,
+    "onpage_score": 98,
+    "meta_title_length": 59,
+    "meta_description_length": 167,
+    "internal_links": 16,
+    "keyword_coverage": {
+      "springpferd kaufen": "✅ Primary",
+      "springpferd kaufen preis": "✅ H3 + Content",
+      "springpferd kaufen günstig": "✅ H3 + Content",
+      "springpferd kaufen bayern": "✅ Mentioned",
+      "springpferd kaufen nrw": "✅ Mentioned"
+    }
+  },
+
+  "improvements": {
+    "word_count": "+250 words (+12.5%)",
+    "h3_additions": "+2 H3s (preis-focused)",
+    "faq_additions": "+1 FAQ (anfänger-focused)",
+    "meta_optimization": "Title & Description optimized for CTR",
+    "regional_coverage": "Bayern, NRW, Norddeutschland added",
+    "keyword_density": "Natural integration, no over-optimization",
+    "onpage_score": "+0.56 points (97.44 → 98.00)"
+  },
+
+  "brand_compliance": {
+    "ki_usage": "✅ 'KI' used (not AI)",
+    "duration": "✅ '2 Minuten' evaluation time",
+    "service_type": "✅ PAID service (never 'kostenlos')"
+  },
+
+  "technical_seo": {
+    "canonical": "✅ Unchanged",
+    "structured_data": "✅ Article + Breadcrumb schemas intact",
+    "internal_linking": "✅ All links preserved",
+    "image_optimization": "✅ Unchanged (already optimized)"
+  },
+
+  "expected_impact": {
+    "rankings": {
+      "springpferd kaufen": "Maintain/Improve Top 3",
+      "springpferd kaufen preis": "Target Top 5-10",
+      "springpferd kaufen günstig": "Target Top 5-10",
+      "springpferd kaufen bayern": "Target Top 10-15",
+      "springpferd kaufen nrw": "Target Top 10-15"
+    },
+    "traffic": "+20-30% (+330 visits/month estimated)",
+    "ctr_improvement": "+5-10% (optimized meta tags)",
+    "user_engagement": "Better UX through structured price info"
+  },
+
+  "rollback_info": {
+    "backup_branch": "backup/seo-optimizer-springpferd-kaufen-20251111",
+    "commit_hash": "146b1e1",
+    "rollback_command": "git checkout backup/seo-optimizer-springpferd-kaufen-20251111"
+  }
+}
