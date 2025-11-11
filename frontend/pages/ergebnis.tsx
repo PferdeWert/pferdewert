@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
 import PferdeWertPDF from "@/components/PferdeWertPDF";
@@ -272,6 +272,13 @@ export default function Ergebnis() {
     };
   }, [router]);
 
+  // Memoize PDF document to prevent Fast Refresh infinite loops
+  // IMPORTANT: Must be before early returns (React Hooks Rules)
+  const pdfDocument = useMemo(
+    () => <PferdeWertPDF markdownData={text} />,
+    [text]
+  );
+
   if (loading) return <StripeLoadingScreen estimatedTime="Geschätzte Wartezeit: 1-2 Minuten" />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;
   if (!paid) return <p className="p-10 text-red-500 text-center">{fallbackMessage}</p>;
@@ -330,7 +337,7 @@ export default function Ergebnis() {
           {/* Download Section */}
           <div className="mt-8 text-center">
             <PDFDownloadLink
-              document={<PferdeWertPDF markdownData={text} />}
+              document={pdfDocument}
               fileName="PferdeWert-Analyse.pdf"
             >
               {({ loading }) => (
