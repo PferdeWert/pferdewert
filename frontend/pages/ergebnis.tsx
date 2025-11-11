@@ -9,7 +9,6 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import { trackPDFDownload } from "@/lib/analytics";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
-import { PRICING } from "@/lib/pricing";
 
 
 
@@ -197,14 +196,8 @@ export default function Ergebnis() {
           });
         }
 
-        // DataFa.st revenue tracking
-        if (typeof window !== "undefined" && window.datafast) {
-          window.datafast("payment", {
-            amount: PRICING.current,
-            currency: "EUR",
-            transaction_id: session_id,
-          });
-        }
+        // DataFa.st tracking: "payment_successful" goal now tracked server-side via webhook
+        // Removed frontend tracking to prevent double-counting in funnel metrics
 
         const bewertungIdFromSession = data.session.metadata?.bewertungId;
         if (bewertungIdFromSession) {

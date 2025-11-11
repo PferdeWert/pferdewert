@@ -470,10 +470,17 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
     setLoading(true);
 
-    // Track payment initiation with form completion time
-    const completionTime = calculateFormCompletionTime(formStartTime);
-    const formWithMetrics = { ...form, completionTime };
-    trackPaymentStart(formWithMetrics);
+    // Track payment initiation with form completion time (with deduplication)
+    // DSGVO: Consent check is handled internally by trackPaymentStart
+    if (!sessionStorage.getItem('payment_initiated_tracked')) {
+      const completionTime = calculateFormCompletionTime(formStartTime);
+      const formWithMetrics = { ...form, completionTime };
+      trackPaymentStart(formWithMetrics);
+      sessionStorage.setItem('payment_initiated_tracked', 'true');
+      info('[FORM] payment_initiated event tracked and sessionStorage flag set');
+    } else {
+      info('[FORM] payment_initiated already tracked in this session - skipping duplicate');
+    }
 
     // IMPORTANT: All form fields including charakter, besonderheiten, and attribution_source
     // MUST be sent to the payment API because:

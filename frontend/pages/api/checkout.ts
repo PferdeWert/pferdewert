@@ -77,6 +77,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       info("[CHECKOUT] 📊 No DataFast cookies found for attribution");
     }
 
+    // Check analytics consent for DSGVO compliance
+    const hasConsent = req.cookies['pferdewert_cookie_consent'];
+    const analyticsConsent = hasConsent === 'allow' || hasConsent === 'analytics_only';
+    info("[CHECKOUT] 📊 Analytics consent:", analyticsConsent ? 'granted' : 'denied');
+
     const bewertungId = new ObjectId();    // Generiere eine neue Bewertung-ID
     info("[CHECKOUT] 🆕 Neue Bewertung-ID generiert:", bewertungId.toHexString()); // Logging der Bewertung-ID
 
@@ -121,6 +126,8 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
         // DataFast revenue attribution cookies
         datafast_visitor_id: datafastVisitorId,
         datafast_session_id: datafastSessionId,
+        // Analytics consent for DSGVO-compliant tracking
+        analytics_consent: analyticsConsent ? 'true' : 'false',
       },
     });
 

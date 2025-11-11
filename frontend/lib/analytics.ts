@@ -8,7 +8,7 @@ export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Helper function to check if analytics consent has been granted
 // Checks both 'allow' (full consent) and 'analytics_only' (granular consent)
-const hasAnalyticsConsent = (): boolean => {
+export const hasAnalyticsConsent = (): boolean => {
   if (typeof window === 'undefined') return false;
 
   const match = document.cookie.match(/pferdewert_cookie_consent=([a-z_]+)/);

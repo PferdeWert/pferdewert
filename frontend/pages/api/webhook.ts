@@ -330,10 +330,61 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       );
 
-      info('[WEBHOOK] MongoDB update completed:', { 
+      info('[WEBHOOK] MongoDB update completed:', {
         acknowledged: updateResult.acknowledged,
-        modifiedCount: updateResult.modifiedCount 
+        modifiedCount: updateResult.modifiedCount
       });
+
+      // DataFa.st Server-Side "payment_successful" Goal Tracking
+      try {
+        // DSGVO: Check analytics consent
+        const analyticsConsent = session.metadata?.analytics_consent === 'true';
+        if (!analyticsConsent) {
+          info('[WEBHOOK] Analytics consent denied - skipping DataFa.st tracking');
+        } else {
+          // Validate API key
+          if (!process.env.DATAFAST_API_KEY) {
+            warn('[WEBHOOK] DATAFAST_API_KEY not configured - skipping tracking');
+          } else {
+            const datafastVisitorId = session.metadata?.datafast_visitor_id;
+            const datafastSessionId = session.metadata?.datafast_session_id;
+
+            if (datafastVisitorId || datafastSessionId) {
+              info('[WEBHOOK] Tracking payment_successful goal with DataFa.st');
+              const datafastResponse = await fetch('https://datafa.st/api/v1/goals', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${process.env.DATAFAST_API_KEY}`
+                },
+                body: JSON.stringify({
+                  datafast_visitor_id: datafastVisitorId || undefined,
+                  datafast_session_id: datafastSessionId || undefined,
+                  name: 'payment_successful',
+                  metadata: {
+                    amount: session.amount_total ? session.amount_total / 100 : 0,
+                    currency: session.currency?.toUpperCase() || 'EUR',
+                    transaction_id: sessionId,
+                    bewertung_id: doc._id.toString()
+                  }
+                })
+              });
+
+              if (datafastResponse.ok) {
+                info('[WEBHOOK] DataFa.st "payment_successful" goal tracked successfully');
+              } else {
+                warn('[WEBHOOK] DataFa.st goal tracking failed:', datafastResponse.status, datafastResponse.statusText);
+              }
+            } else {
+              info('[WEBHOOK] No DataFa.st cookies in metadata - skipping tracking');
+            }
+          }
+        }
+      } catch (datafastErr) {
+        // Non-critical error - log but don't fail webhook
+        warn('[WEBHOOK] DataFa.st tracking error (non-critical):', datafastErr instanceof Error ? datafastErr.message : String(datafastErr));
+      }
+
       // Email notification section
       info('[WEBHOOK] Starting email notification process');
       
