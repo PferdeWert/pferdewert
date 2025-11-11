@@ -2,6 +2,7 @@
 
 'use client';
 
+import { useMemo } from 'react';
 import Head from "next/head";
 import BewertungLayout from "@/components/BewertungLayout";
 import PferdeWertPDF from "@/components/PferdeWertPDF";
@@ -32,6 +33,12 @@ Diese Preisspanne reflektiert die unterschiedlichen Faktoren, die den Wert des P
 Dieser Hannoveraner Wallach hat aufgrund seiner Abstammung und seines Gesundheitsstatus Potenzial, jedoch sind der Ausbildungsstand und die bisherigen Erfolge begrenzt, was den Preis beeinflusst. Der genannte Preisbereich ist ein Orientierungswert, der je nach weiteren Informationen variieren kann.`;
 
 export default function PDFTestClient() {
+  // Memoize PDF document to prevent Fast Refresh infinite loops
+  const pdfDocument = useMemo(
+    () => <PferdeWertPDF markdownData={sampleText} />,
+    []
+  );
+
   return (
     <>
       <Head>
@@ -42,7 +49,7 @@ export default function PDFTestClient() {
           <h1>PDF Test</h1>
           <p>Hier kannst du das neue PDF-Layout testen:</p>
           <PDFDownloadLink
-            document={<PferdeWertPDF markdownData={sampleText} />}
+            document={pdfDocument}
             fileName="pferdewert-analyse.pdf"
           >
             {({ loading }) => (

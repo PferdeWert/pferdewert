@@ -24,6 +24,10 @@ const fileCheckIcon = <FileCheck className="h-4 w-4" />;
 const calculatorIcon = <Calculator className="h-5 w-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 const bookOpenIcon = <BookOpen className="h-4 w-4" />;
+const calculatorBrownIcon = <Calculator className="h-5 w-5 text-brand-brown" />;
+const checkCircleBrownIcon = <CheckCircle className="h-5 w-5 text-brand-brown" />;
+const shieldBrownIcon = <Shield className="h-5 w-5 text-brand-brown" />;
+const trendingUpBrownIcon = <TrendingUp className="h-5 w-5 text-brand-brown" />;
 
 const heroMetaItems = createHeroMetaItems([
   {
@@ -373,7 +377,7 @@ const PferdVerkaufen: NextPage = () => {
             {/* STRATEGIC BOX #1: KI-Bewertung CTA */}
             <RatgeberHighlightBox
               title="KI-Bewertung in 2 Minuten – Vermeide 3.000-9.000€ Verlust"
-              icon={<Calculator className="h-5 w-5 text-brand-brown" />}
+              icon={calculatorBrownIcon}
             >
               <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
                 PferdeWert unterstützt dich beim Pferd verkaufen mit präziser Wertermittlung. Unser KI-Tool analysiert die relevanten Wertfaktoren und vergleicht dein Pferd mit realen Verkaufsdaten aus dem deutschen Markt.
@@ -618,7 +622,7 @@ const PferdVerkaufen: NextPage = () => {
             {/* STRATEGIC BOX #2: Anzeigen-Checkliste */}
             <RatgeberHighlightBox
               title="8-Punkte Must-Have Checkliste für deine Anzeige"
-              icon={<CheckCircle className="h-5 w-5 text-brand-brown" />}
+              icon={checkCircleBrownIcon}
             >
               <ol className="space-y-3 list-decimal list-inside text-sm md:text-base text-gray-700">
                 <li><strong>Rasse</strong> – Vollständige Bezeichnung (z.B. &quot;Deutsches Reitpony&quot; statt nur &quot;Pony&quot;)</li>
@@ -711,7 +715,7 @@ const PferdVerkaufen: NextPage = () => {
             {/* STRATEGIC BOX #3: Rechtliche Checkliste */}
             <RatgeberHighlightBox
               title="Die 3 wichtigsten rechtlichen Punkte"
-              icon={<Shield className="h-5 w-5 text-brand-brown" />}
+              icon={shieldBrownIcon}
             >
               <ol className="space-y-4 list-decimal list-inside text-sm md:text-base text-gray-700">
                 <li>
@@ -812,7 +816,7 @@ const PferdVerkaufen: NextPage = () => {
             {/* STRATEGIC BOX #4: Schnellverkaufs-Strategien */}
             <RatgeberHighlightBox
               title="Die 3 erfolgskritischen Faktoren für schnellen Verkauf"
-              icon={<TrendingUp className="h-5 w-5 text-brand-brown" />}
+              icon={trendingUpBrownIcon}
             >
               <ol className="space-y-4 list-decimal list-inside text-sm md:text-base text-gray-700">
                 <li>

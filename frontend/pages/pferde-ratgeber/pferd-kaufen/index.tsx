@@ -27,6 +27,7 @@ const checkCircleIcon = <CheckCircle className="h-4 w-4" />;
 const arrowRightIcon = <ArrowRight className="h-5 w-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 const mapPinIcon = <MapPin className="h-5 w-5 text-brand-brown" />;
+const alertTriangleRedIcon = <AlertTriangle className="w-6 h-6 text-red-600" />;
 
 const sections = [
   { id: "preise", title: "Was kostet ein Pferd beim Pferdekauf 2025?" },
@@ -986,7 +987,7 @@ const PferdKaufen: NextPage = () => {
               {/* Red Flag 1: Unrealistische Preise */}
               <ContentSection
                 title="Red Flag 1: Unrealistisch niedrige Preise"
-                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                icon={alertTriangleRedIcon}
                 content={
                   <div className="space-y-4">
                     <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
@@ -1021,7 +1022,7 @@ const PferdKaufen: NextPage = () => {
               {/* Red Flag 2: Fehlende Informationen */}
               <ContentSection
                 title="Red Flag 2: Fehlende oder unvollständige Informationen"
-                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                icon={alertTriangleRedIcon}
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
@@ -1054,7 +1055,7 @@ const PferdKaufen: NextPage = () => {
               {/* Red Flag 3: Keine Proberitte/AKU erwünscht */}
               <ContentSection
                 title="Red Flag 3: Proberitte oder AKU werden vermieden"
-                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                icon={alertTriangleRedIcon}
                 content={
                   <div className="space-y-4">
                     <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
@@ -1089,7 +1090,7 @@ const PferdKaufen: NextPage = () => {
               {/* Red Flag 4: Versteckte Gesundheitsprobleme */}
               <ContentSection
                 title="Red Flag 4: Hinweise auf versteckte Gesundheitsprobleme"
-                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                icon={alertTriangleRedIcon}
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
@@ -1135,7 +1136,7 @@ const PferdKaufen: NextPage = () => {
               {/* Red Flag 5: Druckausübung */}
               <ContentSection
                 title="Red Flag 5: Zeitdruck und Druckausübung"
-                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                icon={alertTriangleRedIcon}
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
@@ -1175,7 +1176,7 @@ const PferdKaufen: NextPage = () => {
               {/* Red Flag 6: Fehlende Papiere */}
               <ContentSection
                 title="Red Flag 6: Fehlende oder zweifelhafte Papiere"
-                icon={<AlertTriangle className="w-6 h-6 text-red-600" />}
+                icon={alertTriangleRedIcon}
                 content={
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">

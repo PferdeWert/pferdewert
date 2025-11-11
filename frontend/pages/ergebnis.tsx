@@ -33,6 +33,13 @@ export default function Ergebnis() {
   const fallbackMessage =
     "Wir arbeiten gerade an unserem KI-Modell. Bitte sende eine E-Mail an info@pferdewert.de, wir melden uns, sobald das Modell wieder verfügbar ist.";
 
+  // Memoize PDF document to prevent Fast Refresh infinite loops
+  // MUST be before any conditionals/returns to follow React Hooks Rules
+  const pdfDocument = useMemo(
+    () => <PferdeWertPDF markdownData={text} />,
+    [text]
+  );
+
   useEffect(() => {
     if (!router.isReady) return;
 
@@ -271,13 +278,6 @@ export default function Ergebnis() {
       }
     };
   }, [router]);
-
-  // Memoize PDF document to prevent Fast Refresh infinite loops
-  // IMPORTANT: Must be before early returns (React Hooks Rules)
-  const pdfDocument = useMemo(
-    () => <PferdeWertPDF markdownData={text} />,
-    [text]
-  );
 
   if (loading) return <StripeLoadingScreen estimatedTime="Geschätzte Wartezeit: 1-2 Minuten" />;
   if (errorLoading) return <p className="p-10 text-red-600 text-center">{errorLoading}</p>;

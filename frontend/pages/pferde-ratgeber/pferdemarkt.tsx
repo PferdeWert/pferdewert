@@ -23,6 +23,7 @@ const calendarIcon = <Calendar className="h-4 w-4" />;
 const awardIcon = <Award className="h-4 w-4" />;
 const arrowRightIcon = <ArrowRight className="w-5 h-5" />;
 const chevronDownIcon = <ChevronDown className="w-5 h-5" />;
+const alertCircleBrownIcon = <AlertCircle className="h-5 w-5 text-brand-brown" />;
 
 // SEO Metadata
 const seoMetadata = {
@@ -681,7 +682,7 @@ const Pferdemarkt: NextPage = () => {
 
               <RatgeberHighlightBox
                 title="Wichtig: Tierärztliche Untersuchung vor dem Kauf"
-                icon={<AlertCircle className="h-5 w-5 text-brand-brown" />}
+                icon={alertCircleBrownIcon}
               >
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Eine <strong>Ankaufsuntersuchung (AKU)</strong> ist die wichtigste Investition beim Pferdekauf. Sie schützt dich vor versteckten Mängeln und bietet dir rechtliche Sicherheit. Nutze einen unabhängigen Tierarzt und vereinbare einen AKU-Vorbehalt im Kaufvertrag. Detaillierte Informationen findest du in unserem Ratgeber <Link href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">AKU Pferd - Ankaufsuntersuchung erklärt</Link>.

@@ -23,6 +23,9 @@ const walletIcon = <Wallet className="h-4 w-4" />;
 const piggyBankIcon = <PiggyBank className="h-4 w-4" />;
 const calculatorIconLarge = <Calculator className="h-5 w-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
+const walletBrownIcon = <Wallet className="h-5 w-5 text-brand-brown" />;
+const calculatorBrownIcon = <Calculator className="h-5 w-5 text-brand-brown" />;
+const piggyBankBrownIcon = <PiggyBank className="h-5 w-5 text-brand-brown" />;
 
 const sections = [
   { id: "overview", title: "AKU Kosten im Überblick" },
@@ -237,7 +240,7 @@ const AkuPferdKosten: NextPage = () => {
                 .
               </p>
 
-              <RatgeberHighlightBox title="Kostenfaktoren" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
+              <RatgeberHighlightBox title="Kostenfaktoren" icon={walletBrownIcon}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   <li>• Umfang der Bildgebung (Anzahl und Art der Röntgenaufnahmen)</li>
                   <li>• Zusatzdiagnostik wie Ultraschall, Endoskopie oder Laborwerte</li>
@@ -270,7 +273,7 @@ const AkuPferdKosten: NextPage = () => {
                 ))}
               </div>
 
-              <RatgeberHighlightBox title="Faustregel" icon={<Calculator className="h-5 w-5 text-brand-brown" />}>
+              <RatgeberHighlightBox title="Faustregel" icon={calculatorBrownIcon}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Freizeitpferde bis 5.000 € kommen mit Klasse II aus. Für hochwertige{" "}
                   <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
@@ -288,7 +291,7 @@ const AkuPferdKosten: NextPage = () => {
             <section id="zusatzkosten" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Zusatzkosten & Faktoren</h2>
 
-              <RatgeberHighlightBox title="Typische Zusatzkosten" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
+              <RatgeberHighlightBox title="Typische Zusatzkosten" icon={walletBrownIcon}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   {extraCosts.map((item) => (
                     <li key={item}>• {item}</li>
@@ -333,7 +336,7 @@ const AkuPferdKosten: NextPage = () => {
             <section id="spartipps" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Spartipps & Budgetplanung</h2>
 
-              <RatgeberHighlightBox title="So sparst du bei der AKU" icon={<PiggyBank className="h-5 w-5 text-brand-brown" />}>
+              <RatgeberHighlightBox title="So sparst du bei der AKU" icon={piggyBankBrownIcon}>
                 <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
                   {savingsTips.map((tip) => (
                     <li key={tip}>• {tip}</li>
@@ -353,7 +356,7 @@ const AkuPferdKosten: NextPage = () => {
                 wer grundsätzlich bezahlt und welche Regelungen möglich sind.
               </p>
 
-              <RatgeberHighlightBox title="Standardfall: Der Käufer zahlt" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
+              <RatgeberHighlightBox title="Standardfall: Der Käufer zahlt" icon={walletBrownIcon}>
                 <p className="text-gray-700 mb-3">
                   <strong>Grundregel:</strong> Wer die AKU in Auftrag gibt, zahlt sie – in den meisten Fällen ist das der Käufer.
                   Der Käufer hat ein berechtigtes Interesse an objektiven Befunden vor seiner Kaufentscheidung.
@@ -390,7 +393,7 @@ const AkuPferdKosten: NextPage = () => {
                 {" "}erfährst du, wie du den gesamten Kaufablauf strukturiert angehst.
               </p>
 
-              <RatgeberHighlightBox title="Wichtig: Schriftliche Festlegung" icon={<Wallet className="h-5 w-5 text-brand-brown" />}>
+              <RatgeberHighlightBox title="Wichtig: Schriftliche Festlegung" icon={walletBrownIcon}>
                 <p className="text-gray-700">
                   <strong>Vereinbare alle Kostenpunkte schriftlich im{" "}
                   <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-blue-600 hover:text-blue-800 underline font-semibold">
