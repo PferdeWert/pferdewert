@@ -48,6 +48,10 @@ const faqItems = [
   {
     question: 'Kann ich ein Springpferd auch günstig kaufen?',
     answer: 'Ja, aber mit realistischen Erwartungen: Jungpferde (3-4 Jahre) aus guter Zucht gibt es ab 8.000-15.000€. Du kannst auch nach Pferden mit kleinen "Schönheitsfehlern" (z.B. Abzeichen) oder aus Privatverkäufen schauen. ABER: Spare niemals an der AKU! Ein vermeintliches Schnäppchen kann durch versteckte Gesundheitsprobleme zum teuren Reinfall werden.'
+  },
+  {
+    question: 'Was kostet ein Springpferd für Anfänger?',
+    answer: 'Für Anfänger eignet sich ein bereits ausgebildetes Springpferd mit A-L Turniererfahrung und ruhigem Charakter – Budget: 25.000-40.000€. Alternativ: Ein älteres, erfahrenes Lehrmeister-Pferd (10-15 Jahre) mit solidem Ausbildungsstand ist oft günstiger (15.000-25.000€) und verzeiht Anfängerfehler besser als ein junges Talent. WICHTIG: Als Anfänger solltest du IMMER einen erfahrenen Trainer zum Probereiten und zur Kaufentscheidung mitnehmen!'
   }
 ]
 
@@ -177,8 +181,8 @@ export default function SpringpferdKaufen() {
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         {/* Basic Meta Tags */}
-        <title>Springpferd kaufen: Ratgeber, Preise & Tipps | PferdeWert</title>
-        <meta name="description" content="Springpferd kaufen leicht gemacht: Auswahlkriterien, Preise (10.000-100.000€+), seriöse Züchter, AKU-Tipps & Kaufvertrag. Jetzt informieren!" />
+        <title>Springpferd kaufen: Preis, Züchter & Tipps | PferdeWert</title>
+        <meta name="description" content="Springpferd kaufen: Auswahlkriterien, Preise (8.000-100.000€+), seriöse Züchter, AKU-Checkliste & Kaufvertrag. Auch günstig möglich – mit realistischen Erwartungen!" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/springpferd-kaufen" />
         <meta httpEquiv="content-language" content="de" />
@@ -336,6 +340,37 @@ export default function SpringpferdKaufen() {
               </li>
             </ul>
 
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Springpferd kaufen: Was bestimmt den Preis?
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Die Preisspanne beim Springpferd kaufen ist enorm – von 8.000€ für Jungpferde bis zu Millionenbeträgen für Grand-Prix-Pferde. Die wichtigsten Preisfaktoren sind:
+            </p>
+
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start gap-3">
+                <span className="text-brand-brown font-bold">•</span>
+                <span className="text-lg"><strong>Abstammung & Blutlinien:</strong> Nachkommen erfolgreicher Springpferde-Hengste (z.B. Cornet Obolensky, For Pleasure) erzielen deutlich höhere Preise</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-brown font-bold">•</span>
+                <span className="text-lg"><strong>Turniererfolge:</strong> Dokumentierte Platzierungen auf A-S Niveau steigern den Wert erheblich</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-brown font-bold">•</span>
+                <span className="text-lg"><strong>Alter & Ausbildungsstand:</strong> Das &quot;goldene Alter&quot; zwischen 6-10 Jahren mit L-M Erfahrung ist am begehrtesten</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-brown font-bold">•</span>
+                <span className="text-lg"><strong>Gesundheitszustand:</strong> Eine aktuelle, positive Ankaufsuntersuchung (AKU) rechtfertigt höhere Preise</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-brown font-bold">•</span>
+                <span className="text-lg"><strong>Charakter & Rittigkeit:</strong> Ein nervensicheres, braves Pferd ist für Amateure Gold wert und entsprechend teurer</span>
+              </li>
+            </ul>
+
             <RatgeberHighlightBox title="Wichtig: Folgekosten nicht unterschätzen!" icon={warningIcon}>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 Neben dem Kaufpreis fallen monatlich laufende Kosten an:
@@ -352,6 +387,26 @@ export default function SpringpferdKaufen() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Wichtige Preisfaktoren sind die Abstammung (erfolgreiche Blutlinien erzielen höhere Preise), dokumentierte Turniererfolge, das Alter (6-10 Jahre sind Premium), der Gesundheitszustand und natürlich das individuelle Springtalent. Lasse dich nicht von augenscheinlichen Schnäppchen blenden – oft stecken gesundheitliche Probleme oder Ausbildungsdefizite dahinter.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Günstig ein Springpferd kaufen: Realistische Erwartungen
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ja, du kannst ein Springpferd auch mit kleinerem Budget kaufen – aber mit realistischen Erwartungen:
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Budget 8.000-15.000€:</strong> Jungpferde (3-4 Jahre) aus guter Zucht ohne Ausbildung, Pferde mit kleinen &quot;Schönheitsfehlern&quot; (z.B. ungewöhnliche Abzeichen) oder Privatverkäufe von Züchtern ohne große Online-Präsenz.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Budget 15.000-25.000€:</strong> Angerittene Pferde (4-5 Jahre) mit ersten Springerfahrungen, ältere Pferde (12+ Jahre) mit solider A-L Ausbildung oder Pferde aus Zuchtauflösungen.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>⚠️ Wichtig:</strong> Spare NIEMALS an der Ankaufsuntersuchung (AKU)! Ein vermeintliches Schnäppchen kann durch versteckte Gesundheitsprobleme (Röntgenbefunde, Sehnenschäden) zum teuren Reinfall werden. Die 800-1.500€ für eine große AKU können dich vor einem Fehlkauf bewahren, der dich später ein Vielfaches kosten würde.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -383,6 +438,10 @@ export default function SpringpferdKaufen() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Wer ein Springpferd kaufen möchte und Wert auf persönliche Beratung legt, wendet sich direkt an renommierte Züchter und Ausbildungsbetriebe. In Deutschland gibt es zahlreiche spezialisierte Springpferdezüchter, besonders in Norddeutschland (Schleswig-Holstein, Niedersachsen, NRW). Diese Betriebe haben oft mehrere Verkaufspferde in verschiedenen Ausbildungsstadien stehen und können dich individuell beraten.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Regionale Schwerpunkte in Deutschland:</strong> Die meisten Springpferdezüchter findest du in <strong>Norddeutschland</strong> (Schleswig-Holstein, Niedersachsen, NRW) – hier haben Holsteiner, Oldenburger und Hannoveraner ihre Heimat. Aber auch <strong>Bayern</strong> (insbesondere Oberbayern) und <strong>Baden-Württemberg</strong> haben renommierte Züchter mit süddeutscher Warmblut-Tradition. Nutze Online-Plattformen wie ehorses.de mit regionalen Filtern, um Züchter in deiner Nähe zu finden und Transportkosten zu sparen.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
