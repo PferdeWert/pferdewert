@@ -1,0 +1,231 @@
+{
+  "hubs": [
+    {
+      "slug": "pferd-kaufen-tipps",
+      "title": "Pferdekauf-Guide",
+      "main_keyword": "pferd kaufen",
+      "word_count_target": 3000,
+      "spokes": [
+        {
+          "slug": "pferd-kaufen-vertrag",
+          "title": "Pferdekaufvertrag",
+          "status": "published",
+          "link_status": "needs_check"
+        },
+        {
+          "slug": "warmblut-kaufen",
+          "title": "Warmblut kaufen",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "freizeitpferd-kaufen",
+          "title": "Freizeitpferd kaufen",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "pferdeankaufsuntersuchung",
+          "title": "Ankaufsuntersuchung",
+          "status": "missing",
+          "priority": "medium"
+        },
+        {
+          "slug": "pferd-kaufen-kosten",
+          "title": "Pferdekauf Kosten",
+          "status": "missing",
+          "priority": "medium"
+        },
+        {
+          "slug": "dressurpferd-kaufen",
+          "title": "Dressurpferd kaufen",
+          "status": "missing",
+          "priority": "low"
+        },
+        {
+          "slug": "springpferd-kaufen",
+          "title": "Springpferd kaufen",
+          "status": "missing",
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "slug": "pferde-haltung-kosten",
+      "title": "Pferdehaltung Kosten",
+      "main_keyword": "pferdehaltung kosten",
+      "word_count_target": 2800,
+      "spokes": [
+        {
+          "slug": "offenstall-kosten",
+          "title": "Offenstall Kosten",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "boxenhaltung-kosten",
+          "title": "Boxenhaltung Kosten",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "pferdepension-finden",
+          "title": "Pferdepension finden",
+          "status": "missing",
+          "priority": "medium"
+        },
+        {
+          "slug": "pferd-selbstversorger-kosten",
+          "title": "Pferd als Selbstversorger",
+          "status": "missing",
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "slug": "pferde-gesundheit-guide",
+      "title": "Pferdegesundheit Guide",
+      "main_keyword": "pferdegesundheit",
+      "word_count_target": 3500,
+      "status": "missing",
+      "priority": "high",
+      "spokes": [
+        {
+          "slug": "kolik-pferd-symptome",
+          "title": "Kolik beim Pferd",
+          "status": "published",
+          "link_status": "orphaned"
+        },
+        {
+          "slug": "hufgeschwuer-behandlung",
+          "title": "Hufgeschwür behandeln",
+          "status": "published",
+          "link_status": "orphaned"
+        },
+        {
+          "slug": "erste-hilfe-pferd",
+          "title": "Erste Hilfe beim Pferd",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "pferd-impfungen",
+          "title": "Impfungen beim Pferd",
+          "status": "missing",
+          "priority": "medium"
+        },
+        {
+          "slug": "wurmkur-pferd",
+          "title": "Wurmkur beim Pferd",
+          "status": "missing",
+          "priority": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "pferdewert-ermitteln-guide",
+      "title": "Pferdewert ermitteln",
+      "main_keyword": "pferdewert ermitteln",
+      "word_count_target": 2500,
+      "status": "missing",
+      "priority": "critical",
+      "note": "Service-Hub: Promotes our KI-Bewertung service!",
+      "spokes": [
+        {
+          "slug": "pferd-verkaufen-preis",
+          "title": "Pferd verkaufen: Preis bestimmen",
+          "status": "missing",
+          "priority": "critical"
+        },
+        {
+          "slug": "pferd-versichern-wert",
+          "title": "Pferd versichern: Wert ermitteln",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "pferdewert-faktoren",
+          "title": "Faktoren für den Pferdewert",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "turniererfolge-pferdewert",
+          "title": "Turniererfolge und Pferdewert",
+          "status": "missing",
+          "priority": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "pferd-verkaufen-guide",
+      "title": "Pferd verkaufen",
+      "main_keyword": "pferd verkaufen",
+      "word_count_target": 2800,
+      "status": "missing",
+      "priority": "high",
+      "note": "Cross-Hub Link to pferdewert-ermitteln-guide",
+      "spokes": [
+        {
+          "slug": "pferd-inserieren",
+          "title": "Pferd richtig inserieren",
+          "status": "missing",
+          "priority": "high"
+        },
+        {
+          "slug": "pferd-verkaufsgespraech",
+          "title": "Verkaufsgespräch führen",
+          "status": "missing",
+          "priority": "medium"
+        },
+        {
+          "slug": "pferd-probezeit",
+          "title": "Probezeit beim Pferdeverkauf",
+          "status": "missing",
+          "priority": "medium"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "last_updated": "2025-01-11",
+    "total_hubs": 5,
+    "published_hubs": 2,
+    "missing_hubs": 3,
+    "total_spokes": 27,
+    "published_spokes": 3,
+    "missing_spokes": 24,
+    "orphaned_spokes": 2
+  },
+  "priorities": {
+    "critical": [
+      "pferdewert-ermitteln-guide (Hub)",
+      "pferd-verkaufen-preis (Spoke)"
+    ],
+    "high": [
+      "pferde-gesundheit-guide (Hub)",
+      "pferd-verkaufen-guide (Hub)",
+      "warmblut-kaufen",
+      "freizeitpferd-kaufen",
+      "offenstall-kosten",
+      "boxenhaltung-kosten"
+    ]
+  },
+  "cross_hub_links": [
+    {
+      "from": "pferd-verkaufen-guide",
+      "to": "pferdewert-ermitteln-guide",
+      "reason": "Need to determine price before selling"
+    },
+    {
+      "from": "pferd-kaufen-tipps",
+      "to": "pferde-gesundheit-guide",
+      "reason": "Health check is part of buying process"
+    },
+    {
+      "from": "pferdewert-ermitteln-guide",
+      "to": "pferd-kaufen-tipps",
+      "reason": "Understanding value helps in buying decision"
+    }
+  ]
+}
