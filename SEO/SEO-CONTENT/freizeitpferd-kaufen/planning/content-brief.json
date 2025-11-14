@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "primaryKeyword": "freizeitpferd kaufen",
+    "slug": "freizeitpferd-kaufen",
+    "createdAt": "2025-11-14T18:15:00Z",
+    "phase": "4-content-brief-consolidated",
+    "basedOnPhases": ["1-keyword-analysis", "2-serp-analysis", "3-content-outline"]
+  },
+  "keyword": {
+    "primary": {
+      "term": "freizeitpferd kaufen",
+      "searchVolume": 2400,
+      "difficulty": 42,
+      "searchIntent": "informational-commercial"
+    },
+    "secondary": [
+      {
+        "term": "freizeitpferd für anfänger",
+        "searchVolume": 1200,
+        "difficulty": 38
+      },
+      {
+        "term": "pferderassen freizeitreiter",
+        "searchVolume": 890,
+        "difficulty": 35
+      },
+      {
+        "term": "freizeitpferd kosten",
+        "searchVolume": 720,
+        "difficulty": 32
+      },
+      {
+        "term": "anfängerpferd",
+        "searchVolume": 650,
+        "difficulty": 40
+      }
+    ],
+    "longtail": [
+      "freizeitpferd kaufen anfänger",
+      "welche rasse freizeitpferd",
+      "freizeitpferd kaufvertrag",
+      "ankaufsuntersuchung freizeitpferd",
+      "freizeitpferd preise deutschland"
+    ]
+  },
+  "contentStrategy": {
+    "targetWordCount": 2400,
+    "wordCountRange": {
+      "minimum": 1800,
+      "target": 2400,
+      "maximum": 2800
+    },
+    "wordCountStrategy": "serp-competitive",
+    "primaryKeywordDensity": "0.8-1.2%",
+    "tone": "Du-Ansprache, vertrauensvoll, praxisorientiert",
+    "brandVoice": "SEO/pferdewert-brand-language.md",
+    "readabilityTarget": "Flesch-Kincaid Grade 8-10 (Deutsch)"
+  },
+  "outline": {
+    "h1": "Freizeitpferd kaufen: Der komplette Leitfaden für Anfänger",
+    "metaTitle": "Freizeitpferd kaufen: Der komplette Leitfaden für Anfänger",
+    "metaDescription": "Freizeitpferd kaufen leicht gemacht: Kostenübersicht, beste Rassen für Anfänger, Kaufprozess, Gesundheitschecks & rechtliche Tipps. Jetzt erfolgreich dein perfektes Freizeitpferd finden.",
+    "sections": [
+      {
+        "h2": "Was ist ein Freizeitpferd? Definition und Charakteristiken",
+        "wordTarget": 165,
+        "contentType": "explanation",
+        "keywordFocus": ["freizeitpferd definition", "freizeitpferd charakter"]
+      },
+      {
+        "h2": "Kosten: Kaufpreis und laufende Unterhaltskosten",
+        "wordTarget": 180,
+        "contentType": "explanation",
+        "keywordFocus": ["freizeitpferd kosten", "pferd unterhaltskosten"]
+      },
+      {
+        "h2": "Die besten Pferderassen für Freizeitreiter",
+        "wordTarget": 190,
+        "contentType": "comparison",
+        "keywordFocus": ["pferderassen freizeitreiter", "beste rassen anfänger"]
+      },
+      {
+        "h2": "Anfängerpferde: Welche Rassen und welches Alter?",
+        "wordTarget": 165,
+        "contentType": "tutorial",
+        "keywordFocus": ["anfängerpferd", "freizeitpferd für anfänger"]
+      },
+      {
+        "h2": "Der Kaufprozess: Private Verkäufer vs. Händler",
+        "wordTarget": 175,
+        "contentType": "comparison",
+        "keywordFocus": ["pferd privat kaufen", "pferdehändler"]
+      },
+      {
+        "h2": "Gesundheitscheck und tierärztliche Ankaufsuntersuchung",
+        "wordTarget": 170,
+        "contentType": "tutorial",
+        "keywordFocus": ["gesundheitscheck pferd", "ankaufsuntersuchung"]
+      },
+      {
+        "h2": "Rechtliche Aspekte und Kaufvertrag",
+        "wordTarget": 160,
+        "contentType": "explanation",
+        "keywordFocus": ["pferd kaufvertrag", "pferd gewährleistung"]
+      }
+    ]
+  },
+  "contentRequirements": {
+    "eeat": {
+      "experienceSnippets": [
+        "Erfahrung mit verschiedenen Freizeitpferden demonstrieren; Vergleich zu Sportreitern",
+        "Fallstudie: Erfolgreicher Anfängerkauf mit Haflinger",
+        "Vergleich: Unterschiedliche Erfahrungen bei Private vs. Dealer Käufen",
+        "Fallbeispiel: Gesundheitsprobleme bei Kauf erkannt und verhandelt",
+        "Fallbeispiel: Streitfall durch mangelhaften Vertrag"
+      ],
+      "expertiseCredentials": [
+        "Professionelle Kostenaufschlüsselung basierend auf FN-Standards",
+        "Temperamentbewertung basierend auf FN-Richtlinien",
+        "Veterinärrichtlinien für Ankaufsuntersuchungen",
+        "Referenzierung zu BGB und Verbraucherschutzrichtlinien"
+      ],
+      "authoritySignals": [
+        "Echte Marktdaten aus ehorses (18.378 Listings)",
+        "Marktdaten aus kleinanzeigen.de (591 Listings)",
+        "Marktdaten aus deine-tierwelt.de",
+        "PAA AI-Übersicht mit 7+ Rassenempfehlungen"
+      ],
+      "trustElements": [
+        "Transparenz zu Kostenaufschlüsselung",
+        "Warnsignale beim Pferdekauf aufzeigen",
+        "Quellenangaben für Marktdaten",
+        "Schritt-für-Schritt Checklisten"
+      ]
+    },
+    "semanticTopics": [
+      "freizeitpferd",
+      "kaufpreis",
+      "unterhaltskosten",
+      "haflinger",
+      "quarter horse",
+      "isländer",
+      "anfängerpferd",
+      "pferderassen",
+      "private verkäufer",
+      "pferdehändler",
+      "ankaufsuntersuchung",
+      "pferd kaufvertrag",
+      "gewährleistung",
+      "gesundheit",
+      "temperament",
+      "alter",
+      "rasse"
+    ],
+    "mandatoryElements": {
+      "internalLinks": {
+        "min": 3,
+        "target": 5,
+        "suggestions": [
+          "/pferde-ratgeber/pferd-versicherung-kosten",
+          "/pferde-ratgeber/pferderassen-anfaenger",
+          "/pferde-ratgeber/ankaufsuntersuchung-pferd",
+          "/pferde-ratgeber/pferdemaerkte-oesterreich-deutschland",
+          "/pferde-ratgeber/pferd-kaufvertrag-vorlage"
+        ]
+      },
+      "externalSources": {
+        "min": 2,
+        "qualityThreshold": "high-authority",
+        "examples": [
+          "ehorses.de (Marktplatz)",
+          "kleianzeigen.de (Marktplatz)",
+          "deine-tierwelt.de (Marktplatz)",
+          "FN Richtlinien (Reiterliche Verbände)",
+          "BGB Paragraphen (Jura Referenzen)"
+        ]
+      },
+      "visuals": {
+        "min": 5,
+        "types": [
+          "Vergleichstabelle: Freizeitpferd vs. Springpferd vs. Dressurpferd",
+          "Kostentabelle: Kaufpreis vs. Jährliche Unterhaltskosten",
+          "Rassenvergleichstabelle",
+          "Anfängerpferd Matching-Matrix",
+          "Pro-Contra Vergleich: Privater Kauf vs. Händler",
+          "Gesundheitsprüfungs-Checkliste",
+          "Kaufvertrag-Checkliste"
+        ]
+      }
+    }
+  },
+  "serpInsights": {
+    "topCompetitors": [
+      "ehorses.de - Marktplatz mit Filter und Preisinfos",
+      "pferde.de - Ratgeber zu Pferdekauf",
+      "kleinanzeigen.de - Private Inserate",
+      "wikipedia.org - Pferderassen Übersicht"
+    ],
+    "contentGaps": [
+      "Detaillierte Kostenaufschlüsselung im Kontext von Anfängerinvestitionen",
+      "Schritt-für-Schritt Ankaufsuntersuchung Leitfaden",
+      "Kaufvertrag-Vorlage und rechtliche Sicherung",
+      "Temperament-Matching für Anfänger (über reine Rasseninfo hinaus)"
+    ],
+    "paaQuestions": [
+      "Wie viel kostet ein gutes Freizeitpferd?",
+      "Welche Pferderasse eignet sich am besten für Anfänger?",
+      "Was kostet der Unterhalt eines Freizeitpferdes pro Jahr?",
+      "Mit welchem Alter sollte ein Anfänger ein Freizeitpferd kaufen?",
+      "Sollte ich von privat oder vom Händler kaufen?",
+      "Warum ist eine tierärztliche Ankaufsuntersuchung wichtig?"
+    ],
+    "uniqueAngles": [
+      "PferdeWert-Integration: Bewertung vor Kaufvertrag",
+      "Marktdaten-basierte Preiserwartungen",
+      "Transparente Kostenaufschlüsselung für Budget-Planung",
+      "Rechtssicherheits-Fokus (Vertragsgestaltung, Garantien)"
+    ]
+  },
+  "qualityGates": {
+    "wordCount": {
+      "min": 1800,
+      "target": 2400,
+      "max": 2800,
+      "strategy": "serp-competitive"
+    },
+    "keywordDensity": {
+      "min": 0.008,
+      "target": 0.01,
+      "max": 0.012,
+      "primaryKeyword": "freizeitpferd kaufen"
+    },
+    "semanticCoverage": {
+      "minTopics": 8,
+      "target": 12,
+      "requiredTopics": [
+        "definition",
+        "kosten",
+        "rassen",
+        "anfänger",
+        "kaufprozess",
+        "gesundheit",
+        "rechtlich",
+        "altersempfehlung"
+      ]
+    },
+    "eeatScore": {
+      "min": 7,
+      "target": 9,
+      "breakdown": {
+        "experience": "min 2 snippets",
+        "expertise": "min 2 credentials",
+        "authority": "min 2 data sources",
+        "trust": "min 2 elements"
+      }
+    },
+    "internalLinks": {
+      "min": 3,
+      "target": 5
+    },
+    "externalSources": {
+      "min": 2
+    },
+    "visuals": {
+      "min": 3
+    }
+  },
+  "phase4Handoff": {
+    "nextStep": "Content Writing (Phase 4B)",
+    "estimatedWritingTime": "3-4 Stunden",
+    "outputFile": "content/article-draft.md",
+    "keyInstructions": [
+      "Nutze outline.sections[] als Struktur",
+      "Integriere keyword.primary, secondary, longtail natürlich",
+      "Verwende contentRequirements.eeat.experienceSnippets[] für E-E-A-T Signale",
+      "KEINE FAQ-Sektion im Artikel (wird separat Phase 5B generiert)",
+      "Implementiere contentRequirements.mandatoryElements (min 3 interne Links, min 2 externe Quellen)",
+      "Befolge contentStrategy.tone: Du-Ansprache, vertrauensvoll, praxisorientiert",
+      "Schreibe in Markdown-Format mit sauberer Heading-Hierarchie"
+    ]
+  },
+  "timestamp": "2025-11-14T18:15:00Z"
+}

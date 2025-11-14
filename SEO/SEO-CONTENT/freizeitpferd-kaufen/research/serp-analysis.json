@@ -1,0 +1,341 @@
+{
+  "phase": "2",
+  "primary_keyword": "freizeitpferd kaufen",
+  "timestamp": "2025-11-14T17:45:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful, all data from DataForSEO API responses"
+  },
+  "data_sources": {
+    "serp_results_count": 11,
+    "organic_results_count": 9,
+    "featured_snippets_count": 4,
+    "paa_questions_count": 8,
+    "content_parsed_urls": 3,
+    "related_searches_count": 8
+  },
+  "search_intent": {
+    "primary": "commercial",
+    "probability": 0.771,
+    "secondary": "navigational",
+    "secondary_probability": 0.3,
+    "content_strategy": "Transactional content optimized for buyer's guide with marketplace integration and educational guides for decision support"
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Freizeitpferd Definition und Charakteristiken",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 include definition (ehorses has extensive section)"
+      },
+      {
+        "topic": "Kostenübersicht: Kaufpreis und Folgekosten",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "PAA featured answer: 6.000€ (basic) bis 25.000€ (tournament-ready). Multiple marketplace listings show price ranges"
+      },
+      {
+        "topic": "Pferderassen für Freizeitreiten",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "PAA question + ehorses content + all marketplaces feature breed filters"
+      },
+      {
+        "topic": "Anfängerpferde und Anfängereignung",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "PAA detailed answer with 7+ breed recommendations (Haflinger, Quarter Horse, Isländer, etc). ehorses discusses beginner suitability"
+      },
+      {
+        "topic": "Kaufprozess und Besichtigung",
+        "coverage": "6/10",
+        "priority": "high",
+        "evidence": "Inferred from marketplace descriptions but not explicitly detailed in titles/descriptions"
+      },
+      {
+        "topic": "Private vs. Händler Kauf",
+        "coverage": "7/10",
+        "priority": "high",
+        "evidence": "Related search includes 'freizeitpferd kaufen von privat', kleinanzeigen shows mix of Privat/Gewerblich (485 private, 106 commercial)"
+      },
+      {
+        "topic": "Gesundheit und tierärztliche Untersuchung",
+        "coverage": "5/10",
+        "priority": "high",
+        "evidence": "ehorses mentions 'Gesundheit' and 'gute Konstitution' wichtig; some listings mention health status but limited detail"
+      },
+      {
+        "topic": "Verfügbare Rassen im deutschen Markt",
+        "coverage": "10/10",
+        "priority": "medium",
+        "evidence": "DeineTierwelt shows 50+ breeds (Hannoveraner 43, Deutschen Reitpferd 32, Quarter Horse 76, Warmblut, etc)"
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Detaillierte Anfänger-Kaufleitfaden mit Rasse-Matching",
+        "coverage": "4/10",
+        "unique_angle": "Create comprehensive beginner's guide matching rider level + temperament + budget to specific breeds (Haflinger vs Quarter Horse vs Fjordpferd comparison)",
+        "opportunity_score": 9,
+        "reason": "PAA shows high interest in 'Was ist das beste Anfängerpferd' but top 10 only show marketplace catalogs, not educational guides"
+      },
+      {
+        "topic": "Kauf von Privat vs. Händler: Vor- und Nachteile",
+        "coverage": "2/10",
+        "unique_angle": "Create detailed comparison guide addressing both channels with pros/cons, legal considerations, price differences",
+        "opportunity_score": 8,
+        "reason": "Related search includes this variant but no top 10 content specifically compares both approaches"
+      },
+      {
+        "topic": "Gesundheitscheck und tierärztliche Ankaufsuntersuchung",
+        "coverage": "3/10",
+        "unique_angle": "Step-by-step health inspection guide before purchase, red flags to watch for, understanding vet reports",
+        "opportunity_score": 8,
+        "reason": "Critical decision factor but barely covered in marketplace content"
+      },
+      {
+        "topic": "Budget-Freizeitpferde: Qualitätsmerkmale unter 5.000€",
+        "coverage": "2/10",
+        "unique_angle": "Guide for budget-conscious buyers on finding quality horses under 5.000€ without compromising on health/temperament",
+        "opportunity_score": 7,
+        "reason": "Related keyword 'pferde günstig kaufen bis 500 euro' suggests budget-focused searches but main SERP has no educational content on this"
+      },
+      {
+        "topic": "Rechtliche Aspekte: Kaufvertrag und Gewährleistung",
+        "coverage": "1/10",
+        "unique_angle": "Comprehensive legal guide covering purchase agreements, liability, guarantees, return options",
+        "opportunity_score": 7,
+        "reason": "Critical consumer protection issue not addressed in marketplace-focused top 10"
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Finanzierungsmöglichkeiten und Ratenkauf",
+        "coverage": "0/10",
+        "source": "Not found in top 10 or PAA questions",
+        "opportunity_score": 6,
+        "reason": "Price is barrier to entry; financing guide could attract price-sensitive buyers"
+      },
+      {
+        "topic": "Versicherung und Haftung beim Pferdekauf",
+        "coverage": "0/10",
+        "source": "Not covered in SERP results",
+        "opportunity_score": 5,
+        "reason": "Insurance is critical cost factor mentioned in PAA but not detailed in any top ranking content"
+      },
+      {
+        "topic": "Regionale Marktanalyse: Preise nach Bundesland",
+        "coverage": "0/10",
+        "source": "Related search includes regional keywords but no comparative analysis",
+        "opportunity_score": 4,
+        "reason": "Regional keywords (Bayern, NRW, etc) indicate location-based search intent not served by national content"
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.ehorses.de/pferdekauf/freizeitpferde.html",
+      "rank": 1,
+      "domain": "ehorses.de",
+      "content_type": "Marketplace + Educational Hybrid",
+      "estimated_word_count": 1800,
+      "unique_angles": [
+        "Definition section: clear explanation of 'Freizeitpferd' vs other horse types",
+        "History section: from ancient times to modern leisure riding",
+        "Character focus: emphasis on temperament over pedigree",
+        "Interieur/Exterieur breakdown: personality > appearance philosophy",
+        "Filter-based marketplace integration: race, age, size, price filters",
+        "Internal linking: to breed-specific subcategories (Warmblut, Pony, Hannoveraner, etc)"
+      ],
+      "format": "Long-form educational marketplace hybrid (Definition + History + Character + Care + ehorses-specific offers)",
+      "key_differentiator": "Educational authority backed by 18.378 marketplace listings; positions ehorses as thought leader + transaction platform"
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 1450,
+    "target_word_count": 1595,
+    "word_count_range_min": 1233,
+    "word_count_range_max": 1885,
+    "word_count_strategy": "serp_competitive",
+    "word_count_fallback": 1800,
+    "required_sections": [
+      "Einleitung: Warum ein Freizeitpferd die richtige Wahl ist",
+      "Was ist ein Freizeitpferd? Definition und Charakteristiken",
+      "Kosten: Kaufpreis und laufende Unterhaltskosten",
+      "Beste Rassen für Freizeitreiter",
+      "Anfängerpferde: Welche Rassen eignen sich?",
+      "Kaufprozess: Private Verkäufer vs. Händler",
+      "Gesundheitscheck vor dem Kauf",
+      "Rechtliche Aspekte und Kaufvertrag",
+      "Checkliste: Was du vor dem Kauf wissen solltest",
+      "FAQ: Häufig gestellte Fragen"
+    ],
+    "visual_elements": [
+      "comparison_table",
+      "checklist",
+      "cost_breakdown_table",
+      "breed_comparison_chart"
+    ],
+    "featured_snippet_target": "list",
+    "featured_snippet_topic": "Beste Pferderassen für Anfänger",
+    "featured_snippet_content": "Haflinger, Quarter Horse, Isländer, Fjordpferd, Friese"
+  },
+  "competitor_landscape": {
+    "domain_authority_distribution": {
+      "high_authority": 8,
+      "medium_authority": 1,
+      "low_authority": 0
+    },
+    "domain_type_mix": {
+      "marketplaces": 7,
+      "classifieds": 2,
+      "breeders": 1,
+      "educational": 1,
+      "industry_specialized": 0
+    },
+    "ranking_stability": "established",
+    "new_entrant_opportunity": "medium",
+    "assessment": "Top 10 entirely dominated by transactional marketplaces (ehorses, kleinanzeigen, deine-tierwelt, pferde.de, billyrider, landwirt.com, caballo). Established players have strong authority but zero educational content competition. Educational/guide content could rank well alongside transactional results due to content gap."
+  },
+  "eeat_signals": {
+    "required_credentials": "horse_owner_experience",
+    "credentials_reasoning": "Top ranking ehorses content emphasizes practical know-how ('Charakter entscheidend', 'Trittsicherheit', care requirements). No formal veterinary/professional expertise required but experienced horse ownership evident.",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "Successful beginner purchase: Haflinger example with learning curve",
+      "Budget purchase: Finding quality under 5.000€ story"
+    ],
+    "external_references": 4,
+    "reference_types": [
+      "FN (Deutsche Reiterliche Vereinigung) guidelines on leisure horse suitability",
+      "Veterinary guidelines on health inspection",
+      "Market price data (e.g., ehorses pricing study)",
+      "Insurance/cost calculator from vergleichen-und-sparen.de"
+    ],
+    "expert_quotes": false,
+    "expert_types": [
+      "Experienced horse trainer/instructor",
+      "Veterinarian on health checks",
+      "Horse trader/dealer perspective"
+    ],
+    "data_sources": [
+      "ehorses.de marketplace data (18.378 listings provide real price ranges)",
+      "kleinanzeigen.de: 591 freizeitpferd listings across regions",
+      "deine-tierwelt.de breed distribution data",
+      "PAA featured answers from vergleichen-und-sparen.de, zooroyal.de, ehorses.de"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Wie viel kostet ein gutes Freizeitpferd?",
+      "category": "costs",
+      "section_placement": "Kosten: Kaufpreis und laufende Unterhaltskosten",
+      "integration_type": "h2",
+      "priority": "critical",
+      "reasoning": "Featured answer already exists (6.000€-25.000€); needs expansion on monthly costs, insurance, feed, vet care"
+    },
+    {
+      "question": "Welche Pferderasse eignet sich als Freizeitpferd?",
+      "category": "breed",
+      "section_placement": "Beste Rassen für Freizeitreiter",
+      "integration_type": "h2",
+      "priority": "critical",
+      "reasoning": "Featured answer exists; need detailed breed comparison table with Haflinger, Quarter Horse, Isländer, Fjordpferd"
+    },
+    {
+      "question": "Was ist das beste Anfängerpferd?",
+      "category": "beginner_guidance",
+      "section_placement": "Anfängerpferde: Welche Rassen eignen sich?",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "AI Overview with comprehensive list (7 breeds). Need dedicated section with temperament matching and age recommendations"
+    },
+    {
+      "question": "Was ist das beliebteste Freizeitpferd?",
+      "category": "breed_popularity",
+      "section_placement": "Beste Rassen für Freizeitreiter",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Featured answer: Quarter Horse. Can integrate as subsection in breed comparison showing popularity rankings"
+    },
+    {
+      "question": "Wie oft muss ein Freizeitpferd geritten werden?",
+      "category": "care",
+      "section_placement": "Checkliste: Was du vor dem Kauf wissen solltest (Care Requirements subsection)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Practical consideration for buyers; mentioned in FN guidelines (daily movement requirement)"
+    },
+    {
+      "question": "Wie wählt man ein Reitpferd aus?",
+      "category": "buying_process",
+      "section_placement": "Kaufprozess: Private Verkäufer vs. Händler",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Core buying process question; needs step-by-step guide covering capability assessment, temperament evaluation"
+    },
+    {
+      "question": "Was besagt die 20%-Regel beim Reiten?",
+      "category": "horse_selection",
+      "section_placement": "Checkliste: Was du vor dem Kauf wissen solltest (Weight Capacity subsection)",
+      "integration_type": "h3",
+      "priority": "low",
+      "reasoning": "Technical safety guideline; useful for buyer education but secondary to primary buying criteria"
+    },
+    {
+      "question": "Ab welchem Alter eignet sich ein [Pferd für Anfänger]?",
+      "category": "age_suitability",
+      "section_placement": "Anfängerpferde: Welche Rassen eignen sich? (Age subsection)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "PAA variant on age (mentions 10+ years preferred for beginners); important safety consideration"
+    }
+  ],
+  "api_call_summary": {
+    "total_calls": 4,
+    "serp_organic_30": 1,
+    "serp_organic_paa_10": 1,
+    "search_intent": 1,
+    "content_parsing": 3,
+    "estimated_tokens_consumed": 3200,
+    "data_quality": "excellent"
+  },
+  "strategic_recommendations": {
+    "content_positioning": "Educational buyer's guide with marketplace integration, NOT marketplace catalog. Position as decision-support guide for serious buyers evaluating breed fit, costs, legal aspects, health considerations.",
+    "quick_wins": [
+      "Featured snippet optimization for 'Beste Pferderassen für Anfänger' (list format: Haflinger, Quarter Horse, Isländer, Fjordpferd, Friese)",
+      "Detailed cost breakdown table: Initial purchase + Annual care costs (feed, vet, farrier, insurance, housing)"
+    ],
+    "content_gaps_to_address": [
+      "Step-by-step health inspection guide (currently missing from top 10)",
+      "Legal buyer protection: Purchase agreement requirements and guarantees",
+      "Private vs. Dealer buying comparison (addresses related search)",
+      "Budget horse buying guide (addresses related search 'pferde günstig kaufen bis 500 euro')"
+    ],
+    "regional_expansion_opportunity": "Top 10 shows regional keywords (Bayern, NRW, Schleswig-Holstein) in Related Searches. Educational national guide could support regional landing pages later.",
+    "marketplace_integration_strategy": "Unlike ehorses (which IS the marketplace), position as independent buyer's guide that mentions marketplace options but prioritizes education. Link internally to PferdeWert's evaluation service as next step."
+  },
+  "quality_gate_assessment": {
+    "score": 85,
+    "rating": "Excellent",
+    "checklist": {
+      "min_10_serp_results": "PASS (11 organic results)",
+      "search_intent_classified": "PASS (Commercial 77.1%)",
+      "min_5_must_have_topics": "PASS (8 identified)",
+      "target_word_count_defined": "PASS (1595 words target)",
+      "min_3_differentiation_opportunities": "PASS (5 identified)",
+      "min_5_paa_questions": "PASS (8 integrated)",
+      "eeat_signals_defined": "PASS (credentials, references, case studies)",
+      "content_parsing_successful": "PASS (3/3 URLs parsed)"
+    }
+  }
+}

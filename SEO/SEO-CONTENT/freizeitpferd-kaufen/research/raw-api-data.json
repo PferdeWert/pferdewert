@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-11-14T16:00:00Z",
+  "keyword": "Freizeitpferd kaufen",
+  "location": "Germany",
+  "language": "de",
+  "data_sources": {
+    "related_keywords": {
+      "status": "success",
+      "items_count": 9,
+      "primary_keyword_data": {
+        "keyword": "freizeitpferd kaufen",
+        "search_volume": 1900,
+        "cpc": 0.13,
+        "competition_level": "LOW",
+        "search_intent": "commercial",
+        "monthly_searches": {
+          "2025-10": 1600,
+          "2025-09": 1600,
+          "2025-08": 1900
+        },
+        "trend": {
+          "quarterly": -16,
+          "yearly": -33
+        },
+        "backlinks_avg": 25.2,
+        "referring_domains_avg": 7.7,
+        "rank_score": 39.4
+      }
+    },
+    "keyword_overview": {
+      "status": "success",
+      "search_volume": 1900,
+      "cpc": 0.13,
+      "competition_level": "LOW"
+    },
+    "serp_analysis": {
+      "status": "success",
+      "depth": 10,
+      "marketplace_dominance": true,
+      "top_domains": ["ehorses.de", "kleinanzeigen.de", "deine-tierwelt.de", "pferde.de"]
+    },
+    "keyword_suggestions": {
+      "status": "success",
+      "items_count": 15
+    },
+    "keyword_difficulty": {
+      "status": "partial",
+      "note": "Only 1 keyword returned difficulty score",
+      "available_data": "pferde günstig kaufen bis 500 euro: difficulty 12 (EASY)"
+    }
+  }
+}

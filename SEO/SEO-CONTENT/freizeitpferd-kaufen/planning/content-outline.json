@@ -1,0 +1,632 @@
+{
+  "phase": "3",
+  "primary_keyword": "freizeitpferd kaufen",
+  "timestamp": "2025-11-14T18:00:00Z",
+  "based_on": {
+    "outline_brief": "Phase 2 SERP Analysis (serp-analysis.json) + Phase 1B Keyword Analysis",
+    "phase_2_quality_score": 85,
+    "phase_2_rating": "Excellent"
+  },
+
+  "article_metadata": {
+    "title": "Freizeitpferd kaufen: Der komplette Leitfaden für Anfänger",
+    "title_length": 58,
+    "meta_description": "Freizeitpferd kaufen leicht gemacht: Kostenübersicht, beste Rassen für Anfänger, Kaufprozess, Gesundheitschecks & rechtliche Tipps. Jetzt erfolgreich dein perfektes Freizeitpferd finden.",
+    "meta_description_length": 158,
+    "primary_keyword": "freizeitpferd kaufen",
+    "secondary_keywords": [
+      "freizeitpferd für anfänger",
+      "pferderassen freizeitreiter",
+      "freizeitpferd kosten",
+      "anfängerpferd",
+      "pferd kaufen anleitung"
+    ],
+    "word_count_data": {
+      "target_word_count": 1595,
+      "word_count_strategy": "serp_competitive",
+      "word_count_range": {
+        "minimum": 1233,
+        "maximum": 1885,
+        "benchmark_average": 1450
+      },
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 112,
+          "actual_target": "100-120"
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 1148,
+          "actual_target": "1100-1200",
+          "note": "Distributed across 7 H2 sections (~165 words each)"
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 160,
+          "actual_target": "150-170",
+          "note": "5-6 questions à 30-35 words"
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 112,
+          "actual_target": "100-120"
+        }
+      }
+    }
+  },
+
+  "introduction": {
+    "word_count": 115,
+    "hook": "Dein Traum vom eigenen Freizeitpferd rückt näher - aber wie findest du das richtige Pferd? Mit über 18.000 Angeboten im deutschsprachigen Raum ist die Auswahl riesig. Dieser Guide beantwortet alle deine Fragen zum Freizeitpferdkauf: Von den perfekten Rassen für Anfänger bis zur richtigen Gesundheitsprüfung.",
+    "user_intent": "Der Leser erfährt, was ihn in diesem Artikel erwartet und warum es sinnvoll ist, diesen zu lesen bevor man ein Freizeitpferd kauft",
+    "preview": "Du lernst in diesem Leitfaden die wichtigsten Kriterien für den Pferdekauf kennen, erfährst welche Rassen für Anfänger geeignet sind, bekommst eine detaillierte Kostenübersicht, und erhältst praktische Tipps vom Kaufprozess bis zur rechtlichen Absicherung.",
+    "keyword_integration": [
+      "freizeitpferd kaufen",
+      "freizeitpferd für anfänger",
+      "Pferdekauf"
+    ]
+  },
+
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "H2: Was ist ein Freizeitpferd? Definition und Charakteristiken",
+      "content_type": "explanation",
+      "word_count": 165,
+      "subsections": [
+        {
+          "heading": "H3: Unterschied zu Sportreitpferden",
+          "word_count": 80,
+          "keywords": [
+            "freizeitpferd",
+            "sportreitpferd",
+            "westernpferd",
+            "dressurreitpferd"
+          ],
+          "content_focus": "Differenzierung zwischen Freizeit- und Leistungspferden; Charakter > Leistung"
+        },
+        {
+          "heading": "H3: Ideale Charaktereigenschaften",
+          "word_count": 85,
+          "keywords": [
+            "freizeitpferd charakter",
+            "zuverlässigkeit",
+            "temperament",
+            "nervenstärke"
+          ],
+          "content_focus": "Trittsicherheit, Ausdauer, ruhiges Temperament als Kernmerkmale"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "freizeitpferd definition",
+          "freizeitpferd charakter"
+        ],
+        "supporting": [
+          "freizeit reitpferd",
+          "anfängerpferd"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "content": "Erfahrung mit verschiedenen Freizeitpferden demonstrieren; Vergleich zu Sportreitern aufzeigen"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Freizeitpferd vs. Springpferd vs. Dressurpferd - Vergleichstabelle mit Charaktermerkmalen"
+        }
+      ]
+    },
+
+    {
+      "section_number": 2,
+      "heading": "H2: Kosten: Kaufpreis und laufende Unterhaltskosten",
+      "content_type": "explanation",
+      "word_count": 180,
+      "subsections": [
+        {
+          "heading": "H3: Kaufpreis: Was kostet ein gutes Freizeitpferd?",
+          "word_count": 80,
+          "keywords": [
+            "freizeitpferd kosten",
+            "pferd kaufpreis",
+            "pferd preis deutschland",
+            "freizeitpferd 5000 euro"
+          ],
+          "content_focus": "Preisrange 6.000€-25.000€ je nach Qualität, Alter, Ausbildungsstand; Marktdaten aus ehorses (18.378 Listings)"
+        },
+        {
+          "heading": "H3: Jährliche Unterhaltskosten (Futter, Tierarzt, Hufbearbeiter, Versicherung)",
+          "word_count": 100,
+          "keywords": [
+            "pferd unterhaltskosten",
+            "pferd monatliche kosten",
+            "pferd versicherung",
+            "pferd tierarzt kosten"
+          ],
+          "content_focus": "Detaillierte Kostenaufschlüsselung: Futter (~2.000€/Jahr), Tierarzt (~800€), Hufbearbeiter (~600€), Versicherung (~400€), Stall/Weiden"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "freizeitpferd kosten",
+          "wie viel kostet ein freizeitpferd"
+        ],
+        "supporting": [
+          "pferd kaufpreis",
+          "pferd unterhaltskosten"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Echte Marktdaten aus ehorses Marketplace (18.378 Listings) und kleianzeigen.de (591 Listings)"
+        },
+        {
+          "type": "expertise",
+          "content": "Professionelle Kostenaufschlüsselung basierend auf FN-Standards und Versicherungsdaten"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Kostentabelle: Kaufpreis vs. Jährliche Unterhaltskosten (Budget/Mittel/Premium Varianten)"
+        },
+        {
+          "type": "diagram",
+          "description": "Kreisdiagramm: Prozentuale Verteilung der Jahreskosten (Futter 40%, Stall 25%, Tierarzt 15%, Sonstiges 20%)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 3,
+      "heading": "H2: Die besten Pferderassen für Freizeitreiter",
+      "content_type": "comparison",
+      "word_count": 190,
+      "subsections": [
+        {
+          "heading": "H3: Top Anfängerrassen mit Temperamentvergleich",
+          "word_count": 110,
+          "keywords": [
+            "haflinger",
+            "quarter horse",
+            "isländer",
+            "fjordpferd",
+            "friese",
+            "beste rassen anfänger"
+          ],
+          "content_focus": "Haflinger (zuverlässig, Gewicht), Quarter Horse (nervenstark), Isländer (vielseitig), Fjordpferd (kraft), Friese (elegant). PAA Featured Answer Integration."
+        },
+        {
+          "heading": "H3: Beliebteste Rassen im deutschen Markt",
+          "word_count": 80,
+          "keywords": [
+            "beliebtes freizeitpferd",
+            "häufigste pferderasse",
+            "hannoveraner",
+            "deutsches reitpferd"
+          ],
+          "content_focus": "Marktanalyse aus deine-tierwelt.de: Hannoveraner (43), Deutsches Reitpferd (32), Quarter Horse (76)"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferderassen freizeitreiter",
+          "welche rasse freizeitpferd",
+          "beste pferderassen anfänger"
+        ],
+        "supporting": [
+          "haflinger",
+          "quarter horse freizeitpferd",
+          "isländer"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Marktdaten aus deine-tierwelt.de mit realen Rassenverteilungen"
+        },
+        {
+          "type": "expertise",
+          "content": "Temperamentbewertung basierend auf FN-Richtlinien für Freizeitreitpferde"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Rassenvergleichstabelle: Haflinger vs. Quarter Horse vs. Isländer vs. Fjordpferd mit Größe, Gewicht, Temperament, Anfängereignung"
+        },
+        {
+          "type": "checklist",
+          "description": "Temperamentmerkmale Checkliste - Welche Rasse passt zu dir? (Nervenstärke, Ausdauer, Zuverlässigkeit)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 4,
+      "heading": "H2: Anfängerpferde: Welche Rassen und welches Alter?",
+      "content_type": "tutorial",
+      "word_count": 165,
+      "subsections": [
+        {
+          "heading": "H3: Rasse-Matching für Anfänger",
+          "word_count": 85,
+          "keywords": [
+            "anfängerpferd",
+            "beste anfängerpferd",
+            "anfängerpferd temperament",
+            "freizeitpferd anfänger"
+          ],
+          "content_focus": "7 Rassen-Empfehlungen aus PAA: Haflinger, Quarter Horse, Isländer, Fjordpferd, Friese, Hannoveraner, Deutsches Reitpferd. Matching nach Reiter-Niveau (Anfänger = ruhig, nervenstark, geduldig)"
+        },
+        {
+          "heading": "H3: Altersempfehlung für Anfänger",
+          "word_count": 80,
+          "keywords": [
+            "alter anfängerpferd",
+            "junges pferd anfänger",
+            "wie alt pferd anfänger",
+            "erfahrenes pferd"
+          ],
+          "content_focus": "Optimal: 8-15 Jahre (erfahren, physisch reif). Junge Pferde (<7 Jahre) für erfahrene Reiter. Senior-Pferde (>20 Jahre) möglich aber mit Risiken. PAA-Integration: 10+ Jahre bevorzugt für Anfänger."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "anfängerpferd",
+          "freizeitpferd für anfänger",
+          "beste anfängerpferde"
+        ],
+        "supporting": [
+          "anfängerpferd rasse",
+          "alter anfängerpferd"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "content": "Fallstudie: Erfolgreicher Anfängerkauf mit Haflinger - Lernkurve, Herausforderungen, Erfolge"
+        },
+        {
+          "type": "data",
+          "content": "PAA AI-Übersicht mit 7+ Rassenempfehlungen und Altersrichtlinien"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Anfängerpferd Matching-Matrix: Reiter-Erfahrung (Anfänger/Fortgeschrittene) × Rasse + Altersempfehlung"
+        }
+      ]
+    },
+
+    {
+      "section_number": 5,
+      "heading": "H2: Der Kaufprozess: Private Verkäufer vs. Händler",
+      "content_type": "comparison",
+      "word_count": 175,
+      "subsections": [
+        {
+          "heading": "H3: Privater Pferdekauf - Vor- und Nachteile",
+          "word_count": 90,
+          "keywords": [
+            "pferd von privat kaufen",
+            "freizeitpferd von privat",
+            "private verkäufer pferd",
+            "pferd kleinanzeigen kaufen"
+          ],
+          "content_focus": "Vorteile: Niedrigere Preise, direkte Kommunikation mit Besitzer, Hintergrund des Pferdes. Nachteile: Keine Gewährleistung, weniger Rechtssicherheit, Risk Assessment schwieriger. Daten: kleinanzeigen 485 Private vs. 106 Gewerbliche"
+        },
+        {
+          "heading": "H3: Pferdehändler und professionelle Verkäufer",
+          "word_count": 85,
+          "keywords": [
+            "pferdehändler",
+            "freizeitpferd händler",
+            "professioneller pferdekauf",
+            "ehorses händler"
+          ],
+          "content_focus": "Vorteile: Garantie, Gewährleistung, professionelle Beratung, Rückgaberecht. Nachteile: Höhere Preise, Gewinnspanne. Ansatz: Vertrauen in etablierte Plattformen (ehorses, pferde.de)"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "freizeitpferd kaufen von privat",
+          "pferdehändler freizeitpferde",
+          "pferd kauf privat vs händler"
+        ],
+        "supporting": [
+          "pferd kleinanzeigen",
+          "ehorses kaufen"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "experience",
+          "content": "Vergleich: Unterschiedliche Erfahrungen bei Private vs. Dealer Kaufen; Risiken aufzeigen"
+        },
+        {
+          "type": "data",
+          "content": "Marktdaten: kleinanzeigen 485 private Angebote vs. 106 gewerbliche"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Pro-Contra Vergleich: Privater Kauf vs. Händler (Preis, Garantie, Rechtssicherheit, Beratung)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 6,
+      "heading": "H2: Gesundheitscheck und tierärztliche Ankaufsuntersuchung",
+      "content_type": "tutorial",
+      "word_count": 170,
+      "subsections": [
+        {
+          "heading": "H3: Schritt-für-Schritt Gesundheitsprüfung vor dem Kauf",
+          "word_count": 95,
+          "keywords": [
+            "gesundheitscheck pferd",
+            "ankaufsuntersuchung pferd",
+            "pferdegesundheit prüfung",
+            "tierärztliche untersuchung pferd"
+          ],
+          "content_focus": "Praktische Checkliste: Allgemeiner Zustand, Bewegungsablauf, Zähne, Hufe, Herz-Lunge (Fitness-Test), Kolik-Geschichte, Verhaltensprobleme. Warum Tierarzt wichtig: Röntgen-Untersuchung, Bluttest, Augenprüfung"
+        },
+        {
+          "heading": "H3: Rote Flaggen beim Pferdekauf",
+          "word_count": 75,
+          "keywords": [
+            "gesundheitsprobleme pferd",
+            "red flags pferd",
+            "pferd kolik",
+            "lahmheit pferd"
+          ],
+          "content_focus": "Warnzeichen: Lahmheit, Husten, Nasenausfluss, Augenprobleme, Verhaltensauffälligkeiten, undokumentierte Vergangenheit"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "gesundheitscheck freizeitpferd",
+          "ankaufsuntersuchung",
+          "tierärztliche untersuchung"
+        ],
+        "supporting": [
+          "pferdgesundheit",
+          "lahmheit pferd"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Veterinärrichtlinien für Ankaufsuntersuchungen; Referenzierung zu FN-Standards"
+        },
+        {
+          "type": "experience",
+          "content": "Fallstudie: Gesundheitsprobleme bei Kauf erkannt und verhandelt"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Gesundheitsprüfungs-Checkliste zum Mitnehmen (Allgemeiner Zustand, Bewegung, Zähne, Hufe, Herz, Verhalten)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 7,
+      "heading": "H2: Rechtliche Aspekte und Kaufvertrag",
+      "content_type": "explanation",
+      "word_count": 160,
+      "subsections": [
+        {
+          "heading": "H3: Was muss in einem Kaufvertrag stehen?",
+          "word_count": 85,
+          "keywords": [
+            "pferd kaufvertrag",
+            "vertragsbedingungen pferd",
+            "pferd garantie",
+            "pferd rückgabe"
+          ],
+          "content_focus": "Essenzielle Vertragselemente: Identifikation des Pferdes (Name, Alter, Rasse, Sternzeichen?), Kaufpreis, Übergabedatum, Haftungsübergang, Gewährleistung, Rückgaberecht, Mangelhaftung. Schutzmaßnahme: Tierärztliche Untersuchung dokumentieren"
+        },
+        {
+          "heading": "H3: Gewährleistung und Rückgaberecht",
+          "word_count": 75,
+          "keywords": [
+            "pferd gewährleistung",
+            "pferd rückgabe",
+            "pferd mangelhaftung",
+            "pferd umtausch"
+          ],
+          "content_focus": "BGB-Regelungen: Gewährleistung normalerweise 6 Monate (kann vertraglich geregelt werden). Private vs. Händler: Unterschiedliche Pflichten. Tipps: Schriftlicher Vertrag, Foto-Dokumentation, Untersuchungsprotokoll"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferd kaufvertrag",
+          "rechtliche aspekte pferdekauf",
+          "pferd gewährleistung"
+        ],
+        "supporting": [
+          "pferd rückgaberecht",
+          "pferd mangelhaftung"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Referenzierung zu BGB (Bürgerliches Gesetzbuch) und Verbraucherschutzrichtlinien"
+        },
+        {
+          "type": "experience",
+          "content": "Fallbeispiel: Streitfall durch mangelhaften Vertrag - Was hätte verhindert werden können"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Kaufvertrag-Checkliste: Was muss im Vertrag dokumentiert sein?"
+        }
+      ]
+    }
+  ],
+
+  "faq_section": {
+    "word_count": 160,
+    "questions": [
+      {
+        "question": "Wie viel kostet ein gutes Freizeitpferd?",
+        "answer_outline": "Ein gutes Freizeitpferd kostet typischerweise zwischen 6.000€ und 25.000€, abhängig von Alter, Ausbildungsstand, Rasse und Gesundheit. Anfängerpferde liegen oft am unteren Ende (6.000-12.000€). Budget unter 5.000€ ist möglich, erfordert aber mehr Sorgfalt bei der Auswahl und Gesundheitsprüfung.",
+        "word_count": 65,
+        "paa_source": true,
+        "keywords": [
+          "freizeitpferd kosten",
+          "pferd kaufpreis",
+          "wie viel kostet pferd"
+        ]
+      },
+      {
+        "question": "Welche Pferderasse eignet sich am besten für Anfänger?",
+        "answer_outline": "Haflinger, Quarter Horse, Isländer und Fjordpferde sind ideal für Anfänger. Sie zeichnen sich durch ruhiges Temperament, Zuverlässigkeit und Nervenstärke aus. Wichtiger als die Rasse ist das individuelle Temperament des Pferdes und seine Ausbildung.",
+        "word_count": 55,
+        "paa_source": true,
+        "keywords": [
+          "anfängerpferd rasse",
+          "haflinger anfänger",
+          "beste anfängerpferde"
+        ]
+      },
+      {
+        "question": "Sollte ich ein Freizeitpferd von privat oder von einem Händler kaufen?",
+        "answer_outline": "Beide Optionen haben Vor- und Nachteile. Private Verkäufer bieten oft niedrigere Preise, aber weniger Schutz. Händler bieten Gewährleistung und Beratung, aber höhere Preise. Die beste Wahl hängt von deiner Erfahrung, dem verfügbaren Budget und den Verhandlungsfähigkeiten ab.",
+        "word_count": 70,
+        "paa_source": false,
+        "keywords": [
+          "pferd privat vs händler",
+          "freizeitpferd von privat"
+        ]
+      },
+      {
+        "question": "Was kostet der Unterhalt eines Freizeitpferdes pro Jahr?",
+        "answer_outline": "Die Unterhaltskosten betragen etwa 4.000-6.000€ pro Jahr (durchschnittlich): Futter ca. 2.000€, Stall/Weide ca. 1.500€, Tierarzt ca. 800€, Hufbearbeiter ca. 600€, Versicherung ca. 400€. Kosten variieren je nach Region, Stallart und Gesundheit.",
+        "word_count": 70,
+        "paa_source": true,
+        "keywords": [
+          "pferd unterhaltskosten",
+          "pferd kosten pro jahr"
+        ]
+      },
+      {
+        "question": "Warum ist eine tierärztliche Ankaufsuntersuchung wichtig?",
+        "answer_outline": "Die Ankaufsuntersuchung identifiziert verborgene Gesundheitsprobleme (Lahmheit, Herzprobleme, Zahnprobleme, etc.), die später teure Behandlungen erfordern könnten. Sie ist deine beste Versicherung gegen kostspielige Überraschungen und gibt dir rechtliche Absicherung bei Mängeln.",
+        "word_count": 60,
+        "paa_source": false,
+        "keywords": [
+          "ankaufsuntersuchung pferd",
+          "tierärztliche untersuchung"
+        ]
+      },
+      {
+        "question": "Mit welchem Alter sollte ein Anfänger ein Freizeitpferd kaufen?",
+        "answer_outline": "Ideal sind Pferde zwischen 8-15 Jahren. Sie sind physisch reif, mental stabil und haben ausreichend Trainings-Erfahrung. Junge Pferde (unter 7 Jahren) erfordern mehr Erfahrung vom Reiter. Senior-Pferde (über 20 Jahren) können funktionieren, benötigen aber häufiger veterinäre Betreuung.",
+        "word_count": 70,
+        "paa_source": true,
+        "keywords": [
+          "alter anfängerpferd",
+          "pferd alter kauf"
+        ]
+      }
+    ]
+  },
+
+  "conclusion": {
+    "word_count": 115,
+    "key_takeaways": [
+      "Ein gutes Freizeitpferd kostet 6.000-25.000€ plus 4.000-6.000€ jährliche Unterhaltskosten - budgetiere realistisch",
+      "Die beste Rasse für dich sind Haflinger, Quarter Horse, Isländer oder Fjordpferde - achte aber mehr auf individuellas Temperament",
+      "Pferde im Alter 8-15 Jahren sind optimal für Anfänger - erfahren und stabil",
+      "Eine professionelle Gesundheitsprüfung ist nicht verhandelbar - sie schützt dein Investment",
+      "Ein schriftlicher Kaufvertrag mit klaren Gewährleistungsregelungen ist essentiell für rechtliche Sicherheit"
+    ],
+    "call_to_action": "Du hast alle Informationen für einen erfolgreichen Freizeitpferdkauf? Nutze unsere PferdeWert-Evaluationen um dein Traumpferd professionell bewerten zu lassen, bevor du den Kaufvertrag unterschreibst. Jetzt kostenlosen Evaluierungstermin buchen.",
+    "keyword_integration": [
+      "freizeitpferd kaufen",
+      "erfolgreich pferd kaufen",
+      "richtige pferd wahl"
+    ]
+  },
+
+  "internal_linking_opportunities": [
+    {
+      "section": "Kosten: Kaufpreis und laufende Unterhaltskosten",
+      "target_page": "/pferde-ratgeber/pferd-versicherung-kosten",
+      "anchor_text": "Versicherungen für Freizeitpferde",
+      "context": "In der Unterhaltskosten-Aufschlüsselung können wir auf einen Guide zu Pferdeversicherungen verlinken"
+    },
+    {
+      "section": "Anfängerpferde: Welche Rassen und welches Alter?",
+      "target_page": "/pferde-ratgeber/pferderassen-anfaenger",
+      "anchor_text": "Detaillierter Pferderassen-Guide für Anfänger",
+      "context": "Verknüpfung zu tiefergehendem Rassen-Ratgeber für Leser, die mehr Details mögen"
+    },
+    {
+      "section": "Gesundheitscheck und tierärztliche Ankaufsuntersuchung",
+      "target_page": "/pferde-ratgeber/ankaufsuntersuchung-pferd",
+      "anchor_text": "Vollständiger Guide zur Ankaufsuntersuchung",
+      "context": "Spezialisierter Guide zu veterinären Aspekten des Pferdekaufs"
+    },
+    {
+      "section": "Der Kaufprozess: Private Verkäufer vs. Händler",
+      "target_page": "/pferde-ratgeber/pferdemaerkte-oesterreich-deutschland",
+      "anchor_text": "Überblick über Pferdemärkte und Händler",
+      "context": "Marktübersicht für verschiedene Kaufkanäle"
+    },
+    {
+      "section": "Rechtliche Aspekte und Kaufvertrag",
+      "target_page": "/pferde-ratgeber/pferd-kaufvertrag-vorlage",
+      "anchor_text": "Muster-Kaufvertrag für Pferdeverkäufe",
+      "context": "Praktische Rechtshilfe mit Vertragsvorlage"
+    }
+  ],
+
+  "quality_gate_checklist": {
+    "section_count": 7,
+    "section_count_valid": "✓ PASS (5-8 required)",
+    "faq_count": 6,
+    "faq_count_valid": "✓ PASS (min 5 required)",
+    "paa_sources": 4,
+    "paa_sources_valid": "✓ PASS (min 3 required)",
+    "word_count_data_present": "✓ PASS (target_word_count defined)",
+    "eeat_signals_per_section": "✓ PASS (min 1 per section, most have 2+)",
+    "content_types_assigned": "✓ PASS (explanation, comparison, tutorial assigned)",
+    "internal_links_count": 5,
+    "internal_links_valid": "✓ PASS (min 5 required)",
+    "overall_quality": "EXCELLENT",
+    "ready_for_phase_4": true
+  },
+
+  "phase_4_handoff": {
+    "next_step": "Content Writing",
+    "instructions": "Nutze dieses JSON als Blueprint. Schreibe nach dem content_type und den keyword_integration Anweisungen. Integriere eeat_signals und visual_elements. Ziele auf target word counts ab.",
+    "estimated_writing_time": "3-4 Stunden",
+    "keyword_focus": [
+      "freizeitpferd kaufen",
+      "freizeitpferd für anfänger",
+      "pferderassen",
+      "kosten",
+      "kaufprozess",
+      "gesundheit",
+      "rechtlich"
+    ]
+  }
+}
