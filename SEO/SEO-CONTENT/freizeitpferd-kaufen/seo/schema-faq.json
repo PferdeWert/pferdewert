@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet ein gutes Freizeitpferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein gutes Freizeitpferd kostet zwischen 6.000€ und 25.000€ beim Kauf, abhängig von Alter, Rasse und Ausbildungsstand. Budget-Varianten (5-10 Jahre, Basis-Ausbildung) kosten 6.000-12.000€, mittleres Segment 12.000-18.000€, Premium-Pferde 18.000€+. Zusätzlich fallen jährliche Unterhaltskosten von 4.000-6.000€ an (Futter, Stall, Tierarzt, Hufschmied)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Pferderasse ist beste für Anfänger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die besten Anfängerrassen sind: 1) Haflinger (extrem zuverlässig, geduldig, ideal für Anfänger), 2) Quarter Horse (nervenstark, intelligent, gehorsam), 3) Isländer (ausdauernd, trittsicher), 4) Fjordpferd (robust, für schwerere Reiter), 5) Hannoveraner (klassisches deutsches Reitpferd). Das Wichtigste ist nicht nur die Rasse, sondern das individuelle Temperament des Pferdes - teste es persönlich vor dem Kauf."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welches Alter sollte ein Anfängerpferd haben?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Optimal für Anfänger ist ein Alter zwischen 8-15 Jahren: Der Körper ist vollständig entwickelt, es hat genug Trainingserfahrung, noch 10-15 Jahre Lebensdauer, und das Temperament ist etabliert. Junge Pferde (unter 7 Jahren) brauchen erfahrene Reiter. Senior-Pferde (über 20 Jahren) sind oft günstig, haben aber häufig gesundheitliche Probleme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist eine tierärztliche Ankaufsuntersuchung wirklich nötig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, absolut! Eine Ankaufsuntersuchung durch einen Tierarzt kostet 400-600€ und ist nicht optional - es ist Pflicht. Sie dauert 1-2 Stunden und prüft Allgemeinzustand, Bewegung unter Last, Herz, Lungen, Zähne und Augen. Diese Untersuchung schützt dich vor teuren Fehlkäufen und kann dir 5.000€+ in Veterinärkosten sparen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was muss in einen Pferd-Kaufvertrag rein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein gültiger Kaufvertrag muss enthalten: 1) Identifikation (Name, Alter, Rasse, Farbe, besondere Merkmale, ggf. Pferdepass), 2) Finanzielle Bedingungen (Kaufpreis, Zahlungsweise, Anzahlung), 3) Zustandsbeschreibung (Gesundheit, Ausbildung, Temperament), 4) Gewährleistung (meist 6 Monate, Details was abgedeckt), 5) Haftung nach Übergabe (wann wechselt Verantwortung), 6) Unterschriften beider Parteien mit Datum und Ort."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sollte ich ein Freizeitpferd privat oder von einem Händler kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Private Verkäufer bieten 20-30% niedrigere Preise, aber keine Gewährleistung. Händler sind teurer (20-30% höher), bieten aber 1-2 Jahre Gewährleistung, Rückgaberecht und rechtliche Sicherheit. Für Anfänger empfehle ich einen seriösen Händler oder etablierte Plattformen (ehorses.de, pferde.de), da die Mehrkosten durch Sicherheit und Rückgaberecht kompensiert werden."
+      }
+    }
+  ]
+}

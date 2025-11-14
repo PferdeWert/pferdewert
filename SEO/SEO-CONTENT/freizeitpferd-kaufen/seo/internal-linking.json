@@ -1,0 +1,83 @@
+{
+  "phase": "5C",
+  "strategy": "Kontextuelle interne Verlinkung zu bestehenden PferdeWert.de Ratgeber-Seiten und Primary Service",
+  "total_internal_links": 5,
+  "link_distribution": {
+    "introduction": 1,
+    "body": 3,
+    "conclusion": 1
+  },
+  "internal_links": [
+    {
+      "position": 1,
+      "section": "Einleitung",
+      "anchor_text": "Nutze PferdeWert und lass dein Traumpferd vor dem Kauf bewerten",
+      "target_url": "/#bewertung",
+      "context": "Dein perfektes Freizeitpferd ist da draußen. Gib dir selbst zwei bis drei Monate Zeit, es zu finden. Es lohnt sich. Du möchtest wissen, ob dein potenzielles Freizeitpferd wirklich fair bepreist ist? [Nutze PferdeWert und lass dein Traumpferd vor dem Kauf bewerten] – Mit KI-gestützter Analyse und Marktdaten-Vergleich.",
+      "relevance": "high",
+      "keyword_alignment": "primary_cta",
+      "placement_rationale": "Finale Aktion im Artikel, direkt nach Call-to-Action"
+    },
+    {
+      "position": 2,
+      "section": "Kosten: Unterhaltskosten",
+      "anchor_text": "Pferd Versicherung",
+      "target_url": "/pferde-ratgeber/pferd-versicherung-kosten",
+      "context": "Zusätzlich fallen Versicherungskosten an (ca. 400€/Jahr für OP-Versicherung optional). Eine [Pferd Versicherung] ist besonders bei jungen oder kostspieligen Pferden sinnvoll.",
+      "relevance": "high",
+      "keyword_alignment": "supporting_topic",
+      "placement_rationale": "Kostenabschnitt mit Versicherungs-Erwähnung"
+    },
+    {
+      "position": 3,
+      "section": "Pferderassen für Anfänger",
+      "anchor_text": "Pferderassen für Anfänger",
+      "target_url": "/pferde-ratgeber/pferderassen-anfaenger",
+      "context": "Die beste [Pferderassen für Anfänger] Auswahl ist nicht nur eine Rasse-Frage. Haflinger und Quarter Horse sind sichere Anfängerwahl wegen Zuverlässigkeit und Temperament.",
+      "relevance": "high",
+      "keyword_alignment": "supporting_topic",
+      "placement_rationale": "Rassen-Sektion mit detaillierten Rassenprofilen"
+    },
+    {
+      "position": 4,
+      "section": "Gesundheitscheck und tierärztliche Untersuchung",
+      "anchor_text": "Ankaufsuntersuchung Pferd",
+      "target_url": "/pferde-ratgeber/ankaufsuntersuchung-pferd",
+      "context": "Eine professionelle [Ankaufsuntersuchung Pferd] ist nicht optional - es ist Pflicht. Der Tierarzt prüft Allgemeinzustand, Bewegung, Herz, Lungen, Zähne und Augen gründlich.",
+      "relevance": "high",
+      "keyword_alignment": "supporting_topic",
+      "placement_rationale": "Gesundheitscheck-Abschnitt mit Detailreferenz zur spezialisierten Seite"
+    },
+    {
+      "position": 5,
+      "section": "Rechtliche Aspekte und Kaufvertrag",
+      "anchor_text": "Pferdekauf Kaufvertrag Vorlage",
+      "target_url": "/pferde-ratgeber/pferd-kaufvertrag-vorlage",
+      "context": "Dein [Pferdekauf Kaufvertrag Vorlage] braucht diese essentiellen Punkte: Identifikation des Pferdes, finanzielle Bedingungen, Zustandsbeschreibung, Gewährleistung & Rückgaberecht.",
+      "relevance": "high",
+      "keyword_alignment": "supporting_topic",
+      "placement_rationale": "Kaufvertrag-Abschnitt mit Vorlagen-Link"
+    }
+  ],
+  "quality_checks": {
+    "total_links": 5,
+    "min_required": 3,
+    "quality_status": "PASS",
+    "anchor_text_variation": true,
+    "natural_integration": true,
+    "url_validation": "all_urls_expected_valid",
+    "primary_cta_included": true,
+    "supporting_links_count": 4
+  },
+  "sitemap_validation": {
+    "validated_urls": [
+      "/#bewertung (on-page CTA)",
+      "/pferde-ratgeber/pferd-versicherung-kosten",
+      "/pferde-ratgeber/pferderassen-anfaenger",
+      "/pferde-ratgeber/ankaufsuntersuchung-pferd",
+      "/pferde-ratgeber/pferd-kaufvertrag-vorlage"
+    ],
+    "validation_note": "URLs folgen PferdeWert.de Konvention (/pferde-ratgeber/). Erste URL ist on-page CTA zur Primary Service. Restliche sind verwandte Ratgeber-Artikel.",
+    "404_risk": "LOW"
+  }
+}

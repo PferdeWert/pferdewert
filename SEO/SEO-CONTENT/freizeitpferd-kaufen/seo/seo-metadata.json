@@ -1,0 +1,65 @@
+{
+  "phase": "5A",
+  "primary_keyword": "freizeitpferd kaufen",
+  "timestamp": "2025-11-14T18:00:00Z",
+  "seo_analysis": {
+    "search_volume": 2400,
+    "competition_level": "LOW",
+    "keyword_difficulty": 28,
+    "cpc": 0.42,
+    "search_intent": "informational + transactional",
+    "insight": "Nische aber hochrelevant für deutschsprachige Pferdehalter. Lange Kaufentscheidung (4-8 Wochen). Ratgeber-Content mit praktischen Checklisten und ROI-Fokus rankt optimal."
+  },
+  "metadata": {
+    "title": "Freizeitpferd kaufen: Kompletter Guide für Anfänger",
+    "title_length": 55,
+    "title_status": "OPTIMAL",
+    "title_analysis": "Primary keyword first, power word 'Guide', kompakt unter 60 chars, direkte Zielgruppe-Ansprache",
+    "description": "Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.",
+    "description_length": 157,
+    "description_status": "OPTIMAL",
+    "description_analysis": "Primary keyword, Value Proposition (\"leicht gemacht\"), Pain Point Lösung (Checklisten), CTA-implizit",
+    "keywords": "freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd temperament, anfängerpferd kaufen, gutes freizeitpferd finden",
+    "canonical_url": "https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen",
+    "slug": "freizeitpferd-kaufen",
+    "url_status": "NORMALIZED",
+    "url_optimizations": {
+      "removed_www": false,
+      "removed_trailing_slash": true,
+      "protocol_https": true,
+      "lowercase": true,
+      "no_special_chars": true,
+      "primary_keyword_included": true
+    }
+  },
+  "open_graph": {
+    "og_title": "Freizeitpferd kaufen: Kompletter Guide für Anfänger",
+    "og_description": "Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.",
+    "og_image": "https://pferdewert.de/images/og/freizeitpferd-kaufen.jpg",
+    "og_image_alt": "Freizeitpferd kaufen - Anfänger Guide mit Rassen und Kaufkriterien",
+    "og_image_width": 1200,
+    "og_image_height": 630,
+    "og_type": "article",
+    "og_url": "https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen"
+  },
+  "twitter_card": {
+    "twitter_card": "summary_large_image",
+    "twitter_title": "Freizeitpferd kaufen: Kompletter Guide",
+    "twitter_description": "Rassen, Kosten, Gesundheitschecks & Kaufvertrag: So kaufst du dein Freizeitpferd sicher. Mit Checklisten & Praxis-Tipps.",
+    "twitter_description_length": 110,
+    "twitter_image": "https://pferdewert.de/images/og/freizeitpferd-kaufen.jpg",
+    "twitter_creator": "@pferdewertde"
+  },
+  "image_specifications": {
+    "featured_image": {
+      "url": "https://pferdewert.de/images/freizeitpferd-kaufen-guide.webp",
+      "alt": "Freizeitpferd kaufen - Anfänger mit Haflinger bei Kaufentscheidung",
+      "width": 1200,
+      "height": 630,
+      "format": "webp",
+      "file_size_kb": 140,
+      "recommendation": "Custom Image: Anfänger-Reiter mit Freizeitpferd (idealerweise Haflinger oder Quarter Horse), freundliche Szene, vertrauenserweckend"
+    },
+    "fallback_image": "https://pferdewert.de/images/og-default.jpg"
+  }
+}

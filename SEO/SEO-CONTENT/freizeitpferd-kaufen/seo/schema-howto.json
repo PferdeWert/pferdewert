@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Freizeitpferd kaufen: Schritt-für-Schritt Anleitung",
+  "description": "So kaufst du dein Freizeitpferd sicher und erfolgreich - von der Budgetplanung bis zur Vertragsunterschrift",
+  "image": "https://pferdewert.de/images/freizeitpferd-kaufen-guide.webp",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Budget definieren",
+      "text": "Berechne dein Budget für Kauf und Jahreskosten. Kaufpreis: 6.000-25.000€. Jährliche Unterhaltskosten: 4.000-6.000€ (durchschnittlich 450€/Monat). Klär auch Bankfinanzierung, falls nötig.",
+      "image": "https://pferdewert.de/images/freizeitpferd-budget.webp"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Rasse und Anforderungen klären",
+      "text": "Wähle die passende Pferderasse für dein Niveau. Anfänger sollten Haflinger, Quarter Horse oder Isländer bevorzugen. Definiere auch das Idealgewicht des Pferdes und besondere Anforderungen (z.B. für schwerere Reiter: Fjordpferd).",
+      "image": "https://pferdewert.de/images/freizeitpferd-rassen.webp"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Markt durchsuchen und Kandidaten testen",
+      "text": "Nutze ehorses.de, pferde.de oder kleinanzeigen.de. Sieh dir mindestens 10-15 Kandidaten an. Wichtig: Teste das Pferd persönlich (reiten, nicht nur ansehen). Mit Verkäufern kommunizieren, Referenzen erfragen.",
+      "image": "https://pferdewert.de/images/freizeitpferd-suche.webp"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Tierärztliche Ankaufsuntersuchung durchführen",
+      "text": "Buche deinen Tierarzt BEVOR du Geld zahlst. Untersuchung dauert 1-2 Stunden, kostet 400-600€. Prüfe: Allgemeinzustand, Bewegung unter Last, Herz/Lungen, Zähne, Augen. Optional: Röntgen bei Gelenkproblemen.",
+      "image": "https://pferdewert.de/images/freizeitpferd-gesundheitscheck.webp"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Kaufvertrag prüfen und unterzeichnen",
+      "text": "Kaufvertrag muss enthalten: Pferdeidentifikation, Kaufpreis, Zustand, Gewährleistung (6 Monate Standard), Haftungsklauseln. Lass Anwalt checken (100-200€). Unterzeichne NACH erfolgreicher Tieruntersuchung.",
+      "image": "https://pferdewert.de/images/freizeitpferd-vertrag.webp"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Transport und Integration vorbereiten",
+      "text": "Arrange Transport (sicher und versichert). Kläre Stallplatz. Buche termin mit lokalem Tierarzt vor Ankunft. Kaufe Grundausstattung (Sattel, Zaumzeug, Pflege-Material). Der gesamte Prozess dauert 4-8 Wochen."
+    }
+  ],
+  "totalTime": "PT4W"
+}

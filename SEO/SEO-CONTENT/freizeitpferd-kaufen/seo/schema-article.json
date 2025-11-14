@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Freizeitpferd kaufen: Kompletter Guide für Anfänger",
+  "description": "Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.",
+  "image": "https://pferdewert.de/images/freizeitpferd-kaufen-guide.webp",
+  "author": {
+    "@type": "Person",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    },
+    "url": "https://pferdewert.de"
+  },
+  "datePublished": "2025-11-14",
+  "dateModified": "2025-11-14",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen"
+  },
+  "articleSection": "Ratgeber",
+  "keywords": "freizeitpferd kaufen, freizeitpferd rassen, anfängerpferd, pferderassen anfänger, pferd kaufentscheidung",
+  "wordCount": 2487
+}
