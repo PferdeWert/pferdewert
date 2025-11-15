@@ -7,15 +7,18 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
-import { Sparkles, Award, ShieldCheck, Clock, User, Heart, CheckCircle } from 'lucide-react';
+import { Sparkles, Clock, User, CheckCircle, ShieldCheck, Award } from 'lucide-react';
 import Link from 'next/link';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
-const heartIcon = <Heart className="w-5 h-5" />;
 const checkCircleIcon = <CheckCircle className="w-5 h-5" />;
 const clockIcon = <Clock className="h-4 w-4" />;
 const userIcon = <User className="h-4 w-4" />;
+const checkCircleGreenIcon = <CheckCircle className="h-5 w-5 text-green-600 mr-2" />;
+const checkCircleGreenFlexIcon = <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />;
+const shieldIcon = <ShieldCheck className="h-6 w-6 mr-2" />;
+const awardIcon = <Award className="h-6 w-6 mr-2" />;
 
 // FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
 const heroMetaItems = [
@@ -226,6 +229,8 @@ export default function AnfaengerpferdKaufen() {
       <RatgeberHeroImage
         src="/images/ratgeber/anfaengerpferd-hero.webp"
         alt="Pferd zeigt Flehmen-Reaktion – typisches Verhalten bei neugierigen, aufmerksamen Pferden"
+        priority={true}
+        objectPosition="center center"
         attribution={{
           author: 'Waugsberg',
           license: 'CC BY-SA 3.0',
@@ -235,50 +240,37 @@ export default function AnfaengerpferdKaufen() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Sidebar with Table of Contents */}
-          <aside className="lg:col-span-3">
-            <div className="sticky top-24">
-              <RatgeberTableOfContents sections={sections} />
-            </div>
-          </aside>
+      {/* Table of Contents */}
+      <RatgeberTableOfContents sections={sections} />
 
-          {/* Main Content */}
-          <article className="lg:col-span-9 prose prose-lg max-w-none">
-            {/* Introduction */}
-            <div className="mb-12">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Dieser umfassende Ratgeber begleitet dich durch alle Phasen des Pferdekaufs: von den wichtigsten Charaktereigenschaften über geeignete Rassen, realistische Kosten, den Kaufprozess bis hin zu rechtlichen Absicherungen und Versicherungen. Du erfährst, worauf es wirklich ankommt – und vermeidest die typischen Fehler, die Anfänger teuer zu stehen kommen.
-              </p>
+      <article>
+        {/* Main Content */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6 space-y-12">
+          {/* Introduction */}
+          <section className="space-y-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Dieser umfassende Ratgeber begleitet dich durch alle Phasen des Pferdekaufs: von den wichtigsten Charaktereigenschaften über geeignete Rassen, realistische Kosten, den Kaufprozess bis hin zu rechtlichen Absicherungen und Versicherungen. Du erfährst, worauf es wirklich ankommt – und vermeidest die typischen Fehler, die Anfänger teuer zu stehen kommen.
+            </p>
+          </section>
 
-              <RatgeberHighlightBox
-                icon={heartIcon}
-                title="Bereit für dein Traumpferd?"
-              >
-                <p className="mb-0">
-                  <Link href="/pferde-preis-berechnen" className="text-blue-600 hover:text-blue-800 font-semibold underline">
-                    Lass dein Wunschpferd in nur 2 Minuten von unserer KI bewerten
-                  </Link>{' '}
-                  und erhalte eine objektive Einschätzung zum fairen Marktwert – damit du mit Sicherheit kaufst.
-                </p>
-              </RatgeberHighlightBox>
-            </div>
+          {/* Section 1: Charaktereigenschaften */}
+          <section id="charaktereigenschaften" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Was macht ein gutes Anfängerpferd aus?
+            </h2>
 
-            {/* Section 1: Charaktereigenschaften */}
-            <section id="charaktereigenschaften" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Was macht ein gutes Anfängerpferd aus?</h2>
-
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Ein Anfängerpferd ist weit mehr als nur ein &ldquo;braves&rdquo; Pferd. Es muss dir als Reiter Sicherheit geben, dir verzeihen können, wenn du Fehler machst, und dich gleichzeitig in deiner reiterlichen Entwicklung fördern. Doch welche konkreten Eigenschaften zeichnen ein ideales Anfängerpferd aus?
               </p>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Die 4 kritischen Charaktereigenschaften</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Die 4 kritischen Charaktereigenschaften
+            </h3>
 
-              <div className="space-y-6 mb-8">
+            <div className="space-y-6 my-6">
                 <div className="bg-white rounded-lg p-6 border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    {checkCircleGreenIcon}
                     1. Gelassenheit und Nervenstärke
                   </h4>
                   <p className="text-gray-700 mb-0">
@@ -288,7 +280,7 @@ export default function AnfaengerpferdKaufen() {
 
                 <div className="bg-white rounded-lg p-6 border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    {checkCircleGreenIcon}
                     2. Verzeihendes Wesen
                   </h4>
                   <p className="text-gray-700 mb-0">
@@ -298,7 +290,7 @@ export default function AnfaengerpferdKaufen() {
 
                 <div className="bg-white rounded-lg p-6 border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    {checkCircleGreenIcon}
                     3. Klare Kommunikation
                   </h4>
                   <p className="text-gray-700 mb-0">
@@ -308,7 +300,7 @@ export default function AnfaengerpferdKaufen() {
 
                 <div className="bg-white rounded-lg p-6 border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    {checkCircleGreenIcon}
                     4. Grundausbildung und Erfahrung
                   </h4>
                   <p className="text-gray-700 mb-0">
@@ -318,11 +310,13 @@ export default function AnfaengerpferdKaufen() {
               </div>
             </section>
 
-            {/* Section 2: Alter */}
-            <section id="alter" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Das ideale Alter für ein Anfängerpferd</h2>
+          {/* Section 2: Alter */}
+          <section id="alter" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Das ideale Alter für ein Anfängerpferd
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Das Alter eines Pferdes spielt eine entscheidende Rolle für seine Eignung als Anfängerpferd. Hier ist die klare Empfehlung basierend auf Expertenmeinungen und praktischer Erfahrung:
               </p>
 
@@ -333,27 +327,29 @@ export default function AnfaengerpferdKaufen() {
                 </p>
                 <div className="space-y-2 text-green-800">
                   <p className="mb-1 flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Körperlich voll entwickelt:</strong> Keine Wachstumsprobleme mehr</span>
                   </p>
                   <p className="mb-1 flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Erfahren:</strong> Hat verschiedene Situationen kennengelernt</span>
                   </p>
                   <p className="mb-1 flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Charakterlich gefestigt:</strong> Temperament ist etabliert</span>
                   </p>
                   <p className="mb-0 flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Noch 10-15 Jahre nutzbar:</strong> Langfristige Partnerschaft möglich</span>
                   </p>
                 </div>
               </div>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Warum jüngere Pferde problematisch sind</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Warum jüngere Pferde problematisch sind
+            </h3>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Pferde unter 7 Jahren sind für Anfänger ungeeignet, selbst wenn sie bereits eingeritten sind:
               </p>
 
@@ -376,13 +372,15 @@ export default function AnfaengerpferdKaufen() {
                 </li>
               </ul>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ältere Pferde: Ab 15+ Jahre</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Ältere Pferde: Ab 15+ Jahre
+            </h3>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Pferde über 15 Jahre können für Anfänger geeignet sein, wenn sie gesund sind und regelmäßig tierärztlich untersucht werden. Wichtig:
               </p>
 
-              <ul className="space-y-3 mb-0 text-gray-700">
+            <ul className="space-y-3 text-gray-700 list-disc list-inside">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2 mt-1">•</span>
                   <span>Besonders gründliche Ankaufsuntersuchung durchführen lassen</span>
@@ -402,11 +400,13 @@ export default function AnfaengerpferdKaufen() {
               </ul>
             </section>
 
-            {/* Section 3: Rassen */}
-            <section id="rassen" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Anfängerpferd-Rassen: Die Top 7</h2>
+          {/* Section 3: Rassen */}
+          <section id="rassen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Anfängerpferd-Rassen: Die Top 7
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Bestimmte Pferderassen haben sich als besonders anfängerfreundlich erwiesen. Hier sind die Top-Empfehlungen mit ihren spezifischen Stärken:
               </p>
 
@@ -594,17 +594,21 @@ export default function AnfaengerpferdKaufen() {
               </RatgeberHighlightBox>
             </section>
 
-            {/* Section 4: Kosten */}
-            <section id="kosten" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Kosten: Kaufpreis und Unterhalt</h2>
+          {/* Section 4: Kosten */}
+          <section id="kosten" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Kosten: Kaufpreis und Unterhalt
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Viele Anfänger unterschätzen die Gesamtkosten eines Pferdes. Es geht nicht nur um den Kaufpreis – die laufenden Kosten sind die eigentliche finanzielle Herausforderung.
               </p>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Kaufpreis: Was kostet ein Anfängerpferd?</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Kaufpreis: Was kostet ein Anfängerpferd?
+            </h3>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Die Anschaffungskosten für ein geeignetes Anfängerpferd liegen zwischen <strong>2.000€ und 15.000€</strong>, abhängig von Alter, Rasse, Ausbildungsstand und Gesundheitszustand.
               </p>
 
@@ -637,9 +641,9 @@ export default function AnfaengerpferdKaufen() {
                 </table>
               </div>
 
-              <h4 className="text-xl font-semibold text-gray-900 mb-4">Was beeinflusst den Kaufpreis?</h4>
+            <h4 className="text-xl font-semibold text-gray-900 mt-6 mb-4">Was beeinflusst den Kaufpreis?</h4>
 
-              <ul className="space-y-3 mb-8 text-gray-700">
+            <ul className="space-y-3 text-gray-700 list-disc list-inside">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2 mt-1">•</span>
                   <span><strong>Alter:</strong> Pferde zwischen 8-12 Jahren sind meist am teuersten</span>
@@ -662,7 +666,9 @@ export default function AnfaengerpferdKaufen() {
                 </li>
               </ul>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Einmalige Kaufnebenkosten</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Einmalige Kaufnebenkosten
+            </h3>
 
               <div className="overflow-x-auto mb-8">
                 <table className="min-w-full bg-white border border-gray-200 rounded-lg">
@@ -703,7 +709,9 @@ export default function AnfaengerpferdKaufen() {
                 </table>
               </div>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Laufende monatliche Kosten</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Laufende monatliche Kosten
+            </h3>
 
               <div className="overflow-x-auto mb-8">
                 <table className="min-w-full bg-white border border-gray-200 rounded-lg">
@@ -767,11 +775,13 @@ export default function AnfaengerpferdKaufen() {
               </RatgeberHighlightBox>
             </section>
 
-            {/* Section 5: Kaufquellen */}
-            <section id="kaufquellen" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Wo findet man ein Anfängerpferd?</h2>
+          {/* Section 5: Kaufquellen */}
+          <section id="kaufquellen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Wo findet man ein Anfängerpferd?
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Es gibt verschiedene Wege, ein geeignetes Anfängerpferd zu finden. Jeder hat seine Vor- und Nachteile:
               </p>
 
@@ -858,19 +868,19 @@ export default function AnfaengerpferdKaufen() {
 
                   <ul className="space-y-2 text-gray-700 mb-4">
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      {checkCircleGreenFlexIcon}
                       <span>An Anfänger gewöhnt und sehr geduldig</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      {checkCircleGreenFlexIcon}
                       <span>Du kennst das Pferd oft schon vom Reitunterricht</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      {checkCircleGreenFlexIcon}
                       <span>Meist günstiger Preis (2.000-6.000€)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      {checkCircleGreenFlexIcon}
                       <span>Gesundheitszustand ist bekannt</span>
                     </li>
                   </ul>
@@ -915,11 +925,13 @@ export default function AnfaengerpferdKaufen() {
               </div>
             </section>
 
-            {/* Section 6: AKU */}
-            <section id="aku" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Ankaufsuntersuchung (AKU): Pflicht, nicht optional</h2>
+          {/* Section 6: AKU */}
+          <section id="aku" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Ankaufsuntersuchung (AKU): Pflicht, nicht optional
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Die Ankaufsuntersuchung durch einen Tierarzt ist <strong>keine optionale Zusatzleistung</strong>, sondern absolute Pflicht beim Pferdekauf. Sie schützt dich vor teuren Fehlkäufen und gibt dir Sicherheit über den Gesundheitszustand deines zukünftigen Partners.
               </p>
 
@@ -1032,11 +1044,13 @@ export default function AnfaengerpferdKaufen() {
               </RatgeberHighlightBox>
             </section>
 
-            {/* Section 7: Rechtliches */}
-            <section id="rechtliches" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Rechtliche Absicherung beim Pferdekauf</h2>
+          {/* Section 7: Rechtliches */}
+          <section id="rechtliches" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Rechtliche Absicherung beim Pferdekauf
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Ein Pferdekauf ist ein <strong>Kaufvertrag nach BGB</strong> und unterliegt denselben Regeln wie andere Kaufverträge. Doch es gibt wichtige Besonderheiten, die du kennen solltest.
               </p>
 
@@ -1169,18 +1183,20 @@ export default function AnfaengerpferdKaufen() {
               </div>
             </section>
 
-            {/* Section 8: Versicherungen */}
-            <section id="versicherungen" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Versicherungen für Anfängerpferde</h2>
+          {/* Section 8: Versicherungen */}
+          <section id="versicherungen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Versicherungen für Anfängerpferde
+            </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
                 Versicherungen sind ein wichtiger Teil des Pferdebesitzes. Einige sind unverzichtbar, andere optional – abhängig von deinem Budget und Sicherheitsbedürfnis.
               </p>
 
               <div className="space-y-6">
                 <div className="bg-red-50 rounded-lg p-6 border-2 border-red-500">
                   <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
-                    <ShieldCheck className="h-6 w-6 mr-2" />
+                    {shieldIcon}
                     1. Pferdehaftpflichtversicherung – UNVERZICHTBAR
                   </h3>
 
@@ -1217,7 +1233,7 @@ export default function AnfaengerpferdKaufen() {
 
                 <div className="bg-amber-50 rounded-lg p-6 border-2 border-amber-400">
                   <h3 className="text-2xl font-bold text-amber-900 mb-4 flex items-center">
-                    <Award className="h-6 w-6 mr-2" />
+                    {awardIcon}
                     2. Pferde-OP-Versicherung – STARK EMPFOHLEN
                   </h3>
 
@@ -1319,34 +1335,36 @@ export default function AnfaengerpferdKaufen() {
               </div>
             </section>
 
-            {/* FAQ Section */}
-            <section id="faq" className="mb-16 scroll-mt-24">
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Häufig gestellte Fragen</h2>
-              <FAQ faqs={faqItems} />
-            </section>
+        </div>
 
-            {/* Final CTA */}
-            <RatgeberFinalCTA
-              image={{
-                src: '/images/shared/blossi-shooting.webp',
-                alt: 'Pferdebewertung mit PferdeWert'
-              }}
-              title="Bereit für dein Anfängerpferd?"
-              description="Lass dein Wunschpferd in nur 2 Minuten von unserer KI bewerten und erhalte eine objektive Einschätzung zum fairen Marktwert."
-              ctaHref="/pferde-preis-berechnen"
-              ctaLabel="Pferdewert berechnen"
-            />
-          </article>
+        {/* FAQ Section */}
+        <div id="faq" className="scroll-mt-32 lg:scroll-mt-40">
+          <FAQ
+            faqs={faqItems}
+            sectionTitle="Häufig gestellte Fragen"
+            sectionSubtitle="Die wichtigsten Antworten zum Kauf eines Anfängerpferdes – damit du bestens vorbereitet bist."
+            withSchema={false}
+          />
         </div>
 
         {/* Related Articles */}
-        <div className="mt-16">
-          <RatgeberRelatedArticles
-            title="Weitere hilfreiche Ratgeber zum Pferdekauf"
-            articles={relatedArticles}
-          />
-        </div>
-      </div>
+        <RatgeberRelatedArticles
+          title="Weitere hilfreiche Ratgeber zum Pferdekauf"
+          articles={relatedArticles}
+        />
+
+        {/* Final CTA */}
+        <RatgeberFinalCTA
+          image={{
+            src: '/images/shared/blossi-shooting.webp',
+            alt: 'Pferdebewertung mit PferdeWert'
+          }}
+          title="Bereit für dein Anfängerpferd?"
+          description="Lass dein Wunschpferd in nur 2 Minuten von unserer KI bewerten und erhalte eine objektive Einschätzung zum fairen Marktwert."
+          ctaHref="/pferde-preis-berechnen"
+          ctaLabel="Jetzt kostenlose Bewertung starten"
+        />
+      </article>
     </Layout>
   );
 }
