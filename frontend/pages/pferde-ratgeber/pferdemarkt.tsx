@@ -236,8 +236,7 @@ const Pferdemarkt: NextPage = () => {
         <meta name="twitter:creator" content="@pferdewertde" />
 
         {/* Preconnect for Performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* Prefetch for Core Pages */}

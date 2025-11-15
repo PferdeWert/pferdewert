@@ -165,8 +165,7 @@ export default function BeispielAnalyse() {
         <link rel="canonical" href="https://www.pferdewert.de/beispiel-analyse" />
 
         {/* Performance Optimizations */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
         <link rel="preconnect" href="https://api.pferdewert.de" />
         <link rel="dns-prefetch" href="//api.pferdewert.de" />
 

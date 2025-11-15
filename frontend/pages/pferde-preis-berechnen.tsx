@@ -585,8 +585,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <link rel="canonical" href="https://www.pferdewert.de/pferde-preis-berechnen" />
 
         {/* Performance Optimizations */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//js.stripe.com" />
