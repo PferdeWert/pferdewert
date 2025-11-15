@@ -1081,7 +1081,7 @@ export default function FreizeitpferdKaufen() {
           title="Ist dein Wunschpferd wirklich fair bepreist?"
           description="Nutze PferdeWert und lass dein Traumpferd vor dem Kauf bewerten – mit KI-gestützter Analyse und Marktdaten-Vergleich. In nur 2 Minuten zur objektiven Einschätzung."
           ctaHref="/pferde-preis-berechnen"
-          ctaLabel="Jetzt kostenlose Bewertung starten"
+          ctaLabel="Jetzt Pferdewert berechnen"
         />
       </article>
     </Layout>
