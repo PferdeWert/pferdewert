@@ -34,6 +34,64 @@ PferdeWert.de is an AI-powered horse valuation platform targeting German horse o
 - Touch-optimized buttons (min 44px tap targets)
 - Mobile-first approach with proper breakpoints
 
+**Ratgeber (Guide Pages) Design Guidelines**
+⚠️ CRITICAL: When working on Ratgeber pages (`/pferde-ratgeber/*`), follow `/SEO/SEO-DESIGN.md` strictly!
+
+**Layout Requirements:**
+```tsx
+<Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
+```
+- ALWAYS use `fullWidth={true}` prop
+- ALWAYS use amber gradient background
+- NEVER omit these props on Ratgeber pages
+
+**Text First Philosophy:**
+- Base structure: Semantic HTML (`<h2>`, `<h3>`, `<p>`, `<ul>`, `<ol>`)
+- Highlight boxes: MAX 2-4 per article (only for CTAs, warnings, important checklists)
+- NO box inflation - don't wrap every paragraph in components!
+
+**Typography Rules:**
+- Body paragraphs: `text-lg` (STANDARD for readability)
+- Minimum size: `text-base`
+- NEVER use `text-sm` for body text (too small, poor UX!)
+
+**Component Usage:**
+Always use:
+- `RatgeberHero` / `RatgeberHeroImage`
+- `RatgeberTableOfContents`
+- `FAQ` (auto-generates FAQPage schema - NO manual schema!)
+- `RatgeberRelatedArticles`
+- `RatgeberFinalCTA`
+
+Deprecated - DO NOT USE:
+- ❌ `ContentSection` → use semantic HTML
+- ❌ `RatgeberInfoTiles` → use `<ul>`/`<ol>`
+- ❌ `InfoBox` → use semantic HTML
+- ❌ Manual FAQPage schema → `<FAQ>` generates it!
+
+**Image Naming (CRITICAL):**
+✅ Content-based: `horses-mountain-field-spain.webp`
+❌ Usage-based: `pferdekaufvertrag-hero.webp` (what's in the image?)
+
+**CTA Links:**
+- ALWAYS use `/pferde-preis-berechnen` (NOT `/bewertung`)
+- Conversion-optimized primary action
+
+**FAQ Schema:**
+⚠️ The `<FAQ>` component auto-generates FAQPage schema!
+NEVER add manual FAQPage schema in `<Head>` (creates duplicates!)
+
+**Deployment Checklist:**
+1. Add entry to `/frontend/lib/ratgeber-registry.ts`
+2. Run `npm run sitemap` to update sitemap.xml
+3. Verify fullWidth + background props
+4. Check image naming (content-based)
+5. Verify CTA links to `/pferde-preis-berechnen`
+
+**Complete Guidelines:** `/SEO/SEO-DESIGN.md` is the authoritative source.
+
+---
+
 **Key Integration Patterns**
 
 **Stripe Checkout:**
