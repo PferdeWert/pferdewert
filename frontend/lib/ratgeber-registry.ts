@@ -108,6 +108,21 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'pferdemarkt'
     ]
   },
+  {
+    slug: 'freizeitpferd-kaufen',
+    title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
+    description: 'Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
+    category: 'Kauf & Verkauf',
+    readTime: '15 Min.',
+    image: '/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferdekaufvertrag',
+      'aku-pferd',
+      'pferd-kaufen'
+    ]
+  },
 
   // Pferd Verkaufen Series
   {

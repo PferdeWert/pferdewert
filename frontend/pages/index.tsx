@@ -89,6 +89,23 @@ const FAQ_SCHEMA_ENTITIES = faqItems.map(item => ({
   }
 }));
 
+// FAST REFRESH FIX: Define all icons at module level to prevent recreation
+const clockIcon = <Clock className="w-4 h-4 text-brand-brown" />;
+const shieldIcon = <Shield className="w-4 h-4 text-brand-brown" />;
+const awardIcon = <Award className="w-4 h-4 text-brand-brown" />;
+const starIcon = <Star className="w-4 h-4 fill-brand-gold text-brand-gold" />;
+const arrowRightIcon = <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />;
+
+// Icons for "Pferd kaufen Preis" section
+const trendingUpIconLarge = <TrendingUp className="w-8 h-8 text-blue-600" />;
+const shieldIconLarge = <Shield className="w-8 h-8 text-green-600" />;
+const checkCircleIconLarge = <CheckCircle className="w-8 h-8 text-brand-brown" />;
+
+// Star rating component (5 stars)
+const starRating = [...Array(5)].map((_, i) => (
+  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+));
+
 // FAST REFRESH FIX: Store only data (no JSX!) at module level
 // Icon components MUST be created inside the component to prevent infinite re-renders
 const FEATURES_DATA = [
@@ -317,22 +334,20 @@ export default function PferdeWertHomepage() {
           {/* Trust Indicators */}
           <div className="flex flex-wrap gap-6 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <Clock className="w-4 h-4 text-brand-brown" />
+              {clockIcon}
               <span>In 2 Minuten</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Shield className="w-4 h-4 text-brand-brown" />
+              {shieldIcon}
               <span>Kein Abo</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Award className="w-4 h-4 text-brand-brown" />
+              {awardIcon}
               <span>Geld-zurück-Garantie</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                ))}
+                {starRating}
               </div>
               <span>4,7/5</span>
             </div>
@@ -345,7 +360,7 @@ export default function PferdeWertHomepage() {
               className="btn-primary group text-lg px-8 py-4"
             >
               Jetzt Pferdewert berechnen
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              {arrowRightIcon}
             </Link>
             <Link
               href="/beispiel-analyse"
@@ -406,7 +421,7 @@ export default function PferdeWertHomepage() {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-white rounded-xl p-6 shadow-lg text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-blue-600" />
+                  {trendingUpIconLarge}
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Aktuelle Marktpreise</h3>
                 <p className="text-gray-600">
@@ -416,7 +431,7 @@ export default function PferdeWertHomepage() {
 
               <div className="bg-white rounded-xl p-6 shadow-lg text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-green-600" />
+                  {shieldIconLarge}
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Schutz vor Überzahlung</h3>
                 <p className="text-gray-600">
@@ -426,7 +441,7 @@ export default function PferdeWertHomepage() {
 
               <div className="bg-white rounded-xl p-6 shadow-lg text-center">
                 <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-brand-brown" />
+                  {checkCircleIconLarge}
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Verhandlung richtig vorbereiten</h3>
                 <p className="text-gray-600">
