@@ -100,10 +100,8 @@ const trendingUpIconLarge = <TrendingUp className="w-8 h-8 text-blue-600" />;
 const shieldIconLarge = <Shield className="w-8 h-8 text-green-600" />;
 const checkCircleIconLarge = <CheckCircle className="w-8 h-8 text-brand-brown" />;
 
-// Star rating component (5 stars)
-const starRating = [...Array(5)].map((_, i) => (
-  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-));
+// FAST REFRESH FIX: Don't store JSX arrays at module level
+// Stars will be rendered inline in component instead
 
 // FAST REFRESH FIX: Store only data (no JSX!) at module level
 // Icon components MUST be created inside the component to prevent infinite re-renders
@@ -346,7 +344,9 @@ export default function PferdeWertHomepage() {
             </div>
             <div className="flex items-center space-x-2">
               <div className="flex">
-                {starRating}
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                ))}
               </div>
               <span>4,7/5</span>
             </div>
