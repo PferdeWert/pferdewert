@@ -93,7 +93,6 @@ const FAQ_SCHEMA_ENTITIES = faqItems.map(item => ({
 const clockIcon = <Clock className="w-4 h-4 text-brand-brown" />;
 const shieldIcon = <Shield className="w-4 h-4 text-brand-brown" />;
 const awardIcon = <Award className="w-4 h-4 text-brand-brown" />;
-const starIcon = <Star className="w-4 h-4 fill-brand-gold text-brand-gold" />;
 const arrowRightIcon = <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />;
 
 // Icons for "Pferd kaufen Preis" section

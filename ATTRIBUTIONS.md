@@ -40,6 +40,26 @@ This file documents the sources and licenses for all third-party images used in 
 - **Date**: 14 April 2018
 - **Depicts**: Morgan Barbançon Mestre riding at FEI World Cup Dressage Finals 2018
 
+### /public/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp
+- **Original Title**: "Haflinger Deckhengst Fohlenhof Ebbs 3"
+- **Source**: https://commons.wikimedia.org/wiki/File:Haflinger_Deckhengst_Fohlenhof_Ebbs_3.JPG
+- **Author**: Böhringer Friedrich
+- **License**: CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5/deed.en)
+- **Via**: Wikimedia Commons
+- **Changes**: Resized to 1920x1080, converted to WebP format (85% quality)
+- **Date**: 8 May 2011
+- **Depicts**: Haflinger breeding stallion from Fohlenhof Ebbs in Tirol
+
+### /public/images/ratgeber/anfaengerpferd-hero.webp
+- **Original Title**: "Flehmendes Pferd 32 c"
+- **Source**: https://commons.wikimedia.org/wiki/File:Flehmendes_Pferd_32_c.jpg
+- **Author**: Waugsberg
+- **License**: CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)
+- **Via**: Wikimedia Commons
+- **Changes**: Converted to WebP format (85% quality)
+- **Date**: Original upload date on Wikimedia Commons
+- **Depicts**: Horse performing Flehmen response - typical behavior of curious, attentive horses
+
 ---
 
 ## AKU-Pferd Section

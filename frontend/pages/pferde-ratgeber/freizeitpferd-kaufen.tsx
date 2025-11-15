@@ -365,7 +365,7 @@ export default function FreizeitpferdKaufen() {
               </ul>
             </div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der Preis wird bestimmt durch: Alter (8-15 Jahre sind oft günstig), Rasse (Quarter Horses sind billiger als Vollblüter), Ausbildungsstand (ein ruhiges „Anfängerpferd" ist teurer) und Dokumentation (mit Papieren ca. 20% teurer).
+              Der Preis wird bestimmt durch: Alter (8-15 Jahre sind oft günstig), Rasse (Quarter Horses sind billiger als Vollblüter), Ausbildungsstand (ein ruhiges &ldquo;Anfängerpferd&rdquo; ist teurer) und Dokumentation (mit Papieren ca. 20% teurer).
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -1067,7 +1067,10 @@ export default function FreizeitpferdKaufen() {
         </div>
 
         {/* Related Articles */}
-        <RatgeberRelatedArticles articles={relatedArticles} />
+        <RatgeberRelatedArticles
+          title="Weitere hilfreiche Ratgeber"
+          articles={relatedArticles}
+        />
 
         {/* Final CTA */}
         <RatgeberFinalCTA
