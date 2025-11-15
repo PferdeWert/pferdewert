@@ -70,7 +70,8 @@ const faqItems = [
     },
     {
       frage: PRICING_TEXTS.whyAffordable,
-      antwort: `Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei ${PRICING_FORMATTED.decoy}.`
+      // FAST REFRESH FIX: Hardcoded statt Template Literal um Fast Refresh Loops zu vermeiden
+      antwort: "Wir möchten möglichst vielen Pferdebesitzern helfen, unseren Service kennenzulernen. Später liegt der reguläre Preis bei 39,90€."
     },
     {
       frage: "Erhalte ich eine Geld-zurück-Garantie?",
