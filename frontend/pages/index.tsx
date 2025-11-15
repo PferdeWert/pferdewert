@@ -1,19 +1,14 @@
 // pages/index.tsx
-// Updated: 2025-11-15 - Phase 2 Mobile Performance: Dynamic imports
+// Updated: 2025-10-10 - Deployment trigger
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import { HomepageReviewSchema } from "@/components/PferdeWertReviewSchema";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, Users, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
-
-// Phase 2 Performance: Lazy load below-the-fold components
-const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />,
-});
 
 // FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
 const faqItems = [
