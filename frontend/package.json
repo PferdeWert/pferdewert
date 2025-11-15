@@ -11,7 +11,7 @@
     "prebuild": "npm run check-urls",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --cache --cache-location .next/cache/eslint",
     "type-check": "tsc --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui",

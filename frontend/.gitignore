@@ -20,6 +20,10 @@
 *.tsbuildinfo
 next-env.d.ts
 
+# 🚀 Performance Caches
+# .next/.tsbuildinfo (covered by *.tsbuildinfo)
+# .next/cache/eslint (covered by /.next/)
+
 # 🧑‍💻 Debug Logs
 npm-debug.log*
 yarn-debug.log*
