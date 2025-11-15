@@ -33,24 +33,22 @@ export default function Document() {
         {/* Theme Color für Mobile Browser */}
         <meta name="theme-color" content="#8B4513" />
         <meta name="msapplication-TileColor" content="#8B4513" />
-        
-        {/* Preload wichtiger Fonts für bessere Performance */}
-        <link
-          rel="preload"
-          href="/fonts/playfair-display-v39-latin-700.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/lato-v24-latin-regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
 
-        {/* Merriweather jetzt self-hosted via @fontsource in globals.css - Performance Optimierung */}
+        {/* Preload kritische Merriweather Fonts für LCP-Optimierung */}
+        <link
+          rel="preload"
+          href="/fonts/merriweather/merriweather-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/merriweather/merriweather-700.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
         {/* Cookie Consent CSS - Self-hosted für Performance */}
         {/* eslint-disable-next-line @next/next/no-css-tags */}
