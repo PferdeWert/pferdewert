@@ -37,7 +37,7 @@ export const PRICING_FORMATTED = {
   current: `${PRICING.current.toFixed(2).replace('.', ',')}€`,
   
   /** Decoy-Preis formatiert */
-  decoy: `${PRICING.decoy.toFixed(0)}€`,
+  decoy: `${PRICING.decoy.toFixed(2).replace('.', ',')}€`,
   
   /** Historische Preise formatiert */
   historical: {
