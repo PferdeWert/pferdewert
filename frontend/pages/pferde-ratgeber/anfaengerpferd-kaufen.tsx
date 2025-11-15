@@ -88,6 +88,93 @@ const faqItems = [
     }
 ];
 
+const rassenData = [
+  {
+    title: '1. Haflinger',
+    staerken: [
+      'Extrem gutmütig und nervenstark',
+      'Trittsicher und vielseitig einsetzbar',
+      'Robust und genügsam'
+    ],
+    wichtig: [
+      'Neigung zu Übergewicht – Fütterung beachten',
+      'Stockmaß 138-150 cm – für größere Reiter ggf. zu klein'
+    ]
+  },
+  {
+    title: '2. Isländer',
+    staerken: [
+      'Sozial und menschenbezogen',
+      'Genügsam und wetterfest',
+      'Besondere Gangarten (Tölt, Pass) für komfortables Reiten'
+    ],
+    wichtig: [
+      'Stockmaß 130-145 cm – Gewichtsbegrenzung ca. 90 kg',
+      'Temperamentvoll trotz Gutmütigkeit'
+    ]
+  },
+  {
+    title: '3. Deutsches Reitpony',
+    staerken: [
+      'Freundlich und lernwillig',
+      'Vielseitig in allen Disziplinen',
+      'Ideal für Jugendliche und leichte Erwachsene'
+    ],
+    wichtig: [
+      'Stockmaß bis 148 cm',
+      'Sportliche Veranlagung – braucht Beschäftigung'
+    ]
+  },
+  {
+    title: '4. Quarter Horse',
+    staerken: [
+      'Extrem ruhig und ausgeglichen ("Cow Sense")',
+      'Intelligenz und Arbeitsbereitschaft',
+      'Wendigkeit bei sanftem Charakter'
+    ],
+    wichtig: [
+      'Ursprünglich für Western-Reitweise gezüchtet',
+      'Anfällig für Stoffwechselerkrankungen (EMS)'
+    ]
+  },
+  {
+    title: '5. Norwegisches Fjordpferd',
+    staerken: [
+      'Freundlich und gelassen',
+      'Kräftig und trittsicher',
+      'Robust und pflegeleicht'
+    ],
+    wichtig: [
+      'Stockmaß 135-150 cm',
+      'Kräftiger Körperbau – gut für Erwachsene geeignet'
+    ]
+  },
+  {
+    title: '6. Connemara-Pony',
+    staerken: [
+      'Freundlich und ausdauernd',
+      'Vielseitig und springbegabt',
+      'Wetterfest und genügsam'
+    ],
+    wichtig: [
+      'Stockmaß bis 148 cm',
+      'Irische Ursprungsrasse – robust und hart im Nehmen'
+    ]
+  },
+  {
+    title: '7. Ausgediente Schulpferde',
+    staerken: [
+      'Gewöhnt an Anfänger',
+      'Nervenstark und verlässlich',
+      'Oft günstig in der Anschaffung'
+    ],
+    wichtig: [
+      'Gesundheitszustand genau prüfen (AKU!)',
+      'Mögliche Verschleißerscheinungen durch intensive Nutzung'
+    ]
+  }
+];
+
 const relatedArticles = [
   {
     href: '/pferde-ratgeber/freizeitpferd-kaufen',
@@ -418,177 +505,29 @@ export default function AnfaengerpferdKaufen() {
               </p>
 
               <div className="space-y-8">
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">1. Haflinger – Der Klassiker für Anfänger</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• Extrem gutmütig und geduldig</li>
-                        <li>• Robust und gesundheitlich stabil</li>
-                        <li>• Für schwerere Reiter geeignet (bis 100 kg)</li>
-                        <li>• Sehr nervenstarkunaufgeregt</li>
-                        <li>• Wendig im Gelände</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Stockmaß: 138-148 cm</li>
-                        <li>• Preis: 5.000-12.000€</li>
-                        <li>• Tendenz zu Übergewicht – Fütterung beachten</li>
-                        <li>• Sehr triebig – weniger für sportliche Ambitionen</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">2. Isländer – Trittsicher und ausdauernd</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• Außergewöhnlich trittsicher</li>
-                        <li>• Sehr ausdauernd (ideal für Langstrecken)</li>
-                        <li>• Fünf Gangarten (inkl. Tölt und Pass)</li>
-                        <li>• Wetterhart und genügsam</li>
-                        <li>• Menschenbezogen</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Stockmaß: 130-145 cm</li>
-                        <li>• Preis: 4.000-10.000€</li>
-                        <li>• Besondere Gangarten erfordern Schulung</li>
-                        <li>• Benötigen Artgenossen (Herdentiere)</li>
-                      </ul>
+                {rassenData.map((rasse, index) => (
+                  <div key={index} className="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{rasse.title}</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
+                        <ul className="space-y-1 text-gray-700 mb-4">
+                          {rasse.staerken.map((staerke, i) => (
+                            <li key={i}>• {staerke}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
+                        <ul className="space-y-1 text-gray-700 mb-0">
+                          {rasse.wichtig.map((info, i) => (
+                            <li key={i}>• {info}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">3. Deutsches Reitpony – Vielseitig und lernwillig</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• Sehr intelligent und lernfreudig</li>
-                        <li>• Vielseitig einsetzbar (Dressur, Springen, Gelände)</li>
-                        <li>• Ideal für Kinder und leichtere Erwachsene</li>
-                        <li>• Gutmütig bei guter Erziehung</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Stockmaß: 138-148 cm</li>
-                        <li>• Preis: 6.000-15.000€</li>
-                        <li>• Maximales Reitergewicht: ca. 70 kg</li>
-                        <li>• Brauchen geistige Beschäftigung</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">4. Quarter Horse – Der sanfte Riese aus Amerika</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• Extrem ruhig und nervenstark</li>
-                        <li>• Sehr menschenbezogen</li>
-                        <li>• Schnelle Auffassungsgabe</li>
-                        <li>• Für schwerere Reiter geeignet</li>
-                        <li>• Ideal für Westernreiten</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Stockmaß: 145-160 cm</li>
-                        <li>• Preis: 5.000-15.000€</li>
-                        <li>• Tendenz zu Übergewicht</li>
-                        <li>• Nicht für klassische Dressur geeignet</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">5. Norwegisches Fjordpferd – Robust und kraftvoll</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• Sehr kräftig trotz kleiner Größe</li>
-                        <li>• Extrem robust und gesund</li>
-                        <li>• Gutmütig und geduldig</li>
-                        <li>• Für schwerere Reiter geeignet</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Stockmaß: 135-150 cm</li>
-                        <li>• Preis: 5.000-12.000€</li>
-                        <li>• Charakteristische Stehmähne</li>
-                        <li>• Wetterhart und genügsam</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">6. Connemara Pony – Sportlich und zuverlässig</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• Sehr vielseitig (Dressur, Springen, Gelände)</li>
-                        <li>• Gutmütig und lernwillig</li>
-                        <li>• Trittsicher und ausdauernd</li>
-                        <li>• Robust und gesund</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Stockmaß: 128-148 cm</li>
-                        <li>• Preis: 5.000-15.000€</li>
-                        <li>• Für leichtere Erwachsene (bis 75 kg)</li>
-                        <li>• Sportliche Veranlagung</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">7. Ausgediente Schulpferde – Der Geheimtipp</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Stärken:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-4">
-                        <li>• An Anfänger gewöhnt</li>
-                        <li>• Sehr gelassen und geduldig</li>
-                        <li>• Verzeihen Fehler</li>
-                        <li>• Oft günstig zu erwerben</li>
-                        <li>• Verschiedene Rassen verfügbar</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Wichtig zu wissen:</h4>
-                      <ul className="space-y-1 text-gray-700 mb-0">
-                        <li>• Preis: 2.000-8.000€</li>
-                        <li>• Meist älter (12-20 Jahre)</li>
-                        <li>• Gesundheitscheck besonders wichtig</li>
-                        <li>• Oft mit &ldquo;Schulpferd-Gewohnheiten&rdquo;</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <RatgeberHighlightBox
