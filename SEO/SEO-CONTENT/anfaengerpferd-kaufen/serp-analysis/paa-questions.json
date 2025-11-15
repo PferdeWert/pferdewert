@@ -1,0 +1,123 @@
+{
+  "analysis_date": "2025-11-14",
+  "primary_keyword": "Anfängerpferd kaufen",
+  "total_paa_questions": 0,
+  "note": "Keine 'People Also Ask' (PAA) Fragen in der SERP gefunden",
+  "alternative_question_sources": {
+    "related_searches": [
+      "Verlasspferd für Anfänger kaufen",
+      "Verlasspferd kaufen",
+      "Verlasspferd für ängstlichen Reiter",
+      "Verlasspferd in der nähe kaufen",
+      "Anfängerpferd kaufen NRW"
+    ],
+    "people_also_search": [
+      "Reine Spanische Rasse",
+      "Andalusier",
+      "Islandpferd",
+      "Norwegisches Fjordpferd",
+      "Haflinger",
+      "American Quarter Horse"
+    ]
+  },
+  "inferred_questions_from_rank_1": [
+    {
+      "question": "Was macht ein gutes Anfängerpferd/Pony aus?",
+      "source": "H2 from rank 1 (ehorses.de)",
+      "category": "eigenschaften",
+      "priority": "critical",
+      "answer_preview": "Gemüt, Ausbildung, Zuverlässigkeit, Umgang mit Menschen - 4 Hauptkriterien"
+    },
+    {
+      "question": "Welche Pferderassen sind für Anfänger geeignet?",
+      "source": "H2 from rank 1 (ehorses.de)",
+      "category": "rassen",
+      "priority": "high",
+      "answer_preview": "Haflinger, Friese, Isländer, ältere Schulpferde"
+    },
+    {
+      "question": "Was kostet ein Anfängerpferd?",
+      "source": "FAQ from rank 1 (ehorses.de)",
+      "category": "kosten",
+      "priority": "critical",
+      "answer_preview": "Ab 5.000€, abhängig von Rasse und Ausbildung"
+    },
+    {
+      "question": "Wie alt sollte ein Pferd für einen Anfänger sein?",
+      "source": "FAQ from rank 1 (ehorses.de)",
+      "category": "eigenschaften",
+      "priority": "high",
+      "answer_preview": "Ab dem siebten Lebensjahr, da Erfahrung wichtig ist"
+    },
+    {
+      "question": "Ab wann ist es sinnvoll, sich als Anfänger ein Pferd zu kaufen?",
+      "source": "H2 from rank 1 (ehorses.de)",
+      "category": "buying_process",
+      "priority": "medium",
+      "answer_preview": "Wenn man Verantwortung, Zeit (min. 2h täglich) und finanzielle Mittel hat"
+    }
+  ],
+  "recommended_questions_to_address": [
+    {
+      "question": "Ist eine Ankaufsuntersuchung bei einem Anfängerpferd notwendig?",
+      "source": "implied_from_rank_1",
+      "category": "health_legal",
+      "priority": "high",
+      "reasoning": "Rank 1 erwähnt es als 'unerlässlich', aber keine Details"
+    },
+    {
+      "question": "Welche Versicherungen brauche ich für ein Anfängerpferd?",
+      "source": "content_gap",
+      "category": "costs_legal",
+      "priority": "high",
+      "reasoning": "Komplett fehlend in Top 10, wichtig für Anfänger"
+    },
+    {
+      "question": "Was muss im Kaufvertrag für ein Pferd stehen?",
+      "source": "content_gap",
+      "category": "legal",
+      "priority": "high",
+      "reasoning": "Rechtliche Absicherung fehlt komplett"
+    },
+    {
+      "question": "Kann man ein Anfängerpferd probereiten?",
+      "source": "content_gap",
+      "category": "buying_process",
+      "priority": "medium",
+      "reasoning": "Praktischer Aspekt des Kaufprozesses"
+    },
+    {
+      "question": "Wo finde ich ein geeignetes Anfängerpferd?",
+      "source": "serp_dominance",
+      "category": "buying_process",
+      "priority": "medium",
+      "reasoning": "Marketplaces dominieren SERP, aber keine Guidance wo/wie suchen"
+    },
+    {
+      "question": "Worauf muss ich bei der Besichtigung eines Anfängerpferds achten?",
+      "source": "content_gap",
+      "category": "buying_process",
+      "priority": "high",
+      "reasoning": "Praktische Checkliste fehlt komplett"
+    }
+  ],
+  "content_strategy": {
+    "main_h2_sections": [
+      "Was macht ein gutes Anfängerpferd aus?",
+      "Geeignete Pferderassen für Anfänger",
+      "Kosten: Was kostet ein Anfängerpferd wirklich?",
+      "Ankaufsuntersuchung: Darauf sollten Sie achten",
+      "Rechtliche Absicherung beim Pferdekauf",
+      "Versicherungen für Ihr neues Pferd",
+      "Der Kaufprozess: Von der Suche bis zum Kaufvertrag",
+      "Checkliste: Besichtigung und Probereiten"
+    ],
+    "faq_section": [
+      "Wie alt sollte ein Anfängerpferd sein?",
+      "Was kostet ein Anfängerpferd?",
+      "Welche Rassen eignen sich?",
+      "Ist eine Ankaufsuntersuchung Pflicht?",
+      "Wo finde ich ein Anfängerpferd?"
+    ]
+  }
+}

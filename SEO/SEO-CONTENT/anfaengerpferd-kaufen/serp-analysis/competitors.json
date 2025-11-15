@@ -1,0 +1,186 @@
+{
+  "analysis_date": "2025-11-14",
+  "primary_keyword": "Anfängerpferd kaufen",
+  "total_analyzed": 10,
+  "top_3_detailed": [
+    {
+      "rank": 1,
+      "url": "https://www.ehorses.de/pferdekauf/anfaenger.html",
+      "domain": "www.ehorses.de",
+      "title": "Pferde für Anfänger (Verlasspferd) kaufen",
+      "domain_type": "ecommerce_marketplace",
+      "authority_estimate": "high",
+      "content_structure": {
+        "h2_sections": [
+          "Was macht ein gutes Anfängerpferd/Pony aus?",
+          "Diese Pferderassen sind für Anfänger geeignet",
+          "Ab wann ist es sinnvoll, sich als Anfänger ein Pferd zu kaufen?",
+          "Anfängerpferde - Das muss beim Kauf beachtet werden",
+          "Was kostet ein Anfängerpferd?",
+          "Was für ein Pferd für Anfänger?",
+          "Wie alt sollte ein Pferd für einen Anfänger sein?",
+          "Welche Pferderassen sind für Anfänger geeignet?"
+        ],
+        "estimated_word_count": 1800,
+        "key_topics": [
+          "Eigenschaften eines Anfängerpferds (Gemüt, Ausbildung, Zuverlässigkeit, Umgang)",
+          "Geeignete Pferderassen (Haflinger, Friese, Isländer)",
+          "Zeitliche und finanzielle Verantwortung",
+          "Ankaufsuntersuchung",
+          "Preisangaben (ab 5.000€)",
+          "Altersempfehlung (ab 7 Jahre)"
+        ],
+        "strengths": [
+          "Sehr strukturierter Ratgeber-Content",
+          "Detaillierte Charakteristika-Analyse (4 Kategorien)",
+          "Konkrete Rasseempfehlungen mit Begründungen",
+          "FAQ-ähnliche H2-Struktur am Ende",
+          "Marketplace-Integration (1.227 aktuelle Angebote)"
+        ],
+        "content_gaps": [
+          "Keine Probezeit-Informationen",
+          "Fehlende Versicherungshinweise",
+          "Keine rechtlichen Details zum Kaufvertrag",
+          "Keine Checklisten oder Downloads",
+          "Keine Case Studies oder Beispiele"
+        ]
+      }
+    },
+    {
+      "rank": 2,
+      "url": "https://www.kleinanzeigen.de/s-pferde/anf%C3%A4ngerpferd/k0c139",
+      "domain": "www.kleinanzeigen.de",
+      "title": "Anfängerpferd, Pferde & Zubehör gebraucht kaufen",
+      "domain_type": "classifieds_marketplace",
+      "authority_estimate": "very_high",
+      "content_structure": {
+        "h2_sections": [],
+        "estimated_word_count": 400,
+        "content_type": "marketplace_listings",
+        "key_topics": [
+          "19 aktuelle Anzeigen",
+          "Preisbereich: 1.500€ - 15.500€",
+          "Regionale Filterung",
+          "Private und gewerbliche Anbieter"
+        ],
+        "strengths": [
+          "Hohe Domain Authority",
+          "Aktuelle Marktpreise sichtbar",
+          "Große regionale Abdeckung"
+        ],
+        "content_gaps": [
+          "Kein redaktioneller Ratgeber-Content",
+          "Keine Kaufberatung",
+          "Reine Marketplace-Seite"
+        ]
+      }
+    },
+    {
+      "rank": 3,
+      "url": "https://www.deine-tierwelt.de/kleinanzeigen/pferde-c4091/q-anf%C3%A4nger+pferd/",
+      "domain": "www.deine-tierwelt.de",
+      "title": "❤ anfänger pferd Kleinanzeigen (Pferde) kaufen & ...",
+      "domain_type": "classifieds_marketplace",
+      "authority_estimate": "high",
+      "content_structure": {
+        "h2_sections": [],
+        "estimated_word_count": 350,
+        "content_type": "marketplace_listings",
+        "key_topics": [
+          "15 Anzeigen",
+          "Verschiedene Rassen und Preisklassen",
+          "Filteroptionen (Alter, Größe, Eignung)"
+        ],
+        "strengths": [
+          "Geprüfte Anbieter-Identitäten",
+          "Powered by pferde.de Integration",
+          "Hinweis zu Betrugsschutz"
+        ],
+        "content_gaps": [
+          "Kein edukativer Content",
+          "Keine Kaufberatung",
+          "Reine Anzeigenplattform"
+        ]
+      }
+    }
+  ],
+  "serp_overview": {
+    "domain_types": {
+      "ecommerce_marketplace": 7,
+      "community_forum": 1,
+      "breeder_direct": 1,
+      "general_marketplace": 1
+    },
+    "authority_distribution": {
+      "very_high": 3,
+      "high": 5,
+      "medium": 2,
+      "low": 0
+    },
+    "content_quality_insights": [
+      "Top 1 (ehorses.de) ist einzige URL mit echtem Ratgeber-Content",
+      "Ranks 2-10 sind fast ausschließlich Marketplace-Listings ohne redaktionellen Mehrwert",
+      "Reddit-Thread (Rank 7) zeigt User-Interest an Community-Diskussionen",
+      "Starke Dominanz von Kleinanzeigen-Plattformen (6 von 10)",
+      "Sehr geringer Editorial-Content-Anteil in Top 10"
+    ]
+  },
+  "content_gap_summary": {
+    "major_opportunities": [
+      {
+        "gap": "Umfassender Kaufratgeber fehlt komplett",
+        "evidence": "Nur ehorses.de (Rank 1) hat Ratgeber-Content, aber auch dort fehlen wichtige Aspekte",
+        "opportunity_score": 10,
+        "strategy": "Comprehensive buying guide mit allen fehlenden Themen könnte Top 3 erreichen"
+      },
+      {
+        "gap": "Rechtliche Absicherung beim Kauf",
+        "evidence": "Kein Top-10-Result behandelt Kaufvertrag, Probezeit, Gewährleistung",
+        "opportunity_score": 9,
+        "strategy": "Dedicated Section zu rechtlichen Aspekten wäre unique"
+      },
+      {
+        "gap": "Versicherungen für Anfängerpferde",
+        "evidence": "Komplett fehlend in allen Top 10",
+        "opportunity_score": 8,
+        "strategy": "Integration in Kaufberatung als Differentiation"
+      },
+      {
+        "gap": "Praktische Checklisten und Tools",
+        "evidence": "Nur ehorses erwähnt Ankaufsuntersuchung, keine Downloads",
+        "opportunity_score": 9,
+        "strategy": "Downloadbare PDF-Checkliste als Lead-Magnet + SEO-Boost"
+      },
+      {
+        "gap": "Kosten-Beispielrechnungen",
+        "evidence": "Nur pauschale '5.000€ ab' Angabe, keine detaillierte Kalkulation",
+        "opportunity_score": 8,
+        "strategy": "Konkrete Beispiele für verschiedene Budgets"
+      }
+    ],
+    "covered_well_by_rank_1": [
+      "Eigenschaften eines guten Anfängerpferds (4 Kategorien)",
+      "Pferderassen-Empfehlungen (Haflinger, Friese, Isländer)",
+      "Altersempfehlung (ab 7 Jahre)",
+      "Grundlegende Preisindikation"
+    ]
+  },
+  "rank_1_competitive_analysis": {
+    "what_makes_it_rank": [
+      "Einzige URL mit substanziellem Ratgeber-Content",
+      "Starke Domain Authority (ehorses = führender Pferdemarkt)",
+      "Marketplace-Integration zeigt Relevanz + Aktualität",
+      "Strukturierte H2-Fragen erfüllen Search Intent",
+      "Konkrete Rasseempfehlungen mit Begründungen"
+    ],
+    "weaknesses_to_exploit": [
+      "Keine rechtlichen Informationen",
+      "Fehlende Versicherungsthemen",
+      "Keine praktischen Checklisten",
+      "Keine Case Studies oder Beispiele",
+      "Keine detaillierten Kostentabellen",
+      "Keine Probezeit-Informationen"
+    ],
+    "differentiation_strategy": "Comprehensive Guide mit allen fehlenden Aspekten + praktische Tools (Checklisten) + E-E-A-T durch Experten-Zitate"
+  }
+}

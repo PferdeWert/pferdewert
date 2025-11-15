@@ -1,0 +1,41 @@
+{
+  "generated": "2025-01-14T10:30:00Z",
+  "keyword": "Anfängerpferd kaufen",
+  "url_slug": "anfaengerpferd-kaufen",
+  "canonical_url": "https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen",
+
+  "meta_tags": {
+    "title": "Anfängerpferd kaufen: Ratgeber für sicheren Kauf 2025",
+    "title_length": 54,
+    "description": "Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar.",
+    "description_length": 158,
+    "canonical": "https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen",
+    "robots": "index, follow"
+  },
+
+  "opengraph": {
+    "og:title": "Anfängerpferd kaufen: Der ultimative Ratgeber 2025",
+    "og:description": "Umfassender Guide zum Kauf eines Anfängerpferds: Rassen, Kosten, AKU, rechtliche Absicherung & Versicherungen. Jetzt informieren!",
+    "og:image": "https://pferdewert.de/images/ratgeber/anfaengerpferd-kaufen-og.jpg",
+    "og:url": "https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen",
+    "og:type": "article",
+    "og:site_name": "PferdeWert"
+  },
+
+  "twitter": {
+    "twitter:card": "summary_large_image",
+    "twitter:title": "Anfängerpferd kaufen: Der ultimative Ratgeber 2025",
+    "twitter:description": "Alles zum Kauf eines Anfängerpferds: Rassen, Kosten, AKU, rechtliche Absicherung. Mit KI-Bewertung in 2 Minuten.",
+    "twitter:image": "https://pferdewert.de/images/ratgeber/anfaengerpferd-kaufen-og.jpg"
+  },
+
+  "quality_checks": {
+    "title_length_valid": true,
+    "description_length_valid": true,
+    "keyword_in_title": true,
+    "keyword_in_description": true,
+    "ki_compliance": true,
+    "duration_compliance": true,
+    "no_free_claims": true
+  }
+}

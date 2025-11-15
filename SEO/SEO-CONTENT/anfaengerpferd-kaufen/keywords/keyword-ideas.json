@@ -1,0 +1,22 @@
+{
+  "total_keywords": 2,
+  "keywords": [
+    {
+      "keyword": "anfängerpferd kaufen",
+      "search_volume": 720,
+      "competition": "LOW",
+      "cpc": 0.12,
+      "intent": "commercial/transactional",
+      "trend_yearly": -18
+    },
+    {
+      "keyword": "anfängerpferd kaufen niedersachsen",
+      "search_volume": 70,
+      "competition": "LOW",
+      "cpc": 0.09,
+      "intent": "commercial/navigational",
+      "trend_quarterly": -22
+    }
+  ],
+  "note": "DataForSEO Keyword Ideas returned generic location-based keywords instead of horse-related suggestions. Using Related Keywords data as primary source for keyword variations."
+}

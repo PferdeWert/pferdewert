@@ -1,0 +1,86 @@
+{
+  "generated": "2025-01-14T10:30:00Z",
+
+  "contextual_links": [
+    {
+      "anchor_text": "Lass dein Wunschpferd in nur 2 Minuten von unserer KI bewerten",
+      "target_url": "/pferde-preis-berechnen",
+      "placement": "Introduction, paragraph 3",
+      "reason": "Direct CTA for PferdeWert service - helps users evaluate potential purchase horses",
+      "link_type": "service"
+    },
+    {
+      "anchor_text": "Nutze die KI-Bewertung von PferdeWert.de",
+      "target_url": "/pferde-preis-berechnen",
+      "placement": "Final CTA after FAQ section",
+      "reason": "Converting CTA at end of article for engaged readers",
+      "link_type": "service"
+    },
+    {
+      "anchor_text": "realistische Kosten",
+      "target_url": "/pferde-ratgeber/pferd-kaufen-kosten",
+      "placement": "H2 Section 3: 'Was kostet ein Anfängerpferd'",
+      "reason": "Deep link to comprehensive cost guide for readers wanting more detail",
+      "link_type": "related_content"
+    },
+    {
+      "anchor_text": "Springpferd kaufen",
+      "target_url": "/pferde-ratgeber/springpferd-kaufen",
+      "placement": "H2 Section 2: 'Geeignete Pferderassen für Anfänger'",
+      "reason": "Related article for users interested in specific disciplines",
+      "link_type": "related_content"
+    },
+    {
+      "anchor_text": "Dressurpferd kaufen",
+      "target_url": "/pferde-ratgeber/dressurpferd-kaufen",
+      "placement": "H2 Section 2: 'Geeignete Pferderassen für Anfänger'",
+      "reason": "Related article for users interested in dressage",
+      "link_type": "related_content"
+    }
+  ],
+
+  "related_articles": [
+    {
+      "title": "Springpferd kaufen: Der ultimative Leitfaden",
+      "url": "/pferde-ratgeber/springpferd-kaufen",
+      "relevance": "Complementary topic for users who develop beyond beginner level",
+      "placement": "Bottom of article (Related Articles section)"
+    },
+    {
+      "title": "Dressurpferd kaufen: Expertentipps für den Kauf",
+      "url": "/pferde-ratgeber/dressurpferd-kaufen",
+      "relevance": "Discipline-specific buying guide for dressage enthusiasts",
+      "placement": "Bottom of article (Related Articles section)"
+    },
+    {
+      "title": "Freizeitpferd kaufen: Worauf es wirklich ankommt",
+      "url": "/pferde-ratgeber/freizeitpferd-kaufen",
+      "relevance": "Highly related - many beginners seek leisure horses",
+      "placement": "Bottom of article (Related Articles section)"
+    },
+    {
+      "title": "Pferd kaufen: Alle Kosten auf einen Blick",
+      "url": "/pferde-ratgeber/pferd-kaufen-kosten",
+      "relevance": "Deep dive into costs mentioned in Section 3",
+      "placement": "Bottom of article (Related Articles section)"
+    }
+  ],
+
+  "recommendations": [
+    "Add service link in introduction with strong value proposition (KI-Bewertung in 2 Minuten)",
+    "Link to related breed-specific articles (Springpferd, Dressurpferd) in H2 Section 2",
+    "Add deep link to cost guide in H2 Section 3 for readers wanting detailed breakdown",
+    "Place final conversion CTA after FAQ section with anchor text emphasizing KI and 2 Minuten duration",
+    "Consider adding glossary links if equestrian terminology pages exist (e.g., AKU, Schulpferd)"
+  ],
+
+  "internal_linking_strategy": {
+    "total_links": 5,
+    "service_links": 2,
+    "content_links": 3,
+    "link_density": "2-3 per 1000 words (optimal)",
+    "anchor_text_variation": true,
+    "no_keyword_stuffing": true,
+    "natural_placement": true
+  }
+}

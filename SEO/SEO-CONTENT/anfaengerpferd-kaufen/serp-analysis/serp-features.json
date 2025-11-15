@@ -1,0 +1,151 @@
+{
+  "analysis_date": "2025-11-14",
+  "primary_keyword": "Anfängerpferd kaufen",
+  "serp_features_detected": {
+    "featured_snippet": {
+      "present": false,
+      "type": null,
+      "opportunity": "HIGH - Keine Featured Snippet vorhanden, starke Chance für gut strukturierte Antwort"
+    },
+    "people_also_ask": {
+      "present": false,
+      "count": 0,
+      "note": "Ungewöhnlich für commercial/informational mixed intent - deutet auf Nischen-Keyword hin"
+    },
+    "people_also_search": {
+      "present": true,
+      "count": 6,
+      "terms": [
+        "Reine Spanische Rasse",
+        "Andalusier",
+        "Islandpferd",
+        "Norwegisches Fjordpferd",
+        "Haflinger",
+        "American Quarter Horse"
+      ],
+      "insight": "User suchen nach spezifischen Pferderassen - Rassenempfehlungen sind critical"
+    },
+    "related_searches": {
+      "present": true,
+      "count": 5,
+      "terms": [
+        "Verlasspferd für Anfänger kaufen",
+        "Verlasspferd kaufen",
+        "Verlasspferd für ängstlichen Reiter",
+        "Verlasspferd in der nähe kaufen",
+        "Anfängerpferd kaufen NRW"
+      ],
+      "insight": "Synonym 'Verlasspferd' ist sehr wichtig - muss in Content integriert werden. Lokale Intent erkennbar (NRW, 'in der nähe')"
+    },
+    "local_pack": {
+      "present": false,
+      "opportunity": "LOW - Keyword ist nicht lokal genug für Local Pack"
+    },
+    "images": {
+      "present": true,
+      "position": "standard",
+      "note": "Bilder-Box vorhanden, Pferde-Bilder wichtig für Engagement"
+    },
+    "videos": {
+      "present": false,
+      "opportunity": "MEDIUM - Video-Content könnte differenzieren"
+    },
+    "knowledge_panel": {
+      "present": false
+    },
+    "sitelinks": {
+      "present": true,
+      "domains_with_sitelinks": [
+        "www.pferde.de",
+        "www.landwirt.com"
+      ],
+      "note": "Etablierte Marketplace-Domains haben Sitelinks für Kategorien"
+    }
+  },
+  "search_intent_analysis": {
+    "primary_intent": "commercial",
+    "primary_probability": 0.68,
+    "secondary_intent": "transactional",
+    "secondary_probability": 0.306,
+    "interpretation": "User sind klar in Kaufabsicht, aber brauchen auch Informationen zur richtigen Auswahl",
+    "content_strategy": "70% Educational (Kaufberatung) + 30% Commercial (CTA zu Pferdewert-Bewertung)"
+  },
+  "serp_layout_insights": {
+    "organic_results_start": "Position 1 (keine Ads vor organischen Results)",
+    "marketplace_dominance": {
+      "percentage": 70,
+      "domains": [
+        "ehorses.de",
+        "kleinanzeigen.de",
+        "deine-tierwelt.de",
+        "pferde.de",
+        "billyrider.de",
+        "landwirt.com"
+      ],
+      "implication": "SERP ist stark marketplace-lastig, redaktioneller Content ist Mangelware"
+    },
+    "editorial_content_gap": {
+      "percentage": 20,
+      "domains": [
+        "ehorses.de (hat Ratgeber-Section)",
+        "reddit.com (Community-Diskussion)"
+      ],
+      "opportunity": "Starke Chance für quality editorial content in Top 3"
+    },
+    "breeder_direct": {
+      "percentage": 10,
+      "domains": [
+        "heinshof.de"
+      ]
+    }
+  },
+  "ranking_opportunity_assessment": {
+    "difficulty": "MEDIUM",
+    "reasoning": [
+      "70% der Top 10 sind Marketplaces ohne redaktionellen Mehrwert",
+      "Nur ehorses.de (Rank 1) hat substanziellen Ratgeber-Content",
+      "Hohe Domain Authority Competition, ABER geringer Content-Quality Competition",
+      "Commercial Intent dominant - User brauchen Kaufberatung",
+      "Fehlende PAA deutet auf wenig Content-Sättigung hin"
+    ],
+    "success_factors": [
+      "Comprehensive Buying Guide (2000-2500 Wörter)",
+      "Alle Lücken schließen: Rechtliches, Versicherung, Checklisten, Kosten-Details",
+      "Strong E-E-A-T: Experten-Zitate, Fallbeispiele, verlässliche Quellen",
+      "Synonym-Integration: 'Verlasspferd' prominent verwenden",
+      "Rassenempfehlungen wie in 'People Also Search'",
+      "Praktische Downloads (PDF-Checkliste) für User Engagement"
+    ],
+    "target_position": "Top 3 within 6-12 months",
+    "confidence": "HIGH - Content Gap ist signifikant"
+  },
+  "featured_snippet_opportunity": {
+    "recommended_type": "list",
+    "target_question": "Was macht ein gutes Anfängerpferd aus?",
+    "optimal_format": "Numbered list mit 4-6 Punkten (50-60 Wörter)",
+    "example_structure": "1. Ruhiges Gemüt und nervenstarker Charakter\n2. Solide Grundausbildung (mind. 7 Jahre alt)\n3. Zuverlässigkeit in verschiedenen Situationen\n4. Positive Einstellung zu Menschen\n5. Vergebend bei Anfängerfehlern",
+    "placement_in_content": "Direkt nach H1 oder als erstes unter H2 'Was macht ein gutes Anfängerpferd aus?'"
+  },
+  "content_format_recommendations": {
+    "target_word_count": 2200,
+    "reasoning": "Rank 1 hat ~1800 Wörter, wir sollten 20% mehr für comprehensiveness",
+    "required_visual_elements": [
+      "Checkliste (Tabellenformat)",
+      "Rassenvergleich-Tabelle",
+      "Kosten-Übersicht (Anschaffung + laufende Kosten)",
+      "Kaufprozess-Timeline/Steps"
+    ],
+    "recommended_structure": [
+      "Einleitung (150 Wörter) - Warum ein Anfängerpferd?",
+      "Eigenschaften eines Anfängerpferds (300 Wörter) - 4 Kategorien",
+      "Geeignete Pferderassen (350 Wörter) - Top 5 mit Pros/Cons",
+      "Kosten im Detail (300 Wörter) - Anschaffung + Folgekosten",
+      "Ankaufsuntersuchung (250 Wörter) - Was wird geprüft?",
+      "Rechtliche Absicherung (250 Wörter) - Kaufvertrag, Probezeit",
+      "Versicherungen (200 Wörter) - Welche sind nötig?",
+      "Kaufprozess-Guide (300 Wörter) - Von Suche bis Abholung",
+      "Checkliste Besichtigung (150 Wörter) - Downloadable",
+      "FAQ (150 Wörter) - Top 5 Fragen"
+    ]
+  }
+}

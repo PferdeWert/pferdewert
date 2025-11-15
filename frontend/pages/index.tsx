@@ -104,6 +104,9 @@ const checkCircleIconLarge = <CheckCircle className="w-8 h-8 text-brand-brown" /
 // FAST REFRESH FIX: Don't store JSX arrays at module level
 // Stars will be rendered inline in component instead
 
+// FAST REFRESH FIX: Pre-define star array indices to prevent Array recreation on each render
+const STAR_INDICES = [0, 1, 2, 3, 4] as const;
+
 // FAST REFRESH FIX: Store only data (no JSX!) at module level
 // Icon components MUST be created inside the component to prevent infinite re-renders
 const FEATURES_DATA = [
@@ -344,7 +347,7 @@ export default function PferdeWertHomepage() {
             </div>
             <div className="flex items-center space-x-2">
               <div className="flex">
-                {[...Array(5)].map((_, i) => (
+                {STAR_INDICES.map((i) => (
                   <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
                 ))}
               </div>
@@ -377,7 +380,7 @@ export default function PferdeWertHomepage() {
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
                 <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – exklusiv in der Herbst-Aktion!
+                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – exklusiv zur Black Week ab 15.11.!
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten

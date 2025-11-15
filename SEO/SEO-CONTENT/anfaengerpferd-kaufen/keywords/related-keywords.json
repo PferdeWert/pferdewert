@@ -1,0 +1,194 @@
+{
+  "total_related_keywords": 20,
+  "depth": 2,
+  "keywords": [
+    {
+      "keyword": "pferde kaufen in der nähe",
+      "search_volume": 2400,
+      "competition": "LOW",
+      "cpc": 0.17,
+      "intent": "commercial",
+      "keyword_difficulty": 10,
+      "trend_monthly": 21
+    },
+    {
+      "keyword": "dressurpferd kaufen",
+      "search_volume": 2400,
+      "competition": "LOW",
+      "cpc": 0.23,
+      "intent": "commercial/transactional",
+      "trend_quarterly": -21,
+      "trend_yearly": -21
+    },
+    {
+      "keyword": "freizeitpferd kaufen",
+      "search_volume": 1900,
+      "competition": "LOW",
+      "cpc": 0.13,
+      "intent": "commercial/navigational",
+      "trend_quarterly": -16,
+      "trend_yearly": -33
+    },
+    {
+      "keyword": "pferde kaufen für 200 euro",
+      "search_volume": 1300,
+      "competition": "LOW",
+      "cpc": 0.39,
+      "intent": "transactional/commercial",
+      "keyword_difficulty": 30,
+      "trend_yearly": 48
+    },
+    {
+      "keyword": "pferde günstig kaufen bis 500 euro",
+      "search_volume": 880,
+      "competition": "LOW",
+      "cpc": 0.22,
+      "intent": "commercial/transactional",
+      "keyword_difficulty": 12,
+      "trend_quarterly": -18,
+      "trend_yearly": -28
+    },
+    {
+      "keyword": "anfängerpferd kaufen",
+      "search_volume": 720,
+      "competition": "LOW",
+      "cpc": 0.12,
+      "intent": "commercial/transactional"
+    },
+    {
+      "keyword": "verlasspferd kaufen",
+      "search_volume": 720,
+      "competition": "LOW",
+      "cpc": 0.08,
+      "intent": "commercial",
+      "trend_yearly": -18
+    },
+    {
+      "keyword": "anfänger pferd kaufen",
+      "search_volume": 720,
+      "competition": "LOW",
+      "cpc": 0.12,
+      "intent": "commercial/transactional",
+      "trend_yearly": -18
+    },
+    {
+      "keyword": "schulpferd kaufen",
+      "search_volume": 480,
+      "competition": "LOW",
+      "cpc": 0.14,
+      "intent": "commercial/navigational/transactional"
+    },
+    {
+      "keyword": "pferde kaufen niedersachsen",
+      "search_volume": 390,
+      "competition": "LOW",
+      "cpc": 0.12,
+      "intent": "navigational/commercial",
+      "trend_monthly": 23,
+      "trend_quarterly": 23
+    },
+    {
+      "keyword": "verlasspferd für anfänger kaufen",
+      "search_volume": 260,
+      "competition": "LOW",
+      "cpc": 0.15,
+      "intent": "commercial/transactional",
+      "trend_yearly": -19
+    },
+    {
+      "keyword": "freizeitpferd für anfänger",
+      "search_volume": 260,
+      "competition": "LOW",
+      "cpc": 0.17,
+      "intent": "commercial",
+      "trend_monthly": 24,
+      "trend_quarterly": 50
+    },
+    {
+      "keyword": "seriöse pferdehändler niedersachsen",
+      "search_volume": 170,
+      "competition": "LOW",
+      "cpc": 0.21,
+      "intent": "navigational/commercial",
+      "keyword_difficulty": 7,
+      "trend_monthly": -35,
+      "trend_quarterly": -35,
+      "trend_yearly": -35
+    },
+    {
+      "keyword": "pferde günstig kaufen bis 1000 euro",
+      "search_volume": 170,
+      "competition": "LOW",
+      "cpc": 0.26,
+      "intent": "transactional/commercial",
+      "trend_quarterly": -19,
+      "trend_yearly": -19
+    },
+    {
+      "keyword": "verlasspferd für ängstlichen reiter",
+      "search_volume": 140,
+      "competition": "LOW",
+      "cpc": 0.05,
+      "intent": "commercial/informational",
+      "trend_monthly": -35,
+      "trend_yearly": -21
+    },
+    {
+      "keyword": "verlasspferd kaufen niedersachsen",
+      "search_volume": 140,
+      "competition": "LOW",
+      "cpc": 0.05,
+      "intent": "navigational/commercial",
+      "trend_monthly": 56,
+      "trend_quarterly": 27,
+      "trend_yearly": 27
+    },
+    {
+      "keyword": "freizeitpferd kaufen von privat",
+      "search_volume": 140,
+      "competition": "LOW",
+      "cpc": 0.14,
+      "intent": "commercial/navigational",
+      "trend_quarterly": -18,
+      "trend_yearly": -18
+    },
+    {
+      "keyword": "verlasspferd kaufen nrw",
+      "search_volume": 110,
+      "competition": "LOW",
+      "cpc": 0.08,
+      "intent": "commercial/navigational",
+      "trend_monthly": -21,
+      "trend_quarterly": 57,
+      "trend_yearly": -21
+    },
+    {
+      "keyword": "verlasspferd kaufen bayern",
+      "search_volume": 110,
+      "competition": "LOW",
+      "cpc": 0.06,
+      "intent": "commercial/navigational",
+      "trend_monthly": -29,
+      "trend_quarterly": -29,
+      "trend_yearly": -55
+    },
+    {
+      "keyword": "pferde günstig kaufen bis 2.000 euro",
+      "search_volume": 110,
+      "competition": "LOW",
+      "cpc": 0.32,
+      "intent": "transactional/commercial",
+      "trend_monthly": -36,
+      "trend_quarterly": -36,
+      "trend_yearly": -47
+    }
+  ],
+  "related_keyword_groups": {
+    "verlasspferd": ["verlasspferd kaufen", "verlasspferd für anfänger kaufen", "verlasspferd für ängstlichen reiter"],
+    "freizeitpferd": ["freizeitpferd kaufen", "freizeitpferd für anfänger", "freizeitpferd kaufen von privat"],
+    "günstig_kaufen": ["pferde günstig kaufen bis 500 euro", "pferde günstig kaufen bis 1000 euro", "pferde günstig kaufen bis 2.000 euro", "pferde kaufen für 200 euro"],
+    "regional": ["pferde kaufen niedersachsen", "verlasspferd kaufen niedersachsen", "verlasspferd kaufen nrw", "verlasspferd kaufen bayern"],
+    "schulpferd": ["schulpferd kaufen"],
+    "händler": ["seriöse pferdehändler niedersachsen"]
+  }
+}

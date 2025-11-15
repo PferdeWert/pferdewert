@@ -50,6 +50,7 @@ frontend/.env.*
 *.swp
 *.swo
 *.bak
+*.backup
 
 # MacOS
 .DS_Store

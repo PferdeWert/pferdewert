@@ -1,0 +1,42 @@
+{
+  "primary_keyword": "Anfängerpferd kaufen",
+  "search_volume": 720,
+  "monthly_average": 793,
+  "competition": "LOW",
+  "cpc": 0.12,
+  "search_intent": "commercial/transactional",
+  "keyword_difficulty": null,
+  "monthly_searches": {
+    "2025-10": 720,
+    "2025-09": 720,
+    "2025-08": 720,
+    "2025-07": 880,
+    "2025-06": 880,
+    "2025-05": 880,
+    "2025-04": 880,
+    "2025-03": 880,
+    "2025-02": 880,
+    "2025-01": 880,
+    "2024-12": 590,
+    "2024-11": 720
+  },
+  "trend": {
+    "yearly": -18
+  },
+  "serp_results_count": 8530,
+  "avg_backlinks": {
+    "backlinks": 33.2,
+    "dofollow": 16.1,
+    "referring_domains": 10,
+    "rank": 63.1
+  },
+  "clickstream_data": {
+    "search_volume": 126,
+    "gender_distribution": {
+      "male": 100
+    },
+    "age_distribution": {
+      "35-44": 100
+    }
+  }
+}

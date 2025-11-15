@@ -1,0 +1,48 @@
+{
+  "keyword": "Anfängerpferd kaufen",
+  "keyword_slug": "anfaengerpferd-kaufen",
+  "started": "2025-01-14T12:00:00Z",
+  "last_updated": "2025-01-14T22:05:00Z",
+  "phases": {
+    "0": "completed",
+    "1": "completed",
+    "2": "completed",
+    "3": "completed",
+    "4": "completed",
+    "5": "completed",
+    "6": "completed",
+    "7": "pending"
+  },
+  "current_phase": 7,
+  "target_market": {
+    "language": "de",
+    "location": "Germany"
+  },
+  "brand_compliance": {
+    "use_ki_not_ai": true,
+    "evaluation_duration": "2 Minuten",
+    "paid_service": true
+  },
+  "phase_3_metrics": {
+    "h2_sections": 11,
+    "h3_subsections": 31,
+    "faq_questions": 7,
+    "estimated_word_count": 4180,
+    "search_intent_alignment": "commercial_transactional_with_informational",
+    "content_gap_score": 90,
+    "featured_snippet_opportunity": "high"
+  },
+  "phase_6_quality_results": {
+    "overall_status": "pass",
+    "overall_score": 8.0,
+    "grade": "A",
+    "e_e_a_t_score": 8.0,
+    "keyword_density": 1.0,
+    "brand_compliance_status": "pass",
+    "all_schemas_valid": true,
+    "word_count": 4180,
+    "critical_issues": 0,
+    "warnings": 3,
+    "ready_for_publication": true
+  }
+}
