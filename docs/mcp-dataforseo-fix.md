@@ -83,7 +83,6 @@ tools:
   - Glob
   - Grep
   - WebFetch
-  - mcp__firecrawl__*
 ```
 
 ### `pferdewert-business-analyst.md`

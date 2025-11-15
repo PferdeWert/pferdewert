@@ -14,8 +14,8 @@ You will perform a complete Technical SEO Audit for PferdeWert.de, analyzing:
 ## Workflow Steps
 
 ### Step 1: Website Mapping
-Use `firecrawl_map` to discover all URLs on pferdewert.de:
-- Map the complete website structure
+Discover all URLs on pferdewert.de using sitemap analysis:
+- Map the complete website structure from sitemap.xml
 - Categorize URLs by type (main pages, ratgeber articles, info pages)
 - Create URL inventory: `SEO/SEO-AUDIT/{keyword}/url-inventory-{date}.json`
 
@@ -97,7 +97,7 @@ For each critical issue, document:
 
 ## Execution Checklist
 
-- [ ] 1. Website Mapping with firecrawl_map
+- [ ] 1. Website Mapping from sitemap.xml
 - [ ] 2. URL Prioritization (identify Top 20 URLs)
 - [ ] 3. OnPage Analysis for Prio 1-2 URLs
 - [ ] 4. Lighthouse Audit for Top 10 URLs (Mobile + Desktop)

@@ -3,7 +3,6 @@
 ## Verfügbare Tools
 - **Claude Code**: AI-gestützte Analyse und Content-Erstellung
 - **DataForSEO API**: Keyword Research, SERP Analysis, On-Page Audit (via `/api/seo/*` Endpoints)
-- **Firecrawl MCP**: Website Scraping und Content-Extraktion
 - **File Storage**: JSON/MD-Dateien für Datenablage und Prozess-Tracking
 
 ---
@@ -93,8 +92,8 @@ Automatische Erstellung umfassender Content-Outlines basierend auf Keyword-Analy
 ### Schritte mit Claude Code
 1. **Company Profile & Target Keyword laden**: ✅ Existierendes `SEO/company/company-profile-{date}.md` + Keywords aus Prozess 2
 2. **Competitor Analysis**:
-   - `firecrawl_search` für Top 10 Competitors
-   - `firecrawl_scrape` für Heading-Extraktion
+   - DataForSEO SERP API für Top 10 Competitors
+   - DataForSEO On-Page API für Heading-Extraktion
 3. **SERP Research**: API Call via `/api/seo/serp` für aktuelle Rankings
 4. **People Also Ask**: API Call via `/api/seo/serp` mit `people_also_ask_click_depth`
 5. **Company-optimierte Outline**: Content-Struktur nach Tonalität aus Company Profile
@@ -152,7 +151,7 @@ Automatisierte Erstellung suchoptimierter Artikel basierend auf SERP-Analyse und
 ### Schritte mit Claude Code
 1. **Company Profile & Content-Brief laden**: ✅ Existierendes `SEO/company/company-profile-{date}.md` + Outline aus Prozess 3
 2. **SERP Analysis**: API Call via `/api/seo/serp` für Top 20 Ergebnisse
-3. **Content Research**: `firecrawl_scrape` für Top-Performer Content
+3. **Content Research**: DataForSEO SERP + On-Page APIs für Top-Performer Content
 4. **Competitive Analysis**: Claude analysiert Content-Gaps basierend auf USPs
 5. **Brand-optimierte Content Creation**: Artikel nach Tonalität & Content-Fokus aus Company Profile
 6. **USP-Integration**: Alleinstellungsmerkmale in Content einbauen
@@ -216,7 +215,7 @@ Actions:
 ├── Lade Company Profile: SEO/company/company-profile-{date}.md
 ├── Keyword Research: API Calls via /api/seo/* (keyword-ideas + related + suggestions)
 ├── SERP Analysis: API Call via /api/seo/serp (Top 10)
-├── Competitor Research: firecrawl_scrape für Content-Extraktion
+├── Competitor Research: DataForSEO On-Page API für Content-Extraktion
 ├── Intent-Klassifizierung: Nach Company Profile Ausschlusskriterien
 ├── Content-Outline: H1-H3 Struktur + FAQ-Sektion
 ├── SEO-Artikel: Vollständiger deutscher Text (1000-2500 Wörter)

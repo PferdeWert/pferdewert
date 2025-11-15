@@ -286,7 +286,7 @@
 **Scenario 5**: Fact-check failures
 - **Action**: Identify specific claims that are wrong or outdated
 - **Retry Phase 4**: Correct facts, add sources, update data
-- **Use**: Firecrawl MCP for real-time fact verification if needed
+- **Use**: DataForSEO APIs for real-time fact verification if needed
 
 ---
 

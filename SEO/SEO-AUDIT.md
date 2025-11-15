@@ -23,12 +23,12 @@ SEO/SEO-AUDIT/{keyword}/
 ## Audit-Workflow
 
 ### Schritt 1: Website Mapping
-**Tool**: Firecrawl MCP (`firecrawl_map`)
+**Tool**: Sitemap Analysis
 
 **Zweck**: Vollständige Erfassung aller URLs der Website
 
 **Aktionen**:
-1. Führe `firecrawl_map` für die Zieldomain aus
+1. Analysiere die sitemap.xml der Zieldomain
 2. Extrahiere alle gefundenen URLs (intern)
 3. Kategorisiere URLs nach Typ:
    - Hauptseiten (Homepage, Bewertungsformular)
@@ -365,7 +365,7 @@ POST /api/seo/lighthouse
 Wenn `/seo-audit` ausgeführt wird:
 
 - [ ] **1. Website Mapping**
-  - [ ] firecrawl_map für Domain ausführen
+  - [ ] Analysiere sitemap.xml der Domain
   - [ ] URL-Inventar erstellen
   - [ ] Speichere url-inventory-{date}.json
 
@@ -453,19 +453,6 @@ Wenn `/seo-audit` ausgeführt wird:
         "cumulative-layout-shift": { "numericValue": 0.05 }
       }
     }
-  }
-}
-```
-
-### Firecrawl Map API
-```javascript
-// Via MCP firecrawl_map tool
-{
-  "url": "https://pferdewert.de",
-  "options": {
-    "includeSubdomains": false,
-    "limit": 1000,
-    "ignoreQueryParameters": true
   }
 }
 ```

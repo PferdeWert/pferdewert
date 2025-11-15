@@ -87,7 +87,7 @@ try {
     console.log('⚠️  WICHTIG: Dies ist ein umfassender Prozess der alle 6 Agenten durchläuft!');
     console.log('📝 Kommando für Claude Code:');
     console.log('---');
-    console.log(`Task(pferdewert-frontend-dev): "Setup complete SEO process for keyword '${keyword}' - create all necessary folder structures, initialize tracking files, perform keyword research expansion using DataForSEO APIs (keyword_ideas, related_keywords, keyword_suggestions), analyze regional search patterns for German market, filter and categorize keywords by search intent, save results to ${keyword.replace(/\s+/g, '-')}-keywords.json, then automatically continue with competitor analysis using DataForSEO SERP analysis and Firecrawl content extraction for top 10 results, create content outline with H1-H3 structure plus FAQ section, and finally generate complete 1000-2500 word German SEO article with meta assets - execute full 6-agent pipeline automatically"`);
+    console.log(`Task(pferdewert-frontend-dev): "Setup complete SEO process for keyword '${keyword}' - create all necessary folder structures, initialize tracking files, perform keyword research expansion using DataForSEO APIs (keyword_ideas, related_keywords, keyword_suggestions), analyze regional search patterns for German market, filter and categorize keywords by search intent, save results to ${keyword.replace(/\s+/g, '-')}-keywords.json, then automatically continue with competitor analysis using DataForSEO SERP analysis and on-page APIs for top 10 results, create content outline with H1-H3 structure plus FAQ section, and finally generate complete 1000-2500 word German SEO article with meta assets - execute full 6-agent pipeline automatically"`);
     console.log('---');
 
 } catch (error) {

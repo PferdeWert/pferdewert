@@ -21,7 +21,6 @@
 ## Development Tools & Workflows
 - **Visual Testing**: Always use Playwright MCP for frontend changes
 - **Token Savings**: Use Gemini CLI for ESLint fixes, TypeScript types
-- **Web Research**: Always use Firecrawl MCP for online searches and web scraping
 - **SEO Management**: Always run `npm run sitemap` before deployment to update sitemap.xml & robots.txt
 
 ## Additional Documentation

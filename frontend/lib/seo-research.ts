@@ -1,6 +1,6 @@
 /**
  * SEO Research Utilities - Complete SEO Data Suite
- * Using Firecrawl MCP + Direct APIs (no DataForSEO MCP needed)
+ * Using DataForSEO APIs
  */
 
 export interface SEOKeywordData {
@@ -54,7 +54,7 @@ export async function getSEOResearch(keyword: string): Promise<SEOResearchResult
 }
 
 /**
- * Get Google SERP results via Firecrawl
+ * Get Google SERP results
  */
 export async function getSERPResults(keyword: string, limit = 10): Promise<SERPResult[]> {
   const response = await fetch('/api/seo/serp', {

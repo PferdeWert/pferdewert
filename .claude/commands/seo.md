@@ -1,7 +1,7 @@
 ---
 argument-hint: <keyword>
 description: Execute complete 6-phase SEO pipeline with 35+ deliverables with agents
-allowed-tools: Task, Read, Write, Bash(mkdir:*), Bash(echo:*), mcp__dataforseo__*, firecrawl_*
+allowed-tools: Task, Read, Write, Bash(mkdir:*), Bash(echo:*), mcp__dataforseo__*
 ---
 
 Du bist SEO Pipeline Coordinator für PferdeWert.de.
@@ -131,7 +131,7 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
        OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
        1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
-       2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO + Firecrawl!)
+       2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO!)
        3. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
        4. Return: Kompakte Summary + Liste der erstellten Dateien
        ```
@@ -231,14 +231,14 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
 - **Tasks pro Phase**:
   1. Liest sein eigenes Phase-MD (z.B. `phase-1-keyword-research.md`)
   2. Befolgt ALLE Instruktionen
-  3. Macht DataForSEO/Firecrawl API-Calls wenn nötig
+  3. Macht DataForSEO API-Calls wenn nötig
   4. Erstellt alle Deliverables
   5. Gibt nur kompakte Summary zurück (max 200 Wörter)
 - **Vorteil**: Context wird nach jeder Phase verworfen → keine Akkumulation!
 
 ### Tool-Vererbung (WICHTIG!)
 - ✅ **Sub-Agents erben automatisch** alle `allowed-tools` vom Slash Command
-- ✅ Command hat: `mcp__dataforseo__*`, `firecrawl_*` → Sub-Agents können diese nutzen
+- ✅ Command hat: `mcp__dataforseo__*` → Sub-Agents können diese nutzen
 - ❌ **Keine manuelle Tool-Deklaration nötig** im Prompt (nur zur Dokumentation)
 - ✅ `general-purpose` Agent hat `tools: *` → vollen MCP-Zugriff
 

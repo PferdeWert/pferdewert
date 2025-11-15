@@ -1,7 +1,7 @@
 ---
 argument-hint: <article-slug or path>
 description: SEO-Optimierung für existierende Ratgeber-Artikel mit KI-Analyse
-allowed-tools: Task, Read, Write, Edit, Bash(mkdir:*), mcp__dataforseo__*, mcp__firecrawl__*
+allowed-tools: Task, Read, Write, Edit, Bash(mkdir:*), mcp__dataforseo__*
 ---
 
 Du bist SEO Content Optimizer für PferdeWert.de.
@@ -67,8 +67,7 @@ Spawne einen Sub-Agent mit:
       "language_code": "de",
       "depth": 10
     }
-  - Scrape top 3 competitors with Firecrawl:
-    mcp__firecrawl__firecrawl_scrape for each top result
+  - Analyze top 3 competitor results from SERP data
 
   STEP 4: Gap Analysis
   - Compare our content vs competitors:
