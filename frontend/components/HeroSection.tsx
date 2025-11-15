@@ -105,7 +105,7 @@ export default function HeroSection({
                 className={imageClassName || `w-full h-auto ${showImageGradient ? 'rounded-3xl shadow-2xl object-cover' : ''}`}
                 priority
                 sizes="(max-width: 480px) 400px, (max-width: 768px) 500px, (max-width: 1200px) 600px, 600px"
-                quality={75}
+                quality={60}
                 placeholder={blurDataURL ? 'blur' : 'empty'}
                 {...(blurDataURL && { blurDataURL })}
               />
