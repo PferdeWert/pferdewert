@@ -5,6 +5,12 @@ export default function Document() {
   return (
     <Html lang="de">
       <Head>
+        {/* Performance: Preconnect für externe Ressourcen */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://js.stripe.com" />
+        <link rel="dns-prefetch" href="https://datafa.st" />
+        <link rel="dns-prefetch" href="https://checkout.stripe.com" />
+
         {/* DataFa.st Queue Script - Must load early to capture events */}
         <script
           dangerouslySetInnerHTML={{
@@ -44,17 +50,12 @@ export default function Document() {
           crossOrigin="anonymous"
         />
 
-        {/* Merriweather für Headlines - optimized for performance */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
-        />
+        {/* Merriweather jetzt self-hosted via @fontsource in globals.css - Performance Optimierung */}
 
-        {/* Cookie Consent CSS - Required for buttons to work properly */}
+        {/* Cookie Consent CSS - Self-hosted für Performance */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-          crossOrigin="anonymous"
+          href="/css/cookieconsent.min.css"
         />
       </Head>
       <body className="antialiased">

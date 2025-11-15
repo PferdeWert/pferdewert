@@ -1,5 +1,12 @@
 /* frontend/styles/globals.css */
 
+/* ===== Self-hosted Fonts für Performance Optimierung ===== */
+/* Merriweather von Fontsource - ersetzt Google Fonts CDN */
+@import '@fontsource/merriweather/300.css';
+@import '@fontsource/merriweather/400.css';
+@import '@fontsource/merriweather/700.css';
+@import '@fontsource/merriweather/900.css';
+
 /* ===== Tailwind CSS Import ===== */
 @tailwind base;
 @tailwind components;
