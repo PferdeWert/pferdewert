@@ -32,20 +32,32 @@ const heroPrimaryCta = {
   icon: sparklesIcon
 };
 
-export default function AnfaengerpferdKaufen() {
-  const sections = [
-    { id: 'charaktereigenschaften', title: 'Was macht ein gutes Anfängerpferd aus?' },
-    { id: 'alter', title: 'Das ideale Alter für ein Anfängerpferd' },
-    { id: 'rassen', title: 'Anfängerpferd-Rassen: Die Top 7' },
-    { id: 'kosten', title: 'Kosten: Kaufpreis und Unterhalt' },
-    { id: 'kaufquellen', title: 'Wo findet man ein Anfängerpferd?' },
-    { id: 'aku', title: 'Ankaufsuntersuchung (AKU)' },
-    { id: 'rechtliches', title: 'Rechtliche Absicherung' },
-    { id: 'versicherungen', title: 'Versicherungen für Anfängerpferde' },
-    { id: 'faq', title: 'Häufig gestellte Fragen' },
-  ];
+const heroImageAttribution = {
+  author: 'Waugsberg',
+  license: 'CC BY-SA 3.0',
+  licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+  source: 'Wikimedia Commons',
+  originalUrl: 'https://commons.wikimedia.org/wiki/File:Flehmendes_Pferd_32_c.jpg'
+};
 
-  const faqItems = [
+const finalCtaImage = {
+  src: '/images/shared/blossi-shooting.webp',
+  alt: 'Pferdebewertung mit PferdeWert'
+};
+
+const sections = [
+  { id: 'charaktereigenschaften', title: 'Was macht ein gutes Anfängerpferd aus?' },
+  { id: 'alter', title: 'Das ideale Alter für ein Anfängerpferd' },
+  { id: 'rassen', title: 'Anfängerpferd-Rassen: Die Top 7' },
+  { id: 'kosten', title: 'Kosten: Kaufpreis und Unterhalt' },
+  { id: 'kaufquellen', title: 'Wo findet man ein Anfängerpferd?' },
+  { id: 'aku', title: 'Ankaufsuntersuchung (AKU)' },
+  { id: 'rechtliches', title: 'Rechtliche Absicherung' },
+  { id: 'versicherungen', title: 'Versicherungen für Anfängerpferde' },
+  { id: 'faq', title: 'Häufig gestellte Fragen' },
+];
+
+const faqItems = [
     {
       question: 'Wie alt sollte ein Anfängerpferd sein?',
       answer: 'Ein ideales Anfängerpferd sollte mindestens 7 Jahre alt sein, optimal sind 8-15 Jahre. In diesem Alter haben Pferde genügend Erfahrung gesammelt, sind charakterlich gefestigt und können einem Anfänger Sicherheit geben. Jüngere Pferde unter 7 Jahren sind oft noch zu unerfahren und unausgeglichen. Ältere Pferde (15+ Jahre) können ebenfalls geeignet sein, sofern sie gesund sind – hier sollte die Ankaufsuntersuchung besonders gründlich sein.'
@@ -74,35 +86,36 @@ export default function AnfaengerpferdKaufen() {
       question: 'Welche Versicherungen brauche ich für ein Anfängerpferd?',
       answer: 'Unverzichtbar ist die Pferdehaftpflichtversicherung (ca. 30-60€/Monat), die Schäden abdeckt, die Ihr Pferd Dritten zufügt. Stark empfohlen ist zudem eine Pferde-OP-Versicherung (40-80€/Monat), die teure Operationen wie Kolik-OPs absichert. Eine Vollkrankenversicherung ist meist zu teuer; hier sind Rücklagen die bessere Alternative. Klären Sie den Versicherungsschutz unbedingt vor Kaufabschluss und auch für eine eventuelle Probezeit.'
     }
-  ];
+];
 
-  const relatedArticles = [
-    {
-      href: '/pferde-ratgeber/freizeitpferd-kaufen',
-      image: '/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
-      title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
-      badge: 'Kauf & Verkauf',
-      readTime: '15 Min.',
-      description: 'Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.'
-    },
-    {
-      href: '/pferde-ratgeber/pferdekaufvertrag',
-      image: '/images/ratgeber/horses-mountain-field-spain.webp',
-      title: 'Pferdekaufvertrag: Rechtliche Absicherung beim Pferdekauf',
-      badge: 'Finanzen & Recht',
-      readTime: '12 Min.',
-      description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden.'
-    },
-    {
-      href: '/pferde-ratgeber/aku-pferd',
-      image: '/images/ratgeber/aku-pferd/veterinarian-examining-horse-head-outdoor.webp',
-      title: 'Ankaufsuntersuchung beim Pferd: Der ultimative AKU-Ratgeber',
-      badge: 'Kauf & Verkauf',
-      readTime: '15 Min.',
-      description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf und wie AKU-Befunde den Wert beeinflussen.'
-    }
-  ];
+const relatedArticles = [
+  {
+    href: '/pferde-ratgeber/freizeitpferd-kaufen',
+    image: '/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
+    title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
+    badge: 'Kauf & Verkauf',
+    readTime: '15 Min.',
+    description: 'Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.'
+  },
+  {
+    href: '/pferde-ratgeber/pferdekaufvertrag',
+    image: '/images/ratgeber/horses-mountain-field-spain.webp',
+    title: 'Pferdekaufvertrag: Rechtliche Absicherung beim Pferdekauf',
+    badge: 'Finanzen & Recht',
+    readTime: '12 Min.',
+    description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden.'
+  },
+  {
+    href: '/pferde-ratgeber/aku-pferd',
+    image: '/images/ratgeber/aku-pferd/veterinarian-examining-horse-head-outdoor.webp',
+    title: 'Ankaufsuntersuchung beim Pferd: Der ultimative AKU-Ratgeber',
+    badge: 'Kauf & Verkauf',
+    readTime: '15 Min.',
+    description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf und wie AKU-Befunde den Wert beeinflussen.'
+  }
+];
 
+export default function AnfaengerpferdKaufen() {
   return (
     <Layout
       fullWidth={true}
@@ -231,13 +244,7 @@ export default function AnfaengerpferdKaufen() {
         alt="Pferd zeigt Flehmen-Reaktion – typisches Verhalten bei neugierigen, aufmerksamen Pferden"
         priority={true}
         objectPosition="center center"
-        attribution={{
-          author: 'Waugsberg',
-          license: 'CC BY-SA 3.0',
-          licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
-          source: 'Wikimedia Commons',
-          originalUrl: 'https://commons.wikimedia.org/wiki/File:Flehmendes_Pferd_32_c.jpg'
-        }}
+        attribution={heroImageAttribution}
       />
 
       {/* Table of Contents */}
@@ -411,7 +418,7 @@ export default function AnfaengerpferdKaufen() {
               </p>
 
               <div className="space-y-8">
-                <div className="bg-white rounded-lg p-6 border-2 border-amber-300">
+                <div className="bg-white rounded-lg p-6 border border-gray-200">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">1. Haflinger – Der Klassiker für Anfänger</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -1146,27 +1153,27 @@ export default function AnfaengerpferdKaufen() {
                 <h4 className="text-lg font-semibold text-green-900 mb-3">Was solltest du während der Probezeit testen?</h4>
                 <ul className="space-y-2 text-green-800">
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Verschiedene Gangar ten:</strong> Schritt, Trab, Galopp in Halle und Gelände</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Bodenarbeit:</strong> Putzen, Führen, Anbinden, Hufe geben</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Verladen:</strong> Wie reagiert das Pferd beim Transport?</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Verschiedene Reiter:</strong> Lass auch andere (erfahrene) Personen reiten</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Tierarzt/Hufschmied:</strong> Wie verhält sich das Pferd?</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Herde:</strong> Wie integriert sich das Pferd in die neue Umgebung?</span>
                   </li>
                 </ul>
@@ -1321,11 +1328,11 @@ export default function AnfaengerpferdKaufen() {
                 </p>
                 <ul className="space-y-2 text-green-800 mb-4">
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Pferdehaftpflicht</strong> (30-60€/Monat) – PFLICHT</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {checkCircleGreenFlexIcon}
                     <span><strong>Pferde-OP-Versicherung</strong> (40-80€/Monat) – DRINGEND EMPFOHLEN</span>
                   </li>
                 </ul>
@@ -1355,14 +1362,11 @@ export default function AnfaengerpferdKaufen() {
 
         {/* Final CTA */}
         <RatgeberFinalCTA
-          image={{
-            src: '/images/shared/blossi-shooting.webp',
-            alt: 'Pferdebewertung mit PferdeWert'
-          }}
+          image={finalCtaImage}
           title="Bereit für dein Anfängerpferd?"
           description="Lass dein Wunschpferd in nur 2 Minuten von unserer KI bewerten und erhalte eine objektive Einschätzung zum fairen Marktwert."
           ctaHref="/pferde-preis-berechnen"
-          ctaLabel="Jetzt kostenlose Bewertung starten"
+          ctaLabel="Jetzt Pferdewert berechnen"
         />
       </article>
     </Layout>
