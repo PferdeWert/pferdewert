@@ -53,6 +53,7 @@ export default function Document() {
         {/* Merriweather jetzt self-hosted via @fontsource in globals.css - Performance Optimierung */}
 
         {/* Cookie Consent CSS - Self-hosted für Performance */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
           rel="stylesheet"
           href="/css/cookieconsent.min.css"
