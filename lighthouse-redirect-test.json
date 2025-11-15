@@ -1,0 +1,41 @@
+{
+  "id": "redirects",
+  "title": "Avoid multiple page redirects",
+  "description": "Redirects introduce additional delays before the page can be loaded. [Learn how to avoid page redirects](https://developer.chrome.com/docs/lighthouse/performance/redirects/).",
+  "score": 0,
+  "scoreDisplayMode": "metricSavings",
+  "numericValue": 765.675,
+  "numericUnit": "millisecond",
+  "displayValue": "Est savings of 770 ms",
+  "metricSavings": {
+    "LCP": 750,
+    "FCP": 750
+  },
+  "details": {
+    "type": "opportunity",
+    "headings": [
+      {
+        "key": "url",
+        "valueType": "url",
+        "label": "URL"
+      },
+      {
+        "key": "wastedMs",
+        "valueType": "timespanMs",
+        "label": "Time Spent"
+      }
+    ],
+    "items": [
+      {
+        "url": "https://pferdewert.de/",
+        "wastedMs": 765.675
+      },
+      {
+        "url": "https://www.pferdewert.de/",
+        "wastedMs": 0
+      }
+    ],
+    "overallSavingsMs": 765.675
+  },
+  "guidanceLevel": 2
+}

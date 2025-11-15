@@ -3,13 +3,18 @@
 import Head from "next/head";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQ from "@/components/FAQ";
+
+// Lazy load below-the-fold components for better performance
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), {
+  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />,
+});
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, SCHEMA_PRICING } from "../lib/pricing";
 import {

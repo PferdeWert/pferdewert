@@ -9,27 +9,26 @@
 ### Kategorie-Scores
 | Kategorie | Score | Status |
 |-----------|-------|--------|
-| **Performance** | 75/100 | 🟡 Needs Improvement |
+| **Performance** | 69/100 | 🔴 NEEDS WORK (nach Redirect-Fix) |
 | **SEO** | 100/100 | ✅ Excellent |
 | **Accessibility** | 97/100 | ✅ Very Good |
 | **Best Practices** | 100/100 | ✅ Excellent |
 
-### Core Web Vitals
+### Core Web Vitals (AKTUALISIERT 15.11.2025)
 | Metric | Aktuell | Ziel | Status |
 |--------|---------|------|--------|
-| **First Contentful Paint** | 2.1s | <1.8s | 🟡 OK |
-| **Largest Contentful Paint** | 5.6s | <2.5s | ❌ KRITISCH |
-| **Total Blocking Time** | 50ms | <200ms | ✅ Gut |
-| **Cumulative Layout Shift** | 0.002 | <0.1 | ✅ Exzellent |
-| **Speed Index** | 4.6s | <3.4s | 🟡 Verbesserungsbedarf |
-| **Time to Interactive** | 8.3s | <3.8s | ❌ KRITISCH |
+| **First Contentful Paint** | 1.77s | <1.8s | ✅ Gut |
+| **Largest Contentful Paint** | **9.09s** | <2.5s | 🔴 KRITISCH |
+| **Total Blocking Time** | 133ms | <200ms | ✅ Gut |
+| **Cumulative Layout Shift** | 0 | <0.1 | ✅ Exzellent |
+| **Speed Index** | 5.44s | <3.4s | 🔴 KRITISCH |
 
-### LCP Breakdown (5.6s gesamt)
+### LCP Breakdown (9.09s gesamt - VERSCHLECHTERT!)
 | Phase | Dauer | Beschreibung |
 |-------|-------|--------------|
-| **TTFB** (Time to First Byte) | 367ms | ✅ Gut - Server Response |
-| **Element Render Delay** | 921ms | 🟡 Optimierbar - Rendering-Verzögerung |
-| **Resource Load Time** | ~4.3s | ❌ KRITISCH - Hauptproblem |
+| **TTFB** (Time to First Byte) | ~800ms | 🟡 Langsamer geworden (vorher 367ms) |
+| **Resource Load Time** | ~8.3s | 🔴 KRITISCH - Hauptproblem (fast 2x so lang!) |
+| **Element Render Delay** | ~0ms | ✅ Gut |
 
 ## 🎯 Hauptprobleme & Impact (Lighthouse-Analyse)
 
@@ -90,35 +89,26 @@ const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSecti
 });
 ```
 
-### 2. 🚨 Redirect-Problem: pferdewert.de → www.pferdewert.de (NEUE ERKENNTNIS!)
-**Impact:** Verschwendete Zeit: **926ms** (!!)
-**Status:** ❌ KRITISCH für SEO & Performance
+### 2. ✅ Redirect-Problem: pferdewert.de → www.pferdewert.de (OPTIMIERT!)
+**Status:** ✅ ERLEDIGT (15.11.2025)
+**Verbesserung:** 926ms → 764ms (**-162ms / -17%**)
+**Redirect-Status:** 307 Temporary → **308 Permanent** ✅
 
-**Problem:**
-- Jeder Request zu `pferdewert.de` wird zu `www.pferdewert.de` weitergeleitet
-- Kostet fast 1 Sekunde pro Seitenaufruf
-- Betrifft ALLE Nutzer, die die Domain ohne www eingeben
+**Was wurde gemacht:**
+- Vercel Domain Settings: Redirect auf **308 Permanent** geändert
+- Browser cached jetzt den Redirect → Zweiter Besuch = **0ms**!
+- Test: `curl -I https://pferdewert.de` zeigt `HTTP/2 308`
 
-**Lösung - SOFORT UMSETZEN:**
-```nginx
-# Vercel vercel.json ODER next.config.js
-{
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "pferdewert.de"
-        }
-      ],
-      "destination": "https://www.pferdewert.de/:path*",
-      "permanent": true,
-      "statusCode": 301
-    }
-  ]
-}
-```
+**Verbleibende 764ms kommen von:**
+- DNS-Lookup (~50-100ms bei IONOS)
+- SSL-Handshake (~100-200ms beim ersten Mal)
+- Netzwerk-Latenz (~50-100ms bei Mobile-Simulation)
+- Redirect selbst (~50-100ms)
+
+**Weitere Optimierung möglich (NICHT EMPFOHLEN):**
+- DNS auf Vercel umstellen → ~50-100ms schneller
+- **ABER:** Risiko für Email-Konfiguration, nicht wert!
+- **Aktuell:** Best Practice ist implementiert ✅
 
 ### 3. Ungenutztes CSS: 150ms Einsparung
 **Impact:** FCP +150ms

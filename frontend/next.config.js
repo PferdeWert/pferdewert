@@ -1,3 +1,9 @@
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -19,6 +25,14 @@ const nextConfig = {
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
+          // Separate chunk for @react-pdf (347 KB!) - only loaded on /ergebnis page
+          reactPdf: {
+            test: /[\\/]node_modules[\\/]@react-pdf[\\/]/,
+            name: 'react-pdf',
+            chunks: 'async', // Only for dynamic imports
+            priority: 20, // Higher than vendor
+            enforce: true,
+          },
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
@@ -220,4 +234,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default bundleAnalyzer(nextConfig);

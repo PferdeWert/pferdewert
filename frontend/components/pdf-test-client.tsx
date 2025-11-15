@@ -3,10 +3,16 @@
 'use client';
 
 import { useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import Head from "next/head";
 import BewertungLayout from "@/components/BewertungLayout";
-import PferdeWertPDF from "@/components/PferdeWertPDF";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+
+// Lazy load PDF component to avoid loading @react-pdf/renderer on all pages
+const PferdeWertPDF = dynamic(() => import("@/components/PferdeWertPDF"), {
+  ssr: false,
+});
+// Lazy-loaded to reduce main bundle size (-347 KB!)
+import PDFDownloadLink from "@/components/LazyPDFDownload";
 
 const sampleText = `### Preisspanne
 
