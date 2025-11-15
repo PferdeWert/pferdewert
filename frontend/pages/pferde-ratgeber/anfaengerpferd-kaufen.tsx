@@ -90,87 +90,112 @@ const faqItems = [
 
 const rassenData = [
   {
-    title: '1. Haflinger',
+    title: '1. Haflinger – Der Klassiker für Anfänger',
     staerken: [
-      'Extrem gutmütig und nervenstark',
-      'Trittsicher und vielseitig einsetzbar',
-      'Robust und genügsam'
+      'Extrem gutmütig und geduldig',
+      'Robust und gesundheitlich stabil',
+      'Für schwerere Reiter geeignet (bis 100 kg)',
+      'Sehr nervenstark und unaufgeregt',
+      'Wendig im Gelände'
     ],
     wichtig: [
-      'Neigung zu Übergewicht – Fütterung beachten',
-      'Stockmaß 138-150 cm – für größere Reiter ggf. zu klein'
+      'Stockmaß: 138-148 cm',
+      'Preis: 5.000-12.000€',
+      'Tendenz zu Übergewicht – Fütterung beachten',
+      'Sehr triebig – weniger für sportliche Ambitionen'
     ]
   },
   {
-    title: '2. Isländer',
+    title: '2. Isländer – Trittsicher und ausdauernd',
     staerken: [
-      'Sozial und menschenbezogen',
-      'Genügsam und wetterfest',
-      'Besondere Gangarten (Tölt, Pass) für komfortables Reiten'
+      'Außergewöhnlich trittsicher',
+      'Sehr ausdauernd (ideal für Langstrecken)',
+      'Fünf Gangarten (inkl. Tölt und Pass)',
+      'Wetterhart und genügsam',
+      'Menschenbezogen'
     ],
     wichtig: [
-      'Stockmaß 130-145 cm – Gewichtsbegrenzung ca. 90 kg',
-      'Temperamentvoll trotz Gutmütigkeit'
+      'Stockmaß: 130-145 cm',
+      'Preis: 4.000-10.000€',
+      'Besondere Gangarten erfordern Schulung',
+      'Benötigen Artgenossen (Herdentiere)'
     ]
   },
   {
-    title: '3. Deutsches Reitpony',
+    title: '3. Deutsches Reitpony – Vielseitig und lernwillig',
     staerken: [
-      'Freundlich und lernwillig',
-      'Vielseitig in allen Disziplinen',
-      'Ideal für Jugendliche und leichte Erwachsene'
+      'Sehr intelligent und lernfreudig',
+      'Vielseitig einsetzbar (Dressur, Springen, Gelände)',
+      'Ideal für Kinder und leichtere Erwachsene',
+      'Gutmütig bei guter Erziehung'
     ],
     wichtig: [
-      'Stockmaß bis 148 cm',
-      'Sportliche Veranlagung – braucht Beschäftigung'
+      'Stockmaß: 138-148 cm',
+      'Preis: 6.000-15.000€',
+      'Maximales Reitergewicht: ca. 70 kg',
+      'Brauchen geistige Beschäftigung'
     ]
   },
   {
-    title: '4. Quarter Horse',
+    title: '4. Quarter Horse – Der sanfte Riese aus Amerika',
     staerken: [
-      'Extrem ruhig und ausgeglichen ("Cow Sense")',
-      'Intelligenz und Arbeitsbereitschaft',
-      'Wendigkeit bei sanftem Charakter'
+      'Extrem ruhig und nervenstark',
+      'Sehr menschenbezogen',
+      'Schnelle Auffassungsgabe',
+      'Für schwerere Reiter geeignet',
+      'Ideal für Westernreiten'
     ],
     wichtig: [
-      'Ursprünglich für Western-Reitweise gezüchtet',
-      'Anfällig für Stoffwechselerkrankungen (EMS)'
+      'Stockmaß: 145-160 cm',
+      'Preis: 5.000-15.000€',
+      'Tendenz zu Übergewicht',
+      'Nicht für klassische Dressur geeignet'
     ]
   },
   {
-    title: '5. Norwegisches Fjordpferd',
+    title: '5. Norwegisches Fjordpferd – Robust und kraftvoll',
     staerken: [
-      'Freundlich und gelassen',
-      'Kräftig und trittsicher',
-      'Robust und pflegeleicht'
+      'Sehr kräftig trotz kleiner Größe',
+      'Extrem robust und gesund',
+      'Gutmütig und geduldig',
+      'Für schwerere Reiter geeignet'
     ],
     wichtig: [
-      'Stockmaß 135-150 cm',
-      'Kräftiger Körperbau – gut für Erwachsene geeignet'
+      'Stockmaß: 135-150 cm',
+      'Preis: 5.000-12.000€',
+      'Charakteristische Stehmähne',
+      'Wetterhart und genügsam'
     ]
   },
   {
-    title: '6. Connemara-Pony',
+    title: '6. Connemara Pony – Sportlich und zuverlässig',
     staerken: [
-      'Freundlich und ausdauernd',
-      'Vielseitig und springbegabt',
-      'Wetterfest und genügsam'
+      'Sehr vielseitig (Dressur, Springen, Gelände)',
+      'Gutmütig und lernwillig',
+      'Trittsicher und ausdauernd',
+      'Robust und gesund'
     ],
     wichtig: [
-      'Stockmaß bis 148 cm',
-      'Irische Ursprungsrasse – robust und hart im Nehmen'
+      'Stockmaß: 128-148 cm',
+      'Preis: 5.000-15.000€',
+      'Für leichtere Erwachsene (bis 75 kg)',
+      'Sportliche Veranlagung'
     ]
   },
   {
-    title: '7. Ausgediente Schulpferde',
+    title: '7. Ausgediente Schulpferde – Der Geheimtipp',
     staerken: [
-      'Gewöhnt an Anfänger',
-      'Nervenstark und verlässlich',
-      'Oft günstig in der Anschaffung'
+      'An Anfänger gewöhnt',
+      'Sehr gelassen und geduldig',
+      'Verzeihen Fehler',
+      'Oft günstig zu erwerben',
+      'Verschiedene Rassen verfügbar'
     ],
     wichtig: [
-      'Gesundheitszustand genau prüfen (AKU!)',
-      'Mögliche Verschleißerscheinungen durch intensive Nutzung'
+      'Preis: 2.000-8.000€',
+      'Meist älter (12-20 Jahre)',
+      'Gesundheitscheck besonders wichtig',
+      'Oft mit "Schulpferd-Gewohnheiten"'
     ]
   }
 ];
@@ -199,6 +224,28 @@ const relatedArticles = [
     badge: 'Kauf & Verkauf',
     readTime: '15 Min.',
     description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf und wie AKU-Befunde den Wert beeinflussen.'
+  }
+];
+
+const opKostenData = [
+  { label: 'Kolik-OP:', kosten: '3.000-8.000€' },
+  { label: 'Frakturbehandlung:', kosten: '5.000-15.000€' },
+  { label: 'Chip-OP am Gelenk:', kosten: '2.000-4.000€' },
+  { label: 'Augen-OP:', kosten: '1.500-3.000€' }
+];
+
+const weitereVersicherungenData = [
+  {
+    name: 'Pferdeunfallversicherung:',
+    beschreibung: 'Zahlt bei Invalidität oder Tod des Pferdes eine Summe aus. Sinnvoll nur bei sehr teuren Pferden (15.000€+).'
+  },
+  {
+    name: 'Pferdelebensversicherung:',
+    beschreibung: 'Zahlt bei Tod des Pferdes den Zeitwert. Meist zu teuer für Freizeitpferde.'
+  },
+  {
+    name: 'Reiterunfallversicherung:',
+    beschreibung: 'Für den Reiter selbst. Sinnvoll, wenn keine private Unfallversicherung vorhanden.'
   }
 ];
 
@@ -1190,10 +1237,9 @@ export default function AnfaengerpferdKaufen() {
                   <div className="bg-white rounded p-4 mb-4">
                     <h4 className="font-semibold text-gray-900 mb-3">Typische OP-Kosten ohne Versicherung:</h4>
                     <ul className="space-y-2 text-gray-700">
-                      <li>• <strong>Kolik-OP:</strong> 3.000-8.000€</li>
-                      <li>• <strong>Frakturbehandlung:</strong> 5.000-15.000€</li>
-                      <li>• <strong>Chip-OP am Gelenk:</strong> 2.000-4.000€</li>
-                      <li>• <strong>Augen-OP:</strong> 1.500-3.000€</li>
+                      {opKostenData.map((item, i) => (
+                        <li key={i}>• <strong>{item.label}</strong> {item.kosten}</li>
+                      ))}
                     </ul>
                   </div>
 
@@ -1244,18 +1290,12 @@ export default function AnfaengerpferdKaufen() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">4. Weitere Versicherungen (weniger wichtig)</h3>
 
                   <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="font-semibold min-w-[200px]">Pferdeunfallversicherung:</span>
-                      <span>Zahlt bei Invalidität oder Tod des Pferdes eine Summe aus. Sinnvoll nur bei sehr teuren Pferden (15.000€+).</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="font-semibold min-w-[200px]">Pferdelebensversicherung:</span>
-                      <span>Zahlt bei Tod des Pferdes den Zeitwert. Meist zu teuer für Freizeitpferde.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="font-semibold min-w-[200px]">Reiterunfallversicherung:</span>
-                      <span>Für den Reiter selbst. Sinnvoll, wenn keine private Unfallversicherung vorhanden.</span>
-                    </li>
+                    {weitereVersicherungenData.map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="font-semibold min-w-[200px]">{item.name}</span>
+                        <span>{item.beschreibung}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
