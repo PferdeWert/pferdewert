@@ -25,6 +25,7 @@ Allow: /pferde-ratgeber/aku-pferd
 Allow: /pferde-ratgeber/aku-pferd/kosten
 Allow: /pferde-ratgeber/was-kostet-ein-pferd
 Allow: /pferde-ratgeber/freizeitpferd-kaufen
+Allow: /pferde-ratgeber/anfaengerpferd-kaufen
 Allow: /pferde-ratgeber/pferd-verkaufen
 Allow: /pferde-ratgeber/pferdemarkt
 Allow: /pferde-ratgeber/pferdekaufvertrag

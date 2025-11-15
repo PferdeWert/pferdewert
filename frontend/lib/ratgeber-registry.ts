@@ -123,6 +123,21 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'pferd-kaufen'
     ]
   },
+  {
+    slug: 'anfaengerpferd-kaufen',
+    title: 'Anfängerpferd kaufen: Ratgeber für sicheren Kauf 2025',
+    description: 'Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar.',
+    category: 'Kauf & Verkauf',
+    readTime: '12 Min.',
+    image: '/images/ratgeber/anfaengerpferd-hero.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'freizeitpferd-kaufen',
+      'pferdekaufvertrag',
+      'aku-pferd'
+    ]
+  },
 
   // Pferd Verkaufen Series
   {
