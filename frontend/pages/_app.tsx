@@ -1,4 +1,5 @@
 // frontend/pages/_app.tsx
+
 import "@/styles/globals.css";
 // ✅ LIGHTHOUSE OPTIMIZED: cookieconsent.min.css loaded in _document.tsx local
 import type { AppProps } from "next/app";

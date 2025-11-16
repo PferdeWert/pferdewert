@@ -6,6 +6,10 @@
 @tailwind utilities;
 
 
+/* ===== Self-hosted Fonts (@font-face) ===== */
+/* No custom fonts loaded - using system fallbacks as per production */
+
+
 /* ===== Farbvariablen für Light/Dark Mode ===== */
 :root {
   --background: #ffffff;
@@ -22,7 +26,7 @@
 /* ===== Fonts als CSS-Variablen (optional, für Custom-Use) ===== */
 :root {
   --font-sans: 'Lato', Arial, Helvetica, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;  /* Bleibt für Logo */
+  --font-serif: 'Playfair Display', Georgia, serif;  /* Serif font für Headlines */
   --font-heading: 'Playfair Display', Georgia, serif; /* Headlines gem. Design System */
 }
 

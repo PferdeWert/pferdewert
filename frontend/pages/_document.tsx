@@ -34,6 +34,7 @@ export default function Document() {
         <meta name="theme-color" content="#8B4513" />
         <meta name="msapplication-TileColor" content="#8B4513" />
 
+
         {/* Cookie Consent CSS - Self-hosted für Performance */}
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
