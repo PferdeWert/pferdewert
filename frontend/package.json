@@ -2,8 +2,23 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all",
+      "last 2 versions",
+      "Firefox ESR"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "scripts": {
     "predev": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",

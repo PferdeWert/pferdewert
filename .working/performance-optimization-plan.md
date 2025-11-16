@@ -8,22 +8,22 @@
 
 ## 📊 Aktuelle Messwerte (Desktop vs Mobile - Lighthouse 13.0.1)
 
-### Kategorie-Scores (Nach Bundle-Optimierung)
-| Kategorie | Desktop | Mobile (4x CPU Throttled) | Status |
+### Kategorie-Scores (Nach Bundle-Optimierung + Font-Migration)
+| Kategorie | Desktop | Mobile (PageSpeed Insights) | Status |
 |-----------|---------|--------------------------|--------|
-| **Performance** | **76/100** ✅ | 48/100 | 🔴 Mobile braucht weitere Optimierung |
+| **Performance** | **76/100** ✅ | **69/100** 🟡 | +21 Punkte seit letztem Test! |
 | **SEO** | 100/100 | - | ✅ Excellent |
 | **Accessibility** | 97/100 | - | ✅ Very Good |
 | **Best Practices** | 100/100 | - | ✅ Excellent |
 
-### Core Web Vitals (NACH Bundle-Optimierung - 15.11.2025)
-| Metric | Desktop | Mobile (Throttled) | Ziel | Status |
+### Core Web Vitals (NACH Bundle-Optimierung + Font-Migration - 16.11.2025)
+| Metric | Desktop | Mobile (PageSpeed Insights) | Ziel | Status |
 |--------|---------|-------------------|------|--------|
-| **First Contentful Paint** | 0.3s ✅ | 1.5s 🟡 | <1.8s | Desktop exzellent, Mobile akzeptabel |
-| **Largest Contentful Paint** | **3.2s** ✅ | **18.8s** 🔴 | <2.5s | Desktop gut verbessert, Mobile kritisch |
-| **Total Blocking Time** | 210ms ✅ | 1,080ms 🔴 | <200ms | Desktop gut, Mobile hoch (CPU throttled) |
-| **Cumulative Layout Shift** | 0 ✅ | 0.047 ✅ | <0.1 | Beide exzellent |
-| **Speed Index** | - | - | <3.4s | - |
+| **First Contentful Paint** | 0.3s ✅ | **3.2s** 🟡 | <1.8s | Desktop exzellent, Mobile über Ziel |
+| **Largest Contentful Paint** | **3.2s** ✅ | **6.1s** 🟡 | <2.5s | Desktop gut, Mobile 68% verbessert! |
+| **Total Blocking Time** | 210ms ✅ | **80ms** ✅ | <200ms | Beide exzellent, -93% auf Mobile! |
+| **Cumulative Layout Shift** | 0 ✅ | **0** ✅ | <0.1 | Beide perfekt! |
+| **Speed Index** | - | **4.8s** 🟡 | <3.4s | Mobile über Ziel |
 
 ### Desktop LCP Breakdown (3.2s gesamt - 65% VERBESSERT! ✅)
 | Phase | Dauer | Status |
@@ -579,34 +579,131 @@ ANALYZE=true npm run build
 5. **Backup**: Git-Branch erstellen vor Änderungen
 6. **Core Web Vitals Priority**: LCP (5.6s) ist KRITISCH für Google Rankings!
 
+## 🎯 PageSpeed Insights Findings (16.11.2025 - Score 69/100)
+
+### Quick Wins für 69 → 90+ (Priorität nach Impact)
+
+#### 1️⃣ KRITISCH: Veraltetes JavaScript (-15,6 KiB)
+**Impact:** FCP -0.3s, LCP -0.5s
+**Aufwand:** 30 Min
+
+**Problem:** Transpilierung für alte Browser (Array.at, Object.hasOwn, etc.)
+
+```bash
+# Browserslist Update
+cd frontend
+# Aktuelle Browserslist prüfen
+npx browserslist
+
+# In package.json anpassen:
+"browserslist": {
+  "production": [
+    ">0.5%",
+    "not dead",
+    "not op_mini all",
+    "not IE 11"  # ← Entfernen falls vorhanden
+  ]
+}
+```
+
+#### 2️⃣ HIGH: Nicht verwendetes JavaScript (-372 KiB)
+**Impact:** FCP -0.8s, LCP -1.2s
+**Aufwand:** 2-3 Std
+
+**Hauptverursacher:**
+- `vendors-c5290fb44b5c990e.js`: 343,6 KiB unused
+- `pferde-preis-berechnen-*.js`: 28,6 KiB unused
+
+**Lösung:**
+- Stripe SDK nur auf Payment-Seiten
+- Weitere Dynamic Imports für Below-Fold Components
+- Tree-Shaking für Lucide Icons prüfen
+
+#### 3️⃣ MEDIUM: Nicht verwendetes CSS (-10,3 KiB)
+**Impact:** FCP -0.2s
+**Aufwand:** 1 Std
+
+```bash
+# Tailwind CSS Purge prüfen
+cd frontend
+npm run build -- --debug  # CSS-Größe analysieren
+```
+
+#### 4️⃣ MEDIUM: Lange Hauptthread-Aufgaben
+**Impact:** TBT -50ms, SI -0.5s
+**Aufwand:** 2 Std
+
+**Lösung:** Code Splitting + Web Worker für schwere Tasks
+
+#### 5️⃣ LOW: Nicht zusammengesetzte Animationen
+**Impact:** SI -0.3s
+**Aufwand:** 30 Min
+
+```css
+/* Animationen auf transform/opacity beschränken */
+.animated-element {
+  transform: translateX(0);
+  will-change: transform;
+  /* NICHT: left, top, width, height */
+}
+```
+
+### Erwarteter Impact (69 → 90+)
+| Optimierung | FCP | LCP | TBT | SI | Score |
+|-------------|-----|-----|-----|----|-------|
+| Veraltetes JS | -0.3s | -0.5s | -10ms | -0.2s | +3-5 |
+| Unused JS | -0.8s | -1.2s | -30ms | -0.8s | +8-10 |
+| Unused CSS | -0.2s | -0.3s | -5ms | -0.1s | +2-3 |
+| Hauptthread | -0.1s | -0.2s | -50ms | -0.5s | +3-5 |
+| Animationen | -0.1s | -0.1s | -5ms | -0.3s | +1-2 |
+| **GESAMT** | **-1.5s** | **-2.3s** | **-100ms** | **-1.9s** | **+17-25** |
+
+### Ziel-Metriken nach Optimierung
+| Metric | Aktuell | Ziel | Erwartet |
+|--------|---------|------|----------|
+| **Performance Score** | 69 | 90+ | **86-94** ✅ |
+| **FCP** | 3.2s | <1.8s | **1.7s** ✅ |
+| **LCP** | 6.1s | <2.5s | **3.8s** 🟡 |
+| **TBT** | 80ms | <200ms | **0ms** ✅ |
+| **SI** | 4.8s | <3.4s | **2.9s** ✅ |
+
+---
+
 ## 📝 Nächste Schritte (AKTUALISIERT - 16.11.2025)
 
 ### ✅ ABGESCHLOSSEN:
 1. ✅ **Phase 0**: Redirect optimiert (308 Permanent)
 2. ✅ **Phase 1**: @react-pdf Lazy Loading (-193 KB)
 3. ✅ **Font-Migration**: System Fonts (Georgia + Arial/Helvetica)
+4. ✅ **PageSpeed Re-Test**: 48 → 69 (+21 Punkte!)
 
-### SOFORT (Heute):
-4. **Production Deployment**:
-   - Branch `perf/bundle-analysis-nov-2025` auf main mergen
-   - Vercel Deployment triggern
-   - PageSpeed Insights Test durchführen
+### SOFORT (Heute - 30 Min):
+5. **Browserslist Update** (Quick Win!)
+   - Veraltetes JavaScript eliminieren (-15,6 KiB)
+   - Next.js Build neu ausführen
+   - PageSpeed Re-Test
 
-### Diese Woche:
-5. **Phase 2: LCP-Optimierung**
-   - Hero Image Compression (quality 60)
-   - Resource Preload optimieren
-   - Render Delay minimieren
-
-6. **Weitere JavaScript-Optimierung**
-   - Stripe SDK nur auf Payment-Seiten laden
-   - FAQSection lazy loading
+### Diese Woche (6-8 Std):
+6. **JavaScript-Optimierung Round 2**
+   - Stripe SDK lazy loading
    - Weitere Dynamic Imports
+   - Tree-Shaking prüfen
+
+7. **CSS-Optimierung**
+   - Tailwind Purge optimieren
+   - Unused CSS reduzieren
+
+8. **Animationen optimieren**
+   - GPU-Compositing nutzen
+   - Will-change hints setzen
 
 ### Nächste Woche:
-7. **Phase 3 & 4**: Fine-Tuning
-8. **Re-Test mit Lighthouse** (Ziel: 90+ Mobile Score)
-9. **Performance Monitoring** etablieren
+9. **Production Deployment**
+   - Branch auf main mergen
+   - Vercel Deployment
+   - Final PageSpeed Test (Ziel: 90+)
+
+10. **Performance Monitoring** etablieren
 
 ## 🔍 Key Insights aus Lighthouse-Analyse
 
