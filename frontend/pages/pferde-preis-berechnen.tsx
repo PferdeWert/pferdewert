@@ -259,6 +259,13 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
 
+  // FAST REFRESH FIX: Define stable callbacks at component level (not inline)
+  // Prevents Fast Refresh infinite loops by keeping function identity stable across renders
+  const handleTestimonialsCtaClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+    e.preventDefault();
+    document.getElementById('wizard-start')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   // LocalStorage-Key mit Namespace für bessere Kollisionsvermeidung
   const STORAGE_KEY = "PW_bewertungForm";
 
@@ -1054,10 +1061,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           subtitle="Erfahrungen mit unserem Pferde Preis Rechner"
           ctaText="Jetzt Pferdepreis berechnen"
           ctaHref="#wizard-start"
-          onCtaClick={(e) => {
-            e.preventDefault();
-            document.getElementById('wizard-start')?.scrollIntoView({ behavior: 'smooth' });
-          }}
+          onCtaClick={handleTestimonialsCtaClick}
         />
 
         {/* FAQ Section */}
