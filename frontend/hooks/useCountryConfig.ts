@@ -1,0 +1,45 @@
+import { useMemo } from 'react';
+import { useRouter } from 'next/router';
+
+interface CountryConfig {
+  country: 'DE' | 'AT';
+  locale: 'de' | 'de-AT';
+  ausbildungOptions: string[];
+  landOptions: Array<{ value: string; label: string }>;
+}
+
+/**
+ * Custom hook for country-specific configuration
+ * Detects locale from URL and returns country-specific options
+ *
+ * Usage:
+ * const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
+ */
+export function useCountryConfig(): CountryConfig {
+  const router = useRouter();
+
+  const config = useMemo(() => {
+    // Detect locale from URL pathname
+    const isAustria = router.pathname.startsWith('/at') || router.asPath.startsWith('/at');
+    const locale = isAustria ? 'de-AT' : 'de';
+    const country = isAustria ? 'AT' : 'DE';
+
+    return {
+      country: country as 'DE' | 'AT',
+      locale: locale as 'de' | 'de-AT',
+
+      // Ausbildungsstand: AT ohne E-Level (österreichisches Turniersystem hat kein E)
+      ausbildungOptions: isAustria
+        ? ["roh", "angeritten", "A", "L", "M", "S", "Sonstiges"]
+        : ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+
+      // Land-Dropdown Options (für zukünftiges Formular-Feld)
+      landOptions: [
+        { value: "DE", label: "Deutschland 🇩🇪" },
+        { value: "AT", label: "Österreich 🇦🇹" }
+      ]
+    };
+  }, [router.pathname, router.asPath]);
+
+  return config;
+}
