@@ -1,5 +1,4 @@
-import { useMemo } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useEffect, useMemo } from 'react';
 
 interface CountryConfig {
   country: 'DE' | 'AT';
@@ -16,11 +15,15 @@ interface CountryConfig {
  * const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
  */
 export function useCountryConfig(): CountryConfig {
-  const router = useRouter();
+  const [isAustria, setIsAustria] = useState(false);
+
+  // Client-side only locale detection to avoid hydration mismatch
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    setIsAustria(pathname.startsWith('/at'));
+  }, []);
 
   const config = useMemo(() => {
-    // Detect locale from URL pathname
-    const isAustria = router.pathname.startsWith('/at') || router.asPath.startsWith('/at');
     const locale = isAustria ? 'de-AT' : 'de';
     const country = isAustria ? 'AT' : 'DE';
 
@@ -39,7 +42,7 @@ export function useCountryConfig(): CountryConfig {
         { value: "AT", label: "Österreich 🇦🇹" }
       ]
     };
-  }, [router.pathname, router.asPath]);
+  }, [isAustria]);
 
   return config;
 }
