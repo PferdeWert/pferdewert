@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Lato', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Arial', 'Helvetica', 'sans-serif'],
+        serif: ['Georgia', 'serif'],
       },
       colors: {
         brand: {

@@ -6,8 +6,26 @@
 @tailwind utilities;
 
 
-/* ===== Self-hosted Fonts (@font-face) ===== */
-/* No custom fonts loaded - using system fallbacks as per production */
+/* ===== Font Loading Strategy ===== */
+/*
+ * DESIGN SYSTEM: Native System Fonts für maximale Performance & UX
+ *
+ * Font-Stack:
+ * - Headlines (H1-H4): Georgia (serif)
+ * - Body Text: Arial/Helvetica (sans-serif)
+ *
+ * Warum System Fonts?
+ * ✓ Instant Rendering (0ms Font-Loading-Delay)
+ * ✓ Zero Layout Shift (CLS = 0)
+ * ✓ Optimaler LCP Score
+ * ✓ 100% Konsistenz auf allen Geräten
+ * ✓ UX Best Practice (wie GitHub, Medium, WordPress)
+ * ✓ Georgia: Speziell für Bildschirme optimiert, hohe Lesbarkeit
+ * ✓ Arial/Helvetica: Standard für Web-Interfaces
+ *
+ * Keine Web-Fonts notwendig - System Fonts bieten optimale Balance
+ * zwischen Performance, Lesbarkeit und professionellem Erscheinungsbild.
+ */
 
 
 /* ===== Farbvariablen für Light/Dark Mode ===== */
@@ -23,11 +41,11 @@
   }
 }
 
-/* ===== Fonts als CSS-Variablen (optional, für Custom-Use) ===== */
+/* ===== Font System - Native System Fonts ===== */
 :root {
-  --font-sans: 'Lato', Arial, Helvetica, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;  /* Serif font für Headlines */
-  --font-heading: 'Playfair Display', Georgia, serif; /* Headlines gem. Design System */
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-heading: Georgia, serif;  /* Headlines - Classic serif für optimale Lesbarkeit */
 }
 
 /* ===== Global Styles ===== */
@@ -162,15 +180,15 @@ body {
   padding: 0;
 }
 
-/* Headlines: Playfair Display */
+/* Headlines: Georgia (system serif) */
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);  /* Statt var(--font-serif) */
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   margin-top: 0;
 }
 
-/* Buttons und starke Hervorhebungen: Lato fett */
+/* Buttons und starke Hervorhebungen: Arial/Helvetica (system sans) */
 button, .btn, strong, b {
   font-family: var(--font-sans);
   font-weight: 700;
