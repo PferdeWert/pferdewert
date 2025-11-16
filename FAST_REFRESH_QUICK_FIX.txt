@@ -1,0 +1,115 @@
+================================================================================
+                    FAST REFRESH LOOP - QUICK FIX SUMMARY
+================================================================================
+
+ISSUE:       Fast Refresh infinite loop on /pferde-preis-berechnen page
+SEVERITY:    HIGH (blocking)
+STATUS:      FIXED (Commit f6b8068)
+DATE:        November 16, 2025
+
+================================================================================
+                              THE PROBLEM
+================================================================================
+
+File:        frontend/pages/pferde-preis-berechnen.tsx
+Lines:       1055-1060
+Component:   TestimonialsSection
+
+Anti-Pattern Found:
+  ❌ onCtaClick={(e) => { e.preventDefault(); ... }}
+
+Why It's Bad:
+  • Creates new function object on every render
+  • React thinks the prop changed even though logic is identical
+  • Triggers infinite re-render loop
+  • Violates React Fast Refresh assumptions
+
+================================================================================
+                              THE SOLUTION
+================================================================================
+
+Step 1: Extract callback to component scope
+  const handleTestimonialsCtaClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+    e.preventDefault();
+    document.getElementById('wizard-start')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+Step 2: Use stable function reference
+  <TestimonialsSection
+    onCtaClick={handleTestimonialsCtaClick}  // Stable, not inline
+  />
+
+Why This Works:
+  • Function defined once at component scope
+  • Same reference used on every render
+  • React sees no change to prop value
+  • No infinite loop
+
+================================================================================
+                            VERIFICATION STEPS
+================================================================================
+
+1. Check the fix exists:
+   git show f6b8068 | grep -A10 handleTestimonialsCtaClick
+
+2. Lint the file:
+   npm run lint -- frontend/pages/pferde-preis-berechnen.tsx
+
+3. Test the page:
+   npm run dev
+   • Navigate to http://localhost:3000/pferde-preis-berechnen
+   • Confirm page loads without infinite loops
+   • Test testimonials CTA button scroll functionality
+
+4. Check for similar issues:
+   grep -rn "on[A-Z].*((" frontend/pages/ | grep "=> {" | head -20
+
+================================================================================
+                            DEPLOYMENT CHECKLIST
+================================================================================
+
+[✓] Root cause identified (inline function in prop)
+[✓] Fix implemented (extracted callback)
+[✓] Linter passed (no ESLint violations)
+[✓] TypeScript verified (proper types)
+[✓] Similar files checked (no other issues)
+[✓] Git commit created (f6b8068)
+[✓] Documentation written (FAST_REFRESH_FIX_REPORT.md)
+
+Ready for merge to: main / perf/bundle-analysis-nov-2025
+
+================================================================================
+                            RELATED INFORMATION
+================================================================================
+
+CLAUDE.md Guidelines:
+  • Line 729-813: Fast Refresh anti-patterns
+  • "Inline JSX/Functions in Component Props - causes infinite loops"
+
+Similar Fixes in History:
+  • a7f7c86 - Fast Refresh fix via template literal (FAQ)
+  • 9d2f4a8 - Fast Refresh fix via CSS @import
+  • 4a80d63 - Fast Refresh fix via callback extraction (anfaengerpferd)
+
+Pattern Used:
+  • Matches index.tsx icons setup (lines 99-148)
+  • Matches ergebnis.tsx useMemo pattern (line 44-47)
+  • Consistent with codebase standards
+
+================================================================================
+                              KEY TAKEAWAY
+================================================================================
+
+When passing callbacks to components:
+
+❌ DON'T:  onEvent={(e) => { doSomething(e); }}
+✅ DO:     const handleEvent = (e) => { doSomething(e); };
+           onEvent={handleEvent}
+
+This maintains function identity across renders and prevents Fast Refresh loops.
+
+================================================================================
+File: FAST_REFRESH_FIX_REPORT.md (detailed analysis)
+Commit: f6b8068
+Status: READY FOR DEPLOYMENT
+================================================================================
