@@ -31,9 +31,11 @@ export function useCountryConfig(): CountryConfig {
       country: country as 'DE' | 'AT',
       locale: locale as 'de' | 'de-AT',
 
-      // Ausbildungsstand: AT ohne E-Level (österreichisches Turniersystem hat kein E)
+      // Ausbildungsstand: AT ohne E-Level, aber mit LP/LM Zwischenstufen
+      // LP = L mit fliegenden Galoppwechseln (in DE/CH erst ab M)
+      // LM = L mit Seitengängen (beim Springen bis 130cm)
       ausbildungOptions: isAustria
-        ? ["roh", "angeritten", "A", "L", "M", "S", "Sonstiges"]
+        ? ["roh", "angeritten", "A", "L", "LP", "LM", "M", "S", "Sonstiges"]
         : ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
 
       // Land-Dropdown Options (für zukünftiges Formular-Feld)

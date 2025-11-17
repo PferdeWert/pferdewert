@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
@@ -272,18 +272,19 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [formStartTime] = useState<number>(Date.now());
 
   // AT-Rollout: Country-specific configuration
-  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
+  const { country, ausbildungOptions, landOptions } = useCountryConfig();
 
-  // StepData mit dynamischen Ausbildungsoptionen (DE vs AT)
-  const stepData = getStepData(ausbildungOptions);
+  // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
+  // stepData depends on ausbildungOptions which changes between DE/AT
+  const stepData = useMemo(() => getStepData(ausbildungOptions), [ausbildungOptions]);
 
   // AT-Rollout: Auto-fill land field based on detected country
   useEffect(() => {
     // Only auto-fill if land field is empty (first visit or not manually changed)
-    if (!form.land) {
+    if (!form.land && country) {
       setForm(prev => ({ ...prev, land: country }));
     }
-  }, [country]); // Re-run when country changes (e.g., user navigates from /de to /at)
+  }, [country, form.land]); // Include form.land to satisfy ESLint and prevent Fast Refresh issues
 
   // FAST REFRESH FIX: Define stable callbacks at component level (not inline)
   // Prevents Fast Refresh infinite loops by keeping function identity stable across renders

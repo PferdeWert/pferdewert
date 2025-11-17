@@ -1,10 +1,16 @@
 # Performance Optimierung - Mobile PageSpeed 75 → 90+
 
-**Status:** Phase 0, 1 & Font-Migration ABGESCHLOSSEN ✅ - Bundle + Font-System optimiert!
+**Status:** ✅ DEPLOYED auf Production! (16.11.2025 12:30)
 **Ziel:** 90+ Mobile Score
-**Letztes Update:** 16.11.2025 09:00 (Font-System auf native System Fonts migriert)
-**Branch:** `perf/bundle-analysis-nov-2025`
-**Neuester Commit:** `1f3772c - refactor(fonts): Migrate to native system fonts (Georgia + Arial/Helvetica)`
+**Letztes Update:** 16.11.2025 12:30 (Browserslist + Bundle-Optimierungen deployed)
+**Branch:** `perf/bundle-analysis-nov-2025` → ✅ **MERGED zu main**
+**Deployment:** Vercel Auto-Deploy in Progress...
+**Commits deployed:**
+- `bdd5420` - Merge commit (alle Optimierungen)
+- `49b94a6` - Browserslist config for modern browsers
+- `b5b434d` - FeaturesSection lazy loading
+- `1f3772c` - Font-System Migration (System Fonts)
+- `215c1ba` - @react-pdf Lazy Loading (-193 KB)
 
 ## 📊 Aktuelle Messwerte (Desktop vs Mobile - Lighthouse 13.0.1)
 
@@ -677,11 +683,17 @@ npm run build -- --debug  # CSS-Größe analysieren
 3. ✅ **Font-Migration**: System Fonts (Georgia + Arial/Helvetica)
 4. ✅ **PageSpeed Re-Test**: 48 → 69 (+21 Punkte!)
 
-### SOFORT (Heute - 30 Min):
-5. **Browserslist Update** (Quick Win!)
-   - Veraltetes JavaScript eliminieren (-15,6 KiB)
-   - Next.js Build neu ausführen
-   - PageSpeed Re-Test
+### ✅ DEPLOYED (16.11.2025 12:30):
+5. ✅ **Browserslist Update** (Quick Win!)
+   - Veraltetes JavaScript eliminiert (-15,6 KiB)
+   - Next.js Build erfolgreich
+   - ✅ Merged zu main & deployed
+
+### NÄCHSTER SCHRITT (2-3 Min Wartezeit):
+6. **PageSpeed Re-Test durchführen**
+   - Warten auf Vercel Deployment (2-3 Min)
+   - URL: https://pagespeed.web.dev/analysis?url=https://pferdewert.de
+   - Erwarteter Score: **75-80** (aktuell 69)
 
 ### Diese Woche (6-8 Std):
 6. **JavaScript-Optimierung Round 2**

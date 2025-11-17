@@ -1,4 +1,5 @@
 import { useCountryConfig } from '@/hooks/useCountryConfig';
+import Link from 'next/link';
 
 export default function TestLocale() {
   const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
@@ -17,14 +18,14 @@ export default function TestLocale() {
 
       <h2>Expected Results:</h2>
       <ul>
-        <li><strong>DE Version:</strong> Should include "E" in Ausbildung options</li>
-        <li><strong>AT Version:</strong> Should NOT include "E" (Austrian system has no E-Level)</li>
+        <li><strong>DE Version:</strong> Should include &quot;E&quot; in Ausbildung options</li>
+        <li><strong>AT Version:</strong> Should NOT include &quot;E&quot; (Austrian system has no E-Level)</li>
       </ul>
 
       <h2>Test Links:</h2>
       <ul>
-        <li><a href="/test-locale" style={{ color: 'blue' }}>German Version (DE)</a></li>
-        <li><a href="/at/test-locale" style={{ color: 'blue' }}>Austrian Version (AT)</a></li>
+        <li><Link href="/test-locale" style={{ color: 'blue' }}>German Version (DE)</Link></li>
+        <li><Link href="/at/test-locale" style={{ color: 'blue' }}>Austrian Version (AT)</Link></li>
       </ul>
     </div>
   );
