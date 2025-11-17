@@ -24,16 +24,17 @@ const heroMetaItems = [
   { icon: userIcon, label: 'PferdeWert Redaktion' }
 ];
 
-const heroPrimaryCta = {
-  label: 'Jetzt Pferdewert berechnen',
-  href: '/pferde-preis-berechnen',
-  icon: sparklesIcon
-};
-
 export default function DressurpferdKaufen() {
-  
+
   const { getLocalizedPath } = useCountryConfig();
-const sections = [
+
+  const heroPrimaryCta = {
+    label: 'Jetzt Pferdewert berechnen',
+    href: getLocalizedPath('/pferde-preis-berechnen'),
+    icon: sparklesIcon
+  };
+
+  const sections = [
     { id: 'preise', title: 'Was kostet ein gutes Dressurpferd?' },
     { id: 'rassen', title: 'Welche Rassen eignen sich für die Dressur?' },
     { id: 'qualitaet', title: 'Wie erkenne ich ein talentiertes Dressurpferd?' },

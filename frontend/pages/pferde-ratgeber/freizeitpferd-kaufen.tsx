@@ -25,16 +25,17 @@ const heroMetaItems = [
   { icon: userIcon, label: 'PferdeWert Redaktion' }
 ];
 
-const heroPrimaryCta = {
-  label: 'Jetzt Pferdewert berechnen',
-  href: '/pferde-preis-berechnen',
-  icon: sparklesIcon
-};
-
 export default function FreizeitpferdKaufen() {
-  
+
   const { getLocalizedPath } = useCountryConfig();
-const sections = [
+
+  const heroPrimaryCta = {
+    label: 'Jetzt Pferdewert berechnen',
+    href: getLocalizedPath('/pferde-preis-berechnen'),
+    icon: sparklesIcon
+  };
+
+  const sections = [
     { id: 'definition', title: 'Was ist ein Freizeitpferd?' },
     { id: 'kosten', title: 'Kosten: Kaufpreis und Unterhalt' },
     { id: 'rassen', title: 'Die besten Pferderassen für Freizeitreiter' },

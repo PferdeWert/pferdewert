@@ -27,12 +27,6 @@ const heroMetaItems = [
   { icon: userIcon, label: 'PferdeWert Redaktion' }
 ];
 
-const heroPrimaryCta = {
-  label: 'Jetzt Pferdewert berechnen',
-  href: '/pferde-preis-berechnen',
-  icon: sparklesIcon
-};
-
 const heroImageAttribution = {
   author: 'Waugsberg',
   license: 'CC BY-SA 3.0',
@@ -251,9 +245,16 @@ const weitereVersicherungenData = [
 ];
 
 export default function AnfaengerpferdKaufen() {
-  
+
   const { getLocalizedPath } = useCountryConfig();
-return (
+
+  const heroPrimaryCta = {
+    label: 'Jetzt Pferdewert berechnen',
+    href: getLocalizedPath('/pferde-preis-berechnen'),
+    icon: sparklesIcon
+  };
+
+  return (
     <Layout
       fullWidth={true}
       background="bg-gradient-to-b from-amber-50 to-white"
