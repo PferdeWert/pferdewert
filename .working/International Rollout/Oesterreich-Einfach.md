@@ -1772,3 +1772,299 @@ const marketSource = {
 ```
 
 **→ Skalierbar für 10+ Länder ohne Refactoring!**
+
+---
+
+## 📝 Ratgeber-Seiten: SEO-Strategie für AT
+
+### Frage: Brauchen Ratgeber-Seiten auch SEO-Optimierung für AT?
+
+**Kurze Antwort:** Ja, aber ANDERS als die Hauptseiten!
+
+### 🎯 Empfohlene Strategie (3 Optionen)
+
+#### **Option 1: NUR DE-Version (EMPFOHLEN für Start!)**
+
+**Für wen:** Wenn Ratgeber-Content 100% identisch ist (keine AT-spezifischen Infos)
+
+**Umsetzung:**
+```typescript
+// Ratgeber bleiben nur auf /pferde-ratgeber/* (OHNE /at/ Prefix)
+// ABER: Hreflang Tags verweisen auf sich selbst
+
+// pages/pferde-ratgeber/[slug].tsx
+const seo = {
+  title: "Ratgeber Titel",
+  description: "...",
+  // Hreflang: Beide Locales → gleiche URL!
+  hreflangTags: [
+    { hreflang: 'de', href: `https://pferdewert.de/pferde-ratgeber/${slug}` },
+    { hreflang: 'de-AT', href: `https://pferdewert.de/pferde-ratgeber/${slug}` },  // ← GLEICHE URL!
+    { hreflang: 'x-default', href: `https://pferdewert.de/pferde-ratgeber/${slug}` }
+  ]
+};
+```
+
+**Vorteil:**
+- ✅ Keine Content-Duplikate
+- ✅ AT-User können Ratgeber trotzdem lesen
+- ✅ Google versteht: "Gleicher Content für beide Länder"
+- ✅ Kein Mehraufwand
+
+**Nachteil:**
+- ❌ Keine AT-spezifischen Keywords
+- ❌ Verlinkungen zeigen auf DE-Version
+
+---
+
+#### **Option 2: AT-Varianten NUR für Top-Performer (SMART!)**
+
+**Für wen:** Wenn 3-5 Ratgeber besonders wichtig sind und AT-Traffic bringen könnten
+
+**Umsetzung:**
+```typescript
+// Nur für wichtige Artikel:
+// /pferde-ratgeber/pferdekauf-was-beachten  (DE)
+// /at/pferde-ratgeber/pferdekauf-was-beachten  (AT)
+
+// useSEO Hook erweitern:
+type PageType = 'home' | 'bewertung' | 'preise' | 'ratgeber';
+
+export function useSEO(page: PageType, slug?: string): SEOData {
+  // ...
+
+  if (page === 'ratgeber' && slug) {
+    // AT-spezifische Ratgeber-SEO
+    const ratgeberSEO = getRatgeberSEO(slug, isAustria);
+    return ratgeberSEO;
+  }
+}
+
+// Separate Funktion:
+function getRatgeberSEO(slug: string, isAustria: boolean): SEOData {
+  const atVariants = ['pferdekauf-was-beachten', 'pferd-verkaufen-tipps', 'pferdewert-faktoren'];
+
+  if (!atVariants.includes(slug)) {
+    // Kein AT-Variant → Alle Locales auf DE-URL
+    return {
+      title: getArticleTitle(slug),
+      description: getArticleDescription(slug),
+      hreflangTags: [
+        { hreflang: 'de', href: `https://pferdewert.de/pferde-ratgeber/${slug}` },
+        { hreflang: 'de-AT', href: `https://pferdewert.de/pferde-ratgeber/${slug}` },
+        { hreflang: 'x-default', href: `https://pferdewert.de/pferde-ratgeber/${slug}` }
+      ],
+      // ...
+    };
+  }
+
+  // AT-Variant existiert:
+  return {
+    title: isAustria
+      ? `${getArticleTitle(slug)} - Österreich`
+      : getArticleTitle(slug),
+
+    description: isAustria
+      ? `${getArticleDescription(slug)} Spezifische Infos für den österreichischen Pferdemarkt (willhaben.at, ehorses.at).`
+      : getArticleDescription(slug),
+
+    hreflangTags: [
+      { hreflang: 'de', href: `https://pferdewert.de/pferde-ratgeber/${slug}` },
+      { hreflang: 'de-AT', href: `https://pferdewert.de/at/pferde-ratgeber/${slug}` },
+      { hreflang: 'x-default', href: `https://pferdewert.de/pferde-ratgeber/${slug}` }
+    ],
+    // ...
+  };
+}
+```
+
+**Content-Anpassungen für AT-Varianten:**
+```markdown
+<!-- pferdekauf-was-beachten.md -->
+
+## Verkaufsplattformen
+
+{isAustria ? (
+  <p>Die wichtigsten Plattformen in Österreich sind <strong>willhaben.at</strong>,
+  <strong>ehorses.at</strong> und lokale Pferdezeitungen wie "Pferderevue".</p>
+) : (
+  <p>Die wichtigsten Plattformen in Deutschland sind <strong>ehorses.de</strong>,
+  <strong>horsebase.de</strong> und "Pferdemarkt".</p>
+)}
+
+## Rechtliche Aspekte
+
+{isAustria ? (
+  <p>In Österreich gilt das Konsumentenschutzgesetz (KSchG) beim Pferdekauf...</p>
+) : (
+  <p>In Deutschland gilt das BGB § 433ff beim Pferdekauf...</p>
+)}
+```
+
+**Vorteil:**
+- ✅ AT-spezifische Infos für wichtige Themen
+- ✅ Bessere Rankings in google.at
+- ✅ Fokussiert auf Top-Performer (nicht alle 50 Artikel!)
+
+**Nachteil:**
+- ⚠️ Mehr Aufwand (2-3h pro Artikel)
+- ⚠️ Content muss gepflegt werden (2 Versionen)
+
+**Welche Artikel?**
+```bash
+# Analytics: Top 5 Ratgeber nach Traffic
+1. pferdekauf-was-beachten (2.000 Views/Monat)
+2. pferd-verkaufen-tipps (1.500 Views/Monat)
+3. pferdewert-faktoren (1.200 Views/Monat)
+4. pferde-ankaufsuntersuchung (800 Views/Monat)
+5. pferdemarkt-deutschland (600 Views/Monat)
+
+→ Nur diese 5 bekommen AT-Varianten!
+```
+
+---
+
+#### **Option 3: Automatische Micro-Lokalisierung (ADVANCED)**
+
+**Für wen:** Wenn du 50+ Ratgeber hast und alle AT-optimiert haben möchtest
+
+**Umsetzung:**
+```typescript
+// Automatische Keyword-Ersetzung via i18n
+
+// messages/de-AT/ratgeber.json
+{
+  "marketplace": "willhaben.at und ehorses.at",
+  "country": "Österreich",
+  "currency": "€",
+  "legal_framework": "Konsumentenschutzgesetz (KSchG)"
+}
+
+// messages/de/ratgeber.json
+{
+  "marketplace": "ehorses.de und horsebase.de",
+  "country": "Deutschland",
+  "currency": "€",
+  "legal_framework": "BGB § 433ff"
+}
+
+// In Ratgeber-Content:
+<p>
+  Die wichtigsten Verkaufsplattformen in {t('country')} sind {t('marketplace')}.
+</p>
+```
+
+**Vorteil:**
+- ✅ ALLE Ratgeber automatisch lokalisiert
+- ✅ Minimaler Mehraufwand
+- ✅ Konsistent
+
+**Nachteil:**
+- ⚠️ Nicht so detailliert wie manuelle Anpassung
+- ⚠️ Nur Keywords, kein struktureller Content-Unterschied
+
+---
+
+### 📊 Empfehlung für PferdeWert
+
+**Phase 1 (Launch AT):**
+```
+✅ Hauptseiten: /at/ Varianten (/, /bewertung, /preise)
+✅ Ratgeber: KEINE AT-Varianten (Option 1)
+   → Hreflang: de + de-AT → gleiche URL
+   → Grund: Content ist identisch, kein Mehrwert
+```
+
+**Phase 2 (Nach 3 Monaten):**
+```
+✅ Analytics auswerten: Welche Ratgeber haben AT-Traffic?
+✅ Top 3-5 Ratgeber: AT-Varianten erstellen (Option 2)
+   → Nur für Top-Performer!
+   → Mit AT-spezifischen Infos (willhaben, KSchG, etc.)
+```
+
+**Phase 3 (Nach 6 Monaten):**
+```
+✅ Wenn >20 Ratgeber AT-Traffic haben: Option 3 erwägen
+   → Automatische Micro-Lokalisierung
+   → Skalierbar für weitere Länder (CH, NL)
+```
+
+---
+
+### 🔧 Technische Umsetzung (Option 1 - JETZT!)
+
+**1. Ratgeber-Template anpassen:**
+
+```typescript
+// pages/pferde-ratgeber/[slug].tsx
+
+import Head from 'next/head';
+import { useLocale } from 'next-intl';
+
+export default function RatgeberArticle({ article }) {
+  const locale = useLocale();
+  const isAustria = locale === 'de-AT';
+
+  // Hreflang: Beide Locales auf GLEICHE URL
+  const canonicalUrl = `https://pferdewert.de/pferde-ratgeber/${article.slug}`;
+
+  const hreflangTags = [
+    { hreflang: 'de', href: canonicalUrl },
+    { hreflang: 'de-AT', href: canonicalUrl },  // ← GLEICHE URL!
+    { hreflang: 'x-default', href: canonicalUrl }
+  ];
+
+  return (
+    <>
+      <Head>
+        <title>{article.title} | PferdeWert{isAustria ? ' Österreich' : '.de'}</title>
+        <meta name="description" content={article.description} />
+
+        {/* Hreflang: Alle Locales → gleiche URL */}
+        {hreflangTags.map(({ hreflang, href }) => (
+          <link key={hreflang} rel="alternate" hreflang={hreflang} href={href} />
+        ))}
+
+        {/* Canonical: Eine URL für alle Locales */}
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
+
+      {/* Article Content */}
+    </>
+  );
+}
+```
+
+**2. CTA-Anpassung im Ratgeber:**
+
+```typescript
+// Im Ratgeber-Content:
+<Link href={isAustria ? '/at/pferde-preis-berechnen' : '/pferde-preis-berechnen'}>
+  Jetzt Pferd bewerten
+</Link>
+```
+
+→ AT-User landen auf AT-Bewertungsformular (mit korrektem Land-Feld!)
+
+---
+
+### ✅ Zusammenfassung Ratgeber-SEO
+
+| Aspekt | Hauptseiten | Ratgeber (Phase 1) |
+|--------|-------------|---------------------|
+| **AT-Variante** | ✅ Ja (`/at/*`) | ❌ Nein (nur `/pferde-ratgeber/*`) |
+| **Hreflang Tags** | Unterschiedlich (de → /, de-AT → /at/) | Gleich (beide → `/pferde-ratgeber/*`) |
+| **SEO-Texte** | Lokalisiert (willhaben, etc.) | Identisch |
+| **CTAs** | Lokalisiert (`/at/bewertung`) | Lokalisiert (`/at/bewertung`) |
+| **Aufwand** | 4h (useSEO Hook) | 30min (Hreflang + CTA) |
+
+**Bottom Line:**
+- ✅ Hauptseiten: VOLLE AT-Optimierung (Phase 5b)
+- ✅ Ratgeber: Minimale Anpassung (Hreflang + CTAs)
+- ⏳ Später: Top-Performer Ratgeber mit AT-Varianten (wenn Analytics das rechtfertigt)
+
+**Code-Aufwand:**
+- Option 1: +30 Zeilen (Hreflang Template)
+- Option 2: +2-3h pro AT-Ratgeber
+- Option 3: +5h Setup (i18n Messages)
