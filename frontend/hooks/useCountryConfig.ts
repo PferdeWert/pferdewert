@@ -5,6 +5,7 @@ interface CountryConfig {
   locale: 'de' | 'de-AT';
   ausbildungOptions: string[];
   landOptions: Array<{ value: string; label: string }>;
+  getLocalizedPath: (path: string) => string;
 }
 
 /**
@@ -38,11 +39,21 @@ export function useCountryConfig(): CountryConfig {
         ? ["roh", "angeritten", "A", "L", "LP", "LM", "M", "S", "Sonstiges"]
         : ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
 
-      // Land-Dropdown Options (für zukünftiges Formular-Feld)
+      // Land-Dropdown Options (ohne Flaggen - professioneller)
       landOptions: [
-        { value: "DE", label: "Deutschland 🇩🇪" },
-        { value: "AT", label: "Österreich 🇦🇹" }
-      ]
+        { value: "DE", label: "Deutschland" },
+        { value: "AT", label: "Österreich" }
+      ],
+
+      // Helper: Localized path generator
+      // Automatically adds /at/ prefix for Austrian version
+      // Usage: getLocalizedPath('/pferde-preis-berechnen') → '/at/pferde-preis-berechnen' (AT) or '/pferde-preis-berechnen' (DE)
+      getLocalizedPath: (path: string): string => {
+        // Remove leading slash if present
+        const cleanPath = path.startsWith('/') ? path : `/${path}`;
+        // Add /at prefix for Austria, keep as-is for Germany
+        return isAustria ? `/at${cleanPath}` : cleanPath;
+      }
     };
   }, [isAustria]);
 

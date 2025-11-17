@@ -226,9 +226,9 @@ const getStepData = (ausbildungOptions: string[]): StepData[] => [
       },
       {
         name: "standort",
-        label: "Standort (PLZ)",
+        label: "Standort",
         required: false,
-        placeholder: "z.B. 72770",
+        placeholder: "z.B. 72770, 1010 Wien, Zürich",
         halfWidth: true
       },
       {
