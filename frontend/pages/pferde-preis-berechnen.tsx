@@ -10,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import FAQ from "@/components/FAQ";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 // Lazy load below-the-fold components for better performance
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), {
@@ -58,6 +59,7 @@ interface FormState {
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
+  land?: string;         // AT-Rollout: Country field
 }
 
 const initialForm: FormState = {
@@ -74,6 +76,7 @@ const initialForm: FormState = {
   charakter: "",
   besonderheiten: "",
   attribution_source: "",
+  land: "",
 };
 
 // Field Interface
@@ -101,8 +104,9 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4-Schritt Wizard gemäß UX-Plan
-const stepData: StepData[] = [
+// Step-Konfiguration als Funktion - erlaubt dynamische Ausbildungsoptionen (DE vs AT)
+// DE: hat "E", kein LP/LM | AT: kein "E", aber LP/LM
+const getStepData = (ausbildungOptions: string[]): StepData[] => [
   {
     id: 1,
     title: "Grunddaten",
@@ -164,7 +168,7 @@ const stepData: StepData[] = [
         label: "Ausbildungsstand",
         type: "select",
         required: true,
-        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+        options: ausbildungOptions, // Dynamisch: DE hat E, AT hat LP/LM
         halfWidth: true
       },
       {
@@ -213,6 +217,14 @@ const stepData: StepData[] = [
         fullWidth: true
       },
       {
+        name: "land",
+        label: "Land",
+        required: false,
+        type: "select",
+        options: [],  // Will be populated dynamically from useCountryConfig
+        halfWidth: true
+      },
+      {
         name: "standort",
         label: "Standort (PLZ)",
         required: false,
@@ -259,6 +271,20 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
 
+  // AT-Rollout: Country-specific configuration
+  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
+
+  // StepData mit dynamischen Ausbildungsoptionen (DE vs AT)
+  const stepData = getStepData(ausbildungOptions);
+
+  // AT-Rollout: Auto-fill land field based on detected country
+  useEffect(() => {
+    // Only auto-fill if land field is empty (first visit or not manually changed)
+    if (!form.land) {
+      setForm(prev => ({ ...prev, land: country }));
+    }
+  }, [country]); // Re-run when country changes (e.g., user navigates from /de to /at)
+
   // FAST REFRESH FIX: Define stable callbacks at component level (not inline)
   // Prevents Fast Refresh infinite loops by keeping function identity stable across renders
   const handleTestimonialsCtaClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
@@ -287,7 +313,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
     // Check optional string fields
     const optionalStringFields: (keyof FormState)[] = [
-      'charakter', 'besonderheiten', 'attribution_source'
+      'charakter', 'besonderheiten', 'attribution_source', 'land'
     ];
 
     for (const field of optionalStringFields) {
@@ -824,14 +850,17 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                               value={form[field.name as keyof FormState]}
                               onChange={handleChange}
                               className={`w-full p-4 border rounded-2xl transition-all text-lg ${
-                                errors[field.name] 
-                                  ? "border-red-500 bg-red-50" 
+                                errors[field.name]
+                                  ? "border-red-500 bg-red-50"
                                   : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
                               } focus:outline-none focus:ring-4 focus:ring-amber-100`}
                             >
                               {field.placeholder && <option value="">{field.placeholder}</option>}
                               {!field.placeholder && <option value="">Bitte wählen</option>}
-                              {field.options?.map((option) => {
+                              {/* AT-Rollout: Use dynamic options for land and ausbildung fields */}
+                              {(field.name === 'land' ? landOptions :
+                                field.name === 'ausbildung' ? ausbildungOptions.map(opt => ({ value: opt, label: opt })) :
+                                field.options)?.map((option) => {
                                 if (typeof option === 'string') {
                                   return (
                                     <option key={option} value={option}>
