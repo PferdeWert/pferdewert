@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
@@ -57,6 +58,8 @@ const heroMetaItems = createHeroMetaItems([
 const kostenLinkIcon = <ArrowRight className="h-5 w-5" />
 
 const AKUPferd: NextPage = () => {
+  const { getLocalizedPath } = useCountryConfig();
+
   const getSectionNumber = (sectionId: string) => {
     const index = akuSections.findIndex(section => section.id === sectionId)
     return index === -1 ? undefined : index + 1
@@ -187,7 +190,7 @@ const AKUPferd: NextPage = () => {
           subtitle="Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfährst du, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann du welche Art von AKU benötigst. Schütze dich vor versteckten Mängeln mit fundiertem Wissen."
           metaItems={heroMetaItems}
           primaryCta={{
-            href: '/pferde-preis-berechnen',
+            href: getLocalizedPath('/pferde-preis-berechnen'),
             label: 'Pferdewert jetzt berechnen',
             icon: primaryCtaIcon
           }}
@@ -332,7 +335,7 @@ const AKUPferd: NextPage = () => {
                 und Budgetplanungs-Tipps empfehlen wir unseren detaillierten Kostenguide:
               </p>
               <Link
-                href="/pferde-ratgeber/aku-pferd/kosten"
+                href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")}
                 className="inline-flex items-center gap-2 bg-brand text-white px-6 py-3 rounded-lg hover:bg-brand-dark transition-colors font-semibold"
               >
                 AKU-Kosten im Detail ansehen
@@ -771,7 +774,7 @@ const AKUPferd: NextPage = () => {
               <p className="text-gray-700 mb-4">
                 Die Kosten für eine Ankaufsuntersuchung variieren je nach Umfang, Region und Tierarzt. Eine detaillierte Kostenübersicht mit aktuellen Preisen nach neuer Gebührenordnung für Tierärzte (GOT 2024) findest du in unserem Kosten-Guide.
               </p>
-              <Link href="/pferde-ratgeber/aku-pferd/kosten" className="inline-block px-6 py-2 bg-brand text-white rounded hover:bg-brand/90 transition">
+              <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")} className="inline-block px-6 py-2 bg-brand text-white rounded hover:bg-brand/90 transition">
                 Zur detaillierten Kostenübersicht →
               </Link>
             </div>

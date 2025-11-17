@@ -1,3 +1,4 @@
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
@@ -250,7 +251,9 @@ const weitereVersicherungenData = [
 ];
 
 export default function AnfaengerpferdKaufen() {
-  return (
+  
+  const { getLocalizedPath } = useCountryConfig();
+return (
     <Layout
       fullWidth={true}
       background="bg-gradient-to-b from-amber-50 to-white"
@@ -1170,7 +1173,7 @@ export default function AnfaengerpferdKaufen() {
                 <p className="text-blue-800 mb-4">
                   Verwende eine professionelle Vertragvorlage, um nichts zu vergessen:
                 </p>
-                <Link href="/pferde-ratgeber/pferdekaufvertrag" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold underline">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold underline">
                   Zum Pferdekaufvertrag-Ratgeber mit kostenloser Vorlage →
                 </Link>
               </div>

@@ -271,7 +271,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [formStartTime] = useState<number>(Date.now());
 
   // AT-Rollout: Country-specific configuration
-  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
+  const { country, locale, ausbildungOptions, landOptions, getLocalizedPath } = useCountryConfig();
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
   // stepData depends on ausbildungOptions and locale (for placeholder text)
@@ -1034,7 +1034,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                     </p>
                     <p className="text-xs text-gray-500">
                       Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere{" "}
-                      <Link href="/agb" className="underline hover:text-gray-700 transition-colors">
+                      <Link href={getLocalizedPath("/agb")} className="underline hover:text-gray-700 transition-colors">
                         AGB
                       </Link>.
                     </p>
