@@ -26,6 +26,7 @@ interface BackendRequestData {
   standort?: string;
   charakter?: string; // New optional field
   besonderheiten?: string; // New optional field
+  land?: string; // AT-Rollout: Country field (DE, AT, etc.)
 }
 
 interface BackendResponse {
@@ -217,6 +218,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort,
         charakter,           // Extract charakter field
         besonderheiten,      // Extract besonderheiten field
+        land,                // AT-Rollout: Extract country field
         attribution_source,  // Marketing attribution data
       } = doc;
 
@@ -236,6 +238,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort: standort ? String(standort) : undefined,
         charakter: charakter ? String(charakter) : undefined, // New optional field
         besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
+        land: land ? String(land) : undefined, // AT-Rollout: Country field
       };
 
       info('[WEBHOOK] Data prepared for backend API');
@@ -424,6 +427,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
             <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
             <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
+            <p><strong>Land (Optional):</strong> ${land || 'nicht angegeben'}</p>
             <p><strong>Charakter (Optional):</strong> ${doc.charakter || 'nicht angegeben'}</p>
             <p><strong>Besonderheiten (Optional):</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
 
