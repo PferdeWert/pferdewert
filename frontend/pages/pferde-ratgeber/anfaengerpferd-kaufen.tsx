@@ -9,7 +9,6 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Clock, User, CheckCircle, ShieldCheck, Award } from 'lucide-react';
 import Link from 'next/link';
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -251,7 +250,6 @@ const weitereVersicherungenData = [
 ];
 
 export default function AnfaengerpferdKaufen() {
-  const { getLocalizedPath } = useCountryConfig()
   return (
     <Layout
       fullWidth={true}

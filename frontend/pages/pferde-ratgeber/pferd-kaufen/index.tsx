@@ -3,7 +3,6 @@ import Head from "next/head"
 import Link from "next/link"
 import { useMemo } from "react"
 import { ArrowRight, TrendingUp, Shield, CheckCircle, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 import Layout from "@/components/Layout"
 import ContentSection from "@/components/ContentSection"
@@ -172,7 +171,6 @@ const PferdKaufen: NextPage = () => {
   const handleNavigate = (id: string) => scrollToSection(id)
 
   const handleScrollToToc = () => {
-  const { getLocalizedPath } = useCountryConfig()
     if (typeof window === "undefined") return
     document.getElementById("inhaltsverzeichnis")?.scrollIntoView({ behavior: "smooth" })
   }

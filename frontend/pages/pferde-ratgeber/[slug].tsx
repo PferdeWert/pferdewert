@@ -15,7 +15,6 @@ import { RatgeberArticle } from '@/types/ratgeber';
 import Layout from '@/components/Layout';
 import RelatedArticles from '@/components/ratgeber/RelatedArticles';
 import { Clock, Calendar, Tag } from 'lucide-react';
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // ============================================================================
 // TYPES
@@ -143,7 +142,6 @@ export default function RatgeberArticlePage({
   article,
   relatedArticles,
 }: RatgeberArticlePageProps) {
-  const { getLocalizedPath } = useCountryConfig()
   const displayTitle =
     article.pferdewert.edited_title || article.outrank.title;
   const displayContent =

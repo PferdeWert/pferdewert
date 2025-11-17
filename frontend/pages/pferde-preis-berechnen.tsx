@@ -104,9 +104,9 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration als Funktion - erlaubt dynamische Ausbildungsoptionen (DE vs AT)
+// Step-Konfiguration als Funktion - erlaubt dynamische Ausbildungsoptionen und Lokalisierung (DE vs AT)
 // DE: hat "E", kein LP/LM | AT: kein "E", aber LP/LM
-const getStepData = (ausbildungOptions: string[]): StepData[] => [
+const getStepData = (ausbildungOptions: string[], locale: 'de' | 'de-AT'): StepData[] => [
   {
     id: 1,
     title: "Grunddaten",
@@ -228,7 +228,7 @@ const getStepData = (ausbildungOptions: string[]): StepData[] => [
         name: "standort",
         label: "Standort",
         required: false,
-        placeholder: "z.B. 72770, 1010 Wien, Zürich",
+        placeholder: locale === 'de-AT' ? "z.B. 1010 Wien, 8010 Graz" : "z.B. 72770",
         halfWidth: true
       },
       {
@@ -271,11 +271,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [formStartTime] = useState<number>(Date.now());
 
   // AT-Rollout: Country-specific configuration
-  const { country, ausbildungOptions, landOptions } = useCountryConfig();
+  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
-  // stepData depends on ausbildungOptions which changes between DE/AT
-  const stepData = useMemo(() => getStepData(ausbildungOptions), [ausbildungOptions]);
+  // stepData depends on ausbildungOptions and locale (for placeholder text)
+  const stepData = useMemo(() => getStepData(ausbildungOptions, locale), [ausbildungOptions, locale]);
 
   // AT-Rollout: Auto-fill land field based on detected country
   useEffect(() => {

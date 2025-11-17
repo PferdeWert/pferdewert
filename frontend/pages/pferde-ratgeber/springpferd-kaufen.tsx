@@ -11,7 +11,6 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { ShieldAlert, AlertTriangle, CheckCircle } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -57,7 +56,6 @@ const faqItems = [
 ]
 
 export default function SpringpferdKaufen() {
-  const { getLocalizedPath } = useCountryConfig()
   // Memoize icons to prevent Fast Refresh infinite loops
   const shieldIcon = useMemo(
     () => <ShieldAlert className="w-5 h-5 text-brand-brown" />,

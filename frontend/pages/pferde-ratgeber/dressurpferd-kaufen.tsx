@@ -9,7 +9,6 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck, Clock, User } from 'lucide-react';
 import Link from 'next/link';
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -31,7 +30,6 @@ const heroPrimaryCta = {
 };
 
 export default function DressurpferdKaufen() {
-  const { getLocalizedPath } = useCountryConfig()
   const sections = [
     { id: 'preise', title: 'Was kostet ein gutes Dressurpferd?' },
     { id: 'rassen', title: 'Welche Rassen eignen sich für die Dressur?' },

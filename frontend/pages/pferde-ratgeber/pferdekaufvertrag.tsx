@@ -11,7 +11,6 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { AlertTriangle } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -56,7 +55,6 @@ const faqItems = [
 ]
 
 export default function Pferdekaufvertrag() {
-  const { getLocalizedPath } = useCountryConfig()
   // Memoize icon to prevent Fast Refresh infinite loops
   const warningIcon = useMemo(
     () => <AlertTriangle className="w-5 h-5 text-brand-brown" />,

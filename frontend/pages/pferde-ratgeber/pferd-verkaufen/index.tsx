@@ -15,7 +15,6 @@ import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems';
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 // Creating JSX objects inside component or passing them inline causes reference changes on every render
@@ -171,7 +170,6 @@ const PferdVerkaufen: NextPage = () => {
   )
 
   const handleNavigate = (id: string) => {
-  const { getLocalizedPath } = useCountryConfig()
     const element = document.getElementById(id);
     if (element) {
       const offset = 100;
