@@ -747,14 +747,13 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       >
         {/* Preisbanner mit neuem Design */}
         <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 border-2 border-amber-300 p-6 rounded-2xl shadow-lg">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3">
             <span className="text-2xl">🔥</span>
             <p className="text-xl font-bold text-gray-800">
               Nur <span className="text-h3 text-red-600 font-black">{PRICING_FORMATTED.current}</span>
               <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
             </p>
           </div>
-          <p className="text-sm text-gray-600 font-medium">Exklusiv in der Herbst-Aktion!</p>
         </div>
 
         {/* Features mit Icons */}
