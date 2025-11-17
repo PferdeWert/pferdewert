@@ -1,23 +1,25 @@
 // frontend/components/Footer.tsx
 
 import Link from "next/link";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 // Konstante außerhalb des Renders für bessere Performance
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+  const { getLocalizedPath } = useCountryConfig();
   return (
     <footer className="bg-[#FCFAF6] text-center text-sm text-[#5A4B3B] mt-12 py-6 border-t border-[#EAE4DC]">
       {/* Semantische Navigation mit ul/li Struktur */}
       <nav aria-label="Footer Navigation">
         <ul className="flex flex-wrap justify-center items-center gap-4 mb-2">
           <li>
-            <Link href="/pferde-preis-berechnen" className="hover:underline">
+            <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="hover:underline">
               Pferd bewerten
             </Link>
           </li>
           <li>
-            <Link href="/beispiel-analyse" className="hover:underline">
+            <Link href={getLocalizedPath("/beispiel-analyse")} className="hover:underline">
               Beispiel-Analyse
             </Link>
           </li>
@@ -36,8 +38,8 @@ export default function Footer() {
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-40 max-w-xs sm:w-48 bg-[#FCFAF6] border border-[#EAE4DC] rounded-lg shadow-lg z-10">
                 <ul className="py-2" role="menu">
                   <li role="none">
-                    <Link 
-                      href="/impressum" 
+                    <Link
+                      href={getLocalizedPath("/impressum")}
                       className="block px-4 py-2 text-sm text-[#5A4B3B] hover:underline"
                       role="menuitem"
                     >
@@ -45,8 +47,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li role="none">
-                    <Link 
-                      href="/datenschutz" 
+                    <Link
+                      href={getLocalizedPath("/datenschutz")}
                       className="block px-4 py-2 text-sm text-[#5A4B3B] hover:underline"
                       role="menuitem"
                     >
@@ -54,8 +56,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li role="none">
-                    <Link 
-                      href="/agb" 
+                    <Link
+                      href={getLocalizedPath("/agb")}
                       className="block px-4 py-2 text-sm text-[#5A4B3B] hover:underline"
                       role="menuitem"
                     >

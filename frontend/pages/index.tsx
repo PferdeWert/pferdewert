@@ -17,6 +17,7 @@ const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
 });
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 // FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
 const faqItems = [
@@ -116,6 +117,9 @@ const checkCircleIconLarge = <CheckCircle className="w-8 h-8 text-brand-brown" /
 const STAR_INDICES = [0, 1, 2, 3, 4] as const;
 
 export default function PferdeWertHomepage() {
+  // AT-Rollout: Locale-aware routing
+  const { getLocalizedPath } = useCountryConfig();
+
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -331,7 +335,7 @@ export default function PferdeWertHomepage() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/pferde-preis-berechnen"
+              href={getLocalizedPath("/pferde-preis-berechnen")}
               className="btn-primary group text-lg px-8 py-4"
             >
               Jetzt Pferdewert berechnen
@@ -366,7 +370,7 @@ export default function PferdeWertHomepage() {
 <section className="py-12 px-4">
   <div className="container mx-auto text-center">
     <Link
-      href="/pferde-preis-berechnen"
+      href={getLocalizedPath("/pferde-preis-berechnen")}
       className="btn-primary px-8 py-4 text-lg"
     >
       Jetzt Pferdewert berechnen
@@ -427,7 +431,7 @@ export default function PferdeWertHomepage() {
 
             <div className="text-center">
               <Link
-                href="/pferde-preis-berechnen"
+                href={getLocalizedPath("/pferde-preis-berechnen")}
                 className="btn-primary text-lg px-8 py-4"
               >
                 Jetzt Pferdewert berechnen
@@ -476,7 +480,7 @@ export default function PferdeWertHomepage() {
 
             <div className="text-center mt-12">
               <Link
-                href="/pferde-preis-berechnen"
+                href={getLocalizedPath("/pferde-preis-berechnen")}
                 className="btn-primary text-lg px-8 py-4"
               >
                 Jetzt Pferdewert berechnen
@@ -504,11 +508,11 @@ export default function PferdeWertHomepage() {
                   💡 Neugierig auf den aktuellen Marktwert deines Pferdes?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Erfahre mit unserer <Link href="/pferde-preis-berechnen" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
+                  Erfahre mit unserer <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
                   egal ob aus Neugier, für den Kauf oder Verkauf eines Pferdes.
                 </p>
                 <Link
-                  href="/pferde-preis-berechnen"
+                  href={getLocalizedPath("/pferde-preis-berechnen")}
                   className="inline-flex items-center gap-2 bg-brand-brown text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-brownDark transition-colors"
                 >
                   Was ist mein Pferd wert?
@@ -529,7 +533,7 @@ export default function PferdeWertHomepage() {
                 Starte jetzt und erhalte in wenigen Minuten eine detaillierte Pferdebewertung.
               </p>
               <Link
-                href="/pferde-preis-berechnen"
+                href={getLocalizedPath("/pferde-preis-berechnen")}
                 className="inline-flex items-center justify-center px-12 py-4 text-xl font-semibold bg-white text-brand-brown hover:bg-brand-light transition-colors rounded-xl shadow-lg"
               >
                 Jetzt Pferdewert berechnen

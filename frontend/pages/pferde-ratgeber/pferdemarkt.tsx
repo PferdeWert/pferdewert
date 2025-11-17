@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useMemo } from 'react'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown, AlertCircle } from 'lucide-react'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 import Layout from '@/components/Layout'
 import FAQ from '@/components/FAQ'
@@ -111,6 +112,7 @@ const Pferdemarkt: NextPage = () => {
   )
 
   const handleTableOfContentsClick = (sectionId: string) => {
+  const { getLocalizedPath } = useCountryConfig()
     info('Navigating to section:', sectionId)
     scrollToSection(sectionId)
   }

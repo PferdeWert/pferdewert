@@ -11,6 +11,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { Calculator, ShieldAlert } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -192,6 +193,7 @@ const BREADCRUMB_SCHEMA = {
   }
 
 export default function WasKostetEinPferd() {
+  const { getLocalizedPath } = useCountryConfig()
   // CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
   const relatedArticles = useMemo(() =>
     getRelatedArticles('was-kostet-ein-pferd').map(entry => ({

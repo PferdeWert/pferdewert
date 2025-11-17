@@ -9,6 +9,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Award, ShieldCheck, TrendingUp, Clock, User } from 'lucide-react';
 import Link from 'next/link';
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -31,6 +32,7 @@ const heroPrimaryCta = {
 };
 
 export default function FreizeitpferdKaufen() {
+  const { getLocalizedPath } = useCountryConfig()
   const sections = [
     { id: 'definition', title: 'Was ist ein Freizeitpferd?' },
     { id: 'kosten', title: 'Kosten: Kaufpreis und Unterhalt' },

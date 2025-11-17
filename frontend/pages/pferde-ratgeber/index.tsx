@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 import { RATGEBER_ENTRIES, getRatgeberPath, type RatgeberEntry } from '@/lib/ratgeber-registry'
 
 // ============================================================================
@@ -54,6 +55,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
 // ============================================================================
 
 const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
+  const { getLocalizedPath } = useCountryConfig()
   return (
     <>
       <Head>
@@ -185,13 +187,13 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
 
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Nutzen Sie unsere KI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Erfahren Sie mehr über die{' '}
-              <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand font-semibold hover:text-brand-brown transition-colors underline">
+              <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd")} className="text-brand font-semibold hover:text-brand-brown transition-colors underline">
                 Kosten eines Pferdes
               </Link>
               {' '}und treffen Sie fundierte Entscheidungen. Einfach, schnell und datenbasiert.
             </p>
 
-            <Link href="/pferde-preis-berechnen">
+            <Link href={getLocalizedPath("/pferde-preis-berechnen")}>
               <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
                 Jetzt Pferdewert berechnen
               </button>

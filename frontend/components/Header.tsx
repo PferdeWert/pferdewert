@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
+import { useCountryConfig } from "@/hooks/useCountryConfig"
 
 // ============================================================================
 // STABLE NAVIGATION ITEMS - Outside component to prevent recreation
@@ -43,6 +44,7 @@ export default function HeaderUnified() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
   const router = useRouter()
+  const { getLocalizedPath } = useCountryConfig()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -116,7 +118,7 @@ export default function HeaderUnified() {
         <div className="hidden md:block">
           <div className="w-full px-4 lg:px-6 h-16 flex items-center justify-between">
             {/* Logo + Brand Name */}
-            <Link href="/" className="flex items-center space-x-3">
+            <Link href={getLocalizedPath("/")} className="flex items-center space-x-3">
               <Image
                 src="/favicon.svg"
                 alt="PferdeWert"
@@ -139,7 +141,7 @@ export default function HeaderUnified() {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
-                    href={item.href}
+                    href={getLocalizedPath(item.href)}
                     className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
                   >
                     <span>{item.label}</span>
@@ -152,7 +154,7 @@ export default function HeaderUnified() {
                       {item.dropdown.map((subItem) => (
                         <Link
                           key={subItem.href}
-                          href={subItem.href}
+                          href={getLocalizedPath(subItem.href)}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                         >
                           {subItem.label}
@@ -165,13 +167,13 @@ export default function HeaderUnified() {
 
               {/* Desktop CTAs */}
               <Link
-                href="/beispiel-analyse"
+                href={getLocalizedPath("/beispiel-analyse")}
                 className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
               >
                 Beispiel-Analyse
               </Link>
               <Link
-                href="/pferde-preis-berechnen"
+                href={getLocalizedPath("/pferde-preis-berechnen")}
                 className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
               >
                 Jetzt bewerten
@@ -184,7 +186,7 @@ export default function HeaderUnified() {
         <div className="md:hidden">
           <div className="w-full px-4 h-16 flex items-center justify-between">
             {/* Logo ohne Text */}
-            <Link href="/" className="flex items-center">
+            <Link href={getLocalizedPath("/")} className="flex items-center">
               <Image
                 src="/favicon.svg"
                 alt="PferdeWert"
@@ -196,7 +198,7 @@ export default function HeaderUnified() {
 
             {/* Zentraler Main CTA */}
             <Link
-              href="/pferde-preis-berechnen"
+              href={getLocalizedPath("/pferde-preis-berechnen")}
               className="bg-brand-brown hover:bg-brand-brownDark text-white px-6 py-2 rounded-lg transition-colors font-medium text-sm"
             >
               Pferd bewerten
@@ -257,7 +259,7 @@ export default function HeaderUnified() {
                   <div>
                     <div className="w-full flex items-center justify-between py-3">
                       <Link
-                        href={item.href}
+                        href={getLocalizedPath(item.href)}
                         className="flex-1 text-gray-900 font-medium text-base"
                         onClick={closeMenu}
                       >
@@ -283,7 +285,7 @@ export default function HeaderUnified() {
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.href}
-                            href={subItem.href}
+                            href={getLocalizedPath(subItem.href)}
                             className="block text-gray-600 hover:text-brand-brown py-1 text-sm"
                             onClick={closeMenu}
                           >
@@ -296,7 +298,7 @@ export default function HeaderUnified() {
                 ) : (
                   // Direkter Link (Über uns)
                   <Link
-                    href={item.href}
+                    href={getLocalizedPath(item.href)}
                     className="block text-gray-900 font-medium py-3 text-base"
                     onClick={closeMenu}
                   >
@@ -310,7 +312,7 @@ export default function HeaderUnified() {
           {/* Secondary CTA am unteren Rand */}
           <div className="border-t border-gray-200 p-4 bg-gray-50 rounded-bl-lg">
             <Link
-              href="/beispiel-analyse"
+              href={getLocalizedPath("/beispiel-analyse")}
               className="block w-full text-center border-2 border-brand-brown text-brand-brown px-4 py-2.5 rounded-lg hover:bg-amber-50 transition-colors font-medium text-sm"
               onClick={closeMenu}
             >

@@ -3,6 +3,7 @@ import Head from "next/head"
 import Link from "next/link"
 import { useMemo } from "react"
 import { Calculator, Wallet, PiggyBank, MapPin, ChevronDown } from "lucide-react"
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 import Layout from "@/components/Layout"
 import FAQ from "@/components/FAQ"
@@ -163,6 +164,7 @@ const AkuPferdKosten: NextPage = () => {
   const handleNavigate = (id: string) => scrollToSection(id)
 
   const handleScrollToToc = () => {
+  const { getLocalizedPath } = useCountryConfig()
     if (typeof window === "undefined") return
     document.getElementById("inhaltsverzeichnis")?.scrollIntoView({ behavior: "smooth" })
   }

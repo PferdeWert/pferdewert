@@ -4,8 +4,10 @@ import Image from "next/image"
 import Layout from "@/components/Layout"
 import { PRICING_FORMATTED } from "@/lib/pricing"
 import { Shield, Zap, Target } from "lucide-react"
+import { useCountryConfig } from "@/hooks/useCountryConfig"
 
 export default function UeberUns() {
+  const { getLocalizedPath } = useCountryConfig()
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -290,7 +292,7 @@ export default function UeberUns() {
                 Erhalte jetzt den Marktwert deines Pferdes – KI-gestützt, wissenschaftlich fundiert, in 2 Minuten
               </p>
               <Link
-                href="/pferde-preis-berechnen"
+                href={getLocalizedPath("/pferde-preis-berechnen")}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold bg-brand-brown hover:bg-brand-brownDark text-white transition-colors rounded-2xl shadow-lg mb-4"
               >
                 Jetzt Pferdewert berechnen

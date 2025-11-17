@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 import Layout from '@/components/Layout'
 import FAQ from '@/components/FAQ'
@@ -58,6 +59,7 @@ const kostenLinkIcon = <ArrowRight className="h-5 w-5" />
 
 const AKUPferd: NextPage = () => {
   const getSectionNumber = (sectionId: string) => {
+  const { getLocalizedPath } = useCountryConfig()
     const index = akuSections.findIndex(section => section.id === sectionId)
     return index === -1 ? undefined : index + 1
   }

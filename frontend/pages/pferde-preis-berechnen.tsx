@@ -235,7 +235,6 @@ const getStepData = (ausbildungOptions: string[]): StepData[] => [
         name: "attribution_source",
         label: "Wie bist du auf PferdeWert aufmerksam geworden?",
         required: false,
-        placeholder: "Bitte auswählen (optional)",
         halfWidth: true,
         type: "select",
         options: [
@@ -243,7 +242,7 @@ const getStepData = (ausbildungOptions: string[]): StepData[] => [
           { value: "google_search", label: "Google Suche" },
           { value: "instagram", label: "Instagram" },
           { value: "facebook", label: "Facebook" },
-          { value: "recommendation", label: "Empfehlung von Freunden/Familie" },
+          { value: "recommendation", label: "Empfehlung" },
           { value: "equestrian_forum", label: "Pferdeforum oder Community" },
           { value: "other", label: "Andere Quelle" }
         ]

@@ -3,6 +3,7 @@ import Layout from "@/components/Layout"; // Neu: Layout mit Footer
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 const markdown = `## Zusammenfassung
 
@@ -128,6 +129,7 @@ const jsonLd = {
 };
 
 export default function BeispielAnalyse() {
+  const { getLocalizedPath } = useCountryConfig();
   return (
     <Layout>
       <Head>
@@ -184,7 +186,7 @@ export default function BeispielAnalyse() {
 
         <div className="not-prose mt-10 flex justify-center">
           <Link
-            href="/pferde-preis-berechnen"
+            href={getLocalizedPath("/pferde-preis-berechnen")}
             className="btn-primary"
           >
             Jetzt Pferdewert berechnen

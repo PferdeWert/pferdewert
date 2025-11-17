@@ -3,6 +3,7 @@
 
 import Link from 'next/link'
 import { ChevronRight, Home } from 'lucide-react'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 
 interface BreadcrumbItem {
   label: string
@@ -20,11 +21,13 @@ const HOME_ICON = <Home className="w-4 h-4" />
 const CHEVRON_RIGHT_ICON = <ChevronRight className="w-4 h-4 text-gray-400" />
 
 export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
+  const { getLocalizedPath } = useCountryConfig()
+
   return (
     <nav className={`flex items-center space-x-2 text-sm text-gray-600 ${className}`} aria-label="Breadcrumb">
       {/* Home Icon */}
       <Link
-        href="/"
+        href={getLocalizedPath("/")}
         className="text-gray-500 hover:text-brand-brown transition-colors p-1 rounded"
         aria-label="Startseite"
       >
@@ -40,7 +43,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
             </span>
           ) : (
             <Link
-              href={item.href!}
+              href={getLocalizedPath(item.href!)}
               className="hover:text-brand-brown transition-colors hover:underline"
             >
               {item.label}
