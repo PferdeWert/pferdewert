@@ -237,8 +237,8 @@ const getStepData = (ausbildungOptions: string[], locale: 'de' | 'de-AT'): StepD
         required: false,
         halfWidth: true,
         type: "select",
+        placeholder: "Bitte auswählen (optional)",
         options: [
-          { value: "", label: "Bitte auswählen (optional)" },
           { value: "google_search", label: "Google Suche" },
           { value: "instagram", label: "Instagram" },
           { value: "facebook", label: "Facebook" },
