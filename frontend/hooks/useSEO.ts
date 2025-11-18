@@ -11,6 +11,7 @@ interface SEOConfig {
   hreflangTags: HreflangTag[];
   locale: 'de' | 'de-AT';
   isAustria: boolean;
+  ogLocale: 'de_DE' | 'de_AT';
 }
 
 const DOMAIN = 'https://www.pferdewert.de';
@@ -63,6 +64,7 @@ export function useSEO(): SEOConfig {
       hreflangTags,
       locale: locale as 'de' | 'de-AT',
       isAustria,
+      ogLocale: isAustria ? 'de_AT' : 'de_DE',
     };
   }, [router.asPath]);
 

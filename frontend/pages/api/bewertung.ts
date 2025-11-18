@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const collection = await getCollection("bewertungen");
     const result = await collection.findOne({ _id: new ObjectId(id) });
 
-    warn("[BEWERTUNG] 🔍 Debug - Gefundenes Dokument:", {
+    info("[BEWERTUNG] 🔍 Document retrieved:", {
       id,
       found: !!result,
       hasBewertung: !!(result?.bewertung),

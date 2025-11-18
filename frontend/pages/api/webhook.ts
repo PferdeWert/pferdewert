@@ -26,7 +26,8 @@ interface BackendRequestData {
   standort?: string;
   charakter?: string; // New optional field
   besonderheiten?: string; // New optional field
-  land?: string; // AT-Rollout: Country field (DE, AT, etc.)
+  land?: string; // AT-Rollout: Horse country (DE, AT) - determines AI market data
+  user_country?: string; // AT-Rollout: Customer country (from URL) - determines payment methods
 }
 
 interface BackendResponse {
@@ -218,7 +219,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort,
         charakter,           // Extract charakter field
         besonderheiten,      // Extract besonderheiten field
-        land,                // AT-Rollout: Extract country field
+        land,                // AT-Rollout: Horse country (for AI market data)
+        user_country,        // AT-Rollout: Customer country (from URL/locale)
         attribution_source,  // Marketing attribution data
       } = doc;
 
@@ -238,7 +240,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort: standort ? String(standort) : undefined,
         charakter: charakter ? String(charakter) : undefined, // New optional field
         besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
-        land: land ? String(land) : undefined, // AT-Rollout: Country field
+        land: land ? String(land) : undefined, // AT-Rollout: Horse country (for AI market data)
+        user_country: user_country ? String(user_country) : undefined, // AT-Rollout: Customer country
       };
 
       info('[WEBHOOK] Data prepared for backend API');

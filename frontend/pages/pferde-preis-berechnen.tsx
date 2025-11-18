@@ -60,7 +60,8 @@ interface FormState {
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
-  land?: string;         // AT-Rollout: Country field
+  land?: string;         // AT-Rollout: Horse country (for AI market data)
+  user_country?: string; // AT-Rollout: Customer country (from URL/locale) - auto-filled
 }
 
 const initialForm: FormState = {
@@ -78,6 +79,7 @@ const initialForm: FormState = {
   besonderheiten: "",
   attribution_source: "",
   land: "",
+  user_country: "", // Auto-filled from URL/locale
 };
 
 // Field Interface
@@ -278,7 +280,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const { country, locale, ausbildungOptions, landOptions, getLocalizedPath } = useCountryConfig();
 
   // AT-Rollout: SEO with hreflang tags
-  const { canonical, hreflangTags } = useSEO();
+  const { canonical, hreflangTags, ogLocale } = useSEO();
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
   // stepData depends on ausbildungOptions and locale (for placeholder text)
@@ -320,7 +322,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
     // Check optional string fields
     const optionalStringFields: (keyof FormState)[] = [
-      'charakter', 'besonderheiten', 'attribution_source', 'land'
+      'charakter', 'besonderheiten', 'attribution_source', 'land', 'user_country'
     ];
 
     for (const field of optionalStringFields) {
@@ -549,13 +551,22 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       // Get CSRF token from meta tag (added by _document.tsx or API)
       const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
 
+      // AT-Rollout: Add user_country for payment method selection
+      // user_country = customer's country (from URL/locale) → determines payment methods (EPS for AT)
+      // land = horse's country (from form) → determines AI market data sources
+      const payload = {
+        ...form,
+        land: form.land || country, // Auto-fallback: if land is empty, use user's country
+        user_country: country // From useCountryConfig (DE or AT based on URL)
+      };
+
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": csrfToken
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
         signal: controller.signal
       });
 
@@ -623,7 +634,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta property="og:url" content="https://pferdewert.de/pferde-preis-berechnen" />
         <meta property="og:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
         <meta property="og:site_name" content="PferdeWert.de" />
-        <meta property="og:locale" content="de_DE" />
+        <meta property="og:locale" content={ogLocale} />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />

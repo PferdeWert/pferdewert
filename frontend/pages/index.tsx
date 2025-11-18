@@ -122,7 +122,7 @@ export default function PferdeWertHomepage() {
   const { getLocalizedPath } = useCountryConfig();
 
   // AT-Rollout: SEO with hreflang tags
-  const { canonical, hreflangTags } = useSEO();
+  const { canonical, hreflangTags, ogLocale } = useSEO();
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -151,7 +151,7 @@ export default function PferdeWertHomepage() {
         {/* Open Graph Meta Tags */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="PferdeWert" />
-        <meta property="og:locale" content="de_DE" />
+        <meta property="og:locale" content={ogLocale} />
         <meta property="og:url" content="https://pferdewert.de/" />
         <meta property="og:title" content="Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de" />
         <meta property="og:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />

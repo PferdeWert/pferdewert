@@ -24,7 +24,8 @@ const BewertungSchema = z.object({
   aku: z.string().optional(),
   erfolge: z.string().optional(),
   standort: z.string().optional(),
-  land: z.string().optional(), // Land des Pferdes (DE, AT, etc.)
+  land: z.enum(['DE', 'AT']).optional(), // Land des Pferdes - für KI-Marktdaten (strict validation)
+  user_country: z.enum(['DE', 'AT']).default('DE'), // Land des Kunden - für Payment Methods (strict validation)
   charakter: z.string().optional(), // NEU
   besonderheiten: z.string().optional(), // NEU
   attribution_source: z.string().optional(), // Marketing-Attribution
@@ -115,13 +116,15 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       });
     }
 
-    // Dynamische Payment Methods basierend auf Land
-    const country = bewertungData.land || 'DE'; // Fallback auf Deutschland
-    const paymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = country === 'AT'
-      ? ["card", "eps", "klarna", "paypal"]  // EPS für Österreich
-      : ["card", "klarna", "paypal"];         // Standard für Deutschland/Rest
+    // Dynamische Payment Methods basierend auf KUNDEN-Land (nicht Pferde-Land!)
+    // user_country = Land des Kunden (aus URL: /at/ → AT) → bestimmt Payment Methods
+    // land = Land des Pferdes (aus Formular) → bestimmt KI-Marktdaten (später im Backend)
+    const userCountry = bewertungData.user_country || 'DE'; // Fallback auf Deutschland
+    const paymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = userCountry === 'AT'
+      ? ["card", "eps", "klarna", "paypal"]  // EPS für österreichische Kunden
+      : ["card", "klarna", "paypal"];         // Standard für deutsche Kunden
 
-    info("[CHECKOUT] 💳 Payment Methods für", country, ":", paymentMethods);
+    info("[CHECKOUT] 💳 Payment Methods für Kundenland", userCountry, ":", paymentMethods);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: paymentMethods,

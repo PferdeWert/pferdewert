@@ -17,6 +17,7 @@ const PAGE_CONFIG = {
 
   // Hub-Seiten (hohe Priorität)
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
+  '/at/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
   // Content-Seiten (mittlere Priorität)
   '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
@@ -39,6 +40,15 @@ const PAGE_CONFIG = {
 RATGEBER_ENTRIES.forEach(entry => {
   const path = `/pferde-ratgeber/${entry.slug}`;
   PAGE_CONFIG[path] = {
+    priority: entry.priority,
+    changefreq: entry.changefreq
+  };
+});
+
+// AT-Rollout: Austrian versions of all Ratgeber articles
+RATGEBER_ENTRIES.forEach(entry => {
+  const atPath = `/at/pferde-ratgeber/${entry.slug}`;
+  PAGE_CONFIG[atPath] = {
     priority: entry.priority,
     changefreq: entry.changefreq
   };

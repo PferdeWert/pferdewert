@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.pferdewert.de/pferde-ratgeber/pferd-kaufen</loc>
     <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -152,6 +158,72 @@
   </url>
   <url>
     <loc>https://www.pferdewert.de/pferde-ratgeber/dressurpferd-kaufen</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/aku-pferd</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/aku-pferd/kosten</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/pferd-kaufen</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/was-kostet-ein-pferd</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/freizeitpferd-kaufen</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/anfaengerpferd-kaufen</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/pferd-verkaufen</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/pferdemarkt</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/pferdekaufvertrag</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/springpferd-kaufen</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pferdewert.de/at/pferde-ratgeber/dressurpferd-kaufen</loc>
     <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
