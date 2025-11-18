@@ -64,7 +64,7 @@ export function useSEO(): SEOConfig {
       hreflangTags,
       locale: locale as 'de' | 'de-AT',
       isAustria,
-      ogLocale: isAustria ? 'de_AT' : 'de_DE',
+      ogLocale: (isAustria ? 'de_AT' : 'de_DE') as 'de_DE' | 'de_AT',
     };
   }, [router.asPath]);
 

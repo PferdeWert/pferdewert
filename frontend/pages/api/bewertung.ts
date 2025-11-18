@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getCollection } from "@/lib/mongo";
 import { ObjectId } from "mongodb";
 import { z } from "zod";
-import { warn } from "@/lib/log";
+import { info, warn } from "@/lib/log";
 
 const querySchema = z.object({
   id: z.string().refine((val) => ObjectId.isValid(val), {
