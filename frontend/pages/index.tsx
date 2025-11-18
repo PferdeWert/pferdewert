@@ -18,6 +18,7 @@ const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 import { useCountryConfig } from "@/hooks/useCountryConfig";
+import { useSEO } from "@/hooks/useSEO";
 
 // FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
 const faqItems = [
@@ -120,6 +121,9 @@ export default function PferdeWertHomepage() {
   // AT-Rollout: Locale-aware routing
   const { getLocalizedPath } = useCountryConfig();
 
+  // AT-Rollout: SEO with hreflang tags
+  const { canonical, hreflangTags } = useSEO();
+
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -163,8 +167,12 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
 
-        {/* Canonical and Performance */}
-        <link rel="canonical" href="https://www.pferdewert.de/" />
+        {/* Canonical and Hreflang - AT Rollout */}
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
+
         {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
         <link rel="preconnect" href="https://api.pferdewert.de" />
         <link rel="dns-prefetch" href="//api.pferdewert.de" />

@@ -15,12 +15,20 @@ Disallow: /_next/
 
 # Allow important crawlable content
 Allow: /pferde-preis-berechnen
+Allow: /at
+Allow: /at/pferde-preis-berechnen
 Allow: /pferde-ratgeber
 Allow: /pferde-ratgeber/pferd-kaufen
 Allow: /was-ist-mein-pferd-wert
 Allow: /pferd-verkaufen
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
+Allow: /impressum
+Allow: /datenschutz
+Allow: /agb
+Allow: /at/impressum
+Allow: /at/datenschutz
+Allow: /at/agb
 Allow: /pferde-ratgeber/aku-pferd
 Allow: /pferde-ratgeber/aku-pferd/kosten
 Allow: /pferde-ratgeber/was-kostet-ein-pferd

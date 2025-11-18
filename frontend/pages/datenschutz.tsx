@@ -1,13 +1,20 @@
 // frontend/pages/datenschutz.tsx
 import Head from "next/head";
 import Layout from "@/components/Layout";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Datenschutz() {
+  const { canonical, hreflangTags } = useSEO();
+
   return (
     <Layout>
       <Head>
         <title>Datenschutz | PferdeWert</title>
         <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
       </Head>
       <main className="prose mx-auto px-4 py-12">
         <h1>Datenschutzerklärung</h1>

@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
@@ -11,6 +11,7 @@ import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import FAQ from "@/components/FAQ";
 import { useCountryConfig } from "@/hooks/useCountryConfig";
+import { useSEO } from "@/hooks/useSEO";
 
 // Lazy load below-the-fold components for better performance
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), {
@@ -270,8 +271,14 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
 
+  // Track if user manually selected country (to prevent auto-override)
+  const userSelectedLand = useRef<boolean>(false);
+
   // AT-Rollout: Country-specific configuration
   const { country, locale, ausbildungOptions, landOptions, getLocalizedPath } = useCountryConfig();
+
+  // AT-Rollout: SEO with hreflang tags
+  const { canonical, hreflangTags } = useSEO();
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
   // stepData depends on ausbildungOptions and locale (for placeholder text)
@@ -279,11 +286,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   // AT-Rollout: Auto-fill land field based on detected country
   useEffect(() => {
-    // Only auto-fill if land field is empty (first visit or not manually changed)
-    if (!form.land && country) {
+    // Auto-fill country from URL, but respect manual user selection
+    if (country && !userSelectedLand.current) {
       setForm(prev => ({ ...prev, land: country }));
     }
-  }, [country, form.land]); // Include form.land to satisfy ESLint and prevent Fast Refresh issues
+  }, [country]); // Re-run when country detection completes (client-side)
 
   // FAST REFRESH FIX: Define stable callbacks at component level (not inline)
   // Prevents Fast Refresh infinite loops by keeping function identity stable across renders
@@ -369,6 +376,12 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
+
+    // Track manual country selection to prevent auto-override
+    if (name === 'land') {
+      userSelectedLand.current = true;
+    }
+
     setForm(prev => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
     if (errors[name]) {
@@ -619,8 +632,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta name="twitter:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
         <meta name="twitter:site" content="@PferdeWert" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-preis-berechnen" />
+        {/* Canonical and Hreflang - AT Rollout */}
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
 
         {/* Performance Optimizations */}
         {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}

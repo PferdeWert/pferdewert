@@ -24,10 +24,11 @@ const BewertungSchema = z.object({
   aku: z.string().optional(),
   erfolge: z.string().optional(),
   standort: z.string().optional(),
+  land: z.string().optional(), // Land des Pferdes (DE, AT, etc.)
   charakter: z.string().optional(), // NEU
   besonderheiten: z.string().optional(), // NEU
   attribution_source: z.string().optional(), // Marketing-Attribution
-  
+
   // Legacy Support (falls alte Daten gesendet werden)
   verwendungszweck: z.string().optional(),
 });
@@ -114,8 +115,16 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       });
     }
 
+    // Dynamische Payment Methods basierend auf Land
+    const country = bewertungData.land || 'DE'; // Fallback auf Deutschland
+    const paymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = country === 'AT'
+      ? ["card", "eps", "klarna", "paypal"]  // EPS für Österreich
+      : ["card", "klarna", "paypal"];         // Standard für Deutschland/Rest
+
+    info("[CHECKOUT] 💳 Payment Methods für", country, ":", paymentMethods);
+
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card", "klarna", "paypal"],
+      payment_method_types: paymentMethods,
       line_items: [{ price: STRIPE_CONFIG.priceId, quantity: 1 }],
       mode: "payment",
       allow_promotion_codes: true,

@@ -11,6 +11,10 @@ const PAGE_CONFIG = {
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
 
+  // AT-Rollout: Austrian versions of main pages
+  '/at': { priority: '1.0', changefreq: 'weekly' },
+  '/at/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
+
   // Hub-Seiten (hohe Priorität)
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
@@ -20,6 +24,14 @@ const PAGE_CONFIG = {
   '/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
+
+  // Legal pages (DE + AT versions)
+  '/impressum': { priority: '0.3', changefreq: 'yearly' },
+  '/datenschutz': { priority: '0.3', changefreq: 'yearly' },
+  '/agb': { priority: '0.3', changefreq: 'yearly' },
+  '/at/impressum': { priority: '0.3', changefreq: 'yearly' },
+  '/at/datenschutz': { priority: '0.3', changefreq: 'yearly' },
+  '/at/agb': { priority: '0.3', changefreq: 'yearly' },
 
 };
 
