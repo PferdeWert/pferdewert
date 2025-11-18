@@ -2,7 +2,7 @@
 // Updated: 2025-10-10 - Deployment trigger
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
+import LocalizedLink from "@/components/LocalizedLink";
 import dynamic from "next/dynamic";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
@@ -17,7 +17,6 @@ const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
 });
 import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
-import { useCountryConfig } from "@/hooks/useCountryConfig";
 import { useSEO } from "@/hooks/useSEO";
 
 // FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
@@ -86,6 +85,10 @@ const faqItems = [
     {
       frage: "Erhalte ich eine Geld-zurück-Garantie?",
       antwort: "Ja, absolut! Falls du nicht zufrieden bist, erstatten wir dir den vollen Betrag zurück. Kein Risiko für dich."
+    },
+    {
+      frage: "Welche Zahlungsmethoden werden akzeptiert?",
+      antwort: "Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich zusätzlich EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe."
     }
 ];
 
@@ -118,9 +121,6 @@ const checkCircleIconLarge = <CheckCircle className="w-8 h-8 text-brand-brown" /
 const STAR_INDICES = [0, 1, 2, 3, 4] as const;
 
 export default function PferdeWertHomepage() {
-  // AT-Rollout: Locale-aware routing
-  const { getLocalizedPath } = useCountryConfig();
-
   // AT-Rollout: SEO with hreflang tags
   const { canonical, hreflangTags, ogLocale } = useSEO();
 
@@ -342,19 +342,19 @@ export default function PferdeWertHomepage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href={getLocalizedPath("/pferde-preis-berechnen")}
+            <LocalizedLink
+              href="/pferde-preis-berechnen"
               className="btn-primary group text-lg px-8 py-4"
             >
               Jetzt Pferdewert berechnen
               {arrowRightIcon}
-            </Link>
-            <Link
+            </LocalizedLink>
+            <LocalizedLink
               href="/beispiel-analyse"
               className="btn-secondary text-lg px-8 py-4"
             >
               Beispielanalyse ansehen
-            </Link>
+            </LocalizedLink>
           </div>
         </HeroSection>
 
@@ -377,12 +377,12 @@ export default function PferdeWertHomepage() {
 {/* CTA Section direkt darunter */}
 <section className="py-12 px-4">
   <div className="container mx-auto text-center">
-    <Link
-      href={getLocalizedPath("/pferde-preis-berechnen")}
+    <LocalizedLink
+      href="/pferde-preis-berechnen"
       className="btn-primary px-8 py-4 text-lg"
     >
       Jetzt Pferdewert berechnen
-    </Link>
+    </LocalizedLink>
 
     <p className="text-sm text-gray-600 mt-4">
       Sichere Bezahlung • Sofortiges Ergebnis • Keine Abos
@@ -438,12 +438,12 @@ export default function PferdeWertHomepage() {
             </div>
 
             <div className="text-center">
-              <Link
-                href={getLocalizedPath("/pferde-preis-berechnen")}
+              <LocalizedLink
+                href="/pferde-preis-berechnen"
                 className="btn-primary text-lg px-8 py-4"
               >
                 Jetzt Pferdewert berechnen
-              </Link>
+              </LocalizedLink>
             </div>
           </div>
         </section>
@@ -487,12 +487,12 @@ export default function PferdeWertHomepage() {
             </div>
 
             <div className="text-center mt-12">
-              <Link
-                href={getLocalizedPath("/pferde-preis-berechnen")}
+              <LocalizedLink
+                href="/pferde-preis-berechnen"
                 className="btn-primary text-lg px-8 py-4"
               >
                 Jetzt Pferdewert berechnen
-              </Link>
+              </LocalizedLink>
             </div>
           </div>
         </section>
@@ -516,15 +516,15 @@ export default function PferdeWertHomepage() {
                   💡 Neugierig auf den aktuellen Marktwert deines Pferdes?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Erfahre mit unserer <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</Link> den aktuellen Pferdepreis –
+                  Erfahre mit unserer <LocalizedLink href="/pferde-preis-berechnen" className="text-brand-brown underline hover:text-brand-brownDark">professionellen Pferdebewertung</LocalizedLink> den aktuellen Pferdepreis –
                   egal ob aus Neugier, für den Kauf oder Verkauf eines Pferdes.
                 </p>
-                <Link
-                  href={getLocalizedPath("/pferde-preis-berechnen")}
+                <LocalizedLink
+                  href="/pferde-preis-berechnen"
                   className="inline-flex items-center gap-2 bg-brand-brown text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-brownDark transition-colors"
                 >
                   Was ist mein Pferd wert?
-                </Link>
+                </LocalizedLink>
               </div>
             </div>
           </div>
@@ -540,12 +540,12 @@ export default function PferdeWertHomepage() {
               <p className="text-xl text-brand-light mb-8">
                 Starte jetzt und erhalte in wenigen Minuten eine detaillierte Pferdebewertung.
               </p>
-              <Link
-                href={getLocalizedPath("/pferde-preis-berechnen")}
+              <LocalizedLink
+                href="/pferde-preis-berechnen"
                 className="inline-flex items-center justify-center px-12 py-4 text-xl font-semibold bg-white text-brand-brown hover:bg-brand-light transition-colors rounded-xl shadow-lg"
               >
                 Jetzt Pferdewert berechnen
-              </Link>
+              </LocalizedLink>
               <p className="text-sm text-brand-light/80 mt-4">
 
               </p>

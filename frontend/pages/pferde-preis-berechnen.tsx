@@ -1,7 +1,7 @@
 // frontend/pages/pferde-preis-berechnen.tsx - Modernes Design basierend auf index.tsx
 
 import Head from "next/head";
-import Link from "next/link";
+import LocalizedLink from "@/components/LocalizedLink";
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
 import { error, warn, info } from "@/lib/log";
@@ -43,6 +43,10 @@ const faqData = [
   {
     question: "Ist eine Pferdepreis-Berechnung online zuverlässig?",
     answer: "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>30.000 €) zusätzlich Sachverständigen-Gutachten einholen."
+  },
+  {
+    question: "Welche Zahlungsmethoden werden akzeptiert?",
+    answer: "Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich zusätzlich EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe."
   }
 ];
 
@@ -277,7 +281,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const userSelectedLand = useRef<boolean>(false);
 
   // AT-Rollout: Country-specific configuration
-  const { country, locale, ausbildungOptions, landOptions, getLocalizedPath } = useCountryConfig();
+  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
 
   // AT-Rollout: SEO with hreflang tags
   const { canonical, hreflangTags, ogLocale } = useSEO();
@@ -1061,9 +1065,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                     </p>
                     <p className="text-xs text-gray-500">
                       Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere{" "}
-                      <Link href={getLocalizedPath("/agb")} className="underline hover:text-gray-700 transition-colors">
+                      <LocalizedLink href="/agb" className="underline hover:text-gray-700 transition-colors">
                         AGB
-                      </Link>.
+                      </LocalizedLink>.
                     </p>
                   </div>
 
