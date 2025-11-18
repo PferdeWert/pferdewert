@@ -1,51 +1,37 @@
-# Österreich-Rollout: Implementation Guide
-## Gleiche Page, minimale Änderungen, kein Duplicate Content
+# Österreich-Rollout: Status & Quick Reference
 
 **Erstellt:** 16. November 2025
-**Letzte Aktualisierung:** 17. November 2025
-**Ansatz:** Keep it simple, stupid (KISS)
+**Status:** Phase 1-5 ✅ KOMPLETT (95% Production-Ready)
+**Letztes Update:** 18. November 2025, 23:45 Uhr
 
 ---
 
-## 📊 AKTUELLER STATUS (18. November 2025)
+## 🎯 QUICK STATUS
 
-### ✅ Phase 1-4: KOMPLETT! (90% des Projekts)
+### ✅ FERTIG (Commits: fd8e357, 2872526)
 
-**Phase 1: i18n Setup** ✅
-- middleware.ts, messages, useCountryConfig Hook
+**Phase 1-3: Core** ✅
+- i18n Setup, System-Prompt, Formular, Backend
+- 106 Links lokalisiert, E-Level für AT ausgeblendet
 
-**Phase 2: System-Prompt** ✅
-- KI nutzt länderspezifische Marktdaten (ehorses.at für AT)
+**Phase 4: SEO** ✅
+- useSEO Hook, hreflang Tags, sitemap.xml (38 URLs)
+- og:locale support, canonical URLs
 
-**Phase 3: Formular & Backend** ✅
-- Land-Feld im Formular + Auto-fill
-- E-Level für AT ausgeblendet, dynamische Optionen
-- Backend: `land` Feld in API und MongoDB
-- 106 interne Links lokalisiert
+**Phase 5: Payment** ✅ (18.11.2025) - PRODUCTION READY!
+- EPS in Stripe aktiviert
+- `user_country` (Kunde) vs `land` (Pferd) Unterscheidung
+- Dynamische Payment Methods: EPS für AT, Standard für DE
+- Strikte enum-Validierung: z.enum(['DE','AT'])
+- Backend Integration: webhook.ts + FormState types
+- Code Review: 95% Production-Ready
 
-**Phase 4: SEO** ✅ (18.11.2025) - PRODUCTION READY!
-- useSEO Hook mit hreflang-Logik + ogLocale Support
-- Hreflang Tags in 5 Main Pages (index, bewertung, impressum, datenschutz, agb)
-- Dynamic og:locale tags für Social Media Previews
-- Sitemap.xml: 18 neue /at/ URLs (38 Pages total - inkl. Ratgeber!)
-- Canonical URLs dynamisch
-- Code Review: 8.2/10 - Alle P0 Fixes implementiert ✅
+### ⏳ TESTING (0.5 Tag)
 
-- **Phase 5: Payment** ✅ (18.11.2025)
-  - ✅ EPS in Stripe aktiviert
-  - ✅ user_country vs land Unterscheidung implementiert
-  - ✅ Dynamische Payment Methods (EPS für AT-Kunden)
-  - ✅ Strikte enum-Validierung (nur DE/AT)
-  - ✅ Backend Integration (webhook.ts)
-  - ✅ Code Review Fixes (95% Production-Ready)
-
-### ⏳ Verbleibend (0.5 Tag!):
-
-**Phase 6: Testing** (0.5 Tag)
-- ⏳ Full Flows (DE/AT)
-- ⏳ Edge Cases (AT-Kunde/DE-Pferd)
-- ⏳ Mobile/Desktop
-- ⏳ EPS Test-Zahlung
+- Full Flows (DE/AT Kunden)
+- Edge Cases (AT-Kunde/DE-Pferd, etc.)
+- EPS Test-Zahlung im Stripe Test Mode
+- Mobile/Desktop Tests
 
 ---
 
@@ -243,28 +229,18 @@ const paymentMethods = country === 'AT'
 
 ---
 
-## 📊 Dev-Checklist (Kompakt)
+## 📊 Implementation Summary
 
-### Phase 1: ✅ i18n Setup (ERLEDIGT!)
-```
-✅ npm install next-intl
-✅ middleware.ts erstellt (Locale Detection)
-✅ messages/de/ und messages/de-AT/ Ordner
-✅ useCountryConfig Hook erstellt
-```
+### ✅ DONE (18.11.2025)
+- Phase 1-2: i18n + System-Prompt
+- Phase 3: Formular + Backend + 106 Links
+- Phase 4: SEO + Hreflang + Sitemap
+- **Phase 5: Payment (EPS) + Code Review Fixes**
 
-### ✅ Erledigte Phasen (18.11.2025):
+### ⏳ TODO
+- Phase 6: Testing (0.5 Tag)
 
-**Phase 1-2:** i18n + System-Prompt (17.11.)
-**Phase 3:** Formular + Backend + 106 Links (17.11.)
-**Phase 4:** SEO + Hreflang + Sitemap (18.11.)
-
-### ⏳ Verbleibende Phasen:
-
-**Phase 5:** Payment (EPS für AT)
-**Phase 6:** Testing (Full Flows + Edge Cases)
-
-**Timeline:** 1 Tag bis Launch-Ready! 🚀
+**Timeline:** 0.5 Tag bis Launch! 🚀
 
 ---
 
@@ -404,35 +380,22 @@ Analytics auswerten → Top 3-5 Ratgeber mit AT-Traffic
 
 ---
 
-## 🎉 Zusammenfassung
+## 🎉 Final Status
 
-**Status (18. November 2025, 13:15 Uhr):**
-- ✅ Phase 1-4: KOMPLETT! (90% des Projekts)
-- ⏳ Phase 5-6: 2h verbleibend (10% des Projekts)
+**Stand: 18. November 2025, 23:45 Uhr**
 
-**Bereits fertig:**
-- ✅ i18n, Formular, Backend, SEO, Hreflang, Sitemap
-- ✅ 106 Links lokalisiert
-- ✅ E-Level AT-spezifisch ausgeblendet
-- ✅ Dynamische Ausbildungsoptionen
-- ✅ land-Feld in MongoDB + KI-Prompt
+### ✅ KOMPLETT (95% Production-Ready)
+- Phase 1-5: i18n, Formular, Backend, SEO, Payment ✅
+- EPS Integration mit strikter Validierung
+- user_country vs land korrekt getrennt
+- Code Review: 95% Production-Ready
 
-**Noch zu tun (morgen 2h):**
-- ⏳ EPS Payment (30 Min)
-- ⏳ Testing (1.5h)
+### ⏳ VERBLEIBEND
+- Phase 6: Testing (0.5 Tag)
+  - Full Flows, Edge Cases, EPS Test-Payment
 
-**Budget:**
-- Investiert: ~€1.440 (24h)
-- Verbleibend: €480 (8h)
-- **ROI: Besser als geplant!**
-
-**Timeline:**
-- Phase 1-4: ✅ ERLEDIGT (17.-18.11.)
-- Phase 5-6: 19.11. (2h)
-- **LAUNCH: 19. November 2025** 🚀
+**Launch:** 19. November 2025 🚀
 
 ---
 
-**Das war's! 🚀**
-
-Bei Fragen → Dokumentation oder Claude fragen.
+**Commits:** fd8e357, 2872526 | **Branch:** feature/austria-rollout
