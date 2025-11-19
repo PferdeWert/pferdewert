@@ -153,10 +153,9 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     });
 
     info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
-    res.status(200).json({ url: session.url });
+    return res.status(200).json({ url: session.url });
   } catch (_err: unknown) {
-  error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
-  res.status(500).json({ error: "Interner Serverfehler" });
-}
-
+    error("[CHECKOUT] ❌ Unerwarteter Fehler im Checkout-Prozess:", _err);
+    return res.status(500).json({ error: "Interner Serverfehler" });
+  }
 }
