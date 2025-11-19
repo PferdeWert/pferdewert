@@ -117,21 +117,23 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
 
         {/* Mobile Bottom Sheet - Portal-style rendering */}
         {isOpen && (
-          <div className="fixed inset-0 z-[9999]" ref={dropdownRef}>
+          <div className="fixed inset-0 z-[9999]" ref={dropdownRef} style={{ top: 0, left: 0, right: 0, bottom: 0 }}>
             {/* Backdrop with fade-in */}
             <div
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-fadeIn"
+              className="absolute inset-0 bg-black/40"
               onClick={() => setIsOpen(false)}
-              style={{ animationDuration: '200ms' }}
+              style={{
+                backdropFilter: 'blur(4px)',
+                animation: 'fadeIn 200ms ease-out',
+              }}
             />
 
             {/* Bottom Sheet with slide-up animation */}
             <div
-              className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl animate-slideUp"
+              className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl"
               style={{
                 maxHeight: '85vh',
-                animationDuration: '300ms',
-                animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
+                animation: 'slideUp 300ms cubic-bezier(0.32, 0.72, 0, 1)',
               }}
             >
               {/* Drag Handle */}
@@ -181,42 +183,38 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
               {/* Safe area bottom padding */}
               <div className="h-6" />
             </div>
+
+            {/* Inline keyframe definitions */}
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+                }
+                @keyframes slideUp {
+                  from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                  }
+                  to {
+                    transform: translateY(0);
+                    opacity: 1;
+                  }
+                }
+                @keyframes fadeInUp {
+                  from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+              `
+            }} />
           </div>
         )}
-
-        {/* Keyframe animations */}
-        <style jsx>{`
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          @keyframes slideUp {
-            from {
-              transform: translateY(100%);
-              opacity: 0;
-            }
-            to {
-              transform: translateY(0);
-              opacity: 1;
-            }
-          }
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(10px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          .animate-fadeIn {
-            animation: fadeIn 200ms ease-out;
-          }
-          .animate-slideUp {
-            animation: slideUp 300ms cubic-bezier(0.32, 0.72, 0, 1);
-          }
-        `}</style>
       </>
     );
   }
@@ -249,12 +247,14 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
               onClick={() => handleCountrySwitch(country.urlPrefix)}
               className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                 currentCountry.code === country.code
-                  ? 'bg-amber-50 text-brand-brown font-medium'
+                  ? 'bg-amber-50 text-brand-brown'
                   : 'text-gray-700 hover:bg-gray-50 hover:text-brand-brown'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span>{country.name}</span>
+                <span className={currentCountry.code === country.code ? 'font-semibold' : 'font-normal'}>
+                  {country.name}
+                </span>
                 <span className="text-xs opacity-75">{country.code}</span>
               </div>
             </button>
