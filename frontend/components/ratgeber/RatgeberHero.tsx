@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { ReactNode, useEffect, memo } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { validateCtaProps } from '@/utils/dev-warnings'
+import LocalizedLink from '@/components/LocalizedLink'
 
 export interface RatgeberHeroMetaItem {
   icon: ReactNode
@@ -91,13 +91,13 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
           )}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Link
+            <LocalizedLink
               href={primaryCta.href}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-brown hover:bg-brand-brownDark text-white font-bold rounded-xl transition-all shadow-soft"
             >
               {primaryCta.label}
               {primaryCta.icon}
-            </Link>
+            </LocalizedLink>
 
             {secondaryCta && (
               <button

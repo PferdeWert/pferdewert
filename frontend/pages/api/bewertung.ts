@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getCollection } from "@/lib/mongo";
 import { ObjectId } from "mongodb";
 import { z } from "zod";
-import { warn } from "@/lib/log";
+import { info, warn } from "@/lib/log";
 
 const querySchema = z.object({
   id: z.string().refine((val) => ObjectId.isValid(val), {
@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const collection = await getCollection("bewertungen");
     const result = await collection.findOne({ _id: new ObjectId(id) });
 
-    warn("[BEWERTUNG] 🔍 Debug - Gefundenes Dokument:", {
+    info("[BEWERTUNG] 🔍 Document retrieved:", {
       id,
       found: !!result,
       hasBewertung: !!(result?.bewertung),

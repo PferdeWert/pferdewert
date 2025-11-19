@@ -1,8 +1,8 @@
 // frontend/pages/pferde-preis-berechnen.tsx - Modernes Design basierend auf index.tsx
 
 import Head from "next/head";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import LocalizedLink from "@/components/LocalizedLink";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
 import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
@@ -10,6 +10,8 @@ import HeroSection from "@/components/HeroSection";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
 import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import FAQ from "@/components/FAQ";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
+import { useSEO } from "@/hooks/useSEO";
 
 // Lazy load below-the-fold components for better performance
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), {
@@ -41,6 +43,10 @@ const faqData = [
   {
     question: "Ist eine Pferdepreis-Berechnung online zuverlässig?",
     answer: "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>30.000 €) zusätzlich Sachverständigen-Gutachten einholen."
+  },
+  {
+    question: "Welche Zahlungsmethoden werden akzeptiert?",
+    answer: "Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich zusätzlich EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe."
   }
 ];
 
@@ -58,6 +64,8 @@ interface FormState {
   charakter?: string;    // NEU: optional
   besonderheiten?: string; // NEU: optional
   attribution_source?: string; // Attribution tracking
+  land?: string;         // AT-Rollout: Horse country (for AI market data)
+  user_country?: string; // AT-Rollout: Customer country (from URL/locale) - auto-filled
 }
 
 const initialForm: FormState = {
@@ -74,6 +82,8 @@ const initialForm: FormState = {
   charakter: "",
   besonderheiten: "",
   attribution_source: "",
+  land: "",
+  user_country: "", // Auto-filled from URL/locale
 };
 
 // Field Interface
@@ -101,8 +111,9 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration (Wizard-Fortschritt) - OPTIMIERT: 4-Schritt Wizard gemäß UX-Plan
-const stepData: StepData[] = [
+// Step-Konfiguration als Funktion - erlaubt dynamische Ausbildungsoptionen und Lokalisierung (DE vs AT)
+// DE: hat "E", kein LP/LM | AT: kein "E", aber LP/LM
+const getStepData = (ausbildungOptions: string[], locale: 'de' | 'de-AT'): StepData[] => [
   {
     id: 1,
     title: "Grunddaten",
@@ -164,7 +175,7 @@ const stepData: StepData[] = [
         label: "Ausbildungsstand",
         type: "select",
         required: true,
-        options: ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+        options: ausbildungOptions, // Dynamisch: DE hat E, AT hat LP/LM
         halfWidth: true
       },
       {
@@ -213,25 +224,32 @@ const stepData: StepData[] = [
         fullWidth: true
       },
       {
-        name: "standort",
-        label: "Standort (PLZ)",
+        name: "land",
+        label: "Land",
         required: false,
-        placeholder: "z.B. 72770",
+        type: "select",
+        options: [],  // Will be populated dynamically from useCountryConfig
+        halfWidth: true
+      },
+      {
+        name: "standort",
+        label: "Standort",
+        required: false,
+        placeholder: locale === 'de-AT' ? "z.B. 1010 Wien, 8010 Graz" : "z.B. 72770",
         halfWidth: true
       },
       {
         name: "attribution_source",
         label: "Wie bist du auf PferdeWert aufmerksam geworden?",
         required: false,
-        placeholder: "Bitte auswählen (optional)",
         halfWidth: true,
         type: "select",
+        placeholder: "Bitte auswählen (optional)",
         options: [
-          { value: "", label: "Bitte auswählen (optional)" },
           { value: "google_search", label: "Google Suche" },
           { value: "instagram", label: "Instagram" },
           { value: "facebook", label: "Facebook" },
-          { value: "recommendation", label: "Empfehlung von Freunden/Familie" },
+          { value: "recommendation", label: "Empfehlung" },
           { value: "equestrian_forum", label: "Pferdeforum oder Community" },
           { value: "other", label: "Andere Quelle" }
         ]
@@ -258,6 +276,27 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
+
+  // Track if user manually selected country (to prevent auto-override)
+  const userSelectedLand = useRef<boolean>(false);
+
+  // AT-Rollout: Country-specific configuration
+  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
+
+  // AT-Rollout: SEO with hreflang tags
+  const { canonical, hreflangTags, ogLocale } = useSEO();
+
+  // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
+  // stepData depends on ausbildungOptions and locale (for placeholder text)
+  const stepData = useMemo(() => getStepData(ausbildungOptions, locale), [ausbildungOptions, locale]);
+
+  // AT-Rollout: Auto-fill land field based on detected country
+  useEffect(() => {
+    // Auto-fill country from URL, but respect manual user selection
+    if (country && !userSelectedLand.current) {
+      setForm(prev => ({ ...prev, land: country }));
+    }
+  }, [country]); // Re-run when country detection completes (client-side)
 
   // FAST REFRESH FIX: Define stable callbacks at component level (not inline)
   // Prevents Fast Refresh infinite loops by keeping function identity stable across renders
@@ -287,7 +326,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
     // Check optional string fields
     const optionalStringFields: (keyof FormState)[] = [
-      'charakter', 'besonderheiten', 'attribution_source'
+      'charakter', 'besonderheiten', 'attribution_source', 'land', 'user_country'
     ];
 
     for (const field of optionalStringFields) {
@@ -343,6 +382,12 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
+
+    // Track manual country selection to prevent auto-override
+    if (name === 'land') {
+      userSelectedLand.current = true;
+    }
+
     setForm(prev => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
     if (errors[name]) {
@@ -510,13 +555,22 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       // Get CSRF token from meta tag (added by _document.tsx or API)
       const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
 
+      // AT-Rollout: Add user_country for payment method selection
+      // user_country = customer's country (from URL/locale) → determines payment methods (EPS for AT)
+      // land = horse's country (from form) → determines AI market data sources
+      const payload = {
+        ...form,
+        land: form.land || country, // Auto-fallback: if land is empty, use user's country
+        user_country: country // From useCountryConfig (DE or AT based on URL)
+      };
+
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": csrfToken
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
         signal: controller.signal
       });
 
@@ -584,7 +638,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta property="og:url" content="https://pferdewert.de/pferde-preis-berechnen" />
         <meta property="og:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
         <meta property="og:site_name" content="PferdeWert.de" />
-        <meta property="og:locale" content="de_DE" />
+        <meta property="og:locale" content={ogLocale} />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -593,8 +647,11 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta name="twitter:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
         <meta name="twitter:site" content="@PferdeWert" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-preis-berechnen" />
+        {/* Canonical and Hreflang - AT Rollout */}
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
 
         {/* Performance Optimizations */}
         {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
@@ -721,14 +778,13 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
       >
         {/* Preisbanner mit neuem Design */}
         <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 border-2 border-amber-300 p-6 rounded-2xl shadow-lg">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3">
             <span className="text-2xl">🔥</span>
             <p className="text-xl font-bold text-gray-800">
               Nur <span className="text-h3 text-red-600 font-black">{PRICING_FORMATTED.current}</span>
               <span className="line-through text-gray-500 text-lg ml-3">statt {PRICING_FORMATTED.decoy}</span>
             </p>
           </div>
-          <p className="text-sm text-gray-600 font-medium">Exklusiv in der Herbst-Aktion!</p>
         </div>
 
         {/* Features mit Icons */}
@@ -824,14 +880,17 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                               value={form[field.name as keyof FormState]}
                               onChange={handleChange}
                               className={`w-full p-4 border rounded-2xl transition-all text-lg ${
-                                errors[field.name] 
-                                  ? "border-red-500 bg-red-50" 
+                                errors[field.name]
+                                  ? "border-red-500 bg-red-50"
                                   : "border-gray-300 hover:border-brand-brown focus:border-brand-brown"
                               } focus:outline-none focus:ring-4 focus:ring-amber-100`}
                             >
                               {field.placeholder && <option value="">{field.placeholder}</option>}
                               {!field.placeholder && <option value="">Bitte wählen</option>}
-                              {field.options?.map((option) => {
+                              {/* AT-Rollout: Use dynamic options for land and ausbildung fields */}
+                              {(field.name === 'land' ? landOptions :
+                                field.name === 'ausbildung' ? ausbildungOptions.map(opt => ({ value: opt, label: opt })) :
+                                field.options)?.map((option) => {
                                 if (typeof option === 'string') {
                                   return (
                                     <option key={option} value={option}>
@@ -1006,9 +1065,9 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                     </p>
                     <p className="text-xs text-gray-500">
                       Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere{" "}
-                      <Link href="/agb" className="underline hover:text-gray-700 transition-colors">
+                      <LocalizedLink href="/agb" className="underline hover:text-gray-700 transition-colors">
                         AGB
-                      </Link>.
+                      </LocalizedLink>.
                     </p>
                   </div>
 

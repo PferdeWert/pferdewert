@@ -1,6 +1,6 @@
 // frontend/components/Footer.tsx
 
-import Link from "next/link";
+import LocalizedLink from "@/components/LocalizedLink";
 
 // Konstante außerhalb des Renders für bessere Performance
 const currentYear = new Date().getFullYear();
@@ -12,14 +12,14 @@ export default function Footer() {
       <nav aria-label="Footer Navigation">
         <ul className="flex flex-wrap justify-center items-center gap-4 mb-2">
           <li>
-            <Link href="/pferde-preis-berechnen" className="hover:underline">
+            <LocalizedLink href="/pferde-preis-berechnen" className="hover:underline">
               Pferd bewerten
-            </Link>
+            </LocalizedLink>
           </li>
           <li>
-            <Link href="/beispiel-analyse" className="hover:underline">
+            <LocalizedLink href="/beispiel-analyse" className="hover:underline">
               Beispiel-Analyse
-            </Link>
+            </LocalizedLink>
           </li>
           
           {/* Accessibility-konformes Details/Summary Dropdown */}
@@ -36,31 +36,31 @@ export default function Footer() {
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-40 max-w-xs sm:w-48 bg-[#FCFAF6] border border-[#EAE4DC] rounded-lg shadow-lg z-10">
                 <ul className="py-2" role="menu">
                   <li role="none">
-                    <Link 
-                      href="/impressum" 
+                    <LocalizedLink
+                      href="/impressum"
                       className="block px-4 py-2 text-sm text-[#5A4B3B] hover:underline"
                       role="menuitem"
                     >
                       Impressum
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li role="none">
-                    <Link 
-                      href="/datenschutz" 
+                    <LocalizedLink
+                      href="/datenschutz"
                       className="block px-4 py-2 text-sm text-[#5A4B3B] hover:underline"
                       role="menuitem"
                     >
                       Datenschutz
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li role="none">
-                    <Link 
-                      href="/agb" 
+                    <LocalizedLink
+                      href="/agb"
                       className="block px-4 py-2 text-sm text-[#5A4B3B] hover:underline"
                       role="menuitem"
                     >
                       AGB
-                    </Link>
+                    </LocalizedLink>
                   </li>
                 </ul>
                 {/* Pfeil nach unten - angepasst für neue Positionierung */}

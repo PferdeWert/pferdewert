@@ -24,10 +24,12 @@ const BewertungSchema = z.object({
   aku: z.string().optional(),
   erfolge: z.string().optional(),
   standort: z.string().optional(),
+  land: z.enum(['DE', 'AT']).optional(), // Land des Pferdes - für KI-Marktdaten (strict validation)
+  user_country: z.enum(['DE', 'AT']).default('DE'), // Land des Kunden - für Payment Methods (strict validation)
   charakter: z.string().optional(), // NEU
   besonderheiten: z.string().optional(), // NEU
   attribution_source: z.string().optional(), // Marketing-Attribution
-  
+
   // Legacy Support (falls alte Daten gesendet werden)
   verwendungszweck: z.string().optional(),
 });
@@ -114,8 +116,18 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
       });
     }
 
+    // Dynamische Payment Methods basierend auf KUNDEN-Land (nicht Pferde-Land!)
+    // user_country = Land des Kunden (aus URL: /at/ → AT) → bestimmt Payment Methods
+    // land = Land des Pferdes (aus Formular) → bestimmt KI-Marktdaten (später im Backend)
+    const userCountry = bewertungData.user_country || 'DE'; // Fallback auf Deutschland
+    const paymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = userCountry === 'AT'
+      ? ["card", "eps", "klarna", "paypal"]  // EPS für österreichische Kunden
+      : ["card", "klarna", "paypal"];         // Standard für deutsche Kunden
+
+    info("[CHECKOUT] 💳 Payment Methods für Kundenland", userCountry, ":", paymentMethods);
+
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card", "klarna", "paypal"],
+      payment_method_types: paymentMethods,
       line_items: [{ price: STRIPE_CONFIG.priceId, quantity: 1 }],
       mode: "payment",
       allow_promotion_codes: true,
@@ -141,10 +153,9 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     });
 
     info("[CHECKOUT] ✅ Session gespeichert, ID:", session.id);
-    res.status(200).json({ url: session.url });
+    return res.status(200).json({ url: session.url });
   } catch (_err: unknown) {
-  error("[CHECKOUT] ❌ Fehler im Checkout:", _err);
-  res.status(500).json({ error: "Interner Serverfehler" });
-}
-
+    error("[CHECKOUT] ❌ Unerwarteter Fehler im Checkout-Prozess:", _err);
+    return res.status(500).json({ error: "Interner Serverfehler" });
+  }
 }

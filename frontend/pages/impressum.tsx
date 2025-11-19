@@ -1,9 +1,20 @@
 // pages/impressum.tsx
+import Head from "next/head";
 import Layout from "@/components/Layout";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Impressum() {
+  const { canonical, hreflangTags } = useSEO();
+
   return (
     <Layout>
+      <Head>
+        <title>Impressum | PferdeWert.de</title>
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
+      </Head>
       <main className="mx-auto max-w-xl px-4 py-12">
         <h1 className="mb-4 text-2xl font-bold">Impressum</h1>
 

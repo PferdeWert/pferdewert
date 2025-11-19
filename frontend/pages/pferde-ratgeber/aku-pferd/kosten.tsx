@@ -2,6 +2,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import Link from "next/link"
 import { useMemo } from "react"
+import { useCountryConfig } from "@/hooks/useCountryConfig"
 import { Calculator, Wallet, PiggyBank, MapPin, ChevronDown } from "lucide-react"
 
 import Layout from "@/components/Layout"
@@ -145,6 +146,8 @@ const faqItems: FAQItem[] = [
 ]
 
 const AkuPferdKosten: NextPage = () => {
+  const { getLocalizedPath } = useCountryConfig();
+
   // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
   // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
   const relatedArticles = useMemo(
@@ -213,7 +216,7 @@ const AkuPferdKosten: NextPage = () => {
                 den Unterschied zwischen kleiner und großer AKU sowie die verschiedenen Befundklassen.
               </p>
               <Link
-                href="/pferde-ratgeber/aku-pferd"
+                href={getLocalizedPath("/pferde-ratgeber/aku-pferd")}
                 className="text-blue-600 hover:text-blue-800 underline font-semibold inline-flex items-center gap-2"
               >
                 → Zum AKU-Überblick-Ratgeber
@@ -230,11 +233,11 @@ const AkuPferdKosten: NextPage = () => {
                 Die Kosten der Ankaufsuntersuchung setzen sich aus dem gewählten Umfang (AKU-Klasse) und zusätzlichen Leistungen
                 wie Röntgen, Labor und Anfahrt zusammen. Plane je nach Kaufpreis und Anspruch 2–5 % des Kaufpreises ein. Für einen
                 vollständigen Überblick aller Pferdekaufskosten{" "}
-                <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-blue-600 hover:text-blue-800 underline">
+                <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd")} className="text-blue-600 hover:text-blue-800 underline">
                   schau dir unseren Kostenratgeber an
                 </Link>
                 . Mehr zum gesamten Kaufprozess findest du in unserem{" "}
-                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-blue-600 hover:text-blue-800 underline">
                   Pferdekauf-Ratgeber
                 </Link>
                 .
@@ -276,11 +279,11 @@ const AkuPferdKosten: NextPage = () => {
               <RatgeberHighlightBox title="Faustregel" icon={calculatorBrownIcon}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Freizeitpferde bis 5.000 € kommen mit Klasse II aus. Für hochwertige{" "}
-                  <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                  <Link href={getLocalizedPath("/pferde-ratgeber/dressurpferd-kaufen")} className="text-blue-600 hover:text-blue-800 underline">
                     Dressurpferde
                   </Link>
                   {" "}oder{" "}
-                  <Link href="/pferde-ratgeber/springpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                  <Link href={getLocalizedPath("/pferde-ratgeber/springpferd-kaufen")} className="text-blue-600 hover:text-blue-800 underline">
                     Springpferde
                   </Link>
                   {" "}solltest du Klasse III oder Spezialdiagnostik einplanen – so minimierst du Folgerisiken.
@@ -306,7 +309,7 @@ const AkuPferdKosten: NextPage = () => {
                 Je spezialisierter die Praxis und je umfangreicher die Diagnostik, desto höher die Kosten. Kläre im Vorfeld, ob
                 du sämtliche Zusatzleistungen wirklich benötigst – und lass dir die Preisstruktur transparent erklären. Bei Pferden
                 aus Online-Inseraten oder vom{" "}
-                <Link href="/pferde-ratgeber/pferdemarkt" className="text-blue-600 hover:text-blue-800 underline">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-blue-600 hover:text-blue-800 underline">
                   Pferdemarkt
                 </Link>
                 {" "}solltest du besonders auf eine umfassende AKU achten.
@@ -387,7 +390,7 @@ const AkuPferdKosten: NextPage = () => {
 
               <p className="text-lg text-gray-700 leading-relaxed mt-8">
                 <strong>Tipp:</strong> Vereinbare die Kostenregelung frühzeitig im Kaufprozess. In unserem{" "}
-                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-blue-600 hover:text-blue-800 underline">
                   umfassenden Ratgeber zum Pferdekauf
                 </Link>
                 {" "}erfährst du, wie du den gesamten Kaufablauf strukturiert angehst.
@@ -396,7 +399,7 @@ const AkuPferdKosten: NextPage = () => {
               <RatgeberHighlightBox title="Wichtig: Schriftliche Festlegung" icon={walletBrownIcon}>
                 <p className="text-gray-700">
                   <strong>Vereinbare alle Kostenpunkte schriftlich im{" "}
-                  <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+                  <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="text-blue-600 hover:text-blue-800 underline font-semibold">
                     Pferdekaufvertrag
                   </Link>
                   {" "}oder per E-Mail</strong>, um später Streitigkeiten zu vermeiden. Dies gilt besonders, wenn die Kostenübernahme

@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { memo } from 'react'
+import LocalizedLink from '@/components/LocalizedLink'
 
 interface RatgeberFinalCTAProps {
   image: {
@@ -39,11 +39,11 @@ const RatgeberFinalCTA: React.FC<RatgeberFinalCTAProps> = ({ image, title, descr
             {description}
           </p>
 
-          <Link href={ctaHref}>
+          <LocalizedLink href={ctaHref}>
             <button className="min-h-[44px] px-8 md:px-10 py-3 md:py-4 bg-brand-brown hover:bg-brand-brownDark text-white rounded-xl transition-colors font-semibold text-base md:text-lg shadow-soft touch-manipulation">
               {ctaLabel}
             </button>
-          </Link>
+          </LocalizedLink>
         </div>
       </div>
     </section>

@@ -1,13 +1,20 @@
 // frontend/pages/datenschutz.tsx
 import Head from "next/head";
 import Layout from "@/components/Layout";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Datenschutz() {
+  const { canonical, hreflangTags } = useSEO();
+
   return (
     <Layout>
       <Head>
         <title>Datenschutz | PferdeWert</title>
         <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
       </Head>
       <main className="prose mx-auto px-4 py-12">
         <h1>Datenschutzerklärung</h1>
@@ -19,12 +26,14 @@ export default function Datenschutz() {
 
         <h2>Zahlungsabwicklung über Stripe</h2>
         <p>
-          Zur Abwicklung von Zahlungen nutzen wir den Dienstleister Stripe. Bei Auswahl der Zahlungsart
-          &quot;Kreditkarte&quot; erfolgt die Zahlungsabwicklung über Stripe Payments Europe, Ltd., 1 Grand Canal Street
-          Lower, Grand Canal Dock, Dublin, Irland. Dabei werden Ihre Zahlungsdaten direkt an Stripe übermittelt
-          und dort verarbeitet. Die Übermittlung Ihrer Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO
-          (Verarbeitung zur Vertragserfüllung) sowie auf Grundlage eines berechtigten Interesses an einer
-          sicheren und effizienten Zahlungsabwicklung gemäß Art. 6 Abs. 1 lit. f DSGVO.
+          Zur Abwicklung von Zahlungen nutzen wir den Dienstleister Stripe. Wir akzeptieren verschiedene
+          Zahlungsmethoden wie Kreditkarte, Klarna, PayPal sowie für österreichische Kunden zusätzlich
+          EPS (Electronic Payment Standard). Die Zahlungsabwicklung erfolgt über Stripe Payments Europe, Ltd.,
+          1 Grand Canal Street Lower, Grand Canal Dock, Dublin, Irland. Dabei werden Ihre Zahlungsdaten
+          direkt an Stripe übermittelt und dort verarbeitet. Die Übermittlung Ihrer Daten erfolgt auf
+          Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Verarbeitung zur Vertragserfüllung) sowie auf Grundlage
+          eines berechtigten Interesses an einer sicheren und effizienten Zahlungsabwicklung gemäß
+          Art. 6 Abs. 1 lit. f DSGVO.
         </p>
         <p>
           Weitere Informationen finden Sie in der Datenschutzerklärung von Stripe unter:

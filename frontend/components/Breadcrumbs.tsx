@@ -1,7 +1,7 @@
 // frontend/components/Breadcrumbs.tsx
 // RECOMMENDATION: Consistent breadcrumb navigation for AKU content hierarchy
 
-import Link from 'next/link'
+import LocalizedLink from '@/components/LocalizedLink'
 import { ChevronRight, Home } from 'lucide-react'
 
 interface BreadcrumbItem {
@@ -23,13 +23,13 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
   return (
     <nav className={`flex items-center space-x-2 text-sm text-gray-600 ${className}`} aria-label="Breadcrumb">
       {/* Home Icon */}
-      <Link
+      <LocalizedLink
         href="/"
         className="text-gray-500 hover:text-brand-brown transition-colors p-1 rounded"
         aria-label="Startseite"
       >
         {HOME_ICON}
-      </Link>
+      </LocalizedLink>
 
       {items.map((item, index) => (
         <div key={index} className="flex items-center space-x-2">
@@ -39,12 +39,12 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
               {item.label}
             </span>
           ) : (
-            <Link
+            <LocalizedLink
               href={item.href!}
               className="hover:text-brand-brown transition-colors hover:underline"
             >
               {item.label}
-            </Link>
+            </LocalizedLink>
           )}
         </div>
       ))}

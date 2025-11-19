@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
-import Link from "next/link"
+import LocalizedLink from "@/components/LocalizedLink"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
@@ -116,7 +116,7 @@ export default function HeaderUnified() {
         <div className="hidden md:block">
           <div className="w-full px-4 lg:px-6 h-16 flex items-center justify-between">
             {/* Logo + Brand Name */}
-            <Link href="/" className="flex items-center space-x-3">
+            <LocalizedLink href="/" className="flex items-center space-x-3">
               <Image
                 src="/favicon.svg"
                 alt="PferdeWert"
@@ -127,7 +127,7 @@ export default function HeaderUnified() {
               <span className="text-lg font-bold text-brand-brown">
                 PferdeWert
               </span>
-            </Link>
+            </LocalizedLink>
 
             {/* Desktop Navigation mit Dropdowns */}
             <nav className="flex items-center space-x-8">
@@ -138,25 +138,25 @@ export default function HeaderUnified() {
                   onMouseEnter={() => setActiveDropdown(item.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <Link
+                  <LocalizedLink
                     href={item.href}
                     className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
                   >
                     <span>{item.label}</span>
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                  </Link>
+                  </LocalizedLink>
 
                   {/* Dropdown Menu */}
                   {item.dropdown && activeDropdown === item.label && (
                     <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-200">
                       {item.dropdown.map((subItem) => (
-                        <Link
+                        <LocalizedLink
                           key={subItem.href}
                           href={subItem.href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
                         >
                           {subItem.label}
-                        </Link>
+                        </LocalizedLink>
                       ))}
                     </div>
                   )}
@@ -164,18 +164,18 @@ export default function HeaderUnified() {
               ))}
 
               {/* Desktop CTAs */}
-              <Link
+              <LocalizedLink
                 href="/beispiel-analyse"
                 className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
               >
                 Beispiel-Analyse
-              </Link>
-              <Link
+              </LocalizedLink>
+              <LocalizedLink
                 href="/pferde-preis-berechnen"
                 className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
               >
                 Jetzt bewerten
-              </Link>
+              </LocalizedLink>
             </nav>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function HeaderUnified() {
         <div className="md:hidden">
           <div className="w-full px-4 h-16 flex items-center justify-between">
             {/* Logo ohne Text */}
-            <Link href="/" className="flex items-center">
+            <LocalizedLink href="/" className="flex items-center">
               <Image
                 src="/favicon.svg"
                 alt="PferdeWert"
@@ -192,15 +192,15 @@ export default function HeaderUnified() {
                 height={36}
                 className="rounded-full"
               />
-            </Link>
+            </LocalizedLink>
 
             {/* Zentraler Main CTA */}
-            <Link
+            <LocalizedLink
               href="/pferde-preis-berechnen"
               className="bg-brand-brown hover:bg-brand-brownDark text-white px-6 py-2 rounded-lg transition-colors font-medium text-sm"
             >
               Pferd bewerten
-            </Link>
+            </LocalizedLink>
 
             {/* Mobile Menu Button */}
             <button
@@ -256,13 +256,13 @@ export default function HeaderUnified() {
                   // Kategorie mit Dropdown - aufklappbar
                   <div>
                     <div className="w-full flex items-center justify-between py-3">
-                      <Link
+                      <LocalizedLink
                         href={item.href}
                         className="flex-1 text-gray-900 font-medium text-base"
                         onClick={closeMenu}
                       >
                         {item.label}
-                      </Link>
+                      </LocalizedLink>
                       <button
                         className="p-1 text-gray-700 hover:text-brand-brown"
                         onClick={() => toggleMobileSection(item.label)}
@@ -281,27 +281,27 @@ export default function HeaderUnified() {
                     {mobileExpandedSection === item.label && (
                       <div className="ml-4 space-y-1 mt-2 pb-2">
                         {item.dropdown.map((subItem) => (
-                          <Link
+                          <LocalizedLink
                             key={subItem.href}
                             href={subItem.href}
                             className="block text-gray-600 hover:text-brand-brown py-1 text-sm"
                             onClick={closeMenu}
                           >
                             {subItem.label}
-                          </Link>
+                          </LocalizedLink>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
                   // Direkter Link (Über uns)
-                  <Link
+                  <LocalizedLink
                     href={item.href}
                     className="block text-gray-900 font-medium py-3 text-base"
                     onClick={closeMenu}
                   >
                     {item.label}
-                  </Link>
+                  </LocalizedLink>
                 )}
               </div>
             ))}
@@ -309,13 +309,13 @@ export default function HeaderUnified() {
 
           {/* Secondary CTA am unteren Rand */}
           <div className="border-t border-gray-200 p-4 bg-gray-50 rounded-bl-lg">
-            <Link
+            <LocalizedLink
               href="/beispiel-analyse"
               className="block w-full text-center border-2 border-brand-brown text-brand-brown px-4 py-2.5 rounded-lg hover:bg-amber-50 transition-colors font-medium text-sm"
               onClick={closeMenu}
             >
               Beispiel-Analyse
-            </Link>
+            </LocalizedLink>
           </div>
         </nav>
       </div>

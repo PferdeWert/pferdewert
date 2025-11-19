@@ -1,3 +1,4 @@
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useMemo, useCallback } from 'react'
@@ -56,7 +57,9 @@ const faqItems = [
 ]
 
 export default function SpringpferdKaufen() {
-  // Memoize icons to prevent Fast Refresh infinite loops
+  
+  const { getLocalizedPath } = useCountryConfig();
+// Memoize icons to prevent Fast Refresh infinite loops
   const shieldIcon = useMemo(
     () => <ShieldAlert className="w-5 h-5 text-brand-brown" />,
     []
@@ -260,7 +263,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Tipp:</strong> In unserem <Link href="/pferde-ratgeber/pferd-kaufen" className="text-brand-brown hover:underline font-semibold">umfassenden Pferdekauf-Ratgeber</Link> findest du weitere allgemeine Tipps, die für alle Pferdetypen gelten.
+              <strong>Tipp:</strong> In unserem <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-brand-brown hover:underline font-semibold">umfassenden Pferdekauf-Ratgeber</Link> findest du weitere allgemeine Tipps, die für alle Pferdetypen gelten.
             </p>
           </section>
 
@@ -283,7 +286,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Interessierst du dich für andere Disziplinen? Lies unseren Ratgeber zum <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand-brown hover:underline font-semibold">Dressurpferd kaufen</Link>.
+              → Interessierst du dich für andere Disziplinen? Lies unseren Ratgeber zum <Link href={getLocalizedPath("/pferde-ratgeber/dressurpferd-kaufen")} className="text-brand-brown hover:underline font-semibold">Dressurpferd kaufen</Link>.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -410,7 +413,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Mehr Details zu Anschaffungs- und laufenden Kosten findest du in unserem <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown hover:underline font-semibold">kompletten Pferde-Kosten-Guide</Link>.
+              → Mehr Details zu Anschaffungs- und laufenden Kosten findest du in unserem <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd")} className="text-brand-brown hover:underline font-semibold">kompletten Pferde-Kosten-Guide</Link>.
             </p>
           </section>
 
@@ -457,7 +460,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Entdecke mehr Verkaufsquellen und Plattformen in unserem <Link href="/pferde-ratgeber/pferdemarkt" className="text-brand-brown hover:underline font-semibold">Pferdemarkt-Guide</Link>.
+              → Entdecke mehr Verkaufsquellen und Plattformen in unserem <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-brand-brown hover:underline font-semibold">Pferdemarkt-Guide</Link>.
             </p>
           </section>
 
@@ -493,7 +496,7 @@ export default function SpringpferdKaufen() {
             </ul>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Alle Details zu AKU-Kosten und Preisfaktoren findest du in unserem <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown hover:underline font-semibold">AKU-Kosten-Ratgeber</Link>.
+              → Alle Details zu AKU-Kosten und Preisfaktoren findest du in unserem <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")} className="text-brand-brown hover:underline font-semibold">AKU-Kosten-Ratgeber</Link>.
             </p>
 
             <RatgeberHighlightBox title="Experten-Tipp: Eigener Tierarzt" icon={shieldIcon}>
@@ -507,7 +510,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Ausführliche Informationen zu Ablauf, Kosten und Checkliste findest du in unserem <Link href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:underline font-semibold">detaillierten AKU-Ratgeber</Link>.
+              → Ausführliche Informationen zu Ablauf, Kosten und Checkliste findest du in unserem <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand-brown hover:underline font-semibold">detaillierten AKU-Ratgeber</Link>.
             </p>
           </section>
 
@@ -594,7 +597,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Inklusive rechtssicherer Vertragsvorlage und allen wichtigen Klauseln: Unser <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">kompletter Pferdekaufvertrag-Ratgeber</Link>.
+              → Inklusive rechtssicherer Vertragsvorlage und allen wichtigen Klauseln: Unser <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="text-brand-brown hover:underline font-semibold">kompletter Pferdekaufvertrag-Ratgeber</Link>.
             </p>
           </section>
 
@@ -619,7 +622,7 @@ export default function SpringpferdKaufen() {
             </RatgeberHighlightBox>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Nimm dir Zeit für diese wichtige Entscheidung – das richtige Pferd ist einen langen Suchprozess wert. Ein harmonisches Team aus Reiter und Pferd entsteht nicht über Nacht, aber mit dem passenden Partner an deiner Seite stehen dir alle Türen im Springsport offen. Falls du bei der Bewertung eines Verkaufspferdes unsicher bist, kann eine <Link href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-semibold">professionelle Pferdebewertung</Link> zusätzliche Sicherheit geben und dir helfen, den fairen Marktwert einzuschätzen.
+              Nimm dir Zeit für diese wichtige Entscheidung – das richtige Pferd ist einen langen Suchprozess wert. Ein harmonisches Team aus Reiter und Pferd entsteht nicht über Nacht, aber mit dem passenden Partner an deiner Seite stehen dir alle Türen im Springsport offen. Falls du bei der Bewertung eines Verkaufspferdes unsicher bist, kann eine <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown hover:underline font-semibold">professionelle Pferdebewertung</Link> zusätzliche Sicherheit geben und dir helfen, den fairen Marktwert einzuschätzen.
             </p>
           </section>
         </div>

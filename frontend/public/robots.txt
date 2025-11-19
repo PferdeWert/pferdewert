@@ -15,12 +15,21 @@ Disallow: /_next/
 
 # Allow important crawlable content
 Allow: /pferde-preis-berechnen
+Allow: /at
+Allow: /at/pferde-preis-berechnen
 Allow: /pferde-ratgeber
+Allow: /at/pferde-ratgeber
 Allow: /pferde-ratgeber/pferd-kaufen
 Allow: /was-ist-mein-pferd-wert
 Allow: /pferd-verkaufen
 Allow: /beispiel-analyse
 Allow: /ueber-pferdewert
+Allow: /impressum
+Allow: /datenschutz
+Allow: /agb
+Allow: /at/impressum
+Allow: /at/datenschutz
+Allow: /at/agb
 Allow: /pferde-ratgeber/aku-pferd
 Allow: /pferde-ratgeber/aku-pferd/kosten
 Allow: /pferde-ratgeber/was-kostet-ein-pferd
@@ -31,6 +40,17 @@ Allow: /pferde-ratgeber/pferdemarkt
 Allow: /pferde-ratgeber/pferdekaufvertrag
 Allow: /pferde-ratgeber/springpferd-kaufen
 Allow: /pferde-ratgeber/dressurpferd-kaufen
+Allow: /at/pferde-ratgeber/aku-pferd
+Allow: /at/pferde-ratgeber/aku-pferd/kosten
+Allow: /at/pferde-ratgeber/pferd-kaufen
+Allow: /at/pferde-ratgeber/was-kostet-ein-pferd
+Allow: /at/pferde-ratgeber/freizeitpferd-kaufen
+Allow: /at/pferde-ratgeber/anfaengerpferd-kaufen
+Allow: /at/pferde-ratgeber/pferd-verkaufen
+Allow: /at/pferde-ratgeber/pferdemarkt
+Allow: /at/pferde-ratgeber/pferdekaufvertrag
+Allow: /at/pferde-ratgeber/springpferd-kaufen
+Allow: /at/pferde-ratgeber/dressurpferd-kaufen
 
 # Sitemap location
 Sitemap: https://www.pferdewert.de/sitemap.xml

@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { memo } from 'react'
+import LocalizedLink from '@/components/LocalizedLink'
 
 export interface RatgeberRelatedArticle {
   href: string
@@ -42,7 +42,7 @@ const RatgeberRelatedArticles: React.FC<RatgeberRelatedArticlesProps> = ({
 
         <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8">
           {articles.map(article => (
-            <Link
+            <LocalizedLink
               key={article.href}
               href={article.href}
               className="group bg-white rounded-2xl md:rounded-3xl border border-[#e0c9aa] overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft md:w-[320px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-brown"
@@ -76,7 +76,7 @@ const RatgeberRelatedArticles: React.FC<RatgeberRelatedArticlesProps> = ({
                   Artikel lesen
                 </span>
               </div>
-            </Link>
+            </LocalizedLink>
           ))}
         </div>
       </div>

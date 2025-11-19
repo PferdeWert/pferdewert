@@ -115,7 +115,7 @@ const PferdeWertPDF: React.FC<Props> = ({ markdownData }) => {
         <Text style={styles.date}>Stand: {today}</Text>
         {content}
         <Text style={styles.footer} fixed>
-          © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
+          © Erstellt durch PferdeWert KI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
         </Text>
         <Text
           style={styles.pageNumber}

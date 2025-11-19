@@ -26,6 +26,8 @@ interface BackendRequestData {
   standort?: string;
   charakter?: string; // New optional field
   besonderheiten?: string; // New optional field
+  land?: string; // AT-Rollout: Horse country (DE, AT) - determines AI market data
+  user_country?: string; // AT-Rollout: Customer country (from URL) - determines payment methods
 }
 
 interface BackendResponse {
@@ -217,6 +219,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort,
         charakter,           // Extract charakter field
         besonderheiten,      // Extract besonderheiten field
+        land,                // AT-Rollout: Horse country (for AI market data)
+        user_country,        // AT-Rollout: Customer country (from URL/locale)
         attribution_source,  // Marketing attribution data
       } = doc;
 
@@ -236,6 +240,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         standort: standort ? String(standort) : undefined,
         charakter: charakter ? String(charakter) : undefined, // New optional field
         besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
+        land: land ? String(land) : undefined, // AT-Rollout: Horse country (for AI market data)
+        user_country: user_country ? String(user_country) : undefined, // AT-Rollout: Customer country
       };
 
       info('[WEBHOOK] Data prepared for backend API');
@@ -424,6 +430,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
             <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
             <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
+            <p><strong>Land (Optional):</strong> ${land || 'nicht angegeben'}</p>
             <p><strong>Charakter (Optional):</strong> ${doc.charakter || 'nicht angegeben'}</p>
             <p><strong>Besonderheiten (Optional):</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
 

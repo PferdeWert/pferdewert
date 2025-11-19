@@ -2,8 +2,11 @@
 
 import Head from "next/head";
 import Layout from "@/components/Layout"; // Footer via Layout integriert
+import { useSEO } from "@/hooks/useSEO";
 
 export default function AGB() {
+  const { canonical, hreflangTags } = useSEO();
+
   return (
     <Layout>
       <Head>
@@ -17,7 +20,10 @@ export default function AGB() {
         <meta property="og:description" content="Transparente Geschäftsbedingungen für die professionelle KI-Pferdebewertung. Faire Konditionen und Rechtssicherheit für alle Kunden." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pferdewert.de/agb" />
-        <link rel="canonical" href="https://www.pferdewert.de/agb" />
+        <link rel="canonical" href={canonical} />
+        {hreflangTags.map(tag => (
+          <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+        ))}
       </Head>
     <main className="mx-auto max-w-xl p-6">
       <h1 className="mb-4 text-2xl font-bold">Allgemeine Geschäftsbedingungen (AGB)</h1>

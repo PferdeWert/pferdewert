@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import LocalizedLink from '@/components/LocalizedLink'
 import { ReactNode } from 'react'
 
 interface CTAButtonProps {
@@ -76,9 +76,9 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   }
 
   return (
-    <Link href={href} className={baseStyles} onClick={handleClick}>
+    <LocalizedLink href={href} className={baseStyles} onClick={handleClick}>
       {buttonContent}
-    </Link>
+    </LocalizedLink>
   )
 }
 

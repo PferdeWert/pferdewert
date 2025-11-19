@@ -144,6 +144,7 @@ class BewertungRequest(BaseModel):
     standort: Optional[str] = None
     charakter: Optional[str] = None  # NEU: Frontend-Feld
     besonderheiten: Optional[str] = None  # NEU: Frontend-Feld
+    land: Optional[str] = None  # AT-Rollout: Country field (DE, AT, etc.)
 
     # Marketing-/Quelle-Felder: akzeptieren, aber NICHT im Prompt verwenden
     quelle: Optional[str] = None
@@ -186,7 +187,8 @@ def ai_valuation(d: BewertungRequest) -> dict:
         "aku": d.aku,
         "erfolge": d.erfolge,
         "charakter": d.charakter,
-        "besonderheiten": d.besonderheiten
+        "besonderheiten": d.besonderheiten,
+        "land": d.land  # AT-Rollout: Country for market-specific valuation
     }
 
     # Try OpenRouter 2-Stage Fallback System

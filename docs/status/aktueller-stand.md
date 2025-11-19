@@ -20,7 +20,7 @@
 
 ## 💳 Zahlungsabwicklung mit Stripe
 
-* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet, PayPal
+* **Zahlmethoden aktiviert:** Kreditkarte, Klarna, Apple Pay, Google Wallet, PayPal, EPS (für AT-Kunden)
 * **PayPal:** ✅ Live und aktiv
 * **Checkout:** Weiterleitung zu Stripe gehostetem Checkout
 * **Session-Verarbeitung:** `session_id` wird im Query empfangen, Validierung erfolgt über `GET /api/session`

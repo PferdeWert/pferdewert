@@ -163,6 +163,22 @@ const nextConfig = {
     ];
   },
 
+  // Rewrites für AT-Rollout (locale detection via middleware)
+  async rewrites() {
+    return [
+      // /at/ Homepage
+      {
+        source: '/at',
+        destination: '/',
+      },
+      // /at/* → alle anderen Pages
+      {
+        source: '/at/:path*',
+        destination: '/:path*',
+      },
+    ];
+  },
+
   async redirects() {
     return [
       {

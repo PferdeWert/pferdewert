@@ -11,8 +11,13 @@ const PAGE_CONFIG = {
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
 
+  // AT-Rollout: Austrian versions of main pages
+  '/at': { priority: '1.0', changefreq: 'weekly' },
+  '/at/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
+
   // Hub-Seiten (hohe Priorität)
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
+  '/at/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
 
   // Content-Seiten (mittlere Priorität)
   '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
@@ -21,12 +26,29 @@ const PAGE_CONFIG = {
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
 
+  // Legal pages (DE + AT versions)
+  '/impressum': { priority: '0.3', changefreq: 'yearly' },
+  '/datenschutz': { priority: '0.3', changefreq: 'yearly' },
+  '/agb': { priority: '0.3', changefreq: 'yearly' },
+  '/at/impressum': { priority: '0.3', changefreq: 'yearly' },
+  '/at/datenschutz': { priority: '0.3', changefreq: 'yearly' },
+  '/at/agb': { priority: '0.3', changefreq: 'yearly' },
+
 };
 
 // Ratgeber-Artikel aus Registry dynamisch hinzufügen
 RATGEBER_ENTRIES.forEach(entry => {
   const path = `/pferde-ratgeber/${entry.slug}`;
   PAGE_CONFIG[path] = {
+    priority: entry.priority,
+    changefreq: entry.changefreq
+  };
+});
+
+// AT-Rollout: Austrian versions of all Ratgeber articles
+RATGEBER_ENTRIES.forEach(entry => {
+  const atPath = `/at/pferde-ratgeber/${entry.slug}`;
+  PAGE_CONFIG[atPath] = {
     priority: entry.priority,
     changefreq: entry.changefreq
   };

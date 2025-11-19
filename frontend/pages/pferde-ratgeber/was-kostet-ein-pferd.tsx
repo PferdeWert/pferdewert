@@ -1,3 +1,4 @@
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 import { useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -192,7 +193,9 @@ const BREADCRUMB_SCHEMA = {
   }
 
 export default function WasKostetEinPferd() {
-  // CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
+  
+  const { getLocalizedPath } = useCountryConfig();
+// CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
   const relatedArticles = useMemo(() =>
     getRelatedArticles('was-kostet-ein-pferd').map(entry => ({
       title: entry.title,
@@ -274,7 +277,7 @@ export default function WasKostetEinPferd() {
         <section className="scroll-mt-32 lg:scroll-mt-40">
           <p className="text-lg text-gray-700 leading-relaxed">
             Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>400€ - 800€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. In diesem{' '}
-            <Link href="/pferde-ratgeber/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+            <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-primary-600 hover:text-primary-700 font-semibold">
               umfassenden Pferdekauf-Ratgeber
             </Link>{' '}
             erfährst du, wie du ein passendes Pferd findest und worauf du beim Kauf achten solltest.
@@ -322,7 +325,7 @@ export default function WasKostetEinPferd() {
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-lg text-gray-700 leading-relaxed">
                 Die Anschaffung eines Pferdes ist eine bedeutende finanzielle Entscheidung. Die Kosten variieren stark je nach Rasse, Alter, Ausbildungsstand und gesundheitlichem Zustand des Pferdes. Eine gute Übersicht über aktuelle Marktpreise bietet unser{' '}
-                <Link href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Pferdemarkt-Ratgeber
                 </Link>{' '}
                 mit den wichtigsten Online-Plattformen und traditionellen Märkten in Deutschland.
@@ -345,11 +348,11 @@ export default function WasKostetEinPferd() {
             <ul className="text-lg text-gray-700 space-y-2 mb-8">
               <li>
                 • Spezialisierte Ausbildung (
-                <Link href="/pferde-ratgeber/dressurpferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/dressurpferd-kaufen")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Dressur
                 </Link>
                 ,
-                <Link href="/pferde-ratgeber/springpferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/springpferd-kaufen")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Springen
                 </Link>
                 , Vielseitigkeit)
@@ -371,18 +374,18 @@ export default function WasKostetEinPferd() {
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-lg text-gray-700 leading-relaxed">
                 Eine umfassende{' '}
-                <Link href="/pferde-ratgeber/aku-pferd" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Ankaufsuntersuchung (AKU)
                 </Link>{' '}
                 ist unverzichtbar und kostet zwischen 200€ und 800€, abhängig vom Umfang der Untersuchung. Die{' '}
-                <Link href="/pferde-ratgeber/aku-pferd/kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Kosten der Ankaufsuntersuchung
                 </Link>{' '}
                 variieren je nach gewählter Untersuchungsstufe.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Wenn du mehr über den{' '}
-                <Link href="/pferde-ratgeber/aku-pferd/ablauf" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/ablauf")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Ablauf der Ankaufsuntersuchung
                 </Link>{' '}
                 erfahren möchtest, kannst du dort alle Details zu den einzelnen Untersuchungsschritten nachlesen.
@@ -428,7 +431,7 @@ export default function WasKostetEinPferd() {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <p className="text-lg text-gray-700">
                 Nach erfolgreicher AKU solltest du den Kauf rechtssicher mit einem{' '}
-                <Link href="/pferde-ratgeber/pferdekaufvertrag" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Pferdekaufvertrag
                 </Link>{' '}
                 abschließen. Dies schützt beide Parteien und klärt wichtige Details wie Gewährleistung, Rücktrittsbedingungen und vereinbarte Mängel.
@@ -505,7 +508,7 @@ export default function WasKostetEinPferd() {
               <p className="text-lg font-bold text-gray-900 mb-2">Spartipp</p>
               <p className="text-lg text-gray-700">
                 Viele Gegenstände können gebraucht gekauft werden. Online-Plattformen wie{' '}
-                <Link href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   ehorses.de und weitere Pferdemärkte
                 </Link>, eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises.
               </p>
@@ -525,7 +528,7 @@ export default function WasKostetEinPferd() {
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-lg text-gray-700 leading-relaxed">
                 Der Pferdepreis variiert stark je nach Rasse, Ausbildungsstand und Verwendungszweck. Während manche Rassen bereits als Jungpferde höhere Preise erzielen, können gut ausgebildete Turnierpferde deutlich höhere Summen erreichen. Einen aktuellen Überblick über die wichtigsten{' '}
-                <Link href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Pferdemärkte und Online-Plattformen
                 </Link>{' '}
                 findest du in unserem Pferdemarkt-Ratgeber. Die folgende Übersicht zeigt realistische Preisspannen für beliebte Pferderassen in Deutschland.
@@ -1622,7 +1625,7 @@ export default function WasKostetEinPferd() {
               </ul>
               <p className="text-lg text-gray-700 mt-4 font-bold">
                 Nur wenn du alle Fragen mit &quot;Ja&quot; beantworten kannst, bist du finanziell und zeitlich für ein eigenes Pferd bereit. Weitere wichtige Aspekte zur Vorbereitung findest du in unserem{' '}
-                <Link href="/pferde-ratgeber/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-primary-600 hover:text-primary-700 font-semibold">
                   Pferdekauf-Ratgeber
                 </Link>
                 .

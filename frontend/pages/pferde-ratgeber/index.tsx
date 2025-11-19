@@ -3,8 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import Link from 'next/link'
 import { RATGEBER_ENTRIES, getRatgeberPath, type RatgeberEntry } from '@/lib/ratgeber-registry'
+import LocalizedLink from '@/components/LocalizedLink'
 
 // ============================================================================
 // TYPES
@@ -107,7 +107,7 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {artikel && artikel.length > 0 ? (
                 artikel.map((art) => (
-                  <Link
+                  <LocalizedLink
                     key={art.id}
                     href={art.link}
                     className="group bg-white rounded-xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
@@ -155,7 +155,7 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
                         </div>
                       </div>
                     </article>
-                  </Link>
+                  </LocalizedLink>
                 ))
               ) : (
                 <div className="col-span-full text-center py-12">
@@ -185,17 +185,17 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
 
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Nutzen Sie unsere KI-gestützte Pferdebewertung für eine objektive Einschätzung des Marktwertes. Erfahren Sie mehr über die{' '}
-              <Link href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand font-semibold hover:text-brand-brown transition-colors underline">
+              <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand font-semibold hover:text-brand-brown transition-colors underline">
                 Kosten eines Pferdes
-              </Link>
+              </LocalizedLink>
               {' '}und treffen Sie fundierte Entscheidungen. Einfach, schnell und datenbasiert.
             </p>
 
-            <Link href="/pferde-preis-berechnen">
+            <LocalizedLink href="/pferde-preis-berechnen">
               <button className="bg-brand-brown hover:bg-brand-brownDark text-white px-8 py-3 rounded-lg transition-colors font-medium text-base min-w-[200px]">
                 Jetzt Pferdewert berechnen
               </button>
-            </Link>
+            </LocalizedLink>
           </div>
         </section>
       </main>

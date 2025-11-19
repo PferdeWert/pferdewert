@@ -115,7 +115,7 @@ const PferdeWertPDF = ({ markdownData }: { markdownData: string }) => {
         <Text style={styles.date}>Stand: {today}</Text>
         {renderContent()}
         <Text style={styles.footer} fixed>
-          © Erstellt durch PferdeWert AI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
+          © Erstellt durch PferdeWert KI von www.pferdewert.de – dies ist keine verbindliche Wertermittlung.
         </Text>
         <Text
           style={styles.pageNumber}
