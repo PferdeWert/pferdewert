@@ -3,7 +3,7 @@
 import "@/styles/globals.css";
 // ✅ LIGHTHOUSE OPTIMIZED: cookieconsent.min.css loaded in _document.tsx local
 import type { AppProps } from "next/app";
-import { JSX, useState, useEffect } from "react";
+import { JSX, useState, useEffect, useMemo } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from 'next-intl';
 
@@ -25,10 +25,14 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     setLocale(isAustria ? 'de-AT' : 'de');
   }, []);
 
-  // Merge messages: de-AT falls back to de for missing keys
-  const messages = locale === 'de-AT'
-    ? { ...deMessages, ...deATMessages }
-    : deMessages;
+  // FAST REFRESH FIX: Memoize messages to prevent recreation on every render
+  // Without useMemo, the spread operator creates a new object reference on each render,
+  // causing NextIntlClientProvider to detect changes and trigger Fast Refresh loops
+  const messages = useMemo(() => {
+    return locale === 'de-AT'
+      ? { ...deMessages, ...deATMessages }
+      : deMessages;
+  }, [locale]);
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
