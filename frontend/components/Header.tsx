@@ -3,9 +3,17 @@
 import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import LocalizedLink from "@/components/LocalizedLink"
+import CountrySwitcher from "@/components/CountrySwitcher"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
+
+// ============================================================================
+// FAST REFRESH FIX: Define icons at module level to prevent recreation
+// ============================================================================
+const menuIcon = <Menu className="h-6 w-6" />
+const closeIcon = <X className="h-6 w-6" />
+const chevronDownIcon = <ChevronDown className="w-4 h-4" />
 
 // ============================================================================
 // STABLE NAVIGATION ITEMS - Outside component to prevent recreation
@@ -143,7 +151,7 @@ export default function HeaderUnified() {
                     className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
                   >
                     <span>{item.label}</span>
-                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                    {item.dropdown && chevronDownIcon}
                   </LocalizedLink>
 
                   {/* Dropdown Menu */}
@@ -163,13 +171,8 @@ export default function HeaderUnified() {
                 </div>
               ))}
 
-              {/* Desktop CTAs */}
-              <LocalizedLink
-                href="/beispiel-analyse"
-                className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
-              >
-                Beispiel-Analyse
-              </LocalizedLink>
+              {/* Desktop: Country Switcher + CTA */}
+              <CountrySwitcher variant="desktop" />
               <LocalizedLink
                 href="/pferde-preis-berechnen"
                 className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
@@ -210,11 +213,7 @@ export default function HeaderUnified() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isMenuOpen ? closeIcon : menuIcon}
             </button>
           </div>
 
@@ -248,6 +247,9 @@ export default function HeaderUnified() {
         }}
       >
         <nav className="h-full flex flex-col">
+          {/* Country Switcher - Prominent at top */}
+          <CountrySwitcher variant="mobile" onCountryChange={closeMenu} />
+
           {/* Navigation Links mit Progressive Disclosure */}
           <div className="flex-1 overflow-y-auto px-4 py-6">
             {NAVIGATION_ITEMS.map((item) => (
@@ -305,17 +307,6 @@ export default function HeaderUnified() {
                 )}
               </div>
             ))}
-          </div>
-
-          {/* Secondary CTA am unteren Rand */}
-          <div className="border-t border-gray-200 p-4 bg-gray-50 rounded-bl-lg">
-            <LocalizedLink
-              href="/beispiel-analyse"
-              className="block w-full text-center border-2 border-brand-brown text-brand-brown px-4 py-2.5 rounded-lg hover:bg-amber-50 transition-colors font-medium text-sm"
-              onClick={closeMenu}
-            >
-              Beispiel-Analyse
-            </LocalizedLink>
           </div>
         </nav>
       </div>
