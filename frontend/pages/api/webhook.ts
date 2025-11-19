@@ -27,7 +27,7 @@ interface BackendRequestData {
   charakter?: string; // New optional field
   besonderheiten?: string; // New optional field
   land?: string; // AT-Rollout: Horse country (DE, AT) - determines AI market data
-  user_country?: string; // AT-Rollout: Customer country (from URL) - determines payment methods
+  // NOTE: user_country is NOT sent to backend (only used for Stripe payment methods)
 }
 
 interface BackendResponse {
@@ -220,11 +220,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         charakter,           // Extract charakter field
         besonderheiten,      // Extract besonderheiten field
         land,                // AT-Rollout: Horse country (for AI market data)
-        user_country,        // AT-Rollout: Customer country (from URL/locale)
+        // user_country is stored in DB but NOT sent to backend (only used for Stripe payment methods)
         attribution_source,  // Marketing attribution data
       } = doc;
 
       // Prepare data with proper validation matching deployed backend schema
+      // NOTE: user_country is NOT included here (only used for Stripe payment methods, not AI evaluation)
       const bewertbareDaten: BackendRequestData = {
         rasse: String(rasse || ''),
         alter: parseInt(String(alter)) || 0,
@@ -241,7 +242,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         charakter: charakter ? String(charakter) : undefined, // New optional field
         besonderheiten: besonderheiten ? String(besonderheiten) : undefined, // New optional field
         land: land ? String(land) : undefined, // AT-Rollout: Horse country (for AI market data)
-        user_country: user_country ? String(user_country) : undefined, // AT-Rollout: Customer country
       };
 
       info('[WEBHOOK] Data prepared for backend API');
