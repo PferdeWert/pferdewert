@@ -183,11 +183,22 @@ export default function HeaderUnified() {
           </div>
         </div>
 
-        {/* Mobile Header - Neue Struktur */}
+        {/* Mobile Header - Best Practice Layout */}
         <div className="md:hidden">
-          <div className="w-full px-4 h-16 flex items-center justify-between">
+          <div className="w-full px-4 h-16 flex items-center justify-between gap-2">
+            {/* Mobile Menu Button - Links (Standard) */}
+            <button
+              className="p-2 text-gray-700 hover:text-brand-brown transition-colors -ml-2"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+            >
+              {isMenuOpen ? closeIcon : menuIcon}
+            </button>
+
             {/* Logo ohne Text */}
-            <LocalizedLink href="/" className="flex items-center">
+            <LocalizedLink href="/" className="flex items-center -ml-2">
               <Image
                 src="/favicon.svg"
                 alt="PferdeWert"
@@ -200,21 +211,13 @@ export default function HeaderUnified() {
             {/* Zentraler Main CTA */}
             <LocalizedLink
               href="/pferde-preis-berechnen"
-              className="bg-brand-brown hover:bg-brand-brownDark text-white px-6 py-2 rounded-lg transition-colors font-medium text-sm"
+              className="bg-brand-brown hover:bg-brand-brownDark text-white px-5 py-2 rounded-lg transition-colors font-medium text-sm flex-shrink-0"
             >
               Pferd bewerten
             </LocalizedLink>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="p-2 text-gray-700 hover:text-brand-brown transition-colors"
-              onClick={toggleMenu}
-              aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {isMenuOpen ? closeIcon : menuIcon}
-            </button>
+            {/* Country Switcher - Rechts (Standard Position) */}
+            <CountrySwitcher variant="mobile" />
           </div>
 
           {/* Mobile Breadcrumb Navigation */}
@@ -234,11 +237,11 @@ export default function HeaderUnified() {
         />
       )}
 
-      {/* Mobile Menu - Kompakte Variante */}
+      {/* Mobile Menu - Von links aufgehend */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed top-16 right-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-bl-lg transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`md:hidden fixed top-16 left-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-br-lg transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{
           visibility: isMenuOpen ? 'visible' : 'hidden',
@@ -247,9 +250,6 @@ export default function HeaderUnified() {
         }}
       >
         <nav className="h-full flex flex-col">
-          {/* Country Switcher - Prominent at top */}
-          <CountrySwitcher variant="mobile" onCountryChange={closeMenu} />
-
           {/* Navigation Links mit Progressive Disclosure */}
           <div className="flex-1 overflow-y-auto px-4 py-6">
             {NAVIGATION_ITEMS.map((item) => (
