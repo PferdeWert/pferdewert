@@ -5,13 +5,12 @@
  */
 
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
+import LocalizedLink from '@/components/LocalizedLink';
 import Breadcrumbs from './Breadcrumbs';
 import BreadcrumbSchema from '../seo/BreadcrumbSchema';
 import ArticleSchema from '../seo/ArticleSchema';
 import { ArticleStructuredData } from '@/types/ratgeber';
-import { useCountryConfig } from '@/hooks/useCountryConfig';
 
 interface BreadcrumbItem {
   name: string;
@@ -69,7 +68,6 @@ export default function RatgeberLayout({
   articleSchema,
   showSidebar = false,
 }: RatgeberLayoutProps) {
-  const { getLocalizedPath } = useCountryConfig();
   const defaultOgImage = ogImage || 'https://pferdewert.de/og-image-default.jpg';
 
   return (
@@ -105,8 +103,8 @@ export default function RatgeberLayout({
         <header className="bg-white shadow-sm border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
-              <Link
-                href={getLocalizedPath("/")}
+              <LocalizedLink
+                href="/"
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
                 <Image
@@ -120,28 +118,28 @@ export default function RatgeberLayout({
                 <span className="text-xl font-bold text-gray-900">
                   PferdeWert.de
                 </span>
-              </Link>
+              </LocalizedLink>
 
               {/* Navigation */}
               <nav className="hidden md:flex items-center space-x-6">
-                <Link
-                  href={getLocalizedPath("/")}
+                <LocalizedLink
+                  href="/"
                   className="text-gray-700 hover:text-blue-600 transition-colors"
                 >
                   Bewertung
-                </Link>
-                <Link
-                  href={getLocalizedPath("/pferde-ratgeber")}
+                </LocalizedLink>
+                <LocalizedLink
+                  href="/pferde-ratgeber"
                   className="text-blue-600 font-medium"
                 >
                   Ratgeber
-                </Link>
-                <Link
-                  href={getLocalizedPath("/ueber-pferdewert")}
+                </LocalizedLink>
+                <LocalizedLink
+                  href="/ueber-pferdewert"
                   className="text-gray-700 hover:text-blue-600 transition-colors"
                 >
                   Über uns
-                </Link>
+                </LocalizedLink>
               </nav>
             </div>
           </div>
@@ -167,24 +165,24 @@ export default function RatgeberLayout({
                     Kategorien
                   </h3>
                   <nav className="space-y-2">
-                    <Link
-                      href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")}
+                    <LocalizedLink
+                      href="/pferde-ratgeber/pferd-kaufen"
                       className="block text-gray-700 hover:text-blue-600 transition-colors"
                     >
                       Pferdekauf
-                    </Link>
-                    <Link
-                      href={getLocalizedPath("/pferde-ratgeber/pferd-verkaufen")}
+                    </LocalizedLink>
+                    <LocalizedLink
+                      href="/pferde-ratgeber/pferd-verkaufen"
                       className="block text-gray-700 hover:text-blue-600 transition-colors"
                     >
                       Pferdeverkauf
-                    </Link>
-                    <Link
-                      href={getLocalizedPath("/pferde-ratgeber")}
+                    </LocalizedLink>
+                    <LocalizedLink
+                      href="/pferde-ratgeber"
                       className="block text-gray-700 hover:text-blue-600 transition-colors"
                     >
                       Alle Ratgeber
-                    </Link>
+                    </LocalizedLink>
                   </nav>
 
                   {/* Call to Action */}
@@ -195,12 +193,12 @@ export default function RatgeberLayout({
                     <p className="text-sm text-gray-600 mb-4">
                       Erhalten Sie in 2 Minuten eine KI-gestützte Bewertung Ihres Pferdes.
                     </p>
-                    <Link
-                      href={getLocalizedPath("/pferde-preis-berechnen")}
+                    <LocalizedLink
+                      href="/pferde-preis-berechnen"
                       className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center font-medium px-4 py-3 rounded-lg transition-colors"
                     >
                       Jetzt bewerten
-                    </Link>
+                    </LocalizedLink>
                   </div>
                 </div>
               </aside>
@@ -228,24 +226,24 @@ export default function RatgeberLayout({
                   Ratgeber
                 </h5>
                 <nav className="space-y-2">
-                  <Link
-                    href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")}
+                  <LocalizedLink
+                    href="/pferde-ratgeber/pferd-kaufen"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Pferdekauf
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("/pferde-ratgeber/pferd-verkaufen")}
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href="/pferde-ratgeber/pferd-verkaufen"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Pferdeverkauf
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("/pferde-ratgeber")}
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href="/pferde-ratgeber"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Alle Ratgeber
-                  </Link>
+                  </LocalizedLink>
                 </nav>
               </div>
 
@@ -255,24 +253,24 @@ export default function RatgeberLayout({
                   Service
                 </h5>
                 <nav className="space-y-2">
-                  <Link
-                    href={getLocalizedPath("/ueber-pferdewert")}
+                  <LocalizedLink
+                    href="/ueber-pferdewert"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Über uns
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("/kontakt")}
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href="/kontakt"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Kontakt
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("/faq")}
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href="/faq"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     FAQ
-                  </Link>
+                  </LocalizedLink>
                 </nav>
               </div>
 
@@ -282,24 +280,24 @@ export default function RatgeberLayout({
                   Rechtliches
                 </h5>
                 <nav className="space-y-2">
-                  <Link
-                    href={getLocalizedPath("/datenschutz")}
+                  <LocalizedLink
+                    href="/datenschutz"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Datenschutz
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("/impressum")}
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href="/impressum"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     Impressum
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("/agb")}
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href="/agb"
                     className="block text-sm text-gray-600 hover:text-blue-600"
                   >
                     AGB
-                  </Link>
+                  </LocalizedLink>
                 </nav>
               </div>
             </div>

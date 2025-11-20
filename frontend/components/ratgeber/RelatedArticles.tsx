@@ -11,7 +11,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import LocalizedLink from '@/components/LocalizedLink';
 import { RatgeberArticle } from '@/types/ratgeber';
 
 interface RelatedArticlesProps {
@@ -35,7 +35,7 @@ function RelatedArticleCard({ article }: RelatedArticleCardProps) {
   const displayTags = article.outrank.tags.slice(0, 2);
 
   return (
-    <Link
+    <LocalizedLink
       href={`/pferde-ratgeber/${article.outrank.slug}`}
       className="group block bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300"
     >
@@ -101,7 +101,7 @@ function RelatedArticleCard({ article }: RelatedArticleCardProps) {
           </div>
         </div>
       </article>
-    </Link>
+    </LocalizedLink>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { Globe } from 'lucide-react';
 import { getAvailableCountries, getCountryFromPath } from '@/lib/countries';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -29,16 +29,15 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
   // FAST REFRESH FIX: Memoize availableCountries to prevent new array creation on every render
   const availableCountries = useMemo(() => getAvailableCountries(), []);
 
-  // Get current country - use window.location.pathname directly on client
-  // This avoids state/useEffect which causes Fast Refresh loops
-  const getCurrentCountry = () => {
+  // FAST REFRESH FIX: Use useState with initializer to determine country only once on mount
+  // When we switch countries via window.location.href, the page reloads completely,
+  // so the component remounts with the new country
+  const [currentCountry] = useState(() => {
     if (typeof window !== 'undefined') {
       return getCountryFromPath(window.location.pathname);
     }
     return getCountryFromPath(router.pathname);
-  };
-
-  const currentCountry = getCurrentCountry();
+  });
 
   const handleCountrySwitch = (targetUrlPrefix: string) => {
     if (typeof window === 'undefined') return;
