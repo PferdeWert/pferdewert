@@ -1,7 +1,7 @@
-import { useCountryConfig } from '@/hooks/useCountryConfig'
+import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
+;
 import { useMemo } from 'react';
 import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck, CheckCircle } from 'lucide-react';
 import Layout from '@/components/Layout';
@@ -156,7 +156,6 @@ const jsonLdBreadcrumb = {
 
 const PferdVerkaufen: NextPage = () => {
   
-  const { getLocalizedPath } = useCountryConfig();
 // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
   // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
   const relatedArticles = useMemo(
@@ -276,7 +275,7 @@ const PferdVerkaufen: NextPage = () => {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Mit dem <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown hover:underline font-medium"><strong>PferdeWert KI-Tool</strong></Link> ermittelst du in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für dein Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert dir eine realistische Preiseinschätzung.
+              Mit dem <LocalizedLink href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium"><strong>PferdeWert KI-Tool</strong></LocalizedLink> ermittelst du in nur 2 Minuten einen fairen, datenbasierten Verkaufspreis für dein Pferd. Unsere transparente Methodik basiert auf der Analyse von realen Verkaufsdaten und liefert dir eine realistische Preiseinschätzung.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -352,7 +351,7 @@ const PferdVerkaufen: NextPage = () => {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Wenn du dein Pferd verkaufen möchtest, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert deines Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern. Bedenke auch, dass neben dem Kaufpreis <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd")} className="text-brand-brown hover:underline font-medium">zusätzliche Kosten wie Haltung und Unterhalt</Link> anfallen – eine wichtige Überlegung für Käufer.
+              Wenn du dein Pferd verkaufen möchtest, hilft diese Tabelle bei der Orientierung. Der tatsächliche Wert deines Pferdes hängt jedoch von 11 kritischen Faktoren ab, die eine individuelle Bewertung erfordern. Bedenke auch, dass neben dem Kaufpreis <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown hover:underline font-medium">zusätzliche Kosten wie Haltung und Unterhalt</LocalizedLink> anfallen – eine wichtige Überlegung für Käufer.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -362,7 +361,7 @@ const PferdVerkaufen: NextPage = () => {
             <ol className="space-y-2 list-decimal list-inside text-gray-700">
               <li><strong>Alter</strong> – Pferde zwischen 6-12 Jahren erzielen Höchstpreise</li>
               <li><strong>Ausbildungsstand</strong> – Jeder Ausbildungsmonat steigert den Wert</li>
-              <li><strong>Gesundheitszustand</strong> – <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")} className="text-brand-brown hover:underline">AKU-Kosten im Detail</Link> beachten</li>
+              <li><strong>Gesundheitszustand</strong> – <LocalizedLink href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown hover:underline">AKU-Kosten im Detail</LocalizedLink> beachten</li>
               <li><strong>Abstammung</strong> – Leistungsgenetik zahlt sich aus</li>
               <li><strong>Disziplineignung</strong> – Spezialisierung vs. Vielseitigkeit</li>
               <li><strong>Charakter</strong> – Anfängerfreundlichkeit ist wertvoll</li>
@@ -387,7 +386,7 @@ const PferdVerkaufen: NextPage = () => {
               </p>
               <CTAButton
                 type="primary"
-                href={getLocalizedPath("/pferde-preis-berechnen")}
+                 href="/pferde-preis-berechnen"
                 text="Jetzt Pferdewert berechnen"
               />
               <p className="text-sm text-gray-600 mt-3 italic">
@@ -532,13 +531,13 @@ const PferdVerkaufen: NextPage = () => {
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ Gesundheitscheck beim Tierarzt</li>
               <li>✓ Hufschmied-Termin für optimale Optik</li>
-              <li>✓ <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/ablauf")} className="text-brand-brown hover:underline">AKU-Ablauf verstehen</Link> für Käuferfragen</li>
+              <li>✓ <LocalizedLink href="/pferde-ratgeber/aku-pferd/ablauf" className="text-brand-brown hover:underline">AKU-Ablauf verstehen</LocalizedLink> für Käuferfragen</li>
               <li>✓ Dokumente bereitstellen: Equidenpass, Impfausweis, Abstammungspapiere</li>
             </ul>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-4"><strong>Phase 2: Wertermittlung (1 Tag)</strong></p>
             <ul className="space-y-2 text-gray-700 mb-6">
-              <li>✓ <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown hover:underline">Pferdewert-Rechner</Link> nutzen für objektiven Preis</li>
+              <li>✓ <LocalizedLink href="/pferde-preis-berechnen" className="text-brand-brown hover:underline">Pferdewert-Rechner</LocalizedLink> nutzen für objektiven Preis</li>
               <li>✓ Vergleichsinserate auf eHorses analysieren (gleiche Kategorie)</li>
               <li>✓ Preisverhandlungsspielraum definieren (5-10% unter Maximalpreis)</li>
             </ul>
@@ -590,7 +589,7 @@ const PferdVerkaufen: NextPage = () => {
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ 1-2 Probereittermine vereinbaren (verschiedene Personen falls möglich)</li>
               <li>✓ Haftpflichtversicherung des Interessenten prüfen</li>
-              <li>✓ AKU durch Käufer-Tierarzt (Kosten trägt Käufer, <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand-brown hover:underline">AKU erklärt</Link>)</li>
+              <li>✓ AKU durch Käufer-Tierarzt (Kosten trägt Käufer, <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:underline">AKU erklärt</LocalizedLink>)</li>
               <li>✓ AKU-Ergebnis transparent besprechen</li>
             </ul>
 
@@ -1000,7 +999,7 @@ const PferdVerkaufen: NextPage = () => {
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereitung möglich. Ein Pferd erfolgreich zu verkaufen bedeutet, den kompletten 7-Phasen-Prozess zu durchlaufen: von der gründlichen Vorbereitung über die datenbasierte Wertermittlung mit dem <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown hover:underline font-medium">PferdeWert KI-Tool</Link> bis hin zur Wahl der richtigen Plattform (eHorses für Premium-Pferde, pferde.de oder private Kanäle für Freizeitpferde) und der professionellen Übergabe.
+              Ein Pferd verkaufen erfolgreich und fair – das ist mit der richtigen Vorbereitung möglich. Ein Pferd erfolgreich zu verkaufen bedeutet, den kompletten 7-Phasen-Prozess zu durchlaufen: von der gründlichen Vorbereitung über die datenbasierte Wertermittlung mit dem <LocalizedLink href="/pferde-preis-berechnen" className="text-brand-brown hover:underline font-medium">PferdeWert KI-Tool</LocalizedLink> bis hin zur Wahl der richtigen Plattform (eHorses für Premium-Pferde, pferde.de oder private Kanäle für Freizeitpferde) und der professionellen Übergabe.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -1030,7 +1029,7 @@ const PferdVerkaufen: NextPage = () => {
             <div className="mt-8">
               <CTAButton
                 type="primary"
-                href={getLocalizedPath("/pferde-preis-berechnen")}
+                 href="/pferde-preis-berechnen"
                 text="Jetzt Pferdewert berechnen"
               />
               <p className="text-sm text-gray-600 mt-3">
