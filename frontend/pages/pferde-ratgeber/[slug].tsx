@@ -6,9 +6,8 @@
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
-import { useCountryConfig } from '@/hooks/useCountryConfig';
+import LocalizedLink from '@/components/LocalizedLink';
 import { error } from '@/lib/log';
 import { connectToDatabase } from '@/lib/mongo/client';
 import { getRatgeberRepository } from '@/lib/mongo/ratgeber-repository';
@@ -143,7 +142,6 @@ export default function RatgeberArticlePage({
   article,
   relatedArticles,
 }: RatgeberArticlePageProps) {
-  const { getLocalizedPath } = useCountryConfig();
   const displayTitle =
     article.pferdewert.edited_title || article.outrank.title;
   const displayContent =
@@ -309,12 +307,12 @@ export default function RatgeberArticlePage({
             Erhalten Sie eine professionelle KI-gestützte Bewertung in nur 2
             Minuten
           </p>
-          <Link
-            href={getLocalizedPath("/pferde-preis-berechnen")}
+          <LocalizedLink
+            href="/pferde-preis-berechnen"
             className="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-lg"
           >
             Jetzt Pferd bewerten
-          </Link>
+          </LocalizedLink>
         </div>
 
         {/* Related Articles */}

@@ -61,7 +61,7 @@ export function useCountryConfig(): CountryConfig {
         return isAustria ? `/at${cleanPath}` : cleanPath;
       }
     };
-  }, [pathname, isAustria]); // Only recompute when pathname changes
+  }, [isAustria]); // Only recompute when locale changes (isAustria derived from pathname)
 
   return config;
 }

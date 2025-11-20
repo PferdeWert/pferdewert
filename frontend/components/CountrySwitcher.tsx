@@ -14,6 +14,11 @@ interface CountrySwitcherProps {
   variant?: 'mobile' | 'desktop';
 }
 
+// ============================================================================
+// FAST REFRESH FIX: Define Globe icon at module level to prevent recreation
+// ============================================================================
+const GlobeIcon = () => <Globe className="h-4 w-4" />;
+
 /**
  * Country Switcher Component - Radix UI Dropdown
  *
@@ -79,7 +84,7 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
           size="sm"
           className={variant === 'mobile' ? 'gap-1.5 px-2 h-8' : 'gap-2'}
         >
-          <Globe className="h-4 w-4" />
+          <GlobeIcon />
           <span className={variant === 'mobile' ? 'text-xs font-semibold' : 'font-semibold'} suppressHydrationWarning>
             {currentCountry.code}
           </span>

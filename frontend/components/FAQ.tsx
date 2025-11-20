@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-import { useCountryConfig } from '@/hooks/useCountryConfig';
+import LocalizedLink from '@/components/LocalizedLink';
 import { FAQProps, FAQItem } from '../types/faq.types';
 
 const FAQ: React.FC<FAQProps> = ({
@@ -10,7 +9,6 @@ const FAQ: React.FC<FAQProps> = ({
   withSchema = true,
   className = ""
 }) => {
-  const { getLocalizedPath } = useCountryConfig();
 
   const generateSchema = () => {
     if (!withSchema) return null;
@@ -82,12 +80,12 @@ const FAQ: React.FC<FAQProps> = ({
 
           {/* CTA nach FAQ gemäß Design System */}
           <div className="text-center mt-16">
-            <Link
-              href={getLocalizedPath("/pferde-preis-berechnen")}
+            <LocalizedLink
+              href="/pferde-preis-berechnen"
               className="btn-primary"
             >
               Jetzt Pferdewert berechnen
-            </Link>
+            </LocalizedLink>
           </div>
         </div>
       </section>

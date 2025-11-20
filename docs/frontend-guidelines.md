@@ -39,10 +39,15 @@ These business requirements are non-negotiable and must be followed in all front
 
 **Link Target:**
 ```typescript
-// ✅ CORRECT - Standard evaluation page
-<Link href="/pferde-preis-berechnen">
+// ✅ CORRECT - Use LocalizedLink for internal routes (auto-adds /at/ for Austrian locale)
+import LocalizedLink from '@/components/LocalizedLink'
+<LocalizedLink href="/pferde-preis-berechnen">
   Jetzt bewerten
-</Link>
+</LocalizedLink>
+
+// ❌ WRONG - Direct Link usage (breaks AT locale routing)
+import Link from 'next/link'
+<Link href="/pferde-preis-berechnen">...</Link>
 
 // ❌ WRONG - Non-standard URLs
 <Link href="/bewerten">...</Link>
