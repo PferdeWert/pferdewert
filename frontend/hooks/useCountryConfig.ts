@@ -28,10 +28,10 @@ const AUSBILDUNG_OPTIONS_DE = ["roh", "angeritten", "E", "A", "L", "M", "S", "So
 export function useCountryConfig(): CountryConfig {
   const router = useRouter();
 
-  // FAST REFRESH FIX: Derive isAustria directly from router.pathname without state
-  // Eliminates useEffect and state updates that cause re-render loops
-  // This is stable because router.pathname only changes on actual navigation
-  const pathname = router.pathname;
+  // FIX: Use router.asPath to get actual browser URL (not rewritten internal path)
+  // Next.js rewrites /at/* to /*, so router.pathname would always be / instead of /at
+  // Extract pathname without query string and hash
+  const pathname = router.asPath.split('?')[0].split('#')[0];
   const isAustria = pathname.startsWith('/at');
 
   // FAST REFRESH FIX: Memoize config based on pathname to prevent recreation

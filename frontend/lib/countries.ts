@@ -60,13 +60,38 @@ export function getAvailableCountries(): Country[] {
 }
 
 /**
+ * FAST REFRESH FIX: Cache sorted countries array to prevent recreation on every call
+ * Without caching, each call creates new arrays causing Fast Refresh loops
+ */
+let sortedCountriesCache: Country[] | null = null;
+
+export function getSortedCountries(): Country[] {
+  if (!sortedCountriesCache) {
+    sortedCountriesCache = [...COUNTRIES]
+      .filter(c => c.urlPrefix !== '') // Exclude default (DE)
+      .sort((a, b) => b.urlPrefix.length - a.urlPrefix.length);
+  }
+  return sortedCountriesCache;
+}
+
+/**
  * Get country by URL path
+ * Matches longest prefix first to prevent /at matching /austria
  */
 export function getCountryFromPath(pathname: string): Country {
-  const country = COUNTRIES.find(c =>
-    c.urlPrefix && pathname.startsWith(c.urlPrefix)
-  );
-  return country || COUNTRIES[0]; // Default to DE
+  // Get cached sorted countries
+  const sortedCountries = getSortedCountries();
+
+  // Check for specific country prefixes
+  for (const country of sortedCountries) {
+    // Match exact prefix with word boundary (/ or end of string)
+    if (pathname === country.urlPrefix || pathname.startsWith(country.urlPrefix + '/')) {
+      return country;
+    }
+  }
+
+  // Default to DE (first country with empty prefix)
+  return COUNTRIES[0];
 }
 
 /**

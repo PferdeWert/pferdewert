@@ -7,6 +7,13 @@ import CountrySwitcher from "@/components/CountrySwitcher"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
 
 // ============================================================================
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
@@ -14,6 +21,14 @@ import Breadcrumbs from "./Breadcrumbs"
 const menuIcon = <Menu className="h-6 w-6" />
 const closeIcon = <X className="h-6 w-6" />
 const chevronDownIcon = <ChevronDown className="w-4 h-4" />
+const chevronDownIconMobile = <ChevronDown className="w-4 h-4 text-gray-500" />
+
+// ============================================================================
+// FAST REFRESH FIX: Define style objects at module level to prevent recreation
+// ============================================================================
+const mobileMenuStyle = {
+  maxHeight: 'calc(100vh - 4rem)'
+} as const
 
 // ============================================================================
 // STABLE NAVIGATION ITEMS - Outside component to prevent recreation
@@ -48,8 +63,6 @@ const NAVIGATION_ITEMS: NavItem[] = [
 
 export default function HeaderUnified() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
   const router = useRouter()
 
   const toggleMenu = () => {
@@ -58,13 +71,6 @@ export default function HeaderUnified() {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
-    setMobileExpandedSection(null)
-  }
-
-  const toggleMobileSection = (sectionLabel: string) => {
-    setMobileExpandedSection(
-      mobileExpandedSection === sectionLabel ? null : sectionLabel
-    )
   }
 
   // Body scroll lock für Mobile-Menü
@@ -84,7 +90,6 @@ export default function HeaderUnified() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMenuOpen(false)
-        setActiveDropdown(null)
       }
     }
     document.addEventListener('keydown', handleEscape)
@@ -142,35 +147,39 @@ export default function HeaderUnified() {
             {/* Desktop Navigation mit Dropdowns */}
             <nav className="flex items-center space-x-8">
               {NAVIGATION_ITEMS.map((item) => (
-                <div
-                  key={item.href}
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <LocalizedLink
-                    href={item.href}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
-                  >
-                    <span>{item.label}</span>
-                    {item.dropdown && chevronDownIcon}
-                  </LocalizedLink>
-
-                  {/* Dropdown Menu */}
-                  {item.dropdown && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-200">
+                item.dropdown ? (
+                  <DropdownMenu key={item.href}>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2 px-0 h-auto"
+                      >
+                        <span>{item.label}</span>
+                        {chevronDownIcon}
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-64">
                       {item.dropdown.map((subItem) => (
-                        <LocalizedLink
-                          key={subItem.href}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
-                        >
-                          {subItem.label}
-                        </LocalizedLink>
+                        <DropdownMenuItem key={subItem.href} asChild>
+                          <LocalizedLink
+                            href={subItem.href}
+                            className="cursor-pointer"
+                          >
+                            {subItem.label}
+                          </LocalizedLink>
+                        </DropdownMenuItem>
                       ))}
-                    </div>
-                  )}
-                </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <LocalizedLink
+                    key={item.href}
+                    href={item.href}
+                    className="text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
+                  >
+                    {item.label}
+                  </LocalizedLink>
+                )
               ))}
 
               {/* Desktop: Country Switcher + CTA */}
@@ -240,78 +249,61 @@ export default function HeaderUnified() {
       )}
 
       {/* Mobile Menu - Von links aufgehend */}
-      <div
-        id="mobile-menu"
-        className={`md:hidden fixed top-16 left-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-br-lg transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-        style={{
-          visibility: isMenuOpen ? 'visible' : 'hidden',
-          pointerEvents: isMenuOpen ? 'auto' : 'none',
-          maxHeight: 'calc(100vh - 4rem)'
-        }}
-      >
-        <nav className="h-full flex flex-col">
-          {/* Navigation Links mit Progressive Disclosure */}
-          <div className="flex-1 overflow-y-auto px-4 py-6">
-            {NAVIGATION_ITEMS.map((item) => (
-              <div key={item.href} className="mb-3">
-                {item.dropdown ? (
-                  // Kategorie mit Dropdown - aufklappbar
-                  <div>
-                    <div className="w-full flex items-center justify-between py-3">
-                      <LocalizedLink
-                        href={item.href}
-                        className="flex-1 text-gray-900 font-medium text-base"
-                        onClick={closeMenu}
-                      >
-                        {item.label}
-                      </LocalizedLink>
-                      <button
-                        className="p-1 text-gray-700 hover:text-brand-brown"
-                        onClick={() => toggleMobileSection(item.label)}
-                        aria-expanded={mobileExpandedSection === item.label}
-                        aria-label={`${item.label} Untermenü ${mobileExpandedSection === item.label ? 'schließen' : 'öffnen'}`}
-                      >
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            mobileExpandedSection === item.label ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                    </div>
-
-                    {/* Aufklappbarer Bereich */}
-                    {mobileExpandedSection === item.label && (
-                      <div className="ml-4 space-y-1 mt-2 pb-2">
-                        {item.dropdown.map((subItem) => (
-                          <LocalizedLink
-                            key={subItem.href}
-                            href={subItem.href}
-                            className="block text-gray-600 hover:text-brand-brown py-1 text-sm"
-                            onClick={closeMenu}
+      {isMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden fixed top-16 left-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-br-lg transform transition-transform duration-300 ease-in-out translate-x-0"
+          style={mobileMenuStyle}
+        >
+          <nav className="h-full flex flex-col">
+            {/* Navigation Links mit Progressive Disclosure */}
+            <div className="flex-1 overflow-y-auto px-3 py-4">
+              {NAVIGATION_ITEMS.map((item, index) => (
+                <div key={item.href} className={index > 0 ? 'border-t border-gray-100 pt-2' : ''}>
+                  {item.dropdown ? (
+                    // Kategorie mit Dropdown - Radix UI
+                    <div className="mb-2">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            className="w-full justify-between text-gray-900 font-semibold text-base py-3.5 px-3 h-auto hover:bg-gray-50"
                           >
-                            {subItem.label}
-                          </LocalizedLink>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  // Direkter Link (Über uns)
-                  <LocalizedLink
-                    href={item.href}
-                    className="block text-gray-900 font-medium py-3 text-base"
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </LocalizedLink>
-                )}
-              </div>
-            ))}
-          </div>
-        </nav>
-      </div>
+                            <span>{item.label}</span>
+                            {chevronDownIconMobile}
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start" className="w-72">
+                          {item.dropdown.map((subItem) => (
+                            <DropdownMenuItem key={subItem.href} asChild>
+                              <LocalizedLink
+                                href={subItem.href}
+                                className="cursor-pointer"
+                                onClick={closeMenu}
+                              >
+                                {subItem.label}
+                              </LocalizedLink>
+                            </DropdownMenuItem>
+                          ))}
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                  ) : (
+                    // Direkter Link (Über uns)
+                    <LocalizedLink
+                      href={item.href}
+                      className="block text-gray-900 font-semibold py-3.5 px-3 text-base hover:bg-gray-50 rounded-lg transition-colors duration-150 mb-2"
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </LocalizedLink>
+                  )}
+                </div>
+              ))}
+            </div>
+          </nav>
+        </div>
+      )}
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import { Globe } from 'lucide-react';
-import { getAvailableCountries, getCountryFromPath } from '@/lib/countries';
+import { getAvailableCountries, getCountryFromPath, getSortedCountries, COUNTRIES } from '@/lib/countries';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -25,9 +26,16 @@ interface CountrySwitcherProps {
 export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcherProps) {
   const router = useRouter();
 
-  // FAST REFRESH FIX: Derive currentCountry directly from router.pathname
-  // No state or useMemo needed - router.pathname is stable and only changes on navigation
-  const currentCountry = getCountryFromPath(router.pathname);
+  // HYDRATION FIX: Start with default (DE) to match SSR, then update client-side
+  // This prevents hydration mismatch when server doesn't know about /at/ prefix
+  const [currentCountry, setCurrentCountry] = useState(COUNTRIES[0]);
+
+  // Detect country client-side after mount to avoid hydration mismatch
+  useEffect(() => {
+    const pathname = router.asPath.split('?')[0].split('#')[0];
+    const country = getCountryFromPath(pathname);
+    setCurrentCountry(country);
+  }, [router.asPath]);
 
   const handleCountrySwitch = (targetUrlPrefix: string) => {
     if (typeof window === 'undefined') return;
@@ -35,13 +43,14 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
     const currentPath = window.location.pathname;
     const currentSearch = window.location.search;
 
-    // Remove ALL possible country prefixes from current path
+    // Remove current country prefix from path
     let basePath = currentPath;
-    const allCountries = getAvailableCountries();
+    const sortedCountries = getSortedCountries();
 
-    for (const country of allCountries) {
-      if (country.urlPrefix && basePath.startsWith(country.urlPrefix)) {
-        basePath = basePath.substring(country.urlPrefix.length);
+    for (const country of sortedCountries) {
+      // Match exact prefix with word boundary
+      if (currentPath === country.urlPrefix || currentPath.startsWith(country.urlPrefix + '/')) {
+        basePath = currentPath.substring(country.urlPrefix.length);
         break;
       }
     }
@@ -73,7 +82,7 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
           className={variant === 'mobile' ? 'gap-1.5 px-2 h-8' : 'gap-2'}
         >
           <Globe className="h-4 w-4" />
-          <span className={variant === 'mobile' ? 'text-xs font-semibold' : 'font-semibold'} suppressHydrationWarning>
+          <span className={variant === 'mobile' ? 'text-xs font-medium' : 'font-medium'} suppressHydrationWarning>
             {currentCountry.code}
           </span>
         </Button>

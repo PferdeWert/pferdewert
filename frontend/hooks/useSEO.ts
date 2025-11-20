@@ -37,9 +37,10 @@ const DOMAIN = 'https://pferdewert.de';
 export function useSEO(): SEOConfig {
   const router = useRouter();
 
-  // FAST REFRESH FIX: Extract ONLY pathname, ignore query params and hash
-  // router.asPath includes query params which can change frequently
-  const pathname = router.pathname; // Use router.pathname instead of router.asPath
+  // FIX: Use router.asPath to get actual browser URL (not rewritten internal path)
+  // Next.js rewrites /at/* to /*, so router.pathname would always be / instead of /at
+  // Extract pathname without query string and hash to avoid Fast Refresh issues
+  const pathname = router.asPath.split('?')[0].split('#')[0];
 
   // FAST REFRESH FIX: Compute all values in ONE useMemo to prevent intermediate re-renders
   // Multiple useMemo calls can cause cascading updates
