@@ -1,7 +1,6 @@
-import { useCountryConfig } from '@/hooks/useCountryConfig'
 import { NextPage } from "next"
 import Head from "next/head"
-import Link from "next/link"
+import LocalizedLink from '@/components/LocalizedLink'
 import { useMemo } from "react"
 import { ArrowRight, TrendingUp, Shield, CheckCircle, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
 
@@ -158,8 +157,6 @@ const heroMetaItems = createHeroMetaItems([
 
 const PferdKaufen: NextPage = () => {
 
-  
-  const { getLocalizedPath } = useCountryConfig();
 const relatedArticles = useMemo(() =>
     getRelatedArticles('pferd-kaufen').map(entry => ({
       href: getRatgeberPath(entry.slug),
@@ -448,7 +445,7 @@ const relatedArticles = useMemo(() =>
 
             {/* Preisübersicht 2025 */}
             <section id="preise" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#preise")} className="text-brand-brown hover:underline">Was kostet ein Pferd? Preisübersicht 2025</Link></h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><LocalizedLink href="/pferde-ratgeber/pferd-kaufen#preise" className="text-brand-brown hover:underline">Was kostet ein Pferd? Preisübersicht 2025</LocalizedLink></h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Die erste und wichtigste Frage: <strong>Was kostet ein Pferd beim Pferdekauf wirklich?</strong> Die Preise beim erfolgreichen Pferdekauf variieren erheblich – von unter 1.000 Euro für ältere Freizeitpferde bis weit über 20.000 Euro für Turnierpferde. Um realistische Erwartungen zu entwickeln, solltest du die aktuellen Marktpreise kennen:
               </p>
@@ -466,9 +463,9 @@ const relatedArticles = useMemo(() =>
               <ul className="space-y-3 text-gray-700 leading-relaxed">
                 <li>
                   <strong>Ausbildungsstand:</strong> Ein rohes 3-jähriges Pferd kostet deutlich weniger als ein turniererfahrenes 8-jähriges{" "}
-                  <Link href={getLocalizedPath("/pferde-ratgeber/dressurpferd-kaufen")} className="text-brand-brown hover:underline">
+                  <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand-brown hover:underline">
                     Dressurpferd
-                  </Link>{" "}
+                  </LocalizedLink>{" "}
                   mit A-Erfolgen. Jeder Ausbildungsschritt erhöht den Wert spürbar.
                 </li>
                 <li>
@@ -478,7 +475,7 @@ const relatedArticles = useMemo(() =>
                   <strong>Rasse und Abstammung:</strong> Warmblüter aus bekannten Zuchtlinien (z.B. erfolgreiche Hengstlinien) sind teurer als Kleinpferde oder Pferde ohne Papiere. Die Abstammung kann den Preis um 2.000€ bis 5.000€ erhöhen.
                 </li>
                 <li>
-                  <strong><Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#anfaenger")} className="text-brand-brown hover:underline">Charakter</Link>:</strong> Anfängerfreundliche, nervensichere Pferde mit unkompliziertem Wesen haben einen Aufpreis von 15-25%. Ein guter Charakter ist gerade für Freizeitreiter oft wichtiger als sportliche Leistung.
+                  <strong><LocalizedLink href="/pferde-ratgeber/pferd-kaufen#anfaenger" className="text-brand-brown hover:underline">Charakter</LocalizedLink>:</strong> Anfängerfreundliche, nervensichere Pferde mit unkompliziertem Wesen haben einen Aufpreis von 15-25%. Ein guter Charakter ist gerade für Freizeitreiter oft wichtiger als sportliche Leistung.
                 </li>
                 <li>
                   <strong>Turniererfolge:</strong> Nachweisbare Platzierungen auf A-Niveau steigern den Wert um 2.000€ bis 3.000€. Pferde mit L-Erfolgen können deutlich mehr kosten.
@@ -486,14 +483,14 @@ const relatedArticles = useMemo(() =>
               </ul>
 
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
-                <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#regionen")} className="text-brand-brown hover:underline">Regionale Preisunterschiede</Link> in Deutschland
+                <LocalizedLink href="/pferde-ratgeber/pferd-kaufen#regionen" className="text-brand-brown hover:underline">Regionale Preisunterschiede</LocalizedLink> in Deutschland
               </h3>
 
               <p className="text-gray-700 leading-relaxed">
                 Der Standort beeinflusst den{" "}
-                <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-brand-brown hover:underline">
+                <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-brand-brown hover:underline">
                   Pferdemarkt
-                </Link>{" "}
+                </LocalizedLink>{" "}
                 erheblich. In traditionellen Zuchtregionen mit hoher Pferdedichte sind die Preise anders strukturiert als in Großstadtnähe oder strukturschwachen Gebieten:
               </p>
 
@@ -512,16 +509,16 @@ const relatedArticles = useMemo(() =>
               <div className="mt-6 p-4 bg-brand-light rounded-lg border-l-4 border-brand">
                 <p className="text-gray-700 leading-relaxed">
                   <strong className="text-brand-brown">Tipp:</strong> Berechne den fairen Marktwert deines Wunschpferdes inklusive regionaler Faktoren mit unserem{" "}
-                  <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-brand-brown font-semibold hover:underline">
+                  <LocalizedLink href="/pferde-preis-berechnen" className="text-brand-brown font-semibold hover:underline">
                     KI-gestützten Preisrechner
-                  </Link>
+                  </LocalizedLink>
                   .
                 </p>
               </div>
 
               <p className="text-lg text-gray-700 leading-relaxed mt-6">
                 Die große Preisspanne macht deutlich: Ohne Marktkenntnisse riskieren Sie, mehrere tausend Euro zu viel zu
-                bezahlen. Mit <Link href="/" className="text-brand-brown font-semibold hover:underline">PferdeWert.de</Link> können Sie in nur 2 Minuten den fairen Marktwert eines Pferdes berechnen lassen –
+                bezahlen. Mit <LocalizedLink href="/" className="text-brand-brown font-semibold hover:underline">PferdeWert.de</LocalizedLink> können Sie in nur 2 Minuten den fairen Marktwert eines Pferdes berechnen lassen –
                 basierend auf modernster KI-Technologie und aktuellen Marktdaten.
               </p>
             </section>
@@ -529,7 +526,7 @@ const relatedArticles = useMemo(() =>
             {/* 5 Säulen der Pferdebewertung */}
             <section id="bewertung-5-saeulen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-                <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#bewertung-5-saeulen")} className="text-brand-brown hover:underline">Die 5 Säulen der Pferdebewertung</Link>: So wird der Wert ermittelt
+                <LocalizedLink href="/pferde-ratgeber/pferd-kaufen#bewertung-5-saeulen" className="text-brand-brown hover:underline">Die 5 Säulen der Pferdebewertung</LocalizedLink>: So wird der Wert ermittelt
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Beim Pferdekauf basiert eine professionelle Bewertung auf fünf zentralen Säulen, die gemeinsam den fairen Marktwert bestimmen. Diese Faktoren werden von Tierärzten, Ausbildern und Sachverständigen herangezogen – und bilden auch die Grundlage für die KI-gestützte Bewertung bei PferdeWert.de.
@@ -545,7 +542,7 @@ const relatedArticles = useMemo(() =>
                       Der Gesundheitszustand ist beim Pferdekauf das Fundament aller Bewertungen. Beim Pferdekauf: Ein gesundes Pferd entfaltet sein volles Potenzial – ein krankes Pferd verliert dramatisch an Wert, unabhängig von Ausbildung oder Abstammung.
                     </p>
 
-                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Was eine <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand-brown hover:underline">AKU (Ankaufsuntersuchung)</Link> bewertet:</h3>
+                    <h3 className="text-xl font-serif text-brand mt-6 mb-3">Was eine <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:underline">AKU (Ankaufsuntersuchung)</LocalizedLink> bewertet:</h3>
                     <ul className="space-y-2 text-gray-700 leading-relaxed">
                       <li>• <strong>Bewegungsapparat:</strong> Lahmheiten, Arthrose, Sehnenschäden, Hufrollenprobleme</li>
                       <li>• <strong>Atmungsorgane:</strong> Dämpfigkeit, chronischer Husten, Atemwegserkrankungen</li>
@@ -556,9 +553,9 @@ const relatedArticles = useMemo(() =>
 
                     <p className="text-gray-700 leading-relaxed mt-4">
                       Eine professionelle AKU ist Pflicht vor jedem Pferdekauf. Weitere Informationen zur{" "}
-                      <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")} className="text-brand-brown hover:underline font-semibold">
+                      <LocalizedLink href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand-brown hover:underline font-semibold">
                         Ankaufsuntersuchung und ihren Kosten
-                      </Link>{" "}
+                      </LocalizedLink>{" "}
                       finden Sie in unserem detaillierten Ratgeber. Standards und Richtlinien werden von der{" "}
                       <a
                         href="https://www.bundestieraerztekammer.de"
@@ -596,7 +593,7 @@ const relatedArticles = useMemo(() =>
                     </div>
 
                     <p className="text-lg text-gray-700 leading-relaxed mt-6 bg-amber-50 border-l-4 border-brand-green p-4 rounded">
-                      <strong className="text-brand-brown">Merke:</strong> Die <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand-brown font-semibold hover:underline">AKU</Link> ist keine Garantie für ewige Gesundheit, aber sie zeigt den aktuellen Zustand objektiv. Ohne AKU kaufst du ein erhebliches Gesundheitsrisiko mit.
+                      <strong className="text-brand-brown">Merke:</strong> Die <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand-brown font-semibold hover:underline">AKU</LocalizedLink> ist keine Garantie für ewige Gesundheit, aber sie zeigt den aktuellen Zustand objektiv. Ohne AKU kaufst du ein erhebliches Gesundheitsrisiko mit.
                     </p>
                   </div>
                 }
@@ -717,9 +714,9 @@ const relatedArticles = useMemo(() =>
                       <li>• <strong>Raumgreifende Gänge:</strong> Aktive Hinterhand, Schwung, Kadenz → Aufpreis 10-20%</li>
                       <li>• <strong>Taktreinheit:</strong> Klarer, gleichmäßiger Takt in allen Gangarten → Aufpreis 5-10%</li>
                       <li>• <strong>Springvermögen:</strong> Natürliche Springanlage mit guter Technik → Aufpreis 15-30% (bei{" "}
-                        <Link href={getLocalizedPath("/pferde-ratgeber/springpferd-kaufen")} className="text-brand-brown hover:underline">
+                        <LocalizedLink href="/pferde-ratgeber/springpferd-kaufen" className="text-brand-brown hover:underline">
                           Springpferden
-                        </Link>)</li>
+                        </LocalizedLink>)</li>
                       <li>• <strong>Balance und Geschmeidigkeit:</strong> Leichtfüßigkeit, gute Biegsamkeit → Aufpreis 10-15%</li>
                     </ul>
 
@@ -843,13 +840,13 @@ const relatedArticles = useMemo(() =>
                   Unser KI-Algorithmus bewertet alle fünf Säulen gleichzeitig, gewichtet sie nach ihrer Bedeutung für deinen spezifischen Fall und vergleicht das Ergebnis mit aktuellen Marktdaten. So erhältst du in Minuten, was traditionell Tage dauert – und das zu einem Bruchteil der Kosten.
                 </p>
 
-                <Link
-                  href={getLocalizedPath("/pferde-preis-berechnen")}
+                <LocalizedLink
+                  href="/pferde-preis-berechnen"
                   className="inline-flex items-center gap-2 bg-brand-brown text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-brown/90 transition-colors"
                 >
                   Jetzt Pferdewert berechnen
                   <ArrowRight className="h-5 w-5" />
-                </Link>
+                </LocalizedLink>
               </div>
             </section>
 
@@ -875,7 +872,7 @@ const relatedArticles = useMemo(() =>
 
                     <ul className="space-y-3 text-gray-700 leading-relaxed">
                       <li>
-                        <strong className="text-brand-brown">✓ Budget und laufende Kosten klären</strong> – Berechnen Sie nicht nur den Kaufpreis, sondern auch monatliche Kosten für Stall (200–600 Euro), Futter, Tierarzt, Hufschmied und Versicherungen. Viele angehende Pferdebesitzer unterschätzen die laufenden Ausgaben erheblich. Lesen Sie unseren Ratgeber <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd#pferdehaltung-kosten-monatlich")} className="text-brand-brown font-semibold hover:underline">Pferdehaltung Kosten monatlich</Link>, um eine detaillierte Kostenübersicht mit realistischen Zahlen für Ihre Region zu erhalten.
+                        <strong className="text-brand-brown">✓ Budget und laufende Kosten klären</strong> – Berechnen Sie nicht nur den Kaufpreis, sondern auch monatliche Kosten für Stall (200–600 Euro), Futter, Tierarzt, Hufschmied und Versicherungen. Viele angehende Pferdebesitzer unterschätzen die laufenden Ausgaben erheblich. Lesen Sie unseren Ratgeber <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd#pferdehaltung-kosten-monatlich" className="text-brand-brown font-semibold hover:underline">Pferdehaltung Kosten monatlich</LocalizedLink>, um eine detaillierte Kostenübersicht mit realistischen Zahlen für Ihre Region zu erhalten.
                       </li>
                       <li>
                         <strong className="text-brand-brown">✓ Stall suchen und besichtigen</strong> – Der Stall ist das Zuhause Ihres zukünftigen Pferdes. Besichtigen Sie mehrere Ställe, achten Sie auf Sauberkeit, Haltungsform (Box, Paddock, Weide), Fütterungsqualität und den Umgang des Personals mit Pferden.
@@ -909,7 +906,7 @@ const relatedArticles = useMemo(() =>
                         <strong className="text-brand-brown">✓ Pferdehistorie erfragen und überprüfen</strong> – Fragen Sie nach früheren Besitzern (wie viele?), Krankheiten, Verletzungen, Turniererfahrung und Ausbildungsstand. Der Grund für den Verkauf ist ebenfalls wichtig – &quot;Privatverkauf, zu wenig Zeit&quot; ist normal; &quot;aggressiv, schwierig zu handhaben&quot; sollte Sie alarmieren.
                       </li>
                       <li>
-                        <strong className="text-brand-brown">✓ Professionelle Ankaufsuntersuchung (AKU) durchführen</strong> – Das ist die wichtigste Investition beim Pferdekauf. Ein unabhängiger Tierarzt prüft Herz, Lunge, Bewegungsapparat und Augen gründlich. Der AKU-Bericht ist Ihre Versicherung gegen versteckte Mängel. Lesen Sie mehr über den Ablauf und die Kosten in unserem Ratgeber <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand-brown font-semibold hover:underline">Ankaufsuntersuchung Pferd</Link>.
+                        <strong className="text-brand-brown">✓ Professionelle Ankaufsuntersuchung (AKU) durchführen</strong> – Das ist die wichtigste Investition beim Pferdekauf. Ein unabhängiger Tierarzt prüft Herz, Lunge, Bewegungsapparat und Augen gründlich. Der AKU-Bericht ist Ihre Versicherung gegen versteckte Mängel. Lesen Sie mehr über den Ablauf und die Kosten in unserem Ratgeber <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand-brown font-semibold hover:underline">Ankaufsuntersuchung Pferd</LocalizedLink>.
                       </li>
                       <li>
                         <strong className="text-brand-brown">✓ Equidenpass und Papiere prüfen</strong> – Verlangen Sie das Original des Equidenpasses. Überprüfen Sie: Stimmt die Beschreibung des Pferdes? Sind alle Impfungen dokumentiert? Wer ist aktuell als Eigentümer eingetragen?
@@ -937,7 +934,7 @@ const relatedArticles = useMemo(() =>
 
                     <ul className="space-y-3 text-gray-700 leading-relaxed">
                       <li>
-                        <strong className="text-brand-brown">✓ Schriftlicher <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="text-brand-brown hover:underline font-semibold">Pferdekaufvertrag</Link> abschließen</strong> – Ein Kaufvertrag sollte enthalten: genaue Pferdebeschreibung (Name, Rasse, Geburtsdatum, Abzeichen), Kaufpreis, Ausbildungsstand, Zweck des Pferdes, Gewährleistungsfristen und Unterschriften beider Parteien.
+                        <strong className="text-brand-brown">✓ Schriftlicher <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">Pferdekaufvertrag</LocalizedLink> abschließen</strong> – Ein Kaufvertrag sollte enthalten: genaue Pferdebeschreibung (Name, Rasse, Geburtsdatum, Abzeichen), Kaufpreis, Ausbildungsstand, Zweck des Pferdes, Gewährleistungsfristen und Unterschriften beider Parteien.
                       </li>
                       <li>
                         <strong className="text-brand-brown">✓ Versicherungen abschließen</strong> – Zwei Versicherungen sind Standard: Haftpflichtversicherung (für Schäden, die Ihr Pferd anrichtet) und OP-Versicherung (für teure Tierarzt-Operationen). Diese sind keine Luxus, sondern notwendiger Schutz.
@@ -966,13 +963,13 @@ const relatedArticles = useMemo(() =>
                       <p className="text-gray-700 leading-relaxed">
                         Unsere KI-gestützte Bewertung analysiert Alter, Rasse, Ausbildungsstand, Gesundheit und Markttrends – und liefert Ihnen in nur <strong>2 Minuten</strong> eine professionelle Einschätzung des aktuellen Pferdewertes.
                       </p>
-                      <Link
-                        href={getLocalizedPath("/pferde-preis-berechnen")}
+                      <LocalizedLink
+                        href="/pferde-preis-berechnen"
                         className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-brand-brown text-white rounded-lg hover:bg-brand-brown/90 transition-colors font-semibold"
                       >
                         Jetzt Pferd bewerten
                         <ArrowRight className="w-5 h-5" />
-                      </Link>
+                      </LocalizedLink>
                     </div>
                   </div>
                 }
@@ -981,7 +978,7 @@ const relatedArticles = useMemo(() =>
 
             {/* Red Flags beim Pferdekauf */}
             <section id="red-flags" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#red-flags")} className="text-brand-brown hover:underline">Red Flags</Link> beim Pferdekauf: Warnzeichen, die Du nicht ignorieren solltest</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><LocalizedLink href="/pferde-ratgeber/pferd-kaufen#red-flags" className="text-brand-brown hover:underline">Red Flags</LocalizedLink> beim Pferdekauf: Warnzeichen, die Du nicht ignorieren solltest</h2>
 
               <p className="text-lg text-gray-700 leading-relaxed">
                 Beim Pferdekauf gibt es bestimmte <strong>Warnsignale</strong>, die Du ernst nehmen solltest. Diese &quot;Red Flags&quot; können auf ernsthafte Probleme hinweisen – sei es beim Pferd selbst oder beim Verkäufer. Ein geschulter Blick für diese Warnzeichen kann Dich vor teuren Fehlkäufen bewahren.
@@ -1014,7 +1011,7 @@ const relatedArticles = useMemo(() =>
                     <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mt-4">
                       <p className="text-blue-800 font-semibold">💡 Tipp:</p>
                       <p className="text-blue-700 mt-2">
-                        Nutze unseren <Link href={getLocalizedPath("/pferde-preis-berechnen")} className="text-blue-600 underline hover:text-blue-800">Pferde-Preis-Rechner</Link>,
+                        Nutze unseren <LocalizedLink href="/pferde-preis-berechnen" className="text-blue-600 underline hover:text-blue-800">Pferde-Preis-Rechner</LocalizedLink>,
                         um realistische Marktwerte zu ermitteln. So erkennst Du sofort, ob ein Preis zu schön ist, um wahr zu sein.
                       </p>
                     </div>
@@ -1261,7 +1258,7 @@ const relatedArticles = useMemo(() =>
 
             {/* Pferd für Anfänger kaufen */}
             <section id="anfaenger" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#anfaenger")} className="text-brand-brown hover:underline">Pferd für Anfänger</Link> kaufen: Worauf achten?</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><LocalizedLink href="/pferde-ratgeber/pferd-kaufen#anfaenger" className="text-brand-brown hover:underline">Pferd für Anfänger</LocalizedLink> kaufen: Worauf achten?</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Der Kauf des ersten eigenen Pferdes ist ein besonderer Moment – aber auch eine Herausforderung für unerfahrene
                 Käufer. Diese Aspekte sind speziell für Anfänger wichtig:
@@ -1376,7 +1373,7 @@ const relatedArticles = useMemo(() =>
 
             {/* Häufige Fehler vermeiden */}
             <section id="fehler" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#fehler")} className="text-brand-brown hover:underline">Häufige Fehler beim Pferdekauf vermeiden</Link></h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand"><LocalizedLink href="/pferde-ratgeber/pferd-kaufen#fehler" className="text-brand-brown hover:underline">Häufige Fehler beim Pferdekauf vermeiden</LocalizedLink></h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Viele Pferdekäufe scheitern oder führen zu Enttäuschungen durch vermeidbare Fehler. Lerne aus den häufigsten
                 Fehlern anderer:
@@ -1455,9 +1452,9 @@ const relatedArticles = useMemo(() =>
                       <p>
                         Kalkuliere realistisch mit mindestens 5.000€ Jahreskosten. Lege eine Notfallreserve von 2.000€ für
                         unvorhergesehene Tierarztkosten an. Unsere detaillierte{' '}
-                        <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd#pferdehaltung-kosten-monatlich")} className="text-brand-brown font-semibold hover:underline">
+                        <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd#pferdehaltung-kosten-monatlich" className="text-brand-brown font-semibold hover:underline">
                           Übersicht der monatlichen Pferdehaltung Kosten
-                        </Link>{' '}
+                        </LocalizedLink>{' '}
                         hilft dir bei der realistischen Budgetplanung.
                       </p>
                     </div>
@@ -1494,9 +1491,9 @@ const relatedArticles = useMemo(() =>
                       <p className="font-semibold text-brand-brown mb-1">Die Lösung:</p>
                       <p>
                         Bestehe auf einem schriftlichen{" "}
-                        <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="text-brand-brown hover:underline font-semibold">
+                        <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">
                           Pferdekaufvertrag
-                        </Link>, auch bei Privatkäufen von netten Menschen. Nutze
+                        </LocalizedLink>, auch bei Privatkäufen von netten Menschen. Nutze
                         Muster-Verträge von der{" "}
                         <a
                           href="https://www.pferd-aktuell.de/shop/kaufvertrag-pferd"
@@ -1619,7 +1616,7 @@ const relatedArticles = useMemo(() =>
 
             {/* Online vs. Händler vs. Privat */}
             <section id="kaufwege" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Pferd kaufen: <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#kaufwege")} className="text-brand-brown hover:underline">Online vs. Händler vs. Privat</Link></h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">Pferd kaufen: <LocalizedLink href="/pferde-ratgeber/pferd-kaufen#kaufwege" className="text-brand-brown hover:underline">Online vs. Händler vs. Privat</LocalizedLink></h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Die Wahl des Verkaufswegs beeinflusst Preis, Sicherheit und Kaufabwicklung erheblich:
               </p>
@@ -1748,7 +1745,7 @@ const relatedArticles = useMemo(() =>
                 </div>
 
                 <p className="text-gray-700">
-                  <span className="font-bold"><Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen#bewertung-5-saeulen")} className="text-brand-brown hover:underline">Die 5 Säulen der Bewertung</Link></span> (Gesundheit, Ausbildung, Charakter, Exterieur, Marktfähigkeit) geben dir eine objektive Grundlage für Verhandlungen.
+                  <span className="font-bold"><LocalizedLink href="/pferde-ratgeber/pferd-kaufen#bewertung-5-saeulen" className="text-brand-brown hover:underline">Die 5 Säulen der Bewertung</LocalizedLink></span> (Gesundheit, Ausbildung, Charakter, Exterieur, Marktfähigkeit) geben dir eine objektive Grundlage für Verhandlungen.
                 </p>
 
                 <p className="text-gray-700">
@@ -1760,17 +1757,17 @@ const relatedArticles = useMemo(() =>
                 </p>
 
                 <p className="text-lg text-gray-700 mt-6">
-                  Du möchtest jetzt den nächsten Schritt gehen oder dein Pferd <Link href={getLocalizedPath("/pferde-ratgeber/pferd-verkaufen")} className="text-brand-brown hover:underline">verkaufen</Link>? <span className="font-bold">Bewerte dein Wunschpferd mit PferdeWert</span> – unsere KI vergleicht es mit tausenden verifizierten Marktdaten und gibt dir eine objektive Preiseinschätzung in Minuten.
+                  Du möchtest jetzt den nächsten Schritt gehen oder dein Pferd <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-brand-brown hover:underline">verkaufen</LocalizedLink>? <span className="font-bold">Bewerte dein Wunschpferd mit PferdeWert</span> – unsere KI vergleicht es mit tausenden verifizierten Marktdaten und gibt dir eine objektive Preiseinschätzung in Minuten.
                 </p>
 
                 <div className="mt-6">
-                  <Link
-                    href={getLocalizedPath("/pferde-preis-berechnen")}
+                  <LocalizedLink
+                    href="/pferde-preis-berechnen"
                     className="inline-flex items-center px-6 py-3 bg-brand-brown text-white font-semibold rounded-lg hover:bg-brand-brown-dark transition-colors"
                   >
                     Jetzt Pferdewert ermitteln und mit Vertrauen kaufen
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                  </LocalizedLink>
                 </div>
               </div>
             </div>
