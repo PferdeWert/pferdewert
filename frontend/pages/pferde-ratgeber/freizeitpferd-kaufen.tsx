@@ -111,14 +111,14 @@ export default function FreizeitpferdKaufen() {
         <meta name="description" content="Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen." />
         <meta name="keywords" content="freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd temperament, anfängerpferd kaufen, gutes freizeitpferd finden" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Freizeitpferd kaufen: Kompletter Guide für Anfänger" />
         <meta property="og:description" content="Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://www.pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
-        <meta property="og:image" content="https://www.pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp" />
+        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
+        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -135,28 +135,28 @@ export default function FreizeitpferdKaufen() {
               '@type': 'Article',
               headline: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
               description: 'Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
-              image: 'https://www.pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
+              image: 'https://pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
               author: {
                 '@type': 'Person',
                 name: 'PferdeWert.de Redaktion',
-                url: 'https://www.pferdewert.de/ueber-uns'
+                url: 'https://pferdewert.de/ueber-uns'
               },
               publisher: {
                 '@type': 'Organization',
                 name: 'PferdeWert.de',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://www.pferdewert.de/logo.png',
+                  url: 'https://pferdewert.de/logo.png',
                   width: 250,
                   height: 60
                 },
-                url: 'https://www.pferdewert.de'
+                url: 'https://pferdewert.de'
               },
               datePublished: '2025-11-14',
               dateModified: '2025-11-14',
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': 'https://www.pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen'
+                '@id': 'https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen'
               },
               articleSection: 'Ratgeber',
               keywords: 'freizeitpferd kaufen, freizeitpferd rassen, anfängerpferd, pferderassen anfänger, pferd kaufentscheidung',
@@ -177,19 +177,19 @@ export default function FreizeitpferdKaufen() {
                   '@type': 'ListItem',
                   position: 1,
                   name: 'Home',
-                  item: 'https://www.pferdewert.de'
+                  item: 'https://pferdewert.de'
                 },
                 {
                   '@type': 'ListItem',
                   position: 2,
                   name: 'Pferde-Ratgeber',
-                  item: 'https://www.pferdewert.de/pferde-ratgeber'
+                  item: 'https://pferdewert.de/pferde-ratgeber'
                 },
                 {
                   '@type': 'ListItem',
                   position: 3,
                   name: 'Freizeitpferd kaufen',
-                  item: 'https://www.pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen'
+                  item: 'https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen'
                 }
               ]
             })
@@ -224,7 +224,7 @@ export default function FreizeitpferdKaufen() {
               '@type': 'HowTo',
               name: 'Freizeitpferd kaufen: Schritt-für-Schritt Anleitung',
               description: 'So kaufst du dein Freizeitpferd sicher und erfolgreich - von der Budgetplanung bis zur Vertragsunterschrift',
-              image: 'https://www.pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
+              image: 'https://pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
               step: [
                 {
                   '@type': 'HowToStep',

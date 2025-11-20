@@ -118,28 +118,28 @@ export default function SpringpferdKaufen() {
     '@type': 'Article',
     headline: 'Springpferd kaufen: Der ultimative Ratgeber für den perfekten Partner',
     description: 'Springpferd kaufen leicht gemacht: Auswahlkriterien, Preise (10.000-100.000€+), seriöse Züchter, AKU-Tipps & Kaufvertrag. Jetzt informieren!',
-    url: 'https://www.pferdewert.de/pferde-ratgeber/springpferd-kaufen',
+    url: 'https://pferdewert.de/pferde-ratgeber/springpferd-kaufen',
     datePublished: '2025-01-09T10:00:00+01:00',
     dateModified: '2025-01-09T10:00:00+01:00',
     author: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
-      url: 'https://www.pferdewert.de'
+      url: 'https://pferdewert.de'
     },
     publisher: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
-      url: 'https://www.pferdewert.de',
+      url: 'https://pferdewert.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.pferdewert.de/logo.png',
+        url: 'https://pferdewert.de/logo.png',
         width: 600,
         height: 60
       }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://www.pferdewert.de/pferde-ratgeber/springpferd-kaufen'
+      '@id': 'https://pferdewert.de/pferde-ratgeber/springpferd-kaufen'
     },
     articleSection: 'Pferde-Ratgeber',
     articleBody: 'Der Traum vom eigenen Springpferd bewegt viele Reiter – doch die Entscheidung will wohlüberlegt sein. Dieser Ratgeber begleitet Sie durch den gesamten Kaufprozess – von der Definition Ihrer Anforderungen über die Suche nach dem passenden Partner bis hin zur rechtssicheren Abwicklung.',
@@ -163,19 +163,19 @@ export default function SpringpferdKaufen() {
         '@type': 'ListItem',
         position: 1,
         name: 'PferdeWert',
-        item: 'https://www.pferdewert.de'
+        item: 'https://pferdewert.de'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://www.pferdewert.de/pferde-ratgeber'
+        item: 'https://pferdewert.de/pferde-ratgeber'
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Springpferd kaufen',
-        item: 'https://www.pferdewert.de/pferde-ratgeber/springpferd-kaufen'
+        item: 'https://pferdewert.de/pferde-ratgeber/springpferd-kaufen'
       }
     ]
   }), [])

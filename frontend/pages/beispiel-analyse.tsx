@@ -95,7 +95,7 @@ const seoConfig = {
   title: "Pferdebewertung Beispiel - So funktioniert unsere KI-Analyse | PferdeWert",
   description: "Sehen Sie eine echte Pferdebewertung im Detail. Beispiel-Analyse zeigt, wie unsere KI den Wert Ihres Pferdes ermittelt. Transparent und nachvollziehbar.",
   keywords: "pferdebewertung beispiel, pferdewert beispiel analyse, ki pferdebewertung demonstration, pferdemarkt bewertung beispiel, pferdepreis berechnen beispiel, pferd schätzen lassen beispiel, marktwert pferd beispiel, pferdegutachten beispiel, equine valuation example",
-  canonicalUrl: "https://www.pferdewert.de/beispiel-analyse",
+  canonicalUrl: "https://pferdewert.de/beispiel-analyse",
   ogImage: "https://pferdewert.de/images/shared/result.webp"
 };
 
@@ -164,7 +164,7 @@ export default function BeispielAnalyse() {
         <meta name="twitter:image" content="https://pferdewert.de/images/shared/result.webp" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.pferdewert.de/beispiel-analyse" />
+        <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
 
         {/* Performance Optimizations */}
         {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}

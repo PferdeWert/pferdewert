@@ -201,7 +201,7 @@ const PferdVerkaufen: NextPage = () => {
           content={`Pferd verkaufen 2025: Kompletter Leitfaden mit 7-Phasen-System für optimalen Verkaufspreis. Plattformvergleich (eHorses vs. pferde.de), professionelle KI-Bewertung ab ${PRICING_FORMATTED.current}, rechtliche Checklisten & Verkaufsstrategien für Privatverkäufer.`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
         <meta name="keywords" content="pferd verkaufen, pferd zu verkaufen, wie viel ist mein pferd wert, pferdewert ermitteln, pferd verkaufen preis, pferd verkaufen plattformen, pferd schnell verkaufen, pferd online verkaufen" />
 
         {/* Open Graph */}

@@ -116,14 +116,14 @@ export default function DressurpferdKaufen() {
         <title>Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung</title>
         <meta name="description" content="Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/dressurpferd-kaufen" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Dressurpferd kaufen: Der ultimative Ratgeber 2025" />
         <meta property="og:description" content="Erfahre alles über Preise, Qualität & Kaufquellen für Dressurpferde. Von A-Niveau bis Grand Prix. Mit KI-gestützter Bewertung in 2 Minuten." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://www.pferdewert.de/pferde-ratgeber/dressurpferd-kaufen" />
-        <meta property="og:image" content="https://www.pferdewert.de/images/ratgeber/dressage-horse-training-arena.webp" />
+        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen" />
+        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/dressage-horse-training-arena.webp" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -141,22 +141,22 @@ export default function DressurpferdKaufen() {
               description: 'Umfassender Ratgeber zum Kauf von Dressurpferden: Preisgestaltung nach Ausbildungsstand, Qualitätskriterien, Rasseauswahl, Kaufquellen und rechtliche Absicherung.',
               image: {
                 '@type': 'ImageObject',
-                url: 'https://www.pferdewert.de/images/ratgeber/dressage-horse-training-arena.webp',
+                url: 'https://pferdewert.de/images/ratgeber/dressage-horse-training-arena.webp',
                 width: 1200,
                 height: 630
               },
               author: {
                 '@type': 'Organization',
                 name: 'PferdeWert',
-                url: 'https://www.pferdewert.de'
+                url: 'https://pferdewert.de'
               },
               publisher: {
                 '@type': 'Organization',
                 name: 'PferdeWert',
-                url: 'https://www.pferdewert.de',
+                url: 'https://pferdewert.de',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://www.pferdewert.de/images/logo.png',
+                  url: 'https://pferdewert.de/images/logo.png',
                   width: 600,
                   height: 60
                 }
@@ -165,7 +165,7 @@ export default function DressurpferdKaufen() {
               dateModified: '2025-11-09',
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': 'https://www.pferdewert.de/pferde-ratgeber/dressurpferd-kaufen'
+                '@id': 'https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen'
               },
               articleSection: 'Pferdekauf',
               keywords: ['Dressurpferd kaufen', 'Dressurpferd Preis', 'M-fertig Dressurpferd', 'S Dressurpferd', 'Grand Prix Dressurpferd', 'Dressurpferd vom Züchter', 'Ankaufsuntersuchung', 'Dressurpferderassen'],
@@ -188,19 +188,19 @@ export default function DressurpferdKaufen() {
                   '@type': 'ListItem',
                   position: 1,
                   name: 'Home',
-                  item: 'https://www.pferdewert.de'
+                  item: 'https://pferdewert.de'
                 },
                 {
                   '@type': 'ListItem',
                   position: 2,
                   name: 'Pferde-Ratgeber',
-                  item: 'https://www.pferdewert.de/pferde-ratgeber'
+                  item: 'https://pferdewert.de/pferde-ratgeber'
                 },
                 {
                   '@type': 'ListItem',
                   position: 3,
                   name: 'Dressurpferd kaufen',
-                  item: 'https://www.pferdewert.de/pferde-ratgeber/dressurpferd-kaufen'
+                  item: 'https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen'
                 }
               ]
             })
