@@ -435,7 +435,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p><strong>Alter:</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
             <p><strong>Geschlecht:</strong> ${geschlecht || 'nicht angegeben'}</p>
             <p><strong>Stockmaß:</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
-            <p><strong>Haupteignung/Disziplin:</strong> ${doc.haupteignung || 'nicht angegeben'}</p>
+            <p><strong>Haupteignung/Disziplin:</strong> ${haupteignung || 'nicht angegeben'}</p>
             <p><strong>Ausbildungsstand:</strong> ${ausbildung || 'nicht angegeben'}</p>
 
             <hr style="margin: 20px 0; border: 1px solid #eee;">
@@ -444,9 +444,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             <p><strong>Abstammung:</strong> ${abstammung || 'nicht angegeben'}</p>
             <p><strong>Turniererfahrung/Erfolge:</strong> ${erfolge || 'nicht angegeben'}</p>
-            <p><strong>Charakter & Rittigkeit:</strong> ${doc.charakter || 'nicht angegeben'}</p>
+            <p><strong>Charakter & Rittigkeit:</strong> ${charakter || 'nicht angegeben'}</p>
             <p><strong>Gesundheit/AKU:</strong> ${aku || 'nicht angegeben'}</p>
-            <p><strong>Besonderheiten:</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
+            <p><strong>Besonderheiten:</strong> ${besonderheiten || 'nicht angegeben'}</p>
             <p><strong>Land:</strong> ${land || 'nicht angegeben'}</p>
             <p><strong>Standort:</strong> ${standort || 'nicht angegeben'}</p>
             <p><strong>Wie aufmerksam geworden:</strong> ${marketingQuelle}</p>
