@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { Globe } from 'lucide-react';
 import { getAvailableCountries, getCountryFromPath } from '@/lib/countries';
-import { useMemo, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -13,11 +12,6 @@ import {
 interface CountrySwitcherProps {
   variant?: 'mobile' | 'desktop';
 }
-
-// ============================================================================
-// FAST REFRESH FIX: Define Globe icon at module level to prevent recreation
-// ============================================================================
-const GlobeIcon = () => <Globe className="h-4 w-4" />;
 
 /**
  * Country Switcher Component - Radix UI Dropdown
@@ -31,18 +25,9 @@ const GlobeIcon = () => <Globe className="h-4 w-4" />;
 export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcherProps) {
   const router = useRouter();
 
-  // FAST REFRESH FIX: Memoize availableCountries to prevent new array creation on every render
-  const availableCountries = useMemo(() => getAvailableCountries(), []);
-
-  // FAST REFRESH FIX: Use useState with initializer to determine country only once on mount
-  // When we switch countries via window.location.href, the page reloads completely,
-  // so the component remounts with the new country
-  const [currentCountry] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return getCountryFromPath(window.location.pathname);
-    }
-    return getCountryFromPath(router.pathname);
-  });
+  // FAST REFRESH FIX: Derive currentCountry directly from router.pathname
+  // No state or useMemo needed - router.pathname is stable and only changes on navigation
+  const currentCountry = getCountryFromPath(router.pathname);
 
   const handleCountrySwitch = (targetUrlPrefix: string) => {
     if (typeof window === 'undefined') return;
@@ -75,6 +60,9 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
     window.location.href = newPath + currentSearch;
   };
 
+  // Get available countries once
+  const availableCountries = getAvailableCountries();
+
   // Both Mobile & Desktop use the same Radix UI Dropdown
   return (
     <DropdownMenu>
@@ -84,7 +72,7 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
           size="sm"
           className={variant === 'mobile' ? 'gap-1.5 px-2 h-8' : 'gap-2'}
         >
-          <GlobeIcon />
+          <Globe className="h-4 w-4" />
           <span className={variant === 'mobile' ? 'text-xs font-semibold' : 'font-semibold'} suppressHydrationWarning>
             {currentCountry.code}
           </span>
