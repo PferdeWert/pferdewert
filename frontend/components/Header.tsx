@@ -3,9 +3,32 @@
 import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import LocalizedLink from "@/components/LocalizedLink"
+import CountrySwitcher from "@/components/CountrySwitcher"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+
+// ============================================================================
+// FAST REFRESH FIX: Define icons at module level to prevent recreation
+// ============================================================================
+const menuIcon = <Menu className="h-6 w-6" />
+const closeIcon = <X className="h-6 w-6" />
+const chevronDownIcon = <ChevronDown className="w-4 h-4" />
+const chevronDownIconMobile = <ChevronDown className="w-4 h-4 text-gray-500" />
+
+// ============================================================================
+// FAST REFRESH FIX: Define style objects at module level to prevent recreation
+// ============================================================================
+const mobileMenuStyle = {
+  maxHeight: 'calc(100vh - 4rem)'
+} as const
 
 // ============================================================================
 // STABLE NAVIGATION ITEMS - Outside component to prevent recreation
@@ -40,8 +63,6 @@ const NAVIGATION_ITEMS: NavItem[] = [
 
 export default function HeaderUnified() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
   const router = useRouter()
 
   const toggleMenu = () => {
@@ -50,13 +71,6 @@ export default function HeaderUnified() {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
-    setMobileExpandedSection(null)
-  }
-
-  const toggleMobileSection = (sectionLabel: string) => {
-    setMobileExpandedSection(
-      mobileExpandedSection === sectionLabel ? null : sectionLabel
-    )
   }
 
   // Body scroll lock für Mobile-Menü
@@ -76,7 +90,6 @@ export default function HeaderUnified() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMenuOpen(false)
-        setActiveDropdown(null)
       }
     }
     document.addEventListener('keydown', handleEscape)
@@ -84,21 +97,23 @@ export default function HeaderUnified() {
   }, [])
 
   // FAST REFRESH FIX: Memoize breadcrumb items to prevent recreation on every render
-  // Without useMemo, getBreadcrumbItems() returns a new array reference on every render,
-  // triggering Fast Refresh to detect changes even when the content is identical
+  // CRITICAL: Must also memoize the objects inside the array, not just the array itself
+  // Without deep memoization, new object references trigger Fast Refresh loops
   const breadcrumbItems = useMemo(() => {
     const path = router.pathname
-    const items = []
+    const items: Array<{ label: string; href?: string; current?: boolean }> = []
 
     // Finde aktuelle Navigation
     for (const navItem of NAVIGATION_ITEMS) {
       if (path.startsWith(navItem.href)) {
+        // FAST REFRESH FIX: Create object once per path change, not on every render
         items.push({ label: navItem.label, href: navItem.href })
 
         // Finde Sub-Item
         if (navItem.dropdown) {
           const subItem = navItem.dropdown.find(item => path === item.href)
           if (subItem) {
+            // FAST REFRESH FIX: Create object once per path change
             items.push({ label: subItem.label, current: true })
           }
         }
@@ -132,44 +147,43 @@ export default function HeaderUnified() {
             {/* Desktop Navigation mit Dropdowns */}
             <nav className="flex items-center space-x-8">
               {NAVIGATION_ITEMS.map((item) => (
-                <div
-                  key={item.href}
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <LocalizedLink
-                    href={item.href}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
-                  >
-                    <span>{item.label}</span>
-                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                  </LocalizedLink>
-
-                  {/* Dropdown Menu */}
-                  {item.dropdown && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-200">
+                item.dropdown ? (
+                  <DropdownMenu key={item.href}>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2 px-0 h-auto"
+                      >
+                        <span>{item.label}</span>
+                        {chevronDownIcon}
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-64">
                       {item.dropdown.map((subItem) => (
-                        <LocalizedLink
-                          key={subItem.href}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-brand-brown transition-colors"
-                        >
-                          {subItem.label}
-                        </LocalizedLink>
+                        <DropdownMenuItem key={subItem.href} asChild>
+                          <LocalizedLink
+                            href={subItem.href}
+                            className="cursor-pointer"
+                          >
+                            {subItem.label}
+                          </LocalizedLink>
+                        </DropdownMenuItem>
                       ))}
-                    </div>
-                  )}
-                </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <LocalizedLink
+                    key={item.href}
+                    href={item.href}
+                    className="text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
+                  >
+                    {item.label}
+                  </LocalizedLink>
+                )
               ))}
 
-              {/* Desktop CTAs */}
-              <LocalizedLink
-                href="/beispiel-analyse"
-                className="border border-brand-brown text-brand-brown px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors font-medium"
-              >
-                Beispiel-Analyse
-              </LocalizedLink>
+              {/* Desktop: Country Switcher + CTA */}
+              <CountrySwitcher variant="desktop" />
               <LocalizedLink
                 href="/pferde-preis-berechnen"
                 className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
@@ -180,11 +194,22 @@ export default function HeaderUnified() {
           </div>
         </div>
 
-        {/* Mobile Header - Neue Struktur */}
+        {/* Mobile Header - Best Practice Layout */}
         <div className="md:hidden">
-          <div className="w-full px-4 h-16 flex items-center justify-between">
+          <div className="w-full px-4 h-16 flex items-center justify-between gap-2">
+            {/* Mobile Menu Button - Links (Standard) */}
+            <button
+              className="p-2 text-gray-700 hover:text-brand-brown transition-colors -ml-2"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+            >
+              {isMenuOpen ? closeIcon : menuIcon}
+            </button>
+
             {/* Logo ohne Text */}
-            <LocalizedLink href="/" className="flex items-center">
+            <LocalizedLink href="/" className="flex items-center -ml-2">
               <Image
                 src="/favicon.svg"
                 alt="PferdeWert"
@@ -197,25 +222,13 @@ export default function HeaderUnified() {
             {/* Zentraler Main CTA */}
             <LocalizedLink
               href="/pferde-preis-berechnen"
-              className="bg-brand-brown hover:bg-brand-brownDark text-white px-6 py-2 rounded-lg transition-colors font-medium text-sm"
+              className="bg-brand-brown hover:bg-brand-brownDark text-white px-5 py-2 rounded-lg transition-colors font-medium text-sm flex-shrink-0"
             >
               Pferd bewerten
             </LocalizedLink>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="p-2 text-gray-700 hover:text-brand-brown transition-colors"
-              onClick={toggleMenu}
-              aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+            {/* Country Switcher - Rechts (Standard Position) */}
+            <CountrySwitcher variant="mobile" />
           </div>
 
           {/* Mobile Breadcrumb Navigation */}
@@ -235,90 +248,62 @@ export default function HeaderUnified() {
         />
       )}
 
-      {/* Mobile Menu - Kompakte Variante */}
-      <div
-        id="mobile-menu"
-        className={`md:hidden fixed top-16 right-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-bl-lg transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        style={{
-          visibility: isMenuOpen ? 'visible' : 'hidden',
-          pointerEvents: isMenuOpen ? 'auto' : 'none',
-          maxHeight: 'calc(100vh - 4rem)'
-        }}
-      >
-        <nav className="h-full flex flex-col">
-          {/* Navigation Links mit Progressive Disclosure */}
-          <div className="flex-1 overflow-y-auto px-4 py-6">
-            {NAVIGATION_ITEMS.map((item) => (
-              <div key={item.href} className="mb-3">
-                {item.dropdown ? (
-                  // Kategorie mit Dropdown - aufklappbar
-                  <div>
-                    <div className="w-full flex items-center justify-between py-3">
-                      <LocalizedLink
-                        href={item.href}
-                        className="flex-1 text-gray-900 font-medium text-base"
-                        onClick={closeMenu}
-                      >
-                        {item.label}
-                      </LocalizedLink>
-                      <button
-                        className="p-1 text-gray-700 hover:text-brand-brown"
-                        onClick={() => toggleMobileSection(item.label)}
-                        aria-expanded={mobileExpandedSection === item.label}
-                        aria-label={`${item.label} Untermenü ${mobileExpandedSection === item.label ? 'schließen' : 'öffnen'}`}
-                      >
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            mobileExpandedSection === item.label ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                    </div>
-
-                    {/* Aufklappbarer Bereich */}
-                    {mobileExpandedSection === item.label && (
-                      <div className="ml-4 space-y-1 mt-2 pb-2">
-                        {item.dropdown.map((subItem) => (
-                          <LocalizedLink
-                            key={subItem.href}
-                            href={subItem.href}
-                            className="block text-gray-600 hover:text-brand-brown py-1 text-sm"
-                            onClick={closeMenu}
+      {/* Mobile Menu - Von links aufgehend */}
+      {isMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden fixed top-16 left-0 w-80 max-w-[85vw] bg-white z-50 shadow-xl rounded-br-lg transform transition-transform duration-300 ease-in-out translate-x-0"
+          style={mobileMenuStyle}
+        >
+          <nav className="h-full flex flex-col">
+            {/* Navigation Links mit Progressive Disclosure */}
+            <div className="flex-1 overflow-y-auto px-3 py-4">
+              {NAVIGATION_ITEMS.map((item, index) => (
+                <div key={item.href} className={index > 0 ? 'border-t border-gray-100 pt-2' : ''}>
+                  {item.dropdown ? (
+                    // Kategorie mit Dropdown - Radix UI
+                    <div className="mb-2">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            className="w-full justify-between text-gray-900 font-semibold text-base py-3.5 px-3 h-auto hover:bg-gray-50"
                           >
-                            {subItem.label}
-                          </LocalizedLink>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  // Direkter Link (Über uns)
-                  <LocalizedLink
-                    href={item.href}
-                    className="block text-gray-900 font-medium py-3 text-base"
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </LocalizedLink>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Secondary CTA am unteren Rand */}
-          <div className="border-t border-gray-200 p-4 bg-gray-50 rounded-bl-lg">
-            <LocalizedLink
-              href="/beispiel-analyse"
-              className="block w-full text-center border-2 border-brand-brown text-brand-brown px-4 py-2.5 rounded-lg hover:bg-amber-50 transition-colors font-medium text-sm"
-              onClick={closeMenu}
-            >
-              Beispiel-Analyse
-            </LocalizedLink>
-          </div>
-        </nav>
-      </div>
+                            <span>{item.label}</span>
+                            {chevronDownIconMobile}
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start" className="w-72">
+                          {item.dropdown.map((subItem) => (
+                            <DropdownMenuItem key={subItem.href} asChild>
+                              <LocalizedLink
+                                href={subItem.href}
+                                className="cursor-pointer"
+                                onClick={closeMenu}
+                              >
+                                {subItem.label}
+                              </LocalizedLink>
+                            </DropdownMenuItem>
+                          ))}
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                  ) : (
+                    // Direkter Link (Über uns)
+                    <LocalizedLink
+                      href={item.href}
+                      className="block text-gray-900 font-semibold py-3.5 px-3 text-base hover:bg-gray-50 rounded-lg transition-colors duration-150 mb-2"
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </LocalizedLink>
+                  )}
+                </div>
+              ))}
+            </div>
+          </nav>
+        </div>
+      )}
     </>
   )
 }

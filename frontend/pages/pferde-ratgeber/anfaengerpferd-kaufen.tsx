@@ -1,4 +1,4 @@
-import { useCountryConfig } from '@/hooks/useCountryConfig'
+import LocalizedLink from '@/components/LocalizedLink'
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
@@ -9,7 +9,7 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Clock, User, CheckCircle, ShieldCheck, Award } from 'lucide-react';
-import Link from 'next/link';
+;
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -246,11 +246,10 @@ const weitereVersicherungenData = [
 
 export default function AnfaengerpferdKaufen() {
 
-  const { getLocalizedPath } = useCountryConfig();
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
-    href: getLocalizedPath('/pferde-preis-berechnen'),
+    href: "/pferde-preis-berechnen",
     icon: sparklesIcon
   };
 
@@ -1174,9 +1173,9 @@ export default function AnfaengerpferdKaufen() {
                 <p className="text-blue-800 mb-4">
                   Verwende eine professionelle Vertragvorlage, um nichts zu vergessen:
                 </p>
-                <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold underline">
+                <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold underline">
                   Zum Pferdekaufvertrag-Ratgeber mit kostenloser Vorlage →
-                </Link>
+                </LocalizedLink>
               </div>
             </section>
 

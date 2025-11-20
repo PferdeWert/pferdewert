@@ -1,4 +1,4 @@
-import { useCountryConfig } from '@/hooks/useCountryConfig'
+import LocalizedLink from '@/components/LocalizedLink'
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
@@ -9,7 +9,7 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck, Clock, User } from 'lucide-react';
-import Link from 'next/link';
+;
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -26,11 +26,10 @@ const heroMetaItems = [
 
 export default function DressurpferdKaufen() {
 
-  const { getLocalizedPath } = useCountryConfig();
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
-    href: getLocalizedPath('/pferde-preis-berechnen'),
+    href: "/pferde-preis-berechnen",
     icon: sparklesIcon
   };
 
@@ -243,7 +242,7 @@ export default function DressurpferdKaufen() {
               Du möchtest ein <strong>Dressurpferd kaufen</strong>, bist dir aber unsicher, wo du anfangen sollst? Der Kauf eines Dressurpferdes ist eine bedeutende Entscheidung – sowohl emotional als auch finanziell. Mit über 2.400 monatlichen Suchanfragen allein in Deutschland zeigt sich das enorme Interesse am Dressurreitsport. Doch der Markt ist vielfältig: Vom Jungpferd mit Potenzial bis zum ausgebildeten Grand Prix-Pferd reicht das Angebot.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Viele Käufer, die ein <strong>Dressurpferd kaufen</strong> möchten, sind unsicher bezüglich der richtigen Preiseinschätzung, der Qualitätskriterien und der passenden Kaufquelle. Ein übereilter Kauf kann zu Enttäuschungen, gesundheitlichen Problemen oder hohen Folgekosten führen. In diesem umfassenden Ratgeber erfährst du alles Wichtige: Von der Preisgestaltung nach Ausbildungsstand über Qualitätskriterien bis zur Auswahl der richtigen Kaufquelle. Eine objektive Bewertung ist dabei entscheidend – genau hier setzt PferdeWert mit seiner KI-gestützten Analyse an. Für einen umfassenden Überblick über den gesamten Pferdekauf-Prozess lies auch unseren <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</Link>.
+              Viele Käufer, die ein <strong>Dressurpferd kaufen</strong> möchten, sind unsicher bezüglich der richtigen Preiseinschätzung, der Qualitätskriterien und der passenden Kaufquelle. Ein übereilter Kauf kann zu Enttäuschungen, gesundheitlichen Problemen oder hohen Folgekosten führen. In diesem umfassenden Ratgeber erfährst du alles Wichtige: Von der Preisgestaltung nach Ausbildungsstand über Qualitätskriterien bis zur Auswahl der richtigen Kaufquelle. Eine objektive Bewertung ist dabei entscheidend – genau hier setzt PferdeWert mit seiner KI-gestützten Analyse an. Für einen umfassenden Überblick über den gesamten Pferdekauf-Prozess lies auch unseren <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</LocalizedLink>.
             </p>
           </section>
 
@@ -259,7 +258,7 @@ export default function DressurpferdKaufen() {
               Grundsätzlich gilt: Je höher der Ausbildungsstand, desto höher der Preis. Ein junges, unausgebildetes Pferd mit vielversprechender Abstammung kostet zwischen 8.000 und 15.000 EUR. <strong>M-fertige Dressurpferde</strong> liegen im Bereich von 20.000 bis 40.000 EUR, während hochausgebildete S-Dressurpferde 40.000 bis 80.000 EUR kosten können. <strong>Grand Prix Dressurpferde kaufen</strong> bedeutet eine Investition von mindestens 80.000 EUR aufwärts – Spitzenpferde können auch sechsstellige Summen erreichen.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Neben dem reinen Kaufpreis solltest du Zusatzkosten einplanen: Die Ankaufsuntersuchung (AKU) kostet zwischen 300 und 1.500 EUR je nach Umfang. Hinzu kommen Transportkosten, erste Ausstattung und gegebenenfalls Einstallungskosten. Langfristig sind die monatlichen Unterhaltungskosten (Pension, Futter, Hufschmied, Tierarzt) oft höher als die anfängliche Investition. Eine <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd")} className="text-brand hover:text-brand-dark underline">detaillierte Kostenübersicht aller laufenden Ausgaben</Link> hilft dir bei der realistischen Budgetplanung.
+              Neben dem reinen Kaufpreis solltest du Zusatzkosten einplanen: Die Ankaufsuntersuchung (AKU) kostet zwischen 300 und 1.500 EUR je nach Umfang. Hinzu kommen Transportkosten, erste Ausstattung und gegebenenfalls Einstallungskosten. Langfristig sind die monatlichen Unterhaltungskosten (Pension, Futter, Hufschmied, Tierarzt) oft höher als die anfängliche Investition. Eine <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">detaillierte Kostenübersicht aller laufenden Ausgaben</LocalizedLink> hilft dir bei der realistischen Budgetplanung.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -292,13 +291,13 @@ export default function DressurpferdKaufen() {
             <p className="text-base text-gray-700 mb-4">
               Unsicher, ob der Preis fair ist? PferdeWerts KI-gestützte Analyse vergleicht das Pferd mit aktuellen Marktpreisen und liefert dir eine fundierte Einschätzung – objektiv und unabhängig.
             </p>
-            <Link
-              href={getLocalizedPath("/pferde-preis-berechnen")}
+            <LocalizedLink
+               href="/pferde-preis-berechnen"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Jetzt Pferdewert berechnen
               <TrendingUp className="w-4 h-4 ml-2" />
-            </Link>
+            </LocalizedLink>
           </RatgeberHighlightBox>
 
           {/* Section: Rassen */}
@@ -331,7 +330,7 @@ export default function DressurpferdKaufen() {
               </li>
             </ol>
             <p className="text-lg text-gray-700 leading-relaxed mt-6">
-              <strong>Hinweis:</strong> Die Anforderungen an ein Dressurpferd unterscheiden sich deutlich von denen anderer Disziplinen. Während Dressurpferde vor allem Bewegungsqualität und Ausdruckskraft benötigen, sind bei Springpferden andere Eigenschaften gefragt. Unser <Link href={getLocalizedPath("/pferde-ratgeber/springpferd-kaufen")} className="text-brand hover:text-brand-dark underline">Springpferd-Kaufratgeber</Link> zeigt die spezifischen Auswahlkriterien dieser Disziplin.
+              <strong>Hinweis:</strong> Die Anforderungen an ein Dressurpferd unterscheiden sich deutlich von denen anderer Disziplinen. Während Dressurpferde vor allem Bewegungsqualität und Ausdruckskraft benötigen, sind bei Springpferden andere Eigenschaften gefragt. Unser <LocalizedLink href="/pferde-ratgeber/springpferd-kaufen" className="text-brand hover:text-brand-dark underline">Springpferd-Kaufratgeber</LocalizedLink> zeigt die spezifischen Auswahlkriterien dieser Disziplin.
             </p>
           </section>
 
@@ -377,13 +376,13 @@ export default function DressurpferdKaufen() {
             <p className="text-base text-gray-700 mb-4">
               Eine professionelle Bewertung hilft dir, teure Fehlkäufe zu vermeiden. PferdeWerts KI-gestützte Analyse in 2 Minuten basiert auf objektiven Qualitätskriterien und ermöglicht den Vergleich mit aktuellen Marktpreisen.
             </p>
-            <Link
-              href={getLocalizedPath("/pferde-preis-berechnen")}
+            <LocalizedLink
+               href="/pferde-preis-berechnen"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Jetzt Qualität bewerten lassen
               <Sparkles className="w-4 h-4 ml-2" />
-            </Link>
+            </LocalizedLink>
           </RatgeberHighlightBox>
 
           {/* Section: Kaufquellen */}
@@ -422,7 +421,7 @@ export default function DressurpferdKaufen() {
               Online-Plattformen: Die moderne Suche
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Online-Plattformen wie ehorses.de oder rimondo.com vereinen alle Verkäufertypen und sind ideal für die erste Suchphase. Hier findest du Züchter, Privatverkäufer und Händler an einem Ort. Unser <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-brand hover:text-brand-dark underline">umfassender Pferdemarkt-Guide</Link> zeigt dir die besten Plattformen und traditionellen Märkte für deine Suche.
+              Online-Plattformen wie ehorses.de oder rimondo.com vereinen alle Verkäufertypen und sind ideal für die erste Suchphase. Hier findest du Züchter, Privatverkäufer und Händler an einem Ort. Unser <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">umfassender Pferdemarkt-Guide</LocalizedLink> zeigt dir die besten Plattformen und traditionellen Märkte für deine Suche.
             </p>
           </section>
 
@@ -449,7 +448,7 @@ export default function DressurpferdKaufen() {
               <strong>Regionale Preisunterschiede</strong> sind minimal und eher angebotsabhängig als regional bedingt. Ein gutes Pferd kostet in Bayern ähnlich viel wie in NRW – Qualität hat überall ihren Preis.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Neben der regionalen Online-Suche lohnt sich auch der Besuch traditioneller Pferdemärkte. Hier kannst du Pferde live erleben und direkt mit Verkäufern sprechen. Der <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-brand hover:text-brand-dark underline">Pferdemarkt-Ratgeber</Link> zeigt dir Deutschlands größte Märkte mit über 200.000 Besuchern und einen kompletten Veranstaltungskalender.
+              Neben der regionalen Online-Suche lohnt sich auch der Besuch traditioneller Pferdemärkte. Hier kannst du Pferde live erleben und direkt mit Verkäufern sprechen. Der <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">Pferdemarkt-Ratgeber</LocalizedLink> zeigt dir Deutschlands größte Märkte mit über 200.000 Besuchern und einen kompletten Veranstaltungskalender.
             </p>
           </section>
 
@@ -459,21 +458,21 @@ export default function DressurpferdKaufen() {
               Was muss ich beim Pferdekauf beachten?
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die wichtigsten Aspekte, wenn du ein <strong>Dressurpferd kaufen</strong> möchtest, gehen über die bloße Auswahl des Pferdes hinaus. Rechtliche und praktische Vorkehrungen schützen dich vor bösen Überraschungen. Unser <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-brand hover:text-brand-dark underline">Pferdekauf-Ratgeber</Link> bietet eine umfassende Checkliste für den gesamten Kaufprozess.
+              Die wichtigsten Aspekte, wenn du ein <strong>Dressurpferd kaufen</strong> möchtest, gehen über die bloße Auswahl des Pferdes hinaus. Rechtliche und praktische Vorkehrungen schützen dich vor bösen Überraschungen. Unser <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">Pferdekauf-Ratgeber</LocalizedLink> bietet eine umfassende Checkliste für den gesamten Kaufprozess.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
               Die Ankaufsuntersuchung (AKU)
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die AKU ist deine wichtigste Absicherung gegen versteckte Gesundheitsmängel. In unserem <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand hover:text-brand-dark underline">detaillierten AKU-Ratgeber</Link> erfährst du alles über Ablauf, Bewertung und wie Befunde den Pferdewert beeinflussen.
+              Die AKU ist deine wichtigste Absicherung gegen versteckte Gesundheitsmängel. In unserem <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">detaillierten AKU-Ratgeber</LocalizedLink> erfährst du alles über Ablauf, Bewertung und wie Befunde den Pferdewert beeinflussen.
             </p>
             <ul className="space-y-4 text-lg text-gray-700">
               <li>
                 <strong>Kleine AKU (ca. 300-500 EUR)</strong>: Allgemeinuntersuchung, Herz-Kreislauf-Check, Atemwege, Bewegungsapparat, Augen. Sie reicht für günstige Freizeitpferde aus.
               </li>
               <li>
-                <strong>Große AKU (ca. 800-1.500 EUR)</strong>: Beinhaltet zusätzlich Röntgenbilder (meist 18 Standardaufnahmen), Blutuntersuchung, intensive Lahmheitsuntersuchung. Bei M-fertigen Pferden und höher solltest du immer die große AKU wählen. Eine <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd/kosten")} className="text-brand hover:text-brand-dark underline">detaillierte Kostenaufschlüsselung</Link> hilft dir bei der Budgetplanung.
+                <strong>Große AKU (ca. 800-1.500 EUR)</strong>: Beinhaltet zusätzlich Röntgenbilder (meist 18 Standardaufnahmen), Blutuntersuchung, intensive Lahmheitsuntersuchung. Bei M-fertigen Pferden und höher solltest du immer die große AKU wählen. Eine <LocalizedLink href="/pferde-ratgeber/aku-pferd/kosten" className="text-brand hover:text-brand-dark underline">detaillierte Kostenaufschlüsselung</LocalizedLink> hilft dir bei der Budgetplanung.
               </li>
             </ul>
 
@@ -496,13 +495,13 @@ export default function DressurpferdKaufen() {
             <p className="text-base text-gray-700 mb-4">
               Kaufvertrag, AKU, Versicherungen – diese Punkte solltest du nie überspringen. PferdeWert hilft dir zusätzlich mit einer objektiven Bewertung, um teure Fehlkäufe zu vermeiden.
             </p>
-            <Link
-              href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")}
+            <LocalizedLink
+               href="/pferde-ratgeber/pferdekaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Mehr zum Kaufvertrag
               <FileCheck className="w-4 h-4 ml-2" />
-            </Link>
+            </LocalizedLink>
           </RatgeberHighlightBox>
 
           {/* Section: Ausbildungsstand */}

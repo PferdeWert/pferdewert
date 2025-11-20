@@ -37,8 +37,14 @@ const DOMAIN = 'https://pferdewert.de';
 export function useSEO(): SEOConfig {
   const router = useRouter();
 
-  const config = useMemo(() => {
-    const pathname = router.asPath.split('?')[0]; // Remove query params
+  // FIX: Use router.asPath to get actual browser URL (not rewritten internal path)
+  // Next.js rewrites /at/* to /*, so router.pathname would always be / instead of /at
+  // Extract pathname without query string and hash to avoid Fast Refresh issues
+  const pathname = router.asPath.split('?')[0].split('#')[0];
+
+  // FAST REFRESH FIX: Compute all values in ONE useMemo to prevent intermediate re-renders
+  // Multiple useMemo calls can cause cascading updates
+  const config = useMemo<SEOConfig>(() => {
     const isAustria = pathname.startsWith('/at');
     const locale = isAustria ? 'de-AT' : 'de';
 
@@ -49,24 +55,26 @@ export function useSEO(): SEOConfig {
     const deUrl = `${DOMAIN}${basePath}`;
     const atUrl = `${DOMAIN}/at${basePath}`;
 
-    // Canonical always points to the current page (important!)
+    // Canonical always points to the current page
     const canonical = isAustria ? atUrl : deUrl;
 
     // Hreflang tags (tell Google about both versions)
     const hreflangTags: HreflangTag[] = [
-      { hreflang: 'de', href: deUrl },           // German version
-      { hreflang: 'de-AT', href: atUrl },        // Austrian version
-      { hreflang: 'x-default', href: deUrl },    // Default fallback (use DE as default)
+      { hreflang: 'de', href: deUrl },
+      { hreflang: 'de-AT', href: atUrl },
+      { hreflang: 'x-default', href: deUrl },
     ];
+
+    const ogLocale = isAustria ? 'de_AT' : 'de_DE';
 
     return {
       canonical,
       hreflangTags,
       locale: locale as 'de' | 'de-AT',
       isAustria,
-      ogLocale: (isAustria ? 'de_AT' : 'de_DE') as 'de_DE' | 'de_AT',
+      ogLocale: ogLocale as 'de_DE' | 'de_AT',
     };
-  }, [router.asPath]);
+  }, [pathname]); // Only depend on pathname, which is stable
 
   return config;
 }

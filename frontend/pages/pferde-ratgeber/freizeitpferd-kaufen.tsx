@@ -1,4 +1,4 @@
-import { useCountryConfig } from '@/hooks/useCountryConfig'
+import LocalizedLink from '@/components/LocalizedLink'
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
@@ -9,7 +9,7 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Award, ShieldCheck, TrendingUp, Clock, User } from 'lucide-react';
-import Link from 'next/link';
+;
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -27,11 +27,10 @@ const heroMetaItems = [
 
 export default function FreizeitpferdKaufen() {
 
-  const { getLocalizedPath } = useCountryConfig();
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
-    href: getLocalizedPath('/pferde-preis-berechnen'),
+    href: "/pferde-preis-berechnen",
     icon: sparklesIcon
   };
 
@@ -304,7 +303,7 @@ export default function FreizeitpferdKaufen() {
               Dein Traum vom eigenen Freizeitpferd rückt näher – aber wie findest du das richtige Pferd? Mit über 18.000 Angeboten im deutschsprachigen Raum ist die Auswahl riesig. Dieser Guide beantwortet alle deine Fragen zum <strong>Freizeitpferdkauf</strong>: Von den perfekten Rassen für Anfänger bis zur richtigen Gesundheitsprüfung.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Nach der Lektüre kennst du die wichtigsten Kriterien, erfährst welche Rassen optimal sind, erhältst eine detaillierte Kostenübersicht, und weißt, wie du dein Traumpferd sicher kaufst. Einen umfassenden Überblick über den gesamten Pferdekauf-Prozess findest du in unserem <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</Link>.
+              Nach der Lektüre kennst du die wichtigsten Kriterien, erfährst welche Rassen optimal sind, erhältst eine detaillierte Kostenübersicht, und weißt, wie du dein Traumpferd sicher kaufst. Einen umfassenden Überblick über den gesamten Pferdekauf-Prozess findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</LocalizedLink>.
             </p>
           </section>
 
@@ -422,7 +421,7 @@ export default function FreizeitpferdKaufen() {
               </table>
             </div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Das sind Durchschnittswerte. Ein krankes Pferd oder ein Senior kann 8.000€+ kosten. Plane also mit <strong>mindestens 450€ monatlich</strong>. Weitere Details zu allen Pferde-Kosten findest du in unserem Artikel <Link href={getLocalizedPath("/pferde-ratgeber/was-kostet-ein-pferd")} className="text-brand hover:text-brand-dark underline">Was kostet ein Pferd</Link>.
+              Das sind Durchschnittswerte. Ein krankes Pferd oder ein Senior kann 8.000€+ kosten. Plane also mit <strong>mindestens 450€ monatlich</strong>. Weitere Details zu allen Pferde-Kosten findest du in unserem Artikel <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">Was kostet ein Pferd</LocalizedLink>.
             </p>
           </section>
 
@@ -434,13 +433,13 @@ export default function FreizeitpferdKaufen() {
             <p className="text-base text-gray-700 mb-4">
               Unsicher, ob der Preis für dein Wunsch-Freizeitpferd angemessen ist? PferdeWerts KI-gestützte Analyse vergleicht das Pferd mit aktuellen Marktdaten und liefert dir eine objektive Einschätzung.
             </p>
-            <Link
-              href={getLocalizedPath("/pferde-preis-berechnen")}
+            <LocalizedLink
+               href="/pferde-preis-berechnen"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Jetzt Pferdewert berechnen
               {trendingUpIcon}
-            </Link>
+            </LocalizedLink>
           </RatgeberHighlightBox>
 
           {/* Section: Rassen */}
@@ -549,7 +548,7 @@ export default function FreizeitpferdKaufen() {
               <li><strong>Haflinger</strong> – Der Klassiker für Anfänger (Große Nachfrage)</li>
             </ol>
             <p className="text-lg text-gray-700 leading-relaxed mt-4">
-              <strong>Sportlich ambitioniert?</strong> Wenn du neben Freizeitreiten auch sportliche Ambitionen hast, findest du in unseren spezialisierten Ratgebern zum <Link href={getLocalizedPath("/pferde-ratgeber/springpferd-kaufen")} className="text-brand hover:text-brand-dark underline">Springpferd kaufen</Link> und <Link href={getLocalizedPath("/pferde-ratgeber/dressurpferd-kaufen")} className="text-brand hover:text-brand-dark underline">Dressurpferd kaufen</Link> detaillierte Informationen zu Auswahlkriterien und Preisen.
+              <strong>Sportlich ambitioniert?</strong> Wenn du neben Freizeitreiten auch sportliche Ambitionen hast, findest du in unseren spezialisierten Ratgebern zum <LocalizedLink href="/pferde-ratgeber/springpferd-kaufen" className="text-brand hover:text-brand-dark underline">Springpferd kaufen</LocalizedLink> und <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand hover:text-brand-dark underline">Dressurpferd kaufen</LocalizedLink> detaillierte Informationen zu Auswahlkriterien und Preisen.
             </p>
           </section>
 
@@ -714,7 +713,7 @@ export default function FreizeitpferdKaufen() {
               <strong>Mein Rat:</strong> Für dein erstes Freizeitpferd empfehle ich einen seriösen Händler oder eine etablierte Plattform. Die 20% mehr zahlst du mit Sicherheit zurück.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Einen detaillierten Überblick über Online-Plattformen, traditionelle Pferdemärkte und Veranstaltungskalender findest du in unserem <Link href={getLocalizedPath("/pferde-ratgeber/pferdemarkt")} className="text-brand hover:text-brand-dark underline">Pferdemarkt-Guide</Link>.
+              Einen detaillierten Überblick über Online-Plattformen, traditionelle Pferdemärkte und Veranstaltungskalender findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">Pferdemarkt-Guide</LocalizedLink>.
             </p>
           </section>
 
@@ -769,7 +768,7 @@ export default function FreizeitpferdKaufen() {
               </div>
             </div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere Details zur Ankaufsuntersuchung findest du in unserem umfassenden <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-brand hover:text-brand-dark underline">AKU-Ratgeber</Link>.
+              Weitere Details zur Ankaufsuntersuchung findest du in unserem umfassenden <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">AKU-Ratgeber</LocalizedLink>.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -799,13 +798,13 @@ export default function FreizeitpferdKaufen() {
             <p className="text-base text-gray-700 mb-4">
               Ein professioneller Kaufvertrag schützt dich vor bösen Überraschungen. Erfahre, welche 7 Punkte dein Pferdekaufvertrag enthalten muss.
             </p>
-            <Link
-              href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")}
+            <LocalizedLink
+               href="/pferde-ratgeber/pferdekaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Zum Kaufvertrag-Ratgeber
               {trendingUpIcon}
-            </Link>
+            </LocalizedLink>
           </RatgeberHighlightBox>
 
           {/* Section: Rechtliches */}
@@ -896,7 +895,7 @@ export default function FreizeitpferdKaufen() {
               <strong>Tipp:</strong> Lass die Ankaufsuntersuchung im Kaufvertrag dokumentieren. Wenn der Tierarzt nichts finden konnte und das Pferd später Probleme hat, schützt das dich rechtlich.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Detaillierte Informationen und kostenlose Vertragsvorlagen findest du in unserem <Link href={getLocalizedPath("/pferde-ratgeber/pferdekaufvertrag")} className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag-Ratgeber</Link>.
+              Detaillierte Informationen und kostenlose Vertragsvorlagen findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag-Ratgeber</LocalizedLink>.
             </p>
           </section>
 

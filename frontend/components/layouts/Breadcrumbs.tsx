@@ -4,7 +4,7 @@
  * Works in conjunction with BreadcrumbSchema for SEO
  */
 
-import Link from 'next/link';
+import LocalizedLink from '@/components/LocalizedLink';
 
 interface BreadcrumbItem {
   name: string;
@@ -79,12 +79,12 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                   {item.name}
                 </span>
               ) : (
-                <Link
+                <LocalizedLink
                   href={item.url}
                   className="hover:text-blue-600 transition-colors"
                 >
                   {item.name}
-                </Link>
+                </LocalizedLink>
               )}
             </li>
           );

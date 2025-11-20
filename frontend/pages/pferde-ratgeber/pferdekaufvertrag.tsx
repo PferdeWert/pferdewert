@@ -1,6 +1,6 @@
-import { useCountryConfig } from '@/hooks/useCountryConfig'
+import LocalizedLink from '@/components/LocalizedLink'
 import Head from 'next/head'
-import Link from 'next/link'
+
 import { useMemo, useCallback } from 'react'
 import Layout from '@/components/Layout'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
@@ -57,7 +57,6 @@ const faqItems = [
 
 export default function Pferdekaufvertrag() {
   
-  const { getLocalizedPath } = useCountryConfig();
 // Memoize icon to prevent Fast Refresh infinite loops
   const warningIcon = useMemo(
     () => <AlertTriangle className="w-5 h-5 text-brand-brown" />,
@@ -248,16 +247,16 @@ export default function Pferdekaufvertrag() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Ein Pferdekaufvertrag ist eine schriftliche Vereinbarung zwischen Käufer und Verkäufer, die alle Bedingungen eines Pferdeverkaufs dokumentiert. Er basiert auf den Regelungen des Bürgerlichen Gesetzbuchs (BGB) &ndash; konkret §433 (Kaufvertrag) und §437 (Mängelrechte). Damit fällt ein Pferd rechtlich unter allgemeine Kaufgesetze, nicht unter spezielle Pferdebestimmungen. Mehr über die grundlegenden Aspekte erfahren Sie in unserem Leitfaden zum{' '}
-              <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-blue-600 hover:underline">
+              <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
                 Pferdekauf
-              </Link>.
+              </LocalizedLink>.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Das bedeutet konkret: Ein Pferd ist juristisch ein &ldquo;bewegliches Gut&rdquo;, und die Regeln für seinen Verkauf unterscheiden sich nicht grundlegend vom Auto- oder Möbelverkauf. Der entscheidende Unterschied? Ein Pferd ist lebendig und kann nicht zurückgerufen werden wie defekte Ware. Sowohl beim{' '}
-              <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-blue-600 hover:underline">
+              <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
                 Pferdekauf
-              </Link>
+              </LocalizedLink>
               {' '}als auch beim Verkauf ist daher ein rechtssicherer Vertrag essentiell.
             </p>
 
@@ -267,9 +266,9 @@ export default function Pferdekaufvertrag() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Aus der Praxis mit über 50 dokumentierten Pferdekäufen zeigen sich die schwersten Fehler bei mündlichen Absprachen. Ein{' '}
-              <Link href={getLocalizedPath("/pferde-ratgeber/pferd-verkaufen")} className="text-blue-600 hover:underline">
+              <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
                 Verkäufer
-              </Link>
+              </LocalizedLink>
               {' '}sagt: &ldquo;Natürlich ist das Pferd ausgebildet.&rdquo; Der Käufer versteht: &ldquo;Springtraining auf 1,20m.&rdquo; Der Streit ist vorprogrammiert.
             </p>
 
@@ -281,9 +280,9 @@ export default function Pferdekaufvertrag() {
               <li className="flex items-start gap-3">
                 <span className="text-brand-brown font-bold">1.</span>
                 <span className="text-lg"><strong>Beweis:</strong> Alle Vereinbarungen sind dokumentiert und in einem Streitfall vor Gericht verwertbar. Dies ist besonders wichtig beim{' '}
-                  <Link href={getLocalizedPath("/pferde-ratgeber/pferd-verkaufen")} className="text-blue-600 hover:underline">
+                  <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
                     Pferdeverkauf
-                  </Link>
+                  </LocalizedLink>
                   {' '}oder Kauf.</span>
               </li>
               <li className="flex items-start gap-3">
@@ -293,9 +292,9 @@ export default function Pferdekaufvertrag() {
               <li className="flex items-start gap-3">
                 <span className="text-brand-brown font-bold">3.</span>
                 <span className="text-lg"><strong>Verjährung:</strong> Mängelrechte verjähren nach zwei Jahren &ndash; nur wenn sie schriftlich vereinbart sind. Als{' '}
-                  <Link href={getLocalizedPath("/pferde-ratgeber/pferd-kaufen")} className="text-blue-600 hover:underline">
+                  <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
                     Käufer
-                  </Link>
+                  </LocalizedLink>
                   {' '}solltest du diese Fristen kennen.</span>
               </li>
             </ul>
@@ -303,9 +302,9 @@ export default function Pferdekaufvertrag() {
             <RatgeberHighlightBox title="Praxis-Tipp: Rechtsanwalt hinzuziehen" icon={warningIcon}>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Unterschreibe niemals einen Vertrag, den du nicht vollständig verstanden hast. Nimm dir Zeit, oder lasse einen Rechtsanwalt drüberschauen &ndash; das kostet 150&ndash;300€ und spart dir später tausende. Dies gilt für{' '}
-                <Link href={getLocalizedPath("/pferde-ratgeber/pferd-verkaufen")} className="text-blue-600 hover:underline">
+                <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
                   Verkäufer und Käufer
-                </Link>
+                </LocalizedLink>
                 {' '}gleichermaßen.
               </p>
             </RatgeberHighlightBox>
@@ -320,9 +319,9 @@ export default function Pferdekaufvertrag() {
 
             <p className="text-lg text-gray-700 leading-relaxed">
               Ohne schriftlichen Vertrag passiert dies regelmäßig: Nach 3 Monaten lahmt das Pferd &rarr; Käufer sagt &ldquo;Das war nicht so, als ich es gekauft habe&rdquo; &rarr; Verkäufer sagt &ldquo;Du hast dich wohl getäuscht&rdquo;. Nach 6 Monaten versucht der Käufer, Rückgaberecht zu geltend machen &rarr; Keine schriftliche Gewährleistungsvereinbarung existiert &rarr; Gerichtsverfahren kostet mehr als das Pferd wert ist. Eine{' '}
-              <Link href={getLocalizedPath("/pferde-ratgeber/aku-pferd")} className="text-blue-600 hover:underline">
+              <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">
                 Ankaufsuntersuchung (AKU)
-              </Link>
+              </LocalizedLink>
               {' '}hätte viele dieser Probleme von vornherein vermieden.
             </p>
 

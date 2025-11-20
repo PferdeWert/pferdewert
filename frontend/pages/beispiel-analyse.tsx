@@ -1,9 +1,8 @@
 import Head from "next/head";
 import Layout from "@/components/Layout"; // Neu: Layout mit Footer
-import Link from "next/link";
+import LocalizedLink from "@/components/LocalizedLink";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
-import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 const markdown = `## Zusammenfassung
 
@@ -129,7 +128,6 @@ const jsonLd = {
 };
 
 export default function BeispielAnalyse() {
-  const { getLocalizedPath } = useCountryConfig();
   return (
     <Layout>
       <Head>
@@ -185,12 +183,12 @@ export default function BeispielAnalyse() {
         </div>
 
         <div className="not-prose mt-10 flex justify-center">
-          <Link
-            href={getLocalizedPath("/pferde-preis-berechnen")}
+          <LocalizedLink
+            href="/pferde-preis-berechnen"
             className="btn-primary"
           >
             Jetzt Pferdewert berechnen
-          </Link>
+          </LocalizedLink>
         </div>
       </BewertungLayout>
     </Layout>
