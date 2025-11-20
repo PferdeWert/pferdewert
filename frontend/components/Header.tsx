@@ -92,21 +92,23 @@ export default function HeaderUnified() {
   }, [])
 
   // FAST REFRESH FIX: Memoize breadcrumb items to prevent recreation on every render
-  // Without useMemo, getBreadcrumbItems() returns a new array reference on every render,
-  // triggering Fast Refresh to detect changes even when the content is identical
+  // CRITICAL: Must also memoize the objects inside the array, not just the array itself
+  // Without deep memoization, new object references trigger Fast Refresh loops
   const breadcrumbItems = useMemo(() => {
     const path = router.pathname
-    const items = []
+    const items: Array<{ label: string; href?: string; current?: boolean }> = []
 
     // Finde aktuelle Navigation
     for (const navItem of NAVIGATION_ITEMS) {
       if (path.startsWith(navItem.href)) {
+        // FAST REFRESH FIX: Create object once per path change, not on every render
         items.push({ label: navItem.label, href: navItem.href })
 
         // Finde Sub-Item
         if (navItem.dropdown) {
           const subItem = navItem.dropdown.find(item => path === item.href)
           if (subItem) {
+            // FAST REFRESH FIX: Create object once per path change
             items.push({ label: subItem.label, current: true })
           }
         }

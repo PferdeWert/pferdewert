@@ -47,9 +47,16 @@ export const COUNTRIES: Country[] = [
 
 /**
  * Get only enabled countries for display
+ * FAST REFRESH FIX: Cache the filtered array to prevent new array creation on every call
+ * Without caching, each call creates a new array reference causing Fast Refresh loops
  */
+let availableCountriesCache: Country[] | null = null;
+
 export function getAvailableCountries(): Country[] {
-  return COUNTRIES.filter(c => c.enabled);
+  if (!availableCountriesCache) {
+    availableCountriesCache = COUNTRIES.filter(c => c.enabled);
+  }
+  return availableCountriesCache;
 }
 
 /**

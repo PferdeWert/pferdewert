@@ -1,8 +1,8 @@
 // components/TestimonialsSection.tsx
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Star, CheckCircle, Instagram } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 
 export interface RealTestimonial {
   name: string;
@@ -134,13 +134,13 @@ export default function TestimonialsSection({
             </p>
           </div>
 
-          <Link
+          <LocalizedLink
             href={ctaHref}
             className="btn-primary text-lg px-8 py-4 inline-block"
             onClick={onCtaClick}
           >
             {ctaText}
-          </Link>
+          </LocalizedLink>
 
           <div className="mt-4">
             <p className="text-sm text-gray-600 flex items-center justify-center gap-2">

@@ -1,4 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useRouter } from 'next/router';
 
 interface CountryConfig {
   country: 'DE' | 'AT';
@@ -8,6 +9,15 @@ interface CountryConfig {
   getLocalizedPath: (path: string) => string;
 }
 
+// FAST REFRESH FIX: Define static data at module level to prevent recreation
+const LAND_OPTIONS = [
+  { value: "DE", label: "Deutschland" },
+  { value: "AT", label: "Österreich" }
+];
+
+const AUSBILDUNG_OPTIONS_AT = ["roh", "angeritten", "A", "L", "LP", "LM", "M", "S", "Sonstiges"];
+const AUSBILDUNG_OPTIONS_DE = ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"];
+
 /**
  * Custom hook for country-specific configuration
  * Detects locale from URL and returns country-specific options
@@ -16,14 +26,15 @@ interface CountryConfig {
  * const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
  */
 export function useCountryConfig(): CountryConfig {
-  const [isAustria, setIsAustria] = useState(false);
+  const router = useRouter();
 
-  // Client-side only locale detection to avoid hydration mismatch
-  useEffect(() => {
-    const pathname = window.location.pathname;
-    setIsAustria(pathname.startsWith('/at'));
-  }, []);
+  // FAST REFRESH FIX: Derive isAustria directly from router.pathname without state
+  // Eliminates useEffect and state updates that cause re-render loops
+  // This is stable because router.pathname only changes on actual navigation
+  const pathname = router.pathname;
+  const isAustria = pathname.startsWith('/at');
 
+  // FAST REFRESH FIX: Memoize config based on pathname to prevent recreation
   const config = useMemo(() => {
     const locale = isAustria ? 'de-AT' : 'de';
     const country = isAustria ? 'AT' : 'DE';
@@ -35,15 +46,10 @@ export function useCountryConfig(): CountryConfig {
       // Ausbildungsstand: AT ohne E-Level, aber mit LP/LM Zwischenstufen
       // LP = L mit fliegenden Galoppwechseln (in DE/CH erst ab M)
       // LM = L mit Seitengängen (beim Springen bis 130cm)
-      ausbildungOptions: isAustria
-        ? ["roh", "angeritten", "A", "L", "LP", "LM", "M", "S", "Sonstiges"]
-        : ["roh", "angeritten", "E", "A", "L", "M", "S", "Sonstiges"],
+      ausbildungOptions: isAustria ? AUSBILDUNG_OPTIONS_AT : AUSBILDUNG_OPTIONS_DE,
 
       // Land-Dropdown Options (ohne Flaggen - professioneller)
-      landOptions: [
-        { value: "DE", label: "Deutschland" },
-        { value: "AT", label: "Österreich" }
-      ],
+      landOptions: LAND_OPTIONS,
 
       // Helper: Localized path generator
       // Automatically adds /at/ prefix for Austrian version
@@ -55,7 +61,7 @@ export function useCountryConfig(): CountryConfig {
         return isAustria ? `/at${cleanPath}` : cleanPath;
       }
     };
-  }, [isAustria]);
+  }, [pathname, isAustria]); // Only recompute when pathname changes
 
   return config;
 }

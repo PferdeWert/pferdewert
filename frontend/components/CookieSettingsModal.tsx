@@ -3,7 +3,7 @@
 // GDPR-konform mit Opt-in, granularer Auswahl und Ablehnung
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import LocalizedLink from '@/components/LocalizedLink';
 import { info } from '@/lib/log';
 
 interface CookieSettingsModalProps {
@@ -232,13 +232,13 @@ export default function CookieSettingsModal({
 
           {/* Datenschutz Link */}
           <div className="mt-6 pt-6 border-t border-gray-200 text-center">
-            <Link
+            <LocalizedLink
               href="/datenschutz"
               className="text-sm text-brand-brown hover:underline focus:outline-none focus:ring-2 focus:ring-brand-brown rounded px-2 py-1 inline-block"
               aria-label="Zur Datenschutzerklärung"
             >
               Mehr in der Datenschutzerklärung →
-            </Link>
+            </LocalizedLink>
           </div>
         </div>
       </div>

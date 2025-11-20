@@ -413,37 +413,50 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             ? `${(session.amount_total / 100).toFixed(2)} €`
             : "unbekannt";
 
+          // Attribution Source deutsche Labels
+          const attributionLabels: Record<string, string> = {
+            "google_search": "Google Suche",
+            "instagram": "Instagram",
+            "facebook": "Facebook",
+            "recommendation": "Empfehlung",
+            "equestrian_forum": "Pferdeforum oder Community",
+            "other": "Andere Quelle"
+          };
+
+          const marketingQuelle = attributionSource
+            ? (attributionLabels[attributionSource] || attributionSource)
+            : "Unbekannt";
+
           // Create formatted HTML for form fields (without sensitive data in logs)
           const formularFelderHtml = `
-            <h3>📋 Eingabedaten des Kunden:</h3>
+            <h3>✅ Pflichtangaben:</h3>
 
-            <p><strong>Rasse (Pflicht):</strong> ${rasse || 'nicht angegeben'}</p>
-            <p><strong>Alter (Pflicht):</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
-            <p><strong>Geschlecht (Pflicht):</strong> ${geschlecht || 'nicht angegeben'}</p>
-            <p><strong>Stockmaß (Pflicht):</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
-            <p><strong>Abstammung (Pflicht):</strong> ${abstammung || 'nicht angegeben'}</p>
-            <p><strong>Ausbildungsstand (Pflicht):</strong> ${ausbildung || 'nicht angegeben'}</p>
-            <p><strong>Haupteignung (Pflicht):</strong> ${doc.haupteignung || 'nicht angegeben'}</p>
-
-            <hr style="margin: 20px 0; border: 1px solid #eee;">
-
-            <p><strong>Gesundheitsstatus/AKU (Optional):</strong> ${aku || 'nicht angegeben'}</p>
-            <p><strong>Erfolge (Optional):</strong> ${erfolge || 'nicht angegeben'}</p>
-            <p><strong>Standort (Optional):</strong> ${standort || 'nicht angegeben'}</p>
-            <p><strong>Land (Optional):</strong> ${land || 'nicht angegeben'}</p>
-            <p><strong>Charakter (Optional):</strong> ${doc.charakter || 'nicht angegeben'}</p>
-            <p><strong>Besonderheiten (Optional):</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
+            <p><strong>Rasse:</strong> ${rasse || 'nicht angegeben'}</p>
+            <p><strong>Alter:</strong> ${alter ? `${alter} Jahre` : 'nicht angegeben'}</p>
+            <p><strong>Geschlecht:</strong> ${geschlecht || 'nicht angegeben'}</p>
+            <p><strong>Stockmaß:</strong> ${stockmass ? `${stockmass} cm` : 'nicht angegeben'}</p>
+            <p><strong>Haupteignung/Disziplin:</strong> ${doc.haupteignung || 'nicht angegeben'}</p>
+            <p><strong>Ausbildungsstand:</strong> ${ausbildung || 'nicht angegeben'}</p>
 
             <hr style="margin: 20px 0; border: 1px solid #eee;">
 
-            <p><strong>📊 Marketing Quelle:</strong> ${attributionSource || 'nicht angegeben'}</p>
+            <h3>📝 Optional:</h3>
+
+            <p><strong>Abstammung:</strong> ${abstammung || 'nicht angegeben'}</p>
+            <p><strong>Turniererfahrung/Erfolge:</strong> ${erfolge || 'nicht angegeben'}</p>
+            <p><strong>Charakter & Rittigkeit:</strong> ${doc.charakter || 'nicht angegeben'}</p>
+            <p><strong>Gesundheit/AKU:</strong> ${aku || 'nicht angegeben'}</p>
+            <p><strong>Besonderheiten:</strong> ${doc.besonderheiten || 'nicht angegeben'}</p>
+            <p><strong>Land:</strong> ${land || 'nicht angegeben'}</p>
+            <p><strong>Standort:</strong> ${standort || 'nicht angegeben'}</p>
+            <p><strong>Wie aufmerksam geworden:</strong> ${marketingQuelle}</p>
           `;
 
           // Send admin notification email
           await resend.emails.send({
             from: "PferdeWert <kauf@pferdewert.de>",
             to: recipientEmails,
-            subject: `💰 Neuer Kauf auf PferdeWert.de`,
+            subject: `💰 Neuer Kauf: ${marketingQuelle}`,
             html: `
               <h2>🐴 Neue Zahlung bei PferdeWert.de!</h2>
               
