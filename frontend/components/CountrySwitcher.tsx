@@ -3,9 +3,59 @@ import { Globe, ChevronDown } from 'lucide-react';
 import { getAvailableCountries, getCountryFromPath } from '@/lib/countries';
 import { useMemo, useState, useRef, useEffect } from 'react';
 
-// FAST REFRESH FIX: Define icons at module level to prevent recreation
+// FAST REFRESH FIX: Define ALL icons at module level to prevent recreation
 const globeIcon = <Globe className="w-4 h-4" />;
-const chevronIcon = <ChevronDown className="w-3 h-3" />;
+const globeIconLarge = <Globe className="w-5 h-5 text-brand-brown" />;
+const chevronIconStatic = <ChevronDown className="w-3 h-3" />;
+
+// FAST REFRESH FIX: Define inline styles object at module level to prevent recreation
+const mobileBottomSheetStyles = {
+  __html: `
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  `
+};
+
+// FAST REFRESH FIX: Define all inline style objects at module level
+const portalContainerStyle = { top: 0, left: 0, right: 0, bottom: 0 };
+const backdropStyle = {
+  backdropFilter: 'blur(4px)',
+  animation: 'fadeIn 200ms ease-out',
+};
+const bottomSheetStyle = {
+  maxHeight: '85vh',
+  animation: 'slideUp 300ms cubic-bezier(0.32, 0.72, 0, 1)',
+};
+const scrollableListStyle = { maxHeight: 'calc(85vh - 120px)' };
+
+// FAST REFRESH FIX: Helper function to generate animation style (called once per country, not on every render)
+const getCountryButtonStyle = (index: number): React.CSSProperties => ({
+  animationDelay: `${index * 50}ms`,
+  animation: 'fadeInUp 300ms ease-out forwards',
+  opacity: 0,
+});
 
 interface CountrySwitcherProps {
   variant?: 'mobile' | 'desktop';
@@ -22,17 +72,15 @@ interface CountrySwitcherProps {
  */
 export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcherProps) {
   const router = useRouter();
-  const availableCountries = getAvailableCountries();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [currentPath, setCurrentPath] = useState('');
 
-  // Update current path on client side (to detect /at/ prefix)
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-  }, [router.asPath]); // Update when URL changes
+  // FAST REFRESH FIX: Use router.asPath which is stable and provided by Next.js
+  // Never read window.location.pathname directly as it causes Fast Refresh loops
+  const currentPath = router.asPath.split('?')[0]; // Remove query params
+
+  // FAST REFRESH FIX: Memoize availableCountries to prevent new array creation on every render
+  const availableCountries = useMemo(() => getAvailableCountries(), []);
 
   // Memoize current country to prevent Fast Refresh issues
   const currentCountry = useMemo(() =>
@@ -111,30 +159,26 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
           aria-expanded={isOpen}
         >
           {globeIcon}
-          <span className="text-xs font-medium">{currentCountry.code}</span>
-          <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+          <span className="text-xs font-medium" suppressHydrationWarning>{currentCountry.code}</span>
+          <span className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+            {chevronIconStatic}
+          </span>
         </button>
 
         {/* Mobile Bottom Sheet - Portal-style rendering */}
         {isOpen && (
-          <div className="fixed inset-0 z-[9999]" ref={dropdownRef} style={{ top: 0, left: 0, right: 0, bottom: 0 }}>
+          <div className="fixed inset-0 z-[9999]" ref={dropdownRef} style={portalContainerStyle}>
             {/* Backdrop with fade-in */}
             <div
               className="absolute inset-0 bg-black/40"
               onClick={() => setIsOpen(false)}
-              style={{
-                backdropFilter: 'blur(4px)',
-                animation: 'fadeIn 200ms ease-out',
-              }}
+              style={backdropStyle}
             />
 
             {/* Bottom Sheet with slide-up animation */}
             <div
               className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl"
-              style={{
-                maxHeight: '85vh',
-                animation: 'slideUp 300ms cubic-bezier(0.32, 0.72, 0, 1)',
-              }}
+              style={bottomSheetStyle}
             >
               {/* Drag Handle */}
               <div className="pt-3 pb-2">
@@ -144,13 +188,13 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
               {/* Header */}
               <div className="px-6 py-4 border-b border-gray-100">
                 <h3 className="text-base font-semibold text-gray-900 flex items-center space-x-2">
-                  <Globe className="w-5 h-5 text-brand-brown" />
+                  {globeIconLarge}
                   <span>Land wählen</span>
                 </h3>
               </div>
 
               {/* Country List - Scrollable */}
-              <div className="px-4 py-4 space-y-2 overflow-y-auto" style={{ maxHeight: 'calc(85vh - 120px)' }}>
+              <div className="px-4 py-4 space-y-2 overflow-y-auto" style={scrollableListStyle}>
                 {availableCountries.map((country, index) => (
                   <button
                     key={country.code}
@@ -160,11 +204,7 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
                         ? 'bg-brand-brown text-white shadow-lg shadow-brand-brown/20 scale-[1.02]'
                         : 'bg-gray-50 text-gray-900 hover:bg-amber-50 hover:shadow-md active:scale-[0.98]'
                     }`}
-                    style={{
-                      animationDelay: `${index * 50}ms`,
-                      animation: 'fadeInUp 300ms ease-out forwards',
-                      opacity: 0,
-                    }}
+                    style={getCountryButtonStyle(index)}
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-base">{country.name}</span>
@@ -184,35 +224,8 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
               <div className="h-6" />
             </div>
 
-            {/* Inline keyframe definitions */}
-            <style dangerouslySetInnerHTML={{
-              __html: `
-                @keyframes fadeIn {
-                  from { opacity: 0; }
-                  to { opacity: 1; }
-                }
-                @keyframes slideUp {
-                  from {
-                    transform: translateY(100%);
-                    opacity: 0;
-                  }
-                  to {
-                    transform: translateY(0);
-                    opacity: 1;
-                  }
-                }
-                @keyframes fadeInUp {
-                  from {
-                    opacity: 0;
-                    transform: translateY(10px);
-                  }
-                  to {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
-                }
-              `
-            }} />
+            {/* Keyframe definitions - module-level to prevent Fast Refresh loops */}
+            <style dangerouslySetInnerHTML={mobileBottomSheetStyles} />
           </div>
         )}
       </>
@@ -231,8 +244,8 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
         aria-expanded={isOpen}
       >
         {globeIcon}
-        <span className="text-sm font-medium">{currentCountry.code}</span>
-        {chevronIcon}
+        <span className="text-sm font-medium" suppressHydrationWarning>{currentCountry.code}</span>
+        {chevronIconStatic}
       </button>
 
       {/* Desktop Dropdown Menu */}
