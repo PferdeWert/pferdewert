@@ -106,28 +106,28 @@ export default function Pferdekaufvertrag() {
     '@type': 'Article',
     headline: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
     description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.',
-    url: 'https://www.pferdewert.de/pferde-ratgeber/pferdekaufvertrag',
+    url: 'https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag',
     datePublished: '2025-10-28T10:00:00+01:00',
     dateModified: '2025-10-28T10:00:00+01:00',
     author: {
       '@type': 'Person',
       name: 'PferdeWert.de Redaktion',
-      url: 'https://www.pferdewert.de'
+      url: 'https://pferdewert.de'
     },
     publisher: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
-      url: 'https://www.pferdewert.de',
+      url: 'https://pferdewert.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.pferdewert.de/logo.png',
+        url: 'https://pferdewert.de/logo.png',
         width: 600,
         height: 60
       }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://www.pferdewert.de/pferde-ratgeber/pferdekaufvertrag'
+      '@id': 'https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag'
     },
     articleSection: 'Pferde-Ratgeber',
     articleBody: 'Ein Pferdekaufvertrag ist nicht nur wichtig – er ist deine rechtliche Absicherung. Ohne ihn riskierst du erhebliche finanzielle Verluste und legale Komplikationen. Diese Anleitung zeigt dir Schritt für Schritt, welche sieben wesentlichen Komponenten in jeden Vertrag gehören, wie du private und gewerbliche Verkäufe unterscheidest, und wie du häufige Fehler vermeidest.',
@@ -151,19 +151,19 @@ export default function Pferdekaufvertrag() {
         '@type': 'ListItem',
         position: 1,
         name: 'PferdeWert',
-        item: 'https://www.pferdewert.de'
+        item: 'https://pferdewert.de'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://www.pferdewert.de/pferde-ratgeber'
+        item: 'https://pferdewert.de/pferde-ratgeber'
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Pferdekaufvertrag',
-        item: 'https://www.pferdewert.de/pferde-ratgeber/pferdekaufvertrag'
+        item: 'https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag'
       }
     ]
   }), [])

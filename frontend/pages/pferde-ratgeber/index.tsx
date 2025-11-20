@@ -63,7 +63,7 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
           content="Alle Pferde-Ratgeber auf einen Blick: AKU Pferd, Kosten, Klassen, Ablauf, Pferd kaufen & verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
         />
         <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung, Pferdegesundheit" />
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber" />
       </Head>
 
       <Header />

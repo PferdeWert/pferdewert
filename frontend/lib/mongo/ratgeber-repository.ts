@@ -14,7 +14,7 @@ import {
 } from '@/types/ratgeber';
 
 const COLLECTION_NAME = 'ratgeber_articles';
-const SITE_URL = 'https://www.pferdewert.de';
+const SITE_URL = 'https://pferdewert.de';
 
 /**
  * MongoDB document type - uses ObjectId for _id

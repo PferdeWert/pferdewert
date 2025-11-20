@@ -96,28 +96,28 @@ const ARTICLE_SCHEMA = {
     '@type': 'Article',
     headline: 'Was kostet ein Pferd? Pferd Kosten & Preis 2025 - Vollständige Übersicht',
     description: 'Pferd Kosten 2025: Anschaffung (2.500-20.000€) + monatliche Kosten (400-800€). Pferdepreise nach Rasse, Haltungsform, Versicherung & Tierarzt. Inkl. Budget-Szenarien.',
-    url: 'https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd',
+    url: 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd',
     datePublished: '2025-10-11T10:00:00+01:00',
     dateModified: '2025-10-25T10:00:00+01:00',
     author: {
       '@type': 'Person',
       name: 'PferdeWert Redaktion',
-      url: 'https://www.pferdewert.de'
+      url: 'https://pferdewert.de'
     },
     publisher: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
-      url: 'https://www.pferdewert.de',
+      url: 'https://pferdewert.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.pferdewert.de/logo.png',
+        url: 'https://pferdewert.de/logo.png',
         width: 600,
         height: 60
       }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd'
+      '@id': 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd'
     },
     articleSection: 'Pferde-Ratgeber',
     articleBody: 'Ein Pferd kostet in der Anschaffung zwischen 2.500€ und 20.000€, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen durchschnittlich bei 300-800€. Diese Preisspanne ist beträchtlich, und viele angehende Pferdebesitzer unterschätzen die tatsächlichen Gesamtkosten erheblich. Basierend auf über 1.000 Pferdebewertungen in der PferdeWert-Datenbank liegt der durchschnittliche Gesamtaufwand für ein Freizeitpferd in Deutschland bei 6.500€ - 12.000€ pro Jahr. Die wichtigsten Kostenpunkte umfassen Anschaffungskosten (2.500€ - 20.000€), monatliche Kosten (400€ - 800€), jährliche Fixkosten (1.500€ - 3.000€), versteckte Kosten (500€ - 2.000€/Jahr) und bei eigenem Stall eine Initialinvestition von 15.000€ - 50.000€.',
@@ -156,7 +156,7 @@ const ARTICLE_SCHEMA = {
       {
         '@type': 'Organization',
         name: 'PferdeWert.de',
-        url: 'https://www.pferdewert.de'
+        url: 'https://pferdewert.de'
       },
       {
         '@type': 'Organization',
@@ -175,19 +175,19 @@ const BREADCRUMB_SCHEMA = {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.pferdewert.de'
+        item: 'https://pferdewert.de'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Pferde-Ratgeber',
-        item: 'https://www.pferdewert.de/pferde-ratgeber'
+        item: 'https://pferdewert.de/pferde-ratgeber'
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Was kostet ein Pferd? Vollständige Kostenübersicht 2025',
-        item: 'https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd'
+        item: 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd'
       }
     ]
   }
@@ -219,7 +219,7 @@ export default function WasKostetEinPferd() {
         <meta name="robots" content="index, follow" />
         <link
           rel="canonical"
-          href="https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
+          href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
         />
 
         {/* Open Graph Tags */}
@@ -231,7 +231,7 @@ export default function WasKostetEinPferd() {
         <meta property="og:type" content="article" />
         <meta
           property="og:url"
-          content="https://www.pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
+          content="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
         />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />

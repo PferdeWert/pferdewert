@@ -14,7 +14,7 @@ interface SEOConfig {
   ogLocale: 'de_DE' | 'de_AT';
 }
 
-const DOMAIN = 'https://www.pferdewert.de';
+const DOMAIN = 'https://pferdewert.de';
 
 /**
  * Custom hook for SEO configuration with hreflang support

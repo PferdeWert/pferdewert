@@ -264,14 +264,14 @@ export default function AnfaengerpferdKaufen() {
         <meta name="description" content="Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar." />
         <meta name="keywords" content="anfängerpferd kaufen, anfängerpferd rassen, anfängerpferd alter, pferd für anfänger, erstes pferd kaufen" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen" />
+        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Anfängerpferd kaufen: Der ultimative Ratgeber 2025" />
         <meta property="og:description" content="Umfassender Guide zum Kauf eines Anfängerpferds: Rassen, Kosten, AKU, rechtliche Absicherung & Versicherungen. Jetzt informieren!" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://www.pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen" />
-        <meta property="og:image" content="https://www.pferdewert.de/images/ratgeber/anfaengerpferd-hero.webp" />
+        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen" />
+        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/anfaengerpferd-hero.webp" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -288,28 +288,28 @@ export default function AnfaengerpferdKaufen() {
               '@type': 'Article',
               headline: 'Anfängerpferd kaufen: Der ultimative Ratgeber für den sicheren Pferdekauf (2025)',
               description: 'Umfassender Guide zum Kauf eines Anfängerpferds: Von geeigneten Rassen über Kosten, Ankaufsuntersuchung bis zu rechtlichen Aspekten und Versicherungen.',
-              image: 'https://www.pferdewert.de/images/ratgeber/anfaengerpferd-hero.webp',
+              image: 'https://pferdewert.de/images/ratgeber/anfaengerpferd-hero.webp',
               author: {
                 '@type': 'Person',
                 name: 'PferdeWert.de Redaktion',
-                url: 'https://www.pferdewert.de/ueber-uns'
+                url: 'https://pferdewert.de/ueber-uns'
               },
               publisher: {
                 '@type': 'Organization',
                 name: 'PferdeWert.de',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://www.pferdewert.de/logo.png',
+                  url: 'https://pferdewert.de/logo.png',
                   width: 250,
                   height: 60
                 },
-                url: 'https://www.pferdewert.de'
+                url: 'https://pferdewert.de'
               },
               datePublished: '2025-01-14',
               dateModified: '2025-01-14',
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': 'https://www.pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen'
+                '@id': 'https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen'
               },
               articleSection: 'Ratgeber',
               keywords: 'anfängerpferd kaufen, pferd für anfänger, anfängerpferd rassen, erstes pferd, pferdekauf anfänger',
@@ -330,19 +330,19 @@ export default function AnfaengerpferdKaufen() {
                   '@type': 'ListItem',
                   position: 1,
                   name: 'Home',
-                  item: 'https://www.pferdewert.de'
+                  item: 'https://pferdewert.de'
                 },
                 {
                   '@type': 'ListItem',
                   position: 2,
                   name: 'Pferde-Ratgeber',
-                  item: 'https://www.pferdewert.de/pferde-ratgeber'
+                  item: 'https://pferdewert.de/pferde-ratgeber'
                 },
                 {
                   '@type': 'ListItem',
                   position: 3,
                   name: 'Anfängerpferd kaufen',
-                  item: 'https://www.pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen'
+                  item: 'https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen'
                 }
               ]
             })

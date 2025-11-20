@@ -28,7 +28,7 @@ export default function UeberUns() {
         <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
         <meta property="twitter:description" content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung." />
         <meta property="twitter:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
-        <link rel="canonical" href="https://www.pferdewert.de/ueber-pferdewert" />
+        <link rel="canonical" href="https://pferdewert.de/ueber-pferdewert" />
 
         {/* Schema.org Structured Data */}
         <script

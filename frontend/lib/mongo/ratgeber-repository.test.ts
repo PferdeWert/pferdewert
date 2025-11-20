@@ -113,7 +113,7 @@ describe('RatgeberRepository.createFromOutrank', () => {
   it('should set canonical URL correctly', async () => {
     const article = await repository.createFromOutrank(mockOutrankPayload);
 
-    expect(article.seo.canonical_url).toBe('https://www.pferdewert.de/pferde-ratgeber/pferdekauf-ultimativer-ratgeber');
+    expect(article.seo.canonical_url).toBe('https://pferdewert.de/pferde-ratgeber/pferdekauf-ultimativer-ratgeber');
   });
 });
 
