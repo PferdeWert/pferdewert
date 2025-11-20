@@ -152,7 +152,7 @@ export default function HeaderUnified() {
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center space-x-1 text-gray-700 hover:text-brand-brown font-medium transition-colors py-2 px-0 h-auto"
+                        className="flex items-center space-x-1 text-[15px] text-gray-700 hover:text-brand-brown font-medium transition-colors py-2 px-0 h-auto"
                       >
                         <span>{item.label}</span>
                         {chevronDownIcon}
@@ -175,7 +175,7 @@ export default function HeaderUnified() {
                   <LocalizedLink
                     key={item.href}
                     href={item.href}
-                    className="text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
+                    className="text-[15px] text-gray-700 hover:text-brand-brown font-medium transition-colors py-2"
                   >
                     {item.label}
                   </LocalizedLink>
@@ -186,7 +186,7 @@ export default function HeaderUnified() {
               <CountrySwitcher variant="desktop" />
               <LocalizedLink
                 href="/pferde-preis-berechnen"
-                className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors font-medium"
+                className="bg-brand-brown hover:bg-brand-brownDark text-white px-4 py-2 rounded-lg transition-colors text-[15px] font-medium"
               >
                 Jetzt bewerten
               </LocalizedLink>
