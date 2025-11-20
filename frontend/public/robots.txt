@@ -53,4 +53,4 @@ Allow: /at/pferde-ratgeber/springpferd-kaufen
 Allow: /at/pferde-ratgeber/dressurpferd-kaufen
 
 # Sitemap location
-Sitemap: https://www.pferdewert.de/sitemap.xml
+Sitemap: https://pferdewert.de/sitemap.xml
