@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import LocalizedLink from "@/components/LocalizedLink"
 import CountrySwitcher from "@/components/CountrySwitcher"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, BookOpen, Users, FileText, ShoppingBag, TrendingUp } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
 import {
@@ -21,7 +21,13 @@ import { Button } from "@/components/ui/button"
 const menuIcon = <Menu className="h-6 w-6" />
 const closeIcon = <X className="h-6 w-6" />
 const chevronDownIcon = <ChevronDown className="w-4 h-4" />
-const chevronDownIconMobile = <ChevronDown className="w-4 h-4 text-gray-500" />
+
+// Navigation Category Icons
+const ratgeberIcon = <BookOpen className="h-5 w-5" />
+const akuIcon = <FileText className="h-4 w-4" />
+const kaufenIcon = <ShoppingBag className="h-4 w-4" />
+const verkaufenIcon = <TrendingUp className="h-4 w-4" />
+const ueberUnsIcon = <Users className="h-5 w-5" />
 
 // ============================================================================
 // FAST REFRESH FIX: Define style objects at module level to prevent recreation
@@ -37,11 +43,15 @@ const mobileMenuStyle = {
 interface NavDropdownItem {
   label: string
   href: string
+  description?: string
+  icon?: React.ReactNode
 }
 
 interface NavItem {
   label: string
   href: string
+  description?: string
+  icon?: React.ReactNode
   dropdown?: NavDropdownItem[]
 }
 
@@ -49,20 +59,40 @@ const NAVIGATION_ITEMS: NavItem[] = [
   {
     label: "Ratgeber",
     href: "/pferde-ratgeber",
+    description: "Expertenwissen rund ums Pferd",
+    icon: ratgeberIcon,
     dropdown: [
-      { label: "AKU Pferd", href: "/pferde-ratgeber/aku-pferd" },
-      { label: "Pferd kaufen", href: "/pferde-ratgeber/pferd-kaufen" },
-      { label: "Pferd verkaufen", href: "/pferde-ratgeber/pferd-verkaufen" },
+      {
+        label: "AKU Pferd",
+        href: "/pferde-ratgeber/aku-pferd",
+        description: "Alles zur Ankaufsuntersuchung",
+        icon: akuIcon
+      },
+      {
+        label: "Pferd kaufen",
+        href: "/pferde-ratgeber/pferd-kaufen",
+        description: "Tipps für den Pferdekauf",
+        icon: kaufenIcon
+      },
+      {
+        label: "Pferd verkaufen",
+        href: "/pferde-ratgeber/pferd-verkaufen",
+        description: "Erfolgreich verkaufen",
+        icon: verkaufenIcon
+      },
     ]
   },
   {
     label: "Über uns",
     href: "/ueber-pferdewert",
+    description: "Erfahre mehr über PferdeWert",
+    icon: ueberUnsIcon,
   },
 ]
 
 export default function HeaderUnified() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
   const router = useRouter()
 
   const toggleMenu = () => {
@@ -71,6 +101,13 @@ export default function HeaderUnified() {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+    setMobileExpandedSection(null)
+  }
+
+  const toggleMobileSection = (sectionLabel: string) => {
+    setMobileExpandedSection(
+      mobileExpandedSection === sectionLabel ? null : sectionLabel
+    )
   }
 
   // Body scroll lock für Mobile-Menü
@@ -256,46 +293,98 @@ export default function HeaderUnified() {
           style={mobileMenuStyle}
         >
           <nav className="h-full flex flex-col">
-            {/* Navigation Links mit Progressive Disclosure */}
-            <div className="flex-1 overflow-y-auto px-3 py-4">
-              {NAVIGATION_ITEMS.map((item, index) => (
-                <div key={item.href} className={index > 0 ? 'border-t border-gray-100 pt-2' : ''}>
+            {/* Navigation Links - 2025 Best Practice: Card-based Accordion */}
+            <div className="flex-1 overflow-y-auto px-3 py-4 space-y-2">
+              {NAVIGATION_ITEMS.map((item) => (
+                <div key={item.href}>
                   {item.dropdown ? (
-                    // Kategorie mit Dropdown - Radix UI
-                    <div className="mb-2">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="ghost"
-                            className="w-full justify-between text-gray-900 font-semibold text-base py-3.5 px-3 h-auto hover:bg-gray-50"
-                          >
-                            <span>{item.label}</span>
-                            {chevronDownIconMobile}
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="start" className="w-72">
-                          {item.dropdown.map((subItem) => (
-                            <DropdownMenuItem key={subItem.href} asChild>
+                    // Accordion Section with inline expansion
+                    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
+                      {/* Accordion Header */}
+                      <button
+                        onClick={() => toggleMobileSection(item.label)}
+                        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-150"
+                        aria-expanded={mobileExpandedSection === item.label}
+                      >
+                        <div className="flex items-start gap-3 flex-1">
+                          {/* Icon */}
+                          <div className="mt-0.5 text-brand-brown flex-shrink-0">
+                            {item.icon}
+                          </div>
+                          {/* Text Content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-gray-900 text-base">
+                              {item.label}
+                            </div>
+                            <div className="text-xs text-gray-500 mt-0.5">
+                              {item.description}
+                            </div>
+                          </div>
+                        </div>
+                        {/* Chevron */}
+                        <ChevronDown
+                          className={`w-5 h-5 text-gray-400 transition-transform duration-200 flex-shrink-0 ml-2 ${
+                            mobileExpandedSection === item.label ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+
+                      {/* Accordion Content - Inline Expansion */}
+                      <div
+                        className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                          mobileExpandedSection === item.label
+                            ? 'max-h-96 opacity-100'
+                            : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <div className="px-4 pb-4 pt-2 bg-gray-50 border-t border-gray-100">
+                          <div className="space-y-1">
+                            {item.dropdown.map((subItem) => (
                               <LocalizedLink
+                                key={subItem.href}
                                 href={subItem.href}
-                                className="cursor-pointer"
                                 onClick={closeMenu}
+                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-150 group"
                               >
-                                {subItem.label}
+                                {/* Sub-item Icon */}
+                                <div className="mt-0.5 text-gray-400 group-hover:text-brand-brown transition-colors flex-shrink-0">
+                                  {subItem.icon}
+                                </div>
+                                {/* Sub-item Content */}
+                                <div className="flex-1 min-w-0">
+                                  <div className="font-medium text-gray-900 text-sm group-hover:text-brand-brown transition-colors">
+                                    {subItem.label}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {subItem.description}
+                                  </div>
+                                </div>
                               </LocalizedLink>
-                            </DropdownMenuItem>
-                          ))}
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   ) : (
-                    // Direkter Link (Über uns)
+                    // Direct Link Card (e.g., Über uns)
                     <LocalizedLink
                       href={item.href}
-                      className="block text-gray-900 font-semibold py-3.5 px-3 text-base hover:bg-gray-50 rounded-lg transition-colors duration-150 mb-2"
                       onClick={closeMenu}
+                      className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 hover:shadow-md transition-all duration-200 group"
                     >
-                      {item.label}
+                      {/* Icon */}
+                      <div className="text-brand-brown flex-shrink-0">
+                        {item.icon}
+                      </div>
+                      {/* Text Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="font-semibold text-gray-900 text-base group-hover:text-brand-brown transition-colors">
+                          {item.label}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-0.5">
+                          {item.description}
+                        </div>
+                      </div>
                     </LocalizedLink>
                   )}
                 </div>
