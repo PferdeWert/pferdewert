@@ -298,6 +298,7 @@ const SimpleCookieConsent = () => {
 
             // PRIMARY CTA: "Alle akzeptieren" - PferdeWert Brand Brown
             // Styles gemäß Brand Style Guide: bg-brand-brown (#92400e), text-white, px-8 py-4, rounded-lg, font-semibold
+            // UX BEST PRACTICE: order: 1 ensures this button appears FIRST (top on mobile)
             allowButton.style.cssText = `
               width: 100% !important;
               padding: 1rem 2rem !important;
@@ -313,6 +314,7 @@ const SimpleCookieConsent = () => {
               text-decoration: none !important;
               box-sizing: border-box !important;
               display: block !important;
+              order: 1 !important;
             `;
 
             allowButton.addEventListener('mouseenter', () => {
@@ -324,6 +326,7 @@ const SimpleCookieConsent = () => {
 
             // SECONDARY CTA: "Optionen" - White with Brand Brown Border
             // Styles gemäß Brand Style Guide: bg-white, border-2 border-brand-brown, text-brand-brown, px-8 py-4, rounded-lg, font-semibold
+            // UX BEST PRACTICE: order: 2 ensures this button appears SECOND (below primary CTA)
             denyButton.style.cssText = `
               width: 100% !important;
               padding: 1rem 2rem !important;
@@ -339,6 +342,7 @@ const SimpleCookieConsent = () => {
               text-decoration: none !important;
               box-sizing: border-box !important;
               display: block !important;
+              order: 2 !important;
             `;
 
             denyButton.addEventListener('mouseenter', () => {
