@@ -254,18 +254,6 @@ const CANONICAL_DOMAINS = {
 
 ---
 
-## ROI-Projektion
-
-| Zeitraum | Traffic | Conversions | Revenue |
-|----------|---------|-------------|---------|
-| Monat 1-3 | 50-100/Mo | 1-2/Mo | CHF 20-40 |
-| Monat 4-6 | 100-150/Mo | 2-3/Mo | CHF 40-60 |
-| Monat 7-12 | 150-200/Mo | 3-5/Mo | CHF 60-100 |
-
-**Break-Even:** Monat 8-10
-
----
-
 ## Nächste Schritte
 
 1. [x] pferdewert.ch Domain gekauft
