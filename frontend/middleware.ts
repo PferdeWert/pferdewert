@@ -12,9 +12,11 @@ const DOMAIN_CONFIG = {
 } as const;
 
 // Canonical domain for each country (for www redirect)
+// NOTE: Vercel redirects www.pferdewert.de → pferdewert.de (308)
+// So we use pferdewert.de (non-www) as canonical for DE to avoid redirect loop
 const CANONICAL_DOMAINS = {
   AT: 'pferdewert.at',
-  DE: 'www.pferdewert.de',
+  DE: 'pferdewert.de',
 } as const;
 
 /**
