@@ -33,6 +33,19 @@ const ARTICLE_REVALIDATE_SECONDS = 86400; // 24 hours
 const RELATED_ARTICLES_COUNT = 3;
 const WORDS_PER_MINUTE = 200; // German text reading speed
 
+// Slugs that have dedicated static pages (not from Outrank/MongoDB)
+// These must be excluded from the dynamic route to let Next.js serve the static pages
+const STATIC_PAGE_SLUGS = [
+  'lipizzaner',
+  'anfaengerpferd-kaufen',
+  'dressurpferd-kaufen',
+  'freizeitpferd-kaufen',
+  'pferdekaufvertrag',
+  'pferdemarkt',
+  'springpferd-kaufen',
+  'was-kostet-ein-pferd',
+];
+
 // ============================================================================
 // UTILITY FUNCTIONS
 // ============================================================================
@@ -64,8 +77,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const { db } = await connectToDatabase();
     const repository = getRatgeberRepository(db);
 
-    // Get all published article slugs
-    const slugs = await repository.getAllSlugs();
+    // Get all published article slugs (excluding static pages)
+    const allSlugs = await repository.getAllSlugs();
+    const slugs = allSlugs.filter((slug) => !STATIC_PAGE_SLUGS.includes(slug));
 
     const paths = slugs.map((slug) => ({
       params: { slug },
@@ -96,6 +110,12 @@ export const getStaticProps: GetStaticProps<
     const slug = params?.slug as string;
 
     if (!slug) {
+      return { notFound: true };
+    }
+
+    // Exclude slugs that have dedicated static pages
+    // This ensures Next.js serves the static .tsx files instead of this dynamic route
+    if (STATIC_PAGE_SLUGS.includes(slug)) {
       return { notFound: true };
     }
 
