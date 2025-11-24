@@ -4,8 +4,9 @@ import fs from 'fs';
 import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
 
 // Domain configuration for multi-country support
+// NOTE: DE uses non-www (Vercel redirects www → non-www)
 const DOMAINS = {
-  DE: 'https://www.pferdewert.de',
+  DE: 'https://pferdewert.de',
   AT: 'https://pferdewert.at',
 };
 

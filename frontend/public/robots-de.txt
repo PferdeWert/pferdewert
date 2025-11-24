@@ -14,4 +14,4 @@ Disallow: /admin/
 Disallow: /_next/
 
 # Sitemap location
-Sitemap: https://www.pferdewert.de/sitemap.xml
+Sitemap: https://pferdewert.de/sitemap.xml

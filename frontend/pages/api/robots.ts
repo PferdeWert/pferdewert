@@ -21,7 +21,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     res.status(200).send(content);
   } catch {
     // Fallback if file doesn't exist
-    const domain = isAtDomain ? 'https://pferdewert.at' : 'https://www.pferdewert.de';
+    const domain = isAtDomain ? 'https://pferdewert.at' : 'https://pferdewert.de';
     const fallback = `User-agent: *
 Allow: /
 
