@@ -7,20 +7,12 @@ import CountrySwitcher from "@/components/CountrySwitcher"
 import { Menu, X, ChevronDown, BookOpen, Users, FileText, ShoppingBag, TrendingUp } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
 
 // ============================================================================
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 // ============================================================================
 const menuIcon = <Menu className="h-6 w-6" />
 const closeIcon = <X className="h-6 w-6" />
-const chevronDownIcon = <ChevronDown className="w-4 h-4" />
 
 // Navigation Category Icons
 const ratgeberIcon = <BookOpen className="h-5 w-5" />
