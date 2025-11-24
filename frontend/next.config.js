@@ -163,21 +163,9 @@ const nextConfig = {
     ];
   },
 
-  // Rewrites für AT-Rollout (locale detection via middleware)
-  async rewrites() {
-    return [
-      // /at/ Homepage
-      {
-        source: '/at',
-        destination: '/',
-      },
-      // /at/* → alle anderen Pages
-      {
-        source: '/at/:path*',
-        destination: '/:path*',
-      },
-    ];
-  },
+  // REMOVED: /at/ rewrites - obsolete with domain-based routing (Nov 2025)
+  // Domain routing (pferdewert.de vs pferdewert.at) replaces path-based /at/ prefixes
+  // These rewrites conflicted with middleware redirect logic causing ERR_TOO_MANY_REDIRECTS
 
   async redirects() {
     return [

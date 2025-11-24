@@ -42,15 +42,12 @@ export function middleware(request: NextRequest) {
   // pferdewert.de → www.pferdewert.de (DE prefers www)
   if (domainConfig) {
     const canonicalHost = CANONICAL_DOMAINS[domainConfig.country as 'AT' | 'DE'];
-    if (host !== canonicalHost && host !== `www.${canonicalHost}`.replace('www.www.', 'www.')) {
-      // Only redirect if not already on canonical
-      const isWww = host.startsWith('www.');
-      const shouldHaveWww = canonicalHost.startsWith('www.');
-      if (isWww !== shouldHaveWww) {
-        const url = request.nextUrl.clone();
-        url.host = canonicalHost;
-        return NextResponse.redirect(url, 301);
-      }
+    // Simple check: if current host doesn't match canonical, redirect
+    if (host !== canonicalHost) {
+      // Build full redirect URL to avoid issues with url.host modification
+      const protocol = request.nextUrl.protocol || 'https:';
+      const redirectUrl = `${protocol}//${canonicalHost}${pathname}${request.nextUrl.search}`;
+      return NextResponse.redirect(redirectUrl, 301);
     }
   }
 
