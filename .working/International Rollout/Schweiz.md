@@ -183,6 +183,61 @@ datafastScript.setAttribute('data-allowed-hostnames', getDataFastAllowedHostname
 
 **Hinweis:** Aktuell ist `pferdewert.at` hardcoded. Vor CH-Launch sollte die dynamische Lösung implementiert werden, damit neue Länder automatisch erfasst werden.
 
+### Phase 3.6: SEO & Sitemap Setup (30min)
+
+**Basierend auf AT-Learnings (Nov 2025):**
+
+**1. Sitemap-Script erweitern** (`scripts/generate-sitemap.mjs`):
+```javascript
+const DOMAINS = {
+  DE: 'https://pferdewert.de',  // non-www (Vercel redirects www → non-www)
+  AT: 'https://pferdewert.at',
+  CH: 'https://pferdewert.ch',  // NEU
+};
+
+const OUTPUT_PATHS = {
+  DE: 'public/sitemap-de.xml',
+  AT: 'public/sitemap-at.xml',
+  CH: 'public/sitemap-ch.xml',  // NEU
+};
+```
+
+**2. API Routes erweitern** (`pages/api/sitemap.ts` + `pages/api/robots.ts`):
+```typescript
+const isChDomain = host.includes('pferdewert.ch');
+const isAtDomain = host.includes('pferdewert.at');
+
+const sitemapFile = isChDomain ? 'sitemap-ch.xml'
+  : isAtDomain ? 'sitemap-at.xml'
+  : 'sitemap-de.xml';
+```
+
+**3. middleware.ts - Canonical Domains erweitern:**
+```typescript
+const CANONICAL_DOMAINS = {
+  AT: 'pferdewert.at',
+  DE: 'pferdewert.de',  // non-www (Vercel redirects www → non-www)
+  CH: 'pferdewert.ch',  // CH ohne www (wie AT)
+};
+```
+
+**4. Google Search Console Setup:**
+- [ ] `pferdewert.ch` als neue Property hinzufügen
+- [ ] Sitemap einreichen: `https://pferdewert.ch/sitemap.xml`
+- [ ] Favicon wird automatisch gecrawlt (kann 1-2 Wochen dauern)
+
+**5. countries.ts erweitern:**
+```typescript
+{
+  code: 'CH',
+  name: 'Schweiz',
+  domain: 'pferdewert.ch',
+  urlPrefix: '/ch', // DEPRECATED
+  locale: 'de-CH',
+  enabled: true,  // Aktivieren bei Launch
+}
+```
+
 ### Phase 4: Testing
 
 - [ ] pferdewert.ch zeigt CH-Content
@@ -193,6 +248,9 @@ datafastScript.setAttribute('data-allowed-hostnames', getDataFastAllowedHostname
 - [ ] Sitemap enthält CH-URLs (pferdewert.ch/...)
 - [ ] LocalizedLink funktioniert (bleibt auf .ch)
 - [ ] DataFa.st trackt pferdewert.ch Besucher (Cross-Domain)
+- [ ] `/sitemap.xml` auf pferdewert.ch liefert CH-URLs (nicht DE!)
+- [ ] `/robots.txt` auf pferdewert.ch zeigt auf CH-Sitemap
+- [ ] GSC Property für pferdewert.ch eingerichtet
 
 ---
 
@@ -211,17 +269,21 @@ datafastScript.setAttribute('data-allowed-hostnames', getDataFastAllowedHostname
 ## Nächste Schritte
 
 1. [x] pferdewert.ch Domain gekauft
-2. [x] AT Domain-Separation implementiert (Branch: `feature/austria-domain-separation`)
+2. [x] AT Domain-Separation implementiert und gemerged (Nov 2025)
 3. [x] DataFa.st Cross-Domain für AT konfiguriert (`data-allowed-hostnames`)
-4. [ ] AT Branch mergen und testen
-5. [ ] CH zu Domain-Config hinzufügen (siehe Phase 2)
-6. [ ] Stripe CHF aktivieren + Price erstellen
-7. [ ] pferdewert.ch in Vercel hinzufügen
-8. [ ] DataFa.st: `getDataFastAllowedHostnames()` implementieren (dynamisch)
-9. [ ] DataFa.st Dashboard: pferdewert.ch als Additional Domain hinzufügen
-10. [ ] 4 Artikel schreiben (6h)
-11. [ ] Testing
-12. [ ] Launch
+4. [x] Sitemap/robots.txt Domain-basiert (API Routes für dynamische Auslieferung)
+5. [x] GSC: pferdewert.at Property hinzugefügt
+6. [ ] CH zu Domain-Config hinzufügen (middleware.ts, countries.ts, CANONICAL_DOMAINS)
+7. [ ] Stripe CHF aktivieren + Price erstellen
+8. [ ] pferdewert.ch in Vercel hinzufügen (DNS: CNAME → cname.vercel-dns.com)
+9. [ ] Sitemap-Script erweitern (CH hinzufügen)
+10. [ ] API Routes erweitern (sitemap.ts, robots.ts für CH)
+11. [ ] DataFa.st: `getDataFastAllowedHostnames()` implementieren (dynamisch)
+12. [ ] DataFa.st Dashboard: pferdewert.ch als Additional Domain hinzufügen
+13. [ ] GSC: pferdewert.ch Property hinzufügen + Sitemap einreichen
+14. [ ] 4 Artikel schreiben (6h)
+15. [ ] Testing (inkl. Sitemap/robots.txt Checks!)
+16. [ ] Launch
 
 ---
 

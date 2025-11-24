@@ -2,7 +2,7 @@
 ## Fokus: Niederlande als nächster Markt (Phase 3)
 
 **Erstellt:** 16. November 2025
-**Aktualisiert:** 25. November 2025
+**Aktualisiert:** 25. November 2025 (SEO/Sitemap Learnings aus AT-Rollout)
 **Status:** DACH komplett, NL-Planung
 **Ziel:** Niederlande-Rollout Q4 2026 / Q1 2027
 
@@ -354,6 +354,97 @@ const session = await stripe.checkout.sessions.create({
 
 ---
 
+## 🗺️ SEO & Sitemap: Multi-Domain Setup
+
+### Learnings aus AT-Rollout (Nov 2025)
+
+**Problem erkannt:** Statische sitemap.xml/robots.txt funktioniert NICHT mit Multi-Domain Setup!
+- Vercel serviert dieselbe statische Datei für alle Domains
+- pferdewert.at bekam fälschlicherweise DE-Sitemap mit `www.pferdewert.de/*` URLs
+
+**Lösung implementiert:**
+1. **Separate Sitemap-Dateien:** `sitemap-de.xml`, `sitemap-at.xml`, `sitemap-ch.xml`, etc.
+2. **API Routes:** `/api/sitemap.ts` und `/api/robots.ts` erkennen Domain und liefern korrekte Datei
+3. **Vercel Rewrites:** `/sitemap.xml` → `/api/sitemap`, `/robots.txt` → `/api/robots`
+
+### Architektur für NL-Rollout
+
+**1. Sitemap-Script erweitern** (`scripts/generate-sitemap.mjs`):
+```javascript
+const DOMAINS = {
+  DE: 'https://pferdewert.de',  // non-www (Vercel redirects www → non-www)
+  AT: 'https://pferdewert.at',
+  CH: 'https://pferdewert.ch',
+  NL: 'https://pferdewert.nl',  // NEU
+};
+
+const OUTPUT_PATHS = {
+  DE: 'public/sitemap-de.xml',
+  AT: 'public/sitemap-at.xml',
+  CH: 'public/sitemap-ch.xml',
+  NL: 'public/sitemap-nl.xml',  // NEU
+};
+```
+
+**2. API Routes Domain-Detection erweitern:**
+```typescript
+// pages/api/sitemap.ts
+const isNlDomain = host.includes('pferdewert.nl');
+const isChDomain = host.includes('pferdewert.ch');
+const isAtDomain = host.includes('pferdewert.at');
+
+const sitemapFile = isNlDomain ? 'sitemap-nl.xml'
+  : isChDomain ? 'sitemap-ch.xml'
+  : isAtDomain ? 'sitemap-at.xml'
+  : 'sitemap-de.xml';
+```
+
+**3. Canonical Domains (www vs. non-www):**
+```typescript
+// middleware.ts
+const CANONICAL_DOMAINS = {
+  AT: 'pferdewert.at',      // ohne www
+  DE: 'pferdewert.de',      // ohne www (Vercel redirects www → non-www)
+  CH: 'pferdewert.ch',      // ohne www
+  NL: 'pferdewert.nl',      // ohne www (NL Konvention)
+};
+```
+
+### Google Search Console Setup für NL
+
+**Vor Launch:**
+- [ ] `pferdewert.nl` als neue Property hinzufügen
+- [ ] DNS verifizieren (TXT Record oder HTML-Datei)
+- [ ] Sitemap einreichen: `https://pferdewert.nl/sitemap.xml`
+
+**Nach Launch:**
+- [ ] Index Coverage überwachen
+- [ ] Crawl Stats prüfen
+- [ ] Favicon erscheint nach 1-2 Wochen automatisch
+
+### hreflang Tags (WICHTIG für NL!)
+
+Mit 4+ Ländern werden hreflang Tags kritisch für SEO:
+
+```html
+<!-- Auf jeder Seite -->
+<link rel="alternate" hreflang="de" href="https://pferdewert.de/pferde-ratgeber/pferd-kaufen" />
+<link rel="alternate" hreflang="de-AT" href="https://pferdewert.at/pferde-ratgeber/pferd-kaufen" />
+<link rel="alternate" hreflang="de-CH" href="https://pferdewert.ch/pferde-ratgeber/pferd-kaufen" />
+<link rel="alternate" hreflang="nl" href="https://pferdewert.nl/pferde-ratgeber/paard-kopen" />
+<link rel="alternate" hreflang="x-default" href="https://pferdewert.de/pferde-ratgeber/pferd-kaufen" />
+```
+
+**Implementation in `useSEO.ts`:**
+```typescript
+const hreflangTags = getAvailableCountries().map(country => ({
+  hreflang: country.locale,
+  href: `https://${country.domain}${path}`
+}));
+```
+
+---
+
 ## 📊 Analytics: DataFa.st Multi-Domain Setup
 
 ### Aktuelle Konfiguration (Stand 25.11.2025)
@@ -508,11 +599,16 @@ const nlTrainingLevelMapping = {
 - [ ] KI-Prompt für NL anpassen (KWPN-Integration)
 - [ ] SEO-Optimierung (NL Keywords)
 
-**Wochen 7-8: Testing & Launch**
+**Wochen 7-8: SEO, Testing & Launch**
+- [ ] Sitemap-Script für NL erweitern
+- [ ] API Routes für NL-Domain erweitern (sitemap.ts, robots.ts)
+- [ ] GSC: pferdewert.nl Property hinzufügen + Sitemap einreichen
+- [ ] hreflang Tags implementieren/erweitern
 - [ ] Full Flow Testing (NL-User Journey)
 - [ ] iDEAL Test-Payment
 - [ ] KWPN-Formular Testing
-- [ ] Launch auf `/nl/`
+- [ ] Sitemap/robots.txt Test: `curl https://pferdewert.nl/sitemap.xml`
+- [ ] Launch
 
 ### Budget
 
