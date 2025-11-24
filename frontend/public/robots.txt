@@ -40,6 +40,7 @@ Allow: /pferde-ratgeber/pferdemarkt
 Allow: /pferde-ratgeber/pferdekaufvertrag
 Allow: /pferde-ratgeber/springpferd-kaufen
 Allow: /pferde-ratgeber/dressurpferd-kaufen
+Allow: /pferde-ratgeber/lipizzaner
 Allow: /at/pferde-ratgeber/aku-pferd
 Allow: /at/pferde-ratgeber/aku-pferd/kosten
 Allow: /at/pferde-ratgeber/pferd-kaufen
@@ -51,6 +52,7 @@ Allow: /at/pferde-ratgeber/pferdemarkt
 Allow: /at/pferde-ratgeber/pferdekaufvertrag
 Allow: /at/pferde-ratgeber/springpferd-kaufen
 Allow: /at/pferde-ratgeber/dressurpferd-kaufen
+Allow: /at/pferde-ratgeber/lipizzaner
 
 # Sitemap location
-Sitemap: https://pferdewert.de/sitemap.xml
+Sitemap: https://www.pferdewert.de/sitemap.xml

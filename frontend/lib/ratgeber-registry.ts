@@ -222,6 +222,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'aku-pferd',
       'pferd-kaufen'
     ]
+  },
+
+  // Pferderassen Guides
+  {
+    slug: 'lipizzaner',
+    title: 'Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse',
+    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert.',
+    category: 'Pferderassen',
+    readTime: '16 Min.',
+    image: '/images/ratgeber/lipizzaner-white-horse.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'dressurpferd-kaufen',
+      'was-kostet-ein-pferd',
+      'anfaengerpferd-kaufen'
+    ]
   }
 ];
 
