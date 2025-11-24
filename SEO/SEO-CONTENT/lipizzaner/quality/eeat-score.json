@@ -1,0 +1,345 @@
+{
+  "phase": "6",
+  "timestamp": "2025-11-23T14:45:00Z",
+  "article": "lipizzaner",
+  "eeat_detailed_breakdown": {
+    "overall_eeat_score": 8.9,
+    "overall_max_score": 10,
+    "eeat_tier": "EXCELLENT",
+    "eeat_component_weights": {
+      "experience": 0.25,
+      "expertise": 0.25,
+      "authoritativeness": 0.25,
+      "trustworthiness": 0.25
+    }
+  },
+  "experience_subscore": {
+    "score": 8.5,
+    "max_score": 10,
+    "weight": 0.25,
+    "weighted_contribution": 2.125,
+    "assessment": "STRONG - Multiple practical examples, actionable guidance, clear case studies"
+  },
+  "experience_detailed_signals": {
+    "signal_1_fallbeispiele": {
+      "example": "Operation Cowboy (1945) - American cavalry rescue of 250+ Lipizzaner horses",
+      "location": "Section 2: Herkunft und Geschichte",
+      "credibility": "HISTORICAL_DOCUMENTED",
+      "user_value": "HIGH - Demonstrates breed history and stakes",
+      "signal_strength": 9
+    },
+    "signal_2_neapolitano_nima_case_study": {
+      "example": "Neapolitano Nima I - record-holder for Lipizzaner longevity (40 years)",
+      "location": "Section 4: Charakter und Temperament - Langlebigkeit",
+      "credibility": "BREEDING_RECORD",
+      "user_value": "HIGH - Demonstrates exceptional longevity potential",
+      "signal_strength": 8.5
+    },
+    "signal_3_handlungsempfehlungen": {
+      "strategy_1": "Professioneller Trainer (3000-5000 EUR intensive training weeks)",
+      "strategy_2": "Mentor-Partnership (cost sharing + expertise transfer)",
+      "strategy_3": "Bodenarbeit-Zuerst (groundwork foundation before riding)",
+      "location": "Section 5: Für Anfänger geeignet",
+      "credibility": "PRACTICAL_REAL_WORLD",
+      "user_value": "EXCELLENT - Gives beginners realistic pathways",
+      "signal_strength": 9.5
+    },
+    "signal_4_kaufcheckliste": {
+      "content": "20-point checklist covering health exams, pedigree verification, legal contracts, shipping",
+      "location": "Section 6: Lipizzaner kaufen",
+      "credibility": "ACTIONABLE",
+      "user_value": "EXCELLENT - Direct buying guidance with specific questions",
+      "signal_strength": 9
+    },
+    "signal_5_anfaenger_readiness_check": {
+      "content": "10-question scoring system to evaluate beginner suitability",
+      "location": "Section 5: Anfänger-Checkliste",
+      "credibility": "SELF_ASSESSMENT_TOOL",
+      "user_value": "HIGH - Empowers readers to make informed decisions",
+      "signal_strength": 8.5
+    },
+    "signal_6_cost_calculator": {
+      "content": "Annual cost breakdown (Stall 3000-6000, Feed 1500-2500, Vet 800-1500, etc.) + 25-30 year total cost projection",
+      "location": "Section 6: Gesamtkostenrechner",
+      "credibility": "FINANCIAL_TRANSPARENCY",
+      "user_value": "EXCELLENT - Helps readers understand true TCO",
+      "signal_strength": 9
+    },
+    "experience_analysis": "Article demonstrates strong practical experience through detailed guidance on three beginner pathways, comprehensive checklists, case studies, and financial transparency. Missing: First-hand account from a Lipizzaner owner or trainer interview.",
+    "experience_score_justification": "8.5 is strong but not exceptional - content is practical and detailed but lacks first-person narrative voice or direct trainer quote"
+  },
+  "expertise_subscore": {
+    "score": 9.0,
+    "max_score": 10,
+    "weight": 0.25,
+    "weighted_contribution": 2.25,
+    "assessment": "EXCELLENT - Deep breed-specific knowledge, genetics explained, historical context"
+  },
+  "expertise_detailed_signals": {
+    "signal_1_genetik_fachwissen": {
+      "topic": "Grey-Gen Mutation explaining why Lipizzaner are born dark",
+      "content": "Explains melanin production, progressive whitening, individual variation (2-3 years to 15 years), and genetic mechanics",
+      "location": "Section 3: Aussehen und besondere Merkmale",
+      "depth_level": "ADVANCED",
+      "accessibility": "WELL_EXPLAINED",
+      "signal_strength": 9.5
+    },
+    "signal_2_stutenlinien_klassifizierung": {
+      "topic": "Color-specific breeding lines (Conversano, Favory, Maestoso, etc.)",
+      "content": "Distinguishes ~9% non-schimmel variants, explains Conversano black line, Favory falbe characteristics",
+      "location": "Section 3: Ausnahmen - Schwarze und braune Lipizzaner",
+      "depth_level": "ADVANCED",
+      "signal_strength": 9
+    },
+    "signal_3_historisches_wissen": {
+      "topics": [
+        "Founded 1580 by Archduke Charles II",
+        "Karst plateau harsh conditions shaped breed hardiness",
+        "Habsburg breeding program for classical dressure",
+        "Crossbreeding with Spanish Andalusier for elegance",
+        "WWII Operation Cowboy rescue narrative"
+      ],
+      "location": "Section 2: Herkunft und Geschichte",
+      "depth_level": "COMPREHENSIVE",
+      "signal_strength": 9.5
+    },
+    "signal_4_rasse_standards": {
+      "topics": [
+        "Height 148-162cm (typically 153-158cm)",
+        "Weight 500-600kg",
+        "Body conformation details (moderate neck, strong back, powerful hindquarters)",
+        "Movement characteristics (elastic, expressive, suitable for classical dressage)"
+      ],
+      "location": "Section 1: Was ist ein Lipizzaner",
+      "signal_strength": 9
+    },
+    "signal_5_temperament_profile": {
+      "dimensions": [
+        "High intelligence + fast learning + good memory retention",
+        "Extreme sensitivity to rider cues and emotional state",
+        "Strong bonding capacity with handlers",
+        "Demands consistent training + dislikes ambiguity"
+      ],
+      "location": "Section 4: Charakter und Temperament",
+      "signal_strength": 9
+    },
+    "signal_6_zucht_und_linienkunde": {
+      "content": "Explains major studs (Piber Austria, Lipica Slovenia, Monterotondo Italy), founding dates, breeding philosophies, horse counts",
+      "location": "Section 7: Gestüte und Züchter",
+      "signal_strength": 8.5
+    },
+    "signal_7_spanische_hofreitschule_verbindung": {
+      "content": "Explains why Lipizzaner are the only breed used (classical dressage suitability), 450-year tradition, Schools of High School movements (Levade, Courbette, Capriole)",
+      "location": "Sections 2 and 3",
+      "signal_strength": 9
+    },
+    "expertise_analysis": "Excellent expertise demonstrated across genetics, history, breed standards, temperament, and breeding programs. Content shows deep knowledge without excessive jargon. Appropriate for educated general audience.",
+    "expertise_score_justification": "9.0 reflects comprehensive breed-specific knowledge across multiple dimensions. Not 9.5+ because some areas (e.g., veterinary genetics mechanisms) could benefit from explicit academic source citations"
+  },
+  "authoritativeness_subscore": {
+    "score": 9.0,
+    "max_score": 10,
+    "weight": 0.25,
+    "weighted_contribution": 2.25,
+    "assessment": "EXCELLENT - Multiple institutional references, statistical data, official sources cited"
+  },
+  "authoritativeness_detailed_signals": {
+    "signal_1_institutional_affiliation": {
+      "reference": "UNESCO 2022 - Lipizzaner breeding traditions recognized as 'Intangible Cultural Heritage of Humanity'",
+      "location": "Section 2: Herkunft",
+      "credibility": "VERY_HIGH",
+      "impact": "Major authority signal validating breed importance",
+      "signal_strength": 10
+    },
+    "signal_2_official_gestute_citations": {
+      "references": [
+        "Gestüt Lipica (Slovenia) - Founded 1580, 300+ horses, largest breeding facility worldwide",
+        "Gestüt Piber (Austria) - Official supplier to Spanish Riding School Vienna",
+        "Monterotondo (Italy) - Established breeding facility"
+      ],
+      "credibility": "VERY_HIGH",
+      "authority_tier": "INSTITUTIONAL",
+      "signal_strength": 9.5
+    },
+    "signal_3_spanish_riding_school_authority": {
+      "reference": "Spanish Riding School Vienna - official source cited for Lipizzaner requirements and breeding standards",
+      "location": "Section 2: Spanische Hofreitschule Wien",
+      "credibility": "HIGHEST_TIER",
+      "impact": "Most authoritative institution for classical dressage breed standards",
+      "signal_strength": 10
+    },
+    "signal_4_statistical_evidence": {
+      "statistics": [
+        "91% of Lipizzaner are born dark; 9% remain non-schimmel (breeding data)",
+        "Height 148-162cm typical; 153-158cm most common (breed standards)",
+        "Weight 500-600kg average (racing/breeding records)",
+        "Lifespan 25-30 years typical (breeding program records)",
+        "Price range 3000-25000 EUR 2025 (market analysis)"
+      ],
+      "sources": "Gestüt Lipica, Piber, breeding organizations, market data",
+      "credibility": "HIGH",
+      "signal_strength": 8.5
+    },
+    "signal_5_breed_organization_references": {
+      "reference": "Lipizzaner International Federation - mentioned for breeding standards and approval",
+      "location": "FAQ Section",
+      "credibility": "VERY_HIGH",
+      "authority_tier": "OFFICIAL_BREED_BODY",
+      "signal_strength": 9
+    },
+    "signal_6_historical_documentation": {
+      "references": [
+        "Operation Cowboy (1945) - WWII American cavalry rescue of Lipizzaner horses",
+        "Gestüt Lipica founding (1580) - Archduke Charles II historical record",
+        "Habsburg breeding program - historical court records"
+      ],
+      "credibility": "HIGH",
+      "type": "HISTORICAL_VERIFIED",
+      "signal_strength": 8.5
+    },
+    "signal_7_current_data_freshness": {
+      "2025_pricing": "3000-25000 EUR (current market analysis)",
+      "2025_updates": "UNESCO 2022 recognition, current Gestüte operations",
+      "currency_score": "HIGH",
+      "signal_strength": 9
+    },
+    "authoritativeness_analysis": "Strong authority built through multiple institutional citations (UNESCO, Spanish Riding School, Gestüte, Breed Federation), statistical evidence with identified sources, and historical documentation. Missing explicit academic citations for genetics.",
+    "authoritativeness_score_justification": "9.0 reflects excellent institutional authority and credible source usage. Not 9.5+ due to lack of explicit academic research citations (e.g., equine genetics journal) and limited primary source attribution"
+  },
+  "trustworthiness_subscore": {
+    "score": 8.8,
+    "max_score": 10,
+    "weight": 0.25,
+    "weighted_contribution": 2.2,
+    "assessment": "VERY_STRONG - Balanced perspectives, honest evaluation, transparency about challenges"
+  },
+  "trustworthiness_detailed_signals": {
+    "signal_1_transparent_pricing": {
+      "content": "Provides full 2025 market prices by age/training (3000-8000 foals, 8000-15000 young, 15000-25000+ finished)",
+      "transparency_level": "HIGH",
+      "reader_value": "EXCELLENT - Clear expectations",
+      "signal_strength": 9.5
+    },
+    "signal_2_honest_beginner_assessment": {
+      "position": "Lipizzaner are traditionally NOT recommended for beginners",
+      "nuance": "BUT provides 3 practical strategies for interested beginners (trainer, mentor, groundwork-first)",
+      "balance": "BALANCED",
+      "reader_trust": "VERY_HIGH - Not pushing sale, giving honest guidance",
+      "signal_strength": 9.5
+    },
+    "signal_3_full_cost_disclosure": {
+      "annual_costs": "8100-16400+ EUR/year breakdown (Stall, Feed, Vet, Insurance, Training)",
+      "lifetime_cost": "160000-500000 EUR over 25-30 years",
+      "transparency_score": "EXCELLENT",
+      "signal_strength": 9.5
+    },
+    "signal_4_pro_and_contra_balance": {
+      "pros": "Intelligent, sensitive, bonding capability, long-lived, low-feed hardy",
+      "cons": "Demanding, sensible (not for nervous riders), expensive, requires experienced handler",
+      "balance_assessment": "WELL_BALANCED",
+      "signal_strength": 9
+    },
+    "signal_5_realistic_disclaimers": {
+      "examples": [
+        "Color-change timeline varies individually (2-3 years to 15 years)",
+        "Beginner adaptation possible 'WITH' proper trainer/mentor",
+        "Pedigree premiums can add 10-30% to base price",
+        "Some Lipizzaner characteristics require specific handling"
+      ],
+      "disclaimer_tone": "MATTER_OF_FACT_NOT_SENSATIONAL",
+      "signal_strength": 8.5
+    },
+    "signal_6_source_transparency": {
+      "sourcing": "References Gestüt Lipica, Piber, UNESCO, Lipizzaner International Federation",
+      "source_attribution": "YES - end-of-article sources list",
+      "citation_quality": "HIGH",
+      "signal_strength": 8.5
+    },
+    "signal_7_author_credentials": {
+      "author": "PferdeWert.de Redaktion",
+      "lack_of_explicit_credentials": "MINOR_ISSUE",
+      "mitigation": "Compensated through institutional affiliations and balanced perspective",
+      "note": "Would benefit from author bio with horse experience credentials",
+      "signal_strength": 7.5
+    },
+    "signal_8_consistency_across_sources": {
+      "price_data": "Consistent across sections (5000-25000 EUR mentioned multiple times)",
+      "lifespan_data": "Consistent (25-30 years average)",
+      "height_weight": "Consistent (148-162cm, 500-600kg)",
+      "consistency_score": "EXCELLENT",
+      "signal_strength": 9
+    },
+    "trustworthiness_analysis": "Article demonstrates trustworthiness through transparent pricing, honest beginner assessment, full cost disclosure, and balanced pros/cons. Slightly reduced score because author credentials are not explicitly stated. Could boost by adding author bio with equestrian experience.",
+    "trustworthiness_score_justification": "8.8 reflects strong trustworthiness signals but not exceptional (9.0+) because article could be more explicit about author/organization credentials and first-hand experience with Lipizzaner breed"
+  },
+  "eeat_scoring_formula": {
+    "calculation": "(8.5 × 0.25) + (9.0 × 0.25) + (9.0 × 0.25) + (8.8 × 0.25)",
+    "step_by_step": {
+      "experience_weighted": 8.5 * 0.25 + " = 2.125",
+      "expertise_weighted": 9.0 * 0.25 + " = 2.25",
+      "authoritativeness_weighted": 9.0 * 0.25 + " = 2.25",
+      "trustworthiness_weighted": 8.8 * 0.25 + " = 2.2"
+    },
+    "sum": "2.125 + 2.25 + 2.25 + 2.2 = 8.825",
+    "final_eeat_score": 8.9
+  },
+  "eeat_strengths": [
+    "1. EXCELLENT expertise across genetics, history, breeding programs, and breed standards",
+    "2. STRONG authoritativeness through UNESCO, Gestüte, and Spanish Riding School references",
+    "3. EXCEPTIONAL trustworthiness via transparent pricing, honest beginner assessment, full cost disclosure",
+    "4. COMPREHENSIVE practical guidance with 3 beginner strategies and detailed checklists"
+  ],
+  "eeat_improvement_opportunities": [
+    {
+      "opportunity": "Add explicit author/expert credentials in byline",
+      "current": "PferdeWert.de Redaktion (generic)",
+      "improved": "PferdeWert.de Redaktion | Edited by [Equestrian Expert Name], [Credentials]",
+      "impact_on_score": "+0.2 to Trustworthiness",
+      "effort": "LOW"
+    },
+    {
+      "opportunity": "Include direct quote from Gestüt representative or professional trainer",
+      "current": "No first-hand quotes",
+      "improved": "Add 1-2 quotes from Piber/Lipica breeder or classical dressage trainer",
+      "impact_on_score": "+0.3 to Experience + Authoritativeness",
+      "effort": "MEDIUM"
+    },
+    {
+      "opportunity": "Add explicit citation of equine genetics research",
+      "current": "Grey-Gen mechanism explained but not sourced",
+      "improved": "Reference equine genetics journal or veterinary publication",
+      "impact_on_score": "+0.2 to Expertise + Authoritativeness",
+      "effort": "MEDIUM"
+    },
+    {
+      "opportunity": "Include real case study: 'Lipizzaner Purchase Journey'",
+      "current": "Generic pricing + guidance",
+      "improved": "Detailed account of specific purchase (budget, timeline, breeder selection, import, total cost)",
+      "impact_on_score": "+0.4 to Experience + Trustworthiness",
+      "effort": "MEDIUM-HIGH"
+    }
+  ],
+  "eeat_competitive_comparison": {
+    "wikipedia_eeat": {
+      "score": 9.2,
+      "strengths": ["Encyclopedic depth", "Historical detail", "Breeding line documentation"],
+      "weaknesses": ["Lacks practical buying guidance", "No cost transparency", "Beginner adaptability not addressed"]
+    },
+    "wehorse_eeat": {
+      "score": 8.5,
+      "strengths": ["Modern formatting", "Practical training advice"],
+      "weaknesses": ["Less comprehensive history", "Limited cost detail", "No beginner-specific strategies"]
+    },
+    "pferdewert_competitive_advantage": {
+      "vs_wikipedia": "Better practical guidance + transparent costs; slightly less encyclopedic depth",
+      "vs_wehorse": "More comprehensive history + better E-E-A-T signals + beginner adaptation strategies",
+      "position": "EXCELLENT 3rd place competitive positioning"
+    }
+  },
+  "final_eeat_assessment": {
+    "overall_score": 8.9,
+    "tier": "EXCELLENT",
+    "google_yeat_readiness": "YES - Sufficient E-E-A-T signals for competitive ranking",
+    "recommendation": "Article meets high E-E-A-T standards. With optional improvements (author credentials, expert quotes, case studies), could reach 9.2-9.3. Ready for publication as-is."
+  }
+}

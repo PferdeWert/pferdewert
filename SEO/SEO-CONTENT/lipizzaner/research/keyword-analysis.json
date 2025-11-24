@@ -1,0 +1,251 @@
+{
+  "phase": "1b",
+  "timestamp": "2025-11-23",
+  "analysis_summary": {
+    "total_keywords_analyzed": 29,
+    "top_20_selected": true,
+    "primary_keyword": "lipizzaner",
+    "primary_search_volume": 9900,
+    "cluster_distribution": {
+      "INFORMATIONAL": 4,
+      "COMMERCIAL": 5,
+      "NAVIGATIONAL": 0,
+      "GENERAL": 11
+    },
+    "total_sections": 7
+  },
+  "top_20_keywords": [
+    {
+      "keyword": "lipizzaner",
+      "search_volume": 9900,
+      "cpc": 1.54,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 11.58,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "schimmel pferd",
+      "search_volume": 9900,
+      "cpc": 0.41,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 7.290000000000001,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner wien",
+      "search_volume": 720,
+      "cpc": 0.85,
+      "competition_level": "MEDIUM",
+      "search_intent": "commercial",
+      "relevance_score": 5.837999999999999,
+      "cluster": "INFORMATIONAL"
+    },
+    {
+      "keyword": "lipizzaner gestüte",
+      "search_volume": 210,
+      "cpc": 0.89,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 5.754,
+      "cluster": "COMMERCIAL"
+    },
+    {
+      "keyword": "lipizzaner kaufen deutschland",
+      "search_volume": 30,
+      "cpc": 0.3,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.912,
+      "cluster": "COMMERCIAL"
+    },
+    {
+      "keyword": "lipizzaner kaufen",
+      "search_volume": 480,
+      "cpc": 0.08,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.432,
+      "cluster": "COMMERCIAL"
+    },
+    {
+      "keyword": "lipizzaner pferde",
+      "search_volume": 880,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.352,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner preis",
+      "search_volume": 170,
+      "cpc": 0.03,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.158,
+      "cluster": "COMMERCIAL"
+    },
+    {
+      "keyword": "lipizzaner herkunft",
+      "search_volume": 320,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.128,
+      "cluster": "INFORMATIONAL"
+    },
+    {
+      "keyword": "lipizzaner schwarz",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.084,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner fohlen",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.068,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner farben",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.044,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner charakter",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "informational",
+      "relevance_score": 3.02,
+      "cluster": "INFORMATIONAL"
+    },
+    {
+      "keyword": "lipizzaner steckbrief",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "informational",
+      "relevance_score": 3.02,
+      "cluster": "INFORMATIONAL"
+    },
+    {
+      "keyword": "lipizzaner braun",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.02,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner stanglwirt",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.016,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner in not",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.016,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "wo werden lipizzaner gezüchtet",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.016,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner rappe",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.016,
+      "cluster": "GENERAL"
+    },
+    {
+      "keyword": "lipizzaner kaufen preis",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition_level": "LOW",
+      "search_intent": "commercial",
+      "relevance_score": 3.008,
+      "cluster": "COMMERCIAL"
+    }
+  ],
+  "section_mapping": {
+    "1. Was sind Lipizzaner?": {
+      "primary": "lipizzaner",
+      "secondary": [
+        "lipizzaner pferde",
+        "schwarze pferderassen"
+      ]
+    },
+    "2. Herkunft & Geschichte": {
+      "primary": "lipizzaner herkunft",
+      "secondary": [
+        "wo werden lipizzaner gezüchtet",
+        "lipizzaner wien"
+      ]
+    },
+    "3. Eigenschaften & Charakter": {
+      "primary": "lipizzaner charakter",
+      "secondary": [
+        "lipizzaner steckbrief",
+        "lipizzaner farben"
+      ]
+    },
+    "4. Farbvarianten": {
+      "primary": "lipizzaner farben",
+      "secondary": [
+        "lipizzaner schwarz",
+        "schimmel pferd",
+        "lipizzaner braun",
+        "lipizzaner rappe"
+      ]
+    },
+    "5. Gestuete & Züchter": {
+      "primary": "lipizzaner gestüte",
+      "secondary": [
+        "gestüt lipica verkaufspferde",
+        "lipizzaner gestüte österreich"
+      ]
+    },
+    "6. Kauf & Preis": {
+      "primary": "lipizzaner kaufen",
+      "secondary": [
+        "lipizzaner preis",
+        "lipizzaner fohlen",
+        "lipizzaner kaufen deutschland",
+        "lipizzaner fohlen kaufen"
+      ]
+    },
+    "7. Für Anfänger geeignet?": {
+      "primary": "lipizzaner für anfänger",
+      "secondary": []
+    }
+  }
+}

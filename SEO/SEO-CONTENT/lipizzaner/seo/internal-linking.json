@@ -1,0 +1,127 @@
+{
+  "phase": "5C",
+  "timestamp": "2025-11-23T00:00:00Z",
+  "primary_keyword": "lipizzaner",
+  "total_internal_links": 5,
+  "linking_strategy": {
+    "approach": "Contextual relevance with natural anchor text integration",
+    "distribution": {
+      "introduction": 1,
+      "body_sections": 3,
+      "conclusion": 1
+    },
+    "anchor_text_variation": true,
+    "primary_service_link": true,
+    "related_guides": 3
+  },
+  "internal_links": [
+    {
+      "link_id": 1,
+      "section": "Was ist ein Lipizzaner? Definition und Grundmerkmale",
+      "anchor_text": "Überblick über Pferderassen",
+      "target_url": "/pferde-ratgeber/pferderassen-uebersicht",
+      "context_sentence": "Diese eleganten Barockpferde gehören zur Familie der Warmblüter. Wenn du mehr über verschiedene Pferdetypen erfahren möchtest, findest du in unserem Überblick über Pferderassen weitere Details.",
+      "relevance_score": "high",
+      "keyword_cluster": "breed_education",
+      "position_in_section": "end",
+      "anchor_text_type": "branded"
+    },
+    {
+      "link_id": 2,
+      "section": "Sind Lipizzaner für Anfänger geeignet? Praktische Lösungen für interessierte Reiter",
+      "anchor_text": "Anfänger-Leitfaden für Reiter",
+      "target_url": "/pferde-ratgeber/pferd-fuer-anfaenger",
+      "context_sentence": "Die klassische Antwort ist: Nein, diese sensiblen Barockpferde sind nichts für Anfänger. Für viele Einsteiger ist das korrekt. Grundlagen zum Reiteinstieg findest du in unserem Anfänger-Leitfaden für Reiter.",
+      "relevance_score": "high",
+      "keyword_cluster": "beginner_guidance",
+      "position_in_section": "middle",
+      "anchor_text_type": "keyword_rich"
+    },
+    {
+      "link_id": 3,
+      "section": "Lipizzaner kaufen – Was du beachten musst und wo du suchen solltest",
+      "anchor_text": "Ratgeber: Pferd kaufen – worauf achten",
+      "target_url": "/pferde-ratgeber/pferd-kaufen-worauf-achten",
+      "context_sentence": "Für allgemeine Tipps zum Pferdekauf empfehlen wir unseren ausführlichen Ratgeber: Pferd kaufen – worauf achten.",
+      "relevance_score": "high",
+      "keyword_cluster": "purchasing_guide",
+      "position_in_section": "start",
+      "anchor_text_type": "keyword_rich"
+    },
+    {
+      "link_id": 4,
+      "section": "Haltung und Fütterung: Hardy und anspruchslos wie die Karst-Vorfahren",
+      "anchor_text": "Leitfaden zur Pferdefütterung",
+      "target_url": "/pferde-ratgeber/pferdefuetterung",
+      "context_sentence": "Detaillierte Informationen zur optimalen Ernährung findest du in unserem Leitfaden zur Pferdefütterung.",
+      "relevance_score": "high",
+      "keyword_cluster": "care_maintenance",
+      "position_in_section": "start",
+      "anchor_text_type": "keyword_rich"
+    },
+    {
+      "link_id": 5,
+      "section": "Fazit: Dein Weg zum Lipizzaner",
+      "anchor_text": "PferdeWert Rassen-Bewertungstool",
+      "target_url": "/bewertung",
+      "context_sentence": "Nutze unser PferdeWert Rassen-Bewertungstool, um zu überprüfen, ob diese edle Rasse zu deinen Zielen, deinem Budget und deiner Erfahrung passt.",
+      "relevance_score": "high",
+      "keyword_cluster": "primary_service",
+      "position_in_section": "end",
+      "anchor_text_type": "branded",
+      "note": "Primary service link - should be included in every guide"
+    }
+  ],
+  "sitemap_validation": {
+    "validated_urls": 5,
+    "validation_status": "all_valid",
+    "validated_links": [
+      {
+        "target_url": "/pferde-ratgeber/pferderassen-uebersicht",
+        "status": "exists",
+        "verified": true
+      },
+      {
+        "target_url": "/pferde-ratgeber/pferd-fuer-anfaenger",
+        "status": "exists",
+        "verified": true
+      },
+      {
+        "target_url": "/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "status": "exists",
+        "verified": true
+      },
+      {
+        "target_url": "/pferde-ratgeber/pferdefuetterung",
+        "status": "exists",
+        "verified": true
+      },
+      {
+        "target_url": "/bewertung",
+        "status": "exists",
+        "verified": true
+      }
+    ]
+  },
+  "linking_metrics": {
+    "total_internal_links": 5,
+    "minimum_required": 3,
+    "target_recommended": 6,
+    "status": "meets_minimum",
+    "quality_check": {
+      "anchor_text_variety": "high",
+      "contextual_relevance": "high",
+      "natural_integration": "high",
+      "primary_service_included": true,
+      "related_guides_count": 4
+    }
+  },
+  "quality_gate": {
+    "minimum_links_met": true,
+    "anchor_text_natural": true,
+    "urls_validated": true,
+    "contextual_relevance": true,
+    "status": "PASS",
+    "notes": "All internal links meet quality standards. Good distribution across sections. All URLs validated against sitemap."
+  }
+}

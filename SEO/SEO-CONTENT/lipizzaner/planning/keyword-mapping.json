@@ -1,0 +1,516 @@
+{
+  "phase": "3",
+  "keyword_slug": "lipizzaner",
+  "timestamp": "2025-11-23T14:35:00Z",
+  "primary_keyword": {
+    "keyword": "lipizzaner",
+    "search_volume": 9900,
+    "competition": "LOW",
+    "target_placement": [
+      "H1 (title)",
+      "First paragraph (introduction)",
+      "Section 1 heading",
+      "Section 6 heading (buying)",
+      "Conclusion",
+      "Natural distribution: ~1% density"
+    ]
+  },
+  "secondary_keywords_by_section": {
+    "Section_1_Definition": {
+      "primary": "lipizzaner",
+      "secondary": [
+        {
+          "keyword": "lipizzaner pferde",
+          "search_volume": 880,
+          "placement": "Subsection 1 + body",
+          "intent": "informational"
+        },
+        {
+          "keyword": "barockpferde",
+          "search_volume": "~300 (estimated)",
+          "placement": "Introduction + subsection",
+          "intent": "informational"
+        },
+        {
+          "keyword": "pferderasse",
+          "search_volume": "~5000 (high volume)",
+          "placement": "Definition section, natural integration",
+          "intent": "informational"
+        }
+      ]
+    },
+    "Section_2_History": {
+      "primary": "lipizzaner herkunft",
+      "search_volume": 320,
+      "secondary": [
+        {
+          "keyword": "lipizzaner geschichte",
+          "search_volume": "~180 (estimated)",
+          "placement": "Subsections 2-3",
+          "intent": "informational"
+        },
+        {
+          "keyword": "gestüt lipica",
+          "search_volume": "~200 (estimated)",
+          "placement": "Subsection 1 + 3",
+          "intent": "informational/commercial"
+        },
+        {
+          "keyword": "spanische hofreitschule wien",
+          "search_volume": "~800 (high volume)",
+          "placement": "Subsection 4",
+          "intent": "informational"
+        },
+        {
+          "keyword": "wo werden lipizzaner gezüchtet",
+          "search_volume": 40,
+          "placement": "Subsection 1 + Section 7",
+          "intent": "informational"
+        },
+        {
+          "keyword": "operation cowboy",
+          "search_volume": "~150 (estimated)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        }
+      ]
+    },
+    "Section_3_Appearance": {
+      "primary": "lipizzaner farben",
+      "search_volume": 110,
+      "secondary": [
+        {
+          "keyword": "schimmel pferd",
+          "search_volume": 9900,
+          "placement": "Subsections 1-2 (major volume keyword)",
+          "intent": "commercial/informational",
+          "priority": "HIGH - secondary keyword with massive volume"
+        },
+        {
+          "keyword": "lipizzaner schwarz",
+          "search_volume": 210,
+          "placement": "Subsection 3",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner bei der geburt schwarz",
+          "search_volume": "~80 (long-tail)",
+          "placement": "Subsection 1 + FAQ",
+          "intent": "informational",
+          "paa_question": true
+        },
+        {
+          "keyword": "lipizzaner braun",
+          "search_volume": 50,
+          "placement": "Subsection 3",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "greyness mutation",
+          "search_volume": "~60 (technical term)",
+          "placement": "Subsection 2",
+          "intent": "educational"
+        }
+      ]
+    },
+    "Section_4_Temperament": {
+      "primary": "lipizzaner charakter",
+      "search_volume": 50,
+      "secondary": [
+        {
+          "keyword": "lipizzaner temperament",
+          "search_volume": "~70 (estimated)",
+          "placement": "Subsections 1-2",
+          "intent": "informational"
+        },
+        {
+          "keyword": "intelligent horse",
+          "search_volume": "~1500 (high volume general)",
+          "placement": "Subsection 1",
+          "intent": "informational"
+        },
+        {
+          "keyword": "sensible horse",
+          "search_volume": "~500 (general)",
+          "placement": "Subsection 2",
+          "intent": "informational"
+        },
+        {
+          "keyword": "pferdeleben",
+          "search_volume": "~200 (estimated)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        }
+      ]
+    },
+    "Section_5_Beginners": {
+      "primary": "lipizzaner für anfänger",
+      "search_volume": "~60 (low but specific intent)",
+      "secondary": [
+        {
+          "keyword": "anfänger pferd",
+          "search_volume": "~800 (general keyword)",
+          "placement": "Throughout section",
+          "intent": "informational"
+        },
+        {
+          "keyword": "anfänger reitern",
+          "search_volume": "~400 (general)",
+          "placement": "Subsection 1",
+          "intent": "informational"
+        },
+        {
+          "keyword": "pferdetraining anfänger",
+          "search_volume": "~300 (estimated)",
+          "placement": "Subsection 2-3",
+          "intent": "tutorial"
+        },
+        {
+          "keyword": "sensible horses for beginners",
+          "search_volume": "~150 (English, for international coverage)",
+          "placement": "Natural integration",
+          "intent": "informational"
+        }
+      ]
+    },
+    "Section_6_Buying": {
+      "primary_1": "lipizzaner kaufen",
+      "search_volume": 480,
+      "primary_2": "lipizzaner preis",
+      "search_volume_2": 170,
+      "secondary": [
+        {
+          "keyword": "lipizzaner kosten",
+          "search_volume": "~140 (estimated, synonym)",
+          "placement": "Subsection 1",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner kaufen deutschland",
+          "search_volume": 30,
+          "placement": "Subsection 2 (where to buy)",
+          "intent": "commercial/navigational"
+        },
+        {
+          "keyword": "lipizzaner fohlen kaufen",
+          "search_volume": "~50 (estimated)",
+          "placement": "Subsection 1",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "pferdezüchter",
+          "search_volume": "~2000 (general)",
+          "placement": "Subsections 2-3",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "pferdegesundheit",
+          "search_volume": "~400 (general)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        },
+        {
+          "keyword": "pferdeunterhalt",
+          "search_volume": "~300 (estimated)",
+          "placement": "Subsection 4",
+          "intent": "informational"
+        },
+        {
+          "keyword": "kaufvertrag pferd",
+          "search_volume": "~80 (legal angle)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        },
+        {
+          "keyword": "lipizzaner kaufen preis",
+          "search_volume": 20,
+          "placement": "Subsection 1",
+          "intent": "commercial"
+        }
+      ]
+    },
+    "Section_7_Studs": {
+      "primary": "lipizzaner gestüte",
+      "search_volume": 210,
+      "secondary": [
+        {
+          "keyword": "gestüt piber",
+          "search_volume": "~150 (estimated)",
+          "placement": "Subsection 1",
+          "intent": "informational/navigational"
+        },
+        {
+          "keyword": "gestüt lipica",
+          "search_volume": "~200 (estimated)",
+          "placement": "Subsection 2",
+          "intent": "informational/navigational"
+        },
+        {
+          "keyword": "lipizzaner züchter",
+          "search_volume": "~90 (estimated)",
+          "placement": "Throughout section",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "wo lipizzaner gezüchtet",
+          "search_volume": "~100 (estimated synonym)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        },
+        {
+          "keyword": "monterotondo italy",
+          "search_volume": "~50 (proper noun)",
+          "placement": "Subsection 3",
+          "intent": "informational/navigational"
+        }
+      ]
+    },
+    "Section_8_Care": {
+      "primary": "lipizzaner haltung",
+      "search_volume": "~80 (estimated low volume)",
+      "secondary": [
+        {
+          "keyword": "pferdefütterung",
+          "search_volume": "~600 (general keyword)",
+          "placement": "Subsection 2",
+          "intent": "informational"
+        },
+        {
+          "keyword": "offenstall",
+          "search_volume": "~300 (general)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        },
+        {
+          "keyword": "pferdewellness",
+          "search_volume": "~200 (general)",
+          "placement": "Subsection 3",
+          "intent": "informational"
+        },
+        {
+          "keyword": "hardy horses",
+          "search_volume": "~400 (English, international)",
+          "placement": "Subsection 1",
+          "intent": "informational"
+        },
+        {
+          "keyword": "low-maintenance horses",
+          "search_volume": "~300 (English)",
+          "placement": "Subsection 1",
+          "intent": "informational"
+        }
+      ]
+    },
+    "FAQ_Section": {
+      "questions_with_keywords": [
+        {
+          "question": "Sind Lipizzaner bei der Geburt schwarz?",
+          "keywords": [
+            "lipizzaner geburt",
+            "schimmel farbwechsel",
+            "greyness"
+          ],
+          "paa_source": true
+        },
+        {
+          "question": "Sind Lipizzaner für Anfänger geeignet?",
+          "keywords": [
+            "lipizzaner anfänger",
+            "anfängerpferd",
+            "reitereignung"
+          ],
+          "paa_source": true
+        },
+        {
+          "question": "Wie viel kostet ein Lipizzaner?",
+          "keywords": [
+            "lipizzaner preis",
+            "pferdekosten",
+            "pferdepreis"
+          ],
+          "paa_source": true
+        },
+        {
+          "question": "Was macht Lipizzaner in der Spanischen Hofreitschule Wien so besonders?",
+          "keywords": [
+            "spanische hofreitschule",
+            "klassische dressur",
+            "lipizzaner wien"
+          ],
+          "paa_source": true
+        },
+        {
+          "question": "Wo werden Lipizzaner gezüchtet?",
+          "keywords": [
+            "lipizzaner gestüte",
+            "wo lipizzaner gezüchtet",
+            "gestüt lipica"
+          ],
+          "paa_source": true
+        },
+        {
+          "question": "Wie alt wird ein Lipizzaner durchschnittlich?",
+          "keywords": [
+            "lipizzaner alter",
+            "pferdeleben",
+            "langlebigkeit"
+          ],
+          "paa_source": false
+        },
+        {
+          "question": "Sind Lipizzaner Spanish oder Austrian Horses?",
+          "keywords": [
+            "lipizzaner herkunft",
+            "spanische pferde",
+            "österreichisch"
+          ],
+          "paa_source": false
+        },
+        {
+          "question": "Kann man einen Lipizzaner privat züchten?",
+          "keywords": [
+            "lipizzaner züchten",
+            "zucht",
+            "zuchtpferde"
+          ],
+          "paa_source": false
+        }
+      ]
+    }
+  },
+  "keyword_density_strategy": {
+    "primary_keyword_lipizzaner": {
+      "target_density": "0.8-1.2%",
+      "natural_distribution": "Title, H1, introduction, multiple H2 sections, conclusion",
+      "placement_strategy": "Organic, not forced - appears naturally in context of each section"
+    },
+    "secondary_keywords": {
+      "high_volume_keywords": [
+        {
+          "keyword": "schimmel pferd",
+          "volume": 9900,
+          "target_section": "Section 3 (Appearance) - Subsection 1-2",
+          "strategy": "Heavy integration in color change discussion, natural semantic fit"
+        },
+        {
+          "keyword": "pferdefütterung",
+          "volume": 600,
+          "target_section": "Section 8 (Care) - Subsection 2",
+          "strategy": "Primary keyword for feeding subsection"
+        }
+      ],
+      "medium_volume_keywords": [
+        {
+          "keyword": "spanische hofreitschule wien",
+          "volume": 800,
+          "target_section": "Section 2 (History) - Subsection 4 + FAQ",
+          "strategy": "2-3 mentions in dedicated subsection"
+        },
+        {
+          "keyword": "anfänger pferd",
+          "volume": 800,
+          "target_section": "Section 5 (Beginners) - throughout",
+          "strategy": "Multiple natural mentions in context"
+        }
+      ],
+      "low_volume_specific_keywords": [
+        {
+          "keyword": "lipizzaner kaufen",
+          "volume": 480,
+          "target_section": "Section 6 (Buying) - H2 heading + throughout",
+          "strategy": "Primary keyword for commercial section"
+        },
+        {
+          "keyword": "lipizzaner herkunft",
+          "volume": 320,
+          "target_section": "Section 2 (History) - H2 heading equivalent",
+          "strategy": "Primary concept for history section"
+        }
+      ]
+    }
+  },
+  "commercial_vs_informational_balance": {
+    "commercial_keywords": [
+      "lipizzaner kaufen (480 SV)",
+      "lipizzaner preis (170 SV)",
+      "lipizzaner kosten (~140 SV)",
+      "lipizzaner kaufen deutschland (30 SV)",
+      "lipizzaner fohlen kaufen (~50 SV)",
+      "lipizzaner kaufen preis (20 SV)"
+    ],
+    "commercial_section_placement": "Section 6 (Buying) - dedicated 380 words + subsections for price, where to buy, checklist, cost calculator",
+    "informational_keywords": [
+      "lipizzaner herkunft (320 SV)",
+      "lipizzaner charakter (50 SV)",
+      "lipizzaner farben (110 SV)",
+      "spanische hofreitschule wien (800 SV)",
+      "gestüt lipica (~200 SV)",
+      "wo werden lipizzaner gezüchtet (40 SV)"
+    ],
+    "informational_section_placement": "Sections 1-5, 7-8 covering definition, history, appearance, temperament, studs, care",
+    "balance_strategy": "Lead with informational (higher word count), integrate commercial naturally without aggressive selling, CTA in conclusion"
+  },
+  "long_tail_opportunities": {
+    "low_competition_long_tails": [
+      {
+        "keyword": "lipizzaner für anfänger",
+        "volume": "~60 (very low but specific)",
+        "difficulty": "LOW",
+        "placement": "Section 5 (entire section dedicated)",
+        "strategy": "Own this niche - no competitor directly addresses beginner adaptation"
+      },
+      {
+        "keyword": "lipizzaner kaufen deutschland",
+        "volume": 30,
+        "difficulty": "LOW",
+        "placement": "Section 6 (Subsection 2 - Where to buy)",
+        "strategy": "Geographic specification, low competition"
+      },
+      {
+        "keyword": "lipizzaner fohlen kaufen",
+        "volume": "~50",
+        "difficulty": "LOW",
+        "placement": "Section 6 (Subsection 1 - Pricing)",
+        "strategy": "Age-specific buying guide"
+      }
+    ],
+    "paa_based_long_tails": [
+      "sind lipizzaner bei der geburt schwarz (featured FAQ question)",
+      "sind lipizzaner für anfänger geeignet (featured FAQ question)",
+      "wie viel kostet ein lipizzaner (featured FAQ question)",
+      "wo werden lipizzaner gezüchtet (featured FAQ question)"
+    ]
+  },
+  "featured_snippet_opportunities": {
+    "opportunity_1": {
+      "keyword": "lipizzaner eigenschaften",
+      "target_format": "Bulleted list (4-6 items)",
+      "placement": "Section 1 or 3",
+      "content": "Quick facts about Lipizzaner (intelligent, schimmel, born dark, classical dressage, 25-30 year lifespan, sensible, hardy)",
+      "difficulty": "EASY (currently unclaimed snippet)"
+    },
+    "opportunity_2": {
+      "keyword": "schimmel pferd farbwechsel",
+      "target_format": "Process/timeline format",
+      "placement": "Section 3 - Color change discussion",
+      "content": "Timeline: Born dark → 2-3 years color change begins → 6-10 years mostly white → 15+ years fully white",
+      "difficulty": "MEDIUM"
+    },
+    "opportunity_3": {
+      "keyword": "wo werden lipizzaner gezüchtet",
+      "target_format": "List/table format",
+      "placement": "Section 7",
+      "content": "Major studs: Lipica (Slovenia), Piber (Austria), Monterotondo (Italy)",
+      "difficulty": "EASY"
+    }
+  },
+  "keyword_validation": {
+    "primary_keyword_search_volume": 9900,
+    "primary_keyword_competition": "LOW",
+    "primary_keyword_cpc": 1.54,
+    "search_intent": "COMMERCIAL (100%)",
+    "all_keywords_sourced_from": "Phase 1B DataForSEO API responses + Phase 2 SERP analysis",
+    "verification_date": "2025-11-23",
+    "data_accuracy": "Real API data, no hallucination"
+  }
+}

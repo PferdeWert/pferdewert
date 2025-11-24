@@ -185,29 +185,31 @@ export default function HeaderUnified() {
             <nav className="flex items-center space-x-8">
               {NAVIGATION_ITEMS.map((item) => (
                 item.dropdown ? (
-                  <DropdownMenu key={item.href}>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="flex items-center space-x-1 text-[15px] text-gray-700 hover:text-brand-brown font-medium transition-colors py-2 px-0 h-auto"
+                  <div key={item.href} className="relative group">
+                    <div className="flex items-center">
+                      <LocalizedLink
+                        href={item.href}
+                        className="text-[15px] text-gray-700 group-hover:text-brand-brown font-medium transition-colors py-2"
                       >
-                        <span>{item.label}</span>
-                        {chevronDownIcon}
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="w-64">
-                      {item.dropdown.map((subItem) => (
-                        <DropdownMenuItem key={subItem.href} asChild>
+                        {item.label}
+                      </LocalizedLink>
+                      <ChevronDown className="w-4 h-4 ml-1 text-gray-500 group-hover:text-brand-brown transition-colors" />
+                    </div>
+                    {/* Hover Dropdown */}
+                    <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-56">
+                        {item.dropdown.map((subItem) => (
                           <LocalizedLink
+                            key={subItem.href}
                             href={subItem.href}
-                            className="cursor-pointer"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-brown transition-colors"
                           >
                             {subItem.label}
                           </LocalizedLink>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <LocalizedLink
                     key={item.href}

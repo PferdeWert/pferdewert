@@ -1,0 +1,52 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Lipizzaner – Der ultimative Ratgeber zur edlen Barockpferderasse",
+  "description": "Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/lipizzaner-ratgeber.jpg",
+    "width": 1200,
+    "height": 630,
+    "alt": "Weiße Lipizzaner Pferde - Edle Barockpferderasse mit charakteristischer Farbe"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    }
+  },
+  "datePublished": "2025-11-23",
+  "dateModified": "2025-11-23",
+  "articleBody": "Lipizzaner sind nicht nur elegante Barockpferde – sie sind lebende Geschichte. Mit ihrer Fähigkeit, von Geburt an dunkel zu sein und später ergrauen zu werden, und ihrem Einsatz bei der berühmten Spanischen Hofreitschule Wien verkörpern sie eine einzigartige Pferderasse. In diesem Ratgeber erfährst du alles, was du über Lipizzaner wissen musst: ihre faszinierende Herkunft, ihre besonderen körperlichen Merkmale, ihren bemerkenswerten Charakter und praktische Informationen zum Kauf und zur Haltung.",
+  "wordCount": 3150,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/lipizzaner"
+  },
+  "keywords": [
+    "lipizzaner",
+    "barockpferde",
+    "lipizzaner kaufen",
+    "lipizzaner preis",
+    "lipizzaner charakter",
+    "spanische hofreitschule wien",
+    "lipizzaner gestüte",
+    "pferderasse"
+  ],
+  "articleSection": "Pferderassen Guide",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://pferdewert.de/#website"
+  }
+}

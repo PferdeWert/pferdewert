@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sind Lipizzaner bei der Geburt schwarz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, etwa 91% aller Lipizzaner werden dunkelbraun oder schwarz geboren. Der charakteristische Schimmel-Farbwechsel beginnt typischerweise zwischen dem 2. und 3. Lebensjahr und setzt sich bis zum 6.-10. Jahr fort. Manche Pferde benötigen bis zu 15 Jahre zur vollständigen Ergrauerung. Dies wird durch das Grey-Gen (Grauungsfaktor) gesteuert – eine Mutation, die progressive Weißhaarigkeit verursacht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sind Lipizzaner für Anfänger geeignet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditionell nicht, da Lipizzaner sehr sensibel und intelligent sind und hohe Anforderungen an den Reiter stellen. Allerdings gibt es praktische Lösungen: Ein professioneller Trainer mit Erfahrung mit der Rasse, eine Mentor-Partnership mit einem erfahrenen Reiter, oder ein Bodenarbeit-zuerst-Ansatz können Anfängern helfen. Der Schlüssel ist, ehrlich die eigene Erfahrung und das Budget zu evaluieren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet ein Lipizzaner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Preis hängt stark vom Alter und der Ausbildung ab: Fohlen (0-2 Jahre) kosten 3.000-8.000 EUR, junge trainierte Pferde (3-7 Jahre) 8.000-15.000 EUR, fertig ausgebildete (8-15 Jahre) 15.000-25.000 EUR+, und ältere Pferde (15+ Jahre) 5.000-12.000 EUR. Seltene Farben, Champion-Pedigree und Zuchtgenehmigung können 10-30% Aufschlag bedeuten. Hinzu kommen jährliche Unterhaltskosten von 8.100-16.400+ EUR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was macht Lipizzaner in der Spanischen Hofreitschule Wien so besonders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lipizzaner sind die einzige Pferderasse, die bei der Spanischen Hofreitschule Wien eingesetzt wird. Seit ihrer Gründung 1572 nutzt diese Institution ausschließlich Lipizzaner für ihre berühmten Dressur-Vorführungen. Ihre einzigartige Kombination aus Intelligenz, Sensibilität und klassischer Trainierbarkeit ist perfekt für die spektakulären 'Schulen der Höhe' – Bewegungen wie Levade, Courbette und Capriole, die extreme Finesse erfordern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo werden Lipizzaner gezüchtet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die wichtigsten Zuchtbetriebe sind: Gestüt Lipica (Slowenien) mit über 300 Pferden seit 1580 – die ursprüngliche Gestüt und größte weltweit; Gestüt Piber (Österreich) mit etwa 60 Pferden – offizieller Lieferant der Spanischen Hofreitschule Wien; und Monterotondo (Italien) mit etwa 80 Pferden. Auch Ungarn und Tschechien haben renommierte private Züchter mit wachsender Reputation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie alt wird ein Lipizzaner durchschnittlich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lipizzaner haben eine bemerkenswerte Lebenserwartung von durchschnittlich 25-30 Jahren – älter als viele andere Warmblut-Rassen. Viele Lipizzaner bleiben bis zum 20. Lebensjahr und länger reittauglich. Zuchtpferde werden oft Jahrzehnte lang genutzt. Diese Langlebigkeit kombiniert mit ihrer Zuverlässigkeit macht Lipizzaner zu echten Lebensgefährten für 25-30 Jahre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sind Lipizzaner Spanish oder Austrian Horses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Weder noch ursprünglich – Lipizzaner stammen aus Lipica (heute Slowenien), gegründet 1580 von Erzherzog Karl II., damals Teil des Habsburger-Reiches. Die Rasse kombiniert spanische Genetik (durch Andalusier-Einkreuzung) mit lokalen Karst-Pferden der Region. Die österreichische Verbindung entsteht durch die historische Nutzung bei der Spanischen Hofreitschule Wien und dem Gestüt Piber in Österreich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann man eine Lipizzaner privat züchten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, mit Genehmigung durch die Lipizzaner International Federation. Private Züchter benötigen eine Zuchtzulassung (ca. 300-500 EUR pro Zuchtzulassung) und die Zuchtpferde müssen Rasse-Standards erfüllen. Die Pferde müssen auch in Zucht-Registern eingetragen sein. Professionelle Gestüte wie Lipica bieten Beratung und Unterstützung für qualitätsbewusste private Züchter."
+      }
+    }
+  ]
+}

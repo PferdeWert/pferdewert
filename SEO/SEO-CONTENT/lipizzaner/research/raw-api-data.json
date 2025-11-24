@@ -1,0 +1,316 @@
+{
+  "phase": "1a",
+  "timestamp": "2025-11-23",
+  "keyword_root": "lipizzaner",
+  "location": "Germany",
+  "language": "de",
+  "api_calls": {
+    "related_keywords": {
+      "total_keywords": 27,
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "keywords_extracted": [
+        {
+          "keyword": "lipizzaner",
+          "search_volume": 9900,
+          "cpc": 1.54,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "monthly_searches_trend": {
+            "2025-10": 9900,
+            "2025-05": 12100,
+            "2024-11": 12100
+          }
+        },
+        {
+          "keyword": "schimmel pferd",
+          "search_volume": 9900,
+          "cpc": 0.41,
+          "competition_level": "LOW",
+          "keyword_difficulty": 4,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "schwarze pferderassen",
+          "search_volume": 590,
+          "competition_level": "LOW",
+          "keyword_difficulty": 3,
+          "search_intent": "informational"
+        },
+        {
+          "keyword": "lipizzaner kaufen",
+          "search_volume": 480,
+          "cpc": 0.08,
+          "competition": 0.11,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner herkunft",
+          "search_volume": 320,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["informational"]
+        },
+        {
+          "keyword": "lipizzaner gestüte",
+          "search_volume": 210,
+          "cpc": 0.89,
+          "competition": 0.01,
+          "competition_level": "LOW",
+          "keyword_difficulty": 8,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner schwarz",
+          "search_volume": 210,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner preis",
+          "search_volume": 170,
+          "cpc": 0.03,
+          "competition": 0.01,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner fohlen",
+          "search_volume": 170,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner farben",
+          "search_volume": 110,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner charakter",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "search_intent": "informational"
+        },
+        {
+          "keyword": "lipizzaner steckbrief",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "keyword_difficulty": 45,
+          "search_intent": "informational"
+        },
+        {
+          "keyword": "lipizzaner braun",
+          "search_volume": 50,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner stanglwirt",
+          "search_volume": 40,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner in not",
+          "search_volume": 40,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["navigational"]
+        },
+        {
+          "keyword": "wo werden lipizzaner gezüchtet",
+          "search_volume": 40,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["navigational", "informational"]
+        },
+        {
+          "keyword": "lipizzaner rappe",
+          "search_volume": 40,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner kaufen deutschland",
+          "search_volume": 30,
+          "cpc": 0.3,
+          "competition": 0.05,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["navigational"]
+        },
+        {
+          "keyword": "gestüt lipica verkaufspferde",
+          "search_volume": 30,
+          "competition_level": "LOW",
+          "search_intent": "navigational",
+          "foreign_intent": ["commercial"]
+        },
+        {
+          "keyword": "schwarz weißes pferd rasse",
+          "search_volume": 30,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["informational", "transactional"]
+        },
+        {
+          "keyword": "lipizzaner kaufen preis",
+          "search_volume": 20,
+          "competition": 0.01,
+          "competition_level": "LOW",
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner für anfänger",
+          "search_volume": 20,
+          "competition_level": "LOW",
+          "keyword_difficulty": 47,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner österreich",
+          "search_volume": 20,
+          "competition_level": "LOW",
+          "keyword_difficulty": 57,
+          "search_intent": "commercial"
+        },
+        {
+          "keyword": "lipizzaner gestüte österreich",
+          "search_volume": 10,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["navigational"]
+        },
+        {
+          "keyword": "gestüt lipica fotos",
+          "search_volume": 10,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["navigational"]
+        },
+        {
+          "keyword": "lipizzaner fohlen kaufen",
+          "search_volume": 10,
+          "competition": 0.02,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["transactional"]
+        },
+        {
+          "keyword": "lipizzaner schwarz kaufen",
+          "search_volume": null,
+          "search_intent": "commercial",
+          "foreign_intent": ["transactional"]
+        }
+      ]
+    },
+    "keyword_ideas": {
+      "total_keywords": 25,
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "note": "Many results are not lipizzaner-specific. Filtering for relevant horse-related keywords only.",
+      "relevant_keywords": [
+        {
+          "keyword": "lamellendach kaufen",
+          "search_volume": 70,
+          "cpc": 4.4,
+          "competition_level": "HIGH",
+          "keyword_difficulty": 8,
+          "note": "Not lipizzaner-related"
+        }
+      ]
+    },
+    "keyword_overview": {
+      "total_keywords": 8,
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "keywords_extracted": [
+        {
+          "keyword": "lipizzaner",
+          "search_volume": 9900,
+          "cpc": 1.54,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "avg_backlinks": 19.7,
+          "rank": 40,
+          "main_domain_rank": 410.8
+        },
+        {
+          "keyword": "lipizzaner fohlen",
+          "search_volume": 170,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "avg_backlinks": 19.7,
+          "rank": 40,
+          "main_domain_rank": 440.1
+        },
+        {
+          "keyword": "lipizzaner gestüt",
+          "search_volume": 210,
+          "competition_level": "LOW",
+          "keyword_difficulty": 29,
+          "search_intent": "commercial",
+          "foreign_intent": ["informational"],
+          "avg_backlinks": 60.2,
+          "rank": 111.1,
+          "main_domain_rank": 384.9
+        },
+        {
+          "keyword": "lipizzaner herkunft",
+          "search_volume": 320,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "foreign_intent": ["informational"],
+          "avg_backlinks": 12.8,
+          "rank": 42.9,
+          "main_domain_rank": 420.5
+        },
+        {
+          "keyword": "lipizzaner kaufen",
+          "search_volume": 480,
+          "cpc": 0.08,
+          "competition": 0.11,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "avg_backlinks": 21.3,
+          "rank": 45,
+          "main_domain_rank": 427.8
+        },
+        {
+          "keyword": "lipizzaner pferde",
+          "search_volume": 880,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "avg_backlinks": 21.7,
+          "rank": 53,
+          "main_domain_rank": 442.5
+        },
+        {
+          "keyword": "lipizzaner preis",
+          "search_volume": 170,
+          "cpc": 0.03,
+          "competition": 0.01,
+          "competition_level": "LOW",
+          "search_intent": "commercial",
+          "avg_backlinks": 3.2,
+          "rank": 7.2,
+          "main_domain_rank": 448.1
+        },
+        {
+          "keyword": "lipizzaner wien",
+          "search_volume": 720,
+          "cpc": 0.85,
+          "competition": 0.63,
+          "competition_level": "MEDIUM",
+          "keyword_difficulty": 22,
+          "search_intent": "commercial",
+          "avg_backlinks": 184.2,
+          "rank": 117,
+          "main_domain_rank": 480
+        }
+      ]
+    }
+  }
+}

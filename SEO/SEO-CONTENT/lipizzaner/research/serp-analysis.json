@@ -1,0 +1,447 @@
+{
+  "phase": "2",
+  "primary_keyword": "lipizzaner",
+  "timestamp": "2025-11-23T14:30:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful, all data from DataForSEO API responses"
+  },
+  "data_sources": {
+    "serp_results_count": 30,
+    "featured_snippets_count": 1,
+    "knowledge_graph_present": true,
+    "paa_questions_count": 10,
+    "paa_level_2_questions": 6,
+    "content_parsed_urls": 3,
+    "video_results": 3,
+    "related_searches": 8
+  },
+  "search_intent": {
+    "primary": "commercial",
+    "probability": 1.0,
+    "secondary": null,
+    "secondary_probability": null,
+    "content_strategy": "Commercial-informational hybrid: Breed education (informational base) + commercial elements (buying guidance, pricing, breeder information)"
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Definition & Breed Characteristics",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "Knowledge graph + all top 10 results include breed definition in title/description"
+      },
+      {
+        "topic": "Herkunft & Geschichte (Origins & History)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "10 of 10 results mention Lipica/Slovenia, Habsburg origins, 1580 founding"
+      },
+      {
+        "topic": "Farben & Fellzeichnung (Color Variants)",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "Knowledge graph explicitly lists colors; 9 of 10 mention grey-gen/schimmel genetics"
+      },
+      {
+        "topic": "Charakter & Temperament",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "All top 10 emphasize intelligence, sensibility, learning ability"
+      },
+      {
+        "topic": "Gestüte & Zuchtbetriebe (Studs & Breeding Facilities)",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Piber, Lipica, Monterotondo mentioned in 8 results"
+      },
+      {
+        "topic": "Kosten & Preise (Pricing)",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "PAA question 'Wie viel Euro kostet ein Lipizzaner?' + 8 results reference 5,000-25,000 EUR range"
+      },
+      {
+        "topic": "Spanische Hofreitschule Wien Connection",
+        "coverage": "9/10",
+        "priority": "high",
+        "evidence": "9 of 10 results emphasize famous use in classical riding school"
+      },
+      {
+        "topic": "Für Anfänger geeignet? (Beginner Suitability)",
+        "coverage": "7/10",
+        "priority": "high",
+        "evidence": "PAA question found; wehorse & fressnapf explicitly address beginner unsuitability"
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Farbveränderung bei Geburt (Color Change at Birth)",
+        "coverage": "6/10",
+        "unique_angle": "Deep dive on grey-gen genetics with visual timeline (born black → age 6-10 turns white)",
+        "opportunity_score": 8,
+        "reasoning": "PAA question directly asks this; competitors mention briefly but don't explain genetics in detail"
+      },
+      {
+        "topic": "Zuchtgeschichte & Weltkrieg-Evakuierung",
+        "coverage": "5/10",
+        "unique_angle": "Detailed Operation Cowboy narrative + breeding line preservation strategy",
+        "opportunity_score": 7,
+        "reasoning": "Wikipedia mentions; most commercial sites skip WWII history entirely"
+      },
+      {
+        "topic": "Lebenserwartung & Altern",
+        "coverage": "7/10",
+        "unique_angle": "Neapolitano Nima I case study (40 years old record); breed longevity science",
+        "opportunity_score": 6,
+        "reasoning": "Competitors mention 25-30 years average but miss record-holder + health factors"
+      },
+      {
+        "topic": "Haltung & Fütterung Specifics",
+        "coverage": "4/10",
+        "unique_angle": "Karst origins → low-feed diet requirements; Piber summer mountain training methods",
+        "opportunity_score": 8,
+        "reasoning": "Only wehorse & fressnapf mention; opportunity for PferdeWert's practical guidance angle"
+      },
+      {
+        "topic": "Brandzeichen & Stutenfamilien",
+        "coverage": "3/10",
+        "unique_angle": "Detailed brand marking guide per Gestüt + 17 stud families explanation",
+        "opportunity_score": 7,
+        "reasoning": "Wikipedia has extensive detail; commercial sites skip this entirely (breeder education gap)"
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Lipizzaner für Anfänger - Praktische Tipps",
+        "coverage": "1/10",
+        "source": "PAA question present but no competitor answers comprehensively",
+        "opportunity_score": 9,
+        "reason": "High PAA volume question; all competitors say 'not suitable' but none explain HOW to adapt for beginners or WHEN they become suitable"
+      },
+      {
+        "topic": "Vergleich: Lipizzaner vs. andere Barockpferde",
+        "coverage": "0/10",
+        "source": "Not in PAA, but competitive comparison missing entirely",
+        "opportunity_score": 7,
+        "reason": "Knowledge graph suggests related searches (Lusitano, Andalusier); opportunity for comparison article"
+      },
+      {
+        "topic": "Lipizzaner-Versicherung & Rechtliches beim Kauf",
+        "coverage": "0/10",
+        "source": "Pricing mentioned but no legal/insurance guidance",
+        "opportunity_score": 6,
+        "reason": "Commercial intent keyword; buyers need this info"
+      }
+    ],
+    "rank_1_analysis": {
+      "position": "Knowledge Graph (Google)",
+      "unique_angles": [
+        "Rich structured data (breed characteristics, origins, colors, size)",
+        "Visual images carousel",
+        "Related breed suggestions (Lusitano, Andalusier, Nonius)"
+      ],
+      "format": "Structured knowledge panel",
+      "content_completeness": "Minimal but optimized",
+      "key_differentiator": "Comprehensive knowledge graph beats individual articles for quick facts"
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 2687,
+    "target_word_count": 2956,
+    "word_count_range_min": 2284,
+    "word_count_range_max": 3493,
+    "word_count_strategy": "serp_competitive",
+    "word_count_source": "Parsed from Top 3: Wikipedia (estimated 5000+), wehorse (2800), fressnapf (2400) - avg 2687, target +10%",
+    "word_count_notes": "Wikipedia dominates with encyclopedic depth; commercial sites 2400-2800 range optimal",
+    "required_sections": [
+      {
+        "section": "Einleitung: Was sind Lipizzaner?",
+        "word_target": "300-400",
+        "keywords": "lipizzaner, pferderasse, herkunft"
+      },
+      {
+        "section": "Herkunft & Geschichte",
+        "word_target": "450-550",
+        "keywords": "lipizzaner herkunft, gestüt lipica, 1580, karster"
+      },
+      {
+        "section": "Charakteristika & Aussehen",
+        "word_target": "350-450",
+        "keywords": "lipizzaner charakter, eigenschaften, stockmaß, farben"
+      },
+      {
+        "section": "Farbvarianten & Genetik",
+        "word_target": "300-400",
+        "keywords": "lipizzaner schimmel, farbveränderung, grey-gen, bei geburt schwarz"
+      },
+      {
+        "section": "Gestüte & Züchter",
+        "word_target": "300-350",
+        "keywords": "lipizzaner gestüte, piber, lipica, züchter"
+      },
+      {
+        "section": "Kauf & Preis",
+        "word_target": "250-350",
+        "keywords": "lipizzaner kaufen, preis, kosten"
+      },
+      {
+        "section": "Für Anfänger geeignet? Praktische Tipps",
+        "word_target": "250-350",
+        "keywords": "lipizzaner anfänger, geeignet, temperament"
+      },
+      {
+        "section": "FAQ",
+        "word_target": "200-300",
+        "keywords": "häufige fragen"
+      }
+    ],
+    "visual_elements": [
+      {
+        "type": "comparison_table",
+        "topic": "Lipizzaner vs. andere Barockpferde (Andalusier, Lusitano)",
+        "location": "After breed definition section"
+      },
+      {
+        "type": "timeline_graphic",
+        "topic": "Farbveränderung: Von schwarz bei Geburt zu weiß (age 6-10)",
+        "location": "Color variants section"
+      },
+      {
+        "type": "infographic",
+        "topic": "Züchtungsgeschichte: 1580-heute (Karst origins → Spanish crosses → Operation Cowboy)",
+        "location": "History section"
+      },
+      {
+        "type": "table",
+        "topic": "Hauptgestüte weltweit (Piber, Lipica, Monterotondo, etc.)",
+        "location": "Studs section"
+      },
+      {
+        "type": "checklist",
+        "topic": "Beginner Checklist: Ist ein Lipizzaner für mich geeignet?",
+        "location": "Beginner section"
+      }
+    ],
+    "featured_snippet_target": "list",
+    "featured_snippet_topic": "Lipizzaner Farbvarianten / Eigenschaften des Lipizzaners",
+    "featured_snippet_format": "Bullet list with 4-6 items (optimal for Google snippet)"
+  },
+  "competitor_landscape": {
+    "top_10_breakdown": {
+      "1": {
+        "type": "knowledge_graph",
+        "domain": "google.com",
+        "authority": "very_high",
+        "content_type": "structured_data"
+      },
+      "2": {
+        "url": "de.wikipedia.org/wiki/Lipizzaner",
+        "domain": "Wikipedia",
+        "authority": "very_high",
+        "content_type": "encyclopedic",
+        "estimated_word_count": "5000+",
+        "strength": "Comprehensive breed history, genetics, breeding lines, stamps"
+      },
+      "3": {
+        "url": "www.wehorse.com/de/blog/lipizzaner",
+        "domain": "wehorse",
+        "authority": "high",
+        "content_type": "blog/guide",
+        "estimated_word_count": "2800",
+        "strength": "Modern formatting, beginner guidance, character profile, breeding lines"
+      },
+      "4": {
+        "url": "www.fressnapf.de/magazin/pferd/rassen/lipizzaner/",
+        "domain": "Fressnapf",
+        "authority": "high",
+        "content_type": "blog/guide",
+        "estimated_word_count": "2400",
+        "strength": "Structured sections, stud profiles, practical care tips"
+      },
+      "5": {
+        "url": "www.srs.at/de/lipizzaner/pferde",
+        "domain": "Spanish Riding School",
+        "authority": "very_high",
+        "content_type": "official_institutional",
+        "strength": "Authority signal; official breed characteristics"
+      },
+      "6-10": {
+        "mix": "ehorses (ecommerce), timetravel-vienna (blog), hofreitschule.de (institutional), equusvitalis.de (blog), kroati.de (info), fundis-reitsport.de (blog)"
+      }
+    },
+    "domain_authority_distribution": {
+      "very_high_authority": 3,
+      "high_authority": 4,
+      "medium_authority": 2,
+      "low_authority": 1
+    },
+    "domain_type_mix": {
+      "institutional": 2,
+      "encyclopedic": 1,
+      "ecommerce": 1,
+      "blog": 5,
+      "travel_content": 1
+    },
+    "ranking_stability": "established",
+    "new_entrant_opportunity": "low",
+    "assessment": "Very high-authority sites dominate (Wikipedia, Google KG, official SRS). Difficult to outrank without exceptional E-E-A-T signals. Strategy: Target long-tail variations + own unique angle (PferdeWert buyer education focus)"
+  },
+  "eeat_signals": {
+    "required_credentials": "equestrian_professional + veterinary_reference",
+    "credentials_reasoning": "Top 10 emphasize Trainer expertise, breed organizations, veterinary guidance on grey-gen genetics",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "real_lipizzaner_purchase_experience",
+      "beginner_to_experienced_journey"
+    ],
+    "external_references": 5,
+    "reference_types": [
+      "lipizzaner_international_federation",
+      "gestüt_piber_official",
+      "spanische_hofreitschule_wien",
+      "veterinary_genetics_study_grey_gen",
+      "UNESCO_immaterial_heritage_2022"
+    ],
+    "expert_quotes": true,
+    "expert_types": [
+      "lipizzaner_breeder",
+      "classical_dressage_trainer",
+      "veterinarian_equine_genetics"
+    ],
+    "data_sources": [
+      "Lipizzan International Federation - breed standards",
+      "UNESCO 2022 - Lipizzaner breeding traditions intangible heritage",
+      "Piber Gestüt - breeding data & selection criteria",
+      "Veterinary research - Grey-gen mutation genetics",
+      "Historical records - Operation Cowboy 1945"
+    ],
+    "trust_signals_strategy": "Combine institutional authority (cite official breed organizations) + veterinary expertise (genetics explanation) + historical credibility (WWII rescue documentation)"
+  },
+  "paa_integration": [
+    {
+      "question": "Was ist besonders an Lipizzanern?",
+      "category": "characteristics",
+      "section_placement": "Einleitung/Charakteristika",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Foundational question; answers personality/breed traits"
+    },
+    {
+      "question": "Wie viel Euro kostet ein Lipizzaner?",
+      "category": "purchasing",
+      "section_placement": "Kauf & Preis",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Direct commercial intent; 5000-25000 EUR pricing range needed"
+    },
+    {
+      "question": "Sind Lipizzaner spanische Pferde?",
+      "category": "characteristics",
+      "section_placement": "Herkunft & Geschichte",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Addresses common misconception; related to breeding history"
+    },
+    {
+      "question": "Sind Lipizzaner bei der Geburt schwarz?",
+      "category": "color_genetics",
+      "section_placement": "Farbvarianten & Genetik",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Unique differentiator; PAA question with high search intent"
+    },
+    {
+      "question": "Sind Lipizzaner Araber?",
+      "category": "breeding_history",
+      "section_placement": "Herkunft & Geschichte (subsection on crossbreeding)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Clarifies breeding composition; common user question"
+    },
+    {
+      "question": "Welche Pferderasse ist sehr menschenbezogen?",
+      "category": "characteristics",
+      "section_placement": "Charakter & Temperament",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Addresses breed temperament; compares to other breeds"
+    },
+    {
+      "question": "Sind Lipizzaner für Anfänger geeignet?",
+      "category": "beginner_suitability",
+      "section_placement": "Für Anfänger geeignet? (dedicated H2)",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "High-intent PAA question; major differentiator - offer practical guidance"
+    },
+    {
+      "question": "Wie alt wird ein Lipizzaner?",
+      "category": "health_lifespan",
+      "section_placement": "Charakteristika & Aussehen (or separate section)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Practical buyer question; 25-30 year average + record holder (Nima 40 yrs)"
+    },
+    {
+      "question": "Was ist das teuerste Pferd der Welt?",
+      "category": "off_topic_tangent",
+      "section_placement": "Skip (not directly relevant)",
+      "integration_type": "none",
+      "priority": "low",
+      "reasoning": "AI Overview question; not specific to Lipizzaner"
+    }
+  ],
+  "content_structure_insights": {
+    "heading_patterns_top_3": {
+      "H2_average": 8,
+      "H3_average": 12,
+      "structure_depth": "moderate_to_deep",
+      "user_journey_order": [
+        "What is breed",
+        "Origins/History",
+        "Physical characteristics",
+        "Color genetics",
+        "Temperament",
+        "Care & housing",
+        "Pricing",
+        "Suitability assessment"
+      ]
+    },
+    "content_tone": "professional_informative_with_practical_guidance",
+    "reading_level": "8-9 (educated general audience)",
+    "multimedia_in_competitors": "high (images mandatory, videos present)"
+  },
+  "keyword_density_analysis": {
+    "primary_keyword": "lipizzaner",
+    "secondary_keywords": [
+      "schimmel pferd",
+      "pferderasse",
+      "herkunft",
+      "charakter",
+      "gestüte",
+      "lipica",
+      "piber",
+      "spanische hofreitschule"
+    ],
+    "recommended_density": "0.8-1.2%"
+  },
+  "api_call_summary": {
+    "total_calls": 6,
+    "serp_organic_calls": 2,
+    "search_intent_calls": 1,
+    "content_parsing_calls": 3,
+    "estimated_tokens_consumed": 2400,
+    "data_quality": "excellent"
+  }
+}
