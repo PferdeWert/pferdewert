@@ -27,17 +27,29 @@ const DOMAINS = {
 } as const;
 
 /**
- * Detect country from hostname
- * Works both server-side (via cookie from middleware) and client-side (via window.location)
+ * Detect country from hostname or cookie
+ * Works client-side via window.location and cookie fallback
  */
 function detectCountryFromHost(): 'DE' | 'AT' {
   if (typeof window !== 'undefined') {
     const host = window.location.hostname;
     if (host.includes('pferdewert.at')) return 'AT';
-    // Fallback: Check cookie set by middleware
-    const cookieMatch = document.cookie.match(/x-country=(\w+)/);
+    // Fallback: Check cookie set by middleware (handles whitespace)
+    const cookieMatch = document.cookie.match(/(?:^|;\s*)x-country=(\w+)/);
     if (cookieMatch?.[1] === 'AT') return 'AT';
   }
+  return 'DE';
+}
+
+/**
+ * Get initial country - runs immediately to prevent hydration mismatch
+ * Called during useState initialization for correct SSR/client hydration
+ */
+function getInitialCountry(): 'DE' | 'AT' {
+  if (typeof window !== 'undefined') {
+    return detectCountryFromHost();
+  }
+  // SSR: Default to DE, middleware cookie will correct on client if needed
   return 'DE';
 }
 
@@ -54,13 +66,18 @@ function detectCountryFromHost(): 'DE' | 'AT' {
  * const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
  */
 export function useCountryConfig(): CountryConfig {
-  // Initial detection (may be wrong during SSR, corrected on client)
-  const [country, setCountry] = useState<'DE' | 'AT'>('DE');
+  // HYDRATION FIX: Initialize with detected country to prevent flash
+  // On client, getInitialCountry() runs immediately and returns correct value
+  // On server, returns 'DE' as default
+  const [country, setCountry] = useState<'DE' | 'AT'>(getInitialCountry);
 
-  // Client-side: Detect from hostname
+  // Client-side: Sync if country changes (e.g., user switches domain mid-session)
   useEffect(() => {
-    setCountry(detectCountryFromHost());
-  }, []);
+    const detected = detectCountryFromHost();
+    if (detected !== country) {
+      setCountry(detected);
+    }
+  }, [country]);
 
   // FAST REFRESH FIX: Memoize config based on country to prevent recreation
   const config = useMemo(() => {

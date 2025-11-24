@@ -21,15 +21,25 @@ const DOMAINS = {
 } as const;
 
 /**
- * Detect country from hostname
+ * Detect country from hostname or cookie
  */
 function detectCountryFromHost(): 'DE' | 'AT' {
   if (typeof window !== 'undefined') {
     const host = window.location.hostname;
     if (host.includes('pferdewert.at')) return 'AT';
-    // Fallback: Check cookie set by middleware
-    const cookieMatch = document.cookie.match(/x-country=(\w+)/);
+    // Fallback: Check cookie set by middleware (handles whitespace)
+    const cookieMatch = document.cookie.match(/(?:^|;\s*)x-country=(\w+)/);
     if (cookieMatch?.[1] === 'AT') return 'AT';
+  }
+  return 'DE';
+}
+
+/**
+ * Get initial country - runs immediately to prevent hydration mismatch
+ */
+function getInitialCountry(): 'DE' | 'AT' {
+  if (typeof window !== 'undefined') {
+    return detectCountryFromHost();
   }
   return 'DE';
 }
@@ -58,12 +68,17 @@ function detectCountryFromHost(): 'DE' | 'AT' {
  */
 export function useSEO(): SEOConfig {
   const router = useRouter();
-  const [country, setCountry] = useState<'DE' | 'AT'>('DE');
 
-  // Client-side: Detect from hostname
+  // HYDRATION FIX: Initialize with detected country to prevent flash
+  const [country, setCountry] = useState<'DE' | 'AT'>(getInitialCountry);
+
+  // Client-side: Sync if country changes (e.g., user switches domain mid-session)
   useEffect(() => {
-    setCountry(detectCountryFromHost());
-  }, []);
+    const detected = detectCountryFromHost();
+    if (detected !== country) {
+      setCountry(detected);
+    }
+  }, [country]);
 
   // Extract pathname without query string and hash
   // Remove any /at/ prefix (for backwards compatibility during transition)
