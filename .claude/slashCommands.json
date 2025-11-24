@@ -12,8 +12,12 @@
     "description": "SEO research and content creation with DataForSEO + agents"
   },
   "page": {
-    "command": ".claude/commands/page.js",
+    "command": ".claude/commands/page.md",
     "description": "Generate SEO Ratgeber page from keyword (Usage: /page <keyword>)"
+  },
+  "seo-optimierung": {
+    "command": ".claude/commands/seo-optimierung.md",
+    "description": "SEO-Optimierung für existierende Ratgeber-Artikel"
   },
   "seo-audit": {
     "command": ".claude/commands/seo-audit.md",
