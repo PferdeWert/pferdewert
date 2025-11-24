@@ -3,13 +3,80 @@ import { NextRequest, NextResponse } from 'next/server'
 // Simple Rate Limiting - In-Memory Map
 const rateLimit = new Map<string, { count: number, resetTime: number }>()
 
+// Domain configuration for multi-country support
+const DOMAIN_CONFIG = {
+  'pferdewert.at': { locale: 'de-AT', country: 'AT' },
+  'www.pferdewert.at': { locale: 'de-AT', country: 'AT' },
+  'pferdewert.de': { locale: 'de', country: 'DE' },
+  'www.pferdewert.de': { locale: 'de', country: 'DE' },
+} as const;
+
+// Canonical domain for each country (for www redirect)
+const CANONICAL_DOMAINS = {
+  AT: 'pferdewert.at',
+  DE: 'www.pferdewert.de',
+} as const;
+
+/**
+ * Safely extract clean path from /at/ prefix
+ * Handles edge cases like /at-sport (should NOT be modified)
+ */
+function removeAtPrefix(pathname: string): string {
+  if (pathname === '/at') return '/';
+  if (pathname.startsWith('/at/')) return pathname.slice(3);
+  return pathname;
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get('host') || '';
 
-  // 1. LOCALE DETECTION (NEU für AT-Rollout!)
-  const locale = pathname.startsWith('/at/') || pathname === '/at'
-    ? 'de-AT'
-    : 'de';
+  // 1. LOCALE DETECTION - Domain-based (primary) or path-based (fallback)
+  // Priority: 1. Domain (.at vs .de) → 2. Path prefix (/at/)
+  const domainConfig = DOMAIN_CONFIG[host as keyof typeof DOMAIN_CONFIG];
+  const isAtDomain = host.includes('pferdewert.at');
+  // FIX: Only match exact /at or /at/ prefix, not /at-something
+  const isAtPath = pathname === '/at' || pathname.startsWith('/at/');
+
+  // 2. REDIRECT: www.pferdewert.at → pferdewert.at (AT prefers non-www)
+  // pferdewert.de → www.pferdewert.de (DE prefers www)
+  if (domainConfig) {
+    const canonicalHost = CANONICAL_DOMAINS[domainConfig.country as 'AT' | 'DE'];
+    if (host !== canonicalHost && host !== `www.${canonicalHost}`.replace('www.www.', 'www.')) {
+      // Only redirect if not already on canonical
+      const isWww = host.startsWith('www.');
+      const shouldHaveWww = canonicalHost.startsWith('www.');
+      if (isWww !== shouldHaveWww) {
+        const url = request.nextUrl.clone();
+        url.host = canonicalHost;
+        return NextResponse.redirect(url, 301);
+      }
+    }
+  }
+
+  // 3. REDIRECT: /at/* paths on .at domain should redirect to clean URLs
+  // e.g., pferdewert.at/at/page → pferdewert.at/page
+  if (isAtDomain && isAtPath) {
+    const cleanPath = removeAtPrefix(pathname);
+    const url = request.nextUrl.clone();
+    url.pathname = cleanPath;
+    return NextResponse.redirect(url, 301);
+  }
+
+  // 4. REDIRECT: /at/* paths on .de domain should redirect to .at domain
+  // e.g., pferdewert.de/at/page → pferdewert.at/page
+  if (!isAtDomain && isAtPath) {
+    const cleanPath = removeAtPrefix(pathname);
+    const atUrl = new URL(`https://pferdewert.at${cleanPath}`);
+    // Preserve query parameters
+    request.nextUrl.searchParams.forEach((value, key) => {
+      atUrl.searchParams.set(key, value);
+    });
+    return NextResponse.redirect(atUrl.toString(), 301);
+  }
+
+  // Determine locale from domain (or fallback to DE)
+  const locale = domainConfig?.locale || 'de';
 
   // 2. RATE LIMITING (bestehende Logik)
   if (pathname.startsWith('/api/bewertung') ||
@@ -47,9 +114,19 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Response mit locale header
+  // Response mit locale und country headers für Client-Side Detection
   const response = NextResponse.next();
+  const country = domainConfig?.country || 'DE';
   response.headers.set('x-locale', locale);
+  response.headers.set('x-country', country);
+  // Cookie for client-side access (headers not readable in browser)
+  // secure: true in production for HTTPS-only transmission
+  response.cookies.set('x-country', country, {
+    path: '/',
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 31536000, // 1 year
+  });
 
   return response;
 }

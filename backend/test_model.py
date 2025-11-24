@@ -109,6 +109,23 @@ SAMPLE_HORSES = {
             "charakter": "Brav und Rittig",
             "besonderheiten": "unerschrocken"
         }
+    },
+    "blossi_kauf": {
+        "name": "Blossi beim Kauf (4 Jahre, angeritten)",
+        "data": {
+            "rasse": "Deutsches Sportpferd",
+            "alter": 4,
+            "geschlecht": "Stute",
+            "abstammung": "Bernay x London Swing",
+            "stockmass": 170,
+            "ausbildung": "angeritten",
+            "haupteignung": "Dressur",
+            "standort": "70619",
+            "aku": "AKU ohne Befund",
+            "erfolge": "Stutenleistungsprüfung 7,4",
+            "charakter": "Brav und rittig",
+            "besonderheiten": "verladefromm, schmiedefromm, unerschrocken"
+        }
     }
 }
 

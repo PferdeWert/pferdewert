@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Globe } from 'lucide-react';
-import { getAvailableCountries, getCountryFromPath, getSortedCountries, COUNTRIES } from '@/lib/countries';
+import { getAvailableCountries, getCurrentCountry, buildCountryUrl, COUNTRIES, Country } from '@/lib/countries';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -17,6 +16,11 @@ interface CountrySwitcherProps {
 /**
  * Country Switcher Component - Radix UI Dropdown
  *
+ * NEW: Domain-based switching (Nov 2025)
+ * - Switches between pferdewert.de, pferdewert.at, etc.
+ * - No more path prefixes
+ * - Direct domain navigation
+ *
  * Best Practices 2025:
  * - Globe icon (not flags - language ≠ country, political issues)
  * - Dropdown approach (scalable for 4+ countries)
@@ -24,49 +28,37 @@ interface CountrySwitcherProps {
  * - Scalable for future countries (CH, NL, BE, LU)
  */
 export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcherProps) {
-  const router = useRouter();
-
   // HYDRATION FIX: Start with default (DE) to match SSR, then update client-side
-  // This prevents hydration mismatch when server doesn't know about /at/ prefix
   const [currentCountry, setCurrentCountry] = useState(COUNTRIES[0]);
 
   // Detect country client-side after mount to avoid hydration mismatch
   useEffect(() => {
-    const pathname = router.asPath.split('?')[0].split('#')[0];
-    const country = getCountryFromPath(pathname);
-    setCurrentCountry(country);
-  }, [router.asPath]);
+    setCurrentCountry(getCurrentCountry());
+  }, []);
 
-  const handleCountrySwitch = (targetUrlPrefix: string) => {
+  /**
+   * Handle country switch - navigates to the same page on the target domain
+   */
+  const handleCountrySwitch = (targetCountry: Country) => {
     if (typeof window === 'undefined') return;
 
+    // Get current path (without domain)
     const currentPath = window.location.pathname;
     const currentSearch = window.location.search;
 
-    // Remove current country prefix from path
-    let basePath = currentPath;
-    const sortedCountries = getSortedCountries();
-
-    for (const country of sortedCountries) {
-      // Match exact prefix with word boundary
-      if (currentPath === country.urlPrefix || currentPath.startsWith(country.urlPrefix + '/')) {
-        basePath = currentPath.substring(country.urlPrefix.length);
-        break;
-      }
+    // Remove any legacy /at/ prefix from path (backwards compatibility)
+    let cleanPath = currentPath;
+    if (cleanPath.startsWith('/at/')) {
+      cleanPath = cleanPath.slice(3);
+    } else if (cleanPath === '/at') {
+      cleanPath = '/';
     }
 
-    // Ensure basePath starts with /
-    if (!basePath.startsWith('/')) {
-      basePath = '/' + basePath;
-    }
+    // Build URL for target country's domain
+    const targetUrl = buildCountryUrl(targetCountry, cleanPath) + currentSearch;
 
-    // Build new path with target country prefix
-    const newPath = targetUrlPrefix
-      ? `${targetUrlPrefix}${basePath}`
-      : basePath;
-
-    // Navigate with full page reload (ensures server-side rewrites work)
-    window.location.href = newPath + currentSearch;
+    // Navigate with full page reload (cross-domain navigation)
+    window.location.href = targetUrl;
   };
 
   // Get available countries once
@@ -92,7 +84,7 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
         {availableCountries.map((country) => (
           <DropdownMenuItem
             key={country.code}
-            onClick={() => handleCountrySwitch(country.urlPrefix)}
+            onClick={() => handleCountrySwitch(country)}
             className={`cursor-pointer ${
               currentCountry.code === country.code
                 ? 'bg-amber-50 text-brand-brown font-semibold'
