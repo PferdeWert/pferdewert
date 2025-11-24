@@ -2,7 +2,7 @@
 
 ## Übersicht
 
-Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata für Deutschland (.de) und Österreich (.de/at)** enthalten.
+Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata für Deutschland (pferdewert.de) und Österreich (pferdewert.at)** enthalten.
 
 ## Dateistruktur
 
@@ -59,19 +59,19 @@ Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata fü
       "description_length": 155,
       "description_status": "OPTIMAL",
       "keywords": "hauptkeyword, nebenkeyword österreich, longtail",
-      "canonical_url": "https://pferdewert.de/at/pferde-ratgeber/slug",
+      "canonical_url": "https://pferdewert.at/pferde-ratgeber/slug",
       "locale": "de_AT",
       "slug": "slug"
     },
     "open_graph": {
       "og_title": "OG Titel für AT",
       "og_description": "OG Description für AT",
-      "og_image": "https://pferdewert.de/images/og/slug.jpg",
+      "og_image": "https://pferdewert.at/images/og/slug.jpg",
       "og_image_alt": "Alt-Text für OG Image",
       "og_image_width": 1200,
       "og_image_height": 630,
       "og_type": "article",
-      "og_url": "https://pferdewert.de/at/pferde-ratgeber/slug",
+      "og_url": "https://pferdewert.at/pferde-ratgeber/slug",
       "og_locale": "de_AT"
     },
     "twitter_card": {
@@ -83,8 +83,8 @@ Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata fü
     }
   },
   "hreflang": {
-    "de-de": "https://pferdewert.de/pferde-ratgeber/slug",
-    "de-at": "https://pferdewert.de/at/pferde-ratgeber/slug",
+    "de": "https://pferdewert.de/pferde-ratgeber/slug",
+    "de-AT": "https://pferdewert.at/pferde-ratgeber/slug",
     "x-default": "https://pferdewert.de/pferde-ratgeber/slug"
   },
   "image_specifications": {
@@ -110,23 +110,23 @@ Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata fü
 - Locale: `de_DE`
 - Zielgruppe: Deutsche Pferdebesitzer und -käufer
 
-### Österreich (.de/at)
+### Österreich (pferdewert.at)
 - **Title**: Bei geografisch relevantem Content → "... in Österreich" anhängen
   - Beispiel: "Pferd kaufen Tipps" → "Pferd kaufen Tipps in Österreich"
   - Nur wenn sinnvoll (lokale Märkte, Züchter, Rechtliches)
 - **Description**: Österreich-Bezug einbauen, regionale Begriffe
   - Beispiel: "Finde Österreichs beste Züchter..."
   - Regionale Anpassungen: "Pferdemarkt" → "Pferdemarkt Österreich"
-- **Canonical URL**: `https://pferdewert.de/at/pferde-ratgeber/{slug}`
+- **Canonical URL**: `https://pferdewert.at/pferde-ratgeber/{slug}` (SEPARATE DOMAIN!)
 - **Locale**: `de_AT`
 - **OG/Twitter**: Ebenfalls angepasst mit AT-Fokus
 
-### hreflang Tags
-**KRITISCH**: Beide Versionen MÜSSEN aufeinander verweisen!
+### hreflang Tags (DOMAIN-BASIERT)
+**KRITISCH**: Beide Versionen MÜSSEN aufeinander verweisen - jetzt mit separaten Domains!
 
 ```html
-<link rel="alternate" hrefLang="de-de" href="https://pferdewert.de/pferde-ratgeber/slug" />
-<link rel="alternate" hrefLang="de-at" href="https://pferdewert.de/at/pferde-ratgeber/slug" />
+<link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferde-ratgeber/slug" />
+<link rel="alternate" hrefLang="de-AT" href="https://pferdewert.at/pferde-ratgeber/slug" />
 <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferde-ratgeber/slug" />
 ```
 
@@ -252,7 +252,7 @@ Liest beide Varianten und integriert sie mit `useRouter().locale` Check
 - [ ] Beide `de` und `at` Objekte vorhanden
 - [ ] AT Title hat relevanten Österreich-Bezug (wenn geografisch sinnvoll)
 - [ ] AT Description unterscheidet sich von DE
-- [ ] Canonical URLs korrekt: DE ohne `/at/`, AT mit `/at/`
+- [ ] Canonical URLs korrekt: DE → pferdewert.de, AT → pferdewert.at (SEPARATE DOMAINS!)
 - [ ] Locale korrekt: `de_DE` vs `de_AT`
 - [ ] hreflang Tags enthalten alle 3 Varianten (de-de, de-at, x-default)
 - [ ] Open Graph Locale angepasst

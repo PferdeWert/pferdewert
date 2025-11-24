@@ -58,7 +58,7 @@ Die Datei enthält separate Objekte für DE und AT unter `locales`:
   },
   "hreflang": [
     { "hreflang": "de", "href": "https://pferdewert.de/pferde-ratgeber/{slug}" },
-    { "hreflang": "de-AT", "href": "https://pferdewert.de/at/pferde-ratgeber/{slug}" },
+    { "hreflang": "de-AT", "href": "https://pferdewert.at/pferde-ratgeber/{slug}" },
     { "hreflang": "x-default", "href": "https://pferdewert.de/pferde-ratgeber/{slug}" }
   ],
   "shared": { "twitter:site": "@PferdeWert", "twitter:creator": "@PferdeWert" }

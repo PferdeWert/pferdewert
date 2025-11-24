@@ -250,12 +250,12 @@ Spawne einen Sub-Agent mit:
 
 Bei der Optimierung MÜSSEN Meta-Tags für beide Märkte erstellt werden:
 
-| Element | DE (.de) | AT (.de/at) |
+| Element | DE (pferdewert.de) | AT (pferdewert.at) |
 |---------|----------|-------------|
 | Title Tag | Standard-Keyword | + "in Österreich" wenn geografisch relevant |
 | Meta Description | DE-fokussiert | AT-Anpassungen für österreichische Zielgruppe |
 | og:locale | de_DE | de_AT |
-| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.de/at/pferde-ratgeber/... |
+| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.at/pferde-ratgeber/... |
 
 ### Implementierung im TSX
 

@@ -209,24 +209,24 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
              "title": "Angepasster AT-Titel (z.B. '... in Österreich' wenn geografisch relevant)",
              "description": "AT-spezifische Description (Österreich-Bezug, ggf. angepasste Begriffe)",
              "keywords": "komma,separierte,keywords",
-             "canonical_url": "https://pferdewert.de/at/pferde-ratgeber/{slug}",
+             "canonical_url": "https://pferdewert.at/pferde-ratgeber/{slug}",
              "locale": "de_AT"
            },
            "open_graph": { ... },
            "twitter_card": { ... }
          },
          "hreflang": {
-           "de-de": "https://pferdewert.de/pferde-ratgeber/{slug}",
-           "de-at": "https://pferdewert.de/at/pferde-ratgeber/{slug}",
+           "de": "https://pferdewert.de/pferde-ratgeber/{slug}",
+           "de-AT": "https://pferdewert.at/pferde-ratgeber/{slug}",
            "x-default": "https://pferdewert.de/pferde-ratgeber/{slug}"
          }
        }
 
-       LOKALISIERUNGS-REGELN:
+       LOKALISIERUNGS-REGELN (DOMAIN-BASIERT):
        - AT Title: Bei geografisch relevantem Content → "... in Österreich" anhängen
        - AT Description: Österreich-Bezug einbauen, regionale Begriffe anpassen
-       - Canonical URLs: DE → /pferde-ratgeber/{slug}, AT → /at/pferde-ratgeber/{slug}
-       - hreflang: Beide Versionen MÜSSEN aufeinander verweisen + x-default
+       - Canonical URLs: DE → pferdewert.de/..., AT → pferdewert.at/... (SEPARATE DOMAINS!)
+       - hreflang: de → .de Domain, de-AT → .at Domain, x-default → .de Domain
        - og:locale: de_DE für DE, de_AT für AT
        ```
 

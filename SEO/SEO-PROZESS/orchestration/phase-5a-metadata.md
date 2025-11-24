@@ -27,13 +27,13 @@
 
 ### Lokalisierungs-Regeln
 
-| Element | DE (.de) | AT (.de/at) |
+| Element | DE (pferdewert.de) | AT (pferdewert.at) |
 |---------|----------|-------------|
 | Title Tag | Standard-Keyword | + "Österreich" wenn relevant |
 | Meta Description | DE-fokussiert | AT-Anpassungen (Begriffe, Währung, Kontext) |
 | og:locale | de_DE | de_AT |
-| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.de/at/pferde-ratgeber/... |
-| hreflang | Beide Versionen verlinken | Beide Versionen verlinken |
+| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.at/pferde-ratgeber/... (SEPARATE DOMAIN!) |
+| hreflang | Beide Domains verlinken | Beide Domains verlinken |
 
 ### AT-Anpassungen für Meta-Tags
 
@@ -256,19 +256,19 @@ Canonical URL: "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
     },
     "at": {
       "metadata": {
-        "title": "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf | PferdeWert.de",
+        "title": "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf | PferdeWert.at",
         "description": "Pferd kaufen in Österreich: Experten-Checkliste für österreichische Käufer. Vermeide Fehler und finde dein perfektes Pferd. Jetzt Ratgeber lesen!",
-        "canonical_url": "https://pferdewert.de/at/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "canonical_url": "https://pferdewert.at/pferde-ratgeber/pferd-kaufen-worauf-achten",
         "robots": "index, follow"
       },
       "open_graph": {
         "og:title": "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf",
         "og:description": "Experten-Checkliste für österreichische Pferdekäufer. Vermeide Fehler!",
         "og:type": "article",
-        "og:url": "https://pferdewert.de/at/pferde-ratgeber/pferd-kaufen-worauf-achten",
-        "og:site_name": "PferdeWert.de",
+        "og:url": "https://pferdewert.at/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "og:site_name": "PferdeWert.at",
         "og:locale": "de_AT",
-        "og:image": "https://pferdewert.de/images/ratgeber/pferd-kaufen-worauf-achten.webp"
+        "og:image": "https://pferdewert.at/images/ratgeber/pferd-kaufen-worauf-achten.webp"
       },
       "twitter_card": {
         "twitter:card": "summary_large_image",
@@ -280,7 +280,7 @@ Canonical URL: "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
 
   "hreflang": [
     { "hreflang": "de", "href": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten" },
-    { "hreflang": "de-AT", "href": "https://pferdewert.de/at/pferde-ratgeber/pferd-kaufen-worauf-achten" },
+    { "hreflang": "de-AT", "href": "https://pferdewert.at/pferde-ratgeber/pferd-kaufen-worauf-achten" },
     { "hreflang": "x-default", "href": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten" }
   ],
 
