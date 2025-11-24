@@ -1,7 +1,5 @@
 # Phase 4: Content Creation (3-Phase Split)
 
-**Token Budget**: ~700 tokens (Phase 4A: ~200, 4B: ~400, 4C: ~100)
-
 ---
 
 ## Phase 4A: Content-Brief Consolidation

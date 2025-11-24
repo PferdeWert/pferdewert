@@ -3,9 +3,7 @@
 ## Übersicht
 
 **Sub-Phase**: 5B - Schema Markup Generation
-**Verantwortung**: Sub-Agent (seo-content-writer)
-**Execution Time**: ~3-5 Minuten
-**Token Budget**: ~200 Tokens
+**Agent**: `seo-content-writer`
 
 **Ziel**: Generiere strukturierte JSON-LD Schema Markup Types für optimale SERP-Features (Rich Results, Knowledge Graph, Featured Snippets).
 
@@ -642,9 +640,3 @@ def validate_phase_5b(schema_files, primary_keyword, paa_questions_count):
 - Zähle generierte Schema Types
 - Konkrete nächste Schritte wenn FAILED
 
----
-
-**Version**: 1.0 (2025-01-04)
-**Token Budget**: ~200 Tokens (inkl. Quality Gate Validation)
-**Execution Time**: ~3-5 Minuten
-**Priority**: HIGH (Core SEO Deliverable - Rich Results)

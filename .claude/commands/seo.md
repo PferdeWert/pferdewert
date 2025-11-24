@@ -168,20 +168,66 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
        4. Return: Kompakte Summary + Word Count
        ```
 
-   **Phase 5 - On-Page SEO**:
+   **Phase 5 - On-Page SEO (inkl. DE + AT Lokalisierung)**:
    - Spawne Sub-Agent mit:
      - subagent_type: `seo-content-writer`
      - prompt:
        ```
-       SEO PHASE 5: ON-PAGE SEO
+       SEO PHASE 5: ON-PAGE SEO (DE + AT Lokalisierung)
 
        TARGET: '$ARGUMENTS'
        OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
        1. Lies: SEO/SEO-PROZESS/orchestration/phase-5-onpage-seo.md
-       2. Optimiere Content aus Phase 4
-       3. Erstelle Meta-Tags, Schema-Markup
-       4. Return: SEO-Score + erstellte Assets
+       2. Lies: SEO/SEO-PROZESS/orchestration/phase-5a-metadata.md (WICHTIG: DE + AT Lokalisierung!)
+       3. Optimiere Content aus Phase 4
+       4. Erstelle seo-metadata.json mit BEIDEN Markt-Varianten (siehe Struktur unten)
+       5. Erstelle Schema-Markup (schema-faq.json)
+       6. Erstelle internal-linking.json
+       7. Return: SEO-Score + erstellte Assets
+
+       🚨 KRITISCH: seo-metadata.json STRUKTUR
+       Die Datei MUSS separate "de" und "at" Objekte enthalten:
+
+       {
+         "phase": "5A",
+         "primary_keyword": "$ARGUMENTS",
+         "timestamp": "ISO-8601",
+         "de": {
+           "metadata": {
+             "title": "SEO-optimierter Titel (50-60 Zeichen)",
+             "description": "Meta-Description (150-160 Zeichen)",
+             "keywords": "komma,separierte,keywords",
+             "canonical_url": "https://pferdewert.de/pferde-ratgeber/{slug}",
+             "locale": "de_DE"
+           },
+           "open_graph": { ... },
+           "twitter_card": { ... }
+         },
+         "at": {
+           "metadata": {
+             "title": "Angepasster AT-Titel (z.B. '... in Österreich' wenn geografisch relevant)",
+             "description": "AT-spezifische Description (Österreich-Bezug, ggf. angepasste Begriffe)",
+             "keywords": "komma,separierte,keywords",
+             "canonical_url": "https://pferdewert.de/at/pferde-ratgeber/{slug}",
+             "locale": "de_AT"
+           },
+           "open_graph": { ... },
+           "twitter_card": { ... }
+         },
+         "hreflang": {
+           "de-de": "https://pferdewert.de/pferde-ratgeber/{slug}",
+           "de-at": "https://pferdewert.de/at/pferde-ratgeber/{slug}",
+           "x-default": "https://pferdewert.de/pferde-ratgeber/{slug}"
+         }
+       }
+
+       LOKALISIERUNGS-REGELN:
+       - AT Title: Bei geografisch relevantem Content → "... in Österreich" anhängen
+       - AT Description: Österreich-Bezug einbauen, regionale Begriffe anpassen
+       - Canonical URLs: DE → /pferde-ratgeber/{slug}, AT → /at/pferde-ratgeber/{slug}
+       - hreflang: Beide Versionen MÜSSEN aufeinander verweisen + x-default
+       - og:locale: de_DE für DE, de_AT für AT
        ```
 
    **Phase 6 - Quality Check**:

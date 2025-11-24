@@ -1,8 +1,7 @@
 # Phase 5: On-Page SEO Optimization
 
-**Token Budget**: ~400 Tokens
-**Main Deliverables**: `seo-metadata.json`, Schema Markup JSONs, `internal-linking.json`
-**Agent Pattern**: Sub-Agent (Metadata + Schema + Links)
+**Deliverables**: `seo-metadata.json`, Schema Markup JSONs, `internal-linking.json`
+**Agent**: Sub-Agent (Metadata + Schema + Links)
 
 ---
 

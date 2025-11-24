@@ -173,11 +173,16 @@ Spawne einen Sub-Agent mit:
   STEP 1: Load Optimization Plan
   Read: SEO/OPTIMIZATIONS/$ARTICLE_SLUG/optimization-plan.md
 
-  STEP 2: Implement Quick Wins
-  - Update meta description (optimize for CTR + keyword)
-  - Update title tag (include main keyword, max 60 chars)
+  STEP 2: Implement Quick Wins (DE + AT Lokalisierung!)
+  - Update meta description für BEIDE Märkte:
+    * DE (.de): Standard deutsche Meta Description
+    * AT (.de/at): Angepasst für österreichische Zielgruppe (z.B. "in Österreich")
+  - Update title tag für BEIDE Märkte:
+    * DE: Include main keyword, max 60 chars
+    * AT: Wenn relevant → "... in Österreich" hinzufügen
   - Add/optimize alt texts for all images
   - Add FAQ schema if FAQ section exists
+  - Implementiere hreflang-Tags für DE ↔ AT Verlinkung
 
   STEP 3: Fix Hub-Spoke-Linking
   Read: SEO/OPTIMIZATIONS/$ARTICLE_SLUG/hub-spoke-analysis.json
@@ -238,5 +243,46 @@ Spawne einen Sub-Agent mit:
 - Article not found → Liste verfügbare Ratgeber-Artikel
 - No DataForSEO results → Use manual SERP analysis
 - Optimization fails → Create detailed error report with recommendations
+
+## 🇩🇪🇦🇹 DE + AT LOKALISIERUNG (KRITISCH!)
+
+### Meta-Tag Lokalisierung für beide Märkte
+
+Bei der Optimierung MÜSSEN Meta-Tags für beide Märkte erstellt werden:
+
+| Element | DE (.de) | AT (.de/at) |
+|---------|----------|-------------|
+| Title Tag | Standard-Keyword | + "in Österreich" wenn geografisch relevant |
+| Meta Description | DE-fokussiert | AT-Anpassungen für österreichische Zielgruppe |
+| og:locale | de_DE | de_AT |
+| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.de/at/pferde-ratgeber/... |
+
+### Implementierung im TSX
+
+```tsx
+// Im Head-Bereich der Page:
+const { isAustria, ogLocale, canonical, hreflangTags } = useSEO();
+
+// Meta-Tags basierend auf Locale
+const metaTitle = isAustria
+  ? "Pferd kaufen in Österreich: 5 Tipps | PferdeWert.de"
+  : "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de";
+
+const metaDescription = isAustria
+  ? "Pferd kaufen in Österreich: Experten-Checkliste für österreichische Käufer."
+  : "Pferd kaufen: Unsere Experten-Checkliste hilft dir, Fehler zu vermeiden.";
+
+// In <Head>:
+<title>{metaTitle}</title>
+<meta name="description" content={metaDescription} />
+<meta property="og:locale" content={ogLocale} />
+<link rel="canonical" href={canonical} />
+{hreflangTags.map(tag => (
+  <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+))}
+```
+
+### Referenz
+Vollständige Dokumentation: `SEO/SEO-PROZESS/orchestration/phase-5a-metadata.md`
 
 **Los geht's mit der Optimierung!**

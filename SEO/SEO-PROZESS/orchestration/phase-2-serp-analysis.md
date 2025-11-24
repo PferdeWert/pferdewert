@@ -1,8 +1,7 @@
 # Phase 2: SERP Analysis
 
-**Token Budget**: ~2500 Tokens (realistic with safety margin)
-**Main Deliverables**: `serp-analysis.json`, `outline-brief.json`, Content Gaps, PAA Integration, Search Intent Mapping
-**Agent Pattern**: Sub-Agent (ALL API calls + analysis) → Main-Agent (validation + file storage)
+**Deliverables**: `serp-analysis.json`, `outline-brief.json`, Content Gaps, PAA Integration, Search Intent Mapping
+**Agent**: Sub-Agent → Main-Agent (validation + file storage)
 
 ---
 
@@ -744,44 +743,6 @@ Detaillierte Gap-Analyse für spätere Content-Updates:
 
 ---
 
-## Token Budget Breakdown
-
-**Realistic Estimation für Phase 2**:
-
-```
-Sub-Agent Prompt (Main → Sub):        ~450 Tokens
-──────────────────────────────────────────────────
-API Call 1 (SERP depth=30):           ~3000 Tokens
-  → Extraction + Compression:          -2400 Tokens
-  → Retained Insights:                  ~600 Tokens
-
-API Call 2 (PAA depth=5, click=2):     ~800 Tokens
-  → Extraction + Compression:           -600 Tokens
-  → Retained Insights:                  ~200 Tokens
-
-API Call 3 (Search Intent):            ~100 Tokens
-  → Direct extraction:                  ~100 Tokens
-
-API Calls 4-6 (Content Parsing x3):   ~1200 Tokens
-  → Extraction + Compression:          -900 Tokens
-  → Retained Insights:                  ~300 Tokens
-
-Sub-Agent Analysis + JSON Creation:    ~400 Tokens
-Sub-Agent JSON Output to Main:         ~350 Tokens
-Main-Agent Validation + File Write:    ~200 Tokens
-──────────────────────────────────────────────────
-TOTAL PHASE 2:                        ~1800 Tokens ✅
-```
-
-**vs. Old Approach (Main-Agent API Calls)**:
-- API Responses in Main Context: ~5000 Tokens
-- Main Context Pollution: CRITICAL
-- Session Length: REDUCED
-
-**Sub-Agent Pattern Savings**: ~65% Token Efficiency!
-
----
-
 ## Next Phase
 
 Nach erfolgreichem Abschluss von Phase 2:
@@ -824,9 +785,3 @@ Nach erfolgreichem Abschluss von Phase 2:
 - [ ] Create comprehensive JSON Output
 - [ ] Return to Main-Agent
 
----
-
-**Version**: 2.0 (Optimized for Context Efficiency)
-**Token Budget**: ~1800 Tokens (realistic)
-**Agent Pattern**: Sub-Agent does ALL (API + Analysis)
-**Last Updated**: 2025-01-04 - Major Rewrite with DataForSEO MCP Integration

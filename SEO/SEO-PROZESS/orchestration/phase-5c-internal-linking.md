@@ -3,9 +3,7 @@
 ## Übersicht
 
 **Sub-Phase**: 5C - Internal Linking Optimization
-**Verantwortung**: Sub-Agent (seo-content-writer)
-**Execution Time**: ~4 Minuten
-**Token Budget**: ~200 Tokens
+**Agent**: `seo-content-writer`
 
 **Ziel**: Generiere strategische interne Verlinkung basierend auf Content-Outline + Article Draft + Sitemap.xml für Topic Clustering und User Navigation.
 
@@ -568,9 +566,3 @@ def validate_phase_5c(linking_json, sitemap_urls, primary_keyword):
 - Bestätige successful Validations
 - Konkrete nächste Schritte wenn FAILED
 
----
-
-**Version**: 1.0 (2025-01-04)
-**Token Budget**: ~200 Tokens (inkl. Quality Gate Validation)
-**Execution Time**: ~4 Minuten
-**Priority**: HIGH (Core SEO Deliverable für Topic Clustering)

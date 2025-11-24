@@ -2,9 +2,8 @@
 
 ## 🎯 Workflow-Ziel
 
-**Use Case**: Kleinere, unwichtigere Keywords mit geringerem Traffic-Potenzial
-**Ziel**: Solider, rankingfähiger Content mit minimalem Token-Budget
-**Token-Budget**: ~1100 Tokens (vs. 3760 im Full-Workflow) → **70% Einsparung**
+**Use Case**: Kleinere Keywords mit geringerem Traffic-Potenzial
+**Ziel**: Solider, rankingfähiger Content - schnell und effizient
 
 ---
 
@@ -13,8 +12,6 @@
 | Aspekt | SEO-BASIC | SEO-FULL |
 |--------|-----------|----------|
 | **Phasen** | 4 | 6+ |
-| **Token Budget** | ~1100 | ~3760 |
-| **Execution Time** | 6-9 Min | 15-20 Min |
 | **API Calls** | 2 | 5+ |
 | **Deliverables** | 9 Dateien | 17+ Dateien |
 | **Use Case** | Small Keywords | High-Value Keywords |
@@ -473,7 +470,6 @@ FOCUS: Minimum SEO for indexing, no FAQ/HowTo schema.
 | Schema Types | 1 (Article) | 3+ (Article, FAQ, HowTo) |
 | Internal Linking | Manual | Automated Analysis |
 | Quality Check | None | Automated + Manual |
-| Execution Time | 6-9 Min | 15-20 Min |
 
 ---
 
@@ -558,18 +554,9 @@ Das Einreiten eines jungen Pferdes ist ein entscheidender Moment...
 ## ✅ Success Metrics
 
 **Pro SEO-BASIC Workflow erwarten wir**:
-- ⏱️ **Execution Time**: 6-9 Minuten (vs. 15-20 Min Full)
-- 💰 **Token Cost**: ~1100 Tokens (vs. 3760 Full) → **70% günstiger**
-- 📝 **Word Count**: 1200-1500 Wörter (solide Grundlage)
+- 📝 **Word Count**: 1200-1500 Wörter
 - 🎯 **Primary Keyword Density**: 0.8-1.2%
-- 🔍 **Supporting Keywords**: Min 5 (vs. 15 Full)
+- 🔍 **Supporting Keywords**: Min 5
 - ⭐ **E-E-A-T**: Basic Signals vorhanden
 - 📊 **Schema**: 1 Type (Article only)
-- 📋 **Outline Quality**: Persistent, reviewable, debuggable
 - 🔗 **Internal Links**: Manual nachträglich
-
----
-
-**Version**: 1.0 (2025-01-10)
-**Use Case**: Low-Volume Keywords, Content-Tests, Budget-Constrained Projects
-**Maintainer**: Claude Code (SEO Pipeline Coordinator)

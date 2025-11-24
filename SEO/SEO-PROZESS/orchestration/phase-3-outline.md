@@ -1,8 +1,7 @@
 # Phase 3: Content Outline Creation
 
-**Token Budget**: ~180 Tokens (75% reduction)
-**Main Deliverable**: `content-outline.json`
-**Agent**: `seo-content-writer` Sub-Agent (spawned by Main Agent)
+**Deliverable**: `content-outline.json`
+**Agent**: `seo-content-writer`
 
 ---
 

@@ -3,18 +3,59 @@
 ## Übersicht
 
 **Sub-Phase**: 5A - Metadata Optimization
-**Verantwortung**: Sub-Agent (seo-content-writer)
-**Execution Time**: ~3 Minuten
-**Token Budget**: ~150 Tokens
+**Agent**: `seo-content-writer`
 
-**Ziel**: Generiere SEO-optimierte Metadaten (Title, Description, OpenGraph, Twitter Cards) basierend auf Content-Outline + Article Draft.
+**Ziel**: Generiere SEO-optimierte Metadaten (Title, Description, OpenGraph, Twitter Cards) basierend auf Content-Outline + Article Draft **für BEIDE Märkte: Deutschland (.de) und Österreich (.de/at)**.
 
 **Input Dependencies**:
 - `planning/content-outline.json` (aus Phase 3)
 - `content/article-draft.md` (aus Phase 4)
 
 **Output Deliverables**:
-- `seo/seo-metadata.json` (Primary Deliverable)
+- `seo/seo-metadata.json` (Primary Deliverable mit DE + AT Versionen)
+
+---
+
+## 🇩🇪🇦🇹 LOCALE-SPECIFIC METADATA (KRITISCH!)
+
+### Warum separate Meta-Tags für AT?
+
+1. **Suchintention unterscheidet sich**: Österreicher suchen mit regionalen Begriffen
+2. **Google zeigt lokalisierte Snippets**: Meta Description erscheint in SERP → muss zum Markt passen
+3. **Höhere CTR**: "in Österreich" oder "für Österreicher" im Snippet erhöht Klicks
+4. **Bessere Rankings**: Google bevorzugt lokalisierte Inhalte für lokale Suchanfragen
+
+### Lokalisierungs-Regeln
+
+| Element | DE (.de) | AT (.de/at) |
+|---------|----------|-------------|
+| Title Tag | Standard-Keyword | + "Österreich" wenn relevant |
+| Meta Description | DE-fokussiert | AT-Anpassungen (Begriffe, Währung, Kontext) |
+| og:locale | de_DE | de_AT |
+| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.de/at/pferde-ratgeber/... |
+| hreflang | Beide Versionen verlinken | Beide Versionen verlinken |
+
+### AT-Anpassungen für Meta-Tags
+
+**Title Tag AT-Varianten**:
+- Wenn geografisch relevant: "... in Österreich" oder "... für Österreicher"
+- Wenn preisrelevant: "€" bleibt gleich (beide nutzen Euro)
+- Wenn regional: Österreichische Städte/Regionen erwähnen wenn sinnvoll
+
+**Meta Description AT-Varianten**:
+- Regionale Begriffe: "Pferdemarkt" → "Pferdemarkt Österreich"
+- Sprachliche Nuancen: Wo möglich österreichische Formulierungen
+- USP für AT: "Auch für österreichische Pferdebesitzer" o.ä.
+
+**Beispiele**:
+
+```
+DE Title: "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de"
+AT Title: "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf | PferdeWert.de"
+
+DE Description: "Pferd kaufen: Unsere Experten-Checkliste hilft dir, Fehler zu vermeiden."
+AT Description: "Pferd kaufen in Österreich: Experten-Checkliste für österreichische Käufer."
+```
 
 ---
 
@@ -183,44 +224,84 @@ Canonical URL: "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
 
 ### 8. Generate Output File: `seo/seo-metadata.json`
 
-**Complete Output Structure**:
+**Complete Output Structure (mit DE + AT Lokalisierung)**:
 ```json
 {
   "phase": "5A",
   "primary_keyword": "pferd kaufen worauf achten",
-  "metadata": {
-    "title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de",
-    "description": "Pferd kaufen: Unsere Experten-Checkliste hilft Ihnen, häufige Fehler zu vermeiden und das perfekte Pferd zu finden. Jetzt Ratgeber lesen!",
-    "canonical_url": "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten",
-    "slug": "pferd-kaufen-worauf-achten",
-    "robots": "index, follow"
+  "slug": "pferd-kaufen-worauf-achten",
+
+  "locales": {
+    "de": {
+      "metadata": {
+        "title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de",
+        "description": "Pferd kaufen: Unsere Experten-Checkliste hilft dir, häufige Fehler zu vermeiden und das perfekte Pferd zu finden. Jetzt Ratgeber lesen!",
+        "canonical_url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "robots": "index, follow"
+      },
+      "open_graph": {
+        "og:title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf",
+        "og:description": "Pferd kaufen: Unsere Experten-Checkliste hilft dir, häufige Fehler zu vermeiden.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "og:site_name": "PferdeWert.de",
+        "og:locale": "de_DE",
+        "og:image": "https://pferdewert.de/images/ratgeber/pferd-kaufen-worauf-achten.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf",
+        "twitter:description": "Unsere Experten-Checkliste hilft dir beim Pferdekauf."
+      }
+    },
+    "at": {
+      "metadata": {
+        "title": "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf | PferdeWert.de",
+        "description": "Pferd kaufen in Österreich: Experten-Checkliste für österreichische Käufer. Vermeide Fehler und finde dein perfektes Pferd. Jetzt Ratgeber lesen!",
+        "canonical_url": "https://pferdewert.de/at/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "robots": "index, follow"
+      },
+      "open_graph": {
+        "og:title": "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf",
+        "og:description": "Experten-Checkliste für österreichische Pferdekäufer. Vermeide Fehler!",
+        "og:type": "article",
+        "og:url": "https://pferdewert.de/at/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "og:site_name": "PferdeWert.de",
+        "og:locale": "de_AT",
+        "og:image": "https://pferdewert.de/images/ratgeber/pferd-kaufen-worauf-achten.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Pferd kaufen in Österreich: 5 Tipps",
+        "twitter:description": "Experten-Checkliste für österreichische Pferdekäufer."
+      }
+    }
   },
-  "open_graph": {
-    "og:title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf",
-    "og:description": "Pferd kaufen: Unsere Experten-Checkliste hilft Ihnen, häufige Fehler zu vermeiden und das perfekte Pferd zu finden.",
-    "og:type": "article",
-    "og:url": "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten",
-    "og:site_name": "PferdeWert.de",
-    "og:locale": "de_DE",
-    "og:image": null,
-    "og:image:width": null,
-    "og:image:height": null,
-    "og:image:alt": null
-  },
-  "twitter_card": {
-    "twitter:card": "summary_large_image",
-    "twitter:title": "Pferd kaufen: 5 Tipps für sicheren Pferdekauf",
-    "twitter:description": "Pferd kaufen: Unsere Experten-Checkliste hilft Ihnen, häufige Fehler zu vermeiden und das perfekte Pferd zu finden.",
+
+  "hreflang": [
+    { "hreflang": "de", "href": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten" },
+    { "hreflang": "de-AT", "href": "https://pferdewert.de/at/pferde-ratgeber/pferd-kaufen-worauf-achten" },
+    { "hreflang": "x-default", "href": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten" }
+  ],
+
+  "shared": {
     "twitter:site": "@PferdeWert",
     "twitter:creator": "@PferdeWert",
-    "twitter:image": null,
-    "twitter:image:alt": null
+    "og:image:width": 1200,
+    "og:image:height": 630
   },
+
   "validation": {
-    "title_length": 58,
-    "description_length": 155,
-    "primary_keyword_in_title": true,
-    "canonical_format_valid": true
+    "de": {
+      "title_length": 58,
+      "description_length": 155,
+      "primary_keyword_in_title": true
+    },
+    "at": {
+      "title_length": 65,
+      "description_length": 158,
+      "primary_keyword_in_title": true
+    }
   }
 }
 ```
@@ -468,9 +549,3 @@ def validate_phase_5a(metadata_json, primary_keyword):
 - Bestätige successful Validations
 - Konkrete nächste Schritte wenn FAILED
 
----
-
-**Version**: 1.0 (2025-01-04)
-**Token Budget**: ~150 Tokens (inkl. Quality Gate Validation)
-**Execution Time**: ~3 Minuten
-**Priority**: HIGH (Core SEO Deliverable)

@@ -1,6 +1,6 @@
 # Phase 1B: Keyword Analysis
 
-**Token Budget**: ~200 | **Time**: 2-3 min | **Agent**: `seo-content-writer`
+**Agent**: `seo-content-writer`
 
 ---
 

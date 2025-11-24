@@ -1,6 +1,6 @@
 # Phase 1A: Keyword Data Collection
 
-**Token Budget**: ~500 | **Time**: 2-3 min | **Agent**: `seo-content-writer`
+**Agent**: `seo-content-writer`
 
 ---
 

@@ -1,9 +1,7 @@
 # Phase 6: Quality Check & Publication Readiness
 
-**Token Budget**: ~400 Tokens
-**Main Deliverables**: `quality-report.json`, `eeat-score.json`, `competitive-positioning.json`, Publication-Ready Article
-**Agent Pattern**: Sub-Agent (comprehensive validation)
-**Version**: 2.1 (2025-01-05) - Kompakt-Version
+**Deliverables**: `quality-report.json`, `eeat-score.json`, `competitive-positioning.json`, Publication-Ready Article
+**Agent**: Sub-Agent (comprehensive validation)
 
 ---
 

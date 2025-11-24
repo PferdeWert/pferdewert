@@ -61,20 +61,18 @@ Technisch wird das durch 5 separate mkdir-Befehle umgesetzt, da Brace Expansion 
 
 ## 📊 6-Phasen-Pipeline
 
-| Phase | File | Haupt-Tasks | Output | Tokens |
-|-------|------|-------------|--------|--------|
-| **1A** | `phase-1a-data-collection.md` (102 lines) | API Data Collection (3 parallel calls) | `raw-api-data.json` | ~500 |
-| **1B** | `phase-1b-keyword-analysis.md` (170 lines) | Scoring, Clustering, Top 20 Selection | `keyword-analysis.json`, Top 20 Keywords | ~200 |
-| **QC** | `phase-1-quality-check.md` (165 lines) | Validate Phase 1A+1B, Auto-Retry on Fail | `phase-1-quality-report.json` | ~300 |
-| **2** | `phase-2-serp-analysis.md` | SERP Data, PAA Expansion, Competitor Analysis | `serp-analysis.json`, Content Gaps | ~600 |
-| **3** | `phase-3-outline.md` | Content Cluster, Outline Creation, H2/H3 Structure | `content-outline.json`, Article Structure | ~700 |
-| **4** | `phase-4-content.md` | Content Writing, E-E-A-T Integration, Fact-Checking | `article-draft.md`, 2000-2500 Wörter | ~700 |
-| **5A** | `phase-5a-metadata.md` | Title, Description, OG Tags, Twitter Cards, Canonical | `seo-metadata.json` | ~150 |
-| **5B** | `phase-5b-schema-markup.md` | Article, FAQ, HowTo, Breadcrumb Schema | Schema JSONs | ~200 |
-| **5C** | `phase-5c-internal-linking.md` | Sitemap Analysis, Relevance Scoring, Link Placement | `internal-linking.json` | ~200 |
-| **6** | `phase-6-quality-check.md` (v2.1) | Quality Validation, Readability Check, Final Review (Fixed Delegation) | `quality-report.json`, Publication-Ready | ~400 |
-
-**Total Token Budget**: ~3760 Tokens (vs. 7-8k im alten Monolith-System)
+| Phase | File | Haupt-Tasks | Output |
+|-------|------|-------------|--------|
+| **1A** | `phase-1a-data-collection.md` | API Data Collection (3 parallel calls) | `raw-api-data.json` |
+| **1B** | `phase-1b-keyword-analysis.md` | Scoring, Clustering, Top 20 Selection | `keyword-analysis.json` |
+| **QC** | `phase-1-quality-check.md` | Validate Phase 1A+1B, Auto-Retry on Fail | `phase-1-quality-report.json` |
+| **2** | `phase-2-serp-analysis.md` | SERP Data, PAA Expansion, Competitor Analysis | `serp-analysis.json` |
+| **3** | `phase-3-outline.md` | Content Outline, H2/H3 Structure | `content-outline.json` |
+| **4** | `phase-4-content.md` | Content Writing, E-E-A-T Integration | `article-draft.md` |
+| **5A** | `phase-5a-metadata.md` | Meta-Tags (DE + AT), OG, Twitter, hreflang | `seo-metadata.json` |
+| **5B** | `phase-5b-schema-markup.md` | Article, FAQ, HowTo, Breadcrumb Schema | Schema JSONs |
+| **5C** | `phase-5c-internal-linking.md` | Sitemap Analysis, Link Placement | `internal-linking.json` |
+| **6** | `phase-6-quality-check.md` | Quality Validation, Final Review | `quality-report.json` |
 
 ---
 
@@ -316,13 +314,13 @@ Task: SEO PHASE 5B - SCHEMA MARKUP (RETRY)
 ## ✅ Success Metrics
 
 **Pro Keyword-Workflow erwarten wir**:
-- ⏱️ **Execution Time**: 15-20 Minuten (automatisiert)
-- 📝 **Word Count**: 2000-2500 Wörter (quality content)
+- 📝 **Word Count**: 2000-2500 Wörter
 - 🎯 **Primary Keyword Density**: 0.8-1.2%
 - 🔍 **Supporting Keywords**: Min 15 natürlich integriert
-- ⭐ **E-E-A-T Score**: Min 7/10 (via Quality Check)
+- ⭐ **E-E-A-T Score**: Min 7/10
 - 📊 **Schema Markup**: Min 2 Typen (Article + FAQ/HowTo)
 - 🔗 **Internal Links**: Min 3 relevante Ratgeber-Links
+- 🇩🇪🇦🇹 **Lokalisierung**: Meta-Tags für DE + AT
 
 ---
 

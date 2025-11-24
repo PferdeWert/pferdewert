@@ -1,6 +1,6 @@
 # Phase 1 Quality Check
 
-**Token Budget**: ~300 | **Time**: 1-2 min | **Agent**: `seo-quality-checker`
+**Agent**: `seo-quality-checker`
 
 ---
 
