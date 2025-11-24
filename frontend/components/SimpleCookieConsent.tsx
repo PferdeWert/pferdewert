@@ -118,7 +118,8 @@ const SimpleCookieConsent = () => {
         const datafastScript = document.createElement('script');
         datafastScript.defer = true;
         datafastScript.setAttribute('data-website-id', '68d59a9dcb0e8d111148811a');
-        datafastScript.setAttribute('data-domain', 'Pferdewert.de');
+        datafastScript.setAttribute('data-domain', 'pferdewert.de');
+        datafastScript.setAttribute('data-allowed-hostnames', 'pferdewert.at');
         datafastScript.src = 'https://datafa.st/js/script.js';
         document.head.appendChild(datafastScript);
 

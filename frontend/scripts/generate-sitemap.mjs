@@ -1,63 +1,56 @@
-// scripts/generate-sitemap.js
+// scripts/generate-sitemap.mjs
+// Updated Nov 2025: Domain-based routing (pferdewert.de vs pferdewert.at)
 import fs from 'fs';
 import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
 
-const DOMAIN = 'https://www.pferdewert.de';
-const OUTPUT_PATH = 'public/sitemap.xml';
+// Domain configuration for multi-country support
+const DOMAINS = {
+  DE: 'https://www.pferdewert.de',
+  AT: 'https://pferdewert.at',
+};
 
-// Konfiguration: Welche Seiten sollen indexiert werden (ohne Ratgeber - die kommen aus dem Registry)
-const PAGE_CONFIG = {
-  // SEO-relevante Seiten (hohe Priorität)
+// Output paths - separate sitemaps per domain
+// Named with -de/-at suffix to avoid conflict with API routes
+const OUTPUT_PATHS = {
+  DE: 'public/sitemap-de.xml',
+  AT: 'public/sitemap-at.xml',
+};
+
+// Base pages (same structure for both domains)
+const BASE_PAGES = {
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
-
-  // AT-Rollout: Austrian versions of main pages
-  '/at': { priority: '1.0', changefreq: 'weekly' },
-  '/at/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
-
-  // Hub-Seiten (hohe Priorität)
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
-  '/at/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
-
-  // Content-Seiten (mittlere Priorität)
   '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
   '/was-ist-mein-pferd-wert': { priority: '0.8', changefreq: 'monthly' },
   '/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
-
-  // Legal pages (DE + AT versions)
   '/impressum': { priority: '0.3', changefreq: 'yearly' },
   '/datenschutz': { priority: '0.3', changefreq: 'yearly' },
   '/agb': { priority: '0.3', changefreq: 'yearly' },
-  '/at/impressum': { priority: '0.3', changefreq: 'yearly' },
-  '/at/datenschutz': { priority: '0.3', changefreq: 'yearly' },
-  '/at/agb': { priority: '0.3', changefreq: 'yearly' },
-
 };
 
-// Ratgeber-Artikel aus Registry dynamisch hinzufügen
-RATGEBER_ENTRIES.forEach(entry => {
-  const path = `/pferde-ratgeber/${entry.slug}`;
-  PAGE_CONFIG[path] = {
-    priority: entry.priority,
-    changefreq: entry.changefreq
-  };
-});
+// Build page config for a specific domain
+function buildPageConfig() {
+  const config = { ...BASE_PAGES };
 
-// AT-Rollout: Austrian versions of all Ratgeber articles
-RATGEBER_ENTRIES.forEach(entry => {
-  const atPath = `/at/pferde-ratgeber/${entry.slug}`;
-  PAGE_CONFIG[atPath] = {
-    priority: entry.priority,
-    changefreq: entry.changefreq
-  };
-});
+  // Add Ratgeber articles from registry
+  RATGEBER_ENTRIES.forEach(entry => {
+    const path = `/pferde-ratgeber/${entry.slug}`;
+    config[path] = {
+      priority: entry.priority,
+      changefreq: entry.changefreq
+    };
+  });
+
+  return config;
+}
 
 // Seiten die NICHT indexiert werden sollen
 const EXCLUDED_PAGES = [
   '/ergebnis',
-  '/pdf-test', 
+  '/pdf-test',
   '/test-loading',
   '/api/*',
   '/_next/*',
@@ -68,17 +61,19 @@ function getCurrentDate() {
   return new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
 }
 
-function generateSitemap() {
+/**
+ * Generate sitemap XML for a specific domain
+ */
+function generateSitemap(domain, pageConfig) {
   const lastmod = getCurrentDate();
-  
+
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-  // Generiere URLs für alle konfigurierten Seiten
-  Object.entries(PAGE_CONFIG).forEach(([path, config]) => {
+  Object.entries(pageConfig).forEach(([path, config]) => {
     sitemap += `
   <url>
-    <loc>${DOMAIN}${path}</loc>
+    <loc>${domain}${path}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${config.changefreq}</changefreq>
     <priority>${config.priority}</priority>
@@ -92,40 +87,60 @@ function generateSitemap() {
   return sitemap;
 }
 
-function updateRobotsTxt() {
-  const robotsContent = `User-agent: *
+/**
+ * Generate robots.txt for a specific domain
+ * Note: Vercel serves different robots.txt per domain via middleware/rewrites
+ */
+function generateRobotsTxt(domain) {
+  return `User-agent: *
 Allow: /
 
 # Block test and development pages
 ${EXCLUDED_PAGES.map(page => `Disallow: ${page}`).join('\n')}
 
-# Block admin areas if any exist
+# Block admin areas
 Disallow: /admin/
 Disallow: /_next/
 
-# Allow important crawlable content
-${Object.keys(PAGE_CONFIG).filter(p => p !== '/').map(page => `Allow: ${page}`).join('\n')}
-
 # Sitemap location
-Sitemap: ${DOMAIN}/sitemap.xml`;
-
-  fs.writeFileSync('public/robots.txt', robotsContent, 'utf-8');
-  console.log('✅ robots.txt updated');
+Sitemap: ${domain}/sitemap.xml
+`;
 }
 
 function main() {
   try {
-    const sitemap = generateSitemap();
-    fs.writeFileSync(OUTPUT_PATH, sitemap, 'utf-8');
-    console.log('✅ Sitemap generated successfully');
-    
-    updateRobotsTxt();
-    
-    console.log('📊 Sitemap stats:');
-    console.log(`   - ${Object.keys(PAGE_CONFIG).length} pages included`);
-    console.log(`   - ${EXCLUDED_PAGES.length} patterns excluded`);
-    console.log(`   - Last updated: ${getCurrentDate()}`);
-    
+    const pageConfig = buildPageConfig();
+    const lastmod = getCurrentDate();
+
+    // Generate DE sitemap (primary)
+    const deSitemap = generateSitemap(DOMAINS.DE, pageConfig);
+    fs.writeFileSync(OUTPUT_PATHS.DE, deSitemap, 'utf-8');
+    console.log('✅ DE Sitemap generated: public/sitemap-de.xml');
+
+    // Generate AT sitemap (separate domain)
+    const atSitemap = generateSitemap(DOMAINS.AT, pageConfig);
+    fs.writeFileSync(OUTPUT_PATHS.AT, atSitemap, 'utf-8');
+    console.log('✅ AT Sitemap generated: public/sitemap-at.xml');
+
+    // Generate robots.txt (named robots-de.txt to avoid conflict with API route)
+    const robotsTxt = generateRobotsTxt(DOMAINS.DE);
+    fs.writeFileSync('public/robots-de.txt', robotsTxt, 'utf-8');
+    console.log('✅ robots-de.txt generated');
+
+    // Generate AT robots.txt
+    const atRobotsTxt = generateRobotsTxt(DOMAINS.AT);
+    fs.writeFileSync('public/robots-at.txt', atRobotsTxt, 'utf-8');
+    console.log('✅ robots-at.txt generated (for AT domain)');
+
+    console.log('\n📊 Sitemap stats:');
+    console.log(`   - ${Object.keys(pageConfig).length} pages per domain`);
+    console.log(`   - 2 domains: pferdewert.de, pferdewert.at`);
+    console.log(`   - Last updated: ${lastmod}`);
+    console.log('\n⚠️  GSC Action Required:');
+    console.log('   1. Add pferdewert.at as new property in Google Search Console');
+    console.log('   2. Submit sitemap-at.xml for pferdewert.at');
+    console.log('   3. Remove /at/* URLs from pferdewert.de index (URL Removal Tool)');
+
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);
     process.exit(1);

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Block test and development pages
+Disallow: /ergebnis
+Disallow: /pdf-test
+Disallow: /test-loading
+Disallow: /api/*
+Disallow: /_next/*
+Disallow: /admin/*
+
+# Block admin areas
+Disallow: /admin/
+Disallow: /_next/
+
+# Sitemap location
+Sitemap: https://pferdewert.at/sitemap.xml

@@ -2,7 +2,7 @@
 ## Fokus: Niederlande als nächster Markt (Phase 3)
 
 **Erstellt:** 16. November 2025
-**Aktualisiert:** 18. November 2025
+**Aktualisiert:** 25. November 2025
 **Status:** DACH komplett, NL-Planung
 **Ziel:** Niederlande-Rollout Q4 2026 / Q1 2027
 
@@ -14,7 +14,7 @@
 
 | Phase | Markt | Status | Timeline | ROI |
 |-------|-------|--------|----------|-----|
-| ✅ **Phase 1** | **Österreich** 🇦🇹 | **95% KOMPLETT** | Nov 2025 | Positiv ab M6 |
+| ✅ **Phase 1** | **Österreich** 🇦🇹 | **LIVE** (pferdewert.at) | Nov 2025 | Positiv ab M6 |
 | 🚀 **Phase 2** | **Schweiz (DE)** 🇨🇭 | **GEPLANT** | Dez 2025 | €310-330/Jahr |
 | 📋 **Phase 3** | **Niederlande** 🇳🇱 | **DIESES DOKUMENT** | Q4 2026 | TBD |
 
@@ -351,6 +351,42 @@ const session = await stripe.checkout.sessions.create({
 ```
 
 **Kosten:** €0 (gleiche Stripe-Fees wie Kreditkarte: 1,4% + €0,25)
+
+---
+
+## 📊 Analytics: DataFa.st Multi-Domain Setup
+
+### Aktuelle Konfiguration (Stand 25.11.2025)
+
+DataFa.st nutzt Cross-Domain Tracking für alle Länder-Domains:
+
+```html
+<script
+  defer
+  data-website-id="68d59a9dcb0e8d111148811a"
+  data-domain="pferdewert.de"
+  data-allowed-hostnames="pferdewert.at,pferdewert.ch,pferdewert.nl"
+  src="https://datafa.st/js/script.js"
+></script>
+```
+
+**Vorteile:**
+- ✅ Eine Website-ID für alle Domains
+- ✅ Nutzer-Journey wird über Länder hinweg getrackt
+- ✅ Einfache Dashboard-Verwaltung
+
+### Für NL-Rollout benötigt
+
+1. **DataFa.st Dashboard:**
+   - Settings → Additional domains → `pferdewert.nl` hinzufügen
+
+2. **Code (bereits vorbereitet):**
+   - `getDataFastAllowedHostnames()` in `countries.ts` generiert automatisch alle enabled Domains
+   - SimpleCookieConsent nutzt diese Funktion
+
+### Referenz
+
+Dokumentation: https://datafa.st/docs/cross-domain-tracking
 
 ---
 

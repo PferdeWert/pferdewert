@@ -152,6 +152,37 @@ const paymentMethods = userCountry === 'AT'
 - "Grüezi" statt "Hallo" in lockeren Texten
 - CHF Preise verwenden
 
+### Phase 3.5: Analytics Setup (15min)
+
+**DataFa.st Cross-Domain Tracking erweitern:**
+
+1. **Dashboard:** datafa.st → Website Settings → Additional domains → `pferdewert.ch` hinzufügen
+
+2. **Code refactoren** (vor CH-Launch empfohlen):
+
+```typescript
+// In countries.ts hinzufügen:
+export function getDataFastAllowedHostnames(): string {
+  return getAvailableCountries()
+    .filter(c => c.domain !== 'pferdewert.de') // Primary domain ausschließen
+    .map(c => c.domain)
+    .join(',');
+}
+```
+
+3. **SimpleCookieConsent.tsx aktualisieren:**
+```typescript
+// Zeile 122 ändern von:
+datafastScript.setAttribute('data-allowed-hostnames', 'pferdewert.at');
+
+// Zu:
+import { getDataFastAllowedHostnames } from '@/lib/countries';
+datafastScript.setAttribute('data-allowed-hostnames', getDataFastAllowedHostnames());
+// → Generiert automatisch: 'pferdewert.at,pferdewert.ch'
+```
+
+**Hinweis:** Aktuell ist `pferdewert.at` hardcoded. Vor CH-Launch sollte die dynamische Lösung implementiert werden, damit neue Länder automatisch erfasst werden.
+
 ### Phase 4: Testing
 
 - [ ] pferdewert.ch zeigt CH-Content
@@ -161,6 +192,7 @@ const paymentMethods = userCountry === 'AT'
 - [ ] hreflang Tags: `de-CH` zeigt auf pferdewert.ch
 - [ ] Sitemap enthält CH-URLs (pferdewert.ch/...)
 - [ ] LocalizedLink funktioniert (bleibt auf .ch)
+- [ ] DataFa.st trackt pferdewert.ch Besucher (Cross-Domain)
 
 ---
 
@@ -180,13 +212,16 @@ const paymentMethods = userCountry === 'AT'
 
 1. [x] pferdewert.ch Domain gekauft
 2. [x] AT Domain-Separation implementiert (Branch: `feature/austria-domain-separation`)
-3. [ ] AT Branch mergen und testen
-4. [ ] CH zu Domain-Config hinzufügen (siehe Phase 2)
-5. [ ] Stripe CHF aktivieren + Price erstellen
-6. [ ] pferdewert.ch in Vercel hinzufügen
-7. [ ] 4 Artikel schreiben (6h)
-8. [ ] Testing
-9. [ ] Launch
+3. [x] DataFa.st Cross-Domain für AT konfiguriert (`data-allowed-hostnames`)
+4. [ ] AT Branch mergen und testen
+5. [ ] CH zu Domain-Config hinzufügen (siehe Phase 2)
+6. [ ] Stripe CHF aktivieren + Price erstellen
+7. [ ] pferdewert.ch in Vercel hinzufügen
+8. [ ] DataFa.st: `getDataFastAllowedHostnames()` implementieren (dynamisch)
+9. [ ] DataFa.st Dashboard: pferdewert.ch als Additional Domain hinzufügen
+10. [ ] 4 Artikel schreiben (6h)
+11. [ ] Testing
+12. [ ] Launch
 
 ---
 
