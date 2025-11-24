@@ -2,6 +2,9 @@
 
 ## 🚨 Critical Rules (Always Active)
 
+### Planning
+- **NO timelines or budgets**: Never include time estimates, budgets, or ROI projections in plans or documentation - focus on actionable implementation steps only
+
 ### Pricing & Business Model
 - **Service is PAID**: Pricing defined in `frontend/lib/pricing.ts`
 - **NEVER use "kostenlos" / "free" in content or UI** - this is business-critical
