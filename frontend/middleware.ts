@@ -9,6 +9,8 @@ const DOMAIN_CONFIG = {
   'www.pferdewert.at': { locale: 'de-AT', country: 'AT' },
   'pferdewert.de': { locale: 'de', country: 'DE' },
   'www.pferdewert.de': { locale: 'de', country: 'DE' },
+  'pferdewert.ch': { locale: 'de-CH', country: 'CH' },
+  'www.pferdewert.ch': { locale: 'de-CH', country: 'CH' },
 } as const;
 
 // Canonical domain for each country (for www redirect)
@@ -17,6 +19,7 @@ const DOMAIN_CONFIG = {
 const CANONICAL_DOMAINS = {
   AT: 'pferdewert.at',
   DE: 'pferdewert.de',
+  CH: 'pferdewert.ch',
 } as const;
 
 /**
@@ -37,13 +40,15 @@ export function middleware(request: NextRequest) {
   // Priority: 1. Domain (.at vs .de) → 2. Path prefix (/at/)
   const domainConfig = DOMAIN_CONFIG[host as keyof typeof DOMAIN_CONFIG];
   const isAtDomain = host.includes('pferdewert.at');
+  const isChDomain = host.includes('pferdewert.ch');
   // FIX: Only match exact /at or /at/ prefix, not /at-something
   const isAtPath = pathname === '/at' || pathname.startsWith('/at/');
+  const isChPath = pathname === '/ch' || pathname.startsWith('/ch/');
 
   // 2. REDIRECT: www.pferdewert.at → pferdewert.at (AT prefers non-www)
   // pferdewert.de → www.pferdewert.de (DE prefers www)
   if (domainConfig) {
-    const canonicalHost = CANONICAL_DOMAINS[domainConfig.country as 'AT' | 'DE'];
+    const canonicalHost = CANONICAL_DOMAINS[domainConfig.country as 'AT' | 'DE' | 'CH'];
     // Simple check: if current host doesn't match canonical, redirect
     if (host !== canonicalHost) {
       // Build full redirect URL to avoid issues with url.host modification
@@ -62,6 +67,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // 3b. REDIRECT: /ch/* paths on .ch domain should redirect to clean URLs
+  // e.g., pferdewert.ch/ch/page → pferdewert.ch/page
+  if (isChDomain && isChPath) {
+    const cleanPath = pathname === '/ch' ? '/' : pathname.slice(3);
+    const url = request.nextUrl.clone();
+    url.pathname = cleanPath;
+    return NextResponse.redirect(url, 301);
+  }
+
   // 4. REDIRECT: /at/* paths on .de domain should redirect to .at domain
   // e.g., pferdewert.de/at/page → pferdewert.at/page
   if (!isAtDomain && isAtPath) {
@@ -72,6 +86,18 @@ export function middleware(request: NextRequest) {
       atUrl.searchParams.set(key, value);
     });
     return NextResponse.redirect(atUrl.toString(), 301);
+  }
+
+  // 4b. REDIRECT: /ch/* paths on non-.ch domains should redirect to .ch domain
+  // e.g., pferdewert.de/ch/page → pferdewert.ch/page
+  if (!isChDomain && isChPath) {
+    const cleanPath = pathname === '/ch' ? '/' : pathname.slice(3);
+    const chUrl = new URL(`https://pferdewert.ch${cleanPath}`);
+    // Preserve query parameters
+    request.nextUrl.searchParams.forEach((value, key) => {
+      chUrl.searchParams.set(key, value);
+    });
+    return NextResponse.redirect(chUrl.toString(), 301);
   }
 
   // Determine locale from domain (or fallback to DE)

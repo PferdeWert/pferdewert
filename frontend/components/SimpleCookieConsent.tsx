@@ -6,6 +6,7 @@ import { useCallback, useState, useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { info, error as logError } from '@/lib/log';
+import { getDataFastAllowedHostnames } from '@/lib/countries';
 import CookieSettingsModal from './CookieSettingsModal';
 
 // WICHTIG: eigener Cookie-Name, damit wir nicht mit library-internen kollidieren
@@ -119,7 +120,8 @@ const SimpleCookieConsent = () => {
         datafastScript.defer = true;
         datafastScript.setAttribute('data-website-id', '68d59a9dcb0e8d111148811a');
         datafastScript.setAttribute('data-domain', 'pferdewert.de');
-        datafastScript.setAttribute('data-allowed-hostnames', 'pferdewert.at');
+        // Dynamic hostnames: automatically includes pferdewert.at, pferdewert.ch, etc.
+        datafastScript.setAttribute('data-allowed-hostnames', getDataFastAllowedHostnames());
         datafastScript.src = 'https://datafa.st/js/script.js';
         document.head.appendChild(datafastScript);
 

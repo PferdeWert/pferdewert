@@ -9,26 +9,30 @@ interface HreflangTag {
 interface SEOConfig {
   canonical: string;
   hreflangTags: HreflangTag[];
-  locale: 'de' | 'de-AT';
+  locale: 'de' | 'de-AT' | 'de-CH';
   isAustria: boolean;
-  ogLocale: 'de_DE' | 'de_AT';
+  isSwitzerland: boolean;
+  ogLocale: 'de_DE' | 'de_AT' | 'de_CH';
 }
 
 // Domain configuration for multi-country SEO
 const DOMAINS = {
   DE: 'https://pferdewert.de',
   AT: 'https://pferdewert.at',
+  CH: 'https://pferdewert.ch',
 } as const;
 
 /**
  * Detect country from hostname or cookie
  */
-function detectCountryFromHost(): 'DE' | 'AT' {
+function detectCountryFromHost(): 'DE' | 'AT' | 'CH' {
   if (typeof window !== 'undefined') {
     const host = window.location.hostname;
+    if (host.includes('pferdewert.ch')) return 'CH';
     if (host.includes('pferdewert.at')) return 'AT';
     // Fallback: Check cookie set by middleware (handles whitespace)
     const cookieMatch = document.cookie.match(/(?:^|;\s*)x-country=(\w+)/);
+    if (cookieMatch?.[1] === 'CH') return 'CH';
     if (cookieMatch?.[1] === 'AT') return 'AT';
   }
   return 'DE';
@@ -37,7 +41,7 @@ function detectCountryFromHost(): 'DE' | 'AT' {
 /**
  * Get initial country - runs immediately to prevent hydration mismatch
  */
-function getInitialCountry(): 'DE' | 'AT' {
+function getInitialCountry(): 'DE' | 'AT' | 'CH' {
   if (typeof window !== 'undefined') {
     return detectCountryFromHost();
   }
@@ -70,7 +74,7 @@ export function useSEO(): SEOConfig {
   const router = useRouter();
 
   // HYDRATION FIX: Initialize with detected country to prevent flash
-  const [country, setCountry] = useState<'DE' | 'AT'>(getInitialCountry);
+  const [country, setCountry] = useState<'DE' | 'AT' | 'CH'>(getInitialCountry);
 
   // Client-side: Sync if country changes (e.g., user switches domain mid-session)
   useEffect(() => {
@@ -81,37 +85,41 @@ export function useSEO(): SEOConfig {
   }, [country]);
 
   // Extract pathname without query string and hash
-  // Remove any /at/ prefix (for backwards compatibility during transition)
+  // Remove any /at/ or /ch/ prefix (for backwards compatibility during transition)
   const rawPathname = router.asPath.split('?')[0].split('#')[0];
-  const pathname = rawPathname.replace(/^\/at/, '') || '/';
+  const pathname = rawPathname.replace(/^\/(at|ch)/, '') || '/';
 
   // FAST REFRESH FIX: Compute all values in ONE useMemo to prevent intermediate re-renders
   const config = useMemo<SEOConfig>(() => {
     const isAustria = country === 'AT';
-    const locale = isAustria ? 'de-AT' : 'de';
+    const isSwitzerland = country === 'CH';
+    const locale = isSwitzerland ? 'de-CH' : (isAustria ? 'de-AT' : 'de');
 
-    // Generate URLs for both domains (clean paths, no /at/ prefix)
+    // Generate URLs for all domains (clean paths, no /at/ or /ch/ prefix)
     const deUrl = `${DOMAINS.DE}${pathname}`;
     const atUrl = `${DOMAINS.AT}${pathname}`;
+    const chUrl = `${DOMAINS.CH}${pathname}`;
 
     // Canonical points to current domain
-    const canonical = isAustria ? atUrl : deUrl;
+    const canonical = isSwitzerland ? chUrl : (isAustria ? atUrl : deUrl);
 
-    // Hreflang tags (tell Google about both domain versions)
+    // Hreflang tags (tell Google about all domain versions)
     const hreflangTags: HreflangTag[] = [
       { hreflang: 'de', href: deUrl },
       { hreflang: 'de-AT', href: atUrl },
+      { hreflang: 'de-CH', href: chUrl },
       { hreflang: 'x-default', href: deUrl },
     ];
 
-    const ogLocale = isAustria ? 'de_AT' : 'de_DE';
+    const ogLocale = isSwitzerland ? 'de_CH' : (isAustria ? 'de_AT' : 'de_DE');
 
     return {
       canonical,
       hreflangTags,
-      locale: locale as 'de' | 'de-AT',
+      locale: locale as 'de' | 'de-AT' | 'de-CH',
       isAustria,
-      ogLocale: ogLocale as 'de_DE' | 'de_AT',
+      isSwitzerland,
+      ogLocale: ogLocale as 'de_DE' | 'de_AT' | 'de_CH',
     };
   }, [pathname, country]);
 

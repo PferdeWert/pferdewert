@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongo";
 import { log, info, warn, error } from "@/lib/log";
 import { z } from "zod";
-import { STRIPE_CONFIG } from "@/lib/pricing";
+import { STRIPE_CONFIG, PRICING_BY_COUNTRY } from "@/lib/pricing";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
@@ -24,8 +24,8 @@ const BewertungSchema = z.object({
   aku: z.string().optional(),
   erfolge: z.string().optional(),
   standort: z.string().optional(),
-  land: z.enum(['DE', 'AT']).optional(), // Land des Pferdes - für KI-Marktdaten (strict validation)
-  user_country: z.enum(['DE', 'AT']).default('DE'), // Land des Kunden - für Payment Methods (strict validation)
+  land: z.enum(['DE', 'AT', 'CH']).optional(), // Land des Pferdes - für KI-Marktdaten (strict validation)
+  user_country: z.enum(['DE', 'AT', 'CH']).default('DE'), // Land des Kunden - für Payment Methods (strict validation)
   charakter: z.string().optional(), // NEU
   besonderheiten: z.string().optional(), // NEU
   attribution_source: z.string().optional(), // Marketing-Attribution
@@ -120,15 +120,26 @@ info("[CHECKOUT] 🌐 Verwendeter origin:", origin);
     // user_country = Land des Kunden (aus URL: /at/ → AT) → bestimmt Payment Methods
     // land = Land des Pferdes (aus Formular) → bestimmt KI-Marktdaten (später im Backend)
     const userCountry = bewertungData.user_country || 'DE'; // Fallback auf Deutschland
-    const paymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = userCountry === 'AT'
-      ? ["card", "eps", "klarna", "paypal"]  // EPS für österreichische Kunden
-      : ["card", "klarna", "paypal"];         // Standard für deutsche Kunden
+
+    // Payment Methods: AT hat EPS, DE/CH haben nur Card/Klarna/PayPal
+    // TWINT für CH wird von Stripe nicht unterstützt
+    let paymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[];
+    if (userCountry === 'AT') {
+      paymentMethods = ["card", "eps", "klarna", "paypal"]; // EPS für österreichische Kunden
+    } else {
+      paymentMethods = ["card", "klarna", "paypal"]; // Standard für DE + CH
+    }
+
+    // Get country-specific pricing (CHF for CH, EUR for DE/AT)
+    const countryPricing = PRICING_BY_COUNTRY[userCountry as keyof typeof PRICING_BY_COUNTRY] || PRICING_BY_COUNTRY.DE;
+    const priceId = countryPricing.priceId;
 
     info("[CHECKOUT] 💳 Payment Methods für Kundenland", userCountry, ":", paymentMethods);
+    info("[CHECKOUT] 💰 Preis-ID für Kundenland", userCountry, ":", priceId, `(${countryPricing.currency})`);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: paymentMethods,
-      line_items: [{ price: STRIPE_CONFIG.priceId, quantity: 1 }],
+      line_items: [{ price: priceId, quantity: 1 }],
       mode: "payment",
       allow_promotion_codes: true,
       success_url: `${origin}/ergebnis?session_id={CHECKOUT_SESSION_ID}`,

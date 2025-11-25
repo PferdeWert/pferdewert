@@ -111,9 +111,9 @@ interface StepData {
 
 // Preise aus zentraler Konfiguration werden über Import geladen
 
-// Step-Konfiguration als Funktion - erlaubt dynamische Ausbildungsoptionen und Lokalisierung (DE vs AT)
-// DE: hat "E", kein LP/LM | AT: kein "E", aber LP/LM
-const getStepData = (ausbildungOptions: string[], locale: 'de' | 'de-AT'): StepData[] => [
+// Step-Konfiguration als Funktion - erlaubt dynamische Ausbildungsoptionen und Lokalisierung (DE vs AT vs CH)
+// DE: hat "E", kein LP/LM | AT: kein "E", aber LP/LM | CH: kein "E", kein LP/LM
+const getStepData = (ausbildungOptions: string[], locale: 'de' | 'de-AT' | 'de-CH'): StepData[] => [
   {
     id: 1,
     title: "Grunddaten",

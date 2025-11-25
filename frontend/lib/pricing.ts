@@ -48,21 +48,54 @@ export const PRICING_FORMATTED = {
 
 // ===== STRIPE KONFIGURATION =====
 export const STRIPE_CONFIG = {
-  /** 
-   * Stripe Price-ID für aktuellen Preis
-   * Automatisch aus Environment-Variable geladen 
+  /**
+   * Stripe Price-ID für aktuellen Preis (EUR)
+   * Automatisch aus Environment-Variable geladen
    */
   priceId: process.env.STRIPE_PRICE_ID || 'price_1RuFlMKoHsLHy9OTPv9tRBa0',
-  
-  /** 
+
+  /**
    * Preis in Stripe-Format (Cent-Betrag)
-   * Automatisch berechnet aus PRICING.current 
+   * Automatisch berechnet aus PRICING.current
    */
   amountCents: Math.round(PRICING.current * 100),
-  
+
   /** Währung */
   currency: 'EUR'
 } as const;
+
+// ===== MULTI-COUNTRY PRICING =====
+/**
+ * Pricing configuration per country
+ * CH uses CHF with premium pricing (19.90 CHF)
+ * DE/AT use EUR with standard pricing (19.90 EUR)
+ */
+export const PRICING_BY_COUNTRY = {
+  DE: {
+    price: PRICING.current,
+    currency: 'EUR' as const,
+    priceId: STRIPE_CONFIG.priceId,
+    symbol: '€',
+    formatted: PRICING_FORMATTED.current,
+  },
+  AT: {
+    price: PRICING.current,
+    currency: 'EUR' as const,
+    priceId: STRIPE_CONFIG.priceId,
+    symbol: '€',
+    formatted: PRICING_FORMATTED.current,
+  },
+  CH: {
+    price: 19.90,
+    currency: 'CHF' as const,
+    // TODO: Create CHF price in Stripe Dashboard and add price_id here
+    priceId: process.env.STRIPE_PRICE_ID_CHF || 'price_xxx_chf',
+    symbol: 'CHF',
+    formatted: 'CHF 19,90',
+  },
+} as const;
+
+export type CountryCode = keyof typeof PRICING_BY_COUNTRY;
 
 // ===== TEXT TEMPLATES =====
 export const PRICING_TEXTS = {

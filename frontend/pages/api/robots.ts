@@ -4,14 +4,15 @@ import path from 'path';
 
 /**
  * Dynamic robots.txt endpoint
- * Serves different robots.txt based on domain (pferdewert.de vs pferdewert.at)
+ * Serves different robots.txt based on domain (pferdewert.de vs pferdewert.at vs pferdewert.ch)
  */
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const host = req.headers.host || '';
+  const isChDomain = host.includes('pferdewert.ch');
   const isAtDomain = host.includes('pferdewert.at');
 
   // Choose the correct robots.txt file based on domain
-  const robotsFile = isAtDomain ? 'robots-at.txt' : 'robots-de.txt';
+  const robotsFile = isChDomain ? 'robots-ch.txt' : (isAtDomain ? 'robots-at.txt' : 'robots-de.txt');
   const robotsPath = path.join(process.cwd(), 'public', robotsFile);
 
   try {
@@ -21,7 +22,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     res.status(200).send(content);
   } catch {
     // Fallback if file doesn't exist
-    const domain = isAtDomain ? 'https://pferdewert.at' : 'https://pferdewert.de';
+    const domain = isChDomain ? 'https://pferdewert.ch' : (isAtDomain ? 'https://pferdewert.at' : 'https://pferdewert.de');
     const fallback = `User-agent: *
 Allow: /
 

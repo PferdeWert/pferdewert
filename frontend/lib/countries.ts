@@ -36,15 +36,15 @@ export const COUNTRIES: Country[] = [
     locale: 'de-AT',
     enabled: true,
   },
-  // Future rollouts (disabled for now)
   {
     code: 'CH',
     name: 'Schweiz',
     domain: 'pferdewert.ch',
     urlPrefix: '/ch', // DEPRECATED
     locale: 'de-CH',
-    enabled: false, // TODO: Enable when ready
+    enabled: true, // Enabled Nov 2025
   },
+  // Future rollouts (disabled for now)
   {
     code: 'NL',
     name: 'Niederlande',
@@ -168,4 +168,25 @@ export function getCountryByCode(code: string): Country | undefined {
 export function buildCountryUrl(country: Country, path: string): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   return `https://${country.domain}${cleanPath}`;
+}
+
+/**
+ * Get allowed hostnames for DataFa.st cross-domain tracking
+ * Returns comma-separated list of non-primary domains (excludes pferdewert.de)
+ * Used for data-allowed-hostnames attribute in DataFa.st script
+ *
+ * FAST REFRESH FIX: Cache result to prevent new string creation on every call
+ *
+ * @returns Comma-separated hostnames (e.g., 'pferdewert.at,pferdewert.ch')
+ */
+let dataFastHostnamesCache: string | null = null;
+
+export function getDataFastAllowedHostnames(): string {
+  if (!dataFastHostnamesCache) {
+    dataFastHostnamesCache = getAvailableCountries()
+      .filter(c => c.domain !== 'pferdewert.de') // Primary domain excluded
+      .map(c => c.domain)
+      .join(',');
+  }
+  return dataFastHostnamesCache;
 }

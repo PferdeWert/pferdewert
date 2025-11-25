@@ -4,14 +4,15 @@ import path from 'path';
 
 /**
  * Dynamic sitemap.xml endpoint
- * Serves different sitemap based on domain (pferdewert.de vs pferdewert.at)
+ * Serves different sitemap based on domain (pferdewert.de vs pferdewert.at vs pferdewert.ch)
  */
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const host = req.headers.host || '';
+  const isChDomain = host.includes('pferdewert.ch');
   const isAtDomain = host.includes('pferdewert.at');
 
   // Choose the correct sitemap file based on domain
-  const sitemapFile = isAtDomain ? 'sitemap-at.xml' : 'sitemap-de.xml';
+  const sitemapFile = isChDomain ? 'sitemap-ch.xml' : (isAtDomain ? 'sitemap-at.xml' : 'sitemap-de.xml');
   const sitemapPath = path.join(process.cwd(), 'public', sitemapFile);
 
   try {

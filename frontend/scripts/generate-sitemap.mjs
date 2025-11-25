@@ -8,13 +8,15 @@ import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
 const DOMAINS = {
   DE: 'https://pferdewert.de',
   AT: 'https://pferdewert.at',
+  CH: 'https://pferdewert.ch',
 };
 
 // Output paths - separate sitemaps per domain
-// Named with -de/-at suffix to avoid conflict with API routes
+// Named with -de/-at/-ch suffix to avoid conflict with API routes
 const OUTPUT_PATHS = {
   DE: 'public/sitemap-de.xml',
   AT: 'public/sitemap-at.xml',
+  CH: 'public/sitemap-ch.xml',
 };
 
 // Base pages (same structure for both domains)
@@ -123,6 +125,11 @@ function main() {
     fs.writeFileSync(OUTPUT_PATHS.AT, atSitemap, 'utf-8');
     console.log('✅ AT Sitemap generated: public/sitemap-at.xml');
 
+    // Generate CH sitemap (separate domain)
+    const chSitemap = generateSitemap(DOMAINS.CH, pageConfig);
+    fs.writeFileSync(OUTPUT_PATHS.CH, chSitemap, 'utf-8');
+    console.log('✅ CH Sitemap generated: public/sitemap-ch.xml');
+
     // Generate robots.txt (named robots-de.txt to avoid conflict with API route)
     const robotsTxt = generateRobotsTxt(DOMAINS.DE);
     fs.writeFileSync('public/robots-de.txt', robotsTxt, 'utf-8');
@@ -133,14 +140,18 @@ function main() {
     fs.writeFileSync('public/robots-at.txt', atRobotsTxt, 'utf-8');
     console.log('✅ robots-at.txt generated (for AT domain)');
 
+    // Generate CH robots.txt
+    const chRobotsTxt = generateRobotsTxt(DOMAINS.CH);
+    fs.writeFileSync('public/robots-ch.txt', chRobotsTxt, 'utf-8');
+    console.log('✅ robots-ch.txt generated (for CH domain)');
+
     console.log('\n📊 Sitemap stats:');
     console.log(`   - ${Object.keys(pageConfig).length} pages per domain`);
-    console.log(`   - 2 domains: pferdewert.de, pferdewert.at`);
+    console.log(`   - 3 domains: pferdewert.de, pferdewert.at, pferdewert.ch`);
     console.log(`   - Last updated: ${lastmod}`);
     console.log('\n⚠️  GSC Action Required:');
-    console.log('   1. Add pferdewert.at as new property in Google Search Console');
-    console.log('   2. Submit sitemap-at.xml for pferdewert.at');
-    console.log('   3. Remove /at/* URLs from pferdewert.de index (URL Removal Tool)');
+    console.log('   1. Add pferdewert.ch as new property in Google Search Console');
+    console.log('   2. Submit sitemap-ch.xml for pferdewert.ch');
 
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);
