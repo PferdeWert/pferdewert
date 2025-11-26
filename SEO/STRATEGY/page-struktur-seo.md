@@ -16,14 +16,19 @@
   - Pferd Verkaufen (Hub)
   - Pferd Kaufen (Hub)
   - Was kostet ein Pferd (Spoke)
-  - **Pferdekaufvertrag** ✅ (NEU entdeckt!)
-  - **Pferdemarkt** ✅ (NEU entdeckt!)
-  - **Springpferd kaufen** ✅ (NEU entdeckt!)
-  - **Dressurpferd kaufen** ✅ (NEU entdeckt!)
+  - **Pferdekaufvertrag** ✅ 
+  - **Pferdemarkt** ✅ 
+  - **Springpferd kaufen** ✅ 
+  - **Dressurpferd kaufen** ✅
 
 ### 🎯 Nächste Artikel (Priority 2-3)
-- **P2:** Anfängerpferd kaufen (880/Mo., CPC 0,15€) - 🚧 **IN PRODUKTION**
-- **P3:** Freizeitpferd kaufen (1.900/Mo., CPC 0,13€) - 🚧 **IN PRODUKTION**
+- **P2:** Anfängerpferd kaufen (880/Mo., CPC 0,15€) - published
+- **P3:** Freizeitpferd kaufen (1.900/Mo., CPC 0,13€) - **published**
+
+### 🇨🇭 Schweiz-Expansion (Priority 2)
+- **CH-1:** Pferd kaufen Schweiz (4.400/Mo., KD 20) - 🚧 **IN PRODUKTION** (vom User)
+- **CH-2:** Freiberger Pferd kaufen (480/Mo.) - 📋 **GEPLANT**
+- **CH-3:** Freizeitpferd kaufen Schweiz (320/Mo., KD 9) - 📋 **GEPLANT**
 
 ### 📋 Geplant (Priority 4)
 - **P4:** Pony-Cluster (6.880/Mo., hohe Kaufintention 🎯)
@@ -318,6 +323,7 @@ PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
 ## 📝 NOTIZEN
 
 **Letzte Updates:**
+- **2025-11-26:** Schweiz-Expansion (3 Artikel geplant, CH-1 in Produktion)
 - **2025-11-14:** P4-Cluster geändert (Gesundheit → Pony-Cluster)
   - ❌ **Gesundheits-Cluster verworfen** (15.390/Mo., aber null matching intent)
   - ✅ **Pony-Cluster als P4** (6.880/Mo., hohe Kaufintention)
