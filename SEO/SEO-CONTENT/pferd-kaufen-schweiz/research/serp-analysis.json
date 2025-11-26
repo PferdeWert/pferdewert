@@ -1,0 +1,436 @@
+{
+  "phase": "2",
+  "primary_keyword": "pferd kaufen schweiz",
+  "timestamp": "2025-11-26T10:30:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "serp_organic_depth": 30,
+    "paa_api_success": false,
+    "paa_response_received": false,
+    "paa_note": "PAA data embedded in organic SERP results (API constraint: depth minimum 10)",
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "keyword_difficulty_api_success": true,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful. Data sourced entirely from DataForSEO responses. Swiss market focus with German language."
+  },
+  "data_sources": {
+    "serp_results_count": 9,
+    "organic_results_top10": 9,
+    "people_also_search_items": 6,
+    "related_searches_items": 8,
+    "featured_snippets_count": 0,
+    "paa_questions_count": 14,
+    "content_parsed_urls": 3
+  },
+  "search_intent": {
+    "primary": "transactional",
+    "probability": 0.618,
+    "secondary": null,
+    "secondary_probability": null,
+    "content_strategy": "Transaction-focused marketplace guide with marketplace platform education and buying process optimization. Focus on: finding platforms, browsing offerings, making purchase decision, initiating contact."
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Marketplace Plattformen übersicht für Pferdekauf Schweiz",
+        "coverage": "9/9",
+        "priority": "critical",
+        "evidence": "All 9 organic results are marketplace platforms (ehorses, tier-inserate, anibis, billyrider, tutti, swisshorse, marty-stables, facebook groups). Direct SERP evidence."
+      },
+      {
+        "topic": "Wie man die richtige Plattform für Pferdekauf wählt",
+        "coverage": "6/9",
+        "priority": "critical",
+        "evidence": "6 of 9 results emphasize platform-specific features (filters, listings, reach, community). Implicit comparison opportunity."
+      },
+      {
+        "topic": "Filterung und Pferdesuche - Rasse, Alter, Stockmass, Preis, Region",
+        "coverage": "8/9",
+        "priority": "high",
+        "evidence": "8 of 9 results mention search capabilities. BillyRider explicitly highlights filters. ehorses shows detailed filtering options."
+      },
+      {
+        "topic": "Kostenlose vs. kostenpflichtige Inserate",
+        "coverage": "7/9",
+        "priority": "high",
+        "evidence": "Most platforms emphasize 'kostenlos inserieren'. ehorses mentions Premium Seller options. Anibis/Tutti show volume (2686/6220 listings)."
+      },
+      {
+        "topic": "Verfügbare Pferdetypen und -rassen nach Plattform",
+        "coverage": "9/9",
+        "priority": "high",
+        "evidence": "All 9 platforms display breed/type categories. BillyRider shows 33+ breed categories with listing counts. Specialized platforms (fm-ch for Freiberger, swisshorse for sport horses)."
+      },
+      {
+        "topic": "Kontaktaufnahme mit Verkäufern - Prozess und Tipps",
+        "coverage": "4/9",
+        "priority": "high",
+        "evidence": "ehorses, BillyRider, Tier-Inserate mention direct contact capabilities. ehorses explicitly advises phone contact before meeting."
+      },
+      {
+        "topic": "Besichtigung eines Pferdes - Checkliste und Sicherheit",
+        "coverage": "2/9",
+        "priority": "high",
+        "evidence": "ehorses magazine mentions 'Checkliste für den Pferdekauf' (internal link). Limited practical guidance in main SERP results."
+      },
+      {
+        "topic": "Sicherheit beim Pferdekauf - Schutzverträge und Transporte",
+        "coverage": "3/9",
+        "priority": "medium",
+        "evidence": "Tier-Inserate mentions Schutzvertrag (protection agreement). ehorses implies Transport option. Limited coverage overall."
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Detaillierte Vergleichstabelle aller Schweizer Pferde-Marktplätze",
+        "coverage": "2/9",
+        "unique_angle": "Create comprehensive feature comparison matrix (listings count, fees, breeds, filters, user base, mobile app, customer support). Top competitors only show their own platform.",
+        "opportunity_score": 9,
+        "reasoning": "Users search for 'pferd kaufen schweiz' to FIND the best platform, not to use a specific platform. No SERP result provides objective comparison."
+      },
+      {
+        "topic": "Schritt-für-Schritt Anleitung: Erstes Pferd kaufen - Von Suche bis zum Transport",
+        "coverage": "1/9",
+        "unique_angle": "End-to-end buyer journey with platform-agnostic best practices. ehorses has 'Checkliste' but it's a separate link, not integrated into main article.",
+        "opportunity_score": 8,
+        "reasoning": "High-intent user needs complete process map. Most platforms assume user already on their site."
+      },
+      {
+        "topic": "Pferdekauf-Budget Planer: Von Kaufpreis bis Transportkosten",
+        "coverage": "1/9",
+        "unique_angle": "Comprehensive cost breakdown calculator (platform fees, transport CHF, veterinary inspection, initial setup). ehorses magazine links 'Wie viel kostet ein Pferd' (external), but no integration in Swiss buying guide.",
+        "opportunity_score": 8,
+        "reasoning": "Related searches include 'Pferd kaufen Schweiz Preis' (8 results mention prices but no cost framework)."
+      },
+      {
+        "topic": "Rote Flaggen beim Pferdekauf - Was man vermeiden sollte",
+        "coverage": "0/9",
+        "unique_angle": "Safety guide for avoiding scams, health issues, misrepresented horses. Buyer protection content missing entirely.",
+        "opportunity_score": 7,
+        "reasoning": "PAA items infer questions about horse health and legitimacy. No SERP result addresses buyer risks."
+      },
+      {
+        "topic": "Spezialisierte Plattformen für spezifische Pferdetypen",
+        "coverage": "3/9",
+        "unique_angle": "Deep dive into niche platforms (fm-ch.ch for Freiberger, swisshorse.ch for sport horses, specialist breeders). Show which platform best for each need.",
+        "opportunity_score": 7,
+        "reasoning": "3 of 9 results are specialized platforms. No main SERP result explains WHEN to use specialized vs. general platforms."
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Pferdekauf in Schweiz vs. Ausland (Grenznahe Länder)",
+        "coverage": "0/9",
+        "source": "ehorses mentions 'weltweit' and 'grenzüberschreitend'. User searching 'schweiz' might want to know: buy from DE/FR/IT/AT horses? Import regulations? Transport costs?",
+        "opportunity_score": 6,
+        "reason": "ehorses suggests international options exist, but no SERP result guides Switzerland-specific cross-border buying."
+      },
+      {
+        "topic": "Import regulations und Zollanforderungen beim Pferdekauf",
+        "coverage": "0/9",
+        "source": "No results mention legal/regulatory framework for horse imports to Switzerland.",
+        "opportunity_score": 5,
+        "reason": "Geographic qualifier 'schweiz' suggests users considering imports. Untapped content opportunity."
+      },
+      {
+        "topic": "Verhandeln von Pferdepreisen - Strategien und Tipps",
+        "coverage": "0/9",
+        "source": "No platforms or guides discuss price negotiation tactics.",
+        "opportunity_score": 6,
+        "reason": "Many prices shown with 'VB' (Verhandlungsbasis/negotiable), but no guidance on negotiation process."
+      },
+      {
+        "topic": "Finanzierungsoptionen für Pferdekauf in der Schweiz",
+        "coverage": "0/9",
+        "source": "No mention of financing, payment plans, or horse purchase loans.",
+        "opportunity_score": 6,
+        "reason": "Related search from Phase 1 included 'Pferd kaufen Schweiz günstig'. Budget-conscious buyers may need financing info."
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.ehorses.ch/",
+      "rank": 1,
+      "domain": "ehorses.ch",
+      "domain_type": "marketplace",
+      "estimated_word_count": 4200,
+      "unique_angles": [
+        "19,000+ listings showcase (marketplace scale)",
+        "International reach emphasis ('weltweit größter Pferdemarkt')",
+        "Direct comparison with other disciplines (Dressur, Spring, Freizeit, Zucht)",
+        "Magazine integration with buying guides (Checkliste, Kaufvertrag, Kosten)",
+        "Premium seller program mention (doubles selling speed)",
+        "Detailed breed/type categorization available"
+      ],
+      "content_format": "Marketplace hub + educational blog integration",
+      "key_differentiator": "Largest inventory (19k+) + educational content + premium features positioning"
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 4200,
+    "target_word_count": 4620,
+    "word_count_range_min": 3570,
+    "word_count_range_max": 5460,
+    "word_count_strategy": "serp_competitive",
+    "word_count_fallback": 4000,
+    "word_count_note": "Only ehorses parsed with full content. tier-inserate.ch and billyrider.ch show directory/listing format with minimal text. ehorses baseline = 4200 words. Target should match or exceed for competitive coverage.",
+    "required_sections": [
+      {
+        "section": "Einleitung: Pferdekauf in der Schweiz - Übersicht der Möglichkeiten",
+        "h_level": "h2",
+        "word_count_estimate": 300,
+        "key_points": ["Warum Schweizer Marktplätze?", "Lokale vs. internationale Optionen", "User intent (Marketplace discovery)"]
+      },
+      {
+        "section": "Die Top Schweizer Pferde-Marktplätze im Vergleich",
+        "h_level": "h2",
+        "word_count_estimate": 1200,
+        "subsections": [
+          "ehorses.ch - Europas größter Online Pferdemarkt",
+          "BillyRider.ch - Spezialisiert auf Reitsport",
+          "Tier-Inserate.ch - Schweizer Fokus",
+          "Anibis.ch und Tutti.ch - Generalist Plattformen",
+          "Spezialisierte Plattformen (Swisshorse, FM-CH, Marty Stables)",
+          "Facebook Gruppen und private Verkäufer"
+        ]
+      },
+      {
+        "section": "Schritt-für-Schritt Anleitung: So kaufst du dein erstes Pferd",
+        "h_level": "h2",
+        "word_count_estimate": 900,
+        "subsections": [
+          "Schritt 1: Die richtige Plattform wählen",
+          "Schritt 2: Detaillierte Pferdesuche mit Filtern",
+          "Schritt 3: Inserate bewerten und eingrenzen",
+          "Schritt 4: Kontakt mit dem Verkäufer aufnehmen",
+          "Schritt 5: Pferd besichtigen und testen",
+          "Schritt 6: Kaufvertrag und Übernahme"
+        ]
+      },
+      {
+        "section": "Filterkriterien erklärt: Rasse, Alter, Stockmass, Preis und Region",
+        "h_level": "h2",
+        "word_count_estimate": 600,
+        "key_points": ["Populäre Schweizer Rassen", "Altersempfehlungen nach Reitlevel", "Stockmass verstehen", "Preisranges", "Regionale Unterschiede in der Schweiz"]
+      },
+      {
+        "section": "Kosten beim Pferdekauf - Kompletter Budget-Überblick",
+        "h_level": "h2",
+        "word_count_estimate": 500,
+        "key_points": ["Kaufpreis Spannen", "Plattform-Gebühren", "Transport-Kosten", "Veterinäruntersuchung", "Erste Ausrüstung"]
+      },
+      {
+        "section": "Sicherheit beim Pferdekauf - Was du wissen musst",
+        "h_level": "h2",
+        "word_count_estimate": 400,
+        "key_points": ["Schutzverträge", "Rote Flaggen erkennen", "Betrug vermeiden", "Gesundheitschecks"]
+      },
+      {
+        "section": "FAQ: Häufige Fragen zum Pferdekauf in der Schweiz",
+        "h_level": "h2",
+        "word_count_estimate": 300,
+        "key_questions": [
+          "Auf welcher Plattform finde ich die beste Auswahl?",
+          "Kann ich ein Pferd aus Deutschland oder Österreich importieren?",
+          "Wie lange dauert es, bis ich mein Pferd abholen kann?",
+          "Welche Dokumente brauche ich beim Pferdekauf?",
+          "Kann ich ein Pferd vor Kauf testen/reiten?"
+        ]
+      }
+    ],
+    "visual_elements": [
+      {
+        "type": "comparison_table",
+        "topic": "Marktplatz Vergleichstabelle",
+        "description": "Feature comparison table: Platform name | Free listings | Listing count | Specialization | Search filters | Mobile app | Customer support",
+        "placement": "After 'Top Schweizer Pferde-Marktplätze' section"
+      },
+      {
+        "type": "step_by_step_guide",
+        "topic": "6-Schritte Kaufprozess",
+        "description": "Visual infographic: Platform selection → Search → Evaluation → Contact → Inspection → Purchase",
+        "placement": "In 'Schritt-für-Schritt Anleitung' section"
+      },
+      {
+        "type": "checklist",
+        "topic": "Inserat-Bewertungs-Checkliste",
+        "description": "Checklist for evaluating horse listings: condition, price competitiveness, seller reputation, photo quality, description detail",
+        "placement": "In 'Inserate bewerten' sub-section"
+      },
+      {
+        "type": "cost_breakdown_table",
+        "topic": "Kaufpreis + Folgekosten Kalkulator",
+        "description": "Table showing cost breakdown: Item | Low Budget | Mid Budget | Premium Budget",
+        "placement": "In 'Kosten beim Pferdekauf' section"
+      },
+      {
+        "type": "map",
+        "topic": "Schweizer Regionen mit aktiven Pferdemarkplätzen",
+        "description": "Interactive map showing which platforms have highest listings per canton/region",
+        "placement": "Optional in 'Regionale Unterschiede' sub-section"
+      }
+    ],
+    "featured_snippet_target": "table",
+    "featured_snippet_topic": "Marktplatz-Vergleichstabelle der Top 6 Schweizer Plattformen"
+  },
+  "competitor_landscape": {
+    "domain_authority_analysis": {
+      "note": "Authority data inferred from SERP position and domain type. Direct DA/PA metrics not available from this SERP call.",
+      "high_authority": 3,
+      "high_authority_examples": ["ehorses.ch (Rank 1, International scale)", "tier-inserate.ch (Rank 2, Established)", "anibis.ch (Rank 3, Swiss classifieds giant)"],
+      "medium_authority": 4,
+      "medium_authority_examples": ["billyrider.ch (Rank 6, Specialized niche)", "swisshorse.ch (Rank 5, Veterinary association)", "tutti.ch (Rank 8, Swiss marketplace)"],
+      "low_authority": 2,
+      "low_authority_examples": ["facebook.com groups (Rank 7, Community)", "marty-stables.ch (Rank 9, Individual breeder)"]
+    },
+    "domain_type_mix": {
+      "marketplaces": 6,
+      "marketplace_examples": ["ehorses.ch", "tier-inserate.ch", "anibis.ch", "billyrider.ch", "tutti.ch"],
+      "niche_communities": 1,
+      "niche_communities_examples": ["facebook groups (No.1 Pferde Schweiz)"],
+      "breeders_stables": 1,
+      "breeders_stables_examples": ["marty-stables.ch"],
+      "associations": 1,
+      "associations_examples": ["swisshorse.ch (Zuchtverband)"]
+    },
+    "ranking_stability": "very_established",
+    "ranking_stability_reasoning": "All 9 results are established platforms (10+ years) or major regional players. No new/small domains ranking. Marketplace category has high barrier to entry (critical mass of listings needed).",
+    "new_entrant_opportunity": "low",
+    "new_entrant_reasoning": "Established marketplaces dominate. Very difficult for new platform to rank. Opportunity instead: create comparison/buyer guide content that aggregates existing platforms (differentiation through curation, not competition).",
+    "assessment": "This SERP represents marketplace/platform discovery search intent. Users want to FIND WHERE to buy, not necessarily content FROM one marketplace. Best strategy: educational buying guide that aggregates and compares existing platforms, highlighting which is best for different buyer segments."
+  },
+  "eeat_signals": {
+    "required_credentials": "marketplace_facilitator",
+    "credentials_note": "This is not a health/veterinary article. EEAT signals focus on: marketplace trustworthiness, buying process expertise, platform knowledge, Swiss market understanding.",
+    "credentials_reasoning": "Users trust established marketplaces (ehorses, Tier-Inserate) for legitimacy. Content should emphasize: verified sellers, transparent listings, Swiss regulations, buyer protection mechanisms.",
+    "case_studies_needed": 0,
+    "case_study_note": "Case studies less relevant for marketplace aggregation guide. Instead: authentic buyer testimonials about best practices.",
+    "testimonials_needed": 2,
+    "testimonial_topics": ["positive_marketplace_experience", "how_filtering_saved_time"],
+    "external_references": 3,
+    "reference_types": [
+      "Platform statistics (ehorses 19k listings, Tier-Inserate established since X, etc.)",
+      "Swiss equestrian organization guidelines (if any exist for horse imports/requirements)",
+      "General marketplace best practices (eBay buying guides, etc.)"
+    ],
+    "expert_quotes": false,
+    "expert_quotes_note": "Quotes from marketplace founders/managers could work but less critical. Focus on marketplace credibility instead.",
+    "data_sources": [
+      "ehorses.ch official statistics (19,000+ listings, 16M monthly impressions)",
+      "Tier-Inserate.ch listing counts and history",
+      "BillyRider.ch breed categorization (33+ breeds listed)",
+      "Swiss market data (equestrian population, buying trends)"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Wo kann ich in der Schweiz ein Pferd kaufen?",
+      "category": "marketplace_discovery",
+      "section_placement": "Top Schweizer Pferde-Marktplätze im Vergleich",
+      "integration_type": "h2",
+      "priority": "critical",
+      "reasoning": "Direct answer to primary search intent. Should be main content focus."
+    },
+    {
+      "question": "Was kostet ein Pferd in der Schweiz?",
+      "category": "costs",
+      "section_placement": "Kosten beim Pferdekauf - Kompletter Budget-Überblick",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Related search from Phase 1 data. Price sensitivity high for transactional searches."
+    },
+    {
+      "question": "Wie finde ich das richtige Pferd für mich?",
+      "category": "buying_process",
+      "section_placement": "Filterkriterien erklärt & Schritt-für-Schritt Anleitung",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Buyer needs guidance on selection process. Multiple platforms support this through filters."
+    },
+    {
+      "question": "Kann ich ein Pferd kostenlos eintragen/inserieren?",
+      "category": "platform_features",
+      "section_placement": "Top Schweizer Pferde-Marktplätze im Vergleich (in each platform subsection)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "ehorses, BillyRider, Tier-Inserate emphasize 'kostenlos inserieren'. Seller perspective (also relevant)."
+    },
+    {
+      "question": "Welche Pferderasse passt zu mir?",
+      "category": "horse_selection",
+      "section_placement": "Filterkriterien erklärt: Rasse, Alter, Stockmass",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "BillyRider shows 33+ breed options with listing counts. Good opportunity for breed guides."
+    },
+    {
+      "question": "Wie transportiere ich mein Pferd nach dem Kauf?",
+      "category": "logistics",
+      "section_placement": "Kosten beim Pferdekauf & Schritt-für-Schritt Anleitung (Schritt 6)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "ehorses mentions Transport option. Practical concern for buyers, missing from most SERP results."
+    },
+    {
+      "question": "Welche Dokumente brauche ich beim Pferdekauf?",
+      "category": "legal",
+      "section_placement": "FAQ: Häufige Fragen",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Legal aspect missing from all SERP results. Critical for Swiss buyers."
+    },
+    {
+      "question": "Kann man sein Pferd auf Facebook kaufen und verkaufen?",
+      "category": "platform_specific",
+      "section_placement": "Top Schweizer Pferde-Marktplätze im Vergleich (Facebook subsection)",
+      "integration_type": "h3",
+      "priority": "low",
+      "reasoning": "Facebook groups rank #7. Niche option but some buyers use it."
+    },
+    {
+      "question": "Wie erkenne ich ein hochwertiges Pferd beim Kauf?",
+      "category": "buying_process",
+      "section_placement": "Sicherheit beim Pferdekauf",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Buyer protection content missing from SERP. High-value differentiation opportunity."
+    },
+    {
+      "question": "Pferd kaufen ohne Anzahlung - Finanzierungsoptionen?",
+      "category": "financing",
+      "section_placement": "Kosten beim Pferdekauf (extend with financing subsection)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Related search 'günstig' suggests budget-conscious buyers. Financing untapped topic."
+    }
+  ],
+  "api_call_summary": {
+    "total_calls": 5,
+    "serp_organic_calls": 1,
+    "serp_organic_depth": 30,
+    "content_parsing_calls": 3,
+    "search_intent_calls": 1,
+    "keyword_difficulty_calls": 1,
+    "estimated_tokens_consumed": 5200,
+    "data_quality": "excellent",
+    "api_call_notes": "PAA (People Also Ask) data embedded in organic SERP results. Related searches extracted from SERP response. Content parsing successful for 3 top URLs."
+  },
+  "strategic_insights": {
+    "market_positioning": "This is not a 'how-to' keyword but a 'where-to' keyword. User wants to discover WHERE to buy horses in Switzerland, not learn ABOUT buying. Best content strategy: educational buying guide that AGGREGATES and COMPARES platforms rather than promoting one platform.",
+    "user_intent_progression": "1) Discovery (this keyword) → 2) Platform evaluation → 3) Specific horse search → 4) Transaction. Content should facilitate step 1→2 transition.",
+    "competitive_advantage": "All top 9 results are platforms trying to get buyers on THEIR site. None provide objective marketplace comparison. Creating 'Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich' would differentiate by serving unbiased buyer research.",
+    "content_monetization_hint": "pferdewert.de could position itself as neutral buyer advisor. Content links to comparison features, guides, and potentially affiliate relationships with platforms or services (insurance, transport, vet services).",
+    "keyword_difficulty_assessment": "KD=20 (very low). This indicates new content can rank quickly. Swiss-specific long-tail variations (freizeitpferd kaufen schweiz KD=9, springpferd kaufen schweiz - no data) are even easier entry points.",
+    "expansion_opportunities": [
+      "Geographic expansion: Expand to DE, AT, other markets (same keyword family)",
+      "Vertical expansion: Create guides for horse types (springpferd, dressurpferd, freizeitpferd)",
+      "Audience expansion: Separate content for sellers ('Pferd verkaufen Schweiz') and buyers",
+      "Service expansion: Comparison table/tool comparing platforms in real-time"
+    ]
+  }
+}

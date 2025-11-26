@@ -1,0 +1,290 @@
+{
+  "snapshot_date": "2025-11-26",
+  "analysis_type": "marketplace_aggregation_content",
+  "top_9_urls": [
+    {
+      "rank": 1,
+      "url": "https://www.ehorses.ch/",
+      "domain": "ehorses.ch",
+      "title": "Pferde kaufen und Pferde verkaufen | Pferdemarkt ehorses.ch",
+      "type": "marketplace_hub",
+      "estimated_word_count": 4200,
+      "primary_topics_covered": [
+        "Platform introduction",
+        "19,000+ listings showcase",
+        "Search functionality",
+        "Marketplace features (filters, breed categories)",
+        "Premium seller program",
+        "Magazine/educational content links"
+      ],
+      "topics_missing": [
+        "Comparison with other platforms",
+        "How to evaluate listings",
+        "Safety/verification process",
+        "Cross-platform buying strategy",
+        "Marketplace review/rating system"
+      ],
+      "content_format": "Marketplace hub with magazine integration",
+      "key_angle": "Scale + education (magazine links to buying guides)"
+    },
+    {
+      "rank": 2,
+      "url": "https://www.tier-inserate.ch/Pferdemarkt/Rassepferde",
+      "domain": "tier-inserate.ch",
+      "title": "Grosspferde / Rassenpferde Kleinanzeigen Pferdemarkt",
+      "type": "classifieds_directory",
+      "estimated_word_count": 800,
+      "primary_topics_covered": [
+        "Breed-specific listing directory",
+        "Individual horse examples (with prices/descriptions)",
+        "Region/canton filters",
+        "Price points",
+        "Specific horse details (age, size, breed)"
+      ],
+      "topics_missing": [
+        "Platform-wide overview",
+        "Comparison with alternatives",
+        "Buying process guidance",
+        "Marketplace features explanation",
+        "How to evaluate quality"
+      ],
+      "content_format": "Listing directory with filters"
+    },
+    {
+      "rank": 3,
+      "url": "https://www.anibis.ch/de/q/pferde/Ak8CmaG9yc2VzlMDAwMA",
+      "domain": "anibis.ch",
+      "title": "2'686 Inserate in Pferde - anibis.ch",
+      "type": "classifieds_platform",
+      "estimated_word_count": 500,
+      "primary_topics_covered": [
+        "Horse listings count (2,686)",
+        "Individual horse examples",
+        "Direct listing results"
+      ],
+      "topics_missing": [
+        "Platform explanation",
+        "Buying guidance",
+        "Feature overview",
+        "Search tips",
+        "How to contact sellers"
+      ],
+      "content_format": "Direct search results display"
+    },
+    {
+      "rank": 4,
+      "url": "https://www.fm-ch.ch/de/pferd-verkauf",
+      "domain": "fm-ch.ch",
+      "title": "Verkaufliste Pferde",
+      "type": "association_marketplace",
+      "estimated_word_count": 600,
+      "primary_topics_covered": [
+        "Freiberger-specific listings",
+        "Association partnership (regional sellers)",
+        "Specialized breed focus"
+      ],
+      "topics_missing": [
+        "Broad marketplace overview",
+        "General buying guidance",
+        "Platform comparison",
+        "Cross-breed search"
+      ],
+      "content_format": "Specialized breed listing directory",
+      "key_angle": "Niche focus (Freiberger horses only)"
+    },
+    {
+      "rank": 5,
+      "url": "https://www.swisshorse.ch/de/pferdemarkt/pferde/zu-verkaufen",
+      "domain": "swisshorse.ch",
+      "title": "ZVCH - Zuchtverband CH Sportpferde: Zu verkaufen",
+      "type": "association_marketplace",
+      "estimated_word_count": 400,
+      "primary_topics_covered": [
+        "Sport horse-specific listings",
+        "Breed society affiliation",
+        "Quality/pedigree emphasis"
+      ],
+      "topics_missing": [
+        "Buying guidance",
+        "Platform comparison",
+        "How to search",
+        "General marketplace overview"
+      ],
+      "content_format": "Specialized sport horse listings",
+      "key_angle": "Niche focus (sport horses with pedigree)"
+    },
+    {
+      "rank": 6,
+      "url": "https://www.billyrider.ch/pferde-kaufen",
+      "domain": "billyrider.ch",
+      "title": "Pferde kaufen // BillyRider Pferdemarkt",
+      "type": "marketplace_hub",
+      "estimated_word_count": 2400,
+      "primary_topics_covered": [
+        "Platform introduction",
+        "Search functionality (filters: Rasse, Alter, Stockmass, Preis, Region)",
+        "33+ breed categories with listing counts",
+        "Free listing emphasis",
+        "Niche positioning ('nur für Pferdeleute')",
+        "Advantages (direct contact, specialized platform)",
+        "Marketplace overview with breed categories"
+      ],
+      "topics_missing": [
+        "Comparison with other platforms",
+        "How to evaluate listings",
+        "Safety/verification process",
+        "Cross-platform buying strategy",
+        "Actual buying guidance (process steps)"
+      ],
+      "content_format": "Marketplace hub with category overview",
+      "key_angle": "Specialized for horse people + free listings + detailed filters"
+    },
+    {
+      "rank": 7,
+      "url": "https://www.facebook.com/groups/437269183654484/?locale=de_DE",
+      "domain": "facebook.com",
+      "title": "No.1 Pferde Schweiz",
+      "type": "community_group",
+      "estimated_word_count": 300,
+      "primary_topics_covered": [
+        "Community-based horse sales",
+        "User-generated content (horse examples)",
+        "Social proof (7,570 followers)",
+        "Casual selling environment"
+      ],
+      "topics_missing": [
+        "Moderation/verification",
+        "Buying guidance",
+        "Safety mechanisms",
+        "Search functionality"
+      ],
+      "content_format": "Community/social group"
+    },
+    {
+      "rank": 8,
+      "url": "https://www.tutti.ch/de/q/pferde/Ak8CmaG9yc2VzlMDAwMA",
+      "domain": "tutti.ch",
+      "title": "6'220 Inserate in Pferde",
+      "type": "classifieds_platform",
+      "estimated_word_count": 400,
+      "primary_topics_covered": [
+        "High listing volume (6,220)",
+        "Regional filtering (entire Switzerland)",
+        "Direct search results"
+      ],
+      "topics_missing": [
+        "Platform explanation",
+        "Buying guidance",
+        "Feature overview",
+        "Horse-specific vs. general classifieds"
+      ],
+      "content_format": "Search results display with regional filter"
+    },
+    {
+      "rank": 9,
+      "url": "https://www.marty-stables.ch/verkaufspferde/",
+      "domain": "marty-stables.ch",
+      "title": "Verkaufspferde – Marty Stables",
+      "type": "breeder_stables",
+      "estimated_word_count": 500,
+      "primary_topics_covered": [
+        "Individual breeder/stable listings",
+        "Quality/breeding emphasis",
+        "Personal reputation (know-how mentioned)",
+        "Specialized offerings"
+      ],
+      "topics_missing": [
+        "Comparison with other platforms",
+        "General buying guidance",
+        "How marketplace discovery works"
+      ],
+      "content_format": "Individual breeder website",
+      "key_angle": "Premium/specialized breeder"
+    }
+  ],
+  "content_coverage_analysis": {
+    "universally_covered": [
+      "Marketplace platform existence (all 9 mention platform/location)",
+      "Available horse listings (all 9 show horse examples)",
+      "Search/filtering capability (8/9 mention filters)"
+    ],
+    "partially_covered": [
+      "Platform comparison (only 2/9 hint at alternatives)",
+      "Buying process steps (only 1/9 ehorses has magazine links)",
+      "Safety/verification (only 2/9 mention protection)",
+      "Price information (6/9 show prices in listings)"
+    ],
+    "not_covered": [
+      "Objective platform comparison (0/9)",
+      "Complete buying journey guide (0/9)",
+      "How to evaluate horse quality (0/9)",
+      "Red flags/scam prevention (0/9)",
+      "Cross-border buying (0/9)",
+      "Import regulations (0/9)",
+      "Financing options (0/9)",
+      "Price negotiation strategies (0/9)"
+    ]
+  },
+  "opportunity_analysis": {
+    "high_opportunity": [
+      {
+        "gap": "Objective platform comparison matrix",
+        "why_gap_exists": "Each platform competing to attract users to THEIR site. No incentive to compare fairly.",
+        "content_opportunity": "Create comparison table: Features | Free vs. Premium | Listing volume | Specialization | User base size | Mobile app | Support quality",
+        "difficulty": "low",
+        "traffic_potential": "high"
+      },
+      {
+        "gap": "Complete buying journey guide",
+        "why_gap_exists": "Platforms assume users already on-site. No SERP result addresses multi-step process across platforms.",
+        "content_opportunity": "Step-by-step: 1) Choose platform 2) Search 3) Evaluate 4) Contact 5) Inspect 6) Contract 7) Transport 8) Handover",
+        "difficulty": "medium",
+        "traffic_potential": "high"
+      },
+      {
+        "gap": "Horse quality evaluation guide",
+        "why_gap_exists": "No platform wants to teach users to evaluate elsewhere. Breeder content focuses on own offerings.",
+        "content_opportunity": "Complete checklist: Health indicators | Behavior assessment | Price expectations by breed/type | Red flags",
+        "difficulty": "high",
+        "traffic_potential": "high"
+      }
+    ],
+    "medium_opportunity": [
+      {
+        "gap": "Swiss-specific buying regulations",
+        "why_gap_exists": "Platforms don't focus on legal/regulatory content.",
+        "content_opportunity": "Guides on: Documentation required | Insurance requirements | Transport regulations | Import procedures if buying from EU",
+        "difficulty": "high",
+        "traffic_potential": "medium"
+      },
+      {
+        "gap": "Price negotiation strategies",
+        "why_gap_exists": "Platforms show 'VB' (verhandlungsbasis/negotiable) but don't teach negotiation.",
+        "content_opportunity": "How to negotiate horse prices in Switzerland + typical negotiation ranges",
+        "difficulty": "medium",
+        "traffic_potential": "medium"
+      }
+    ]
+  },
+  "platform_strengths_summary": {
+    "ehorses.ch": "Scale (19k listings) + International reach + Educational content integration",
+    "billyrider.ch": "Specialized (horse people only) + Detailed filters + Clean interface + Free listings",
+    "tier-inserate.ch": "Swiss tradition + Breed-specific organization + Regional focus",
+    "anibis.ch": "High volume (2.6k) + Swiss users comfortable with platform",
+    "tutti.ch": "Largest volume (6.2k) + Regional search capability",
+    "swisshorse.ch": "Pedigree/quality focus + Association backing",
+    "fm-ch.ch": "Freiberger specialist + Regional seller network"
+  },
+  "recommended_content_positioning": {
+    "role": "Objective buyer advisor",
+    "approach": "Platform-agnostic buying guide that HELPS users choose right platform + navigate buying journey",
+    "target_audience": "First-time buyers who don't know where to start",
+    "primary_value": "Unbiased guidance that existing platforms can't/won't provide",
+    "monetization_hints": [
+      "Affiliate commissions from platforms",
+      "Sponsored content (insurance, transport, vet services)",
+      "Premium buying guides/checklists",
+      "Comparison tool (platform-specific deals tracker)"
+    ]
+  }
+}

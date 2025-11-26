@@ -168,26 +168,26 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
        4. Return: Kompakte Summary + Word Count
        ```
 
-   **Phase 5 - On-Page SEO (inkl. DE + AT Lokalisierung)**:
+   **Phase 5 - On-Page SEO (inkl. DE + AT + CH Lokalisierung)**:
    - Spawne Sub-Agent mit:
      - subagent_type: `seo-content-writer`
      - prompt:
        ```
-       SEO PHASE 5: ON-PAGE SEO (DE + AT Lokalisierung)
+       SEO PHASE 5: ON-PAGE SEO (DE + AT + CH Lokalisierung)
 
        TARGET: '$ARGUMENTS'
        OUTPUT: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
 
        1. Lies: SEO/SEO-PROZESS/orchestration/phase-5-onpage-seo.md
-       2. Lies: SEO/SEO-PROZESS/orchestration/phase-5a-metadata.md (WICHTIG: DE + AT Lokalisierung!)
+       2. Lies: SEO/SEO-PROZESS/orchestration/phase-5a-metadata.md (WICHTIG: DE + AT + CH Lokalisierung!)
        3. Optimiere Content aus Phase 4
-       4. Erstelle seo-metadata.json mit BEIDEN Markt-Varianten (siehe Struktur unten)
+       4. Erstelle seo-metadata.json mit ALLEN DREI Markt-Varianten (siehe Struktur unten)
        5. Erstelle Schema-Markup (schema-faq.json)
        6. Erstelle internal-linking.json
        7. Return: SEO-Score + erstellte Assets
 
        🚨 KRITISCH: seo-metadata.json STRUKTUR
-       Die Datei MUSS separate "de" und "at" Objekte enthalten:
+       Die Datei MUSS separate "de", "at" und "ch" Objekte enthalten:
 
        {
          "phase": "5A",
@@ -215,9 +215,21 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
            "open_graph": { ... },
            "twitter_card": { ... }
          },
+         "ch": {
+           "metadata": {
+             "title": "Angepasster CH-Titel (z.B. '... in der Schweiz' wenn geografisch relevant)",
+             "description": "CH-spezifische Description (Schweiz-Bezug, ggf. CHF statt €, Helvetismen)",
+             "keywords": "komma,separierte,keywords",
+             "canonical_url": "https://pferdewert.ch/pferde-ratgeber/{slug}",
+             "locale": "de_CH"
+           },
+           "open_graph": { ... },
+           "twitter_card": { ... }
+         },
          "hreflang": {
            "de": "https://pferdewert.de/pferde-ratgeber/{slug}",
            "de-AT": "https://pferdewert.at/pferde-ratgeber/{slug}",
+           "de-CH": "https://pferdewert.ch/pferde-ratgeber/{slug}",
            "x-default": "https://pferdewert.de/pferde-ratgeber/{slug}"
          }
        }
@@ -225,9 +237,11 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
        LOKALISIERUNGS-REGELN (DOMAIN-BASIERT):
        - AT Title: Bei geografisch relevantem Content → "... in Österreich" anhängen
        - AT Description: Österreich-Bezug einbauen, regionale Begriffe anpassen
-       - Canonical URLs: DE → pferdewert.de/..., AT → pferdewert.at/... (SEPARATE DOMAINS!)
-       - hreflang: de → .de Domain, de-AT → .at Domain, x-default → .de Domain
-       - og:locale: de_DE für DE, de_AT für AT
+       - CH Title: Bei geografisch relevantem Content → "... in der Schweiz" anhängen
+       - CH Description: Schweiz-Bezug einbauen, CHF statt € erwähnen wenn preisrelevant, Helvetismen nutzen
+       - Canonical URLs: DE → pferdewert.de/..., AT → pferdewert.at/..., CH → pferdewert.ch/... (SEPARATE DOMAINS!)
+       - hreflang: de → .de Domain, de-AT → .at Domain, de-CH → .ch Domain, x-default → .de Domain
+       - og:locale: de_DE für DE, de_AT für AT, de_CH für CH
        ```
 
    **Phase 6 - Quality Check**:

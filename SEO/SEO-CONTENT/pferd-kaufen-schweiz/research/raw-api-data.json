@@ -1,0 +1,118 @@
+{
+  "related_keywords": {
+    "status_code": 20000,
+    "status_message": "Ok",
+    "items_count": 9,
+    "primary_keyword_data": {
+      "keyword": "pferd kaufen schweiz",
+      "search_volume": 40,
+      "competition_level": "LOW",
+      "cpc": 0.5,
+      "monthly_searches_recent": {
+        "2025-10": 110,
+        "2025-09": 50,
+        "2025-08": 40
+      },
+      "keyword_difficulty": 42,
+      "search_intent": "transactional"
+    },
+    "related_keywords": [
+      "freizeitpferd kaufen schweiz",
+      "pferd kaufen schweiz preis",
+      "pferd gratis abzugeben schweiz",
+      "günstige pferde kaufen schweiz",
+      "springpferd kaufen schweiz",
+      "pferde kaufen anibis",
+      "dressurpferd kaufen schweiz",
+      "westernpferd kaufen schweiz"
+    ]
+  },
+  "keyword_ideas": {
+    "status_code": 20000,
+    "status_message": "Ok",
+    "items_count": 15,
+    "top_related_ideas": [
+      {
+        "keyword": "pferd",
+        "search_volume": 165000,
+        "competition_level": "LOW",
+        "cpc": 0.41,
+        "keyword_difficulty": 78,
+        "search_intent": "commercial"
+      },
+      {
+        "keyword": "pferd kaufen",
+        "search_volume": 40500,
+        "competition_level": "LOW",
+        "cpc": 0.24,
+        "keyword_difficulty": 38,
+        "search_intent": "commercial"
+      },
+      {
+        "keyword": "freizeitpferd kaufen",
+        "search_volume": 1900,
+        "competition_level": "LOW",
+        "cpc": 0.13,
+        "search_intent": "commercial"
+      },
+      {
+        "keyword": "wie alt werden pferde",
+        "search_volume": 9900,
+        "competition_level": "LOW",
+        "search_intent": "informational"
+      }
+    ]
+  },
+  "keyword_overview": {
+    "status_code": 20000,
+    "status_message": "Ok",
+    "keyword": "pferd kaufen schweiz",
+    "search_volume": 40,
+    "search_volume_trend": {
+      "monthly": 120,
+      "quarterly": 175,
+      "yearly": 267
+    },
+    "monthly_searches_12m": {
+      "2025-10": 110,
+      "2025-09": 50,
+      "2025-08": 40,
+      "2025-07": 50,
+      "2025-06": 20,
+      "2025-05": 50,
+      "2025-04": 50,
+      "2025-03": 30,
+      "2025-02": 30,
+      "2025-01": 30,
+      "2024-12": 30,
+      "2024-11": 40
+    },
+    "competition": 0.04,
+    "competition_level": "LOW",
+    "cpc": 0.5,
+    "low_top_of_page_bid": 0.12,
+    "high_top_of_page_bid": 0.62,
+    "keyword_difficulty": 42,
+    "search_intent": "transactional",
+    "avg_backlinks": 283030.5,
+    "avg_referring_domains": 8.6
+  },
+  "api_call_summary": {
+    "call_1_related_keywords": {
+      "results": 9,
+      "primary_keyword_search_volume": 40,
+      "highest_related_keyword_potential": "pferd kaufen schweiz preis"
+    },
+    "call_2_keyword_ideas": {
+      "results": 15,
+      "largest_related_keyword": "pferd (165000)",
+      "most_relevant": "pferd kaufen (40500)"
+    },
+    "call_3_keyword_overview": {
+      "keyword": "pferd kaufen schweiz",
+      "search_volume": 40,
+      "difficulty_score": 42,
+      "commercial_viability": "TRANSACTIONAL (user intent to buy)"
+    }
+  }
+}

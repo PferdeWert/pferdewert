@@ -38,7 +38,7 @@ Lies folgende Dateien:
 7. `SEO/SEO-DESIGN.md` - Design-Guidelines
 
 **WICHTIG - seo-metadata.json Struktur (Phase 5A Output):**
-Die Datei enthält separate Objekte für DE und AT unter `locales`:
+Die Datei enthält separate Objekte für DE, AT und CH unter `locales`:
 ```json
 {
   "phase": "5A",
@@ -54,11 +54,17 @@ Die Datei enthält separate Objekte für DE und AT unter `locales`:
       "metadata": { "title": "...", "description": "...", "canonical_url": "...", "robots": "..." },
       "open_graph": { "og:title": "...", "og:description": "...", "og:type": "article", "og:url": "...", "og:locale": "de_AT" },
       "twitter_card": { "twitter:card": "...", "twitter:title": "...", "twitter:description": "..." }
+    },
+    "ch": {
+      "metadata": { "title": "...", "description": "...", "canonical_url": "...", "robots": "..." },
+      "open_graph": { "og:title": "...", "og:description": "...", "og:type": "article", "og:url": "...", "og:locale": "de_CH" },
+      "twitter_card": { "twitter:card": "...", "twitter:title": "...", "twitter:description": "..." }
     }
   },
   "hreflang": [
     { "hreflang": "de", "href": "https://pferdewert.de/pferde-ratgeber/{slug}" },
     { "hreflang": "de-AT", "href": "https://pferdewert.at/pferde-ratgeber/{slug}" },
+    { "hreflang": "de-CH", "href": "https://pferdewert.ch/pferde-ratgeber/{slug}" },
     { "hreflang": "x-default", "href": "https://pferdewert.de/pferde-ratgeber/{slug}" }
   ],
   "shared": { "twitter:site": "@PferdeWert", "twitter:creator": "@PferdeWert" }
@@ -87,22 +93,21 @@ Erstelle: `frontend/pages/pferde-ratgeber/{slug}.tsx`
 - Nutze interne Links aus internal-linking.json (falls vorhanden)
 - **Alle CTAs verlinken auf "/pferde-preis-berechnen"** (NICHT /bewertung!)
 
-**SEO Meta-Tags Integration (DE + AT):**
+**SEO Meta-Tags Integration (DE + AT + CH):**
 ```tsx
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 // In der Page-Komponente:
 const { locale } = useRouter();
-const isAT = locale === 'at';
-const localeData = isAT ? seoMetadata.locales.at : seoMetadata.locales.de;
+const localeData = seoMetadata.locales[locale] || seoMetadata.locales.de;
 
 <Head>
   <title>{localeData.metadata.title}</title>
   <meta name="description" content={localeData.metadata.description} />
   <link rel="canonical" href={localeData.metadata.canonical_url} />
 
-  {/* hreflang Tags für beide Märkte (Array-Format aus Phase 5A) */}
+  {/* hreflang Tags für alle drei Märkte (Array-Format aus Phase 5A) */}
   {seoMetadata.hreflang.map((link) => (
     <link key={link.hreflang} rel="alternate" hrefLang={link.hreflang} href={link.href} />
   ))}

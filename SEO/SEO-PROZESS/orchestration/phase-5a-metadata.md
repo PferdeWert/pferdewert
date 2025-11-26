@@ -12,28 +12,28 @@
 - `content/article-draft.md` (aus Phase 4)
 
 **Output Deliverables**:
-- `seo/seo-metadata.json` (Primary Deliverable mit DE + AT Versionen)
+- `seo/seo-metadata.json` (Primary Deliverable mit DE + AT + CH Versionen)
 
 ---
 
-## 🇩🇪🇦🇹 LOCALE-SPECIFIC METADATA (KRITISCH!)
+## 🇩🇪🇦🇹🇨🇭 LOCALE-SPECIFIC METADATA (KRITISCH!)
 
-### Warum separate Meta-Tags für AT?
+### Warum separate Meta-Tags für AT & CH?
 
-1. **Suchintention unterscheidet sich**: Österreicher suchen mit regionalen Begriffen
+1. **Suchintention unterscheidet sich**: Österreicher/Schweizer suchen mit regionalen Begriffen
 2. **Google zeigt lokalisierte Snippets**: Meta Description erscheint in SERP → muss zum Markt passen
-3. **Höhere CTR**: "in Österreich" oder "für Österreicher" im Snippet erhöht Klicks
+3. **Höhere CTR**: "in Österreich"/"in der Schweiz" im Snippet erhöht Klicks
 4. **Bessere Rankings**: Google bevorzugt lokalisierte Inhalte für lokale Suchanfragen
 
 ### Lokalisierungs-Regeln
 
-| Element | DE (pferdewert.de) | AT (pferdewert.at) |
-|---------|----------|-------------|
-| Title Tag | Standard-Keyword | + "Österreich" wenn relevant |
-| Meta Description | DE-fokussiert | AT-Anpassungen (Begriffe, Währung, Kontext) |
-| og:locale | de_DE | de_AT |
-| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.at/pferde-ratgeber/... (SEPARATE DOMAIN!) |
-| hreflang | Beide Domains verlinken | Beide Domains verlinken |
+| Element | DE (pferdewert.de) | AT (pferdewert.at) | CH (pferdewert.ch) |
+|---------|----------|-------------|-------------|
+| Title Tag | Standard-Keyword | + "Österreich" wenn relevant | + "Schweiz" wenn relevant |
+| Meta Description | DE-fokussiert | AT-Anpassungen | CH-Anpassungen (CHF, Helvetismen) |
+| og:locale | de_DE | de_AT | de_CH |
+| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.at/pferde-ratgeber/... | pferdewert.ch/pferde-ratgeber/... |
+| hreflang | Alle Domains verlinken | Alle Domains verlinken | Alle Domains verlinken |
 
 ### AT-Anpassungen für Meta-Tags
 
@@ -47,14 +47,29 @@
 - Sprachliche Nuancen: Wo möglich österreichische Formulierungen
 - USP für AT: "Auch für österreichische Pferdebesitzer" o.ä.
 
+### CH-Anpassungen für Meta-Tags
+
+**Title Tag CH-Varianten**:
+- Wenn geografisch relevant: "... in der Schweiz" oder "... für Schweizer"
+- Wenn preisrelevant: "CHF" statt "€" erwähnen
+- Wenn regional: Schweizer Kantone/Städte erwähnen wenn sinnvoll
+
+**Meta Description CH-Varianten**:
+- Regionale Begriffe: "Pferdemarkt" → "Pferdemarkt Schweiz"
+- Sprachliche Nuancen: Helvetismen nutzen wo passend (z.B. "Rössli" statt "Pferd" in informellen Kontexten)
+- Währung: "CHF" statt "€" bei Preisangaben
+- USP für CH: "Auch für Schweizer Pferdebesitzer" o.ä.
+
 **Beispiele**:
 
 ```
 DE Title: "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de"
 AT Title: "Pferd kaufen in Österreich: 5 Tipps für sicheren Kauf | PferdeWert.de"
+CH Title: "Pferd kaufen in der Schweiz: 5 Tipps für sicheren Kauf | PferdeWert.ch"
 
 DE Description: "Pferd kaufen: Unsere Experten-Checkliste hilft dir, Fehler zu vermeiden."
 AT Description: "Pferd kaufen in Österreich: Experten-Checkliste für österreichische Käufer."
+CH Description: "Pferd kaufen in der Schweiz: Experten-Checkliste für Schweizer Käufer mit CHF-Preisen."
 ```
 
 ---
@@ -224,7 +239,7 @@ Canonical URL: "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
 
 ### 8. Generate Output File: `seo/seo-metadata.json`
 
-**Complete Output Structure (mit DE + AT Lokalisierung)**:
+**Complete Output Structure (mit DE + AT + CH Lokalisierung)**:
 ```json
 {
   "phase": "5A",
@@ -275,12 +290,35 @@ Canonical URL: "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
         "twitter:title": "Pferd kaufen in Österreich: 5 Tipps",
         "twitter:description": "Experten-Checkliste für österreichische Pferdekäufer."
       }
+    },
+    "ch": {
+      "metadata": {
+        "title": "Pferd kaufen in der Schweiz: 5 Tipps für sicheren Kauf | PferdeWert.ch",
+        "description": "Pferd kaufen in der Schweiz: Experten-Checkliste für Schweizer Käufer mit CHF-Preisen. Vermeide Fehler und finde dein perfektes Pferd!",
+        "canonical_url": "https://pferdewert.ch/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "robots": "index, follow"
+      },
+      "open_graph": {
+        "og:title": "Pferd kaufen in der Schweiz: 5 Tipps für sicheren Kauf",
+        "og:description": "Experten-Checkliste für Schweizer Pferdekäufer mit CHF-Preisen.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.ch/pferde-ratgeber/pferd-kaufen-worauf-achten",
+        "og:site_name": "PferdeWert.ch",
+        "og:locale": "de_CH",
+        "og:image": "https://pferdewert.ch/images/ratgeber/pferd-kaufen-worauf-achten.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Pferd kaufen in der Schweiz: 5 Tipps",
+        "twitter:description": "Experten-Checkliste für Schweizer Pferdekäufer."
+      }
     }
   },
 
   "hreflang": [
     { "hreflang": "de", "href": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten" },
     { "hreflang": "de-AT", "href": "https://pferdewert.at/pferde-ratgeber/pferd-kaufen-worauf-achten" },
+    { "hreflang": "de-CH", "href": "https://pferdewert.ch/pferde-ratgeber/pferd-kaufen-worauf-achten" },
     { "hreflang": "x-default", "href": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-worauf-achten" }
   ],
 
@@ -300,6 +338,11 @@ Canonical URL: "https://www.pferdewert.de/ratgeber/pferd-kaufen-worauf-achten"
     "at": {
       "title_length": 65,
       "description_length": 158,
+      "primary_keyword_in_title": true
+    },
+    "ch": {
+      "title_length": 68,
+      "description_length": 152,
       "primary_keyword_in_title": true
     }
   }

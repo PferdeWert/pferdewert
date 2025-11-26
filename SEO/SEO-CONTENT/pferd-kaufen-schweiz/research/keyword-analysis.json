@@ -1,0 +1,164 @@
+{
+  "analysis_metadata": {
+    "target_keyword": "pferd kaufen schweiz",
+    "total_keywords_analyzed": 13,
+    "keywords_selected": 13,
+    "analysis_date": "2025-11-26"
+  },
+  "statistics": {
+    "avg_search_volume": 16739.0,
+    "avg_cpc": 0.34,
+    "avg_keyword_difficulty": 40.7,
+    "intent_distribution": {
+      "informational": 2,
+      "commercial": 9,
+      "transactional": 1,
+      "general": 1
+    }
+  },
+  "top_20_keywords": [
+    {
+      "rank": 1,
+      "keyword": "pferd",
+      "search_volume": 165000,
+      "cpc": 0.41,
+      "keyword_difficulty": 78,
+      "search_intent": "commercial",
+      "word_count": 1,
+      "relevance_score": 67.53,
+      "source": "ideas"
+    },
+    {
+      "rank": 2,
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "keyword_difficulty": 38,
+      "search_intent": "commercial",
+      "word_count": 2,
+      "relevance_score": 17.52,
+      "source": "ideas"
+    },
+    {
+      "rank": 3,
+      "keyword": "wie alt werden pferde",
+      "search_volume": 9900,
+      "cpc": 0,
+      "keyword_difficulty": 0,
+      "search_intent": "informational",
+      "word_count": 4,
+      "relevance_score": 5.16,
+      "source": "ideas"
+    },
+    {
+      "rank": 4,
+      "keyword": "günstige pferde kaufen schweiz",
+      "search_volume": 25,
+      "cpc": 0.45,
+      "keyword_difficulty": 35,
+      "search_intent": "commercial",
+      "word_count": 4,
+      "relevance_score": 2.56,
+      "source": "related"
+    },
+    {
+      "rank": 5,
+      "keyword": "pferd kaufen schweiz",
+      "search_volume": 40,
+      "cpc": 0.5,
+      "keyword_difficulty": 42,
+      "search_intent": "transactional",
+      "word_count": 3,
+      "relevance_score": 2.416,
+      "source": "primary"
+    },
+    {
+      "rank": 6,
+      "keyword": "freizeitpferd kaufen schweiz",
+      "search_volume": 30,
+      "cpc": 0.45,
+      "keyword_difficulty": 35,
+      "search_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 2.262,
+      "source": "related"
+    },
+    {
+      "rank": 7,
+      "keyword": "springpferd kaufen schweiz",
+      "search_volume": 30,
+      "cpc": 0.45,
+      "keyword_difficulty": 35,
+      "search_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 2.262,
+      "source": "related"
+    },
+    {
+      "rank": 8,
+      "keyword": "dressurpferd kaufen schweiz",
+      "search_volume": 30,
+      "cpc": 0.45,
+      "keyword_difficulty": 35,
+      "search_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 2.262,
+      "source": "related"
+    },
+    {
+      "rank": 9,
+      "keyword": "westernpferd kaufen schweiz",
+      "search_volume": 30,
+      "cpc": 0.45,
+      "keyword_difficulty": 35,
+      "search_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 2.262,
+      "source": "related"
+    },
+    {
+      "rank": 10,
+      "keyword": "pferde kaufen anibis",
+      "search_volume": 100,
+      "cpc": 0.35,
+      "keyword_difficulty": 45,
+      "search_intent": "commercial",
+      "word_count": 3,
+      "relevance_score": 1.99,
+      "source": "related"
+    },
+    {
+      "rank": 11,
+      "keyword": "freizeitpferd kaufen",
+      "search_volume": 1900,
+      "cpc": 0.13,
+      "keyword_difficulty": 0,
+      "search_intent": "commercial",
+      "word_count": 2,
+      "relevance_score": 1.75,
+      "source": "ideas"
+    },
+    {
+      "rank": 12,
+      "keyword": "pferd kaufen schweiz preis",
+      "search_volume": 15,
+      "cpc": 0.1,
+      "keyword_difficulty": 35,
+      "search_intent": "informational",
+      "word_count": 4,
+      "relevance_score": 1.506,
+      "source": "related"
+    },
+    {
+      "rank": 13,
+      "keyword": "pferd gratis abzugeben schweiz",
+      "search_volume": 8,
+      "cpc": 0.1,
+      "keyword_difficulty": 35,
+      "search_intent": "general",
+      "word_count": 4,
+      "relevance_score": 1.503,
+      "source": "related"
+    }
+  ]
+}

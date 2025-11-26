@@ -173,16 +173,18 @@ Spawne einen Sub-Agent mit:
   STEP 1: Load Optimization Plan
   Read: SEO/OPTIMIZATIONS/$ARTICLE_SLUG/optimization-plan.md
 
-  STEP 2: Implement Quick Wins (DE + AT Lokalisierung!)
-  - Update meta description für BEIDE Märkte:
+  STEP 2: Implement Quick Wins (DE + AT + CH Lokalisierung!)
+  - Update meta description für ALLE DREI Märkte:
     * DE (.de): Standard deutsche Meta Description
     * AT (.de/at): Angepasst für österreichische Zielgruppe (z.B. "in Österreich")
-  - Update title tag für BEIDE Märkte:
+    * CH (.de/ch): Angepasst für Schweizer Zielgruppe (z.B. "in der Schweiz", CHF statt €)
+  - Update title tag für ALLE DREI Märkte:
     * DE: Include main keyword, max 60 chars
     * AT: Wenn relevant → "... in Österreich" hinzufügen
+    * CH: Wenn relevant → "... in der Schweiz" hinzufügen
   - Add/optimize alt texts for all images
   - Add FAQ schema if FAQ section exists
-  - Implementiere hreflang-Tags für DE ↔ AT Verlinkung
+  - Implementiere hreflang-Tags für DE ↔ AT ↔ CH Verlinkung
 
   STEP 3: Fix Hub-Spoke-Linking
   Read: SEO/OPTIMIZATIONS/$ARTICLE_SLUG/hub-spoke-analysis.json
@@ -244,40 +246,36 @@ Spawne einen Sub-Agent mit:
 - No DataForSEO results → Use manual SERP analysis
 - Optimization fails → Create detailed error report with recommendations
 
-## 🇩🇪🇦🇹 DE + AT LOKALISIERUNG (KRITISCH!)
+## 🇩🇪🇦🇹🇨🇭 DE + AT + CH LOKALISIERUNG (KRITISCH!)
 
-### Meta-Tag Lokalisierung für beide Märkte
+### Meta-Tag Lokalisierung für alle drei Märkte
 
-Bei der Optimierung MÜSSEN Meta-Tags für beide Märkte erstellt werden:
+Bei der Optimierung MÜSSEN Meta-Tags für alle drei Märkte erstellt werden:
 
-| Element | DE (pferdewert.de) | AT (pferdewert.at) |
-|---------|----------|-------------|
-| Title Tag | Standard-Keyword | + "in Österreich" wenn geografisch relevant |
-| Meta Description | DE-fokussiert | AT-Anpassungen für österreichische Zielgruppe |
-| og:locale | de_DE | de_AT |
-| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.at/pferde-ratgeber/... |
+| Element | DE (pferdewert.de) | AT (pferdewert.at) | CH (pferdewert.ch) |
+|---------|----------|-------------|-------------|
+| Title Tag | Standard-Keyword | + "in Österreich" wenn relevant | + "in der Schweiz" wenn relevant |
+| Meta Description | DE-fokussiert | AT-Anpassungen | CH-Anpassungen (CHF, Helvetismen) |
+| og:locale | de_DE | de_AT | de_CH |
+| Canonical | pferdewert.de/pferde-ratgeber/... | pferdewert.at/pferde-ratgeber/... | pferdewert.ch/pferde-ratgeber/... |
 
 ### Implementierung im TSX
 
 ```tsx
 // Im Head-Bereich der Page:
-const { isAustria, ogLocale, canonical, hreflangTags } = useSEO();
+const { locale } = useRouter();
+const localeData = seoMetadata.locales[locale] || seoMetadata.locales.de;
 
 // Meta-Tags basierend auf Locale
-const metaTitle = isAustria
-  ? "Pferd kaufen in Österreich: 5 Tipps | PferdeWert.de"
-  : "Pferd kaufen: 5 Tipps für sicheren Pferdekauf | PferdeWert.de";
-
-const metaDescription = isAustria
-  ? "Pferd kaufen in Österreich: Experten-Checkliste für österreichische Käufer."
-  : "Pferd kaufen: Unsere Experten-Checkliste hilft dir, Fehler zu vermeiden.";
+const metaTitle = localeData.metadata.title;
+const metaDescription = localeData.metadata.description;
 
 // In <Head>:
 <title>{metaTitle}</title>
 <meta name="description" content={metaDescription} />
-<meta property="og:locale" content={ogLocale} />
-<link rel="canonical" href={canonical} />
-{hreflangTags.map(tag => (
+<meta property="og:locale" content={localeData.open_graph['og:locale']} />
+<link rel="canonical" href={localeData.metadata.canonical_url} />
+{seoMetadata.hreflang.map(tag => (
   <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
 ))}
 ```

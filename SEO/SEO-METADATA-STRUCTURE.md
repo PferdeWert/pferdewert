@@ -1,8 +1,8 @@
-# SEO Metadata Struktur (DE + AT Lokalisierung)
+# SEO Metadata Struktur (DE + AT + CH Lokalisierung)
 
 ## Übersicht
 
-Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata für Deutschland (pferdewert.de) und Österreich (pferdewert.at)** enthalten.
+Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata für Deutschland (pferdewert.de), Österreich (pferdewert.at) und Schweiz (pferdewert.ch)** enthalten.
 
 ## Dateistruktur
 
@@ -82,9 +82,42 @@ Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata fü
       "twitter_creator": "@pferdewertde"
     }
   },
+  "ch": {
+    "metadata": {
+      "title": "SEO-optimierter Titel mit Schweiz-Bezug (50-60 Zeichen)",
+      "title_length": 58,
+      "title_status": "OPTIMAL",
+      "description": "Meta-Description für Schweiz mit regionalem Bezug, CHF statt € (150-160 Zeichen)",
+      "description_length": 155,
+      "description_status": "OPTIMAL",
+      "keywords": "hauptkeyword, nebenkeyword schweiz, longtail",
+      "canonical_url": "https://pferdewert.ch/pferde-ratgeber/slug",
+      "locale": "de_CH",
+      "slug": "slug"
+    },
+    "open_graph": {
+      "og_title": "OG Titel für CH",
+      "og_description": "OG Description für CH",
+      "og_image": "https://pferdewert.ch/images/og/slug.jpg",
+      "og_image_alt": "Alt-Text für OG Image",
+      "og_image_width": 1200,
+      "og_image_height": 630,
+      "og_type": "article",
+      "og_url": "https://pferdewert.ch/pferde-ratgeber/slug",
+      "og_locale": "de_CH"
+    },
+    "twitter_card": {
+      "twitter_card": "summary_large_image",
+      "twitter_title": "Twitter Titel für CH",
+      "twitter_description": "Twitter Description für CH",
+      "twitter_image": "https://pferdewert.ch/images/og/slug.jpg",
+      "twitter_creator": "@pferdewertde"
+    }
+  },
   "hreflang": {
     "de": "https://pferdewert.de/pferde-ratgeber/slug",
     "de-AT": "https://pferdewert.at/pferde-ratgeber/slug",
+    "de-CH": "https://pferdewert.ch/pferde-ratgeber/slug",
     "x-default": "https://pferdewert.de/pferde-ratgeber/slug"
   },
   "image_specifications": {
@@ -121,12 +154,26 @@ Alle `seo-metadata.json` Dateien im SEO-Pipeline müssen **separate Metadata fü
 - **Locale**: `de_AT`
 - **OG/Twitter**: Ebenfalls angepasst mit AT-Fokus
 
+### Schweiz (pferdewert.ch)
+- **Title**: Bei geografisch relevantem Content → "... in der Schweiz" anhängen
+  - Beispiel: "Pferd kaufen Tipps" → "Pferd kaufen Tipps in der Schweiz"
+  - Nur wenn sinnvoll (lokale Märkte, Züchter, Rechtliches, Preise)
+- **Description**: Schweiz-Bezug einbauen, CHF statt €, Helvetismen
+  - Beispiel: "Finde die besten Züchter in der Schweiz..."
+  - Regionale Anpassungen: "Pferdemarkt" → "Pferdemarkt Schweiz"
+  - Währung: "CHF" statt "€" bei Preisangaben
+  - Sprache: Helvetismen wo passend (z.B. "Rössli" in informellen Kontexten)
+- **Canonical URL**: `https://pferdewert.ch/pferde-ratgeber/{slug}` (SEPARATE DOMAIN!)
+- **Locale**: `de_CH`
+- **OG/Twitter**: Ebenfalls angepasst mit CH-Fokus
+
 ### hreflang Tags (DOMAIN-BASIERT)
-**KRITISCH**: Beide Versionen MÜSSEN aufeinander verweisen - jetzt mit separaten Domains!
+**KRITISCH**: Alle drei Versionen MÜSSEN aufeinander verweisen - mit separaten Domains!
 
 ```html
 <link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferde-ratgeber/slug" />
 <link rel="alternate" hrefLang="de-AT" href="https://pferdewert.at/pferde-ratgeber/slug" />
+<link rel="alternate" hrefLang="de-CH" href="https://pferdewert.ch/pferde-ratgeber/slug" />
 <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferde-ratgeber/slug" />
 ```
 
@@ -139,8 +186,7 @@ import seoMetadata from '@/path/to/seo-metadata.json';
 
 export default function RatgeberPage() {
   const { locale } = useRouter();
-  const isAT = locale === 'at';
-  const metadata = isAT ? seoMetadata.at : seoMetadata.de;
+  const metadata = seoMetadata[locale] || seoMetadata.de;
 
   return (
     <>
@@ -152,8 +198,9 @@ export default function RatgeberPage() {
         <link rel="canonical" href={metadata.metadata.canonical_url} />
 
         {/* hreflang Tags */}
-        <link rel="alternate" hrefLang="de-de" href={seoMetadata.hreflang['de-de']} />
-        <link rel="alternate" hrefLang="de-at" href={seoMetadata.hreflang['de-at']} />
+        <link rel="alternate" hrefLang="de" href={seoMetadata.hreflang['de']} />
+        <link rel="alternate" hrefLang="de-AT" href={seoMetadata.hreflang['de-AT']} />
+        <link rel="alternate" hrefLang="de-CH" href={seoMetadata.hreflang['de-CH']} />
         <link rel="alternate" hrefLang="x-default" href={seoMetadata.hreflang['x-default']} />
 
         {/* Open Graph */}
@@ -209,6 +256,18 @@ export default function RatgeberPage() {
 }
 ```
 
+### CH Version
+```json
+{
+  "ch": {
+    "metadata": {
+      "title": "Pferdemarkt Schweiz 2025: Beste Plattformen & Märkte",
+      "description": "Schweizer Pferdemärkte: Online-Plattformen mit Inseraten in CHF, regionale Märkte & Züchter. Finde dein Traumpferd in der Schweiz!"
+    }
+  }
+}
+```
+
 ## Beispiel: Nicht geografisch relevanter Content
 
 **Keyword**: "Pferdefütterung"
@@ -237,23 +296,37 @@ export default function RatgeberPage() {
 }
 ```
 
-Minimaler Unterschied in der Description ("österreichische Pferde") - kein "in Österreich" im Title, da das Thema universell ist.
+### CH Version
+```json
+{
+  "ch": {
+    "metadata": {
+      "title": "Pferdefütterung: Der komplette Guide für gesunde Rössli",
+      "description": "Alles über richtige Pferdefütterung: Heu, Kraftfutter, Mineralstoffe. Fütterungsplan für Schweizer Pferde. Jetzt informieren!"
+    }
+  }
+}
+```
+
+Minimale Unterschiede - kein "in Österreich/der Schweiz" im Title, da das Thema universell ist. CH nutzt "Rössli" im Title für lokalen Bezug.
 
 ## Workflow
 
 ### /seo Command (Phase 5)
-Erstellt automatisch beide Varianten in `seo-metadata.json`
+Erstellt automatisch alle drei Varianten (DE, AT, CH) in `seo-metadata.json`
 
 ### /page Command
-Liest beide Varianten und integriert sie mit `useRouter().locale` Check
+Liest alle drei Varianten und integriert sie mit `useRouter().locale` Check
 
 ## Checkliste
 
-- [ ] Beide `de` und `at` Objekte vorhanden
+- [ ] Alle drei `de`, `at` und `ch` Objekte vorhanden
 - [ ] AT Title hat relevanten Österreich-Bezug (wenn geografisch sinnvoll)
-- [ ] AT Description unterscheidet sich von DE
-- [ ] Canonical URLs korrekt: DE → pferdewert.de, AT → pferdewert.at (SEPARATE DOMAINS!)
-- [ ] Locale korrekt: `de_DE` vs `de_AT`
-- [ ] hreflang Tags enthalten alle 3 Varianten (de-de, de-at, x-default)
-- [ ] Open Graph Locale angepasst
+- [ ] CH Title hat relevanten Schweiz-Bezug (wenn geografisch sinnvoll)
+- [ ] AT/CH Description unterscheiden sich von DE
+- [ ] CH Description nutzt CHF statt € bei Preisen
+- [ ] Canonical URLs korrekt: DE → pferdewert.de, AT → pferdewert.at, CH → pferdewert.ch (SEPARATE DOMAINS!)
+- [ ] Locale korrekt: `de_DE` vs `de_AT` vs `de_CH`
+- [ ] hreflang Tags enthalten alle 4 Varianten (de, de-AT, de-CH, x-default)
+- [ ] Open Graph Locale angepasst (de_DE, de_AT, de_CH)
 - [ ] Title & Description Länge optimal (50-60 / 150-160 Zeichen)
