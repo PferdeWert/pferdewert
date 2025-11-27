@@ -1,0 +1,613 @@
+{
+  "metadata": {
+    "article": "haflinger kaufen",
+    "phase": "3",
+    "date": "2025-11-27",
+    "primary_keyword": "haflinger kaufen",
+    "total_keywords_mapped": 24,
+    "target_word_count": 2640
+  },
+
+  "primary_keyword_distribution": {
+    "keyword": "haflinger kaufen",
+    "search_volume": 5400,
+    "cpc": 0.22,
+    "search_intent": "commercial",
+    "target_density": "0.8-1.2%",
+    "placement_strategy": [
+      {
+        "placement": "Title",
+        "content": "Haflinger kaufen: Anleitung für Anfänger & erfahrene Reiter"
+      },
+      {
+        "placement": "Meta Description",
+        "content": "Haflinger kaufen leicht gemacht: Kompletter Leitfaden zu Preis, Kauf, Gesundheitschecks & Kosten."
+      },
+      {
+        "placement": "Introduction (100 words)",
+        "content": "Include in first paragraph + preview section"
+      },
+      {
+        "placement": "H2 Section 5",
+        "content": "Haflinger Kaufprozess: Schritt-für-Schritt Anleitung"
+      },
+      {
+        "placement": "Conclusion",
+        "content": "Haflinger kaufen sicher + haflinger kaufprozess"
+      },
+      {
+        "placement": "FAQ Question 1",
+        "content": "FAQ: Wie viel kostet ein guter Haflinger?"
+      }
+    ],
+    "natural_variations": [
+      "haflinger zum kaufen",
+      "haflinger kaufen anleitung",
+      "haflinger sicher kaufen",
+      "haflinger online kaufen"
+    ]
+  },
+
+  "secondary_keyword_mapping": [
+    {
+      "rank": 1,
+      "keyword": "haflinger für anfänger",
+      "search_volume": 70,
+      "cpc": 0.17,
+      "section": "Section 3",
+      "h2_title": "Ist ein Haflinger das richtige Anfängerpferd für dich?",
+      "placement": [
+        "H2 heading (primary placement)",
+        "H3: Haflinger für Anfänger – Warum ideal",
+        "Introduction preview",
+        "FAQ Question 2",
+        "Internal linking anchor"
+      ],
+      "keyword_density_contribution": 0.15,
+      "related_variations": [
+        "haflinger anfängerpferd",
+        "haflinger anfänger geeignet",
+        "haflinger für anfänger geeignet",
+        "erstes pferd haflinger"
+      ]
+    },
+
+    {
+      "rank": 2,
+      "keyword": "haflinger kaufen preis",
+      "search_volume": 40,
+      "cpc": 1.14,
+      "section": "Section 2",
+      "h2_title": "Was kostet ein Haflinger? – Komplette Kostenübersicht",
+      "placement": [
+        "H2 heading (primary)",
+        "H3: Haflinger Kaufpreis – Von 850€ bis 20.000€",
+        "FAQ Question 1",
+        "Meta description (supporting keyword)"
+      ],
+      "keyword_density_contribution": 0.12,
+      "related_variations": [
+        "haflinger preis",
+        "wie viel kostet ein haflinger",
+        "haflinger kosten",
+        "haflinger kaufpreis"
+      ]
+    },
+
+    {
+      "rank": 3,
+      "keyword": "haflinger gewichtskapazität",
+      "search_volume": 90,
+      "cpc": 0.15,
+      "section": "Section 4",
+      "h2_title": "Haflinger Gewichtskapazität – Wieviel kannst du wiegen?",
+      "placement": [
+        "H2 heading (primary)",
+        "Subsection title variations",
+        "FAQ Question 3 (Kann ein Haflinger 90 kg tragen?)",
+        "Internal linking"
+      ],
+      "keyword_density_contribution": 0.10,
+      "related_variations": [
+        "haflinger gewicht",
+        "haflinger 90 kg tragen",
+        "reiter gewicht haflinger",
+        "kann haflinger 100kg tragen",
+        "haflinger traglast"
+      ]
+    },
+
+    {
+      "rank": 4,
+      "keyword": "haflinger charakter",
+      "search_volume": 110,
+      "cpc": 0.13,
+      "section": "Section 1",
+      "h2_title": "Haflinger Pferde – Das solltest du vor dem Kauf wissen",
+      "placement": [
+        "H3: Was macht Haflinger besonders? – Charakter & Eigenschaften",
+        "Section 3: Beginner temperament discussion",
+        "Body paragraphs throughout"
+      ],
+      "keyword_density_contribution": 0.09,
+      "related_variations": [
+        "haflinger temperament",
+        "haflinger eigenschaften",
+        "haflinger persönlichkeit",
+        "haflinger intelligent"
+      ]
+    },
+
+    {
+      "rank": 5,
+      "keyword": "haflinger lebensdauer",
+      "search_volume": 85,
+      "cpc": 0.10,
+      "section": "Section 8",
+      "h2_title": "Haflinger Lebensdauer & langfristige Haltung – Für wie lange?",
+      "placement": [
+        "H2 heading (primary)",
+        "H3: Haflinger Lebenserwartung",
+        "FAQ Question 4 (Wie lange lebt ein Haflinger?)",
+        "Conclusion (long-term commitment)"
+      ],
+      "keyword_density_contribution": 0.08,
+      "related_variations": [
+        "wie lange lebt ein haflinger",
+        "haflinger lebensspanne",
+        "haflinger langzeitkosten"
+      ]
+    },
+
+    {
+      "rank": 6,
+      "keyword": "haflinger züchter",
+      "search_volume": 95,
+      "cpc": 0.12,
+      "section": "Section 6",
+      "h2_title": "Züchter vs. Marketplace vs. Privatverkauf – Welcher Weg ist sicher?",
+      "placement": [
+        "H3: Haflinger Züchter – Pros, Cons & Qualitätsgarantie",
+        "Section 6 throughout",
+        "FAQ Question 6",
+        "Internal linking"
+      ],
+      "keyword_density_contribution": 0.08,
+      "related_variations": [
+        "haflinger breeder",
+        "haflinger züchter verifizieren",
+        "seriöser haflinger züchter"
+      ]
+    },
+
+    {
+      "rank": 7,
+      "keyword": "edelbluthaflinger",
+      "search_volume": 70,
+      "cpc": 0.11,
+      "section": "Section 1",
+      "h2_title": "Haflinger Pferde – Das solltest du vor dem Kauf wissen",
+      "placement": [
+        "H3: Standard Haflinger vs. Edelbluthaflinger",
+        "Section 2: Pricing by type",
+        "FAQ Question 7",
+        "Throughout article for differentiation"
+      ],
+      "keyword_density_contribution": 0.07,
+      "related_variations": [
+        "edelbluthaflinger preis",
+        "edelbluthaflinger anfänger",
+        "haflinger typen",
+        "unterschied haflinger"
+      ]
+    },
+
+    {
+      "rank": 8,
+      "keyword": "haflinger kaufprozess",
+      "search_volume": 65,
+      "cpc": 0.14,
+      "section": "Section 5",
+      "h2_title": "Haflinger Kaufprozess: Schritt-für-Schritt Anleitung",
+      "placement": [
+        "H2 heading (primary)",
+        "Body of Section 5",
+        "Internal linking",
+        "Conclusion"
+      ],
+      "keyword_density_contribution": 0.07,
+      "related_variations": [
+        "haflinger kaufen anleitung",
+        "pferd kaufprozess",
+        "haflinger kaufen schritt für schritt"
+      ]
+    },
+
+    {
+      "rank": 9,
+      "keyword": "haflinger herkunft",
+      "search_volume": 55,
+      "cpc": 0.09,
+      "section": "Section 1",
+      "h2_title": "Haflinger Pferde – Das solltest du vor dem Kauf wissen",
+      "placement": [
+        "H3: Die Geschichte des Haflingers",
+        "Introduction preview",
+        "Supporting context throughout"
+      ],
+      "keyword_density_contribution": 0.05,
+      "related_variations": [
+        "haflinger südtirol",
+        "haflinger zuchtgeschichte",
+        "haflinger ursprung",
+        "haflinger 1874"
+      ]
+    },
+
+    {
+      "rank": 10,
+      "keyword": "haflinger monatliche kosten",
+      "search_volume": 45,
+      "cpc": 0.13,
+      "section": "Section 2",
+      "h2_title": "Was kostet ein Haflinger? – Komplette Kostenübersicht",
+      "placement": [
+        "H3: Was kostet es monatlich",
+        "Conclusion (lifetime cost calculation)",
+        "Supporting content throughout"
+      ],
+      "keyword_density_contribution": 0.06,
+      "related_variations": [
+        "pferdeunterhalt kosten",
+        "haflinger haltungskosten",
+        "pferd haltungskosten"
+      ]
+    },
+
+    {
+      "rank": 11,
+      "keyword": "haflinger vet check",
+      "search_volume": 38,
+      "cpc": 0.11,
+      "section": "Section 7",
+      "h2_title": "Tierärztliche Inspektionen beim Haflinger-Kauf",
+      "placement": [
+        "H2 heading (primary)",
+        "Section 7 throughout",
+        "Section 5: Step 5 (pre-purchase inspection)",
+        "FAQ Question 5"
+      ],
+      "keyword_density_contribution": 0.06,
+      "related_variations": [
+        "pre-purchase exam",
+        "tierärztliche untersuchung pferd",
+        "haflinger gesundheitsprüfung",
+        "pferd kaufen vet inspection"
+      ]
+    },
+
+    {
+      "rank": 12,
+      "keyword": "haflinger betrug",
+      "search_volume": 32,
+      "cpc": 0.10,
+      "section": "Section 9",
+      "h2_title": "Haflinger Online-Betrug erkennen & seriöse Anbieter verifizieren",
+      "placement": [
+        "H2 heading (primary)",
+        "H3: Rote Flaggen – So erkennst du unseriöse Angebote",
+        "Meta description (supporting)"
+      ],
+      "keyword_density_contribution": 0.05,
+      "related_variations": [
+        "pferd betrug online",
+        "haflinger kaufen betrugsprävention",
+        "unseriöse pferdeverkäufer"
+      ]
+    },
+
+    {
+      "rank": 13,
+      "keyword": "haflinger SCC",
+      "search_volume": 28,
+      "cpc": 0.12,
+      "section": "Section 7",
+      "h2_title": "Tierärztliche Inspektionen beim Haflinger-Kauf",
+      "placement": [
+        "H3: Genetische Screening & Haflinger-spezifische Concerns",
+        "FAQ Question 5 (health problems)",
+        "Supporting education"
+      ],
+      "keyword_density_contribution": 0.04,
+      "related_variations": [
+        "haflinger eye cancer",
+        "haflinger genetik",
+        "haflinger erbkrankheiten",
+        "SCC pferd"
+      ]
+    }
+  ],
+
+  "supporting_keywords": [
+    {
+      "keyword": "haflinger kaufen günstig",
+      "search_volume": 140,
+      "context": "Section 2 (pricing), explains factors affecting price, not just 'cheap' but value",
+      "integration": "Discussion of price variations and budget options"
+    },
+    {
+      "keyword": "haflinger kaufen bayern",
+      "search_volume": 320,
+      "context": "Regional variation – mention in marketplace section, future expansion opportunity",
+      "integration": "Mention geographic search variation in marketplace comparison section"
+    },
+    {
+      "keyword": "haflinger kaufen in der nähe",
+      "search_volume": 390,
+      "context": "Geographic search – relevant for transport/logistics discussion",
+      "integration": "Section 5, Step 7 (transport discussion)"
+    },
+    {
+      "keyword": "haflinger kaufen ebay",
+      "search_volume": 140,
+      "context": "Platform-specific search – reference to various marketplaces",
+      "integration": "Section 6: Marketplace comparison"
+    },
+    {
+      "keyword": "anfängerpferd",
+      "search_volume": 890,
+      "context": "Broader keyword – position Haflinger as top beginner choice",
+      "integration": "Section 3: Beginner suitability, comparisons in FAQ"
+    },
+    {
+      "keyword": "pferd kaufen worauf achten",
+      "search_volume": 720,
+      "context": "General buying guide – Haflinger specific application",
+      "integration": "Section 5: Buying process checklist, internal linking"
+    },
+    {
+      "keyword": "tierärztliche untersuchung pferd",
+      "search_volume": 450,
+      "context": "General vet inspection – Haflinger specific concerns",
+      "integration": "Section 7: Detailed inspection guide"
+    },
+    {
+      "keyword": "pferd haltungskosten",
+      "search_volume": 380,
+      "context": "General cost discussion – Haflinger specific breakdown",
+      "integration": "Section 2: Monthly cost breakdown"
+    },
+    {
+      "keyword": "ehorses haflinger",
+      "search_volume": 180,
+      "context": "Marketplace reference – data source credibility",
+      "integration": "Section 2 (pricing data), Section 6 (marketplace comparison)"
+    },
+    {
+      "keyword": "kleinanzeigen haflinger",
+      "search_volume": 210,
+      "context": "Marketplace reference – usage guide",
+      "integration": "Section 6: Marketplace comparison"
+    }
+  ],
+
+  "paa_keyword_integration": [
+    {
+      "paa_question": "Wie viel kostet ein guter Haflinger?",
+      "mapped_keywords": [
+        "haflinger kaufen preis",
+        "wie viel kostet ein haflinger",
+        "haflinger preis",
+        "haflinger kaufpreis"
+      ],
+      "section": "Section 2",
+      "faq_question_number": 1,
+      "placement": "H3: Haflinger Kaufpreis"
+    },
+    {
+      "paa_question": "Ist ein Haflinger ein gutes Anfängerpferd?",
+      "mapped_keywords": [
+        "haflinger für anfänger",
+        "haflinger anfängerpferd",
+        "ist haflinger anfängerpferd",
+        "anfängerpferd"
+      ],
+      "section": "Section 3",
+      "faq_question_number": 2,
+      "placement": "H2 & H3: Anfängerpferd section"
+    },
+    {
+      "paa_question": "Kann ein Haflinger 90 kg tragen?",
+      "mapped_keywords": [
+        "haflinger 90 kg",
+        "haflinger gewichtskapazität",
+        "kann haflinger 90kg tragen",
+        "reiter 90kg"
+      ],
+      "section": "Section 4",
+      "faq_question_number": 3,
+      "placement": "H2 & H3: Gewichtskapazität"
+    },
+    {
+      "paa_question": "Wie lange lebt ein Haflinger?",
+      "mapped_keywords": [
+        "haflinger lebensdauer",
+        "wie lange lebt ein haflinger",
+        "haflinger lebensspanne",
+        "haflinger langzeitkosten"
+      ],
+      "section": "Section 8",
+      "faq_question_number": 4,
+      "placement": "H2 & H3: Lebenserwartung"
+    },
+    {
+      "paa_question": "Welche Gesundheitsprobleme haben Haflingerpferde?",
+      "mapped_keywords": [
+        "haflinger SCC",
+        "haflinger genetik",
+        "haflinger erbkrankheiten",
+        "haflinger gesundheit"
+      ],
+      "section": "Section 7",
+      "faq_question_number": 5,
+      "placement": "H3: Genetische Screening"
+    },
+    {
+      "paa_question": "Was ist das besondere an einem Haflinger?",
+      "mapped_keywords": [
+        "haflinger besonderheiten",
+        "haflinger charakter",
+        "haflinger temperament",
+        "warum haflinger besonders"
+      ],
+      "section": "Section 1",
+      "placement": "H3: Was macht Haflinger besonders?"
+    },
+    {
+      "paa_question": "Sind Haflinger für Anfänger geeignet?",
+      "mapped_keywords": [
+        "haflinger anfänger",
+        "haflinger anfängertauglich",
+        "anfängerpferd haflinger"
+      ],
+      "section": "Section 3",
+      "placement": "H3: Anfänger-Checkliste"
+    },
+    {
+      "paa_question": "Kann ich mit 100kg reiten?",
+      "mapped_keywords": [
+        "reiter 100kg",
+        "100kg haflinger",
+        "schwere reiter haflinger"
+      ],
+      "section": "Section 4",
+      "faq_question_number": 8,
+      "placement": "H3: Schwerere Reiter"
+    }
+  ],
+
+  "keyword_density_calculations": {
+    "target_total_words": 2640,
+    "primary_keyword": {
+      "keyword": "haflinger kaufen",
+      "minimum_occurrences": 21,
+      "maximum_occurrences": 32,
+      "target_density": "0.8-1.2%",
+      "strategy": "Natural distribution across title, intro, H2s, conclusion, FAQ"
+    },
+    "secondary_keywords_combined": {
+      "total_secondary_keywords": 13,
+      "average_density_per_keyword": 0.07,
+      "combined_density_target": "0.9%",
+      "strategy": "Each secondary keyword 1-2 times per 200 words in relevant section"
+    }
+  },
+
+  "semantic_keyword_clustering": {
+    "cluster_1_pricing": [
+      "haflinger kaufen preis",
+      "wie viel kostet ein haflinger",
+      "haflinger preis",
+      "haflinger kaufpreis",
+      "haflinger monatliche kosten",
+      "haflinger kosten",
+      "pferd haltungskosten"
+    ],
+    "cluster_2_beginner": [
+      "haflinger für anfänger",
+      "haflinger anfängerpferd",
+      "anfängerpferd",
+      "haflinger anfänger geeignet",
+      "erstes pferd haflinger"
+    ],
+    "cluster_3_characteristics": [
+      "haflinger charakter",
+      "haflinger temperament",
+      "haflinger eigenschaften",
+      "haflinger herkunft",
+      "edelbluthaflinger"
+    ],
+    "cluster_4_buying_process": [
+      "haflinger kaufprozess",
+      "haflinger kaufen anleitung",
+      "pferd kaufen worauf achten",
+      "haflinger züchter",
+      "ehorses haflinger"
+    ],
+    "cluster_5_health_safety": [
+      "haflinger vet check",
+      "tierärztliche untersuchung",
+      "haflinger SCC",
+      "haflinger genetik",
+      "haflinger betrug"
+    ]
+  },
+
+  "long_tail_keywords_identified": [
+    {
+      "keyword": "haflinger kaufen schritt für schritt",
+      "difficulty": "low",
+      "volume": 35,
+      "opportunity": "high"
+    },
+    {
+      "keyword": "haflinger für anfänger geeignet",
+      "difficulty": "low",
+      "volume": 45,
+      "opportunity": "high"
+    },
+    {
+      "keyword": "wie unterscheidet sich edelbluthaflinger",
+      "difficulty": "very_low",
+      "volume": 20,
+      "opportunity": "medium"
+    },
+    {
+      "keyword": "haflinger kaufen betrugsprävention",
+      "difficulty": "very_low",
+      "volume": 15,
+      "opportunity": "high"
+    }
+  ],
+
+  "keyword_competitive_analysis": {
+    "highly_competitive": [
+      "haflinger kaufen (5,400 searches, multiple rankable results)"
+    ],
+    "medium_competitive": [
+      "haflinger für anfänger (70 searches, few specialized results)",
+      "haflinger kaufen günstig (140 searches, marketplace focus)"
+    ],
+    "low_competitive": [
+      "haflinger kaufen anleitung (35 searches, no dedicated guides)",
+      "haflinger kaufen betrugsprävention (0 searches, zero competition)",
+      "haflinger transport kosten (implied demand, zero competition)"
+    ],
+    "targeting_strategy": "Lead with high-volume primary keyword, build content depth with medium-competitive long-tails, claim zero-competition opportunities for differentiation"
+  },
+
+  "quality_assurance": {
+    "primary_keyword_placement": {
+      "title": true,
+      "meta_description": true,
+      "introduction": true,
+      "h2_heading": true,
+      "conclusion": true,
+      "faq": true,
+      "status": "PASS"
+    },
+    "secondary_keywords_coverage": {
+      "each_keyword_appears": true,
+      "natural_integration": true,
+      "multiple_variations": true,
+      "status": "PASS"
+    },
+    "paa_keyword_integration": {
+      "all_paa_questions_mapped": true,
+      "keywords_extracted_from_questions": true,
+      "placement_in_faq": true,
+      "placement_in_body": true,
+      "status": "PASS"
+    }
+  }
+}

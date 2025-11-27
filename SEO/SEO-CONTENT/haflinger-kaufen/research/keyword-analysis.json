@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "primary_keyword": "haflinger kaufen",
+    "analysis_date": "2025-11-27T16:42:21.292714",
+    "total_analyzed": 13,
+    "top_n_selected": 13
+  },
+  "keywords": [
+    {
+      "rank": 1,
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "relevance_score": 17.92,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "keyword_ideas"
+    },
+    {
+      "rank": 2,
+      "keyword": "haflinger kaufen",
+      "search_volume": 5400,
+      "cpc": 0.22,
+      "relevance_score": 5.82,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "primary"
+    },
+    {
+      "rank": 3,
+      "keyword": "haflinger kaufen preis",
+      "search_volume": 40,
+      "cpc": 1.14,
+      "relevance_score": 5.436,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 4,
+      "keyword": "haflinger kaufen bayern",
+      "search_volume": 320,
+      "cpc": 0.13,
+      "relevance_score": 2.518,
+      "cluster": "commercial",
+      "search_intent": "navigational",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 5,
+      "keyword": "haflinger kaufen g\u00fcnstig",
+      "search_volume": 140,
+      "cpc": 0.14,
+      "relevance_score": 2.476,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 6,
+      "keyword": "haflinger gefahren kaufen",
+      "search_volume": 140,
+      "cpc": 0.1,
+      "relevance_score": 2.356,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 7,
+      "keyword": "haflinger kaufen niedersachsen",
+      "search_volume": 110,
+      "cpc": 0.06,
+      "relevance_score": 2.224,
+      "cluster": "commercial",
+      "search_intent": "navigational",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 8,
+      "keyword": "ehorses pferd kaufen",
+      "search_volume": 1900,
+      "cpc": 0.19,
+      "relevance_score": 2.08,
+      "cluster": "commercial",
+      "search_intent": "navigational",
+      "source": "keyword_ideas"
+    },
+    {
+      "rank": 9,
+      "keyword": "haflinger kaufen ebay",
+      "search_volume": 140,
+      "cpc": 0.0,
+      "relevance_score": 2.056,
+      "cluster": "commercial",
+      "search_intent": "navigational",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 10,
+      "keyword": "haflinger kaufen f\u00fcr anf\u00e4nger",
+      "search_volume": 70,
+      "cpc": 0.17,
+      "relevance_score": 2.038,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 11,
+      "keyword": "haflinger kohlfuchs kaufen",
+      "search_volume": 70,
+      "cpc": 0.0,
+      "relevance_score": 2.028,
+      "cluster": "commercial",
+      "search_intent": "commercial",
+      "source": "keyword_ideas"
+    },
+    {
+      "rank": 12,
+      "keyword": "haflinger kaufen in der n\u00e4he",
+      "search_volume": 390,
+      "cpc": 0.1,
+      "relevance_score": 1.656,
+      "cluster": "long_tail_commercial",
+      "search_intent": "commercial",
+      "source": "related_keywords"
+    },
+    {
+      "rank": 13,
+      "keyword": "ehorses verkaufspferde",
+      "search_volume": 590,
+      "cpc": 0.0,
+      "relevance_score": 0.236,
+      "cluster": "general",
+      "search_intent": "navigational",
+      "source": "keyword_ideas"
+    }
+  ],
+  "clusters": {
+    "informational": 0,
+    "commercial": 11,
+    "long_tail": 1,
+    "general": 1
+  },
+  "stats": {
+    "avg_search_volume": 3832.0,
+    "avg_cpc": 0.192,
+    "total_analyzed": 13,
+    "top_20_count": 13
+  }
+}

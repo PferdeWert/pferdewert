@@ -1,0 +1,131 @@
+{
+  "related_keywords": {
+    "primary_keyword": "haflinger kaufen",
+    "search_volume": 5400,
+    "competition_level": "LOW",
+    "cpc": 0.22,
+    "search_intent": "commercial",
+    "monthly_searches": {
+      "2025-10": 5400,
+      "2025-09": 5400,
+      "2025-08": 5400,
+      "2025-07": 5400,
+      "2025-06": 5400,
+      "2025-05": 6600,
+      "2025-04": 5400,
+      "2025-03": 5400,
+      "2025-02": 5400,
+      "2025-01": 5400
+    },
+    "items": [
+      {
+        "keyword": "haflinger kaufen in der nähe",
+        "search_volume": 390,
+        "competition_level": "LOW",
+        "cpc": 0.1,
+        "search_intent": "commercial",
+        "trend": "increasing"
+      },
+      {
+        "keyword": "haflinger kaufen bayern",
+        "search_volume": 320,
+        "competition_level": "LOW",
+        "cpc": 0.13,
+        "search_intent": "navigational"
+      },
+      {
+        "keyword": "haflinger kaufen günstig",
+        "search_volume": 140,
+        "competition_level": "LOW",
+        "cpc": 0.14,
+        "search_intent": "commercial"
+      },
+      {
+        "keyword": "haflinger kaufen ebay",
+        "search_volume": 140,
+        "competition_level": "LOW",
+        "search_intent": "navigational"
+      },
+      {
+        "keyword": "haflinger gefahren kaufen",
+        "search_volume": 140,
+        "competition_level": "LOW",
+        "cpc": 0.1,
+        "search_intent": "commercial",
+        "trend": "increasing"
+      },
+      {
+        "keyword": "haflinger kaufen niedersachsen",
+        "search_volume": 110,
+        "competition_level": "LOW",
+        "cpc": 0.06,
+        "search_intent": "navigational"
+      },
+      {
+        "keyword": "haflinger kaufen für anfänger",
+        "search_volume": 70,
+        "competition_level": "LOW",
+        "cpc": 0.17,
+        "search_intent": "commercial"
+      },
+      {
+        "keyword": "haflinger kaufen preis",
+        "search_volume": 40,
+        "competition_level": "LOW",
+        "cpc": 1.14,
+        "search_intent": "commercial"
+      }
+    ]
+  },
+  "keyword_ideas": {
+    "seed_keyword": "haflinger kaufen",
+    "relevant_variations": [
+      {
+        "keyword": "ehorses pferd kaufen",
+        "search_volume": 1900,
+        "competition_level": "LOW",
+        "cpc": 0.19,
+        "search_intent": "navigational",
+        "difficulty": 27
+      },
+      {
+        "keyword": "pferd kaufen",
+        "search_volume": 40500,
+        "competition_level": "LOW",
+        "cpc": 0.24,
+        "search_intent": "commercial",
+        "difficulty": 38
+      },
+      {
+        "keyword": "ehorses verkaufspferde",
+        "search_volume": 590,
+        "competition_level": "LOW",
+        "search_intent": "navigational",
+        "difficulty": 33
+      },
+      {
+        "keyword": "haflinger kohlfuchs kaufen",
+        "search_volume": 70,
+        "competition_level": "LOW",
+        "search_intent": "commercial"
+      }
+    ]
+  },
+  "keyword_overview": {
+    "keyword": "haflinger kaufen",
+    "search_volume": 5400,
+    "stable_search_volume": "5400/month (consistent)",
+    "yearly_trend": -18,
+    "competition_score": 0.12,
+    "competition_level": "LOW",
+    "cpc": 0.22,
+    "search_intent": {
+      "main": "commercial",
+      "secondary": "navigational"
+    },
+    "serp_results_count": 1050000,
+    "avg_backlinks": 35.9,
+    "avg_referring_domains": 3.1,
+    "avg_rank": 41.3
+  }
+}

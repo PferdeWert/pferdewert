@@ -1,0 +1,92 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Haflinger kaufen: Schritt-für-Schritt Anleitung",
+  "description": "Vollständige Anleitung zum sicheren Kauf eines Haflingers mit Preisverhandlung, Tierärztlichen Inspektionen und Betrugsschutz",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Anforderungen definieren",
+      "text": "Definiere dein Budget (€4.000-7.000), Alter/Ausbildungsstand, Größe/Typ (Standard oder Edelblut), und geografische Vorlieben. Dies bildet die Grundlage deiner Suchanfrage.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Standard-Haflinger kosten €2.500-8.000, Edelbluthaflinger €6.000-15.000+"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Marktplätze & Züchter recherchieren",
+      "text": "Recherchiere auf ehorses.de (250+ Angebote), Kleinanzeigen.de, Deine-Tierwelt.de und direkten Züchtern. Vergleiche Preise und verfügbare Tiere.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "ehorses bietet Käuferschutz und verifizierte Anbieter"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Verkäufer-Glaubwürdigkeit prüfen",
+      "text": "Verifiziere Zuchtbuch-Einträge, lese Verkäufer-Bewertungen, erkundige dich nach Referenzen und überprüfe Pedigree-Papiere auf Fälschungen.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Kontaktiere den Südtiroler Haflinger Pferdezuchtverband direkt"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Video-Call durchführen",
+      "text": "Fordere einen Video-Call an, bevor du fährst. Beobachte das Pferd am Boden, beim Longieren, in der Box – 10 Minuten Video spart Fahrtkosten.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Rote Flagge: 'Ich kann kein Video-Call machen' = häufig Scam"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Tierärztliche Vor-Kaufs-Inspektionen",
+      "text": "Buche einen unabhängigen Tierarzt für Inspektionen (€200-400). Standard-Protokoll: Allgemeine Untersuchung, Bewegungsprüfung, Röntgenbilder (für €5.000+ Pferde), Zahnuntersuchung.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Haflinger-spezifisch: SCC-Screening und Laminitis-Vorsorge prüfen"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Kaufvertrag & Preisverhandlung",
+      "text": "Nutze einen schriftlichen Kaufvertrag mit Pferdeidentifikation, Kaufpreis, Zahlungsbedingungen, Gesundheitsgarantie (min. 14 Tage Rückgaberecht), und Vet-Inspektions-Bedingungen.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Kleine Vet-Erkenntnisse rechtfertigen 10-20% Rabatt"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Transport, Zahlung & Papiere",
+      "text": "Arrangiere Pferdetransport (€400-800 für 500 km). Zahle nur nach Vet-Clearance und Papiere-Check. Verifiziere: Zuchtbuch-Papiere, Impfpass, Zahnkarte, Vet-Reports, Versicherungsübernahme.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "NIEMALS Vorkasse ohne Vet-Clearance zahlen"
+        }
+      ]
+    }
+  ]
+}

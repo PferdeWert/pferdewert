@@ -1,0 +1,127 @@
+{
+  "phase": "5A",
+  "primary_keyword": "haflinger kaufen",
+  "timestamp": "2025-11-27T12:00:00Z",
+  "slug": "haflinger-kaufen",
+  "locales": {
+    "de": {
+      "metadata": {
+        "title": "Haflinger kaufen: Kompletter Guide mit Preisen & Tipps",
+        "description": "Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.",
+        "keywords": "haflinger kaufen, haflinger preis, haflinger pferd kaufen, haflinger kosten, haflinger anschaffung",
+        "canonical_url": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen",
+        "robots": "index, follow"
+      },
+      "open_graph": {
+        "og:title": "Haflinger kaufen: Kompletter Guide mit Preisen",
+        "og:description": "Haflinger kaufen: Marktpreise, Rassen-Unterschiede, Kostenrechnung & sichere Kaufabwicklung von Experten erklärt.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen",
+        "og:site_name": "PferdeWert.de",
+        "og:locale": "de_DE",
+        "og:image": "https://pferdewert.de/images/ratgeber/haflinger-kaufen.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Haflinger kaufen: Kompletter Guide",
+        "twitter:description": "Marktpreise, Rassen-Unterschiede, Kostenrechnung & sichere Kaufabwicklung.",
+        "twitter:site": "@PferdeWert"
+      }
+    },
+    "at": {
+      "metadata": {
+        "title": "Haflinger kaufen in Österreich: Ratgeber 2025",
+        "description": "Haflinger kaufen in Österreich: Marktpreise (€4.900 Median), Züchter-Tipps & Betrugsschutz. Kompletter Ratgeber für österreichische Käufer.",
+        "keywords": "haflinger kaufen österreich, haflinger kaufen tirol, haflinger züchter österreich, haflinger kosten österreich",
+        "canonical_url": "https://pferdewert.at/pferde-ratgeber/haflinger-kaufen",
+        "robots": "index, follow"
+      },
+      "open_graph": {
+        "og:title": "Haflinger kaufen in Österreich: Ratgeber",
+        "og:description": "Haflinger kaufen in Österreich: Marktpreise, Züchter-Tipps, Betrugsschutz & sichere Abwicklung für österreichische Käufer.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.at/pferde-ratgeber/haflinger-kaufen",
+        "og:site_name": "PferdeWert.at",
+        "og:locale": "de_AT",
+        "og:image": "https://pferdewert.at/images/ratgeber/haflinger-kaufen.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Haflinger kaufen in Österreich",
+        "twitter:description": "Marktpreise, Züchter-Tipps & Betrugsschutz für österreichische Käufer.",
+        "twitter:site": "@PferdeWert"
+      }
+    },
+    "ch": {
+      "metadata": {
+        "title": "Haflinger kaufen Schweiz: Ratgeber 2025",
+        "description": "Haflinger kaufen in der Schweiz: Preise (CHF 5.200 Median), Züchter & Betrugsschutz. Schweizer Ratgeber für sichere Pferdekäufe.",
+        "keywords": "haflinger kaufen schweiz, haflinger kaufen graubünden, haflinger züchter schweiz, haflinger kosten schweiz",
+        "canonical_url": "https://pferdewert.ch/pferde-ratgeber/haflinger-kaufen",
+        "robots": "index, follow"
+      },
+      "open_graph": {
+        "og:title": "Haflinger kaufen Schweiz: Ratgeber",
+        "og:description": "Haflinger kaufen Schweiz: CHF 5.200 Median, Züchter-Tipps, Betrugsschutz & sichere Abwicklung für Schweizer Käufer.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.ch/pferde-ratgeber/haflinger-kaufen",
+        "og:site_name": "PferdeWert.ch",
+        "og:locale": "de_CH",
+        "og:image": "https://pferdewert.ch/images/ratgeber/haflinger-kaufen.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Haflinger kaufen Schweiz",
+        "twitter:description": "CHF 5.200 Median, Züchter-Tipps & Betrugsschutz für Schweizer Käufer.",
+        "twitter:site": "@PferdeWert"
+      }
+    }
+  },
+  "hreflang": [
+    {
+      "hreflang": "de",
+      "href": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
+    },
+    {
+      "hreflang": "de-AT",
+      "href": "https://pferdewert.at/pferde-ratgeber/haflinger-kaufen"
+    },
+    {
+      "hreflang": "de-CH",
+      "href": "https://pferdewert.ch/pferde-ratgeber/haflinger-kaufen"
+    },
+    {
+      "hreflang": "x-default",
+      "href": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
+    }
+  ],
+  "shared": {
+    "twitter:creator": "@PferdeWert",
+    "og:image:width": 1200,
+    "og:image:height": 630,
+    "og:image:type": "image/webp"
+  },
+  "validation": {
+    "de": {
+      "title_length": 51,
+      "description_length": 155,
+      "primary_keyword_in_title": true,
+      "title_status": "VALID",
+      "description_status": "VALID"
+    },
+    "at": {
+      "title_length": 51,
+      "description_length": 160,
+      "primary_keyword_in_title": true,
+      "title_status": "VALID",
+      "description_status": "VALID"
+    },
+    "ch": {
+      "title_length": 49,
+      "description_length": 152,
+      "primary_keyword_in_title": true,
+      "title_status": "VALID",
+      "description_status": "VALID"
+    }
+  }
+}

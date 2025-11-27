@@ -1,0 +1,69 @@
+{
+  "phase": "5C",
+  "primary_keyword": "haflinger kaufen",
+  "total_internal_links": 6,
+  "validation_status": "VALID",
+  "internal_links": [
+    {
+      "position": 1,
+      "section": "Einleitung",
+      "anchor_text": "Pferdewert-Bewertung",
+      "target_url": "/pferde-ratgeber/pferdewert-ermitteln",
+      "context": "Bevor du ein Haflinger kaufst, solltest du den fairen Marktwert kennen. Nutze unsere Pferdewert-Bewertung um realistisch einzuschätzen, ob der angebotene Preis fair ist.",
+      "relevance": "high",
+      "keyword_match": true
+    },
+    {
+      "position": 2,
+      "section": "Haltungskosten",
+      "anchor_text": "Haltungskosten für Pferde",
+      "target_url": "/pferde-ratgeber/pferd-haltungskosten",
+      "context": "Realistische Monats-Kostenrechnung: Futter, Tierarzt, Hufschmied, Versicherung, Einstreu. Für eine detaillierte Aufschlüsselung unserer Haltungskosten-Kalkulation lesen Sie unseren umfassenden Guide zu Pferd-Haltungskosten.",
+      "relevance": "high",
+      "keyword_match": true
+    },
+    {
+      "position": 3,
+      "section": "Anfängerpferde",
+      "anchor_text": "Pferderassen für Anfänger",
+      "target_url": "/pferde-ratgeber/pferderassen-anfanger",
+      "context": "Ist ein Haflinger wirklich das richtige Anfängerpferd für dich? Ein Vergleich mit anderen beliebten Anfängerrassen hilft dir bei der Entscheidung.",
+      "relevance": "high",
+      "keyword_match": true
+    },
+    {
+      "position": 4,
+      "section": "Kaufprozess",
+      "anchor_text": "Pferd kaufen Checkliste",
+      "target_url": "/pferde-ratgeber/pferd-kaufen-worauf-achten",
+      "context": "Der Haflinger Kaufprozess folgt den gleichen Schritten wie beim allgemeinen Pferdekauf. Nutze unsere umfassende Pferd kaufen Checkliste um sicherzustellen, dass du nichts vergisst.",
+      "relevance": "high",
+      "keyword_match": true
+    },
+    {
+      "position": 5,
+      "section": "Tierärztliche Inspektionen",
+      "anchor_text": "Tierärztliche Untersuchung Pferd",
+      "target_url": "/pferde-ratgeber/tierarztliche-untersuchung-pferd",
+      "context": "Die Inspektionskosten (€200-400) sind die beste Versicherung beim Pferdekauf. Detaillierte Informationen über was der Tierarzt prüft und welche Haflinger-spezifischen Checks wichtig sind.",
+      "relevance": "high",
+      "keyword_match": true
+    },
+    {
+      "position": 6,
+      "section": "Langzeitpflege",
+      "anchor_text": "Seniorpferde Pflege",
+      "target_url": "/pferde-ratgeber/seniorpferde-pflege",
+      "context": "Haflingerpferde leben 25-30 Jahre. Ab 15 Jahren entstehen zusätzliche Kosten für Zahnbehandlungen, Gelenkschutz und altersgerechte Pflege. Lesen Sie unseren Guide zur Seniorpferde-Pflege für langfristige Planung.",
+      "relevance": "medium",
+      "keyword_match": false
+    }
+  ],
+  "quality_gate": {
+    "minimum_links": 3,
+    "actual_links": 6,
+    "status": "PASSED",
+    "high_relevance_count": 5,
+    "medium_relevance_count": 1
+  }
+}

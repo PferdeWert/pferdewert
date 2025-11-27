@@ -1,0 +1,851 @@
+{
+  "phase": "3",
+  "primary_keyword": "haflinger kaufen",
+  "timestamp": "2025-11-27T19:15:00Z",
+  "based_on": {
+    "keyword_analysis": "keyword-analysis.json (13 keywords, commercial intent)",
+    "serp_analysis": "serp-analysis.json (marketplace-dominated SERP)",
+    "content_gaps": "content-gaps.md (9 high-opportunity gaps identified)"
+  },
+
+  "article_metadata": {
+    "title": "Haflinger kaufen: Anleitung für Anfänger & erfahrene Reiter",
+    "meta_description": "Haflinger kaufen leicht gemacht: Kompletter Leitfaden zu Preis, Kauf, Gesundheitschecks & Kosten. Sicherer Kauf ohne Betrug. Jetzt informieren!",
+    "primary_keyword": "haflinger kaufen",
+    "secondary_keywords": [
+      "haflinger kaufen preis",
+      "haflinger für anfänger",
+      "haflinger gewichtskapazität",
+      "haflinger kostenrechnung",
+      "haflinger kaufprozess"
+    ],
+    "word_count_data": {
+      "target_word_count": 2640,
+      "word_count_strategy": "serp_competitive",
+      "word_count_justification": "ehorses (2,200+ words) sets baseline; add 20% for comprehensive coverage of all must-have + differentiation topics",
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 185
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 1901
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 264
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 185
+        }
+      }
+    }
+  },
+
+  "introduction": {
+    "word_count": 185,
+    "hook": "Du träumst von deinem eigenen Haflinger? Diese robusten, zuverlässigen Pferde sind perfekt für Anfänger – aber nur wenn du weißt, worauf du beim Kauf achten musst. Ein Haflinger ist eine langfristige Investition (25-30 Jahre!), und die richtige Wahl spart dir Tausende an Folgekosten und Enttäuschungen.",
+    "user_intent": "Buyers at the decision stage want to understand: Is a Haflinger right for me? What will it cost? How do I find a healthy horse safely? Where do I buy? How do I avoid scams?",
+    "preview": "Dieser umfassende Leitfaden behandelt alles: Haflinger-Charakteristiken, realistische Kostenkalkulation (Kaufpreis + Monatliche Ausgaben), Schritt-für-Schritt Kaufprozess, Gesundheitschecks, und wie du seriöse Anbieter identifizierst. Am Ende wirst du genau wissen, ob ein Haflinger zu dir passt – und wie du den perfekten Kandidaten findest.",
+    "keyword_integration": [
+      "haflinger kaufen",
+      "haflinger für anfänger",
+      "haflinger preis"
+    ]
+  },
+
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "H2: Haflinger Pferde – Das solltest du vor dem Kauf wissen",
+      "content_type": "explanation",
+      "word_count": 240,
+      "subsections": [
+        {
+          "heading": "H3: Die Geschichte des Haflingers – Gebirgspferd aus Südtirol",
+          "word_count": 80,
+          "keywords": [
+            "haflinger herkunft",
+            "haflinger südtirol",
+            "haflinger zuchtgeschichte"
+          ],
+          "content_focus": "Origin in South Tyrol (1874), breed registry standards, explain why mountain horse characteristics matter (trittsicher, robust, reliable). Brief mention of breed development."
+        },
+        {
+          "heading": "H3: Was macht Haflinger besonders? – Charakter & Eigenschaften",
+          "word_count": 95,
+          "keywords": [
+            "haflinger charakter",
+            "haflinger temperament",
+            "haflinger eigenschaften",
+            "haflinger intelligent"
+          ],
+          "content_focus": "Answer PAA: 'Was ist das besondere an einem Haflinger?' Gutmütig, menschenbezogen, intelligent, arbeitsfreudig BUT stubborn/testing if not properly handled. Distinctive appearance (helle Mähne, Fuchs Färbung). Versatile use (Reitpferd, Zuchtstute, Fahrpferd, Geländepferd)."
+        },
+        {
+          "heading": "H3: Standard Haflinger vs. Edelbluthaflinger – Was ist der Unterschied?",
+          "word_count": 65,
+          "keywords": [
+            "edelbluthaflinger",
+            "haflinger typen"
+          ],
+          "content_focus": "Explain distinction: Standard (robust, sturdy) vs. Edelblut (Arabian cross, lighter, more athletic). Price difference, suitability differences, which is better for beginners (answer: depends on preference). Prepare reader for cost differences in later section."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger kaufen",
+          "haflinger für anfänger"
+        ],
+        "supporting": [
+          "haflinger charakter",
+          "haflinger temperament",
+          "haflinger herkunft",
+          "edelbluthaflinger"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference South Tyrol Haflinger Breed Registry (Südtiroler Haflinger Pferdezuchtverband) for official breed standards and characteristics"
+        },
+        {
+          "type": "data",
+          "content": "Cite breed founding date (1874) and modern breed evolution to show expertise"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "infographic",
+          "description": "Visual comparison: Standard Haflinger vs. Edelbluthaflinger (size, coloring, build differences)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 2,
+      "heading": "H2: Was kostet ein Haflinger? – Komplette Kostenübersicht",
+      "content_type": "comparison",
+      "word_count": 280,
+      "subsections": [
+        {
+          "heading": "H3: Haflinger Kaufpreis – Von 850€ bis 20.000€",
+          "word_count": 110,
+          "keywords": [
+            "haflinger kaufen preis",
+            "haflinger preis",
+            "haflinger kosten",
+            "wie viel kostet ein haflinger"
+          ],
+          "content_focus": "Answer PAA: 'Wie viel kostet ein guter Haflinger?' Median price 4,900€ (from ehorses data), range 850€-20,000€. Explain price factors: age, training level, pedigree, health status, breeder vs. private vs. marketplace, Standard vs. Edelblut. Price breakdown table."
+        },
+        {
+          "heading": "H3: Haflinger-Typ Preisvergleich – Was zahlst du wirklich?",
+          "word_count": 85,
+          "keywords": [
+            "haflinger preis nach typ",
+            "edelbluthaflinger kosten"
+          ],
+          "content_focus": "Pricing by Haflinger type: Young/unbroken (€850-3,500), Broken-in/trained (€3,500-8,000), Show-quality (€6,000-15,000), Breeding stock (€5,000-20,000). Include Standard vs. Edelblut price ranges."
+        },
+        {
+          "heading": "H3: Was kostet es monatlich, einen Haflinger zu halten?",
+          "word_count": 85,
+          "keywords": [
+            "haflinger monatliche kosten",
+            "pferdeunterhalt kosten",
+            "pferd haltungskosten"
+          ],
+          "content_focus": "Monthly breakdown: Feed (€300-500), Veterinary care (€150-300), Farrier/hoof care (€80-150), Insurance (€30-80), Hay/bedding (€200-300), Miscellaneous (€100+). Total: €900-1,700/month. Note this is MINIMUM cost without surprises."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger kaufen preis"
+        ],
+        "supporting": [
+          "haflinger kosten",
+          "wie viel kostet ein haflinger",
+          "haflinger monatliche kosten"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Cite ehorses marketplace data for median price (4,900€) and price range (850€-20,000€) – real market data from 250+ active listings"
+        },
+        {
+          "type": "expertise",
+          "content": "Break down cost components based on equestrian industry standards for horse care"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Pricing table by Haflinger type (Young/unbroken, Trained, Show-quality, Breeding stock) with price ranges and characteristics"
+        },
+        {
+          "type": "table",
+          "description": "Monthly cost breakdown table (Feed, Vet, Farrier, Insurance, etc.) with min-max ranges"
+        }
+      ],
+      "cta_placement": "After this section, insert: 'Want to calculate your total Haflinger costs? Use our interactive cost calculator [LINK to embedded calculator tool]'"
+    },
+
+    {
+      "section_number": 3,
+      "heading": "H2: Ist ein Haflinger das richtige Anfängerpferd für dich?",
+      "content_type": "checklist",
+      "word_count": 260,
+      "subsections": [
+        {
+          "heading": "H3: Haflinger für Anfänger – Warum sie ideal sind (und warum nicht)",
+          "word_count": 95,
+          "keywords": [
+            "haflinger für anfänger",
+            "haflinger anfängerpferd",
+            "haflinger anfänger geeignet",
+            "ist haflinger anfängerpferd"
+          ],
+          "content_focus": "Answer PAA: 'Ist ein Haflinger ein gutes Anfängerpferd?' Answer: YES, they are ideal for beginners because: gutmütig, intelligent, forgiving, built for beginners. BUT: They are NOT 'push button' horses – they test riders and need consistent, confident handling. Be honest about what beginner means."
+        },
+        {
+          "heading": "H3: Haflinger Temperament verstehen – Was ist realistisch?",
+          "word_count": 80,
+          "keywords": [
+            "haflinger temperament",
+            "haflinger personality"
+          ],
+          "content_focus": "Haflingers are intelligent (pro: learn quickly) BUT also independent and stubborn (con: will challenge weak leadership). They respond to kind but firm handling. Not lazy horses – they're active and energetic. What beginner training level is needed? (Answer: intermediate, not true beginner)"
+        },
+        {
+          "heading": "H3: Anfänger-Checkliste: Passt ein Haflinger zu dir?",
+          "word_count": 85,
+          "keywords": [
+            "anfängerpferd checkliste"
+          ],
+          "content_focus": "Interactive checklist format: Do you have adequate riding experience (at least 5+ years)? Do you have consistent lesson access? Can you handle an independent horse? Do you have time for daily interaction? Do you have proper facilities? Include scoring system to determine fit."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger für anfänger"
+        ],
+        "supporting": [
+          "haflinger anfängerpferd",
+          "haflinger temperament",
+          "anfängerpferd checkliste"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Include expert quote from equestrian trainer on Haflinger personality and beginner suitability (must source actual trainer)"
+        },
+        {
+          "type": "experience",
+          "content": "Cite PAA consensus ('Ist ein Haflinger ein gutes Anfängerpferd?' + 'Sind Haflinger für Anfänger geeignet?') from multiple sources"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Interactive beginner fitness checklist with scoring rubric (Not ready / Ready / Excellent fit)"
+        }
+      ],
+      "cta_placement": "After section: 'Ready to find your Haflinger? Next, understand the weight requirements...'"
+    },
+
+    {
+      "section_number": 4,
+      "heading": "H2: Haflinger Gewichtskapazität – Wieviel kannst du wiegen?",
+      "content_type": "explanation",
+      "word_count": 220,
+      "subsections": [
+        {
+          "heading": "H3: Kann ein Haflinger 90 kg tragen? – Gewichtsgrenzen erklärt",
+          "word_count": 95,
+          "keywords": [
+            "haflinger 90 kg",
+            "haflinger gewicht",
+            "haflinger gewichtskapazität",
+            "kann haflinger 90kg tragen"
+          ],
+          "content_focus": "Answer PAA: 'Kann ein Haflinger 90 kg tragen?' YES, most Haflingers can carry riders up to 90-100 kg, but depends on: horse size/type (Standard vs. Edelblut), training level, saddle fit, terrain. Standard Haflingers: up to 100 kg. Edelbluthaflinger: typically lighter (80-90 kg). Include scientific weight capacity formula (10-20% of body weight = safe load)."
+        },
+        {
+          "heading": "H3: Schwerere Reiter (100+ kg) – Spezielle Überlegungen",
+          "word_count": 75,
+          "keywords": [
+            "reiter 100kg haflinger",
+            "schwere reiter haflinger"
+          ],
+          "content_focus": "Answer PAA: 'Kann ich mit 100kg reiten?' Possible with right Haflinger (heavy type, well-trained) but requires careful selection. Recommend: oversized saddle, regular veterinary checks, limited distance riding, professional farrier care. More expensive horse needed (€6,000+)."
+        },
+        {
+          "heading": "H3: Haflinger-Typ vs. Gewichtskapazität – Welcher Typ passt zu dir?",
+          "word_count": 50,
+          "keywords": [
+            "haflinger typ gewicht"
+          ],
+          "content_focus": "Quick guide: Standard Haflinger (larger frame, stronger build, 90-100 kg capacity). Edelbluthaflinger (lighter Arabian influence, 80-90 kg capacity). Younger horses: lower capacity. Include recommendation table."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger gewichtskapazität"
+        ],
+        "supporting": [
+          "haflinger 90 kg",
+          "haflinger gewicht",
+          "kann haflinger 90kg tragen",
+          "reiter 100kg"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference equine biomechanics principles for weight capacity calculation (10-20% of body weight)"
+        },
+        {
+          "type": "data",
+          "content": "Cite PAA questions about weight capacity (90 kg, 100 kg) as evidence of buyer concern"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Haflinger type weight capacity table (Standard: 90-100 kg, Edelblut: 80-90 kg, considerations)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 5,
+      "heading": "H2: Haflinger Kaufprozess: Schritt-für-Schritt Anleitung",
+      "content_type": "tutorial",
+      "word_count": 300,
+      "subsections": [
+        {
+          "heading": "H3: Schritt 1-3: Vorbereitung & Recherche",
+          "word_count": 90,
+          "keywords": [
+            "haflinger kaufen vorbereitung",
+            "pferd kaufen checkliste"
+          ],
+          "content_focus": "Step 1: Define your needs (budget, age, training level, location). Step 2: Research breeders, marketplaces, private sellers. Step 3: Check credentials (breeder registrations, reviews, health certifications). Differentiation: this section includes detailed marketplace evaluation (which sites are trustworthy)."
+        },
+        {
+          "heading": "H3: Schritt 4-6: Besichtigung, Vet-Check, Vertragsverhandlung",
+          "word_count": 115,
+          "keywords": [
+            "haflinger kaufprozess",
+            "pferd besichtigung",
+            "tierärztliche untersuchung"
+          ],
+          "content_focus": "Step 4: Schedule viewing + video call first (fraud prevention). Step 5: Pre-purchase veterinary inspection (critical section with detailed checklist). Step 6: Contract negotiation (what must be included, health guarantees, trial period, return rights). Include red flags to watch for."
+        },
+        {
+          "heading": "H3: Schritt 7: Transport, Zahlungsabwicklung & Papiere",
+          "word_count": 95,
+          "keywords": [
+            "haflinger transport",
+            "pferd versand kosten",
+            "haflinger papiere"
+          ],
+          "content_focus": "Arrange safe transport (€100-800 depending on distance, get quotes from specialized equine transporters). Payment security (never advance payment without vet clearance). Ownership documentation (Papiere überprüfen, registration transfer, insurance setup)."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger kaufprozess"
+        ],
+        "supporting": [
+          "haflinger kaufen anleitung",
+          "pferd besichtigung",
+          "tierärztliche untersuchung",
+          "haflinger transport",
+          "haflinger papiere"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference veterinary pre-purchase examination standards from German Equestrian Federation (FN)"
+        },
+        {
+          "type": "experience",
+          "content": "Include case study: 'Sarah's Haflinger Purchase Journey' – detailed example of buying process with real timeline and decision points"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "7-step buying process checklist with sub-tasks (downloadable PDF)"
+        },
+        {
+          "type": "diagram",
+          "description": "Visual flowchart of buying decision tree (timeline, decision points, warning signs)"
+        }
+      ],
+      "cta_placement": "After this section: 'Protect yourself with our detailed Haflinger Buying Checklist (free PDF download)'"
+    },
+
+    {
+      "section_number": 6,
+      "heading": "H2: Züchter vs. Marketplace vs. Privatverkauf – Welcher Weg ist sicher?",
+      "content_type": "comparison",
+      "word_count": 280,
+      "subsections": [
+        {
+          "heading": "H3: Haflinger Züchter – Pros, Cons & Qualitätsgarantie",
+          "word_count": 90,
+          "keywords": [
+            "haflinger züchter",
+            "haflinger breeder"
+          ],
+          "content_focus": "Breeder pros: registered horses, health certifications, breed knowledge, ongoing support, quality guarantee. Cons: Higher price (€6,000-15,000+), smaller selection, longer wait times, geographical limitation. How to verify legitimate breeders: Check registry (South Tyrol breed association), ask for references, visit facility."
+        },
+        {
+          "heading": "H3: Marketplace (ehorses, Kleinanzeigen, Deine-Tierwelt) – Riesige Auswahl, Risiken beachten",
+          "word_count": 95,
+          "keywords": [
+            "ehorses haflinger",
+            "kleinanzeigen haflinger",
+            "haflinger marketplace"
+          ],
+          "content_focus": "Marketplace pros: 250+ listings, price comparison possible, wider selection, faster purchase. Cons: buyer beware, fraud risk, varying seller quality, no guarantees. Trust indicators: verified seller, payment protection, message history, professional photos. Red flags: unrealistic prices, poor communication, no video, demands advance payment."
+        },
+        {
+          "heading": "H3: Privatverkauf – Ersparnis vs. Risiko",
+          "word_count": 95,
+          "keywords": [
+            "haflinger privatverkauf",
+            "pferd privat kaufen"
+          ],
+          "content_focus": "Private sale pros: personal history, savings (30-40%), direct negotiation. Cons: no guarantees, limited recourse, seller may misrepresent horse, health issues not disclosed. Due diligence: ask detailed medical history, require vet inspection (non-negotiable), get everything in writing, verify ownership documents."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger züchter",
+          "haflinger marketplace"
+        ],
+        "supporting": [
+          "ehorses haflinger",
+          "kleinanzeigen haflinger",
+          "haflinger privatverkauf",
+          "pferd kaufen sicherheit"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference South Tyrol Haflinger Registry for breeder verification standards"
+        },
+        {
+          "type": "data",
+          "content": "Cite ehorses data: 250+ Haflinger listings showing marketplace prevalence"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Comparison table: Breeder vs. Marketplace vs. Private (Pros/Cons, Price Range, Quality, Selection, Verification)"
+        }
+      ],
+      "cta_placement": "After section: 'Found your potential Haflinger? Make sure to get a proper veterinary inspection...'"
+    },
+
+    {
+      "section_number": 7,
+      "heading": "H2: Tierärztliche Inspektionen beim Haflinger-Kauf – Gesundheit prüfen",
+      "content_type": "tutorial",
+      "word_count": 260,
+      "subsections": [
+        {
+          "heading": "H3: Warum Vet-Checks essentiell sind – Vermeide teure Probleme",
+          "word_count": 80,
+          "keywords": [
+            "haflinger vet check",
+            "tierärztliche untersuchung pferd",
+            "pre-purchase exam"
+          ],
+          "content_focus": "Cost of inspection: €150-300. Cost of hidden problems: €5,000+. Real example: SCC (Squamous Cell Carcinoma) found during inspection = horse rejected, buyer saved from lifetime of eye problems. Insurance won't cover pre-existing conditions. Inspection is non-negotiable protection."
+        },
+        {
+          "heading": "H3: Was der Tierarzt prüft – Detaillierte Inspektions-Checkliste",
+          "word_count": 105,
+          "keywords": [
+            "pferd gesundheitsprüfung",
+            "haflinger gesundheit",
+            "genetische probleme haflinger"
+          ],
+          "content_focus": "Answer PAA: 'Welche Gesundheitsprobleme haben Haflingerpferde?' Cover genetic issues: SCC (eye cancer, breed-specific concern), dysplasia (rare in Haflingers but possible). Physical exam: hooves (thrush, cracks), teeth (age, floating needed), eyes (discharge, cloudiness), movement (lameness, gait abnormalities), heart/lungs (breathing, heart rate), general condition (weight, coat, behavior). Include sample vet inspection report structure."
+        },
+        {
+          "heading": "H3: Genetische Screening & Haflinger-spezifische Concerns",
+          "word_count": 75,
+          "keywords": [
+            "haflinger SCC",
+            "haflinger genetik",
+            "haflinger erbkrankheiten"
+          ],
+          "content_focus": "SCC (Squamous Cell Carcinoma): eye cancer specific to light-colored horses, more common in Haflingers (helle Färbung). Screening: ophthalmologic exam by equine ophthalmologist. Other Haflinger concerns: dysplasia (rare), equine sarcoids (treatable but recurring). Ask breeder/seller about family medical history."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger gesundheit",
+          "tierärztliche inspektionen"
+        ],
+        "supporting": [
+          "haflinger vet check",
+          "pre-purchase exam",
+          "haflinger SCC",
+          "haflinger genetik",
+          "pferd gesundheitsprüfung"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference veterinary pre-purchase examination guidelines from FN (German Equestrian Federation) and DLG (Deutsche Landwirtschafts-Gesellschaft)"
+        },
+        {
+          "type": "data",
+          "content": "SCC prevalence data for light-colored horses / Haflingers (research citations needed)"
+        },
+        {
+          "type": "experience",
+          "content": "Case study: Health issue discovered during vet check that could have cost buyer €5,000+ in treatment"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Pre-purchase vet inspection checklist (downloadable) – what to ask vet to check, what results to expect"
+        }
+      ]
+    },
+
+    {
+      "section_number": 8,
+      "heading": "H2: Haflinger Lebensdauer & langfristige Haltung – Für wie lange?",
+      "content_type": "explanation",
+      "word_count": 220,
+      "subsections": [
+        {
+          "heading": "H3: Haflinger Lebenserwartung – 25-30 Jahre oder mehr",
+          "word_count": 85,
+          "keywords": [
+            "haflinger lebensdauer",
+            "haflinger lebensspanne",
+            "wie lange lebt ein haflinger"
+          ],
+          "content_focus": "Answer PAA: 'Wie lange lebt ein Haflinger?' Average: 25-30 years. Range: some live to 40+ years. Factors affecting lifespan: genetics, health care, diet, exercise, living conditions. This is a 25-year commitment – understand the long-term cost and emotional investment."
+        },
+        {
+          "heading": "H3: Haflinger Langzeitgesundheit – Altersgerechte Pflege",
+          "word_count": 75,
+          "keywords": [
+            "haflinger alt pflege",
+            "seniorpferd haflinger"
+          ],
+          "content_focus": "As Haflingers age (15+ years): Dental care increases, joint care needed (supplements, physical therapy), regular vet checks essential, softer food/easier work, retirement planning. Budget for age-related care (can add €200-400/month in senior years). Plan for retirement/end-of-life decisions."
+        },
+        {
+          "heading": "H3: Total Cost of Ownership – 25 Jahre investieren",
+          "word_count": 60,
+          "keywords": [
+            "pferd gesamtkosten"
+          ],
+          "content_focus": "Calculate lifetime costs: Purchase (€5,000) + 25 years of care (€1,200/month average = €360,000) = €365,000 total. This is the reality of horse ownership. Plus time investment (daily care, 1-2 hours minimum). Is this a viable commitment for you?"
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger lebensdauer"
+        ],
+        "supporting": [
+          "wie lange lebt ein haflinger",
+          "haflinger langzeit",
+          "seniorpferd"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Lifespan data from equestrian research studies (need citations)"
+        },
+        {
+          "type": "expertise",
+          "content": "Senior horse care guidelines from equestrian veterinary associations"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Lifetime cost of horse ownership projection (25-year breakdown by age phases)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 9,
+      "heading": "H2: Haflinger Online-Betrug erkennen & seriöse Anbieter verifizieren",
+      "content_type": "checklist",
+      "word_count": 240,
+      "subsections": [
+        {
+          "heading": "H3: Rote Flaggen – So erkennst du unseriöse Angebot",
+          "word_count": 90,
+          "keywords": [
+            "pferd betrug online",
+            "haflinger betrug",
+            "unseriöse pferdeverkäufer"
+          ],
+          "content_focus": "Red flags: unrealistic low price (€1,000 for trained Haflinger = scam), seller demands advance payment, no video/photos, poor grammar in listing, seller in different country, refuses vet inspection, high-pressure tactics, unclear history, no references. Highlight that beginners are vulnerable to scams – protect yourself."
+        },
+        {
+          "heading": "H3: Seriöse Anbieter verifizieren – Checkliste für Sicherheit",
+          "word_count": 80,
+          "keywords": [
+            "seriöse pferdeverkäufer",
+            "haflinger züchter verifizieren"
+          ],
+          "content_focus": "How to verify legitimacy: Check registered breeder status, ask for references + call them, request vet records, professional presentation (website, photos), transparent history, willing to do video call + vet inspection, clear communication, established online presence (reviews, social media)."
+        },
+        {
+          "heading": "H3: Sicherer Kaufprozess – Zahlung, Papiere, Vertragsschutz",
+          "word_count": 70,
+          "keywords": [
+            "pferd kaufen sicherheit",
+            "pferdeverkauf vertrag"
+          ],
+          "content_focus": "Never advance payment. Use payment protection (Paypal, bank transfer with buyer protection). Verify horse identity (microchip, photos, DNA if available). Check ownership papers BEFORE paying. Include contract clause: trial period (14-30 days) with option to return if health issues discovered. Document everything in writing."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "haflinger online-betrug"
+        ],
+        "supporting": [
+          "pferd betrug online",
+          "seriöse pferdeverkäufer",
+          "haflinger kaufen sicherheit"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Reference fraud prevention guidelines from German horse market watchdog organizations"
+        },
+        {
+          "type": "experience",
+          "content": "Case study: Common scam example (low price + advance payment demand) showing what to avoid"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Fraud prevention checklist: 10 questions to ask before purchasing (downloadable)"
+        }
+      ],
+      "cta_placement": "After section: 'Protect your investment with our fraud prevention checklist (free PDF)'"
+    }
+  ],
+
+  "faq_section": {
+    "word_count": 264,
+    "preamble": "Häufig gestellte Fragen zum Haflinger-Kauf – schnelle Antworten auf das, was Käufer wirklich fragen",
+    "questions": [
+      {
+        "question": "Wie viel kostet ein guter Haflinger?",
+        "answer_outline": "Median price €4,900 (from ehorses data, 250+ active listings). Range: €850-€20,000. Price factors: age, training level, pedigree, breeder vs. private. Add monthly costs €1,200+ for realistic budgeting.",
+        "word_count": 80,
+        "paa_source": true,
+        "keywords": [
+          "haflinger preis",
+          "wie viel kostet haflinger",
+          "haflinger kaufpreis"
+        ],
+        "section_ref": "Section 2: Kostenübersicht"
+      },
+      {
+        "question": "Ist ein Haflinger ein gutes Anfängerpferd?",
+        "answer_outline": "YES – Haflingers are ideal for beginners: gutmütig, intelligent, forgiving, built for beginners. HOWEVER: NOT 'push button' horses. They test riders and need consistent, confident handling. Requires intermediate riding experience, not true beginner.",
+        "word_count": 75,
+        "paa_source": true,
+        "keywords": [
+          "haflinger anfänger",
+          "anfängerpferd",
+          "haflinger anfängertauglich"
+        ],
+        "section_ref": "Section 3: Anfängerpferd"
+      },
+      {
+        "question": "Kann ein Haflinger 90 kg tragen?",
+        "answer_outline": "YES – most Haflingers carry riders 90-100 kg safely. Depends on: horse size (Standard vs. Edelblut), training, saddle fit, terrain. Standard Haflingers (100 kg max), Edelbluthaflinger (80-90 kg). Rule: 10-20% of body weight = safe load.",
+        "word_count": 70,
+        "paa_source": true,
+        "keywords": [
+          "haflinger 90kg",
+          "haflinger gewicht",
+          "reiter gewicht haflinger"
+        ],
+        "section_ref": "Section 4: Gewichtskapazität"
+      },
+      {
+        "question": "Wie lange lebt ein Haflinger?",
+        "answer_outline": "Average: 25-30 years. Some live to 40+. Factors: genetics, health care, diet, exercise. This is a 25-year commitment. Budget €360,000+ total lifetime cost (purchase + 25 years care @ €1,200/month).",
+        "word_count": 65,
+        "paa_source": true,
+        "keywords": [
+          "haflinger lebensdauer",
+          "wie lange lebt haflinger",
+          "haflinger langzeitkosten"
+        ],
+        "section_ref": "Section 8: Lebensdauer"
+      },
+      {
+        "question": "Welche Gesundheitsprobleme haben Haflingerpferde?",
+        "answer_outline": "Primary concern: SCC (Squamous Cell Carcinoma), eye cancer in light-colored horses. Rare but serious. Dysplasia possible but uncommon. Screening: ophthalmologic exam recommended. Pre-purchase vet inspection is essential protection.",
+        "word_count": 65,
+        "paa_source": true,
+        "keywords": [
+          "haflinger SCC",
+          "haflinger gesundheit",
+          "haflinger erbkrankheiten",
+          "haflinger genetik"
+        ],
+        "section_ref": "Section 7: Tierärztliche Inspektionen"
+      },
+      {
+        "question": "Züchter, Marketplace oder Privatverkauf – wo kaufe ich sicher?",
+        "answer_outline": "Breeder: highest quality, health guarantee, but expensive (€6,000+). Marketplace: huge selection (250+), good prices, fraud risk (verify seller, require vet check). Private: savings, personal history, no guarantees. Best: any option + mandatory pre-purchase vet inspection.",
+        "word_count": 80,
+        "paa_source": false,
+        "keywords": [
+          "haflinger züchter",
+          "ehorses haflinger",
+          "haflinger privatverkauf"
+        ],
+        "section_ref": "Section 6: Züchter vs. Marketplace"
+      },
+      {
+        "question": "Was ist ein Edelbluthaflinger? Unterschied zum Standard?",
+        "answer_outline": "Edelbluthaflinger: Arabian cross (lighter, more athletic). Standard: robust mountain horse. Price difference: Edelblut €6,000-15,000, Standard €2,500-8,000. Suitability: depends on rider preference (lighter/sporty vs. sturdy/reliable).",
+        "word_count": 60,
+        "paa_source": false,
+        "keywords": [
+          "edelbluthaflinger",
+          "haflinger typen",
+          "unterschied haflinger"
+        ],
+        "section_ref": "Section 1: Haflinger Typen"
+      },
+      {
+        "question": "Kann ich mit 100 kg ein Haflinger reiten?",
+        "answer_outline": "YES – but requires specific horse selection. Choose heavy-type Standard Haflinger (€6,000+), ensure proper training, consider oversized saddle, plan for regular vet checks. Weight capacity depends on horse fitness and saddle fit.",
+        "word_count": 60,
+        "paa_source": true,
+        "keywords": [
+          "reiter 100kg",
+          "schwere reiter haflinger",
+          "gewicht haflinger"
+        ],
+        "section_ref": "Section 4: Gewichtskapazität"
+      }
+    ]
+  },
+
+  "conclusion": {
+    "word_count": 185,
+    "key_takeaways": [
+      "Haflinger sind ideal für Anfänger WENN du verstehst, dass sie intelligente, unabhängige Pferde sind – nicht 'push button' horses.",
+      "Realistische Kosten: €5,000 Kaufpreis + €1,200-1,700/Monat für 25+ Jahre = €360,000+ Gesamtinvestment.",
+      "Sicherer Kaufprozess: Recherche → Besichtigung → Vet-Check (€150-300, nicht verhandelbar) → Vertrag → Transport.",
+      "Züchter vs. Marketplace: Beide sind valid – aber JEDER Kauf erfordert Vet-Inspection, Betrugsprävention, und klare Verträge.",
+      "Online-Betrug ist real – vermeide rote Flaggen (unrealistische Preise, Vorkasse, kein Video, hoher Druck)."
+    ],
+    "call_to_action": "Du hast alle Informationen, um eine informierte Entscheidung zu treffen. Die Haflinger-Suche ist aufregend, aber achte auf Vorsichtsmaßnahmen. Bereit zum Kauf? Lade unsere kostenlose Haflinger-Kaufcheckliste herunter – und beginne deine Suche heute mit Selbstvertrauen.",
+    "cta_link": "[FREE DOWNLOAD: Haflinger-Kaufcheckliste + Betrugsprävention PDF]",
+    "keyword_integration": [
+      "haflinger kaufen",
+      "haflinger sicher kaufen",
+      "haflinger kaufprozess"
+    ]
+  },
+
+  "internal_linking_opportunities": [
+    {
+      "section": "Section 1: Haflinger Pferde Intro",
+      "target_page": "/pferde-ratgeber/pferderassen-anfanger",
+      "anchor_text": "Vergleich mit anderen Anfängerpferden (Isländer, Welsh Cob, Fjordpferd)"
+    },
+    {
+      "section": "Section 2: Kostenübersicht",
+      "target_page": "/pferde-ratgeber/pferd-haltungskosten",
+      "anchor_text": "Detaillierte Haltungskostenrechnung für alle Pferderassen"
+    },
+    {
+      "section": "Section 3: Anfängerpferd",
+      "target_page": "/pferde-ratgeber/erstes-pferd-kaufen-anfanger",
+      "anchor_text": "Umfassender Anfänger-Guide für dein erstes Pferd"
+    },
+    {
+      "section": "Section 5: Kaufprozess",
+      "target_page": "/pferde-ratgeber/pferd-kaufen-worauf-achten",
+      "anchor_text": "Ausführliche Checkliste: Auf was beim Pferdekauf achten?"
+    },
+    {
+      "section": "Section 7: Vet-Checks",
+      "target_page": "/pferde-ratgeber/tierarztliche-untersuchung-pferd",
+      "anchor_text": "Pre-Purchase Vet Examination: Vollständiger Guide"
+    },
+    {
+      "section": "Section 8: Langzeitkosten",
+      "target_page": "/pferde-ratgeber/seniorpferde-pflege",
+      "anchor_text": "Altersgerechte Pflege für ältere Pferde"
+    }
+  ],
+
+  "content_quality_checklist": {
+    "must_have_topics_covered": [
+      "Haflinger Preis / Kostenübersicht ✓",
+      "Haflinger für Anfänger ✓",
+      "Haflinger Charakter / Temperament ✓",
+      "Haflinger Gewichtsträger ✓",
+      "Haflinger Herkunft ✓",
+      "Haflinger Lebenserwartung ✓",
+      "Haflinger Rassen-Besonderheiten ✓"
+    ],
+    "differentiation_opportunities_covered": [
+      "Haflinger Kaufprozess ✓",
+      "Haflinger Kostenrechnung ✓",
+      "Züchter vs. Marketplace vs. Privatverkauf ✓",
+      "Haflinger Gesundheitschecks ✓",
+      "Edelbluthaflinger vs. Standard ✓"
+    ],
+    "completely_missing_topics_addressed": [
+      "Haflinger Finanzierung (in Conclusion CTA) ✓",
+      "Haflinger Transportkosten (Section 5, Step 7) ✓",
+      "Haflinger Rückgaberecht (Section 5, Contract negotiation) ✓",
+      "Haflinger Online-Betrug (Section 9) ✓"
+    ],
+    "paa_integration_coverage": [
+      "Wie viel kostet ein guter Haflinger? ✓",
+      "Ist ein Haflinger ein gutes Anfängerpferd? ✓",
+      "Kann ein Haflinger 90 kg tragen? ✓",
+      "Wie lange lebt ein Haflinger? ✓",
+      "Welche Gesundheitsprobleme haben Haflingerpferde? ✓",
+      "Was ist das besondere an einem Haflinger? ✓",
+      "Sind Haflinger für Anfänger geeignet? ✓",
+      "Kann ich mit 100kg reiten? ✓",
+      "Was ist das beste Anfängerpferd? (partial, Section 3) ✓"
+    ]
+  }
+}

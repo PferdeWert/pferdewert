@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Haflinger kaufen: Kompletter Guide mit Preisen & Tipps",
+  "description": "Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.",
+  "image": "https://pferdewert.de/images/ratgeber/haflinger-kaufen.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "datePublished": "2025-11-27",
+  "dateModified": "2025-11-27",
+  "articleBody": "Du träumst von deinem eigenen Haflinger? Diese robusten, zuverlässigen Pferde sind perfekt für Anfänger – aber nur wenn du weißt, worauf du beim Kauf achten musst. Ein Haflinger ist eine langfristige Investition (25-30 Jahre!), und die richtige Wahl spart dir Tausende an Folgekosten und Enttäuschungen. Dieser umfassende Leitfaden behandelt alles: Haflinger-Charakteristiken, realistische Kostenkalkulation (Kaufpreis + monatliche Ausgaben), Schritt-für-Schritt Kaufprozess, Gesundheitschecks, und wie du seriöse Anbieter identifizierst.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
+  },
+  "keywords": "haflinger kaufen, haflinger preis, haflinger pferd kaufen, haflinger kosten, haflinger anschaffung",
+  "wordCount": 5800,
+  "isAccessibleForFree": true
+}

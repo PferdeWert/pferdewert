@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet ein guter Haflinger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Median-Preis liegt bei €4.900 basierend auf 250+ ehorses-Angeboten. Die Spanne reicht von €850 (junges, ungezähmtes Pferd) bis €20.000+ (Show-quality). Die meisten zahlen €4.000-7.000 für einen zuverlässigen Freizeit-Haflinger. Addiere €1.200-1.700 monatlich für Haltungskosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist ein Haflinger ein gutes Anfängerpferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja – wenn 'Anfänger' bedeutet 'du hast 5+ Jahre Reitstunden genommen'. Haflingerpferde sind gutmütig, intelligent und vergebend, aber sie sind nicht 'Push-Button-Horses'. Sie testen Reiter mit schwacher Führung und werden störrisch. Ein kompletter Anfänger mit 3 Lektionen ist zu früh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ein Haflinger 90 kg tragen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, die meisten Standard-Haflingerpferde (450+ kg) können Reiter bis 90-100 kg sicher tragen. Die Regel: 10-20% des Pferd-Körpergewichts = sichere Last. Ein Edelbluthaflinger trägt 80-90 kg sicherer. Sattelpassung und Trainingsstand sind kritisch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange lebt ein Haflinger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durchschnittlich 25-30 Jahre. Manche leben bis 40+. Das ist eine 25-35 Jahre Verpflichtung mit €360.000+ Gesamtkosten über die Lebensdauer. Plan accordingly mit realistischen Erwartungen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Gesundheitsprobleme haben Haflingerpferde?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das Hauptproblem ist SCC (Squamous Cell Carcinoma) – Augen-Krebs bei light-colored Pferden. Die Häufigkeit: 2-3% bei Haflingerpferden. Ein ophthalmologisches Screening (€300-500) ist empfohlen. Dysplasia ist praktisch nicht vorhanden (robuste Rasse)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Züchter, Marketplace oder Privatverkauf – wo kaufe ich sicher?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Züchter: Höchste Qualität, Gesundheitsgarantie, aber teuer (€8.000+). Marketplace (ehorses): 250+ Optionen, gute Preise, aber höheres Betrugs-Risiko – verifiziere den Seller. Privatverkauf: €2.000+ Ersparnisse, aber NULL Schutz – vet-Inspektionen sind non-negotiable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist ein Edelbluthaflinger? Unterschied zum Standard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Edelbluthaflinger sind mit Arabischem Blut gekreuzt – leichter, athletischer, eleganter. Standard-Haflingerpferde sind das Original – robuster, stärker, bessere Lastträger. Preis: Edelblut €6.000-15.000+, Standard €2.500-8.000. Wähle je nach dein Reiter-Profil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich mit 100 kg ein Haflinger reiten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, aber wähle einen großen Standard-Haflinger (450+ kg, spezial-ausgebildet). Kosten: €6.000-9.000+. Zusatzkosten: spezielle Sattel (€3.000), regelmäßige vet-Checks, limitierte Rittdistanzen. Ein Edelbluthaflinger ist für 100+ kg nicht ideal."
+      }
+    }
+  ]
+}

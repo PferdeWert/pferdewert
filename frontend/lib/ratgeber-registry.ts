@@ -261,7 +261,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.',
     category: 'Pferderassen',
     readTime: '19 Min.',
-    image: '/images/ratgeber/haflinger-kaufen.webp',
+    image: '/images/ratgeber/haflinger-roebel.webp',
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
