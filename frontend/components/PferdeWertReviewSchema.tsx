@@ -39,14 +39,14 @@ const TESTIMONIALS_DATA = [
 // CRITICAL FIX: Define item schemas OUTSIDE component to prevent object recreation on each render
 const ITEM_SCHEMAS = {
   service: {
-    name: 'KI-basierte Pferdebewertung',
-    type: 'Service' as const,
-    url: 'https://pferdewert.de/pferde-preis-berechnen',
-    description: 'Professionelle Bewertung des Marktwerts von Pferden mittels künstlicher Intelligenz in nur 2 Minuten',
+    name: 'PferdeWert',
+    type: 'Organization' as const,
+    url: 'https://pferdewert.de',
+    description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung',
     image: 'https://pferdewert.de/images/shared/blossi-shooting.webp'
   },
   about: {
-    name: 'PferdeWert - Pferdebewertung Service',
+    name: 'PferdeWert',
     type: 'Organization' as const,
     url: 'https://pferdewert.de',
     description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung',
@@ -54,7 +54,7 @@ const ITEM_SCHEMAS = {
   },
   homepage: {
     name: 'PferdeWert',
-    type: 'LocalBusiness' as const,
+    type: 'Organization' as const,
     url: 'https://pferdewert.de',
     description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.',
     image: 'https://pferdewert.de/images/shared/blossi-shooting.webp'

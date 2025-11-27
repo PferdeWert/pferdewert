@@ -58,6 +58,7 @@ export default function ReviewSchema({
   // The .map() creates new objects causing Fast Refresh infinite loops
   const reviewSchemas = useMemo(() => reviews.map(review => ({
     '@type': 'Review',
+    '@id': `https://pferdewert.de/reviews/${review.author.name.replace(/\s+/g, '-').toLowerCase()}`,
     'reviewBody': review.reviewBody,
     'reviewRating': {
       '@type': 'Rating',
@@ -70,6 +71,12 @@ export default function ReviewSchema({
       'name': review.author.name
     },
     'datePublished': review.datePublished,
+    'itemReviewed': {
+      '@type': 'Organization',
+      '@id': 'https://pferdewert.de/#organization',
+      'name': itemReviewed.name,
+      'url': itemReviewed.url
+    },
     'publisher': review.publisher ? {
       '@type': review.publisher.type || 'Organization',
       'name': review.publisher.name
@@ -77,16 +84,20 @@ export default function ReviewSchema({
       '@type': 'Organization',
       'name': 'PferdeWert'
     }
-  })), [reviews]);
+  })), [reviews, itemReviewed]);
 
   // FAST REFRESH FIX: Memoize main schema to prevent object recreation
   const mainSchema = useMemo(() => ({
     '@context': 'https://schema.org',
-    '@type': itemReviewed.type,
+    '@type': 'Organization',
+    '@id': 'https://pferdewert.de/#organization',
     'name': itemReviewed.name,
     'url': itemReviewed.url,
     'description': itemReviewed.description,
     'image': itemReviewed.image,
+    ...(organization?.logo && {
+      'logo': organization.logo
+    }),
     ...(aggregateRating && {
       'aggregateRating': {
         '@type': 'AggregateRating',
@@ -98,15 +109,6 @@ export default function ReviewSchema({
     }),
     ...(reviews.length > 0 && {
       'review': reviewSchemas
-    }),
-    ...(organization && {
-      'provider': {
-        '@type': 'Organization',
-        'name': organization.name,
-        'url': organization.url,
-        'logo': organization.logo,
-        'sameAs': organization.sameAs
-      }
     })
   }), [itemReviewed, aggregateRating, reviews.length, reviewSchemas, organization]);
 
