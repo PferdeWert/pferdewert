@@ -116,49 +116,12 @@ export default function ReviewSchema({
   // info('Review Schema generated:', { itemReviewed: itemReviewed.name });
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(mainSchema, null, 2)
-        }}
-      />
-
-      {/* Individual review schemas for better SEO coverage */}
-      {reviews.length > 0 && reviews.map((review, index) => (
-        <script
-          key={`review-${index}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Review',
-              'itemReviewed': {
-                '@type': itemReviewed.type,
-                'name': itemReviewed.name,
-                'url': itemReviewed.url
-              },
-              'reviewRating': {
-                '@type': 'Rating',
-                'ratingValue': review.reviewRating,
-                'bestRating': 5,
-                'worstRating': 1
-              },
-              'author': {
-                '@type': review.author.type || 'Person',
-                'name': review.author.name
-              },
-              'reviewBody': review.reviewBody,
-              'datePublished': review.datePublished,
-              'publisher': {
-                '@type': 'Organization',
-                'name': 'PferdeWert'
-              }
-            }, null, 2)
-          }}
-        />
-      ))}
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(mainSchema, null, 2)
+      }}
+    />
   );
 }
 
