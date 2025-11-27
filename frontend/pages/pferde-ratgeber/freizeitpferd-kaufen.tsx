@@ -8,6 +8,7 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
+import useSEOHreflang from '@/hooks/useSEOHreflang';
 import { Sparkles, Award, ShieldCheck, TrendingUp, Clock, User } from 'lucide-react';
 ;
 
@@ -26,7 +27,8 @@ const heroMetaItems = [
 ];
 
 export default function FreizeitpferdKaufen() {
-
+  // SEO: Hreflang tags for international versions
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber/freizeitpferd-kaufen');
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
@@ -111,6 +113,9 @@ export default function FreizeitpferdKaufen() {
         <meta name="keywords" content="freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd temperament, anfängerpferd kaufen, gutes freizeitpferd finden" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
+
+        {/* Hreflang tags for international SEO */}
+        {hreflangTags}
 
         {/* Open Graph */}
         <meta property="og:title" content="Freizeitpferd kaufen: Kompletter Guide für Anfänger" />

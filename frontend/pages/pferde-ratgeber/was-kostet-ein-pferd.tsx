@@ -93,7 +93,7 @@ const SECONDARY_CTA = {
 const ARTICLE_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Was kostet ein Pferd? Pferd Kosten & Preis 2025 - Vollständige Übersicht',
+    headline: 'Was kostet ein Pferd 2025? Vollständiger Kosten-Guide + Beispiele',
     description: 'Pferd Kosten 2025: Anschaffung (2.500-20.000€) + monatliche Kosten (400-800€). Pferdepreise nach Rasse, Haltungsform, Versicherung & Tierarzt. Inkl. Budget-Szenarien.',
     url: 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd',
     datePublished: '2025-10-11T10:00:00+01:00',
@@ -209,10 +209,10 @@ export default function WasKostetEinPferd() {
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
         {/* Primary Meta Tags */}
-        <title>Pferd Kosten & Preis 2025 - Vollständige Übersicht</title>
+        <title>Was kostet ein Pferd 2025? Vollständiger Kosten-Guide + Beispiele</title>
         <meta
           name="description"
-          content="Pferdekosten 2025: Anschaffung (2.500-20.000€) + monatliche Kosten (400-800€). Pferdepreise nach Rasse, Stallmiete, Futter, Tierarzt & Versicherung kalkulieren."
+          content="Pferd kaufen: Alle Kosten im Überblick! ✓ Anschaffung ✓ Monatliche Ausgaben ✓ Versteckte Kosten ✓ Praxis-Beispiele + kostenlose KI-Bewertung"
         />
         <meta name="robots" content="index, follow" />
         <link
@@ -221,10 +221,10 @@ export default function WasKostetEinPferd() {
         />
 
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Was kostet ein Pferd? Alle Kosten 2025 im Überblick" />
+        <meta property="og:title" content="Was kostet ein Pferd 2025? Vollständiger Kosten-Guide" />
         <meta
           property="og:description"
-          content="Pferd Kosten & Preis 2025: Vollständige Kostenübersicht inkl. Anschaffung (2.500-20.000€), monatliche Kosten (400-800€), Stallmiete, Futter & Tierarzt."
+          content="Pferd kaufen: Alle Kosten im Überblick! Anschaffung (2.500-20.000€), monatliche Ausgaben (400-800€), versteckte Kosten, Praxis-Beispiele."
         />
         <meta property="og:type" content="article" />
         <meta
@@ -236,13 +236,19 @@ export default function WasKostetEinPferd() {
 
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Was kostet ein Pferd? Alle Kosten 2025 im Überblick" />
+        <meta name="twitter:title" content="Was kostet ein Pferd 2025? Vollständiger Kosten-Guide" />
         <meta
           name="twitter:description"
-          content="Pferd Kosten & Preis 2025: Vollständige Kostenübersicht inkl. Anschaffung (2.500-20.000€), monatliche Kosten (400-800€), Stallmiete, Futter & Tierarzt."
+          content="Pferd kaufen: Alle Kosten im Überblick! Anschaffung (2.500-20.000€), monatliche Ausgaben (400-800€), versteckte Kosten."
         />
         <meta name="twitter:site" content="@PferdeWert" />
         <meta name="twitter:creator" content="@PferdeWert" />
+
+        {/* hreflang Tags for International Localization */}
+        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
+        <link rel="alternate" hrefLang="de-AT" href="https://pferdewert.de/at/pferde-ratgeber/was-kostet-ein-pferd" />
+        <link rel="alternate" hrefLang="de-CH" href="https://pferdewert.de/ch/pferde-ratgeber/was-kostet-ein-pferd" />
+        <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
 
         {/* JSON-LD Schemas */}
         <script
@@ -333,12 +339,17 @@ export default function WasKostetEinPferd() {
             {/* Preise nach Pferdetyp */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Preise nach Pferdetyp</h3>
 
-            <h4 className="text-xl font-bold text-brand-brown mb-3">Freizeitpferd</h4>
+            <h4 className="text-xl font-bold text-brand-brown mb-3">
+              <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand-brown hover:text-brand-dark">
+                Freizeitpferd
+              </LocalizedLink>
+            </h4>
             <p className="text-lg text-gray-700 mb-2"><strong>Preisspanne:</strong> 2.500€ - 8.000€ (Durchschnitt: ~5.000€)</p>
             <ul className="text-lg text-gray-700 space-y-2 mb-8">
               <li>• Geeignet für Anfänger und Hobbyreiter</li>
               <li>• Meist ältere, gut ausgebildete Pferde</li>
               <li>• Solide Grundausbildung vorhanden</li>
+              <li>• Mehr Details in unserem <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferd-Ratgeber</LocalizedLink></li>
             </ul>
 
             <h4 className="text-xl font-bold text-brand-brown mb-3">Sportpferd</h4>
@@ -376,14 +387,14 @@ export default function WasKostetEinPferd() {
                   Ankaufsuntersuchung (AKU)
                 </LocalizedLink>{' '}
                 ist unverzichtbar und kostet zwischen 200€ und 800€, abhängig vom Umfang der Untersuchung. Die{' '}
-                <LocalizedLink href="/pferde-ratgeber/aku-pferd/kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferde-ratgeber/aku-pferd-kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Kosten der Ankaufsuntersuchung
                 </LocalizedLink>{' '}
                 variieren je nach gewählter Untersuchungsstufe.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Wenn du mehr über den{' '}
-                <LocalizedLink href="/pferde-ratgeber/aku-pferd/ablauf" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferde-ratgeber/aku-pferd-ablauf" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Ablauf der Ankaufsuntersuchung
                 </LocalizedLink>{' '}
                 erfahren möchtest, kannst du dort alle Details zu den einzelnen Untersuchungsschritten nachlesen.
@@ -505,10 +516,11 @@ export default function WasKostetEinPferd() {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <p className="text-lg font-bold text-gray-900 mb-2">Spartipp</p>
               <p className="text-lg text-gray-700">
-                Viele Gegenstände können gebraucht gekauft werden. Online-Plattformen wie{' '}
-                <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-primary-600 hover:text-primary-700 font-semibold">
-                  ehorses.de und weitere Pferdemärkte
-                </LocalizedLink>, eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises.
+                Viele Gegenstände können gebraucht gekauft werden. eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises. Wer Geld beim Stall sparen möchte, sollte auch{' '}
+                <LocalizedLink href="/pferde-ratgeber/offenstall-kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
+                  günstige Offenstall-Optionen
+                </LocalizedLink>{' '}
+                vergleichen.
               </p>
             </div>
 

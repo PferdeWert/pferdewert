@@ -59,7 +59,7 @@ const faqItems = [
     },
     {
       question: 'Was kostet ein Anfängerpferd?',
-      answer: 'Die Anschaffungskosten für ein geeignetes Anfängerpferd liegen zwischen 2.000€ und 15.000€. Ein solides Freizeitpferd mit guter Ausbildung kostet durchschnittlich 5.000-8.000€. Dazu kommen einmalige Kaufnebenkosten (Ankaufsuntersuchung, Transport, Erstausstattung) von ca. 1.000-2.000€ sowie laufende Kosten von 350-800€ pro Monat für Stall, Hufschmied, Tierarzt und Versicherungen.'
+      answer: 'Die Anschaffungskosten für ein geeignetes Anfängerpferd liegen zwischen 2.000€ und 15.000€. Ein solides Freizeitpferd mit guter Ausbildung kostet durchschnittlich 5.000-8.000€ (mehr Details in unserem Ratgeber "Freizeitpferd kaufen"). Dazu kommen einmalige Kaufnebenkosten (Ankaufsuntersuchung, Transport, Erstausstattung) von ca. 1.000-2.000€ sowie laufende Kosten von 350-800€ pro Monat für Stall, Hufschmied, Tierarzt und Versicherungen.'
     },
     {
       question: 'Welche Pferderassen eignen sich für Anfänger?',
@@ -626,7 +626,7 @@ export default function AnfaengerpferdKaufen() {
                     <tr className="bg-gray-50">
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">Mittleres Segment</td>
                       <td className="px-6 py-4 text-sm text-gray-700">5.000-10.000€</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">8-15 Jahre, solide Freizeitausbildung, gesund</td>
+                      <td className="px-6 py-4 text-sm text-gray-700">8-15 Jahre, solide <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitausbildung</LocalizedLink>, gesund</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">Premium</td>

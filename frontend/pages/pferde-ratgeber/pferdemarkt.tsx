@@ -607,7 +607,7 @@ const Pferdemarkt: NextPage = () => {
                 Die Preise variieren erheblich:
               </p>
               <ul className="text-lg text-gray-700 space-y-2">
-                <li>• <strong>Freizeitpferde</strong>: 500–3.000€ (je nach Alter, Ausbildung)</li>
+                <li>• <strong><LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferde</LocalizedLink></strong>: 500–3.000€ (je nach Alter, Ausbildung)</li>
                 <li>• <strong>Einsteiger-Sportpferde</strong>: 5.000–12.000€</li>
                 <li>• <strong>Hochleistungs-Sportpferde</strong>: 15.000–100.000€+</li>
               </ul>
