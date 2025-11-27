@@ -8,7 +8,6 @@ import { error, warn, info } from "@/lib/log";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import { ServiceReviewSchema } from "@/components/PferdeWertReviewSchema";
-import { ServicePageSchema } from "@/components/PferdeWertServiceSchema";
 import FAQ from "@/components/FAQ";
 import { useCountryConfig } from "@/hooks/useCountryConfig";
 import { useSEO } from "@/hooks/useSEO";
@@ -659,13 +658,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//js.stripe.com" />
 
-        {/* Structured Data: Service and Review Schemas below provide comprehensive SEO coverage */}
-
-        {/* Review Schema für Service-Seite */}
+        {/* Structured Data: Service with Reviews for comprehensive SEO coverage */}
         <ServiceReviewSchema />
-
-        {/* Service Schema für strukturierte Daten */}
-        <ServicePageSchema />
       </Head>
 
       {/* Note: Animations moved to globals.css for better performance */}
