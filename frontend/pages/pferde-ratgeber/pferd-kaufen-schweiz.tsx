@@ -562,7 +562,7 @@ export default function PferdKaufenSchweizPage() {
           </p>
 
           <div className="space-y-6 mt-8">
-            <div className="bg-white border-2 border-brand/20 rounded-lg p-6">
+            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 1: Selbsteinschätzung und Vorbereitung</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -584,7 +584,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white border-2 border-brand/20 rounded-lg p-6">
+            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 2: Marktplatz-Auswahl und Filter-Nutzung</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -606,7 +606,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white border-2 border-brand/20 rounded-lg p-6">
+            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 3: Inserat-Analyse und Erstbesichtigung</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -628,7 +628,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white border-2 border-brand/20 rounded-lg p-6">
+            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 4: Proberitt und Veterinär-Untersuchung</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -650,7 +650,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white border-2 border-brand/20 rounded-lg p-6">
+            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 5: Kaufvertrag und Übergabe</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -689,7 +689,7 @@ export default function PferdKaufenSchweizPage() {
           </p>
 
           <div className="space-y-6 mt-8">
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Rasse</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Die Schweiz hat eine vielfältige Pferderassen-Landschaft. Hier sind die beliebtesten:
@@ -703,7 +703,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Alter</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Das Alter beeinflusst Ausbildungsstand, Gesundheit und Preis:
@@ -719,7 +719,7 @@ export default function PferdKaufenSchweizPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Stockmaß (Größe)</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Das Stockmaß wird in Zentimetern vom Boden bis zum Widerrist gemessen:
@@ -735,7 +735,7 @@ export default function PferdKaufenSchweizPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Preis</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Preise variieren stark je nach Typ, Ausbildung und Gesundheit:
@@ -748,7 +748,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Region/Standort</h3>
               <p className="text-gray-700 leading-relaxed">
                 Der Standort beeinflusst Transport-Kosten und Besichtigungsmöglichkeiten. Schweizer Regionen:
@@ -913,7 +913,7 @@ export default function PferdKaufenSchweizPage() {
           </RatgeberHighlightBox>
 
           <div className="space-y-6 mt-8">
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Ankaufsuntersuchung (AKU)</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Die AKU ist deine wichtigste Absicherung gegen versteckte Gesundheitsmängel:
@@ -938,7 +938,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Kaufvertrag und Rechtssicherheit</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -964,7 +964,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Proberitt-Sicherheit</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -986,7 +986,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Transport-Sicherheit</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -1021,7 +1021,7 @@ export default function PferdKaufenSchweizPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Sportpferde</h3>
               <p className="text-gray-700 mb-3">
                 Für ambitionierte Reiter und Turnier-Teilnahme.
@@ -1035,7 +1035,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Freizeitpferde</h3>
               <p className="text-gray-700 mb-3">
                 Für Genussreiter und entspannte Ausritte.
@@ -1049,7 +1049,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Zuchtpferde</h3>
               <p className="text-gray-700 mb-3">
                 Für Züchter und Zucht-Interessierte.
@@ -1063,7 +1063,7 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg border-2 border-brand/20 p-6">
+            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
               <h3 className="text-2xl font-serif font-bold text-brand mb-3">Anfänger-Pferde</h3>
               <p className="text-gray-700 mb-3">
                 Speziell für Reitanfänger und -wiedereinsteiger.
