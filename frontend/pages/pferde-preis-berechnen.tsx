@@ -18,7 +18,7 @@ const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSecti
   loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />,
 });
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
-import { PRICING_FORMATTED, SCHEMA_PRICING } from "../lib/pricing";
+import { PRICING_FORMATTED } from "../lib/pricing";
 import {
   trackValuationStart,
   trackFormProgress,
@@ -659,99 +659,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//js.stripe.com" />
 
-        {/* JSON-LD Structured Data - WebApplication Schema (Primary for Tool Focus) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "Pferde Preis Rechner",
-              "applicationCategory": "CalculatorApplication",
-              "description": "Online-Rechner zur Berechnung des Marktwertes von Pferden. Geben Sie Ihre Pferdedaten ein und erhalten Sie eine KI-gestützte Marktwertanalyse.",
-              "url": "https://pferdewert.de/pferde-preis-berechnen",
-              "operatingSystem": "Web Browser",
-              "browserRequirements": "Requires JavaScript",
-              "offers": {
-                "@type": "Offer",
-                "price": SCHEMA_PRICING.price,
-                "priceCurrency": "EUR",
-                "description": "Einmalige Gebühr für detaillierte Pferdebewertung mit PDF-Report",
-                "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31"
-              },
-              "author": {
-                "@type": "Organization",
-                "name": "PferdeWert.de",
-                "url": "https://pferdewert.de"
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "1247",
-                "bestRating": "5",
-                "worstRating": "1"
-              },
-              "featureList": [
-                "KI-gestützte Marktwertberechnung",
-                "Detaillierter PDF-Report",
-                "Berücksichtigung von Rasse, Alter, Ausbildung",
-                "Ergebnis in unter 2 Minuten"
-              ]
-            })
-          }}
-        />
-
-        {/* JSON-LD Structured Data - HowTo Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "HowTo",
-              "name": "Pferdewert online berechnen",
-              "description": "Schritt-für-Schritt-Anleitung zur Berechnung des Pferdewertes mit unserem KI-gestützten Online-Rechner",
-              "totalTime": "PT2M",
-              "estimatedCost": {
-                "@type": "MonetaryAmount",
-                "currency": "EUR",
-                "value": SCHEMA_PRICING.price
-              },
-              "step": [
-                {
-                  "@type": "HowToStep",
-                  "name": "Grunddaten eingeben",
-                  "text": "Geben Sie die Grunddaten Ihres Pferdes ein: Rasse, Alter, Geschlecht und Stockmaß.",
-                  "position": 1
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Ausbildung und Verwendung angeben",
-                  "text": "Beschreiben Sie die Haupteignung, den Ausbildungsstand (E/A/L/M/S), Turniererfahrung und Abstammung.",
-                  "position": 2
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Details zu Charakter und Gesundheit",
-                  "text": "Ergänzen Sie Informationen zu Charakter, Gesundheitszustand/AKU und Besonderheiten.",
-                  "position": 3
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Analyse starten",
-                  "text": `Bestätigen Sie die Einverständniserklärung und starten Sie die kostenpflichtige KI-Analyse für ${PRICING_FORMATTED.current}.`,
-                  "position": 4
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Ergebnis erhalten",
-                  "text": "Erhalten Sie innerhalb von 2 Minuten einen detaillierten PDF-Report mit Marktwertanalyse per E-Mail.",
-                  "position": 5
-                }
-              ]
-            })
-          }}
-        />
+        {/* Structured Data: Service and Review Schemas below provide comprehensive SEO coverage */}
 
         {/* Review Schema für Service-Seite */}
         <ServiceReviewSchema />
