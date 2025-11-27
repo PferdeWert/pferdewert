@@ -1,0 +1,77 @@
+{
+  "phase": "5C",
+  "primary_keyword": "pferd kaufen schweiz",
+  "timestamp": "2025-11-26T23:35:00Z",
+  "total_internal_links": 6,
+  "internal_links": [
+    {
+      "section": "Schritt-für-Schritt Anleitung: So kaufst du dein erstes Pferd",
+      "anchor_text": "Pferdewert-Bewertung nutzen",
+      "target_url": "/pferde-ratgeber/pferdewert-ermitteln",
+      "context": "Bevor du ein Pferd kaufst, solltest du den fairen Marktwert kennen. Nutze unsere Pferdewert-Bewertung um den aktuellen Preis zu überprüfen.",
+      "relevance": "high",
+      "reasoning": "Direkte Relevanz zum Kaufprozess - Bewertet und Preis-Vergleich ist kritischer Schritt beim Kauf"
+    },
+    {
+      "section": "Kosten beim Pferdekauf: Kompletter Budget-Überblick",
+      "anchor_text": "Pferdeversicherung",
+      "target_url": "/pferde-ratgeber/pferdeversicherung",
+      "context": "Die Gesamtkosten beim Pferdekauf gehen über den Kaufpreis hinaus. Versicherung ist ein wichtiger Teil des Budgets den viele übersehen.",
+      "relevance": "high",
+      "reasoning": "Budget-Planung ist zentral im Artikel, Versicherung ist Teil der Kostenaufschlüsselung"
+    },
+    {
+      "section": "Sicherheit beim Pferdekauf: Was du wissen musst",
+      "anchor_text": "Gesundheit-Checkliste und Prävention",
+      "target_url": "/pferde-ratgeber/pferdegesundheit-checkliste",
+      "context": "Gesundheitscheck ist einer der wichtigsten Sicherheitsaspekte beim Pferdekauf. Unsere Checkliste hilft dir, keine roten Flaggen zu übersehen.",
+      "relevance": "high",
+      "reasoning": "Gesundheitssicherheit ist zentraler Sicherheits-Punkt im Artikel"
+    },
+    {
+      "section": "Filterkriterien erklärt: Rasse, Alter, Stockmaß, Preis und Region",
+      "anchor_text": "Pferderassen-Guide",
+      "target_url": "/pferde-ratgeber/pferderassen-guide",
+      "context": "Schweizer Pferderassen haben spezifische Charakteristiken. Unser detaillierter Guide zu Schweizer Pferderassen hilft bei der richtigen Auswahl.",
+      "relevance": "high",
+      "reasoning": "Rasse-Auswahl ist kritischer Filter-Schritt, separater Guide ist natürlicher Verweis"
+    },
+    {
+      "section": "Spezielle Pferd-Typen: Sport, Zucht, Freizeit und Anfänger-Pferde",
+      "anchor_text": "Sportpferde vs. Freizeitpferde Unterschiede",
+      "target_url": "/pferde-ratgeber/sportpferd-vs-freizeitpferd",
+      "context": "Die Unterschiede zwischen Sport- und Freizeitpferden sind fundamental. Unser detaillierter Vergleich zeigt, welcher Typ zu dir passt.",
+      "relevance": "medium",
+      "reasoning": "Pferdtyp-Auswahl ist wichtiger Entscheidungsfaktor, separater Vergleich bietet tiefere Insights"
+    },
+    {
+      "section": "Kosten beim Pferdekauf: Kompletter Budget-Überblick",
+      "anchor_text": "Pferd Transport-Kosten",
+      "target_url": "/pferde-ratgeber/pferdetransport-kosten",
+      "context": "Transport ist oft ein übersehener Kostenfaktor beim Pferdekauf. Unser Transport-Guide erklärt regionale Unterschiede und Optionen.",
+      "relevance": "high",
+      "reasoning": "Transport-Kosten sind explizit erwähnt im Artikel, separater Guide bietet Vertiefung"
+    }
+  ],
+  "validation": {
+    "minimum_links_met": true,
+    "links_count": 6,
+    "minimum_required": 3,
+    "all_links_contextual": true,
+    "anchor_text_varied": true,
+    "placement_distribution": {
+      "introduction_early": 0,
+      "middle_content": 5,
+      "conclusion": 1
+    }
+  },
+  "quality_metrics": {
+    "total_internal_links": 6,
+    "high_relevance_links": 4,
+    "medium_relevance_links": 1,
+    "low_relevance_links": 0,
+    "missing_service_links": 0,
+    "note": "Primary service link (Pferdewert-Bewertung) is included (high relevance). All links are contextually placed and naturally integrated."
+  },
+  "summary": "Internal Linking Strategy für 'pferd kaufen schweiz' optimiert. 6 interne Links identifiziert und validiert (min 3 erforderlich, max 8 empfohlen). Alle Links sind natürlich im Textfluss integriert und thematisch relevant. Verteilung: 5 Links im Main Content, 1 Link in Conclusion. Höchste Relevanz: Pferdewert-Bewertung (Primary Service), Versicherung, Gesundheits-Checkliste. Medium: Sportpferd vs. Freizeit Vergleich. Transport-Kosten als zusätzlicher Value-Add Link."
+}

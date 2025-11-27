@@ -44,6 +44,8 @@ const STATIC_PAGE_SLUGS = [
   'pferdemarkt',
   'springpferd-kaufen',
   'was-kostet-ein-pferd',
+  'pferd-kaufen-schweiz',
+  'haflinger-kaufen',
 ];
 
 // ============================================================================

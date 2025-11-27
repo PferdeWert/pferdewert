@@ -138,6 +138,21 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'aku-pferd'
     ]
   },
+  {
+    slug: 'pferd-kaufen-schweiz',
+    title: 'Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich',
+    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 9 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.',
+    category: 'Kauf & Verkauf',
+    readTime: '18 Min.',
+    image: '/images/ratgeber/horses-zermatt-switzerland.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'anfaengerpferd-kaufen',
+      'pferdekaufvertrag'
+    ]
+  },
 
   // Pferd Verkaufen Series
   {
@@ -238,6 +253,21 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'dressurpferd-kaufen',
       'was-kostet-ein-pferd',
       'anfaengerpferd-kaufen'
+    ]
+  },
+  {
+    slug: 'haflinger-kaufen',
+    title: 'Haflinger kaufen: Kompletter Guide mit Preisen & Tipps',
+    description: 'Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.',
+    category: 'Pferderassen',
+    readTime: '19 Min.',
+    image: '/images/ratgeber/haflinger-kaufen.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'anfaengerpferd-kaufen',
+      'was-kostet-ein-pferd',
+      'pferd-kaufen'
     ]
   }
 ];

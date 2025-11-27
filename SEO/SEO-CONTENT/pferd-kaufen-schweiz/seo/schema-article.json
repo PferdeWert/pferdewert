@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden",
+  "alternativeHeadline": "Vollständiger Leitfaden mit Marktplatz-Vergleich",
+  "description": "Entdecke alle 9 Schweizer Pferde-Marktplätze im Vergleich. Mit Schritt-für-Schritt Kaufanleitung, Budget-Planer & Sicherheits-Tipps.",
+  "image": "https://pferdewert.de/images/ratgeber/pferd-kaufen-schweiz.webp",
+  "author": {
+    "@type": "Person",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 250,
+      "height": 60
+    }
+  },
+  "datePublished": "2025-11-26",
+  "dateModified": "2025-11-26",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/pferd-kaufen-schweiz"
+  },
+  "articleSection": "Pferdekauf-Ratgeber",
+  "keywords": "pferd kaufen schweiz, pferde marktplätze, ehorses, billyrider, tier-inserate, pferdekauf anleitung, pferdekauf kosten",
+  "wordCount": 4620
+}

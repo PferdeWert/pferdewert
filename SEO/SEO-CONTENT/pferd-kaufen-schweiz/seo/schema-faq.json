@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Welche Plattform hat die beste Auswahl an Pferden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ehorses.ch bietet mit über 19.000 aktiven Inseraten die größte Auswahl in der Schweiz und ganz Europa. Für spezialisierte Pferdetypen: BillyRider.ch für Reitsport, FM-CH für Freiberger-Pferde, Swisshorse.ch für Zuchtpferde. Für lokalen Fokus: Tier-Inserate.ch ist eine bewährte Schweizer Plattform. Anfänger profitieren von Anibis.ch und Tutti.ch für breitere Auswahl."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet ein Pferd in der Schweiz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preise variieren stark je nach Typ: Freizeitpferde kosten 5.000-15.000 CHF, Sport-Pferde 15.000-80.000+ CHF. Zusätzlich solltest du Transport (200-3.000 CHF), Veterinäruntersuchung (500-1.500 CHF) und Ausrüstung (2.000-3.000 CHF) berücksichtigen. Gesamtbudget für Anfänger: 10.000-20.000 CHF für Kaufpreis plus Nebenkosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie finde ich das richtige Pferd für mich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Definiere zuerst dein Reitlevel (Anfänger/Mittler/Fortgeschritten) und deinen Pferdetyp (Sport/Freizeit). Nutze Plattform-Filter für Alter (6-12 Jahre ideal für Anfänger), Temperament, Größe (Stockmaß) und Preis. Besichtige mehrere Pferde in Person, mache einen Proberitt und lasse eine Veterinär-Untersuchung durchführen bevor du dich entscheidest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Pferderasse passt zu mir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anfänger sollten ruhige Rassen wählen: Freiberger oder ältere Warmblüter. Sportreiter brauchen Warmblüter oder Vollblüter. Für Freizeit: Robuste Rassen wie Freiberger. Deine Körpergröße und dein Reitergewicht spielen auch eine Rolle - kleinere Reiter sollten Pferde unter 160cm Stockmaß wählen. Konsultiere erfahrene Reiter bei der Auswahl."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich ein Pferd vor dem Kauf testen/Probe-reiten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, und das ist stark empfohlen! Die meisten seriösen Verkäufer ermöglichen einen Proberitt. Ein guter Testritt sollte mindestens 30-45 Minuten dauern: Aufwärmen (20 Min), Testritt im normalen Tempo, Tests für Springen oder Dressur (je nach Pferdtyp), und Handling-Tests. Stelle sicher, dass die Versicherung bei Unfällen geklärt ist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Dokumente brauche ich beim Pferdekauf in der Schweiz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Notwendig sind: Kaufvertrag (signiert), Pferdepass (Pedigree), Impfausweis (Tetanus, EHV), Zahnstufe-Bestätigung (zur Altersverification). Optional aber empfohlen: Veterinär-Untersuchungsbericht, Rasse-Registrierung bei Zuchtverband, Versicherungspolice, Schutzvertrag-Bestätigung. Alle Dokumente sollten vor Übernahme vorhanden sein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert es, bis ich mein Pferd abholen kann?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nach Kaufvertrag: 3-14 Tage abhängig von Transport und Vorbereitungen. Lokale Pferde: 3-5 Tage Abholung. Grenzüberschreitend: 2-4 Wochen mit professionellem Transport. Mit Transporteur-Beauftragte: zusätzlich 1-2 Wochen Planungszeit. Vorabsprachen mit Verkäufer und Transporteur sind essentiell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist ein Schutzvertrag und brauche ich einen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Schutzvertrag gibt dem Käufer das Recht, das Pferd innerhalb von 30 Tagen zurückzugeben, wenn es nicht wie beschrieben ist oder gesundheitliche Mängel hat. Es ist nicht gesetzlich verpflichtend, aber stark empfohlen. Der Schutzvertrag kostet meist 50-200 CHF extra. Er schützt beide Seiten: den Käufer vor versteckten Fehlern und den Verkäufer vor unrealistischen Rückmeldungen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie erkenne ich ein betrügerisches Inserat oder einen unseriösen Verkäufer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rote Flaggen sind: Stock-Fotos statt echte Bilder, extrem niedriger Preis, aggressive Dringlichkeit ('heute noch kaufen'), keine/schlechte Kontaktinfos, negative Bewertungen, kein Proberitt-Angebot, vordefinierte Finanzierungsangebote. Vertrauens-Zeichen sind: detaillierte Fotos, Transparenz bei Mängeln, Referenzen von früheren Käufern, Plattform-Verifizierung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich ein Pferd direkt aus dem Ausland importieren?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, ehorses.ch facilitiert internationale Käufe aus Deutschland, Österreich und Frankreich. Kostenfaktoren: Transport (1.500-3.000+ CHF je nach Distanz), Gesundheitszertifikate (200-500 CHF), Zollbehandlung, Versicherung während Transport (100-300 CHF). Zeitrahmen: 2-4 Wochen von Kaufvertrag bis Übernahme. Empfehlung: Vertrauensvolle Transporteure mit Referenzen."
+      }
+    }
+  ]
+}

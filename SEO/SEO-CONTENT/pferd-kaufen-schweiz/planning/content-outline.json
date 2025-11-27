@@ -1,0 +1,923 @@
+{
+  "phase": "3",
+  "primary_keyword": "pferd kaufen schweiz",
+  "timestamp": "2025-11-26T22:15:00Z",
+  "based_on": {
+    "outline_brief": "Phase 2 consolidated analysis (serp-analysis.json, keyword-analysis.json, PHASE-2-SUMMARY.md)"
+  },
+  "article_metadata": {
+    "title": "Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich",
+    "meta_description": "Pferd kaufen in der Schweiz leicht gemacht. Marktplatz-Vergleich, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.",
+    "primary_keyword": "pferd kaufen schweiz",
+    "secondary_keywords": [
+      "pferde marktplätze schweiz",
+      "pferd kaufen anleitung",
+      "pferdesuche filter",
+      "pferdekauf kosten",
+      "pferd besichtigung checkliste"
+    ],
+    "word_count_data": {
+      "target_word_count": 4620,
+      "word_count_strategy": "serp_competitive",
+      "word_count_note": "Based on ehorses.ch (4,200 words). Target matches top SERP result +10% for competitive coverage.",
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 323
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 3326
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 462
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 323
+        }
+      }
+    }
+  },
+  "introduction": {
+    "word_count": 323,
+    "hook": "Pferdekauf in der Schweiz ist ein großes Abenteuer, aber auch eine Entscheidung, die gut überlegt sein will. Mit über 50 verschiedenen Pferderassen und neun etablierten Marktplätzen zur Auswahl fühlt sich der Start oft überwältigend an. Wie findest du das richtige Pferd? Welche Plattform ist die beste?",
+    "user_intent": "Leser verstehen zunächst die Marktlandschaft in der Schweiz und erkennen, dass es multiple Wege gibt, ein Pferd zu kaufen.",
+    "preview": "Dieser Leitfaden zeigt dir alle gängigen Marktplätze, erklärt wie du sie richtig nutzt, und leitet dich Schritt für Schritt durch den kompletten Kaufprozess. Zusätzlich bekommst du konkrete Tipps zu Budget, Sicherheit und häufigen Anfängerfehler – damit du selbstbewusst dein erstes oder nächstes Pferd kaufst.",
+    "keyword_integration": [
+      "pferd kaufen schweiz",
+      "pferde marktplätze",
+      "pferdekauf"
+    ]
+  },
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "Die Top Schweizer Pferde-Marktplätze im Vergleich",
+      "content_type": "comparison",
+      "word_count": 1200,
+      "subsections": [
+        {
+          "heading": "ehorses.ch - Europas größter Online Pferdemarkt",
+          "word_count": 200,
+          "keywords": [
+            "ehorses",
+            "europas größter pferdemarkt",
+            "19000 pferde"
+          ],
+          "content_focus": "Präsentation von ehorses.ch als Marktführer: 19.000+ aktive Inserate, internationale Reichweite, ausgefeilte Filteroptionen (Rasse, Alter, Preis, Region, Disziplin), Premium-Verkäuferprogramm, Magazin mit Kaufleitfäden."
+        },
+        {
+          "heading": "BillyRider.ch - Spezialisiert auf Reitsport",
+          "word_count": 180,
+          "keywords": [
+            "billyrider",
+            "reitsport plattform",
+            "33 pferderassen"
+          ],
+          "content_focus": "BillyRider als spezialisierte Plattform mit 33+ Breed-Kategorien, Fokus auf Spring-, Dressur- und Western-Pferde, Community-Ansatz, einfache Filterung nach Disziplin und Stockmaß."
+        },
+        {
+          "heading": "Tier-Inserate.ch - Schweizer Klassiker",
+          "word_count": 160,
+          "keywords": [
+            "tier inserate",
+            "schweizer klassiker",
+            "schutzvertrag"
+          ],
+          "content_focus": "Tier-Inserate.ch als etablierte Schweizer Plattform seit vielen Jahren, lokaler Fokus, Schutzvertrag-Information, kostenlose Inserate, regional ausgeprägte Nutzerbasis."
+        },
+        {
+          "heading": "Anibis.ch und Tutti.ch - Generalist-Marktplätze",
+          "word_count": 150,
+          "keywords": [
+            "anibis",
+            "tutti",
+            "generalplattformen",
+            "swiss classifieds"
+          ],
+          "content_focus": "Anibis.ch und Tutti.ch als Schweizer Klassifizierungs-Plattformen mit Mix aus Pferden und anderen Tierarten, breite Nutzerbasis, kostenpflichtige Premium-Optionen für bessere Sichtbarkeit."
+        },
+        {
+          "heading": "Spezialisierte Plattformen: Swisshorse, FM-CH, Marty Stables",
+          "word_count": 180,
+          "keywords": [
+            "swisshorse",
+            "fm ch freiberger",
+            "spezialisierte zuchtverbände",
+            "marty stables"
+          ],
+          "content_focus": "Nischplattformen für spezielle Zwecke: swisshorse.ch (Zuchtverband, Sport Horses), fm-ch.ch (Freiberger-Spezialisten), Marty Stables (Einzelbreeder). Wann welche Plattform sinnvoll ist."
+        },
+        {
+          "heading": "Facebook Gruppen - Privater Verkauf und Community",
+          "word_count": 130,
+          "keywords": [
+            "facebook pferdegruppen",
+            "privater verkauf",
+            "no.1 pferde schweiz"
+          ],
+          "content_focus": "Facebook-Gruppen als informelle Kanäle für privaten Pferdeverkauf, Community-Aspekt, Vor- und Nachteile vs. strukturierte Plattformen, Sicherheitsaspekte bei privaten Transaktionen."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferde marktplätze schweiz",
+          "pferd kaufen"
+        ],
+        "supporting": [
+          "ehorses",
+          "billyrider",
+          "tier inserate",
+          "anibis",
+          "tutti",
+          "swisshorse",
+          "spezialisierte plattformen"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "ehorses.ch bietet 19.000+ aktive Inserate (Verifizierung über Plattform-Statistiken)"
+        },
+        {
+          "type": "expertise",
+          "content": "Analyse von 9 etablierten Plattformen mit verschiedenen Spezialisierungen zeigt tiefes Marktverständnis"
+        },
+        {
+          "type": "experience",
+          "content": "Detaillierte Plattform-Features erklären Anfängern komplexe Filtermechanismen und Suchmöglichkeiten"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Vergleichstabelle: Plattform | Free Inserate | Listing Count | Spezialisierung | Such-Filter | Mobile App | Kundensupport"
+        },
+        {
+          "type": "checklist",
+          "description": "Welche Plattform passt zu mir? Schnelle Entscheidungshilfe basierend auf Pferdetyp und Kaufprioritäten"
+        }
+      ]
+    },
+    {
+      "section_number": 2,
+      "heading": "Schritt-für-Schritt Anleitung: So kaufst du dein erstes Pferd",
+      "content_type": "tutorial",
+      "word_count": 900,
+      "subsections": [
+        {
+          "heading": "Schritt 1: Die richtige Plattform wählen",
+          "word_count": 150,
+          "keywords": [
+            "plattform auswahl",
+            "pferdetyp",
+            "marktplatz vergleich"
+          ],
+          "content_focus": "Übersicht Entscheidungskriterien: Welcher Pferdetyp passt zu mir? Generalist oder spezialisierte Plattform? Lokale oder internationale Reichweite gewünscht? Konkrete Empfehlungen für verschiedene Anfänger-Typen."
+        },
+        {
+          "heading": "Schritt 2: Detaillierte Pferdesuche mit Filtern",
+          "word_count": 150,
+          "keywords": [
+            "pferdesuche",
+            "filter",
+            "rasse alter preis"
+          ],
+          "content_focus": "Praktische Anleitung: Wie nutze ich Filter richtig? Rasse + Altersbereich + Stockmaß + Preis + Region eingeben. Tipps zum Speichern von Suchfiltern. Benachrichtigungen für neue Inserate aktivieren."
+        },
+        {
+          "heading": "Schritt 3: Inserate bewerten und eingrenzen",
+          "word_count": 150,
+          "keywords": [
+            "inserat qualität",
+            "fotos",
+            "beschreibung prüfen"
+          ],
+          "content_focus": "Worauf achte ich bei einem guten Inserat? Foto-Qualität, Beschreibung, Seller-Reputation, Preis-Plausibilität im Markt. Rote Flaggen erkennen (zu günstig, schlechte Fotos, vage Infos)."
+        },
+        {
+          "heading": "Schritt 4: Kontakt mit dem Verkäufer aufnehmen",
+          "word_count": 150,
+          "keywords": [
+            "kontaktaufnahme",
+            "verkäufer",
+            "fragen stellen"
+          ],
+          "content_focus": "Professionelle Kommunikation: Welche Fragen stelle ich? Abfrage von Gesundheitshistorie, Verhaltensmerkmalen, Trainingsstand. Besichtigungstermin absprechen. Telefon vs. Chat-Kommunikation."
+        },
+        {
+          "heading": "Schritt 5: Pferd besichtigen und testen",
+          "word_count": 150,
+          "keywords": [
+            "besichtigung",
+            "pferd prüfen",
+            "testritt",
+            "checkliste"
+          ],
+          "content_focus": "Besichtigungscheckliste: Fütterung, Bewegungsablauf, Temperament, Reaktionen, Tauglichkeit für Zweck. Testritt-Sicherheit. Veterinäruntersuchung arrangieren. Safety-Tipps für Treffpunkt."
+        },
+        {
+          "heading": "Schritt 6: Kaufvertrag und Übernahme",
+          "word_count": 150,
+          "keywords": [
+            "kaufvertrag",
+            "schutzvertrag",
+            "transport",
+            "übernahme"
+          ],
+          "content_focus": "Vertragsbestandteile: Verkäufer, Käufer, Pferdebeschreibung, Kaufpreis, Übernahmebedingungen. Schutzvertrag-Bedeutung. Transport-Arrangements. Abschließende Formalitäten."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferd kaufen anleitung",
+          "pferdekauf prozess"
+        ],
+        "supporting": [
+          "pferdesuche",
+          "filter",
+          "besichtigung",
+          "kaufvertrag",
+          "transport"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "6-Schritt-Struktur zeigt systematisches Verständnis des Kaufprozesses, nicht aus Einzelplattformen abstrahiert"
+        },
+        {
+          "type": "experience",
+          "content": "Praktische Tipps zu Kontaktaufnahme und Besichtigung deuten auf echte Kauferfahrung hin"
+        },
+        {
+          "type": "data",
+          "content": "Referenz zu Schutzverträgen und veterinären Standardverfahren zeigen Branchenkompetenz"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "diagram",
+          "description": "6-Schritt Infografik: Plattform-Wahl → Suche → Bewertung → Kontakt → Besichtigung → Kauf"
+        },
+        {
+          "type": "checklist",
+          "description": "Besichtigungs-Checkliste: Körperzustand, Temperament, Bewegung, Gesundheit, Trainer-Fit"
+        }
+      ]
+    },
+    {
+      "section_number": 3,
+      "heading": "Filterkriterien erklärt: Rasse, Alter, Stockmass, Preis und Region",
+      "content_type": "explanation",
+      "word_count": 600,
+      "subsections": [
+        {
+          "heading": "Populäre Schweizer Pferderassen: Freiberger, Appenzeller, Warmblüter",
+          "word_count": 150,
+          "keywords": [
+            "schweizer pferderassen",
+            "freiberger",
+            "appenzeller",
+            "warmblüter"
+          ],
+          "content_focus": "Charakterisierung beliebter Schweizer Rassen: Freiberger (Bergpferd, vielseitig), Appenzeller (Einsitzer), Warmblüter (Sport). Unterschiede in Temperament, Größe, Eignung. Warum diese Rassen in der Schweiz beliebt sind."
+        },
+        {
+          "heading": "Altersempfehlungen nach Reitlevel und Zweck",
+          "word_count": 120,
+          "keywords": [
+            "pferdalter",
+            "reitlevel anfänger",
+            "ausbildung",
+            "reitlevel erfahren"
+          ],
+          "content_focus": "Altersgruppen: Fohlen/Jungpferde (Ausbildung erforderlich), 4-8 Jahre (ideal für gute Ausbilder), 8-15 Jahre (erfahrene Reiter), 15+ Jahre (spezialisierte Nutzung). Anfänger sollten 6-12 Jahre alte, gut ausgebildete Pferde wählen."
+        },
+        {
+          "heading": "Stockmass verstehen: Klein-, Mittel-, Großpferde",
+          "word_count": 100,
+          "keywords": [
+            "stockmass",
+            "pferdegroße",
+            "reitergewicht",
+            "skelettaufbau"
+          ],
+          "content_focus": "Stockmass-Ranges (bis 143cm = Klein, 143-160cm = Mittel, 160cm+ = Großpferde). Relevanz für Reitergewicht, Bewegungsablauf, Raumgreifung. Tipps zur richtigen Größenauswahl."
+        },
+        {
+          "heading": "Preisranges in der Schweiz: Was kosten Pferde wirklich?",
+          "word_count": 120,
+          "keywords": [
+            "pferdekauf kosten",
+            "preisbereich",
+            "kaufpreis",
+            "preis verhandlung"
+          ],
+          "content_focus": "Preisübersicht: Freizeitpferde (5.000-15.000 CHF), Sport-Pferde (15.000-50.000+ CHF), spezialisierte Rassen (variable). VB (Verhandlungsbasis) vs. Festpreis. Saisonale Preisschwankungen. Preis vs. Qualität."
+        },
+        {
+          "heading": "Regionale Unterschiede: Wo gibt es die beste Auswahl?",
+          "word_count": 110,
+          "keywords": [
+            "region schweiz",
+            "kantone pferdebestand",
+            "regionalmarkt",
+            "inseratedichte"
+          ],
+          "content_focus": "Regionale Unterschiede: Bergregionen (Freiberger konzentriert), urbane Zonen (vielseitiges Angebot), Inserate-Dichte pro Region. Einfluss auf Transportkosten und Auswahlmöglichkeiten. Tipps für regionale Suche."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferderasse filter",
+          "pferdesuche filter",
+          "alter stockmass preis"
+        ],
+        "supporting": [
+          "freiberger pferd",
+          "appenzeller pferd",
+          "warmblüter",
+          "pferdegroße",
+          "kaufpreis schweiz"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Detaillierte Rasse-Charakterisierungen zeigen spezifisches Wissen über Schweizer Pferdebestand"
+        },
+        {
+          "type": "data",
+          "content": "Konkrete Preisranges und Altersempfehlungen belegen Marktanalyse"
+        },
+        {
+          "type": "experience",
+          "content": "Praktische Filterempfehlungen deuten auf Erfahrung mit mehreren Plattformen"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Rasse-Übersichtstabelle: Rasse | Größe | Temperament | Typische Nutzung | Preisbereich"
+        },
+        {
+          "type": "diagram",
+          "description": "Altersempfehlungs-Guide: Reitlevel (Anfänger/Mittler/Fortgeschrittener) vs. ideales Alter"
+        }
+      ]
+    },
+    {
+      "section_number": 4,
+      "heading": "Kosten beim Pferdekauf: Kompletter Budget-Überblick",
+      "content_type": "comparison",
+      "word_count": 500,
+      "subsections": [
+        {
+          "heading": "Kaufpreis-Spanne: Von Freizeitpferd bis Sportpferd",
+          "word_count": 120,
+          "keywords": [
+            "pferdekauf kosten",
+            "kaufpreis freizeitpferd",
+            "kaufpreis sportpferd",
+            "budget pferd"
+          ],
+          "content_focus": "Detaillierte Kostenaufschlüsselung nach Pferdtyp: Freizeitpferde (5.000-15.000 CHF), Anfänger-Sport (15.000-30.000 CHF), etablierte Sportpferde (30.000-80.000+ CHF). Verhandlungspotenzial."
+        },
+        {
+          "heading": "Transport-Kosten nach Region",
+          "word_count": 100,
+          "keywords": [
+            "pferdetransport",
+            "transportkosten schweiz",
+            "regionale transport"
+          ],
+          "content_focus": "Transportkostenrechnung: Lokal (200-500 CHF), Regional (500-1.500 CHF), Grenzüberschreitend (1.500-3.000+ CHF). DIY vs. Professionelle Transport-Services. Versicherung während Transport."
+        },
+        {
+          "heading": "Veterinäruntersuchung und erste Gesundheitschecks",
+          "word_count": 100,
+          "keywords": [
+            "veterinär untersuchung",
+            "gesundheitscheck",
+            "tierarzt kosten"
+          ],
+          "content_focus": "Vorbeugende Vet-Checks: Kaufuntersuchung (500-1.500 CHF), Zahnchecks, Hufbeschlag-Prüfung. Impfungen, Entwurmung, Mikrochip. Warum Pre-Purchase-Exams sinnvoll sind."
+        },
+        {
+          "heading": "Ausrüstung und Sattel-Anpassung",
+          "word_count": 100,
+          "keywords": [
+            "pferdeausrüstung",
+            "sattel",
+            "ausrüstungskosten"
+          ],
+          "content_focus": "Anfangs-Ausrüstung: Sattel (1.000-5.000+ CHF), Trense, Schabracke, Helm, Bekleidung (2.000-3.000 CHF). Sattel-Anpassung durch Spezialist (200-500 CHF). Budget-Optionen vs. Qualitätsanforderungen."
+        },
+        {
+          "heading": "Kostenmodell: Szenarien Anfänger / Mittel / Premium",
+          "word_count": 80,
+          "keywords": [
+            "kostenmodell",
+            "budget szenarien",
+            "gesamtbudget"
+          ],
+          "content_focus": "3-Szenarien Kostenübersicht: Anfänger-Pferd total ca. 10.000-20.000 CHF, Mittelklasse 25.000-45.000 CHF, Premium 50.000+ CHF. Was ist wo enthalten. Kostenoptimierung vs. Qualität."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferdekauf kosten",
+          "pferdekauf budget",
+          "was kostet pferd schweiz"
+        ],
+        "supporting": [
+          "transport kosten",
+          "veterinär kosten",
+          "ausrüstung kosten",
+          "kostenmodell"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Konkrete Preisranges für verschiedene Pferdtypen und Regionen basieren auf Marktforschung"
+        },
+        {
+          "type": "expertise",
+          "content": "Detaillierte Kostenaufschlüsselung zeigt Verständnis aller Kaufaspekte, nicht nur Kaufpreis"
+        },
+        {
+          "type": "experience",
+          "content": "Kostenmodelle für verschiedene Szenarien deuten auf tiefe praktische Erfahrung"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Kosten-Übersichtstabelle: Ausgabenposten | Anfänger-Budget | Mittel-Budget | Premium-Budget"
+        },
+        {
+          "type": "diagram",
+          "description": "Kostenverteilung Pie-Chart: Kaufpreis vs. Transport vs. Vet vs. Ausrüstung"
+        }
+      ]
+    },
+    {
+      "section_number": 5,
+      "heading": "Sicherheit beim Pferdekauf: Was du wissen musst",
+      "content_type": "explanation",
+      "word_count": 400,
+      "subsections": [
+        {
+          "heading": "Rote Flaggen erkannt: Warnsignale bei der Pferdesuche",
+          "word_count": 100,
+          "keywords": [
+            "rote flaggen",
+            "warnsignale",
+            "betrug pferdekauf",
+            "verdächtige inserate"
+          ],
+          "content_focus": "Betrugsmuster: Zu günstig, schlechte/wenige Fotos, vage Beschreibung, fehlende Kontaktinfos, Druck zum schnellen Kauf. Seller-Reputation prüfen. Verifikation über Plattform-Bewertungen."
+        },
+        {
+          "heading": "Gesundheitliche Warnsignale beim Pferd",
+          "word_count": 100,
+          "keywords": [
+            "pferd gesundheit",
+            "krankheit zeichen",
+            "lahmheit",
+            "verhaltensauffälligkeiten"
+          ],
+          "content_focus": "Was deutet auf Gesundheitsprobleme hin? Steife Bewegung, Lahmheit, Atemprobleme, fehlende Kondition, Narben/Verletzungen, abnormales Verhalten. Wichtigkeit professioneller Vets bei Kaufuntersuchung."
+        },
+        {
+          "heading": "Schutzverträge und Käufer-Rechte in der Schweiz",
+          "word_count": 100,
+          "keywords": [
+            "schutzvertrag",
+            "käuferrecht",
+            "rückgaberecht",
+            "gewährleistung"
+          ],
+          "content_focus": "Was ist ein Schutzvertrag? Rückgaberecht in ersten Tagen. Gewährleistung für Mängel. Schweizer Rechtslage. Warum schriftliche Verträge essentiell sind. Rückfallklauseln für Pferd-Wohlbefinden."
+        },
+        {
+          "heading": "Sicherer Treffpunkt und Transaktionssicherheit",
+          "word_count": 100,
+          "keywords": [
+            "sicherer treffpunkt",
+            "besichtigungssicherheit",
+            "bezahlung sicherheit",
+            "privater verkauf"
+          ],
+          "content_focus": "Sichere Besichtigungsorte: Öffentliche Reitplätze vs. private Stallungen. Begleitung mitbringen. Bezahlung: Überweisung vs. Bargeld, Escrowing, Banktransfers. Datenschutz bei Anzeigen-Kontakt."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "sicherheit pferdekauf",
+          "pferdekauf betrug"
+        ],
+        "supporting": [
+          "rote flaggen",
+          "gesundheitscheck",
+          "schutzvertrag",
+          "käuferrecht",
+          "sicherer kauf"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Detaillierte Warnsignal-Liste zeigt Erfahrung mit verschiedenen Betrugsmustern"
+        },
+        {
+          "type": "experience",
+          "content": "Praktische Sicherheits-Tipps für Besichtigung deuten auf echte Kauferfahrung"
+        },
+        {
+          "type": "data",
+          "content": "Referenz zu Schweizer Schutzverträgen und Rechtsrahmen zeigt Marktkenntnis"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Sicherheits-Checkliste: Vor Besichtigung, bei Besichtigung, vor Kaufvertrag"
+        },
+        {
+          "type": "diagram",
+          "description": "Betrugsmuster-Guide: Was sind typische Warnsignale in Inseraten?"
+        }
+      ]
+    },
+    {
+      "section_number": 6,
+      "heading": "Spezielle Pferd-Typen: Sport, Zucht, Freizeit und Anfänger-Pferde",
+      "content_type": "explanation",
+      "word_count": 400,
+      "subsections": [
+        {
+          "heading": "Springpferde und Dressurpferde für Sportreiter",
+          "word_count": 100,
+          "keywords": [
+            "springpferd kaufen schweiz",
+            "dressurpferd kaufen schweiz",
+            "sportpferd",
+            "turnierpferd"
+          ],
+          "content_focus": "Anforderungen: Rasse (Warmblüter, Vollblüter), Alter (6-15 Jahre), Ausbildung (mindestens Klasse L), Temperament (konzentriert), Laufrahmen. Plattformen: ehorses, BillyRider. Höhere Preise, professionelle Ausbildung."
+        },
+        {
+          "heading": "Freizeitpferde: Zuverlässige Partner für Reiter jeden Levels",
+          "word_count": 100,
+          "keywords": [
+            "freizeitpferd kaufen schweiz",
+            "anfänger pferd",
+            "ruhiges temperament",
+            "zuverlässig"
+          ],
+          "content_focus": "Charakteristika: Ruhiges Temperament, solide Ausbildung (mindestens Schritt/Trab/Galopp), 8-15 Jahre ideal, robuste Gesundheit. Preis (5.000-15.000 CHF). Plattformen: alle generalistischen. Beste Wahl für Anfänger."
+        },
+        {
+          "heading": "Zucht- und Deckhengste",
+          "word_count": 100,
+          "keywords": [
+            "zuchthengst",
+            "deckengst",
+            "zuchtpferd",
+            "zuchtverband"
+          ],
+          "content_focus": "Für Züchter: Rasse-Zuchtverbände (Freiberger, Appenzeller), Blutlinien, genetische Dokumentation, Zuchttauglichkeit. Plattformen: spezialisierte (fm-ch, swisshorse), Zuchtverbands-Websites. Höhere Preise, Dokumentation wichtig."
+        },
+        {
+          "heading": "Import-Optionen: Pferde aus Deutschland, Österreich, Frankreich",
+          "word_count": 100,
+          "keywords": [
+            "pferd import schweiz",
+            "grenzüberschreitend",
+            "auslandspferd",
+            "zollabwicklung"
+          ],
+          "content_focus": "Grenznahe Optionen bei ehorses.ch (international), Kosten-Übersicht, Transportbeauftragte, Zoll-Paperwork, Impfungen/Gesundheitszertifikate, höhere Gesamtkosten. Wann sinnvoll (bessere Auswahl, Preis-Unterschiede)."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferd typen",
+          "sportpferd kaufen",
+          "freizeitpferd kaufen"
+        ],
+        "supporting": [
+          "springpferd",
+          "dressurpferd",
+          "zuchthengst",
+          "import pferd"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Differenzierung zwischen verschiedenen Pferdtypen zeigt spezifisches Markt-Know-how"
+        },
+        {
+          "type": "experience",
+          "content": "Empfehlungen zu Rassen und Altersgruppen pro Typ deuten auf Erfahrung mit verschiedenen Käufersegmenten"
+        },
+        {
+          "type": "data",
+          "content": "Preis- und Ausbildungsangaben pro Pferdtyp belegen Marktforschung"
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Pferdtyp-Übersicht: Typ | Typische Rasse | Alter | Temperament | Preis | Plattformen"
+        }
+      ]
+    },
+    {
+      "section_number": 7,
+      "heading": "FAQ: Häufige Fragen zum Pferdekauf in der Schweiz",
+      "content_type": "faq",
+      "word_count": 462,
+      "subsections": [
+        {
+          "heading": "Welche Plattform hat die beste Auswahl an Pferden?",
+          "word_count": 80,
+          "keywords": [
+            "plattform vergleich",
+            "beste auswahl"
+          ],
+          "content_focus": "ehorses.ch bietet mit 19.000+ Inseraten die größte Auswahl in der Schweiz und Europa. Für spezialisierte Pferdetypen: BillyRider (Reitsport), FM-CH (Freiberger). Anfänger: Tier-Inserate (lokaler Fokus). Antwort direkt und vergleichend."
+        },
+        {
+          "heading": "Kann ich ein Pferd direkt aus dem Ausland importieren (Deutschland, Österreich)?",
+          "word_count": 80,
+          "keywords": [
+            "pferd import",
+            "auslandspferd",
+            "grenzüberschreitend"
+          ],
+          "content_focus": "Ja, ehorses.ch facilitiert internationale Käufe. Kostenfaktoren: Transport (1.500-3.000+ CHF), Gesundheitszertifikate, Zollbehandlung, Versicherung. Zeitrahmen: 2-4 Wochen. Empfehlung: Vertrauensvolle Transporteure, Veterinär-Voruntersuchung."
+        },
+        {
+          "heading": "Wie lange dauert es, bis ich mein Pferd abholen kann?",
+          "word_count": 75,
+          "keywords": [
+            "abhol zeitraum",
+            "übergabe",
+            "verfügbarkeit"
+          ],
+          "content_focus": "Nach Kaufvertrag: 3-14 Tage abhängig von Transport und Vorbereitungen. Lokale Pferde: 3-5 Tage. Grenzüberschreitend: 2-4 Wochen. Mit Transporteur: 1-2 Wochen zusätzliche Planung. Vorabsprachen im Vertrag festhalten."
+        },
+        {
+          "heading": "Welche Dokumente brauche ich beim Pferdekauf in der Schweiz?",
+          "word_count": 85,
+          "keywords": [
+            "dokumente pferd",
+            "kaufvertrag",
+            "gesundheitszertifikat",
+            "impfausweis"
+          ],
+          "content_focus": "Notwendig: Kaufvertrag (signiert), Pferdepasses (Pedigree), Impfausweis (Tetanus, EHV), Zahnstufe (Alter-Bestätigung), Pedigree-Registrierung bei Rasse-Verband. Optional aber empfohlen: Veterinär-Untersuchungsbericht, Versicherung, Schutzvertrag-Bestätigung."
+        },
+        {
+          "heading": "Kann ich ein Pferd vor dem Kauf testen/Probe-reiten?",
+          "word_count": 80,
+          "keywords": [
+            "probe reiten",
+            "testritt",
+            "vor kauf"
+          ],
+          "content_focus": "Ja, absolut empfohlen. Die meisten seriösen Verkäufer ermöglichen Proberitt. Was gehört dazu: Aufwärmen (mindestens 20 Min), Testritt in normalem Tempo, Springen/Dressur-Test (je nach Pferdtyp), Handling-Test. Dauer: 30-45 Minuten. Versicherung bei Unfall klären."
+        },
+        {
+          "heading": "Wie verhandle ich einen besseren Preis beim Pferdekauf?",
+          "word_count": 82,
+          "keywords": [
+            "preis verhandlung",
+            "verhandeln",
+            "vb verhandlungsbasis"
+          ],
+          "content_focus": "VB (Verhandlungsbasis) bedeutet Raum für Negotiation (10-20% typisch). Strategien: Auf Mängel hinweisen, Marktpreise vergleichen, Barverkauf anbieten (schneller, risikoärmer für Verkäufer), Paketdeals (Ausrüstung miteinbeziehen). Respektvoller Ton bewahren."
+        },
+        {
+          "heading": "Was ist ein Schutzvertrag und brauche ich einen?",
+          "word_count": 80,
+          "keywords": [
+            "schutzvertrag",
+            "rückgaberecht",
+            "pferd wohlbefinden"
+          ],
+          "content_focus": "Ein Schutzvertrag gibt Käufer das Recht, Pferd innerhalb 30 Tagen zurückzugeben, wenn es nicht gesund oder wie beschrieben ist. Nicht gesetzlich verpflichtend, aber stark empfohlen. Kostet oft 50-200 CHF extra bei Käufer. Schützt beide Seiten."
+        },
+        {
+          "heading": "Wie erkenne ich ein betrügerisches Inserat oder einen unseriösen Verkäufer?",
+          "word_count": 75,
+          "keywords": [
+            "betrüger erkennen",
+            "betrug warnsignale",
+            "unseriöser verkäufer"
+          ],
+          "content_focus": "Rote Flaggen: Stock-Fotos, zu niedrige Preise, aggressive Dringlichkeit, keine/schlechte Kontaktinfos, negative Bewertungen, kein Proberitt-Angebot, vordefinierte Finanzierungsangebote. Vertrauens-Zeichen: Detaillierte Fotos, Transparenz bei Mängeln, Referenzen, Plattform-Verifizierung."
+        }
+      ],
+      "keyword_integration": {
+        "primary": [
+          "pferd kaufen fragen"
+        ],
+        "supporting": [
+          "faq pferdeakauf",
+          "häufige fragen",
+          "wie kaufe ich pferd"
+        ]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Detaillierte Antworten zu rechtlichen und praktischen Fragen zeigen breit gefächertes Wissen"
+        },
+        {
+          "type": "data",
+          "content": "Konkrete Zahlen (Kosten, Zeitrahmen) belegen Marchtforschung"
+        }
+      ],
+      "visual_elements": []
+    }
+  ],
+  "faq_section": {
+    "word_count": 462,
+    "integration_note": "FAQ ist als Sektion 7 integriert. Diese Fragen sind aus PAA-Daten entnommen und ergänzen Hauptsektionen.",
+    "questions": [
+      {
+        "question": "Wo kann ich in der Schweiz ein Pferd kaufen?",
+        "answer_outline": "Primäre Marktplätze sind ehorses.ch (19.000+ Inserate, international), Tier-Inserate.ch (lokaler Fokus), BillyRider.ch (Reitsport), sowie Anibis und Tutti. Spezialisierte Plattformen wie FM-CH (Freiberger) und Swisshorse für Zuchtpferde. Facebook-Gruppen und private Verkäufer ergänzen das Angebot.",
+        "word_count": 62,
+        "paa_source": true,
+        "keywords": [
+          "wo pferd kaufen",
+          "marktplätze schweiz"
+        ]
+      },
+      {
+        "question": "Was kostet ein Pferd in der Schweiz?",
+        "answer_outline": "Preise variieren stark: Freizeitpferde 5.000-15.000 CHF, Sport-Pferde 15.000-80.000+ CHF. Transport hinzurechnen (200-3.000 CHF). Veterinäruntersuchung (500-1.500 CHF), Ausrüstung (2.000-3.000 CHF). Gesamtbudget für Anfänger: 10.000-20.000 CHF.",
+        "word_count": 58,
+        "paa_source": true,
+        "keywords": [
+          "pferdekauf kosten",
+          "kaufpreis schweiz"
+        ]
+      },
+      {
+        "question": "Wie finde ich das richtige Pferd für mich?",
+        "answer_outline": "Definiere dein Level (Anfänger/Mittler/Fortgeschritten), den Pferdetyp (Sport/Freizeit) und Rasse-Präferenzen. Nutze Plattform-Filter für Alter (6-12 Jahre für Anfänger), Temperament, Größe und Preis. Besichtige mehrere Pferde und mache Proberitt, bevor du dich entscheidest.",
+        "word_count": 62,
+        "paa_source": true,
+        "keywords": [
+          "richtiges pferd wählen",
+          "pferdewahl"
+        ]
+      },
+      {
+        "question": "Welche Pferderasse passt zu mir?",
+        "answer_outline": "Anfänger: Ruhige Rassen wie Freiberger oder ältere Warmblüter. Sportreiter: Warmblüter, Vollblüter. Freizeit/Trekking: robuste Rassen. Größe matters: kleinere Reiter sollten Pferde unter 160cm Stockmaß wählen. Consulting mit erfahrenen Reitern hilft bei Auswahl.",
+        "word_count": 58,
+        "paa_source": true,
+        "keywords": [
+          "rasse auswahl",
+          "welche rasse passt"
+        ]
+      },
+      {
+        "question": "Wie transportiere ich mein Pferd nach dem Kauf?",
+        "answer_outline": "Lokale Transporte: privat oder mit Freunden (200-500 CHF). Professionelle Transporteure (500-3.000 CHF je nach Entfernung). International: spezialisierte Logistik-Partner notwendig. Versicherung während Transport absichern. Vorabsprachen mit Verkäufer und Empfänger essentiell.",
+        "word_count": 60,
+        "paa_source": true,
+        "keywords": [
+          "pferdetransport",
+          "transport schweiz"
+        ]
+      },
+      {
+        "question": "Welche Dokumente brauche ich beim Pferdekauf?",
+        "answer_outline": "Obligatorisch: Kaufvertrag, Pferdepass (Pedigree), Impfausweis (Tetanus, EHV), Zahnstufe-Bestätigung (Alter). Empfohlen: Veterinär-Untersuchungsbericht, Rasse-Registrierung, Versicherungspolice, Schutzvertrag. Alle Dokumente sollten vor Übernahme geklärt sein.",
+        "word_count": 58,
+        "paa_source": true,
+        "keywords": [
+          "dokumentation pferd",
+          "kaufvertrag"
+        ]
+      },
+      {
+        "question": "Kann man sein Pferd auf Facebook kaufen?",
+        "answer_outline": "Ja, Facebook-Gruppen wie 'Schweiz No.1 Pferde' sind aktiv. Vorteil: direkter Kontakt zu privaten Verkäufern, oft günstigere Preise. Nachteil: weniger Schutz, keine Plattform-Verifikation, höheres Betrugsrisiko. Sicherheitsmaßnahmen essentiell (sicherer Ort, Begleitung).",
+        "word_count": 61,
+        "paa_source": true,
+        "keywords": [
+          "facebook pferdegruppen",
+          "privater verkauf"
+        ]
+      },
+      {
+        "question": "Kann ich ein Pferd kostenlos inserieren?",
+        "answer_outline": "Ja, die meisten Plattformen (ehorses, BillyRider, Tier-Inserate) bieten kostenlose Basis-Inserate. Premium-Optionen (höhere Sichtbarkeit, mehr Fotos) kosten 20-100 CHF. VIP/Featured-Inserate (1-2 Wochen Sichtbarkeit) 100-500 CHF. Wert für Verkäufer stark von Plattform abhängig.",
+        "word_count": 64,
+        "paa_source": true,
+        "keywords": [
+          "kostenlose inserate",
+          "gebühren plattform"
+        ]
+      },
+      {
+        "question": "Wie erkenne ich ein hochwertiges Pferd beim Kauf?",
+        "answer_outline": "Achte auf: Bewegungsablauf (elastisch, ausgewogen), Muskulatur (kräftig ohne Übergewicht), Atem (normal, keine Geräusche), Temperament (ruhig, fokussiert), Fell/Haut (glänzend, keine Mängel), Zahngesundheit (saubere Zähne), Fesselung (normal, keine Deformationen). Professionelle Veterinär-Bewertung unverzichtbar.",
+        "word_count": 70,
+        "paa_source": true,
+        "keywords": [
+          "pferd qualität",
+          "hochwertiges pferd"
+        ]
+      },
+      {
+        "question": "Pferd kaufen ohne Anzahlung - Finanzierungsoptionen?",
+        "answer_outline": "Finanzierungsoptionen sind begrenzt in der Schweiz. Manche Verkäufer bieten Ratenmodelle (vereinzelt). Bankkredite möglich, aber nicht spezialisiert auf Pferdefianzierung. Tipp: Sparen, oder mit Verkäufer verhandeln für Ratenkauf (10-20% höherer Preis). Kreditkarte oder Linienkredit sind praktisch.",
+        "word_count": 66,
+        "paa_source": true,
+        "keywords": [
+          "finanzierung",
+          "zahlung pferd"
+        ]
+      }
+    ]
+  },
+  "conclusion": {
+    "word_count": 323,
+    "key_takeaways": [
+      "Die Schweiz hat neun etablierte Marktplätze für Pferdekauf, von Generalist (ehorses, Tier-Inserate) bis Spezialist (FM-CH, Swisshorse). Deine Wahl der Plattform sollte deinem Pferdetyp und Reitlevel entsprechen.",
+      "Der strukturierte Kaufprozess (Plattform → Suche → Bewertung → Kontakt → Besichtigung → Kauf) schützt dich vor Betrug und Fehlkäufen. Nutze Filter intelligent, stelle gezielte Fragen, mache Proberitt.",
+      "Budget für Pferdekauf realistisch kalkulieren: Kaufpreis ist nur 50% der Gesamtkosten. Transport, Vet-Untersuchung und Ausrüstung addieren sich schnell. Freizeitpferd: 10.000-20.000 CHF total.",
+      "Sicherheit first: Erkenne rote Flaggen, verlange Schutzvertrag, prüfe Gesundheit durch Profi-Vet, nutze sichere Treffpunkte. Seriöse Verkäufer haben Geduld mit Fragen und Inspektionen.",
+      "Nach dem Kauf: Graduelle Eingewöhnung, regelmäßige veterinäre Vorsorge, kontinuierliches Training und emotionale Bonding stehen am Anfang. Das Pferd braucht Zeit, um sich an neue Umgebung anzupassen."
+    ],
+    "call_to_action": "Nutze unsere Marktplatz-Vergleichstabelle als Entscheidungshilfe, lade die Besichtigungs-Checkliste herunter, und vertraue deinem Instinkt. Dein perfektes Pferd wartet in der Schweiz – mit der richtigen Vorbereitung wirst du es finden. Viel Erfolg beim Kaufprozess!",
+    "keyword_integration": [
+      "pferd kaufen schweiz",
+      "marktplatz vergleich",
+      "pferdekauf anleitung"
+    ]
+  },
+  "internal_linking_opportunities": [
+    {
+      "section": "Die Top Schweizer Pferde-Marktplätze im Vergleich",
+      "target_page": "/pferde-ratgeber/pferd-verkaufen-schweiz",
+      "anchor_text": "Leitfaden zum Pferdeverkauf"
+    },
+    {
+      "section": "Kosten beim Pferdekauf: Kompletter Budget-Überblick",
+      "target_page": "/pferde-ratgeber/pferdeversicherung",
+      "anchor_text": "Pferdeversicherung und Haftung"
+    },
+    {
+      "section": "Schritt-für-Schritt Anleitung: So kaufst du dein erstes Pferd",
+      "target_page": "/pferde-ratgeber/pferd-ausbildung-anfaenger",
+      "anchor_text": "Grundausbildung für Anfänger-Pferde"
+    },
+    {
+      "section": "Sicherheit beim Pferdekauf: Was du wissen musst",
+      "target_page": "/pferde-ratgeber/pferdegesundheit-checkliste",
+      "anchor_text": "Gesundheit-Checkliste und Prävention"
+    },
+    {
+      "section": "Filterkriterien erklärt: Rasse, Alter, Stockmass, Preis und Region",
+      "target_page": "/pferde-ratgeber/pferderassen-guide",
+      "anchor_text": "Detaillierter Guide zu Schweizer Pferderassen"
+    },
+    {
+      "section": "Spezielle Pferd-Typen: Sport, Zucht, Freizeit und Anfänger-Pferde",
+      "target_page": "/pferde-ratgeber/sportpferd-vs-freizeitpferd",
+      "anchor_text": "Unterschiede: Sportpferde vs. Freizeitpferde"
+    }
+  ],
+  "quality_checklist": {
+    "section_count": 7,
+    "section_count_valid": true,
+    "faq_count": 10,
+    "faq_count_valid": true,
+    "paa_sourced_faq": 10,
+    "paa_sourced_faq_valid": true,
+    "total_word_count": 4620,
+    "word_count_valid": true,
+    "internal_links": 6,
+    "internal_links_valid": true,
+    "has_target_word_count": true,
+    "has_keyword_integration": true,
+    "has_eeat_signals": true,
+    "has_visual_elements": true,
+    "status": "PASS"
+  }
+}
