@@ -8,8 +8,8 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
+import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang';
 import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck, Clock, User } from 'lucide-react';
-;
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -25,7 +25,9 @@ const heroMetaItems = [
 ];
 
 export default function DressurpferdKaufen() {
-
+  // SEO: hreflang tags for multi-country support (DE, AT, CH)
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber/dressurpferd-kaufen');
+  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/dressurpferd-kaufen');
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
@@ -115,7 +117,10 @@ export default function DressurpferdKaufen() {
         <title>Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung</title>
         <meta name="description" content="Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen" />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* hreflang tags for multi-country SEO */}
+        {hreflangTags}
 
         {/* Open Graph */}
         <meta property="og:title" content="Dressurpferd kaufen: Der ultimative Ratgeber 2025" />
