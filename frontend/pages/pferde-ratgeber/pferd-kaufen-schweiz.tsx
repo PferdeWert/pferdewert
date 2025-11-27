@@ -6,10 +6,11 @@ import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
 import FAQ from '@/components/FAQ';
-import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
+import RatgeberRelatedArticles, { RatgeberRelatedArticle } from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import LocalizedLink from '@/components/LocalizedLink';
-import { Award, Shield, TrendingUp, ExternalLink, Clock, User, Sparkles } from 'lucide-react';
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
+import { Award, Shield, TrendingUp, ExternalLink, Clock, User, Sparkles, ChevronDown } from 'lucide-react';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const awardIcon = <Award className="h-4 w-4" />;
@@ -19,6 +20,7 @@ const externalLinkIcon = <ExternalLink className="h-4 w-4" />;
 const clockIcon = <Clock className="h-4 w-4" />;
 const userIcon = <User className="h-4 w-4" />;
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
+const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 
 // FAST REFRESH FIX: Define arrays and objects at module level
 const heroMetaItems = [
@@ -48,6 +50,7 @@ export default function PferdKaufenSchweizPage() {
 
   const heroSecondaryCta = {
     label: 'Zum Inhalt',
+    icon: chevronDownIcon,
     onClick: () => {
       document.getElementById('content')?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -106,32 +109,15 @@ export default function PferdKaufenSchweizPage() {
     },
   ];
 
-  const relatedArticles = [
-    {
-      href: '/pferde-ratgeber/pferd-kaufen',
-      image: '/images/ratgeber/horses-zermatt-switzerland.webp',
-      title: 'Pferd kaufen: Der ultimative Guide',
-      badge: 'Kaufratgeber',
-      readTime: '15 Min.',
-      description: 'Alles was du vor dem Pferdekauf wissen musst - von der Vorbereitung bis zum Kaufvertrag.',
-    },
-    {
-      href: '/pferde-ratgeber/anfaengerpferd-kaufen',
-      image: '/images/ratgeber/anfaengerpferd-hero.webp',
-      title: 'Anfängerpferd kaufen',
-      badge: 'Für Einsteiger',
-      readTime: '12 Min.',
-      description: 'Spezieller Ratgeber für Reitanfänger: Welches Pferd passt zu dir und worauf musst du achten?',
-    },
-    {
-      href: '/pferde-ratgeber/pferdekaufvertrag',
-      image: '/images/ratgeber/horses-zermatt-switzerland.webp',
-      title: 'Pferdekaufvertrag richtig aufsetzen',
-      badge: 'Recht',
-      readTime: '8 Min.',
-      description: 'Rechtssichere Kaufverträge erstellen: Muster, Pflichtangaben und häufige Fehler vermeiden.',
-    },
-  ];
+  // Related Articles - automatically fetched from registry
+  const relatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('pferd-kaufen-schweiz').map(entry => ({
+    href: getRatgeberPath(entry.slug),
+    image: entry.image,
+    title: entry.title,
+    badge: entry.category,
+    readTime: entry.readTime,
+    description: entry.description
+  }));
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
