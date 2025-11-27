@@ -14,6 +14,7 @@ import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 
 // Section definitions for Table of Contents
 const sections = [
+  { id: 'monatliche-kosten', title: 'Wie viel kostet ein Pferd im Monat?' },
   { id: 'anschaffungskosten', title: 'Anschaffungskosten eines Pferdes' },
   { id: 'pferd-preis-nach-rasse', title: 'Pferdepreise nach Rasse' },
   { id: 'pferdehaltung-kosten-monatlich', title: 'Pferdehaltungskosten monatlich: Komplette Kostenübersicht' },
@@ -319,6 +320,107 @@ export default function WasKostetEinPferd() {
             </p>
           </div>
         </RatgeberHighlightBox>
+
+        {/* Featured Snippet Section: Monatliche Kosten */}
+        <section id="monatliche-kosten" className="scroll-mt-32 lg:scroll-mt-40">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Wie viel kostet ein Pferd im Monat?
+          </h2>
+
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            Die monatlichen Kosten für ein Pferd liegen zwischen <strong>300€ und 800€</strong>, abhängig von Haltungsform und Region. Im Durchschnitt solltest du mit <strong>500-600€ monatlich</strong> rechnen. Diese Kosten decken die Grundversorgung ab – Notfälle und Zusatzleistungen kommen extra hinzu.
+          </p>
+
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-brand-brown-light">
+                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+                    Kostenart
+                  </th>
+                  <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900">
+                    Monatlich
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                    Stallmiete (Offenstall)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right text-gray-700">
+                    200-350 €
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                    Stallmiete (Box)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right text-gray-700">
+                    300-600 €
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                    Futter & Heu
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right text-gray-700">
+                    50-100 €
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                    Hufschmied (alle 6-8 Wochen)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right text-gray-700">
+                    40-100 €
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                    Versicherung (Haftpflicht + OP)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right text-gray-700">
+                    30-80 €
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                    Tierarzt (Basis-Vorsorge)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right text-gray-700">
+                    30-60 €
+                  </td>
+                </tr>
+                <tr className="bg-brand-brown-light">
+                  <td className="border border-gray-300 px-4 py-3 font-bold text-gray-900">
+                    Gesamt (Durchschnitt)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-right font-bold text-brand-brown">
+                    300-800 €
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                {SHIELD_ALERT_ICON}
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-gray-700">
+                  <strong>Wichtig:</strong> Plane zusätzlich <strong>100-200€ pro Monat</strong> als Notfall-Rücklage ein. Tierarzt-Notfälle (Koliken, Verletzungen) können schnell 2.000-8.000€ kosten. Eine{' '}
+                  <LocalizedLink href="/pferde-ratgeber/pferd-versicherung" className="text-primary-600 hover:text-primary-700 font-semibold underline">
+                    OP-Versicherung
+                  </LocalizedLink>{' '}
+                  ist daher dringend empfohlen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
           {/* Section 1: Anschaffungskosten */}
           <section id="anschaffungskosten" className="mb-20 scroll-mt-32 lg:scroll-mt-40">

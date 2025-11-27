@@ -1,0 +1,274 @@
+{
+  "article_slug": "was-kostet-ein-pferd",
+  "analysis_date": "2025-11-27",
+  "article_type": "HUB",
+  "article_metrics": {
+    "word_count": 3540,
+    "target_word_count_min": 2500,
+    "target_word_count_max": 4000,
+    "word_count_status": "EXCELLENT",
+    "primary_keyword": "was kostet ein pferd",
+    "keyword_difficulty": "LOW",
+    "search_volume": 2900,
+    "competition": 0.02
+  },
+  "hub_spoke_status": {
+    "is_hub": true,
+    "linked_spokes_found": 9,
+    "required_spoke_links_minimum": 3,
+    "duplicate_content_risk": "LOW",
+    "duplicate_content_overlap": "0%",
+    "status": "ACTIVE_HUB_WELL_LINKED"
+  },
+  "current_internal_links": [
+    {
+      "rank": 1,
+      "url": "/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "pferd kaufen",
+      "type": "spoke_link",
+      "status": "valid"
+    },
+    {
+      "rank": 2,
+      "url": "/pferde-ratgeber/pferdemarkt",
+      "anchor_text": "pferdemarkt",
+      "type": "spoke_link",
+      "status": "valid"
+    },
+    {
+      "rank": 3,
+      "url": "/pferde-ratgeber/dressurpferd-kaufen",
+      "anchor_text": "dressurpferd kaufen",
+      "type": "spoke_link",
+      "status": "valid"
+    },
+    {
+      "rank": 4,
+      "url": "/pferde-ratgeber/springpferd-kaufen",
+      "anchor_text": "springpferd kaufen",
+      "type": "spoke_link",
+      "status": "valid"
+    },
+    {
+      "rank": 5,
+      "url": "/pferde-ratgeber/aku-pferd",
+      "anchor_text": "ankaufsuntersuchung",
+      "type": "spoke_link",
+      "status": "valid"
+    },
+    {
+      "rank": 6,
+      "url": "/pferde-ratgeber/aku-pferd/kosten",
+      "anchor_text": "AKU-Kosten",
+      "type": "spoke_link",
+      "status": "ERROR_NESTED_PATH",
+      "issue": "Violates flat URL structure requirement"
+    },
+    {
+      "rank": 7,
+      "url": "/pferde-ratgeber/aku-pferd/ablauf",
+      "anchor_text": "Ablauf",
+      "type": "spoke_link",
+      "status": "ERROR_NESTED_PATH",
+      "issue": "Violates flat URL structure requirement"
+    },
+    {
+      "rank": 8,
+      "url": "/pferde-ratgeber/pferdekaufvertrag",
+      "anchor_text": "pferdekaufvertrag",
+      "type": "spoke_link",
+      "status": "valid"
+    },
+    {
+      "rank": 9,
+      "url": "/pferde-ratgeber/pferdemarkt",
+      "anchor_text": "pferdemarkt",
+      "type": "spoke_link",
+      "status": "DUPLICATE_LINK",
+      "issue": "Linked twice (rank 2 and rank 9)"
+    }
+  ],
+  "missing_spoke_links": [
+    {
+      "slug": "offenstall-kosten",
+      "title": "Offenstall Kosten",
+      "reason": "Haltungsform comparison, mentioned in article but not linked",
+      "priority": "HIGH"
+    },
+    {
+      "slug": "boxenhaltung-kosten",
+      "title": "Boxenhaltung Kosten",
+      "reason": "Haltungsform comparison, mentioned in article but not linked",
+      "priority": "HIGH"
+    },
+    {
+      "slug": "pferd-versichern-wert",
+      "title": "Pferd versichern: Wert ermitteln",
+      "reason": "Insurance section exists but no link",
+      "priority": "MEDIUM"
+    },
+    {
+      "slug": "pferd-verkaufen-preis",
+      "title": "Pferd verkaufen: Preis bestimmen",
+      "reason": "Service promotion link, strong CTA opportunity",
+      "priority": "MEDIUM"
+    },
+    {
+      "slug": "tierarztkosten-pferd",
+      "title": "Tierarztkosten beim Pferd",
+      "reason": "Veterinary section exists but no dedicated link",
+      "priority": "MEDIUM"
+    }
+  ],
+  "duplicate_content_check": {
+    "has_hub_link_in_first_paragraph": true,
+    "has_hub_link_at_end": true,
+    "duplicate_content_percentage": 0,
+    "content_differentiation_strategy": "COMPREHENSIVE_COST_HUB",
+    "status": "PASS"
+  },
+  "cross_spoke_linking": {
+    "links_to_other_spokes_same_hub": 0,
+    "recommendation": "Consider linking to other haltungsform spoke articles",
+    "status": "OPPORTUNITY"
+  },
+  "hub_authority_score": {
+    "calculation": "incoming_spoke_links * 2.0 + outgoing_spoke_links * 1.0 + cross_spoke_mentions * 0.5",
+    "incoming_spoke_links": 0,
+    "outgoing_spoke_links": 7,
+    "cross_spoke_mentions": 0,
+    "total_score": 7.0,
+    "potential_score_with_improvements": 14.0
+  },
+  "issues": [
+    {
+      "id": 1,
+      "severity": "CRITICAL",
+      "category": "URL_STRUCTURE",
+      "issue": "Nested URL paths violate flat structure requirement",
+      "affected_links": [
+        "/pferde-ratgeber/aku-pferd/kosten",
+        "/pferde-ratgeber/aku-pferd/ablauf"
+      ],
+      "action_required": "Fix or redirect to flat structure: /pferde-ratgeber/aku-pferd-kosten, /pferde-ratgeber/aku-pferd-ablauf",
+      "timeline": "IMMEDIATE"
+    },
+    {
+      "id": 2,
+      "severity": "HIGH",
+      "category": "DUPLICATE_LINKS",
+      "issue": "Internal link appears twice",
+      "affected_links": [
+        "/pferde-ratgeber/pferdemarkt (linked twice)"
+      ],
+      "action_required": "Remove duplicate link, replace second occurrence with relevant spoke article",
+      "timeline": "WITHIN_1_WEEK"
+    },
+    {
+      "id": 3,
+      "severity": "HIGH",
+      "category": "MISSING_SPOKE_LINKS",
+      "issue": "Mentioned haltungsformen not linked to spoke articles",
+      "affected_topics": [
+        "offenstall",
+        "boxenhaltung",
+        "vollpension"
+      ],
+      "action_required": "Create and link to: offenstall-kosten, boxenhaltung-kosten (when published)",
+      "timeline": "WITHIN_2_WEEKS"
+    },
+    {
+      "id": 4,
+      "severity": "MEDIUM",
+      "category": "CONTENT_GAP",
+      "issue": "Hub authority score (7.0) is lower than potential (14.0)",
+      "affected_area": "Hub-Spoke linking strategy",
+      "action_required": "Add links to missing spokes once created",
+      "impact": "Increase hub authority score by 2x",
+      "timeline": "ONGOING"
+    }
+  ],
+  "recommendations": {
+    "immediate_actions": [
+      {
+        "action": "Fix URL structure violations",
+        "impact": "SEO compliance, prevent crawl errors",
+        "timeline": "Today"
+      },
+      {
+        "action": "Remove duplicate /pferdemarkt link",
+        "impact": "Link equity optimization, prevent crawl confusion",
+        "timeline": "This week"
+      }
+    ],
+    "short_term_actions": [
+      {
+        "action": "Create offenstall-kosten spoke article",
+        "impact": "Enable new internal link, boost hub authority",
+        "timeline": "Week 2-3"
+      },
+      {
+        "action": "Create boxenhaltung-kosten spoke article",
+        "impact": "Enable new internal link, boost hub authority",
+        "timeline": "Week 2-3"
+      },
+      {
+        "action": "Add links to new spokes in hub article",
+        "impact": "Hub authority score 7.0 → 11.0",
+        "timeline": "Week 4"
+      }
+    ],
+    "medium_term_actions": [
+      {
+        "action": "Create pferd-versichern-wert spoke article",
+        "impact": "Expand insurance subsection, boost specialization",
+        "timeline": "Month 2"
+      },
+      {
+        "action": "Review all hub-spoke cross-links",
+        "impact": "Ensure consistent linking strategy across all hubs",
+        "timeline": "Month 2-3"
+      }
+    ]
+  },
+  "related_hubs": [
+    {
+      "slug": "pferd-kaufen-tipps",
+      "title": "Pferdekauf-Guide",
+      "relationship": "Parent topic: Buying includes cost consideration",
+      "cross_hub_link_status": "NOT_LINKED",
+      "recommendation": "Consider adding cross-hub link in 'Anschaffungskosten' section"
+    },
+    {
+      "slug": "pferde-haltung-kosten",
+      "title": "Pferdehaltung Kosten",
+      "relationship": "Related hub: Both focus on cost aspects",
+      "cross_hub_link_status": "NOT_LINKED",
+      "recommendation": "Add 'See also: Pferdehaltung Kosten' link"
+    },
+    {
+      "slug": "pferdewert-ermitteln-guide",
+      "title": "Pferdewert ermitteln",
+      "relationship": "Related hub: Price estimation aligns with KI-assessment service",
+      "cross_hub_link_status": "NOT_LINKED",
+      "recommendation": "Add CTA link to service at end of article"
+    }
+  ],
+  "summary": {
+    "status": "ACTIVE_HUB_WITH_LINKING_ISSUES",
+    "strengths": [
+      "Well-structured hub article (3,540 words)",
+      "Multiple spoke links (9 found)",
+      "Comprehensive content coverage",
+      "Low duplicate content risk"
+    ],
+    "weaknesses": [
+      "2 critical URL structure violations",
+      "1 duplicate internal link",
+      "5 missing spoke links to relevant articles",
+      "Lower hub authority score (7/20)"
+    ],
+    "overall_health": 6.5,
+    "next_review": "2025-12-27"
+  }
+}
