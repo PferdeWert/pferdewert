@@ -141,7 +141,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
   {
     slug: 'pferd-kaufen-schweiz',
     title: 'Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich',
-    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 9 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.',
+    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.',
     category: 'Kauf & Verkauf',
     readTime: '18 Min.',
     image: '/images/ratgeber/horses-zermatt-switzerland.webp',

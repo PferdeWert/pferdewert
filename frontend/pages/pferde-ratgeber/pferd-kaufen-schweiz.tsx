@@ -36,8 +36,8 @@ export default function PferdKaufenSchweizPage() {
     ? 'Pferd kaufen in Österreich: Schweizer Marktplätze & Tipps'
     : 'Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden';
   const metaDescription = isAT
-    ? 'Für österreichische Pferdeliebhaber: Schweizer Marktplätze entdecken. Vergleich von 9 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer und Sicherheits-Checkliste.'
-    : 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 9 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.';
+    ? 'Für österreichische Pferdeliebhaber: Schweizer Marktplätze entdecken. Vergleich von 8 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer und Sicherheits-Checkliste.'
+    : 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.';
   const canonicalUrl = `${baseUrl}/pferde-ratgeber/pferd-kaufen-schweiz`;
 
   const heroPrimaryCta = {
@@ -410,7 +410,7 @@ export default function PferdKaufenSchweizPage() {
               <div className="flex items-center gap-3 mb-3">
                 <h3 className="text-2xl font-serif font-bold text-brand mb-0">6. Anibis.ch</h3>
                 <a
-                  href="https://www.anibis.ch/de/c_haustier_pferd"
+                  href="https://www.anibis.ch/de/q/pferde/Ak8CmaG9yc2VzlMDAwMA?sorting=newest&page=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
@@ -433,7 +433,7 @@ export default function PferdKaufenSchweizPage() {
               <div className="flex items-center gap-3 mb-3">
                 <h3 className="text-2xl font-serif font-bold text-brand mb-0">7. Tutti.ch</h3>
                 <a
-                  href="https://www.tutti.ch/de/li/ganze-schweiz/tiere/pferde"
+                  href="https://www.tutti.ch/de/q/pferde/Ak8CmaG9yc2VzlMDAwMA?sorting=newest&page=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
@@ -451,35 +451,12 @@ export default function PferdKaufenSchweizPage() {
               </ul>
             </div>
 
-            {/* Horse24.ch */}
+            {/* Pferdepark.ch Pferdevermittlung */}
             <div className="border-l-4 border-brand-brown pl-6 py-2">
               <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">8. Horse24.ch</h3>
+                <h3 className="text-2xl font-serif font-bold text-brand mb-0">8. Pferdepark.ch Pferdevermittlung</h3>
                 <a
-                  href="https://www.horse24.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Umfassender Marktplatz:</strong> Pferde, Stallungen, Ausrüstung und Dienstleistungen.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Verkäufer zahlen ab 20 CHF/Inserat</li>
-                <li><strong>Spezialität:</strong> Komplette Pferdewirtschaft – Verkauf, Vermietung, Services</li>
-                <li><strong>Zusatz-Features:</strong> Stallplatz-Suche, Tierärzte, Hufschmiede</li>
-              </ul>
-            </div>
-
-            {/* Pferdevermittlung.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">9. Pferdevermittlung.ch</h3>
-                <a
-                  href="https://www.pferdevermittlung.ch"
+                  href="https://www.pferdepark.ch/pferdevermittlung"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
@@ -1123,8 +1100,8 @@ export default function PferdKaufenSchweizPage() {
         {/* Final CTA */}
         <RatgeberFinalCTA
           image={{
-            src: '/images/ratgeber/horses-zermatt-switzerland.webp',
-            alt: 'Pferde auf Weide',
+            src: '/images/shared/blossi-shooting.webp',
+            alt: 'Professionelle Pferdebewertung mit PferdeWert',
             width: 960,
             height: 640
           }}
