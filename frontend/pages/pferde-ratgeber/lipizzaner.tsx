@@ -8,7 +8,7 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { Sparkles, Award, Clock, User, Euro, MapPin, Heart, Calendar } from 'lucide-react';
+import { Sparkles, Award, Euro, MapPin, Heart, Calendar } from 'lucide-react';
 import LocalizedLink from '@/components/LocalizedLink';
 import AuthorBox from '@/components/AuthorBox';
 
@@ -17,22 +17,6 @@ const sparklesIcon = <Sparkles className="w-5 h-5" />;
 const awardIcon = <Award className="w-5 h-5" />;
 const euroIcon = <Euro className="w-5 h-5" />;
 const heartIcon = <Heart className="w-5 h-5" />;
-const clockIcon = <Clock className="h-4 w-4" />;
-const calendarIcon = <Calendar className="h-4 w-4" />;
-
-// FAST REFRESH FIX: Define author link at module level
-const authorLink = (
-  <LocalizedLink href="/ueber-pferdewert" className="hover:text-brand-brown transition-colors underline underline-offset-2">
-    Benjamin Reder
-  </LocalizedLink>
-);
-
-// FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
-const heroMetaItems = [
-  { icon: clockIcon, label: '16 Min. Lesezeit' },
-  { icon: calendarIcon, label: '23. November 2025' },
-  { icon: null, label: <span>Von {authorLink}</span> }
-];
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
@@ -141,6 +125,12 @@ export default function Lipizzaner() {
         datePublished="2025-11-23"
         wordCount={3150}
         breadcrumbTitle="Lipizzaner"
+        author={{
+          name: 'Benjamin Reder',
+          url: 'https://pferdewert.de/ueber-pferdewert',
+          jobTitle: 'Gründer von PferdeWert.de',
+          image: 'https://pferdewert.de/images/shared/benjamin-reder.webp',
+        }}
         faqItems={faqItems}
       />
 
@@ -150,7 +140,9 @@ export default function Lipizzaner() {
           badgeLabel="Pferderassen"
           title="Lipizzaner – Der ultimative Ratgeber zur edlen Barockpferderasse"
           subtitle="Lipizzaner sind nicht nur elegante Barockpferde – sie sind lebende Geschichte. Erfahre alles über ihre faszinierende Herkunft, den einzigartigen Farbwechsel und wie du einen Lipizzaner kaufst."
-          metaItems={heroMetaItems}
+          readTime="16 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
         />
 
