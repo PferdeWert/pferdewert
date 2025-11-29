@@ -21,11 +21,11 @@ export default function UeberUns() {
           content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung. Transparent, fair und von Experten entwickelt."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
+        <meta property="og:image" content="https://pferdewert.de/images/shared/familie-blossi.webp" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
         <meta property="twitter:description" content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung." />
-        <meta property="twitter:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
+        <meta property="twitter:image" content="https://pferdewert.de/images/shared/familie-blossi.webp" />
         <link rel="canonical" href="https://pferdewert.de/ueber-pferdewert" />
 
         {/* Schema.org Structured Data */}
@@ -40,12 +40,13 @@ export default function UeberUns() {
               "description": "Deutschlands führende KI-basierte Online-Pferdebewertung. Transparent, fair und präzise Marktwertanalysen für Pferde.",
               "url": "https://pferdewert.de",
               "logo": "https://pferdewert.de/favicon.svg",
-              "foundingDate": "2024",
+              "foundingDate": "2025",
               "founders": [
                 {
                   "@type": "Person",
-                  "name": "PferdeWert.de Gründerteam",
-                  "description": "Pferdefamilie mit Expertise in Künstlicher Intelligenz und Pferdemarkt-Analyse"
+                  "name": "Benjamin Reder",
+                  "jobTitle": "Gründer & KI-Entwickler",
+                  "description": "Über 10 Jahre Erfahrung in der Digitalbranche, Pferdebesitzer seit 2017"
                 }
               ],
               "areaServed": {
@@ -96,41 +97,28 @@ export default function UeberUns() {
 
       <div className="flex-1">
 
-        {/* Hero Section */}
-        <section id="hero" className="relative overflow-hidden">
-          <div className="container mx-auto px-4 py-12 lg:py-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              
-              {/* Left Content */}
-              <div className="space-y-8 hero-fade-in-left">
-                <div className="space-y-4">
-                  <h1 className="text-h1 font-bold text-gray-900 leading-tight">
-                    Über uns
-                  </h1>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    Eine kleine Pferdefamilie mit großer Mission: Den Pferdemarkt transparenter, fairer und einfach besser zu
-                    machen – mit KI-Power und viel Herzblut.
-                  </p>
-                </div>
-              </div>
+        {/* Hero Section - Full Width Family Image */}
+        <section id="hero" className="relative">
+          {/* Full-width Hero Image */}
+          <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
+            <Image
+              src="/images/shared/familie-blossi.webp"
+              alt="Die PferdeWert Familie: Benjamin Reder mit Familie und Stute Blossi"
+              fill
+              className="object-cover object-[center_20%]"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-              {/* Right Image */}
-              <div className="relative hero-fade-in-right">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/shared/blossi-shooting.webp"
-                    alt="Blossi - Unsere 6-jährige Deutsches Sportpferd Stute"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg">
-                  <p className="text-sm font-medium text-gray-900">Das ist Blossi 🐴</p>
-                  <p className="text-xs text-gray-600">Unsere 6-jährige Inspiration</p>
-                </div>
+            {/* Text Overlay */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16">
+              <div className="container mx-auto">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                  Über uns
+                </h1>
+                <p className="text-lg md:text-xl text-white/90 max-w-2xl">
+                  Eine kleine Pferdefamilie mit großer Mission: Den Pferdemarkt transparenter, fairer und einfach besser zu machen – mit KI-Power und viel Herzblut.
+                </p>
               </div>
             </div>
           </div>
@@ -142,10 +130,11 @@ export default function UeberUns() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-h2 font-bold text-gray-900 mb-8">Wer wir sind</h2>
 
-              {/* Unsere Familie */}
               <div className="mb-12">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Unsere Pferdefamilie</h3>
                 <div className="prose prose-lg max-w-none">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                    <strong className="text-gray-900">Ich bin Benjamin Reder</strong> und habe PferdeWert.de 2025 zusammen mit meiner Frau gegründet. Mit über 10 Jahren Erfahrung in der Digitalbranche und als Pferdebesitzer seit 2017 verbinde ich KI-Expertise mit dem Alltag unserer Pferdefamilie. Blossi ist bereits unser zweites Pferd.
+                  </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     👨‍👩‍👧‍👦 Wir sind eine Familie mit zwei kleinen Kindern – und mit ganzem Herzen Pferdemenschen.
                   </p>
@@ -154,6 +143,48 @@ export default function UeberUns() {
                     manchmal ganz schön dickköpfig.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PferdeWert Social Media - direkt nach Wer wir sind */}
+        <section className="py-12 lg:py-16 bg-amber-50/50" id="social">
+          <div className="px-4 lg:px-8 xl:px-12">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-4">
+                Folge PferdeWert
+              </h2>
+              <p className="text-gray-600 mb-6">
+                📸 Begleite unsere Reise mit Blossi und PferdeWert.de
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a
+                  href="https://instagram.com/pferdewert.de/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center space-x-3 px-6 py-3 rounded-full bg-white border border-gray-200 hover:border-pink-400 hover:bg-pink-50 hover:text-pink-600 transition-all duration-300 shadow-sm hover:shadow-md w-full sm:w-auto justify-center"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                  <span className="text-sm font-medium">@pferdewert.de</span>
+                </a>
+
+                <a
+                  href="https://facebook.com/profile.php?id=61578324567676"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center space-x-3 px-6 py-3 rounded-full bg-white border border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 shadow-sm hover:shadow-md w-full sm:w-auto justify-center"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                  <span className="text-sm font-medium">Facebook</span>
+                </a>
               </div>
             </div>
           </div>
@@ -303,44 +334,55 @@ export default function UeberUns() {
           </div>
         </section>
 
-        {/* Social Media */}
-        <section className="py-12 lg:py-16" id="social">
+        {/* Benjamin Reder - Persönliche Profile */}
+        <section className="py-12 lg:py-16 border-t border-gray-100" id="gruender">
           <div className="px-4 lg:px-8 xl:px-12">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-4">
-                PferdeWert auf Social Media
-              </h2>
-                      
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <p className="text-gray-600 mb-6">
+                Mehr über Benjamin Reder
+              </p>
+
+              <div className="flex flex-wrap justify-center items-center gap-3">
                 <a
-                  href="https://instagram.com/pferdewert.de/"
+                  href="https://www.linkedin.com/in/benjamin-reder-930517a9/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-3 px-6 py-3 rounded-full bg-white border border-gray-200 hover:border-pink-400 hover:bg-pink-50 hover:text-pink-600 transition-all duration-300 shadow-sm hover:shadow-md w-full sm:w-auto justify-center"
+                  className="group flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 text-gray-600"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span className="text-sm font-medium">LinkedIn</span>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/ben.rdr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-pink-400 hover:bg-pink-50 hover:text-pink-600 transition-all duration-300 text-gray-600"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                     <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                   </svg>
                   <span className="text-sm font-medium">Instagram</span>
                 </a>
-                
+
                 <a
-                  href="https://facebook.com/profile.php?id=61578324567676"
+                  href="https://x.com/benjo1910"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-3 px-6 py-3 rounded-full bg-white border border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 shadow-sm hover:shadow-md w-full sm:w-auto justify-center"
+                  className="group flex items-center px-3 py-2 rounded-full bg-white border border-gray-200 hover:border-gray-800 hover:bg-gray-50 hover:text-gray-800 transition-all duration-300 text-gray-600"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
-                  <span className="text-sm font-medium">Facebook</span>
                 </a>
               </div>
-              
-              <p className="text-xs text-gray-400 mt-6">
-                📸 Folge unserer Reise mit Blossi und PferdeWert.de
+
+              <p className="text-xs text-gray-400 mt-4">
+                Benjamin Reder – Gründer von PferdeWert.de
               </p>
             </div>
           </div>
