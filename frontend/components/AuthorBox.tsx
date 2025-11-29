@@ -30,8 +30,8 @@ export default function AuthorBox() {
             <p className="text-gray-600">Gründer von PferdeWert.de</p>
           </div>
 
-          <p className="text-sm text-gray-500 leading-relaxed">
-            Wir sind seit 2017 Pferdebesitzer. Dazu kommen über 10 Jahre Berufserfahrung in der Tech-Branche.
+          <p className="text-sm text-gray-500 leading-relaxed italic">
+            &bdquo;2017 haben wir unser erstes Pferd gekauft. Seitdem sind Pferde ein Teil unserer Familie.&ldquo;
           </p>
 
           <LocalizedLink
