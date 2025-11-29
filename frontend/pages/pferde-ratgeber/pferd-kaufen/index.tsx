@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import LocalizedLink from '@/components/LocalizedLink'
 import { useMemo } from "react"
-import { ArrowRight, TrendingUp, Shield, CheckCircle, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
+import { ArrowRight, TrendingUp, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
 
 import Layout from "@/components/Layout"
 import ContentSection from "@/components/ContentSection"
@@ -18,12 +18,9 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
-import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 const trendingUpIcon = <TrendingUp className="h-4 w-4" />;
-const shieldIcon = <Shield className="h-4 w-4" />;
-const checkCircleIcon = <CheckCircle className="h-4 w-4" />;
 const arrowRightIcon = <ArrowRight className="h-5 w-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 const mapPinIcon = <MapPin className="h-5 w-5 text-brand-brown" />;
@@ -139,21 +136,6 @@ const faqItems: FAQItem[] = [
   }
 ]
 
-// FAST REFRESH FIX: Define heroMetaItems at module level, not inside component
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: trendingUpIcon,
-    label: "15 Min. Lesezeit"
-  },
-  {
-    icon: shieldIcon,
-    label: "Aktualisiert Oktober 2025"
-  },
-  {
-    icon: checkCircleIcon,
-    label: "Vollständige Checkliste"
-  }
-]);
 
 const PferdKaufen: NextPage = () => {
 
@@ -392,7 +374,9 @@ const relatedArticles = useMemo(() =>
           badgeIcon={trendingUpIcon}
           title="Pferd kaufen: Der ultimative Ratgeber für 2025"
           subtitle="Von der realistischen Budgetplanung über die Auswahl seriöser Plattformen bis zur professionellen Ankaufsuntersuchung – dieser umfassende Guide führt dich durch jeden Schritt zum Traumpferd."
-          metaItems={heroMetaItems}
+          readTime="15 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Jetzt Pferdewert berechnen",

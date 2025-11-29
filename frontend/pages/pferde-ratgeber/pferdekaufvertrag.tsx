@@ -2,7 +2,7 @@ import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next'
 
 import { useMemo, useCallback } from 'react'
-import { Clock, Calendar, FileText } from 'lucide-react'
+import { FileText, AlertTriangle } from 'lucide-react'
 import Layout from '@/components/Layout'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage'
@@ -12,40 +12,12 @@ import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import RatgeberHead from '@/components/ratgeber/RatgeberHead'
-import { AlertTriangle } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
-import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 import { info } from '@/lib/log'
 
 // FAST REFRESH FIX: Define icons at module level
-const clockIcon = <Clock className="h-4 w-4" />
-const calendarIcon = <Calendar className="h-4 w-4" />
 const fileTextIcon = <FileText className="h-4 w-4" />
-
-// FAST REFRESH FIX: Compute heroMetaItems at module level
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: clockIcon,
-    label: '15 min Lesezeit'
-  },
-  {
-    icon: calendarIcon,
-    label: (
-      <span suppressHydrationWarning>
-        {new Date().toLocaleDateString('de-DE', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        })}
-      </span>
-    )
-  },
-  {
-    icon: fileTextIcon,
-    label: 'Rechtsguide'
-  }
-])
 
 // Section definitions for Table of Contents
 const sections = [
@@ -176,7 +148,7 @@ const Pferdekaufvertrag: NextPage = () => {
         image="/images/ratgeber/horses-mountain-field-spain.webp"
         locales={seoLocales}
         datePublished="2025-10-28"
-        wordCount={3400}
+        wordCount={4500}
         breadcrumbTitle="Pferdekaufvertrag"
         faqItems={faqItems}
       />
@@ -189,7 +161,9 @@ const Pferdekaufvertrag: NextPage = () => {
           badgeIcon={fileTextIcon}
           title="Pferdekaufvertrag: Rechtssicherer Kaufvertrag"
           subtitle="Rechtliche Absicherung beim Pferdekauf und -verkauf: Die 7 wesentlichen Bestandteile, häufige Fehler und praktische Checklisten"
-          metaItems={heroMetaItems}
+          readTime="15 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={primaryCta}
           secondaryCta={secondaryCta}
         />
@@ -212,25 +186,28 @@ const Pferdekaufvertrag: NextPage = () => {
 
         {/* Content Body - Text First */}
         <div className="max-w-3xl mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
-          {/* Intro Section */}
+          {/* Section 1: Was ist ein Pferdekaufvertrag */}
           <section id="was-ist-vertrag" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
               Was ist ein Pferdekaufvertrag und warum ist er unverzichtbar?
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein Pferdekaufvertrag ist eine schriftliche Vereinbarung zwischen Käufer und Verkäufer, die alle Bedingungen eines Pferdeverkaufs dokumentiert. Er basiert auf den Regelungen des Bürgerlichen Gesetzbuchs (BGB) &ndash; konkret §433 (Kaufvertrag) und §437 (Mängelrechte). Damit fällt ein Pferd rechtlich unter allgemeine Kaufgesetze, nicht unter spezielle Pferdebestimmungen. Mehr über die grundlegenden Aspekte erfahren Sie in unserem Leitfaden zum{' '}
+              Ein Pferdekaufvertrag ist eine schriftliche Vereinbarung zwischen Käufer und Verkäufer, die alle Bedingungen eines Pferdeverkaufs dokumentiert. Er basiert auf den Regelungen des Bürgerlichen Gesetzbuchs (BGB) &ndash; konkret{' '}
+              <a href="https://www.gesetze-im-internet.de/bgb/__433.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                §433 BGB (Kaufvertrag)
+              </a>
+              {' '}und{' '}
+              <a href="https://www.gesetze-im-internet.de/bgb/__437.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                §437 BGB (Mängelrechte)
+              </a>. Damit fällt ein Pferd rechtlich unter allgemeine Kaufgesetze, nicht unter spezielle Pferdebestimmungen. Mehr über die grundlegenden Aspekte erfahren Sie in unserem Leitfaden zum{' '}
               <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
                 Pferdekauf
               </LocalizedLink>.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Das bedeutet konkret: Ein Pferd ist juristisch ein &ldquo;bewegliches Gut&rdquo;, und die Regeln für seinen Verkauf unterscheiden sich nicht grundlegend vom Auto- oder Möbelverkauf. Der entscheidende Unterschied? Ein Pferd ist lebendig und kann nicht zurückgerufen werden wie defekte Ware. Sowohl beim{' '}
-              <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
-                Pferdekauf
-              </LocalizedLink>
-              {' '}als auch beim Verkauf ist daher ein rechtssicherer Vertrag essentiell.
+              Das bedeutet konkret: Ein Pferd ist juristisch ein &ldquo;bewegliches Gut&rdquo;, und die Regeln für seinen Verkauf unterscheiden sich nicht grundlegend vom Auto- oder Möbelverkauf. Der entscheidende Unterschied? Ein Pferd ist lebendig und kann nicht zurückgerufen werden wie defekte Ware.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -238,7 +215,7 @@ const Pferdekaufvertrag: NextPage = () => {
             </h3>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Aus der Praxis mit über 50 dokumentierten Pferdekäufen zeigen sich die schwersten Fehler bei mündlichen Absprachen. Ein{' '}
+              Aus der Praxis zeigen sich die schwersten Fehler bei mündlichen Absprachen. Ein{' '}
               <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
                 Verkäufer
               </LocalizedLink>
@@ -252,11 +229,7 @@ const Pferdekaufvertrag: NextPage = () => {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-brand-brown font-bold">1.</span>
-                <span className="text-lg"><strong>Beweis:</strong> Alle Vereinbarungen sind dokumentiert und in einem Streitfall vor Gericht verwertbar. Dies ist besonders wichtig beim{' '}
-                  <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
-                    Pferdeverkauf
-                  </LocalizedLink>
-                  {' '}oder Kauf.</span>
+                <span className="text-lg"><strong>Beweis:</strong> Alle Vereinbarungen sind dokumentiert und in einem Streitfall vor Gericht verwertbar</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-brown font-bold">2.</span>
@@ -264,21 +237,13 @@ const Pferdekaufvertrag: NextPage = () => {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-brown font-bold">3.</span>
-                <span className="text-lg"><strong>Verjährung:</strong> Mängelrechte verjähren nach zwei Jahren &ndash; nur wenn sie schriftlich vereinbart sind. Als{' '}
-                  <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
-                    Käufer
-                  </LocalizedLink>
-                  {' '}solltest du diese Fristen kennen.</span>
+                <span className="text-lg"><strong>Verjährung:</strong> Mängelrechte verjähren nach zwei Jahren &ndash; nur wenn sie schriftlich vereinbart sind</span>
               </li>
             </ul>
 
             <RatgeberHighlightBox title="Praxis-Tipp: Rechtsanwalt hinzuziehen" icon={warningIcon}>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Unterschreibe niemals einen Vertrag, den du nicht vollständig verstanden hast. Nimm dir Zeit, oder lasse einen Rechtsanwalt drüberschauen &ndash; das kostet 150&ndash;300€ und spart dir später tausende. Dies gilt für{' '}
-                <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
-                  Verkäufer und Käufer
-                </LocalizedLink>
-                {' '}gleichermaßen.
+                Unterschreibe niemals einen Vertrag, den du nicht vollständig verstanden hast. Nimm dir Zeit, oder lasse einen Rechtsanwalt drüberschauen &ndash; das kostet 150&ndash;300€ und spart dir später tausende.
               </p>
             </RatgeberHighlightBox>
 
@@ -291,7 +256,7 @@ const Pferdekaufvertrag: NextPage = () => {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ohne schriftlichen Vertrag passiert dies regelmäßig: Nach 3 Monaten lahmt das Pferd &rarr; Käufer sagt &ldquo;Das war nicht so, als ich es gekauft habe&rdquo; &rarr; Verkäufer sagt &ldquo;Du hast dich wohl getäuscht&rdquo;. Nach 6 Monaten versucht der Käufer, Rückgaberecht zu geltend machen &rarr; Keine schriftliche Gewährleistungsvereinbarung existiert &rarr; Gerichtsverfahren kostet mehr als das Pferd wert ist. Eine{' '}
+              Ohne schriftlichen Vertrag passiert dies regelmäßig: Nach 3 Monaten lahmt das Pferd &rarr; Käufer sagt &ldquo;Das war nicht so, als ich es gekauft habe&rdquo; &rarr; Verkäufer sagt &ldquo;Du hast dich wohl getäuscht&rdquo;. Eine{' '}
               <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">
                 Ankaufsuntersuchung (AKU)
               </LocalizedLink>
@@ -301,6 +266,621 @@ const Pferdekaufvertrag: NextPage = () => {
             <p className="text-lg text-gray-700 leading-relaxed font-semibold">
               Fakt: 30% aller Pferdekauf-Dispute entstehen allein aus fehlenden Verträgen.
             </p>
+          </section>
+
+          {/* Section 2: Die sieben wesentlichen Bestandteile */}
+          <section id="sieben-bestandteile" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Die sieben wesentlichen Bestandteile eines Pferdekaufvertrags
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein rechtssicherer Pferdekaufvertrag benötigt mindestens diese sieben Komponenten. Fehlt eine, könnte dich das in einem Streitfall teuer kosten.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              1. Vertragsgegenstand: Pferd eindeutig identifizieren
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das klingt trivial &ndash; ist es nicht. Viele Verträge sagen nur: &ldquo;Einen Wallach, Fuchs, 8 Jahre alt.&rdquo; Das ist zu vage. Was, wenn der Verkäufer zwei Wallache hat?
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Schreib auf:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• <strong>Name des Pferdes</strong> (wie in Pferdepass eingetragen)</li>
+              <li className="text-lg">• <strong>Rasse und Abstammung</strong> (Hannoveraner, Warmblut, etc.)</li>
+              <li className="text-lg">• <strong>Genaues Alter oder Geburtsdatum</strong></li>
+              <li className="text-lg">• <strong>Farbe und Abzeichen</strong> (Fuchs mit weißer Blesse, etc.)</li>
+              <li className="text-lg">• <strong>Mikro-Chip-Nummer</strong> (falls vorhanden)</li>
+              <li className="text-lg">• <strong>Pferdepass-Nummer</strong> (FN/FEI-Nummer)</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              2. Kaufpreis und Zahlungsmodalitäten
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Hier entsteht oft Verwirrung. Die Frage ist nicht nur &ldquo;Wie viel?&rdquo; sondern auch &ldquo;Wann?&rdquo; und &ldquo;Wie?&rdquo; Spezifiziere:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• <strong>Exakter Kaufpreis in Euro</strong> (nicht &ldquo;ca. 12.000€&rdquo;)</li>
+              <li className="text-lg">• <strong>Zahlungsform</strong> (Überweisung, Bar, Ratenzahlung?)</li>
+              <li className="text-lg">• <strong>Fälligkeitsdatum</strong> (Bei Unterzeichnung? Nach Übergabe?)</li>
+              <li className="text-lg">• <strong>Konsequenzen bei Verspätung</strong> (z.B. 2% Verzugszins monatlich)</li>
+            </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Besonder-Fall Ratenzahlung:</strong> Falls der Käufer in Raten zahlt, sollte der Vertrag ein <strong>Eigentumsvorbehalt</strong> enthalten. Das bedeutet: Verkäufer behält das Eigentumsrecht bis zur letzten Zahlung.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              3. Gefahrübergang und Eigentumsübergang
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das ist ein rechtlicher Knoten: Wann gehört das Pferd dir? Wann trägst du das Risiko, falls es sich verletzt? Meistens fallen beide Momente zusammen &ndash; bei der physischen Übergabe. Das ist auch der BGB-Standard (§446). Dokumentiere:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• <strong>Übergabedatum und -uhrzeit</strong></li>
+              <li className="text-lg">• <strong>Übergabeort</strong> (Stall des Verkäufers? Transportziel?)</li>
+              <li className="text-lg">• <strong>Zustand bei Übergabe</strong> (Käufer prüft sichtbare Mängel)</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              4. Gewährleistung und Mängelrechte
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das ist der komplexeste Punkt &ndash; und der wichtigste Schutzmechanismus. <strong>Standardregel (BGB §437):</strong> Bei Privatverkäufen beträgt die Gewährleistungsfrist zwei Jahre. Der Käufer kann innerhalb dieser Zeit Mängel reklamieren.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <em>Aber:</em> Der Verkäufer kann diese Gewährleistung <strong>ausschließen</strong>. Das ist legal, muss aber schriftlich stehen. Viele Käufer unterschreiben das unbewusst und sind dann schutzlos.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Wichtig für Käufer:</strong> Wenn keine Mängel bekannt sind, kann der Verkäufer die Gewährleistung ausschließen. Aber wenn Mängel BEKANNT sind (z.B. das Pferd lahmt) und nicht offenbart werden, ist der Ausschluss ungültig.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              5. Beschaffenheitsvereinbarungen
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Hier definierst du, was der Käufer wirklich kauft. Ohne das entsteht Streit. Um Konflikte zu vermeiden, schreib auf:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• <strong>Reitstunde/Trainingslevel</strong> (z.B. &ldquo;springt sicher bis 1,00m&rdquo;)</li>
+              <li className="text-lg">• <strong>Besondere Fähigkeiten oder Limitierungen</strong> (z.B. &ldquo;nicht für Anfänger geeignet&rdquo;)</li>
+              <li className="text-lg">• <strong>Bekannte Verhaltensauffälligkeiten</strong> (z.B. &ldquo;Scheuer, braucht geduldigen Reiter&rdquo;)</li>
+              <li className="text-lg">• <strong>Gesundheitliche Fakten</strong> (z.B. &ldquo;Husten im Winter&rdquo;, &ldquo;wurde therapiert&rdquo;)</li>
+              <li className="text-lg">• <strong>Ankaufsuntersuchungs-Ergebnisse</strong> (wenn{' '}
+                <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">
+                  AKU
+                </LocalizedLink>
+                {' '}gemacht wurde)</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              6. Übergabe und Empfangsbestätigung
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein einfacher Punkt, der oft übersehen wird: Dokumentiere, dass der Käufer das Pferd <strong>so akzeptiert hat, wie es ist</strong>. Das schützt beide Parteien.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              7. Schriftformklausel und Unterschriften
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das ist der formale Abschluss &ndash; und rechtlich entscheidend. Eine typische Formulierung:
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed italic bg-amber-50 p-4 rounded-lg">
+              &ldquo;Diese Vereinbarung stellt die komplette Abrede zwischen den Parteien dar. Alle bisherigen Absprachen (mündlich oder schriftlich) werden hiermit aufgehoben. Der Vertrag ist nur gültig, wenn er von beiden Parteien unterschrieben ist.&rdquo;
+            </p>
+          </section>
+
+          {/* Section 3: Private vs. gewerblicher Pferdeverkauf */}
+          <section id="privat-vs-gewerblich" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Private vs. gewerblicher Pferdeverkauf: Unterschiede erklärt
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Die rechtliche Klassifizierung des Verkäufers hat massive Auswirkungen auf deine Rechte als Käufer.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Private Verkäufer</strong> (Verbraucher nach BGB): Jemand, der sein Privatpferd verkauft. Reiterliche Gründe, Umzug, Unfall. Nicht berufsmäßig.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Gewerbliche Verkäufer</strong> (Unternehmer nach BGB): Züchter, Pferdetrainer, Pferdehandel &ndash; also jemand, für den{' '}
+              <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
+                Pferdeverkauf
+              </LocalizedLink>
+              {' '}das Geschäft ist.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Rechtliche Unterschiede
+            </h3>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-amber-100">
+                    <th className="p-3 border border-amber-200 font-bold">Kriterium</th>
+                    <th className="p-3 border border-amber-200 font-bold">Private Verkauf</th>
+                    <th className="p-3 border border-amber-200 font-bold">Gewerblicher Verkauf</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="p-3 border border-amber-200">Gesetzliche Gewährleistung</td>
+                    <td className="p-3 border border-amber-200">2 Jahre (§437 BGB)</td>
+                    <td className="p-3 border border-amber-200">Nur, wenn vertraglich vereinbart</td>
+                  </tr>
+                  <tr className="bg-amber-50">
+                    <td className="p-3 border border-amber-200">Ausschluss möglich?</td>
+                    <td className="p-3 border border-amber-200">Ja, aber nur schriftlich und bewusst</td>
+                    <td className="p-3 border border-amber-200">Ja, üblicherweise Standard</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border border-amber-200">Mangelrüge-Frist</td>
+                    <td className="p-3 border border-amber-200">7&ndash;14 Tage typisch</td>
+                    <td className="p-3 border border-amber-200">Oft nur 7 Tage</td>
+                  </tr>
+                  <tr className="bg-amber-50">
+                    <td className="p-3 border border-amber-200">Käufer-Schutz</td>
+                    <td className="p-3 border border-amber-200">Höher (Verbraucherschutz)</td>
+                    <td className="p-3 border border-amber-200">Niedriger</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed font-semibold mt-4">
+              Die Botschaft ist klar: Kaufst du von einer Privatperson, hast du mehr Schutz. Kaufst du von einem Züchter oder Händler, musst du alle Rechte explizit aushandeln.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Wann bin ich &ldquo;Unternehmer&rdquo; und wann &ldquo;Privatperson&rdquo;?
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Privatperson</strong> (Verbraucher): Du verkaufst dein Reitpferd, weil du nicht mehr reiten kannst. Du hattest es 5&ndash;10 Jahre im Privatbesitz. Das ist nicht dein Geschäftsmodell.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Unternehmer</strong> (Gewerbetreibender): Du verkaufst 2&ndash;3 Pferde pro Jahr regelmäßig. Du züchtest oder trainierst Pferde zum Weiterverkauf. Du betreibst einen Pferdehandel.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das entscheidende Kriterium ist: <strong>Machst du das regelmäßig und mit Gewinnabsicht?</strong> Die Rechtsprechung sagt: Ab ca. 3 Pferdeverkäufen pro Jahr gilt die Person als Unternehmer.
+            </p>
+          </section>
+
+          {/* Section 4: Häufige Fehler */}
+          <section id="haeufige-fehler" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Häufige Fehler beim Pferdekaufvertrag &ndash; und wie du sie vermeidest
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Bei Verträgen passieren regelmäßig die gleichen Fehler. Hier sind die vier teuersten:
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Fehler 1: Zu vage Beschaffenheitsvereinbarungen
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Das Szenario:</strong> Ein Käufer sieht auf der Homepage: &ldquo;Talentiertes Springpferd, 8 Jahre, sehr willig.&rdquo; Der Vertrag sagt: &ldquo;Ein Springpferd.&rdquo; Nach dem Kauf stellt sich heraus: Das Pferd verweigert Sprünge über 0,80m regelmäßig.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Die Lösung:</strong> Beschreib das Traininglevel exakt. Nicht &ldquo;Springpferd&rdquo;, sondern &ldquo;Springpferd, reitet sicher bis 1,10m, zeigt gutes Vermögen für höhere Sprünge&rdquo;.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Fehler 2: Gewährleistung nicht geklärt
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Das Szenario:</strong> Ein Käufer kauft und denkt: &ldquo;Natürlich habe ich Gewährleistung!&rdquo; Der Vertrag hat aber einen Ausschluss-Satz, den der Käufer nicht gelesen hat. Nach Monat 3: Pferd lahmt &rarr; Käufer zahlt 4.000€ Therapiekosten selbst.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Die Lösung:</strong> Unterschreibe NICHTS, ohne die Gewährleistungsklausel explizit gelesen und verstanden zu haben.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Fehler 3: Ankaufsuntersuchung (AKU) nicht dokumentiert
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Das Szenario:</strong> Ein Verkäufer sagt: &ldquo;Ja, natürlich war die{' '}
+              <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">
+                AKU
+              </LocalizedLink>
+              {' '}gemacht.&rdquo; Es gibt aber keine schriftliche Dokumentation davon.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Die Lösung:</strong> Lasse die AKU von DEINEM Tierarzt machen. Fordere Kopien aller Röntgenaufnahmen und Berichte an. Heften diese dem Vertrag bei.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Fehler 4: Zahlung ohne Sicherheitsklauseln
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Das Szenario:</strong> Ein Verkäufer akzeptiert Ratenzahlung. Es gibt aber keine Klausel über Eigentumsvorbehalt. Der Käufer zahlt die erste Rate, dann nicht mehr &ndash; der Verkäufer kann das Pferd nicht zurückholen.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Die Lösung:</strong> Wenn Ratenzahlung, dann <strong>immer</strong> ein Eigentumsvorbehalt im Vertrag.
+            </p>
+          </section>
+
+          {/* Section 5: Checkliste */}
+          <section id="checkliste" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Checkliste: Schritt-für-Schritt Anleitung zum Vertragsausfüllen
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein guter Pferdekaufvertrag entsteht nicht spontan. Hier ist der Prozess:
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Vor dem Ausfüllen: Informationen sammeln
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Sammle alle relevanten Dokumente:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• Pferdepass oder FEI-Papiere</li>
+              <li className="text-lg">• Microchip-Nummer (beim Tierarzt fragen)</li>
+              <li className="text-lg">• Ankaufsuntersuchungs-Befunde (falls vorhanden)</li>
+              <li className="text-lg">• Impfpässe und Entwurmungs-Dokumentation</li>
+              <li className="text-lg">• Rechnungen für bisherige medizinische Behandlungen</li>
+              <li className="text-lg">• Trainings- und Konkurrenzergebnisse (falls relevant)</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Vertragsabschnitte ausfüllen: Parteien &amp; Gegenstand
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+              Vertragsparteien:<br />
+              Verkäufer: [Vollständiger Name], geb. [Geburtsdatum], [Adresse], [Telefon]<br />
+              Käufer: [Vollständiger Name], geb. [Geburtsdatum], [Adresse], [Telefon]<br /><br />
+              Vertragsgegenstand: Der Wallach/die Stute &ldquo;[Name]&rdquo;, geb. [Datum],<br />
+              [Rasse], Farbe [Farbe und Abzeichen], Microchip-Nr. [Nummer]
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Kopiere die Infos direkt aus dem Pferdepass &ndash; keine Fehler riskieren. Die{' '}
+              <a href="https://www.pferd-aktuell.de/fn-service/fei-pferdepass" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                Deutsche Reiterliche Vereinigung (FN)
+              </a>
+              {' '}bietet offizielle Richtlinien und Musterverträge an.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Gewährleistung &amp; Mängelrechte klären
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed font-semibold">
+              WICHTIGSTE ENTSCHEIDUNG DES VERTRAGS:
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Option A &ndash; Mit Gewährleistung (für Käufer besser):</strong><br />
+              Gewährleistungsfrist: 2 Jahre ab Übergabe, Mangelrüge-Frist: 14 Tage nach Übergabe
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Option B &ndash; Mit Einschränkung (Kompromiss):</strong><br />
+              Gewährleistungsfrist: 1 Jahr ab Übergabe, Angeborene/erbliche Fehler ausgeschlossen
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Option C &ndash; Ohne Gewährleistung (für Verkäufer besser):</strong><br />
+              &ldquo;Das Pferd wird unter Ausschluss der Gewährleistung verkauft ({' '}
+              <a href="https://www.gesetze-im-internet.de/bgb/__444.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                §444 BGB
+              </a>).&rdquo;
+            </p>
+
+            <RatgeberHighlightBox title="Wichtig: Nur mit AKU!" icon={warningIcon}>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Unterschreibe Option C nur, wenn du eine aktuelle{' '}
+                <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">
+                  Ankaufsuntersuchung
+                </LocalizedLink>
+                {' '}hast und der Report sauber ist (keine versteckten Befunde).
+              </p>
+            </RatgeberHighlightBox>
+          </section>
+
+          {/* Section 6: Gewährleistung und Mängelrechte */}
+          <section id="gewaehrleistung" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Gewährleistung und Mängelrechte: Fristen und deine Rechte
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das ist der rechtliche Kern &ndash; und hier verdienen sich Rechtsanwälte ihr Geld.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Gewährleistungsfrist: Wie lange bist du geschützt?
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Die Standardregel (BGB §437):</strong>
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• <strong>Private Verkäufe:</strong> 2 Jahre Gewährleistung</li>
+              <li className="text-lg">• <strong>Gewerbliche Verkäufe:</strong> Nur wenn vertraglich vereinbart (meist 6&ndash;12 Monate)</li>
+            </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Wichtig:</strong> Die Frist beginnt mit der Übergabe. Wenn ein Mangel erst nach 2 Jahren 1 Monat auftritt, hast du keine Rechte mehr.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Ausnahme &ndash; Versteckte Mängel:</strong> Wenn ein Mangel vorhanden war, aber verborgen (z.B. Sehnerv-Atrophie), kann der Käufer die Gewährleistung bis 2 Jahre geltend machen.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Mängelrüge: Wie und wann du ein Problem anzeigen musst
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das ist eine strenge rechtliche Frist: <strong>Innerhalb von 7&ndash;14 Tagen nach Entdeckung musst du den Mangel schriftlich anzeigen.</strong>
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Wichtig:</strong> Nutze die Mitteilung nicht zur Rache. Sag nicht: &ldquo;Du Betrüger!&rdquo; Sag: &ldquo;Ich habe einen Mangel entdeckt und zeige ihn hiermit an.&rdquo;
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Deine Rechte bei Mängeln
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Wenn ein Mangel innerhalb der Gewährleistungsfrist auftritt und du ihn korrekt anzeigst, hast du 4 Optionen (BGB §437&ndash;440):
+            </p>
+
+            <ol className="space-y-4 text-gray-700 ml-4">
+              <li className="text-lg">
+                <strong>Option 1 &ndash; Nacherfüllung (Reparatur):</strong> Der Verkäufer versucht, den Mangel zu beheben. Beim Pferd: Der Verkäufer zahlt Tierarzt-Kosten.
+              </li>
+              <li className="text-lg">
+                <strong>Option 2 &ndash; Minderung (Preisreduktion):</strong> Der Kaufpreis wird reduziert. Beispiel: Kaufpreis war 15.000€, Therapiekosten sind 3.000€ &rarr; Neuer Preis 12.000€.
+              </li>
+              <li className="text-lg">
+                <strong>Option 3 &ndash; Rücktritt (Rückgabe):</strong> Du gibst das Pferd zurück und bekommst dein Geld.
+              </li>
+              <li className="text-lg">
+                <strong>Option 4 &ndash; Schadensersatz:</strong> Du verlangst Schadensersatz, wenn der Verkäufer den Mangel bewusst verschwiegen hat.
+              </li>
+            </ol>
+          </section>
+
+          {/* Section 7: Besondere Klauseln */}
+          <section id="besondere-klauseln" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Besondere Klauseln und Zusatzvereinbarungen
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Es gibt Spezial-Situationen, für die man zusätzliche Klauseln braucht.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Probezeit und Rücktrittsrecht
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Manche Käufer wollen das Pferd vor dem Kauf &ldquo;testen&rdquo;. Eine mögliche Vereinbarung:
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+              Probezeit: 14 Tage ab Übergabe. Der Käufer kann das Pferd in dieser Zeit<br />
+              zurückgeben, wenn es nicht seinen Erwartungen entspricht.<br />
+              Bedingung: Das Pferd darf nur leicht gearbeitet werden (keine Turniere).<br />
+              Rücktrittskosten: Der Käufer trägt Transportkosten hin und zurück.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Eigentumsvorbehalt bei Ratenzahlung
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Wenn der Käufer in Raten zahlt:
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+              Eigentumsvorbehalt: Das Pferd bleibt Eigentum des Verkäufers bis zur<br />
+              Vollzahlung. Der Käufer darf das Pferd reiten und versorgen, besitzt<br />
+              es aber nicht.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Vorkaufsrecht und Rückkaufsrecht
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das interessiert vor allem Züchter:
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+              Rückkaufsrecht: Falls der Käufer das Pferd später verkaufen möchte,<br />
+              hat der Verkäufer das Vorkaufsrecht. Der Verkäufer kann das Pferd<br />
+              zu 80% des aktuellen Marktpreises zurückkaufen.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Das ist gültig und schützt Züchter vor schlecht versorgten Pferden.
+            </p>
+          </section>
+
+          {/* Section 8: Rechtliche Besonderheiten */}
+          <section id="rechtliche-besonderheiten" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Rechtliche Besonderheiten: Datenschutz, Steuern und weitere Aspekte
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Beim Pferdekaufvertrag gibt es noch weitere wichtige Aspekte, die über die reinen Vertragsinhalte hinausgehen.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Datenschutz und Persönliche Daten im Vertrag
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein Pferdekaufvertrag enthält persönliche Daten: Namen, Adressen, Telefonnummern. Mit der DSGVO (Datenschutz-Grundverordnung) müssen diese sensibel behandelt werden.
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• Speichere den Vertrag sicher (nicht ungesichert in der Cloud)</li>
+              <li className="text-lg">• Gib die Kontaktdaten des anderen nicht an Dritte weiter</li>
+              <li className="text-lg">• Nach Abschluss kannst du den Vertrag archivieren &ndash; gesetzliche Aufbewahrung für 6&ndash;10 Jahre</li>
+              <li className="text-lg">• Digitale Verträge? Achte darauf, dass die Plattform DSGVO-konform ist</li>
+            </ul>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Steuern und Umsatzsteuer beim Pferdeverkauf
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Beim{' '}
+              <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
+                Pferdeverkauf
+              </LocalizedLink>
+              {' '}kann Umsatzsteuer (MwSt.) anfallen &ndash; aber nicht immer:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 ml-4">
+              <li className="text-lg">• <strong>Private Verkäufer</strong> (Einzelperson, kein Geschäft): Keine Umsatzsteuer</li>
+              <li className="text-lg">• <strong>Gewerbliche Verkäufer</strong> (Züchter, Händler): Normalerweise 19% MwSt. auf den Kaufpreis</li>
+            </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <strong>Im Vertrag festhalten:</strong> Falls Umsatzsteuer anfällt, sollte das explizit erwähnt sein. Der Kaufpreis ist dann entweder inkl. oder exkl. MwSt.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Versicherung beim Pferdetransport und Übergabe
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ein oft übersehener Punkt: Wer haftet, wenn das Pferd während des Verkaufsprozesses verletzt wird?
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+              Haftung und Versicherung: Der Verkäufer haftet für Schäden am Pferd<br />
+              bis zur Übergabe. Nach Übergabe trägt der Käufer volle Verantwortung.<br />
+              Transport: Der Käufer trägt Transportkosten und Risiko, falls er den<br />
+              Transport organisiert.
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Streitbeilegung und Rechtswahl
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Falls es später zu Differenzen kommt, ist es sinnvoll, vorab zu klären: Wo wird geklagt? Nach welchem Recht?
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+              Gerichtsstand: Die zuständigen Gerichte am Wohnort des Beklagten.<br />
+              Anwendbares Recht: Bundesrepublik Deutschland (BGB).
+            </p>
+          </section>
+
+          {/* Section 9: Praktische Tipps */}
+          <section id="praktische-tipps" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Praktische Tipps für Verkäufer und Käufer
+            </h2>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Abschließend noch bewährte Tipps, um typische Fehler zu vermeiden:
+            </p>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Für Verkäufer
+            </h3>
+
+            <ol className="space-y-4 text-gray-700 ml-4">
+              <li className="text-lg">
+                <strong>Gib den Vertrag rechtzeitig ab</strong> &ndash; Der Käufer sollte ihn VOR dem Besichtigungstermin lesen können.
+              </li>
+              <li className="text-lg">
+                <strong>Sei ehrlich über bekannte Mängel</strong> &ndash; Wenn das Pferd einen bekannten Fehler hat (Sommerekzem, leichte Lahmheit), erwähne ihn. Ein ehrlicher{' '}
+                <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">
+                  Verkäufer
+                </LocalizedLink>
+                {' '}wird nicht verklagt.
+              </li>
+              <li className="text-lg">
+                <strong>Mache Foto- und Videodokumentation</strong> &ndash; Fotos des Übergabezustands schützen dich, falls der Käufer später unbegründete Schäden behauptet.
+              </li>
+              <li className="text-lg">
+                <strong>Nutze beglaubigte Kopien</strong> &ndash; Beide Parteien unterschreiben und bekommen eine Kopie.
+              </li>
+            </ol>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Für Käufer
+            </h3>
+
+            <ol className="space-y-4 text-gray-700 ml-4">
+              <li className="text-lg">
+                <strong>Lese den Vertrag dreimal</strong> &ndash; Erst selbst, dann mit jemandem mit Fachwissen, dann nochmal allein.
+              </li>
+              <li className="text-lg">
+                <strong>Stelle alle Fragen VOR der Unterschrift</strong> &ndash; Nachträglich ist es zu spät.
+              </li>
+              <li className="text-lg">
+                <strong>Mache IMMER eine{' '}
+                  <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-blue-600 hover:underline">
+                    Ankaufsuntersuchung
+                  </LocalizedLink>
+                </strong> &ndash; Die 400&ndash;800€ Kosten sind eine Versicherung gegen 5.000€+ unerwartete Reparaturen.
+              </li>
+              <li className="text-lg">
+                <strong>Dokumentiere den Übergabezustand</strong> &ndash; Videos, Fotos, Notizen. Alles datiert.
+              </li>
+              <li className="text-lg">
+                <strong>Behalte Kopien aller Unterlagen</strong> &ndash; Pferdepass, AKU-Report, Impfpässe, Kaufvertrag. Digitale UND physische Kopien.
+              </li>
+            </ol>
+
+            <RatgeberHighlightBox title="Fazit: Rechtssicherer Pferdekauf" icon={warningIcon}>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Ein Pferdekaufvertrag schützt dich vor kostspieligen Fehlern. Die vier kritischsten Punkte: (1) Nutze immer einen schriftlichen Vertrag, (2) Klare Gewährleistungsvereinbarungen, (3) Dokumentieren ist alles, (4) Unterscheide privat von gewerblich.
+              </p>
+            </RatgeberHighlightBox>
           </section>
         </div>
 

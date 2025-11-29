@@ -9,23 +9,15 @@ import RatgeberRelatedArticles, { RatgeberRelatedArticle } from '@/components/ra
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import LocalizedLink from '@/components/LocalizedLink';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { Award, Shield, TrendingUp, ExternalLink, Clock, User, Sparkles, ChevronDown } from 'lucide-react';
+import { Award, Shield, TrendingUp, ExternalLink, Sparkles, ChevronDown } from 'lucide-react';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const awardIcon = <Award className="h-4 w-4" />;
 const shieldIcon = <Shield className="h-5 w-5 text-brand-brown" />;
 const trendingUpIcon = <TrendingUp className="h-5 w-5 text-brand-brown" />;
 const externalLinkIcon = <ExternalLink className="h-4 w-4" />;
-const clockIcon = <Clock className="h-4 w-4" />;
-const userIcon = <User className="h-4 w-4" />;
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
-
-// FAST REFRESH FIX: Define arrays and objects at module level
-const heroMetaItems = [
-  { icon: clockIcon, label: '18 Min. Lesezeit' },
-  { icon: userIcon, label: 'PferdeWert Redaktion' }
-];
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
@@ -155,7 +147,9 @@ export default function PferdKaufenSchweizPage() {
         badgeIcon={awardIcon}
         title="Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich"
         subtitle="Pferdekauf in der Schweiz ist ein großes Abenteuer, aber auch eine Entscheidung, die gut überlegt sein will. Mit über 50 verschiedenen Pferderassen und neun etablierten Marktplätzen zur Auswahl fühlt sich der Start oft überwältigend an."
-        metaItems={heroMetaItems}
+        readTime="18 Min."
+        publishDate="November 2025"
+        author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
         primaryCta={heroPrimaryCta}
         secondaryCta={heroSecondaryCta}
       />

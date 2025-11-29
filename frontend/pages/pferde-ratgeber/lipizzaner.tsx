@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
@@ -103,15 +104,16 @@ export default function Lipizzaner() {
     }
   ];
 
-  // Related articles from registry
-  const relatedArticles = getRelatedArticles('lipizzaner').map(entry => ({
-    href: getRatgeberPath(entry.slug),
-    image: entry.image,
-    title: entry.title,
-    badge: entry.category,
-    readTime: entry.readTime,
-    description: entry.description
-  }));
+  // CRITICAL: Related articles MUST use useMemo to avoid Fast Refresh loops
+  const relatedArticles = useMemo(() =>
+    getRelatedArticles('lipizzaner').map(entry => ({
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      title: entry.title,
+      badge: entry.category,
+      readTime: entry.readTime,
+      description: entry.description
+    })), []);
 
   return (
     <Layout

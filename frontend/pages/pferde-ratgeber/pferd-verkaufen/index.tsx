@@ -1,9 +1,9 @@
 import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next';
 import Head from 'next/head';
-;
+
 import { useMemo } from 'react';
-import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, FileCheck, CheckCircle } from 'lucide-react';
+import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, CheckCircle } from 'lucide-react';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
@@ -15,13 +15,9 @@ import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems';
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 // Creating JSX objects inside component or passing them inline causes reference changes on every render
-const trendingUpIcon = <TrendingUp className="h-4 w-4" />;
-const shieldIcon = <Shield className="h-4 w-4" />;
-const fileCheckIcon = <FileCheck className="h-4 w-4" />;
 const calculatorIcon = <Calculator className="h-5 w-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 const bookOpenIcon = <BookOpen className="h-4 w-4" />;
@@ -29,21 +25,6 @@ const calculatorBrownIcon = <Calculator className="h-5 w-5 text-brand-brown" />;
 const checkCircleBrownIcon = <CheckCircle className="h-5 w-5 text-brand-brown" />;
 const shieldBrownIcon = <Shield className="h-5 w-5 text-brand-brown" />;
 const trendingUpBrownIcon = <TrendingUp className="h-5 w-5 text-brand-brown" />;
-
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: trendingUpIcon,
-    label: "7-Phasen-Prozess"
-  },
-  {
-    icon: shieldIcon,
-    label: "Rechtssichere Abwicklung"
-  },
-  {
-    icon: fileCheckIcon,
-    label: "Plattform-Vergleich"
-  }
-]);
 
 const sections = [
   { id: 'pferdewert-ermitteln', title: 'Pferdewert ermitteln' },
@@ -237,7 +218,9 @@ const PferdVerkaufen: NextPage = () => {
           badgeIcon={bookOpenIcon}
           title="Pferd verkaufen: Der ultimative Leitfaden (2025)"
           subtitle="Du möchtest dein Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit. Dieser Leitfaden zeigt dir den 7-Phasen-Verkaufsprozess, den Plattform-Vergleich (eHorses vs. pferde.de) und die rechtliche Absicherung. Inklusive emotionaler Begleitung beim Abschied vom Partner Pferd."
-          metaItems={heroMetaItems}
+          readTime="18 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Jetzt Pferdewert berechnen",

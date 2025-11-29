@@ -8,24 +8,15 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
-import { Sparkles, Clock, User, CheckCircle, ShieldCheck, Award } from 'lucide-react';
-;
+import { Sparkles, CheckCircle, ShieldCheck, Award } from 'lucide-react';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
 const checkCircleIcon = <CheckCircle className="w-5 h-5" />;
-const clockIcon = <Clock className="h-4 w-4" />;
-const userIcon = <User className="h-4 w-4" />;
 const checkCircleGreenIcon = <CheckCircle className="h-5 w-5 text-green-600 mr-2" />;
 const checkCircleGreenFlexIcon = <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />;
 const shieldIcon = <ShieldCheck className="h-6 w-6 mr-2" />;
 const awardIcon = <Award className="h-6 w-6 mr-2" />;
-
-// FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
-const heroMetaItems = [
-  { icon: clockIcon, label: '12 Min. Lesezeit' },
-  { icon: userIcon, label: 'PferdeWert Redaktion' }
-];
 
 const heroImageAttribution = {
   author: 'Waugsberg',
@@ -282,7 +273,9 @@ export default function AnfaengerpferdKaufen() {
       <RatgeberHero
         title="Anfängerpferd kaufen: Der ultimative Ratgeber für den sicheren Pferdekauf (2025)"
         subtitle="Du träumst vom eigenen Pferd? Der Kauf eines Anfängerpferdes ist ein aufregender Schritt. Studien zeigen, dass über 40% der Erstkäufer mit ihrem ersten Pferd überfordert sind – oft, weil es zu jung, zu temperamentvoll oder unzureichend ausgebildet war. Mit der richtigen Vorbereitung findest du ein Pferd, das perfekt zu dir passt."
-        metaItems={heroMetaItems}
+        readTime="12 Min."
+        publishDate="November 2025"
+        author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
         primaryCta={heroPrimaryCta}
         badgeLabel="Kauf & Verkauf"
       />

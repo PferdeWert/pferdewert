@@ -33,6 +33,13 @@ export interface LocaleContent {
   twitterDescription?: string;
 }
 
+export interface AuthorInfo {
+  name: string;
+  url?: string; // URL to author page
+  jobTitle?: string;
+  image?: string; // URL to author image
+}
+
 export interface RatgeberHeadProps {
   slug: string;
   image: string; // relative path, e.g., /images/ratgeber/haflinger.webp
@@ -50,6 +57,9 @@ export interface RatgeberHeadProps {
   wordCount?: number;
   breadcrumbTitle: string; // Short title for breadcrumb
 
+  // Author info for E-E-A-T (optional, falls back to organization)
+  author?: AuthorInfo;
+
   // FAQ data for schema (optional)
   faqItems?: Array<{ question: string; answer: string }>;
 }
@@ -62,6 +72,7 @@ export default function RatgeberHead({
   dateModified,
   wordCount,
   breadcrumbTitle,
+  author,
   faqItems,
 }: RatgeberHeadProps) {
   const { locale: routerLocale } = useRouter();
@@ -85,6 +96,21 @@ export default function RatgeberHead({
     { hreflang: 'x-default', href: `${DOMAINS.de}/pferde-ratgeber/${slug}` },
   ];
 
+  // Build author schema - Person if provided, otherwise Organization fallback
+  const authorSchema = author
+    ? {
+        '@type': 'Person',
+        name: author.name,
+        ...(author.url && { url: author.url }),
+        ...(author.jobTitle && { jobTitle: author.jobTitle }),
+        ...(author.image && { image: author.image }),
+      }
+    : {
+        '@type': 'Organization',
+        name: 'PferdeWert.de Redaktion',
+        url: `${DOMAINS.de}/ueber-pferdewert`,
+      };
+
   // Article Schema
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -92,11 +118,7 @@ export default function RatgeberHead({
     headline: content.title,
     description: content.description,
     image: imageUrl,
-    author: {
-      '@type': 'Organization',
-      name: 'PferdeWert.de Redaktion',
-      url: `${DOMAINS.de}/ueber-uns`
-    },
+    author: authorSchema,
     publisher: {
       '@type': 'Organization',
       name: 'PferdeWert.de',

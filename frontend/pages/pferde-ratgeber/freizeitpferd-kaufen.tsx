@@ -8,21 +8,13 @@ import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
-import { Sparkles, Award, ShieldCheck, TrendingUp, Clock, User } from 'lucide-react';
+import { Sparkles, Award, ShieldCheck, TrendingUp } from 'lucide-react';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
 const awardIcon = <Award className="w-5 h-5" />;
 const shieldIcon = <ShieldCheck className="w-5 h-5" />;
-const clockIcon = <Clock className="h-4 w-4" />;
-const userIcon = <User className="h-4 w-4" />;
 const trendingUpIcon = <TrendingUp className="w-4 h-4 ml-2" />;
-
-// FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
-const heroMetaItems = [
-  { icon: clockIcon, label: '15 Min. Lesezeit' },
-  { icon: userIcon, label: 'PferdeWert Redaktion' }
-];
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
@@ -150,7 +142,9 @@ export default function FreizeitpferdKaufen() {
           badgeLabel="Kauf & Verkauf"
           title="Freizeitpferd kaufen: Der komplette Leitfaden für Anfänger"
           subtitle="Dein Traum vom eigenen Freizeitpferd rückt näher. Erfahre alles über die besten Rassen, realistische Kosten, wichtige Gesundheitschecks und die rechtliche Absicherung beim Kauf."
-          metaItems={heroMetaItems}
+          readTime="15 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
         />
 

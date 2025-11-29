@@ -16,12 +16,9 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
-import { createHeroMetaItems } from "@/utils/ratgeber/heroMetaItems"
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 const calculatorIcon = <Calculator className="h-4 w-4" />;
-const walletIcon = <Wallet className="h-4 w-4" />;
-const piggyBankIcon = <PiggyBank className="h-4 w-4" />;
 const calculatorIconLarge = <Calculator className="h-5 w-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 const walletBrownIcon = <Wallet className="h-5 w-5 text-brand-brown" />;
@@ -38,20 +35,6 @@ const sections = [
   { id: "faq", title: "FAQ zu AKU Kosten" }
 ]
 
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: calculatorIcon,
-    label: "Kosten je Klasse erklärt"
-  },
-  {
-    icon: walletIcon,
-    label: "Budgetplanung inklusive"
-  },
-  {
-    icon: piggyBankIcon,
-    label: "Spartipps vom Tierarzt"
-  }
-])
 
 const classCosts = [
   {
@@ -185,7 +168,9 @@ const AkuPferdKosten: NextPage = () => {
           badgeIcon={calculatorIcon}
           title="AKU Kosten transparent erklärt"
           subtitle="Von der kleinen AKU bis zur Spezialdiagnostik – erfahre, welche Kosten auf dich zukommen und wie du klug planst."
-          metaItems={heroMetaItems}
+          readTime="10 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: "/pferde-preis-berechnen",
             label: "Pferdewert mit AKU berechnen",

@@ -2,7 +2,7 @@ import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next'
 
 import { useMemo } from 'react'
-import { Clock, Calendar, Award, ArrowRight, ChevronDown, AlertCircle } from 'lucide-react'
+import { Award, ArrowRight, ChevronDown, AlertCircle } from 'lucide-react'
 
 import Layout from '@/components/Layout'
 import FAQ from '@/components/FAQ'
@@ -16,11 +16,8 @@ import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
-import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
-const clockIcon = <Clock className="h-4 w-4" />;
-const calendarIcon = <Calendar className="h-4 w-4" />;
 const awardIcon = <Award className="h-4 w-4" />;
 const arrowRightIcon = <ArrowRight className="w-5 h-5" />;
 const chevronDownIcon = <ChevronDown className="w-5 h-5" />;
@@ -93,29 +90,6 @@ const tableOfContentsSections = [
   { id: 'faq', title: 'Häufig gestellte Fragen' }
 ]
 
-// FAST REFRESH FIX: Compute heroMetaItems at module level, not in component
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: clockIcon,
-    label: '12 min Lesezeit'
-  },
-  {
-    icon: calendarIcon,
-    label: (
-      <span suppressHydrationWarning>
-        {new Date().toLocaleDateString('de-DE', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        })}
-      </span>
-    )
-  },
-  {
-    icon: awardIcon,
-    label: 'Experten-Ratgeber'
-  }
-])
 
 const Pferdemarkt: NextPage = () => {
   
@@ -163,7 +137,9 @@ const Pferdemarkt: NextPage = () => {
           badgeIcon={awardIcon}
           title="Pferdemarkt 2025"
           subtitle="Ob online auf großen Plattformen wie Ehorses mit 19.000+ Inseraten oder auf traditionellen Events wie Havelberg mit 200.000 Besuchern – in diesem Ratgeber entdeckst du alle wichtigen Pferdemärkte Deutschlands 2025–2026, praktische Kauftipps und einen Vergleich der besten Optionen für deinen Pferdekauf."
-          metaItems={heroMetaItems}
+          readTime="12 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: '/pferde-preis-berechnen',
             label: 'Pferdewert jetzt berechnen',

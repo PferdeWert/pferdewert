@@ -151,6 +151,12 @@ export default function SpringpferdKaufen() {
         datePublished="2025-01-09"
         wordCount={1450}
         breadcrumbTitle="Springpferd kaufen"
+        author={{
+          name: 'Benjamin Reder',
+          url: 'https://pferdewert.de/ueber-pferdewert',
+          jobTitle: 'Gründer von PferdeWert.de',
+          image: 'https://pferdewert.de/images/shared/benjamin-reder.webp',
+        }}
         faqItems={faqItems}
       />
 
@@ -160,6 +166,9 @@ export default function SpringpferdKaufen() {
           badgeLabel="Kaufratgeber"
           title="Springpferd kaufen: Der ultimative Ratgeber für den perfekten Partner"
           subtitle="Alles was du über Auswahlkriterien, Preise, Züchter, Ankaufsuntersuchung und Kaufvertrag wissen musst – für eine fundierte Kaufentscheidung"
+          readTime="14 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={primaryCta}
           secondaryCta={secondaryCta}
         />

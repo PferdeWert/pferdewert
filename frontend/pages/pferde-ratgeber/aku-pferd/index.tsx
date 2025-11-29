@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import LocalizedLink from '@/components/LocalizedLink'
-import { Clock, Calendar, Award, ArrowRight, ChevronDown } from 'lucide-react'
+import { Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
 import FAQ from '@/components/FAQ'
@@ -23,37 +23,11 @@ import {
 } from '@/data/ratgeber/akuPferd'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
-import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
-const clockIcon = <Clock className="h-4 w-4" />;
-const calendarIcon = <Calendar className="h-4 w-4" />;
 const awardIcon = <Award className="h-4 w-4" />;
 const primaryCtaIcon = <ArrowRight className="w-5 h-5" />;
 const secondaryCtaIcon = <ChevronDown className="w-5 h-5" />;
-
-const heroMetaItems = createHeroMetaItems([
-  {
-    icon: clockIcon,
-    label: '12 min Lesezeit'
-  },
-  {
-    icon: calendarIcon,
-    label: (
-      <span suppressHydrationWarning>
-        {new Date().toLocaleDateString('de-DE', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        })}
-      </span>
-    )
-  },
-  {
-    icon: awardIcon,
-    label: 'Experten-Ratgeber'
-  }
-])
 const kostenLinkIcon = <ArrowRight className="h-5 w-5" />
 
 const AKUPferd: NextPage = () => {
@@ -186,7 +160,9 @@ const AKUPferd: NextPage = () => {
           badgeIcon={awardIcon}
           title="Ankaufsuntersuchung beim Pferd"
           subtitle="Die AKU ist die wichtigste Investition beim Pferdekauf. In diesem Leitfaden erfährst du, wie eine Ankaufsuntersuchung abläuft, welche Befundklassen es gibt und wann du welche Art von AKU benötigst. Schütze dich vor versteckten Mängeln mit fundiertem Wissen."
-          metaItems={heroMetaItems}
+          readTime="12 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: '/pferde-preis-berechnen',
             label: 'Pferdewert jetzt berechnen',

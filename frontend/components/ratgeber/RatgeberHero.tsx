@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, memo } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Clock, Calendar } from 'lucide-react'
 import { validateCtaProps } from '@/utils/dev-warnings'
 import LocalizedLink from '@/components/LocalizedLink'
 
@@ -20,28 +20,64 @@ export interface RatgeberHeroSecondaryCta {
   onClick?: () => void
 }
 
+export interface RatgeberHeroAuthor {
+  name: string
+  href?: string
+}
+
 interface RatgeberHeroProps {
   badgeLabel?: string
   badgeIcon?: ReactNode
   title: string
   subtitle: string
+  // New simplified props (preferred)
+  readTime?: string // e.g., "16 Min."
+  publishDate?: string // e.g., "November 2025"
+  author?: RatgeberHeroAuthor
+  // Legacy prop for backwards compatibility
   metaItems?: RatgeberHeroMetaItem[]
   primaryCta: RatgeberHeroPrimaryCta
   secondaryCta?: RatgeberHeroSecondaryCta
 }
 
-// FAST REFRESH FIX: Define default scroll icon at module level to prevent recreation
+// FAST REFRESH FIX: Define icons at module level to prevent recreation
 const DEFAULT_SCROLL_ICON = <ChevronDown className="h-5 w-5" />
+const CLOCK_ICON = <Clock className="h-4 w-4" />
+const CALENDAR_ICON = <Calendar className="h-4 w-4" />
 
 const RatgeberHero: React.FC<RatgeberHeroProps> = ({
   badgeLabel,
   badgeIcon,
   title,
   subtitle,
-  metaItems = [],
+  readTime,
+  publishDate,
+  author,
+  metaItems,
   primaryCta,
   secondaryCta
 }) => {
+  // Build meta items from new props, or use legacy metaItems
+  const resolvedMetaItems: RatgeberHeroMetaItem[] = metaItems ?? [
+    ...(readTime ? [{ icon: CLOCK_ICON, label: `${readTime} Lesezeit` }] : []),
+    ...(publishDate ? [{ icon: CALENDAR_ICON, label: `Stand: ${publishDate}` }] : []),
+    ...(author ? [{
+      icon: null,
+      label: author.href ? (
+        <span>
+          Von{' '}
+          <LocalizedLink
+            href={author.href}
+            className="hover:text-brand-brown transition-colors underline underline-offset-2"
+          >
+            {author.name}
+          </LocalizedLink>
+        </span>
+      ) : (
+        <span>Von {author.name}</span>
+      )
+    }] : []),
+  ]
   // DEV-ONLY: Validate props to catch Fast Refresh issues early
   // CRITICAL: Must use useEffect with empty dependency array to avoid infinite reload loops
   // Calling validation directly in component body causes console output on every render,
@@ -79,9 +115,9 @@ const RatgeberHero: React.FC<RatgeberHeroProps> = ({
             {subtitle}
           </p>
 
-          {metaItems.length > 0 && (
+          {resolvedMetaItems.length > 0 && (
             <div className="flex flex-wrap justify-center gap-6 text-sm text-brand/70">
-              {metaItems.map((item, index) => (
+              {resolvedMetaItems.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
                   {item.icon}
                   {item.label}
