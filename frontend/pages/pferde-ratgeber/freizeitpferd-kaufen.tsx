@@ -1,16 +1,14 @@
 import LocalizedLink from '@/components/LocalizedLink'
-import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
+import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
-import useSEOHreflang from '@/hooks/useSEOHreflang';
 import { Sparkles, Award, ShieldCheck, TrendingUp, Clock, User } from 'lucide-react';
-;
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -26,9 +24,38 @@ const heroMetaItems = [
   { icon: userIcon, label: 'PferdeWert Redaktion' }
 ];
 
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
+    description: 'Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
+    keywords: 'freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd temperament, anfängerpferd kaufen, gutes freizeitpferd finden',
+    ogTitle: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
+    ogDescription: 'Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.',
+    twitterTitle: 'Freizeitpferd kaufen: Kompletter Guide',
+    twitterDescription: 'Rassen, Kosten, Gesundheitschecks & Kaufvertrag: So kaufst du dein Freizeitpferd sicher. Mit Checklisten & Praxis-Tipps.',
+  },
+  at: {
+    title: 'Freizeitpferd kaufen in Österreich: Kompletter Guide',
+    description: 'Freizeitpferd kaufen in Österreich leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
+    keywords: 'freizeitpferd kaufen österreich, freizeitpferd rassen, anfängerpferd kaufen, pferdekauf österreich',
+    ogTitle: 'Freizeitpferd kaufen in Österreich: Kompletter Guide',
+    ogDescription: 'Freizeitpferd kaufen in Österreich: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden für sicheren Pferdekauf.',
+    twitterTitle: 'Freizeitpferd kaufen Österreich: Guide',
+    twitterDescription: 'Rassen, Kosten & Kaufvertrag: So kaufst du dein Freizeitpferd in Österreich sicher.',
+  },
+  ch: {
+    title: 'Freizeitpferd kaufen in der Schweiz: Kompletter Guide',
+    description: 'Freizeitpferd kaufen in der Schweiz leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
+    keywords: 'freizeitpferd kaufen schweiz, freizeitpferd rassen, anfängerpferd kaufen, pferdekauf schweiz',
+    ogTitle: 'Freizeitpferd kaufen in der Schweiz: Kompletter Guide',
+    ogDescription: 'Freizeitpferd kaufen in der Schweiz: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden für sicheren Pferdekauf.',
+    twitterTitle: 'Freizeitpferd kaufen Schweiz: Guide',
+    twitterDescription: 'Rassen, Kosten & Kaufvertrag: So kaufst du dein Freizeitpferd in der Schweiz sicher.',
+  },
+};
+
 export default function FreizeitpferdKaufen() {
-  // SEO: Hreflang tags for international versions
-  const hreflangTags = useSEOHreflang('/pferde-ratgeber/freizeitpferd-kaufen');
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
@@ -107,171 +134,15 @@ export default function FreizeitpferdKaufen() {
       fullWidth={true}
       background="bg-gradient-to-b from-amber-50 to-white"
     >
-      <Head>
-        <title>Freizeitpferd kaufen: Kompletter Guide für Anfänger</title>
-        <meta name="description" content="Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen." />
-        <meta name="keywords" content="freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd temperament, anfängerpferd kaufen, gutes freizeitpferd finden" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
-
-        {/* Hreflang tags for international SEO */}
-        {hreflangTags}
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Freizeitpferd kaufen: Kompletter Guide für Anfänger" />
-        <meta property="og:description" content="Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Freizeitpferd kaufen: Kompletter Guide" />
-        <meta name="twitter:description" content="Rassen, Kosten, Gesundheitschecks & Kaufvertrag: So kaufst du dein Freizeitpferd sicher. Mit Checklisten & Praxis-Tipps." />
-        <meta name="twitter:creator" content="@pferdewertde" />
-
-        {/* Article Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
-              description: 'Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
-              image: 'https://pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
-              author: {
-                '@type': 'Person',
-                name: 'PferdeWert.de Redaktion',
-                url: 'https://pferdewert.de/ueber-uns'
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'PferdeWert.de',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: 'https://pferdewert.de/logo.png',
-                  width: 250,
-                  height: 60
-                },
-                url: 'https://pferdewert.de'
-              },
-              datePublished: '2025-11-14',
-              dateModified: '2025-11-14',
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': 'https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen'
-              },
-              articleSection: 'Ratgeber',
-              keywords: 'freizeitpferd kaufen, freizeitpferd rassen, anfängerpferd, pferderassen anfänger, pferd kaufentscheidung',
-              wordCount: 2487
-            })
-          }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  name: 'Home',
-                  item: 'https://pferdewert.de'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  name: 'Pferde-Ratgeber',
-                  item: 'https://pferdewert.de/pferde-ratgeber'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 3,
-                  name: 'Freizeitpferd kaufen',
-                  item: 'https://pferdewert.de/pferde-ratgeber/freizeitpferd-kaufen'
-                }
-              ]
-            })
-          }}
-        />
-
-        {/* FAQ Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: faqItems.map(item => ({
-                '@type': 'Question',
-                name: item.question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: item.answer
-                }
-              }))
-            })
-          }}
-        />
-
-        {/* HowTo Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'HowTo',
-              name: 'Freizeitpferd kaufen: Schritt-für-Schritt Anleitung',
-              description: 'So kaufst du dein Freizeitpferd sicher und erfolgreich - von der Budgetplanung bis zur Vertragsunterschrift',
-              image: 'https://pferdewert.de/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
-              step: [
-                {
-                  '@type': 'HowToStep',
-                  position: 1,
-                  name: 'Budget definieren',
-                  text: 'Berechne dein Budget für Kauf und Jahreskosten. Kaufpreis: 6.000-25.000€. Jährliche Unterhaltskosten: 4.000-6.000€ (durchschnittlich 450€/Monat). Klär auch Bankfinanzierung, falls nötig.'
-                },
-                {
-                  '@type': 'HowToStep',
-                  position: 2,
-                  name: 'Rasse und Anforderungen klären',
-                  text: 'Wähle die passende Pferderasse für dein Niveau. Anfänger sollten Haflinger, Quarter Horse oder Isländer bevorzugen. Definiere auch das Idealgewicht des Pferdes und besondere Anforderungen (z.B. für schwerere Reiter: Fjordpferd).'
-                },
-                {
-                  '@type': 'HowToStep',
-                  position: 3,
-                  name: 'Markt durchsuchen und Kandidaten testen',
-                  text: 'Nutze ehorses.de, pferde.de oder kleinanzeigen.de. Sieh dir mindestens 10-15 Kandidaten an. Wichtig: Teste das Pferd persönlich (reiten, nicht nur ansehen). Mit Verkäufern kommunizieren, Referenzen erfragen.'
-                },
-                {
-                  '@type': 'HowToStep',
-                  position: 4,
-                  name: 'Tierärztliche Ankaufsuntersuchung durchführen',
-                  text: 'Buche deinen Tierarzt BEVOR du Geld zahlst. Untersuchung dauert 1-2 Stunden, kostet 400-600€. Prüfe: Allgemeinzustand, Bewegung unter Last, Herz/Lungen, Zähne, Augen. Optional: Röntgen bei Gelenkproblemen.'
-                },
-                {
-                  '@type': 'HowToStep',
-                  position: 5,
-                  name: 'Kaufvertrag prüfen und unterzeichnen',
-                  text: 'Kaufvertrag muss enthalten: Pferdeidentifikation, Kaufpreis, Zustand, Gewährleistung (6 Monate Standard), Haftungsklauseln. Lass Anwalt checken (100-200€). Unterzeichne NACH erfolgreicher Tieruntersuchung.'
-                },
-                {
-                  '@type': 'HowToStep',
-                  position: 6,
-                  name: 'Transport und Integration vorbereiten',
-                  text: 'Arrange Transport (sicher und versichert). Kläre Stallplatz. Buche termin mit lokalem Tierarzt vor Ankunft. Kaufe Grundausstattung (Sattel, Zaumzeug, Pflege-Material). Der gesamte Prozess dauert 4-8 Wochen.'
-                }
-              ],
-              totalTime: 'PT4W'
-            })
-          }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="freizeitpferd-kaufen"
+        image="/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp"
+        locales={seoLocales}
+        datePublished="2025-11-14"
+        wordCount={2487}
+        breadcrumbTitle="Freizeitpferd kaufen"
+        faqItems={faqItems}
+      />
 
       <article>
         {/* Hero Section */}

@@ -1,7 +1,8 @@
 import LocalizedLink from '@/components/LocalizedLink'
-import Head from 'next/head'
+import { NextPage } from 'next'
 
 import { useMemo, useCallback } from 'react'
+import { Clock, Calendar, FileText } from 'lucide-react'
 import Layout from '@/components/Layout'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage'
@@ -10,8 +11,41 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox'
 import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
+import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import { AlertTriangle } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
+import scrollToSection from '@/utils/ratgeber/scrollToSection'
+import { createHeroMetaItems } from '@/utils/ratgeber/heroMetaItems'
+import { info } from '@/lib/log'
+
+// FAST REFRESH FIX: Define icons at module level
+const clockIcon = <Clock className="h-4 w-4" />
+const calendarIcon = <Calendar className="h-4 w-4" />
+const fileTextIcon = <FileText className="h-4 w-4" />
+
+// FAST REFRESH FIX: Compute heroMetaItems at module level
+const heroMetaItems = createHeroMetaItems([
+  {
+    icon: clockIcon,
+    label: '15 min Lesezeit'
+  },
+  {
+    icon: calendarIcon,
+    label: (
+      <span suppressHydrationWarning>
+        {new Date().toLocaleDateString('de-DE', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        })}
+      </span>
+    )
+  },
+  {
+    icon: fileTextIcon,
+    label: 'Rechtsguide'
+  }
+])
 
 // Section definitions for Table of Contents
 const sections = [
@@ -55,13 +89,49 @@ const faqItems = [
   }
 ]
 
-export default function Pferdekaufvertrag() {
-  
-// Memoize icon to prevent Fast Refresh infinite loops
+// SEO Locales for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.',
+    keywords: 'pferdekaufvertrag, pferdekauf vertrag, pferdekaufvertrag privat, pferdekaufvertrag muster, pferdekaufvertrag ohne gewährleistung',
+    ogTitle: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    ogDescription: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden.',
+    twitterTitle: 'Pferdekaufvertrag: 7-Punkte Anleitung',
+    twitterDescription: 'Erfahr, welche 7 Punkte in einen rechtssicheren Pferdekaufvertrag gehören & vermeide teure Fehler.',
+  },
+  at: {
+    title: 'Pferdekaufvertrag Österreich: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    description: 'Pferdekaufvertrag in Österreich: 7 wesentliche Bestandteile, häufige Fehler vermeiden. Rechtlich sicher kaufen & verkaufen nach ABGB.',
+    keywords: 'pferdekaufvertrag österreich, pferdekauf vertrag, pferdekaufvertrag privat, pferdekaufvertrag muster österreich',
+    ogTitle: 'Pferdekaufvertrag Österreich: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    ogDescription: 'Pferdekaufvertrag in Österreich: 7 wesentliche Bestandteile, häufige Fehler vermeiden.',
+    twitterTitle: 'Pferdekaufvertrag Österreich: 7-Punkte Anleitung',
+    twitterDescription: 'Erfahr, welche 7 Punkte in einen rechtssicheren Pferdekaufvertrag gehören.',
+  },
+  ch: {
+    title: 'Pferdekaufvertrag Schweiz: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    description: 'Pferdekaufvertrag in der Schweiz: 7 wesentliche Bestandteile, häufige Fehler vermeiden. Rechtlich sicher kaufen & verkaufen nach OR.',
+    keywords: 'pferdekaufvertrag schweiz, pferdekauf vertrag, pferdekaufvertrag privat, pferdekaufvertrag muster schweiz',
+    ogTitle: 'Pferdekaufvertrag Schweiz: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
+    ogDescription: 'Pferdekaufvertrag in der Schweiz: 7 wesentliche Bestandteile, häufige Fehler vermeiden.',
+    twitterTitle: 'Pferdekaufvertrag Schweiz: 7-Punkte Anleitung',
+    twitterDescription: 'Erfahr, welche 7 Punkte in einen rechtssicheren Pferdekaufvertrag gehören.',
+  },
+}
+
+const Pferdekaufvertrag: NextPage = () => {
+  // Memoize icon to prevent Fast Refresh infinite loops
   const warningIcon = useMemo(
     () => <AlertTriangle className="w-5 h-5 text-brand-brown" />,
     []
   )
+
+  // Handler for Table of Contents navigation
+  const handleTableOfContentsClick = (sectionId: string) => {
+    info('Navigating to section:', sectionId)
+    scrollToSection(sectionId)
+  }
 
   // Memoize onClick handler to prevent Fast Refresh infinite loops
   const handleScrollToContent = useCallback(() => {
@@ -99,124 +169,27 @@ export default function Pferdekaufvertrag() {
     })), []
   )
 
-  // JSON-LD Article Schema - memoized to prevent Fast Refresh loops
-  const articleSchema = useMemo(() => ({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
-    description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.',
-    url: 'https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag',
-    datePublished: '2025-10-28T10:00:00+01:00',
-    dateModified: '2025-10-28T10:00:00+01:00',
-    author: {
-      '@type': 'Person',
-      name: 'PferdeWert.de Redaktion',
-      url: 'https://pferdewert.de'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'PferdeWert.de',
-      url: 'https://pferdewert.de',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://pferdewert.de/logo.png',
-        width: 600,
-        height: 60
-      }
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag'
-    },
-    articleSection: 'Pferde-Ratgeber',
-    articleBody: 'Ein Pferdekaufvertrag ist nicht nur wichtig – er ist deine rechtliche Absicherung. Ohne ihn riskierst du erhebliche finanzielle Verluste und legale Komplikationen. Diese Anleitung zeigt dir Schritt für Schritt, welche sieben wesentlichen Komponenten in jeden Vertrag gehören, wie du private und gewerbliche Verkäufe unterscheidest, und wie du häufige Fehler vermeidest.',
-    wordCount: 3400,
-    keywords: [
-      'pferdekaufvertrag',
-      'pferdekauf vertrag',
-      'pferdekaufvertrag privat',
-      'pferdekaufvertrag muster',
-      'pferdekaufvertrag ohne gewährleistung'
-    ],
-    inLanguage: 'de-DE'
-  }), [])
-
-  // JSON-LD Breadcrumb Schema - memoized to prevent Fast Refresh loops
-  const breadcrumbSchema = useMemo(() => ({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'PferdeWert',
-        item: 'https://pferdewert.de'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Ratgeber',
-        item: 'https://pferdewert.de/pferde-ratgeber'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Pferdekaufvertrag',
-        item: 'https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag'
-      }
-    ]
-  }), [])
-
   return (
-    <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
-      <Head>
-        {/* Basic Meta Tags */}
-        <title>Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)</title>
-        <meta name="description" content="Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen." />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag" />
-        <meta httpEquiv="content-language" content="de" />
+    <>
+      <RatgeberHead
+        slug="pferdekaufvertrag"
+        image="/images/ratgeber/horses-mountain-field-spain.webp"
+        locales={seoLocales}
+        datePublished="2025-10-28"
+        wordCount={3400}
+        breadcrumbTitle="Pferdekaufvertrag"
+        faqItems={faqItems}
+      />
 
-        {/* Open Graph Tags */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)" />
-        <meta property="og:description" content="Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden." />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferdekaufvertrag" />
-        <meta property="og:site_name" content="PferdeWert.de" />
-        <meta property="og:locale" content="de_DE" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/pferdekaufvertrag-guide.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Pferdekaufvertrag Anleitung - 7 wesentliche Bestandteile erklärt" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferdekaufvertrag: 7-Punkte Anleitung" />
-        <meta name="twitter:description" content="Erfahr, welche 7 Punkte in einen rechtssicheren Pferdekaufvertrag gehören & vermeide teure Fehler." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/ratgeber/pferdekaufvertrag-guide.jpg" />
-        <meta name="twitter:creator" content="@PferdeWertDE" />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(articleSchema)
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema)
-          }}
-        />
-      </Head>
-
-      <main className="flex-1">
+      <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
+        <main className="flex-1">
         {/* Hero Section */}
         <RatgeberHero
           badgeLabel="Rechtsguide"
+          badgeIcon={fileTextIcon}
           title="Pferdekaufvertrag: Rechtssicherer Kaufvertrag"
           subtitle="Rechtliche Absicherung beim Pferdekauf und -verkauf: Die 7 wesentlichen Bestandteile, häufige Fehler und praktische Checklisten"
+          metaItems={heroMetaItems}
           primaryCta={primaryCta}
           secondaryCta={secondaryCta}
         />
@@ -235,7 +208,7 @@ export default function Pferdekaufvertrag() {
         />
 
         {/* Table of Contents */}
-        <RatgeberTableOfContents sections={sections} />
+        <RatgeberTableOfContents sections={sections} onNavigate={handleTableOfContentsClick} />
 
         {/* Content Body - Text First */}
         <div className="max-w-3xl mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
@@ -359,5 +332,8 @@ export default function Pferdekaufvertrag() {
         />
       </main>
     </Layout>
+    </>
   )
 }
+
+export default Pferdekaufvertrag

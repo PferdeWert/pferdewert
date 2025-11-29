@@ -1,5 +1,4 @@
 import LocalizedLink from '@/components/LocalizedLink'
-import Head from 'next/head'
 
 import { useMemo, useCallback } from 'react'
 import Layout from '@/components/Layout'
@@ -7,6 +6,7 @@ import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage'
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents'
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox'
+import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
@@ -55,6 +55,37 @@ const faqItems = [
     answer: 'Für Anfänger eignet sich ein bereits ausgebildetes Springpferd mit A-L Turniererfahrung und ruhigem Charakter – Budget: 25.000-40.000€. Alternativ: Ein älteres, erfahrenes Lehrmeister-Pferd (10-15 Jahre) mit solidem Ausbildungsstand ist oft günstiger (15.000-25.000€) und verzeiht Anfängerfehler besser als ein junges Talent. WICHTIG: Als Anfänger solltest du IMMER einen erfahrenen Trainer zum Probereiten und zur Kaufentscheidung mitnehmen!'
   }
 ]
+
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Springpferd kaufen: Preis, Züchter & Tipps | PferdeWert',
+    description: 'Springpferd kaufen: Auswahlkriterien, Preise (8.000-100.000€+), seriöse Züchter, AKU-Checkliste & Kaufvertrag. Auch günstig möglich – mit realistischen Erwartungen!',
+    keywords: 'springpferd kaufen, springpferd preis, springpferd kaufen günstig, springpferd züchter, springpferd kaufen deutschland',
+    ogTitle: 'Springpferd kaufen: Der ultimative Ratgeber für den perfekten Partner',
+    ogDescription: 'Von der Auswahl über Preise bis zum Kaufvertrag – alles, was du beim Springpferdekauf wissen musst. Mit Experten-Tipps zu AKU, Probereiten & Budget.',
+    twitterTitle: 'Springpferd kaufen: Ratgeber, Preise & Tipps',
+    twitterDescription: 'Springpferd kaufen: Auswahlkriterien, Preise, Züchter, AKU-Tipps & Kaufvertrag. Der komplette Ratgeber für deine Kaufentscheidung.',
+  },
+  at: {
+    title: 'Springpferd kaufen in Österreich: Preise & Tipps',
+    description: 'Springpferd kaufen in Österreich: Auswahlkriterien, Preise, seriöse Züchter, AKU-Checkliste & Kaufvertrag.',
+    keywords: 'springpferd kaufen österreich, springpferd preis, springpferd züchter, aku pferd',
+    ogTitle: 'Springpferd kaufen in Österreich: Ratgeber 2025',
+    ogDescription: 'Von der Auswahl über Preise bis zum Kaufvertrag – alles, was du beim Springpferdekauf in Österreich wissen musst.',
+    twitterTitle: 'Springpferd kaufen in Österreich',
+    twitterDescription: 'Springpferd kaufen: Auswahlkriterien, Preise, Züchter & AKU-Tipps für Österreich.',
+  },
+  ch: {
+    title: 'Springpferd kaufen in der Schweiz: Preise & Tipps',
+    description: 'Springpferd kaufen in der Schweiz: Auswahlkriterien, Preise, seriöse Züchter, AKU-Checkliste & Kaufvertrag.',
+    keywords: 'springpferd kaufen schweiz, springpferd preis, springpferd züchter, aku pferd',
+    ogTitle: 'Springpferd kaufen in der Schweiz: Ratgeber 2025',
+    ogDescription: 'Von der Auswahl über Preise bis zum Kaufvertrag – alles, was du beim Springpferdekauf in der Schweiz wissen musst.',
+    twitterTitle: 'Springpferd kaufen in der Schweiz',
+    twitterDescription: 'Springpferd kaufen: Auswahlkriterien, Preise, Züchter & AKU-Tipps für die Schweiz.',
+  },
+}
 
 export default function SpringpferdKaufen() {
   
@@ -111,117 +142,17 @@ export default function SpringpferdKaufen() {
     }))
   }, [])
 
-  // JSON-LD Article Schema - memoized to prevent Fast Refresh loops
-  const articleSchema = useMemo(() => ({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Springpferd kaufen: Der ultimative Ratgeber für den perfekten Partner',
-    description: 'Springpferd kaufen leicht gemacht: Auswahlkriterien, Preise (10.000-100.000€+), seriöse Züchter, AKU-Tipps & Kaufvertrag. Jetzt informieren!',
-    url: 'https://pferdewert.de/pferde-ratgeber/springpferd-kaufen',
-    datePublished: '2025-01-09T10:00:00+01:00',
-    dateModified: '2025-01-09T10:00:00+01:00',
-    author: {
-      '@type': 'Organization',
-      name: 'PferdeWert.de',
-      url: 'https://pferdewert.de'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'PferdeWert.de',
-      url: 'https://pferdewert.de',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://pferdewert.de/logo.png',
-        width: 600,
-        height: 60
-      }
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/pferde-ratgeber/springpferd-kaufen'
-    },
-    articleSection: 'Pferde-Ratgeber',
-    articleBody: 'Der Traum vom eigenen Springpferd bewegt viele Reiter – doch die Entscheidung will wohlüberlegt sein. Dieser Ratgeber begleitet Sie durch den gesamten Kaufprozess – von der Definition Ihrer Anforderungen über die Suche nach dem passenden Partner bis hin zur rechtssicheren Abwicklung.',
-    wordCount: 1450,
-    keywords: [
-      'springpferd kaufen',
-      'springpferd kaufen preis',
-      'springpferd kaufen deutschland',
-      'springpferd kaufen züchter',
-      'springpferd kaufen günstig'
-    ],
-    inLanguage: 'de-DE'
-  }), [])
-
-  // JSON-LD Breadcrumb Schema - memoized to prevent Fast Refresh loops
-  const breadcrumbSchema = useMemo(() => ({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'PferdeWert',
-        item: 'https://pferdewert.de'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Ratgeber',
-        item: 'https://pferdewert.de/pferde-ratgeber'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Springpferd kaufen',
-        item: 'https://pferdewert.de/pferde-ratgeber/springpferd-kaufen'
-      }
-    ]
-  }), [])
-
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
-      <Head>
-        {/* Basic Meta Tags */}
-        <title>Springpferd kaufen: Preis, Züchter & Tipps | PferdeWert</title>
-        <meta name="description" content="Springpferd kaufen: Auswahlkriterien, Preise (8.000-100.000€+), seriöse Züchter, AKU-Checkliste & Kaufvertrag. Auch günstig möglich – mit realistischen Erwartungen!" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/springpferd-kaufen" />
-        <meta httpEquiv="content-language" content="de" />
-
-        {/* Open Graph Tags */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Springpferd kaufen: Der ultimative Ratgeber für den perfekten Partner" />
-        <meta property="og:description" content="Von der Auswahl über Preise bis zum Kaufvertrag – alles, was du beim Springpferdekauf wissen musst. Mit Experten-Tipps zu AKU, Probereiten & Budget." />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/springpferd-kaufen" />
-        <meta property="og:site_name" content="PferdeWert.de" />
-        <meta property="og:locale" content="de_DE" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/springpferd-kaufen-og.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Springpferd kaufen - Ratgeber mit Preisen, Tipps und Checklisten" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Springpferd kaufen: Ratgeber, Preise & Tipps" />
-        <meta name="twitter:description" content="Springpferd kaufen: Auswahlkriterien, Preise, Züchter, AKU-Tipps & Kaufvertrag. Der komplette Ratgeber für deine Kaufentscheidung." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/ratgeber/springpferd-kaufen-twitter.jpg" />
-        <meta name="twitter:creator" content="@PferdeWertDE" />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(articleSchema)
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema)
-          }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="springpferd-kaufen"
+        image="/images/ratgeber/springpferd-hero-jumping.webp"
+        locales={seoLocales}
+        datePublished="2025-01-09"
+        wordCount={1450}
+        breadcrumbTitle="Springpferd kaufen"
+        faqItems={faqItems}
+      />
 
       <main className="flex-1">
         {/* Hero Section */}

@@ -1,0 +1,215 @@
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+// Domain mapping per locale
+const DOMAINS = {
+  de: 'https://pferdewert.de',
+  at: 'https://pferdewert.at',
+  ch: 'https://pferdewert.ch',
+} as const;
+
+const SITE_NAMES = {
+  de: 'PferdeWert.de',
+  at: 'PferdeWert.at',
+  ch: 'PferdeWert.ch',
+} as const;
+
+const OG_LOCALES = {
+  de: 'de_DE',
+  at: 'de_AT',
+  ch: 'de_CH',
+} as const;
+
+type Locale = 'de' | 'at' | 'ch';
+
+export interface LocaleContent {
+  title: string;
+  description: string;
+  keywords?: string;
+  // Optional overrides for OG/Twitter (falls back to title/description)
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+}
+
+export interface RatgeberHeadProps {
+  slug: string;
+  image: string; // relative path, e.g., /images/ratgeber/haflinger.webp
+
+  // Locale-specific content
+  locales: {
+    de: LocaleContent;
+    at?: LocaleContent;
+    ch?: LocaleContent;
+  };
+
+  // Article metadata
+  datePublished: string; // YYYY-MM-DD
+  dateModified?: string;
+  wordCount?: number;
+  breadcrumbTitle: string; // Short title for breadcrumb
+
+  // FAQ data for schema (optional)
+  faqItems?: Array<{ question: string; answer: string }>;
+}
+
+export default function RatgeberHead({
+  slug,
+  image,
+  locales,
+  datePublished,
+  dateModified,
+  wordCount,
+  breadcrumbTitle,
+  faqItems,
+}: RatgeberHeadProps) {
+  const { locale: routerLocale } = useRouter();
+  const locale = (routerLocale as Locale) || 'de';
+
+  // Get content for current locale, fallback to DE
+  const content = locales[locale] || locales.de;
+  const domain = DOMAINS[locale] || DOMAINS.de;
+  const siteName = SITE_NAMES[locale] || SITE_NAMES.de;
+  const ogLocale = OG_LOCALES[locale] || OG_LOCALES.de;
+
+  const canonicalUrl = `${domain}/pferde-ratgeber/${slug}`;
+  const imageUrl = `${domain}${image}`;
+  const finalDateModified = dateModified || datePublished;
+
+  // Generate hreflang tags for all available locales
+  const hreflangTags = [
+    { hreflang: 'de', href: `${DOMAINS.de}/pferde-ratgeber/${slug}` },
+    ...(locales.at ? [{ hreflang: 'de-AT', href: `${DOMAINS.at}/pferde-ratgeber/${slug}` }] : []),
+    ...(locales.ch ? [{ hreflang: 'de-CH', href: `${DOMAINS.ch}/pferde-ratgeber/${slug}` }] : []),
+    { hreflang: 'x-default', href: `${DOMAINS.de}/pferde-ratgeber/${slug}` },
+  ];
+
+  // Article Schema
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: content.title,
+    description: content.description,
+    image: imageUrl,
+    author: {
+      '@type': 'Organization',
+      name: 'PferdeWert.de Redaktion',
+      url: `${DOMAINS.de}/ueber-uns`
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'PferdeWert.de',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${DOMAINS.de}/logo.png`,
+        width: 600,
+        height: 60
+      }
+    },
+    datePublished,
+    dateModified: finalDateModified,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl
+    },
+    ...(content.keywords && { keywords: content.keywords }),
+    ...(wordCount && { wordCount }),
+    isAccessibleForFree: true
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Startseite',
+        item: domain
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Pferde-Ratgeber',
+        item: `${domain}/pferde-ratgeber`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: breadcrumbTitle,
+        item: canonicalUrl
+      }
+    ]
+  };
+
+  // FAQ Schema
+  const faqSchema = faqItems && faqItems.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  } : null;
+
+  return (
+    <Head>
+      {/* Basic Meta */}
+      <title>{content.title}</title>
+      <meta name="description" content={content.description} />
+      {content.keywords && <meta name="keywords" content={content.keywords} />}
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={canonicalUrl} />
+
+      {/* hreflang Tags */}
+      {hreflangTags.map((tag) => (
+        <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
+      ))}
+
+      {/* Open Graph */}
+      <meta property="og:title" content={content.ogTitle || content.title} />
+      <meta property="og:description" content={content.ogDescription || content.description} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/webp" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={content.twitterTitle || content.ogTitle || content.title} />
+      <meta name="twitter:description" content={content.twitterDescription || content.ogDescription || content.description} />
+      <meta name="twitter:site" content="@PferdeWert" />
+      <meta name="twitter:creator" content="@PferdeWert" />
+
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* FAQ Schema */}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+    </Head>
+  );
+}

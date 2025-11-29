@@ -1,6 +1,6 @@
 import LocalizedLink from '@/components/LocalizedLink'
-import Head from 'next/head';
 import Layout from '@/components/Layout';
+import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
@@ -244,9 +244,20 @@ const weitereVersicherungenData = [
   }
 ];
 
+// SEO Metadata - currently DE only, can add AT/CH locales later
+const seoLocales = {
+  de: {
+    title: "Anfängerpferd kaufen: Ratgeber für sicheren Kauf 2025",
+    description: "Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar.",
+    keywords: "anfängerpferd kaufen, anfängerpferd rassen, anfängerpferd alter, pferd für anfänger, erstes pferd kaufen",
+    ogTitle: "Anfängerpferd kaufen: Der ultimative Ratgeber 2025",
+    ogDescription: "Umfassender Guide zum Kauf eines Anfängerpferds: Rassen, Kosten, AKU, rechtliche Absicherung & Versicherungen. Jetzt informieren!",
+    twitterTitle: "Anfängerpferd kaufen: Der ultimative Ratgeber",
+    twitterDescription: "Von geeigneten Rassen über Kosten bis zur AKU: So kaufst du dein erstes Pferd sicher. Mit Checklisten & Praxis-Tipps.",
+  },
+};
+
 export default function AnfaengerpferdKaufen() {
-
-
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
     href: "/pferde-preis-berechnen",
@@ -258,115 +269,15 @@ export default function AnfaengerpferdKaufen() {
       fullWidth={true}
       background="bg-gradient-to-b from-amber-50 to-white"
     >
-      <Head>
-        <title>Anfängerpferd kaufen: Ratgeber für sicheren Kauf 2025</title>
-        <meta name="description" content="Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar." />
-        <meta name="keywords" content="anfängerpferd kaufen, anfängerpferd rassen, anfängerpferd alter, pferd für anfänger, erstes pferd kaufen" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Anfängerpferd kaufen: Der ultimative Ratgeber 2025" />
-        <meta property="og:description" content="Umfassender Guide zum Kauf eines Anfängerpferds: Rassen, Kosten, AKU, rechtliche Absicherung & Versicherungen. Jetzt informieren!" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/anfaengerpferd-hero.webp" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Anfängerpferd kaufen: Der ultimative Ratgeber" />
-        <meta name="twitter:description" content="Von geeigneten Rassen über Kosten bis zur AKU: So kaufst du dein erstes Pferd sicher. Mit Checklisten & Praxis-Tipps." />
-        <meta name="twitter:creator" content="@pferdewertde" />
-
-        {/* Article Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: 'Anfängerpferd kaufen: Der ultimative Ratgeber für den sicheren Pferdekauf (2025)',
-              description: 'Umfassender Guide zum Kauf eines Anfängerpferds: Von geeigneten Rassen über Kosten, Ankaufsuntersuchung bis zu rechtlichen Aspekten und Versicherungen.',
-              image: 'https://pferdewert.de/images/ratgeber/anfaengerpferd-hero.webp',
-              author: {
-                '@type': 'Person',
-                name: 'PferdeWert.de Redaktion',
-                url: 'https://pferdewert.de/ueber-uns'
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'PferdeWert.de',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: 'https://pferdewert.de/logo.png',
-                  width: 250,
-                  height: 60
-                },
-                url: 'https://pferdewert.de'
-              },
-              datePublished: '2025-01-14',
-              dateModified: '2025-01-14',
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': 'https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen'
-              },
-              articleSection: 'Ratgeber',
-              keywords: 'anfängerpferd kaufen, pferd für anfänger, anfängerpferd rassen, erstes pferd, pferdekauf anfänger',
-              wordCount: 4180
-            })
-          }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  name: 'Home',
-                  item: 'https://pferdewert.de'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  name: 'Pferde-Ratgeber',
-                  item: 'https://pferdewert.de/pferde-ratgeber'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 3,
-                  name: 'Anfängerpferd kaufen',
-                  item: 'https://pferdewert.de/pferde-ratgeber/anfaengerpferd-kaufen'
-                }
-              ]
-            })
-          }}
-        />
-
-        {/* FAQ Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: faqItems.map((item) => ({
-                '@type': 'Question',
-                name: item.question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: item.answer
-                }
-              }))
-            })
-          }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="anfaengerpferd-kaufen"
+        image="/images/ratgeber/anfaengerpferd-hero.webp"
+        locales={seoLocales}
+        datePublished="2025-01-14"
+        wordCount={4180}
+        breadcrumbTitle="Anfängerpferd kaufen"
+        faqItems={faqItems}
+      />
 
       <RatgeberHero
         title="Anfängerpferd kaufen: Der ultimative Ratgeber für den sicheren Pferdekauf (2025)"

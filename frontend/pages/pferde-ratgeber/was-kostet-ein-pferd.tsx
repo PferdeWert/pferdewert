@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
-import Head from 'next/head'
 import LocalizedLink from '@/components/LocalizedLink'
 import Layout from '@/components/Layout'
 import RatgeberHero from '@/components/ratgeber/RatgeberHero'
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage'
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents'
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox'
+import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
@@ -89,108 +89,36 @@ const SECONDARY_CTA = {
   label: 'Mehr erfahren'
 }
 
-// FAST REFRESH FIX: Define JSON-LD schemas at module level to prevent recreation on every render
-// JSON-LD Article Schema
-const ARTICLE_SCHEMA = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Was kostet ein Pferd 2025? Vollständiger Kosten-Guide + Beispiele',
-    description: 'Pferd Kosten 2025: Anschaffung (2.500-20.000€) + monatliche Kosten (400-800€). Pferdepreise nach Rasse, Haltungsform, Versicherung & Tierarzt. Inkl. Budget-Szenarien.',
-    url: 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd',
-    datePublished: '2025-10-11T10:00:00+01:00',
-    dateModified: '2025-10-25T10:00:00+01:00',
-    author: {
-      '@type': 'Person',
-      name: 'PferdeWert Redaktion',
-      url: 'https://pferdewert.de'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'PferdeWert.de',
-      url: 'https://pferdewert.de',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://pferdewert.de/logo.png',
-        width: 600,
-        height: 60
-      }
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd'
-    },
-    articleSection: 'Pferde-Ratgeber',
-    articleBody: 'Ein Pferd kostet in der Anschaffung zwischen 2.500€ und 20.000€, abhängig von Rasse, Alter und Ausbildungsstand. Die monatlichen Kosten liegen durchschnittlich bei 300-800€. Diese Preisspanne ist beträchtlich, und viele angehende Pferdebesitzer unterschätzen die tatsächlichen Gesamtkosten erheblich. Basierend auf über 1.000 Pferdebewertungen in der PferdeWert-Datenbank liegt der durchschnittliche Gesamtaufwand für ein Freizeitpferd in Deutschland bei 6.500€ - 12.000€ pro Jahr. Die wichtigsten Kostenpunkte umfassen Anschaffungskosten (2.500€ - 20.000€), monatliche Kosten (400€ - 800€), jährliche Fixkosten (1.500€ - 3.000€), versteckte Kosten (500€ - 2.000€/Jahr) und bei eigenem Stall eine Initialinvestition von 15.000€ - 50.000€.',
-    wordCount: 2750,
-    keywords: [
-      'was kostet ein pferd',
-      'pferd kosten',
-      'pferd preis',
-      'pferd kosten monatlich',
-      'pferd kosten tabelle',
-      'pferd preis rasse',
-      'pferdehaltung kosten',
-      'pferd anschaffungskosten',
-      'günstigstes pferd',
-      'stallmiete',
-      'hufschmied kosten',
-      'tierarztkosten pferd',
-      'pferd versicherung',
-      'pferd kaufen kosten',
-      'pferdekosten deutschland'
-    ],
-    inLanguage: 'de-DE',
-    about: [
-      {
-        '@type': 'Thing',
-        name: 'Pferdehaltung',
-        description: 'Kosten und Aufwand der Pferdehaltung in Deutschland'
-      },
-      {
-        '@type': 'Thing',
-        name: 'Pferdekauf',
-        description: 'Anschaffungskosten und Kaufpreise für Pferde'
-      }
-    ],
-    mentions: [
-      {
-        '@type': 'Organization',
-        name: 'PferdeWert.de',
-        url: 'https://pferdewert.de'
-      },
-      {
-        '@type': 'Organization',
-        name: 'Bundestierärztekammer',
-        description: 'Gebührenordnung für Tierärzte (GOT)'
-      }
-    ]
-  }
-
-// JSON-LD Breadcrumb Schema
-const BREADCRUMB_SCHEMA = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://pferdewert.de'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Pferde-Ratgeber',
-        item: 'https://pferdewert.de/pferde-ratgeber'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Was kostet ein Pferd? Vollständige Kostenübersicht 2025',
-        item: 'https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd'
-      }
-    ]
-  }
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Was kostet ein Pferd 2025? Vollständiger Kosten-Guide + Beispiele',
+    description: 'Pferd kaufen: Alle Kosten im Überblick! ✓ Anschaffung ✓ Monatliche Ausgaben ✓ Versteckte Kosten ✓ Praxis-Beispiele + KI-Bewertung',
+    keywords: 'was kostet ein pferd, pferd kosten, pferd preis, pferd kosten monatlich, pferd kosten tabelle, pferdehaltung kosten, pferd anschaffungskosten',
+    ogTitle: 'Was kostet ein Pferd 2025? Vollständiger Kosten-Guide',
+    ogDescription: 'Pferd kaufen: Alle Kosten im Überblick! Anschaffung (2.500-20.000€), monatliche Ausgaben (400-800€), versteckte Kosten, Praxis-Beispiele.',
+    twitterTitle: 'Was kostet ein Pferd 2025? Vollständiger Kosten-Guide',
+    twitterDescription: 'Pferd kaufen: Alle Kosten im Überblick! Anschaffung (2.500-20.000€), monatliche Ausgaben (400-800€), versteckte Kosten.',
+  },
+  at: {
+    title: 'Was kostet ein Pferd in Österreich 2025? Komplette Kostenübersicht',
+    description: 'Pferd kaufen in Österreich: Alle Kosten im Überblick! ✓ Anschaffung ✓ Monatliche Ausgaben ✓ Versteckte Kosten ✓ KI-Bewertung',
+    keywords: 'was kostet ein pferd österreich, pferd kosten österreich, pferd preis, pferdehaltung kosten, pferd anschaffungskosten',
+    ogTitle: 'Was kostet ein Pferd in Österreich 2025? Komplette Kostenübersicht',
+    ogDescription: 'Pferd kaufen in Österreich: Alle Kosten im Überblick! Anschaffung, monatliche Ausgaben, versteckte Kosten und Praxis-Beispiele.',
+    twitterTitle: 'Was kostet ein Pferd in Österreich 2025?',
+    twitterDescription: 'Pferd kaufen in Österreich: Alle Kosten im Überblick! Anschaffung, monatliche Ausgaben, versteckte Kosten.',
+  },
+  ch: {
+    title: 'Was kostet ein Pferd in der Schweiz 2025? Komplette Kostenübersicht',
+    description: 'Pferd kaufen in der Schweiz: Alle Kosten im Überblick! ✓ Anschaffung ✓ Monatliche Ausgaben ✓ Versteckte Kosten ✓ KI-Bewertung',
+    keywords: 'was kostet ein pferd schweiz, pferd kosten schweiz, pferd preis, pferdehaltung kosten, pferd anschaffungskosten',
+    ogTitle: 'Was kostet ein Pferd in der Schweiz 2025? Komplette Kostenübersicht',
+    ogDescription: 'Pferd kaufen in der Schweiz: Alle Kosten im Überblick! Anschaffung, monatliche Ausgaben, versteckte Kosten und Praxis-Beispiele.',
+    twitterTitle: 'Was kostet ein Pferd in der Schweiz 2025?',
+    twitterDescription: 'Pferd kaufen in der Schweiz: Alle Kosten im Überblick! Anschaffung, monatliche Ausgaben, versteckte Kosten.',
+  },
+}
 
 export default function WasKostetEinPferd() {
 
@@ -208,59 +136,16 @@ export default function WasKostetEinPferd() {
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
-      <Head>
-        {/* Primary Meta Tags */}
-        <title>Was kostet ein Pferd 2025? Vollständiger Kosten-Guide + Beispiele</title>
-        <meta
-          name="description"
-          content="Pferd kaufen: Alle Kosten im Überblick! ✓ Anschaffung ✓ Monatliche Ausgaben ✓ Versteckte Kosten ✓ Praxis-Beispiele + kostenlose KI-Bewertung"
-        />
-        <meta name="robots" content="index, follow" />
-        <link
-          rel="canonical"
-          href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
-        />
-
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Was kostet ein Pferd 2025? Vollständiger Kosten-Guide" />
-        <meta
-          property="og:description"
-          content="Pferd kaufen: Alle Kosten im Überblick! Anschaffung (2.500-20.000€), monatliche Ausgaben (400-800€), versteckte Kosten, Praxis-Beispiele."
-        />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:url"
-          content="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd"
-        />
-        <meta property="og:site_name" content="PferdeWert.de" />
-        <meta property="og:locale" content="de_DE" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Was kostet ein Pferd 2025? Vollständiger Kosten-Guide" />
-        <meta
-          name="twitter:description"
-          content="Pferd kaufen: Alle Kosten im Überblick! Anschaffung (2.500-20.000€), monatliche Ausgaben (400-800€), versteckte Kosten."
-        />
-        <meta name="twitter:site" content="@PferdeWert" />
-        <meta name="twitter:creator" content="@PferdeWert" />
-
-        {/* hreflang Tags for International Localization */}
-        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
-        <link rel="alternate" hrefLang="de-AT" href="https://pferdewert.de/at/pferde-ratgeber/was-kostet-ein-pferd" />
-        <link rel="alternate" hrefLang="de-CH" href="https://pferdewert.de/ch/pferde-ratgeber/was-kostet-ein-pferd" />
-        <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
-
-        {/* JSON-LD Schemas */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_SCHEMA) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="was-kostet-ein-pferd"
+        image="/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/horse-chestnut-eating-hay-stable-window.webp"
+        locales={seoLocales}
+        datePublished="2025-10-11"
+        dateModified="2025-10-25"
+        wordCount={2750}
+        breadcrumbTitle="Was kostet ein Pferd?"
+        faqItems={faqItems}
+      />
 
       {/* Hero Section */}
       <RatgeberHero

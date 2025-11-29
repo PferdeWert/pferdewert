@@ -1,14 +1,14 @@
 import LocalizedLink from '@/components/LocalizedLink'
-import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
+import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
-import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang';
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck, Clock, User } from 'lucide-react';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
@@ -24,10 +24,38 @@ const heroMetaItems = [
   { icon: userIcon, label: 'PferdeWert Redaktion' }
 ];
 
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung',
+    description: 'Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!',
+    keywords: 'dressurpferd kaufen, dressurpferd preis, m-fertig dressurpferd, grand prix pferd, dressurpferd vom züchter',
+    ogTitle: 'Dressurpferd kaufen: Der ultimative Ratgeber 2025',
+    ogDescription: 'Erfahre alles über Preise, Qualität & Kaufquellen für Dressurpferde. Von A-Niveau bis Grand Prix. Mit KI-gestützter Bewertung in 2 Minuten.',
+    twitterTitle: 'Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung',
+    twitterDescription: 'Preise, Qualitätskriterien & Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix. Jetzt informieren!',
+  },
+  at: {
+    title: 'Dressurpferd kaufen in Österreich: Kompletter Ratgeber',
+    description: 'Dressurpferd kaufen in Österreich: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix.',
+    keywords: 'dressurpferd kaufen österreich, dressurpferd preis, m-fertig dressurpferd, dressurpferd vom züchter',
+    ogTitle: 'Dressurpferd kaufen in Österreich: Der Ratgeber 2025',
+    ogDescription: 'Alles über Preise, Qualität & Kaufquellen für Dressurpferde in Österreich. Mit KI-Bewertung.',
+    twitterTitle: 'Dressurpferd kaufen in Österreich',
+    twitterDescription: 'Preise, Qualitätskriterien & Kaufquellen für Dressurpferde in Österreich.',
+  },
+  ch: {
+    title: 'Dressurpferd kaufen in der Schweiz: Kompletter Ratgeber',
+    description: 'Dressurpferd kaufen in der Schweiz: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix.',
+    keywords: 'dressurpferd kaufen schweiz, dressurpferd preis, m-fertig dressurpferd, dressurpferd vom züchter',
+    ogTitle: 'Dressurpferd kaufen in der Schweiz: Der Ratgeber 2025',
+    ogDescription: 'Alles über Preise, Qualität & Kaufquellen für Dressurpferde in der Schweiz. Mit KI-Bewertung.',
+    twitterTitle: 'Dressurpferd kaufen in der Schweiz',
+    twitterDescription: 'Preise, Qualitätskriterien & Kaufquellen für Dressurpferde in der Schweiz.',
+  },
+};
+
 export default function DressurpferdKaufen() {
-  // SEO: hreflang tags for multi-country support (DE, AT, CH)
-  const hreflangTags = useSEOHreflang('/pferde-ratgeber/dressurpferd-kaufen');
-  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/dressurpferd-kaufen');
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
@@ -81,136 +109,30 @@ export default function DressurpferdKaufen() {
     }
   ];
 
-  const relatedArticles = [
-    {
-      href: '/pferde-ratgeber/pferdekaufvertrag',
-      image: '/images/ratgeber/horses-mountain-field-spain.webp',
-      title: 'Pferdekaufvertrag: Rechtliche Absicherung beim Pferdekauf',
-      badge: 'Finanzen & Recht',
-      readTime: '12 Min.',
-      description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.'
-    },
-    {
-      href: '/pferde-ratgeber/aku-pferd',
-      image: '/images/ratgeber/aku-pferd/veterinarian-examining-horse-head-outdoor.webp',
-      title: 'Ankaufsuntersuchung beim Pferd: Der ultimative AKU-Ratgeber',
-      badge: 'Kauf & Verkauf',
-      readTime: '15 Min.',
-      description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.'
-    },
-    {
-      href: '/pferde-ratgeber/pferd-kaufen',
-      image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp',
-      title: 'Pferd kaufen: Der ultimative Ratgeber für Erstkäufer',
-      badge: 'Kauf & Verkauf',
-      readTime: '18 Min.',
-      description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.'
-    }
-  ];
+  // Related articles from registry
+  const relatedArticles = getRelatedArticles('dressurpferd-kaufen').map(entry => ({
+    href: getRatgeberPath(entry.slug),
+    image: entry.image,
+    title: entry.title,
+    badge: entry.category,
+    readTime: entry.readTime,
+    description: entry.description
+  }));
 
   return (
     <Layout
       fullWidth={true}
       background="bg-gradient-to-b from-amber-50 to-white"
     >
-      <Head>
-        <title>Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung</title>
-        <meta name="description" content="Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={canonicalUrl} />
-
-        {/* hreflang tags for multi-country SEO */}
-        {hreflangTags}
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Dressurpferd kaufen: Der ultimative Ratgeber 2025" />
-        <meta property="og:description" content="Erfahre alles über Preise, Qualität & Kaufquellen für Dressurpferde. Von A-Niveau bis Grand Prix. Mit KI-gestützter Bewertung in 2 Minuten." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/dressage-horse-training-arena.webp" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung" />
-        <meta name="twitter:description" content="Preise, Qualitätskriterien & Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix. Jetzt informieren!" />
-
-        {/* Article Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: 'Dressurpferd kaufen: Der ultimative Ratgeber für Ihren sicheren Kauf',
-              description: 'Umfassender Ratgeber zum Kauf von Dressurpferden: Preisgestaltung nach Ausbildungsstand, Qualitätskriterien, Rasseauswahl, Kaufquellen und rechtliche Absicherung.',
-              image: {
-                '@type': 'ImageObject',
-                url: 'https://pferdewert.de/images/ratgeber/dressage-horse-training-arena.webp',
-                width: 1200,
-                height: 630
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'PferdeWert',
-                url: 'https://pferdewert.de'
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'PferdeWert',
-                url: 'https://pferdewert.de',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: 'https://pferdewert.de/images/logo.png',
-                  width: 600,
-                  height: 60
-                }
-              },
-              datePublished: '2025-11-09',
-              dateModified: '2025-11-09',
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': 'https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen'
-              },
-              articleSection: 'Pferdekauf',
-              keywords: ['Dressurpferd kaufen', 'Dressurpferd Preis', 'M-fertig Dressurpferd', 'S Dressurpferd', 'Grand Prix Dressurpferd', 'Dressurpferd vom Züchter', 'Ankaufsuntersuchung', 'Dressurpferderassen'],
-              wordCount: 2643,
-              timeRequired: 'PT14M',
-              inLanguage: 'de-DE'
-            })
-          }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  name: 'Home',
-                  item: 'https://pferdewert.de'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  name: 'Pferde-Ratgeber',
-                  item: 'https://pferdewert.de/pferde-ratgeber'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 3,
-                  name: 'Dressurpferd kaufen',
-                  item: 'https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen'
-                }
-              ]
-            })
-          }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="dressurpferd-kaufen"
+        image="/images/ratgeber/dressage-rider-competition-arena.webp"
+        locales={seoLocales}
+        datePublished="2025-11-09"
+        wordCount={2643}
+        breadcrumbTitle="Dressurpferd kaufen"
+        faqItems={faqItems}
+      />
 
       <article>
         {/* Hero Section */}

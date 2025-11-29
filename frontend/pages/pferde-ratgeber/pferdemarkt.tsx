@@ -1,6 +1,5 @@
 import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next'
-import Head from 'next/head'
 
 import { useMemo } from 'react'
 import { Clock, Calendar, Award, ArrowRight, ChevronDown, AlertCircle } from 'lucide-react'
@@ -13,6 +12,7 @@ import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
+import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
@@ -26,13 +26,35 @@ const arrowRightIcon = <ArrowRight className="w-5 h-5" />;
 const chevronDownIcon = <ChevronDown className="w-5 h-5" />;
 const alertCircleBrownIcon = <AlertCircle className="h-5 w-5 text-brand-brown" />;
 
-// SEO Metadata
-const seoMetadata = {
-  title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
-  description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
-  canonical_url: 'https://pferdewert.de/pferde-ratgeber/pferdemarkt',
-  og_image: 'https://pferdewert.de/images/ratgeber/horse-market-havelberg-crowd.webp',
-  og_image_alt: 'Pferdemarkt Deutschland 2025 - Havelberger Pferdemarkt mit Besuchern'
+// SEO Locales for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
+    description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
+    keywords: 'pferdemarkt, pferdemarkt deutschland, pferdemärkte, online pferdemarkt, havelberger pferdemarkt, bietigheimer pferdemarkt',
+    ogTitle: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
+    ogDescription: 'Pferdemarkt Deutschland: Entdecke Havelberg (200.000 Besucher), Bietigheim & Online-Plattformen. Praktische Tipps für sicheren Pferdekauf.',
+    twitterTitle: 'Pferdemarkt 2025: Online & Traditionelle Märkte',
+    twitterDescription: 'Havelberg, Bietigheim & Online-Plattformen: Finde das richtige Pferd mit praktischen Kauftipps.',
+  },
+  at: {
+    title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte | Österreich',
+    description: 'Pferdemarkt 2025: Havelberger Markt mit 200.000 Besuchern, Online-Plattformen mit 19.000+ Inserate. Tipps für den Pferdekauf in Österreich.',
+    keywords: 'pferdemarkt, pferdemarkt österreich, pferdemärkte, online pferdemarkt, pferde kaufen österreich',
+    ogTitle: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte | Österreich',
+    ogDescription: 'Pferdemarkt für Österreich: Entdecke Online-Plattformen & traditionelle Märkte. Praktische Tipps für sicheren Pferdekauf.',
+    twitterTitle: 'Pferdemarkt 2025: Online & Traditionelle Märkte | AT',
+    twitterDescription: 'Online-Plattformen & traditionelle Märkte: Finde das richtige Pferd für österreichische Käufer.',
+  },
+  ch: {
+    title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte | Schweiz',
+    description: 'Pferdemarkt 2025: Online-Plattformen mit 19.000+ Inseraten, traditionelle Märkte in Deutschland. Tipps für den Pferdekauf in der Schweiz.',
+    keywords: 'pferdemarkt, pferdemarkt schweiz, pferdemärkte, online pferdemarkt, pferde kaufen schweiz',
+    ogTitle: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte | Schweiz',
+    ogDescription: 'Pferdemarkt für die Schweiz: Entdecke Online-Plattformen & traditionelle Märkte. Praktische Tipps für sicheren Pferdekauf.',
+    twitterTitle: 'Pferdemarkt 2025: Online & Traditionelle Märkte | CH',
+    twitterDescription: 'Online-Plattformen & traditionelle Märkte: Finde das richtige Pferd für Schweizer Käufer.',
+  },
 }
 
 // FAQ Items
@@ -122,138 +144,17 @@ const Pferdemarkt: NextPage = () => {
     document.getElementById('inhaltsverzeichnis')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // JSON-LD Structured Data
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    'headline': 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
-    'alternativeHeadline': 'Pferdemarkt Deutschland - Havelberger Markt, Bietigheim & Online-Plattformen',
-    'description': 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf.',
-    'image': {
-      '@type': 'ImageObject',
-      'url': 'https://pferdewert.de/images/ratgeber/horse-market-havelberg-crowd.webp',
-      'width': 1200,
-      'height': 800
-    },
-    'author': {
-      '@type': 'Organization',
-      'name': 'PferdeWert.de Redaktion',
-      'url': 'https://pferdewert.de/ueber-uns'
-    },
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'PferdeWert.de',
-      'logo': {
-        '@type': 'ImageObject',
-        'url': 'https://pferdewert.de/logo.png',
-        'width': 250,
-        'height': 60
-      },
-      'sameAs': 'https://pferdewert.de'
-    },
-    'datePublished': '2025-10-25',
-    'dateModified': '2025-10-25',
-    'mainEntityOfPage': {
-      '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/pferde-ratgeber/pferdemarkt'
-    },
-    'articleBody': 'Der Pferdemarkt ist eine faszinierende Tradition in Deutschland mit einer langen Geschichte. In diesem Ratgeber entdeckst du die größten Pferdemärkte Deutschlands, moderne Online-Plattformen mit Tausenden Inseraten, traditionelle Events 2025–2026, und praktische Tipps für deinen Besuch oder Einkauf.',
-    'articleSection': 'Ratgeber',
-    'keywords': [
-      'pferdemarkt',
-      'pferdemarkt deutschland',
-      'havelberger pferdemarkt',
-      'bietigheimer pferdemarkt',
-      'online pferdemarkt',
-      'ehorses',
-      'pferde kaufen'
-    ],
-    'wordCount': 1725,
-    'inLanguage': 'de-DE'
-  }
-
-
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
-      {
-        '@type': 'ListItem',
-        'position': 1,
-        'name': 'Home',
-        'item': 'https://pferdewert.de'
-      },
-      {
-        '@type': 'ListItem',
-        'position': 2,
-        'name': 'Ratgeber',
-        'item': 'https://pferdewert.de/pferde-ratgeber'
-      },
-      {
-        '@type': 'ListItem',
-        'position': 3,
-        'name': 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
-        'item': 'https://pferdewert.de/pferde-ratgeber/pferdemarkt'
-      }
-    ]
-  }
-
   return (
     <>
-      <Head>
-        {/* Basic Meta Tags */}
-        <title>{seoMetadata.title}</title>
-        <meta name="description" content={seoMetadata.description} />
-        <meta name="keywords" content="pferdemarkt, pferdemarkt deutschland, pferdemärkte, online pferdemarkt, havelberger pferdemarkt, bietigheimer pferdemarkt" />
-        <meta name="author" content="PferdeWert.de" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-
-        {/* Technical Meta Tags */}
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <meta name="theme-color" content="#5A4B3B" />
-        <meta name="msapplication-TileColor" content="#5A4B3B" />
-
-        {/* Canonical and hreflang */}
-        <link rel="canonical" href={seoMetadata.canonical_url} />
-        <link rel="alternate" hrefLang="de-DE" href={seoMetadata.canonical_url} />
-
-        {/* Open Graph */}
-        <meta property="og:title" content={seoMetadata.title} />
-        <meta property="og:description" content="Pferdemarkt Deutschland: Entdecke Havelberg (200.000 Besucher), Bietigheim & Online-Plattformen. Praktische Tipps für sicheren Pferdekauf." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={seoMetadata.canonical_url} />
-        <meta property="og:image" content={seoMetadata.og_image} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={seoMetadata.og_image_alt} />
-        <meta property="og:site_name" content="PferdeWert.de" />
-        <meta property="og:locale" content="de_DE" />
-
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferdemarkt 2025: Online & Traditionelle Märkte" />
-        <meta name="twitter:description" content="Havelberg, Bietigheim & Online-Plattformen: Finde das richtige Pferd auf 22.200+ monatliche Suchanfragen." />
-        <meta name="twitter:image" content={seoMetadata.og_image} />
-        <meta name="twitter:creator" content="@pferdewertde" />
-
-        {/* Preconnect for Performance */}
-        {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-
-        {/* Prefetch for Core Pages */}
-        <link rel="prefetch"  href="/pferde-preis-berechnen" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="pferdemarkt"
+        image="/images/ratgeber/horse-market-havelberg-crowd.webp"
+        locales={seoLocales}
+        datePublished="2025-10-25"
+        wordCount={1725}
+        breadcrumbTitle="Pferdemarkt"
+        faqItems={pferdemarktFaqItems}
+      />
 
       <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
         {/* HERO */}

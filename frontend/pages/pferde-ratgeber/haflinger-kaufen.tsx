@@ -1,8 +1,7 @@
 import React from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { Award, ShieldAlert, TrendingUp, FileText, AlertTriangle } from 'lucide-react';
 import Layout from '@/components/Layout';
+import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
@@ -12,169 +11,37 @@ import RatgeberRelatedArticles, { RatgeberRelatedArticle } from '@/components/ra
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import LocalizedLink from '@/components/LocalizedLink';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
+import AuthorBox from '@/components/AuthorBox';
 
-// SEO Metadata (DE/AT/CH)
-const seoMetadata = {
-  "phase": "5A",
-  "primary_keyword": "haflinger kaufen",
-  "timestamp": "2025-11-27T12:00:00Z",
-  "slug": "haflinger-kaufen",
-  "locales": {
-    "de": {
-      "metadata": {
-        "title": "Haflinger kaufen: Kompletter Guide mit Preisen & Tipps",
-        "description": "Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.",
-        "keywords": "haflinger kaufen, haflinger preis, haflinger pferd kaufen, haflinger kosten, haflinger anschaffung",
-        "canonical_url": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen",
-        "robots": "index, follow"
-      },
-      "open_graph": {
-        "og:title": "Haflinger kaufen: Kompletter Guide mit Preisen",
-        "og:description": "Haflinger kaufen: Marktpreise, Rassen-Unterschiede, Kostenrechnung & sichere Kaufabwicklung von Experten erklärt.",
-        "og:type": "article",
-        "og:url": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen",
-        "og:site_name": "PferdeWert.de",
-        "og:locale": "de_DE",
-        "og:image": "https://pferdewert.de/images/ratgeber/haflinger-kaufen.webp"
-      },
-      "twitter_card": {
-        "twitter:card": "summary_large_image",
-        "twitter:title": "Haflinger kaufen: Kompletter Guide",
-        "twitter:description": "Marktpreise, Rassen-Unterschiede, Kostenrechnung & sichere Kaufabwicklung.",
-        "twitter:site": "@PferdeWert"
-      }
-    },
-    "at": {
-      "metadata": {
-        "title": "Haflinger kaufen in Österreich: Ratgeber 2025",
-        "description": "Haflinger kaufen in Österreich: Marktpreise (€4.900 Median), Züchter-Tipps & Betrugsschutz. Kompletter Ratgeber für österreichische Käufer.",
-        "keywords": "haflinger kaufen österreich, haflinger kaufen tirol, haflinger züchter österreich, haflinger kosten österreich",
-        "canonical_url": "https://pferdewert.at/pferde-ratgeber/haflinger-kaufen",
-        "robots": "index, follow"
-      },
-      "open_graph": {
-        "og:title": "Haflinger kaufen in Österreich: Ratgeber",
-        "og:description": "Haflinger kaufen in Österreich: Marktpreise, Züchter-Tipps, Betrugsschutz & sichere Abwicklung für österreichische Käufer.",
-        "og:type": "article",
-        "og:url": "https://pferdewert.at/pferde-ratgeber/haflinger-kaufen",
-        "og:site_name": "PferdeWert.at",
-        "og:locale": "de_AT",
-        "og:image": "https://pferdewert.at/images/ratgeber/haflinger-kaufen.webp"
-      },
-      "twitter_card": {
-        "twitter:card": "summary_large_image",
-        "twitter:title": "Haflinger kaufen in Österreich",
-        "twitter:description": "Marktpreise, Züchter-Tipps & Betrugsschutz für österreichische Käufer.",
-        "twitter:site": "@PferdeWert"
-      }
-    },
-    "ch": {
-      "metadata": {
-        "title": "Haflinger kaufen Schweiz: Ratgeber 2025",
-        "description": "Haflinger kaufen in der Schweiz: Preise (CHF 5.200 Median), Züchter & Betrugsschutz. Schweizer Ratgeber für sichere Pferdekäufe.",
-        "keywords": "haflinger kaufen schweiz, haflinger kaufen graubünden, haflinger züchter schweiz, haflinger kosten schweiz",
-        "canonical_url": "https://pferdewert.ch/pferde-ratgeber/haflinger-kaufen",
-        "robots": "index, follow"
-      },
-      "open_graph": {
-        "og:title": "Haflinger kaufen Schweiz: Ratgeber",
-        "og:description": "Haflinger kaufen Schweiz: CHF 5.200 Median, Züchter-Tipps, Betrugsschutz & sichere Abwicklung für Schweizer Käufer.",
-        "og:type": "article",
-        "og:url": "https://pferdewert.ch/pferde-ratgeber/haflinger-kaufen",
-        "og:site_name": "PferdeWert.ch",
-        "og:locale": "de_CH",
-        "og:image": "https://pferdewert.ch/images/ratgeber/haflinger-kaufen.webp"
-      },
-      "twitter_card": {
-        "twitter:card": "summary_large_image",
-        "twitter:title": "Haflinger kaufen Schweiz",
-        "twitter:description": "CHF 5.200 Median, Züchter-Tipps & Betrugsschutz für Schweizer Käufer.",
-        "twitter:site": "@PferdeWert"
-      }
-    }
+// SEO Metadata (DE/AT/CH) - used by RatgeberHead
+const seoLocales = {
+  de: {
+    title: "Haflinger kaufen: Kompletter Guide mit Preisen & Tipps",
+    description: "Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.",
+    keywords: "haflinger kaufen, haflinger preis, haflinger pferd kaufen, haflinger kosten, haflinger anschaffung",
+    ogTitle: "Haflinger kaufen: Kompletter Guide mit Preisen",
+    ogDescription: "Haflinger kaufen: Marktpreise, Rassen-Unterschiede, Kostenrechnung & sichere Kaufabwicklung von Experten erklärt.",
+    twitterTitle: "Haflinger kaufen: Kompletter Guide",
+    twitterDescription: "Marktpreise, Rassen-Unterschiede, Kostenrechnung & sichere Kaufabwicklung.",
   },
-  "hreflang": [
-    {
-      "hreflang": "de",
-      "href": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
-    },
-    {
-      "hreflang": "de-AT",
-      "href": "https://pferdewert.at/pferde-ratgeber/haflinger-kaufen"
-    },
-    {
-      "hreflang": "de-CH",
-      "href": "https://pferdewert.ch/pferde-ratgeber/haflinger-kaufen"
-    },
-    {
-      "hreflang": "x-default",
-      "href": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
-    }
-  ],
-  "shared": {
-    "twitter:creator": "@PferdeWert",
-    "og:image:width": 1200,
-    "og:image:height": 630,
-    "og:image:type": "image/webp"
-  }
-};
-
-// Schema Markup
-const schemaArticle = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Haflinger kaufen: Kompletter Guide mit Preisen & Tipps",
-  "description": "Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.",
-  "image": "https://pferdewert.de/images/ratgeber/haflinger-kaufen.webp",
-  "author": {
-    "@type": "Organization",
-    "name": "PferdeWert.de Redaktion",
-    "url": "https://pferdewert.de/ueber-uns"
+  at: {
+    title: "Haflinger kaufen in Österreich: Ratgeber 2025",
+    description: "Haflinger kaufen in Österreich: Marktpreise (€4.900 Median), Züchter-Tipps & Betrugsschutz. Kompletter Ratgeber für österreichische Käufer.",
+    keywords: "haflinger kaufen österreich, haflinger kaufen tirol, haflinger züchter österreich, haflinger kosten österreich",
+    ogTitle: "Haflinger kaufen in Österreich: Ratgeber",
+    ogDescription: "Haflinger kaufen in Österreich: Marktpreise, Züchter-Tipps, Betrugsschutz & sichere Abwicklung für österreichische Käufer.",
+    twitterTitle: "Haflinger kaufen in Österreich",
+    twitterDescription: "Marktpreise, Züchter-Tipps & Betrugsschutz für österreichische Käufer.",
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "PferdeWert.de",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://pferdewert.de/logo.png",
-      "width": 600,
-      "height": 60
-    }
+  ch: {
+    title: "Haflinger kaufen Schweiz: Ratgeber 2025",
+    description: "Haflinger kaufen in der Schweiz: Preise (CHF 5.200 Median), Züchter & Betrugsschutz. Schweizer Ratgeber für sichere Pferdekäufe.",
+    keywords: "haflinger kaufen schweiz, haflinger kaufen graubünden, haflinger züchter schweiz, haflinger kosten schweiz",
+    ogTitle: "Haflinger kaufen Schweiz: Ratgeber",
+    ogDescription: "Haflinger kaufen Schweiz: CHF 5.200 Median, Züchter-Tipps, Betrugsschutz & sichere Abwicklung für Schweizer Käufer.",
+    twitterTitle: "Haflinger kaufen Schweiz",
+    twitterDescription: "CHF 5.200 Median, Züchter-Tipps & Betrugsschutz für Schweizer Käufer.",
   },
-  "datePublished": "2025-11-27",
-  "dateModified": "2025-11-27",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
-  },
-  "keywords": "haflinger kaufen, haflinger preis, haflinger pferd kaufen, haflinger kosten, haflinger anschaffung",
-  "wordCount": 3833,
-  "isAccessibleForFree": true
-};
-
-const schemaBreadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Startseite",
-      "item": "https://pferdewert.de"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Pferde-Ratgeber",
-      "item": "https://pferdewert.de/pferde-ratgeber"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Haflinger kaufen",
-      "item": "https://pferdewert.de/pferde-ratgeber/haflinger-kaufen"
-    }
-  ]
 };
 
 // FAQ Items (from schema-faq.json)
@@ -228,9 +95,6 @@ const sections = [
 ];
 
 export default function HaflingerKaufenPage() {
-  const { locale } = useRouter();
-  const localeData = seoMetadata.locales[locale as keyof typeof seoMetadata.locales] || seoMetadata.locales.de;
-
   // Related Articles - automatically fetched from registry based on relatedSlugs
   const relatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('haflinger-kaufen').map(entry => ({
     href: getRatgeberPath(entry.slug),
@@ -243,49 +107,15 @@ export default function HaflingerKaufenPage() {
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
-      <Head>
-        {/* Basic Meta Tags */}
-        <title>{localeData.metadata.title}</title>
-        <meta name="description" content={localeData.metadata.description} />
-        <meta name="robots" content={localeData.metadata.robots} />
-        <link rel="canonical" href={localeData.metadata.canonical_url} />
-
-        {/* hreflang Tags für alle drei Märkte */}
-        {seoMetadata.hreflang.map((link) => (
-          <link key={link.hreflang} rel="alternate" hrefLang={link.hreflang} href={link.href} />
-        ))}
-
-        {/* Open Graph */}
-        <meta property="og:title" content={localeData.open_graph['og:title']} />
-        <meta property="og:description" content={localeData.open_graph['og:description']} />
-        <meta property="og:type" content={localeData.open_graph['og:type']} />
-        <meta property="og:url" content={localeData.open_graph['og:url']} />
-        <meta property="og:locale" content={localeData.open_graph['og:locale']} />
-        <meta property="og:site_name" content={localeData.open_graph['og:site_name']} />
-        <meta property="og:image" content={localeData.open_graph['og:image']} />
-        <meta property="og:image:width" content={String(seoMetadata.shared['og:image:width'])} />
-        <meta property="og:image:height" content={String(seoMetadata.shared['og:image:height'])} />
-        <meta property="og:image:type" content={seoMetadata.shared['og:image:type']} />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content={localeData.twitter_card['twitter:card']} />
-        <meta name="twitter:title" content={localeData.twitter_card['twitter:title']} />
-        <meta name="twitter:description" content={localeData.twitter_card['twitter:description']} />
-        <meta name="twitter:site" content={localeData.twitter_card['twitter:site']} />
-        <meta name="twitter:creator" content={seoMetadata.shared['twitter:creator']} />
-
-        {/* Article Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaArticle) }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBreadcrumb) }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="haflinger-kaufen"
+        image="/images/ratgeber/haflinger-roebel.webp"
+        locales={seoLocales}
+        datePublished="2025-11-27"
+        wordCount={3833}
+        breadcrumbTitle="Haflinger kaufen"
+        faqItems={faqItems}
+      />
 
       {/* Hero Section */}
       <RatgeberHero
@@ -1062,6 +892,9 @@ export default function HaflingerKaufenPage() {
             />
           </div>
         </section>
+
+        {/* Author Box */}
+        <AuthorBox />
 
         {/* Related Articles */}
         {relatedArticles.length > 0 && (

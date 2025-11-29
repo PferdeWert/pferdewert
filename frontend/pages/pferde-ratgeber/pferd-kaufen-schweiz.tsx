@@ -1,10 +1,9 @@
-import { useRouter } from 'next/router';
-import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
+import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles, { RatgeberRelatedArticle } from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
@@ -28,19 +27,38 @@ const heroMetaItems = [
   { icon: userIcon, label: 'PferdeWert Redaktion' }
 ];
 
-export default function PferdKaufenSchweizPage() {
-  const { locale } = useRouter();
-  const isAT = locale === 'at';
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden',
+    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.',
+    keywords: 'pferd kaufen schweiz, schweizer pferdemarkt, pferdekauf schweiz, ehorses schweiz, freiberger kaufen',
+    ogTitle: 'Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich',
+    ogDescription: 'Pferdekauf in der Schweiz: Vergleich von 8 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps.',
+    twitterTitle: 'Pferd kaufen Schweiz: Marktplatz-Vergleich',
+    twitterDescription: 'Pferdekauf in der Schweiz: 8 Plattformen verglichen, Anleitung, Budget-Planer & Sicherheits-Tipps.',
+  },
+  at: {
+    title: 'Pferd kaufen in der Schweiz: Marktplätze für Österreicher',
+    description: 'Für österreichische Pferdeliebhaber: Schweizer Marktplätze entdecken. Vergleich von 8 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer und Sicherheits-Checkliste.',
+    keywords: 'pferd kaufen schweiz österreich, schweizer pferdemarkt, pferdekauf schweiz, ehorses schweiz, freiberger kaufen',
+    ogTitle: 'Schweizer Pferdemarkt: Guide für österreichische Käufer',
+    ogDescription: 'Schweizer Marktplätze für österreichische Pferdeliebhaber: 8 Plattformen verglichen, Anleitung & Tipps.',
+    twitterTitle: 'Schweizer Pferdemarkt für Österreicher',
+    twitterDescription: 'Schweizer Marktplätze für österreichische Käufer: Plattformen, Anleitung & Budget-Tipps.',
+  },
+  ch: {
+    title: 'Pferd kaufen in der Schweiz: Der komplette Marktplatz-Guide',
+    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Schweizer Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps.',
+    keywords: 'pferd kaufen schweiz, schweizer pferdemarkt, pferdekauf, ehorses schweiz, freiberger kaufen, pferde.ch',
+    ogTitle: 'Pferd kaufen Schweiz: Der komplette Marktplatz-Guide',
+    ogDescription: 'Alle Schweizer Pferdemärkte verglichen: ehorses.ch, BillyRider, FM-CH und mehr. Mit Budget-Planer & Sicherheits-Tipps.',
+    twitterTitle: 'Pferd kaufen Schweiz: Kompletter Guide',
+    twitterDescription: 'Alle Schweizer Pferdemärkte verglichen mit Anleitung, Budget-Planer & Sicherheits-Tipps.',
+  },
+};
 
-  // Locale-specific metadata
-  const baseUrl = isAT ? 'https://pferdewert.at' : 'https://pferdewert.de';
-  const pageTitle = isAT
-    ? 'Pferd kaufen in Österreich: Schweizer Marktplätze & Tipps'
-    : 'Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden';
-  const metaDescription = isAT
-    ? 'Für österreichische Pferdeliebhaber: Schweizer Marktplätze entdecken. Vergleich von 8 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer und Sicherheits-Checkliste.'
-    : 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.';
-  const canonicalUrl = `${baseUrl}/pferde-ratgeber/pferd-kaufen-schweiz`;
+export default function PferdKaufenSchweizPage() {
 
   const heroPrimaryCta = {
     label: 'Pferdewert berechnen',
@@ -121,98 +139,15 @@ export default function PferdKaufenSchweizPage() {
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
-      <Head>
-        {/* Primary Meta Tags */}
-        <title>{pageTitle}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta name="robots" content="index, follow" />
-
-        {/* hreflang Tags für beide Märkte */}
-        <link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferde-ratgeber/pferd-kaufen-schweiz" />
-        <link rel="alternate" hrefLang="de-AT" href="https://pferdewert.at/pferde-ratgeber/pferd-kaufen-schweiz" />
-        <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferde-ratgeber/pferd-kaufen-schweiz" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:locale" content={isAT ? 'de_AT' : 'de_DE'} />
-        <meta property="og:site_name" content="PferdeWert" />
-        <meta property="og:image" content={`${baseUrl}/images/ratgeber/horses-zermatt-switzerland.webp`} />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={metaDescription} />
-        <meta name="twitter:image" content={`${baseUrl}/images/ratgeber/horses-zermatt-switzerland.webp`} />
-        <meta name="twitter:site" content="@PferdeWert" />
-
-        {/* Structured Data - Article Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "headline": "Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden",
-              "description": metaDescription,
-              "author": {
-                "@type": "Organization",
-                "name": "PferdeWert"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "PferdeWert",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": `${baseUrl}/images/logo.png`
-                }
-              },
-              "datePublished": "2024-11-26",
-              "dateModified": "2024-11-26",
-              "image": `${baseUrl}/images/ratgeber/horses-zermatt-switzerland.webp`,
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": canonicalUrl
-              },
-              "wordCount": 4620
-            })
-          }}
-        />
-
-        {/* Structured Data - Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": baseUrl
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Pferde Ratgeber",
-                  "item": `${baseUrl}/pferde-ratgeber`
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden",
-                  "item": canonicalUrl
-                }
-              ]
-            })
-          }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="pferd-kaufen-schweiz"
+        image="/images/ratgeber/horses-zermatt-switzerland.webp"
+        locales={seoLocales}
+        datePublished="2024-11-26"
+        wordCount={4620}
+        breadcrumbTitle="Pferd kaufen Schweiz"
+        faqItems={faqItems}
+      />
 
       {/* Hero Section */}
       <RatgeberHero

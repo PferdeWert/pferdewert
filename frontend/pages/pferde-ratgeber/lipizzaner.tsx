@@ -1,14 +1,16 @@
-import LocalizedLink from '@/components/LocalizedLink';
-import Head from 'next/head';
 import Layout from '@/components/Layout';
 import RatgeberHero from '@/components/ratgeber/RatgeberHero';
 import RatgeberHeroImage from '@/components/ratgeber/RatgeberHeroImage';
 import RatgeberTableOfContents from '@/components/ratgeber/RatgeberTableOfContents';
 import RatgeberHighlightBox from '@/components/ratgeber/RatgeberHighlightBox';
+import RatgeberHead from '@/components/ratgeber/RatgeberHead';
 import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { Sparkles, Award, Clock, User, Euro, MapPin, Heart, Calendar } from 'lucide-react';
+import LocalizedLink from '@/components/LocalizedLink';
+import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -16,13 +18,52 @@ const awardIcon = <Award className="w-5 h-5" />;
 const euroIcon = <Euro className="w-5 h-5" />;
 const heartIcon = <Heart className="w-5 h-5" />;
 const clockIcon = <Clock className="h-4 w-4" />;
-const userIcon = <User className="h-4 w-4" />;
+const calendarIcon = <Calendar className="h-4 w-4" />;
+
+// FAST REFRESH FIX: Define author link at module level
+const authorLink = (
+  <LocalizedLink href="/ueber-pferdewert" className="hover:text-brand-brown transition-colors underline underline-offset-2">
+    Benjamin Reder
+  </LocalizedLink>
+);
 
 // FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
 const heroMetaItems = [
   { icon: clockIcon, label: '16 Min. Lesezeit' },
-  { icon: userIcon, label: 'PferdeWert Redaktion' }
+  { icon: calendarIcon, label: '23. November 2025' },
+  { icon: null, label: <span>Von {authorLink}</span> }
 ];
+
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse',
+    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert.',
+    keywords: 'lipizzaner, barockpferde, lipizzaner kaufen, lipizzaner preis, lipizzaner charakter, lipizzaner gestüte, spanische hofreitschule wien',
+    ogTitle: 'Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse',
+    ogDescription: 'Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über ihre Herkunft, den einzigartigen Farbwechsel, Charakter und wie du einen kaufst.',
+    twitterTitle: 'Lipizzaner – Der ultimative Pferderasse-Ratgeber',
+    twitterDescription: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & wie du einen kaufst. Mit Preisen, Gestüten & Tipps für Anfänger.',
+  },
+  at: {
+    title: 'Lipizzaner in Österreich – Der ultimative Ratgeber',
+    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in Österreich. Kompletter Ratgeber mit Preisen, Gestüten & Tipps.',
+    keywords: 'lipizzaner österreich, barockpferde, lipizzaner kaufen, lipizzaner preis, spanische hofreitschule wien, lipizzaner gestüte',
+    ogTitle: 'Lipizzaner in Österreich – Der ultimative Ratgeber',
+    ogDescription: 'Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über Lipizzaner in Österreich.',
+    twitterTitle: 'Lipizzaner in Österreich – Der Ratgeber',
+    twitterDescription: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in Österreich.',
+  },
+  ch: {
+    title: 'Lipizzaner in der Schweiz – Der ultimative Ratgeber',
+    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in der Schweiz. Kompletter Ratgeber mit Preisen, Gestüten & Tipps.',
+    keywords: 'lipizzaner schweiz, barockpferde, lipizzaner kaufen, lipizzaner preis, lipizzaner gestüte',
+    ogTitle: 'Lipizzaner in der Schweiz – Der ultimative Ratgeber',
+    ogDescription: 'Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über Lipizzaner in der Schweiz.',
+    twitterTitle: 'Lipizzaner in der Schweiz – Der Ratgeber',
+    twitterDescription: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in der Schweiz.',
+  },
+};
 
 export default function Lipizzaner() {
   const heroPrimaryCta = {
@@ -78,139 +119,30 @@ export default function Lipizzaner() {
     }
   ];
 
-  const relatedArticles = [
-    {
-      href: '/pferde-ratgeber/dressurpferd-kaufen',
-      image: '/images/ratgeber/dressage-rider-competition-arena.webp',
-      title: 'Dressurpferd kaufen: Der ultimative Ratgeber',
-      badge: 'Kauf & Verkauf',
-      readTime: '14 Min.',
-      description: 'Erfahre alles über Preise, Qualitätskriterien und Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix.'
-    },
-    {
-      href: '/pferde-ratgeber/was-kostet-ein-pferd',
-      image: '/images/ratgeber/horses-mountain-field-spain.webp',
-      title: 'Was kostet ein Pferd? Alle Kosten im Überblick',
-      badge: 'Finanzen',
-      readTime: '16 Min.',
-      description: 'Kaufpreis, monatliche Unterhaltskosten, Tierarzt, Hufschmied und mehr. Plane dein Budget realistisch.'
-    },
-    {
-      href: '/pferde-ratgeber/anfaengerpferd-kaufen',
-      image: '/images/ratgeber/anfaengerpferd-hero.webp',
-      title: 'Anfängerpferd kaufen: Der Ratgeber für Einsteiger',
-      badge: 'Kauf & Verkauf',
-      readTime: '12 Min.',
-      description: 'Das perfekte erste Pferd finden: Geeignete Rassen, Charakter-Eigenschaften und worauf du als Anfänger achten solltest.'
-    }
-  ];
+  // Related articles from registry
+  const relatedArticles = getRelatedArticles('lipizzaner').map(entry => ({
+    href: getRatgeberPath(entry.slug),
+    image: entry.image,
+    title: entry.title,
+    badge: entry.category,
+    readTime: entry.readTime,
+    description: entry.description
+  }));
 
   return (
     <Layout
       fullWidth={true}
       background="bg-gradient-to-b from-amber-50 to-white"
     >
-      <Head>
-        <title>Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse</title>
-        <meta name="description" content="Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert." />
-        <meta name="robots" content="index, follow" />
-        <meta name="keywords" content="lipizzaner, barockpferde, lipizzaner kaufen, lipizzaner preis, lipizzaner charakter, lipizzaner gestüte, spanische hofreitschule wien" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/lipizzaner" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse" />
-        <meta property="og:description" content="Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über ihre Herkunft, den einzigartigen Farbwechsel, Charakter und wie du einen kaufst." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/lipizzaner" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/lipizzaner-white-horse.webp" />
-        <meta property="og:locale" content="de_DE" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Lipizzaner – Der ultimative Pferderasse-Ratgeber" />
-        <meta name="twitter:description" content="Alles über Lipizzaner: Geschichte, Farben, Charakter & wie du einen kaufst. Mit Preisen, Gestüten & Tipps für Anfänger." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/ratgeber/lipizzaner-white-horse.webp" />
-        <meta name="twitter:creator" content="@pferdewert" />
-        <meta name="twitter:site" content="@pferdewert" />
-
-        {/* Article Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: 'Lipizzaner – Der ultimative Ratgeber zur edlen Barockpferderasse',
-              description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert.',
-              image: {
-                '@type': 'ImageObject',
-                url: 'https://pferdewert.de/images/ratgeber/lipizzaner-white-horse.webp',
-                width: 2047,
-                height: 1151,
-                alt: 'Weißer Lipizzaner - edle Barockpferderasse mit charakteristischer Schimmelfärbung'
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'PferdeWert',
-                url: 'https://pferdewert.de'
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'PferdeWert.de',
-                url: 'https://pferdewert.de',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: 'https://pferdewert.de/logo.png',
-                  width: 250,
-                  height: 60
-                }
-              },
-              datePublished: '2025-11-23',
-              dateModified: '2025-11-23',
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': 'https://pferdewert.de/pferde-ratgeber/lipizzaner'
-              },
-              articleSection: 'Pferderassen Guide',
-              keywords: ['lipizzaner', 'barockpferde', 'lipizzaner kaufen', 'lipizzaner preis', 'spanische hofreitschule wien', 'lipizzaner gestüte', 'pferderasse'],
-              wordCount: 3150,
-              timeRequired: 'PT16M',
-              inLanguage: 'de-DE'
-            })
-          }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  name: 'Home',
-                  item: 'https://pferdewert.de'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  name: 'Pferde-Ratgeber',
-                  item: 'https://pferdewert.de/pferde-ratgeber'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 3,
-                  name: 'Lipizzaner',
-                  item: 'https://pferdewert.de/pferde-ratgeber/lipizzaner'
-                }
-              ]
-            })
-          }}
-        />
-      </Head>
+      <RatgeberHead
+        slug="lipizzaner"
+        image="/images/ratgeber/lipizzaner-white-horse.webp"
+        locales={seoLocales}
+        datePublished="2025-11-23"
+        wordCount={3150}
+        breadcrumbTitle="Lipizzaner"
+        faqItems={faqItems}
+      />
 
       <article>
         {/* Hero Section */}
@@ -731,6 +663,11 @@ export default function Lipizzaner() {
             />
           </div>
         </section>
+
+        {/* Author Box */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
+          <AuthorBox />
+        </div>
 
         {/* Related Articles */}
         <RatgeberRelatedArticles
