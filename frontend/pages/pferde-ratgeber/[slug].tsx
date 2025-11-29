@@ -14,6 +14,7 @@ import { getRatgeberRepository } from '@/lib/mongo/ratgeber-repository';
 import { RatgeberArticle } from '@/types/ratgeber';
 import Layout from '@/components/Layout';
 import RelatedArticles from '@/components/ratgeber/RelatedArticles';
+import AuthorBox from '@/components/AuthorBox';
 import { Clock, Calendar, Tag } from 'lucide-react';
 
 // ============================================================================
@@ -304,9 +305,12 @@ export default function RatgeberArticlePage({
 
         {/* Main Article Content */}
         <div
-          className="prose prose-lg max-w-none mb-12"
+          className="prose prose-lg max-w-none"
           dangerouslySetInnerHTML={{ __html: displayContent }}
         />
+
+        {/* Author Box */}
+        <AuthorBox />
 
         {/* Custom Outro with CTA (if exists) */}
         {article.pferdewert.custom_outro && (

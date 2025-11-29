@@ -18,6 +18,7 @@ import { info } from '@/lib/log'
 
 // FAST REFRESH FIX: Define icons at module level
 const fileTextIcon = <FileText className="h-4 w-4" />
+const warningIcon = <AlertTriangle className="w-5 h-5 text-brand-brown" />
 
 // Section definitions for Table of Contents
 const sections = [
@@ -93,12 +94,6 @@ const seoLocales = {
 }
 
 const Pferdekaufvertrag: NextPage = () => {
-  // Memoize icon to prevent Fast Refresh infinite loops
-  const warningIcon = useMemo(
-    () => <AlertTriangle className="w-5 h-5 text-brand-brown" />,
-    []
-  )
-
   // Handler for Table of Contents navigation
   const handleTableOfContentsClick = (sectionId: string) => {
     info('Navigating to section:', sectionId)
