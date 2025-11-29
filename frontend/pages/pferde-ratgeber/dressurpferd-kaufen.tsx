@@ -9,20 +9,12 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck, Clock, User } from 'lucide-react';
+import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck } from 'lucide-react';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
 const awardIcon = <Award className="w-5 h-5" />;
 const shieldIcon = <ShieldCheck className="w-5 h-5" />;
-const clockIcon = <Clock className="h-4 w-4" />;
-const userIcon = <User className="h-4 w-4" />;
-
-// FAST REFRESH FIX: Define arrays and objects at module level to prevent recreation
-const heroMetaItems = [
-  { icon: clockIcon, label: '14 Min. Lesezeit' },
-  { icon: userIcon, label: 'PferdeWert Redaktion' }
-];
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
@@ -140,7 +132,9 @@ export default function DressurpferdKaufen() {
           badgeLabel="Kauf & Verkauf"
           title="Dressurpferd kaufen: Der ultimative Ratgeber für deinen sicheren Kauf"
           subtitle="Erfahre alles über Preise, Qualitätskriterien und Kaufquellen für Dressurpferde. Vom A-Pferd bis Grand Prix – fundierte Informationen für deine sichere Kaufentscheidung."
-          metaItems={heroMetaItems}
+          readTime="14 Min."
+          publishDate="November 2025"
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
         />
 
