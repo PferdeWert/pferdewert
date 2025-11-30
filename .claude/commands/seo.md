@@ -1,6 +1,6 @@
 ---
 argument-hint: <keyword>
-description: Execute complete 6-phase SEO pipeline with 35+ deliverables with agents
+description: Execute complete 7-phase SEO pipeline with 40+ deliverables with agents (v3.0 Multi-Keyword Strategy)
 allowed-tools: Task, Read, Write, Bash(mkdir:*), Bash(echo:*), mcp__dataforseo__*
 ---
 
@@ -41,9 +41,12 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
    - Beispiel: "Pferd kaufen Tipps" → "pferd-kaufen-tipps"
    ```
 
-3. **Starte 7 Sequential Sub-Agents** (jeder liest sein eigenes Phase-MD):
+3. **Starte 8 Sequential Sub-Agents** (jeder liest sein eigenes Phase-MD):
 
    **WICHTIG**: Verwende `seo-content-writer` Agent (custom agent mit DataForSEO MCP Tools)
+
+   **v3.0 Multi-Keyword Strategy**: Phase 1 wurde in 3 Teile aufgeteilt (1A, 1B, 1C) um mehr Keywords zu erfassen.
+   Ziel: 80 Keywords statt 20 → 15-25+ Top 10 Rankings pro Artikel.
 
    **Phase 1A - Data Collection**:
    - Spawne Sub-Agent mit:
@@ -62,8 +65,8 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
          "keyword": "$ARGUMENTS",
          "location_name": "Germany",
          "language_code": "de",
-         "depth": 1,
-         "limit": 20
+         "depth": 2,
+         "limit": 40
        }
 
        Call 2 - mcp__dataforseo__dataforseo_labs_google_keyword_ideas:
@@ -71,7 +74,7 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
          "keywords": ["$ARGUMENTS"],
          "location_name": "Germany",
          "language_code": "de",
-         "limit": 15
+         "limit": 30
        }
 
        Call 3 - mcp__dataforseo__dataforseo_labs_google_keyword_overview:
@@ -89,35 +92,63 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
        "Phase 1A ✅ | API Calls: Related={count}, Ideas={count}, Overview SV={volume} | Files: 2"
        ```
 
-   **Phase 1B - Keyword Analysis**:
+   **Phase 1B - Keyword Analysis (v3.0 - Extended)**:
    - Spawne Sub-Agent mit:
      - subagent_type: `seo-content-writer`
      - prompt:
        ```
-       SEO PHASE 1B: KEYWORD ANALYSIS for '$ARGUMENTS'
+       SEO PHASE 1B: KEYWORD ANALYSIS (v3.0) for '$ARGUMENTS'
 
-       STEP 1: Load data
-       Read SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/raw-api-data.json
-       Extract all keywords from related_keywords, keyword_ideas, keyword_overview
+       LIES ZUERST: SEO/SEO-PROZESS/orchestration/phase-1b-keyword-analysis.md
 
-       STEP 2: Score keywords using Python (executeCode)
-       Calculate relevance_score = (SV/1000*0.4) + (CPC*10*0.3) + (similarity*0.3*10)
-       Sort by score DESC
+       WICHTIGE ÄNDERUNGEN v3.0:
+       - Similarity threshold: 30% (nicht 40%)
+       - Keyword limit: 50 (nicht 20)
+       - Question word bonus: +0.5 score für wie/was/warum
 
-       STEP 3: Cluster by intent (executeCode)
-       - Informational: wie/was/warum/ratgeber/tipps
-       - Commercial: kaufen/verkaufen/preis/kosten
-       - Long-Tail: word_count > 5
-       - General: rest
-
-       STEP 4: Select top 20 with cluster diversity
-
-       STEP 5: Save results to:
-       - SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/keyword-analysis.json
-       - SEO/SEO-CONTENT/$ARGUMENTS_SLUG/research/phase-1b-summary.md
-
+       STEP 1: Load data from Phase 1A
+       STEP 2: Score keywords mit v3.0 Formel (siehe Phase-MD)
+       STEP 3: Cluster by intent
+       STEP 4: Select TOP 50 keywords (nicht 20!)
+       STEP 5: Save results
        STEP 6: Return summary:
-       "Phase 1B ✅ | Keywords: {total} analyzed, Top 20 selected | Clusters: Info={n}, Commercial={n}, LT={n}, General={n} | Stats: SV={avg}, CPC={avg} | Files: 2"
+       "Phase 1B ✅ (v3.0) | Keywords: {total} analyzed, Top 50 selected | Clusters: Info={n}, Commercial={n}, LT={n}, General={n} | Stats: SV={avg}, CPC={avg} | Files: 2"
+       ```
+
+   **Phase 1C - Competitor Keyword Analysis (NEW in v3.0)**:
+   - Spawne Sub-Agent mit:
+     - subagent_type: `seo-content-writer`
+     - prompt:
+       ```
+       SEO PHASE 1C: COMPETITOR KEYWORD ANALYSIS for '$ARGUMENTS'
+
+       LIES ZUERST: SEO/SEO-PROZESS/orchestration/phase-1c-competitor-keywords.md
+
+       ZIEL: Finde 30 zusätzliche Keywords die Wettbewerber bereits erfolgreich ranken.
+
+       STEP 1: Get SERP results für '$ARGUMENTS' (Top 10)
+       mcp__dataforseo__serp_organic_live_advanced:
+       {
+         "keyword": "$ARGUMENTS",
+         "location_name": "Germany",
+         "language_code": "de",
+         "depth": 10
+       }
+
+       STEP 2: Für Top 3 Competitors (außer pferdewert.de):
+       mcp__dataforseo__dataforseo_labs_google_ranked_keywords:
+       {
+         "target": "{competitor_domain}",
+         "location_name": "Germany",
+         "language_code": "de",
+         "limit": 50,
+         "filters": [["ranked_serp_element.serp_item.rank_group", "<=", 10]]
+       }
+
+       STEP 3: Filter & merge mit Phase 1B keywords
+       STEP 4: Save to competitor-keywords.json + all-keywords-merged.json
+       STEP 5: Return summary:
+       "Phase 1C ✅ | Competitors: 3 analyzed | New keywords: 30 | Total merged: 80 | Files: 3"
        ```
 
    **Phase 2 - SERP Analysis**:
@@ -132,7 +163,7 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
 
        1. Lies: SEO/SEO-PROZESS/orchestration/phase-2-serp-analysis.md
        2. Befolge ALLE Instruktionen aus dem Phase-MD (inkl. DataForSEO!)
-       3. Nutze Ergebnisse aus Phase 1 (im Output-Ordner)
+       3. Nutze all-keywords-merged.json aus Phase 1C (80 Keywords!)
        4. Return: Kompakte Summary + Liste der erstellten Dateien
        ```
 
@@ -267,20 +298,22 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
 
 4. **Final Summary** (nach Phase 6):
    ```
-   ✅ Pipeline completed!
+   ✅ Pipeline completed! (v3.0 Multi-Keyword Strategy)
    📁 Output: SEO/SEO-CONTENT/$ARGUMENTS_SLUG/
    📊 E-E-A-T Score: {score}/10
    📄 Word Count: {count} Wörter
+   🔑 Keywords: 80 (50 own + 30 competitor)
+   🎯 Expected Top 10 Rankings: 15-25+
    🎯 Publication-Ready: {yes/no}
    ```
 
-## DELEGATION PATTERN (FIXED 2025-01-05)
+## DELEGATION PATTERN (UPDATED 2025-11-30 v3.0)
 
 ### Main Agent (DU)
 - **Rolle**: Orchestration ONLY
 - **Tasks**:
   1. Erstelle Ordner-Struktur via separate `mkdir -p` commands
-  2. Spawne 6 Sub-Agents sequenziell (`general-purpose` type)
+  2. Spawne 8 Sub-Agents sequenziell (1A, 1B, 1C, 2, 3, 4, 5, 6)
   3. Tracke Todos via `TodoWrite`
   4. Sammle kompakte Summaries (je ~200 Wörter)
 - **VERBOTEN**: NIEMALS Phase-MDs lesen (würde 60k+ tokens addieren!)
@@ -309,8 +342,32 @@ Du bist SEO Pipeline Coordinator für PferdeWert.de.
 - **TOTAL**: ~180k tokens → OVERFLOW!
 
 **✅ Neue Methode**: Sub-Agents lesen Phase-MDs
-- 6 Phasen × 0.2k Summary = 1.2k tokens
+- 8 Phasen × 0.2k Summary = 1.6k tokens
 - Main Agent Context bleibt minimal (~2k tokens)
-- **TOTAL**: ~3k tokens → 98% Einsparung!
+- **TOTAL**: ~4k tokens → 97% Einsparung!
 
-**Los geht's mit Phase 1 Sub-Agent!**
+---
+
+## v3.0 MULTI-KEYWORD STRATEGY (2025-11-30)
+
+### Problem (vorher)
+- Nur 20 Keywords pro Artikel
+- 40% Similarity threshold = zu restriktiv
+- Keine Competitor-Analyse
+- **Ergebnis**: 3-5 Keywords in Top 10
+
+### Lösung (jetzt)
+- 80 Keywords pro Artikel (50 own + 30 competitor)
+- 30% Similarity threshold = mehr Variationen
+- Neue Phase 1C: Competitor Keyword Analysis
+- **Ergebnis erwartet**: 15-25+ Keywords in Top 10
+
+### Änderungen im Detail
+| Phase | Alt | Neu |
+|-------|-----|-----|
+| 1A Data | 35 keywords | 70 keywords |
+| 1B Analysis | Top 20, 40% sim | Top 50, 30% sim |
+| 1C Competitor | - | NEW: 30 keywords |
+| Total | 20 keywords | 80 keywords |
+
+**Los geht's mit Phase 1A Sub-Agent!**
