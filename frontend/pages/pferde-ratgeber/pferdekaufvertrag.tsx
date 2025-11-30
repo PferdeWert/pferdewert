@@ -1,6 +1,6 @@
 import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next'
-
+import { useRouter } from 'next/router'
 import { useMemo, useCallback } from 'react'
 import { FileText, AlertTriangle } from 'lucide-react'
 import Layout from '@/components/Layout'
@@ -21,19 +21,33 @@ import AuthorBox from '@/components/AuthorBox'
 const fileTextIcon = <FileText className="h-4 w-4" />
 const warningIcon = <AlertTriangle className="w-5 h-5 text-brand-brown" />
 
-// Section definitions for Table of Contents
-const sections = [
-  { id: 'was-ist-vertrag', title: 'Was ist ein Pferdekaufvertrag und warum ist er unverzichtbar?' },
-  { id: 'sieben-bestandteile', title: 'Die sieben wesentlichen Bestandteile eines Pferdekaufvertrags' },
-  { id: 'privat-vs-gewerblich', title: 'Private vs. gewerblicher Pferdeverkauf: Unterschiede erklärt' },
-  { id: 'haeufige-fehler', title: 'Häufige Fehler beim Pferdekaufvertrag – und wie du sie vermeidest' },
-  { id: 'checkliste', title: 'Checkliste: Schritt-für-Schritt Anleitung zum Vertragsausfüllen' },
-  { id: 'gewaehrleistung', title: 'Gewährleistung und Mängelrechte: Fristen und deine Rechte' },
-  { id: 'besondere-klauseln', title: 'Besondere Klauseln und Zusatzvereinbarungen' },
-  { id: 'rechtliche-besonderheiten', title: 'Rechtliche Besonderheiten: Datenschutz, Steuern und weitere Aspekte' },
-  { id: 'praktische-tipps', title: 'Praktische Tipps für Verkäufer und Käufer' },
-  { id: 'faq', title: 'Häufige Fragen zum Pferdekaufvertrag' }
-]
+// Section definitions for Table of Contents (locale-aware)
+const getSections = (locale: string) => {
+  const baseSections = [
+    { id: 'was-ist-vertrag', title: 'Was ist ein Pferdekaufvertrag und warum ist er unverzichtbar?' },
+    { id: 'sieben-bestandteile', title: 'Die sieben wesentlichen Bestandteile eines Pferdekaufvertrags' },
+    { id: 'privat-vs-gewerblich', title: 'Private vs. gewerblicher Pferdeverkauf: Unterschiede erklärt' },
+    { id: 'haeufige-fehler', title: 'Häufige Fehler beim Pferdekaufvertrag – und wie du sie vermeidest' },
+    { id: 'checkliste', title: 'Checkliste: Schritt-für-Schritt Anleitung zum Vertragsausfüllen' },
+    { id: 'gewaehrleistung', title: 'Gewährleistung und Mängelrechte: Fristen und deine Rechte' },
+    { id: 'besondere-klauseln', title: 'Besondere Klauseln und Zusatzvereinbarungen' },
+    { id: 'rechtliche-besonderheiten', title: 'Rechtliche Besonderheiten: Datenschutz, Steuern und weitere Aspekte' },
+  ]
+
+  // Add locale-specific section for AT and CH
+  if (locale === 'at') {
+    baseSections.push({ id: 'recht-oesterreich', title: 'Pferdekaufrecht in Österreich: ABGB-Besonderheiten' })
+  } else if (locale === 'ch') {
+    baseSections.push({ id: 'recht-schweiz', title: 'Pferdekaufrecht in der Schweiz: OR-Besonderheiten' })
+  }
+
+  baseSections.push(
+    { id: 'praktische-tipps', title: 'Praktische Tipps für Verkäufer und Käufer' },
+    { id: 'faq', title: 'Häufige Fragen zum Pferdekaufvertrag' }
+  )
+
+  return baseSections
+}
 
 // FAQ Items
 const faqItems = [
@@ -95,6 +109,12 @@ const seoLocales = {
 }
 
 const Pferdekaufvertrag: NextPage = () => {
+  const { locale } = useRouter()
+  const currentLocale = locale || 'de'
+
+  // Get locale-specific sections for Table of Contents
+  const sections = useMemo(() => getSections(currentLocale), [currentLocale])
+
   // Handler for Table of Contents navigation
   const handleTableOfContentsClick = (sectionId: string) => {
     info('Navigating to section:', sectionId)
@@ -812,6 +832,130 @@ const Pferdekaufvertrag: NextPage = () => {
               Anwendbares Recht: Bundesrepublik Deutschland (BGB).
             </p>
           </section>
+
+          {/* Österreich-spezifischer Abschnitt */}
+          {currentLocale === 'at' && (
+            <section id="recht-oesterreich" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                Pferdekaufrecht in Österreich: ABGB-Besonderheiten
+              </h2>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                In Österreich gelten für den Pferdekauf die Bestimmungen des <strong>Allgemeinen Bürgerlichen Gesetzbuchs (ABGB)</strong>. Obwohl viele Grundprinzipien dem deutschen BGB ähneln, gibt es wichtige Unterschiede, die österreichische Käufer und Verkäufer kennen sollten.
+              </p>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Gewährleistung nach ABGB (§§ 922&ndash;933)
+              </h3>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Das österreichische Gewährleistungsrecht unterscheidet sich in einigen Punkten vom deutschen:
+              </p>
+
+              <ul className="space-y-3 text-gray-700 ml-4">
+                <li className="text-lg">• <strong>Gewährleistungsfrist:</strong> 2 Jahre bei beweglichen Sachen (Pferde) &ndash; identisch mit Deutschland</li>
+                <li className="text-lg">• <strong>Beweislastumkehr:</strong> In den ersten 6 Monaten wird vermutet, dass der Mangel bereits bei Übergabe vorhanden war (§ 924 ABGB)</li>
+                <li className="text-lg">• <strong>Verbesserung vor Wandlung:</strong> Der Verkäufer hat das Recht auf Nachbesserung, bevor der Käufer vom Vertrag zurücktreten kann</li>
+                <li className="text-lg">• <strong>Rügeobliegenheit:</strong> Bei Unternehmern: Mängel müssen unverzüglich gerügt werden (§ 377 UGB)</li>
+              </ul>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Besonderheiten beim Pferdekauf in Österreich
+              </h3>
+
+              <ul className="space-y-3 text-gray-700 ml-4">
+                <li className="text-lg">• <strong>Equidenpass:</strong> Seit 2016 verpflichtend für alle Pferde in Österreich &ndash; muss bei Verkauf übergeben werden</li>
+                <li className="text-lg">• <strong>Tierschutzgesetz (TSchG):</strong> Strengere Anforderungen an Haltung und Transport als in Deutschland</li>
+                <li className="text-lg">• <strong>Zentrale Equidendatenbank:</strong> Registrierung aller Pferde bei der{' '}
+                  <a href="https://www.oekv.at" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    Österreichischen Kfz-Prüfstelle (ÖKV)
+                  </a>
+                </li>
+                <li className="text-lg">• <strong>Umsatzsteuer:</strong> 20% USt. bei gewerblichen Verkäufern (vs. 19% in Deutschland)</li>
+              </ul>
+
+              <RatgeberHighlightBox title="Tipp für Käufer in Österreich" icon={warningIcon}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Achte bei einem Kauf aus Deutschland darauf, dass der Equidenpass auf dich umgeschrieben wird und das Pferd in der österreichischen Datenbank registriert wird. Die Umschreibung erfolgt über die zuständige Landeskammer für Land- und Forstwirtschaft.
+                </p>
+              </RatgeberHighlightBox>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Vertragsklausel für Österreich
+              </h3>
+
+              <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+                Gerichtsstand: Das sachlich und örtlich zuständige Gericht in Österreich.<br />
+                Anwendbares Recht: Republik Österreich (ABGB).
+              </p>
+            </section>
+          )}
+
+          {/* Schweiz-spezifischer Abschnitt */}
+          {currentLocale === 'ch' && (
+            <section id="recht-schweiz" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+                Pferdekaufrecht in der Schweiz: OR-Besonderheiten
+              </h2>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                In der Schweiz ist der Pferdekauf im <strong>Obligationenrecht (OR)</strong> geregelt. Das Schweizer Recht unterscheidet sich in mehreren wichtigen Punkten von Deutschland und Österreich.
+              </p>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Gewährleistung nach Obligationenrecht (Art. 197&ndash;210 OR)
+              </h3>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Das Schweizer Gewährleistungsrecht ist strenger strukturiert:
+              </p>
+
+              <ul className="space-y-3 text-gray-700 ml-4">
+                <li className="text-lg">• <strong>Gewährleistungsfrist:</strong> 2 Jahre bei beweglichen Sachen (Art. 210 OR)</li>
+                <li className="text-lg">• <strong>Rügepflicht:</strong> Mängel müssen <strong>sofort</strong> nach Entdeckung gerügt werden (Art. 201 OR) &ndash; strenger als in DE/AT!</li>
+                <li className="text-lg">• <strong>Untersuchungspflicht:</strong> Der Käufer muss die Ware nach Erhalt prüfen (Art. 201 OR)</li>
+                <li className="text-lg">• <strong>Wahlrecht:</strong> Wandlung (Rückgabe) oder Minderung (Preisreduktion) &ndash; kein Nachbesserungsrecht</li>
+              </ul>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Besonderheiten beim Pferdekauf in der Schweiz
+              </h3>
+
+              <ul className="space-y-3 text-gray-700 ml-4">
+                <li className="text-lg">• <strong>Tierseuchenverordnung (TSV):</strong> Equidenpass ist Pflicht, Registrierung bei der{' '}
+                  <a href="https://www.agate.ch" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    Tierverkehrsdatenbank Agate
+                  </a>
+                </li>
+                <li className="text-lg">• <strong>Keine Beweislastumkehr:</strong> Im Gegensatz zu DE/AT muss der Käufer von Anfang an beweisen, dass der Mangel bei Übergabe bestand</li>
+                <li className="text-lg">• <strong>Handänderungssteuer:</strong> Je nach Kanton können Steuern auf den Kauf anfallen</li>
+                <li className="text-lg">• <strong>Mehrwertsteuer:</strong> 8,1% MWST bei gewerblichen Verkäufern (deutlich niedriger als DE/AT)</li>
+              </ul>
+
+              <RatgeberHighlightBox title="Wichtig: Rügepflicht in der Schweiz" icon={warningIcon}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Die Schweizer Rügepflicht ist kritisch: Entdeckst du einen Mangel, musst du ihn <strong>sofort</strong> schriftlich anzeigen. &ldquo;Sofort&rdquo; bedeutet in der Praxis 1&ndash;3 Tage. Wartest du länger, verlierst du deine Gewährleistungsrechte!
+                </p>
+              </RatgeberHighlightBox>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Viehgewährschaftsregeln (historisch)
+              </h3>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Früher gab es in der Schweiz spezielle &ldquo;Viehgewährschaftsregeln&rdquo; mit kurzen Fristen für Tiermängel. Diese wurden 2013 abgeschafft &ndash; heute gelten die normalen OR-Regeln. Allerdings sind kurze Rügefristen bei Pferden weiterhin üblich und sollten im Vertrag definiert werden.
+              </p>
+
+              <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+                Vertragsklausel für die Schweiz
+              </h3>
+
+              <p className="text-lg text-gray-700 leading-relaxed bg-gray-100 p-4 rounded-lg font-mono text-base">
+                Gerichtsstand: Das zuständige Gericht am Wohnsitz des Beklagten in der Schweiz.<br />
+                Anwendbares Recht: Schweizerisches Obligationenrecht (OR).
+              </p>
+            </section>
+          )}
 
           {/* Section 9: Praktische Tipps */}
           <section id="praktische-tipps" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
