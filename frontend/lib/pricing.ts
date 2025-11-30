@@ -86,12 +86,12 @@ export const PRICING_BY_COUNTRY = {
     formatted: PRICING_FORMATTED.current,
   },
   CH: {
-    price: 9.90,
+    price: 19.90,
     currency: 'CHF' as const,
     // TODO: Create CHF price in Stripe Dashboard and add price_id here
     priceId: process.env.STRIPE_PRICE_ID_CHF || 'price_xxx_chf',
     symbol: 'CHF',
-    formatted: 'CHF 9,90',
+    formatted: 'CHF 19,90',
   },
 } as const;
 
