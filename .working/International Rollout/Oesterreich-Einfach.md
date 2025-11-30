@@ -1,7 +1,20 @@
 # Österreich-Rollout: Status & Quick Reference
 
+> ⚠️ **VERALTET (Stand: Nov 2025)**
+>
+> Dieses Dokument beschreibt die **alte Architektur** mit `/at/` URL-Prefix auf pferdewert.de.
+>
+> **Aktuelle Architektur (seit Nov 2025):**
+> - Domain-basiert: `pferdewert.de`, `pferdewert.at`, `pferdewert.ch`
+> - Keine URL-Prefixe mehr
+> - Siehe `frontend/lib/countries.ts` für aktuelle Konfiguration
+>
+> Dieses Dokument wird nur für historische Referenz aufbewahrt.
+
+---
+
 **Erstellt:** 16. November 2025
-**Status:** Phase 1-5 ✅ KOMPLETT (95% Production-Ready)
+**Status:** ❌ VERALTET - Architektur wurde auf Domain-basiert umgestellt
 **Letztes Update:** 18. November 2025, 23:45 Uhr
 
 ---

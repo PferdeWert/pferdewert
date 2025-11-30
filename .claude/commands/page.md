@@ -258,7 +258,7 @@ const seoLocales = {
 **Code-Standards:**
 - TypeScript: keine `any` Types
 - Custom Logger: `import { info, warn, error } from '@/lib/log'`
-- **LocalizedLink PFLICHT**: Nutze `<LocalizedLink href="/path">` statt `<Link>` für ALLE internen Links - dies fügt automatisch `/at/` Prefix für österreichische Locale hinzu
+- **LocalizedLink PFLICHT**: Nutze `<LocalizedLink href="/path">` statt `<Link>` für ALLE internen Links - stellt korrekten Domain-Kontext sicher (pferdewert.de/.at/.ch)
 
 **JSON-LD Schema Markup:**
 

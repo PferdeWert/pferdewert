@@ -173,7 +173,7 @@ export default function MyArticle() {
 
 **Expected results** (3-6 months after implementation):
 
-1. **Reduced duplicate content issues**: Google knows pferdewert.de/at/ch versions are intentional
+1. **Reduced duplicate content issues**: Google knows pferdewert.de/.at/.ch domain versions are intentional
 2. **Better geo-targeting**: Users in AT see .at domain, CH users see .ch domain
 3. **Improved click-through**: Local domains (pferdewert.at) inspire more trust in local markets
 

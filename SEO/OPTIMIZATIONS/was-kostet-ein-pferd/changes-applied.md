@@ -34,13 +34,14 @@ Fixed 2 nested path violations:
 
 ### 5. hreflang Tags Added (LOCALIZATION)
 ```html
-<link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
-<link rel="alternate" hrefLang="de-AT" href="https://pferdewert.de/at/pferde-ratgeber/was-kostet-ein-pferd" />
-<link rel="alternate" hrefLang="de-CH" href="https://pferdewert.de/ch/pferde-ratgeber/was-kostet-ein-pferd" />
+<!-- AKTUELL (Domain-basiert seit Nov 2025): -->
+<link rel="alternate" hrefLang="de" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
+<link rel="alternate" hrefLang="de-AT" href="https://pferdewert.at/pferde-ratgeber/was-kostet-ein-pferd" />
+<link rel="alternate" hrefLang="de-CH" href="https://pferdewert.ch/pferde-ratgeber/was-kostet-ein-pferd" />
 <link rel="alternate" hrefLang="x-default" href="https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd" />
 ```
 - **Impact**: Proper international SEO signals for DE/AT/CH markets
-- **Rationale**: Prevents duplicate content penalties, directs German users to correct regional version
+- **Rationale**: Prevents duplicate content penalties, directs users to correct regional domain
 
 ### 6. Duplicate Internal Link Removed (SEO CLEANUP)
 **Duplicate Link**: `/pferde-ratgeber/pferdemarkt` appeared 3 times

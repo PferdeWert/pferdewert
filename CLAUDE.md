@@ -12,7 +12,7 @@
 ## Content & Localization
 - **Use "KI" not "AI"**: German market prefers "KI" (Künstliche Intelligenz) over "AI" in all content and UI
 - **Evaluation Duration is ALWAYS "2 Minuten"**: NEVER use "3 Minuten" or any other duration in content, UI, or AI-generated text - this is a critical accuracy requirement
-- **LocalizedLink for internal links**: Use `<LocalizedLink href="/path">` instead of `<Link>` for all internal routes - auto-adds `/at/` prefix for Austrian locale
+- **LocalizedLink for internal links**: Use `<LocalizedLink href="/path">` instead of `<Link>` for all internal routes - ensures correct domain context (pferdewert.de/.at/.ch)
 
 ## SEO & URL Structure
 - **Ratgeber Base Path**: `/pferde-ratgeber/` - NEVER use `/ratgeber/` or nested paths like `/ratgeber/pferdekauf/`

@@ -329,10 +329,10 @@ Reviewed by [Veterinarian Name], Bundestierärztekammer Member
 - AT: Same as DE (use DE keywords for AT market)
 - CH: "was kostet ein pferd schweiz", "pferdepreis schweiz"
 
-**URL Handling** (via LocalizedLink):
-- DE: `/pferde-ratgeber/was-kostet-ein-pferd`
-- AT: `/at/pferde-ratgeber/was-kostet-ein-pferd` (auto-redirects)
-- CH: `/ch/pferde-ratgeber/was-kostet-ein-pferd` (or `/pferd-kaufen-schweiz`)
+**URL Handling** (Domain-basiert seit Nov 2025):
+- DE: `https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd`
+- AT: `https://pferdewert.at/pferde-ratgeber/was-kostet-ein-pferd`
+- CH: `https://pferdewert.ch/pferde-ratgeber/was-kostet-ein-pferd` (oder `/pferd-kaufen-schweiz` für CH-spezifischen Content)
 
 ---
 
