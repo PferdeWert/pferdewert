@@ -10,6 +10,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { Sparkles, Award, ShieldCheck, TrendingUp, FileCheck } from 'lucide-react';
+import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -481,9 +482,15 @@ export default function DressurpferdKaufen() {
               faqs={faqItems}
               sectionTitle="Häufig gestellte Fragen"
               sectionSubtitle="Die wichtigsten Fragen und Antworten rund um den Kauf eines Dressurpferdes"
+              withSchema={false}
             />
           </div>
         </section>
+
+        {/* Author Box */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
+          <AuthorBox />
+        </div>
 
         {/* Related Articles */}
         <RatgeberRelatedArticles

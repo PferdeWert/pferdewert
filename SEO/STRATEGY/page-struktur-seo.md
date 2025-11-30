@@ -2,6 +2,14 @@
 
 **Zuletzt aktualisiert:** 2025-11-14
 
+Neue Ideen: 
+Haflinger Kaufen (in production)
+Ponny kaufen 
+pferd kaufen nrw
+pferd kaufen bayern 
+verkaufspferde 
+
+
 ---
 
 ## 📊 STATUS OVERVIEW
@@ -22,7 +30,7 @@
   - **Dressurpferd kaufen** ✅
 
 ### 🎯 Nächste Artikel (Priority 2-3)
-- **P2:** Anfängerpferd kaufen (880/Mo., CPC 0,15€) - published
+- **P2:** Anfängerpferd kaufen (880/Mo., CPC 0,15€) - **published**
 - **P3:** Freizeitpferd kaufen (1.900/Mo., CPC 0,13€) - **published**
 
 ### 🇨🇭 Schweiz-Expansion (Priority 2)
@@ -41,33 +49,20 @@
 
 **Verbleibend:** 2.780/Mo. | **Kaufintention:** ⭐⭐⭐⭐⭐
 
-#### 1. Anfängerpferd kaufen 🚧 IN PRODUKTION
+#### 1. Anfängerpferd kaufen **published**
 - **URL:** `/pferde-ratgeber/anfaengerpferd-kaufen`
 - **Keyword:** anfängerpferd kaufen (880/Mo., CPC 0,15€)
-- **Zielgruppe:** 100% männlich, 35-44 Jahre
 - **Intent:** Commercial + Transactional
-- **Status:** 🚧 Content-Produktion gestartet (2025-11-14)
-- **Content-Plan:**
-  - Anforderungen an Anfängerpferde (Charakter, Ausbildung)
-  - Geeignete Rassen für Anfänger
-  - Kaufberatung & AKU-Bezug
-  - Preisrahmen mit Tool-CTA
 
 ---
 
 ### 📌 P3 - MITTLERE PRIORITÄT
 
-#### 2. Freizeitpferd kaufen 🚧 IN PRODUKTION
+#### 2. Freizeitpferd kaufen **published**
 - **URL:** `/pferde-ratgeber/freizeitpferd-kaufen`
 - **Keyword:** freizeitpferd kaufen (1.900/Mo., CPC 0,13€)
 - **Zielgruppe:** 100% weiblich, 35-44 Jahre
 - **Intent:** Commercial + Navigational
-- **Status:** 🚧 Content-Produktion gestartet (2025-11-14)
-- **Content-Plan:**
-  - Unterschied Freizeitpferd vs. Turnierpferd
-  - Geeignete Rassen
-  - Haltungsformen & Kosten
-  - Kaufberatung mit Tool-CTA
 
 ---
 

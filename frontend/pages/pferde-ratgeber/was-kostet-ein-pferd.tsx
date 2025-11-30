@@ -11,6 +11,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { Calculator, ShieldAlert } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
+import AuthorBox from '@/components/AuthorBox'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -1646,9 +1647,14 @@ export default function WasKostetEinPferd() {
               faqs={faqItems}
               sectionTitle="Häufige Fragen"
               sectionSubtitle="Schnelle Antworten zu Kaufpreis, monatlichen Kosten und versteckten Ausgaben"
+              withSchema={false}
             />
           </section>
 
+          {/* Author Box */}
+          <div className="max-w-3xl mx-auto px-4 md:px-6">
+            <AuthorBox />
+          </div>
 
           {/* Related Articles */}
           <section className="mb-20">

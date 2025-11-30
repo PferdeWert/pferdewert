@@ -23,6 +23,7 @@ import {
 } from '@/data/ratgeber/akuPferd'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRatgeberBySlug } from '@/lib/ratgeber-registry'
+import AuthorBox from '@/components/AuthorBox'
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 const awardIcon = <Award className="h-4 w-4" />;
@@ -763,6 +764,9 @@ const AKUPferd: NextPage = () => {
               faqs={akuFaqItems}
             />
           </div>
+
+          {/* Author Box */}
+          <AuthorBox />
 
           {/* Related Articles */}
           <div className="mt-16">

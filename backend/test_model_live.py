@@ -118,6 +118,7 @@ MODELS = {
     "gemini-3-pro": "google/gemini-3-pro-preview",
     "sonnet-4": "anthropic/claude-sonnet-4",
     "sonnet-4.5": "anthropic/claude-sonnet-4.5",
+    "opus-4.5": "anthropic/claude-opus-4.5",
 }
 
 def build_user_prompt(horse_data):

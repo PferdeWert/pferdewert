@@ -15,6 +15,7 @@ import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import CTAButton from '@/components/CTAButton';
 import { PRICING_FORMATTED } from '@/lib/pricing';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
+import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 // Creating JSX objects inside component or passing them inline causes reference changes on every render
@@ -1027,6 +1028,11 @@ const PferdVerkaufen: NextPage = () => {
             sectionSubtitle="Alles was du über den erfolgreichen Pferdeverkauf wissen möchtest"
             faqs={faqItems}
           />
+
+          {/* Author Box */}
+          <div className="max-w-3xl mx-auto px-4 md:px-6">
+            <AuthorBox />
+          </div>
 
           {/* Related Articles */}
           <RatgeberRelatedArticles

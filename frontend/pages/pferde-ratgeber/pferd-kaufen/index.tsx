@@ -18,6 +18,7 @@ import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfConten
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
+import AuthorBox from '@/components/AuthorBox'
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 const trendingUpIcon = <TrendingUp className="h-4 w-4" />;
@@ -1699,6 +1700,11 @@ const relatedArticles = useMemo(() =>
               faqs={faqItems}
             />
           </section>
+
+          {/* Author Box */}
+          <div className="max-w-3xl mx-auto px-4 md:px-6">
+            <AuthorBox />
+          </div>
 
           {/* Related Articles */}
           <RatgeberRelatedArticles

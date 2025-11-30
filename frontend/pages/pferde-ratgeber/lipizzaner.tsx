@@ -654,6 +654,7 @@ export default function Lipizzaner() {
               faqs={faqItems}
               sectionTitle="Häufig gestellte Fragen"
               sectionSubtitle="Die wichtigsten Fragen und Antworten rund um Lipizzaner"
+              withSchema={false}
             />
           </div>
         </section>

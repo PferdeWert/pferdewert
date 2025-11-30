@@ -21,6 +21,8 @@
 - **SEO Process**: See [SEO/SEO-PROZESS/](SEO/SEO-PROZESS/) for content creation workflow
 
 ## Critical Coding Patterns
+- **Minimal Changes**: Only make changes that are directly requested. Keep solutions simple and focused.
+- **Read Before Edit**: ALWAYS read and understand relevant files before proposing edits. Do not speculate about code you have not inspected.
 - **Custom Logger**: `import { info, warn, error } from '@/lib/log'` - NEVER use console.log
 - **No `any` type**: ESLint enforced, use proper interfaces
 - **No `require()`**: ES6 imports only

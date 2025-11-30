@@ -9,6 +9,7 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, Award, ShieldCheck, TrendingUp } from 'lucide-react';
+import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
@@ -937,6 +938,11 @@ export default function FreizeitpferdKaufen() {
             sectionSubtitle="Die wichtigsten Antworten zum Freizeitpferdkauf – damit du bestens vorbereitet bist."
             withSchema={false}
           />
+        </div>
+
+        {/* Author Box */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
+          <AuthorBox />
         </div>
 
         {/* Related Articles */}

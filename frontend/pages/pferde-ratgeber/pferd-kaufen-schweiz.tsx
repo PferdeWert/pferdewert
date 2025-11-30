@@ -10,6 +10,7 @@ import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import LocalizedLink from '@/components/LocalizedLink';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import { Award, Shield, TrendingUp, ExternalLink, Sparkles, ChevronDown } from 'lucide-react';
+import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const awardIcon = <Award className="h-4 w-4" />;
@@ -1000,8 +1001,14 @@ export default function PferdKaufenSchweizPage() {
             faqs={faqItems}
             sectionTitle="Häufig gestellte Fragen"
             sectionSubtitle="Die wichtigsten Fragen zu Marktplätzen, Kosten, Sicherheit und Dokumenten beim Pferdekauf in der Schweiz"
+            withSchema={false}
           />
         </section>
+
+        {/* Author Box */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
+          <AuthorBox />
+        </div>
 
         {/* Related Articles */}
         <div className="mt-16">

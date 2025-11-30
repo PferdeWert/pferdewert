@@ -889,6 +889,7 @@ export default function HaflingerKaufenPage() {
               faqs={faqItems}
               sectionTitle="Häufig gestellte Fragen zum Haflinger-Kauf"
               sectionSubtitle="Die wichtigsten Antworten zu Preisen, Eignung für Anfänger, Gewichtskapazität und Kaufabwicklung"
+              withSchema={false}
             />
           </div>
         </section>

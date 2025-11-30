@@ -16,6 +16,7 @@ import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import { info } from '@/lib/log'
+import AuthorBox from '@/components/AuthorBox'
 
 // FAST REFRESH FIX: Define all JSX icons at module level to prevent infinite reload loops
 const awardIcon = <Award className="h-4 w-4" />;
@@ -594,6 +595,9 @@ const Pferdemarkt: NextPage = () => {
               faqs={pferdemarktFaqItems}
             />
           </div>
+
+          {/* Author Box */}
+          <AuthorBox />
 
           {/* Related Articles */}
           <div className="mt-16">

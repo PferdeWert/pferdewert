@@ -15,6 +15,7 @@ import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import scrollToSection from '@/utils/ratgeber/scrollToSection'
 import { info } from '@/lib/log'
+import AuthorBox from '@/components/AuthorBox'
 
 // FAST REFRESH FIX: Define icons at module level
 const fileTextIcon = <FileText className="h-4 w-4" />
@@ -886,9 +887,15 @@ const Pferdekaufvertrag: NextPage = () => {
               faqs={faqItems}
               sectionTitle="Häufig gestellte Fragen zum Pferdekaufvertrag"
               sectionSubtitle="Die wichtigsten Antworten zu Verträgen, Gewährleistung und rechtlichen Aspekten beim Pferdekauf"
+              withSchema={false}
             />
           </div>
         </section>
+
+        {/* Author Box */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
+          <AuthorBox />
+        </div>
 
         {/* Related Articles */}
         <RatgeberRelatedArticles

@@ -12,6 +12,7 @@ import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticl
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
 import { ShieldAlert, AlertTriangle, CheckCircle } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
+import AuthorBox from '@/components/AuthorBox'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -573,9 +574,15 @@ export default function SpringpferdKaufen() {
               faqs={faqItems}
               sectionTitle="Häufig gestellte Fragen zum Springpferdekauf"
               sectionSubtitle="Die wichtigsten Antworten zu Preisen, Rassen, AKU, Probereiten und Kaufvertrag beim Springpferdekauf"
+              withSchema={false}
             />
           </div>
         </section>
+
+        {/* Author Box */}
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
+          <AuthorBox />
+        </div>
 
         {/* Related Articles */}
         <RatgeberRelatedArticles
