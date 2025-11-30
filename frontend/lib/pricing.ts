@@ -5,7 +5,7 @@
  * Bei Preisänderungen muss nur diese Datei angepasst werden.
  * 
  * @author PferdeWert.de
- * @version 3.4.0 - Preisanpassung auf 19,90€
+ * @version 3.5.0 - Preisanpassung auf 9,90€
  */
 
 // ===== PREIS KONFIGURATION =====
@@ -14,20 +14,20 @@ export const PRICING = {
    * Aktueller Hauptpreis für Pferdebewertung
    * Format: Dezimalzahl für Berechnungen
    */
-  current: 19.90,
+  current: 9.90,
 
   /**
    * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
    * Soll deutlich höher sein als current price
    */
-  decoy: 39.90,
+  decoy: 19.90,
   
   /** 
    * Historische Preise (für Vergleiche und "war früher X€" Texte)
    */
   historical: {
     launch: 4.90,   // Startpreis 
-    previous: 19.90   // Vorheriger Preis
+    previous: 19.90   // Vorheriger Preis (war 19,90€)
   }
 } as const;
 
@@ -86,12 +86,12 @@ export const PRICING_BY_COUNTRY = {
     formatted: PRICING_FORMATTED.current,
   },
   CH: {
-    price: 19.90,
+    price: 9.90,
     currency: 'CHF' as const,
     // TODO: Create CHF price in Stripe Dashboard and add price_id here
     priceId: process.env.STRIPE_PRICE_ID_CHF || 'price_xxx_chf',
     symbol: 'CHF',
-    formatted: 'CHF 19,90',
+    formatted: 'CHF 9,90',
   },
 } as const;
 
