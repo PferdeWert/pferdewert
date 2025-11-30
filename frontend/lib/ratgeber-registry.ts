@@ -269,6 +269,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'was-kostet-ein-pferd',
       'pferd-kaufen'
     ]
+  },
+
+  // Pferd kaufen Österreich Guide
+  {
+    slug: 'pferd-kaufen-oesterreich',
+    title: 'Pferd kaufen in Österreich: Kompletter Ratgeber 2025',
+    description: 'Pferd kaufen in Österreich: Alle Marktplätze (Willhaben, ehorses, Landwirt.com), Preise nach Bundesland, Noriker & Haflinger, Kaufvertrag & AKU.',
+    category: 'Kauf & Verkauf',
+    readTime: '18 Min.',
+    image: '/images/ratgeber/horses-mountain-meadow-lake.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'haflinger-kaufen',
+      'aku-pferd'
+    ]
   }
 ];
 

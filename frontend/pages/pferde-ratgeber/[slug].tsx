@@ -47,6 +47,7 @@ const STATIC_PAGE_SLUGS = [
   'was-kostet-ein-pferd',
   'pferd-kaufen-schweiz',
   'haflinger-kaufen',
+  'pferd-kaufen-oesterreich',
 ];
 
 // ============================================================================
