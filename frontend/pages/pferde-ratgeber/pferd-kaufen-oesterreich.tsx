@@ -189,7 +189,7 @@ export default function PferdKaufenOesterreich() {
               ehorses.at – Europas größter Online Pferdemarkt
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <LocalizedLink href="/pferde-ratgeber/ehorses-pferde-kaufen" className="text-brand hover:text-brand-dark underline">ehorses</LocalizedLink> ist mit über 17.000 Inseraten die größte Pferdeverkaufsplattform im deutschsprachigen Raum. Die Plattform ist ideal, wenn du eine große Auswahl durchsuchen möchtest. Du findest hier Pferde aller Rassen, Altersgruppen und Preisklassen – von günstigen Freizeitpferden bis zu Sportpferden mit beeindruckenden Papieren.
+              <strong>ehorses</strong> ist mit über 17.000 Inseraten die größte Pferdeverkaufsplattform im deutschsprachigen Raum. Die Plattform ist ideal, wenn du eine große Auswahl durchsuchen möchtest. Du findest hier Pferde aller Rassen, Altersgruppen und Preisklassen – von günstigen Freizeitpferden bis zu Sportpferden mit beeindruckenden Papieren.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               <strong>Vorteil:</strong> Die erweiterten Filteroptionen ermöglichen es dir, deine Suche einzugrenzen (Rasse, Größe, Alter, Trainingslevel). <strong>Nachteil:</strong> ehorses ist ein internationaler Marktplatz, was bedeutet, dass Transportkosten für Pferde aus Deutschland oder anderen Ländern anfallen können.
@@ -199,7 +199,7 @@ export default function PferdKaufenOesterreich() {
               Willhaben.at – Österreichs größtes Kleinanzeigenportal
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <LocalizedLink href="/pferde-ratgeber/willhaben-pferde-kaufen" className="text-brand hover:text-brand-dark underline">Willhaben</LocalizedLink> ist dein lokales Äquivalent zu eBay. Hier inserieren hauptsächlich private Verkäufer und kleinere Züchter aus Österreich. Die Plattform ist kostenlos für private Angebote, was bedeutet, dass du oft direktere Verhandlungen führen kannst.
+              <strong>Willhaben</strong> ist dein lokales Äquivalent zu eBay. Hier inserieren hauptsächlich private Verkäufer und kleinere Züchter aus Österreich. Die Plattform ist kostenlos für private Angebote, was bedeutet, dass du oft direktere Verhandlungen führen kannst.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               Der große Vorteil: Du kannst relativ einfach lokale Verkäufer kontaktieren. Du sparst Transportkosten und kannst das Pferd mehrmals besichtigen, bevor du kaufst. <strong>Vorsicht:</strong> Nicht alle Angebote sind professionell – eine <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">Ankaufsuntersuchung (AKU)</LocalizedLink> ist unverzichtbar.
@@ -209,7 +209,7 @@ export default function PferdKaufenOesterreich() {
               Landwirt.com – Direkt von Züchtern und Bauern kaufen
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <LocalizedLink href="/pferde-ratgeber/landwirt-pferde-kaufen" className="text-brand hover:text-brand-dark underline">Landwirt.com</LocalizedLink> ist der Geheimtipp für viele erfahrene Pferdekäufer. Auf diesem Agrarmarktplatz inserieren Bauern und Züchter ihre Pferde. Du sprichst direkt mit Menschen, die Pferde groß gezogen haben und ihre Gesundheit und Temperament gut kennen.
+              <strong>Landwirt.com</strong> ist der Geheimtipp für viele erfahrene Pferdekäufer. Auf diesem Agrarmarktplatz inserieren Bauern und Züchter ihre Pferde. Du sprichst direkt mit Menschen, die Pferde groß gezogen haben und ihre Gesundheit und Temperament gut kennen.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               Oft sind Pferde von Bauernhöfen günstiger als bei professionellen Händlern. Außerdem haben sie in der Regel mehr Auslauf gehabt und sind weniger verwöhnt als Pferde, die Jahre in Ställen standen.
@@ -315,7 +315,7 @@ export default function PferdKaufenOesterreich() {
               Noriker kaufen – Österreichs heimische Pferderasse
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der <LocalizedLink href="/pferde-ratgeber/noriker-pferd" className="text-brand hover:text-brand-dark underline">Noriker</LocalizedLink> ist DAS österreichische Pferd. Diese eleganten Kaltblüter stammen aus den alpinen Regionen und sind für ihre Zuverlässigkeit, Kraft und Sanftheit bekannt.
+              Der <strong>Noriker</strong> ist DAS österreichische Pferd. Diese eleganten Kaltblüter stammen aus den alpinen Regionen und sind für ihre Zuverlässigkeit, Kraft und Sanftheit bekannt.
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li><strong>Höhe:</strong> 1,45–1,60 m (mittelgroß)</li>
@@ -329,7 +329,7 @@ export default function PferdKaufenOesterreich() {
               Haflinger kaufen – Alpine Rasse mit Tradition
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der <LocalizedLink href="/pferde-ratgeber/haflinger-pferd" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> ist nach dem Noriker die zweite klassische österreichische Rasse. Diese kleinen, kraftvollen Bergpferde sind berühmt für ihre Zuverlässigkeit und ihre Fähigkeit, in schwierigem Gelände zu arbeiten.
+              Der <LocalizedLink href="/pferde-ratgeber/haflinger-kaufen" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> ist nach dem Noriker die zweite klassische österreichische Rasse. Diese kleinen, kraftvollen Bergpferde sind berühmt für ihre Zuverlässigkeit und ihre Fähigkeit, in schwierigem Gelände zu arbeiten.
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li><strong>Höhe:</strong> 1,38–1,50 m (ideal für Kinder und Leichtreitende)</li>
@@ -466,7 +466,7 @@ export default function PferdKaufenOesterreich() {
               Schritt 5: Kaufvertrag und Rechtliche Absicherung
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein schriftlicher <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag-oesterreich" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> ist essentiell. Das schützt beide Seiten. Was muss im Vertrag stehen: Namen und Daten beider Parteien, Pferdetasche (Namen, Rasse, Alter, Farbe), Kaufpreis, Garantien, Rücktrittsrecht, Übergabedatum.
+              Ein schriftlicher <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> ist essentiell. Das schützt beide Seiten. Was muss im Vertrag stehen: Namen und Daten beider Parteien, Pferdetasche (Namen, Rasse, Alter, Farbe), Kaufpreis, Garantien, Rücktrittsrecht, Übergabedatum.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -491,7 +491,7 @@ export default function PferdKaufenOesterreich() {
               Kaufvertrag, AKU, Versicherungen – diese Punkte solltest du nie überspringen. PferdeWert hilft dir zusätzlich mit einer objektiven Bewertung, um teure Fehlkäufe zu vermeiden.
             </p>
             <LocalizedLink
-              href="/pferde-ratgeber/pferdekaufvertrag-oesterreich"
+              href="/pferde-ratgeber/pferdekaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Mehr zum Kaufvertrag

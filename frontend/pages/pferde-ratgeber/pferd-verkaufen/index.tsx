@@ -515,7 +515,7 @@ const PferdVerkaufen: NextPage = () => {
             <ul className="space-y-2 text-gray-700 mb-6">
               <li>✓ Gesundheitscheck beim Tierarzt</li>
               <li>✓ Hufschmied-Termin für optimale Optik</li>
-              <li>✓ <LocalizedLink href="/pferde-ratgeber/aku-pferd/ablauf" className="text-brand-brown hover:underline">AKU-Ablauf verstehen</LocalizedLink> für Käuferfragen</li>
+              <li>✓ <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:underline">AKU-Ablauf verstehen</LocalizedLink> für Käuferfragen</li>
               <li>✓ Dokumente bereitstellen: Equidenpass, Impfausweis, Abstammungspapiere</li>
             </ul>
 

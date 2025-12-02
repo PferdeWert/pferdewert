@@ -297,11 +297,7 @@ export default function WasKostetEinPferd() {
               </div>
               <div className="ml-3">
                 <p className="text-sm text-gray-700">
-                  <strong>Wichtig:</strong> Plane zusätzlich <strong>100-200€ pro Monat</strong> als Notfall-Rücklage ein. Tierarzt-Notfälle (Koliken, Verletzungen) können schnell 2.000-8.000€ kosten. Eine{' '}
-                  <LocalizedLink href="/pferde-ratgeber/pferd-versicherung" className="text-primary-600 hover:text-primary-700 font-semibold underline">
-                    OP-Versicherung
-                  </LocalizedLink>{' '}
-                  ist daher dringend empfohlen.
+                  <strong>Wichtig:</strong> Plane zusätzlich <strong>100-200€ pro Monat</strong> als Notfall-Rücklage ein. Tierarzt-Notfälle (Koliken, Verletzungen) können schnell 2.000-8.000€ kosten. Eine <strong>OP-Versicherung</strong> ist daher dringend empfohlen.
                 </p>
               </div>
             </div>
@@ -504,11 +500,7 @@ export default function WasKostetEinPferd() {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <p className="text-lg font-bold text-gray-900 mb-2">Spartipp</p>
               <p className="text-lg text-gray-700">
-                Viele Gegenstände können gebraucht gekauft werden. eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises. Wer Geld beim Stall sparen möchte, sollte auch{' '}
-                <LocalizedLink href="/pferde-ratgeber/offenstall-kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
-                  günstige Offenstall-Optionen
-                </LocalizedLink>{' '}
-                vergleichen.
+                Viele Gegenstände können gebraucht gekauft werden. eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises. Wer Geld beim Stall sparen möchte, sollte auch <strong>günstige Offenstall-Optionen</strong> vergleichen.
               </p>
             </div>
 

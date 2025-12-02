@@ -206,7 +206,7 @@ export default function HaflingerKaufenPage() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Für weitere Informationen über die Eignung verschiedener <LocalizedLink href="/pferde-ratgeber/pferderassen-anfanger" className="text-brand-brown hover:text-brand-brownDark underline">Pferderassen für Anfänger</LocalizedLink> lies unseren umfassenden Vergleichsratgeber.
+            Für weitere Informationen über die Eignung verschiedener <LocalizedLink href="/pferde-ratgeber/anfaengerpferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">Pferderassen für Anfänger</LocalizedLink> lies unseren umfassenden Vergleichsratgeber.
           </p>
         </section>
 
@@ -252,7 +252,7 @@ export default function HaflingerKaufenPage() {
           </ul>
 
           <p className="text-lg text-gray-700 leading-relaxed mt-6">
-            Die meisten seriösen Käufer zahlen €4.000-7.000 für einen zuverlässigen, ausgebildeten Haflinger. Um den fairen Marktwert eines Pferdes zu ermitteln, nutze unsere <LocalizedLink href="/pferde-ratgeber/pferdewert-ermitteln" className="text-brand-brown hover:text-brand-brownDark underline">KI-gestützte Pferdewert-Bewertung</LocalizedLink>.
+            Die meisten seriösen Käufer zahlen €4.000-7.000 für einen zuverlässigen, ausgebildeten Haflinger. Um den fairen Marktwert eines Pferdes zu ermitteln, nutze unsere <LocalizedLink href="/pferde-preis-berechnen" className="text-brand-brown hover:text-brand-brownDark underline">KI-gestützte Pferdewert-Bewertung</LocalizedLink>.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
@@ -308,7 +308,7 @@ export default function HaflingerKaufenPage() {
           </h3>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Der Kaufpreis ist nur die Spitze des Eisbergs. Die echten Kosten entstehen im täglichen Betrieb. Für eine detaillierte Aufschlüsselung aller <LocalizedLink href="/pferde-ratgeber/pferd-haltungskosten" className="text-brand-brown hover:text-brand-brownDark underline">Haltungskosten für Pferde</LocalizedLink> lies unseren umfassenden Kostenratgeber.
+            Der Kaufpreis ist nur die Spitze des Eisbergs. Die echten Kosten entstehen im täglichen Betrieb. Für eine detaillierte Aufschlüsselung aller <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand-brown hover:text-brand-brownDark underline">Haltungskosten für Pferde</LocalizedLink> lies unseren umfassenden Kostenratgeber.
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed font-semibold text-brand mt-4">
@@ -371,7 +371,7 @@ export default function HaflingerKaufenPage() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            <strong>Aber:</strong> Sie sind <strong>nicht</strong>&quot;kostenlos trainierbar&quot;. Ein Haflinger mit schwachem Reiter wird bald die Kontrolle übernehmen. Sie brauchen konsistente, selbstsichere Führung. Das ist nicht &quot;Anfänger&quot; im Sinne von &quot;komplett Reit-unerfahren&quot; – das ist &quot;Anfänger&quot; im Sinne von &quot;du hast Lektionen, aber nicht 20 Jahre Erfahrung&quot;. Wenn du dein <LocalizedLink href="/pferde-ratgeber/erstes-pferd-kaufen-anfanger" className="text-brand-brown hover:text-brand-brownDark underline">erstes Pferd kaufen</LocalizedLink> möchtest, lies unseren Anfänger-Guide.
+            <strong>Aber:</strong> Sie sind <strong>nicht</strong>&quot;kostenlos trainierbar&quot;. Ein Haflinger mit schwachem Reiter wird bald die Kontrolle übernehmen. Sie brauchen konsistente, selbstsichere Führung. Das ist nicht &quot;Anfänger&quot; im Sinne von &quot;komplett Reit-unerfahren&quot; – das ist &quot;Anfänger&quot; im Sinne von &quot;du hast Lektionen, aber nicht 20 Jahre Erfahrung&quot;. Wenn du dein <LocalizedLink href="/pferde-ratgeber/anfaengerpferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">erstes Pferd kaufen</LocalizedLink> möchtest, lies unseren Anfänger-Guide.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
@@ -509,7 +509,7 @@ export default function HaflingerKaufenPage() {
           </h2>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Der Haflinger Kaufprozess folgt den gleichen Schritten wie beim allgemeinen Pferdekauf. Nutze unsere umfassende <LocalizedLink href="/pferde-ratgeber/pferd-kaufen-worauf-achten" className="text-brand-brown hover:text-brand-brownDark underline">Pferd kaufen Checkliste</LocalizedLink> um sicherzustellen, dass du nichts vergisst.
+            Der Haflinger Kaufprozess folgt den gleichen Schritten wie beim allgemeinen Pferdekauf. Nutze unsere umfassende <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">Pferd kaufen Checkliste</LocalizedLink> um sicherzustellen, dass du nichts vergisst.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
@@ -610,7 +610,7 @@ export default function HaflingerKaufenPage() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Die Inspektionskosten (€200-400) sind die beste Versicherung, die du kaufst. Hier passieren 40% aller Pferde-Kaufentscheidungen. Detaillierte Informationen über was der Tierarzt prüft findest du in unserem <LocalizedLink href="/pferde-ratgeber/tierarztliche-untersuchung-pferd" className="text-brand-brown hover:text-brand-brownDark underline">Guide zur tierärztlichen Untersuchung</LocalizedLink>.
+            Die Inspektionskosten (€200-400) sind die beste Versicherung, die du kaufst. Hier passieren 40% aller Pferde-Kaufentscheidungen. Detaillierte Informationen über was der Tierarzt prüft findest du in unserem <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand-brown hover:text-brand-brownDark underline">Guide zur tierärztlichen Untersuchung</LocalizedLink>.
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed mt-6 font-semibold text-brand">
@@ -779,7 +779,7 @@ export default function HaflingerKaufenPage() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Dies hängt von Genetik, Pflege, Futter, Bewegung und Glück ab. Das Wichtigste: Wenn du heute einen 5-jährigen Haflinger kaufst, bist du bis 2055 Pferdebesitzer. Das ist eine <strong>30-35 Jahre Verpflichtung</strong>. Lies unseren Guide zur <LocalizedLink href="/pferde-ratgeber/seniorpferde-pflege" className="text-brand-brown hover:text-brand-brownDark underline">Seniorpferde-Pflege</LocalizedLink> für langfristige Planung.
+            Dies hängt von Genetik, Pflege, Futter, Bewegung und Glück ab. Das Wichtigste: Wenn du heute einen 5-jährigen Haflinger kaufst, bist du bis 2055 Pferdebesitzer. Das ist eine <strong>30-35 Jahre Verpflichtung</strong>. Die langfristige Pflege eines Haflingers erfordert sorgfältige Planung.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
