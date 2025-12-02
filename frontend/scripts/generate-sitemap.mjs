@@ -40,7 +40,9 @@ function buildPageConfig() {
 
   // Add Ratgeber articles from registry
   RATGEBER_ENTRIES.forEach(entry => {
-    const path = `/pferde-ratgeber/${entry.slug}`;
+    // Use custom basePath if provided, otherwise default to /pferde-ratgeber
+    const basePath = entry.basePath || '/pferde-ratgeber';
+    const path = `${basePath}/${entry.slug}`;
     config[path] = {
       priority: entry.priority,
       changefreq: entry.changefreq

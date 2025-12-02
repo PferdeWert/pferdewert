@@ -1,0 +1,577 @@
+{
+  "primary_keyword": "pferd kaufen österreich",
+  "target_market": "Austria",
+  "analysis_date": "2025-11-30",
+  "total_keywords_analyzed": 18,
+  "total_search_volume_potential": 17699,
+  "keyword_clusters": {
+    "regional": [
+      {
+        "keyword": "pferd kaufen tirol",
+        "search_volume": 480,
+        "cpc": 0.29,
+        "relevance_score": 5.23,
+        "trend": "+23% (positive)",
+        "keyword_difficulty": "not_specified",
+        "state": "Tirol"
+      },
+      {
+        "keyword": "pferd kaufen kärnten",
+        "search_volume": 390,
+        "cpc": 0.24,
+        "relevance_score": 4.68,
+        "trend": "+50% (positive)",
+        "keyword_difficulty": 13,
+        "state": "Kärnten"
+      },
+      {
+        "keyword": "pferd kaufen steiermark",
+        "search_volume": 390,
+        "cpc": 0.24,
+        "relevance_score": 4.68,
+        "trend": "-19% to -46% (declining)",
+        "keyword_difficulty": "not_specified",
+        "state": "Steiermark"
+      },
+      {
+        "keyword": "pferd kaufen niederösterreich",
+        "search_volume": 260,
+        "cpc": 0.28,
+        "relevance_score": 3.60,
+        "trend": "-46% (declining)",
+        "keyword_difficulty": 11,
+        "state": "Niederösterreich"
+      },
+      {
+        "keyword": "pferd kaufen oberösterreich",
+        "search_volume": 140,
+        "cpc": 0.28,
+        "relevance_score": 2.28,
+        "trend": "+27% quarterly (positive)",
+        "keyword_difficulty": 17,
+        "state": "Oberösterreich"
+      },
+      {
+        "keyword": "pferd kaufen wien",
+        "search_volume": 40,
+        "cpc": 0.22,
+        "relevance_score": 1.04,
+        "trend": "-20% (declining)",
+        "keyword_difficulty": 34,
+        "state": "Wien"
+      }
+    ],
+    "breed": [
+      {
+        "keyword": "noriker kaufen",
+        "search_volume": 2400,
+        "cpc": 0.46,
+        "relevance_score": 9.52,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "breed": "Noriker",
+        "note": "Highest volume breed keyword - Austrian indigenous breed"
+      },
+      {
+        "keyword": "haflinger kaufen",
+        "search_volume": 1300,
+        "cpc": 0.32,
+        "relevance_score": 7.60,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "breed": "Haflinger",
+        "note": "High volume breed - popular in Alpine regions"
+      }
+    ],
+    "commercial": [
+      {
+        "keyword": "pferde kaufen für 200 euro",
+        "search_volume": 110,
+        "cpc": 0.61,
+        "relevance_score": 2.28,
+        "trend": "stable",
+        "keyword_difficulty": 11,
+        "intent_detail": "budget-focused transactional"
+      },
+      {
+        "keyword": "freizeitpferde kaufen österreich",
+        "search_volume": 140,
+        "cpc": 0.34,
+        "relevance_score": 2.42,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "intent_detail": "specific equestrian purpose"
+      },
+      {
+        "keyword": "pferde vom schlachter kaufen österreich",
+        "search_volume": 150,
+        "cpc": 0.35,
+        "relevance_score": 2.53,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "intent_detail": "rescue/rescue-adjacent market"
+      },
+      {
+        "keyword": "pferde notverkauf österreich",
+        "search_volume": 70,
+        "cpc": 0.27,
+        "relevance_score": 1.41,
+        "trend": "stable",
+        "keyword_difficulty": 26,
+        "intent_detail": "emergency sale / distressed sales"
+      },
+      {
+        "keyword": "pferde günstig kaufen bis 1000 euro",
+        "search_volume": 30,
+        "cpc": 0.29,
+        "relevance_score": 0.63,
+        "trend": "stable",
+        "keyword_difficulty": 8,
+        "intent_detail": "budget-constrained buyers"
+      }
+    ],
+    "informational": [
+      {
+        "keyword": "schulpferd kaufen österreich",
+        "search_volume": 50,
+        "cpc": 0.30,
+        "relevance_score": 1.35,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "purpose": "school/teaching horses"
+      },
+      {
+        "keyword": "springpferd kaufen österreich",
+        "search_volume": 50,
+        "cpc": 0.30,
+        "relevance_score": 1.35,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "purpose": "jumping/sport horses"
+      },
+      {
+        "keyword": "warmblut kaufen österreich",
+        "search_volume": 50,
+        "cpc": 0.30,
+        "relevance_score": 1.35,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "purpose": "warmblood breed category"
+      }
+    ],
+    "navigational": [
+      {
+        "keyword": "willhaben pferde",
+        "search_volume": 6600,
+        "cpc": 0.58,
+        "relevance_score": 8.48,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "platform": "Willhaben (Austria's primary classifieds)",
+        "note": "Very high volume but navigational - users know where they want to go"
+      },
+      {
+        "keyword": "landwirt pferde",
+        "search_volume": 3600,
+        "cpc": 0.50,
+        "relevance_score": 7.50,
+        "trend": "stable",
+        "keyword_difficulty": "not_specified",
+        "platform": "Agricultural source search",
+        "note": "High volume, mixed intent (navigational + commercial)"
+      }
+    ],
+    "rescue_special": []
+  },
+  "top_20_keywords": [
+    {
+      "rank": 1,
+      "keyword": "noriker kaufen",
+      "search_volume": 2400,
+      "cpc": 0.46,
+      "cluster": "breed",
+      "relevance_score": 9.52,
+      "priority": "high",
+      "rationale": "Highest relevance score, strong commercial intent, Austrian breed with dedicated audience"
+    },
+    {
+      "rank": 2,
+      "keyword": "pferd kaufen österreich",
+      "search_volume": 1900,
+      "cpc": 0.24,
+      "cluster": "primary",
+      "relevance_score": 9.20,
+      "priority": "high",
+      "rationale": "Primary keyword, pillar content target, moderate difficulty (21)"
+    },
+    {
+      "rank": 3,
+      "keyword": "willhaben pferde",
+      "search_volume": 6600,
+      "cpc": 0.58,
+      "cluster": "navigational",
+      "relevance_score": 8.48,
+      "priority": "high",
+      "rationale": "Highest search volume, high CPC, understand user destination behavior"
+    },
+    {
+      "rank": 4,
+      "keyword": "haflinger kaufen",
+      "search_volume": 1300,
+      "cpc": 0.32,
+      "cluster": "breed",
+      "relevance_score": 7.60,
+      "priority": "high",
+      "rationale": "Strong volume, relevant breed, commercial intent"
+    },
+    {
+      "rank": 5,
+      "keyword": "landwirt pferde",
+      "search_volume": 3600,
+      "cpc": 0.50,
+      "cluster": "navigational",
+      "relevance_score": 7.50,
+      "priority": "high",
+      "rationale": "High volume, strong CPC, reveals buyer source preference (farmers)"
+    },
+    {
+      "rank": 6,
+      "keyword": "pferd kaufen tirol",
+      "search_volume": 480,
+      "cpc": 0.29,
+      "cluster": "regional",
+      "relevance_score": 5.23,
+      "priority": "high",
+      "rationale": "Largest regional volume, positive trend (+23%), growing interest"
+    },
+    {
+      "rank": 7,
+      "keyword": "pferd kaufen kärnten",
+      "search_volume": 390,
+      "cpc": 0.24,
+      "cluster": "regional",
+      "relevance_score": 4.68,
+      "priority": "high",
+      "rationale": "Strong growth trend (+50%), second-largest regional market"
+    },
+    {
+      "rank": 8,
+      "keyword": "pferd kaufen steiermark",
+      "search_volume": 390,
+      "cpc": 0.24,
+      "cluster": "regional",
+      "relevance_score": 4.68,
+      "priority": "medium",
+      "rationale": "Equal volume to Kärnten but declining trend - still significant market"
+    },
+    {
+      "rank": 9,
+      "keyword": "pferd kaufen niederösterreich",
+      "search_volume": 260,
+      "cpc": 0.28,
+      "cluster": "regional",
+      "relevance_score": 3.60,
+      "priority": "medium",
+      "rationale": "Moderate volume, declining trend but reasonable CPC"
+    },
+    {
+      "rank": 10,
+      "keyword": "pferde vom schlachter kaufen österreich",
+      "search_volume": 150,
+      "cpc": 0.35,
+      "cluster": "commercial",
+      "relevance_score": 2.53,
+      "priority": "medium",
+      "rationale": "Unique angle (rescue/adoption perspective), reasonable CPC"
+    },
+    {
+      "rank": 11,
+      "keyword": "freizeitpferde kaufen österreich",
+      "search_volume": 140,
+      "cpc": 0.34,
+      "cluster": "commercial",
+      "relevance_score": 2.42,
+      "priority": "medium",
+      "rationale": "Niche but specific buyer intent, good CPC indicates commercial value"
+    },
+    {
+      "rank": 12,
+      "keyword": "pferd kaufen oberösterreich",
+      "search_volume": 140,
+      "cpc": 0.28,
+      "cluster": "regional",
+      "relevance_score": 2.28,
+      "priority": "medium",
+      "rationale": "Smaller regional volume but positive quarterly trend"
+    },
+    {
+      "rank": 13,
+      "keyword": "pferde kaufen für 200 euro",
+      "search_volume": 110,
+      "cpc": 0.61,
+      "cluster": "commercial",
+      "relevance_score": 2.28,
+      "priority": "medium",
+      "rationale": "Budget-focused segment, highest CPC (0.61) indicates strong commercial interest"
+    },
+    {
+      "rank": 14,
+      "keyword": "schulpferd kaufen österreich",
+      "search_volume": 50,
+      "cpc": 0.30,
+      "cluster": "informational",
+      "relevance_score": 1.35,
+      "priority": "low",
+      "rationale": "Lower volume but specific equestrian purpose, good for content niche"
+    },
+    {
+      "rank": 15,
+      "keyword": "springpferd kaufen österreich",
+      "search_volume": 50,
+      "cpc": 0.30,
+      "cluster": "informational",
+      "relevance_score": 1.35,
+      "priority": "low",
+      "rationale": "Lower volume but specific equestrian purpose, good for content niche"
+    },
+    {
+      "rank": 16,
+      "keyword": "warmblut kaufen österreich",
+      "search_volume": 50,
+      "cpc": 0.30,
+      "cluster": "informational",
+      "relevance_score": 1.35,
+      "priority": "low",
+      "rationale": "Lower volume but breed category relevant, good for content niche"
+    },
+    {
+      "rank": 17,
+      "keyword": "pferd kaufen wien",
+      "search_volume": 40,
+      "cpc": 0.22,
+      "cluster": "regional",
+      "relevance_score": 1.04,
+      "priority": "low",
+      "rationale": "Very low volume, high difficulty (34), mention but don't prioritize"
+    },
+    {
+      "rank": 18,
+      "keyword": "pferde notverkauf österreich",
+      "search_volume": 70,
+      "cpc": 0.27,
+      "cluster": "commercial",
+      "relevance_score": 1.41,
+      "priority": "low",
+      "rationale": "Lower volume, higher difficulty (26), specialized angle"
+    },
+    {
+      "rank": 19,
+      "keyword": "pferde günstig kaufen bis 1000 euro",
+      "search_volume": 30,
+      "cpc": 0.29,
+      "cluster": "commercial",
+      "relevance_score": 0.63,
+      "priority": "low",
+      "rationale": "Very low volume, mention in budget section"
+    }
+  ],
+  "cluster_summary": {
+    "regional": {
+      "count": 6,
+      "total_volume": 1700,
+      "avg_difficulty": 17.5,
+      "priority": "high",
+      "rationale": "Geographic segmentation important for Austrian market, Tirol + Kärnten are growth markets"
+    },
+    "breed": {
+      "count": 2,
+      "total_volume": 3700,
+      "priority": "highest",
+      "rationale": "Noriker + Haflinger have exceptional volume and commercial intent, breed-specific content gold mine"
+    },
+    "commercial": {
+      "count": 5,
+      "total_volume": 500,
+      "avg_difficulty": 14.75,
+      "priority": "medium",
+      "rationale": "Niche segments (budget, rescue, purpose-specific) reveal buyer pain points and opportunities"
+    },
+    "informational": {
+      "count": 3,
+      "total_volume": 150,
+      "priority": "low",
+      "rationale": "Lower volume but educational content opportunity for equestrian purposes"
+    },
+    "navigational": {
+      "count": 2,
+      "total_volume": 10200,
+      "priority": "understanding",
+      "rationale": "Don't target directly but understand where users go (Willhaben, farmers) - competitive intelligence"
+    }
+  },
+  "content_recommendations": {
+    "pillar_keyword": "pferd kaufen österreich",
+    "pillar_difficulty": 21,
+    "pillar_rationale": "Moderate difficulty, good volume (1900), strong commercial intent. Comprehensive pillar content can capture primary audience while branching into breed, regional, and purpose-specific variations.",
+    "h2_sections_from_clusters": [
+      {
+        "section": "Pferd kaufen nach Bundesland",
+        "subsections": [
+          "Pferde in Tirol kaufen (+23% growth)",
+          "Pferde in Kärnten kaufen (+50% growth - fastest growing)",
+          "Pferde in der Steiermark kaufen",
+          "Pferde in Niederösterreich kaufen",
+          "Pferde in Oberösterreich kaufen",
+          "Pferde in Wien kaufen"
+        ],
+        "value": "Local search intent optimization, serves regional buyers"
+      },
+      {
+        "section": "Beliebte Pferderassen in Österreich",
+        "subsections": [
+          "Noriker kaufen (2400 SV)",
+          "Haflinger kaufen (1300 SV)",
+          "Warmblut kaufen",
+          "Springpferde kaufen"
+        ],
+        "value": "Addresses highest volume keywords, breed-specific buyer needs"
+      },
+      {
+        "section": "Pferd kaufen nach Verwendungszweck",
+        "subsections": [
+          "Freizeitpferde kaufen",
+          "Schulpferde kaufen",
+          "Springpferde für Wettkampf kaufen"
+        ],
+        "value": "Serves equestrian discipline-specific buyers"
+      },
+      {
+        "section": "Pferd kaufen nach Budget",
+        "subsections": [
+          "Günstige Pferde kaufen (bis 1000 Euro)",
+          "Pferde für 200 Euro kaufen",
+          "Notverkauf-Pferde kaufen (rescue angle)"
+        ],
+        "value": "Addresses commercial segment with highest CPC (0.61), shows buyer financial constraints"
+      },
+      {
+        "section": "Wo Pferde in Österreich kaufen",
+        "subsections": [
+          "Pferde auf Willhaben finden (6600 SV - primary platform)",
+          "Pferde von Landwirten kaufen (3600 SV - direct source)",
+          "Pferde von Züchtern kaufen"
+        ],
+        "value": "Addresses navigational intent, shows buyer marketplace preferences"
+      }
+    ],
+    "faq_questions": [
+      {
+        "question": "Wo kann ich Pferde in Österreich kaufen?",
+        "keywords_addressed": ["pferd kaufen österreich", "willhaben pferde", "landwirt pferde"],
+        "intent": "navigation to marketplaces"
+      },
+      {
+        "question": "Wie viel kostet ein Pferd in Österreich?",
+        "keywords_addressed": ["pferde kaufen für 200 euro", "pferde günstig kaufen bis 1000 euro"],
+        "intent": "pricing information"
+      },
+      {
+        "question": "Welche Pferderassen sollte ich in Österreich kaufen?",
+        "keywords_addressed": ["noriker kaufen", "haflinger kaufen", "warmblut kaufen"],
+        "intent": "breed selection guidance"
+      },
+      {
+        "question": "Kann ich ein Pferd von einem Landwirt kaufen?",
+        "keywords_addressed": ["landwirt pferde", "pferde vom schlachter kaufen österreich"],
+        "intent": "alternative source information"
+      },
+      {
+        "question": "Gibt es Unterschiede beim Pferdekauf in verschiedenen Bundesländern?",
+        "keywords_addressed": ["pferd kaufen tirol", "pferd kaufen kärnten", "regional keywords"],
+        "intent": "regional market insights"
+      },
+      {
+        "question": "Worauf sollte ich beim Pferdekauf achten?",
+        "keywords_addressed": ["pferd kaufen österreich"],
+        "intent": "buyer guidance / checklist"
+      },
+      {
+        "question": "Ist es sicherer, ein Freizeitpferd oder Sportpferd zu kaufen?",
+        "keywords_addressed": ["freizeitpferde kaufen österreich", "springpferd kaufen österreich"],
+        "intent": "purpose-based comparison"
+      }
+    ],
+    "internal_link_opportunities": [
+      {
+        "anchor": "Pferdekaufvertrag in Österreich",
+        "target": "/pferde-ratgeber/pferdekaufvertrag-oesterreich",
+        "keywords_served": ["pferd kaufen österreich"],
+        "context": "Link from main article to legal/contract content"
+      },
+      {
+        "anchor": "Noriker Pferd: Rasse, Herkunft, Preis",
+        "target": "/pferde-ratgeber/noriker-pferd",
+        "keywords_served": ["noriker kaufen"],
+        "context": "Deep dive into most-searched breed"
+      },
+      {
+        "anchor": "Haflinger Pferd: Kaufratgeber",
+        "target": "/pferde-ratgeber/haflinger-pferd",
+        "keywords_served": ["haflinger kaufen"],
+        "context": "Deep dive into second-most-searched breed"
+      },
+      {
+        "anchor": "Willhaben Pferde Tipps",
+        "target": "/pferde-ratgeber/willhaben-pferde-kaufen",
+        "keywords_served": ["willhaben pferde"],
+        "context": "Guide to using primary Austrian marketplace"
+      },
+      {
+        "anchor": "Pferd Notverkauf Österreich",
+        "target": "/pferde-ratgeber/pferd-notverkauf",
+        "keywords_served": ["pferde notverkauf österreich"],
+        "context": "Rescue/adoption angle for budget-conscious buyers"
+      },
+      {
+        "anchor": "Regionaler Pferdemarkt",
+        "target": "/pferde-ratgeber/pferdemarkt-bundesländer",
+        "keywords_served": ["pferd kaufen tirol", "pferd kaufen kärnten", etc.],
+        "context": "Comprehensive regional guide"
+      }
+    ],
+    "content_gaps_identified": [
+      {
+        "gap": "No dedicated guide to buying from Austrian farmers",
+        "opportunity": "Create content targeting 'landwirt pferde' (3600 SV) - direct source guide",
+        "keyword_potential": 3600
+      },
+      {
+        "gap": "No Willhaben-specific buying guide",
+        "opportunity": "Create marketplace guide for Austria's dominant classifieds (6600 SV)",
+        "keyword_potential": 6600
+      },
+      {
+        "gap": "Regional market analysis absent",
+        "opportunity": "Create regional guides for Tirol (+23%), Kärnten (+50% - growth region), others",
+        "keyword_potential": 1700
+      },
+      {
+        "gap": "Breed-specific content thin",
+        "opportunity": "Expand Noriker (2400 SV) and Haflinger (1300 SV) content as pillar pages",
+        "keyword_potential": 3700
+      },
+      {
+        "gap": "Budget buyer segment underserved",
+        "opportunity": "Create 'budget horse buying' guide (0.61 CPC - high commercial value)",
+        "keyword_potential": 110
+      }
+    ],
+    "seo_strategy": {
+      "phase_1": "Create pillar page: 'pferd kaufen österreich' (difficulty 21, moderate). Target 3000-4000 words with comprehensive coverage of all clusters.",
+      "phase_2": "Create cluster pages for high-volume segments: Noriker (2400 SV), Haflinger (1300 SV), Willhaben (6600 SV navigational). Each 1500-2000 words.",
+      "phase_3": "Create regional landing pages for top 3 growing markets: Tirol (+23%), Kärnten (+50%), Steiermark.",
+      "phase_4": "Create supplementary content: purpose-based guides (Schulpferd, Springpferd), budget guides.",
+      "phase_5": "Link network: pillar → cluster → regional → supplementary. Use semantic variations in anchor text."
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie viel Geld brauche ich für ein Anfänger-Pferd in Bayern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Für ein gutes Freizeitpferd solltest du mit folgendem Budget rechnen: Anschaffung 3.000-6.000 EUR, erste Ausstattung 1.000-2.000 EUR, Ankaufsuntersuchung 250 EUR. Für das erste Jahr insgesamt 12.000-17.000 EUR eingeplant. Danach ca. 600-900 EUR monatlich für laufende Kosten wie Stallmiete, Futter, Hufschmied und Versicherung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche sind die besten Marktplätze zum Pferd kaufen in Bayern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die vier Haupt-Marktplätze sind: ehorses.de (19.000+ Angebote, größte Auswahl), Kleinanzeigen.de (5.000+ Angebote, oft günstig), pferde.de (3.000+ spezialisierte Angebote), deine-tierwelt.de (2.000+ Angebote, anfängerfreundlich). Zusätzlich gibt es traditionelle Pferdmärkte wie den Ingolstädter Markt (jeden 2. Samstag) und den Berchinger Rossmarkt (Februar & August)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Pferderasse ist am besten für Anfänger geeignet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Für Anfänger empfehlen wir Haflinger oder Connemara. Haflinger (1.35-1.50m, 3.000-7.000 EUR) zeichnen sich durch natürliche Bravheit, Trittsicherheit und Robustheit aus. Connemara (1.30-1.48m, 2.500-5.000 EUR) sind überraschend sportlich und preislich sehr günstig. Auch Isländer und Fjordpferde sind hervorragende Anfänger-Rassen mit sicheren Temperamenten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist eine Ankaufsuntersuchung und ist sie erforderlich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Ankaufsuntersuchung (AKU) ist ein Pferde-TÜV und essentiell vor jedem Kauf. Kosten: 150-300 EUR. Zeitpunkt: VOR Kaufvertrag unterschreiben! Umfang: Allgemein-Status, Bluttest, optional Röntgen. Die AKU schützt dich vor versteckten Krankheiten wie Arthrose, Hufrehe oder Zahnproblemen, die später tausende EUR kosten können."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann ist der beste Zeitpunkt zum Pferdekauf in Bayern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jahreszeiten beeinflussen Angebot und Preis deutlich: Frühling (März-Mai) hat die meiste Auswahl, aber höhere Preise. Sommer (Juni-August) bietet stabilere Preise und gutes Angebot. Herbst (September-November) zeigt fallende Preise mit weniger Auswahl. Winter (Dezember-Februar) ist günstigste Zeit – du kannst 10-20% Preisvorteil erreichen, da weniger Käufer am Markt sind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was sind die wichtigsten Punkte beim Pferdekauf-Vertrag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Kaufvertrag sollte folgende Punkte enthalten: vollständige Pferddaten (Name, Chip-Nr., Rasse, Farbe), Leistungsgarantie (mindestens 14 Tage Proberitzeit), Gewährleistung für versteckte Mängel, Rücktrittsrecht bei Problemen, Klarheit über Versicherungen. Alle Vereinbarungen müssen schriftlich dokumentiert sein – mündliche Garantien sind vor Gericht nicht bindbar."
+      }
+    }
+  ]
+}

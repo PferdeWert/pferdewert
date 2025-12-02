@@ -1,0 +1,167 @@
+{
+  "article": "pferd-kaufen-oesterreich",
+  "outbound_links": [
+    {
+      "anchor_text": "ehorses",
+      "target_url": "/pferde-ratgeber/ehorses-pferde-kaufen",
+      "context": "H2: Wo Pferde kaufen - ehorses.at Abschnitt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "ehorses österreich",
+      "position": "section_1"
+    },
+    {
+      "anchor_text": "Willhaben",
+      "target_url": "/pferde-ratgeber/willhaben-pferde-kaufen",
+      "context": "H2: Wo Pferde kaufen - Willhaben.at Abschnitt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "willhaben pferde",
+      "position": "section_1"
+    },
+    {
+      "anchor_text": "Landwirt.com",
+      "target_url": "/pferde-ratgeber/landwirt-pferde-kaufen",
+      "context": "H2: Wo Pferde kaufen - Landwirt.com Abschnitt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "landwirt pferde",
+      "position": "section_1"
+    },
+    {
+      "anchor_text": "Noriker",
+      "target_url": "/pferde-ratgeber/noriker-pferd",
+      "context": "H2: Beliebte Pferderassen - Noriker Abschnitt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "noriker kaufen",
+      "position": "section_3"
+    },
+    {
+      "anchor_text": "Haflinger",
+      "target_url": "/pferde-ratgeber/haflinger-pferd",
+      "context": "H2: Beliebte Pferderassen - Haflinger Abschnitt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "haflinger kaufen",
+      "position": "section_3"
+    },
+    {
+      "anchor_text": "AKU (Ankaufsuntersuchung)",
+      "target_url": "/pferde-ratgeber/aku-pferd",
+      "context": "H2: Kaufprozess - Ankaufsuntersuchung Schritt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "aku pferd",
+      "position": "section_5"
+    },
+    {
+      "anchor_text": "Pferdekaufvertrag",
+      "target_url": "/pferde-ratgeber/pferdekaufvertrag-oesterreich",
+      "context": "H2: Kaufprozess - Kaufvertrag Schritt",
+      "link_type": "contextual",
+      "relevance": "high",
+      "keyword_focus": "pferdekaufvertrag",
+      "position": "section_5"
+    },
+    {
+      "anchor_text": "PferdeWert Rechner",
+      "target_url": "/",
+      "context": "Conclusion - Tool Integration",
+      "link_type": "navigational",
+      "relevance": "high",
+      "keyword_focus": "pferdewert bewertung",
+      "position": "conclusion"
+    }
+  ],
+  "inbound_link_opportunities": [
+    {
+      "source_article": "/pferde-ratgeber/ehorses-pferde-kaufen",
+      "suggested_anchor": "pferd kaufen österreich",
+      "suggested_context": "In der Intro oder im Vergleich zu anderen Marktplätzen",
+      "relevance": "high",
+      "keyword_benefit": "Erhöht die Sichtbarkeit für primary keyword"
+    },
+    {
+      "source_article": "/pferde-ratgeber/willhaben-pferde-kaufen",
+      "suggested_anchor": "österreichischer Pferdemarkt",
+      "suggested_context": "Im Kontext von Marktplatz-Vergleichen",
+      "relevance": "high",
+      "keyword_benefit": "Verstärkt lokale Relevanz"
+    },
+    {
+      "source_article": "/pferde-ratgeber/noriker-pferd",
+      "suggested_anchor": "noriker in österreich kaufen",
+      "suggested_context": "Im Abschnitt 'Wo Noriker kaufen'",
+      "relevance": "high",
+      "keyword_benefit": "Kreuzverlinkung für verwandte Rasse"
+    },
+    {
+      "source_article": "/pferde-ratgeber/haflinger-pferd",
+      "suggested_anchor": "haflinger in österreich",
+      "suggested_context": "Im Abschnitt 'Haflinger Marktpreise'",
+      "relevance": "high",
+      "keyword_benefit": "Kreuzverlinkung für verwandte Rasse"
+    },
+    {
+      "source_article": "/pferde-ratgeber/aku-pferd",
+      "suggested_anchor": "ankaufsuntersuchung beim pferdekauf in österreich",
+      "suggested_context": "Im Intro oder im Sicherheitsabschnitt",
+      "relevance": "high",
+      "keyword_benefit": "Verstärkt Long-Tail-Keyword-Kombination"
+    },
+    {
+      "source_article": "/pferde-ratgeber/pferdekaufvertrag-oesterreich",
+      "suggested_anchor": "pferdekauf in österreich",
+      "suggested_context": "Im Intro oder bei rechtlichen Hinweisen",
+      "relevance": "medium",
+      "keyword_benefit": "Thematische Relevanz verstärken"
+    },
+    {
+      "source_article": "/pferde-ratgeber/pferdeversicherung-österreich",
+      "suggested_anchor": "pferdekauf österreich",
+      "suggested_context": "Im Abschnitt 'Versicherung nach dem Kauf'",
+      "relevance": "medium",
+      "keyword_benefit": "Erhöht Sichtbarkeit für verwandte Versicherungs-Keywords"
+    },
+    {
+      "source_article": "/pferde-ratgeber/pferd-transportieren",
+      "suggested_anchor": "pferd aus österreich kaufen",
+      "suggested_context": "Bei der Diskussion von Transport-Kosten",
+      "relevance": "medium",
+      "keyword_benefit": "Kreuzverlinkung für Transport-relevante Keywords"
+    },
+    {
+      "source_article": "/pferde-ratgeber/pferdehaltung-kosten",
+      "suggested_anchor": "laufende kosten pferd österreich",
+      "suggested_context": "Im Intro oder bei Kostenvergeleichen",
+      "relevance": "high",
+      "keyword_benefit": "Verstärkt Kosten-fokussierte Keyword-Variationen"
+    },
+    {
+      "source_article": "/pferde-ratgeber/freizeitpferd-kaufen",
+      "suggested_anchor": "freizeitpferd in österreich",
+      "suggested_context": "Bei der Empfehlung für Anfänger",
+      "relevance": "high",
+      "keyword_benefit": "Kreuzverlinkung für Anfänger-fokussierte Keywords"
+    }
+  ],
+  "internal_linking_strategy": {
+    "total_outbound": 8,
+    "total_inbound_opportunities": 10,
+    "link_density": "0.18 links per 100 words",
+    "anchor_text_distribution": {
+      "exact_match": 3,
+      "partial_match": 4,
+      "branded": 1
+    },
+    "strategic_notes": [
+      "Outbound links are placed strategically after explaining each concept",
+      "Links follow the natural reading flow without disrupting content",
+      "No keyword stuffing in anchor text - all anchors are natural",
+      "Tool/CTA link (PferdeWert Rechner) is placed in conclusion for conversion",
+      "Inbound opportunities are listed by priority and relevance",
+      "Cross-linking between similar articles (Noriker, Haflinger) creates content cluster"
+    ]
+  }
+}

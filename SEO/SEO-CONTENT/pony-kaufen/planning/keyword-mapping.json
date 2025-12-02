@@ -1,0 +1,570 @@
+{
+  "phase": "3",
+  "primary_keyword": "pony kaufen",
+  "timestamp": "2025-11-30T23:45:00Z",
+  "keyword_mapping": {
+    "primary_keyword": {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "priority": "critical",
+      "sections": [
+        {
+          "section_number": 1,
+          "heading": "Ponyrassen Übersicht - Die wichtigsten Sorten und ihre Unterschiede",
+          "keyword_instances": 1,
+          "context": "Introduction to guide, breed overview"
+        },
+        {
+          "section_number": 3,
+          "heading": "Ponypreise & Kostenrahmen - Kaufpreis bis Jahresbudget",
+          "keyword_instances": 2,
+          "context": "Cost breakdown sections, pricing context"
+        },
+        {
+          "section_number": 8,
+          "heading": "Kaufuntersuchung (AKU) & Rechtliche Absicherung",
+          "keyword_instances": 1,
+          "context": "Legal/contract context"
+        },
+        {
+          "section_number": 10,
+          "heading": "Conclusion",
+          "keyword_instances": 1,
+          "context": "Recap and CTA"
+        }
+      ],
+      "total_target_density": "0.15-0.20%",
+      "notes": "Distributed naturally across buyer journey sections, not concentrated in single area"
+    },
+    "secondary_keywords": [
+      {
+        "keyword": "ponyrassen",
+        "search_volume": 3100,
+        "priority": "high",
+        "sections": [
+          {
+            "section_number": 1,
+            "heading": "Ponyrassen Übersicht - Die wichtigsten Sorten und ihre Unterschiede",
+            "keyword_instances": 3,
+            "context": "Breed comparison, H3 subsections for each breed"
+          },
+          {
+            "section_number": 2,
+            "heading": "Ponygröße und Eignung nach Alter & Gewicht",
+            "keyword_instances": 1,
+            "context": "Size matching by breed"
+          }
+        ],
+        "total_instances": 4,
+        "target_density": "0.17%",
+        "notes": "Primary focus in Section 1, secondary in Section 2"
+      },
+      {
+        "keyword": "pony kosten",
+        "search_volume": 140,
+        "priority": "high",
+        "sections": [
+          {
+            "section_number": 3,
+            "heading": "Ponypreise & Kostenrahmen - Kaufpreis bis Jahresbudget",
+            "keyword_instances": 3,
+            "context": "Cost breakdown, pricing tiers, budget planning"
+          },
+          {
+            "section_number": 8,
+            "heading": "Kaufuntersuchung (AKU) & Rechtliche Absicherung",
+            "keyword_instances": 1,
+            "context": "AKU cost context"
+          }
+        ],
+        "total_instances": 4,
+        "target_density": "0.17%",
+        "notes": "Concentrated in Section 3 where costs primary topic"
+      },
+      {
+        "keyword": "ponypreis",
+        "search_volume": 140,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 3,
+            "heading": "Ponypreise & Kostenrahmen - Kaufpreis bis Jahresbudget",
+            "keyword_instances": 2,
+            "context": "Price ranges, cost breakdown"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%",
+        "notes": "Variant of pony kosten, used interchangeably"
+      },
+      {
+        "keyword": "ponykauf",
+        "search_volume": null,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 1,
+            "heading": "Ponyrassen Übersicht - Die wichtigsten Sorten und ihre Unterschiede",
+            "keyword_instances": 1,
+            "context": "Buying process introduction"
+          },
+          {
+            "section_number": 7,
+            "heading": "Rote Flaggen beim Ponykauf - Was man vermeiden sollte",
+            "keyword_instances": 2,
+            "context": "Red flags section title and body"
+          }
+        ],
+        "total_instances": 3,
+        "target_density": "0.13%",
+        "notes": "Used in section titles and buyer journey context"
+      },
+      {
+        "keyword": "pony temperament",
+        "search_volume": null,
+        "priority": "high",
+        "sections": [
+          {
+            "section_number": 4,
+            "heading": "Temperament & Charakter - Welche Rasse passt zu mir?",
+            "keyword_instances": 4,
+            "context": "Entire section dedicated to personality matching"
+          }
+        ],
+        "total_instances": 4,
+        "target_density": "0.17%",
+        "notes": "Section 4 primary topic, naturally high density"
+      }
+    ],
+    "breed_specific_keywords": [
+      {
+        "keyword": "shetland pony kaufen",
+        "search_volume": 2400,
+        "priority": "high",
+        "internal_link_target": "[Create] Shetland Pony Kaufen",
+        "sections": [
+          {
+            "section_number": 1,
+            "heading": "Ponyrassen Übersicht - Die wichtigsten Sorten und ihre Unterschiede",
+            "keyword_instances": 1,
+            "context": "H3 subsection: Shetland Pony description"
+          }
+        ],
+        "total_instances": 1,
+        "notes": "Opportunity for dedicated article + internal link"
+      },
+      {
+        "keyword": "haflinger kaufen",
+        "search_volume": 480,
+        "priority": "high",
+        "internal_link_target": "[Create] Haflinger Kaufen",
+        "sections": [
+          {
+            "section_number": 1,
+            "heading": "Ponyrassen Übersicht - Die wichtigsten Sorten und ihre Unterschiede",
+            "keyword_instances": 1,
+            "context": "H3 subsection: Haflinger description"
+          },
+          {
+            "section_number": 4,
+            "heading": "Temperament & Charakter - Welche Rasse passt zu mir?",
+            "keyword_instances": 1,
+            "context": "Personality matrix - gentle breed example"
+          }
+        ],
+        "total_instances": 2,
+        "notes": "High volume keyword (5,400 for 'haflinger zu kaufen')"
+      },
+      {
+        "keyword": "welsh pony kaufen",
+        "search_volume": 480,
+        "priority": "medium",
+        "internal_link_target": "[Create] Welsh Pony Kaufen",
+        "sections": [
+          {
+            "section_number": 1,
+            "heading": "Ponyrassen Übersicht - Die wichtigsten Sorten und ihre Unterschiede",
+            "keyword_instances": 1,
+            "context": "H3 subsection: Welsh Pony description"
+          }
+        ],
+        "total_instances": 1,
+        "notes": "Opportunity for breed-specific article"
+      }
+    ],
+    "paa_question_keywords": [
+      {
+        "paa_question": "Wie viel kostet ein echtes Pony?",
+        "level": 1,
+        "priority": "critical",
+        "keyword_variation": "pony preis echtes",
+        "section": "Section 3 (Ponypreise & Kostenrahmen)",
+        "faq_placement": "Question 1",
+        "keyword_instances": 2,
+        "context": "Cost breakdown with real price examples"
+      },
+      {
+        "paa_question": "Welche Ponyrasse ist die freundlichste?",
+        "level": 1,
+        "priority": "high",
+        "keyword_variation": "ponyrasse freundlich temperament",
+        "section": "Section 4 (Temperament & Charakter)",
+        "faq_placement": "Question 2",
+        "keyword_instances": 3,
+        "context": "Personality matrix, breed temperament"
+      },
+      {
+        "paa_question": "Was kostet ein Fellpony?",
+        "level": 1,
+        "priority": "medium",
+        "keyword_variation": "fellpony kosten preis",
+        "section": "Section 3 (Ponypreise & Kostenrahmen - H3 example)",
+        "faq_placement": "Not in FAQ, included in main cost section",
+        "keyword_instances": 1,
+        "context": "Breed-specific pricing example"
+      },
+      {
+        "paa_question": "Wie teuer ist ein kleines Pony?",
+        "level": 1,
+        "priority": "medium",
+        "keyword_variation": "kleines pony kosten teuer",
+        "section": "Section 3 (Ponypreise & Kostenrahmen - H3 example)",
+        "faq_placement": "Not in FAQ, included in main cost section",
+        "keyword_instances": 1,
+        "context": "Mini-Shetland/small pony pricing"
+      },
+      {
+        "paa_question": "Wie hoch ist die Lebenserwartung eines Ponys?",
+        "level": 2,
+        "priority": "medium",
+        "keyword_variation": "pony lebenserwartung alter years",
+        "section": "Section 3 (Conclusion) / FAQ Question 1",
+        "faq_placement": "Implicit in cost calculator (20-30 year lifespan context)",
+        "keyword_instances": 1,
+        "context": "Lifespan planning for total cost calculation"
+      },
+      {
+        "paa_question": "Ist ein Pony günstiger als ein Pferd?",
+        "level": 2,
+        "priority": "critical",
+        "keyword_variation": "pony günstiger pferd kosten vergleich",
+        "section": "Section 5 (Pony vs. Pferd - Die echten Unterschiede)",
+        "faq_placement": "Question 3",
+        "keyword_instances": 3,
+        "context": "Cost comparison table and analysis"
+      },
+      {
+        "paa_question": "Sind Ponys für Anfänger geeignet?",
+        "level": 2,
+        "priority": "high",
+        "keyword_variation": "pony anfänger geeignet",
+        "section": "Section 9 (Anfänger-Geeignetheit & Kindersicherheit)",
+        "faq_placement": "Not in FAQ, dedicated section",
+        "keyword_instances": 2,
+        "context": "Beginner assessment and suitability"
+      },
+      {
+        "paa_question": "Welche Ponyrassen können erwachsene Reiter tragen?",
+        "level": 2,
+        "priority": "high",
+        "keyword_variation": "pony erwachsene reiter tragfähigkeit gewicht",
+        "section": "Section 1 (H3 subsection: Adult-suitable breeds) / Section 2 (Size matching)",
+        "faq_placement": "Question 4",
+        "keyword_instances": 2,
+        "context": "Adult rider suitability and weight capacity"
+      }
+    ],
+    "supporting_keywords": [
+      {
+        "keyword": "pony größe",
+        "search_volume": null,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 2,
+            "heading": "Ponygröße und Eignung nach Alter & Gewicht",
+            "keyword_instances": 2,
+            "context": "Size chart and age/weight matching"
+          },
+          {
+            "section_number": 5,
+            "heading": "Pony vs. Pferd - Die echten Unterschiede",
+            "keyword_instances": 1,
+            "context": "Size comparison pony vs horse"
+          }
+        ],
+        "total_instances": 3,
+        "target_density": "0.13%"
+      },
+      {
+        "keyword": "pony gewicht",
+        "search_volume": null,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 2,
+            "heading": "Ponygröße und Eignung nach Alter & Gewicht",
+            "keyword_instances": 2,
+            "context": "Weight capacity calculations and matching"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%"
+      },
+      {
+        "keyword": "pony alter",
+        "search_volume": null,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 2,
+            "heading": "Ponygröße und Eignung nach Alter & Gewicht",
+            "keyword_instances": 2,
+            "context": "Age-appropriate pony selection"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%"
+      },
+      {
+        "keyword": "kinderpony",
+        "search_volume": 720,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 9,
+            "heading": "Anfänger-Geeignetheit & Kindersicherheit beim Ponykauf",
+            "keyword_instances": 2,
+            "context": "Child-suitable pony selection"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%"
+      },
+      {
+        "keyword": "kaufvertrag pony",
+        "search_volume": null,
+        "priority": "high",
+        "sections": [
+          {
+            "section_number": 8,
+            "heading": "Kaufuntersuchung (AKU) & Rechtliche Absicherung",
+            "keyword_instances": 2,
+            "context": "Purchase contract essentials"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%"
+      },
+      {
+        "keyword": "aku pony",
+        "search_volume": null,
+        "priority": "high",
+        "sections": [
+          {
+            "section_number": 8,
+            "heading": "Kaufuntersuchung (AKU) & Rechtliche Absicherung",
+            "keyword_instances": 3,
+            "context": "Veterinary pre-purchase exam guidance"
+          }
+        ],
+        "total_instances": 3,
+        "target_density": "0.13%"
+      },
+      {
+        "keyword": "rote flaggen ponykauf",
+        "search_volume": null,
+        "priority": "high",
+        "sections": [
+          {
+            "section_number": 7,
+            "heading": "Rote Flaggen beim Ponykauf - Was man vermeiden sollte",
+            "keyword_instances": 3,
+            "context": "Red flag warnings and buyer protection"
+          }
+        ],
+        "total_instances": 3,
+        "target_density": "0.13%"
+      },
+      {
+        "keyword": "pony marktplatz",
+        "search_volume": null,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 6,
+            "heading": "Kaufwege - Marktplätze, Züchter, Händler & Facebook",
+            "keyword_instances": 2,
+            "context": "Marketplace buying guide comparison"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%"
+      },
+      {
+        "keyword": "pony züchter",
+        "search_volume": null,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 6,
+            "heading": "Kaufwege - Marktplätze, Züchter, Händler & Facebook",
+            "keyword_instances": 2,
+            "context": "Breeder purchasing option"
+          }
+        ],
+        "total_instances": 2,
+        "target_density": "0.09%"
+      },
+      {
+        "keyword": "pony kaufen kleinanzeigen",
+        "search_volume": 390,
+        "priority": "medium",
+        "sections": [
+          {
+            "section_number": 6,
+            "heading": "Kaufwege - Marktplätze, Züchter, Händler & Facebook",
+            "keyword_instances": 1,
+            "context": "Marketplace platform guide"
+          }
+        ],
+        "total_instances": 1,
+        "target_density": "0.04%"
+      }
+    ],
+    "lsi_keywords": [
+      "ponyrasse",
+      "ponyrassen",
+      "shetland",
+      "haflinger",
+      "welsh",
+      "isländer",
+      "deutsches reitpony",
+      "temperament",
+      "charakter",
+      "ausbildungsstand",
+      "angeritten",
+      "roh ungeritten",
+      "kaufuntersuchung",
+      "kaufvertrag",
+      "gewährleistung",
+      "probezeit",
+      "rückgaberecht",
+      "anschaffungskosten",
+      "haltungskosten",
+      "versicherung",
+      "pferdeversicherung",
+      "hufschmied",
+      "tierarzt",
+      "fohlen",
+      "jährling",
+      "reitbar",
+      "eignung",
+      "sicherheit",
+      "betrüger scam",
+      "betrug vermeiden"
+    ],
+    "keyword_density_summary": {
+      "primary_keyword": {
+        "keyword": "pony kaufen",
+        "target_density": "0.15-0.20%",
+        "estimated_instances": 3,
+        "estimated_per_500_words": 1.5
+      },
+      "secondary_keywords_combined": {
+        "total_estimated_instances": 25,
+        "average_density": "1.0-1.2%",
+        "distribution_note": "Spread across sections by topic relevance"
+      },
+      "overall_keyword_density": "1.2-1.5%",
+      "no_stuffing_note": "All keywords integrated naturally; no artificial density increase"
+    },
+    "featured_snippet_opportunities": [
+      {
+        "opportunity": "Breed Comparison Table",
+        "query": "ponyrassen größe kosten temperament",
+        "section": "Section 1",
+        "format": "Table (5 rows × 5 columns)",
+        "confidence": "High - no current featured snippet"
+      },
+      {
+        "opportunity": "Cost Breakdown",
+        "query": "pony kosten übersicht",
+        "section": "Section 3",
+        "format": "Table (5 rows × 4 columns)",
+        "confidence": "Medium"
+      },
+      {
+        "opportunity": "Pony vs Horse Comparison",
+        "query": "pony vs pferd unterschied",
+        "section": "Section 5",
+        "format": "Table (4 rows × 5 columns)",
+        "confidence": "High - answers PAA query"
+      }
+    ],
+    "internal_linking_anchors": [
+      {
+        "section_source": "Section 1 - Shetland subsection",
+        "target_article": "[Create] Shetland Pony Kaufen",
+        "anchor_text": "Shetland Pony kaufen",
+        "keyword": "shetland pony kaufen",
+        "context": "Breed-specific deep dive"
+      },
+      {
+        "section_source": "Section 1 - Haflinger subsection",
+        "target_article": "[Create] Haflinger Kaufen",
+        "anchor_text": "Haflinger kaufen",
+        "keyword": "haflinger kaufen",
+        "context": "High-volume related keyword (5,400/month)"
+      },
+      {
+        "section_source": "Section 2 - Size/weight matching",
+        "target_article": "[Create/Link] Pferd Kaufen",
+        "anchor_text": "Pferd kaufen statt Pony für schwere Reiter",
+        "keyword": "pferd kaufen",
+        "context": "Adult rider alternative (cross-sell)"
+      },
+      {
+        "section_source": "Section 4 - Beginner assessment",
+        "target_article": "[Create] Pferdekauf für Anfänger",
+        "anchor_text": "Anfänger-Ponykauf Guide",
+        "keyword": "anfänger pony kaufen",
+        "context": "Beginner buyer journey"
+      },
+      {
+        "section_source": "Section 7 - Red flags",
+        "target_article": "[Create] Pony Kaufbetrug vermeiden",
+        "anchor_text": "Pony Kaufbetrug und Schutz",
+        "keyword": "ponykauf betrug",
+        "context": "Buyer protection deep dive"
+      },
+      {
+        "section_source": "Section 8 - AKU guidance",
+        "target_article": "[Create] Ankaufsuntersuchung (AKU) Guide",
+        "anchor_text": "Vollständige AKU Anleitung",
+        "keyword": "aku ankaufsuntersuchung",
+        "context": "Veterinary exam details"
+      },
+      {
+        "section_source": "Section 3 - Cost planning",
+        "target_article": "[Create/Link] Pferdeversicherung Kosten",
+        "anchor_text": "Pferdeversicherung für Ponys",
+        "keyword": "pferdeversicherung",
+        "context": "Cost management and protection"
+      }
+    ]
+  },
+  "data_quality": {
+    "source": "Phase 2 SERP Analysis + Phase 1 Keyword Research",
+    "validation_date": "2025-11-30",
+    "paa_coverage": "8 questions mapped (100% from Phase 2)",
+    "keyword_count": 52,
+    "mapping_accuracy": "verified_against_content_gaps_analysis"
+  },
+  "notes": {
+    "primary_focus": "pony kaufen with natural integration of 20+ supporting keywords across 10 H2 sections",
+    "featured_snippet_priority": "Table format with breed comparison (Section 1) - target for quick answer optimization",
+    "internal_linking_strategy": "7 internal link opportunities to breed-specific and related articles (future content expansion)",
+    "commercial_intent_alignment": "Keywords aligned with buyer journey: Selection (Sections 1-5) → Buying Channel (Section 6) → Protection (Sections 7-8) → Decision (Sections 9-10)"
+  }
+}

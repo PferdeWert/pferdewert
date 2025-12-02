@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wo kann ich Pferde in Österreich kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Top 5 Plattformen sind: ehorses.at (17.000+ Angebote, international), Willhaben.at (Österreichisches Kleinanzeigen-Portal mit lokalen Verkäufern), Landwirt.com (Direktkauf von Bauern und Züchtern), BillyRider (spezialisierte Filter, Sportpferde-Fokus) und direkte Züchter über Zuchtverbände (höchste Sicherheit). Jede Plattform hat Vor- und Nachteile – die beste Strategie ist, auf mehreren Plattformen zu suchen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet ein Pferd in Österreich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preise variieren stark: Freizeitpferde kosten 1.500–10.000 €, Sportpferde 7.000–25.000 €, spezialisierte Rassen (Noriker, Haflinger) 4.000–15.000 €. Extrem günstige Pferde (unter 1.000 €) sind oft ältere Pferde, Notverkäufe oder haben Verhaltens-/Gesundheitsprobleme. Rechne mit zusätzlich 300–600 € für die Ankaufsuntersuchung ein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Pferderassen sollte ich in Österreich kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das hängt von deinen Zielen ab: Anfänger und Freizeitreiter → Noriker oder Haflinger (robust, sicher, züchterische Tradition). Sportreiter → Warmblüter (Dressur/Springen). Wenn du nicht sicher bist, fang mit einem älteren Freizeitpferd an – es ist günstiger und weniger anspruchsvoll."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich ein Pferd von einem Landwirt kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, absolut. Landwirte und kleine Züchter haben oft gesündere Pferde als Profihändler. Die Tiere sind robuster gezüchtet und weniger psychisch belastet. Nutze Landwirt.com oder frag bei lokalen Zuchtverbänden nach. Essentiell: AKU trotzdem durchführen und Schriftvertrag insistieren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert ein Pferdekauf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typischerweise 3–6 Wochen: Suche (1–4 Wochen) → Besichtigung und AKU (1–2 Wochen) → Verhandlung und Vertrag (3–5 Tage) → Zahlung und Übergabe (1–2 Tage). Manche Käufer brauchen länger (mehrfache Besichtigungen), manche schneller (Glück, schnelle Entscheidung)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist es sicher, ein Pferd online zu kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Online-Kauf ist sicher auf etablierten Plattformen (ehorses, Willhaben, Landwirt), wenn du vorsichtig bist: Video-Inspektionen verlangen, Vor-Ort-Besichtigung machen, schriftlichen Vertrag insistieren, sichere Zahlungsmethode nutzen (Bank Transfer), AKU vor Vertragsabschluss durchführen. Remote-Käufe sind zunächst riskant, aber machbar mit guten Prozessen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was brauche ich zum Pferdekauf? (Unterlagen/Dokumentation)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Du brauchst: EU-Pferdepass (vom Verkäufer), AKU-Zertifikat (vom Tierarzt), schriftlicher Kaufvertrag (beide unterzeichnet), Versicherungspolice (vor Übernahme), Stallplatz-Bestätigung (für die Registrierung). Der Verkäufer gibt dir die ersten drei, du organisierst die letzten zwei."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wer darf in Österreich Pferde halten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Theoretisch jeder mit ausreichend Platz und Mitteln. Praktisch: Jedes Bundesland hat Mindestanforderungen für Pferdeställe (Größe, Ausstattung, Hygiene). Haftpflicht-Versicherung ist (meistens) verpflichtend. Tierärztliche Betreuung ist essentiell und rechtsverbindlich. Frag beim Stallbetreiber oder der Gemeinde nach lokalen Vorschriften."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist ein Pferdekauf eine gute Investition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein, nicht finanziell. Pferde sind wie Autos – sie deprecieren. Ein 10.000 € Pferd ist nach 5 Jahren 3.000–5.000 € wert. Die Investition lohnt sich emotional und für Freizeitnutzung, nicht finanziell. Wenn dir 800 € monatliche Unterhaltskosten ohne finanzielle Rendite wehtun, ist ein Pferd nicht für dich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet ein Pferd im Monat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "400–1.300 € je nach Region und Pferdetyp: Günstig (Freizeitpferd auf Weide): 400–600 €. Mittleres Budget (guter Stall, Freizeitpferd): 700–1.000 €. Premium (Sportpferd, beste Infrastruktur): 1.200–1.500 €. Unterschätze nicht die Kosten – anfangs braucht man meist mehr."
+      }
+    }
+  ]
+}

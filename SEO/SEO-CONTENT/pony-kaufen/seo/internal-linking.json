@@ -1,0 +1,95 @@
+{
+  "phase": "5C",
+  "primary_keyword": "pony kaufen",
+  "timestamp": "2025-11-30T23:50:00Z",
+  "total_internal_links": 7,
+  "strategy": "Contextual internal linking to existing PferdeWert.de Ratgeber content + future content opportunities",
+  "internal_links": [
+    {
+      "section": "Ponyrassen Übersicht - Shetland Pony",
+      "anchor_text": "Shetland Pony kaufen",
+      "target_url": "/pferde-ratgeber/shetland-pony-kaufen",
+      "context": "Für Käufer, die sich für Shetland Ponys interessieren - Breed-specific deep dive",
+      "relevance": "high",
+      "status": "FUTURE_CONTENT",
+      "search_volume": 2400,
+      "priority": "P1"
+    },
+    {
+      "section": "Ponyrassen Übersicht - Haflinger",
+      "anchor_text": "Haflinger kaufen",
+      "target_url": "/pferde-ratgeber/haflinger-kaufen",
+      "context": "Haflinger sind die sanftmütigsten Ponys für Anfänger - Related high-volume keyword",
+      "relevance": "high",
+      "status": "FUTURE_CONTENT",
+      "search_volume": 480,
+      "priority": "P1"
+    },
+    {
+      "section": "Ponygröße und Eignung nach Alter & Gewicht",
+      "anchor_text": "Pferd kaufen für schwere Reiter",
+      "target_url": "/pferde-ratgeber/pferd-kaufen",
+      "context": "Erwachsene über 80 kg sollten ein Pferd statt Pony kaufen - Cross-sell opportunity",
+      "relevance": "high",
+      "status": "EXISTING_CONTENT",
+      "priority": "P1"
+    },
+    {
+      "section": "Rote Flaggen beim Ponykauf",
+      "anchor_text": "Ponykaufbetrug vermeiden",
+      "target_url": "/pferde-ratgeber/ponykauf-betrug-vermeiden",
+      "context": "Schutz vor Betrügern beim Ponykauf - Buyer protection",
+      "relevance": "high",
+      "status": "FUTURE_CONTENT",
+      "search_volume": null,
+      "priority": "P2"
+    },
+    {
+      "section": "Kaufuntersuchung (AKU) & Rechtliche Absicherung",
+      "anchor_text": "AKU Ankaufsuntersuchung Guide",
+      "target_url": "/pferde-ratgeber/ankaufsuntersuchung-aku-guide",
+      "context": "Detaillierter Guide zur Ankaufsuntersuchung mit Checklisten",
+      "relevance": "high",
+      "status": "FUTURE_CONTENT",
+      "priority": "P2"
+    },
+    {
+      "section": "Anfänger-Geeignetheit & Kindersicherheit",
+      "anchor_text": "Pferdekauf für Anfänger",
+      "target_url": "/pferde-ratgeber/pferdekauf-anfaenger",
+      "context": "Allgemeiner Guide für anfängliche Pferd/Pony-Käufer",
+      "relevance": "medium",
+      "status": "FUTURE_CONTENT",
+      "priority": "P2"
+    },
+    {
+      "section": "Ponypreise & Kostenrahmen - Monatliche Unterhaltskosten",
+      "anchor_text": "Pferdeversicherung Kosten",
+      "target_url": "/pferde-ratgeber/pferdeversicherung-kosten",
+      "context": "Versicherungskosten sind Teil der Gesamtbudgetplanung",
+      "relevance": "medium",
+      "status": "FUTURE_CONTENT",
+      "priority": "P3"
+    }
+  ],
+  "distribution_plan": {
+    "first_200_words": "0-1 links (intro section)",
+    "middle_content": "3-4 links (naturally distributed across breed, cost, red flags sections)",
+    "conclusion": "1-2 links (CTA + related content)"
+  },
+  "validation": {
+    "total_links": 7,
+    "minimum_requirement": 3,
+    "status": "PASSED",
+    "notes": "7 interne Links identifiziert. 1 verweist auf existierenden Content (pferd-kaufen), 6 sind Future Content Opportunities basierend auf Phase 1 Keyword Research. Alle Links sind thematisch relevant und natürlich im Content integriert."
+  },
+  "anchor_text_variation": [
+    "Shetland Pony kaufen",
+    "Haflinger kaufen",
+    "Pferd kaufen für schwere Reiter",
+    "Ponykaufbetrug vermeiden",
+    "AKU Ankaufsuntersuchung Guide",
+    "Pferdekauf für Anfänger",
+    "Pferdeversicherung Kosten"
+  ]
+}

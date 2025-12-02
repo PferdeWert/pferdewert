@@ -1,0 +1,223 @@
+{
+  "primary_keyword": "pferd kaufen bayern",
+  "merged_at": "2025-11-30T22:15:00.000000",
+  "algorithm_version": "v3.0",
+  "sources": {
+    "phase_1b": 50,
+    "phase_1c": 16,
+    "total": 66
+  },
+  "phase_1c_new_keywords": [
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pony",
+      "search_volume": 33100,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "friese",
+      "search_volume": 18100,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "hauspferd",
+      "search_volume": 18100,
+      "cpc": 0.5,
+      "competitor_domain": "ehorses.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "cpc": 0.5,
+      "competitor_domain": "pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "General",
+      "priority": "medium"
+    },
+    {
+      "keyword": "araber",
+      "search_volume": 27100,
+      "cpc": 0.5,
+      "competitor_domain": "pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "hannoveraner",
+      "search_volume": 14800,
+      "cpc": 0.5,
+      "competitor_domain": "pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "cpc": 0.5,
+      "competitor_domain": "pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "süddeutsches kaltblut",
+      "search_volume": 1600,
+      "cpc": 0.5,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    },
+    {
+      "keyword": "süddeutsches kaltblut kaufen",
+      "search_volume": 1600,
+      "cpc": 0.5,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    },
+    {
+      "keyword": "verkaufspferde",
+      "search_volume": 1000,
+      "cpc": 0.5,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    },
+    {
+      "keyword": "bayerns pferde",
+      "search_volume": 880,
+      "cpc": 0.5,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "General",
+      "priority": "low"
+    },
+    {
+      "keyword": "landesverband bayerischer pferdezüchter",
+      "search_volume": 880,
+      "cpc": 0.5,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "phase_1c",
+      "cluster_name": "General",
+      "priority": "low"
+    }
+  ],
+  "all_keywords_summary": {
+    "total_keywords": 66,
+    "by_priority": {
+      "high": 20,
+      "medium": 26,
+      "low": 20
+    },
+    "by_cluster": {
+      "Commercial": 48,
+      "General": 12,
+      "Informational": 6
+    },
+    "avg_search_volume_phase_1b": 318,
+    "avg_search_volume_phase_1c": 18931,
+    "avg_search_volume_combined": 6425
+  },
+  "high_priority_keywords": [
+    {
+      "keyword": "pferd kaufen bayern",
+      "search_volume": 1900,
+      "source": "phase_1b",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "pferde kaufen in der nähe",
+      "search_volume": 2400,
+      "source": "phase_1b",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "source": "phase_1c",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "source": "phase_1c",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "source": "phase_1c",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "pony",
+      "search_volume": 33100,
+      "source": "phase_1c",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "source": "phase_1c",
+      "cluster": "Commercial"
+    },
+    {
+      "keyword": "araber",
+      "search_volume": 27100,
+      "source": "phase_1c",
+      "cluster": "Commercial"
+    }
+  ],
+  "next_steps": "Proceed to Phase 2 (SERP Analysis) and Phase 3 (Content Optimization) with merged keyword dataset"
+}

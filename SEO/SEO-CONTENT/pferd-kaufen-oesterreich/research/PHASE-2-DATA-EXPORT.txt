@@ -1,0 +1,346 @@
+================================================================================
+SEO PHASE 2 DATA EXPORT - SERP ANALYSIS METRICS
+Keyword: "pferd kaufen österreich" | Date: 2025-11-30
+================================================================================
+
+RAW API RESPONSE STATISTICS
+────────────────────────────────────────────────────────────────────────────
+API Endpoint:      mcp__dataforseo__serp_organic_live_advanced
+Location:          Austria
+Language Code:     de
+Depth:             20 (requested)
+Results Returned:  10 organic + PAA + related searches
+Status Code:       20000 (success)
+API Response Time: ~2 seconds
+
+
+SERP RESULT BREAKDOWN
+────────────────────────────────────────────────────────────────────────────
+Organic Results:           10
+People Also Ask (PAA):     10 questions
+Related Searches:          6 terms
+Featured Snippet:          No
+Local Pack:               No
+Knowledge Panel:          No
+Ads (SEM):                0
+
+
+TOP 10 COMPETITORS - DOMAIN AUTHORITY
+────────────────────────────────────────────────────────────────────────────
+Rank │ Domain              │ Type           │ Content Type
+─────┼─────────────────────┼────────────────┼──────────────────────
+1    │ ehorses.at          │ .at (Austria)  │ Marketplace
+2    │ landwirt.com        │ .com (Austria) │ Marketplace
+3    │ willhaben.at        │ .at (Austria)  │ Classifieds
+4    │ pferdezucht-        │ .at (Austria)  │ Directory
+     │ austria.at          │                │
+5    │ ehorses.at          │ .at (Austria)  │ Marketplace (category)
+6    │ tieranzeigen.at     │ .at (Austria)  │ Marketplace
+7    │ ehorses.at          │ .at (Austria)  │ Marketplace (regional)
+8    │ billyrider.at       │ .at (Austria)  │ Marketplace
+9    │ ehorses.at          │ .at (Austria)  │ Marketplace (regional)
+10   │ facebook.com        │ .com (global)  │ Social Group
+
+DOMAIN DISTRIBUTION:
+├─ .at (Austrian) domains: 9 of 10 (90%)
+├─ .com (International): 1 of 10 (10%)
+├─ ehorses.at dominance: 4 of 10 (40%)
+└─ Multiple ehorses regional pages ranking
+
+
+SERP FEATURE ANALYSIS
+────────────────────────────────────────────────────────────────────────────
+Feature Type              │ Present │ Count
+──────────────────────────┼─────────┼──────
+Featured Snippet          │ No      │ 0
+Local Pack (Google Maps)  │ No      │ 0
+Knowledge Panel           │ No      │ 0
+Knowledge Graph           │ No      │ 0
+People Also Ask (PAA)     │ Yes     │ 10
+Related Searches          │ Yes     │ 6
+Paid Ads (SEM)           │ No      │ 0
+Image Pack               │ No      │ 0
+Video Pack               │ No      │ 0
+News Pack                │ No      │ 0
+
+KEY FINDING: SERP is "clean" with no paid results competing
+
+
+CONTENT TYPE DISTRIBUTION
+────────────────────────────────────────────────────────────────────────────
+Type              │ Count │ % of SERP │ Examples
+──────────────────┼───────┼──────────┼─────────────────────────────
+Marketplace       │ 7     │ 70%      │ ehorses, willhaben, landwirt
+Directory         │ 1     │ 10%      │ pferdezucht-austria.at
+Social Group      │ 1     │ 10%      │ Facebook
+Informational     │ 0     │ 0%       │ (NONE RANKING)
+Editorial/Blog    │ 0     │ 0%       │ (NONE RANKING)
+News              │ 0     │ 0%       │ (NONE RANKING)
+Q&A Sites         │ 0     │ 0%       │ (NONE RANKING)
+
+CRITICAL INSIGHT: 100% marketplace/navigation, 0% informational content
+
+
+PEOPLE ALSO ASK - DETAILED EXTRACTION
+────────────────────────────────────────────────────────────────────────────
+Total PAA Questions: 10
+
+Question 1: "Wie viel kostet ein Pferd in Österreich?"
+├─ Category: PRICING
+├─ Source: petcovergroup.com
+├─ Answer Snippet: "€1,500 - €10,000 für Freizeitreiten"
+├─ Search Intent: Price research (evaluation stage)
+└─ Alignment: Phase 1 keywords "pferde kaufen für 200 euro"
+
+Question 2: "Wie viel kostet es, ein Pferd zu kaufen?"
+├─ Category: PRICING
+├─ Source: vergleichen-und-sparen.de
+├─ Answer Snippet: "€6,000 (trained leisure), €7,000-€25,000 (sport)"
+├─ Search Intent: Cost comparison
+└─ Alignment: Primary keyword targeting
+
+Question 3: "Kann ich einfach so ein Pferd kaufen?"
+├─ Category: PROCESS
+├─ Source: pferdefluesterei.de
+├─ Answer Snippet: "Züchter, Händler, Privat, Schlachter"
+├─ Search Intent: Buying options (awareness stage)
+└─ Alignment: Needs process guide
+
+Question 4: "Wer darf in Österreich Pferde halten?"
+├─ Category: LEGAL/REGULATIONS
+├─ Source: noe.gv.at (official government)
+├─ Answer Snippet: "Eingriffe durch Tierarzt oder sachkundige Person"
+├─ Search Intent: Legal requirements (decision stage)
+└─ Alignment: Austrian regulatory content opportunity
+
+Question 5: "Wie viel kostet ein eigenes Pferd im Monat?"
+├─ Category: PRICING (Total Cost of Ownership)
+├─ Source: tierschutz.hessen.de
+├─ Answer Snippet: "€500+ monatlich (ohne Ausrüstung)"
+├─ Search Intent: Financial planning (decision stage)
+└─ Alignment: TCO guide opportunity
+
+Question 6: "Was besagt die 20%-Regel bei Pferden?"
+├─ Category: HORSE CHARACTERISTICS
+├─ Source: extension.umn.edu
+├─ Answer Snippet: "20% des Körpergewichts"
+├─ Search Intent: Horse knowledge (evaluation stage)
+└─ Alignment: Buyer education content
+
+Question 7: "Ist der Kauf eines Pferdes eine gute Investition?"
+├─ Category: INVESTMENT/FINANCIAL
+├─ Source: eq-am.com
+├─ Answer Snippet: "Kann hervorragende Investition sein"
+├─ Search Intent: Investment decision (consideration stage)
+└─ Alignment: Financial planning angle
+
+Question 8: "Wie teuer ist das billigste Pferd?"
+├─ Category: PRICING (Budget segment)
+├─ Source: ehorses.de
+├─ Answer Snippet: "Falabella ~€1,700; range €800-€3,250"
+├─ Search Intent: Budget options
+└─ Alignment: Budget buyer segment
+
+Question 9: "Wie viel Zeit braucht man für ein Pferd?"
+├─ Category: PROCESS/COMMITMENT
+├─ Source: clipmyhorse.tv
+├─ Answer Snippet: "2-3 Stunden täglich (Stallarbeit + Reiten)"
+├─ Search Intent: Time commitment assessment
+└─ Alignment: Pre-purchase decision-making
+
+Question 10: (Duplicate of #7 - "Ist der Kauf eines Pferdes eine gute Investition?")
+└─ Note: Appears in different context in PAA
+
+
+PAA INTENT DISTRIBUTION
+────────────────────────────────────────────────────────────────────────────
+Pricing/Cost Questions:     4 (40%)  ← DOMINANT INTENT
+├─ €1,500-€10,000 range
+├─ €6,000-€25,000 sport range
+├─ €500+/month operational
+└─ €800-€3,250 budget range
+
+Process/How-to Questions:   2 (20%)
+├─ Buying channels available
+└─ Time commitment required
+
+Decision/Planning:          2 (20%)
+├─ Legal requirements
+└─ Investment viability
+
+Education/Knowledge:        1 (10%)
+└─ Horse selection criteria (20% rule)
+
+INSIGHT: 40% pricing focus indicates buyers seek financial clarity before purchase
+
+
+RELATED SEARCHES EXTRACTION
+────────────────────────────────────────────────────────────────────────────
+Term 1: "Dringend Pferd abzugeben Österreich"
+├─ Intent: Rescue/urgent sale
+├─ Volume Est.: Low-Medium
+└─ Phase 1 Alignment: Rescue angle keywords
+
+Term 2: "Freizeitpferde kaufen Österreich"
+├─ Intent: Use-case specific
+├─ Volume Est.: Medium (140 SV from Phase 1)
+└─ Phase 1 Alignment: freizeitpferde kaufen österreich
+
+Term 3: "Pferd kaufen Österreich willhaben"
+├─ Intent: Platform-specific marketplace
+├─ Volume Est.: High (6600 SV from Phase 1)
+└─ Phase 1 Alignment: willhaben pferde navigational
+
+Term 4: "Pferd kaufen Niederösterreich"
+├─ Intent: Regional-specific
+├─ Volume Est.: Medium (260 SV from Phase 1)
+└─ Phase 1 Alignment: Regional cluster
+
+Term 5: "Pferde Notverkauf Österreich"
+├─ Intent: Rescue/budget
+├─ Volume Est.: Low (70 SV from Phase 1)
+└─ Phase 1 Alignment: Rescue/notverkauf keywords
+
+Term 6: "Pferd kaufen Steiermark"
+├─ Intent: Regional-specific
+├─ Volume Est.: Medium (390 SV from Phase 1)
+└─ Phase 1 Alignment: Regional cluster
+
+INSIGHT: Related searches validate Phase 1 keyword clusters
+
+
+COMPETITIVE POSITION ANALYSIS
+────────────────────────────────────────────────────────────────────────────
+ehorses.at - Market Dominance
+├─ Positions: 1, 5, 7, 9 (40% of top 10)
+├─ Strategy: Homepage + Main category + Regional categories
+├─ Strengths: Highest inventory, international authority, discipline-based filtering
+├─ Weakness: No educational content, purely transactional
+└─ Strategy Insight: Uses internal linking for regional category ranking
+
+Willhaben.at - Secondary Marketplace
+├─ Position: 3
+├─ Strength: Austria's largest classifieds
+├─ Weakness: Limited inventory (245 listings vs 17,000 ehorses)
+└─ Opportunity: Market leader in local classifieds but doesn't educate
+
+Landwirt.com - Agricultural Focus
+├─ Position: 2
+├─ Strength: Direct farmer/breeder connection (landwirt pferde 3600 SV)
+├─ Weakness: Agricultural platform, limited to farmers
+└─ Opportunity: Serves specific sourcing intent unmet by other marketplaces
+
+Pferdezucht-austria.at - Authority Play
+├─ Position: 4
+├─ Strength: Official breeding association directory
+├─ Weakness: Navigation-focused, not informational
+└─ Opportunity: Has authority but limited content depth
+
+
+CONTENT GAP QUANTIFICATION
+────────────────────────────────────────────────────────────────────────────
+Gap 1: No Educational Content
+├─ Current: 0 informational pages in top 10
+├─ Demand: 40% of PAA is information-seeking
+├─ Opportunity: Create buyer's guides
+└─ Impact: HIGH - entire content category missing
+
+Gap 2: No Pricing Guides
+├─ Current: Scattered answers in PAA but no dedicated guide
+├─ Demand: 4 of 10 PAA questions focus on pricing
+├─ Opportunity: Comprehensive Austrian price guide
+└─ Impact: HIGH - dominant PAA intent
+
+Gap 3: No Process Guides
+├─ Current: No step-by-step buying process
+├─ Demand: "Kann ich einfach so..." question indicates confusion
+├─ Opportunity: 7-step buying process guide
+└─ Impact: HIGH - conversion-relevant content
+
+Gap 4: No Marketplace Comparison
+├─ Current: ehorses/Willhaben/Landwirt rank separately
+├─ Demand: Related search "pferd kaufen österreich willhaben"
+├─ Opportunity: Side-by-side comparison guide
+└─ Impact: HIGH - addresses navigational intent with value add
+
+Gap 5: No Regulatory Content
+├─ Current: Gov sources (noe.gv.at) sparse
+├─ Demand: PAA "Wer darf..." shows regulatory interest
+├─ Opportunity: Austrian-specific regulations by state
+└─ Impact: MEDIUM - legal compliance content
+
+Gap 6: No Breed Guides
+├─ Current: ehorses has category pages but no buyer guides
+├─ Demand: Phase 1 shows Noriker (2400 SV), Haflinger (1300 SV)
+├─ Opportunity: Breed-specific buying guides
+└─ Impact: MEDIUM - high-volume keywords
+
+Gap 7: No Regional Analysis
+├─ Current: ehorses has regional categories
+├─ Demand: Phase 1 shows Tirol +23%, Kärnten +50% growth
+├─ Opportunity: Regional market analysis guides
+└─ Impact: MEDIUM - captures local searches
+
+Gap 8: No TCO Guides
+├─ Current: Scattered monthly cost mention
+├─ Demand: PAA "€500+ monthly" question
+├─ Opportunity: Complete financial planning guide
+└─ Impact: MEDIUM - decision-stage content
+
+Gap 9: No Budget Buyer Content
+├─ Current: Low volume (30 SV "pferde günstig")
+├─ Demand: High CPC (0.61) indicates commercial intent
+├─ Opportunity: Budget-specific buying guide
+└─ Impact: MEDIUM - high commercial value
+
+
+PHASE 2 DATA SUMMARY
+────────────────────────────────────────────────────────────────────────────
+Analysis Scope:
+├─ SERP results analyzed: 10
+├─ PAA questions extracted: 10
+├─ Related searches analyzed: 6
+├─ Competitor domains reviewed: 10
+└─ Content gap categories: 9
+
+Data Files Generated:
+├─ serp-analysis.json (30.2 KB)
+│  └─ Complete structured SERP analysis with all metrics
+├─ phase-2-summary.md (18.1 KB)
+│  └─ Comprehensive markdown report with recommendations
+└─ PHASE-2-COMPETITIVE-SUMMARY.txt
+   └─ Quick reference visual summary
+
+Total Data Points Extracted:
+├─ Competitor URLs: 10
+├─ PAA questions: 10
+├─ PAA answer sources: 9 unique
+├─ Related searches: 6
+├─ H2 section recommendations: 8
+├─ Content gaps identified: 9
+├─ Keyword alignments mapped: 50+
+└─ Recommended H3 subsections: 40+
+
+
+ACTIONABLE INSIGHTS FOR CONTENT STRATEGY
+────────────────────────────────────────────────────────────────────────────
+1. MARKET POSITION: Zero competitors providing educational content
+   → pferdewert.de can claim "Austrian Horse Buyer's Guide" positioning
+
+2. SEARCH INTENT MISMATCH: 40% PAA pricing questions but no pricing guide ranks
+   → Opportunity for high-converting educational content
+
+3. MARKETPLACE KNOWLEDGE: Willhaben (6600 SV) + Landwirt (3600 SV) = 10,200 SV
+   → Create marketplace comparison guide capturing marketplace navigation intent
+
+4. EHORSES STRATEGY: Ranks 40% via internal linking & regional categories
+   → Follow similar internal linking strategy with pillar→cluster→regional
+
+5. AUSTRIAN ADVANTAGE: 90% of top 10 are Austrian domains
+   → Create Austrian-specific regulatory, breed, and regional content
+
+6. PHASE 1 VALIDATION: Related searches confirm Phase 1 keyword clusters
+   → Proceed with cluster-based content strategy from Phase 1
+
+
+================================================================================

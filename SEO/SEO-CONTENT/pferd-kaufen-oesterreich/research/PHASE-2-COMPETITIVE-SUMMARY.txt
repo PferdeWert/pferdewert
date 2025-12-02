@@ -1,0 +1,129 @@
+================================================================================
+SEO PHASE 2 - COMPETITIVE ANALYSIS SUMMARY
+Keyword: "pferd kaufen österreich" | Analyzed: 2025-11-30
+================================================================================
+
+TOP 10 SERP COMPOSITION
+────────────────────────────────────────────────────────────────────────────
+Marketplaces (70%)           │ Directory (10%)      │ Social (10%)
+─────────────────────────────┼──────────────────────┼──────────────────────
+1. ehorses.at               │ 4. pferdezucht-      │ 10. facebook.com
+5. ehorses.at (category)    │    austria.at        │     (Verkaufspferde)
+7. ehorses.at (Steiermark)  │                      │
+9. ehorses.at (Salzburg)    │                      │
+2. landwirt.com             │                      │
+3. willhaben.at             │                      │
+6. tieranzeigen.at          │                      │
+8. billyrider.at            │                      │
+
+KEY FINDING: ehorses.at DOMINATES with 4 of 10 positions (40%)
+Informational Content: 0 RESULTS - MAJOR GAP OPPORTUNITY
+
+
+MARKETPLACE INVENTORY COMPARISON
+────────────────────────────────────────────────────────────────────────────
+Platform           │ Inventory  │ Strength           │ Focus
+─────────────────────────────────────────────────────────────────────────
+ehorses.at         │ 17,000+    │ European leader    │ International
+willhaben.at       │ 245        │ Austria largest    │ Local classifieds
+landwirt.com       │ Unknown    │ Farmers/Direct     │ Agricultural
+tieranzeigen.at    │ 285        │ Verified sellers   │ Austria-specific
+billyrider.at      │ Unknown    │ Advanced filtering │ Niche market
+
+
+PEOPLE ALSO ASK - 10 QUESTIONS (Search Intent Distribution)
+────────────────────────────────────────────────────────────────────────────
+PRICING (40% of PAA)
+├─ Wie viel kostet ein Pferd in Österreich? → €1,500-€10,000
+├─ Wie viel kostet es, ein Pferd zu kaufen? → €6,000-€25,000
+├─ Wie teuer ist das billigste Pferd? → €800-€3,250
+└─ Wie viel kostet ein Pferd im Monat? → €500+
+
+PROCESS (20% of PAA)
+├─ Kann ich einfach so ein Pferd kaufen? → Yes (multiple sources)
+└─ Wie viel Zeit braucht man für ein Pferd? → 2-3 hours/day
+
+LEGAL (10% of PAA)
+└─ Wer darf in Österreich Pferde halten? → Official requirements
+
+INVESTMENT (10% of PAA)
+└─ Ist der Kauf eines Pferdes eine gute Investition? → Yes, if correct
+
+CHARACTERISTICS (10% of PAA)
+└─ Was besagt die 20%-Regel bei Pferden? → 20% of body weight
+
+
+CONTENT GAPS - 9 CRITICAL OPPORTUNITIES
+────────────────────────────────────────────────────────────────────────────
+PRIORITY 1 (HIGH IMPACT)
+├─ No educational content in top 10 (70% transactional, 0% informational)
+├─ No pricing guide specific to Austria
+├─ No "how to buy" process guide (yet 40% of PAA is about process/pricing)
+└─ No marketplace comparison guide
+
+PRIORITY 2 (MEDIUM-HIGH IMPACT)
+├─ No Austrian legal/regulatory guide (gov sources ranking but sparse)
+├─ Minimal breed-specific buyer guides (Noriker 2400 SV, Haflinger 1300 SV)
+├─ No total cost of ownership (TCO) guide
+├─ Limited regional market analysis (Tirol +23%, Kärnten +50% growth)
+└─ Underserved budget buyer segment (0.61 CPC - highest)
+
+
+RECOMMENDED PILLAR CONTENT H2 SECTIONS (8 topics)
+────────────────────────────────────────────────────────────────────────────
+1. Wo Pferde kaufen - Marktplätze & Quellen      (Gap: marketplace comparison)
+2. Bundesländer & regionale Besonderheiten       (Gap: regional analysis)
+3. Beliebte Pferderassen - Kaufratgeber          (Gap: breed-specific guides)
+4. Wie viel kostet ein Pferd? - Preisratgeber    (Gap: pricing guide)
+5. Schritt-für-Schritt Anleitung zum Pferdekauf (Gap: process guide)
+6. Österreichische Vorschriften & Bestimmungen   (Gap: legal/regulatory)
+7. Pferd kaufen nach Verwendungszweck            (Gap: use-case specific)
+8. FAQ: Häufig gestellte Fragen                  (Gap: answer PAA questions)
+
+
+COMPETITIVE ADVANTAGE OPPORTUNITIES
+────────────────────────────────────────────────────────────────────────────
+Pferdewert.de Can Position As: "The Austrian Horse Buyer's Educational Hub"
+
+Why This Works:
+1. Zero educational content in top 10 (100% are transactional/marketplace)
+2. 40% of PAA is pricing-focused (indicates strong educational need)
+3. ehorses dominates marketplace but doesn't educate buyers
+4. Austrian-specific content missing (all top content is generic)
+5. Can serve "awareness → consideration → decision" buyer journey
+
+Monetization Path:
+├─ Provide free educational guides
+├─ Recommend marketplaces as resources (affiliate potential)
+├─ Convert informed readers into commission-paying leads
+└─ Build domain authority in Austrian horse market
+
+
+RELATED SEARCHES (6 Long-tail Variations)
+────────────────────────────────────────────────────────────────────────────
+1. Dringend Pferd abzugeben Österreich (rescue angle, low volume)
+2. Freizeitpferde kaufen Österreich (use-case specific, 140 SV)
+3. Pferd kaufen Österreich willhaben (platform-specific, 6600 SV keyword)
+4. Pferd kaufen Niederösterreich (regional, 260 SV)
+5. Pferde Notverkauf Österreich (budget/rescue, 70 SV)
+6. Pferd kaufen Steiermark (regional, 390 SV)
+
+
+PHASE 2 COMPLETION STATUS ✅
+────────────────────────────────────────────────────────────────────────────
+✅ Top 10 competitors analyzed
+✅ PAA questions extracted: 10
+✅ Content gaps identified: 9
+✅ H2 sections recommended: 8
+✅ Competitive analysis completed
+✅ Opportunities prioritized
+✅ Files generated:
+   - serp-analysis.json (30KB detailed JSON)
+   - phase-2-summary.md (comprehensive markdown report)
+
+NEXT PHASE: Phase 3 - Content Strategy & Article Outline
+────────────────────────────────────────────────────────────────────────────
+Expected Timeline: Strategy development for pillar page and cluster content
+Output: Detailed article outline with H2/H3 structure and keyword mapping
+
+================================================================================

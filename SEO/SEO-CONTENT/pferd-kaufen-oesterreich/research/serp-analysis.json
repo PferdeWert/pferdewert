@@ -1,0 +1,671 @@
+{
+  "keyword": "pferd kaufen österreich",
+  "location": "Austria",
+  "language_code": "de",
+  "serp_date": "2025-11-30",
+  "serp_api_status": "success",
+  "total_serp_results": "10+ organic results",
+  "serp_features": {
+    "has_featured_snippet": false,
+    "has_local_pack": false,
+    "has_knowledge_panel": false,
+    "has_people_also_ask": true,
+    "has_related_searches": true,
+    "paa_count": 10,
+    "related_searches_count": 6,
+    "ad_count": 0
+  },
+  "top_10_competitors": [
+    {
+      "position": 1,
+      "rank_absolute": 1,
+      "domain": "ehorses.at",
+      "url": "https://www.ehorses.at/",
+      "title": "Pferde kaufen und Pferde verkaufen | Pferdemarkt ehorses.at",
+      "content_type": "marketplace",
+      "description": "Pferde kaufen und verkaufen ✓ Über 19.000 Verkaufspferde ✓ Jetzt kostenlos inserieren auf dem weltweit größten Online Pferdemarkt!",
+      "unique_value_proposition": "19,000+ horses, international marketplace, free listing",
+      "subpages": [
+        "Pferde kaufen",
+        "Freizeitpferde kaufen",
+        "Dressurpferde kaufen",
+        "Springpferde kaufen"
+      ],
+      "strengths": [
+        "Brand authority - ehorses is market leader in European horse marketplace",
+        "Huge inventory (19,000+ horses)",
+        "Multi-category filtering (discipline-based)",
+        "International scope (appeals to Austrian market within Europe)"
+      ],
+      "weaknesses": [
+        "Marketplace platform, not educational content",
+        "No price guidance or buying tips",
+        "No Austrian-specific information",
+        "Commercial focus (selling listings, not guiding buyers)"
+      ]
+    },
+    {
+      "position": 2,
+      "rank_absolute": 2,
+      "domain": "landwirt.com",
+      "url": "https://www.landwirt.com/kleinanzeigen/pferdemarkt?srsltid=...",
+      "title": "Pferdemarkt: Pferde kaufen / verkaufen",
+      "content_type": "marketplace",
+      "description": "Ob Hengst, Fohlen oder Stute: Pferde kaufen und verkaufen im online Pferdemarkt! Sichere dir jetzt ein top Verkaufspferd!",
+      "unique_value_proposition": "Farmers/agricultural focus, local Austrian source",
+      "strengths": [
+        "Direct farmer connection (addresses 'landwirt pferde' keyword - 3600 SV)",
+        "Agricultural marketplace credibility",
+        "Local Austrian platform",
+        "Positioned for buyers seeking direct farm sources"
+      ],
+      "weaknesses": [
+        "Limited educational content",
+        "Agricultural focus may not appeal to pure leisure riders",
+        "No breed/type filtering visible",
+        "Marketplace, not guide"
+      ]
+    },
+    {
+      "position": 3,
+      "rank_absolute": 3,
+      "domain": "willhaben.at",
+      "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/marktplatz/pferde/pferde-7120",
+      "title": "Pferde",
+      "content_type": "marketplace",
+      "description": "245 Angebote in Pferde - Pferde. Günstig kaufen und gratis inserieren auf willhaben - der größte Marktplatz Österreichs.",
+      "unique_value_proposition": "Austria's largest classifieds platform, 245+ horse listings, free listings",
+      "strengths": [
+        "Willhaben is Austria's #1 classifieds (6600 SV keyword validation)",
+        "Large inventory (245+ listings)",
+        "Free listing model drives seller participation",
+        "Local, Austria-focused platform"
+      ],
+      "weaknesses": [
+        "No filtering shown in description",
+        "Limited inventory per category (245 total)",
+        "No educational value",
+        "Classifieds interface may be dated"
+      ]
+    },
+    {
+      "position": 4,
+      "rank_absolute": 4,
+      "domain": "pferdezucht-austria.at",
+      "url": "https://www.pferdezucht-austria.at/verkaufspferde/",
+      "title": "Verkaufspferde",
+      "content_type": "directory",
+      "description": "Landespferdezuchtverband Steiermark. Zuchtverband Stadl-Paura. Verband niederösterreichischer Pferdezüchter. ARGE Haflinger. Pferdezucht Salzburg. PFERD AUSTRIA.",
+      "unique_value_proposition": "Official Austrian breeding association directory",
+      "strengths": [
+        "Authority - official breeding associations",
+        "Breed-specific resources (Haflinger mentioned)",
+        "Regional organization coverage (Steiermark, Salzburg, Niederösterreich, etc.)",
+        "Connects directly to breeders"
+      ],
+      "weaknesses": [
+        "Navigational/directory focused, not buyer guide",
+        "No content depth visible",
+        "Complex organizational structure may confuse casual buyers",
+        "Not optimized for informational queries"
+      ]
+    },
+    {
+      "position": 5,
+      "rank_absolute": 5,
+      "domain": "ehorses.at",
+      "url": "https://www.ehorses.at/verkaufspferde",
+      "title": "Pferde kaufen - Traumpferd finden auf ehorses.at",
+      "content_type": "marketplace",
+      "description": "Pferde kaufen auf Europas führendem Pferdemarkt ✓ Über 17.000 Pferde-Inserate ✓ Täglich mehr als 300 neue Pferde ▻ Jetzt Traumpferd finden!",
+      "unique_value_proposition": "Europe's leading marketplace, 17,000+ listings, 300+ new daily",
+      "subpages": [
+        "Freizeitpferde",
+        "Dressurpferde",
+        "Arabofriese kaufen",
+        "Islandpferd"
+      ],
+      "strengths": [
+        "Second ehorses ranking (domination of top 10)",
+        "Compelling copy ('Traumpferd finden')",
+        "High volume (17,000+ listings)",
+        "Multiple discipline filtering"
+      ],
+      "weaknesses": [
+        "Duplicate of position #1 (different landing page)",
+        "Still marketplace-focused"
+      ]
+    },
+    {
+      "position": 6,
+      "rank_absolute": 6,
+      "domain": "tieranzeigen.at",
+      "url": "https://www.tieranzeigen.at/pferde/",
+      "title": "Pferdemarkt: Pferde kaufen & verkaufen",
+      "content_type": "marketplace",
+      "description": "Pferde und Pferdezubehör von geprüften Anbietern aus Österreich kaufen & verkaufen. Jetzt Wunschtier finden in über 285 Angeboten unseres Pferdemarktes.",
+      "unique_value_proposition": "Verified Austrian sellers, 285+ listings, equipment included",
+      "subpages": [
+        "Niederösterreich",
+        "Steiermark",
+        "Großpferde",
+        "Einstellplatz"
+      ],
+      "strengths": [
+        "Verified seller network (trust signal)",
+        "Austrian-focused ('geprüften Anbietern aus Österreich')",
+        "Regional filtering (Niederösterreich, Steiermark)",
+        "Horse size filtering (Großpferde)"
+      ],
+      "weaknesses": [
+        "Smaller inventory (285 listings vs 17,000+ on ehorses)",
+        "Still marketplace, not educational"
+      ]
+    },
+    {
+      "position": 7,
+      "rank_absolute": 7,
+      "domain": "ehorses.at",
+      "url": "https://www.ehorses.at/pferdekauf/steiermark.html",
+      "title": "Steiermarkkaufen und verkaufen| ehorses.at",
+      "content_type": "marketplace_category",
+      "description": "Finde die passenden Interessenten für dein Inserat auf ehorses, dem größten Marktplatz für die Pferdewelt. Starte jetzt in nur wenigen Minuten! Jetzt Inserat ...",
+      "unique_value_proposition": "Regional filtering for Steiermark state",
+      "strengths": [
+        "Third ehorses ranking (dominant SERP presence)",
+        "Regional targeting (addresses 'pferd kaufen steiermark' cluster)",
+        "Seller-focused CTA"
+      ],
+      "weaknesses": [
+        "Weak title ('Steiermarkkaufen' - formatting issue)",
+        "Seller-focused, not buyer guide",
+        "Limited description"
+      ]
+    },
+    {
+      "position": 8,
+      "rank_absolute": 8,
+      "domain": "billyrider.at",
+      "url": "https://www.billyrider.at/pferde-kaufen",
+      "title": "Pferde kaufen // BillyRider Pferdemarkt",
+      "content_type": "marketplace",
+      "description": "Pferde kaufen & inserieren auf BillyRider.at · Gezielt suchen: Mit Filtern nach Rasse, Age, Stockmaß, Preis oder Standort findest Du rasch das passende Pferd ...",
+      "unique_value_proposition": "Advanced filtering (breed, age, height, price, location)",
+      "strengths": [
+        "Sophisticated filtering (most detailed shown: race, age, height, price, location)",
+        "Austrian-specific platform",
+        "Modern marketplace interface implied"
+      ],
+      "weaknesses": [
+        "Smaller than ehorses/Willhaben",
+        "Still marketplace-focused",
+        "No educational content"
+      ]
+    },
+    {
+      "position": 9,
+      "rank_absolute": 9,
+      "domain": "ehorses.at",
+      "url": "https://www.ehorses.at/pferde-kaufen/salzburg.html",
+      "title": "Pferde kaufen und verkaufen in Salzburg | ehorses.at",
+      "content_type": "marketplace_category",
+      "description": "Pferde kaufen und verkaufen in Salzburg ✓ Alle Disziplinen, Typen & Rassen auf dem führenden Pferdemarkt ▻ Jetzt Traumpferd finden!",
+      "unique_value_proposition": "Regional targeting for Salzburg",
+      "strengths": [
+        "Fourth ehorses ranking (extraordinary SERP dominance)",
+        "Regional filtering (Salzburg)",
+        "Discipline/type/breed filtering mentioned"
+      ],
+      "weaknesses": [
+        "Not unique from other ehorses regional pages"
+      ]
+    },
+    {
+      "position": 10,
+      "rank_absolute": 10,
+      "domain": "facebook.com",
+      "url": "https://www.facebook.com/groups/422152722262596/",
+      "title": "Verkaufspferde Österreich",
+      "content_type": "social_group",
+      "description": "KEINE PREISANGABEN!! Es darf eine Preisangabe in Kategorien angeben werden oder mit bzw Details werden via PN geklärt!!",
+      "unique_value_proposition": "Community-driven buyer/seller group",
+      "strengths": [
+        "Social proof (community-based)",
+        "Direct buyer/seller interaction",
+        "Austrian-specific group"
+      ],
+      "weaknesses": [
+        "Moderated community rules limiting information",
+        "No educational value",
+        "Privacy/trust concerns (private messages)"
+      ]
+    }
+  ],
+  "serp_composition_analysis": {
+    "marketplace_count": 7,
+    "marketplace_percentage": 70,
+    "directory_count": 1,
+    "directory_percentage": 10,
+    "social_count": 1,
+    "social_percentage": 10,
+    "informational_count": 0,
+    "informational_percentage": 0,
+    "editorial_count": 0,
+    "editorial_percentage": 0,
+    "dominant_content_types": [
+      "Marketplace (70%)",
+      "Directory (10%)",
+      "Social Community (10%)"
+    ],
+    "key_finding": "SERP is dominated by marketplaces - NO dedicated informational content ranking in top 10. This represents a major content gap opportunity."
+  },
+  "paa_questions_extracted": {
+    "pricing_cost": [
+      {
+        "question": "Wie viel kostet ein Pferd in Österreich?",
+        "source": "petcovergroup.com",
+        "answer_snippet": "Für Freizeitreiten liegen die Preise typischerweise zwischen 1.500 € und 10.000 €",
+        "search_intent": "price-based decision",
+        "keyword_alignment": "pferde kaufen für 200 euro, pferde günstig kaufen"
+      },
+      {
+        "question": "Wie viel kostet es, ein Pferd zu kaufen?",
+        "source": "vergleichen-und-sparen.de",
+        "answer_snippet": "Für ein eingerittenes Freizeitpferd sind bis zu 6.000 € fällig. Freizeitpferde für Turniersport kosten ca. 7.000 € bis 25.000 €",
+        "search_intent": "price comparison by use case",
+        "keyword_alignment": "pferd kaufen österreich"
+      },
+      {
+        "question": "Wie teuer ist das billigste Pferd?",
+        "source": "ehorses.de",
+        "answer_snippet": "Falabella bei etwa 1.700 €. Preisspanne: 800 € bis 3.250 €",
+        "search_intent": "budget segment",
+        "keyword_alignment": "pferde kaufen für 200 euro, pferde günstig kaufen"
+      },
+      {
+        "question": "Wie viel kostet ein eigenes Pferd im Monat?",
+        "source": "tierschutz.hessen.de",
+        "answer_snippet": "Im Durchschnitt mindestens 500 Euro ohne Ausrüstung monatlich",
+        "search_intent": "total cost of ownership (TCO)",
+        "keyword_alignment": "operational costs, buyer decision"
+      }
+    ],
+    "buying_process": [
+      {
+        "question": "Kann ich einfach so ein Pferd kaufen?",
+        "source": "pferdefluesterei.de",
+        "answer_snippet": "Du kannst dein Pferd beim Züchter, Händler, von Privat oder beim Schlachter kaufen",
+        "search_intent": "buying channels/options",
+        "keyword_alignment": "pferde vom schlachter kaufen, landwirt pferde, züchter"
+      },
+      {
+        "question": "Wie viel Zeit braucht man für ein Pferd?",
+        "source": "clipmyhorse.tv",
+        "answer_snippet": "Stallarbeit ca. 1-1,5 Stunden, Reiten 30 Minuten bis 4 Stunden, durchschnittlich 2-3 Stunden täglich",
+        "search_intent": "pre-purchase commitment assessment",
+        "keyword_alignment": "pferd kaufen österreich (buyer preparation)"
+      }
+    ],
+    "legal_regulations": [
+      {
+        "question": "Wer darf in Österreich Pferde halten?",
+        "source": "noe.gv.at (official government)",
+        "answer_snippet": "Zulässige Eingriffe dürfen nur durch Tierarzt oder sachkundige Person durchgeführt werden",
+        "search_intent": "legal/regulatory compliance",
+        "keyword_alignment": "pferd kaufen österreich (legal framework)"
+      }
+    ],
+    "investment_value": [
+      {
+        "question": "Ist der Kauf eines Pferdes eine gute Investition?",
+        "source": "eq-am.com",
+        "answer_snippet": "Investition in Pferde kann hervorragende Möglichkeit sein, Geld zu verdienen",
+        "search_intent": "investment decision",
+        "keyword_alignment": "pferd kaufen österreich (financial planning)"
+      }
+    ],
+    "horse_characteristics": [
+      {
+        "question": "Was besagt die 20%-Regel bei Pferden?",
+        "source": "extension.umn.edu",
+        "answer_snippet": "Durchschnittliches Reitpferd kann etwa 20 Prozent seines Körpergewichts problemlos tragen",
+        "search_intent": "horse selection criteria",
+        "keyword_alignment": "pferd kaufen österreich (buyer knowledge)"
+      }
+    ],
+    "paa_summary": {
+      "total_questions": 10,
+      "primary_intent_clusters": [
+        {
+          "cluster": "pricing_cost",
+          "count": 4,
+          "buyer_stage": "evaluation"
+        },
+        {
+          "cluster": "buying_process",
+          "count": 2,
+          "buyer_stage": "awareness/consideration"
+        },
+        {
+          "cluster": "legal_regulations",
+          "count": 1,
+          "buyer_stage": "decision"
+        },
+        {
+          "cluster": "investment_value",
+          "count": 1,
+          "buyer_stage": "decision"
+        },
+        {
+          "cluster": "horse_characteristics",
+          "count": 1,
+          "buyer_stage": "evaluation"
+        }
+      ],
+      "key_insight": "Price is DOMINANT buying question (40% of PAA). Buyers want to understand cost before commitment. This is distinct from marketplace research."
+    }
+  },
+  "related_searches": [
+    {
+      "term": "Dringend Pferd abzugeben Österreich",
+      "intent": "rescue/urgent_sale angle",
+      "volume_estimate": "low-medium",
+      "alignment": "pferde notverkauf, rescue_angle"
+    },
+    {
+      "term": "Freizeitpferde kaufen Österreich",
+      "intent": "use-case specific",
+      "volume_estimate": "medium",
+      "alignment": "freizeitpferde kaufen österreich (140 SV)"
+    },
+    {
+      "term": "Pferd kaufen Österreich willhaben",
+      "intent": "platform specific",
+      "volume_estimate": "high",
+      "alignment": "willhaben pferde (6600 SV)"
+    },
+    {
+      "term": "Pferd kaufen Niederösterreich",
+      "intent": "regional specific",
+      "volume_estimate": "medium",
+      "alignment": "pferd kaufen niederösterreich (260 SV)"
+    },
+    {
+      "term": "Pferde Notverkauf Österreich",
+      "intent": "rescue/budget",
+      "volume_estimate": "low",
+      "alignment": "pferde notverkauf österreich (70 SV)"
+    },
+    {
+      "term": "Pferd kaufen Steiermark",
+      "intent": "regional specific",
+      "volume_estimate": "medium",
+      "alignment": "pferd kaufen steiermark (390 SV)"
+    }
+  ],
+  "content_gaps_identified": [
+    {
+      "gap": "NO educational/guide content in top 10",
+      "opportunity": "Create comprehensive buying guide that educates before conversion",
+      "impact": "HIGH",
+      "keywords_addressed": "pferd kaufen österreich (primary)",
+      "reasoning": "All top 10 are marketplaces/directories. Users seeking guidance will find marketplaces instead of educational content. Information-focused content would fill major gap."
+    },
+    {
+      "gap": "No pricing guide specific to Austria",
+      "opportunity": "Create detailed price guide with regional breakdown (Tirol, Kärnten, Steiermark, etc.)",
+      "impact": "HIGH",
+      "keywords_addressed": "pferde kaufen für 200 euro, pferde günstig kaufen, price-related PAA",
+      "reasoning": "40% of PAA questions are pricing-related. Price guides rank well in Google and answer dominant user intent."
+    },
+    {
+      "gap": "No 'how to buy' process guide",
+      "opportunity": "Step-by-step buying guide covering: sources, inspection, negotiation, contracts, registration",
+      "impact": "HIGH",
+      "keywords_addressed": "pferd kaufen österreich, buying_process",
+      "reasoning": "PAA shows 'Kann ich einfach so ein Pferd kaufen?' indicates process confusion. Opportunity for comprehensive guide."
+    },
+    {
+      "gap": "No buying source comparison (marketplace vs farmers vs breeders vs rescue)",
+      "opportunity": "Create 'where to buy' guide comparing Willhaben vs ehorses vs Landwirt vs breeders vs rescue",
+      "impact": "MEDIUM-HIGH",
+      "keywords_addressed": "willhaben pferde (6600 SV), landwirt pferde (3600 SV), pferdezucht",
+      "reasoning": "Navigational keywords (willhaben, landwirt) show users want marketplace guidance. Comparative content would serve this intent while providing value."
+    },
+    {
+      "gap": "No Austrian legal/regulatory guide",
+      "opportunity": "Create guide on Austrian horse ownership requirements, regulations by state (Niederösterreich, Steiermark, etc.)",
+      "impact": "MEDIUM",
+      "keywords_addressed": "pferd kaufen österreich, regional keywords",
+      "reasoning": "PAA shows legal question: 'Wer darf in Österreich Pferde halten?' Government sources ranking for this, opportunity to provide more comprehensive guide."
+    },
+    {
+      "gap": "Minimal breed-specific buyer guides",
+      "opportunity": "Create Austrian breed guides (Noriker 2400 SV, Haflinger 1300 SV) with buying tips",
+      "impact": "MEDIUM",
+      "keywords_addressed": "noriker kaufen, haflinger kaufen",
+      "reasoning": "Phase 1 analysis shows breed keywords have highest volume. ehorses has category pages but no informational guides. Opportunity for content authority."
+    },
+    {
+      "gap": "No TCO (Total Cost of Ownership) guide",
+      "opportunity": "Create comprehensive TCO guide covering: purchase price, stabling, feed, vet, insurance, equipment",
+      "impact": "MEDIUM",
+      "keywords_addressed": "pferd kaufen österreich, pre-purchase decision",
+      "reasoning": "PAA shows monthly cost question (500€+). Buyers need to understand full financial commitment before purchase."
+    },
+    {
+      "gap": "No regional market analysis",
+      "opportunity": "Create regional buying guides for high-volume states (Tirol +23%, Kärnten +50%, Steiermark)",
+      "impact": "MEDIUM",
+      "keywords_addressed": "pferd kaufen tirol, pferd kaufen kärnten, pferd kaufen steiermark",
+      "reasoning": "Phase 1 shows Tirol/Kärnten have growth trends. Regional guides could capture local searches while building regional authority."
+    },
+    {
+      "gap": "No budget buyer segment content",
+      "opportunity": "Create guide for budget-conscious buyers (under 1000€, rescue angles)",
+      "impact": "MEDIUM",
+      "keywords_addressed": "pferde kaufen für 200 euro, pferde günstig kaufen, pferde vom schlachter",
+      "reasoning": "Budget keywords show high CPC (0.61), indicating commercial value. PAA shows cheapest horse interest. Budget buyer segment underserved."
+    }
+  ],
+  "recommended_h2_sections": [
+    {
+      "h2": "Wo Pferde in Österreich kaufen - Die wichtigsten Marktplätze und Quellen",
+      "keywords_targeted": "willhaben pferde (6600 SV), landwirt pferde (3600 SV), pferdemarkt",
+      "content_focus": "Compare marketplaces (ehorses vs Willhaben vs Landwirt vs BillyRider), buying directly from breeders, farmers, rescue organizations",
+      "reasoning": "PAA and navigational keywords show buyers seeking source guidance. No marketplace comparison content in top 10.",
+      "h3_suggestions": [
+        "ehorses.at - Europas größter Online Pferdemarkt",
+        "Willhaben.at - Österreichs größtes Kleinanzeigenportal",
+        "Landwirt.com - Direkt von Züchtern und Bauern kaufen",
+        "BillyRider und andere spezialisierte Märkte",
+        "Züchter und Vereine - Direktkauf mit Garantien"
+      ]
+    },
+    {
+      "h2": "Pferde in Österreich - Bundesländer und regionale Besonderheiten",
+      "keywords_targeted": "pferd kaufen tirol, pferd kaufen kärnten, pferd kaufen steiermark, regional keywords (1700 SV total)",
+      "content_focus": "Regional market analysis, breed preferences by region, state-specific regulations, market prices by region",
+      "reasoning": "Phase 1 shows regional keywords have 1700 SV volume. No regional guides in top 10. Opportunity for local SEO layering.",
+      "h3_suggestions": [
+        "Pferde in Tirol kaufen (+23% growth trend)",
+        "Pferde in Kärnten kaufen (+50% growth trend - fastest growing market)",
+        "Pferde in der Steiermark kaufen",
+        "Pferde in Niederösterreich kaufen",
+        "Pferde in Salzburg, Oberösterreich und Wien",
+        "Regionale Pferdemärkte und Zuchtverbände"
+      ]
+    },
+    {
+      "h2": "Beliebte Pferderassen in Österreich - Kaufratgeber",
+      "keywords_targeted": "noriker kaufen (2400 SV), haflinger kaufen (1300 SV), warmblut kaufen, breed keywords (3700 SV total)",
+      "content_focus": "Austrian breed guide (Noriker, Haflinger), characteristics, typical prices, where to buy each breed",
+      "reasoning": "Breed keywords have highest volume (2400+1300 SV). Phase 1 identifies as 'highest priority'. Only ehorses category pages, no informational guides.",
+      "h3_suggestions": [
+        "Noriker kaufen - Österreichs heimische Pferderasse",
+        "Haflinger kaufen - Alpine Rasse mit Tradition",
+        "Warmblüter kaufen - Vielseitigkeit und Leistung",
+        "Springpferde und Dressurpferde - Disziplin-spezifische Rassen",
+        "Freizeitpferde vs. Sportpferde - Die richtige Wahl treffen"
+      ]
+    },
+    {
+      "h2": "Wie viel kostet ein Pferd in Österreich? - Preisratgeber",
+      "keywords_targeted": "pferde kaufen für 200 euro, pferde günstig kaufen, price-related PAA (40% of questions)",
+      "content_focus": "Price ranges by type, breed, use case, region; budget buying tips, negotiation tactics, total cost of ownership",
+      "reasoning": "40% of PAA is pricing-focused. Google scores pricing guides highly. No price guide in top 10 despite dominance of this question.",
+      "h3_suggestions": [
+        "Preisranges für Freizeitpferde (1.500€ - 10.000€)",
+        "Preisranges für Sportpferde (7.000€ - 25.000€+)",
+        "Günstige Pferde kaufen (unter 1.000€)",
+        "Pferde Notverkauf - Besonderheiten und Chancen",
+        "Verhandlung und beste Kaufzeitpunkte",
+        "Was ein Pferd im Monat kostet - Vollständiger Kostenüberblick"
+      ]
+    },
+    {
+      "h2": "Schritt-für-Schritt Anleitung: Wie man ein Pferd in Österreich kauft",
+      "keywords_targeted": "pferd kaufen österreich (primary), buying_process",
+      "content_focus": "Complete buying process: preparation, inspection, contract, registration, legal requirements",
+      "reasoning": "PAA shows 'Kann ich einfach so ein Pferd kaufen?' indicating process confusion. No process guides in top 10.",
+      "h3_suggestions": [
+        "Schritt 1: Vorbereitung und Bedarfsanalyse",
+        "Schritt 2: Suche und Vergleich",
+        "Schritt 3: Besichtigung und Inspektion",
+        "Schritt 4: Verhandlung und Preisgestaltung",
+        "Schritt 5: Kaufvertrag und rechtliche Aspekte",
+        "Schritt 6: Registrierung und Versicherung",
+        "Schritt 7: Transport und Einstellen"
+      ]
+    },
+    {
+      "h2": "Österreichische Vorschriften und rechtliche Bestimmungen beim Pferdekauf",
+      "keywords_targeted": "pferd kaufen österreich (legal angle), regional regulations",
+      "content_focus": "Austrian horse ownership requirements, state-specific regulations, mandatory documents, liability insurance",
+      "reasoning": "PAA shows regulatory question. Government source (noe.gv.at) ranking but no comprehensive guide. Opportunity for authority.",
+      "h3_suggestions": [
+        "Wer darf in Österreich Pferde halten?",
+        "Anforderungen an Stallplatz und Weide",
+        "Tierärztliche Kontrollen und Gesundheitszertifikate",
+        "Pferdepass und Registrierung",
+        "Versicherungsanforderungen in Österreich",
+        "Bundesland-spezifische Bestimmungen"
+      ]
+    },
+    {
+      "h2": "Pferd kaufen nach Verwendungszweck - Freizeit, Sport und Spezialzwecke",
+      "keywords_targeted": "freizeitpferde kaufen österreich (140 SV), schulpferd kaufen, springpferd kaufen",
+      "content_focus": "Use-case specific buying guide: leisure horses, sport/competition horses, therapeutic horses",
+      "reasoning": "Phase 1 identifies these as low-volume (50 SV) but specific buyer intent. Good for supplementary content.",
+      "h3_suggestions": [
+        "Freizeitpferde - Anforderungen und Charakteristiken",
+        "Springpferde kaufen - Für Turniersport und Wettkampf",
+        "Schulpferde - Ausbildung und Erfahrung",
+        "Therapeutische Reitpferde",
+        "Zuchtstuten und Hengste - Zucht-spezifische Überlegungen"
+      ]
+    },
+    {
+      "h2": "Häufig gestellte Fragen zum Pferdekauf in Österreich (FAQ)",
+      "keywords_targeted": "long-tail informational keywords",
+      "content_focus": "Answer the 10 PAA questions comprehensively + additional FAQs",
+      "reasoning": "10 PAA questions provide direct content seeds. FAQ sections rank well and address user intent comprehensively.",
+      "h3_suggestions": [
+        "Wie viel kostet ein Pferd in Österreich?",
+        "Kann ich einfach so ein Pferd kaufen?",
+        "Wo kauft man am besten ein Pferd?",
+        "Welche Unterlagen braucht man beim Pferdekauf?",
+        "Wie lange dauert ein Pferdekauf?",
+        "Ist es sicher, ein Pferd online zu kaufen?",
+        "Welche Versicherungen sind notwendig?"
+      ]
+    }
+  ],
+  "ehorses_dominance_analysis": {
+    "ehorses_positions": [1, 5, 7, 9],
+    "ehorses_count": 4,
+    "ehorses_percentage_of_top_10": 40,
+    "ehorses_pages": [
+      {
+        "position": 1,
+        "url": "https://www.ehorses.at/",
+        "type": "homepage"
+      },
+      {
+        "position": 5,
+        "url": "https://www.ehorses.at/verkaufspferde",
+        "type": "category_landing"
+      },
+      {
+        "position": 7,
+        "url": "https://www.ehorses.at/pferdekauf/steiermark.html",
+        "type": "regional_category"
+      },
+      {
+        "position": 9,
+        "url": "https://www.ehorses.at/pferde-kaufen/salzburg.html",
+        "type": "regional_category"
+      }
+    ],
+    "key_finding": "ehorses demonstrates strong domain authority and internal linking strategy. Their regional pages (Steiermark, Salzburg) rank in top 10, showing category-based regional SEO approach.",
+    "competitive_implication": "To compete, pferdewert.de should: 1) Create comprehensive informational content (not available in top 10), 2) Develop regional guides with strong internal linking, 3) Target long-tail keyword variations that marketplaces don't optimize for"
+  },
+  "search_intent_distribution": {
+    "transactional": {
+      "percentage": 70,
+      "examples": [
+        "ehorses.at (marketplace)",
+        "willhaben.at (classifieds)",
+        "landwirt.com (marketplace)"
+      ],
+      "user_intent": "Find and purchase horses immediately"
+    },
+    "navigational": {
+      "percentage": 20,
+      "examples": [
+        "Willhaben Pferde search behavior",
+        "Landwirt platform navigation",
+        "ehorses direct site visits"
+      ],
+      "user_intent": "Find specific marketplace or breeding association"
+    },
+    "informational": {
+      "percentage": 10,
+      "examples": [
+        "PAA questions (pricing, process, legal)",
+        "Related searches (budget, rescue)",
+        "Implied from keywords"
+      ],
+      "user_intent": "Learn about buying process, prices, requirements before purchase"
+    },
+    "insight": "SERP underserves informational intent (only 10%) despite PAA showing 40% pricing questions. This is the content gap opportunity."
+  },
+  "actionable_recommendations": {
+    "quick_wins": [
+      {
+        "rank": 1,
+        "action": "Create comprehensive pricing guide",
+        "rationale": "40% of PAA is pricing-focused. No pricing guide ranks in top 10.",
+        "estimated_impact": "High - matches dominant PAA intent"
+      },
+      {
+        "rank": 2,
+        "action": "Create Austrian-specific regulatory guide",
+        "rationale": "Government sources ranking but sparse. Opportunity for more comprehensive guide.",
+        "estimated_impact": "Medium-High - legal content converts well"
+      },
+      {
+        "rank": 3,
+        "action": "Create marketplace comparison guide",
+        "rationale": "No guide comparing ehorses, Willhaben, Landwirt, BillyRider exists. Navigational keywords (6600+3600 SV) show demand.",
+        "estimated_impact": "High - answers navigational intent with value add"
+      }
+    ],
+    "medium_term_strategy": [
+      "Develop regional guides for Tirol (+23%), Kärnten (+50%), Steiermark following ehorses' regional category approach",
+      "Create breed-specific buyer guides (Noriker 2400 SV, Haflinger 1300 SV) with purchasing tips beyond ehorses category listings",
+      "Build comprehensive 'how to buy' step-by-step guide addressing process confusion evident in PAA"
+    ],
+    "seo_positioning": "Pferdewert.de should position as 'the Austrian horse buyer's educational resource' - the informational content that actually helps buyers understand the market before they visit marketplaces. This is the void in the top 10."
+  }
+}

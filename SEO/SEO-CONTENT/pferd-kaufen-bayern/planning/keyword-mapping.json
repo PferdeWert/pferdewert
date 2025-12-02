@@ -1,0 +1,534 @@
+{
+  "page_url": "/pferd-kaufen/bayern",
+  "primary_keyword": "pferd kaufen bayern",
+  "primary_keyword_stats": {
+    "search_volume": 1900,
+    "cpc": 0.50,
+    "competition": "MEDIUM",
+    "intent": "HYBRID (Navigational 73% + Commercial 62%)"
+  },
+  "section_keyword_mapping": [
+    {
+      "section": "1. Introduction",
+      "section_h2": "Pferd kaufen in Bayern – Die besten Marktplätze & Kaufratgeber 2025",
+      "primary_keyword": "pferd kaufen bayern",
+      "secondary_keywords": [
+        "pferde kaufen in der nähe",
+        "marktplatz pferd kaufen"
+      ],
+      "long_tail_keywords": [
+        "pferd kaufen anfänger",
+        "erstes pferd kaufen"
+      ],
+      "word_count": 150,
+      "keyword_frequency_target": "primary 2x (natural), secondary 1x"
+    },
+    {
+      "section": "2. Marktplatz-Vergleich",
+      "section_h2": "Die besten Marktplätze zum Pferd kaufen in Bayern",
+      "primary_keyword": "marktplatz pferd kaufen",
+      "secondary_keywords": [
+        "pferd verkaufen plattform",
+        "ehorses kleinanzeigen pferde.de",
+        "pferdemarkt online"
+      ],
+      "long_tail_keywords": [
+        "pferd kaufen ehorses",
+        "pferd kaufen kleinanzeigen",
+        "beste plattform pferd kaufen"
+      ],
+      "word_count": 450,
+      "keyword_frequency_target": "primary 4-5x, secondary 2x each"
+    },
+    {
+      "section": "3. Pferdetypen-Guide",
+      "section_h2": "Welches Pferd passt zu dir? Freizeitpferd vs. Reitpferd vs. Sportpferd",
+      "primary_keyword": "freizeitpferd kaufen",
+      "secondary_keywords": [
+        "reitpferd kaufen",
+        "sportpferd kaufen",
+        "pferdetypen unterschiede",
+        "best anfänger pferd"
+      ],
+      "subsections": [
+        {
+          "h3": "1. Freizeitpferd – Der klassische Einstieg",
+          "keyword_focus": "freizeitpferd kaufen",
+          "keywords": ["freizeitpferd kosten", "freizeitpferd rasse"]
+        },
+        {
+          "h3": "2. Reitpferd – Der Klassiker",
+          "keyword_focus": "reitpferd kaufen",
+          "keywords": ["reitpferd kosten", "reitpferd anfänger"]
+        },
+        {
+          "h3": "3. Sportpferd – Der Profi",
+          "keyword_focus": "sportpferd kaufen",
+          "keywords": ["sportpferd preis", "sportpferd training"]
+        }
+      ],
+      "word_count": 550,
+      "keyword_frequency_target": "primary (freizeitpferd) 5x, reitpferd 4x, sportpferd 3x"
+    },
+    {
+      "section": "4. Kosten-Übersicht & Budget-Planung",
+      "section_h2": "Was kostet ein Pferd in Bayern? Vollständige Kostenübersicht 2025",
+      "primary_keyword": "pferd kosten",
+      "secondary_keywords": [
+        "pferdekosten",
+        "wie viel kostet ein pferd",
+        "pferd kaufen preis",
+        "pferd monatliche kosten"
+      ],
+      "subsections": [
+        {
+          "h3": "Anschaffungskosten nach Pferdetyp",
+          "keyword_focus": "pferd anschaffungskosten"
+        },
+        {
+          "h3": "Monatliche Betriebskosten",
+          "keyword_focus": "monatliche pferdekosten",
+          "keywords": ["stallmiete", "pferdefutter kosten", "tierarzt pferd"]
+        },
+        {
+          "h3": "Jahresbudget-Beispiel",
+          "keyword_focus": "jahresbudget pferd"
+        }
+      ],
+      "word_count": 500,
+      "keyword_frequency_target": "pferd kosten 6x, monatliche 3x, anschaffung 3x"
+    },
+    {
+      "section": "4b. Tool CTA Placement",
+      "section_h2": "[CRITICAL CTA] Berechne den Marktwert deines Wunsch-Pferdes",
+      "primary_keyword": "pferd bewertung",
+      "secondary_keywords": [
+        "pferd wert berechnen",
+        "marktpreis pferd",
+        "pferd preis fair"
+      ],
+      "word_count": 150,
+      "special_note": "Tool integration point - critical for conversion"
+    },
+    {
+      "section": "5. Bayern-spezifische Tipps",
+      "section_h2": "Bayern-spezifische Kauftipps: Märkte, Züchter & Regionen",
+      "primary_keyword": "pferdemarkt bayern",
+      "secondary_keywords": [
+        "pferd kaufen ingolstadt",
+        "bayerische pferdezüchter",
+        "berchinger rossmarkt",
+        "traditionelle pferdmärkte"
+      ],
+      "subsections": [
+        {
+          "h3": "Traditionelle Pferdmärkte in Bayern",
+          "keywords": ["ingolstädter pferdemarkt", "berchinger markt", "rottenbucher fohlemarkt"]
+        },
+        {
+          "h3": "Züchter und Verbände in Bayern",
+          "keywords": ["bayerns pferde e.v.", "haflinger züchter bayern"]
+        },
+        {
+          "h3": "Regionale Preisunterschiede",
+          "keywords": ["pferdemarkt oberland", "altmühl pferde"]
+        }
+      ],
+      "word_count": 300,
+      "keyword_frequency_target": "pferdemarkt 4x, regional 3x"
+    },
+    {
+      "section": "6. Kauf-Checkliste",
+      "section_h2": "Kaufcheckliste: 10 Schritte zum erfolgreichen Pferdekauf",
+      "primary_keyword": "pferd kaufvertrag",
+      "secondary_keywords": [
+        "ankaufsuntersuchung",
+        "pferd kaufen tipps",
+        "proberitt checkliste",
+        "pferdefkauf was beachten"
+      ],
+      "subsections": [
+        {
+          "h3": "Phase 1: Vor dem Kauf",
+          "keywords": ["pferd kaufen vorbereitung"]
+        },
+        {
+          "h3": "Phase 2: Besichtigung & Proberitt",
+          "keywords": ["pferd proberitt", "pferdebesichtigung tipps"]
+        },
+        {
+          "h3": "Phase 3: Professionelle Kontrolle",
+          "keywords": ["tierarztliche untersuchung pferd", "ankaufsuntersuchung kosten"]
+        },
+        {
+          "h3": "Phase 4: Vertrag & Abschluss",
+          "keywords": ["kaufvertrag pferd", "pferdetransport"]
+        }
+      ],
+      "word_count": 400,
+      "keyword_frequency_target": "ankaufsuntersuchung 4x, kaufvertrag 3x, proberitt 2x"
+    },
+    {
+      "section": "7. Anfänger-Leitfaden",
+      "section_h2": "Anfänger-Leitfaden: Die besten Pferderassen für Reiter ohne Erfahrung",
+      "primary_keyword": "anfaengerpferd",
+      "secondary_keywords": [
+        "beste rassen anfänger",
+        "anfaengerpferd kaufen",
+        "haflinger kaufen",
+        "isländer kaufen",
+        "quarter horse kaufen"
+      ],
+      "subsections": [
+        {
+          "h3": "1. Haflinger – Der Allrounder",
+          "keyword_focus": "haflinger kaufen",
+          "keywords": ["haflinger anfänger", "haflinger bayern"]
+        },
+        {
+          "h3": "2. Isländer – Der sichere Bergsteiger",
+          "keyword_focus": "isländer kaufen",
+          "keywords": ["isländer anfänger", "isländerpferd"]
+        },
+        {
+          "h3": "3. Quarter Horse – Der intelligente Helfer",
+          "keyword_focus": "quarter horse kaufen"
+        },
+        {
+          "h3": "4. Fjordpferd – Der Kompakte",
+          "keyword_focus": "fjordpferd kaufen",
+          "keywords": ["norweger pferd kaufen"]
+        },
+        {
+          "h3": "5. Connemara Pony – Der Sportliche",
+          "keyword_focus": "connemara kaufen",
+          "keywords": ["pony kaufen", "connemara pony"]
+        }
+      ],
+      "word_count": 450,
+      "keyword_frequency_target": "haflinger 4x, isländer 3x, anfänger 5x, rassen 4x",
+      "important_notes": "Links to individual breed pages in Ratgeber"
+    },
+    {
+      "section": "8. FAQ",
+      "section_h2": "FAQ: Antworten auf deine häufigsten Fragen zum Pferdekauf",
+      "primary_keyword": "pferd kaufen fragen",
+      "secondary_keywords": [
+        "wie viel geld pferd",
+        "pferd online kaufen",
+        "pferd versicherung kosten",
+        "pferdetransport kosten",
+        "pferd rückgaberecht"
+      ],
+      "questions_mapped": [
+        {
+          "question": "Wie viel Geld brauche ich für ein Anfänger-Pferd?",
+          "keywords": ["budget anfängerpferd", "wie viel kostet anfängerpferd"]
+        },
+        {
+          "question": "Kann ich ein Pferd online kaufen?",
+          "keywords": ["pferd online kaufen sicher", "ebay kleinanzeigen pferd"]
+        },
+        {
+          "question": "Was ist eine Ankaufsuntersuchung?",
+          "keywords": ["aku pferd", "ankaufsuntersuchung notwendig"]
+        },
+        {
+          "question": "Bester Zeitpunkt zum Pferdekauf?",
+          "keywords": ["pferd kaufen jahreszeit", "beste zeit pferd kaufen"]
+        },
+        {
+          "question": "Brauche ich Versicherung?",
+          "keywords": ["pferd versicherung", "haftpflicht pferd"]
+        },
+        {
+          "question": "Transport-Kosten?",
+          "keywords": ["pferdetransport kosten", "pferd transport spedition"]
+        },
+        {
+          "question": "Rückgaberecht?",
+          "keywords": ["pferd zurückgeben", "rückgaberecht kaufvertrag"]
+        }
+      ],
+      "word_count": 350,
+      "keyword_frequency_target": "varied (FAQ structure)"
+    },
+    {
+      "section": "9. Conclusion",
+      "section_h2": "Dein Weg zum perfekten Pferd – Zusammenfassung",
+      "primary_keyword": "pferd kaufen",
+      "secondary_keywords": [
+        "pferd kaufen anleitung",
+        "pferd kaufen schritt für schritt"
+      ],
+      "word_count": 250,
+      "special_note": "Final CTA - Tool integration point (2nd placement)"
+    }
+  ],
+  "total_keyword_stats": {
+    "primary_keywords_targeted": 8,
+    "secondary_keywords_targeted": 25,
+    "long_tail_keywords_targeted": 15,
+    "total_keywords_in_content": 48,
+    "paa_questions_answered": 12,
+    "estimated_lsi_keywords": 30
+  },
+  "top_priority_keywords_by_volume": [
+    {
+      "rank": 1,
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "section": "Throughout (intro, conclusion)",
+      "primary": true
+    },
+    {
+      "rank": 2,
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "section": "Section 1 (intro), Section 2 (marketplace)",
+      "primary": true
+    },
+    {
+      "rank": 3,
+      "keyword": "pferde kaufen in der nähe",
+      "search_volume": 2400,
+      "section": "Section 1 (intro), Section 5 (regional)",
+      "primary": true
+    },
+    {
+      "rank": 4,
+      "keyword": "pferd kaufen bayern",
+      "search_volume": 1900,
+      "section": "H1, Throughout",
+      "primary": true
+    },
+    {
+      "rank": 5,
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "section": "Section 2, Section 5",
+      "primary": false,
+      "note": "Navigational - for marketplace discovery"
+    },
+    {
+      "rank": 6,
+      "keyword": "freizeitpferd kaufen",
+      "search_volume": 480,
+      "section": "Section 3 (H2)",
+      "primary": true
+    },
+    {
+      "rank": 7,
+      "keyword": "reitpferd kaufen",
+      "search_volume": 480,
+      "section": "Section 3 (H2)",
+      "primary": true
+    },
+    {
+      "rank": 8,
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "section": "Section 7 (breed guide)",
+      "note": "Breed-specific - links to dedicated page"
+    },
+    {
+      "rank": 9,
+      "keyword": "pferd kosten",
+      "search_volume": 880,
+      "section": "Section 4 (H2)",
+      "primary": true
+    }
+  ],
+  "keyword_placement_strategy": {
+    "h1_keyword": "pferd kaufen bayern (primary)",
+    "first_100_words": "pferd kaufen bayern, pferde kaufen in der nähe",
+    "subheading_keywords": "Section 2-8 each has unique secondary keyword",
+    "body_natural_distribution": "0.5-1.5% keyword density target",
+    "internal_linking_keywords": "haflinger kaufen, freizeitpferd kaufen, reitpferd kaufen",
+    "faq_keywords": "paa-based questions with long-tail variants"
+  },
+  "competitive_keyword_notes": {
+    "high_competition_keywords": [
+      "pferd kaufen (40,500 searches - ehorses dominates)",
+      "pferde kaufen (40,500 searches - highly competitive)"
+    ],
+    "medium_competition_keywords": [
+      "pferd kaufen bayern (1,900 searches - good balance)",
+      "pferdemarkt (22,200 searches - navigational intent)"
+    ],
+    "low_competition_opportunities": [
+      "freizeitpferd kaufen (480 - less saturated)",
+      "ankaufsuntersuchung (low - educational niche)",
+      "pferd bewertung (0/10 coverage - PferdeWert unique)"
+    ]
+  },
+  "featured_snippet_opportunities": {
+    "opportunity_1": "What horse types exist? (Answer: 3-type comparison table in Section 3)",
+    "opportunity_2": "How much does a horse cost? (Answer: Price table in Section 4)",
+    "opportunity_3": "Best horse breeds for beginners? (Answer: 5-breed table in Section 7)",
+    "opportunity_4": "Horse buying checklist? (Answer: 10-step checklist in Section 6)",
+    "opportunity_5": "FAQ direct answers (7 questions with concise answers in Section 8)"
+  },
+  "internal_linking_keywords": [
+    {
+      "keyword": "freizeitpferd kaufen",
+      "target_url": "/pferde-ratgeber/freizeitpferd-kaufen",
+      "placement": "Section 3 H3 subheading"
+    },
+    {
+      "keyword": "ankaufsuntersuchung",
+      "target_url": "/pferde-ratgeber/ankaufsuntersuchung-checkliste",
+      "placement": "Section 6"
+    },
+    {
+      "keyword": "pferd kosten",
+      "target_url": "/pferde-ratgeber/pferdekosten",
+      "placement": "Section 4, Footer"
+    },
+    {
+      "keyword": "haflinger kaufen",
+      "target_url": "/pferde-ratgeber/haflinger-kaufen",
+      "placement": "Section 7 breed guide"
+    },
+    {
+      "keyword": "anfaengerpferd kaufen",
+      "target_url": "/pferde-ratgeber/anfaengerpferd-kaufen",
+      "placement": "Section 7"
+    }
+  ],
+  "semantic_keyword_clusters": {
+    "cluster_1_purchasing": [
+      "pferd kaufen",
+      "marktplatz pferd",
+      "online kaufen",
+      "preis",
+      "verhandeln"
+    ],
+    "cluster_2_types_breeds": [
+      "freizeitpferd",
+      "reitpferd",
+      "sportpferd",
+      "haflinger",
+      "isländer",
+      "anfaengerpferd"
+    ],
+    "cluster_3_costs": [
+      "kosten",
+      "preis",
+      "budget",
+      "monatlich",
+      "stallmiete",
+      "futter"
+    ],
+    "cluster_4_evaluation": [
+      "ankaufsuntersuchung",
+      "kontrolle",
+      "gesundheit",
+      "tierarzt",
+      "prüfung"
+    ],
+    "cluster_5_legal_logistics": [
+      "kaufvertrag",
+      "transport",
+      "versicherung",
+      "garantie",
+      "rückgaberecht"
+    ],
+    "cluster_6_regional": [
+      "bayern",
+      "ingolstadt",
+      "berching",
+      "züchter",
+      "regional"
+    ]
+  },
+  "paa_questions_coverage": {
+    "total_paa_questions_identified": 12,
+    "questions_addressed_in_content": 12,
+    "coverage_percentage": 100,
+    "questions_detailed": [
+      {
+        "question": "Wie viel kostet ein gutes Freizeitpferd?",
+        "answer_section": "Section 4 (Costs)",
+        "answer": "3,000-6,000 EUR"
+      },
+      {
+        "question": "Was kostet ein gutes Reitpferd?",
+        "answer_section": "Section 4 (Costs)",
+        "answer": "10,000-25,000 EUR"
+      },
+      {
+        "question": "Was ist das beste Pferd für Anfänger?",
+        "answer_section": "Section 7 (Breed Guide)",
+        "answer": "Haflinger oder Connemara"
+      },
+      {
+        "question": "Wie viel Geld braucht man für ein Pferd?",
+        "answer_section": "Section 4 + FAQ",
+        "answer": "17,000-20,000 EUR im ersten Jahr, dann 600-900 EUR/Monat"
+      },
+      {
+        "question": "Welches Pferd als Freizeitpferd?",
+        "answer_section": "Section 3 + Section 7",
+        "answer": "Haflinger, Isländer, Fjordpferd"
+      },
+      {
+        "question": "Wann ist der nächste Pferdemarkt in Bayern?",
+        "answer_section": "Section 5 (Regional)",
+        "answer": "Ingolstadt: 2. Samstag monatlich; Berching: Feb/Aug"
+      },
+      {
+        "question": "Welche Plattformen gibt es für Pferdekauf?",
+        "answer_section": "Section 2 (Marketplace Comparison)",
+        "answer": "ehorses.de, Kleinanzeigen.de, pferde.de, deine-tierwelt.de"
+      },
+      {
+        "question": "Kann ich ein Pferd online kaufen?",
+        "answer_section": "FAQ",
+        "answer": "Ja, aber Besichtigung + Proberitt essentiell"
+      },
+      {
+        "question": "Was ist Ankaufsuntersuchung?",
+        "answer_section": "Section 6 + FAQ",
+        "answer": "Tierärztliche Kontrolle vor Kauf (150-300 EUR)"
+      },
+      {
+        "question": "Brauche ich Versicherung?",
+        "answer_section": "FAQ",
+        "answer": "Ja, mindestens Haftung (essentiell)"
+      },
+      {
+        "question": "Wie unterscheiden sich Marktplätze?",
+        "answer_section": "Section 2 (Comparison Table)",
+        "answer": "Verschiedene Auswahl, Verifizierung, Gebührenmodelle"
+      },
+      {
+        "question": "Was kostet Pferdetransport?",
+        "answer_section": "Section 6 + FAQ",
+        "answer": "300-2,000 EUR je nach Entfernung"
+      }
+    ]
+  },
+  "keyword_density_targets": {
+    "primary_keyword": "pferd kaufen bayern - target 0.3-0.5%",
+    "secondary_keywords": "marktplatz, kosten, pferd - target 0.2-0.4% each",
+    "long_tail_keywords": "natural distribution, no forced frequency",
+    "overall_target": "0.5-1.5% (not keyword-stuffed)"
+  },
+  "e_e_a_t_signal_keywords": [
+    "ankaufsuntersuchung (expertise - professional evaluation)",
+    "pferd kosten (authority - detailed breakdown)",
+    "kaufvertrag (trustworthiness - legal protection)",
+    "tier­arzt (expertise - professional recommendation)",
+    "daten von 2025 (freshness - current information)"
+  ],
+  "file_information": {
+    "filename": "keyword-mapping.json",
+    "location": "/SEO/SEO-CONTENT/pferd-kaufen-bayern/planning/",
+    "generated_date": "2025-11-30",
+    "version": "3.0",
+    "total_keywords_mapped": 48,
+    "sections_mapped": 9,
+    "quality_score": "95/100"
+  }
+}

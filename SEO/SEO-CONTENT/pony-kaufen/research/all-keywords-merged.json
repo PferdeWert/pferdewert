@@ -1,0 +1,523 @@
+{
+  "primary_keyword": "pony kaufen",
+  "merged_at": "2025-11-30T21:54:10.824150",
+  "sources": {
+    "phase_1b": 17,
+    "phase_1c": 19,
+    "total": 36
+  },
+  "all_keywords": [
+    {
+      "keyword": "pferde",
+      "search_volume": 165000,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pony",
+      "search_volume": 33100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd",
+      "search_volume": 33100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "araber",
+      "search_volume": 27100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "friese",
+      "search_volume": 18100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "hannoveraner",
+      "search_volume": 14800,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "haflinger zu kaufen",
+      "search_volume": 5400,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "dressurpferd",
+      "search_volume": 4100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "shetty kaufen",
+      "search_volume": 3600,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "araber pferd",
+      "search_volume": 3100,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "shetland pony kaufen",
+      "search_volume": 2400,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "ebay pferde kaufen",
+      "search_volume": 2400,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd verkaufen",
+      "search_volume": 2400,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde kaufen nrw",
+      "search_volume": 1600,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "isländer pferd",
+      "search_volume": 1200,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "fohlen kaufen",
+      "search_volume": 880,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "reitpferd kaufen",
+      "search_volume": 880,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pferde verkaufen",
+      "search_volume": 880,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "kinderpony kaufen",
+      "search_volume": 720,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "mini pony kaufen",
+      "search_volume": 590,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony kaufen in der nähe",
+      "search_volume": 590,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "springpferd kaufen",
+      "search_volume": 590,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "welsh pony kaufen",
+      "search_volume": 480,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony kaufen niedersachsen",
+      "search_volume": 480,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "haflinger kaufen",
+      "search_volume": 480,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony verkaufen",
+      "search_volume": 480,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony kaufen ebay kleinanzeigen",
+      "search_volume": 390,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pferd zu verkaufen",
+      "search_volume": 340,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony kaufen günstig",
+      "search_volume": 320,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "mini pony 60 cm kaufen",
+      "search_volume": 210,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pony kosten",
+      "search_volume": 140,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    },
+    {
+      "keyword": "pony preis",
+      "search_volume": 140,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    },
+    {
+      "keyword": "kleines pony kaufen",
+      "search_volume": 110,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    }
+  ],
+  "priority_keywords": {
+    "high": [
+      {
+        "keyword": "pferde",
+        "search_volume": 165000,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd kaufen",
+        "search_volume": 40500,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "pony",
+        "search_volume": 33100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd",
+        "search_volume": 33100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "haflinger",
+        "search_volume": 27100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "araber",
+        "search_volume": 27100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "friese",
+        "search_volume": 18100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "hannoveraner",
+        "search_volume": 14800,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "pony kaufen",
+        "search_volume": 6600,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "haflinger zu kaufen",
+        "search_volume": 5400,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "dressurpferd",
+        "search_volume": 4100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "shetty kaufen",
+        "search_volume": 3600,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "araber pferd",
+        "search_volume": 3100,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "shetland pony kaufen",
+        "search_volume": 2400,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "ebay pferde kaufen",
+        "search_volume": 2400,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd verkaufen",
+        "search_volume": 2400,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      }
+    ],
+    "medium": [
+      {
+        "keyword": "pferde kaufen nrw",
+        "search_volume": 1600,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "isländer pferd",
+        "search_volume": 1200,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "fohlen kaufen",
+        "search_volume": 880,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "reitpferd kaufen",
+        "search_volume": 880,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pferde verkaufen",
+        "search_volume": 880,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "kinderpony kaufen",
+        "search_volume": 720,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "mini pony kaufen",
+        "search_volume": 590,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pony kaufen in der nähe",
+        "search_volume": 590,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "springpferd kaufen",
+        "search_volume": 590,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "welsh pony kaufen",
+        "search_volume": 480,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pony kaufen niedersachsen",
+        "search_volume": 480,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "haflinger kaufen",
+        "search_volume": 480,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pony verkaufen",
+        "search_volume": 480,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pony kaufen ebay kleinanzeigen",
+        "search_volume": 390,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pferd zu verkaufen",
+        "search_volume": 340,
+        "source": "phase_1c",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pony kaufen günstig",
+        "search_volume": 320,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "mini pony 60 cm kaufen",
+        "search_volume": 210,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      }
+    ],
+    "low": [
+      {
+        "keyword": "pony kosten",
+        "search_volume": 140,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "low"
+      },
+      {
+        "keyword": "pony preis",
+        "search_volume": 140,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "low"
+      },
+      {
+        "keyword": "kleines pony kaufen",
+        "search_volume": 110,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "low"
+      }
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "phase": "5A",
+  "primary_keyword": "pony kaufen",
+  "slug": "pony-kaufen",
+  "timestamp": "2025-11-30T23:50:00Z",
+  "de": {
+    "metadata": {
+      "title": "Pony kaufen: Kompletter Leitfaden für Anfänger | PferdeWert.de",
+      "description": "Pony kaufen: Umfassender Guide mit Rassen, Kosten & Kauftipps. Vermeide teure Fehler mit unserer Checkliste. Worauf beim Ponykauf achten? Jetzt informieren!",
+      "keywords": "pony kaufen, ponyrassen, ponypreise, pony kosten, ponykauf",
+      "canonical_url": "https://pferdewert.de/pferde-ratgeber/pony-kaufen",
+      "locale": "de_DE",
+      "robots": "index, follow"
+    },
+    "open_graph": {
+      "og:title": "Pony kaufen: Kompletter Leitfaden für Anfänger",
+      "og:description": "Pony kaufen: Guide mit Rassen, Kosten & Kauftipps. Vermeide Fehler beim Ponykauf!",
+      "og:type": "article",
+      "og:url": "https://pferdewert.de/pferde-ratgeber/pony-kaufen",
+      "og:site_name": "PferdeWert.de",
+      "og:locale": "de_DE",
+      "og:image": "https://pferdewert.de/images/ratgeber/pony-kaufen.webp"
+    },
+    "twitter_card": {
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Pony kaufen: Kompletter Leitfaden für Anfänger",
+      "twitter:description": "Guide mit Rassen, Kosten & Kauftipps. Vermeide Fehler beim Ponykauf!",
+      "twitter:site": "@PferdeWert",
+      "twitter:creator": "@PferdeWert"
+    }
+  },
+  "at": {
+    "metadata": {
+      "title": "Pony kaufen in Österreich: Kompletter Leitfaden | PferdeWert.at",
+      "description": "Pony kaufen in Österreich: Umfassender Guide mit österreichischen Rassen, Kosten & Kauftipps. Vermeide Fehler beim Ponykauf. Jetzt Leitfaden lesen!",
+      "keywords": "pony kaufen österreich, ponyrassen, ponypreise, pony kosten, ponykauf",
+      "canonical_url": "https://pferdewert.at/pferde-ratgeber/pony-kaufen",
+      "locale": "de_AT",
+      "robots": "index, follow"
+    },
+    "open_graph": {
+      "og:title": "Pony kaufen in Österreich: Kompletter Leitfaden",
+      "og:description": "Guide für österreichische Ponykäufer: Rassen, Kosten & Kauftipps. Vermeide Fehler!",
+      "og:type": "article",
+      "og:url": "https://pferdewert.at/pferde-ratgeber/pony-kaufen",
+      "og:site_name": "PferdeWert.at",
+      "og:locale": "de_AT",
+      "og:image": "https://pferdewert.at/images/ratgeber/pony-kaufen.webp"
+    },
+    "twitter_card": {
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Pony kaufen in Österreich: Kompletter Leitfaden",
+      "twitter:description": "Guide für österreichische Ponykäufer: Rassen, Kosten & Tipps!",
+      "twitter:site": "@PferdeWert",
+      "twitter:creator": "@PferdeWert"
+    }
+  },
+  "ch": {
+    "metadata": {
+      "title": "Pony kaufen in der Schweiz: Kompletter Leitfaden | PferdeWert.ch",
+      "description": "Pony kaufen in der Schweiz: Guide mit Rassen, CHF-Kosten & Kauftipps für Schweizer Käufer. Vermeide Fehler beim Ponykauf. Jetzt Ratgeber lesen!",
+      "keywords": "pony kaufen schweiz, ponyrassen, ponypreise, pony kosten, ponykauf",
+      "canonical_url": "https://pferdewert.ch/pferde-ratgeber/pony-kaufen",
+      "locale": "de_CH",
+      "robots": "index, follow"
+    },
+    "open_graph": {
+      "og:title": "Pony kaufen in der Schweiz: Kompletter Leitfaden",
+      "og:description": "Guide für Schweizer Ponykäufer: Rassen, CHF-Kosten & Kauftipps!",
+      "og:type": "article",
+      "og:url": "https://pferdewert.ch/pferde-ratgeber/pony-kaufen",
+      "og:site_name": "PferdeWert.ch",
+      "og:locale": "de_CH",
+      "og:image": "https://pferdewert.ch/images/ratgeber/pony-kaufen.webp"
+    },
+    "twitter_card": {
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Pony kaufen in der Schweiz: Kompletter Leitfaden",
+      "twitter:description": "Guide für Schweizer Ponykäufer: Rassen, CHF-Kosten & Tipps!",
+      "twitter:site": "@PferdeWert",
+      "twitter:creator": "@PferdeWert"
+    }
+  },
+  "hreflang": {
+    "de": "https://pferdewert.de/pferde-ratgeber/pony-kaufen",
+    "de-AT": "https://pferdewert.at/pferde-ratgeber/pony-kaufen",
+    "de-CH": "https://pferdewert.ch/pferde-ratgeber/pony-kaufen",
+    "x-default": "https://pferdewert.de/pferde-ratgeber/pony-kaufen"
+  },
+  "shared": {
+    "twitter:site": "@PferdeWert",
+    "twitter:creator": "@PferdeWert",
+    "og:image:width": 1200,
+    "og:image:height": 630
+  },
+  "validation": {
+    "de": {
+      "title_length": 61,
+      "description_length": 153,
+      "primary_keyword_in_title": true,
+      "status": "WARNING"
+    },
+    "at": {
+      "title_length": 61,
+      "description_length": 160,
+      "primary_keyword_in_title": true,
+      "status": "PASSED"
+    },
+    "ch": {
+      "title_length": 63,
+      "description_length": 152,
+      "primary_keyword_in_title": true,
+      "status": "WARNING"
+    }
+  },
+  "quality_notes": {
+    "de": "Title leicht über 60 chars (61), Description optimal bei 153 chars. Primary Keyword natürlich integriert.",
+    "at": "Alle Parameter optimal: Title 61 chars, Description 160 chars, Geographic Relevance (Österreich) integriert.",
+    "ch": "Title 63 chars (leicht über), Description 152 chars optimal. Geographic Relevance (Schweiz) und CHF-Hinweis integriert."
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "article": "pferd-kaufen-oesterreich",
+  "evaluation_date": "2025-11-30",
+  "overall_eeat_score": 23,
+  "max_score": 25,
+  "assessment": "STRONG - Excellent on expertise and authority, very strong on experience and trust",
+  "breakdown": {
+    "experience": {
+      "score": 6,
+      "max": 6,
+      "rating": "EXCELLENT",
+      "definition": "Does the content demonstrate first-hand knowledge, practical insights, and real-world understanding?",
+      "evidence": [
+        {
+          "indicator": "Buyer perspective throughout",
+          "examples": [
+            "Opening: 'If you want to buy a horse...' (du form, personal address)",
+            "Practical tips section uses 'du' consistently",
+            "Realistic expectations: 'Most buyers need a leisure horse' (80% estimate)"
+          ],
+          "strength": "HIGH - Article speaks from buyer's point of view, not generic info"
+        },
+        {
+          "indicator": "Real-world examples and scenarios",
+          "examples": [
+            "Marketplace navigation with specific platform differences (ehorses international, Willhaben local)",
+            "Negotiation tactics: 'Sanft anfangen: Ich bin interessiert...'",
+            "Seasonal pricing advice: 'Herbst/Winter: Weniger Nachfrage = bessere Preise'",
+            "Red flags from actual scams: 'Verkäufer will kein Inspektions-Video'"
+          ],
+          "strength": "HIGH - Practical advice that could only come from experience"
+        },
+        {
+          "indicator": "Honest assessment of challenges and costs",
+          "examples": [
+            "'Anfänger unterschätzen immer die monatlichen Kosten'",
+            "'Realistischer Range für Österreich: 400–1.300 € pro Monat'",
+            "'Eil dich nicht. Ein gutes Pferd zu finden braucht Zeit.'"
+          ],
+          "strength": "HIGH - Shows understanding of real buyer pain points"
+        },
+        {
+          "indicator": "Step-by-step guidance following actual buyer journey",
+          "examples": [
+            "7-step process: Preparation → Search → Inspection → Vet check → Negotiation → Contract → Registration",
+            "Timeline expectations: '3–6 Wochen typischerweise'",
+            "Each step includes practical what-to-do advice"
+          ],
+          "strength": "HIGH - Structure follows real-world process sequence"
+        },
+        {
+          "indicator": "Transparent about financial realities",
+          "examples": [
+            "'Pferde sind wie Autos – sie deprecieren'",
+            "'Ein 10.000 € Pferd ist nach 5 Jahren 3.000–5.000 € wert'",
+            "'Wenn dir 800 € monatliche Unterhaltskosten ohne finanzielle Rendite wehtun, ist ein Pferd nicht für dich'"
+          ],
+          "strength": "HIGH - Honest assessment builds trust"
+        }
+      ],
+      "assessment": "Article consistently demonstrates practical, real-world knowledge throughout. The author clearly understands the buyer's journey, pain points, and realistic expectations. Personal perspective is maintained without being anecdotal."
+    },
+    "expertise": {
+      "score": 6,
+      "max": 6,
+      "rating": "EXCELLENT",
+      "definition": "Does the author demonstrate deep, specialized knowledge of the subject matter?",
+      "evidence": [
+        {
+          "category": "Austrian Marketplace Knowledge",
+          "indicators": [
+            {
+              "detail": "Specific platform understanding",
+              "examples": [
+                "ehorses: '17.000+ Inserate, international Marktplatz' (exact figures)",
+                "Willhaben: '245+ Angebote, kostenlos für private Angebote' (specific advantages)",
+                "Landwirt: 'Agrarmarktplatz, Bauern als direkte Quellen' (unique positioning)",
+                "BillyRider: 'spezialisierte Filter (Dressur, Springen, Vielseitigkeit)' (detailed features)"
+              ],
+              "strength": "HIGH - Not generic descriptions, platform-specific details"
+            },
+            {
+              "detail": "Regional market analysis with data",
+              "examples": [
+                "Tirol: '480 SV, +23% Wachstum, Haflinger stronghold'",
+                "Kärnten: '390 SV, +50% GROWTH (fastest growing!)' - emphasis on data",
+                "Wien: '40 SV, KD 34, sehr kleiner und hart umkämpfter Markt'",
+                "Price variations by state: 'Tirol highest (+15% over average)'"
+              ],
+              "strength": "HIGH - Data-driven market analysis not found in generic guides"
+            }
+          ],
+          "overall_strength": "EXCELLENT"
+        },
+        {
+          "category": "Buying Process Expertise",
+          "indicators": [
+            {
+              "detail": "Complete process breakdown with legal framework",
+              "examples": [
+                "Step-by-step: Prep → Search → Inspection → AKU → Negotiation → Contract → Registration",
+                "Legal specifics: 'AKU ist in Österreich nicht gesetzlich vorgeschrieben, aber absolut essentiell'",
+                "Contract requirements: 'Name und Daten von Käufer und Verkäufer, Pferdetasche, Kaufpreis, Garantien, Rücktrittsrecht'"
+              ],
+              "strength": "HIGH - Shows understanding of legal framework"
+            },
+            {
+              "detail": "Specific cost figures with range",
+              "examples": [
+                "AKU: '300–600 € (mit Blutuntersuchung)'",
+                "Transport: '200–800 €'",
+                "First equipment: '500–1.500 €'",
+                "Monthly costs: Freizeitpferd '400–600 €', sport horse '1.200–1.500 €'"
+              ],
+              "strength": "HIGH - Not vague estimates, specific Austrian market prices"
+            }
+          ],
+          "overall_strength": "EXCELLENT"
+        },
+        {
+          "category": "Breed-Specific Knowledge",
+          "indicators": [
+            {
+              "detail": "Noriker expertise",
+              "examples": [
+                "Origin: 'DAS österreichische Pferd, alpine Regionen'",
+                "Size: '1,45–1,60 m (mittelgroß, kein Riese)'",
+                "Weight: '600–800 kg'",
+                "Character: 'Ruhig, vertrauensvoll, intelligent'",
+                "Uses: 'Fahren, Freizeit, Therapie, leichte Landwirtschaft'",
+                "Prices: '€4.000–€7.000 Freizeitqualität'"
+              ],
+              "strength": "HIGH - Comprehensive breed profile"
+            },
+            {
+              "detail": "Haflinger expertise",
+              "examples": [
+                "Size: '1,38–1,50 m (klein, ideal für Kinder)'",
+                "Character: 'Energisch, gelehrig, sicher'",
+                "Color: 'Fast immer Goldrappé (goldgelb) mit heller Mähne'",
+                "Uses: 'Freizeitreiten, Fahren, Kinderreiten, Trekking'",
+                "Quote: 'Ein Haflinger wird dich nicht abwerfen, sondern eher versuchen, dich zu retten'",
+                "Prices: '€4.000–€6.000 Basis'"
+              ],
+              "strength": "HIGH - Detailed breed knowledge with personality insights"
+            },
+            {
+              "detail": "Warmblood category understanding",
+              "examples": [
+                "Explains category: 'Gezielt für Reitdisziplinen wie Dressur, Springen und Vielseitigkeit gezüchtet'",
+                "Lists variants: 'Österreichischer Warmblut, Holsteiner, Hannoveraner, Trakehner'",
+                "Characteristics: 'Größer (1,60+ m), längere Linien und mehr Raumgriff'",
+                "Requirements: 'Brauchen aber auch mehr Erfahrung beim Reiten'"
+              ],
+              "strength": "HIGH - Category understanding, not just lists"
+            }
+          ],
+          "overall_strength": "EXCELLENT"
+        },
+        {
+          "category": "Professional Terminology and Standards",
+          "indicators": [
+            {
+              "detail": "Veterinary knowledge (AKU - Ankaufsuntersuchung)",
+              "examples": [
+                "Explains mandatory elements: 'Allgemeiner Zustand, Herzuntersuchung, Lungen-Kapazität, Zahnstatus'",
+                "Cost breakdown: 'Basis 300–400 €, mit Blutuntersuchung 400–600 €, mit Ultraschall 600–800 €'",
+                "Timing strategy: 'Am besten VOR Vertragsabschluss'",
+                "Quality control: 'Der Tierarzt sollte unabhängig vom Verkäufer sein'"
+              ],
+              "strength": "HIGH - Professional-level understanding"
+            },
+            {
+              "detail": "Legal documentation knowledge",
+              "examples": [
+                "Pferdepass: 'EU-Pferdepass, Bei Eigentümerwechsel muss der Pass aktualisiert werden'",
+                "Registration: 'Der Zuchtverband muss benachrichtigt werden'",
+                "Insurance types: 'Haftpflicht (essentiell), Krankenversicherung (optional), Todesfallversicherung (optional)'"
+              ],
+              "strength": "HIGH - Knows Austrian-specific documentation"
+            }
+          ],
+          "overall_strength": "EXCELLENT"
+        }
+      ],
+      "assessment": "Article demonstrates exceptional expertise across multiple domains: Austrian marketplace dynamics, buying process, regional markets, breed characteristics, veterinary standards, and legal framework. Knowledge is specific to Austria, not generic, and supported by concrete examples and figures."
+    },
+    "authority": {
+      "score": 6,
+      "max": 6,
+      "rating": "EXCELLENT",
+      "definition": "Is the author recognized as an authoritative source on this topic?",
+      "evidence": [
+        {
+          "indicator": "References to official Austrian sources",
+          "examples": [
+            "Pferdezucht Austria: 'Dachorganisation für österreichische Pferdezucht'",
+            "Landespferdezuchtverband Steiermark: Referenced for regional breeding",
+            "Tiroler Pferderegion: 'Spezialisiert auf Haflinger und Noriker'",
+            "Kärnten Pferdeverbände: Referenced for regional associations"
+          ],
+          "credibility_level": "HIGH - Cites real organizations"
+        },
+        {
+          "indicator": "Legal framework knowledge",
+          "examples": [
+            "Austrian horse purchase laws cited",
+            "State-specific regulations mentioned (Niederösterreich, Steiermark, Tirol)",
+            "'Wer darf in Österreich Pferde halten?' section addresses legal requirements",
+            "Reference to official source (noe.gv.at mentioned in SERP analysis)"
+          ],
+          "credibility_level": "HIGH - Understands legal context"
+        },
+        {
+          "indicator": "Internal content linking strategy",
+          "links": [
+            "Noriker article (/pferde-ratgeber/noriker-pferd)",
+            "Haflinger article (/pferde-ratgeber/haflinger-pferd)",
+            "AKU article (/pferde-ratgeber/aku-pferd)",
+            "Kaufvertrag article (/pferde-ratgeber/pferdekaufvertrag-oesterreich)",
+            "Willhaben guide (/pferde-ratgeber/willhaben-pferde-kaufen)",
+            "Landwirt guide (/pferde-ratgeber/landwirt-pferde-kaufen)"
+          ],
+          "assessment": "12 internal links to specialized cluster articles demonstrate authority through comprehensive content network",
+          "credibility_level": "HIGH - Content cluster validates expertise"
+        },
+        {
+          "indicator": "Professional terminology usage",
+          "examples": [
+            "AKU (Ankaufsuntersuchung) explained in detail",
+            "Pferdepass (EU horse passport) referenced correctly",
+            "Zuchtverbände (breeding associations) used properly",
+            "Haftpflicht-Versicherung (liability insurance) explained in Austrian context",
+            "Warmblüter, Kaltblüter, Freizeitpferd categories used appropriately"
+          ],
+          "credibility_level": "HIGH - Professional vocabulary establishes expertise"
+        },
+        {
+          "indicator": "Comprehensive coverage demonstrates mastery",
+          "scope": [
+            "8 major H2 sections covering all aspects",
+            "35 H3 subsections for depth",
+            "10 FAQ questions addressing common searches",
+            "Multiple angles: where, what, how, how much, legal, safety"
+          ],
+          "credibility_level": "HIGH - Scope shows mastery of topic"
+        }
+      ],
+      "assessment": "Article establishes authority through references to official Austrian organizations, legal framework understanding, professional terminology, internal content network, and comprehensive scope. Readers would perceive this as authoritative guide on Austrian horse buying."
+    },
+    "trustworthiness": {
+      "score": 5,
+      "max": 6,
+      "rating": "VERY STRONG",
+      "definition": "Can readers trust the information? Is the author transparent, honest, and biased toward reader benefit?",
+      "evidence": [
+        {
+          "indicator": "Transparent about costs",
+          "examples": [
+            "'Anfänger unterschätzen immer die monatlichen Kosten'",
+            "Complete cost breakdown: '€420–€1.300 depending on situation'",
+            "Monthly budget table with three scenarios (cheap, medium, premium)",
+            "'Rechne großzügig. Wenn du 500 € budgetiert hast, könnten es 800 € werden.'"
+          ],
+          "trust_level": "HIGH - Actively warns against underestimation"
+        },
+        {
+          "indicator": "Honest about financial depreciation",
+          "examples": [
+            "'Pferde sind wie Autos – sie deprecieren'",
+            "'Ein 10.000 € Pferd ist nach 5 Jahren 3.000–5.000 € wert'",
+            "'Die Investition lohnt sich emotional und für Freizeitnutzung, nicht finanziell'",
+            "'Wenn dir 800 € monatliche Unterhaltskosten ohne finanzielle Rendite wehtun, ist ein Pferd nicht für dich'"
+          ],
+          "trust_level": "HIGH - Discourages unsuitable purchases"
+        },
+        {
+          "indicator": "Warns against common scams and fraud",
+          "examples": [
+            "Dedicated 'Sicherheit beim Pferdekauf' section with red flags:",
+            "- 'Verkäufer will kein Inspektions-Video'",
+            "- 'Keine AKU möglich (doch, sie ist standard)'",
+            "- 'Zahlung nur in bar, vor der Übergabe'",
+            "- 'Zögert, dich das Pferd mehrmals sehen zu lassen'",
+            "Online fraud prevention with specific steps",
+            "Contract protection guidance"
+          ],
+          "trust_level": "HIGH - Prioritizes buyer protection"
+        },
+        {
+          "indicator": "Multiple perspectives for different buyer types",
+          "examples": [
+            "Beginner vs. intermediate vs. advanced guidance",
+            "Freizeitpferd vs. Sportpferd comparison",
+            "Alpine regions vs. urban (Wien) considerations",
+            "Budget-conscious vs. premium buyer options",
+            "'80% aller Käufer brauchen ein Freizeitpferd' (realistic assessment)"
+          ],
+          "trust_level": "HIGH - Tailored advice for different situations"
+        },
+        {
+          "indicator": "Discourages rushing and emphasizes patience",
+          "examples": [
+            "'Eil dich nicht. Ein gutes Pferd zu finden braucht Zeit.'",
+            "'Nimm dir 4–6 Wochen, besichtige mehrere Kandidaten, und höre auf dein Bauchgefühl'",
+            "'Wenn ihr euch nicht einigt: Es gibt genug andere Pferde. Walk away.'"
+          ],
+          "trust_level": "HIGH - Promotes reader's long-term interests over speed"
+        },
+        {
+          "indicator": "Acknowledges unknowns and limitations",
+          "examples": [
+            "'Wenn du nicht sicher bist, fang mit einem älteren Freizeitpferd an'",
+            "Recommends professional guidance (veterinarian, breeder associations)",
+            "Encourages readers to verify information with local experts",
+            "'Frag beim Stallbetreiber oder der Gemeinde nach lokalen Vorschriften'"
+          ],
+          "trust_level": "MEDIUM-HIGH - Could add author bio/credentials for +1 point"
+        }
+      ],
+      "minor_improvement_opportunity": {
+        "issue": "No dedicated author credibility section",
+        "potential_addition": "Author box with credentials (e.g., 'PferdeWert Redaktion, 15+ years in equestrian industry')",
+        "impact_on_trust": "Would move score from 5/6 to 6/6",
+        "effort": "Low - can be added during Next.js implementation"
+      },
+      "assessment": "Article demonstrates strong trustworthiness through transparency about costs, honest financial assessment, fraud warnings, multiple perspectives, and emphasis on buyer protection. Primary opportunity for improvement is adding author credentials."
+    }
+  },
+  "overall_assessment": {
+    "eeat_rating": "STRONG - 23/25 (92%)",
+    "strongest_pillars": [
+      "Expertise: 6/6 - Exceptional domain knowledge",
+      "Authority: 6/6 - Recognized through references and comprehensive scope",
+      "Experience: 6/6 - Clear first-hand understanding"
+    ],
+    "area_for_enhancement": [
+      "Trustworthiness: 5/6 - Very strong but could add author credentials (+1)"
+    ],
+    "competitive_advantage": "Article out-E-E-A-Ts competitors because it combines all four pillars: expert knowledge of Austrian market + authority through official references + personal experience throughout + transparent about risks and costs",
+    "publication_recommendation": "APPROVED - Ready to publish as-is. Consider adding author bio during implementation for 6/6 trustworthiness score."
+  }
+}

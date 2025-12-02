@@ -1,0 +1,40 @@
+{
+  "phase": "5B",
+  "type": "Article Schema",
+  "timestamp": "2025-11-30T23:50:00Z",
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pony kaufen: Kompletter Leitfaden für Anfänger",
+  "description": "Umfassender Guide zum Ponykauf mit Informationen über Rassen, Kosten, Kaufwege, rechtliche Absicherung und Tipps zum Vermeiden von Betrügern.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/ratgeber/pony-kaufen.webp",
+    "width": 1200,
+    "height": 630,
+    "caption": "Pony kaufen: Kompletter Leitfaden für sicheren Ponykauf"
+  },
+  "datePublished": "2025-11-30T23:50:00Z",
+  "dateModified": "2025-11-30T23:50:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 600,
+      "height": 200
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/pony-kaufen"
+  },
+  "articleBody": "Ein Pony zu kaufen ist eine große Entscheidung – aber nicht, wenn du den richtigen Leitfaden hast. Die Wahl zwischen unterschiedlichen Ponyrassen, Kosten und Kaufwegen kann überwältigend wirken. In diesem umfassenden Guide erfährst du alles über Ponyrassen, realistische Budgets, rechtliche Absicherung und wie du Betrügern ausweichst.",
+  "wordCount": 4500,
+  "keywords": "pony kaufen, ponyrassen, ponykosten, ponykauf, anfänger"
+}

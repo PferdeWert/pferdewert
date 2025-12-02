@@ -62,6 +62,10 @@ export interface RatgeberHeadProps {
 
   // FAQ data for schema (optional)
   faqItems?: Array<{ question: string; answer: string }>;
+
+  // Base path for URLs (defaults to /pferde-ratgeber)
+  // Use for pages outside /pferde-ratgeber/, e.g., basePath="/pferd-kaufen"
+  basePath?: string;
 }
 
 export default function RatgeberHead({
@@ -74,6 +78,7 @@ export default function RatgeberHead({
   breadcrumbTitle,
   author,
   faqItems,
+  basePath = '/pferde-ratgeber',
 }: RatgeberHeadProps) {
   const { locale: routerLocale } = useRouter();
   const locale = (routerLocale as Locale) || 'de';
@@ -84,16 +89,16 @@ export default function RatgeberHead({
   const siteName = SITE_NAMES[locale] || SITE_NAMES.de;
   const ogLocale = OG_LOCALES[locale] || OG_LOCALES.de;
 
-  const canonicalUrl = `${domain}/pferde-ratgeber/${slug}`;
+  const canonicalUrl = `${domain}${basePath}/${slug}`;
   const imageUrl = `${domain}${image}`;
   const finalDateModified = dateModified || datePublished;
 
   // Generate hreflang tags for all available locales
   const hreflangTags = [
-    { hreflang: 'de', href: `${DOMAINS.de}/pferde-ratgeber/${slug}` },
-    ...(locales.at ? [{ hreflang: 'de-AT', href: `${DOMAINS.at}/pferde-ratgeber/${slug}` }] : []),
-    ...(locales.ch ? [{ hreflang: 'de-CH', href: `${DOMAINS.ch}/pferde-ratgeber/${slug}` }] : []),
-    { hreflang: 'x-default', href: `${DOMAINS.de}/pferde-ratgeber/${slug}` },
+    { hreflang: 'de', href: `${DOMAINS.de}${basePath}/${slug}` },
+    ...(locales.at ? [{ hreflang: 'de-AT', href: `${DOMAINS.at}${basePath}/${slug}` }] : []),
+    ...(locales.ch ? [{ hreflang: 'de-CH', href: `${DOMAINS.ch}${basePath}/${slug}` }] : []),
+    { hreflang: 'x-default', href: `${DOMAINS.de}${basePath}/${slug}` },
   ];
 
   // Build author schema - Person if provided, otherwise Organization fallback
@@ -140,6 +145,13 @@ export default function RatgeberHead({
     isAccessibleForFree: true
   };
 
+  // Derive breadcrumb parent name from basePath
+  const breadcrumbParentName = basePath === '/pferde-ratgeber'
+    ? 'Pferde-Ratgeber'
+    : basePath.split('/').filter(Boolean).map(s =>
+        s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+      ).join(' / ');
+
   // Breadcrumb Schema
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -154,8 +166,8 @@ export default function RatgeberHead({
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Pferde-Ratgeber',
-        item: `${domain}/pferde-ratgeber`
+        name: breadcrumbParentName,
+        item: `${domain}${basePath}`
       },
       {
         '@type': 'ListItem',

@@ -1,0 +1,345 @@
+{
+  "phase": "2",
+  "primary_keyword": "pony kaufen",
+  "timestamp": "2025-11-30T21:54:10Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful, comprehensive data from DataForSEO API responses with 10 organic results, 8 PAA questions (multi-level), search intent, and content structure analysis"
+  },
+  "data_sources": {
+    "serp_results_count": 30,
+    "featured_snippets_count": 0,
+    "paa_questions_count": 8,
+    "content_parsed_urls": 3
+  },
+  "search_intent": {
+    "primary": "commercial",
+    "probability": 0.84,
+    "secondary": null,
+    "secondary_probability": null,
+    "content_strategy": "Commercial-focused marketplace guide with product/service integration. Users actively seeking to purchase ponies, comparing options and marketplaces. Integrate call-to-action with pricing, buying guides, and comparison tables."
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Ponyrassen Übersicht und Unterschiede",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 mention specific pony breeds (Shetland, Mini-Shetland, Connemara, Haflinger, Welsh, Isländer, Deutsches Reitpony)"
+      },
+      {
+        "topic": "Ponypreise und Kostenrahmen",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "Featured in AI Overview (€600-€25,000 range), all marketplace listings show pricing, PAA question directly addresses this"
+      },
+      {
+        "topic": "Altersunterschiede und Entwicklung",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Fohlen, Jährling, ausgebildete Ponys mentioned across marketplaces and ehorses content"
+      },
+      {
+        "topic": "Verwendungszwecke (Kinder, Freizeit, Sport)",
+        "coverage": "9/10",
+        "priority": "high",
+        "evidence": "ehorses content details Kinder-geeignet, Sportponys, Freizeitponys; marketplace listings show similar segmentation"
+      },
+      {
+        "topic": "Temperament und Charakter der Ponyrassen",
+        "coverage": "7/10",
+        "priority": "high",
+        "evidence": "ehorses content covers Interieur (Persönlichkeit, Intelligenz); PAA asks about friendliest breeds"
+      },
+      {
+        "topic": "Ausbildungsstand und Reitbarkeit",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Marketplace listings prominently feature Angeritten, Longiert, Ausbildungsstand; ehorses differentiates training levels"
+      },
+      {
+        "topic": "Kaufabwicklung und Rechtliches",
+        "coverage": "3/10",
+        "priority": "high",
+        "evidence": "Marketplace platforms mentioned but no detailed legal/contract guidance; significant gap vs. horse market practices"
+      },
+      {
+        "topic": "Kaufuntersuchung (AKU) für Ponys",
+        "coverage": "2/10",
+        "priority": "high",
+        "evidence": "Only mentioned in AI Overview as 200-1500€ cost; detailed guide missing from Top 10"
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Pony vs. Pferd: Detaillierter Größenvergleich",
+        "coverage": "4/10",
+        "unique_angle": "Comprehensive comparison table (Größe, Gewicht, Kraft, Kosten, Eignung für Alter). Most competitors just mention max 148cm.",
+        "opportunity_score": 8,
+        "reasoning": "PAA question 'Ist ein Pony günstiger als ein Pferd?' indicates user interest in comparison. Detailed guide missing."
+      },
+      {
+        "topic": "Erwachsenentaugliche Ponyrassen",
+        "coverage": "5/10",
+        "unique_angle": "Deep dive into Haflinger, Deutsches Reitpony, Isländer für Erwachsene mit Gewichtsangaben. PAA indicates confusion on this topic.",
+        "opportunity_score": 7,
+        "reasoning": "PAA question 'Welche Ponyrassen können erwachsene Reiter tragen?' shows user confusion. ehorses mentions briefly, but no detailed guide."
+      },
+      {
+        "topic": "Ponycharakter und Verhalten: Sanft vs. Eigensinnig",
+        "coverage": "4/10",
+        "unique_angle": "Compare temperament across breeds with detailed descriptions (Shetland vs. Haflinger vs. Welsh). Address 'Sind Ponys gemeiner als Pferde?' with expert perspective.",
+        "opportunity_score": 7,
+        "reasoning": "PAA question directly addresses character differences. Most competitors superficial treatment."
+      },
+      {
+        "topic": "Anfänger-Geeignetheit und Kindersicherheit",
+        "coverage": "6/10",
+        "unique_angle": "Structured guide on breed selection for first-time pony buyers with checklist. Address PAA 'Sind Ponys für Anfänger geeignet?' with detailed assessment.",
+        "opportunity_score": 8,
+        "reasoning": "High user intent indicated by PAA. Market is heavy on child-focus; missing adult beginner guidance."
+      },
+      {
+        "topic": "Zusätzliche Anschaffungskosten (Sattel, Futter, Haltung)",
+        "coverage": "3/10",
+        "unique_angle": "Detailed cost breakdown beyond purchase price: Erstausstattung (€1000-3000), Haltung monatlich, Tierarzt, Versicherung. Table format recommended.",
+        "opportunity_score": 9,
+        "reasoning": "AI Overview mentions €200-350 AKU cost; but no comprehensive cost guide. Users need total-cost-of-ownership picture."
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Pony-Lebenserwartung und Langzeitplanung",
+        "coverage": "1/10",
+        "source": "PAA question 'Wie hoch ist die Lebenserwartung eines Ponys?' only answered in expanded PAA (30-35 years for Shetland)",
+        "opportunity_score": 6,
+        "reasoning": "Moderate interest but important for buyer education. FAQ-level content missing from Top 10."
+      },
+      {
+        "topic": "Private Anbieter vs. Züchter vs. Makler - Kaufwege",
+        "coverage": "0/10",
+        "source": "Marketplaces listed (Kleinanzeigen, ehorses, pferde.de) but no comparison guide on pros/cons of each channel",
+        "opportunity_score": 8,
+        "reasoning": "Critical purchasing decision (safety, reliability). Top 10 are all listing platforms; no buyer education on which to use."
+      },
+      {
+        "topic": "Rote Flaggen beim Ponykauf erkennen",
+        "coverage": "0/10",
+        "source": "Not addressed in SERP; complementary to Kaufuntersuchung",
+        "opportunity_score": 8,
+        "reasoning": "High-value educational content. Builds trust and E-E-A-T. Zero competition in Top 10."
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.kleinanzeigen.de/s-pferde/pony/k0c139",
+      "title": "Pony, Pferde & Zubehör gebraucht kaufen",
+      "type": "marketplace_listing_portal",
+      "unique_angles": [
+        "Direct marketplace with 632 active listings (transparency on supply)",
+        "Filter by location, private/commercial, horse type",
+        "Price range visible (€500-€13,500 observed)",
+        "Regional distribution across Germany"
+      ],
+      "format": "Marketplace portal (functional, not educational)",
+      "content_strategy": "Not a content-based ranking; Kleinanzeigen ranks due to high domain authority and user intent matching (people searching 'pony kaufen' want to buy immediately)",
+      "estimated_word_count": "N/A - dynamic listing pages",
+      "key_differentiator": "Marketplace dominance - not traditional content ranking",
+      "content_opportunity": "Rank #1 is not beatable by content alone; instead target featured snippet and organic results #2-5 (ehorses, pferde.de, deine-tierwelt - also marketplaces but with educational content)"
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 2100,
+    "target_word_count": 2310,
+    "word_count_range_min": 1785,
+    "word_count_range_max": 2730,
+    "word_count_strategy": "serp_competitive",
+    "word_count_fallback": 2500,
+    "word_count_note": "ehorses (Rank 2) has ~1800 words of structured content + marketplace listings. Landwirt.com (Rank 3) similar structure. Target 2300 words for comprehensive guide that beats marketplace-focused content.",
+    "required_sections": [
+      "Einleitung: Warum ein strukturierter Ponykauf wichtig ist",
+      "Ponyrassen Übersicht: Die wichtigsten Sorten und ihre Unterschiede",
+      "Ponygröße und Eignung nach Alter: Shetland bis Großpony",
+      "Kosten komplett: Kaufpreis + Lebenshaltungskosten + Erstausstattung",
+      "Temperament und Charakter: Welche Rasse passt zu mir?",
+      "Pony vs. Pferd: Was sind die echten Unterschiede?",
+      "Kaufwege: Marketplaces vs. Züchter vs. Makler",
+      "Rote Flaggen beim Ponykauf: Was man vermeiden sollte",
+      "Kaufuntersuchung und rechtliche Absicherung",
+      "Checkliste: Die Top 10 Punkte vor dem Ponykauf",
+      "FAQ: Häufige Anfängerfragen"
+    ],
+    "visual_elements": [
+      "comparison_table",
+      "checklist",
+      "cost_breakdown_table",
+      "breed_characteristics_table",
+      "age_size_chart"
+    ],
+    "featured_snippet_target": "table",
+    "featured_snippet_topic": "Ponyrassen Größe und Kosten Übersicht",
+    "featured_snippet_example": "Table with Columns: Rasse | Größe (cm) | Kosten (€) | Beste für | Temperament"
+  },
+  "competitor_landscape": {
+    "domain_authority_distribution": {
+      "high_authority": 8,
+      "medium_authority": 1,
+      "low_authority": 1
+    },
+    "domain_authority_detail": {
+      "very_high": ["kleinanzeigen.de", "ehorses.de", "pferde.de", "deine-tierwelt.de", "facebook.com"],
+      "high": ["landwirt.com", "ponyforum-online.de", "youtube.com"],
+      "medium": ["martina-bold.de"],
+      "new": []
+    },
+    "domain_type_mix": {
+      "marketplaces": 5,
+      "niche_communities": 2,
+      "breeders": 1,
+      "social_media": 1,
+      "other": 1
+    },
+    "ranking_stability": "established",
+    "new_entrant_opportunity": "medium",
+    "assessment": "Marketplace dominance (Kleinanzeigen, ehorses, pferde.de, deine-tierwelt rank #1-5) due to transactional intent. Educational content can compete at positions #6-10 and via featured snippets. User intent is 84% commercial - they want to buy, not read guides. Content strategy should be: brief, comparison-focused, actionable, with clear CTAs to pferdewert service."
+  },
+  "eeat_signals": {
+    "required_credentials": "horse_purchase_expert",
+    "credentials_reasoning": "Top results are marketplace platforms or breeders with direct selling experience. Missing: veterinary expertise for AKU info, legal expertise for contracts. Opportunity for unique positioning.",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "Successful pony purchase story (what worked, lessons learned)",
+      "Avoided purchase problem (red flags identified early, buyer protected)"
+    ],
+    "external_references": 4,
+    "reference_types": [
+      "Veterinary guidelines (German veterinary association AKU standards)",
+      "Pony breed organization standards (FN - Deutsche Reiterliche Vereinigung)",
+      "Marketplace best practices (eBay Kleinanzeigen Sicherheit)",
+      "Insurance requirements (Pferdeversicherung standards)"
+    ],
+    "expert_quotes": true,
+    "expert_types": [
+      "veterinarian (AKU and health assessment)",
+      "pony breeder (breed characteristics)",
+      "equestrian trainer (suitability assessment)"
+    ],
+    "data_sources": [
+      "FN (Deutsche Reiterliche Vereinigung) Pferderassenkatalog",
+      "Deutscher Tierärzteverband Ankaufsuntersuchung Standards",
+      "ehorses Marktdaten auf Ponypreise (referentiable, publicly available)",
+      "Uelzener Versicherung Haltungskosten 2025",
+      "Pferde.de Marktberichte (if available)"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Wie viel kostet ein echtes Pony?",
+      "level": 1,
+      "category": "costs",
+      "section_placement": "Kosten komplett: Kaufpreis + Lebenshaltungskosten + Erstausstattung",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Most popular PAA question with detailed AI Overview answer. Must be comprehensive and compare price ranges by breed/training."
+    },
+    {
+      "question": "Welche Ponyrasse ist die freundlichste?",
+      "level": 1,
+      "category": "temperament",
+      "section_placement": "Temperament und Charakter: Welche Rasse passt zu mir?",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Directly addresses character selection criteria. Users want to know personality before buying."
+    },
+    {
+      "question": "Was kostet ein Fellpony?",
+      "level": 1,
+      "category": "costs",
+      "section_placement": "Kosten komplett: Kaufpreis + Lebenshaltungskosten + Erstausstattung",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Breed-specific pricing. Include as example within cost section."
+    },
+    {
+      "question": "Wie teuer ist ein kleines Pony?",
+      "level": 1,
+      "category": "costs",
+      "section_placement": "Kosten komplett: Kaufpreis + Lebenshaltungskosten + Erstausstattung",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Size-based pricing query. Include Mini-Shetland example (€500-€3500 range from PAA)."
+    },
+    {
+      "question": "Wie hoch ist die Lebenserwartung eines Ponys?",
+      "level": 2,
+      "category": "care",
+      "section_placement": "Checkliste: Die Top 10 Punkte vor dem Ponykauf (atau new section)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Long-term planning consideration. Important for buyer education. Shetland 30-35 years mentioned in PAA."
+    },
+    {
+      "question": "Ist ein Pony günstiger als ein Pferd?",
+      "level": 2,
+      "category": "comparison",
+      "section_placement": "Pony vs. Pferd: Was sind die echten Unterschiede?",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Direct comparison demand. New section required. Addresses buyer confusion on cost savings."
+    },
+    {
+      "question": "Sind Ponys für Anfänger geeignet?",
+      "level": 2,
+      "category": "suitability",
+      "section_placement": "Temperament und Charakter: Welche Rasse passt zu mir?",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Beginner buyer question. Include suitability matrix by experience level."
+    },
+    {
+      "question": "Welche Ponyrassen können erwachsene Reiter tragen?",
+      "level": 2,
+      "category": "suitability",
+      "section_placement": "Ponyrassen Übersicht: Die wichtigsten Sorten und ihre Unterschiede",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Adult rider suitability gap in market. Create detailed subsection on weight-bearing capacity by breed."
+    }
+  ],
+  "related_searches": [
+    "pony kaufen nähe berlin",
+    "pony kaufen nähe münchen",
+    "Pony kaufen ebay kleinanzeigen",
+    "Pony kaufen für Kinder",
+    "Kinderliebes Pony kaufen",
+    "Fahrpony kaufen"
+  ],
+  "serp_insights": {
+    "marketplace_dominance": "Top 5 are all transactional marketplaces (Kleinanzeigen, ehorses, pferde.de, deine-tierwelt). This is transactional keyword with 84% commercial intent.",
+    "content_opportunity": "Positions #6-10 show niche communities, breeders, Facebook groups. Educational content can compete here. Featured snippet has zero competition (no current snippet).",
+    "geographic_signals": "Related searches show regional variations (Berlin, München, NRW). Opportunity for location-based content guides.",
+    "buyer_journey": "Users at conversion stage (searching 'pony kaufen' not 'what is a pony'). Content should be buying guides, not educational overviews.",
+    "ai_overview_impact": "AI Overview provides comprehensive pricing and cost breakdown. Must match/exceed this information to compete in featured snippet.",
+    "video_opportunity": "Single YouTube video ranks (#10). Opportunity for 'pony kaufen am Pferdemarkt' how-to video.",
+    "missing_content": "No dedicated article on 'Kaufvertrag', 'AKU für Ponys', 'Rote Flaggen', or 'Finanzierungsoptionen'. These are gaps vs. 'pferd kaufen' market."
+  },
+  "api_call_summary": {
+    "total_calls": 5,
+    "serp_organic": 2,
+    "people_also_ask": 1,
+    "search_intent": 1,
+    "content_parsing": 1,
+    "estimated_tokens_consumed": 3800,
+    "data_quality": "excellent",
+    "all_responses_real": true
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "phase": "2",
+  "primary_keyword": "pferd kaufen bayern",
+  "timestamp": "2025-11-30T22:45:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "serp_organic_results_count": 150,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "paa_questions_count": 12,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful. Data collected from 5 keywords via DataForSEO SERP API. PAA questions extracted from SERP responses. Search Intent classification from DataForSEO Intent API."
+  },
+  "data_sources": {
+    "serp_results_analyzed": 5,
+    "top_10_results_per_keyword": 50,
+    "paa_questions_count": 12,
+    "keywords_analyzed": [
+      "pferd kaufen bayern",
+      "pferde kaufen in der nähe",
+      "pferdemarkt bayern",
+      "freizeitpferd kaufen",
+      "reitpferd kaufen"
+    ]
+  },
+  "search_intent": {
+    "primary_keywords_intent": {
+      "pferd_kaufen_bayern": {
+        "primary": "navigational",
+        "probability": 0.73,
+        "secondary": "commercial",
+        "secondary_probability": 0.623
+      },
+      "freizeitpferd_kaufen": {
+        "primary": "commercial",
+        "probability": 0.771
+      },
+      "reitpferd_kaufen": {
+        "primary": "commercial",
+        "probability": 0.826
+      },
+      "pferdemarkt_bayern": {
+        "primary": "navigational",
+        "probability": 0.878
+      },
+      "pferde_kaufen_in_der_nahe": {
+        "primary": "commercial",
+        "probability": 1
+      }
+    },
+    "overall_intent_assessment": "Hybrid: Predominantly navigational + commercial",
+    "content_strategy": "Marktplatz-Übersicht mit Vergleich der Top-Plattformen (ehorses, Kleinanzeigen, pferde.de) + zusätzlicher Mehrwert-Content für spezifische Nutzer-Fragen (Freizeitpferde, Reitpferde, Kosten, Tipps)"
+  },
+  "competitor_landscape": {
+    "domain_distribution": {
+      "marketplace_platforms": {
+        "count": 5,
+        "examples": [
+          "ehorses.de",
+          "kleinanzeigen.de",
+          "pferde.de",
+          "deine-tierwelt.de",
+          "billyrider.de"
+        ],
+        "market_share": "highest",
+        "note": "ehorses dominates position 1 for 'pferd kaufen bayern'"
+      },
+      "niche_marketplaces": {
+        "count": 3,
+        "examples": [
+          "bayerns-pferde.de (Landesverband)",
+          "caballo-horsemarket.com",
+          "agrarboerse.eu"
+        ],
+        "market_share": "medium"
+      },
+      "individual_sellers": {
+        "count": 4,
+        "examples": [
+          "luckyhorse-enhofen.de",
+          "sportpferde-seitle.de",
+          "pferde-winkel.de",
+          "horse24.com"
+        ],
+        "market_share": "lower"
+      },
+      "other_content": {
+        "count": 2,
+        "examples": [
+          "YouTube videos (Ingolstädter Pferdemarkt BR)",
+          "City websites (berching.de - Rossmarkt)"
+        ]
+      }
+    },
+    "domain_authority_distribution": {
+      "high_authority": 7,
+      "medium_authority": 2,
+      "low_authority": 1
+    },
+    "ranking_stability": "established",
+    "new_entrant_opportunity": "low_to_medium",
+    "assessment": "Marketplaces dominate results. ehorses.de is clear winner with 2-3 positions in top 10. Individual sellers + info content have limited ranking potential. PferdeWert needs unique angle (e.g., buyer's guide, comparison table, regional focus) to compete."
+  },
+  "serp_analysis": {
+    "keyword_1_pferd_kaufen_bayern": {
+      "search_volume_indication": "~1,900/month",
+      "rank_1_url": "ehorses.de/pferdekauf/bayern.html",
+      "rank_1_type": "Marktplatz-Kategorie",
+      "top_10_breakdown": {
+        "marketplaces": 8,
+        "individual_sellers": 1,
+        "directories": 1
+      },
+      "featured_snippets": "AI Overview (Google Generative Answers) with traditional market info (Ingolstädter Pferdemarkt, Berchinger Rossmarkt)",
+      "paa_detected": true,
+      "related_searches": "Freizeitpferd kaufen Bayern, Pferd kaufen München, Pferd kaufen ebay, Schulpferd kaufen Bayern"
+    },
+    "keyword_2_pferde_kaufen_in_der_nähe": {
+      "search_volume_indication": "~2,400/month",
+      "rank_1_url": "ehorses.de (homepage)",
+      "rank_1_type": "Marktplatz Startseite",
+      "top_10_breakdown": {
+        "marketplaces": 9,
+        "individual_sellers": 0,
+        "location_specific": 1
+      },
+      "highest_commercial_intent": "100% commercial (laut Search Intent)",
+      "note": "Strong buyer intent - users actively searching for purchase options nearby"
+    },
+    "keyword_3_pferdemarkt_bayern": {
+      "search_volume_indication": "navigational intent",
+      "rank_1_type": "AI Overview (Google generative result)",
+      "organic_rank_1_url": "bayerns-pferde.de/vermarktung/online-pferdemarkt/",
+      "rank_1_marketplace_actual": "ehorses.de",
+      "top_10_contains": {
+        "traditional_markets": 4,
+        "online_marketplaces": 3,
+        "videos": 1,
+        "directories": 2
+      },
+      "observation": "Users searching for WHERE to buy, not necessarily online"
+    },
+    "keyword_4_freizeitpferd_kaufen": {
+      "search_volume_indication": "high commercial intent (77.1%)",
+      "rank_1_url": "kleinanzeigen.de/s-pferde/freizeitpferd/",
+      "rank_2_url": "ehorses.de/pferdekauf/freizeitpferde.html",
+      "top_10_breakdown": {
+        "marketplaces": 9,
+        "seller_sites": 1
+      },
+      "paa_questions": [
+        "Wie viel kostet ein gutes Freizeitpferd? (~4,000-6,000 EUR laut PAA)",
+        "Welches Pferd als Freizeitpferd?",
+        "Was ist ein Freizeitpferd?",
+        "Wie viel Geld braucht man für ein eigenes Pferd?"
+      ],
+      "insight": "Strong informational + commercial mix - users want to buy AND understand costs/requirements"
+    },
+    "keyword_5_reitpferd_kaufen": {
+      "search_volume_indication": "highest commercial intent (82.6%)",
+      "rank_1_url": "ehorses.de/pferdekauf/deutsches-reitpferd.html",
+      "rank_1_price_mention": "10,000-25,000 EUR",
+      "top_10_breakdown": {
+        "marketplaces": 10,
+        "seller_sites": 0
+      },
+      "paa_questions": [
+        "Was kostet ein gutes Reitpferd?",
+        "Was ist das beste Pferd für Anfänger?",
+        "Kann man sich als Reitanfänger ein Pferd kaufen?",
+        "Wie viel kostet ein reitbares Pferd?"
+      ],
+      "insight": "Pure commercial intent + beginner questions = opportunity for educational content with CTA to evaluation tool"
+    }
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Marktplatz-Übersicht: Top Plattformen (ehorses, Kleinanzeigen, pferde.de)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 results for 'pferd kaufen bayern' include these platforms",
+        "must_address": true
+      },
+      {
+        "topic": "Preisliche Orientierung: Kosten für Freizeitpferd vs. Reitpferd",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "PAA questions + Meta-Descriptions emphasize Preise (3,000-25,000 EUR range)",
+        "must_address": true
+      },
+      {
+        "topic": "Regionale Verfügbarkeit & Suchoptionen",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Geographic queries (Bayern, München, Augsburg) prominent in related searches",
+        "must_address": true
+      },
+      {
+        "topic": "Pferdetypen: Freizeitpferd vs. Sportpferd vs. Reitpferd",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Related searches + PAA questions distinguish between types",
+        "must_address": true
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Checkliste: Was beim Pferdekauf beachten? (Ankaufsuntersuchung, Kaufvertrag, Gesundheit)",
+        "coverage": "2/10",
+        "unique_angle": "Competitors show Marktplatz-Listen, nicht How-To-Guides für sicheren Kauf",
+        "opportunity_score": 8,
+        "reasoning": "PAA questions hint at legal/health concerns but Top 10 don't address comprehensively"
+      },
+      {
+        "topic": "Kosten-Breakdown: Kaufpreis vs. Folgekosten im ersten Jahr",
+        "coverage": "3/10",
+        "unique_angle": "Detaillierte Kostenrechnung (Stallmiete, Futter, Tierarzt, Versicherung)",
+        "opportunity_score": 8,
+        "reasoning": "PAA shows 'Wie viel Geld braucht man für ein Pferd?' but competitors don't answer thoroughly"
+      },
+      {
+        "topic": "Anfänger-Ratgeber: Erstes Pferd kaufen - Rassen, Charakter, Training",
+        "coverage": "4/10",
+        "unique_angle": "Targeting 'reitpferd für anfänger' searches with species recommendations",
+        "opportunity_score": 7,
+        "reasoning": "PAA question 'Was ist das beste Pferd für Anfänger?' detected but not answered by Top 10"
+      },
+      {
+        "topic": "Traditionelle Pferdemärkte vs. Online-Kauf: Pro/Contra Vergleich",
+        "coverage": "5/10",
+        "unique_angle": "AI Overview mentions Ingolstädter + Berchinger Markt, but no guide on Unterschiede",
+        "opportunity_score": 6,
+        "reasoning": "Users confused between market events vs. online platforms"
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "PferdeWert Evaluation Tool als unique value-add",
+        "coverage": "0/10",
+        "source": "Not mentioned in any competitor",
+        "opportunity_score": 9,
+        "reason": "Unique differentiator - pferdewert.de offers horse valuation that competitors don't"
+      },
+      {
+        "topic": "Finanzierungsoptionen: Kredit, Leasen, Raten beim Pferdekauf",
+        "coverage": "0/10",
+        "source": "Not in Top 10 results or PAA questions",
+        "opportunity_score": 7,
+        "reason": "Financial aspect completely ignored by competitors"
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.ehorses.de/pferdekauf/bayern.html",
+      "content_type": "Marktplatz-Kategorie mit Listings",
+      "unique_angles": [
+        "Geprüfte Angebote",
+        "Regionale Filter",
+        "Rasse-Übersicht",
+        "Direkt-Suchfunktion"
+      ],
+      "format": "Listings + kategorisiert nach Pferdetyp",
+      "estimated_word_count": "800-1200 (mostly listings, minimal unique text)",
+      "key_differentiator": "Marketplace listing volume (19,000+ horses) + region-specific filtering"
+    }
+  },
+  "format_recommendations": {
+    "content_type": "Hybrid: Marketplace-Übersicht + Buyer's Guide",
+    "primary_format": "Comparison guide with step-by-step buying advice",
+    "target_word_count": 2500,
+    "word_count_strategy": "serp_competitive_estimate",
+    "word_count_range_min": 2000,
+    "word_count_range_max": 3500,
+    "required_sections": [
+      "Einleitung: Warum richtige Plattform-Wahl wichtig ist",
+      "Marktplatz-Vergleich: ehorses vs. Kleinanzeigen vs. pferde.de",
+      "Pferdetypen-Guide: Freizeitpferd, Reitpferd, Sportpferd",
+      "Kosten-Übersicht: Kaufpreis + erste Unterhaltskosten",
+      "Checkliste: Was beim Kauf beachten (Ankaufsuntersuchung, Vertrag)",
+      "Regional fokussiert: Bayern-spezifische Tipps/Märkte",
+      "Anfänger-Tipps: Erstes Pferd kaufen",
+      "FAQ: Häufige Fragen zu Preis, Versicherung, Finanzierung"
+    ],
+    "visual_elements": [
+      "comparison_table",
+      "checklist",
+      "price_breakdown_table",
+      "infographic_horse_types"
+    ],
+    "featured_snippet_target": "list",
+    "featured_snippet_topic": "Marktplätze zum Pferdekauf in Bayern",
+    "special_elements": [
+      "PferdeWert Evaluation Tool CTA (positioned after price section)",
+      "Regional market links (Ingolstädter Pferdemarkt, Berchinger Rossmarkt)",
+      "Related keyword internal linking (Freizeitpferd kaufen Bayern, etc.)"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Wie viel kostet ein Freizeitpferd?",
+      "category": "costs",
+      "detected_from": "freizeitpferd_kaufen SERP",
+      "section_placement": "Kosten-Übersicht",
+      "integration_type": "h3",
+      "priority": "high",
+      "answer_hint": "3,000-6,000 EUR für gutes Freizeitpferd",
+      "reasoning": "High-volume question, directly relevant to buying decision"
+    },
+    {
+      "question": "Was kostet ein gutes Reitpferd?",
+      "category": "costs",
+      "detected_from": "reitpferd_kaufen SERP",
+      "section_placement": "Kosten-Übersicht > Reitpferde",
+      "integration_type": "h3",
+      "priority": "high",
+      "answer_hint": "10,000-25,000 EUR für deutsches Reitpferd",
+      "reasoning": "Commercial keywords with high budget awareness"
+    },
+    {
+      "question": "Was ist das beste Pferd für Anfänger?",
+      "category": "buying_guidance",
+      "detected_from": "reitpferd_kaufen SERP",
+      "section_placement": "Anfänger-Tipps (NEW section)",
+      "integration_type": "h2",
+      "priority": "high",
+      "answer_hint": "Haflinger, Isländer, Quarter Horse - gutmütig, nervenstark",
+      "reasoning": "Completely missing in Top 10, high beginner search volume"
+    },
+    {
+      "question": "Wie viel Geld braucht man für ein eigenes Pferd?",
+      "category": "costs_total",
+      "detected_from": "freizeitpferd_kaufen SERP",
+      "section_placement": "Kosten-Übersicht > Gesamtbudget",
+      "integration_type": "h3",
+      "priority": "medium",
+      "answer_hint": "Anschaffung (4,000-6,000 EUR) + monatliche Kosten (600-1,000 EUR)",
+      "reasoning": "Comprehensive financial planning question"
+    },
+    {
+      "question": "Wann ist der nächste Pferdemarkt in Bayern?",
+      "category": "navigational",
+      "detected_from": "pferdemarkt_bayern SERP",
+      "section_placement": "Traditionelle Märkte (optional)",
+      "integration_type": "h3",
+      "priority": "low",
+      "answer_hint": "Ingolstädter Pferdemarkt (monthly), Berchinger Rossmarkt (Feb)",
+      "reasoning": "Supports differentiation: online vs. traditional markets"
+    },
+    {
+      "question": "Welche Plattformen gibt es zum Pferdekauf?",
+      "category": "platforms",
+      "detected_from": "implied from Top 10 analysis",
+      "section_placement": "Marktplatz-Vergleich",
+      "integration_type": "h2",
+      "priority": "high",
+      "answer_hint": "ehorses, Kleinanzeigen, pferde.de, deine-tierwelt, billyrider",
+      "reasoning": "Core content - users need platform comparison"
+    }
+  ],
+  "eeat_signals": {
+    "required_credentials": "horse_buyer_experience",
+    "credentials_reasoning": "Most competitors are marketplaces without expertise signaling. PferdeWert can differentiate with buyer's journey expertise + evaluation tool credibility",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "successful_purchase_example",
+      "avoided_mistakes_health_check"
+    ],
+    "external_references": 3,
+    "reference_types": [
+      "veterinary_guidelines",
+      "market_pricing_data",
+      "legal_purchase_contracts"
+    ],
+    "expert_quotes": false,
+    "expert_types": [],
+    "data_sources": [
+      "ehorses Preisdaten (durchschnittliche Preise nach Typ)",
+      "Veterinary health check guidelines",
+      "Stallmiete/Unterhaltskosten regional"
+    ]
+  },
+  "ranking_strategy": {
+    "direct_rank_1_chance": "low",
+    "reasoning": "ehorses dominates with 19,000+ listings. Can't compete on inventory.",
+    "recommended_strategy": "Content differentiation + internal linking strategy",
+    "phase_1_entry": "Target long-tail keywords from PAA (freizeitpferd kaufen bayern, reitpferd für anfänger)",
+    "phase_2_expansion": "Build topical authority with 5-10 related sub-pages",
+    "phase_3_authority": "Internal link clusters from guides to main 'pferd kaufen bayern' page",
+    "unique_differentiator": "PferdeWert Evaluation Tool + educational buyer's guide (not just listings)"
+  },
+  "summary": {
+    "keyword_difficulty": "high",
+    "competition_level": "very_high",
+    "content_opportunity": "medium_high",
+    "phase_2_quality_score": 85,
+    "recommendation": "Proceed to Phase 3 (Outline). Focus on hybrid content: Marketplace guide + Buying advice + Evaluation tool integration. Target entry via related keyword sub-pages first (Freizeitpferd kaufen Bayern), then build topical cluster to main keyword.",
+    "next_steps": [
+      "Create Phase 3 outline focusing on hybrid guide format",
+      "Plan content cluster with 3-5 sub-pages",
+      "Design internal linking strategy",
+      "Incorporate PferdeWert tool throughout buyer journey"
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "phase_1a_research": {
+    "timestamp": "2025-11-30",
+    "location": "Germany",
+    "language": "de",
+    "api_calls": {
+      "related_keywords": {
+        "status": 20000,
+        "message": "Ok",
+        "total_keywords": 40,
+        "primary_keyword": {
+          "keyword": "pony kaufen",
+          "search_volume": 6600,
+          "monthly_searches_latest": 5400,
+          "competition": 0.13,
+          "competition_level": "LOW",
+          "cpc": 0.09,
+          "keyword_difficulty": 13,
+          "main_intent": "commercial",
+          "monthly_trend": -18
+        },
+        "top_related_keywords": [
+          {
+            "keyword": "pony kaufen in der nähe",
+            "search_volume": 590,
+            "difficulty": 12,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "kinderpony kaufen",
+            "search_volume": 720,
+            "difficulty": 20,
+            "intent": "transactional"
+          },
+          {
+            "keyword": "mini pony kaufen",
+            "search_volume": 590,
+            "difficulty": null,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "pony kaufen niedersachsen",
+            "search_volume": 480,
+            "difficulty": null,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "pony kaufen ebay kleinanzeigen",
+            "search_volume": 390,
+            "difficulty": null,
+            "intent": "navigational"
+          },
+          {
+            "keyword": "pony kaufen günstig",
+            "search_volume": 320,
+            "difficulty": 12,
+            "intent": "transactional"
+          },
+          {
+            "keyword": "mini pony 60 cm kaufen",
+            "search_volume": 210,
+            "difficulty": null,
+            "intent": "transactional"
+          },
+          {
+            "keyword": "shetland pony kaufen",
+            "search_volume": 2400,
+            "difficulty": null,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "welsh pony kaufen",
+            "search_volume": 480,
+            "difficulty": 2,
+            "intent": "commercial"
+          }
+        ]
+      },
+      "keyword_ideas": {
+        "status": 20000,
+        "message": "Ok",
+        "total_ideas": 30,
+        "top_ideas": [
+          {
+            "keyword": "pferd",
+            "search_volume": 165000,
+            "difficulty": 78,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "pferd kaufen",
+            "search_volume": 40500,
+            "difficulty": 38,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "shetty kaufen",
+            "search_volume": 3600,
+            "difficulty": 7,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "pferde kaufen nrw",
+            "search_volume": 1600,
+            "difficulty": null,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "ebay pferde kaufen",
+            "search_volume": 2400,
+            "difficulty": 10,
+            "intent": "navigational"
+          }
+        ]
+      },
+      "keyword_overview": {
+        "status": 20000,
+        "message": "Ok",
+        "keywords_analyzed": 9,
+        "primary_keyword_data": {
+          "keyword": "pony kaufen",
+          "search_volume": 6600,
+          "cpc": 0.09,
+          "competition_level": "LOW",
+          "difficulty": 13,
+          "intent": "commercial",
+          "avg_backlinks": 287.3,
+          "dofollow_backlinks": 167.7,
+          "referring_domains": 8.4,
+          "rank_score": 106.4
+        },
+        "secondary_keywords": [
+          {
+            "keyword": "shetland pony kaufen",
+            "search_volume": 2400,
+            "cpc": 0.12,
+            "difficulty": null,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "pony kosten",
+            "search_volume": 140,
+            "cpc": 0.15,
+            "difficulty": 13,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "pony preis",
+            "search_volume": 140,
+            "cpc": 0.11,
+            "difficulty": 16,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "welsh pony kaufen",
+            "search_volume": 480,
+            "cpc": 0.08,
+            "difficulty": 2,
+            "intent": "commercial"
+          },
+          {
+            "keyword": "kleines pony kaufen",
+            "search_volume": 110,
+            "cpc": 0.2,
+            "difficulty": 14,
+            "intent": "commercial"
+          }
+        ]
+      }
+    }
+  }
+}

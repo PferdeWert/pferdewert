@@ -1,0 +1,245 @@
+{
+  "phase": "6",
+  "keyword": "pony kaufen",
+  "timestamp": "2025-11-30T23:55:00Z",
+  "total_issues": 8,
+  "critical_issues": 1,
+  "high_priority_issues": 2,
+  "medium_priority_issues": 3,
+  "low_priority_issues": 2,
+  "issues": [
+    {
+      "id": "ISSUE_001",
+      "severity": "CRITICAL",
+      "category": "SEO - Keyword Optimization",
+      "title": "Primary Keyword Density Severely Under-Optimized",
+      "description": "Primary keyword 'pony kaufen' appears only 1 time (0.05%) vs. target 0.8-1.2% (17-25 instances expected).",
+      "impact": "SEVERE - Will significantly limit ranking potential for primary keyword despite excellent content quality",
+      "affected_sections": [
+        "Introduction (0 instances)",
+        "Section 1-5 (1 instance total)",
+        "Section 6-10 (0 instances)",
+        "Conclusion (0 instances)"
+      ],
+      "recommendation": "Add 5-8 natural instances of 'pony kaufen' and variations ('beim Ponykauf', 'Ponys kaufen') throughout article",
+      "estimated_fix_time": "30 minutes",
+      "fix_priority": "BEFORE_PUBLICATION",
+      "status": "OPEN",
+      "resolution": "PENDING"
+    },
+    {
+      "id": "ISSUE_002",
+      "severity": "HIGH",
+      "category": "Readability",
+      "title": "Flesch Reading Ease Below Acceptable Range",
+      "description": "Flesch Reading Ease score is 48.5 (target: 70-80, acceptable: 60-85). Article is outside acceptable readability range.",
+      "impact": "HIGH - May reduce engagement and user comprehension for general audience. Complex reading level for horse-buying guides.",
+      "metrics": {
+        "current": 48.5,
+        "target": "70-80",
+        "acceptable_range": "60-85",
+        "delta": "-11.5 points"
+      },
+      "root_causes": [
+        "Some complex sentence structures",
+        "Technical terminology concentration in AKU section",
+        "Long explanatory phrases without breaks"
+      ],
+      "recommendation": "Simplify sentence structure, break long paragraphs, add transition words, reduce technical jargon density",
+      "specific_fixes": [
+        "Rewrite AKU section with shorter sentences",
+        "Add transition sentences between major sections",
+        "Use bullet points for complex explanations",
+        "Replace passive voice with active voice"
+      ],
+      "estimated_fix_time": "45-60 minutes",
+      "fix_priority": "BEFORE_PUBLICATION",
+      "status": "OPEN",
+      "resolution": "PENDING"
+    },
+    {
+      "id": "ISSUE_003",
+      "severity": "HIGH",
+      "category": "E-E-A-T - Expertise & Authority",
+      "title": "Missing Author Credentials and Professional Validation",
+      "description": "Article lacks author byline with credentials, professional background, and expert quotes for validation.",
+      "impact": "HIGH - Reduces E-E-A-T trust signals from 7.2 to potentially lower with stricter review. Google may view as generic content without credentials.",
+      "affected_trust_factors": [
+        "Expertise validation (cannot verify author knowledge)",
+        "Authoritativeness (no credentials to establish authority)",
+        "Trustworthiness (no author accountability)"
+      ],
+      "missing_elements": [
+        "Author byline with title/role",
+        "Years of experience statement",
+        "Professional affiliations",
+        "Expert quotes (veterinary, breeding perspectives)",
+        "Company credibility statement"
+      ],
+      "recommendation": "Add author credentials section and 2-3 expert quotes from veterinarians/breeders",
+      "estimated_fix_time": "60 minutes (assuming expert quotes available)",
+      "fix_priority": "BEFORE_PUBLICATION",
+      "status": "OPEN",
+      "resolution": "PENDING"
+    },
+    {
+      "id": "ISSUE_004",
+      "severity": "MEDIUM",
+      "category": "Content Depth",
+      "title": "Word Count Slightly Below Competitive Benchmark",
+      "description": "Article is 2108 words vs. target 2200-2500 for competitive +10-20% advantage. Currently -8.3% vs. top-3 competitors.",
+      "impact": "MEDIUM - Acceptable within range (1800-2800) but at lower boundary. May be outranked by longer, more comprehensive competitors.",
+      "current_metrics": {
+        "word_count": 2108,
+        "target": 2200,
+        "top_3_benchmark": 2300,
+        "delta_percent": "-8.3%"
+      },
+      "competitive_gap": "200-300 words needed to reach optimal +10-20% advantage",
+      "recommended_additions": [
+        "Insurance provider comparison and options (+80 words)",
+        "Regional pricing variations by location (+70 words)",
+        "Breed-specific buying guides expansion (+80 words)",
+        "Detailed veterinary care planning (+50-100 words)"
+      ],
+      "estimated_fix_time": "45 minutes",
+      "fix_priority": "RECOMMENDED_PHASE_6B",
+      "status": "OPEN",
+      "resolution": "CONDITIONAL - Can publish at 2108 words but recommend expansion"
+    },
+    {
+      "id": "ISSUE_005",
+      "severity": "MEDIUM",
+      "category": "SEO - Title Optimization",
+      "title": "Title Slightly Over Optimal Character Limit",
+      "description": "Title is 61 characters (target: 50-60 chars). One character over optimal, may truncate on mobile SERPs.",
+      "impact": "MEDIUM - One character over is marginal. Acceptable but not optimal. May truncate on mobile view.",
+      "current_title": "Pony kaufen: Kompletter Leitfaden für Anfänger | PferdeWert.de",
+      "current_length": 61,
+      "recommendation": "Optional trim to 60 chars or add power word + year for better CTR (longer title with emotional trigger)",
+      "alternative_options": [
+        "Option 1 (Add power word): 'Pony kaufen: Der ultimative Leitfaden für Anfänger' (54 chars) - OPTIMAL",
+        "Option 2 (Add year): 'Pony kaufen 2025: Kompletter Leitfaden für Anfänger' (55 chars) - OPTIMAL",
+        "Option 3 (Current): Keep as-is (acceptable, 1 char over) - ACCEPTABLE"
+      ],
+      "estimated_fix_time": "5 minutes",
+      "fix_priority": "OPTIONAL",
+      "status": "OPEN",
+      "resolution": "OPTIONAL_IMPROVEMENT"
+    },
+    {
+      "id": "ISSUE_006",
+      "severity": "MEDIUM",
+      "category": "E-E-A-T - Trustworthiness",
+      "title": "Missing Conflict of Interest Disclosure",
+      "description": "Article concludes with plug for 'kostenpflichtigen [PferdeWert Pony-Evaluator]' without conflict-of-interest disclosure or objectivity statement.",
+      "impact": "MEDIUM - Reduces trust signals. Readers may perceive article as sales-focused without transparency. Google may penalize lack of disclosure.",
+      "specific_concern": "Paid service promotion appears self-serving without context that article is provided by company offering the service",
+      "missing_element": "Transparency statement about company relationship and article objectivity",
+      "recommendation": "Add disclosure paragraph before/after paid service CTA explaining PferdeWert provides both guide and valuation services",
+      "example_fix": "Add: 'PferdeWert.de provides this guide as objective educational content. We also offer paid valuation services, but this guide is designed to help buyers make informed decisions independently.'",
+      "estimated_fix_time": "15 minutes",
+      "fix_priority": "RECOMMENDED_PHASE_6B",
+      "status": "OPEN",
+      "resolution": "PENDING"
+    },
+    {
+      "id": "ISSUE_007",
+      "severity": "MEDIUM",
+      "category": "Internal Linking",
+      "title": "Internal Link Implementation Not Verified",
+      "description": "Keyword mapping file lists 7 planned internal links (breed articles, AKU guide, fraud prevention, insurance). Implementation in article-draft.md not confirmed.",
+      "impact": "MEDIUM - Missing internal links reduce topical authority and user journey optimization. May limit SEO juice distribution.",
+      "planned_links": [
+        "Shetland Pony Kaufen (keyword: 2400 search volume)",
+        "Haflinger Kaufen (keyword: 5400 search volume)",
+        "Pferd Kaufen statt Pony (cross-sell for adult riders)",
+        "Anfänger-Ponykauf Guide",
+        "Pony Kaufbetrug vermeiden (red flags deep dive)",
+        "Ankaufsuntersuchung (AKU) Guide",
+        "Pferdeversicherung Kosten"
+      ],
+      "recommendation": "Verify all 7 internal links are implemented with contextual anchor text. Add links where planned but missing.",
+      "estimated_fix_time": "20-30 minutes",
+      "fix_priority": "BEFORE_PUBLICATION",
+      "status": "OPEN",
+      "resolution": "PENDING_VERIFICATION"
+    },
+    {
+      "id": "ISSUE_008",
+      "severity": "LOW",
+      "category": "Content Completeness",
+      "title": "Minor Topic Gaps in Insurance and Regional Pricing",
+      "description": "Two topics covered minimally: insurance provider comparison and regional pricing variations",
+      "impact": "LOW - Topics are mentioned but not deeply explored. Does not impact publication but affects competitive positioning.",
+      "affected_topics": [
+        "Insurance (mentioned in FAQ, not detailed comparison)",
+        "Regional pricing (national focus, no location-specific data)"
+      ],
+      "recommendation": "Optional expansion in Phase 6B to address these gaps",
+      "estimated_addition": "+150-200 words total",
+      "fix_priority": "OPTIONAL_PHASE_6B",
+      "status": "OPEN",
+      "resolution": "OPTIONAL_ENHANCEMENT"
+    }
+  ],
+  "summary": {
+    "total_issues_found": 8,
+    "critical_blocking_publication": 1,
+    "must_fix_before_pub": 3,
+    "recommended_before_pub": 1,
+    "optional_enhancements": 3,
+    "publication_recommendation": "CONDITIONAL_PASS - Fix critical and high-priority issues before publication. Recommended issues should be addressed within 1 week post-publication.",
+    "estimated_total_fix_time": "165-195 minutes (2.75-3.25 hours)",
+    "phase_6b_required": true,
+    "phase_6b_scope": [
+      "Fix critical keyword density issue",
+      "Improve readability (Flesch score)",
+      "Add author credentials (or document plan)",
+      "Add conflict of interest disclosure",
+      "Verify internal link implementation"
+    ]
+  },
+  "closure_tracking": {
+    "issue_001": {
+      "assigned_to": "Content Editor",
+      "due_date": "2025-12-01",
+      "status": "OPEN"
+    },
+    "issue_002": {
+      "assigned_to": "Content Editor",
+      "due_date": "2025-12-01",
+      "status": "OPEN"
+    },
+    "issue_003": {
+      "assigned_to": "Content Lead",
+      "due_date": "2025-12-03",
+      "status": "OPEN"
+    },
+    "issue_004": {
+      "assigned_to": "Content Editor",
+      "due_date": "2025-12-05",
+      "status": "OPEN"
+    },
+    "issue_005": {
+      "assigned_to": "SEO Specialist",
+      "due_date": "2025-12-01",
+      "status": "OPEN"
+    },
+    "issue_006": {
+      "assigned_to": "Compliance/Content",
+      "due_date": "2025-12-03",
+      "status": "OPEN"
+    },
+    "issue_007": {
+      "assigned_to": "SEO Specialist",
+      "due_date": "2025-12-02",
+      "status": "OPEN"
+    },
+    "issue_008": {
+      "assigned_to": "Content Editor",
+      "due_date": "2025-12-10",
+      "status": "OPEN"
+    }
+  }
+}

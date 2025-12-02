@@ -1,0 +1,131 @@
+PHASE 1A - RAW API DATA COLLECTION
+==================================
+
+CALL 1: mcp__dataforseo__dataforseo_labs_google_related_keywords
+Status: 20000 (OK)
+Keywords Found: 40+
+
+PRIMARY KEYWORD:
+- pferd kaufen bayern
+  Search Volume: 1,900/month
+  CPC: €0.18
+  Competition: LOW (0.05)
+  Intent: Navigational + Commercial
+  Trend: -16% (quarterly decline)
+
+TOP 10 RELATED KEYWORDS BY SEARCH VOLUME:
+1. pferde kaufen in der nähe: 2,400 SV, €0.17 CPC, LOW
+2. freizeitpferd kaufen bayern: 260 SV, €0.13 CPC, LOW
+3. pferd kaufen baden-württemberg: 480 SV, €0.13 CPC, LOW
+4. pferdehändler bayern: 480 SV, €0.30 CPC, LOW
+5. freizeitpferd für anfänger: 260 SV, €0.17 CPC, LOW
+6. pferd kaufen münchen: 170 SV, €0.16 CPC, LOW
+7. araber pferd kaufen bayern: 90 SV, €0.83 CPC, LOW
+8. pferd kaufen nürnberg: 110 SV, €0.15 CPC, LOW
+9. freizeitpferd kaufen von privat: 140 SV, €0.14 CPC, LOW
+10. pferde kaufen münchen: 170 SV, €0.16 CPC, LOW
+
+---
+
+CALL 2: mcp__dataforseo__dataforseo_labs_google_keyword_ideas
+Status: 20000 (OK)
+Keywords Found: 30
+
+SEED KEYWORDS: ["pferd kaufen bayern", "pferdemarkt bayern", "pferdekauf bayern"]
+
+HIGHEST VOLUME IDEAS (SEASONAL):
+1. pferdemarkt havelberg: 9,900 SV (SEASONAL - Sep peak: 60,500!)
+   Trend: -95% monthly decline (seasonal)
+
+2. pferde rosenmontagszug köln: 8,100 SV (SEASONAL - March peak: 90,500)
+   Trend: Seasonal/March
+
+3. passion pferd: 4,400 SV (RISING), €0.10 CPC, Trend: +132%
+   Monthly peak Oct 2025: 4,400
+
+SECONDARY IDEAS:
+4. ehorses verkaufspferde: 590 SV, LOW, KD: 33, Intent: Navigational
+5. ebay pferde baden württemberg: 390 SV, LOW, Intent: Navigational
+6. freizeitpferd kaufen baden württemberg: 210 SV, €0.14 CPC, Intent: Commercial
+7. lungenarzt pferdemarkt: 50 SV, €0, KD: 16, Intent: Commercial
+8. geschwindigkeit pferd: 1,000 SV, LOW, Intent: Commercial
+
+---
+
+CALL 3: mcp__dataforseo__dataforseo_labs_google_keyword_overview
+Status: 20000 (OK)
+Keywords Analyzed: 7 primary keywords
+
+KEYWORD ANALYSIS SUMMARY:
+
+1. PFERD KAUFEN BAYERN (PRIMARY)
+   SV: 1,900 | CPC: €0.18 | Comp: LOW | Intent: Nav+Comm
+   KD: N/A | Trend: -16% | Avg Monthly: 1,775
+   Dofollow BL: 0.8 | Referring Domains: 3
+   Difficulty: EASY (low backlinks = low competition)
+
+2. FREIZEITPFERD KAUFEN BAYERN
+   SV: 260 | CPC: €0.13 | Comp: LOW | Intent: Comm
+   Trend: +23% (GROWING) | Avg Monthly: 290
+   Referring Domains: 1.5 (very low authority)
+
+3. PFERDE BAYERN
+   SV: 390 | CPC: €0.76 | Comp: LOW | Intent: Nav+Info
+   KD: 19 | Trend: +23% | Referring Domains: 29.4
+
+4. PFERDEHÄNDLER BAYERN
+   SV: 480 | CPC: €0.30 | Comp: LOW | Intent: Nav+Comm
+   Trend: -18% (declining) | Referring Domains: 15.7
+
+5. PFERDEMARKT BAYERN
+   SV: 140 | CPC: €0.16 | Comp: LOW | Intent: Nav
+   Trend: -48% (DECLINING) | Referring Domains: 1.1
+
+6. PFERDEZUCHT BAYERN
+   SV: 170 | CPC: N/A | Comp: LOW | Intent: Nav+Comm
+   KD: 21 | Trend: +27% (GROWING) | Referring Domains: 30.1
+
+7. REITPFERD KAUFEN BAYERN
+   SV: 10 | CPC: €0.07 | Comp: MEDIUM | Intent: Comm+Nav
+   KD: 52 (HARD) | Monthly: 10 | Avg SV: Very low
+
+---
+
+AGGREGATED INSIGHTS:
+
+TOTAL UNIQUE KEYWORDS COLLECTED: 75+ variations
+MAIN KEYWORD METRICS (pferd kaufen bayern):
+- Search Volume: 1,900/month
+- CPC: €0.18 (low intent)
+- Competition: LOW
+- Intent Distribution: 50% Navigational, 50% Commercial
+- Trend: Slight decline (-16%) but stable
+
+TOP VOLUME KEYWORDS FOUND:
+1. pferdemarkt havelberg: 9,900 (SEASONAL)
+2. pferde rosenmontagszug köln: 8,100 (SEASONAL)
+3. passion pferd: 4,400 (RISING)
+4. pferde kaufen in der nähe: 2,400
+5. pferd kaufen bayern: 1,900 (PRIMARY)
+
+INTENT DISTRIBUTION:
+- Navigational: 40% (searching for specific marketplaces)
+- Commercial: 35% (looking to buy horses)
+- Informational: 15% (learning about horses)
+- Transactional: 10% (eBay/marketplace specific)
+
+GEOGRAPHIC VARIATIONS:
+- Munich: 170 SV
+- Augsburg: 70 SV
+- Nürnberg: 110 SV
+- Stuttgart: 70 SV
+- Baden-Württemberg: 480 SV
+- Region Keywords: All LOW competition
+
+SPECIAL FINDINGS:
+1. Low backlink requirement (3-15 referring domains average)
+2. Easy to rank for state-level keywords (KD: 19-21)
+3. Seasonal peaks (Havelberg market Sept, Rosenmontagszug March)
+4. "passion pferd" keyword RISING 132% trend - monitor
+5. "freizeitpferd kaufen bayern" GROWING +23% - opportunity
+6. "pferdemarkt bayern" DECLINING -48% - avoid focus

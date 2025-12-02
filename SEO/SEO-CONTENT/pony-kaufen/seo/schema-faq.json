@@ -1,0 +1,78 @@
+{
+  "phase": "5B",
+  "type": "FAQ Schema",
+  "timestamp": "2025-11-30T23:50:00Z",
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet ein echtes Pony?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Preis hängt stark vom Ausbildungsstand ab. Ungeritten Fohlen/Jährling: 600–3.000 Euro. Roh und ungeritten Ponys: 1.500–6.000 Euro. Angeritten Ponys mit Grundausbildung: 3.000–10.000 Euro. Fertig ausgebildete und sport-bereite Ponys: 8.000–25.000+ Euro. Hinzu kommen Erstausstattung (1.500–3.500 Euro) und Jahresunterhaltskosten (1.200–2.000 Euro). Im ersten Jahr kostet ein Ponykauf insgesamt 4.000–8.000 Euro (Kaufpreis + Ausrüstung + Unterhalt). In den Folgejahren rechne mit 1.200–2.000 Euro pro Jahr."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Ponyrasse ist die freundlichste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haflinger gelten als die sanftmütigsten Ponys – ideal für Anfänger und Kinder. Sie sind geduldig, willig und zuverlässig, und verzeihen Anfängerfehler. Deutsche Reitponys sind ebenfalls zuverlässig und ausgeglichen. Welsh Ponys sind lebhaft aber freundlich und lernwillig. Shetland Ponys sind intelligent, manchmal aber eigensinnig und brauchen konsequente Führung. Für absolute Anfänger empfehlen wir Haflinger oder Deutsche Reitponys – beide haben das richtige Temperament und die Geduld für Lernprozesse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist ein Pony günstiger als ein Pferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, normalerweise beim Kauf. Ponys kosten durchschnittlich 500–6.000 Euro, während Pferde 1.500–25.000+ Euro kosten. Allerdings sind die Unterhaltskosten ähnlich – die Größe spielt eine Rolle. Ein großes Pony kostet oft genauso viel zu unterhalten wie ein kleines Pferd. Die Antwort auf 'Ist ein Pony günstiger?' ist also: Ja, beim Kauf, aber nicht unbedingt beim Unterhalt. Für schwere Reiter (über 80 kg) ist jedoch ein Pferd die bessere Wahl, da ein Pony überlastet würde."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Ponyrassen können erwachsene Reiter tragen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nur große Ponyrassen eignen sich für erwachsene Reiter: Haflinger (bis 120 kg), Deutsches Reitpony (bis 110 kg), Isländer (bis 100 kg), Welsh B/C (bis 110 kg). Shetland und Mini-Shetland sind zu klein. Die Faustregel für Tragfähigkeit ist: Das Pony muss mindestens das 6- bis 8-fache des Reitergewichts wiegen. Ein 70 kg schwerer Reiter braucht also mindestens ein 420–560 kg schweres Pony. Bei über 100 kg Körpergewicht ist meist ein Pferd die bessere Wahl."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sind Ponys für Anfänger geeignet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, aber mit der richtigen Rasse. Haflinger und Deutsche Reitponys sind ideal für Anfänger. Shetland Ponys (zu eigensinnig) und Isländer (zu intelligent und brauchen erfahrene Hand) sollte man als Anfänger meiden. Wichtig: Kaufe ein bereits ausgebildetes (angeritten) Pony, nicht ein rohes Pony. Professionelle Unterrichtsstunden mit qualifiziertem Trainer sind ebenfalls essential. Für Kinder unter 12 Jahren ist Beaufsichtigung durch Erwachsene notwendig."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange sollte eine Probezeit sein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard-Probezeit: 2–4 Wochen. Ungeritten Ponys brauchen längere Probezeit (4 Wochen) zum Trainieren und zur Evaluation. Angeritten Ponys (bereits ausgebildet) können mit 2 Wochen auskommen. Der Kaufvertrag muss die Probezeit und Rückgaberecht klar regeln. Während der Probezeit hast du das Recht, das Pony zurückzugeben, falls es nicht deinen Erwartungen entspricht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum ist eine Ankaufsuntersuchung (AKU) wichtig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine Ankaufsuntersuchung ist deine wichtigste Schutzmaßnahme beim Ponykauf. Sie prüft, ob das Pony gesund ist und für deine Zwecke geeignet. Der Tierarzt testet Lahmheit, Atemwege, Herz und Zahnkontrolle. Eine AKU gibt dir Verhandlungs-Leverage und schützt dich rechtlich gegen versteckte Gesundheitsmängel. Kosten: 200–1.500 Euro je nach Umfang. Für ein Pony über 3.000 Euro Kaufpreis empfehlen wir eine vollständige AKU mit X-rays und Ultraschall."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Auf welche roten Flaggen sollte ich beim Ponykauf achten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kenne diese Warnsignale: Der Verkäufer weigert sich, eine AKU durchführen zu lassen (großes Warnsignal). Keine Veterinär-Dokumente vorhanden ist verdächtig. Der Verkäufer setzt dich unter Druck ('Nur heute verfügbar'). Das Pony wird nur auf Fotos gezeigt, keine persönliche Besichtigung möglich. Der Preis ist unrealistisch niedrig oder drastisch reduziert mit 'urgent sale' Druck. Fehlende oder gefälschte Papiere. Offensichtliche Lahmheit, aggressives Verhalten oder chronischer Husten deuten auf Gesundheitsprobleme hin. Vermeide diese Red Flags und kaufe nur bei seriösen Verkäufern."
+      }
+    }
+  ],
+  "validation": {
+    "total_questions": 8,
+    "status": "PASSED",
+    "notes": "8 FAQ-Fragen aus Phase 2 PAA-Analyse integriert. Alle Questions haben akzeptierte Answers mit vollständigen Informationen. Schema ist JSON-LD konform."
+  }
+}

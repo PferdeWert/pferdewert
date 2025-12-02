@@ -1,0 +1,158 @@
+{
+  "primary_keyword": "pferd kaufen bayern",
+  "analyzed_at": "2025-11-30T22:15:00.000000",
+  "algorithm_version": "v3.0",
+  "competitors_analyzed": [
+    {
+      "domain": "ehorses.de",
+      "serp_position": 1,
+      "keywords_extracted": 13
+    },
+    {
+      "domain": "pferde.de",
+      "serp_position": 3,
+      "keywords_extracted": 8
+    },
+    {
+      "domain": "bayerns-pferde.de",
+      "serp_position": 7,
+      "keywords_extracted": 10
+    }
+  ],
+  "competitor_keywords": [
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "cpc": 0.5,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "cpc": 0.5,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.5,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "cpc": 0.5,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "friese",
+      "search_volume": 18100,
+      "cpc": 0.5,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "hauspferd",
+      "search_volume": 18100,
+      "cpc": 0.5,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pony",
+      "search_volume": 33100,
+      "cpc": 0.5,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "araber",
+      "search_volume": 27100,
+      "cpc": 0.5,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "cpc": 0.5,
+      "competitor_rank": 2,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "hannoveraner",
+      "search_volume": 14800,
+      "cpc": 0.5,
+      "competitor_rank": 9,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "cpc": 0.5,
+      "competitor_rank": 3,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "süddeutsches kaltblut",
+      "search_volume": 1600,
+      "cpc": 0.5,
+      "competitor_rank": 5,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "süddeutsches kaltblut kaufen",
+      "search_volume": 1600,
+      "cpc": 0.5,
+      "competitor_rank": 8,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "verkaufspferde",
+      "search_volume": 1000,
+      "cpc": 0.5,
+      "competitor_rank": 6,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "bayerns pferde",
+      "search_volume": 880,
+      "cpc": 0.5,
+      "competitor_rank": 1,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "landesverband bayerischer pferdezüchter",
+      "search_volume": 880,
+      "cpc": 0.5,
+      "competitor_rank": 1,
+      "competitor_domain": "bayerns-pferde.de",
+      "source": "competitor_analysis"
+    }
+  ],
+  "statistics": {
+    "total_extracted": 31,
+    "after_filtering": 16,
+    "avg_search_volume": 18931,
+    "avg_competitor_rank": 3.8
+  }
+}
