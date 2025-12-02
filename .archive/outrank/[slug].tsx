@@ -48,6 +48,7 @@ const STATIC_PAGE_SLUGS = [
   'pferd-kaufen-schweiz',
   'haflinger-kaufen',
   'pferd-kaufen-oesterreich',
+  'pony-kaufen',
 ];
 
 // ============================================================================

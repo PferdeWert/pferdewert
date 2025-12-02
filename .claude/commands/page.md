@@ -299,32 +299,17 @@ Die Datei enthält vorbereitete Links mit Platzierungs-Empfehlungen:
 - Nutze den `frontend-design` Skill für hochwertige, distinctive Komponenten
 - Vermeide generische AI-Ästhetik - erstelle production-grade Interfaces
 
-## 6. STATIC_PAGE_SLUGS aktualisieren
-
-**KRITISCH**: Füge den Slug in `frontend/pages/pferde-ratgeber/[slug].tsx` hinzu:
-
-```typescript
-const STATIC_PAGE_SLUGS = [
-  '{slug}',  // <-- Neuer Slug hier
-  'lipizzaner',
-  'anfaengerpferd-kaufen',
-  // ... andere Slugs
-];
-```
-
-**Warum wichtig**: Verhindert, dass die dynamische Route [slug].tsx die statische Seite behandelt. Ohne diesen Schritt gibt es einen Runtime Error, weil [slug].tsx Outrank/MongoDB-Daten erwartet, die bei manuell erstellten Seiten nicht existieren.
-
-## 7. Registry aktualisieren
+## 6. Registry aktualisieren
 
 Füge Eintrag hinzu in: `frontend/lib/ratgeber-registry.ts`
 
-## 8. Sitemap generieren
+## 7. Sitemap generieren
 
 ```bash
 cd frontend && npm run sitemap
 ```
 
-## 9. Qualitätsprüfung
+## 8. Qualitätsprüfung
 
 ```bash
 cd frontend && npm run lint && npm run type-check

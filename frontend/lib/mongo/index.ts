@@ -4,5 +4,3 @@
  */
 
 export { connectToDatabase, closeConnection } from './client';
-export { getRatgeberRepository } from './ratgeber-repository';
-export type { RatgeberRepository } from './ratgeber-repository';
