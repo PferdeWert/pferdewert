@@ -14,6 +14,13 @@
 - **Evaluation Duration is ALWAYS "2 Minuten"**: NEVER use "3 Minuten" or any other duration in content, UI, or AI-generated text - this is a critical accuracy requirement
 - **LocalizedLink for internal links**: Use `<LocalizedLink href="/path">` instead of `<Link>` for all internal routes - ensures correct domain context (pferdewert.de/.at/.ch)
 
+## Bilder (AUTO-TRIGGER bei Bild-Links!)
+- **Skill verwenden**: Bei Bild-URLs automatisch `skill: "image-processing"` aktivieren!
+- **NIEMALS Slug als Dateiname**: `pferd-kaufen-bayern.webp` ist VERBOTEN - führt zu Duplikaten!
+- **Sprechender Name**: Beschreibt das MOTIV (z.B. `braunes-warmblut-koppel.webp`)
+- **Format**: Immer WebP, Qualität 80%, max 1200px Breite
+- **Ziel**: `frontend/public/images/ratgeber/`
+
 ## SEO & URL Structure
 - **Ratgeber Base Path**: `/pferde-ratgeber/` - NEVER use `/ratgeber/` or nested paths like `/ratgeber/pferdekauf/`
 - **URL Format**: `https://pferdewert.de/pferde-ratgeber/{article-slug}` (flat structure, no categories)
