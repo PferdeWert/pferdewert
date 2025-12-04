@@ -42,6 +42,24 @@ export default function Datenschutz() {
           </a>
         </p>
 
+        <h2>Kundenbewertungen über Trustpilot</h2>
+        <p>
+          Wir nutzen den Bewertungsdienst Trustpilot (Trustpilot A/S, Pilestraede 58, 1112 Kopenhagen, Dänemark)
+          zur Sammlung von Kundenbewertungen. Nach einem Kauf übermitteln wir Ihre E-Mail-Adresse und Ihren Namen
+          an Trustpilot, damit Sie eine Einladung zur Bewertung unseres Services erhalten können.
+        </p>
+        <p>
+          Die Übermittlung erfolgt auf Grundlage unseres berechtigten Interesses an der Qualitätssicherung und
+          Vertrauensbildung gemäß Art. 6 Abs. 1 lit. f DSGVO. Sie können der Nutzung jederzeit widersprechen,
+          indem Sie uns unter info@pferdewert.de kontaktieren.
+        </p>
+        <p>
+          Weitere Informationen finden Sie in der Datenschutzerklärung von Trustpilot unter:{' '}
+          <a href="https://de.legal.trustpilot.com/for-reviewers/end-user-privacy-terms" target="_blank" rel="noopener noreferrer" className="underline">
+            https://de.legal.trustpilot.com/for-reviewers/end-user-privacy-terms
+          </a>
+        </p>
+
         <h2>Kontakt mit uns</h2>
         <p>
           Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit uns aufnehmen, werden Ihre angegebenen
