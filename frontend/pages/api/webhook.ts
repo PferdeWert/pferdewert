@@ -500,6 +500,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           await resend.emails.send({
             from: "PferdeWert <info@pferdewert.de>",
             to: customerEmail,
+            bcc: "pferdewert.de+1bdaf0ddd2@invite.trustpilot.com",
             subject: "🐴 Deine Pferdebewertung ist fertig!",
             html: `
               <h2>Hallo!</h2>
