@@ -105,8 +105,8 @@ const jsonLd = {
   "description": seoConfig.description,
   "image": seoConfig.ogImage,
   "url": seoConfig.canonicalUrl,
-  "datePublished": "2024-01-15",
-  "dateModified": "2024-12-20",
+  "datePublished": "2025-07-15",
+  "dateModified": "2025-12-04",
   "author": {
     "@type": "Organization",
     "name": "PferdeWert",

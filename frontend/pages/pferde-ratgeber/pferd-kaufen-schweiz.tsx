@@ -136,7 +136,7 @@ export default function PferdKaufenSchweizPage() {
         slug="pferd-kaufen-schweiz"
         image="/images/ratgeber/horses-zermatt-switzerland.webp"
         locales={seoLocales}
-        datePublished="2024-11-26"
+        datePublished="2025-12-04"
         wordCount={4620}
         breadcrumbTitle="Pferd kaufen Schweiz"
         faqItems={faqItems}
