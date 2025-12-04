@@ -493,17 +493,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Send customer email
       const customerEmail = session.customer_details?.email;
+      const customerName = session.customer_details?.name?.split(' ')[0] || ''; // Vorname
 
       if (customerEmail && resend) {
         try {
           const directLink = `https://pferdewert.de/ergebnis?id=${doc._id.toString()}`;
+          const greeting = customerName ? `Hallo ${customerName}!` : 'Hallo!';
           await resend.emails.send({
             from: "PferdeWert <info@pferdewert.de>",
             to: customerEmail,
             bcc: "pferdewert.de+1bdaf0ddd2@invite.trustpilot.com",
             subject: "🐴 Deine Pferdebewertung ist fertig!",
             html: `
-              <h2>Hallo!</h2>
+              <h2>${greeting}</h2>
               <p>Deine Pferdebewertung ist jetzt verfügbar:</p>
                   <br> 
               <p><strong><a href="${directLink}" 
