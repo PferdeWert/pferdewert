@@ -365,7 +365,7 @@ export default function PferdeWertHomepage() {
               <p className="text-lg">
                 <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
                 <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
-                <span className="line-through text-gray-500">statt {PRICING_FORMATTED.decoy}</span> – 🎄 Weihnachts-Aktion!
+                <span className="line-through text-gray-500">statt 14,90€</span> – nur noch bis 13.12.! Ab Sonntag gilt der reguläre Preis von 14,90€.
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten

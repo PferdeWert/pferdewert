@@ -133,7 +133,7 @@ export default function UeberUns() {
               <div className="mb-12">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    <strong className="text-gray-900">Ich bin Benjamin Reder</strong> und habe PferdeWert.de 2025 zusammen mit meiner Frau gegründet. Mit über 10 Jahren Erfahrung in der Digitalbranche und als Pferdebesitzer seit 2017 verbinde ich KI-Expertise mit dem Alltag unserer Pferdefamilie. Blossi ist bereits unser zweites Pferd.
+                    <strong className="text-gray-900">Ich bin Benjamin Reder</strong> und habe PferdeWert 2025 zusammen mit meiner Frau gegründet. Mit über 10 Jahren Erfahrung in der Digitalbranche und als Pferdebesitzer seit 2017 verbinde ich KI-Expertise mit dem Alltag unserer Pferdefamilie. Blossi ist bereits unser zweites Pferd.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     👨‍👩‍👧‍👦 Wir sind eine Familie mit zwei kleinen Kindern – und mit ganzem Herzen Pferdemenschen.
@@ -156,7 +156,7 @@ export default function UeberUns() {
                 Folge PferdeWert
               </h2>
               <p className="text-gray-600 mb-6">
-                📸 Begleite unsere Reise mit Blossi und PferdeWert.de
+                📸 Begleite unsere Reise mit Blossi und PferdeWert
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -171,7 +171,7 @@ export default function UeberUns() {
                     <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                   </svg>
-                  <span className="text-sm font-medium">@pferdewert.de</span>
+                  <span className="text-sm font-medium">Instagram</span>
                 </a>
 
                 <a
@@ -379,10 +379,22 @@ export default function UeberUns() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                 </a>
+
+                <a
+                  href="https://benjaminreder.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-brand-brown hover:bg-amber-50 hover:text-brand-brown transition-all duration-300 text-gray-600"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                  </svg>
+                  <span className="text-sm font-medium">Website</span>
+                </a>
               </div>
 
               <p className="text-xs text-gray-400 mt-4">
-                Benjamin Reder – Gründer von PferdeWert.de
+                Benjamin Reder – Gründer von PferdeWert
               </p>
             </div>
           </div>

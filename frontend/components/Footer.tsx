@@ -16,12 +16,6 @@ export default function Footer() {
               Pferd bewerten
             </LocalizedLink>
           </li>
-          <li>
-            <LocalizedLink href="/beispiel-analyse" className="hover:underline">
-              Beispiel-Analyse
-            </LocalizedLink>
-          </li>
-          
           {/* Accessibility-konformes Details/Summary Dropdown */}
           <li>
             <details className="relative inline-block group">
