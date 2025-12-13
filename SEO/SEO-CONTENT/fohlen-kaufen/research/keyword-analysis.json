@@ -1,0 +1,210 @@
+{
+  "primary_keyword": "fohlen kaufen",
+  "analyzed_at": "2025-12-13T22:07:34.598104",
+  "algorithm_version": "v3.0",
+  "total_keywords_analyzed": 12,
+  "top_keywords": [
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "relevance_score": 7.08,
+      "similarity": 0.72,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 40500,
+        "cpc": 0.24
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "cpc": 0.09,
+      "relevance_score": 5.91,
+      "similarity": 0.75,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 6600,
+        "cpc": 0.09
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "fohlen kaufen",
+      "search_volume": 1300,
+      "cpc": 0.16,
+      "relevance_score": 5.71,
+      "similarity": 1.0,
+      "word_overlap": 2,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 1300,
+        "cpc": 0.16
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "fohlen kaufen 500 euro",
+      "search_volume": 90,
+      "cpc": 3.53,
+      "relevance_score": 4.74,
+      "similarity": 0.743,
+      "word_overlap": 2,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 90,
+        "cpc": 3.53
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 4
+    },
+    {
+      "keyword": "pony fohlen kaufen",
+      "search_volume": 70,
+      "cpc": 0.07,
+      "relevance_score": 4.35,
+      "similarity": 0.839,
+      "word_overlap": 2,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 70,
+        "cpc": 0.07
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "fohlen kaufen günstig",
+      "search_volume": 50,
+      "cpc": 0.1,
+      "relevance_score": 4.04,
+      "similarity": 0.765,
+      "word_overlap": 2,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 50,
+        "cpc": 0.1
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "pferd kaufen nrw",
+      "search_volume": 1600,
+      "cpc": 0.13,
+      "relevance_score": 3.84,
+      "similarity": 0.621,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 1600,
+        "cpc": 0.13
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "oldenburger kaufen",
+      "search_volume": 210,
+      "cpc": 0.07,
+      "relevance_score": 3.75,
+      "similarity": 0.71,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 210,
+        "cpc": 0.07
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "fohlen kaufen in der nähe",
+      "search_volume": 50,
+      "cpc": 0.14,
+      "relevance_score": 3.72,
+      "similarity": 0.684,
+      "word_overlap": 2,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 50,
+        "cpc": 0.14
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 5
+    },
+    {
+      "keyword": "pferd kaufen preis",
+      "search_volume": 320,
+      "cpc": 0.26,
+      "relevance_score": 3.52,
+      "similarity": 0.581,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 320,
+        "cpc": 0.26
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "pony kaufen bayern",
+      "search_volume": 390,
+      "cpc": 0.09,
+      "relevance_score": 3.2,
+      "similarity": 0.581,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 390,
+        "cpc": 0.09
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "fohlen zu verschenken",
+      "search_volume": 110,
+      "cpc": 0,
+      "relevance_score": 2.97,
+      "similarity": 0.588,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 110,
+        "cpc": 0.0
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 3
+    }
+  ],
+  "cluster_distribution": {
+    "Commercial": 11,
+    "General": 1
+  },
+  "statistics": {
+    "avg_search_volume": 4274.0,
+    "avg_cpc": 0.41,
+    "avg_relevance_score": 4.4,
+    "keywords_with_questions": 0
+  }
+}

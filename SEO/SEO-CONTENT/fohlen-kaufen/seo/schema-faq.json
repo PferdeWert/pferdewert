@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wann sollte man Fohlen kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das optimale Kauffenster ist der Absetzer (8–12 Monate) – alt genug, um Transportstress zu verkraften, jung genug für Training. Der Charakter zeigt sich bereits deutlich, und die Preisspanne (€1.500–€3.500) ist ideal. Sauglinge (0–6 Monate) sind nur für Züchter oder erfahrene Reiter geeignet. Jährling (12–24 Monate) für risikoaverse Käufer. Zeitpunkt im Jahr: Frühjahr (März–April) beste Auswahl, teurer. Herbst günstiger, weniger Auswahl."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet ein gutes Fohlen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Warmblut-Fohlen (Hannoveraner, Oldenburger): €2.000–€8.000. Spezialrassen (Friese, Haflinger): €1.500–€5.000. Freizeitfohlen: €800–€2.000. Preise unter €300–€600 sind RED FLAG (Schlachtmarkt-Indikator). Zusätzliche Kosten: Transport (€500–€2.000), Tierarzt (€200–€400), Versicherung (€20–€50/Monat), Haltung Jahr 1 (€100–€300/Monat). Realistisches 5-Jahres-Budget: €15.000–€30.000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie erkenne ich ein gutes Fohlen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Physisch: Klare Augen, normales Laufen ohne Lahmheit, Nabel integriert, gutes Fell. Verhaltensmäßig: Vertrauensvoll (keine Menschenangst), neugierig, nicht aggressiv. Rote Flaggen zu vermeiden: Augentränfluss (ERU-Zeichen), Lahmheit, Bewegungsunregelmäßigkeiten, Angststörung (teuer zu beheben). Immer essentiell: Tierärztliche Ankaufsuntersuchung durchführen BEVOR du kaufst – nicht danach!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Brauche ich einen Kaufvertrag beim Fohlenkauf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JA, absolut essentiell – auch bei Privatverkauf. Der Vertrag MUSS enthalten: Identifikation (Name, Rasse, Alter, Chip-Nr., Equidenpass-Nr.), Kaufpreis und Zahlungsbedingungen, Gewährleistungsfrist (mindestens 6 Monate), Rückgaberecht (Probierzeit?), Equidenpass-Übergabe, Haftung für Transportschäden. Fachanwalt für Tierkauf (€150–€300) empfohlen für Fohlen >€2.000. Verkäufer, die einen Vertrag ablehnen, sind Warnsignal – nicht kaufen!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo kann ich Fohlen online kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Größte Marktplätze: ehorses.de (1.600+ Inserate, Gütesiegel-System), pferde.de (gute Filter, solide Auswahl), kleinanzeigen.de (Privatverkäufer, günstiger), deine-tierwelt.de (mittlere Auswahl). Spezialisiert: fohlenborse.de (Züchter-fokussiert), FN-registrierte Züchter direkt. Direktkauf beim Züchter oft günstiger, aber erfordert Recherche. Sicherheit: Nur Marktplätze mit Käufer-Schutz nutzen!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist die teuerste OP beim Pferd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kolik-OPs sind oft teuer (€2.000–€5.000). Für Fohlen spezifisch: Orthopädische OPs (OCD-Entfernung, Gelenkspülungen) = €1.500–€3.000+. Augenoperationen (ERU-bedingt) = €500–€2.000. Daher: Krankenversicherung SOFORT nach Kauf abschließen (spart Tausende später). Eine 'OP-arme' Versicherung kostet €20–€50/Monat für Fohlen und ist eine der besten Investitionen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann man Pferde vom Schlachter kaufen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, es gibt Rettungsorganisationen wie fohlenrettung-swg.de, die Fohlen vor dem Schlachtmarkt bewahren. Preise sind deutlich günstiger (€300–€800). ABER: Die medizinische Vorgeschichte ist oft unbekannt, psychologische Traumata möglich, Risiken höher. Nicht ideal für Anfänger. Für Anfänger: eher seriöse Züchter oder etablierte Marktplätze mit Käufer-Schutz vertrauen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was sind rote Flaggen beim Fohlenkauf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Warnsignale zum sofortigen Kaufabbruch: 1. Sehr niedriger Preis (€300–€600) = Schlachtmarkt-Indikator. 2. Verkäufer verweigert Vet-Check = Deal-Stopper. 3. Fohlen-Angst vor Menschen = Sozialisierungs-Defizit (teuer zu beheben). 4. Augentränfluss oder Augen-Schwellungen = ERU (chronisch, teuer). 5. Lahmheit oder Bewegungsunregelmäßigkeiten = Beinprobleme oder Gelenkerkrankung. 6. Verweigerte Abstammungs-Papiere = rechtliche Risiken. Immer fragen: 'Kann ich meinen Tierarzt mitbringen?' – seriöse Verkäufer erlauben das!"
+      }
+    }
+  ]
+}

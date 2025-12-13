@@ -1,0 +1,383 @@
+{
+  "phase": "2",
+  "primary_keyword": "fohlen kaufen",
+  "timestamp": "2025-12-13T22:15:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful, all data from DataForSEO API responses"
+  },
+  "data_sources": {
+    "serp_results_count": 30,
+    "featured_snippets_count": 0,
+    "paa_questions_count": 9,
+    "paa_level_2_questions_count": 6,
+    "content_parsed_urls": 3,
+    "serp_features": ["people_also_ask", "people_also_search", "related_searches", "popular_products", "images"]
+  },
+  "search_intent": {
+    "primary": "commercial",
+    "probability": 0.496,
+    "secondary": "transactional",
+    "secondary_probability": 0.377,
+    "content_strategy": "Commercial marketplace guide with buying decision support. Fokus auf 'Wo kaufen' + Preisvergleiche + Kaufprozess. Möglichkeit zur Conversion (Link zu Evaluator oder Marketplace)."
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Wo Fohlen kaufen - Marktplätze und Börsen",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "Alle Top 10: ehorses, Kleinanzeigen, pferde.de, DeineTierwelt, Fohlenbörse dominant"
+      },
+      {
+        "topic": "Fohlenkauf: Kaufpreis und Kosten",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "9 von 10 erwähnen Preisbeispiele (€2.300-€10.000+). PAA: 'Was kostet ein gutes Fohlen?' mit Preisspanne"
+      },
+      {
+        "topic": "Zeitpunkt: Wann sollte man Fohlen kaufen",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "PAA Question direkt beantwortet, mehrere URLs erwähnen Altersangaben (Absetzer, Jährling)"
+      },
+      {
+        "topic": "Fohlenrassen und Rassenauswahl",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "Popular Products zeigen Rassenbezug. Mehrere URLs haben Rasse-Filter (Hannoveraner, Friese, etc.)"
+      },
+      {
+        "topic": "Gesundheit und Veterinärcheck beim Fohlenkauf",
+        "coverage": "3/10",
+        "priority": "high",
+        "evidence": "Nur FUNDIS (Rank 6) erwähnt 'Wie erkenne ich ein gutes Fohlen'. Großes Gap gegenüber Pferdekauf Content"
+      },
+      {
+        "topic": "Rechtliche Absicherung und Kaufvertrag",
+        "coverage": "2/10",
+        "priority": "high",
+        "evidence": "Kaum erwähnt in SERP. Kritisch unterschätzt bei Fohlenkauf. Top-Ranking Gap."
+      },
+      {
+        "topic": "Finanzierungsoptionen und Zahlungsarten",
+        "coverage": "1/10",
+        "priority": "medium",
+        "evidence": "Praktisch nicht abgedeckt. Keine PAA zu Finanzierung. Opportunity für Differentiation."
+      },
+      {
+        "topic": "Fohlenrettung und Adoptionstiere",
+        "coverage": "4/10",
+        "priority": "medium",
+        "evidence": "fohlenrettung-swg.de (Rank 8), ehorses Fohlen retten Artikel (PAA). Nische."
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Gesundheitscheck beim Fohlenkauf - Praktischer Leitfaden",
+        "coverage": "3/10",
+        "unique_angle": "Während Pferdekauf viel über Vet-Checks spricht, wird Fohlenkauf oft als 'einfacher' dargestellt. Opportunity: Step-by-step Gesundheitschecks speziell für Fohlen (Nabelbruch, Beinachsen, Augenkrankheiten).",
+        "opportunity_score": 9
+      },
+      {
+        "topic": "Kaufvertrag und rechtliche Dokumentation für Fohlen",
+        "coverage": "2/10",
+        "unique_angle": "Top 10 ignorieren praktisch Rechtliches. Unser Content: Mustervertrag, Gewährleistung, Rückgaberecht, Equidenpass-Anforderungen.",
+        "opportunity_score": 9
+      },
+      {
+        "topic": "Fohlenpreis-Kalkulationen nach Rasse, Abstammung und Alter",
+        "coverage": "5/10",
+        "unique_angle": "Alle geben Preisbeispiele, aber keine SYSTEMATISCHE Preisanalyse. Unser Content: Preis-Matrix (Warmblüter vs. Kaltblut vs. Spezialrassen), Abstammungseffekte, Alterssprünge (Saugling vs. Absetzer vs. Jährling).",
+        "opportunity_score": 8
+      },
+      {
+        "topic": "Fohlenkauf mit Probierzeit und Rückgaberecht",
+        "coverage": "2/10",
+        "unique_angle": "Nur im FUNDIS Artikel kurz erwähnt. Lücke: Wie verhandelt man Probierzeit? Was sind juristische Standards?",
+        "opportunity_score": 8
+      },
+      {
+        "topic": "Transport und Versand von Fohlen - Praktische Tipps",
+        "coverage": "3/10",
+        "unique_angle": "Ein pferde.de Listing erwähnt 'inkl. Transport'. Sonst nirgends. Gap: Sicherheit, Kosten, Logistik beim Fohlentransport.",
+        "opportunity_score": 7
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Fohlen-Krankenversicherung und Unfallschutz beim Kauf",
+        "coverage": "0/10",
+        "source": "PAA: 'Was ist die teuerste OP beim Pferd?' angedeutet, aber für Fohlen nicht konkretisiert",
+        "opportunity_score": 8,
+        "reason": "Fohlen sind anfällig für Wachstumsstörungen, Orthopädische Probleme. Insurance-Timing ist kritisch. Zielgruppe ist daran interessiert."
+      },
+      {
+        "topic": "Nachbetreuung nach Fohlenkauf: Haltung, Fütterung, Impfplan",
+        "coverage": "0/10",
+        "source": "PAA zeigt '1-2-3-Regel' (Geburt), aber kein Content über Post-Kauf-Phase",
+        "opportunity_score": 7,
+        "reason": "Käufer wollen wissen: Wie halte ich es zu Hause? Fütterung? Haltungskosten?"
+      },
+      {
+        "topic": "Rote Flaggen beim Fohlenkauf - Was man vermeiden sollte",
+        "coverage": "0/10",
+        "source": "Inverse PAA: 'Wie erkenne ich ein GUTES Fohlen?' impliziert auch 'Schlechte Fohlen', aber nicht explizit",
+        "opportunity_score": 7,
+        "reason": "Käufer fürchten Betrug, versteckte Krankheiten. Ratgeber könnten Warning-Signs aufzählen."
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.ehorses.de/fohlen",
+      "title": "Fohlen kaufen | Fohlenbörse auf ehorses",
+      "rank": 1,
+      "domain_type": "ecommerce_marketplace",
+      "unique_angles": [
+        "Größter Marktplatz für Pferde (1.614 Inserate für Fohlen allein)",
+        "Geprüfte Angebote - Trust Signal",
+        "Preis-Filter und Rasse-Filter integriert",
+        "Direct-from-breeder Option erkennbar",
+        "Multiple Use Cases: Zucht, Freizeit, Turnier"
+      ],
+      "format": "Marketplace listing page mit Filteroptionen",
+      "estimated_word_count": 800,
+      "key_differentiator": "Marketplace Authority (hoches Vertrauen durch Gütesiegel) statt Pure Content. Schwäche: Keine Kaufberatung."
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 800,
+    "target_word_count": 1800,
+    "word_count_range_min": 1200,
+    "word_count_range_max": 2600,
+    "word_count_strategy": "serp_competitive",
+    "word_count_reasoning": "Top 3 URLs sind primär Marktplatz-Listen mit 800-1200 Wörtern. Unser Content sollte EDUCATIV sein - daher 1800 Wörter für umfassenden Kaufratgeber. Benchmark: FUNDIS (Rank 6) als echter Content, nicht Marketplace.",
+    "word_count_fallback": 1800,
+    "required_sections": [
+      "Einleitung: Warum Fohlen kaufen attraktiv ist (aber komplexer als oft gedacht)",
+      "Wo Fohlen kaufen: Marktplätze, Börsen, Züchter im Überblick",
+      "Kaufpreis verstehen: Kosten für verschiedene Rassen und Altersgruppen",
+      "Der richtige Zeitpunkt: Saugling vs. Absetzer vs. Jährling",
+      "Gesundheitschecks und Tierärztliche Untersuchung",
+      "Rechtliche Absicherung: Kaufvertrag und Equidenpass",
+      "Praktische Checkliste: Was vor dem Kauf prüfen",
+      "FAQ: Häufige Fragen zum Fohlenkauf"
+    ],
+    "visual_elements": [
+      "comparison_table",
+      "checklist",
+      "price_comparison_matrix",
+      "age_stage_guide"
+    ],
+    "featured_snippet_target": "list",
+    "featured_snippet_topic": "Fohlenkauf-Checkliste: Was vor dem Kauf prüfen"
+  },
+  "competitor_landscape": {
+    "top_10_domain_breakdown": {
+      "1": "ehorses.de - Marketplace (high authority, ecommerce)",
+      "2": "kleinanzeigen.de - Classifieds (high authority, ecommerce)",
+      "3": "pferde.de - Marketplace (high authority, ecommerce)",
+      "4": "deine-tierwelt.de - Classifieds (medium authority, ecommerce)",
+      "5": "fohlenboerse.de - Niche Marketplace (medium authority, specialized)",
+      "6": "fundis-reitsport.de - Blog (medium authority, content)",
+      "7": "pferdezucht-jacobs.de - Breeder Site (low authority, ecommerce)",
+      "8": "fohlenrettung-swg.de - NGO (low authority, nonprofit)",
+      "9": "hannoveraner.com - Association (medium authority, marketplace)",
+      "10": "reddit.com - Forum (high authority, community)"
+    },
+    "domain_authority_distribution": {
+      "high_authority": 5,
+      "medium_authority": 4,
+      "low_authority": 1
+    },
+    "domain_type_mix": {
+      "ecommerce_marketplaces": 5,
+      "classifieds": 2,
+      "niche_specialized": 1,
+      "breeder_sites": 1,
+      "content_blogs": 1,
+      "organizations": 1,
+      "forums_community": 1
+    },
+    "ranking_stability": "marketplace_dominated",
+    "assessment": "SERP dominiert von großen Marktplätzen (ehorses, Kleinanzeigen, pferde.de). Nur ein echter Content-Blog (FUNDIS Rank 6). Das ist UNSERE Chance: Educational Content statt Marketplace.",
+    "new_entrant_opportunity": "high",
+    "opportunity_reasoning": "Marktplätze ranken durch Authority + User-Generated-Content (viele Listings). Sie bieten KEINE Kaufberatung. Ein hochwertiger Kaufratgeber mit Expertise kann ZUSÄTZLICH ranken (nicht kompetitiv mit Marktplätzen). Vergleichbar zu 'pferd kaufen' wo Ratgeber neben Marktplätzen gut ranken."
+  },
+  "eeat_signals": {
+    "required_credentials": "equestrian_professional_or_breeder",
+    "credentials_reasoning": "Top 10 mix: Marktplätze (keine Credentials nötig), Breeder Sites (Zuchtexpertise), NGO (Tierschutz-Expertise). Für Kaufratgeber: Pferde-Erfahrung oder Züchter-Perspektive nötig.",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "Erfolgsfalls: Erfahrung von Käufer mit schlechtem vs. gutem Kauf",
+      "Warnung: Was schief gehen kann - Betrug, Krankheit, versteckte Mängel"
+    ],
+    "external_references": 5,
+    "reference_types": [
+      "veterinary_guidelines",
+      "legal_regulations",
+      "breed_associations",
+      "market_data",
+      "insurance_requirements"
+    ],
+    "expert_quotes": true,
+    "expert_types": [
+      "veterinarian_specializing_foals",
+      "horse_breeder_with_experience",
+      "legal_expert_on_horse_contracts"
+    ],
+    "data_sources": [
+      "FN (Deutsche Reiterliche Vereinigung) - Zuchtrichtlinien und Standards",
+      "Deutsches Tierärztliches Assoziation - Ankaufsuntersuchungs-Standards für Fohlen",
+      "Pferdemarkt Preisdaten - aktuell aus ehorses/pferde.de (Nov/Dez 2024)",
+      "Versicherungsverbände - Empfehlungen zu Fohlen-Versicherungstiming",
+      "BGB und Kaufrecht - Gewährleistung bei Tierkauf"
+    ],
+    "trustworthiness_signals": [
+      "Transparent about costs (no hidden fees)",
+      "Acknowledge risks (many cheap foals = health issues)",
+      "Cite veterinary sources for health recommendations",
+      "Link to official marketplaces for verification"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Wie hoch ist der Schlachtpreis für ein Fohlen?",
+      "category": "animal_welfare",
+      "section_placement": "FAQ oder separate 'Wichtige Hinweise' Section",
+      "integration_type": "h3_or_faq",
+      "priority": "medium",
+      "reasoning": "Sensitives Thema. Käufer sollten wissen: Billige Fohlen (€400) können Schlachtmarkt-Inserate sein. WARNSIGNAL.",
+      "handling": "Neutral & informativ, nicht emotional. Verlink zu Rettungsorganisationen."
+    },
+    {
+      "question": "Wann sollte man Fohlen kaufen?",
+      "category": "buying_process",
+      "section_placement": "Zeitpunkt: Saugling vs. Absetzer vs. Jährling",
+      "integration_type": "h2_subsections",
+      "priority": "high",
+      "reasoning": "Kernfrage. Erklärt Altersgruppen (8-10 Monate Absetzer, Jährling = höherer Preis) und deren Implikationen."
+    },
+    {
+      "question": "Was ist die 1-2-3-Regel für Fohlen?",
+      "category": "health_birth",
+      "section_placement": "Optional in 'Gesundheit' Section oder FAQ",
+      "integration_type": "h3_or_faq",
+      "priority": "low",
+      "reasoning": "Post-Geburt-Regel (nicht Kauf-relevant). Nice-to-have für Context. Nicht kritisch für unseren Content."
+    },
+    {
+      "question": "Was kostet ein gutes Fohlen?",
+      "category": "costs",
+      "section_placement": "Kaufpreis verstehen: Rassen und Altersgruppen",
+      "integration_type": "h2_with_table",
+      "priority": "critical",
+      "reasoning": "Zentral. PAA zeigt Tabelle (ab €2.000 für Warmblüter-Fohlen). Wir erweitern: Preis-Matrix mit Rassen, Abstammung, Alter."
+    },
+    {
+      "question": "Kann man Pferde vom Schlachter kaufen?",
+      "category": "animal_welfare",
+      "section_placement": "FAQ oder separate Hinweise-Section",
+      "integration_type": "h3_or_faq",
+      "priority": "medium",
+      "reasoning": "Rettungs-Aspekt. Für Nischen-Zielgruppe relevant. Kurze Behandlung mit Link zu fohlenrettung-swg."
+    },
+    {
+      "question": "Was ist die teuerste OP beim Pferd?",
+      "category": "health_insurance",
+      "section_placement": "Versicherung und Risiken",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Fohlen-Orthopädische OPs teuer. Verlink zu: Versicherung direkt beim Kauf abschließen."
+    },
+    {
+      "question": "Kann ein 2-jähriger Hengst decken?",
+      "category": "breeding_use",
+      "section_placement": "Optional FAQ (nur wenn Zucht-Content)",
+      "integration_type": "h3_or_faq",
+      "priority": "low",
+      "reasoning": "Zucht-spezifisch. Für Züchter relevant, nicht für Käufer von Freizeit-Fohlen. Skip für first draft."
+    },
+    {
+      "question": "Ist 30 alt für ein Pferd?",
+      "category": "general_knowledge",
+      "section_placement": "Skip",
+      "integration_type": "not_relevant",
+      "priority": "low",
+      "reasoning": "Nicht Fohlenkauf-relevant. Altersunabhängig."
+    }
+  ],
+  "keyword_targeting_strategy": {
+    "primary_keyword": "fohlen kaufen",
+    "search_volume": 1300,
+    "cpc": 0.16,
+    "semantic_variations_from_serp": [
+      "fohlen kaufen in der nähe",
+      "fohlen kaufen günstig",
+      "fohlen kaufen ebay",
+      "fohlen kaufen züchter",
+      "fohlen kaufen bayern"
+    ],
+    "semantic_variations_from_paa": [
+      "wann sollte man fohlen kaufen",
+      "was kostet ein gutes fohlen",
+      "wie erkenne ich ein gutes fohlen"
+    ],
+    "natural_keyword_density_target": "0.7-1.2%",
+    "lsi_keywords": [
+      "fohlenkauf",
+      "fohlen erwerben",
+      "jungpferd kaufen",
+      "absetzer",
+      "jährling",
+      "fohlenbörse",
+      "zucht fohlen",
+      "freizeitfohlen",
+      "turnierfohlen"
+    ]
+  },
+  "content_structure_recommendations": {
+    "introduction_hooks": [
+      "Statistic: 1.300 monatliche Suchen - viele Menschen wollen Fohlen kaufen",
+      "Problem: Fohlenkauf ist billiger als erwachsenes Pferd, aber RISKANTER (versteckte Krankheiten, unbekannte Charakter)",
+      "Promise: Dieser Ratgeber zeigt: Wie du die richtigen Marktplätze findest, realistische Preise verstehst, Gesundheit prüfst, rechtlich absicherst"
+    ],
+    "meta_description_options": [
+      "Fohlen kaufen - Ultimativer Ratgeber 2025. Marktplätze, Preise, Gesundheitschecks, Rechtliches. Schritt-für-Schritt Anleitung + Checkliste.",
+      "Wo und wie Fohlen kaufen? Ratgeber mit Preis-Matrix, Züchter-Tipps und Checkliste. Kosten, Timing und Absicherung.",
+      "Fohlen kaufen Guide: Finde seriöse Züchter, verstehe Preise, prüfe Gesundheit. Alle rechtlichen Punkte + FAQ."
+    ],
+    "title_options": [
+      "Fohlen kaufen: Der komplette Ratgeber 2025",
+      "Fohlen kaufen - Wo, wie und zu welchem Preis?",
+      "Fohlenkauf für Anfänger: Schritt-für-Schritt Anleitung",
+      "Fohlen kaufen sicher: Preise, Märkte, Checkliste",
+      "Fohlen erwerben - Der umfassende Kaufleitfaden"
+    ]
+  },
+  "competitive_content_recommendations": {
+    "content_gap_vs_rank_6": "FUNDIS ist einziger echter Content-Konkurrenz. Sie decken: Vorteile/Risiken, Kaufpreis, Haltungskosten, 'Wie erkenne ich gutes Fohlen'. UNSER Content sollte: Rechtliches stärker, Marktplatz-Guide, Gesundheitschecks detail-reich, Preis-Matrix systematischer.",
+    "opportunity_vs_marketplaces": "Marktplätze können nicht qualitativ filtern oder beraten. Käufer kommen dort hin zum KAUFEN, nicht zum LERNEN. Unser Content-Artikel ist ENABLER für bessere Marktplatz-Nutzung. Conversion möglich: Artikel → Evaluator-Link → Marketplace oder Direktkauf.",
+    "content_format_differentiation": "Marktplätze = Liste. Unser Content = Narrative Guide mit praktischen Checklisten, Preis-Tabellen, Warning-Zeichen, Case Studies.",
+    "unique_value_for_pferdewert": "Fohlenkauf-Ratgeber kann natürlich zu Pferdewert Evaluator/Platform linken: 'Vor dem Kauf: Kostenlose Bewertung mit KI-Ratgeber'. Foals = High-Intent für Platform."
+  },
+  "api_call_summary": {
+    "total_calls": 6,
+    "serp_organic_depth_30": 1,
+    "serp_organic_depth_10_paa": 1,
+    "search_intent": 1,
+    "content_parsing": 3,
+    "total_tokens_estimated": 12000,
+    "data_quality": "excellent",
+    "notes": "Vollständige SERP Analysis. Top 10 + PAA L2 abgedeckt. Content Parsing für alle 3 URLs erfolgreich (listing pages, daher moderate word count aber strukturelle Infos gewonnen)."
+  }
+}

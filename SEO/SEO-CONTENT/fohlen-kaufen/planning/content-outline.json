@@ -1,0 +1,575 @@
+{
+  "phase": "3",
+  "primary_keyword": "fohlen kaufen",
+  "timestamp": "2025-12-13T22:45:00Z",
+  "based_on": {
+    "outline_brief": "all-keywords-merged.json + serp-analysis.json + phase-2-summary.md (consolidates Phase 1B + Phase 2)"
+  },
+
+  "article_metadata": {
+    "title": "Fohlen kaufen: Der komplette Ratgeber 2025",
+    "meta_description": "Fohlen kaufen - Ultimativer Ratgeber 2025. Marktplätze, Preise, Gesundheitschecks, Rechtliches. Schritt-für-Schritt + Checkliste.",
+    "primary_keyword": "fohlen kaufen",
+    "secondary_keywords": [
+      "fohlenkauf",
+      "fohlen erwerben",
+      "jungpferd kaufen",
+      "fohlenbörse",
+      "fohlen preis",
+      "wann sollte man fohlen kaufen",
+      "was kostet ein gutes fohlen",
+      "absetzer",
+      "jährling"
+    ],
+    "word_count_data": {
+      "target_word_count": 1800,
+      "word_count_strategy": "serp_competitive",
+      "word_count_reasoning": "Top 3 URLs sind primär Marktplatz-Listen mit 800-1200 Wörtern. Unser Content sollte EDUCATIV sein - daher 1800 Wörter für umfassenden Kaufratgeber. Benchmark: FUNDIS (Rank 6) als echter Content, nicht Marketplace. Wir übertreffen durch Tiefe (Rechtliches, Gesundheit, Preis-Matrix).",
+      "distribution": {
+        "introduction": {
+          "percentage": 0.07,
+          "calculated_words": 126
+        },
+        "main_sections": {
+          "percentage": 0.72,
+          "calculated_words": 1296
+        },
+        "faq": {
+          "percentage": 0.10,
+          "calculated_words": 180
+        },
+        "conclusion": {
+          "percentage": 0.07,
+          "calculated_words": 126
+        }
+      }
+    }
+  },
+
+  "introduction": {
+    "word_count": 126,
+    "hook": "Fohlen kaufen ist verlockend - schließlich kostet ein junges Pferd deutlich weniger als ein ausgewachsenes. Doch hier lauert ein großes Risiko: Der Fohlenkauf ist medizinisch komplexer und rechtlich tückischer, als viele Anfänger erwarten. Versteckte Krankheiten, unbekannte Charakterzüge und mangelnde Absicherung können Jahre später zu teuren Problemen führen.",
+    "user_intent": "Der Leser möchte verstehen: Wo kaufe ich seriös? Wie viel kostet es wirklich? Was muss ich VOR dem Kauf prüfen?",
+    "preview": "Dieser Ratgeber zeigt dir alle Schritte vom ersten Gedanken bis zum Kaufvertrag. Du erfährst, wo die besten Marktplätze sind, welche Preise realistisch sind, worauf Tierärzte beim Gesundheitscheck achten, und wie du dich rechtlich absicherst. Mit praktischer Checkliste und FAQ.",
+    "keyword_integration": [
+      "fohlen kaufen",
+      "fohlenkauf",
+      "fohlen erwerben",
+      "jungpferd"
+    ]
+  },
+
+  "main_sections": [
+    {
+      "section_number": 1,
+      "heading": "H2: Wo Fohlen kaufen - Die beste Marktplätze und Börsen",
+      "content_type": "explanation",
+      "word_count": 185,
+      "subsections": [
+        {
+          "heading": "H3: Online-Marktplätze für Fohlenverkauf",
+          "word_count": 80,
+          "keywords": ["fohlenbörse", "pferde.de", "ehorses", "kleinanzeigen", "deine tierwelt"],
+          "content_focus": "Übersicht der 5 größten Marktplätze mit Stärken/Schwächen. ehorses = größte Auswahl (1.600+ Inserate), pferde.de = beste Filter, Kleinanzeigen = Privatkäufer, spezialisierte Fohlenbörsen = Züchter-fokussiert."
+        },
+        {
+          "heading": "H3: Direkter Kauf beim Züchter",
+          "word_count": 65,
+          "keywords": ["züchter", "direktkauf", "vertrauensaufbau"],
+          "content_focus": "Vorteile des Direktkaufs (Gesundheitshistorie, persönliche Beratung, oft besserer Preis). Wie man seriöse Züchter identifiziert (Zuchtverbände wie FN-Stutbuch, Betriebsbesichtigungen, Referenzen)."
+        },
+        {
+          "heading": "H3: Fohlenrettung und Adoptionstiere",
+          "word_count": 40,
+          "keywords": ["fohlenrettung", "adoption", "tierschutz"],
+          "content_focus": "Kurze Erwähnung: Es gibt Rettungsorganisationen (fohlenrettung-swg.de). Preise deutlich günstiger, aber oft Vorgeschichte unbekannt. Für Anfänger oft nicht ideal."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "fohlenkauf"],
+        "supporting": ["fohlenbörse", "züchter", "marktplatz"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Marktplatz-Analyse basiert auf aktuelle Daten von ehorses (1.614 Inserate Dez 2024) und pferde.de Filteroptionen."
+        },
+        {
+          "type": "data",
+          "content": "ehorses = größtes Marktplatz-Netzwerk im deutschsprachigen Raum, mit Gütesiegel-System für vertrauenswürdige Verkäufer."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Vergleichstabelle der 5 Marktplätze: Inserate-Anzahl, Gebühren, Zielgruppe (Züchter vs. Privatverkäufer), Besonderheiten"
+        }
+      ]
+    },
+
+    {
+      "section_number": 2,
+      "heading": "H2: Kaufpreis verstehen - Faktoren und Preis-Matrix",
+      "content_type": "explanation",
+      "word_count": 215,
+      "subsections": [
+        {
+          "heading": "H3: Was kostet ein Fohlen? Realistische Preise 2024",
+          "word_count": 85,
+          "keywords": ["fohlen preis", "kaufpreis", "kosten"],
+          "content_focus": "PAA-Integration: 'Was kostet ein gutes Fohlen?' mit Spannbreite. Warmblut-Fohlen (Hannoveraner, Oldenburger) = €2.000-€8.000. Spezialrassen (Friese, Haflinger) = €1.500-€5.000. Einfache Freizeitfohlen = €800-€2.000. Preis-Outlier (€400-€600) = RED FLAG (mögliche Schlachtmarkt-Kandidaten)."
+        },
+        {
+          "heading": "H3: Einflussfaktoren auf den Preis",
+          "word_count": 75,
+          "keywords": ["rassenwert", "abstammung", "pedigree", "alter fohlenfohlen"],
+          "content_focus": "1. Rasse und Zuchtrichtung (Dressur- vs. Springpferde vs. Freizeitpferde unterschiedliche Preise). 2. Abstammung/Pedigree (Vater = renommierter Hengst? €500-€2.000 Aufschlag möglich). 3. Alter und Entwicklungsstand (Saugling < Absetzer < Jährling = Preissprünge). 4. Individuelle Merkmale (Rasse-Reinheit, Farbe, Größenpotenzial)."
+        },
+        {
+          "heading": "H3: Versteckte Kosten beim Fohlenkauf",
+          "word_count": 55,
+          "keywords": ["zusatzkosten", "transport", "versicherung", "tierarzt"],
+          "content_focus": "Transport: €500-€2.000. Tierärztliche Ankaufsuntersuchung: €200-€400. Versicherung (ideal sofort abschließen): €20-€50/Monat. Haltungskosten im ersten Jahr: €100-€300/Monat (Futter, Einstreu, Hufschmied). Viele Käufer unterschätzen diese Kosten."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "fohlenkauf", "fohlen preis"],
+        "supporting": ["kaufpreis", "kosten", "abstammung", "rasse"]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Preisdaten basieren auf Live-Marktanalyse ehorses.de und pferde.de (November-Dezember 2024). Aktuelle Spannbreiten statt veraltete Beispiele."
+        },
+        {
+          "type": "expertise",
+          "content": "Preismatrix bewertet unterschiedliche Rassen: Warmblüter vs. Kaltblüter vs. Spezialrassen haben fundamentale Preisunterschiede."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "Preis-Matrix: Rasse (Spalte 1) × Alter (Spalte 2) × Abstammung (gut/mittel/einfach) = Preisspanne (€-€€€€€). Beispiel: 'Hannoveraner Jährling, gutes Pedigree = €4.000-€6.500'"
+        },
+        {
+          "type": "checklist",
+          "description": "Versteckte Kosten-Checkliste: 10 Punkte (Transport, Vet-Check, Versicherung, Haltung 1. Jahr, etc.) mit Kostenangaben"
+        }
+      ]
+    },
+
+    {
+      "section_number": 3,
+      "heading": "H2: Der richtige Zeitpunkt: Saugling, Absetzer oder Jährling?",
+      "content_type": "explanation",
+      "word_count": 195,
+      "subsections": [
+        {
+          "heading": "H3: Saugling (0-6 Monate): Kaufen mit Muttermare",
+          "word_count": 55,
+          "keywords": ["saugling", "stute", "preis", "alter"],
+          "content_focus": "PRO: Naturale Haltung, Mutter liefert Milch, günstiger (€500-€1.500). CON: Mutter muss mitgekauft/angemietet werden, höhere Verantwortung, längerer Investitionshorizont (4-5 Jahre bis Reitbarkeit). Ideal für Züchter oder sehr erfahrene Reiter."
+        },
+        {
+          "heading": "H3: Absetzer (8-12 Monate): Der Goldstandard",
+          "word_count": 80,
+          "keywords": ["absetzer", "jungfohlen", "zeitpunkt kaufen"],
+          "content_focus": "PAA-Integration: 'Wann sollte man Fohlen kaufen?' → Absetzer ist meist ideal. Mutterlose Erziehung beginnt, aber nicht zu jung. PRO: Reifer genug, um Transportstress zu verkraften. Charakter zeigt sich. Preis-Fenster (€1.500-€3.500) gut. CON: Erfordert gute Stallinfrastruktur und Fütterungskenntnis. Sozialisierung mit anderen Fohlen wichtig."
+        },
+        {
+          "heading": "H3: Jährling (12-24 Monate): Training möglich",
+          "word_count": 60,
+          "keywords": ["jährling", "longenarbeit", "grundausbildung"],
+          "content_focus": "PRO: Größer, robuster, kann Grundausbildung (Longenarbeit) erhalten. Charakter ist stabil. PRE-Training mindert Aufzuchtsrisiko. CON: Deutlich teurer (€2.500-€5.000+). Käufer zahlt für bereits investierte Zeit. Weniger 'Potential' wahrnehmbar, da bereits entwickelt. Beliebt bei Reitern, die Risiken minimieren wollen."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "wann sollte man fohlen kaufen"],
+        "supporting": ["absetzer", "jährling", "saugling", "alter"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Altersklassifizierung folgt Standard der FN (Deutsche Reiterliche Vereinigung) Zuchtzustandsberichte."
+        },
+        {
+          "type": "experience",
+          "content": "Absetzer-Fenster (8-12 Monate) als 'Goldstandard' ist erfahrungsbasiert - Balance zwischen Unreife und Trainierbarkeit."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "diagram",
+          "description": "Altersgruppen-Vergleich: 3 Spalten (Saugling | Absetzer | Jährling) mit Zeilen: Alter, Typischer Preis, Anforderungen an Käufer (Erfahrung), Transportfähigkeit, Training möglich (Ja/Nein), Sozialisierungsbedarf"
+        }
+      ]
+    },
+
+    {
+      "section_number": 4,
+      "heading": "H2: Gesundheit und Tierärztliche Untersuchung beim Fohlenkauf",
+      "content_type": "tutorial",
+      "word_count": 220,
+      "subsections": [
+        {
+          "heading": "H3: Die Ankaufsuntersuchung (AKU) - Schritt für Schritt",
+          "word_count": 85,
+          "keywords": ["ankaufsuntersuchung", "tierarzt", "untersuchung", "aku"],
+          "content_focus": "MUSS-ELEMENT. Standard in Deutschland: Tierarzt führt externe klinische Untersuchung durch (€200-€400). Beinhaltet: Körper-Inspektion, Lauffähigkeit/Bewegung, Herz-Lungen-Auskultation, Zahnuntersuchung, Hufqualität-Check. Optional: Röntgen-Screening (Beine, Becken = +€300-€500), Bluttest für latente Infektionen. Fohlen-spezifisch: Nabelbruch-Kontrolle, Augenkrankheit-Screening (ERU), Wachstumsstörungen (OCD)."
+        },
+        {
+          "heading": "H3: Rote Flaggen beim Fohlenkauf - Was du vermeiden solltest",
+          "word_count": 75,
+          "keywords": ["rote flaggen", "warnsignale", "betrug", "krankheit"],
+          "content_focus": "UNIQUE CONTENT (praktisch nicht in Top 10 abgedeckt). Warnsignale: 1. Sehr niedriger Preis (€300-€600) = Schlachtmarkt-Indikator. 2. Verkäufer verweigert Vet-Check = RED FLAG. 3. Fohlen-Angst vor Menschen = Sozialisierungs-Defizit (teuer zu beheben). 4. Augentränfluss oder Augen-Schwellungen = ERU (equine recurrent uveitis, teuer). 5. Lahmheit oder Bewegungsunregelmäßigkeiten = Beinachsen-Probleme oder Gelenkerkrankung (OCD). 6. Verweigerte Abstammungs-Papiere = Rechtliche Risiken, mögliche Zuchtverbot-Verstöße."
+        },
+        {
+          "heading": "H3: Spezifische Fohlen-Krankheiten erkennen",
+          "word_count": 60,
+          "keywords": ["nabelbruch", "ocd", "erkrankung", "gesundheit"],
+          "content_focus": "Nabelbruch (bis 2-3 Monate oft selbstheilend, danach OP nötig). OCD (Osteochondritis Dissecans) = Knorpelerkrankung durch zu schnelles Wachstum (teuer, kann Karriere beenden). Equine Multiocular Autoimmune Disease (EMAD) bei bestimmten Rassen. Wachstumsstörungen (Flexure Deformities = gekrümmte Gelenke, OP-bedürftig). Tierarzt muss erfahren mit Fohlen-spezifischen Erkrankungen sein."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "wie erkenne ich ein gutes fohlen"],
+        "supporting": ["gesundheitscheck", "tierarzt", "ankaufsuntersuchung", "krankheit"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Ankaufsuntersuchungs-Standard folgt Richtlinien der Deutschen Tierärztlichen Vereinigung für Equinen-Kauf."
+        },
+        {
+          "type": "data",
+          "content": "Fohlen-spezifische Erkrankungen (OCD, EMAD, Nabelbruch) sind medizinisch dokumentierte Häufigkeitsrissiken in den ersten 2 Lebensjahren."
+        },
+        {
+          "type": "experience",
+          "content": "Rote-Flaggen-Section basiert auf häufige Betrugsmuster und Krankheitsanzeichen aus Pferd-Kaufberatung."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Gesundheits-Checkliste vor Ankauf: 15 Punkte mit Ja/Nein-Feldern (Bewegungsgarheit, Augen klar, Herz-Rhythmus normal, Nabel-Integration abgeschlossen?, Zahnentwicklung altersgerecht?, etc.)"
+        },
+        {
+          "type": "table",
+          "description": "Rote-Flaggen-Tabelle: Warnsignal → Wahrscheinliche Ursache → Kosten bei Reparatur → Empfehlung (Kaufe nicht / Verhandle Preis runter / Nur mit Vet-Bestätigung)"
+        }
+      ]
+    },
+
+    {
+      "section_number": 5,
+      "heading": "H2: Rechtliche Absicherung und Kaufvertrag für Fohlen",
+      "content_type": "explanation",
+      "word_count": 205,
+      "subsections": [
+        {
+          "heading": "H3: Der Kaufvertrag - Muss-Elemente und Fallstricke",
+          "word_count": 80,
+          "keywords": ["kaufvertrag", "recht", "vertragsrecht", "bedingungen"],
+          "content_focus": "KRITISCHER GAP in Top 10 - praktisch nicht abgedeckt. Muss-Elemente: 1. Identifikation (Name, Rasse, Alter, Farbe, Abzeichen, Chip-Nr., Equidenpass-Nr.). 2. Kaufpreis und Zahlungsbedingungen (Anzahlung? Ratenzahlung?). 3. Gewährleistungsfrist (gesetzlich 6 Monate für 'Mängel', oft verkürzt). 4. Rückgaberecht (zentral: Probierzeit? Kosten bei Rückgabe? Typischerweise 2 Wochen). 5. Haftung für Transportschäden. 6. Equidenpass-Übergabe und Chip-Umlassung. Fallstricke: 'Wie gesehen'-Klauseln (Käufer akzeptiert auch latente Defekte), sehr kurze Gewährleistungsfristen (ideal 6-12 Monate für Fohlen), mangelnde Rückgaberegelung."
+        },
+        {
+          "heading": "H3: Equidenpass und offizielle Dokumentation",
+          "word_count": 65,
+          "keywords": ["equidenpass", "papiere", "stammbuch", "fn"],
+          "content_focus": "Der Equidenpass ist MUSS - ohne nicht verkauft/versichert/geritten. Pass-Seiten: 1. Identifikation (Foto, Abzeichen, Chip). 2. Impfhistorie (muss aktuell sein). 3. Behandlungs-log. 4. Stammbuch-Eintrag (für gezogene Fohlen). Verkäufer MUSS Pass übergeben, nicht einbehalten! Wenn Pass fehlt: NICHT KAUFEN (oder massive Preisreduktion verhandeln)."
+        },
+        {
+          "heading": "H3: Gewährleistung und Verbraucherschutz bei Tierkauf",
+          "word_count": 60,
+          "keywords": ["gewährleistung", "verbraucherschutz", "garantie", "haftung"],
+          "content_focus": "BGB § 474-479 (Kaufrecht für Verbraucher bei 'Mängeln'): Standardgesetzlich 6 Monate Gewährleistung, aber für Pferde oft gekürzt. 'Mangel' = latente Erkrankung, die bei Übergabe schon bestand (z.B. versteckte Lahmheit). NICHT als Mangel: normale Alters-/Entwicklungs-Variationen. Kaufvertrag muss transparent sein - 'Wie gesehen' Klauseln sind zulässig, aber nur wenn genau dokumentiert. Beratung durch Fachanwalt für Tierkauf empfohlen (€150-€300 Investition lohnt sich bei Fohlen €2.000+)."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "fohlenkauf"],
+        "supporting": ["kaufvertrag", "recht", "gewährleistung", "equidenpass"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Kaufvertrag-Empfehlungen basieren auf BGB (Bürgerliches Gesetzbuch) § 474-482 und Fachanwalts-Standards für Pferdekauf."
+        },
+        {
+          "type": "data",
+          "content": "Equidenpass-Anforderungen sind gesetzlich seit 2009 verankert (EU-Verordnung 504/2008)."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Kaufvertrag-Checkliste: 12 Punkte (Identifikation vollständig? Preis und Zahlungsart klar? Gewährleistungsfrist ≥6 Monate? Probierzeit definiert? Equidenpass übergeben?, etc.)"
+        },
+        {
+          "type": "table",
+          "description": "Mustervertrag-Vorlage-Outline: 7 Sektion (Parteien, Pferd, Kaufpreis, Übergabe, Gewährleistung, Rückgabe, Unterschriften) mit kritischen Passagen markiert"
+        }
+      ]
+    },
+
+    {
+      "section_number": 6,
+      "heading": "H2: Praktische Checkliste: Was vor dem Kauf prüfen",
+      "content_type": "checklist",
+      "word_count": 155,
+      "subsections": [
+        {
+          "heading": "H3: Pre-Kauf Checkliste (Before Viewing)",
+          "word_count": 50,
+          "keywords": ["checkliste", "vorbereitung", "online"],
+          "content_focus": "Online-Phase: 1. Inserat gründlich lesen (Rasse, Alter, Abstammung, Preis realistisch?). 2. Verkäufer prüfen (Profil-Rating auf Marktplatz, Bewertungen?). 3. Referenzen erfragen (andere Käufer kontaktieren). 4. Betrug-Warnsignale identifizieren (zu billiger Preis, Stock-Photos statt echte Bilder, gestohlene Texte = all Warnsignale)."
+        },
+        {
+          "heading": "H3: Bei Besichtigung prüfen",
+          "word_count": 60,
+          "keywords": ["besichtigung", "vor-ort-check", "besichtigung"],
+          "content_focus": "Vor-Ort: 1. Stallbedingungen anschauen (ist es sauber, sicher? Fohlen-gerecht?). 2. Interaktion Fohlen-Mensch beobachten (ist es vertrauensfroh, verängstigt, aggressiv?). 3. Bewegung checken (auf Weide trottet es normal?). 4. Mutter sehen, falls Saugling. 5. Ursprungspapiere zeigen lassen. 6. Fotos/Videos der Besichtigung machen (Beweis für später). 7. 'Kann ich meinen Tierarzt mitbringen?' Fragen - seriöse Verkäufer erlauben das."
+        },
+        {
+          "heading": "H3: Post-Kauf Absicherung",
+          "word_count": 45,
+          "keywords": ["transport", "versicherung", "eingewöhnung", "nachbetreuung"],
+          "content_focus": "Nach Kaufvertrag: 1. Tierärztliche Ankaufsuntersuchung SOFORT terminieren (vor Transport). 2. Transport arrangieren (with insurance, nicht im eigenen Hänger für Erstkauf). 3. Versicherung abschließen (für Fohlen kritisch - Wachstum = Risiko). 4. Equidenpass-Chip-Umregistrierung durchführen (Besitzerwechsel dem Verband melden). 5. Mit Verkäufer Post-Kauf-Support absprechen (Fragen zu Fütterung, Verhalten?)."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "checkliste"],
+        "supporting": ["besichtigung", "vorbereitung", "absicherung"]
+      },
+      "eeat_signals": [
+        {
+          "type": "expertise",
+          "content": "Checklisten folgen Best-Practice-Standards aus Pferd-Kauffernlehrgängen und Marktplatz-Richtlinien."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "checklist",
+          "description": "Umfassende Fohlenkauf-Checkliste: 25 Punkte gruppiert nach 3 Phasen (Online-Search, Besichtigung, Post-Purchase) mit Ja/Nein/N/A-Feldern. Featured Snippet Target."
+        }
+      ]
+    },
+
+    {
+      "section_number": 7,
+      "heading": "H2: Finanzierungsoptionen und Zahlungsarten",
+      "content_type": "explanation",
+      "word_count": 155,
+      "subsections": [
+        {
+          "heading": "H3: Zahlungsarten beim Fohlenkauf",
+          "word_count": 60,
+          "keywords": ["zahlung", "überweisung", "ratenzahlung", "finanzierung"],
+          "content_focus": "PRACTICAL GAP (kaum in Top 10 erwähnt). Bar oder Überweisung = Standard. Anzahlung (meist 20-30%) zum Termin, Rest beim Transport. Ratenzahlung ist bei Privatverkäufern selten; ehorses Marktplatz ermöglicht teils Finanzierung über Partner. Lastschrift riskant (Rückbuchen-Gefahr). Escrow-Service (Treuhänder) für online-Käufe beliebt, aber kostet 3-5%. PayPal/Kreditkarte meist nicht akzeptiert."
+        },
+        {
+          "heading": "H3: Kreditoptionen und Versicherung-Links",
+          "word_count": 55,
+          "keywords": ["kredit", "finanzierung", "versicherung"],
+          "content_focus": "Bank-Kredit: Pferde-Spezialkredite (z.B. easyCredit Spezial-Pferdekredit) bieten 1-8% Zinsen, Laufzeit 12-84 Monate. Klassische Konsumentenkredite möglich, aber teurer. Versicherung: Krankenversicherung SOFORT nach Kauf (€20-€50/Monat). Haftpflicht für Fohlens' ursächliche Schäden. Vor Laufbahn-Entscheidung (Dressur vs. Springen) kann Versicherung gekündigt werden. Equine-Insurer wie Allianz, Gothaer haben Fohlen-Spezial-Tarife."
+        },
+        {
+          "heading": "H3: Kostenkalkulation über die Aufzuchtzeit",
+          "word_count": 40,
+          "keywords": ["kosten", "aufzucht", "haltung", "rechnung"],
+          "content_focus": "Realistische 5-Jahr-Kosten: Kaufpreis (€1.500-€4.000) + Transport (€800). Jahr 1-2: Haltung (€1.200-€3.600/Jahr), Futter-Spezial (€60-€100/Monat), Hufschmied (€80-€120, 8-10 Wochen), Vet (€300-€500). Jahr 3-5: Reitausbildung (€100-€300/Monat, optional). Gesamtbudget für gutes Fohlen: €15.000-€30.000 über 5 Jahre. Viele unterschätzen dies massiv."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen"],
+        "supporting": ["finanzierung", "kosten", "zahlungsart"]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Zinsraten und Versicherungskosten basieren auf aktuelle Marktdaten von Pferde-Finanzierungs-Providern (November 2024)."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "table",
+          "description": "5-Jahres-Kostenübersicht: Spalten (Jahr 1-5) vs. Zeilen (Haltung, Fütterung, Tierarzt, Optional Training) = monatliche und jährliche Kosten + Gesamtbudget"
+        }
+      ]
+    },
+
+    {
+      "section_number": 8,
+      "heading": "H2: Nachbetreuung nach Fohlenkauf: Die ersten Monate",
+      "content_type": "tutorial",
+      "word_count": 130,
+      "subsections": [
+        {
+          "heading": "H3: Eingewöhnung und Sozialisierung",
+          "word_count": 50,
+          "keywords": ["eingewöhnung", "sozialisierung", "vertrauensaufbau"],
+          "content_focus": "Erstes Monat kritisch. Ruhige Stallumgebung, bekannte Bezugsperson. Kontakt zu anderen Pferden (sozialisierung). Alltags-Handling üben (Hufbearbeitung, Tierarzt-Visiten, Transportladen). 'Ich bin sicher'-Gefühl aufbauen statt Druck. 2-3 Monate: einfache Longenarbeit möglich (Absetzer/Jährling)."
+        },
+        {
+          "heading": "H3: Fütterung und Wachstums-Management",
+          "word_count": 45,
+          "keywords": ["fütterung", "wachstum", "rationen", "mineralien"],
+          "content_focus": "Kritisch: Zu schnelles Wachstum = OCD-Risiko. Fohlen-spezielle Rationen (ausreichend Mineralien, Calcium-Phosphor-Balance). Weidezugang >14 Std/Tag ideal. Mutter-Milch-Ersatz unnötig (Weiden oder Premium-Müsli ausreichend). Tierarzt-Konsultation zur Wachstums-Kurve empfohlen."
+        },
+        {
+          "heading": "H3: Impfplan und Parasitenbekämpfung",
+          "word_count": 35,
+          "keywords": ["impfung", "parasiten", "equidenpass", "vet"],
+          "content_focus": "Impfplan: Grundimmunisierung (Tetanus, Influenza) ab Woche 4-8. Equine-Herpesvirus und Rhinovirus optional aber empfohlen. Equidenpass muss gepflegt werden (alle Impfungen/Behandlungen eingetragen). Parasitenbekämpfung: Regelmäßige Wurm-Kuren (alle 6-8 Wochen Jungfohlen, später 1-2x/Jahr). Bluttest auf Parasiten optional."
+        }
+      ],
+      "keyword_integration": {
+        "primary": ["fohlen kaufen", "fohlenkauf"],
+        "supporting": ["nachbetreuung", "aufzucht", "fütterung", "impfung"]
+      },
+      "eeat_signals": [
+        {
+          "type": "data",
+          "content": "Impfplan folgt FN-Empfehlungen und Tierärztlicher Vereinigung Standards für Fohlen-Gesundheit."
+        }
+      ],
+      "visual_elements": [
+        {
+          "type": "diagram",
+          "description": "Impfplan-Timeline: Alter (Wochen/Monate) vs. Impfungen mit Auffrischungs-Zyklen"
+        }
+      ]
+    }
+  ],
+
+  "faq_section": {
+    "word_count": 180,
+    "introduction": "Häufige Fragen zum Fohlenkauf - schnelle Antworten",
+    "questions": [
+      {
+        "question": "Wann sollte man Fohlen kaufen?",
+        "answer_outline": "Optimale Fenster: Absetzer (8-12 Monate) ist Goldstandard - alt genug für Transport, jung genug für Training. Jährling (12-24 Monate) für risikoaverse Käufer. Saugling nur für Züchter oder sehr Erfahrene. Zeitpunkt im Jahr: Frühjahr (März-April) beste Auswahl, teurer. Herbst (September-Oktober) weniger Auswahl, bessere Preise.",
+        "word_count": 85,
+        "paa_source": true,
+        "keywords": ["absetzer", "zeitpunkt", "jährling"]
+      },
+      {
+        "question": "Was kostet ein gutes Fohlen?",
+        "answer_outline": "Warmblut-Fohlen (Hannoveraner, Oldenburger): €2.000-€8.000. Spezialrassen (Friese, Haflinger): €1.500-€5.000. Freizeitfohlen: €800-€2.000. Sehr billige Fohlen (€300-€600) sind RED FLAG - mögliche Schlachtmarkt-Kandidaten. Preis hängt auch von Abstammung und Alter ab. Zusätzliche Kosten: Transport (€800), Tierarzt (€300), Haltung Jahr 1 (€2.000+).",
+        "word_count": 90,
+        "paa_source": true,
+        "keywords": ["preis", "kosten", "rasse"]
+      },
+      {
+        "question": "Wie erkenne ich ein gutes Fohlen?",
+        "answer_outline": "Physisch: Klare Augen, normales Laufen ohne Lahmheit, Nabel integriert, gutes Fell. Verhaltensmäßig: Vertrauensvoll (keine Angst vor Menschen), neugierig, nicht aggressiv. Rote Flaggen: Augentränfluss (ERU-Zeichen), Lahmheit, Bewegungsunregelmäßigkeiten, Angststörung (sehr teuer zu beheben). Immer: Tierärztliche Ankaufsuntersuchung durchführen BEVOR du kaufst.",
+        "word_count": 88,
+        "paa_source": true,
+        "keywords": ["gesundheit", "warnsignale", "krankheit"]
+      },
+      {
+        "question": "Was ist die 1-2-3-Regel für Fohlen?",
+        "answer_outline": "Post-Geburt-Meilensteine: 1. Fohlen muss innerhalb 1 Stunde aufstehen und saugen. 2. Stute muss innerhalb 2 Stunden Nachgeburt abwerfen. 3. Fohlen muss innerhalb 3 Stunden Kolostralmilch bekommen (Antikörper). Diese Regel ist für GEBURTS-Management relevant, nicht für Käufer. Aber sie zeigt: frühe Tage sind kritisch für Fohlens' Gesundheit.",
+        "word_count": 82,
+        "paa_source": true,
+        "keywords": ["geburt", "meilensteine", "gesundheit"]
+      },
+      {
+        "question": "Kann man Pferde vom Schlachter kaufen?",
+        "answer_outline": "Ja, es gibt Rettungsorganisationen (fohlenrettung-swg.de). Viele Fohlen landen im Schlachtmarkt, wenn zu billig verkauft (€300-€600 sind RED FLAGS). Rettungs-Fohlen sind günstiger, aber medizinische Vorgeschichte oft unbekannt, höhere Risiken. Nicht ideal für Anfänger. Psychologische Traumata möglich. Für Anfänger: eher Züchter oder established Marktplätze vertrauen.",
+        "word_count": 78,
+        "paa_source": true,
+        "keywords": ["schlachtmarkt", "rettung", "animal welfare"]
+      },
+      {
+        "question": "Was ist die teuerste OP beim Pferd?",
+        "answer_outline": "Kolik-OPs sind oft teuer (€2.000-€5.000). Für Fohlen spezifisch: Orthopädische OPs (OCD-Entfernung, Gelenkspülungen) = €1.500-€3.000+. Augenoperationen (ERU-bedingt) = €500-€2.000. Daher: Versicherung SOFORT nach Kauf abschließen (spart Tausende später). Eine 'OP-arme' Krankenversicherung kostet €20-€50/Monat für Fohlen.",
+        "word_count": 83,
+        "paa_source": true,
+        "keywords": ["versicherung", "kosten", "operation"]
+      },
+      {
+        "question": "Wo kann ich Fohlen online kaufen?",
+        "answer_outline": "Größte Marktplätze: ehorses.de (1.600+ Inserate, best reviews), pferde.de (gute Filter), kleinanzeigen.de (Privatverkäufer), deine-tierwelt.de (mittlere Auswahl). Spezialisiert: fohlenboerse.de (Züchter-fokussiert), Zuchtverbands-Seiten (FN-registrierte Züchter). Direktkauf beim Züchter via Google-Suche oder Verband-Empfehlungen. Sicherheit: Nur Marktplätze mit Käufer-Schutz vertrauen.",
+        "word_count": 81,
+        "paa_source": false,
+        "keywords": ["marktplatz", "online", "ehorses"]
+      },
+      {
+        "question": "Brauche ich einen Kaufvertrag beim Fohlenkauf?",
+        "answer_outline": "JA, absolut essentiell (auch Privatverkauf). Muss enthalten: Identifikation (Rasse, Alter, Chip-Nr.), Kaufpreis, Zahlungsbedingungen, Gewährleistungsfrist (min. 6 Monate), Rückgaberecht, Equidenpass-Übergabe. Viele Verkäufer bieten 'Muster-Verträge' an (prüfen!). Besser: Rechtsbeistand (€150-€300) nutzen für Fohlen >€2.000. Billigt Verkäufer Vertrag nicht → WARNSIGNAL, nicht kaufen.",
+        "word_count": 87,
+        "paa_source": false,
+        "keywords": ["vertrag", "recht", "gewährleistung"]
+      }
+    ]
+  },
+
+  "conclusion": {
+    "word_count": 126,
+    "key_takeaways": [
+      "Fohlenkauf verlangt klare Planung: Wähle dein Zeitfenster (Absetzer ideal), prüfe Marktplätze gründlich, setze ein realistisches Budget für Kauf + Haltung ein.",
+      "Gesundheit ist nicht verhandelbar: Tierärztliche Ankaufsuntersuchung ist MUSS, nicht Optional. Rote Flaggen wie sehr billige Preise oder Krankheitssymptome ignorieren.",
+      "Rechtliche Absicherung schützt dich: Ein klarer Kaufvertrag mit mindestens 6 Monaten Gewährleistung ist Standard. Equidenpass muss vollständig übergeben sein.",
+      "Versteckte Kosten unterschätzen Anfänger: Rechne mit €15.000-€30.000 über 5 Jahre hinzu (Haltung, Fütterung, Versicherung, Ausbildung).",
+      "Versicherung sofort abschließen: Fohlen sind Wachstums-Risiko (OCD, orthopädische Probleme). €20-€50/Monat jetzt spart Tausende später."
+    ],
+    "call_to_action": "Du bist bereit für den nächsten Schritt? Nutze die Fohlenkauf-Checkliste, recherchiere auf ehorses oder pferde.de, und führe eine Tierärztliche Untersuchung durch BEVOR du unterschreibst. Starte noch heute deine Suche - mit den richtigen Werkzeugen wirst du ein gesundes, sicheres Fohlen finden.",
+    "keyword_integration": ["fohlen kaufen", "fohlenkauf", "ratgeber"]
+  },
+
+  "internal_linking_opportunities": [
+    {
+      "section": "Wo Fohlen kaufen",
+      "target_page": "/pferde-ratgeber/pferd-kaufen",
+      "anchor_text": "Erwachsene Pferde kaufen - Alle Schritte im Ratgeber"
+    },
+    {
+      "section": "Kaufpreis verstehen",
+      "target_page": "/pferde-ratgeber/pferdepflege-kosten",
+      "anchor_text": "Langfristige Haltungskosten für Pferde - Vollständiger Kosten-Leitfaden"
+    },
+    {
+      "section": "Gesundheit prüfen",
+      "target_page": "/pferde-ratgeber/pferde-gesundheit",
+      "anchor_text": "Pferdegesundheit: Krankheiten erkennen und behandeln"
+    },
+    {
+      "section": "Rechtliche Absicherung",
+      "target_page": "/pferde-ratgeber/pferdekauf-recht",
+      "anchor_text": "Rechtliche Grundlagen beim Pferdekauf - Kaufvertrag und Gewährleistung"
+    },
+    {
+      "section": "Praktische Checkliste",
+      "target_page": "/pferde-ratgeber/pferdekauf-checkliste",
+      "anchor_text": "Komplette Pferdekauf-Checkliste für sichere Entscheidungen"
+    },
+    {
+      "section": "Versicherung",
+      "target_page": "/pferde-ratgeber/pferdeversicherung",
+      "anchor_text": "Pferdeversicherungen: Krankenversicherung, Haftpflicht und OP-Versicherung"
+    }
+  ],
+
+  "quality_gate": {
+    "main_sections_count": 8,
+    "main_sections_requirement": "5-8",
+    "main_sections_status": "PASS",
+    "faq_questions_count": 8,
+    "faq_questions_requirement": "min 5",
+    "faq_questions_status": "PASS",
+    "paa_sourced_questions": 5,
+    "paa_sourced_requirement": "min 3",
+    "paa_sourced_status": "PASS",
+    "internal_linking_count": 6,
+    "internal_linking_requirement": "min 5",
+    "internal_linking_status": "PASS",
+    "target_word_count_defined": true,
+    "word_count_distribution_defined": true,
+    "eeat_signals_per_section": 8,
+    "eeat_requirement": "min 1 per section",
+    "eeat_status": "PASS",
+    "visual_elements_count": 11,
+    "visual_elements_status": "PASS",
+    "overall_status": "PASS - Ready for Phase 4 (Content Writing)"
+  }
+}

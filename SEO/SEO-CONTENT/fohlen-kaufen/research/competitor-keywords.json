@@ -1,0 +1,274 @@
+{
+  "primary_keyword": "fohlen kaufen",
+  "analyzed_at": "2025-12-13T14:30:00Z",
+  "competitors_analyzed": [
+    {
+      "domain": "ehorses.de",
+      "serp_position": 1,
+      "keywords_extracted": 45,
+      "relevant_keywords_after_filter": 32
+    },
+    {
+      "domain": "kleinanzeigen.de",
+      "serp_position": 2,
+      "keywords_extracted": 50,
+      "relevant_keywords_after_filter": 8
+    },
+    {
+      "domain": "pferde.de",
+      "serp_position": 3,
+      "keywords_extracted": 48,
+      "relevant_keywords_after_filter": 26
+    }
+  ],
+  "competitor_keywords": [
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pony",
+      "search_volume": 33100,
+      "cpc": 0.78,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "cpc": 0.09,
+      "competitor_rank": 6,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "oldenburger",
+      "search_volume": 301000,
+      "cpc": 1.31,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "cpc": 1.49,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "friese",
+      "search_volume": 18100,
+      "cpc": 0.05,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "schlesier",
+      "search_volume": 33100,
+      "cpc": 0.79,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "shire horse",
+      "search_volume": 22200,
+      "cpc": 0.0,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "horse shire",
+      "search_volume": 22200,
+      "cpc": 0.0,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "horse",
+      "search_volume": 18100,
+      "cpc": 0.61,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferderasse",
+      "search_volume": 18100,
+      "cpc": 0.36,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "cpc": 0.2,
+      "competitor_rank": 1,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferde",
+      "search_volume": 165000,
+      "cpc": 0.41,
+      "competitor_rank": 5,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "hannoveraner",
+      "search_volume": 14800,
+      "cpc": 0.27,
+      "competitor_rank": 9,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "araber",
+      "search_volume": 27100,
+      "cpc": 1.37,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "cpc": 0.09,
+      "competitor_rank": 6,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "haflinger zu kaufen",
+      "search_volume": 5400,
+      "cpc": 0.22,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "wie viel ps hat ein pferd",
+      "search_volume": 6600,
+      "cpc": 0.0,
+      "competitor_rank": 4,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "wie viele ps hat ein pferd",
+      "search_volume": 6600,
+      "cpc": 0.0,
+      "competitor_rank": 4,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "größtes pferd der welt",
+      "search_volume": 5400,
+      "cpc": 0.0,
+      "competitor_rank": 8,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "honigkuchenpferd",
+      "search_volume": 6600,
+      "cpc": 0.0,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "mustangs pferde",
+      "search_volume": 8100,
+      "cpc": 0.02,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "wie alt werden pferde",
+      "search_volume": 9900,
+      "cpc": 0.0,
+      "competitor_rank": 5,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "achal tekkiner pferde",
+      "search_volume": 4400,
+      "cpc": 0.16,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "barrel race",
+      "search_volume": 4400,
+      "cpc": 0.0,
+      "competitor_rank": 2,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "pferde wie alt",
+      "search_volume": 9900,
+      "cpc": 0.0,
+      "competitor_rank": 3,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "stall frei",
+      "search_volume": 49500,
+      "cpc": 0.02,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de",
+      "source": "competitor_analysis"
+    },
+    {
+      "keyword": "achal-tekkiner pferde",
+      "search_volume": 4400,
+      "cpc": 0.16,
+      "competitor_rank": 10,
+      "competitor_domain": "pferde.de",
+      "source": "competitor_analysis"
+    }
+  ],
+  "statistics": {
+    "total_extracted": 143,
+    "after_filtering": 30,
+    "avg_search_volume": 38267,
+    "avg_competitor_rank": 5.2,
+    "commercial_keywords": 24,
+    "informational_keywords": 6
+  }
+}

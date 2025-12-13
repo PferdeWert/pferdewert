@@ -1,0 +1,83 @@
+{
+  "phase": "5C",
+  "primary_keyword": "fohlen kaufen",
+  "total_internal_links": 6,
+  "linking_strategy": "Natürliche Verlinkung zu verwandten Ratgeber-Artikeln mit Fokus auf Service-Verlinkung (Pferdewert-Bewertung) und Related How-To Guides",
+
+  "internal_links": [
+    {
+      "position": 1,
+      "section": "Einleitung",
+      "anchor_text": "Pferdewert ermitteln",
+      "target_url": "/pferde-ratgeber/pferdewert-ermitteln",
+      "context": "Bevor du ein Fohlen kaufst, solltest du den fairen Marktwert kennen. Mit unserer [Pferdewert ermitteln] Funktion erhältst du eine KI-basierte Bewertung, um Überzahlungen zu vermeiden.",
+      "relevance": "high",
+      "link_type": "primary_service"
+    },
+    {
+      "position": 2,
+      "section": "Kaufpreis verstehen",
+      "anchor_text": "Langfristige Haltungskosten für Pferde",
+      "target_url": "/pferde-ratgeber/pferdepflege-kosten",
+      "context": "Neben dem Kaufpreis fallen erhebliche Haltungskosten an. Unsere [Langfristige Haltungskosten für Pferde] Übersicht hilft dir, ein realistisches Budget über 5 Jahre zu kalkulieren.",
+      "relevance": "high",
+      "link_type": "related_guide"
+    },
+    {
+      "position": 3,
+      "section": "Gesundheit und Tierärztliche Untersuchung",
+      "anchor_text": "Pferdegesundheit: Erkrankungen erkennen und behandeln",
+      "target_url": "/pferde-ratgeber/pferdegesundheit",
+      "context": "Die Ankaufsuntersuchung ist kritisch, doch auch später müssen Fohlens-Erkrankungen erkannt werden. Unser [Pferdegesundheit: Erkrankungen erkennen und behandeln] Guide zeigt dir Warnsignale.",
+      "relevance": "high",
+      "link_type": "related_guide"
+    },
+    {
+      "position": 4,
+      "section": "Rechtliche Absicherung",
+      "anchor_text": "Kaufvertrag und Gewährleistung beim Pferdekauf",
+      "target_url": "/pferde-ratgeber/pferdekauf-recht",
+      "context": "Rechtliche Grundlagen sind essentiell. Unsere detaillierte Anleitung [Kaufvertrag und Gewährleistung beim Pferdekauf] erklärt BGB-Regelungen für Pferdeverkäufe.",
+      "relevance": "high",
+      "link_type": "related_guide"
+    },
+    {
+      "position": 5,
+      "section": "Praktische Checkliste",
+      "anchor_text": "Pferdekauf-Checkliste: 30 Punkte für sichere Entscheidungen",
+      "target_url": "/pferde-ratgeber/pferdekauf-checkliste",
+      "context": "Zusätzlich zu unserer Fohlenkauf-Checkliste empfehlen wir die erweiterte [Pferdekauf-Checkliste: 30 Punkte für sichere Entscheidungen] zum Abhaken.",
+      "relevance": "medium",
+      "link_type": "related_guide"
+    },
+    {
+      "position": 6,
+      "section": "Versicherung und Finanzierung",
+      "anchor_text": "Pferdeversicherungen: Krankenversicherung, Haftpflicht und OP-Versicherung",
+      "target_url": "/pferde-ratgeber/pferdeversicherung",
+      "context": "Versicherung sofort nach Fohlenkauf ist essentiell. Unsere [Pferdeversicherungen: Krankenversicherung, Haftpflicht und OP-Versicherung] Anleitung erklärt alle Optionen.",
+      "relevance": "high",
+      "link_type": "related_guide"
+    }
+  ],
+
+  "validation": {
+    "total_links": 6,
+    "minimum_links_requirement": 3,
+    "minimum_service_links": 1,
+    "service_links_count": 1,
+    "minimum_related_guides": 2,
+    "related_guides_count": 5,
+    "all_links_contextual": true,
+    "anchor_text_natural": true,
+    "status": "PASSED"
+  },
+
+  "quality_metrics": {
+    "links_per_1000_words": 3.3,
+    "first_link_position": "Introduction (word ~80)",
+    "anchor_text_diversity": "6 unique anchors (no exact duplicates)",
+    "service_link_integration": "Naturally in introduction and conclusion zones",
+    "internal_link_strategy_alignment": "✓ Primary service linked (Pferdewert-Bewertung), Related guides support content depth"
+  }
+}

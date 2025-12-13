@@ -1,0 +1,396 @@
+{
+  "primary_keyword": "fohlen kaufen",
+  "merged_at": "2025-12-13T14:35:00Z",
+  "sources": {
+    "phase_1b_keywords": 12,
+    "phase_1c_keywords": 30,
+    "total": 42,
+    "note": "Note: Phase 1B only extracted 12 keywords from initial analysis. Full Phase 1B would include ~50 keywords from related keywords analysis"
+  },
+  "all_keywords": [
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high",
+      "competitor_rank": 1
+    },
+    {
+      "keyword": "fohlen kaufen",
+      "search_volume": 1300,
+      "cpc": 0.16,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high",
+      "keyword_difficulty": 27
+    },
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high",
+      "competitor_rank": 1
+    },
+    {
+      "keyword": "pony kaufen",
+      "search_volume": 6600,
+      "cpc": 0.09,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high",
+      "keyword_difficulty": 13
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "cpc": 0.24,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "high",
+      "competitor_rank": 1
+    },
+    {
+      "keyword": "oldenburger",
+      "search_volume": 301000,
+      "cpc": 1.31,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "high",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "pferd kaufen nrw",
+      "search_volume": 1600,
+      "cpc": 0.13,
+      "source": "phase_1b",
+      "cluster_name": "Geographic",
+      "priority": "medium",
+      "keyword_difficulty": 15
+    },
+    {
+      "keyword": "haflinger",
+      "search_volume": 27100,
+      "cpc": 1.49,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "high",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "oldenburger kaufen",
+      "search_volume": 210,
+      "cpc": 0.07,
+      "source": "phase_1b",
+      "cluster_name": "Breed-Specific",
+      "priority": "medium",
+      "keyword_difficulty": 18
+    },
+    {
+      "keyword": "friese",
+      "search_volume": 18100,
+      "cpc": 0.05,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "medium",
+      "competitor_rank": 2
+    },
+    {
+      "keyword": "schlesier",
+      "search_volume": 33100,
+      "cpc": 0.79,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "medium",
+      "competitor_rank": 2
+    },
+    {
+      "keyword": "pony",
+      "search_volume": 33100,
+      "cpc": 0.78,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "fohlen kaufen günstig",
+      "search_volume": 50,
+      "cpc": 0.1,
+      "source": "phase_1b",
+      "cluster_name": "Price-Based",
+      "priority": "low",
+      "keyword_difficulty": 8
+    },
+    {
+      "keyword": "pferd kaufen preis",
+      "search_volume": 320,
+      "cpc": 0.26,
+      "source": "phase_1b",
+      "cluster_name": "Price-Based",
+      "priority": "low",
+      "keyword_difficulty": 12
+    },
+    {
+      "keyword": "pony kaufen bayern",
+      "search_volume": 390,
+      "cpc": 0.09,
+      "source": "phase_1b",
+      "cluster_name": "Geographic",
+      "priority": "low",
+      "keyword_difficulty": 14
+    },
+    {
+      "keyword": "fohlen zu verschenken",
+      "search_volume": 110,
+      "cpc": 0.0,
+      "source": "phase_1b",
+      "cluster_name": "General",
+      "priority": "low",
+      "keyword_difficulty": 5
+    },
+    {
+      "keyword": "shire horse",
+      "search_volume": 22200,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "medium",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "horse shire",
+      "search_volume": 22200,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "medium",
+      "competitor_rank": 2
+    },
+    {
+      "keyword": "pferdemarkt",
+      "search_volume": 22200,
+      "cpc": 0.2,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium",
+      "competitor_rank": 1
+    },
+    {
+      "keyword": "pferdrasse",
+      "search_volume": 18100,
+      "cpc": 0.36,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "araber",
+      "search_volume": 27100,
+      "cpc": 1.37,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "medium",
+      "competitor_rank": 10
+    },
+    {
+      "keyword": "hannoveraner",
+      "search_volume": 14800,
+      "cpc": 0.27,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "low",
+      "competitor_rank": 9
+    },
+    {
+      "keyword": "haflinger zu kaufen",
+      "search_volume": 5400,
+      "cpc": 0.22,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "low",
+      "competitor_rank": 10
+    },
+    {
+      "keyword": "wie viel ps hat ein pferd",
+      "search_volume": 6600,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 4
+    },
+    {
+      "keyword": "wie viele ps hat ein pferd",
+      "search_volume": 6600,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 4
+    },
+    {
+      "keyword": "größtes pferd der welt",
+      "search_volume": 5400,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 8
+    },
+    {
+      "keyword": "honigkuchenpferd",
+      "search_volume": 6600,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 10
+    },
+    {
+      "keyword": "mustangs pferde",
+      "search_volume": 8100,
+      "cpc": 0.02,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "low",
+      "competitor_rank": 10
+    },
+    {
+      "keyword": "wie alt werden pferde",
+      "search_volume": 9900,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 5
+    },
+    {
+      "keyword": "achal tekkiner pferde",
+      "search_volume": 4400,
+      "cpc": 0.16,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "low",
+      "competitor_rank": 10
+    },
+    {
+      "keyword": "barrel race",
+      "search_volume": 4400,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 2
+    },
+    {
+      "keyword": "pferde wie alt",
+      "search_volume": 9900,
+      "cpc": 0.0,
+      "source": "phase_1c",
+      "cluster_name": "Informational",
+      "priority": "low",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "pony fohlen kaufen",
+      "search_volume": 70,
+      "cpc": 0.07,
+      "source": "phase_1b",
+      "cluster_name": "Breed-Specific",
+      "priority": "low",
+      "keyword_difficulty": 10
+    },
+    {
+      "keyword": "fohlen kaufen in der nähe",
+      "search_volume": 50,
+      "cpc": 0.14,
+      "source": "phase_1b",
+      "cluster_name": "Geographic",
+      "priority": "low",
+      "keyword_difficulty": 12
+    },
+    {
+      "keyword": "stall frei",
+      "search_volume": 49500,
+      "cpc": 0.02,
+      "source": "phase_1c",
+      "cluster_name": "Related",
+      "priority": "medium",
+      "competitor_rank": 3
+    },
+    {
+      "keyword": "pferde",
+      "search_volume": 165000,
+      "cpc": 0.41,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "medium",
+      "competitor_rank": 5
+    },
+    {
+      "keyword": "horse",
+      "search_volume": 18100,
+      "cpc": 0.61,
+      "source": "phase_1c",
+      "cluster_name": "Commercial",
+      "priority": "low",
+      "competitor_rank": 2
+    },
+    {
+      "keyword": "achal-tekkiner pferde",
+      "search_volume": 4400,
+      "cpc": 0.16,
+      "source": "phase_1c",
+      "cluster_name": "Breed-Specific",
+      "priority": "low",
+      "competitor_rank": 10
+    }
+  ],
+  "priority_keywords": {
+    "high_priority": [
+      "pferd kaufen",
+      "fohlen kaufen",
+      "pferde kaufen",
+      "pony kaufen",
+      "oldenburger",
+      "haflinger"
+    ],
+    "medium_priority": [
+      "kaufen pferd",
+      "friese",
+      "schlesier",
+      "pony",
+      "pferdemarkt",
+      "shire horse",
+      "araber",
+      "stall frei",
+      "pferde"
+    ],
+    "low_priority": [
+      "pferd kaufen nrw",
+      "oldenburger kaufen",
+      "fohlen kaufen günstig",
+      "pferd kaufen preis",
+      "pony kaufen bayern",
+      "pferdrasse",
+      "hannoveraner",
+      "haflinger zu kaufen",
+      "wie viel ps hat ein pferd",
+      "informational keywords..."
+    ]
+  },
+  "cluster_summary": {
+    "Commercial": 8,
+    "Breed-Specific": 12,
+    "Informational": 10,
+    "Geographic": 3,
+    "Price-Based": 2,
+    "Related": 1,
+    "General": 1
+  }
+}

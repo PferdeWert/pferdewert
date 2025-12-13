@@ -1,0 +1,127 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Fohlen kaufen: Schritt-für-Schritt Anleitung",
+  "description": "Praktischer Guide zum sicheren Fohlenkauf mit detaillierten Schritten von der Recherche bis zur Nachbetreuung.",
+  "totalTime": "PT3H",
+  "estimatedCost": {
+    "@type": "PriceSpecification",
+    "priceCurrency": "EUR",
+    "price": "15000",
+    "priceRange": "15000-30000"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Finanzbudget und Zeitrahmen festlegen",
+      "text": "Realistische Kostenkalkulation durchführen: Kaufpreis (€1.500–€4.000) + Transport (€800) + Tierarzt (€300–€500) + Haltung Jahr 1 (€2.000+) + Versicherung (€240–€600/Jahr). Realistisches 5-Jahres-Budget: €15.000–€30.000. Zeitrahmen: Recherche 2–4 Wochen, Besichtigungen 1–2 Wochen, Transportorganisation 1 Woche.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Nutze Finanzierungsoptionen von ehorses oder Bank-Pferdekredit wenn nötig (1–8% Zinsen)"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Versicherung sollte sofort nach Kauf abgeschlossen sein (Wachstumsrisiken versichern)"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Online-Recherche: Marktplätze und Angebote durchsuchen",
+      "text": "Große Marktplätze durchsuchen: ehorses.de (beste Auswahl), pferde.de (gute Filter), kleinanzeigen.de (Privatverkäufer). Inserate gründlich lesen: Rasse, Alter, Abstammung, Preis realistisch? Verkäufer-Profil prüfen (Rating, Bewertungen auf Marktplatz). Referenzen erfragen – andere Käufer kontaktieren. Betrug-Warnsignale identifizieren: zu billiger Preis, Stock-Photos, gestohlene Texte.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Seriöse Züchter: FN-Stutbuch-Eintrag prüfen, Betriebsbesichtigungen erlaubt, Referenzen verfügbar"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Altersgruppen-Filter nutzen: Absetzer (8–12 Monate) ist Goldstandard für meiste Käufer"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Besichtigung vor Ort durchführen",
+      "text": "Stallbedingungen anschauen (sauber, sicher, fohlen-gerecht?). Interaktion Fohlen–Mensch beobachten (vertrauensvoll oder verängstigt?). Bewegung checken (auf Weide trottet es normal?). Mutter sehen, falls Saugling. Ursprungspapiere und Stammbaum zeigen lassen. Fotos/Videos der Besichtigung machen (Beweis für später). Wichtige Frage: 'Kann ich meinen Tierarzt mitbringen?' – seriöse Verkäufer erlauben das.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Rote Flaggen beachten: Augentränfluss, Lahmheit, Angststörung, sehr billiger Preis, verweigerte Papiere"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Checkliste nutzen: 25-Punkte-Fohlenkauf-Checkliste aus Ratgeber abarbeiten"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Kaufvertrag verhandeln und unterzeichnen",
+      "text": "Schriftlicher Kaufvertrag MUSS folgende Punkte enthalten: (1) Identifikation (Name, Rasse, Alter, Farbe, Chip-Nr., Equidenpass-Nr.), (2) Kaufpreis und Zahlungsbedingungen (Anzahlung %, Rest bei Transport?), (3) Gewährleistungsfrist (mindestens 6 Monate fordern), (4) Rückgaberecht/Probierzeit, (5) Haftung für Transportschäden, (6) Equidenpass-Übergabe und Chip-Umregistrierung. Fachanwalt für Tierkauf (€150–€300) konsultieren für Fohlen >€2.000.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Gewährleistungsfrist: Gesetzlich 6 Monate, oft gekürzt – verhandle für mindestens 6 Monate"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Verkäufer verweigert Vertrag? NICHT KAUFEN – großes Warnsignal für Unseriösität"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Tierärztliche Ankaufsuntersuchung durchführen",
+      "text": "SOFORT nach Kaufvertrag, BEVOR Transport arrangiert wird. Tierarzt führt externe klinische Untersuchung durch (€200–€400): Körper-Inspektion, Lauffähigkeit/Bewegung auf harter und weicher Fläche, Herz-Lungen-Auskultation, Zahnuntersuchung, Hufqualität-Check. Optional empfohlen: Röntgen-Screening Beine/Becken (€300–€500), Bluttest auf latente Infektionen. Fohlen-spezifisch: Nabelbruch-Kontrolle, Augenkrankheit-Screening (ERU), Wachstumsstörungen (OCD).",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Tierarzt muss erfahren mit Fohlen-spezifischen Erkrankungen sein – nicht jeder Vet hat diese Expertise"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Wenn Vet-Bericht Probleme findet: Rückgaberecht innerhalb Gewährleistungsfrist nutzen"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Transport organisieren und Versicherung abschließen",
+      "text": "Transport mit professionellem Hänger und Versicherung arrangieren (€500–€2.000 je nach Entfernung). Nicht im eigenen Hänger für Erstkauf – Risiko zu hoch. Krankenversicherung SOFORT abschließen (€20–€50/Monat, sehr wichtig für Fohlens Wachstumsrisiken). Optionale Versicherungen: Haftpflicht (Schäden, die Fohlen verursacht), OP-Versicherung. Post-Transportcheck: Fohlen an neuem Ort angekommen? Transportstress? Verletzungen?",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Versicherung ist Investition: OCD-OPs kosten €1.500–€3.000+, Versicherung zahlt sich aus"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Equidenpass-Chip: Besitzerwechsel dem Verband (FN) melden innerhalb 4 Wochen nach Kauf"
+        }
+      ]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Eingewöhnung und erste Monate nach Kauf",
+      "text": "Erstes Monat kritisch: Ruhige Stallumgebung mit bekannter Bezugsperson. Kontakt zu anderen Pferden (Sozialisierung essentiell). Alltags-Handling üben (Hufbearbeitung, Tierarzt-Besuche, Transportladen). 'Ich bin sicher'-Gefühl aufbauen statt Druck. Fütterung: Fohlen-spezielle Rationen mit ausreichenden Mineralien (OCD-Prävention). Weidezugang >14 Std/Tag ideal. Impfplan beginnen: Tetanus, Influenza ab Woche 4–8. Regelmäßige Wurm-Kuren alle 6–8 Wochen. 2–3 Monate: leichte Longenarbeit möglich.",
+      "itemListElement": [
+        {
+          "@type": "HowToTip",
+          "text": "Zu schnelles Wachstum = OCD-Risiko → Fütterung sorgfältig planen"
+        },
+        {
+          "@type": "HowToTip",
+          "text": "Equidenpass pflegen: Alle Impfungen, Behandlungen, Vet-Besuche eintragen"
+        }
+      ]
+    }
+  ]
+}

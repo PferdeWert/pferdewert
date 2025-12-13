@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Fohlen kaufen: Kompletter Ratgeber 2025",
+  "description": "Umfassender Ratgeber zum Fohlenkauf mit Marktplatz-Überblick, Preisanalyse, Gesundheitschecks und rechtlicher Absicherung. Praktische Checkliste und Schritt-für-Schritt Anleitung.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/ratgeber/fohlen-kaufen.webp",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "url": "https://pferdewert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 400,
+      "height": 60
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 400,
+      "height": 60
+    }
+  },
+  "datePublished": "2025-12-13",
+  "dateModified": "2025-12-13",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/fohlen-kaufen"
+  },
+  "articleBody": "Fohlen kaufen ist verlockend – schließlich kostet ein junges Pferd deutlich weniger als ein ausgewachsenes. Doch hier lauert ein großes Risiko: Der Fohlenkauf ist medizinisch komplexer und rechtlich tückischer, als viele Anfänger erwarten. Dieser Ratgeber zeigt dir alle Schritte vom ersten Gedanken bis zum Kaufvertrag mit praktischer Checkliste.",
+  "keywords": "fohlen kaufen, fohlenkauf, fohlen preis, wo fohlen kaufen, absetzer, jährling, fohlen gesundheit, kaufvertrag",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2"]
+  },
+  "inLanguage": "de-DE"
+}

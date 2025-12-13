@@ -1,0 +1,332 @@
+{
+  "snapshot_date": "2025-12-13",
+  "analysis_keyword": "fohlen kaufen",
+  "competitor_count": 10,
+  "top_10_urls": [
+    {
+      "rank": 1,
+      "url": "https://www.ehorses.de/fohlen",
+      "domain": "ehorses.de",
+      "title": "Fohlen kaufen | Fohlenbörse auf ehorses",
+      "type": "marketplace",
+      "topics_covered": [
+        "marketplace_listings",
+        "price_filtering",
+        "breed_selection",
+        "regional_search",
+        "direct_from_breeder",
+        "multiple_use_cases"
+      ],
+      "topics_missing": [
+        "health_checks",
+        "legal_safety",
+        "buying_tips",
+        "warning_signs",
+        "negotiation_tactics",
+        "insurance_timing"
+      ],
+      "estimated_word_count": 800,
+      "content_depth": "marketplace_focused",
+      "unique_strength": "Trust signal (geprüfte Angebote), largest inventory"
+    },
+    {
+      "rank": 2,
+      "url": "https://www.kleinanzeigen.de/s-pferde/fohlen/k0c139",
+      "domain": "kleinanzeigen.de",
+      "title": "Fohlen, Pferde & Zubehör gebraucht kaufen",
+      "type": "classifieds_marketplace",
+      "topics_covered": [
+        "classifieds_listings",
+        "regional_filtering",
+        "price_range_search",
+        "breed_categories",
+        "seller_type_filter",
+        "volume_and_selection"
+      ],
+      "topics_missing": [
+        "buying_guidance",
+        "health_criteria",
+        "contract_templates",
+        "red_flags",
+        "cost_breakdown",
+        "timing_advice"
+      ],
+      "estimated_word_count": 850,
+      "content_depth": "marketplace_focused",
+      "unique_strength": "Huge volume (1.149 listings), private sellers"
+    },
+    {
+      "rank": 3,
+      "url": "https://www.pferde.de/kleinanzeigen/markt/fohlen",
+      "domain": "pferde.de",
+      "title": "Fohlen kaufen & verkaufen bei pferde.de",
+      "type": "marketplace",
+      "topics_covered": [
+        "marketplace_listings",
+        "extensive_breed_filter",
+        "discipline_categories",
+        "age_categories",
+        "color_filter",
+        "location_search"
+      ],
+      "topics_missing": [
+        "educational_content",
+        "purchasing_advice",
+        "health_assessment",
+        "contract_guidance",
+        "price_research",
+        "seller_vetting"
+      ],
+      "estimated_word_count": 900,
+      "content_depth": "marketplace_focused",
+      "unique_strength": "Most detailed filtering (breed, discipline, age, color, size)"
+    },
+    {
+      "rank": 4,
+      "url": "https://www.deine-tierwelt.de/kleinanzeigen/markt/fohlen/",
+      "domain": "deine-tierwelt.de",
+      "title": "Fohlen kaufen und verkaufen bei DeineTierwelt",
+      "type": "classifieds_marketplace",
+      "topics_covered": [
+        "classifieds_listings",
+        "breed_mentions",
+        "regional_search",
+        "marketplace_description"
+      ],
+      "topics_missing": [
+        "buying_tips",
+        "health_guidance",
+        "legal_aspects",
+        "cost_planning",
+        "red_flags",
+        "market_analysis"
+      ],
+      "estimated_word_count": 600,
+      "content_depth": "minimal",
+      "unique_strength": "Tierwelt branding (all animals), broad reach"
+    },
+    {
+      "rank": 5,
+      "url": "https://fohlenboerse.de/Suche",
+      "domain": "fohlenboerse.de",
+      "title": "Willkommen auf der Fohlenbörse!",
+      "type": "niche_marketplace",
+      "topics_covered": [
+        "foal_specific_marketplace",
+        "recent_listings",
+        "marketplace_positioning",
+        "market_leader_messaging"
+      ],
+      "topics_missing": [
+        "buying_guidance",
+        "health_information",
+        "legal_templates",
+        "cost_breakdown",
+        "buyer_education",
+        "seller_vetting"
+      ],
+      "estimated_word_count": 700,
+      "content_depth": "marketplace_focused",
+      "unique_strength": "Foal-only marketplace, market positioning"
+    },
+    {
+      "rank": 6,
+      "url": "https://www.fundis-reitsport.de/blog/haltung/alles-wichtige-zum-fohlenkauf/",
+      "domain": "fundis-reitsport.de",
+      "title": "Was du beim Fohlenkauf beachten solltest",
+      "type": "blog_content",
+      "topics_covered": [
+        "importance_of_buying",
+        "advantages_of_foals",
+        "risks_and_challenges",
+        "purchase_price",
+        "housing_costs",
+        "how_to_recognize_good_foal"
+      ],
+      "topics_missing": [
+        "legal_contracts",
+        "health_checks_detail",
+        "red_flags",
+        "transportation",
+        "insurance_timing",
+        "trial_period_negotiation",
+        "market_guides"
+      ],
+      "estimated_word_count": 1100,
+      "content_depth": "intermediate_guide",
+      "unique_strength": "Only real content competitor, covers fundamentals"
+    },
+    {
+      "rank": 7,
+      "url": "https://www.pferdezucht-jacobs.de/fohlen-kaufen/",
+      "domain": "pferdezucht-jacobs.de",
+      "title": "Fohlen kaufen",
+      "type": "breeder_site",
+      "topics_covered": [
+        "breeder_specialization",
+        "specific_breeds",
+        "photos_and_videos",
+        "pedigree_information",
+        "sporting_disciplines"
+      ],
+      "topics_missing": [
+        "general_buying_tips",
+        "health_checks",
+        "legal_guidance",
+        "price_comparisons",
+        "market_overview",
+        "seller_vetting"
+      ],
+      "estimated_word_count": 500,
+      "content_depth": "breeder_promotional",
+      "unique_strength": "Specialized breeder expertise, proven lineages"
+    },
+    {
+      "rank": 8,
+      "url": "https://www.fohlenrettung-swg.de/",
+      "domain": "fohlenrettung-swg.de",
+      "title": "Einer kleinen Seele ein Zuhause geben...SWG - Fohlen und...",
+      "type": "nonprofit_rescue",
+      "topics_covered": [
+        "rescue_mission",
+        "animal_welfare",
+        "adoption_process",
+        "specific_breeds",
+        "mission_messaging"
+      ],
+      "topics_missing": [
+        "market_prices",
+        "breeder_guidance",
+        "purchase_contracts",
+        "health_assessment_tips",
+        "market_comparison"
+      ],
+      "estimated_word_count": 400,
+      "content_depth": "mission_focused",
+      "unique_strength": "Rescue and welfare perspective, trust signal"
+    },
+    {
+      "rank": 9,
+      "url": "https://www.hannoveraner.com/hannoveraner-verband/pferdemarkt/",
+      "domain": "hannoveraner.com",
+      "title": "Pferdemarkt: Hannoveraner Verband",
+      "type": "breed_association_marketplace",
+      "topics_covered": [
+        "breed_specific_auctions",
+        "hannoveraner_focus",
+        "auction_schedule",
+        "verified_breeding",
+        "discipline_categories"
+      ],
+      "topics_missing": [
+        "general_buying_advice",
+        "health_checking",
+        "contract_templates",
+        "pricing_strategy",
+        "market_overview",
+        "seller_evaluation"
+      ],
+      "estimated_word_count": 600,
+      "content_depth": "breed_association_focused",
+      "unique_strength": "Breed association authority, verified genetics"
+    },
+    {
+      "rank": 10,
+      "url": "https://www.reddit.com/r/Equestrian/comments/16dcl2b/should_i_buy_a_foal/?tl=de",
+      "domain": "reddit.com",
+      "title": "Soll ich ein Fohlen kaufen? : r/Equestrian",
+      "type": "community_forum",
+      "topics_covered": [
+        "buying_decision_advice",
+        "cost_realities",
+        "expertise_perspectives",
+        "user_experiences",
+        "community_discussion"
+      ],
+      "topics_missing": [
+        "systematic_guidance",
+        "legal_templates",
+        "health_protocols",
+        "market_data",
+        "structured_checklists"
+      ],
+      "estimated_word_count": 1200,
+      "content_depth": "community_discussion",
+      "unique_strength": "Real buyer experiences, cost transparency"
+    }
+  ],
+  "gap_summary": {
+    "universally_covered_topics": [
+      "marketplace_existence_and_listings",
+      "price_existence",
+      "breed_variety",
+      "regional_availability"
+    ],
+    "universally_missing_topics": [
+      "health_checking_protocols",
+      "legal_contracts_and_documentation",
+      "purchase_red_flags_and_warnings",
+      "insurance_timing_and_strategy",
+      "negotiation_tactics",
+      "transportation_logistics",
+      "seller_verification_methods"
+    ],
+    "partially_covered_topics": [
+      "costs (only prices shown, not cost breakdown + housing)",
+      "buying_decision (only in community/blog, not systematic)",
+      "health (only FUNDIS mentions 'recognize good foal', no protocols)"
+    ],
+    "high_opportunity_gaps": [
+      {
+        "gap": "Educational content on foal purchase process",
+        "evidence": "Only FUNDIS (Rank 6) provides guide. 4 Marketplaces + 1 Breeder + 1 Rescue + 1 Association + 1 Forum = 9 non-educational sources.",
+        "opportunity_score": 9
+      },
+      {
+        "gap": "Legal and contractual guidance",
+        "evidence": "Zero SERP results mention contracts, guarantees, or legal frameworks. Critical gap.",
+        "opportunity_score": 9
+      },
+      {
+        "gap": "Health assessment and veterinary checks",
+        "evidence": "FUNDIS mentions 'how to recognize good foal' vaguely. No detailed vet protocols.",
+        "opportunity_score": 8
+      },
+      {
+        "gap": "Pricing strategy and cost breakdown",
+        "evidence": "Prices shown everywhere, but no systematic analysis (warmblood vs. coldblood, breeding value effects, age premiums).",
+        "opportunity_score": 8
+      },
+      {
+        "gap": "Red flags and fraud prevention",
+        "evidence": "Not mentioned anywhere. High buyer concern (common issue in online horse sales).",
+        "opportunity_score": 8
+      }
+    ]
+  },
+  "market_analysis": {
+    "serp_fragmentation": "Highly fragmented between marketplaces (60%) and niche content (40%). No dominant content authority like exists for 'pferd kaufen'.",
+    "content_vs_commerce": "Commerce dominates (8 of 10 are selling platforms). Only 1 comprehensive guide (FUNDIS). This is OPPORTUNITY.",
+    "buyer_journey_coverage": "Awareness/Consideration: Marketplaces + Community (Reddit). Decision: GAPS - No systematic buying guides. Post-purchase: MISSING entirely.",
+    "expertise_concentration": "Breeders (Jacobs), Associations (Hannoveraner), Nonprofits (Rescue) provide niche expertise. No generalist trusted authority on foal buying.",
+    "information_quality": "High-volume, low-guidance marketplace content. FUNDIS is quality outlier. Room for authoritative educational content."
+  },
+  "pferdewert_competitive_positioning": {
+    "opportunity": "Create authoritative, comprehensive foal buying guide that combines: marketplace navigation + health guidance + legal templates + cost planning + red flag warnings.",
+    "target_positioning": "Position as buyer's advocate - not affiliated with any marketplace or breeder, giving unbiased guidance.",
+    "content_differentiation": "Deeper than FUNDIS (add legal + health protocols), more systematic than Reddit (structured guide), more accessible than Breeder Sites (generalist not niche).",
+    "conversion_hooks": "Natural transition to Pferdewert Evaluator: 'Before buying - Get free AI-powered foal assessment' or 'Link your shortlisted foal for expert evaluation'.",
+    "ranking_confidence": "Medium-High. No dominant content competitor. Marketplaces won't directly compete on ranking (different intent). FUNDIS (Rank 6) is main competitor - can outrank with better content depth + E-E-A-T signals.",
+    "timeline_to_rank": "Realistic: 3-6 months to Top 3 with quality content + backlinks. Established domain authority helps."
+  },
+  "content_recommendations_summary": [
+    "Go EDUCATIONAL not MARKETPLACE - fill the content gap",
+    "Add legal/contract section - zero competition, high value",
+    "Create health checking protocol - detailed, vet-sourced",
+    "Provide price matrix breakdown - systematic vs. random examples",
+    "Include red flags section - buyer safety, not elsewhere",
+    "Link naturally to Pferdewert Evaluator - logical conversion",
+    "Target word count: 1800-2000 (deeper than FUNDIS)",
+    "Use tables, checklists, case studies - visual elements dominate marketplaces, add here"
+  ]
+}
