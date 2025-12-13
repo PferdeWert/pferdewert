@@ -1,20 +1,18 @@
 # Page-Struktur SEO - PferdeWert.de
 
-**Zuletzt aktualisiert:** 2025-11-14
+**Zuletzt aktualisiert:** 2025-12-13
 
-Neue Ideen: 
-Haflinger Kaufen (in production)
-Ponny kaufen 
+Neue Ideen:
 pferd kaufen nrw
-pferd kaufen bayern 
-verkaufspferde 
+pferd kaufen bayern
+verkaufspferde
 
 
 ---
 
 ## 📊 STATUS OVERVIEW
 
-### ✅ Live Content (14 Artikel)
+### ✅ Live Content (21 Artikel)
 - Homepage (/)
 - Pferde Preis berechnen (/pferde-preis-berechnen)
 - Beispiel Analyse (/beispiel-analyse)
@@ -24,41 +22,49 @@ verkaufspferde
   - Pferd Verkaufen (Hub)
   - Pferd Kaufen (Hub)
   - Was kostet ein Pferd (Spoke)
-  - **Pferdekaufvertrag** ✅ 
-  - **Pferdemarkt** ✅ 
-  - **Springpferd kaufen** ✅ 
+  - **Pferdekaufvertrag** ✅
+  - **Pferdemarkt** ✅
+  - **Springpferd kaufen** ✅
   - **Dressurpferd kaufen** ✅
+  - **Anfängerpferd kaufen** ✅
+  - **Freizeitpferd kaufen** ✅
+  - **Pony kaufen** ✅ (P4 Hub abgeschlossen!)
+  - **Pferd kaufen Schweiz** ✅
+  - **Pferd kaufen Österreich** ✅
+  - **Haflinger kaufen** ✅
+  - **Lipizzaner** ✅
 
-### 🎯 Nächste Artikel (Priority 2-3)
-- **P2:** Anfängerpferd kaufen (880/Mo., CPC 0,15€) - **published**
-- **P3:** Freizeitpferd kaufen (1.900/Mo., CPC 0,13€) - **published**
+### 🎯 Nächste Artikel (Priority)
+- **P4-Spoke:** Pony Preis (140/Mo., CPC 0,11€) - 📋 **GEPLANT**
+- **Fohlen-Cluster:** Fohlen kaufen (1.300/Mo., CPC 0,16€) - 📋 **GEPLANT**
 
-### 🇨🇭 Schweiz-Expansion (Priority 2)
-- **CH-1:** Pferd kaufen Schweiz (4.400/Mo., KD 20) - 🚧 **IN PRODUKTION** (vom User)
+### 🇨🇭🇦🇹 DACH-Expansion
+- **CH-1:** Pferd kaufen Schweiz (4.400/Mo., KD 20) - ✅ **LIVE**
+- **AT-1:** Pferd kaufen Österreich - ✅ **LIVE**
 - **CH-2:** Freiberger Pferd kaufen (480/Mo.) - 📋 **GEPLANT**
 - **CH-3:** Freizeitpferd kaufen Schweiz (320/Mo., KD 9) - 📋 **GEPLANT**
 
-### 📋 Geplant (Priority 4)
-- **P4:** Pony-Cluster (6.880/Mo., hohe Kaufintention 🎯)
+### 📋 Geplant (Weitere Optionen)
+- **P4-Spoke:** Pony Preis (140/Mo.) - Ergänzung zum Pony-Hub
+- **Fohlen-Cluster:** Fohlen kaufen (1.300/Mo.) + Jungpferd kaufen (140/Mo.)
+- **Verkaufs-Spokes:** Pferd zu verkaufen (1.600/Mo.), Pferdetransport Kosten (260/Mo.)
 
 ---
 
 ## 🎯 PRIORITY ROADMAP
 
-### ⭐ P2 - HOHE PRIORITÄT (Breed-Kaufratgeber)
+### ✅ P2 - ABGESCHLOSSEN
 
-**Verbleibend:** 2.780/Mo. | **Kaufintention:** ⭐⭐⭐⭐⭐
-
-#### 1. Anfängerpferd kaufen **published**
+#### 1. Anfängerpferd kaufen ✅ LIVE
 - **URL:** `/pferde-ratgeber/anfaengerpferd-kaufen`
 - **Keyword:** anfängerpferd kaufen (880/Mo., CPC 0,15€)
 - **Intent:** Commercial + Transactional
 
 ---
 
-### 📌 P3 - MITTLERE PRIORITÄT
+### ✅ P3 - ABGESCHLOSSEN
 
-#### 2. Freizeitpferd kaufen **published**
+#### 2. Freizeitpferd kaufen ✅ LIVE
 - **URL:** `/pferde-ratgeber/freizeitpferd-kaufen`
 - **Keyword:** freizeitpferd kaufen (1.900/Mo., CPC 0,13€)
 - **Zielgruppe:** 100% weiblich, 35-44 Jahre
@@ -66,33 +72,18 @@ verkaufspferde
 
 ---
 
-### 🎯 P4 - EMPFOHLENE PRIORITÄT (Hohe Kaufintention!)
+### ✅ P4 - PONY HUB ABGESCHLOSSEN
 
-#### Pony-Cluster 🎯 TOP-PICK
+#### Pony-Cluster (Hub fertig, Spoke ausstehend)
 **Total Volume:** 6.880/Mo. | **Intent:** Commercial + Transactional | **CPC:** 0.09-0.11€
 
-**Warum diese Cluster-Wahl:**
-- ✅ **Riesiges Volumen** für Hub allein (6.600/Mo.)
-- ✅ **Klare Kaufintention** (Commercial)
-- ✅ **Niedriger Wettbewerb** (CPC 0.09€)
-- ✅ **Perfekter Tool-Fit**: "Was kostet ein Pony?" → Tool-CTA
-- ✅ **Unterschiedliche Zielgruppe** vs. "Pferd kaufen" (Kinder, Reitschulen, Anfänger)
-
-**Geplante Artikel:**
-
-**1. Hub: Pony kaufen**
+**1. Hub: Pony kaufen** ✅ LIVE
 - **URL:** `/pferde-ratgeber/pony-kaufen`
 - **Keyword:** pony kaufen (6.600/Mo., CPC 0.09€)
 - **Intent:** Commercial
-- **Content-Plan:**
-  - Unterschied Pony vs. Pferd (Größe, Charakter, Eignung)
-  - Geeignete Pony-Rassen (Shetlandpony, Welsh Pony, etc.)
-  - Kaufkriterien für Ponys (Kindereignung, Ausbildung)
-  - Preisrahmen mit Tool-CTA
-  - Haltungskosten & Platzbedarf
 
-**2. Spoke: Pony Preis**
-- **URL:** `/pferde-ratgeber/pony-kaufen/preis` oder `/pferde-ratgeber/pony-preis`
+**2. Spoke: Pony Preis** 📋 GEPLANT
+- **URL:** `/pferde-ratgeber/pony-preis`
 - **Keyword:** pony preis (140/Mo., CPC 0.11€)
 - **Intent:** Commercial
 - **Content-Plan:**
@@ -318,18 +309,18 @@ PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
 ## 📝 NOTIZEN
 
 **Letzte Updates:**
+- **2025-12-13:** Großes Status-Update - 7 neue Artikel entdeckt!
+  - ✅ **Pony kaufen** - P4 Hub LIVE (6.600/Mo.)
+  - ✅ **Pferd kaufen Schweiz** - LIVE
+  - ✅ **Pferd kaufen Österreich** - LIVE
+  - ✅ **Haflinger kaufen** - LIVE
+  - ✅ **Lipizzaner** - LIVE
+  - ✅ **Anfängerpferd kaufen** - LIVE
+  - ✅ **Freizeitpferd kaufen** - LIVE
+  - **Total Live:** 21 Artikel (vorher 14)
 - **2025-11-26:** Schweiz-Expansion (3 Artikel geplant, CH-1 in Produktion)
 - **2025-11-14:** P4-Cluster geändert (Gesundheit → Pony-Cluster)
-  - ❌ **Gesundheits-Cluster verworfen** (15.390/Mo., aber null matching intent)
-  - ✅ **Pony-Cluster als P4** (6.880/Mo., hohe Kaufintention)
-  - 📊 **Keyword-Recherche:** Fohlen, Jungpferd, Pferdetransport als Alternativen dokumentiert
-- **2025-11-14:** Content-Produktion gestartet
-  - 🚧 **Anfängerpferd kaufen** - in Arbeit
-  - 🚧 **Freizeitpferd kaufen** - in Arbeit
 - **2025-11-14:** Status-Update mit tatsächlich existierenden Artikeln
-  - **4 Artikel neu entdeckt:** Pferdekaufvertrag, Pferdemarkt, Springpferd kaufen, Dressurpferd kaufen
-  - **Total Live:** 14 Artikel (statt 11)
-  - **Verbleibend zu schreiben:** Nur noch 2 Artikel (P2-P3) → JETZT IN PRODUKTION!
 - 2025-11-14: Struktur komplett überarbeitet für bessere Übersicht
 - 2025-10-28: Kaufvertrag + Breed-Keywords hinzugefügt
 - 2025-10-25: DataForSEO Live-Daten Integration
