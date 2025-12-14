@@ -64,6 +64,28 @@ export const STRIPE_CONFIG = {
   currency: 'EUR'
 } as const;
 
+// ===== WERTGUTACHTEN KONFIGURATION =====
+/**
+ * Pricing für das Premium Wertgutachten / Verkaufs-Zertifikat
+ * Zielgruppe: Pferde-Verkäufer die ihren Preis legitimieren wollen
+ */
+export const WERTGUTACHTEN_PRICING = {
+  /** Preis für Wertgutachten */
+  price: 49.90,
+
+  /** Formatierter Preis */
+  formatted: '49,90€',
+
+  /** Währung */
+  currency: 'EUR' as const,
+
+  /** Stripe Price-ID (in Vercel: STRIPE_PRICE_ID_WERTGUTACHTEN) */
+  priceId: process.env.STRIPE_PRICE_ID_WERTGUTACHTEN || 'price_wertgutachten_placeholder',
+
+  /** Preis in Cent für Stripe */
+  amountCents: 4990,
+} as const;
+
 // ===== MULTI-COUNTRY PRICING =====
 /**
  * Pricing configuration per country
@@ -143,6 +165,7 @@ export const SCHEMA_PRICING = {
 export type PricingConfig = typeof PRICING;
 export type PricingTexts = typeof PRICING_TEXTS;
 export type StripeConfig = typeof STRIPE_CONFIG;
+export type WertgutachtenPricing = typeof WERTGUTACHTEN_PRICING;
 
 // ===== UTILITY FUNCTIONS =====
 /**
