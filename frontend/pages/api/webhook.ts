@@ -36,6 +36,26 @@ interface BackendResponse {
   ai_model_version?: string;
 }
 
+// Wertgutachten/Zertifikat Backend Response
+interface ZertifikatResponse {
+  zertifikat_data?: {
+    preisVon: number;
+    preisBis: number;
+    haupteignung: string;
+    bewertungsDetails: {
+      rasseText: string;
+      abstammungText: string;
+      ausbildungText: string;
+      gesundheitText: string;
+      fazit: string;
+    };
+  };
+  ai_model?: string;
+  model_version?: string;
+  error?: boolean;
+  message?: string;
+}
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
@@ -74,6 +94,31 @@ const checkAndMarkWebhookProcessed = async (sessionId: string): Promise<boolean>
     error('[WEBHOOK] Database idempotency check failed:', err instanceof Error ? err.message : String(err));
     // Fallback to allow processing on database errors
     return true;
+  }
+};
+
+// Generate unique Zertifikat-Nummer using MongoDB counter (atomic, no collisions)
+const generateZertifikatNummer = async (): Promise<string> => {
+  try {
+    const countersCollection = await getCollection("counters");
+    const year = new Date().getFullYear();
+    const counterName = `zertifikat_${year}`;
+
+    // Atomic findOneAndUpdate - increments counter and returns new value
+    // Using 'name' field instead of _id to avoid ObjectId type constraint
+    const result = await countersCollection.findOneAndUpdate(
+      { name: counterName },
+      { $inc: { seq: 1 } },
+      { upsert: true, returnDocument: "after" }
+    );
+
+    const seq = result?.seq || 1;
+    return `CERT-${year}-${String(seq).padStart(6, '0')}`;
+  } catch (err) {
+    error('[WEBHOOK] Counter generation failed, using fallback:', err instanceof Error ? err.message : String(err));
+    // Fallback: timestamp-based (still unique per millisecond)
+    const ts = Date.now().toString(36).toUpperCase();
+    return `CERT-${new Date().getFullYear()}-${ts}`;
   }
 };
 
@@ -182,7 +227,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     info('[WEBHOOK] Processing session for first time:', sessionId);
-    
+
     // Log session metadata without sensitive customer data
     const safeMetadata = session.metadata ? {
       hasMetadata: true,
@@ -190,6 +235,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } : { hasMetadata: false };
     info('[WEBHOOK] Session metadata info:', safeMetadata);
 
+    // Check if this is a Wertgutachten purchase
+    const isWertgutachten = session.metadata?.product_type === 'wertgutachten';
+
+    if (isWertgutachten) {
+      info('[WEBHOOK] Processing WERTGUTACHTEN purchase');
+      await processWertgutachtenWebhook(session, sessionId, res);
+      return;
+    }
+
+    // Regular Bewertung processing continues below
     try {
       info('[WEBHOOK] Searching for MongoDB document');
       const collection = await getCollection("bewertungen");
@@ -587,4 +642,219 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   res.status(200).end("Event ignored");
+}
+
+// ============================================
+// WERTGUTACHTEN WEBHOOK PROCESSING
+// ============================================
+async function processWertgutachtenWebhook(
+  session: Stripe.Checkout.Session,
+  sessionId: string,
+  res: NextApiResponse
+) {
+  try {
+    info('[WEBHOOK-WERTGUTACHTEN] Searching for MongoDB document');
+    const collection = await getCollection("wertgutachten");
+    const doc = await collection.findOne({ stripeSessionId: sessionId });
+
+    if (!doc) {
+      error('[WEBHOOK-WERTGUTACHTEN] No wertgutachten found for session ID:', sessionId);
+      return res.status(404).end();
+    }
+
+    info('[WEBHOOK-WERTGUTACHTEN] Document found, ID:', doc._id.toString());
+
+    // Extract data for backend
+    const {
+      rasse,
+      alter,
+      geschlecht,
+      abstammung,
+      stockmass,
+      ausbildung,
+      haupteignung,
+      aku,
+      erfolge,
+      standort,
+      charakter,
+      besonderheiten,
+      land,
+      pferdeName,
+    } = doc;
+
+    // Prepare data for /api/zertifikat endpoint
+    const zertifikatDaten: BackendRequestData = {
+      rasse: String(rasse || ''),
+      alter: parseInt(String(alter)) || 0,
+      geschlecht: String(geschlecht || ''),
+      abstammung: abstammung ? String(abstammung) : undefined,
+      stockmass: convertStockmassToNumber(stockmass),
+      ausbildung: String(ausbildung || ''),
+      haupteignung: String(haupteignung || 'Sport'),
+      aku: aku ? String(aku) : undefined,
+      erfolge: erfolge ? String(erfolge) : undefined,
+      standort: standort ? String(standort) : undefined,
+      charakter: charakter ? String(charakter) : undefined,
+      besonderheiten: besonderheiten ? String(besonderheiten) : undefined,
+      land: land ? String(land) : undefined,
+    };
+
+    info('[WEBHOOK-WERTGUTACHTEN] Calling backend /api/zertifikat');
+    const response = await fetch(`${BACKEND_URL}/api/zertifikat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(zertifikatDaten),
+    });
+
+    info('[WEBHOOK-WERTGUTACHTEN] Backend response status:', response.status);
+
+    if (!response.ok) {
+      error('[WEBHOOK-WERTGUTACHTEN] Backend API error:', response.status);
+      const errorText = await response.text();
+      error('[WEBHOOK-WERTGUTACHTEN] Error details:', errorText);
+      return res.status(200).json({ error: "Backend temporarily unavailable" });
+    }
+
+    let zertifikatResponse: ZertifikatResponse;
+    try {
+      zertifikatResponse = await response.json();
+      info('[WEBHOOK-WERTGUTACHTEN] Zertifikat data received:', zertifikatResponse?.zertifikat_data ? 'Success' : 'Missing');
+    } catch (jsonError) {
+      error('[WEBHOOK-WERTGUTACHTEN] JSON parse error:', jsonError instanceof Error ? jsonError.message : String(jsonError));
+      return res.status(200).json({ error: "Invalid JSON response from backend" });
+    }
+
+    if (zertifikatResponse.error || !zertifikatResponse.zertifikat_data) {
+      error('[WEBHOOK-WERTGUTACHTEN] No zertifikat data in response');
+      return res.status(200).json({ error: "No zertifikat data received" });
+    }
+
+    // Generate unique Zertifikat-Nummer using MongoDB counter
+    const zertifikatNummer = await generateZertifikatNummer();
+
+    // Save to MongoDB
+    info('[WEBHOOK-WERTGUTACHTEN] Saving zertifikat to MongoDB');
+    await collection.updateOne(
+      { _id: doc._id },
+      {
+        $set: {
+          zertifikat_data: zertifikatResponse.zertifikat_data,
+          zertifikatNummer,
+          pferdeName: pferdeName || `${rasse} ${geschlecht}`,
+          status: "fertig",
+          aktualisiert: new Date(),
+          ai_model: zertifikatResponse.ai_model,
+          ai_model_version: zertifikatResponse.model_version,
+        }
+      }
+    );
+
+    info('[WEBHOOK-WERTGUTACHTEN] MongoDB update completed');
+
+    // Send customer email
+    const customerEmail = session.customer_details?.email;
+    const customerName = session.customer_details?.name?.split(' ')[0] || '';
+
+    if (customerEmail && resend) {
+      try {
+        const directLink = `https://pferdewert.de/wertgutachten-ergebnis?id=${doc._id.toString()}`;
+        const greeting = customerName ? `Hallo ${customerName}!` : 'Hallo!';
+
+        await resend.emails.send({
+          from: "PferdeWert <info@pferdewert.de>",
+          to: customerEmail,
+          subject: "📜 Dein PferdeWert Wertgutachten ist fertig!",
+          html: `
+            <h2>${greeting}</h2>
+            <p>Dein professionelles Wertgutachten ist jetzt verfügbar:</p>
+            <br>
+            <p><strong><a href="${directLink}"
+               style="background: #d97706; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
+               📜 Zum Wertgutachten & PDF-Download
+            </a></strong></p>
+            <br>
+            <p><small>Falls der Button nicht funktioniert:<br>
+            ${directLink}</small></p>
+
+            <p>Viele Grüße,<br>Dein PferdeWert-Team</p>
+          `
+        });
+        info('[WEBHOOK-WERTGUTACHTEN] Customer email sent');
+      } catch (emailErr) {
+        error('[WEBHOOK-WERTGUTACHTEN] Email error:', emailErr instanceof Error ? emailErr.message : String(emailErr));
+      }
+    }
+
+    // Send admin notification
+    const recipientEmails = (process.env.RESEND_TO_EMAIL ?? "")
+      .split(",")
+      .map(email => email.trim())
+      .filter(email => !!email);
+
+    if (recipientEmails.length > 0 && resend) {
+      try {
+        const amount = session.amount_total
+          ? `${(session.amount_total / 100).toFixed(2)} €`
+          : "unbekannt";
+
+        // Extract and format attribution source
+        const attributionSource = session.metadata?.attribution_source;
+        const attributionLabels: Record<string, string> = {
+          "google_search": "Google Suche",
+          "instagram": "Instagram",
+          "facebook": "Facebook",
+          "recommendation": "Empfehlung",
+          "equestrian_forum": "Pferdeforum oder Community",
+          "other": "Andere Quelle"
+        };
+        const marketingQuelle = attributionSource
+          ? (attributionLabels[attributionSource] || attributionSource)
+          : "Unbekannt";
+
+        await resend.emails.send({
+          from: "PferdeWert <kauf@pferdewert.de>",
+          to: recipientEmails,
+          subject: `📜 Neues Wertgutachten verkauft: ${amount}`,
+          html: `
+            <h2>📜 Neues Wertgutachten verkauft!</h2>
+
+            <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+              <h3>💳 Zahlungsdetails:</h3>
+              <p><strong>Produkt:</strong> Wertgutachten</p>
+              <p><strong>Session ID:</strong> ${sessionId}</p>
+              <p><strong>Betrag:</strong> ${amount}</p>
+              <p><strong>Kunde:</strong> ${session.customer_details?.email || "unbekannt"}</p>
+            </div>
+
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+              <p><strong>Pferd:</strong> ${pferdeName || rasse}</p>
+              <p><strong>Rasse:</strong> ${rasse}</p>
+              <p><strong>Alter:</strong> ${alter} Jahre</p>
+              <p><strong>Preisspanne:</strong> ${zertifikatResponse.zertifikat_data.preisVon?.toLocaleString('de-DE')} € – ${zertifikatResponse.zertifikat_data.preisBis?.toLocaleString('de-DE')} €</p>
+              <p><strong>Wie aufmerksam geworden:</strong> ${marketingQuelle}</p>
+            </div>
+          `
+        });
+        info('[WEBHOOK-WERTGUTACHTEN] Admin email sent');
+      } catch (emailErr) {
+        error('[WEBHOOK-WERTGUTACHTEN] Admin email error:', emailErr instanceof Error ? emailErr.message : String(emailErr));
+      }
+    }
+
+    // Mark webhook as completed
+    try {
+      const webhooksCollection = await getCollection("webhook_processing");
+      await webhooksCollection.updateOne(
+        { sessionId: sessionId },
+        { $set: { status: "completed", completedAt: new Date() } }
+      );
+    } catch (updateErr) {
+      warn('[WEBHOOK-WERTGUTACHTEN] Failed to mark completed:', updateErr instanceof Error ? updateErr.message : String(updateErr));
+    }
+
+    return res.status(200).end("Wertgutachten Done");
+  } catch (err) {
+    error('[WEBHOOK-WERTGUTACHTEN] Processing error:', err instanceof Error ? err.message : String(err));
+    return res.status(200).json({ error: "Wertgutachten processing failed but acknowledged" });
+  }
 }
