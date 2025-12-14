@@ -18,7 +18,7 @@ const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSecti
   loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />,
 });
 import { Star, ArrowRight, ArrowLeft, Clock, Shield, CheckCircle } from "lucide-react";
-import { PRICING_FORMATTED } from "../lib/pricing";
+import { PRICING_FORMATTED, WERTGUTACHTEN_PRICING } from "../lib/pricing";
 import {
   trackValuationStart,
   trackFormProgress,
@@ -66,6 +66,7 @@ interface FormState {
   attribution_source?: string; // Attribution tracking
   land?: string;         // AT-Rollout: Horse country (for AI market data)
   user_country?: string; // AT-Rollout: Customer country (from URL/locale) - auto-filled
+  pferdeName?: string;   // Pflichtfeld nur für Wertgutachten
 }
 
 const initialForm: FormState = {
@@ -84,6 +85,7 @@ const initialForm: FormState = {
   attribution_source: "",
   land: "",
   user_country: "", // Auto-filled from URL/locale
+  pferdeName: "",   // Pflichtfeld nur für Wertgutachten
 };
 
 // Field Interface
@@ -276,6 +278,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState<boolean>(false);
+  const [loadingWertgutachten, setLoadingWertgutachten] = useState<boolean>(false);
   const [consent, setConsent] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [formStartTime] = useState<number>(Date.now());
@@ -326,7 +329,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
     // Check optional string fields
     const optionalStringFields: (keyof FormState)[] = [
-      'charakter', 'besonderheiten', 'attribution_source', 'land', 'user_country'
+      'charakter', 'besonderheiten', 'attribution_source', 'land', 'user_country', 'pferdeName'
     ];
 
     for (const field of optionalStringFields) {
@@ -603,6 +606,81 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
     }
   };
 
+  // Handler für Wertgutachten-Checkout (nutzt vorhandene Formulardaten)
+  const handleWertgutachtenCheckout = async (): Promise<void> => {
+    if (!consent) {
+      setErrors({ form: "Bitte bestätige den Verzicht auf dein Widerrufsrecht." });
+      return;
+    }
+
+    // Validate all required fields
+    const newErrors: { [key: string]: string } = {};
+    stepData.slice(0, 3).forEach(step => {
+      step.fields.forEach((field) => {
+        if (field.required && !form[field.name as keyof FormState]) {
+          newErrors[field.name] = "Pflichtfeld";
+        }
+      });
+    });
+
+    // Pferdename ist Pflichtfeld für Wertgutachten
+    if (!form.pferdeName?.trim()) {
+      newErrors.pferdeName = "Bitte gib den Namen des Pferdes ein";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setLoadingWertgutachten(true);
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+      const payload = {
+        ...form,
+        land: form.land || country,
+        user_country: country
+      };
+
+      const res = await fetch("/api/checkout-wertgutachten", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken
+        },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (res.ok) {
+        const data = await res.json() as { url: string };
+        if (isMounted) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+        window.location.href = data.url;
+      } else {
+        const errorData = await res.json() as { error?: string };
+        setErrors({ form: errorData.error || "Fehler beim Starten des Wertgutachtens." });
+      }
+    } catch (err) {
+      const message =
+        err instanceof Error && err.name === 'AbortError'
+          ? "Die Anfrage hat zu lange gedauert. Bitte versuche es erneut."
+          : "Ein unerwarteter Fehler ist aufgetreten.";
+      error("Fehler beim Wertgutachten-Checkout", err);
+      setErrors({ form: message });
+    } finally {
+      setLoadingWertgutachten(false);
+    }
+  };
+
   const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setConsent(e.target.checked);
   };
@@ -872,122 +950,192 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
               {/* Bezahlung-Step */}
               {currentStep === 4 && (
                 <form onSubmit={handleSubmit}>
-                  {/* Sticky Submit Button auf Mobile */}
-                  <div className="fixed bottom-0 left-0 right-0 bg-white shadow-xl px-4 py-4 z-40 md:hidden border-t">
-                    <button
-                      type="submit"
-                      disabled={loading || !consent}
-                      className="w-full bg-brand-brown hover:bg-brand-brownDark text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {loading ? (
-                        <div className="flex items-center justify-center gap-3">
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Wird vorbereitet…
-                        </div>
-                      ) : (
-                        "Jetzt kostenpflichtig analysieren"
-                      )}
-                    </button>
-                  </div>
-
-                  <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl">💳</span>
-                    </div>
+                  {/* Header */}
+                  <div className="text-center mb-6">
                     <h2 className="text-h3 font-bold text-gray-900 mb-2">
-                      Analyse starten
+                      Wähle deine Bewertung
                     </h2>
-                    <p className="text-gray-600 text-lg">
-                      Nur noch ein Klick zur professionellen Pferdebewertung
+                    <p className="text-gray-600">
+                      Welche Analyse passt zu dir?
                     </p>
                   </div>
 
-                  {/* Einverständnis */}
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 mb-6">
+                  {/* Einverständnis - kompakter */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={consent}
                         onChange={handleConsentChange}
-                        className="mt-1 w-5 h-5 text-brand-brown border-gray-300 rounded focus:ring-brand-brown focus:ring-2"
+                        className="mt-0.5 w-5 h-5 text-brand-brown border-gray-300 rounded focus:ring-brand-brown focus:ring-2"
                         required
                       />
-                      <span className="text-sm text-gray-700 leading-relaxed">
-                        Ich stimme ausdrücklich zu, dass die Analyse sofort beginnt, und bestätige mein Erlöschen des Widerrufsrechts gemäß § 356 Abs. 5 BGB.
+                      <span className="text-sm text-gray-700 leading-snug">
+                        Ich stimme zu, dass die Analyse sofort beginnt (Widerrufsrecht erlischt gem. § 356 Abs. 5 BGB).
                       </span>
                     </label>
                   </div>
 
                   {/* Fehleranzeige */}
                   {errors.form && (
-                    <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 mb-6">
-                      <p className="text-red-700 font-medium text-center">
+                    <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6">
+                      <p className="text-red-700 font-medium text-center text-sm">
                         {errors.form}
                       </p>
                     </div>
                   )}
 
-                  {/* Preis */}
-                  <div className="text-center mb-8">
-                    <p className="text-xl text-gray-700 mb-2">
-                      Die Analyse kostet einmalig
-                    </p>
-                    <div className="text-4xl font-black text-brand-brown mb-2">
-                      {PRICING_FORMATTED.current}
-                    </div>
-                    <p className="text-sm text-gray-500">(umsatzsteuerfrei nach § 19 UStG)</p>
-                  </div>
-                  
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={loading || !consent}
-                    className="w-full bg-brand-brown hover:bg-brand-brownDark text-white py-4 rounded-2xl font-bold text-xl shadow-xl hover:shadow-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed hidden md:block hover:scale-105"
-                  >
-                    {loading ? (
-                      <div className="flex items-center justify-center gap-3">
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Einen Moment – deine Analyse wird vorbereitet…
+                  {/* Zwei-Spalten-Layout: Standard vs. Verkäufer */}
+                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+
+                    {/* Option 1: Standard-Analyse */}
+                    <div className="border-2 border-gray-200 rounded-2xl p-5 hover:border-brand-brown transition-colors relative">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="inline-block bg-gray-200 text-gray-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                          STANDARD
+                        </span>
                       </div>
-                    ) : (
-                      "Jetzt kostenpflichtig analysieren"
-                    )}
-                  </button>
+                      <div className="text-center mb-4 mt-2">
+                        <h3 className="font-bold text-lg text-gray-900 mb-1">Marktpreis-Analyse</h3>
+                        <p className="text-sm text-gray-500">Für Käufer & Orientierung</p>
+                      </div>
 
-                  {loading && (
-                    <p className="text-sm text-gray-500 text-center mt-4">
-                      Bitte einen Moment Geduld – du wirst zur sicheren Zahlung bei Stripe weitergeleitet…
-                    </p>
-                  )}
+                      <div className="text-center mb-4">
+                        <div className="text-3xl font-black text-brand-brown">
+                          {PRICING_FORMATTED.current}
+                        </div>
+                        <p className="text-xs text-gray-400">(umsatzsteuerfrei)</p>
+                      </div>
 
-                  {/* Legal Info */}
-                  <div className="text-center mt-6 space-y-2">
-                    <p className="text-xs text-gray-500">
-                      Du wirst zur sicheren Bezahlung weitergeleitet.
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      Mit Klick auf &quot;Jetzt kostenpflichtig analysieren&quot; akzeptierst du unsere{" "}
-                      <LocalizedLink href="/agb" className="underline hover:text-gray-700 transition-colors">
-                        AGB
-                      </LocalizedLink>.
-                    </p>
+                      <ul className="text-sm text-gray-600 space-y-2 mb-5">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          KI-gestützte Preisanalyse
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          PDF-Ergebnis per E-Mail
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          Sofort in 2 Minuten
+                        </li>
+                      </ul>
+
+                      <button
+                        type="submit"
+                        disabled={loading || !consent}
+                        className="w-full bg-brand-brown hover:bg-brand-brownDark text-white py-3 rounded-xl font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {loading ? (
+                          <div className="flex items-center justify-center gap-2">
+                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Wird vorbereitet…
+                          </div>
+                        ) : (
+                          "Jetzt analysieren"
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Option 2: Verkäufer-Wertgutachten */}
+                    <div className="border-2 border-amber-300 bg-amber-50/50 rounded-2xl p-5 relative">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="inline-block bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                          FÜR VERKÄUFER
+                        </span>
+                      </div>
+
+                      <div className="text-center mb-4 mt-2">
+                        <h3 className="font-bold text-lg text-gray-900 mb-1">Verkäufer-Wertgutachten</h3>
+                        <p className="text-sm text-gray-500">Für deine Verkäufermappe</p>
+                      </div>
+
+                      <div className="text-center mb-4">
+                        <div className="text-3xl font-black text-amber-600">
+                          {WERTGUTACHTEN_PRICING.formatted}
+                        </div>
+                        <p className="text-xs text-gray-400">(umsatzsteuerfrei)</p>
+                      </div>
+
+                      <ul className="text-sm text-gray-600 space-y-2 mb-5">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                          Offizielles Wertgutachten-PDF
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                          Mit Pferdename & Siegel
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                          Ideal für Verkaufsanzeigen
+                        </li>
+                      </ul>
+
+                      {/* Pferdename-Eingabe vor dem Button */}
+                      <div className="mb-4">
+                        <label htmlFor="pferdeName" className="block text-sm font-medium text-gray-700 mb-1">
+                          Name deines Pferdes <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="pferdeName"
+                          name="pferdeName"
+                          type="text"
+                          value={form.pferdeName || ''}
+                          onChange={handleChange}
+                          placeholder="z.B. Bella Vista"
+                          className={`w-full p-3 border rounded-xl text-sm transition-all ${
+                            errors.pferdeName
+                              ? "border-red-500 bg-red-50"
+                              : "border-gray-300 bg-white hover:border-amber-400 focus:border-amber-500"
+                          } focus:outline-none focus:ring-2 focus:ring-amber-200`}
+                        />
+                        {errors.pferdeName && (
+                          <p className="mt-1 text-red-600 text-xs">
+                            {errors.pferdeName}
+                          </p>
+                        )}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={handleWertgutachtenCheckout}
+                        disabled={loadingWertgutachten || !consent}
+                        className="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded-xl font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {loadingWertgutachten ? (
+                          <div className="flex items-center justify-center gap-2">
+                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Wird vorbereitet…
+                          </div>
+                        ) : (
+                          "Jetzt Wertgutachten erstellen"
+                        )}
+                      </button>
+                    </div>
                   </div>
+
+                  {/* Legal Info - kompakt */}
+                  <p className="text-xs text-gray-400 text-center">
+                    Sichere Zahlung via Stripe · Mit Klick akzeptierst du unsere{" "}
+                    <LocalizedLink href="/agb" className="underline hover:text-gray-600">
+                      AGB
+                    </LocalizedLink>
+                  </p>
 
                   {/* Navigation */}
-                  <div className="flex justify-start mt-8 pt-6 border-t border-gray-100">
+                  <div className="flex justify-start mt-6 pt-4 border-t border-gray-100">
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-2xl font-medium transition-all"
+                      className="flex items-center gap-2 text-gray-500 hover:text-gray-700 px-4 py-2 rounded-xl text-sm font-medium transition-all"
                       aria-label="Zum vorherigen Schritt zurückgehen"
                     >
                       <ArrowLeft className="w-4 h-4" aria-hidden="true" />
                       Zurück
                     </button>
                   </div>
-                  
-                  {/* Abstand für Sticky-Button auf Mobile */} 
-                  <div className="h-32 md:hidden" />
                 </form>
               )}
             </div>
