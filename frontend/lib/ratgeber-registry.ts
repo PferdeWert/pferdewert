@@ -326,6 +326,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'haflinger-kaufen',
       'anfaengerpferd-kaufen'
     ]
+  },
+
+  // Fohlen kaufen Guide
+  {
+    slug: 'fohlen-kaufen',
+    title: 'Fohlen kaufen: Der komplette Ratgeber 2025',
+    description: 'Fohlen kaufen leicht gemacht: Marktplätze, Preise, Gesundheitschecks, Rechtliches. Schritt-für-Schritt Anleitung + Checkliste für sicheren Fohlenkauf.',
+    category: 'Kauf & Verkauf',
+    readTime: '16 Min.',
+    image: '/images/ratgeber/braunes-fohlen-stute-weide-irland.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'aku-pferd',
+      'pferdekaufvertrag'
+    ]
   }
 ];
 
