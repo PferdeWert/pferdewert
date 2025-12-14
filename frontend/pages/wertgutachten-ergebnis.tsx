@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import QRCode from "qrcode";
 import Layout from "@/components/Layout";
 import LocalizedLink from "@/components/LocalizedLink";
 import StripeLoadingScreen from "@/components/StripeLoadingScreen";
@@ -127,15 +126,22 @@ export default function WertgutachtenErgebnis() {
 
     // Kein Parameter - Redirect
     router.replace("/");
-  }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady, router.query]);
 
-  const generateQRCode = (docId: string) => {
-    const ergebnisUrl = `https://pferdewert.de/wertgutachten-ergebnis?id=${docId}`;
-    QRCode.toDataURL(ergebnisUrl, {
-      width: 200,
-      margin: 1,
-      color: { dark: "#1a365d", light: "#ffffff" },
-    }).then(setQrCodeDataUrl);
+  const generateQRCode = async (docId: string) => {
+    try {
+      const QRCode = (await import("qrcode")).default;
+      const ergebnisUrl = `https://pferdewert.de/wertgutachten-ergebnis?id=${docId}`;
+      const dataUrl = await QRCode.toDataURL(ergebnisUrl, {
+        width: 200,
+        margin: 1,
+        color: { dark: "#1a365d", light: "#ffffff" },
+      });
+      setQrCodeDataUrl(dataUrl);
+    } catch (err) {
+      error("[WERTGUTACHTEN-ERGEBNIS] QR Code generation error:", err);
+    }
   };
 
   const fetchBySessionId = async (sessionId: string) => {
