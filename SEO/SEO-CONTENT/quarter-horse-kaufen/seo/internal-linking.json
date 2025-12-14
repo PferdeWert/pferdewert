@@ -1,0 +1,31 @@
+{
+  "internal_links": [
+    {
+      "url": "/pferde-ratgeber/pferd-kaufen",
+      "anchor": "umfassenden Ratgeber zum Pferdekauf",
+      "required": true,
+      "placement": {
+        "section": "introduction",
+        "recommendation": "Im ersten Absatz als Verweis auf allgemeine Kaufberatung"
+      }
+    },
+    {
+      "url": "/pferde-ratgeber/freizeitpferd-kaufen",
+      "anchor": "Freizeitpferd kaufen",
+      "required": false,
+      "placement": {
+        "section": "western_disciplines",
+        "recommendation": "Bei Erwähnung von Trail Riding"
+      }
+    },
+    {
+      "url": "/pferde-preis-berechnen",
+      "anchor": "Quarter Horse bewerten lassen",
+      "required": true,
+      "placement": {
+        "section": "cta",
+        "recommendation": "Als Haupt-CTA Button"
+      }
+    }
+  ]
+}

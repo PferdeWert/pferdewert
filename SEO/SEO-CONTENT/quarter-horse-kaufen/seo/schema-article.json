@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Quarter Horse kaufen: Westernreiten und amerikanische Zuchtlinien",
+  "datePublished": "2025-12-14",
+  "dateModified": "2025-12-14",
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/quarter-horse-kaufen"
+  },
+  "wordCount": 705,
+  "keywords": "quarter horse kaufen, aqha papiere, western pferd, bloodlines"
+}

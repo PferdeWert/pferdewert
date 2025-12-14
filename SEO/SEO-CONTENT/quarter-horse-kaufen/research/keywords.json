@@ -1,0 +1,33 @@
+{
+    "pillar_theme": "quarter horse kaufen",
+    "total_keywords": 20,
+    "keyword_categories": {
+        "breed_characteristics": [
+            "quarter horse rasse eigenschaften",
+            "quarter horse charaktereigenschaften",
+            "quarter horse herkunft kaufen"
+        ],
+        "breeding_and_bloodlines": [
+            "quarter horse zucht deutschland",
+            "quarter horse blutlinien kaufen", 
+            "quarter horse züchter bayern",
+            "quarter horse zuchtlinien"
+        ],
+        "training_and_performance": [
+            "quarter horse training vor kauf",
+            "western reiten quarter horse", 
+            "quarter horse als sportpferd"
+        ],
+        "purchase_considerations": [
+            "quarter horse preis kaufen",
+            "quarter horse kaufberatung",
+            "quarter horse alter kaufen",
+            "quarter horse gesundheit kaufen"
+        ]
+    },
+    "search_intent": {
+        "informational": 60,
+        "transactional": 30,
+        "commercial_investigation": 10
+    }
+}
