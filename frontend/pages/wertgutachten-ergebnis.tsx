@@ -105,8 +105,7 @@ export default function WertgutachtenErgebnis() {
       log("[WERTGUTACHTEN-ERGEBNIS] Mock mode activated");
       const mockDataWithId = { ...MOCK_DATA, id: "mock-id-123" };
       setData(mockDataWithId);
-      setLoading(false);
-      generateQRCode("mock-id-123");
+      generateQRCode("mock-id-123").then(() => setLoading(false));
       return;
     }
 
@@ -129,7 +128,7 @@ export default function WertgutachtenErgebnis() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady, router.query]);
 
-  const generateQRCode = async (docId: string) => {
+  const generateQRCode = async (docId: string): Promise<string> => {
     try {
       const QRCode = (await import("qrcode")).default;
       const ergebnisUrl = `https://pferdewert.de/wertgutachten-ergebnis?id=${docId}`;
@@ -139,8 +138,10 @@ export default function WertgutachtenErgebnis() {
         color: { dark: "#1a365d", light: "#ffffff" },
       });
       setQrCodeDataUrl(dataUrl);
+      return dataUrl;
     } catch (err) {
       error("[WERTGUTACHTEN-ERGEBNIS] QR Code generation error:", err);
+      return "";
     }
   };
 
@@ -158,10 +159,10 @@ export default function WertgutachtenErgebnis() {
 
       if (result.ready && result.zertifikat_data) {
         setData(result);
-        setLoading(false);
         if (result.id) {
-          generateQRCode(result.id);
+          await generateQRCode(result.id);
         }
+        setLoading(false);
       } else if (result.id) {
         // Noch nicht fertig - Polling starten
         startPolling(result.id);
@@ -193,10 +194,10 @@ export default function WertgutachtenErgebnis() {
 
       const result = await res.json();
       setData(result);
-      setLoading(false);
       if (result.id) {
-        generateQRCode(result.id);
+        await generateQRCode(result.id);
       }
+      setLoading(false);
     } catch (err) {
       error("[WERTGUTACHTEN-ERGEBNIS] Error:", err);
       setErrorMsg("Netzwerkfehler. Bitte überprüfe deine Internetverbindung.");
@@ -224,10 +225,10 @@ export default function WertgutachtenErgebnis() {
           if (res.ok) {
             const result = await res.json();
             setData(result);
-            setLoading(false);
             if (result.id) {
-              generateQRCode(result.id);
+              await generateQRCode(result.id);
             }
+            setLoading(false);
             return;
           }
         } catch (err) {
@@ -291,8 +292,8 @@ export default function WertgutachtenErgebnis() {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
-          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md text-center">
-            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
               <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
@@ -331,7 +332,7 @@ export default function WertgutachtenErgebnis() {
 
           {/* PDF Download Button */}
           <div className="mb-8">
-            {isClient && qrCodeDataUrl && pdfDocument && (
+            {isClient && pdfDocument && (
               <PDFDownloadLink
                 document={pdfDocument}
                 fileName={`PferdeWert-Wertgutachten-${data.zertifikatNummer}.pdf`}
