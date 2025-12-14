@@ -15,7 +15,7 @@ const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSecti
 const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
   loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />,
 });
-import { Clock, Shield, Award, Star, ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
+import { Clock, Shield, Award, ArrowRight, TrendingUp, CheckCircle, Instagram, Users } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -117,8 +117,9 @@ const checkCircleIconLarge = <CheckCircle className="w-8 h-8 text-brand-brown" /
 // FAST REFRESH FIX: Don't store JSX arrays at module level
 // Stars will be rendered inline in component instead
 
-// FAST REFRESH FIX: Pre-define star array indices to prevent Array recreation on each render
-const STAR_INDICES = [0, 1, 2, 3, 4] as const;
+// FAST REFRESH FIX: Pre-define icons at module level
+const usersIcon = <Users className="w-4 h-4 text-brand-brown" />;
+const instagramIcon = <Instagram className="w-5 h-5" />;
 
 export default function PferdeWertHomepage() {
   // AT-Rollout: SEO with hreflang tags
@@ -331,12 +332,8 @@ export default function PferdeWertHomepage() {
               <span>Geld-zurück-Garantie</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="flex">
-                {STAR_INDICES.map((i) => (
-                  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
-                ))}
-              </div>
-              <span>4,7/5</span>
+              {usersIcon}
+              <span>100+ erfolgreiche Bewertungen</span>
             </div>
           </div>
 
@@ -387,6 +384,73 @@ export default function PferdeWertHomepage() {
     <p className="text-sm text-gray-600 mt-4">
       Sichere Bezahlung • Sofortiges Ergebnis • Keine Abos
     </p>
+  </div>
+</section>
+
+{/* Instagram Section */}
+<section className="py-12 bg-brand-light/50">
+  <div className="container mx-auto px-4">
+    <div className="max-w-xl mx-auto">
+      <a
+        href="https://www.instagram.com/pferdewert.de/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-brand-gold"
+      >
+        {/* Header mit Logo und Info */}
+        <div className="flex items-center gap-4 mb-5">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-brown to-brand-brownDark flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
+            {instagramIcon}
+          </div>
+          <div className="flex-1">
+            <p className="font-bold text-lg text-gray-900 group-hover:text-brand-brown transition-colors">
+              @pferdewert.de
+            </p>
+            <p className="text-sm text-gray-500">
+              4.000+ Follower · Reiter-Community
+            </p>
+          </div>
+          <span className="hidden sm:inline-flex items-center gap-2 bg-brand-brown text-white text-sm font-semibold px-4 py-2 rounded-lg group-hover:bg-brand-brownDark transition-colors">
+            Folgen
+          </span>
+        </div>
+
+        {/* Thumbnail Grid */}
+        <div className="grid grid-cols-3 gap-2 mb-4">
+          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
+            <img
+              src="/images/instagram/post-1.webp"
+              alt="PferdeWert Instagram Post"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
+            <img
+              src="/images/instagram/post-2.webp"
+              alt="PferdeWert Instagram Post"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
+            <img
+              src="/images/instagram/post-3.webp"
+              alt="PferdeWert Instagram Post"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* Mobile CTA */}
+        <div className="sm:hidden text-center">
+          <span className="inline-flex items-center gap-2 bg-brand-brown text-white text-sm font-semibold px-6 py-2.5 rounded-lg">
+            Auf Instagram folgen
+          </span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
