@@ -1,7 +1,9 @@
 # main.py – PferdeWert API mit OpenRouter Integration + Fallback System
 import os
 import logging
-from typing import Optional
+import json
+import re
+from typing import Optional, Dict, Any
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request
@@ -58,6 +60,7 @@ app.add_middleware(
         "https://organic-sniffle-jjg7466rj9vvhqj7-3000.app.github.dev",
         "https://organic-sniffle-jjg7466rj9vvhqj7.github.dev"
     ],
+    allow_origin_regex=r"https://pferdewert-git-.*-pferdewerts-projects\.vercel\.app",  # Vercel Preview Deployments
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -281,6 +284,186 @@ def bewertung(req: BewertungRequest):
 # This endpoint exposed both GPT and Claude responses without authentication, which could
 # allow attackers to abuse the AI services and access sensitive model interactions.
 # Uncomment only for local development/testing purposes with proper access controls.
+
+
+# ───────────────────────────────
+#  Zertifikat System Prompt (für Verkäufer-Wertgutachten)
+# ───────────────────────────────
+ZERTIFIKAT_SYSTEM_PROMPT = """Du bist **PferdeWert AI**, eine hochspezialisierte Expert:innen-KI für professionelle Verkaufs-Wertgutachten von Sport- und Zuchtpferden.
+
+**DEINE AUFGABE:** Erstelle ein strukturiertes Verkaufs-Wertgutachten im JSON-Format.
+
+**AUSGABE:** Antworte NUR mit einem validen JSON-Objekt ohne zusätzlichen Text. Kein Markdown, keine Erklärungen.
+
+Das JSON muss folgende Struktur haben:
+{
+  "preisVon": <untere Preisgrenze als Integer>,
+  "preisBis": <obere Preisgrenze als Integer>,
+  "haupteignung": "<Haupteignung des Pferdes>",
+  "bewertungsDetails": {
+    "rasseText": "<2-3 Sätze zur Rasse und deren Marktwert>",
+    "abstammungText": "<2-3 Sätze zur Abstammung und deren Einfluss auf den Wert>",
+    "ausbildungText": "<2-3 Sätze zum Ausbildungsstand und dessen Werteinfluss>",
+    "gesundheitText": "<2-3 Sätze zum AKU-Status und Gesundheitsbewertung>",
+    "fazit": "<3-4 Sätze zusammenfassendes Fazit mit Verkaufsempfehlung>"
+  }
+}
+
+**WICHTIGE REGELN:**
+- Preise in Euro als INTEGER (z.B. 25000, nicht "25.000" oder "25000€")
+- Realistische Preise für den deutschen/österreichischen Markt
+- Bei fehlendem AKU: Annahme "ohne besondere Befunde", aber Hinweis im gesundheitText
+- Bei fehlender Abstammung: Generische Bewertung basierend auf Rasse
+- Texte sollen professionell und verkaufsfördernd klingen
+- KEINE Markdown-Formatierung in den Texten"""
+
+
+def parse_zertifikat_json(ai_response: str) -> Optional[Dict[str, Any]]:
+    """Parse AI response to extract JSON zertifikat data"""
+    try:
+        # Try direct JSON parse first
+        return json.loads(ai_response)
+    except json.JSONDecodeError:
+        pass
+
+    # Try to extract JSON from markdown code blocks
+    json_match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', ai_response)
+    if json_match:
+        try:
+            return json.loads(json_match.group(1))
+        except json.JSONDecodeError:
+            pass
+
+    # Try to find JSON object in response
+    json_match = re.search(r'\{[\s\S]*\}', ai_response)
+    if json_match:
+        try:
+            return json.loads(json_match.group(0))
+        except json.JSONDecodeError:
+            pass
+
+    return None
+
+
+def generate_zertifikat_valuation(horse_data: Dict[str, Any]) -> Dict[str, Any]:
+    """Generate structured zertifikat data using AI"""
+    req_id = str(uuid.uuid4())[:8]
+
+    # Build user prompt
+    prompt_parts = [
+        f"Erstelle ein Verkaufs-Wertgutachten für folgendes Pferd:",
+        f"",
+        f"Rasse: {horse_data.get('rasse', 'k. A.')}",
+        f"Alter: {horse_data.get('alter', 'k. A.')} Jahre",
+        f"Geschlecht: {horse_data.get('geschlecht', 'k. A.')}",
+        f"Abstammung: {horse_data.get('abstammung') or 'nicht angegeben'}",
+        f"Stockmaß: {horse_data.get('stockmass', 'k. A.')} cm",
+        f"Ausbildungsstand: {horse_data.get('ausbildung', 'k. A.')}",
+        f"Haupteignung: {horse_data.get('haupteignung') or 'nicht angegeben'}",
+        f"AKU-Status: {horse_data.get('aku') or 'nicht angegeben'}",
+        f"Erfolge: {horse_data.get('erfolge') or 'keine angegeben'}",
+        f"Standort: {horse_data.get('standort') or 'Deutschland'}",
+    ]
+
+    if horse_data.get('charakter'):
+        prompt_parts.append(f"Charakter: {horse_data['charakter']}")
+    if horse_data.get('besonderheiten'):
+        prompt_parts.append(f"Besonderheiten: {horse_data['besonderheiten']}")
+    if horse_data.get('land'):
+        prompt_parts.append(f"Land: {horse_data['land']}")
+
+    user_prompt = "\n".join(prompt_parts)
+
+    messages = [
+        {"role": "system", "content": ZERTIFIKAT_SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt}
+    ]
+
+    if not ai_service or not ai_service.openrouter_client:
+        logging.error(f"[{req_id}] ❌ OpenRouter not available for zertifikat")
+        return {"error": "AI service not available"}
+
+    # Get fallback models
+    fallback_models = ai_service.model_manager.get_fallback_models()
+
+    for i, model_config in enumerate(fallback_models, 1):
+        try:
+            stage_name = "Primary" if i == 1 else "Fallback"
+            logging.info(f"[{req_id}] Zertifikat Stage {i} ({stage_name}): Trying {model_config.name}")
+
+            response = ai_service.openrouter_client.create_completion(
+                model=model_config.openrouter_id,
+                messages=messages,
+                max_tokens=model_config.max_tokens,
+                temperature=0.7,  # Slightly lower for more consistent JSON output
+                top_p=model_config.top_p,
+                stream=False
+            )
+
+            # Parse the JSON response
+            zertifikat_data = parse_zertifikat_json(response.content)
+
+            if zertifikat_data and "preisVon" in zertifikat_data and "preisBis" in zertifikat_data:
+                logging.info(f"[{req_id}] ✅ Zertifikat Stage {i} successful: {model_config.name}")
+                return {
+                    "zertifikat_data": zertifikat_data,
+                    "ai_model": model_config.name,
+                    "model_version": model_config.openrouter_id
+                }
+            else:
+                logging.warning(f"[{req_id}] ⚠️ Stage {i} returned invalid JSON structure")
+                logging.debug(f"[{req_id}] Raw response: {response.content[:500]}")
+                continue
+
+        except Exception as e:
+            logging.error(f"[{req_id}] ❌ Zertifikat Stage {i} error: {e}")
+            continue
+
+    logging.error(f"[{req_id}] ❌ All zertifikat stages failed")
+    return {"error": "Failed to generate zertifikat"}
+
+
+# ───────────────────────────────
+#  API-Endpoint: Zertifikat (Verkäufer-Wertgutachten)
+# ───────────────────────────────
+@app.post("/api/zertifikat")
+def zertifikat(req: BewertungRequest):
+    """
+    Generate structured Verkäufer-Wertgutachten (Zertifikat)
+    Returns JSON with preisVon, preisBis, haupteignung, and bewertungsDetails
+    """
+    req_id = str(uuid.uuid4())[:8]
+
+    logging.info(f"[{req_id}] 📜 Zertifikat Request: {req.dict()}")
+
+    horse_data = {
+        "rasse": req.rasse,
+        "alter": req.alter,
+        "geschlecht": req.geschlecht,
+        "abstammung": req.abstammung,
+        "stockmass": req.stockmass,
+        "ausbildung": req.ausbildung,
+        "haupteignung": req.haupteignung,
+        "standort": req.standort,
+        "aku": req.aku,
+        "erfolge": req.erfolge,
+        "charakter": req.charakter,
+        "besonderheiten": req.besonderheiten,
+        "land": req.land
+    }
+
+    result = generate_zertifikat_valuation(horse_data)
+
+    if "error" in result:
+        logging.error(f"[{req_id}] ❌ Zertifikat generation failed: {result['error']}")
+        return {
+            "error": result["error"],
+            "ai_model": "error",
+            "model_version": "none"
+        }
+
+    logging.info(f"[{req_id}] ✅ Zertifikat generated successfully")
+    return result
 
 
 # ───────────────────────────────
