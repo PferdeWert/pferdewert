@@ -32,9 +32,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Configuration
-OUTPUT_DIR = Path("/Users/benjaminreder/Developer/pferdewert/frontend/public/images/ratgeber")
-ATTRIBUTION_FILE = Path("/Users/benjaminreder/Developer/pferdewert/frontend/public/images/ratgeber/image-attributions.json")
+# Configuration - use relative paths from script location
+SCRIPT_DIR = Path(__file__).parent.parent  # Go up from scripts/ to project root
+OUTPUT_DIR = SCRIPT_DIR / "frontend/public/images/ratgeber"
+ATTRIBUTION_FILE = OUTPUT_DIR / "image-attributions.json"
 MIN_WIDTH = 800  # Minimum source width
 MAX_WIDTH = 1200  # Output width
 WEBP_QUALITY = 80
