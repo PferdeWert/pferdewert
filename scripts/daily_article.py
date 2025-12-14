@@ -172,6 +172,13 @@ def git_commit_and_push(keyword: str, slug: str) -> tuple[bool, str]:
             check=False
         )
 
+        # Stage hero image and attributions
+        subprocess.run(
+            ["git", "add", "frontend/public/images/ratgeber/"],
+            cwd=WORKING_DIR,
+            check=False
+        )
+
         # Commit
         commit_msg = f"feat(ratgeber): Add {keyword} article\n\n🤖 Generated with Claude Code Automation"
         subprocess.run(
@@ -195,13 +202,48 @@ def git_commit_and_push(keyword: str, slug: str) -> tuple[bool, str]:
         return False, str(e)
 
 
+def fetch_hero_image(keyword: str, slug: str) -> Optional[str]:
+    """
+    Fetch hero image from Wikimedia Commons.
+    Returns the image filename or None if failed.
+    """
+    if DRY_RUN:
+        logger.info("[DRY RUN] Would fetch hero image")
+        return "dry-run-image.webp"
+
+    try:
+        # Import image_fetcher module
+        import sys
+        sys.path.insert(0, str(Path(WORKING_DIR) / "scripts"))
+        from image_fetcher import fetch_image
+
+        logger.info(f"Fetching hero image for: {keyword}")
+        image_name = fetch_image(keyword)
+
+        if image_name:
+            logger.info(f"Hero image fetched: {image_name}")
+            # Save image reference for /page command
+            image_ref_file = Path(WORKING_DIR) / f"SEO/SEO-CONTENT/{slug}/hero-image.txt"
+            image_ref_file.parent.mkdir(parents=True, exist_ok=True)
+            image_ref_file.write_text(image_name)
+            return image_name
+        else:
+            logger.warning("Failed to fetch hero image, using fallback")
+            return None
+
+    except Exception as e:
+        logger.error(f"Hero image fetch failed: {e}")
+        return None
+
+
 def create_article(article: Dict[str, Any]) -> tuple[bool, str]:
     """
     Execute full article creation pipeline:
     1. /seo-mini - Create content
     2. german-quality-checker - Review language
-    3. /page - Generate Next.js page
-    4. Git push
+    3. Fetch hero image from Wikimedia
+    4. /page - Generate Next.js page
+    5. Git push
     """
     keyword = article["keyword"]
     pillar = article.get("pillar", "")
@@ -230,18 +272,26 @@ def create_article(article: Dict[str, Any]) -> tuple[bool, str]:
         return False, f"Phase 2 (quality-check) failed: {output}"
     logger.info(f"Phase 2 complete: {output[:200]}...")
 
-    # Phase 3: /page
-    logger.info("PHASE 3: Running /page...")
+    # Phase 3: Fetch hero image
+    logger.info("PHASE 3: Fetching hero image...")
+    hero_image = fetch_hero_image(keyword, slug)
+    if hero_image:
+        logger.info(f"Phase 3 complete: {hero_image}")
+    else:
+        logger.warning("Phase 3: No hero image, /page will use fallback")
+
+    # Phase 4: /page
+    logger.info("PHASE 4: Running /page...")
     success, output = run_claude(f"/page {keyword}")
     if not success:
-        return False, f"Phase 3 (page) failed: {output}"
-    logger.info(f"Phase 3 complete: {output[:200]}...")
+        return False, f"Phase 4 (page) failed: {output}"
+    logger.info(f"Phase 4 complete: {output[:200]}...")
 
-    # Phase 4: Git commit & push
-    logger.info("PHASE 4: Git commit & push...")
+    # Phase 5: Git commit & push
+    logger.info("PHASE 5: Git commit & push...")
     success, output = git_commit_and_push(keyword, slug)
     if not success:
-        return False, f"Phase 4 (git) failed: {output}"
+        return False, f"Phase 5 (git) failed: {output}"
 
     return True, f"Article '{keyword}' created successfully!"
 

@@ -154,10 +154,16 @@ def main():
 3. [x] `german-quality-checker` Agent erstellen → `.claude/agents/german-quality-checker.md`
 4. [x] `daily_article.py` Script erstellen → `scripts/daily_article.py`
 5. [x] `article_queue.json` mit ersten Keywords füllen → `SEO/article_queue.json` (12 Artikel)
-6. [ ] Lokaler Test der Pipeline
-7. [ ] Auf Hetzner deployen (git push)
-8. [ ] Cron Job einrichten
-9. [ ] 1 Woche Dry-Run testen
+6. [x] `image_fetcher.py` erstellen → `scripts/image_fetcher.py`
+   - Wikimedia Commons API
+   - WebP-Konvertierung (sips/ImageMagick/Pillow)
+   - Sprechende Namensgebung basierend auf Bildinhalt
+   - Regionale Rassen-Erkennung (Bayern→Bayerisches Warmblut)
+   - Attributionen in JSON gespeichert
+7. [x] Image Fetcher in Pipeline integriert (Phase 3)
+8. [ ] Auf Hetzner deployen (git push)
+9. [ ] Cron Job einrichten
+10. [ ] 1 Woche Dry-Run testen
 
 ---
 
