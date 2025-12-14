@@ -5,7 +5,7 @@
  * Bei Preisänderungen muss nur diese Datei angepasst werden.
  * 
  * @author PferdeWert.de
- * @version 3.5.0 - Preisanpassung auf 9,90€
+ * @version 3.6.0 - Preisanpassung auf 14,90€
  */
 
 // ===== PREIS KONFIGURATION =====
@@ -14,13 +14,13 @@ export const PRICING = {
    * Aktueller Hauptpreis für Pferdebewertung
    * Format: Dezimalzahl für Berechnungen
    */
-  current: 9.90,
+  current: 14.90,
 
-  /**
-   * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
-   * Soll deutlich höher sein als current price
-   */
-  decoy: 19.90,
+  // /**
+  //  * Decoy-Preis (Ankerpreis für psychologische Preisgestaltung)
+  //  * Soll deutlich höher sein als current price
+  //  */
+  // decoy: 19.90,
   
   /** 
    * Historische Preise (für Vergleiche und "war früher X€" Texte)
@@ -36,8 +36,8 @@ export const PRICING_FORMATTED = {
   /** Aktueller Preis formatiert für deutsche Anzeige */
   current: `${PRICING.current.toFixed(2).replace('.', ',')}€`,
   
-  /** Decoy-Preis formatiert */
-  decoy: `${PRICING.decoy.toFixed(2).replace('.', ',')}€`,
+  // /** Decoy-Preis formatiert */
+  // decoy: `${PRICING.decoy.toFixed(2).replace('.', ',')}€`,
   
   /** Historische Preise formatiert */
   historical: {
@@ -106,7 +106,7 @@ export const PRICING_TEXTS = {
   mobileButton: `Jetzt Pferd bewerten → ${PRICING_FORMATTED.current}`,
   
   /** FAQ Antwort Text */
-  faqAnswer: `Unsere umfassende Preisanalyse kostet aktuell ${PRICING_FORMATTED.current} (Einführungspreis), anstatt regulär ${PRICING_FORMATTED.decoy}.`,
+  faqAnswer: `Unsere umfassende Preisanalyse kostet ${PRICING_FORMATTED.current}.`,
   
   /** Sparpotenzial Text */
   savings: `Nur ${PRICING_FORMATTED.current} können dir tausende Euro sparen.`,
@@ -169,7 +169,7 @@ export const toCents = (price: number): number => {
  */
 export const validatePricing = (): boolean => {
   if (PRICING.current <= 0) throw new Error('Current price must be positive');
-  if (PRICING.decoy <= PRICING.current) throw new Error('Decoy price must be higher than current price');
+  // if (PRICING.decoy <= PRICING.current) throw new Error('Decoy price must be higher than current price');
   if (!STRIPE_CONFIG.priceId) throw new Error('Stripe Price ID missing');
   return true;
 };

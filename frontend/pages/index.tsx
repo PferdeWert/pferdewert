@@ -360,9 +360,8 @@ export default function PferdeWertHomepage() {
           <div className="container mx-auto px-4 py-6">
             <div className="text-center">
               <p className="text-lg">
-                <span className="font-semibold text-brand-brown">🎯 Schnell sein lohnt sich:</span> Nur{" "}
-                <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>{" "}
-                <span className="line-through text-gray-500">statt 14,90€</span> – nur noch bis 13.12.! Ab Sonntag gilt der reguläre Preis von 14,90€.
+                <span className="font-semibold text-brand-brown">🎯 Professionelle Pferdebewertung:</span> Nur{" "}
+                <span className="font-bold text-2xl text-brand-brown">{PRICING_FORMATTED.current}</span>
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Keine versteckten Kosten • Einmalzahlung • Direkt online starten
