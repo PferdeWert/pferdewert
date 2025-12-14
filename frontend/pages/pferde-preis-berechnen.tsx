@@ -960,22 +960,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                     </p>
                   </div>
 
-                  {/* Einverständnis - kompakter */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={consent}
-                        onChange={handleConsentChange}
-                        className="mt-0.5 w-5 h-5 text-brand-brown border-gray-300 rounded focus:ring-brand-brown focus:ring-2"
-                        required
-                      />
-                      <span className="text-sm text-gray-700 leading-snug">
-                        Ich stimme zu, dass die Analyse sofort beginnt (Widerrufsrecht erlischt gem. § 356 Abs. 5 BGB).
-                      </span>
-                    </label>
-                  </div>
-
                   {/* Fehleranzeige */}
                   {errors.form && (
                     <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6">
@@ -1021,6 +1005,22 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                           Sofort in 2 Minuten
                         </li>
                       </ul>
+
+                      {/* Consent-Checkbox direkt über dem Button */}
+                      <div className="mb-4">
+                        <label className="flex items-start gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={consent}
+                            onChange={handleConsentChange}
+                            className="mt-0.5 w-4 h-4 text-brand-brown border-gray-300 rounded focus:ring-brand-brown focus:ring-2 flex-shrink-0"
+                            required
+                          />
+                          <span className="text-xs text-gray-600 leading-snug">
+                            Ich stimme zu, dass die Analyse sofort beginnt (Widerrufsrecht erlischt gem. § 356 Abs. 5 BGB).
+                          </span>
+                        </label>
+                      </div>
 
                       <button
                         type="submit"
@@ -1096,6 +1096,22 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                             {errors.pferdeName}
                           </p>
                         )}
+                      </div>
+
+                      {/* Consent-Checkbox direkt über dem Button */}
+                      <div className="mb-4">
+                        <label className="flex items-start gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={consent}
+                            onChange={handleConsentChange}
+                            className="mt-0.5 w-4 h-4 text-brand-brown border-gray-300 rounded focus:ring-brand-brown focus:ring-2 flex-shrink-0"
+                            required
+                          />
+                          <span className="text-xs text-gray-600 leading-snug">
+                            Ich stimme zu, dass die Analyse sofort beginnt (Widerrufsrecht erlischt gem. § 356 Abs. 5 BGB).
+                          </span>
+                        </label>
                       </div>
 
                       <button
