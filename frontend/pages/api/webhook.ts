@@ -814,9 +814,9 @@ async function processWertgutachtenWebhook(
         await resend.emails.send({
           from: "PferdeWert <kauf@pferdewert.de>",
           to: recipientEmails,
-          subject: `📜 Neues Wertgutachten verkauft: ${amount}`,
+          subject: `Wertgutachten verkauft: ${amount} – ${marketingQuelle}`,
           html: `
-            <h2>📜 Neues Wertgutachten verkauft!</h2>
+            <h2>Wertgutachten verkauft!</h2>
 
             <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin: 20px 0;">
               <h3>💳 Zahlungsdetails:</h3>
