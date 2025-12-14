@@ -2,6 +2,7 @@
 // Updated: 2025-10-10 - Deployment trigger
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import LocalizedLink from "@/components/LocalizedLink";
 import dynamic from "next/dynamic";
 import Layout from "@/components/Layout";
@@ -416,27 +417,33 @@ export default function PferdeWertHomepage() {
 
         {/* Thumbnail Grid */}
         <div className="grid grid-cols-3 gap-2 mb-4">
-          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-            <img
+          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100 relative">
+            <Image
               src="/images/instagram/post-1.webp"
-              alt="PferdeWert Instagram Post"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              alt="PferdeWert Instagram - Pferd mit Abschwitzdecke"
+              fill
+              sizes="(max-width: 640px) 33vw, 150px"
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           </div>
-          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-            <img
+          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100 relative">
+            <Image
               src="/images/instagram/post-2.webp"
-              alt="PferdeWert Instagram Post"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              alt="PferdeWert Instagram - Pferd mit Turnierschleife"
+              fill
+              sizes="(max-width: 640px) 33vw, 150px"
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           </div>
-          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-            <img
+          <div className="aspect-square rounded-lg overflow-hidden bg-gray-100 relative">
+            <Image
               src="/images/instagram/post-3.webp"
-              alt="PferdeWert Instagram Post"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              alt="PferdeWert Instagram - Dressurreiten"
+              fill
+              sizes="(max-width: 640px) 33vw, 150px"
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           </div>
