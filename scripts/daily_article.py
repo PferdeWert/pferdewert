@@ -42,6 +42,10 @@ TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 # Dry run mode (set to False for production)
 DRY_RUN = os.getenv('DRY_RUN', 'true').lower() == 'true'
 
+# Email notification settings
+RESEND_API_KEY = os.getenv('RESEND_API_KEY')
+NOTIFICATION_EMAIL = 'benni_reder@gmx.de'
+
 
 def send_telegram(message: str) -> None:
     """Send notification to Telegram (optional)"""
@@ -59,6 +63,39 @@ def send_telegram(message: str) -> None:
         }, timeout=10)
     except Exception as e:
         logger.warning(f"Telegram notification failed: {e}")
+
+
+def send_email_notification(slug: str, keyword: str, word_count: str = "") -> bool:
+    """Send email notification when article goes live"""
+    if not RESEND_API_KEY:
+        logger.warning("RESEND_API_KEY not configured - skipping email notification")
+        return False
+
+    if DRY_RUN:
+        logger.info("[DRY RUN] Would send email notification")
+        return True
+
+    try:
+        # Use the seo-article-notification.mjs script
+        result = subprocess.run(
+            ["node", "frontend/scripts/seo-article-notification.mjs", slug, keyword, word_count],
+            cwd=WORKING_DIR,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            env={**os.environ, "RESEND_API_KEY": RESEND_API_KEY}
+        )
+
+        if result.returncode == 0:
+            logger.info(f"Email notification sent for {slug}")
+            return True
+        else:
+            logger.error(f"Email notification failed: {result.stderr}")
+            return False
+
+    except Exception as e:
+        logger.error(f"Email notification error: {e}")
+        return False
 
 
 def run_claude(prompt: str, timeout_minutes: int = TIMEOUT_MINUTES) -> tuple[bool, str]:
@@ -179,19 +216,21 @@ def git_commit_and_push(keyword: str, slug: str) -> tuple[bool, str]:
             check=False
         )
 
-        # Commit
-        commit_msg = f"feat(ratgeber): Add {keyword} article\n\n🤖 Generated with Claude Code Automation"
+        # Commit - use single line message to avoid SIGPIPE issues
+        commit_msg = f"feat(ratgeber): Add {keyword} article"
         subprocess.run(
             ["git", "commit", "-m", commit_msg],
             cwd=WORKING_DIR,
-            check=True
+            check=True,
+            capture_output=True  # Prevent SIGPIPE from broken pipe
         )
 
         # Push
         subprocess.run(
             ["git", "push", "origin", "main"],
             cwd=WORKING_DIR,
-            check=True
+            check=True,
+            capture_output=True  # Prevent SIGPIPE from broken pipe
         )
 
         logger.info(f"Git push successful for {slug}")
@@ -292,6 +331,10 @@ def create_article(article: Dict[str, Any]) -> tuple[bool, str]:
     success, output = git_commit_and_push(keyword, slug)
     if not success:
         return False, f"Phase 5 (git) failed: {output}"
+
+    # Phase 6: Send email notification
+    logger.info("PHASE 6: Sending email notification...")
+    send_email_notification(slug, keyword)
 
     return True, f"Article '{keyword}' created successfully!"
 
