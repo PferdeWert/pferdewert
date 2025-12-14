@@ -1,6 +1,4 @@
 import { NextPage } from "next"
-import Head from "next/head"
-
 import { useMemo } from "react"
 import LocalizedLink from '@/components/LocalizedLink'
 import { Calculator, Wallet, PiggyBank, MapPin, ChevronDown } from "lucide-react"
@@ -13,6 +11,7 @@ import RatgeberHighlightBox from "@/components/ratgeber/RatgeberHighlightBox"
 import RatgeberRelatedArticles from "@/components/ratgeber/RatgeberRelatedArticles"
 import RatgeberFinalCTA from "@/components/ratgeber/RatgeberFinalCTA"
 import RatgeberTableOfContents from "@/components/ratgeber/RatgeberTableOfContents"
+import RatgeberHead from "@/components/ratgeber/RatgeberHead"
 import { FAQItem } from "@/types/faq.types"
 import scrollToSection from "@/utils/ratgeber/scrollToSection"
 import { getRelatedArticles, getRatgeberPath } from "@/lib/ratgeber-registry"
@@ -25,6 +24,31 @@ const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
 const walletBrownIcon = <Wallet className="h-5 w-5 text-brand-brown" />;
 const calculatorBrownIcon = <Calculator className="h-5 w-5 text-brand-brown" />;
 const piggyBankBrownIcon = <PiggyBank className="h-5 w-5 text-brand-brown" />;
+
+// SEO Locale Content for RatgeberHead
+const seoLocales = {
+  de: {
+    title: 'AKU Pferd Kosten 2025: Kleine & Große AKU Preise | PferdeWert.de',
+    description: 'AKU Pferd Kosten 2025: ✓ Kleine AKU 150–300€ ✓ Große AKU 400–800€ ✓ Regionale Unterschiede ✓ Wer zahlt? ✓ Spartipps vom Experten',
+    keywords: 'aku pferd kosten, ankaufsuntersuchung pferd kosten, aku pferd preis, große aku kosten, kleine aku kosten',
+    ogTitle: 'AKU Pferd Kosten 2025: Was kostet die Ankaufsuntersuchung?',
+    ogDescription: 'Kleine AKU 150–300€, Große AKU 400–800€. Alle Kosten transparent erklärt mit Spartipps.',
+  },
+  at: {
+    title: 'AKU Pferd Kosten Österreich 2025: Preise & Spartipps | PferdeWert.at',
+    description: 'AKU Kosten in Österreich 2025: ✓ Kleine AKU 150–300€ ✓ Große AKU 400–800€ ✓ Österreichische Tierärzte ✓ Spartipps für den Pferdekauf',
+    keywords: 'aku pferd kosten österreich, ankaufsuntersuchung pferd kosten, aku pferd preis',
+    ogTitle: 'AKU Pferd Kosten Österreich 2025: Was kostet die Ankaufsuntersuchung?',
+    ogDescription: 'Alle AKU Kosten in Österreich transparent erklärt. Spartipps für den Pferdekauf!',
+  },
+  ch: {
+    title: 'AKU Pferd Kosten Schweiz 2025: Preise in CHF | PferdeWert.ch',
+    description: 'AKU Kosten in der Schweiz 2025: ✓ Kleine AKU ab 200 CHF ✓ Große AKU ab 500 CHF ✓ Schweizer Tierärzte ✓ Spartipps für den Pferdekauf',
+    keywords: 'aku pferd kosten schweiz, ankaufsuntersuchung pferd kosten, aku pferd preis chf',
+    ogTitle: 'AKU Pferd Kosten Schweiz 2025: Was kostet die Ankaufsuntersuchung?',
+    ogDescription: 'Alle AKU Kosten in der Schweiz transparent erklärt. Spartipps für Schweizer Käufer!',
+  },
+};
 
 const sections = [
   { id: "overview", title: "AKU Kosten im Überblick" },
@@ -156,13 +180,21 @@ const AkuPferdKosten: NextPage = () => {
   return (
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <>
-        <Head>
-          <title>AKU Pferd Kosten 2025: Kleine & Große AKU Preise | PferdeWert</title>
-          <meta
-            name="description"
-            content="AKU Pferd Kosten 2025: ✓ Kleine AKU 150–300€ ✓ Große AKU 400–800€ ✓ Regionale Unterschiede ✓ Wer zahlt? ✓ Spartipps vom Experten"
-          />
-        </Head>
+        <RatgeberHead
+          slug="aku-pferd/kosten"
+          image="/images/ratgeber/aku-pferd/kosten/woman-handler-horse-halter-outdoor.webp"
+          locales={seoLocales}
+          datePublished="2025-10-15"
+          dateModified="2025-12-14"
+          wordCount={2200}
+          breadcrumbTitle="AKU Kosten"
+          author={{
+            name: 'Benjamin Reder',
+            url: 'https://pferdewert.de/ueber-pferdewert',
+            jobTitle: 'Gründer & Pferdeexperte'
+          }}
+          faqItems={faqItems.map(f => ({ question: f.question, answer: f.answer }))}
+        />
 
         <RatgeberHero
           badgeLabel="AKU Guide"
@@ -170,7 +202,7 @@ const AkuPferdKosten: NextPage = () => {
           title="AKU Kosten transparent erklärt"
           subtitle="Von der kleinen AKU bis zur Spezialdiagnostik – erfahre, welche Kosten auf dich zukommen und wie du klug planst."
           readTime="10 Min."
-          publishDate="November 2025"
+          publishDate="Dezember 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: "/pferde-preis-berechnen",
