@@ -769,7 +769,7 @@ async function processWertgutachtenWebhook(
             <p>Dein professionelles Wertgutachten ist jetzt verfügbar:</p>
                 <br>
             <p><strong><a href="${directLink}"
-               style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
+               style="background: #92400e; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
                🐴 Zum Wertgutachten & PDF-Download
             </a></strong></p>
                 <br>
