@@ -763,16 +763,16 @@ async function processWertgutachtenWebhook(
         await resend.emails.send({
           from: "PferdeWert <info@pferdewert.de>",
           to: customerEmail,
-          subject: "📜 Dein PferdeWert Wertgutachten ist fertig!",
+          subject: "🐴 Dein PferdeWert Wertgutachten ist fertig!",
           html: `
             <h2>${greeting}</h2>
             <p>Dein professionelles Wertgutachten ist jetzt verfügbar:</p>
-            <br>
+                <br>
             <p><strong><a href="${directLink}"
-               style="background: #d97706; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
-               📜 Zum Wertgutachten & PDF-Download
+               style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
+               🐴 Zum Wertgutachten & PDF-Download
             </a></strong></p>
-            <br>
+                <br>
             <p><small>Falls der Button nicht funktioniert:<br>
             ${directLink}</small></p>
 
