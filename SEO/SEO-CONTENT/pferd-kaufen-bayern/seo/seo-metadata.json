@@ -1,136 +1,22 @@
 {
-  "phase": "5A",
+  "phase": "4-mini",
   "primary_keyword": "pferd kaufen bayern",
-  "url_path": "/pferd-kaufen/bayern",
-  "timestamp": "2025-11-30T12:00:00Z",
+  "slug": "pferd-kaufen-bayern",
   "locales": {
     "de": {
-      "metadata": {
-        "title": "Pferd kaufen in Bayern: Die besten Marktplätze & Preise",
-        "description": "Pferd kaufen in Bayern: Vergleich der Top-Marktplätze (ehorses, Kleinanzeigen, pferde.de), realistische Preise 2025 & Kaufcheckliste für Anfänger.",
-        "keywords": "pferd kaufen bayern, pferdemarkt bayern, pferde kaufen, pferd in bayern",
-        "canonical_url": "https://pferdewert.de/pferd-kaufen/bayern",
-        "robots": "index, follow",
-        "og_locale": "de_DE"
-      },
-      "open_graph": {
-        "og:title": "Pferd kaufen in Bayern: Die besten Marktplätze & Preise",
-        "og:description": "Entdecke die Top-Marktplätze zum Pferd kaufen in Bayern mit aktuellen Preisen, Rasse-Empfehlungen & Kaufcheckliste. Ratgeber für Anfänger & Wiedereinsteiger.",
-        "og:type": "article",
-        "og:url": "https://pferdewert.de/pferd-kaufen/bayern",
-        "og:site_name": "PferdeWert.de",
-        "og:locale": "de_DE",
-        "og:image": "https://pferdewert.de/images/pferd-kaufen-bayern.webp"
-      },
-      "twitter_card": {
-        "twitter:card": "summary_large_image",
-        "twitter:title": "Pferd kaufen in Bayern: Marktplätze & Preise 2025",
-        "twitter:description": "Finde dein perfektes Pferd in Bayern. Marktplatz-Vergleich, Kosten & Kaufcheckliste.",
-        "twitter:image": "https://pferdewert.de/images/pferd-kaufen-bayern.webp"
-      }
+      "title": "Pferd kaufen Bayern 2025: Gestüte, Rassen & regionale Tipps",
+      "description": "Pferd kaufen in Bayern ► Top-Gestüte ✓ Rottaler & Bayerisches Warmblut ✓ Regionale Märkte ✓ Preise 3.000-25.000€ ► Jetzt Bayern-Guide lesen!",
+      "keywords": "pferd kaufen bayern, pferdehof bayern, gestüt oberbayern, rottaler pferd, bayerisches warmblut, pferdemarkt bayern"
     },
     "at": {
-      "metadata": {
-        "title": "Pferd kaufen in Bayern – Deutsche Angebote online finden",
-        "description": "Pferd kaufen in Bayern: Leitfaden für österreichische Käufer. Marktplätze, Preisvergleich & Tipps zum Kauf in Deutschland. Inklusive Kostenübersicht.",
-        "canonical_url": "https://pferdewert.de/pferd-kaufen/bayern",
-        "robots": "index, follow",
-        "og_locale": "de_AT",
-        "note": "AT-Version: Canonical auf DE, da Bayern-spezifisch"
-      },
-      "open_graph": {
-        "og:title": "Pferd kaufen in Bayern: Leitfaden für österreichische Käufer",
-        "og:description": "Alles über Pferdekauf in Bayern für österreichische Interessenten. Marktplatz-Tipps, Preise & praktischer Kaufratgeber.",
-        "og:type": "article",
-        "og:url": "https://pferdewert.de/pferd-kaufen/bayern",
-        "og:site_name": "PferdeWert.de",
-        "og:locale": "de_AT",
-        "og:image": "https://pferdewert.de/images/pferd-kaufen-bayern.webp"
-      },
-      "twitter_card": {
-        "twitter:card": "summary_large_image",
-        "twitter:title": "Pferd kaufen in Bayern für Österreicher",
-        "twitter:description": "Marktplatz-Guide & Preisvergleich für Pferdekauf in Bayern.",
-        "twitter:image": "https://pferdewert.de/images/pferd-kaufen-bayern.webp"
-      }
+      "title": "Pferd kaufen in Bayern: Grenznah für Österreicher",
+      "description": "Pferd in Bayern kaufen als Österreicher ► Grenznahe Gestüte ✓ Transport nach AT ✓ Bayerische Pferderassen ► Ratgeber für Österreicher!",
+      "keywords": "pferd kaufen bayern österreich, grenznahe gestüte, pferdetransport österreich"
     },
     "ch": {
-      "metadata": {
-        "title": "Pferd kaufen in Bayern – Für Schweizer Interessenten",
-        "description": "Pferd kaufen in Bayern: Umfassender Ratgeber für Schweizer Käufer. Marktplätze, Preise in EUR & praktische Tipps zum Kauf in Deutschland.",
-        "canonical_url": "https://pferdewert.de/pferd-kaufen/bayern",
-        "robots": "index, follow",
-        "og_locale": "de_CH",
-        "note": "CH-Version: Canonical auf DE, da Bayern-spezifisch"
-      },
-      "open_graph": {
-        "og:title": "Pferd kaufen in Bayern: Guide für Schweizer",
-        "og:description": "Pferdekauf in Bayern für Schweizer Interessenten. Marktplatz-Vergleich, EUR-Preise & kompletter Kaufratgeber.",
-        "og:type": "article",
-        "og:url": "https://pferdewert.de/pferd-kaufen/bayern",
-        "og:site_name": "PferdeWert.de",
-        "og:locale": "de_CH",
-        "og:image": "https://pferdewert.de/images/pferd-kaufen-bayern.webp"
-      },
-      "twitter_card": {
-        "twitter:card": "summary_large_image",
-        "twitter:title": "Pferd kaufen in Bayern für Schweizer",
-        "twitter:description": "Marktplatz-Leitfaden & Preise für Pferdekauf in Deutschland.",
-        "twitter:image": "https://pferdewert.de/images/pferd-kaufen-bayern.webp"
-      }
+      "title": "Pferd kaufen Bayern: Tipps für Schweizer Käufer",  
+      "description": "Als Schweizer ein Pferd in Bayern kaufen ► Import-Tipps ✓ Beste Gestüte ✓ Transport in die CH ► Kompletter Bayern-Guide!",
+      "keywords": "pferd kaufen bayern schweiz, pferdimport schweiz, transport schweiz"
     }
-  },
-  "hreflang": [
-    {
-      "hreflang": "de",
-      "href": "https://pferdewert.de/pferd-kaufen/bayern"
-    },
-    {
-      "hreflang": "de-AT",
-      "href": "https://pferdewert.de/pferd-kaufen/bayern"
-    },
-    {
-      "hreflang": "de-CH",
-      "href": "https://pferdewert.de/pferd-kaufen/bayern"
-    },
-    {
-      "hreflang": "x-default",
-      "href": "https://pferdewert.de/pferd-kaufen/bayern"
-    }
-  ],
-  "shared": {
-    "twitter:site": "@PferdeWert",
-    "twitter:creator": "@PferdeWert",
-    "og:image:width": 1200,
-    "og:image:height": 630
-  },
-  "validation": {
-    "de": {
-      "title_length": 58,
-      "title_length_status": "VALID",
-      "description_length": 153,
-      "description_length_status": "VALID",
-      "primary_keyword_in_title": true,
-      "canonical_valid": true
-    },
-    "at": {
-      "title_length": 65,
-      "title_length_status": "VALID",
-      "description_length": 159,
-      "description_length_status": "VALID",
-      "primary_keyword_in_title": false,
-      "note": "AT-Variante für locales Matching, aber canonical auf DE"
-    },
-    "ch": {
-      "title_length": 63,
-      "title_length_status": "VALID",
-      "description_length": 156,
-      "description_length_status": "VALID",
-      "primary_keyword_in_title": false,
-      "note": "CH-Variante für locales Matching, aber canonical auf DE"
-    }
-  },
-  "slug": "pferd-kaufen-bayern",
-  "article_type": "Ratgeber",
-  "target_audience": "Anfänger, Freizeitreiter, Pferdeinteressenten (Bayern + überregional)"
+  }
 }

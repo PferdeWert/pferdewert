@@ -360,6 +360,23 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'pferd-kaufen',
       'aku-pferd'
     ]
+  },
+
+  // Regional Guides
+  {
+    slug: 'pferd-kaufen-bayern',
+    title: 'Pferd kaufen in Bayern: Regionale Besonderheiten und Top-Adressen',
+    description: 'Pferd kaufen in Bayern: Top-Gestüte, Rottaler & Bayerisches Warmblut, regionale Märkte und praktische Tipps. Preise 3.000-25.000€.',
+    category: 'Regional Guides',
+    readTime: '8 Min.',
+    image: '/images/ratgeber/horses-mountain-field-bayern.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'haflinger-kaufen',
+      'quarter-horse-kaufen'
+    ]
   }
 ];
 

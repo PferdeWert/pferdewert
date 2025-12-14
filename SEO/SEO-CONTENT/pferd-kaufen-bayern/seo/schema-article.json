@@ -1,38 +1,24 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Pferd kaufen in Bayern: Die besten Marktplätze & Kaufratgeber 2025",
-  "description": "Umfassender Ratgeber zum Pferdekauf in Bayern mit Marktplatz-Vergleich, realistischen Preisen, Rasse-Empfehlungen für Anfänger und detaillierter Kaufcheckliste.",
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://pferdewert.de/images/pferd-kaufen-bayern.webp",
-    "width": 1200,
-    "height": 630
-  },
+  "headline": "Pferd kaufen in Bayern: Regionale Besonderheiten und Top-Adressen 2025",
+  "description": "Kompletter Ratgeber zum Pferdekauf in Bayern mit regionalen Gestüten, bayerischen Pferderassen und praktischen Tipps",
+  "datePublished": "2025-12-14",
+  "dateModified": "2025-12-14",
   "author": {
-    "@type": "Organization",
-    "name": "PferdeWert.de",
-    "url": "https://pferdewert.de/ueber-uns"
+    "@type": "Organization", 
+    "name": "PferdeWert.de"
   },
   "publisher": {
     "@type": "Organization",
     "name": "PferdeWert.de",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pferdewert.de/logo.png",
-      "width": 250,
-      "height": 60
-    },
-    "url": "https://pferdewert.de"
+      "url": "https://pferdewert.de/logo.png"
+    }
   },
-  "datePublished": "2025-11-30",
-  "dateModified": "2025-11-30",
-  "articleBody": "Bayern mit über 450 Zucht- und Verkaufsbetrieben ist Deutschlands Pferde-Hochburg. Dieser Ratgeber zeigt dir die besten Marktplätze zum Pferd kaufen in Bayern, realistische Kosten und eine konkrete Kaufcheckliste.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://pferdewert.de/pferd-kaufen/bayern"
-  },
-  "keywords": "pferd kaufen bayern, pferdemarkt bayern, pferde kaufen, pferd in bayern, haflinger kaufen, freizeitpferd kaufen",
-  "wordCount": 5200,
-  "articleSection": "Ratgeber"
+  "wordCount": 1033,
+  "keywords": "pferd kaufen bayern, gestüt bayern, rottaler pferd, bayerisches warmblut",
+  "articleSection": "Pferde-Ratgeber",
+  "inLanguage": "de-DE"
 }

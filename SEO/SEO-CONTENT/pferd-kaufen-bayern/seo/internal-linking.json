@@ -1,76 +1,40 @@
 {
-  "phase": "5C",
-  "primary_keyword": "pferd kaufen bayern",
-  "url": "/pferd-kaufen/bayern",
-  "timestamp": "2025-11-30T12:00:00Z",
-  "total_internal_links": 6,
   "internal_links": [
     {
-      "position": 1,
-      "section": "Einleitung",
-      "anchor_text": "PferdeWert-Tool",
-      "target_url": "/pferde-bewertung",
-      "context": "Mit dem PferdeWert-Tool berechnen Sie den echten Marktwert eines Pferdes – bevor Sie einen Kaufvertrag unterzeichnen.",
-      "relevance": "high",
-      "type": "primary_service"
+      "url": "/pferde-ratgeber/pferd-kaufen",
+      "anchor": "umfassenden Ratgeber zum Pferdekauf",
+      "required": true,
+      "placement": {
+        "section": "wichtiger_hinweis",
+        "line": "Already placed in article"
+      }
     },
     {
-      "position": 2,
-      "section": "Kostenübersicht",
-      "anchor_text": "Pferd Gesundheitscheck Kosten",
-      "target_url": "/pferde-ratgeber/pferd-gesundheitscheck-kosten",
-      "context": "Die Ankaufsuntersuchung kostet 150-300 EUR und schützt dich vor versteckten Krankheiten.",
-      "relevance": "high",
-      "type": "related_guide"
+      "url": "/pferde-ratgeber/haflinger-kaufen",
+      "anchor": "Haflinger",
+      "required": false,
+      "placement": {
+        "section": "allgaeu",
+        "recommendation": "When mentioning Haflinger in Allgäu section"
+      }
     },
     {
-      "position": 3,
-      "section": "Anfänger-Leitfaden",
-      "anchor_text": "Haflinger kaufen",
-      "target_url": "/pferde-ratgeber/haflinger-kaufen",
-      "context": "Der Haflinger ist das perfekte Anfänger-Pferd und die TOP EMPFEHLUNG für neue Pferdebesitzer.",
-      "relevance": "high",
-      "type": "related_guide"
+      "url": "/pferde-ratgeber/quarter-horse-kaufen",
+      "anchor": "Quarter Horses",
+      "required": false,
+      "placement": {
+        "section": "western",
+        "recommendation": "When discussing Western horses"
+      }
     },
     {
-      "position": 4,
-      "section": "Kaufcheckliste",
-      "anchor_text": "Ankaufsuntersuchung Checkliste",
-      "target_url": "/pferde-ratgeber/ankaufsuntersuchung-checkliste",
-      "context": "Die Ankaufsuntersuchung ist ein Pferde-TÜV und essentiell vor jedem Kauf.",
-      "relevance": "high",
-      "type": "related_guide"
-    },
-    {
-      "position": 5,
-      "section": "Kostenübersicht",
-      "anchor_text": "Freizeitpferd kaufen",
-      "target_url": "/pferde-ratgeber/freizeitpferd-kaufen",
-      "context": "Ein Freizeitpferd ist perfekt, wenn du entspannt ausreiten und lange Touren machen möchtest.",
-      "relevance": "medium",
-      "type": "related_guide"
-    },
-    {
-      "position": 6,
-      "section": "Zusammenfassung",
-      "anchor_text": "PferdeWert-Bewertungs-Tool",
-      "target_url": "/pferde-bewertung",
-      "context": "Mit dem PferdeWert-Bewertungs-Tool erhältst du in 2 Minuten eine marktgerechte Bewertung.",
-      "relevance": "high",
-      "type": "primary_service"
+      "url": "/pferde-preis-berechnen",
+      "anchor": "Pferdewert in Bayern ermitteln",
+      "required": true,
+      "placement": {
+        "section": "fazit",
+        "line": "Already placed as CTA"
+      }
     }
-  ],
-  "linking_strategy": {
-    "primary_service_links": 2,
-    "related_guides": 4,
-    "total": 6,
-    "distribution": "Erste 200 Wörter: 1 Link (Intro), Middle Content: 4 Links (verteilt), Conclusion: 1 Link (CTA)"
-  },
-  "validation": {
-    "minimum_links_met": true,
-    "maximum_links_ok": true,
-    "primary_service_included": true,
-    "anchor_text_variety": true,
-    "status": "VALID"
-  }
+  ]
 }
