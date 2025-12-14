@@ -1,355 +1,225 @@
 # Page-Struktur SEO - PferdeWert.de
 
 **Zuletzt aktualisiert:** 2025-12-13
-
-Neue Ideen:
-pferd kaufen nrw
-pferd kaufen bayern
-verkaufspferde
-
+**Basis:** topic-cluster-strategie-2025.md
 
 ---
 
-## 📊 STATUS OVERVIEW
+## LIVE ARTIKEL (Status Check)
 
-### ✅ Live Content (21 Artikel)
-- Homepage (/)
-- Pferde Preis berechnen (/pferde-preis-berechnen)
-- Beispiel Analyse (/beispiel-analyse)
-- Über PferdeWert (/ueber-pferdewert)
-- **Ratgeber:**
-  - AKU Pferd (Hub + Kosten-Spoke)
-  - Pferd Verkaufen (Hub)
-  - Pferd Kaufen (Hub)
-  - Was kostet ein Pferd (Spoke)
-  - **Pferdekaufvertrag** ✅
-  - **Pferdemarkt** ✅
-  - **Springpferd kaufen** ✅
-  - **Dressurpferd kaufen** ✅
-  - **Anfängerpferd kaufen** ✅
-  - **Freizeitpferd kaufen** ✅
-  - **Pony kaufen** ✅ (P4 Hub abgeschlossen!)
-  - **Pferd kaufen Schweiz** ✅
-  - **Pferd kaufen Österreich** ✅
-  - **Haflinger kaufen** ✅
-  - **Lipizzaner** ✅
+### Pferd Kaufen Cluster
+| Artikel | Status | Rolle | Vol/Mo |
+|---------|--------|-------|--------|
+| /pferd-kaufen | PILLAR | Hub | 40.500 |
+| /was-kostet-ein-pferd | Spoke | Kosten | 2.900 |
+| /springpferd-kaufen | Spoke | Disziplin | 2.400 |
+| /dressurpferd-kaufen | Spoke | Disziplin | 2.400 |
+| /freizeitpferd-kaufen | Spoke | Disziplin | 1.900 |
+| /anfaengerpferd-kaufen | Spoke | Zielgruppe | 880 |
+| /pony-kaufen | Spoke | Typ | 6.600 |
+| /fohlen-kaufen | Spoke | Typ | 1.300 |
+| /pferdekaufvertrag | Spoke | Rechtlich | 1.000 |
+| /pferdemarkt | Spoke | Plattform | TBD |
+| /haflinger-kaufen | Spoke | Rasse | 5.400 |
+| /pferd-kaufen-oesterreich | Spoke | Regional | 5.400 |
+| /pferd-kaufen-schweiz | Spoke | Regional | 2.400 |
 
-### 🎯 Nächste Artikel (Priority)
-- **P4-Spoke:** Pony Preis (140/Mo., CPC 0,11€) - 📋 **GEPLANT**
-- **Fohlen-Cluster:** Fohlen kaufen (1.300/Mo., CPC 0,16€) - 📋 **GEPLANT**
+### AKU Cluster
+| Artikel | Status | Rolle | Vol/Mo |
+|---------|--------|-------|--------|
+| /aku-pferd | PILLAR | Hub | 480 |
+| /aku-pferd/kosten | Spoke | Kosten | 260 |
 
-### 🇨🇭🇦🇹 DACH-Expansion
-- **CH-1:** Pferd kaufen Schweiz (4.400/Mo., KD 20) - ✅ **LIVE**
-- **AT-1:** Pferd kaufen Österreich - ✅ **LIVE**
-- **CH-2:** Freiberger Pferd kaufen (480/Mo.) - 📋 **GEPLANT**
-- **CH-3:** Freizeitpferd kaufen Schweiz (320/Mo., KD 9) - 📋 **GEPLANT**
+### Pferd Verkaufen Cluster
+| Artikel | Status | Rolle | Vol/Mo |
+|---------|--------|-------|--------|
+| /pferd-verkaufen | PILLAR | Hub | 1.300 |
 
-### 📋 Geplant (Weitere Optionen)
-- **P4-Spoke:** Pony Preis (140/Mo.) - Ergänzung zum Pony-Hub
-- **Fohlen-Cluster:** Fohlen kaufen (1.300/Mo.) + Jungpferd kaufen (140/Mo.)
-- **Verkaufs-Spokes:** Pferd zu verkaufen (1.600/Mo.), Pferdetransport Kosten (260/Mo.)
+### Sonstige
+| Artikel | Status | Rolle | Vol/Mo |
+|---------|--------|-------|--------|
+| /lipizzaner | Orphan | Rasse-Info | TBD |
 
 ---
 
-## 🎯 PRIORITY ROADMAP
+## TODO: NEUE ARTIKEL (Priorisiert)
 
-### ✅ P2 - ABGESCHLOSSEN
+### PHASE 1 (P1) - Sofort erstellen
 
-#### 1. Anfängerpferd kaufen ✅ LIVE
-- **URL:** `/pferde-ratgeber/anfaengerpferd-kaufen`
-- **Keyword:** anfängerpferd kaufen (880/Mo., CPC 0,15€)
-- **Intent:** Commercial + Transactional
+#### 1. Islandpferd kaufen
+- **URL:** `/pferde-ratgeber/islandpferd-kaufen`
+- **Vol:** 4.400/Mo | **Typ:** Rassen-Kaufen Mini-Page (800-1000 Wörter)
+- **Unique Content:** Gangarten-Prüfung (Tölt, Pass), Island-Import, Zuchtverband IPZV
+- **NICHT rein:** Allgemeine Kaufberatung (steht im Pillar)
+- **Verlinken auf:** Pferd-kaufen (Pillar), AKU-Pferd, Was-kostet-ein-Pferd
+- **Verlinken von:** Pferd-kaufen Pillar (Sektion "Rassen")
 
----
+#### 2. Quarter Horse kaufen
+- **URL:** `/pferde-ratgeber/quarter-horse-kaufen`
+- **Vol:** 3.600/Mo | **Typ:** Rassen-Kaufen Mini-Page (800-1000 Wörter)
+- **Unique Content:** Western-Eignung, AQHA-Papiere, US-Import, Reining/Cutting
+- **NICHT rein:** Allgemeine Kaufberatung
+- **Verlinken auf:** Pferd-kaufen (Pillar), AKU-Pferd
+- **Verlinken von:** Pferd-kaufen Pillar
 
-### ✅ P3 - ABGESCHLOSSEN
+#### 3. Pferd kaufen Bayern
+- **URL:** `/pferde-ratgeber/pferd-kaufen-bayern`
+- **Vol:** 1.900/Mo | **Typ:** Regional Mini-Page (500-800 Wörter)
+- **Unique Content:** Bayerisches Warmblut, Top-Gestüte (Schwaiganger), Auktionen, Preisniveau
+- **NICHT rein:** Allgemeine Kaufberatung, AKU-Infos
+- **Verlinken auf:** Pferd-kaufen (Pillar), Pferderassen (wenn existiert)
+- **Verlinken von:** Pferd-kaufen Pillar (Sektion "Regionen")
 
-#### 2. Freizeitpferd kaufen ✅ LIVE
-- **URL:** `/pferde-ratgeber/freizeitpferd-kaufen`
-- **Keyword:** freizeitpferd kaufen (1.900/Mo., CPC 0,13€)
-- **Zielgruppe:** 100% weiblich, 35-44 Jahre
-- **Intent:** Commercial + Navigational
+#### 4. Pferd kaufen NRW
+- **URL:** `/pferde-ratgeber/pferd-kaufen-nrw`
+- **Vol:** 1.600/Mo | **Typ:** Regional Mini-Page (500-800 Wörter)
+- **Unique Content:** Westfalen, Rheinländer, Warendorfer Auktion, 300k+ Pferde-Markt
+- **NICHT rein:** Allgemeine Kaufberatung
+- **Verlinken auf:** Pferd-kaufen (Pillar)
+- **Verlinken von:** Pferd-kaufen Pillar
 
----
-
-### ✅ P4 - PONY HUB ABGESCHLOSSEN
-
-#### Pony-Cluster (Hub fertig, Spoke ausstehend)
-**Total Volume:** 6.880/Mo. | **Intent:** Commercial + Transactional | **CPC:** 0.09-0.11€
-
-**1. Hub: Pony kaufen** ✅ LIVE
-- **URL:** `/pferde-ratgeber/pony-kaufen`
-- **Keyword:** pony kaufen (6.600/Mo., CPC 0.09€)
-- **Intent:** Commercial
-
-**2. Spoke: Pony Preis** 📋 GEPLANT
-- **URL:** `/pferde-ratgeber/pony-preis`
-- **Keyword:** pony preis (140/Mo., CPC 0.11€)
-- **Intent:** Commercial
-- **Content-Plan:**
-  - Preisfaktoren bei Ponys (Rasse, Ausbildung, Alter)
-  - Preisbeispiele nach Rasse
-  - Versteckte Kosten (kleinere Boxen = oft günstiger)
-  - Tool-CTA für individuelle Bewertung
-
----
-
-### 📌 P4 - ALTERNATIVE CLUSTER-OPTIONEN
-
-#### Option A: Fohlen/Jungpferd-Cluster
-**Total Volume:** 1.440/Mo. | **Intent:** Commercial | **CPC:** 0.16-0.28€
-
-- **Hub:** Fohlen kaufen (1.300/Mo., CPC 0.16€)
-- **Spoke:** Jungpferd kaufen (140/Mo., CPC 0.28€)
-- **Vorteil:** Spezialisierte Nische, Abstammung/Zucht wichtig für Preisbildung
-- **Tool-Fit:** "Fohlen-Preise nach Abstammung" → Tool-CTA
-
-#### Option B: Erweiterte Verkaufs-Spokes
-**Total Volume:** 2.900/Mo. | **Intent:** Transactional | **CPC:** 0.20-0.87€
-
-Zum bestehenden Hub "Pferd verkaufen" (1.300/Mo.) hinzufügen:
-- **Spoke 1:** Pferd zu verkaufen (1.600/Mo., CPC 0.20€, KD 39)
-- **Spoke 2:** Pferdetransport Kosten (260/Mo., CPC 0.87€ 🔥, MEDIUM Competition)
-- **Vorteil:** Nutzt bestehenden Hub, hoher CPC bei Transport
-- **Tool-Fit:** "Was kostet mein Pferd?" vor dem Verkauf
+#### 5. Friese kaufen
+- **URL:** `/pferde-ratgeber/friese-kaufen`
+- **Vol:** 1.900/Mo | **Typ:** Rassen-Kaufen Mini-Page (800-1000 Wörter)
+- **Unique Content:** KFPS-Stammbuch, Rassebedingte Gesundheitsrisiken, Niederlande-Import
+- **NICHT rein:** Allgemeine Kaufberatung
+- **Verlinken auf:** Pferd-kaufen (Pillar), AKU-Pferd
+- **Verlinken von:** Pferd-kaufen Pillar
 
 ---
 
-### ❌ P4 - VERWORFENE CLUSTER
+### PHASE 2 (P2) - Nach Phase 1
 
-#### Pferde Gesundheit Cluster (NICHT empfohlen)
-**Total Volume:** 15.390/Mo. | **⚠️ Rein informational, KEINE Kaufintention**
+#### 6. Pferdehaltung Kosten (NEUER PILLAR)
+- **URL:** `/pferde-ratgeber/pferdehaltung-kosten`
+- **Vol:** 1.900/Mo | **Typ:** PILLAR PAGE (2500+ Wörter)
+- **Content:** Monatliche/jährliche Kostenübersicht, alle Kostenfaktoren
+- **Spokes verlinken:** Stallmiete, Hufschmied, Tierarzt, Futter (alle noch zu erstellen)
+- **Cross-Link:** Was-kostet-ein-Pferd, Pferd-kaufen
 
-- **Hub:** Pferde Gesundheit (90/Mo. + 9.900/Mo. "wie alt werden pferde")
-- **Spoke 1:** Wie alt werden Pferde (9.900/Mo.)
-- **Spoke 2:** Kolik beim Pferd (5.400/Mo.)
-- **Grund für Ablehnung:** Null matching intent zum Bewertungs-Tool, niedrige Conversion trotz hohem Traffic
+#### 7. Stallmiete Pferd
+- **URL:** `/pferde-ratgeber/stallmiete-pferd`
+- **Vol:** 880/Mo | **Typ:** Spoke zu Pferdehaltung-Kosten (1200-1500 Wörter)
+- **Unique Content:** Boxenhaltung vs. Offenstall, regionale Preisunterschiede, inkl. Leistungen
+- **NICHT rein:** Andere Kosten (Hufschmied, Tierarzt)
+- **Verlinken auf:** Pferdehaltung-Kosten (Pillar)
 
----
+#### 8. Hufschmied Kosten
+- **URL:** `/pferde-ratgeber/hufschmied-kosten`
+- **Vol:** 1.600/Mo | **Typ:** Spoke zu Pferdehaltung-Kosten (1200-1500 Wörter)
+- **Unique Content:** Beschlag vs. Barhuf, Intervalle, regionale Preise, Spezialisten
+- **NICHT rein:** Andere Haltungskosten
+- **Verlinken auf:** Pferdehaltung-Kosten (Pillar)
 
-## ✅ LIVE CONTENT - DETAILS
+#### 9. Trakehner kaufen
+- **URL:** `/pferde-ratgeber/trakehner-kaufen`
+- **Vol:** 720/Mo | **Typ:** Rassen-Kaufen Mini-Page (800-1000 Wörter)
+- **Unique Content:** Trakehner Verband, Sporteignung Dressur/Vielseitigkeit, Zuchtlinien
+- **NICHT rein:** Allgemeine Kaufberatung
+- **Verlinken auf:** Pferd-kaufen (Pillar), Dressurpferd-kaufen
 
-### 🎯 Brand & Core Pages
+#### 10. Pferd kaufen Sachsen
+- **URL:** `/pferde-ratgeber/pferd-kaufen-sachsen`
+- **Vol:** 1.000/Mo | **Typ:** Regional Mini-Page (500-800 Wörter)
+- **Unique Content:** Sächsisches Warmblut, Moritzburg, lokale Gestüte
+- **Verlinken auf:** Pferd-kaufen (Pillar)
 
-| Page | URL | Haupt-Keyword | Volume | Status | Top Rankings |
-|------|-----|---------------|--------|--------|-------------|
-| Homepage | / | was ist mein pferd wert | 110/Mo. | ✅ LIVE | Rang 1-2 |
-| Tool Page | /pferde-preis-berechnen | pferde preis rechner | 40/Mo. | ✅ LIVE | Keine Top-20 (KD: 47) |
-| Beispiel | /beispiel-analyse | pferdebewertung beispiel | N/A | ✅ LIVE | N/A |
-
-**Homepage Rankings:**
-- "wie viel ist mein pferd wert" → **Rang 2** (90/Mo.)
-- "wieviel ist mein pferd wert rechner" → **Rang 1** 🎯 (70/Mo.)
-
----
-
-### 📋 Content Cluster: AKU Pferd
-
-**Total Volume:** ~750/Mo. | **Status:** ✅ LIVE
-
-| Artikel | URL | Keyword | Volume | Rankings |
-|---------|-----|---------|--------|----------|
-| Hub | /pferde-ratgeber/aku-pferd | aku pferd | 480/Mo. | Rang 5-9 |
-| Spoke | /pferde-ratgeber/aku-pferd/kosten | aku pferd kosten | 260/Mo. | Rang 9-11 |
-
-**Top Rankings:**
-- "kosten aku pferd 2024" → **Rang 5** (140/Mo., Trend: -92% yearly ⚠️)
-- "was kostet eine aku pferd" → **Rang 9** (70/Mo.)
-- "aku pferd kosten" → **Rang 9** (260/Mo.)
-
----
-
-### 📋 Content Cluster: Pferd Verkaufen
-
-**Total Volume:** 1.310/Mo. | **Status:** ✅ LIVE (Hub only)
-
-| Artikel | URL | Keyword | Volume | KD | Rankings |
-|---------|-----|---------|--------|-----|----------|
-| Hub | /pferde-ratgeber/pferd-verkaufen | pferd verkaufen | 1.300/Mo. | 23 | Keine Top-20 |
+#### 11. Pferd kaufen Schleswig-Holstein
+- **URL:** `/pferde-ratgeber/pferd-kaufen-schleswig-holstein`
+- **Vol:** 880/Mo | **Typ:** Regional Mini-Page (500-800 Wörter)
+- **Unique Content:** Holsteiner, Trakehner, Elmshorn, Gestüte
+- **Verlinken auf:** Pferd-kaufen (Pillar)
 
 ---
 
-### 📋 Content Cluster: Pferd Kaufen
+### PHASE 3 (P3) - Später
 
-**Total Volume:** 44.500/Mo. (Hub: 40.500 + Spokes: 9.200)
+#### 12. AKU Röntgenbilder verstehen
+- **URL:** `/pferde-ratgeber/aku-roentgen`
+- **Vol:** 140/Mo | **Typ:** Spoke zu AKU-Pferd (1200-1500 Wörter)
+- **Unique Content:** Röntgenklassen, häufige Befunde, Interpretation
+- **Verlinken auf:** AKU-Pferd (Pillar), AKU-Kosten
 
-| Artikel | URL | Keyword | Volume | KD | Rankings |
-|---------|-----|---------|--------|-----|----------|
-| Hub | /pferde-ratgeber/pferd-kaufen | pferd kaufen | 40.500/Mo. | 25 | Keine Top-20 |
-| Spoke | /pferde-ratgeber/was-kostet-ein-pferd | was kostet ein pferd | 2.900/Mo. | N/A | Rang 10-20 (Long-Tail) |
-| Spoke | /pferde-ratgeber/springpferd-kaufen | springpferd kaufen | 2.400/Mo. | N/A | TBD |
-| Spoke | /pferde-ratgeber/dressurpferd-kaufen | dressurpferd kaufen | 2.400/Mo. | N/A | TBD |
+#### 13. AKU Checkliste
+- **URL:** `/pferde-ratgeber/aku-checkliste`
+- **Vol:** 110/Mo | **Typ:** Spoke zu AKU-Pferd (1000-1200 Wörter)
+- **Unique Content:** Downloadbare Checkliste, Ablauf, Fragen an Tierarzt
+- **Verlinken auf:** AKU-Pferd (Pillar)
 
-**"Was kostet ein Pferd" Rankings:**
-- "was kostet ein springpferd" → **Rang 10** (50/Mo.)
-- "was kostet ein turnierpferd" → **Rang 12** (50/Mo.)
-- "was kostet ein pferd monatlich" → **Rang 15** (90/Mo.)
-- "was kostet ein reitpferd" → **Rang 20** (140/Mo.)
+#### 14. Pferd inserieren
+- **URL:** `/pferde-ratgeber/pferd-inserieren`
+- **Vol:** 480/Mo | **Typ:** Spoke zu Pferd-Verkaufen (1200-1500 Wörter)
+- **Unique Content:** Fotos, Beschreibungstext, Preisfindung, Plattformen
+- **Verlinken auf:** Pferd-Verkaufen (Pillar), Pferdemarkt
 
-**Integrierte Keywords (keine eigenen Pages):**
-- "checkliste pferdekauf" (40/Mo.) → Im Hub als H2
-- "pferd kosten" (880/Mo.) → Im Spoke "was-kostet-ein-pferd"
-- "pferd preis" (880/Mo.) → Im Spoke "was-kostet-ein-pferd"
-- "pferdehaltung kosten" (90/Mo.) → Im Spoke "was-kostet-ein-pferd" als H2
+#### 15. Verkaufspreis Pferd berechnen
+- **URL:** `/pferde-ratgeber/verkaufspreis-pferd`
+- **Vol:** 170/Mo | **Typ:** Spoke zu Pferd-Verkaufen (1000-1200 Wörter)
+- **Unique Content:** Faktoren, Rechner-CTA, Marktanalyse
+- **Verlinken auf:** Pferd-Verkaufen (Pillar), Pferdewert-Rechner
 
----
-
-### 📋 Content Cluster: Pferdekaufvertrag (NEU!)
-
-**Total Volume:** ~1.000/Mo. | **Status:** ✅ LIVE
-
-| Artikel | URL | Keyword | Volume | KD | CPC |
-|---------|-----|---------|--------|-----|-----|
-| Hub | /pferde-ratgeber/pferdekaufvertrag | pferdekaufvertrag | 1.000/Mo. | N/A | 1,00€ 🔥 |
-
-**Rankings:** TBD (neu live)
-
-**Kritisch:** HÖCHSTE Kaufintention aller Keywords! Sollte priorisiert optimiert werden.
+#### 16-20. Weitere Regional-Seiten (P3)
+- Brandenburg (720/Mo)
+- Hessen (590/Mo)
+- Baden-Württemberg (480/Mo)
+- Thüringen (480/Mo)
+- Niedersachsen (390/Mo)
 
 ---
 
-### 📋 Content Cluster: Pferdemarkt (NEU!)
+## BESTEHENDE ARTIKEL: OPTIMIERUNGEN
 
-**Total Volume:** TBD | **Status:** ✅ LIVE
+### Pferd-kaufen (PILLAR) - Status OK
+- Bereits 35k+ Tokens, 11 Sektionen
+- Interne Links zu Spokes prüfen/ergänzen
+- Neue Spokes (Rassen, Regional) in Sektion "Regionen" und "Rassen" verlinken
 
-| Artikel | URL | Keyword | Volume | Status |
-|---------|-----|---------|--------|--------|
-| Hub | /pferde-ratgeber/pferdemarkt | pferdemarkt | TBD | ✅ LIVE |
+### Lipizzaner - Orphan beheben
+- Aktuell nicht in Cluster eingebunden
+- Entweder: In Pferd-kaufen verlinken ODER löschen/redirecten
+- Empfehlung: Zu "Lipizzaner kaufen" umbauen und an Pferd-kaufen anbinden
 
-**Rankings:** TBD
-**Note:** Keyword-Recherche ausstehend
+### Was-kostet-ein-Pferd - Cross-Link prüfen
+- Sollte auf neuen Pferdehaltung-Kosten Pillar verlinken (sobald live)
+- Aktuell: Monatliche Kosten drin? -> Auf neuen Pillar auslagern
 
 ---
 
-## 🧭 NAVIGATION STRATEGIE
+## QUICK REFERENCE: Was gehört wohin?
 
-### Haupt-Navigation
+| Thema | Gehört in | NICHT in |
+|-------|-----------|----------|
+| Allgemeine Kaufberatung | Pferd-kaufen Pillar | Rassen/Regional Mini-Pages |
+| AKU Basics | AKU-Pferd Pillar | Kaufen-Spokes |
+| Preisübersicht allgemein | Was-kostet-ein-Pferd | Regional Mini-Pages |
+| Rassen-spezifische Preise | [Rasse]-kaufen | Pferd-kaufen Pillar |
+| Regionale Gestüte/Händler | [Region]-kaufen | Pferd-kaufen Pillar |
+| Rechtliches (Vertrag) | Pferdekaufvertrag | Andere Spokes |
+| Monatliche Kosten | Pferdehaltung-Kosten | Was-kostet-ein-Pferd |
+
+---
+
+## LINK-STRUKTUR REGELN
+
+### Mini-Page (500-1000 Wörter)
 ```
-PferdeWert | Ratgeber ▼ | Über uns | Beispiel-Analyse | Jetzt bewerten
+INTRO: Link zu Pillar ("Mehr im kompletten Ratgeber")
+MITTE: 1-2 Links zu verwandten Spokes
+ENDE: CTA mit Link zu Pillar + Rechner
 ```
 
-### Ratgeber-Dropdown (nach Kaufintention sortiert)
+### Spoke (1200-1500 Wörter)
+```
+INTRO: Link zu Pillar
+CONTENT: 3-5 Links zu verwandten Spokes
+SIDEBAR: Verwandte Artikel
+ENDE: Link zu Pillar + Rechner CTA
+```
 
-**Hohe Kaufintention:**
-- 🔥 Pferdekaufvertrag (NEU - oben!)
-- Pferd kaufen
-- Pferd verkaufen
-
-**Mittlere Kaufintention:**
-- AKU Pferd
-- Was kostet ein Pferd
-
-**Niedrige Kaufintention:**
-- Wie alt werden Pferde (Traffic-Fokus)
-- Pferde Gesundheit (Traffic-Fokus)
-
----
-
-## 📊 KEYWORD RESEARCH DATEN
-
-### Top-Priority Keywords (Business Value)
-
-| Keyword | Volume | CPC | KD | Intent | Status |
-|---------|--------|-----|-----|--------|--------|
-| **pferdekaufvertrag** | 1.000 | **1,00€** 🔥 | N/A | Transactional | ✅ LIVE |
-| dressurpferd kaufen | 2.400 | 0,14€ | N/A | Commercial | ✅ LIVE |
-| springpferd kaufen | 2.400 | 0,09€ | N/A | Commercial | ✅ LIVE |
-| anfängerpferd kaufen | 880 | 0,15€ | N/A | Commercial | 🎯 P2 |
-| freizeitpferd kaufen | 1.900 | 0,13€ | N/A | Commercial | 📋 P3 |
-
-### Hochvolumen-Keywords (>5.000/Mo.)
-
-| Keyword | Volume | KD | Status | Rankings |
-|---------|--------|-----|--------|----------|
-| pferd kaufen | 40.500 | 25 | ✅ LIVE | Keine Top-20 |
-| **pony kaufen** | **6.600** | N/A | **🎯 P4 (empfohlen!)** | N/A |
-| wie alt werden pferde | 9.900 | N/A | ❌ Verworfen (keine Kaufintention) | N/A |
-| kolik pferd | 5.400 | N/A | ❌ Verworfen (keine Kaufintention) | N/A |
-
----
-
-## 📈 PERFORMANCE TRACKING
-
-### Starke Rankings (Top 10)
-
-| Keyword | Volume | Ranking | Seite |
-|---------|--------|---------|-------|
-| wieviel ist mein pferd wert rechner | 70 | **#1** 🎯 | Homepage |
-| wie viel ist mein pferd wert | 90 | **#2** | Homepage |
-| kosten aku pferd 2024 | 140 | **#5** | /aku-pferd |
-| was kostet eine aku pferd | 70 | **#9** | /aku-pferd |
-| aku pferd kosten | 260 | **#9** | /aku-pferd/kosten |
-| was kostet ein springpferd | 50 | **#10** | /was-kostet-ein-pferd |
-
-### Kritische Trends (2025)
-
-**⚠️ Rückläufig:**
-- "kosten aku pferd 2024" → -92% yearly (Jahresspezifisch!)
-- "aku pferd kosten" → -34% yearly
-
-**🚀 Wachsend:**
-- "springpferd kaufen" → +53% yearly
-
----
-
-## 🎯 DECISION MATRIX (Artikel vs. H2)
-
-**Eigener Artikel, wenn:**
-- Suchvolumen > 500/Mo. UND Intent unterschiedlich UND SERP Avg. > 1.500 Wörter
-- Suchvolumen > 200/Mo. UND Content-Overlap < 60%
-- Hohe Kaufintention (CPC > 0,50€)
-
-**Als H2 im Hub, wenn:**
-- Suchvolumen < 200/Mo.
-- Content-Overlap > 80% mit Hub
-- Gleicher Search Intent wie Hub
-
----
-
-## 📝 NOTIZEN
-
-**Letzte Updates:**
-- **2025-12-13:** Großes Status-Update - 7 neue Artikel entdeckt!
-  - ✅ **Pony kaufen** - P4 Hub LIVE (6.600/Mo.)
-  - ✅ **Pferd kaufen Schweiz** - LIVE
-  - ✅ **Pferd kaufen Österreich** - LIVE
-  - ✅ **Haflinger kaufen** - LIVE
-  - ✅ **Lipizzaner** - LIVE
-  - ✅ **Anfängerpferd kaufen** - LIVE
-  - ✅ **Freizeitpferd kaufen** - LIVE
-  - **Total Live:** 21 Artikel (vorher 14)
-- **2025-11-26:** Schweiz-Expansion (3 Artikel geplant, CH-1 in Produktion)
-- **2025-11-14:** P4-Cluster geändert (Gesundheit → Pony-Cluster)
-- **2025-11-14:** Status-Update mit tatsächlich existierenden Artikeln
-- 2025-11-14: Struktur komplett überarbeitet für bessere Übersicht
-- 2025-10-28: Kaufvertrag + Breed-Keywords hinzugefügt
-- 2025-10-25: DataForSEO Live-Daten Integration
-
-**Keyword Research Tools:**
-- DataForSEO APIs (Keyword Overview, Bulk KD, SERP Analysis)
-- Letzte vollständige Analyse: 2025-10-25
-- Letzte SERP-Analyse: 2025-11-14 (turnierpferde)
-
-**To-Do:**
-- Rankings für Pferdekaufvertrag, Pferdemarkt, Springpferd, Dressurpferd prüfen
-- Keyword-Recherche für "Pferdemarkt" durchführen
-
-**Keyword-Research Ergebnisse (2025-11-14):**
-
-**❌ Verworfene Keywords:**
-- **Pferdezucht** (2.900/Mo., CPC 1,07€) - Navigational Intent, passt nicht zum Tool
-- **Turnierpferde** (320/Mo.) - Administrative Suchen (FN-Eintragung), nicht kauforientiert
-- **Turnierpferd kaufen** (90/Mo.) - Zu niedriges Volumen, -44% yearly Trend
-- **Gesundheits-Cluster** (15.390/Mo.) - Hoher Traffic, aber null matching intent zum Tool
-
-**✅ Empfohlene Keywords (P4-Cluster):**
-
-*Pony-Cluster (TOP-PICK):*
-- **pony kaufen** (6.600/Mo., CPC 0.09€) - Commercial Intent ✅
-- **pony preis** (140/Mo., CPC 0.11€) - Commercial Intent ✅
-
-*Alternative Cluster-Optionen:*
-- **fohlen kaufen** (1.300/Mo., CPC 0.16€) - Commercial Intent
-- **jungpferd kaufen** (140/Mo., CPC 0.28€) - Commercial Intent
-- **pferd zu verkaufen** (1.600/Mo., CPC 0.20€, KD 39) - Transactional Intent
-- **pferdetransport kosten** (260/Mo., CPC 0.87€ 🔥) - Transactional Intent, MEDIUM Competition
+### Pillar (2500+ Wörter)
+```
+TOC: Alle Sektionen verlinkt
+JEDE SEKTION: 1-2 Links zu passenden Spokes
+SIDEBAR: Alle Cluster-Artikel
+ENDE: Cross-Cluster Links
+```

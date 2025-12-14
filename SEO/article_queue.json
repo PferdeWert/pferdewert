@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "created": "2025-12-14",
+    "source": "SEO/STRATEGY/page-struktur-seo.md",
+    "description": "Automated article creation queue for Mini-Pages"
+  },
+  "pending": [
+    {
+      "keyword": "islandpferd kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 1,
+      "search_volume": 4400,
+      "phase": "P1",
+      "notes": "Gangarten-Prüfung (Tölt, Pass), Island-Import, IPZV"
+    },
+    {
+      "keyword": "quarter horse kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 2,
+      "search_volume": 3600,
+      "phase": "P1",
+      "notes": "Western-Eignung, AQHA-Papiere, US-Import"
+    },
+    {
+      "keyword": "pferd kaufen bayern",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 3,
+      "search_volume": 1900,
+      "phase": "P1",
+      "notes": "Bayerisches Warmblut, Schwaiganger, Auktionen"
+    },
+    {
+      "keyword": "pferd kaufen nrw",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 4,
+      "search_volume": 1600,
+      "phase": "P1",
+      "notes": "Westfalen, Rheinländer, Warendorfer Auktion"
+    },
+    {
+      "keyword": "friese kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 5,
+      "search_volume": 1900,
+      "phase": "P1",
+      "notes": "KFPS-Stammbuch, Gesundheitsrisiken, NL-Import"
+    },
+    {
+      "keyword": "trakehner kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 6,
+      "search_volume": 720,
+      "phase": "P2",
+      "notes": "Trakehner Verband, Sporteignung Dressur/Vielseitigkeit"
+    },
+    {
+      "keyword": "pferd kaufen sachsen",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 7,
+      "search_volume": 1000,
+      "phase": "P2",
+      "notes": "Sächsisches Warmblut, Moritzburg"
+    },
+    {
+      "keyword": "pferd kaufen schleswig-holstein",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 8,
+      "search_volume": 880,
+      "phase": "P2",
+      "notes": "Holsteiner, Trakehner, Elmshorn"
+    },
+    {
+      "keyword": "pferd kaufen brandenburg",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 9,
+      "search_volume": 720,
+      "phase": "P3",
+      "notes": "Brandenburger Warmblut, Neustadt/Dosse"
+    },
+    {
+      "keyword": "pferd kaufen hessen",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 10,
+      "search_volume": 590,
+      "phase": "P3",
+      "notes": "Hessisches Warmblut, Frankfurt Umgebung"
+    },
+    {
+      "keyword": "pferd kaufen baden-wuerttemberg",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 11,
+      "search_volume": 480,
+      "phase": "P3",
+      "notes": "Marbach, Württemberger"
+    },
+    {
+      "keyword": "pferd kaufen niedersachsen",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 12,
+      "search_volume": 390,
+      "phase": "P3",
+      "notes": "Hannoveraner, Celle, Verden"
+    }
+  ],
+  "completed": [],
+  "failed": []
+}
