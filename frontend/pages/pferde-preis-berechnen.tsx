@@ -1007,7 +1007,7 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                       </ul>
 
                       {/* Consent-Checkbox direkt über dem Button */}
-                      <div className="mb-4">
+                      <div className="mb-4 p-3 bg-gray-50 border border-gray-200 rounded-lg">
                         <label className="flex items-start gap-2 cursor-pointer">
                           <input
                             type="checkbox"
@@ -1073,33 +1073,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                         </li>
                       </ul>
 
-                      {/* Pferdename-Eingabe vor dem Button */}
-                      <div className="mb-4">
-                        <label htmlFor="pferdeName" className="block text-sm font-medium text-gray-700 mb-1">
-                          Name deines Pferdes <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="pferdeName"
-                          name="pferdeName"
-                          type="text"
-                          value={form.pferdeName || ''}
-                          onChange={handleChange}
-                          placeholder="z.B. Bella Vista"
-                          className={`w-full p-3 border rounded-xl text-sm transition-all ${
-                            errors.pferdeName
-                              ? "border-red-500 bg-red-50"
-                              : "border-gray-300 bg-white hover:border-amber-400 focus:border-amber-500"
-                          } focus:outline-none focus:ring-2 focus:ring-amber-200`}
-                        />
-                        {errors.pferdeName && (
-                          <p className="mt-1 text-red-600 text-xs">
-                            {errors.pferdeName}
-                          </p>
-                        )}
-                      </div>
-
                       {/* Consent-Checkbox direkt über dem Button */}
-                      <div className="mb-4">
+                      <div className="mb-4 p-3 bg-amber-50/30 border border-amber-200 rounded-lg">
                         <label className="flex items-start gap-2 cursor-pointer">
                           <input
                             type="checkbox"
@@ -1129,6 +1104,31 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
                           "Jetzt Wertgutachten erstellen"
                         )}
                       </button>
+
+                      {/* Pferdename-Eingabe nach dem Button */}
+                      <div className="mt-4">
+                        <label htmlFor="pferdeName" className="block text-sm font-medium text-gray-700 mb-1">
+                          Name deines Pferdes <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="pferdeName"
+                          name="pferdeName"
+                          type="text"
+                          value={form.pferdeName || ''}
+                          onChange={handleChange}
+                          placeholder="z.B. Bella Vista"
+                          className={`w-full p-3 border rounded-xl text-sm transition-all ${
+                            errors.pferdeName
+                              ? "border-red-500 bg-red-50"
+                              : "border-gray-300 bg-white hover:border-amber-400 focus:border-amber-500"
+                          } focus:outline-none focus:ring-2 focus:ring-amber-200`}
+                        />
+                        {errors.pferdeName && (
+                          <p className="mt-1 text-red-600 text-xs">
+                            {errors.pferdeName}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
 
