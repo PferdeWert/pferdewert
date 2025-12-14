@@ -1,26 +1,27 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-// Domain mapping per locale
+// Domain mapping per Next.js i18n locale (configured in next.config.js)
+// UPDATED 2025-12-14: Uses Next.js i18n locales ('de', 'de-AT', 'de-CH')
 const DOMAINS = {
-  de: 'https://pferdewert.de',
-  at: 'https://pferdewert.at',
-  ch: 'https://pferdewert.ch',
+  'de': 'https://pferdewert.de',
+  'de-AT': 'https://pferdewert.at',
+  'de-CH': 'https://pferdewert.ch',
 } as const;
 
 const SITE_NAMES = {
-  de: 'PferdeWert.de',
-  at: 'PferdeWert.at',
-  ch: 'PferdeWert.ch',
+  'de': 'PferdeWert.de',
+  'de-AT': 'PferdeWert.at',
+  'de-CH': 'PferdeWert.ch',
 } as const;
 
 const OG_LOCALES = {
-  de: 'de_DE',
-  at: 'de_AT',
-  ch: 'de_CH',
+  'de': 'de_DE',
+  'de-AT': 'de_AT',
+  'de-CH': 'de_CH',
 } as const;
 
-type Locale = 'de' | 'at' | 'ch';
+type Locale = 'de' | 'de-AT' | 'de-CH';
 
 export interface LocaleContent {
   title: string;
@@ -40,16 +41,22 @@ export interface AuthorInfo {
   image?: string; // URL to author image
 }
 
+// Support both new Next.js i18n keys ('de-AT', 'de-CH') and legacy keys ('at', 'ch')
+interface LocaleMap {
+  de: LocaleContent;
+  'de-AT'?: LocaleContent;
+  'de-CH'?: LocaleContent;
+  // Legacy keys for backwards compatibility with existing Ratgeber pages
+  at?: LocaleContent;
+  ch?: LocaleContent;
+}
+
 export interface RatgeberHeadProps {
   slug: string;
   image: string; // relative path, e.g., /images/ratgeber/haflinger.webp
 
-  // Locale-specific content
-  locales: {
-    de: LocaleContent;
-    at?: LocaleContent;
-    ch?: LocaleContent;
-  };
+  // Locale-specific content (supports both new i18n keys and legacy keys)
+  locales: LocaleMap;
 
   // Article metadata
   datePublished: string; // YYYY-MM-DD
@@ -83,22 +90,38 @@ export default function RatgeberHead({
   const { locale: routerLocale } = useRouter();
   const locale = (routerLocale as Locale) || 'de';
 
-  // Get content for current locale, fallback to DE
-  const content = locales[locale] || locales.de;
-  const domain = DOMAINS[locale] || DOMAINS.de;
-  const siteName = SITE_NAMES[locale] || SITE_NAMES.de;
-  const ogLocale = OG_LOCALES[locale] || OG_LOCALES.de;
+  // Get content for current locale with backwards compatibility
+  // Supports both new keys ('de-AT', 'de-CH') and legacy keys ('at', 'ch')
+  const getLocaleContent = (): LocaleContent => {
+    // New i18n keys first
+    if (locale === 'de-AT') {
+      return locales['de-AT'] || locales.at || locales.de;
+    }
+    if (locale === 'de-CH') {
+      return locales['de-CH'] || locales.ch || locales.de;
+    }
+    return locales.de;
+  };
+
+  const content = getLocaleContent();
+  const domain = DOMAINS[locale] || DOMAINS['de'];
+  const siteName = SITE_NAMES[locale] || SITE_NAMES['de'];
+  const ogLocale = OG_LOCALES[locale] || OG_LOCALES['de'];
 
   const canonicalUrl = `${domain}${basePath}/${slug}`;
   const imageUrl = `${domain}${image}`;
   const finalDateModified = dateModified || datePublished;
 
+  // Check if AT/CH content exists (supports both new and legacy keys)
+  const hasAtContent = !!(locales['de-AT'] || locales.at);
+  const hasChContent = !!(locales['de-CH'] || locales.ch);
+
   // Generate hreflang tags for all available locales
   const hreflangTags = [
-    { hreflang: 'de', href: `${DOMAINS.de}${basePath}/${slug}` },
-    ...(locales.at ? [{ hreflang: 'de-AT', href: `${DOMAINS.at}${basePath}/${slug}` }] : []),
-    ...(locales.ch ? [{ hreflang: 'de-CH', href: `${DOMAINS.ch}${basePath}/${slug}` }] : []),
-    { hreflang: 'x-default', href: `${DOMAINS.de}${basePath}/${slug}` },
+    { hreflang: 'de', href: `${DOMAINS['de']}${basePath}/${slug}` },
+    ...(hasAtContent ? [{ hreflang: 'de-AT', href: `${DOMAINS['de-AT']}${basePath}/${slug}` }] : []),
+    ...(hasChContent ? [{ hreflang: 'de-CH', href: `${DOMAINS['de-CH']}${basePath}/${slug}` }] : []),
+    { hreflang: 'x-default', href: `${DOMAINS['de']}${basePath}/${slug}` },
   ];
 
   // Build author schema - Person if provided, otherwise Organization fallback

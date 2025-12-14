@@ -8,6 +8,30 @@ const bundleAnalyzer = withBundleAnalyzer({
 const nextConfig = {
   reactStrictMode: true,
 
+  // CRITICAL: i18n Domain Routing for .at/.ch
+  // This makes useRouter().locale return the correct value based on domain
+  // Fixes the SSR canonical URL bug where all domains showed pferdewert.de
+  // NOTE: localhost uses defaultLocale 'de' automatically (no port allowed in domains)
+  i18n: {
+    locales: ['de', 'de-AT', 'de-CH'],
+    defaultLocale: 'de',
+    localeDetection: false, // Don't redirect based on browser language
+    domains: [
+      {
+        domain: 'pferdewert.de',
+        defaultLocale: 'de',
+      },
+      {
+        domain: 'pferdewert.at',
+        defaultLocale: 'de-AT',
+      },
+      {
+        domain: 'pferdewert.ch',
+        defaultLocale: 'de-CH',
+      },
+    ],
+  },
+
   // Performance optimizations (swcMinify is now default in Next.js 15)
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

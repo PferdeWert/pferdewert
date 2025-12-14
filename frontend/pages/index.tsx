@@ -1,5 +1,5 @@
 // pages/index.tsx
-// Updated: 2025-10-10 - Deployment trigger
+// Updated: 2025-12-14 - Uses Next.js i18n domain routing for correct canonical URLs
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -123,7 +123,7 @@ const usersIcon = <Users className="w-4 h-4 text-brand-brown" />;
 const instagramIcon = <Instagram className="w-5 h-5" />;
 
 export default function PferdeWertHomepage() {
-  // AT-Rollout: SEO with hreflang tags
+  // Next.js i18n domain routing provides correct locale on server AND client
   const { canonical, hreflangTags, ogLocale } = useSEO();
 
   return (

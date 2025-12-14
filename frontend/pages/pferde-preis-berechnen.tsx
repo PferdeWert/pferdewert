@@ -1,4 +1,5 @@
 // frontend/pages/pferde-preis-berechnen.tsx - Modernes Design basierend auf index.tsx
+// Updated: 2025-12-14 - Uses Next.js i18n domain routing for correct canonical URLs
 
 import Head from "next/head";
 import LocalizedLink from "@/components/LocalizedLink";
@@ -267,6 +268,9 @@ const getStepData = (ausbildungOptions: string[], locale: 'de' | 'de-AT' | 'de-C
 ];
 
 export default function PferdePreisBerechnenPage(): React.ReactElement {
+  // Next.js i18n domain routing provides correct locale on server AND client
+  const { canonical, hreflangTags, ogLocale } = useSEO();
+
   // Alle Hooks MÜSSEN vor jeglichen return-Statements stehen
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [form, setForm] = useState<FormState>(initialForm);
@@ -281,9 +285,6 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   // AT-Rollout: Country-specific configuration
   const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
-
-  // AT-Rollout: SEO with hreflang tags
-  const { canonical, hreflangTags, ogLocale } = useSEO();
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
   // stepData depends on ausbildungOptions and locale (for placeholder text)
