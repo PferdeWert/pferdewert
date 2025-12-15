@@ -371,14 +371,14 @@ export default function WasKostetEinPferd() {
                   Ankaufsuntersuchung (AKU)
                 </LocalizedLink>{' '}
                 ist unverzichtbar und kostet zwischen 200€ und 800€, abhängig vom Umfang der Untersuchung. Die{' '}
-                <LocalizedLink href="/pferde-ratgeber/aku-pferd-kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferde-ratgeber/aku-pferd/kosten" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Kosten der Ankaufsuntersuchung
                 </LocalizedLink>{' '}
                 variieren je nach gewählter Untersuchungsstufe.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Wenn du mehr über den{' '}
-                <LocalizedLink href="/pferde-ratgeber/aku-pferd-ablauf" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Ablauf der Ankaufsuntersuchung
                 </LocalizedLink>{' '}
                 erfahren möchtest, kannst du dort alle Details zu den einzelnen Untersuchungsschritten nachlesen.
