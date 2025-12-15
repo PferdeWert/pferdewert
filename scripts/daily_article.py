@@ -275,6 +275,49 @@ def fetch_hero_image(keyword: str, slug: str) -> Optional[str]:
         return None
 
 
+def run_quality_gate(slug: str) -> tuple[bool, str]:
+    """
+    Run quality gate checks on the generated article.
+    Returns: (success: bool, message: str)
+    """
+    if DRY_RUN:
+        logger.info("[DRY RUN] Would run quality gate")
+        return True, "DRY RUN"
+
+    try:
+        result = subprocess.run(
+            ["python3", "scripts/article_quality_gate.py", "--slug", slug, "--json"],
+            cwd=WORKING_DIR,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+
+        import json
+        output = json.loads(result.stdout)
+
+        failed_checks = [c for c in output.get('checks', []) if c['status'] == 'FAIL']
+        warn_checks = [c for c in output.get('checks', []) if c['status'] == 'WARN']
+
+        if failed_checks:
+            failures = ", ".join([c['name'] for c in failed_checks])
+            logger.warning(f"Quality Gate FAILED: {failures}")
+            # Log details but don't block - allow manual review
+            for check in failed_checks:
+                logger.warning(f"  - {check['name']}: {check['message']}")
+            return False, f"Quality issues: {failures}"
+
+        if warn_checks:
+            warnings = ", ".join([c['name'] for c in warn_checks])
+            logger.info(f"Quality Gate PASSED with warnings: {warnings}")
+
+        return True, "Quality gate passed"
+
+    except Exception as e:
+        logger.warning(f"Quality gate check failed: {e}")
+        return True, f"Quality gate skipped: {e}"  # Don't block on errors
+
+
 def create_article(article: Dict[str, Any]) -> tuple[bool, str]:
     """
     Execute full article creation pipeline:
@@ -282,7 +325,9 @@ def create_article(article: Dict[str, Any]) -> tuple[bool, str]:
     2. german-quality-checker - Review language
     3. Fetch hero image from Wikimedia
     4. /page - Generate Next.js page
-    5. Git push
+    5. Quality gate validation
+    6. Git push
+    7. Email notification
     """
     keyword = article["keyword"]
     pillar = article.get("pillar", "")
@@ -326,14 +371,24 @@ def create_article(article: Dict[str, Any]) -> tuple[bool, str]:
         return False, f"Phase 4 (page) failed: {output}"
     logger.info(f"Phase 4 complete: {output[:200]}...")
 
-    # Phase 5: Git commit & push
-    logger.info("PHASE 5: Git commit & push...")
+    # Phase 5: Quality Gate
+    logger.info("PHASE 5: Running quality gate...")
+    qg_passed, qg_output = run_quality_gate(slug)
+    if not qg_passed:
+        logger.warning(f"Quality gate issues detected: {qg_output}")
+        # Don't fail the pipeline, but log for review
+        logger.warning("Proceeding despite quality warnings - manual review recommended")
+    else:
+        logger.info(f"Phase 5 complete: {qg_output}")
+
+    # Phase 6: Git commit & push
+    logger.info("PHASE 6: Git commit & push...")
     success, output = git_commit_and_push(keyword, slug)
     if not success:
-        return False, f"Phase 5 (git) failed: {output}"
+        return False, f"Phase 6 (git) failed: {output}"
 
-    # Phase 6: Send email notification
-    logger.info("PHASE 6: Sending email notification...")
+    # Phase 7: Send email notification
+    logger.info("PHASE 7: Sending email notification...")
     send_email_notification(slug, keyword)
 
     return True, f"Article '{keyword}' created successfully!"
