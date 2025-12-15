@@ -36,6 +36,15 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const host = request.headers.get('host') || '';
 
+  // CRITICAL SEO FIX: Handle robots.txt and sitemap.xml BEFORE i18n processing
+  // These must be rewritten to API routes before Next.js adds locale prefix
+  if (pathname === '/robots.txt') {
+    return NextResponse.rewrite(new URL('/api/robots', request.url));
+  }
+  if (pathname === '/sitemap.xml') {
+    return NextResponse.rewrite(new URL('/api/sitemap', request.url));
+  }
+
   // 1. LOCALE DETECTION - Domain-based (primary) or path-based (fallback)
   // Priority: 1. Domain (.at vs .de) → 2. Path prefix (/at/)
   const domainConfig = DOMAIN_CONFIG[host as keyof typeof DOMAIN_CONFIG];
@@ -160,7 +169,10 @@ export const config = {
   matcher: [
     // Rate Limiting Matcher (bestehend)
     '/api/(bewertung|checkout)/:path*',
-    // Locale Detection Matcher (NEU)
+    // SEO critical files - must be handled by middleware for rewrite
+    '/robots.txt',
+    '/sitemap.xml',
+    // Locale Detection Matcher
     '/((?!_next/static|_next/image|favicon.ico|.*\\..*|api).*)',
   ]
 }
