@@ -258,6 +258,16 @@ const nextConfig = {
         destination: '/pferde-ratgeber/pferd-verkaufen',
         statusCode: 301,
       },
+      {
+        source: '/ratgeber',
+        destination: '/pferde-ratgeber',
+        statusCode: 301,
+      },
+      {
+        source: '/ueber-uns',
+        destination: '/ueber-pferdewert',
+        statusCode: 301,
+      },
     ]
   },
 };
