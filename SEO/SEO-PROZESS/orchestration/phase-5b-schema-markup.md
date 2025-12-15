@@ -66,8 +66,8 @@ REQUIRED INPUT FILES:
   "dateModified": "2025-01-04T10:00:00+00:00",
   "author": {
     "@type": "Person",
-    "name": "PferdeWert Redaktion",
-    "url": "https://www.pferdewert.de"
+    "name": "Benjamin Reder",
+    "url": "https://www.pferdewert.de/ueber-pferdewert"
   },
   "publisher": {
     "@type": "Organization",
@@ -108,7 +108,7 @@ REQUIRED INPUT FILES:
 
 6. **author**:
    - **PFLICHT für E-E-A-T!**
-   - Standard: `{"@type": "Person", "name": "PferdeWert Redaktion", "url": "https://www.pferdewert.de"}`
+   - Standard: `{"@type": "Person", "name": "Benjamin Reder", "url": "https://www.pferdewert.de/ueber-pferdewert"}`
    - Alternative: Spezifischer Autor falls bekannt
 
 7. **publisher**:
@@ -380,7 +380,7 @@ ELSE skip (INFO: HowTo Schema nur für Tutorial-Content)
 
 6. **Article Schema Missing author** (threshold: true):
    - Check: `!schema.author || !schema.author.name`
-   - Action: Füge `author: {name: 'PferdeWert Redaktion', url: 'https://www.pferdewert.de'}` hinzu, retry Phase 5B
+   - Action: Füge `author: {name: 'Benjamin Reder', url: 'https://www.pferdewert.de/ueber-pferdewert'}` hinzu, retry Phase 5B
 
 7. **Minimum Schema Types Count** (threshold: 2):
    - Check: `schemaCount < 2`
@@ -484,7 +484,7 @@ def validate_phase_5b(schema_files, primary_keyword, paa_questions_count):
                 errors.append({
                     'code': 'article_schema_missing_author',
                     'message': 'author.name fehlt in Article Schema (E-E-A-T kritisch!)',
-                    'action': "RETRY: Füge author: {name: 'PferdeWert Redaktion', url: 'https://www.pferdewert.de'} hinzu"
+                    'action': "RETRY: Füge author: {name: 'Benjamin Reder', url: 'https://www.pferdewert.de/ueber-pferdewert'} hinzu"
                 })
 
             # WARNING: Check for image

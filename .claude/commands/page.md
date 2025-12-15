@@ -246,6 +246,10 @@ const seoLocales = {
 
 **WICHTIG**: RatgeberHead generiert automatisch alle Schema-Markups (Article, Breadcrumb, FAQ). Du musst KEINE zusätzlichen `<script type="application/ld+json">` Tags mehr einfügen!
 
+**KRITISCH - Author für EEAT:**
+- Author MUSS IMMER `{{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}` sein
+- NIEMALS "PferdeWert Redaktion" verwenden!
+
 **Komponenten nutzen:**
 - `RatgeberHero`
 - `RatgeberTableOfContents`
