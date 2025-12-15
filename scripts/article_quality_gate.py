@@ -226,6 +226,41 @@ def check_seo_metadata(slug: str) -> CheckResult:
                       f"Potentially missing: {', '.join(missing)}")
 
 
+def check_canonical_hreflang(slug: str) -> CheckResult:
+    """Check canonical URLs and hreflang are properly configured"""
+    page_file = PAGES_DIR / f"{slug}.tsx"
+    if not page_file.exists():
+        return CheckResult("Canonical/Hreflang", CheckStatus.FAIL, "Page file not found")
+
+    content = page_file.read_text()
+    details = []
+
+    # RatgeberHead handles canonical and hreflang automatically via slug prop
+    has_ratgeber_head = '<RatgeberHead' in content
+    has_slug_prop = f'slug="{slug}"' in content or f"slug='{slug}'" in content
+
+    if has_ratgeber_head and has_slug_prop:
+        details.append("RatgeberHead with correct slug (auto-generates canonical + hreflang)")
+        return CheckResult("Canonical/Hreflang", CheckStatus.PASS,
+                          "Canonical and hreflang configured via RatgeberHead", details)
+
+    if has_ratgeber_head:
+        # Check if slug is correct
+        slug_match = re.search(r'slug=["\']([^"\']+)["\']', content)
+        if slug_match:
+            found_slug = slug_match.group(1)
+            if found_slug != slug:
+                return CheckResult("Canonical/Hreflang", CheckStatus.FAIL,
+                                  f"Slug mismatch: found '{found_slug}', expected '{slug}'")
+            details.append(f"Slug: {found_slug}")
+
+        return CheckResult("Canonical/Hreflang", CheckStatus.PASS,
+                          "Canonical/hreflang via RatgeberHead", details)
+
+    return CheckResult("Canonical/Hreflang", CheckStatus.FAIL,
+                      "Missing RatgeberHead - no canonical/hreflang!")
+
+
 def check_live_page(slug: str) -> CheckResult:
     """Check live page returns 200 and has basic SEO elements"""
     url = f"{LIVE_BASE_URL}/{slug}"
@@ -324,6 +359,7 @@ def run_quality_gate(slug: str, check_live: bool = False) -> Tuple[bool, List[Ch
     results.append(check_internal_links(slug))
     results.append(check_duplicate_faq_schema(slug))
     results.append(check_seo_metadata(slug))
+    results.append(check_canonical_hreflang(slug))
 
     # Live checks (optional)
     if check_live:
