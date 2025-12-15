@@ -1,0 +1,31 @@
+{
+  "internal_links": [
+    {
+      "url": "/pferde-ratgeber/pferd-kaufen",
+      "anchor": "umfassenden Ratgeber zum Pferd kaufen",
+      "required": true,
+      "placement": {
+        "section": "before_training_section",
+        "recommendation": "Already naturally integrated in text"
+      }
+    },
+    {
+      "url": "/pferde-ratgeber/haflinger-kaufen",
+      "anchor": "Haflinger",
+      "required": false,
+      "placement": {
+        "section": "comparison_breeds",
+        "recommendation": "Could be added as breed comparison"
+      }
+    },
+    {
+      "url": "/pferde-preis-berechnen",
+      "anchor": "Berechnen Sie jetzt den Pferdewert",
+      "required": true,
+      "placement": {
+        "section": "cta",
+        "recommendation": "Already integrated as CTA"
+      }
+    }
+  ]
+}

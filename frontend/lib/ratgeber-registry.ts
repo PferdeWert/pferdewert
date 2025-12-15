@@ -362,6 +362,40 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     ]
   },
 
+  // Friese kaufen Guide
+  {
+    slug: 'friese-kaufen',
+    title: 'Friese kaufen: KFPS-Papiere, Preise & Gesundheit',
+    description: 'Friese kaufen leicht gemacht: KFPS-Registrierung, rassetypische Gesundheit, Preise 5.000-50.000€. Der komplette Ratgeber zur barocken Pferderasse.',
+    category: 'Pferderassen',
+    readTime: '8 Min.',
+    image: '/images/ratgeber/friese-weide.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'dressurpferd-kaufen',
+      'haflinger-kaufen',
+      'pferd-kaufen'
+    ]
+  },
+
+  // Islandpferd kaufen Guide
+  {
+    slug: 'islandpferd-kaufen',
+    title: 'Islandpferd kaufen: Tölt, Gangarten & FIZO-Tests',
+    description: 'Islandpferd kaufen ✓ Tölt & 5 Gangarten verstehen ✓ FIZO-Bewertung richtig lesen ✓ Winterhaltung & Robustheit. Experten-Guide für Isländer.',
+    category: 'Pferderassen',
+    readTime: '12 Min.',
+    image: '/images/ratgeber/islandpferd-weide-1.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pony-kaufen',
+      'freizeitpferd-kaufen',
+      'pferd-kaufen'
+    ]
+  },
+
   // Regional Guides
   {
     slug: 'pferd-kaufen-bayern',
