@@ -377,6 +377,21 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'haflinger-kaufen',
       'quarter-horse-kaufen'
     ]
+  },
+  {
+    slug: 'pferd-kaufen-nrw',
+    title: 'Pferd kaufen in NRW: Regionale Züchter & Märkte',
+    description: 'Pferd kaufen in NRW: Top-Züchter im Münsterland, moderne Reitanlagen im Ruhrgebiet. Westfälische Warmblüter, lokale Märkte und praktische Tipps.',
+    category: 'Regional Guides',
+    readTime: '7 Min.',
+    image: '/images/ratgeber/horses-grazing-meadow-munsterland.webp',
+    priority: '0.7',
+    changefreq: 'monthly',
+    relatedSlugs: [
+      'pferd-kaufen',
+      'freizeitpferd-kaufen',
+      'pferdekaufvertrag'
+    ]
   }
 ];
 
