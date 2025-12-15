@@ -4,8 +4,12 @@ import Layout from "@/components/Layout"
 import LocalizedLink from "@/components/LocalizedLink"
 import { PRICING_FORMATTED } from "@/lib/pricing"
 import { Shield, Zap, Target } from "lucide-react"
+import useSEOHreflang, { useCanonicalUrl } from "@/hooks/useSEOHreflang"
 
 export default function UeberUns() {
+  const canonicalUrl = useCanonicalUrl('/ueber-pferdewert')
+  const hreflangTags = useSEOHreflang('/ueber-pferdewert')
+
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -26,7 +30,8 @@ export default function UeberUns() {
         <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
         <meta property="twitter:description" content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung." />
         <meta property="twitter:image" content="https://pferdewert.de/images/shared/familie-blossi.webp" />
-        <link rel="canonical" href="https://pferdewert.de/ueber-pferdewert" />
+        <link rel="canonical" href={canonicalUrl} />
+        {hreflangTags}
 
         {/* Schema.org Structured Data */}
         <script

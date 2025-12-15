@@ -3,6 +3,7 @@ import Layout from "@/components/Layout"; // Neu: Layout mit Footer
 import LocalizedLink from "@/components/LocalizedLink";
 import ReactMarkdown from "react-markdown";
 import BewertungLayout from "@/components/BewertungLayout";
+import useSEOHreflang, { useCanonicalUrl } from "@/hooks/useSEOHreflang";
 
 const markdown = `## Zusammenfassung
 
@@ -128,6 +129,9 @@ const jsonLd = {
 };
 
 export default function BeispielAnalyse() {
+  const canonicalUrl = useCanonicalUrl('/beispiel-analyse')
+  const hreflangTags = useSEOHreflang('/beispiel-analyse')
+
   return (
     <Layout>
       <Head>
@@ -161,8 +165,9 @@ export default function BeispielAnalyse() {
         <meta name="twitter:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
         <meta name="twitter:image" content="https://pferdewert.de/images/shared/result.webp" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://pferdewert.de/beispiel-analyse" />
+        {/* Canonical URL & hreflang */}
+        <link rel="canonical" href={canonicalUrl} />
+        {hreflangTags}
 
         {/* Performance Optimizations */}
         {/* Google Fonts jetzt self-hosted via @fontsource - Performance Optimierung */}
