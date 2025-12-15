@@ -6,51 +6,6 @@
   },
   "pending": [
     {
-      "keyword": "islandpferd kaufen",
-      "type": "mini",
-      "pillar": "pferd-kaufen",
-      "priority": 1,
-      "search_volume": 4400,
-      "phase": "P1",
-      "notes": "Gangarten-Prüfung (Tölt, Pass), Island-Import, IPZV"
-    },
-    {
-      "keyword": "quarter horse kaufen",
-      "type": "mini",
-      "pillar": "pferd-kaufen",
-      "priority": 2,
-      "search_volume": 3600,
-      "phase": "P1",
-      "notes": "Western-Eignung, AQHA-Papiere, US-Import"
-    },
-    {
-      "keyword": "pferd kaufen bayern",
-      "type": "mini-regional",
-      "pillar": "pferd-kaufen",
-      "priority": 3,
-      "search_volume": 1900,
-      "phase": "P1",
-      "notes": "Bayerisches Warmblut, Schwaiganger, Auktionen"
-    },
-    {
-      "keyword": "pferd kaufen nrw",
-      "type": "mini-regional",
-      "pillar": "pferd-kaufen",
-      "priority": 4,
-      "search_volume": 1600,
-      "phase": "P1",
-      "notes": "Westfalen, Rheinländer, Warendorfer Auktion"
-    },
-    {
-      "keyword": "friese kaufen",
-      "type": "mini",
-      "pillar": "pferd-kaufen",
-      "priority": 5,
-      "search_volume": 1900,
-      "phase": "P1",
-      "notes": "KFPS-Stammbuch, Gesundheitsrisiken, NL-Import"
-    },
-    {
       "keyword": "trakehner kaufen",
       "type": "mini",
       "pillar": "pferd-kaufen",
@@ -114,6 +69,62 @@
       "notes": "Hannoveraner, Celle, Verden"
     }
   ],
-  "completed": [],
-  "failed": []
+  "completed": [
+    {
+      "keyword": "islandpferd kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 1,
+      "search_volume": 4400,
+      "phase": "P1",
+      "notes": "Gangarten-Prüfung (Tölt, Pass), Island-Import, IPZV",
+      "completed_at": "2025-12-14T15:11:17.784118"
+    }
+  ],
+  "failed": [
+    {
+      "keyword": "quarter horse kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 2,
+      "search_volume": 3600,
+      "phase": "P1",
+      "notes": "Western-Eignung, AQHA-Papiere, US-Import",
+      "failed_at": "2025-12-14T21:10:31.323290",
+      "error": "Phase 5 (git) failed: Command '['git', 'commit', '-m', 'feat(ratgeber): Add quarter horse kaufen article\\n\\n🤖 Generated with Claude Code Automation']' died with <Signals.SIGPIPE: 13>."
+    },
+    {
+      "keyword": "pferd kaufen bayern",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 3,
+      "search_volume": 1900,
+      "phase": "P1",
+      "notes": "Bayerisches Warmblut, Schwaiganger, Auktionen",
+      "failed_at": "2025-12-14T22:22:20.952050",
+      "error": "Phase 5 (git) failed: Command '['git', 'commit', '-m', 'feat(ratgeber): Add pferd kaufen bayern article\\n\\n🤖 Generated with Claude Code Automation']' died with <Signals.SIGPIPE: 13>."
+    },
+    {
+      "keyword": "pferd kaufen nrw",
+      "type": "mini-regional",
+      "pillar": "pferd-kaufen",
+      "priority": 4,
+      "search_volume": 1600,
+      "phase": "P1",
+      "notes": "Westfalen, Rheinländer, Warendorfer Auktion",
+      "failed_at": "2025-12-14T22:48:18.950850",
+      "error": "Phase 4 (page) failed: Unknown error"
+    },
+    {
+      "keyword": "friese kaufen",
+      "type": "mini",
+      "pillar": "pferd-kaufen",
+      "priority": 5,
+      "search_volume": 1900,
+      "phase": "P1",
+      "notes": "KFPS-Stammbuch, Gesundheitsrisiken, NL-Import",
+      "failed_at": "2025-12-15T18:47:05.877130",
+      "error": "Phase 5 (git) failed: Command '['git', 'push', 'origin', 'main']' returned non-zero exit status 1."
+    }
+  ]
 }
