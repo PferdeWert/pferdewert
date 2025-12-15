@@ -140,7 +140,7 @@ export default function IslandpferdKaufen() {
           subtitle="Entdecke die faszinierende Welt der Islandpferde mit ihren einzigartigen Gangarten Tölt und Pass. Erfahre alles über FIZO-Tests, Winterhärte und worauf du beim Kauf achten musst."
           readTime="12 Min."
           publishDate="Dezember 2025"
-          author={{ name: 'PferdeWert Redaktion', href: '/ueber-pferdewert' }}
+          author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
         />
 
