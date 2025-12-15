@@ -110,7 +110,9 @@ def check_hero_image(slug: str) -> CheckResult:
 
 
 def check_publication_date(slug: str) -> CheckResult:
-    """Check publication date is present"""
+    """Check publication date is present and current"""
+    from datetime import datetime, timedelta
+
     page_file = PAGES_DIR / f"{slug}.tsx"
     if not page_file.exists():
         return CheckResult("Publication Date", CheckStatus.FAIL, "Page file not found")
@@ -127,15 +129,33 @@ def check_publication_date(slug: str) -> CheckResult:
     for pattern in date_patterns:
         match = re.search(pattern, content)
         if match:
-            return CheckResult("Publication Date", CheckStatus.PASS,
-                              f"Publication date: {match.group(1)}")
+            date_str = match.group(1)[:10]  # Get YYYY-MM-DD part
+            try:
+                pub_date = datetime.strptime(date_str, "%Y-%m-%d")
+                days_old = (datetime.now() - pub_date).days
 
-    return CheckResult("Publication Date", CheckStatus.WARN,
-                      "Could not find explicit publication date")
+                if days_old < 0:
+                    return CheckResult("Publication Date", CheckStatus.WARN,
+                                      f"Future date: {date_str}")
+                elif days_old <= 7:
+                    return CheckResult("Publication Date", CheckStatus.PASS,
+                                      f"Publication date: {date_str} ({days_old} days ago)")
+                elif days_old <= 30:
+                    return CheckResult("Publication Date", CheckStatus.WARN,
+                                      f"Date is {days_old} days old: {date_str}")
+                else:
+                    return CheckResult("Publication Date", CheckStatus.WARN,
+                                      f"Date is {days_old} days old - consider updating: {date_str}")
+            except ValueError:
+                return CheckResult("Publication Date", CheckStatus.WARN,
+                                  f"Could not parse date: {date_str}")
+
+    return CheckResult("Publication Date", CheckStatus.FAIL,
+                      "No publication date found!")
 
 
 def check_internal_links(slug: str) -> CheckResult:
-    """Check internal links - minimum count and validity"""
+    """Check internal links - minimum count, validity, and target existence"""
     page_file = PAGES_DIR / f"{slug}.tsx"
     if not page_file.exists():
         return CheckResult("Internal Links", CheckStatus.FAIL, "Page file not found")
@@ -146,24 +166,47 @@ def check_internal_links(slug: str) -> CheckResult:
     link_pattern = r'LocalizedLink\s+href=["\']([^"\']+)["\']'
     links = re.findall(link_pattern, content)
 
-    # Filter to ratgeber links only
-    ratgeber_links = [l for l in links if '/pferde-ratgeber/' in l]
+    # Filter to ratgeber links only and deduplicate
+    ratgeber_links = list(set([l for l in links if '/pferde-ratgeber/' in l]))
 
     details = []
-    for link in ratgeber_links[:10]:  # Show first 10
-        details.append(f"  - {link}")
+    valid_links = []
+    broken_links = []
 
-    if len(ratgeber_links) >= 5:
-        return CheckResult("Internal Links", CheckStatus.PASS,
-                          f"Found {len(ratgeber_links)} internal ratgeber links",
+    for link in ratgeber_links:
+        # Extract slug from link path
+        link_slug = link.replace('/pferde-ratgeber/', '').strip('/')
+
+        # Check if target page exists
+        target_file = PAGES_DIR / f"{link_slug}.tsx"
+        if target_file.exists():
+            valid_links.append(link)
+            details.append(f"  ✓ {link}")
+        else:
+            broken_links.append(link)
+            details.append(f"  ✗ {link} (PAGE NOT FOUND!)")
+
+    # Summary
+    total = len(ratgeber_links)
+    valid = len(valid_links)
+    broken = len(broken_links)
+
+    if broken > 0:
+        return CheckResult("Internal Links", CheckStatus.FAIL,
+                          f"{broken}/{total} broken links! Target pages don't exist.",
                           details)
-    elif len(ratgeber_links) >= 3:
+
+    if valid >= 5:
+        return CheckResult("Internal Links", CheckStatus.PASS,
+                          f"Found {valid} valid internal ratgeber links",
+                          details)
+    elif valid >= 3:
         return CheckResult("Internal Links", CheckStatus.WARN,
-                          f"Only {len(ratgeber_links)} internal links (recommend 5-7)",
+                          f"Only {valid} internal links (recommend 5-7)",
                           details)
     else:
         return CheckResult("Internal Links", CheckStatus.FAIL,
-                          f"Only {len(ratgeber_links)} internal links (minimum 5 required)",
+                          f"Only {valid} internal links (minimum 5 required)",
                           details)
 
 
