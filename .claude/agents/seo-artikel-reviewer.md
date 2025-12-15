@@ -117,30 +117,37 @@ RatgeberHead generiert diese automatisch - stelle sicher:
 - `slug` prop ist korrekt gesetzt
 - RatgeberHead ist importiert und im Component verwendet
 
-### STEP 4: Screenshot und visuelle Verifikation
+### STEP 4: Screenshot und visuelle Verifikation (Puppeteer)
 
-Nach Fixes, hole Screenshot via PageSpeed API:
+Nach Fixes, erstelle Screenshot mit Puppeteer auf dem Hetzner-Server:
 
 ```bash
-curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://pferdewert.de/pferde-ratgeber/{slug}&category=PERFORMANCE&strategy=mobile" | python3 -c "
-import json, sys, base64
-data = json.load(sys.stdin)
-screenshot = data.get('lighthouseResult', {}).get('audits', {}).get('final-screenshot', {}).get('details', {}).get('data', '')
-if screenshot:
-    img_data = screenshot.split(',')[1] if ',' in screenshot else screenshot
-    with open('/tmp/article-screenshot.png', 'wb') as f:
-        f.write(base64.b64decode(img_data))
-    print('Screenshot saved to /tmp/article-screenshot.png')
-else:
-    print('No screenshot available')
-"
+ssh pferdewert-hetzner "node -e \"
+const puppeteer = require('puppeteer');
+(async () => {
+  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
+  const page = await browser.newPage();
+  await page.setViewport({width: 1200, height: 800});
+  await page.goto('https://pferdewert.de/pferde-ratgeber/{slug}', {waitUntil: 'networkidle2', timeout: 30000});
+  await page.screenshot({path: '/tmp/article-{slug}.png', fullPage: false});
+  console.log('Screenshot saved: /tmp/article-{slug}.png');
+  await browser.close();
+})();
+\""
+```
+
+Dann Screenshot lokal kopieren und prüfen:
+
+```bash
+scp pferdewert-hetzner:/tmp/article-{slug}.png /tmp/
 ```
 
 Lies den Screenshot mit Read tool und prüfe visuell:
-- Hero-Bild sichtbar
+- Hero-Bild sichtbar und korrekt geladen
 - Autor "Benjamin Reder" angezeigt
 - Datum sichtbar
-- Layout korrekt
+- Layout korrekt (keine broken elements)
+- Keine 404-Fehler oder fehlende Bilder
 
 ### STEP 5: Quality Gate erneut ausführen
 
