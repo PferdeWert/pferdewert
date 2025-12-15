@@ -155,7 +155,7 @@ export default function PferdKaufenBayern() {
               Du willst ein <strong>Pferd kaufen in Bayern</strong>? Mit über 450 Zucht- und Verkaufsbetrieben ist Bayern Deutschlands Pferde-Hochburg – aber wo findest du das richtige Pferd? Anfänger verlieren sich schnell in Hunderten Angeboten auf verschiedenen Plattformen. Welcher Marktplatz ist sicher? Welcher Preis ist fair? Welche Rasse passt überhaupt zu dir?
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Dieser Ratgeber zeigt dir die besten Marktplätze zum Pferd kaufen in Bayern, realistische Kosten für dein Budget und eine konkrete Kaufcheckliste. Außerdem: Mit dem <LocalizedLink href="/pferde-bewertung" className="text-brand hover:text-brand-dark underline">PferdeWert-Tool</LocalizedLink> berechnen Sie den echten Marktwert eines Pferdes – bevor Sie einen Kaufvertrag unterzeichnen.
+              Dieser Ratgeber zeigt dir die besten Marktplätze zum Pferd kaufen in Bayern, realistische Kosten für dein Budget und eine konkrete Kaufcheckliste. Außerdem: Mit dem <LocalizedLink href="/pferde-preis-berechnen" className="text-brand hover:text-brand-dark underline">PferdeWert-Tool</LocalizedLink> berechnen Sie den echten Marktwert eines Pferdes – bevor Sie einen Kaufvertrag unterzeichnen.
             </p>
           </section>
 
