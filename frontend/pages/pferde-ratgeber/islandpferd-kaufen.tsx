@@ -217,7 +217,11 @@ export default function IslandpferdKaufen() {
               FIZO-Tests: Die Qualitätsprüfung für Islandpferde
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              FIZO-Tests sind entscheidend für die Bewertung von Islandpferden. Diese umfassenden Prüfungen bewerten:
+              FIZO-Tests sind entscheidend für die Bewertung von Islandpferden. Ähnlich wie bei der{' '}
+              <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">
+                Ankaufsuntersuchung (AKU)
+              </LocalizedLink>{' '}
+              bei anderen Pferderassen, geben FIZO-Tests Aufschluss über Qualität und Gesundheit. Diese umfassenden Prüfungen bewerten:
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Gangarten und Bewegungsqualität</li>
@@ -266,7 +270,10 @@ export default function IslandpferdKaufen() {
               Haltungsbedingungen im Winter
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Bei der Haltung von Islandpferden sollten Sie folgende Punkte beachten:
+              Bei der Haltung von Islandpferden sollten Sie folgende Punkte beachten – ähnliche Anforderungen gelten übrigens auch für{' '}
+              <LocalizedLink href="/pferde-ratgeber/haflinger-kaufen" className="text-brand hover:text-brand-dark underline">
+                Haflinger
+              </LocalizedLink>, eine ebenso robuste Rasse:
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Offenstall-Haltung bevorzugen</li>
@@ -281,7 +288,11 @@ export default function IslandpferdKaufen() {
               Gesundheit und Langlebigkeit
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Islandpferde gelten als eine der gesündesten und langlebigsten Pferderassen. Ihre genetische Reinheit und jahrhundertelange isolierte Züchtung machen sie robust:
+              Islandpferde gelten als eine der gesündesten und langlebigsten Pferderassen – ein Grund, warum sie besonders als{' '}
+              <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">
+                Freizeitpferde
+              </LocalizedLink>{' '}
+              beliebt sind. Ihre genetische Reinheit und jahrhundertelange isolierte Züchtung machen sie robust:
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Geringes Krankheitsrisiko</li>
@@ -316,7 +327,11 @@ export default function IslandpferdKaufen() {
               Kosten und Investition: Was Sie beim Islandpferdekauf beachten sollten
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der Kaufpreis für ein Islandpferd variiert erheblich je nach Abstammung, Ausbildungsstand und FIZO-Testergebnissen. Sie können mit folgenden Preisklassen rechnen:
+              Der Kaufpreis für ein Islandpferd variiert erheblich je nach Abstammung, Ausbildungsstand und FIZO-Testergebnissen. Eine detaillierte Übersicht aller{' '}
+              <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">
+                Kosten beim Pferdekauf
+              </LocalizedLink>{' '}
+              finden Sie in unserem separaten Ratgeber. Sie können mit folgenden Preisklassen rechnen:
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -407,6 +422,13 @@ export default function IslandpferdKaufen() {
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
               Rechtliche Rahmenbedingungen
             </h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Einen rechtssicheren{' '}
+              <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">
+                Pferdekaufvertrag
+              </LocalizedLink>{' '}
+              sollten Sie unbedingt abschließen. Wichtige Punkte:
+            </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Kaufvertrag mit detaillierten Angaben zur Abstammung</li>
               <li>• Gesundheitszeugnis und tierärztliches Gutachten</li>

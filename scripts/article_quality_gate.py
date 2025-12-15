@@ -177,9 +177,12 @@ def check_internal_links(slug: str) -> CheckResult:
         # Extract slug from link path
         link_slug = link.replace('/pferde-ratgeber/', '').strip('/')
 
-        # Check if target page exists
+        # Check if target page exists (support both flat and nested routes)
+        # E.g., pferd-kaufen.tsx OR pferd-kaufen/index.tsx
         target_file = PAGES_DIR / f"{link_slug}.tsx"
-        if target_file.exists():
+        target_dir_index = PAGES_DIR / link_slug / "index.tsx"
+
+        if target_file.exists() or target_dir_index.exists():
             valid_links.append(link)
             details.append(f"  ✓ {link}")
         else:

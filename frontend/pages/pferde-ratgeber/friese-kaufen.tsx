@@ -225,7 +225,11 @@ export default function FrieseKaufen() {
               <li>• Erhöhte Anfälligkeit für bestimmte Stoffwechselprobleme</li>
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein umfassender tierärztlicher Check vor dem Kauf ist daher unerlässlich. Lass dir die komplette Gesundheitshistorie und mögliche Abstammungstests zeigen.
+              Ein umfassender tierärztlicher Check vor dem Kauf ist daher unerlässlich. Eine professionelle{' '}
+              <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">
+                Ankaufsuntersuchung (AKU)
+              </LocalizedLink>{' '}
+              mit genetischen Tests ist bei Friesen besonders wichtig. Lass dir die komplette Gesundheitshistorie und mögliche Abstammungstests zeigen.
             </p>
 
             {/* Strategic Highlight Box for Health Warning */}
@@ -269,7 +273,10 @@ export default function FrieseKaufen() {
               Friesen für verschiedene Disziplinen
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Entgegen mancher Vorurteile sind Friesen keine reinen Schaupferde. Sie eignen sich für verschiedene Reitdisziplinen:
+              Entgegen mancher Vorurteile sind Friesen keine reinen Schaupferde. Wer ein{' '}
+              <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand hover:text-brand-dark underline">
+                Dressurpferd sucht
+              </LocalizedLink>, findet im Friesen einen idealen Partner. Sie eignen sich für verschiedene Reitdisziplinen:
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -342,7 +349,11 @@ export default function FrieseKaufen() {
               Kosten und Finanzplanung
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der Kauf eines Friesenpferdes ist eine erhebliche finanzielle Investition. Berücksichtige folgende Kostenaspekte:
+              Der Kauf eines Friesenpferdes ist eine erhebliche finanzielle Investition. Eine detaillierte Übersicht zu{' '}
+              <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">
+                allen Kosten beim Pferdekauf
+              </LocalizedLink>{' '}
+              findest du in unserem separaten Ratgeber. Berücksichtige folgende Kostenaspekte:
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Kaufpreis: 5.000 - 50.000 € je nach Qualität</li>
@@ -407,7 +418,10 @@ export default function FrieseKaufen() {
               Rechtliche Aspekte beim Friese-Kauf
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Auf dem Weg zum Friesen-Besitz gibt es wichtige rechtliche Punkte zu beachten:
+              Auf dem Weg zum Friesen-Besitz gibt es wichtige rechtliche Punkte zu beachten. Informiere dich vorab über die wichtigsten Vertragsinhalte in unserem{' '}
+              <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">
+                Ratgeber zum Pferdekaufvertrag
+              </LocalizedLink>.
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Kaufvertrag mit detaillierten Angaben zur Abstammung</li>
