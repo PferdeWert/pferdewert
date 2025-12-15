@@ -107,7 +107,7 @@ export default function PferdKaufenNrw() {
     >
       <RatgeberHead
         slug="pferd-kaufen-nrw"
-        image="/images/ratgeber/horses-grazing-meadow-munsterland.webp"
+        image="/images/ratgeber/pferde-weide-duelmen-muensterland.webp"
         locales={seoLocales}
         datePublished="2025-12-14"
         wordCount={470}
@@ -129,7 +129,7 @@ export default function PferdKaufenNrw() {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/horses-grazing-meadow-munsterland.webp"
+          src="/images/ratgeber/pferde-weide-duelmen-muensterland.webp"
           alt="Pferde grasen auf einer Weide im Münsterland"
           priority={true}
         />
