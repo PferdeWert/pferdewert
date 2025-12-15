@@ -20,13 +20,14 @@ const OUTPUT_PATHS = {
 };
 
 // Base pages (same structure for both domains)
+// NOTE: Only include canonical URLs here, NOT redirect sources!
+// - /was-ist-mein-pferd-wert → 301 → /pferde-preis-berechnen (REMOVED)
+// - /pferd-verkaufen → 301 → /pferde-ratgeber/pferd-verkaufen (REMOVED)
 const BASE_PAGES = {
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
   '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
-  '/was-ist-mein-pferd-wert': { priority: '0.8', changefreq: 'monthly' },
-  '/pferd-verkaufen': { priority: '0.7', changefreq: 'monthly' },
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
   '/impressum': { priority: '0.3', changefreq: 'yearly' },

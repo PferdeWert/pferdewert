@@ -1,6 +1,7 @@
 import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next';
 import Head from 'next/head';
+import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang';
 
 import { useMemo } from 'react';
 import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, CheckCircle } from 'lucide-react';
@@ -137,7 +138,9 @@ const jsonLdBreadcrumb = {
 };
 
 const PferdVerkaufen: NextPage = () => {
-  
+  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/pferd-verkaufen')
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber/pferd-verkaufen')
+
 // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
   // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
   const relatedArticles = useMemo(
@@ -182,7 +185,8 @@ const PferdVerkaufen: NextPage = () => {
           content={`Pferd verkaufen 2025: Kompletter Leitfaden mit 7-Phasen-System für optimalen Verkaufspreis. Plattformvergleich (eHorses vs. pferde.de), professionelle KI-Bewertung ab ${PRICING_FORMATTED.current}, rechtliche Checklisten & Verkaufsstrategien für Privatverkäufer.`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
+        <link rel="canonical" href={canonicalUrl} />
+        {hreflangTags}
         <meta name="keywords" content="pferd verkaufen, pferd zu verkaufen, wie viel ist mein pferd wert, pferdewert ermitteln, pferd verkaufen preis, pferd verkaufen plattformen, pferd schnell verkaufen, pferd online verkaufen" />
 
         {/* Open Graph */}

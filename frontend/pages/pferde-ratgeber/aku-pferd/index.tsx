@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import LocalizedLink from '@/components/LocalizedLink'
+import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 import { Award, ArrowRight, ChevronDown } from 'lucide-react'
 
 import Layout from '@/components/Layout'
@@ -32,6 +33,8 @@ const secondaryCtaIcon = <ChevronDown className="w-5 h-5" />;
 const kostenLinkIcon = <ArrowRight className="h-5 w-5" />
 
 const AKUPferd: NextPage = () => {
+  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/aku-pferd')
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber/aku-pferd')
 
   const getSectionNumber = (sectionId: string) => {
     const index = akuSections.findIndex(section => section.id === sectionId)
@@ -120,8 +123,8 @@ const AKUPferd: NextPage = () => {
         <meta name="msapplication-TileColor" content="#5A4B3B" />
 
         {/* Canonical and hreflang */}
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
-        <link rel="alternate" hrefLang="de-DE" href="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
+        <link rel="canonical" href={canonicalUrl} />
+        {hreflangTags}
 
         {/* Open Graph */}
         <meta property="og:title" content="Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden zur AKU" />

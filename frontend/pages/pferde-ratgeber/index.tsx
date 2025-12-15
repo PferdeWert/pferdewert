@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { RATGEBER_ENTRIES, getRatgeberPath, type RatgeberEntry } from '@/lib/ratgeber-registry'
 import LocalizedLink from '@/components/LocalizedLink'
+import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 
 // ============================================================================
 // TYPES
@@ -54,6 +55,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
 // ============================================================================
 
 const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
+  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber')
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber')
+
   return (
     <>
       <Head>
@@ -63,7 +67,8 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
           content="Alle Pferde-Ratgeber auf einen Blick: AKU Pferd, Kosten, Klassen, Ablauf, Pferd kaufen & verkaufen. Expertentipps für erfolgreichen Pferdekauf und -verkauf."
         />
         <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung, Pferdegesundheit" />
-        <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber" />
+        <link rel="canonical" href={canonicalUrl} />
+        {hreflangTags}
       </Head>
 
       <Header />

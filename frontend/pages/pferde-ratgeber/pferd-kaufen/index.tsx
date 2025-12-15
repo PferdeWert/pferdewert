@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import LocalizedLink from '@/components/LocalizedLink'
+import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 import { useMemo } from "react"
 import { ArrowRight, TrendingUp, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
 
@@ -139,6 +140,8 @@ const faqItems: FAQItem[] = [
 
 
 const PferdKaufen: NextPage = () => {
+  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/pferd-kaufen')
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber/pferd-kaufen')
 
 const relatedArticles = useMemo(() =>
     getRelatedArticles('pferd-kaufen').map(entry => ({
@@ -177,7 +180,8 @@ const relatedArticles = useMemo(() =>
           <meta httpEquiv="content-language" content="de-DE" />
 
           {/* Canonical URL */}
-          <link rel="canonical" href="https://pferdewert.de/pferde-ratgeber/pferd-kaufen" />
+          <link rel="canonical" href={canonicalUrl} />
+          {hreflangTags}
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="article" />
