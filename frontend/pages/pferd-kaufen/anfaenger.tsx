@@ -47,31 +47,31 @@ const sections = [
 const faqItems = [
     {
       question: 'Wie alt sollte ein Anfängerpferd sein?',
-      answer: 'Ein ideales Anfängerpferd sollte mindestens 7 Jahre alt sein, optimal sind 8-15 Jahre. In diesem Alter haben Pferde genügend Erfahrung gesammelt, sind charakterlich gefestigt und können einem Anfänger Sicherheit geben. Jüngere Pferde unter 7 Jahren sind oft noch zu unerfahren und unausgeglichen. Ältere Pferde (15+ Jahre) können ebenfalls geeignet sein, sofern sie gesund sind – hier sollte die Ankaufsuntersuchung besonders gründlich sein.'
+      answer: 'Ein echtes Verlasspferd für Anfänger sollte mindestens 10 Jahre alt sein, optimal sind 12-18 Jahre. In diesem Alter sind Pferde charakterlich gefestigt, haben unzählige Situationen erlebt und reagieren gelassen. Das Wichtigste: Sie verzeihen Anfängerfehler. Pferde unter 10 Jahren sind für absolute Anfänger zu unberechenbar. Ältere Pferde (15-20 Jahre) aus Reitschulen sind oft die besten Lehrmeister – mit gründlicher AKU.'
     },
     {
-      question: 'Was kostet ein Anfängerpferd?',
-      answer: 'Die Anschaffungskosten für ein geeignetes Anfängerpferd liegen zwischen 2.000€ und 15.000€. Ein solides Freizeitpferd mit guter Ausbildung kostet durchschnittlich 5.000-8.000€ (mehr Details in unserem Ratgeber "Freizeitpferd kaufen"). Dazu kommen einmalige Kaufnebenkosten (Ankaufsuntersuchung, Transport, Erstausstattung) von ca. 1.000-2.000€ sowie laufende Kosten von 350-800€ pro Monat für Stall, Hufschmied, Tierarzt und Versicherungen.'
+      question: 'Was kostet ein gutes Anfängerpferd (Verlasspferd)?',
+      answer: 'Ein geeignetes Verlasspferd kostet zwischen 3.000€ und 10.000€. Ausgediente Schulpferde (12-18 Jahre) gibt es ab 2.000-5.000€. Ältere, gesunde Haflinger oder Fjordpferde kosten 4.000-8.000€. Wichtig: Beim Anfängerpferd ist Charakter wichtiger als Preis! Ein ruhiges 15-jähriges Pferd für 3.000€ ist besser als ein nervöses 8-jähriges für 10.000€. Budget auch 300-500€ für die AKU ein.'
     },
     {
-      question: 'Welche Pferderassen eignen sich für Anfänger?',
-      answer: 'Besonders geeignete Rassen für Anfänger sind Haflinger, Isländer, Deutsche Reitponys, Quarter Horses und Norwegische Fjordpferde. Diese Rassen zeichnen sich durch Gelassenheit, Menschenbezogenheit und Gutmütigkeit aus. Auch ausgediente Schulpferde verschiedener Rassen sind ideal, da sie an Anfänger gewöhnt sind. Weniger geeignet sind Vollblüter oder junge Warmblutsportpferde, da diese meist zu temperamentvoll oder unerfahren für Anfänger sind.'
+      question: 'Was ist ein Verlasspferd und warum brauche ich das?',
+      answer: 'Ein Verlasspferd ist ein besonders ruhiges, erfahrenes Pferd, das Anfängerfehler verzeiht und in jeder Situation gelassen bleibt. Es "überhört" falsche Hilfen, bleibt bei Schreckmomenten ruhig und gibt dem Reiter Sicherheit. Typische Verlasspferde sind ältere Schulpferde, erfahrene Haflinger oder Fjordpferde. Als Anfänger brauchst du genau das – ein Pferd, das DIR beibringt, nicht umgekehrt.'
     },
     {
-      question: 'Ist eine Ankaufsuntersuchung bei einem Anfängerpferd notwendig?',
-      answer: 'Ja, eine Ankaufsuntersuchung (AKU) ist auch bei Anfängerpferden unerlässlich. Nur so können versteckte gesundheitliche Probleme erkannt werden, die später zu hohen Kosten führen können. Bei Pferden bis 5.000€ reicht oft ein kleiner AKU (300-400€), bei teureren Pferden ist ein großer AKU mit Röntgenbildern (600-800€) empfehlenswert. Die Kosten der AKU sind gut investiertes Geld, das spätere teure Überraschungen verhindert.'
+      question: 'Welche Rassen sind als Anfängerpferd am besten?',
+      answer: 'Die besten Rassen für Anfänger sind: 1) Haflinger (extrem geduldig, robust), 2) Norwegisches Fjordpferd (stark, gutmütig), 3) Isländer (trittsicher, gelassen), 4) Ausgediente Schulpferde jeder Rasse. WICHTIG: Der individuelle Charakter zählt mehr als die Rasse! Ein ruhiger 15-jähriger Mix ist besser als ein nervöser junger Haflinger. Teste IMMER persönlich.'
     },
     {
-      question: 'Wo finde ich ein geeignetes Anfängerpferd?',
-      answer: 'Anfängerpferde finden Sie auf Online-Pferdemarktplätzen (ehorses.de, kleinanzeigen.de), bei seriösen Pferdehändlern und Züchtern, oder als Geheimtipp bei Reitschulen, die ältere Schulpferde abgeben. Auch Empfehlungen aus dem eigenen Reitverein sind wertvoll. Achten Sie bei Online-Anzeigen auf Seriosität (ausführliche Beschreibung, mehrere Fotos, transparente Kommunikation) und nehmen Sie immer eine erfahrene Person zur Besichtigung mit.'
+      question: 'Warum sind Schulpferde ideal für Anfänger?',
+      answer: 'Schulpferde sind an Anfänger gewöhnt – sie kennen unsichere Hilfen, unausbalancierte Sitze und nervöse Reiter. Sie haben gelernt, Fehler zu verzeihen und geduldig zu sein. Viele Reitschulen geben ältere Schulpferde (14-20 Jahre) günstig ab. Vorteil: Du kennst das Pferd oft schon vom Unterricht. Nachteil: Gesundheitscheck ist Pflicht, da sie oft Verschleiß haben.'
     },
     {
-      question: 'Kann man ein Anfängerpferd probereiten?',
-      answer: 'Ja, Probereiten sollte beim Pferdekauf immer möglich sein und ist für Anfänger besonders wichtig. Seriöse Verkäufer erlauben nicht nur ein kurzes Probereiten, sondern oft auch eine Probezeit von 1-4 Wochen, in der das Pferd im neuen Stall getestet werden kann. Lassen Sie sich das Pferd zunächst vom Verkäufer vorstellen und reiten Sie es dann selbst in verschiedenen Gangarten und Situationen. Eine Probezeit sollte schriftlich im Kaufvertrag vereinbart werden.'
+      question: 'Ist eine AKU bei älteren Anfängerpferden wichtig?',
+      answer: 'ABSOLUT! Gerade bei älteren Pferden (12+ Jahre) ist die Ankaufsuntersuchung Pflicht. Arthrose, Zahnprobleme und Herz-Kreislauf-Erkrankungen sind häufig. Ein kleiner AKU (300-400€) reicht bei Pferden bis 5.000€. Bei Schulpferden: Frage nach der Krankengeschichte und lasse Gelenke gründlich prüfen. Die AKU schützt dich vor teuren Überraschungen.'
     },
     {
-      question: 'Welche Versicherungen brauche ich für ein Anfängerpferd?',
-      answer: 'Unverzichtbar ist die Pferdehaftpflichtversicherung (ca. 30-60€/Monat), die Schäden abdeckt, die Ihr Pferd Dritten zufügt. Stark empfohlen ist zudem eine Pferde-OP-Versicherung (40-80€/Monat), die teure Operationen wie Kolik-OPs absichert. Eine Vollkrankenversicherung ist meist zu teuer; hier sind Rücklagen die bessere Alternative. Klären Sie den Versicherungsschutz unbedingt vor Kaufabschluss und auch für eine eventuelle Probezeit.'
+      question: 'Kann ich als Anfänger ein junges Pferd kaufen?',
+      answer: 'NEIN – als absoluter Anfänger solltest du KEIN Pferd unter 10 Jahren kaufen. Junge Pferde (unter 7 Jahre) brauchen erfahrene Ausbilder. Auch "fertig ausgebildete" junge Pferde testen ihre Grenzen und brauchen konsequente Führung. Die Folge: 40% der Erstkäufer sind überfordert und verkaufen das Pferd innerhalb von 2 Jahren wieder. Wähle stattdessen ein erfahrenes Verlasspferd!'
     }
 ];
 
@@ -189,12 +189,12 @@ const rassenData = [
 
 const relatedArticles = [
   {
-    href: '/pferd-kaufen/freizeitpferd',
-    image: '/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
-    title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
+    href: '/pferd-kaufen',
+    image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp',
+    title: 'Pferd kaufen: Der ultimative Ratgeber für Erstkäufer',
     badge: 'Kauf & Verkauf',
-    readTime: '15 Min.',
-    description: 'Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.'
+    readTime: '18 Min.',
+    description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.'
   },
   {
     href: '/pferd-kaufen/kaufvertrag',
@@ -370,54 +370,54 @@ export default function AnfaengerpferdKaufen() {
               </p>
 
               <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
-                <h3 className="text-xl font-semibold text-green-900 mb-3">Optimales Alter: 8-15 Jahre</h3>
+                <h3 className="text-xl font-semibold text-green-900 mb-3">Optimales Alter für Anfänger: 10-18 Jahre</h3>
                 <p className="text-green-800 mb-4">
-                  Pferde in diesem Alter bieten die ideale Kombination aus Erfahrung, Gelassenheit und noch ausreichender Leistungsfähigkeit. Sie haben genug gelernt, um Anfängerfehler zu verzeihen, sind aber noch nicht so alt, dass gesundheitliche Probleme wahrscheinlich sind.
+                  Für absolute Anfänger sind ältere Pferde die beste Wahl! Sie haben unzählige Situationen erlebt, sind charakterlich gefestigt und – das Wichtigste – sie verzeihen deine Anfängerfehler. Ein 14-jähriges Schulpferd ist ein besserer Lehrmeister als ein 8-jähriger &quot;Jungspund&quot;.
                 </p>
                 <div className="space-y-2 text-green-800">
                   <p className="mb-1 flex items-start">
                     {checkCircleGreenFlexIcon}
-                    <span><strong>Körperlich voll entwickelt:</strong> Keine Wachstumsprobleme mehr</span>
+                    <span><strong>Lebenserfahrung:</strong> Kennt alle Schrecksituationen bereits</span>
                   </p>
                   <p className="mb-1 flex items-start">
                     {checkCircleGreenFlexIcon}
-                    <span><strong>Erfahren:</strong> Hat verschiedene Situationen kennengelernt</span>
+                    <span><strong>Fehlerverzeihend:</strong> Reagiert gelassen auf unsichere Hilfen</span>
                   </p>
                   <p className="mb-1 flex items-start">
                     {checkCircleGreenFlexIcon}
-                    <span><strong>Charakterlich gefestigt:</strong> Temperament ist etabliert</span>
+                    <span><strong>Charakterlich gefestigt:</strong> Keine Überraschungen mehr</span>
                   </p>
                   <p className="mb-0 flex items-start">
                     {checkCircleGreenFlexIcon}
-                    <span><strong>Noch 10-15 Jahre nutzbar:</strong> Langfristige Partnerschaft möglich</span>
+                    <span><strong>Noch 8-15 Jahre nutzbar:</strong> Mit guter Pflege lange Freude</span>
                   </p>
                 </div>
               </div>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Warum jüngere Pferde problematisch sind
+              Warum Pferde unter 10 Jahren für Anfänger problematisch sind
             </h3>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-                Pferde unter 7 Jahren sind für Anfänger ungeeignet, selbst wenn sie bereits eingeritten sind:
+                Für absolute Anfänger sind Pferde unter 10 Jahren NICHT empfehlenswert – auch wenn sie als &quot;brav&quot; oder &quot;ruhig&quot; beschrieben werden:
               </p>
 
               <ul className="space-y-3 mb-8 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-red-600 mr-2 mt-1">•</span>
-                  <span><strong>Noch in der Entwicklung:</strong> Körper und Charakter sind nicht vollständig ausgereift</span>
+                  <span><strong>Noch zu wenig erlebt:</strong> Unter 10 Jahren fehlt die Lebenserfahrung, die Gelassenheit bringt</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-600 mr-2 mt-1">•</span>
-                  <span><strong>Wenig Erfahrung:</strong> Haben noch nicht genug verschiedene Situationen erlebt</span>
+                  <span><strong>Testen ihre Grenzen:</strong> Auch &quot;brave&quot; junge Pferde prüfen, was sie sich erlauben können</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-600 mr-2 mt-1">•</span>
-                  <span><strong>Unberechenbar:</strong> Können in neuen Situationen unerwartet reagieren</span>
+                  <span><strong>Reagieren auf Unsicherheit:</strong> Deine Nervosität überträgt sich – erfahrene Pferde bleiben trotzdem ruhig</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-600 mr-2 mt-1">•</span>
-                  <span><strong>Brauchen konsequente Ausbildung:</strong> Anfänger können diese oft nicht bieten</span>
+                  <span><strong>Brauchen klare Führung:</strong> Anfänger können diese Konsequenz oft noch nicht bieten</span>
                 </li>
               </ul>
 
