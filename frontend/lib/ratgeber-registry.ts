@@ -82,16 +82,22 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     relatedSlugs: ['aku-pferd', 'pferd-kaufen', 'was-kostet-ein-pferd']
   },
 
-  // Pferd Kaufen Series
+  // ============================================================================
+  // PFERD KAUFEN HUB/SPOKE CLUSTER (unter /pferd-kaufen/)
+  // Diese Seiten haben commercial intent und verwenden die Hub-URL-Struktur
+  // ============================================================================
+
+  // Hub-Seite: /pferd-kaufen/ (index)
   {
-    slug: 'pferd-kaufen',
+    slug: '', // Leerer Slug für Index-Seite
+    basePath: '/pferd-kaufen',
     title: 'Pferd kaufen - Der komplette Ratgeber',
     description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.',
     category: 'Kauf & Verkauf',
     readTime: '18 Min.',
-    image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp', // Trainingsszene – ideal für Kaufberatung
-    priority: '0.7',
-    changefreq: 'monthly',
+    image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp',
+    priority: '0.9', // Hub-Seite hat höhere Priorität
+    changefreq: 'weekly',
     relatedSlugs: [
       'was-kostet-ein-pferd',
       'aku-pferd',
@@ -113,8 +119,10 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'pferdemarkt'
     ]
   },
+  // Spoke: /pferd-kaufen/freizeitpferd
   {
-    slug: 'freizeitpferd-kaufen',
+    slug: 'freizeitpferd',
+    basePath: '/pferd-kaufen',
     title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
     description: 'Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
     category: 'Kauf & Verkauf',
@@ -123,13 +131,15 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferdekaufvertrag',
+      'kaufvertrag',
       'aku-pferd',
-      'pferd-kaufen'
+      '' // Hub-Seite
     ]
   },
+  // Spoke: /pferd-kaufen/anfaenger
   {
-    slug: 'anfaengerpferd-kaufen',
+    slug: 'anfaenger',
+    basePath: '/pferd-kaufen',
     title: 'Anfängerpferd kaufen: Ratgeber für sicheren Kauf 2025',
     description: 'Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar.',
     category: 'Kauf & Verkauf',
@@ -138,13 +148,15 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'freizeitpferd-kaufen',
-      'pferdekaufvertrag',
+      'freizeitpferd',
+      'kaufvertrag',
       'aku-pferd'
     ]
   },
+  // Spoke: /pferd-kaufen/schweiz
   {
-    slug: 'pferd-kaufen-schweiz',
+    slug: 'schweiz',
+    basePath: '/pferd-kaufen',
     title: 'Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich',
     description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.',
     category: 'Kauf & Verkauf',
@@ -153,9 +165,9 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
-      'anfaengerpferd-kaufen',
-      'pferdekaufvertrag'
+      '', // Hub-Seite
+      'anfaenger',
+      'kaufvertrag'
     ]
   },
 
@@ -193,9 +205,10 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     ]
   },
 
-  // Pferdekaufvertrag Guide
+  // Spoke: /pferd-kaufen/kaufvertrag
   {
-    slug: 'pferdekaufvertrag',
+    slug: 'kaufvertrag',
+    basePath: '/pferd-kaufen',
     title: 'Pferdekaufvertrag: Rechtssicherer Kaufvertrag (7-Punkte Anleitung)',
     description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden. Rechtlich sicher kaufen & verkaufen.',
     category: 'Finanzen & Recht',
@@ -204,15 +217,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
+      '', // Hub-Seite
       'aku-pferd',
       'pferd-verkaufen'
     ]
   },
 
-  // Springpferd kaufen Guide
+  // Spoke: /pferd-kaufen/springpferd
   {
-    slug: 'springpferd-kaufen',
+    slug: 'springpferd',
+    basePath: '/pferd-kaufen',
     title: 'Springpferd kaufen: Ratgeber, Preise & Tipps',
     description: 'Springpferd kaufen leicht gemacht: Auswahlkriterien, Preise (10.000-100.000€+), seriöse Züchter, AKU-Tipps & Kaufvertrag. Jetzt informieren!',
     category: 'Kauf & Verkauf',
@@ -221,15 +235,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
+      '', // Hub-Seite
       'aku-pferd',
-      'pferdekaufvertrag'
+      'kaufvertrag'
     ]
   },
 
-  // Dressurpferd kaufen Guide
+  // Spoke: /pferd-kaufen/dressurpferd
   {
-    slug: 'dressurpferd-kaufen',
+    slug: 'dressurpferd',
+    basePath: '/pferd-kaufen',
     title: 'Dressurpferd kaufen: Ratgeber für sichere Kaufentscheidung',
     description: 'Dressurpferd kaufen leicht gemacht: Preise, Qualitätskriterien, Kaufquellen & AKU-Checkliste. Vom A-Pferd bis Grand Prix. Jetzt informieren!',
     category: 'Kauf & Verkauf',
@@ -238,9 +253,9 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferdekaufvertrag',
+      'kaufvertrag',
       'aku-pferd',
-      'pferd-kaufen'
+      '' // Hub-Seite
     ]
   },
 
@@ -260,8 +275,10 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
       'anfaengerpferd-kaufen'
     ]
   },
+  // Spoke: /pferd-kaufen/haflinger
   {
-    slug: 'haflinger-kaufen',
+    slug: 'haflinger',
+    basePath: '/pferd-kaufen',
     title: 'Haflinger kaufen: Kompletter Guide mit Preisen & Tipps',
     description: 'Haflinger kaufen leicht gemacht: Marktpreise (€4.900 Median), Rassen-Übersicht, Kosten & Betrugsschutz. Schritt-für-Schritt Anleitung für Anfänger & Profis.',
     category: 'Pferderassen',
@@ -270,15 +287,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'anfaengerpferd-kaufen',
+      'anfaenger',
       'was-kostet-ein-pferd',
-      'pferd-kaufen'
+      '' // Hub-Seite
     ]
   },
 
-  // Pferd kaufen Österreich Guide
+  // Spoke: /pferd-kaufen/oesterreich
   {
-    slug: 'pferd-kaufen-oesterreich',
+    slug: 'oesterreich',
+    basePath: '/pferd-kaufen',
     title: 'Pferd kaufen in Österreich: Kompletter Ratgeber 2025',
     description: 'Pferd kaufen in Österreich: Alle Marktplätze (Willhaben, ehorses, Landwirt.com), Preise nach Bundesland, Noriker & Haflinger, Kaufvertrag & AKU.',
     category: 'Kauf & Verkauf',
@@ -287,15 +305,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
-      'haflinger-kaufen',
+      '', // Hub-Seite
+      'haflinger',
       'aku-pferd'
     ]
   },
 
-  // Pony kaufen Guide
+  // Spoke: /pferd-kaufen/pony
   {
-    slug: 'pony-kaufen',
+    slug: 'pony',
+    basePath: '/pferd-kaufen',
     title: 'Pony kaufen: Kompletter Leitfaden für Anfänger',
     description: 'Pony kaufen leicht gemacht: Ponyrassen, Kosten, Kaufwege & Checkliste. Von Shetland bis Haflinger - der ultimative Guide für sicheren Ponykauf.',
     category: 'Kauf & Verkauf',
@@ -304,15 +323,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
-      'haflinger-kaufen',
-      'anfaengerpferd-kaufen'
+      '', // Hub-Seite
+      'haflinger',
+      'anfaenger'
     ]
   },
 
-  // Fohlen kaufen Guide
+  // Spoke: /pferd-kaufen/fohlen
   {
-    slug: 'fohlen-kaufen',
+    slug: 'fohlen',
+    basePath: '/pferd-kaufen',
     title: 'Fohlen kaufen: Der komplette Ratgeber 2025',
     description: 'Fohlen kaufen leicht gemacht: Marktplätze, Preise, Gesundheitschecks, Rechtliches. Schritt-für-Schritt Anleitung + Checkliste für sicheren Fohlenkauf.',
     category: 'Kauf & Verkauf',
@@ -321,15 +341,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
+      '', // Hub-Seite
       'aku-pferd',
-      'pferdekaufvertrag'
+      'kaufvertrag'
     ]
   },
 
-  // Quarter Horse kaufen Guide
+  // Spoke: /pferd-kaufen/quarter-horse
   {
-    slug: 'quarter-horse-kaufen',
+    slug: 'quarter-horse',
+    basePath: '/pferd-kaufen',
     title: 'Quarter Horse kaufen: Westernreiten und amerikanische Zuchtlinien',
     description: 'Quarter Horse kaufen in Deutschland: Foundation vs Performance Bloodlines, AQHA-Papiere, Western-Ausbildung & Züchter. Preise 5.000-50.000€.',
     category: 'Pferderassen',
@@ -338,15 +359,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'freizeitpferd-kaufen',
-      'pferd-kaufen',
+      'freizeitpferd',
+      '', // Hub-Seite
       'aku-pferd'
     ]
   },
 
-  // Friese kaufen Guide
+  // Spoke: /pferd-kaufen/friese
   {
-    slug: 'friese-kaufen',
+    slug: 'friese',
+    basePath: '/pferd-kaufen',
     title: 'Friese kaufen: KFPS-Papiere, Preise & Gesundheit',
     description: 'Friese kaufen leicht gemacht: KFPS-Registrierung, rassetypische Gesundheit, Preise 5.000-50.000€. Der komplette Ratgeber zur barocken Pferderasse.',
     category: 'Pferderassen',
@@ -355,15 +377,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'dressurpferd-kaufen',
-      'haflinger-kaufen',
-      'pferd-kaufen'
+      'dressurpferd',
+      'haflinger',
+      '' // Hub-Seite
     ]
   },
 
-  // Islandpferd kaufen Guide
+  // Spoke: /pferd-kaufen/islandpferd
   {
-    slug: 'islandpferd-kaufen',
+    slug: 'islandpferd',
+    basePath: '/pferd-kaufen',
     title: 'Islandpferd kaufen: Tölt, Gangarten & FIZO-Tests',
     description: 'Islandpferd kaufen ✓ Tölt & 5 Gangarten verstehen ✓ FIZO-Bewertung richtig lesen ✓ Winterhaltung & Robustheit. Experten-Guide für Isländer.',
     category: 'Pferderassen',
@@ -372,15 +395,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pony-kaufen',
-      'freizeitpferd-kaufen',
-      'pferd-kaufen'
+      'pony',
+      'freizeitpferd',
+      '' // Hub-Seite
     ]
   },
 
-  // Regional Guides
+  // Spoke: /pferd-kaufen/bayern (Regional)
   {
-    slug: 'pferd-kaufen-bayern',
+    slug: 'bayern',
+    basePath: '/pferd-kaufen',
     title: 'Pferd kaufen in Bayern: Regionale Besonderheiten und Top-Adressen',
     description: 'Pferd kaufen in Bayern: Top-Gestüte, Rottaler & Bayerisches Warmblut, regionale Märkte und praktische Tipps. Preise 3.000-25.000€.',
     category: 'Regional Guides',
@@ -389,13 +413,16 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
-      'haflinger-kaufen',
-      'quarter-horse-kaufen'
+      '', // Hub-Seite
+      'haflinger',
+      'quarter-horse'
     ]
   },
+
+  // Spoke: /pferd-kaufen/nrw (Regional)
   {
-    slug: 'pferd-kaufen-nrw',
+    slug: 'nrw',
+    basePath: '/pferd-kaufen',
     title: 'Pferd kaufen in NRW: Regionale Züchter & Märkte',
     description: 'Pferd kaufen in NRW: Top-Züchter im Münsterland, moderne Reitanlagen im Ruhrgebiet. Westfälische Warmblüter, lokale Märkte und praktische Tipps.',
     category: 'Regional Guides',
@@ -404,9 +431,9 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
-      'freizeitpferd-kaufen',
-      'pferdekaufvertrag'
+      '', // Hub-Seite
+      'freizeitpferd',
+      'kaufvertrag'
     ]
   }
 ];
@@ -414,11 +441,13 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
 /**
  * Get full URL path for a ratgeber entry
  * Respects custom basePath if defined in the entry
+ * Handles empty slugs for hub/index pages (e.g., /pferd-kaufen/)
  */
 export function getRatgeberPath(slug: string): string {
   const entry = getRatgeberBySlug(slug);
   const basePath = entry?.basePath || '/pferde-ratgeber';
-  return `${basePath}/${slug}`;
+  // Handle empty slug for index pages
+  return slug === '' ? basePath : `${basePath}/${slug}`;
 }
 
 /**

@@ -17,51 +17,51 @@
 
 ### 1. Pferd Kaufen (Commercial Hub)
 
-**Hub:** `/pferd-kaufen/` (40.500 Vol/Mo)
+**Hub:** `/pferd-kaufen/` (40.500 Vol/Mo) — **2.167 Wörter**
 
-| Spoke | URL | Vol/Mo | Status |
-|-------|-----|--------|--------|
-| Bayern | `/pferd-kaufen/bayern` | 1.900 | ✅ Live |
-| NRW | `/pferd-kaufen/nrw` | 1.600 | ✅ Live |
-| Österreich | `/pferd-kaufen/oesterreich` | 5.400 | ✅ Live |
-| Schweiz | `/pferd-kaufen/schweiz` | 2.400 | ✅ Live |
-| Haflinger | `/pferd-kaufen/haflinger` | 5.400 | ✅ Live |
-| Islandpferd | `/pferd-kaufen/islandpferd` | 4.400 | ✅ Live |
-| Quarter Horse | `/pferd-kaufen/quarter-horse` | 3.600 | ✅ Live |
-| Friese | `/pferd-kaufen/friese` | 1.900 | ✅ Live |
-| Springpferd | `/pferd-kaufen/springpferd` | 720 | ✅ Live |
-| Dressurpferd | `/pferd-kaufen/dressurpferd` | 590 | ✅ Live |
-| Freizeitpferd | `/pferd-kaufen/freizeitpferd` | 480 | ✅ Live |
-| Anfängerpferd | `/pferd-kaufen/anfaenger` | 390 | ✅ Live |
-| Pony | `/pferd-kaufen/pony` | 6.600 | ⚪ Offen |
-| Fohlen | `/pferd-kaufen/fohlen` | 2.900 | ⚪ Offen |
+| Spoke | URL | Vol/Mo | Status | Wörter |
+|-------|-----|--------|--------|--------|
+| Bayern | `/pferd-kaufen/bayern` | 1.900 | ✅ Live | 287 |
+| NRW | `/pferd-kaufen/nrw` | 1.600 | ✅ Live | 1.247 |
+| Österreich | `/pferd-kaufen/oesterreich` | 5.400 | ✅ Live | 4.442 |
+| Schweiz | `/pferd-kaufen/schweiz` | 2.400 | ✅ Live | 4.620 |
+| Haflinger | `/pferd-kaufen/haflinger` | 5.400 | ✅ Live | 3.833 |
+| Islandpferd | `/pferd-kaufen/islandpferd` | 4.400 | ✅ Live | 248 |
+| Quarter Horse | `/pferd-kaufen/quarter-horse` | 3.600 | ✅ Live | 2.847 |
+| Friese | `/pferd-kaufen/friese` | 1.900 | ✅ Live | 3.850 |
+| Springpferd | `/pferd-kaufen/springpferd` | 720 | ✅ Live | 314 |
+| Dressurpferd | `/pferd-kaufen/dressurpferd` | 590 | ✅ Live | 287 |
+| Freizeitpferd | `/pferd-kaufen/freizeitpferd` | 480 | ✅ Live | 287 |
+| Anfängerpferd | `/pferd-kaufen/anfaenger` | 390 | ✅ Live | 267 |
+| Pony | `/pferd-kaufen/pony` | 6.600 | ⚪ Offen | — |
+| Fohlen | `/pferd-kaufen/fohlen` | 2.900 | ⚪ Offen | — |
 
 ---
 
 ### 2. AKU Cluster (Informational)
 
-**Hub:** `/pferde-ratgeber/aku-pferd` (480 Vol/Mo)
+**Hub:** `/pferde-ratgeber/aku-pferd` (480 Vol/Mo) — **4.847 Wörter**
 
-| Spoke | URL | Vol/Mo | Status |
-|-------|-----|--------|--------|
-| AKU Kosten | `/pferde-ratgeber/aku-pferd-kosten` | 260 | ✅ Live |
-| Große/Kleine AKU | `/pferde-ratgeber/grosse-kleine-aku` | 170 | ✅ Live |
-| AKU Röntgen | `/pferde-ratgeber/aku-roentgen` | 140 | ⚪ Offen |
-| AKU Checkliste | `/pferde-ratgeber/aku-checkliste` | 110 | ⚪ Offen |
+| Spoke | URL | Vol/Mo | Status | Wörter |
+|-------|-----|--------|--------|--------|
+| AKU Kosten | `/pferde-ratgeber/aku-pferd-kosten` | 260 | ⚠️ 404 | — |
+| Große/Kleine AKU | `/pferde-ratgeber/grosse-kleine-aku` | 170 | ⚠️ 404 | — |
+| AKU Röntgen | `/pferde-ratgeber/aku-roentgen` | 140 | ⚪ Offen | — |
+| AKU Checkliste | `/pferde-ratgeber/aku-checkliste` | 110 | ⚪ Offen | — |
 
 ---
 
 ### 3. Pferdehaltung Kosten (Informational)
 
-**Hub:** `/pferde-ratgeber/pferdehaltung-kosten` (1.900 Vol/Mo)
+**Hub:** `/pferde-ratgeber/pferdehaltung-kosten` (1.900 Vol/Mo) — ⚪ Offen
 
-| Spoke | URL | Vol/Mo | Status |
-|-------|-----|--------|--------|
-| Was kostet ein Pferd | `/pferde-ratgeber/was-kostet-ein-pferd` | 2.900 | ✅ Live |
-| Kosten pro Monat | `/pferde-ratgeber/pferd-kosten-monat` | 1.300 | ⚪ Offen |
-| Stallmiete | `/pferde-ratgeber/stallmiete-pferd` | 880 | ⚪ Offen |
-| Hufschmied Kosten | `/pferde-ratgeber/hufschmied-kosten` | 1.600 | ⚪ Offen |
-| Tierarzt Kosten | `/pferde-ratgeber/tierarzt-pferd-kosten` | 590 | ⚪ Offen |
+| Spoke | URL | Vol/Mo | Status | Wörter |
+|-------|-----|--------|--------|--------|
+| Was kostet ein Pferd | `/pferde-ratgeber/was-kostet-ein-pferd` | 2.900 | ✅ Live | 268 |
+| Kosten pro Monat | `/pferde-ratgeber/pferd-kosten-monat` | 1.300 | ⚪ Offen | — |
+| Stallmiete | `/pferde-ratgeber/stallmiete-pferd` | 880 | ⚪ Offen | — |
+| Hufschmied Kosten | `/pferde-ratgeber/hufschmied-kosten` | 1.600 | ⚪ Offen | — |
+| Tierarzt Kosten | `/pferde-ratgeber/tierarzt-pferd-kosten` | 590 | ⚪ Offen | — |
 
 ---
 
