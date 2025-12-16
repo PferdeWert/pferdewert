@@ -329,7 +329,7 @@ export default function PferdKaufenOesterreich() {
               Haflinger kaufen – Alpine Rasse mit Tradition
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der <LocalizedLink href="/pferde-ratgeber/haflinger-kaufen" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> ist nach dem Noriker die zweite klassische österreichische Rasse. Diese kleinen, kraftvollen Bergpferde sind berühmt für ihre Zuverlässigkeit und ihre Fähigkeit, in schwierigem Gelände zu arbeiten.
+              Der <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> ist nach dem Noriker die zweite klassische österreichische Rasse. Diese kleinen, kraftvollen Bergpferde sind berühmt für ihre Zuverlässigkeit und ihre Fähigkeit, in schwierigem Gelände zu arbeiten.
             </p>
             <ul className="space-y-2 text-lg text-gray-700">
               <li><strong>Höhe:</strong> 1,38–1,50 m (ideal für Kinder und Leichtreitende)</li>
@@ -346,7 +346,7 @@ export default function PferdKaufenOesterreich() {
               Freizeitpferde vs. Sportpferde – Die richtige Wahl treffen
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Ehrlicher Ratschlag:</strong> 80% aller Käufer brauchen ein <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferd</LocalizedLink>. Wenn du nicht mindestens 3x pro Woche trainierst und keine Turniererfahrung hast, kauf ein Freizeitpferd. Ein überteuertes Sportpferd wird dich nicht glücklich machen.
+              <strong>Ehrlicher Ratschlag:</strong> 80% aller Käufer brauchen ein <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitpferd</LocalizedLink>. Wenn du nicht mindestens 3x pro Woche trainierst und keine Turniererfahrung hast, kauf ein Freizeitpferd. Ein überteuertes Sportpferd wird dich nicht glücklich machen.
             </p>
           </section>
 
@@ -466,7 +466,7 @@ export default function PferdKaufenOesterreich() {
               Schritt 5: Kaufvertrag und Rechtliche Absicherung
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Ein schriftlicher <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> ist essentiell. Das schützt beide Seiten. Was muss im Vertrag stehen: Namen und Daten beider Parteien, Pferdetasche (Namen, Rasse, Alter, Farbe), Kaufpreis, Garantien, Rücktrittsrecht, Übergabedatum.
+              Ein schriftlicher <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> ist essentiell. Das schützt beide Seiten. Was muss im Vertrag stehen: Namen und Daten beider Parteien, Pferdetasche (Namen, Rasse, Alter, Farbe), Kaufpreis, Garantien, Rücktrittsrecht, Übergabedatum.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -491,7 +491,7 @@ export default function PferdKaufenOesterreich() {
               Kaufvertrag, AKU, Versicherungen – diese Punkte solltest du nie überspringen. PferdeWert hilft dir zusätzlich mit einer objektiven Bewertung, um teure Fehlkäufe zu vermeiden.
             </p>
             <LocalizedLink
-              href="/pferde-ratgeber/pferdekaufvertrag"
+              href="/pferd-kaufen/kaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Mehr zum Kaufvertrag

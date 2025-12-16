@@ -217,7 +217,7 @@ const Pferdekaufvertrag: NextPage = () => {
               <a href="https://www.gesetze-im-internet.de/bgb/__437.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                 §437 BGB (Mängelrechte)
               </a>. Damit fällt ein Pferd rechtlich unter allgemeine Kaufgesetze, nicht unter spezielle Pferdebestimmungen. Mehr über die grundlegenden Aspekte erfahren Sie in unserem Leitfaden zum{' '}
-              <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">
+              <LocalizedLink href="/pferd-kaufen" className="text-blue-600 hover:underline">
                 Pferdekauf
               </LocalizedLink>.
             </p>

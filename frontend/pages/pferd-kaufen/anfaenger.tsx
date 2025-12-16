@@ -189,7 +189,7 @@ const rassenData = [
 
 const relatedArticles = [
   {
-    href: '/pferde-ratgeber/freizeitpferd-kaufen',
+    href: '/pferd-kaufen/freizeitpferd',
     image: '/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp',
     title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
     badge: 'Kauf & Verkauf',
@@ -197,7 +197,7 @@ const relatedArticles = [
     description: 'Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.'
   },
   {
-    href: '/pferde-ratgeber/pferdekaufvertrag',
+    href: '/pferd-kaufen/kaufvertrag',
     image: '/images/ratgeber/horses-mountain-field-spain.webp',
     title: 'Pferdekaufvertrag: Rechtliche Absicherung beim Pferdekauf',
     badge: 'Finanzen & Recht',
@@ -531,7 +531,7 @@ export default function AnfaengerpferdKaufen() {
                     <tr className="bg-gray-50">
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">Mittleres Segment</td>
                       <td className="px-6 py-4 text-sm text-gray-700">5.000-10.000€</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">8-15 Jahre, solide <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitausbildung</LocalizedLink>, gesund</td>
+                      <td className="px-6 py-4 text-sm text-gray-700">8-15 Jahre, solide <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitausbildung</LocalizedLink>, gesund</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">Premium</td>
@@ -1078,7 +1078,7 @@ export default function AnfaengerpferdKaufen() {
                 <p className="text-blue-800 mb-4">
                   Verwende eine professionelle Vertragvorlage, um nichts zu vergessen:
                 </p>
-                <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold underline">
+                <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold underline">
                   Zum Pferdekaufvertrag-Ratgeber mit kostenloser Vorlage →
                 </LocalizedLink>
               </div>

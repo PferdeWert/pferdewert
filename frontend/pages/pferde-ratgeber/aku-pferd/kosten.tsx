@@ -254,7 +254,7 @@ const AkuPferdKosten: NextPage = () => {
                   schau dir unseren Kostenratgeber an
                 </LocalizedLink>
                 . Mehr zum gesamten Kaufprozess findest du in unserem{" "}
-                <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                <LocalizedLink href="/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
                   Pferdekauf-Ratgeber
                 </LocalizedLink>
                 .
@@ -296,11 +296,11 @@ const AkuPferdKosten: NextPage = () => {
               <RatgeberHighlightBox title="Faustregel" icon={calculatorBrownIcon}>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                   Freizeitpferde bis 5.000 € kommen mit Klasse II aus. Für hochwertige{" "}
-                  <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                  <LocalizedLink href="/pferd-kaufen/dressurpferd" className="text-blue-600 hover:text-blue-800 underline">
                     Dressurpferde
                   </LocalizedLink>
                   {" "}oder{" "}
-                  <LocalizedLink href="/pferde-ratgeber/springpferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                  <LocalizedLink href="/pferd-kaufen/springpferd" className="text-blue-600 hover:text-blue-800 underline">
                     Springpferde
                   </LocalizedLink>
                   {" "}solltest du Klasse III oder Spezialdiagnostik einplanen – so minimierst du Folgerisiken.
@@ -407,7 +407,7 @@ const AkuPferdKosten: NextPage = () => {
 
               <p className="text-lg text-gray-700 leading-relaxed mt-8">
                 <strong>Tipp:</strong> Vereinbare die Kostenregelung frühzeitig im Kaufprozess. In unserem{" "}
-                <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
+                <LocalizedLink href="/pferd-kaufen" className="text-blue-600 hover:text-blue-800 underline">
                   umfassenden Ratgeber zum Pferdekauf
                 </LocalizedLink>
                 {" "}erfährst du, wie du den gesamten Kaufablauf strukturiert angehst.
@@ -416,7 +416,7 @@ const AkuPferdKosten: NextPage = () => {
               <RatgeberHighlightBox title="Wichtig: Schriftliche Festlegung" icon={walletBrownIcon}>
                 <p className="text-gray-700">
                   <strong>Vereinbare alle Kostenpunkte schriftlich im{" "}
-                  <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+                  <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-blue-600 hover:text-blue-800 underline font-semibold">
                     Pferdekaufvertrag
                   </LocalizedLink>
                   {" "}oder per E-Mail</strong>, um später Streitigkeiten zu vermeiden. Dies gilt besonders, wenn die Kostenübernahme

@@ -203,7 +203,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Tipp:</strong> In unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand-brown hover:underline font-semibold">umfassenden Pferdekauf-Ratgeber</LocalizedLink> findest du weitere allgemeine Tipps, die für alle Pferdetypen gelten.
+              <strong>Tipp:</strong> In unserem <LocalizedLink href="/pferd-kaufen" className="text-brand-brown hover:underline font-semibold">umfassenden Pferdekauf-Ratgeber</LocalizedLink> findest du weitere allgemeine Tipps, die für alle Pferdetypen gelten.
             </p>
           </section>
 
@@ -226,7 +226,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Interessierst du dich für andere Disziplinen? Lies unseren Ratgeber zum <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand-brown hover:underline font-semibold">Dressurpferd kaufen</LocalizedLink>.
+              → Interessierst du dich für andere Disziplinen? Lies unseren Ratgeber zum <LocalizedLink href="/pferd-kaufen/dressurpferd" className="text-brand-brown hover:underline font-semibold">Dressurpferd kaufen</LocalizedLink>.
             </p>
 
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -537,7 +537,7 @@ export default function SpringpferdKaufen() {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              → Inklusive rechtssicherer Vertragsvorlage und allen wichtigen Klauseln: Unser <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand-brown hover:underline font-semibold">kompletter Pferdekaufvertrag-Ratgeber</LocalizedLink>.
+              → Inklusive rechtssicherer Vertragsvorlage und allen wichtigen Klauseln: Unser <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand-brown hover:underline font-semibold">kompletter Pferdekaufvertrag-Ratgeber</LocalizedLink>.
             </p>
           </section>
 

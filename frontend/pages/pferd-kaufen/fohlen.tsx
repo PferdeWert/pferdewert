@@ -180,7 +180,7 @@ export default function FohlenKaufen() {
               praktischer Checkliste und klaren Empfehlungen. Für einen umfassenden Überblick über
               den gesamten Pferdekauf-Prozess lies auch unseren{' '}
               <LocalizedLink
-                href="/pferde-ratgeber/pferd-kaufen"
+                href="/pferd-kaufen"
                 className="text-brand hover:text-brand-dark underline"
               >
                 ultimativen Pferdekauf-Ratgeber
@@ -490,7 +490,7 @@ export default function FohlenKaufen() {
               Das ist die am meisten unterschätzte Komponente beim Fohlenkauf. Rechtliche Klarheit
               schützt dich vor teuren Überraschungen. Unser{' '}
               <LocalizedLink
-                href="/pferde-ratgeber/pferdekaufvertrag"
+                href="/pferd-kaufen/kaufvertrag"
                 className="text-brand hover:text-brand-dark underline"
               >
                 Pferdekaufvertrag-Ratgeber
@@ -614,7 +614,7 @@ export default function FohlenKaufen() {
               vermeiden.
             </p>
             <LocalizedLink
-              href="/pferde-ratgeber/pferdekaufvertrag"
+              href="/pferd-kaufen/kaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Mehr zum Kaufvertrag

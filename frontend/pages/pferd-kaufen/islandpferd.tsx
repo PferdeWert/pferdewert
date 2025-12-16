@@ -271,7 +271,7 @@ export default function IslandpferdKaufen() {
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
               Bei der Haltung von Islandpferden sollten Sie folgende Punkte beachten – ähnliche Anforderungen gelten übrigens auch für{' '}
-              <LocalizedLink href="/pferde-ratgeber/haflinger-kaufen" className="text-brand hover:text-brand-dark underline">
+              <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">
                 Haflinger
               </LocalizedLink>, eine ebenso robuste Rasse:
             </p>
@@ -289,7 +289,7 @@ export default function IslandpferdKaufen() {
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               Islandpferde gelten als eine der gesündesten und langlebigsten Pferderassen – ein Grund, warum sie besonders als{' '}
-              <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">
+              <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">
                 Freizeitpferde
               </LocalizedLink>{' '}
               beliebt sind. Ihre genetische Reinheit und jahrhundertelange isolierte Züchtung machen sie robust:
@@ -317,7 +317,7 @@ export default function IslandpferdKaufen() {
               <li>• Den Züchter nach Abstammung und Vorbesitzern zu befragen</li>
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere Informationen zum Pferdekauf und zur Preisermittlung finden Sie in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Pferdekauf-Ratgeber</LocalizedLink>.
+              Weitere Informationen zum Pferdekauf und zur Preisermittlung finden Sie in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Pferdekauf-Ratgeber</LocalizedLink>.
             </p>
           </section>
 
@@ -406,7 +406,7 @@ export default function IslandpferdKaufen() {
               Der Kauf eines Islandpferdes bedeutet mehr, als nur ein Haustier zu erwerben – Sie gewinnen einen treuen Begleiter mit einzigartigen Fähigkeiten. Lassen Sie sich von ihrer Robustheit, ihrem sanften Wesen und ihrer außergewöhnlichen Tölt-Gangart verzaubern.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere Informationen zum Pferdekauf und zur Preisermittlung finden Sie in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Pferdekauf-Ratgeber</LocalizedLink>.
+              Weitere Informationen zum Pferdekauf und zur Preisermittlung finden Sie in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Pferdekauf-Ratgeber</LocalizedLink>.
             </p>
           </section>
 
@@ -424,7 +424,7 @@ export default function IslandpferdKaufen() {
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
               Einen rechtssicheren{' '}
-              <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">
+              <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">
                 Pferdekaufvertrag
               </LocalizedLink>{' '}
               sollten Sie unbedingt abschließen. Wichtige Punkte:

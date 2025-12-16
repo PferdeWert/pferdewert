@@ -245,7 +245,7 @@ export default function PferdKaufenBayern() {
             </h3>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die Westernreitszene in Bayern ist überraschend groß und aktiv. Besonders <LocalizedLink href="/pferde-ratgeber/quarter-horse-kaufen" className="text-brand hover:text-brand-dark underline">Quarter Horses</LocalizedLink> und Paint Horses sind in den Regionen um Augsburg, Landsberg und im Allgäu sehr beliebt. Die &ldquo;Western City&rdquo; in Dasing bei Augsburg ist ein Zentrum für Westernreiter und bietet regelmäßig Verkaufspferde an. Beim Pferdekauf in Bayern finden Sie hier ausgebildete Westernpferde zwischen 5.000 und 15.000 Euro. Die bayerische Westernszene zeichnet sich durch ihre Professionalität und die hohe Qualität der Ausbildung aus.
+              Die Westernreitszene in Bayern ist überraschend groß und aktiv. Besonders <LocalizedLink href="/pferd-kaufen/quarter-horse" className="text-brand hover:text-brand-dark underline">Quarter Horses</LocalizedLink> und Paint Horses sind in den Regionen um Augsburg, Landsberg und im Allgäu sehr beliebt. Die &ldquo;Western City&rdquo; in Dasing bei Augsburg ist ein Zentrum für Westernreiter und bietet regelmäßig Verkaufspferde an. Beim Pferdekauf in Bayern finden Sie hier ausgebildete Westernpferde zwischen 5.000 und 15.000 Euro. Die bayerische Westernszene zeichnet sich durch ihre Professionalität und die hohe Qualität der Ausbildung aus.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -301,7 +301,7 @@ export default function PferdKaufenBayern() {
             </h3>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Das Allgäu mit seiner spektakulären Bergkulisse ist ideal für Wanderreiter und Freizeitreiter. Die hier gezüchteten <LocalizedLink href="/pferde-ratgeber/haflinger-kaufen" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> sind in dieser Region sehr beliebt und kosten zwischen 3.500 und 8.000 Euro. Die Almauftriebe prägen die Pferde und machen sie besonders robust und charakterstark.
+              Das Allgäu mit seiner spektakulären Bergkulisse ist ideal für Wanderreiter und Freizeitreiter. Die hier gezüchteten <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> sind in dieser Region sehr beliebt und kosten zwischen 3.500 und 8.000 Euro. Die Almauftriebe prägen die Pferde und machen sie besonders robust und charakterstark.
             </p>
           </section>
 
@@ -340,7 +340,7 @@ export default function PferdKaufenBayern() {
             </h3>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferdekauf</LocalizedLink>.
+              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferdekauf</LocalizedLink>.
             </p>
           </section>
 

@@ -197,7 +197,7 @@ const Pferdemarkt: NextPage = () => {
                 Heute funktioniert der Markt nach dem Dual-System. <strong>Traditionelle Events</strong> sind nach wie vor große Veranstaltungen mit Vergnügungspark-Charakter, Fachausstellungen und direktem Kontakt zu Züchtern. Parallel dazu entstanden <strong>Online-Verkaufsplattformen</strong> wie Ehorses und Pferde.de, die Millionen Pferde-Inserate anbieten.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
-                Diese moderne Struktur gibt dir maximale Flexibilität: Du kannst stöbernd online 19.000+ Pferde vergleichen oder reist zum nächsten großen Event, um Pferde live zu besichtigen. Wenn du ein Pferd kaufen möchtest, bietet unser Ratgeber <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">Pferd kaufen – 12 Tipps & Checkliste</LocalizedLink> hilfreiche Kauftipps. Wenn du dein Pferd verkaufen möchtest, findest du Tipps in unserem Ratgeber <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">Pferd verkaufen – Schritt für Schritt Anleitung</LocalizedLink>.
+                Diese moderne Struktur gibt dir maximale Flexibilität: Du kannst stöbernd online 19.000+ Pferde vergleichen oder reist zum nächsten großen Event, um Pferde live zu besichtigen. Wenn du ein Pferd kaufen möchtest, bietet unser Ratgeber <LocalizedLink href="/pferd-kaufen" className="text-blue-600 hover:underline">Pferd kaufen – 12 Tipps & Checkliste</LocalizedLink> hilfreiche Kauftipps. Wenn du dein Pferd verkaufen möchtest, findest du Tipps in unserem Ratgeber <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-blue-600 hover:underline">Pferd verkaufen – Schritt für Schritt Anleitung</LocalizedLink>.
               </p>
             </section>
 
@@ -485,7 +485,7 @@ const Pferdemarkt: NextPage = () => {
                 Die Preise variieren erheblich:
               </p>
               <ul className="text-lg text-gray-700 space-y-2">
-                <li>• <strong><LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferde</LocalizedLink></strong>: 500–3.000€ (je nach Alter, Ausbildung)</li>
+                <li>• <strong><LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitpferde</LocalizedLink></strong>: 500–3.000€ (je nach Alter, Ausbildung)</li>
                 <li>• <strong>Einsteiger-Sportpferde</strong>: 5.000–12.000€</li>
                 <li>• <strong>Hochleistungs-Sportpferde</strong>: 15.000–100.000€+</li>
               </ul>
@@ -504,10 +504,10 @@ const Pferdemarkt: NextPage = () => {
                 <li><strong>Hufe und Zähne prüfen</strong> – Alter und Gesundheit erkennen</li>
                 <li><strong>Gang beobachten</strong> – an der Hand und unter dem Reiter</li>
                 <li><strong>Papiere checken</strong> – Stammbuch, Impfpass, Rechnungen</li>
-                <li><strong>Kaufvertrag absichern</strong> – Nutze ein rechtssicheres Kaufvertrag-Template. Mehr Informationen findest du in unserem Ratgeber <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-blue-600 hover:underline">Pferdekaufvertrag – Das musst du beachten</LocalizedLink></li>
+                <li><strong>Kaufvertrag absichern</strong> – Nutze ein rechtssicheres Kaufvertrag-Template. Mehr Informationen findest du in unserem Ratgeber <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-blue-600 hover:underline">Pferdekaufvertrag – Das musst du beachten</LocalizedLink></li>
               </ol>
               <p className="text-lg leading-relaxed text-gray-700 mt-4">
-                Weitere praktische Tipps zum Pferdekauf findest du in unserem vollständigen Guide <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">Pferd kaufen – 12 Tipps & Checkliste</LocalizedLink>.
+                Weitere praktische Tipps zum Pferdekauf findest du in unserem vollständigen Guide <LocalizedLink href="/pferd-kaufen" className="text-blue-600 hover:underline">Pferd kaufen – 12 Tipps & Checkliste</LocalizedLink>.
               </p>
 
               <h3 className="text-2xl font-serif font-bold text-brand mt-8">
@@ -556,7 +556,7 @@ const Pferdemarkt: NextPage = () => {
                 <li>• <strong>Vorsicht bei unrealistisch niedrigen Preisen</strong> – oft Betrugssignale</li>
                 <li>• <strong>Nur mit verifizierten Verkäufern interagieren</strong> – Bewertungen checken</li>
                 <li>• <strong>Persönliche Daten schützen</strong> – Adresse/Bankverbindung erst nach Vertrauen teilen</li>
-                <li>• <strong>Rechtssicheren Kaufvertrag verwenden</strong> – Nutze einen legalen Kaufvertrag, um deine Rechte zu schützen. Mehr Informationen findest du in unserem Ratgeber <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-blue-600 hover:underline">Pferdekaufvertrag – Das musst du beachten</LocalizedLink></li>
+                <li>• <strong>Rechtssicheren Kaufvertrag verwenden</strong> – Nutze einen legalen Kaufvertrag, um deine Rechte zu schützen. Mehr Informationen findest du in unserem Ratgeber <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-blue-600 hover:underline">Pferdekaufvertrag – Das musst du beachten</LocalizedLink></li>
               </ul>
 
               <RatgeberHighlightBox
@@ -575,7 +575,7 @@ const Pferdemarkt: NextPage = () => {
                 Fazit – Dein Weg zum richtigen Pferdemarkt
               </h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                Es gibt zwei wirksame Wege, dein Traumpferd zu finden: <strong>Online-Plattformen</strong> wie <a href="https://www.ehorses.de/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Ehorses</a> mit 19.000+ Inseraten bieten maximale Auswahl und Flexibilität. <strong>Traditionelle Events</strong> wie <a href="https://www.havelberg.de/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Havelberg</a> (200.000 Besucher) geben dir direkten Kontakt zu Züchtern und Live-Besichtigungen. Für strukturierte Kauftipps empfehlen wir unseren Ratgeber <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-blue-600 hover:underline">Pferd kaufen – 12 Tipps & Checkliste</LocalizedLink>.
+                Es gibt zwei wirksame Wege, dein Traumpferd zu finden: <strong>Online-Plattformen</strong> wie <a href="https://www.ehorses.de/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Ehorses</a> mit 19.000+ Inseraten bieten maximale Auswahl und Flexibilität. <strong>Traditionelle Events</strong> wie <a href="https://www.havelberg.de/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Havelberg</a> (200.000 Besucher) geben dir direkten Kontakt zu Züchtern und Live-Besichtigungen. Für strukturierte Kauftipps empfehlen wir unseren Ratgeber <LocalizedLink href="/pferd-kaufen" className="text-blue-600 hover:underline">Pferd kaufen – 12 Tipps & Checkliste</LocalizedLink>.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
                 Unabhängig vom Weg: Eine <strong>tierärztliche Ankaufsuntersuchung</strong>, realistische <strong>Preis-Orientierung</strong> und gründliche <strong>Papier-Prüfung</strong> sind essentiell für einen sicheren Kauf.

@@ -136,6 +136,17 @@ const nextConfig = {
         ]
       },
       {
+        source: '/pferd-kaufen/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: isDev
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400'
+          }
+        ]
+      },
+      {
         source: '/',
         headers: [
           {
@@ -233,11 +244,91 @@ const nextConfig = {
         destination: '/pferde-ratgeber/was-kostet-ein-pferd',
         statusCode: 301,
       },
+      // ===== PFERD-KAUFEN CLUSTER MIGRATION (Dez 2025) =====
+      // Alte /pferde-ratgeber/ URLs → Neues /pferd-kaufen/ Hub/Spoke Cluster
+      // 301 Redirects für Link Juice Erhaltung
       {
-        source: '/pferd-kaufen',
-        destination: '/pferde-ratgeber/pferd-kaufen',
-        permanent: true,
+        source: '/pferde-ratgeber/pferd-kaufen',
+        destination: '/pferd-kaufen',
+        statusCode: 301,
       },
+      {
+        source: '/pferde-ratgeber/pferd-kaufen-bayern',
+        destination: '/pferd-kaufen/bayern',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/pferd-kaufen-nrw',
+        destination: '/pferd-kaufen/nrw',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/pferd-kaufen-oesterreich',
+        destination: '/pferd-kaufen/oesterreich',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/pferd-kaufen-schweiz',
+        destination: '/pferd-kaufen/schweiz',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/haflinger-kaufen',
+        destination: '/pferd-kaufen/haflinger',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/islandpferd-kaufen',
+        destination: '/pferd-kaufen/islandpferd',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/quarter-horse-kaufen',
+        destination: '/pferd-kaufen/quarter-horse',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/friese-kaufen',
+        destination: '/pferd-kaufen/friese',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/dressurpferd-kaufen',
+        destination: '/pferd-kaufen/dressurpferd',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/springpferd-kaufen',
+        destination: '/pferd-kaufen/springpferd',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/freizeitpferd-kaufen',
+        destination: '/pferd-kaufen/freizeitpferd',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/anfaengerpferd-kaufen',
+        destination: '/pferd-kaufen/anfaenger',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/fohlen-kaufen',
+        destination: '/pferd-kaufen/fohlen',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/pony-kaufen',
+        destination: '/pferd-kaufen/pony',
+        statusCode: 301,
+      },
+      {
+        source: '/pferde-ratgeber/pferdekaufvertrag',
+        destination: '/pferd-kaufen/kaufvertrag',
+        statusCode: 301,
+      },
+      // ===== ENDE PFERD-KAUFEN CLUSTER MIGRATION =====
+
       {
         source: '/pferde-ratgeber/aku-pferd/klassen',
         destination: '/pferde-ratgeber/aku-pferd',
@@ -266,12 +357,6 @@ const nextConfig = {
       {
         source: '/ueber-uns',
         destination: '/ueber-pferdewert',
-        statusCode: 301,
-      },
-      // Duplicate content cleanup: /pferd-kaufen/bayern → /pferde-ratgeber/pferd-kaufen-bayern
-      {
-        source: '/pferd-kaufen/bayern',
-        destination: '/pferde-ratgeber/pferd-kaufen-bayern',
         statusCode: 301,
       },
     ]

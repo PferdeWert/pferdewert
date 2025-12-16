@@ -274,7 +274,7 @@ export default function FrieseKaufen() {
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               Entgegen mancher Vorurteile sind Friesen keine reinen Schaupferde. Wer ein{' '}
-              <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand hover:text-brand-dark underline">
+              <LocalizedLink href="/pferd-kaufen/dressurpferd" className="text-brand hover:text-brand-dark underline">
                 Dressurpferd sucht
               </LocalizedLink>, findet im Friesen einen idealen Partner. Sie eignen sich für verschiedene Reitdisziplinen:
             </p>
@@ -323,7 +323,7 @@ export default function FrieseKaufen() {
               Investiere Zeit in die Auswahl - ein Friese wird zu deinem treuen Begleiter und Partner.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere allgemeine Tipps zum Pferdekauf findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferd kaufen</LocalizedLink>.
+              Weitere allgemeine Tipps zum Pferdekauf findest du in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferd kaufen</LocalizedLink>.
             </p>
           </section>
 
@@ -419,7 +419,7 @@ export default function FrieseKaufen() {
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
               Auf dem Weg zum Friesen-Besitz gibt es wichtige rechtliche Punkte zu beachten. Informiere dich vorab über die wichtigsten Vertragsinhalte in unserem{' '}
-              <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">
+              <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">
                 Ratgeber zum Pferdekaufvertrag
               </LocalizedLink>.
             </p>

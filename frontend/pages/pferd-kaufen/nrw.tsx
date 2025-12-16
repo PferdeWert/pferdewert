@@ -146,7 +146,7 @@ export default function PferdKaufenNrw() {
               Nordrhein-Westfalen (NRW) ist nicht nur das bevölkerungsreichste Bundesland Deutschlands, sondern auch eine Hochburg für Pferdeliebhaber. Wenn Sie ein <strong>Pferd kaufen in NRW</strong> möchten, stehen Ihnen zahlreiche Optionen und einzigartige regionale Möglichkeiten offen.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">ausführlichen Ratgeber für Freizeitpferde</LocalizedLink>.
+              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">ausführlichen Ratgeber für Freizeitpferde</LocalizedLink>.
             </p>
           </section>
 
@@ -256,7 +256,7 @@ export default function PferdKaufenNrw() {
               <li>• Lokale Verordnungen zur Pferdehaltung</li>
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed mt-4">
-              Ein <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">rechtssicherer Pferdekaufvertrag</LocalizedLink> ist essentiell, um alle regionalen Besonderheiten abzudecken.
+              Ein <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">rechtssicherer Pferdekaufvertrag</LocalizedLink> ist essentiell, um alle regionalen Besonderheiten abzudecken.
             </p>
           </section>
 
@@ -291,7 +291,7 @@ export default function PferdKaufenNrw() {
               <li>• Planen Sie Budget für Kaufpreis UND Unterhalt ein</li>
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed mt-6">
-              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">ausführlichen Ratgeber für Freizeitpferde</LocalizedLink>.
+              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">ausführlichen Ratgeber für Freizeitpferde</LocalizedLink>.
             </p>
           </section>
         </div>

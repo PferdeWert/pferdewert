@@ -278,7 +278,7 @@ export default function PonyKaufen() {
               <li><strong>Kinder 3–8 Jahre</strong>: Mini-Shetland (90–110 cm), max. 80 kg Reitergewicht</li>
               <li><strong>Kinder 8–12 Jahre</strong>: Mittleres Pony (120–140 cm), 80–100 kg Gewicht</li>
               <li><strong>Jugendliche/leichte Erwachsene</strong>: Große Ponys (140–155 cm), unter 70 kg</li>
-              <li><strong>Erwachsene über 70 kg</strong>: Sehr großes Pony oder besser ein <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">Pferd kaufen</LocalizedLink></li>
+              <li><strong>Erwachsene über 70 kg</strong>: Sehr großes Pony oder besser ein <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">Pferd kaufen</LocalizedLink></li>
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed mt-4">
               <strong>Faustregel</strong>: Das Pony sollte 6–8x das Reitergewicht wiegen. Bei 70 kg brauchst du ein 420–560 kg Pony.
@@ -380,7 +380,7 @@ export default function PonyKaufen() {
               Pony vs. Pferd – Die echten Unterschiede
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Viele Käufer fragen sich: Sollte ich ein <strong>Pony</strong> oder ein <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">Pferd kaufen</LocalizedLink>? Hier sind die wichtigsten Unterschiede.
+              Viele Käufer fragen sich: Sollte ich ein <strong>Pony</strong> oder ein <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">Pferd kaufen</LocalizedLink>? Hier sind die wichtigsten Unterschiede.
             </p>
 
             <div className="overflow-x-auto mt-6">
@@ -456,7 +456,7 @@ export default function PonyKaufen() {
               Kaufvertrag, AKU und Versicherungen sind unverzichtbar. Informiere dich über alle rechtlichen Aspekte in unserem Pferdekaufvertrag-Ratgeber.
             </p>
             <LocalizedLink
-              href="/pferde-ratgeber/pferdekaufvertrag"
+              href="/pferd-kaufen/kaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Mehr zum Kaufvertrag

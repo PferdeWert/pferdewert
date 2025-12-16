@@ -97,7 +97,7 @@ export default function FreizeitpferdKaufen() {
 
   const relatedArticles = [
     {
-      href: '/pferde-ratgeber/pferdekaufvertrag',
+      href: '/pferd-kaufen/kaufvertrag',
       image: '/images/ratgeber/horses-mountain-field-spain.webp',
       title: 'Pferdekaufvertrag: Rechtliche Absicherung beim Pferdekauf',
       badge: 'Finanzen & Recht',
@@ -113,7 +113,7 @@ export default function FreizeitpferdKaufen() {
       description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf, Bewertung und wie AKU-Befunde den Pferdewert beeinflussen.'
     },
     {
-      href: '/pferde-ratgeber/pferd-kaufen',
+      href: '/pferd-kaufen',
       image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp',
       title: 'Pferd kaufen: Der ultimative Ratgeber für Erstkäufer',
       badge: 'Kauf & Verkauf',
@@ -174,7 +174,7 @@ export default function FreizeitpferdKaufen() {
               Dein Traum vom eigenen Freizeitpferd rückt näher – aber wie findest du das richtige Pferd? Mit über 18.000 Angeboten im deutschsprachigen Raum ist die Auswahl riesig. Dieser Guide beantwortet alle deine Fragen zum <strong>Freizeitpferdkauf</strong>: Von den perfekten Rassen für Anfänger bis zur richtigen Gesundheitsprüfung.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Nach der Lektüre kennst du die wichtigsten Kriterien, erfährst welche Rassen optimal sind, erhältst eine detaillierte Kostenübersicht, und weißt, wie du dein Traumpferd sicher kaufst. Einen umfassenden Überblick über den gesamten Pferdekauf-Prozess findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</LocalizedLink>.
+              Nach der Lektüre kennst du die wichtigsten Kriterien, erfährst welche Rassen optimal sind, erhältst eine detaillierte Kostenübersicht, und weißt, wie du dein Traumpferd sicher kaufst. Einen umfassenden Überblick über den gesamten Pferdekauf-Prozess findest du in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">ultimativen Pferdekauf-Ratgeber</LocalizedLink>.
             </p>
           </section>
 
@@ -419,7 +419,7 @@ export default function FreizeitpferdKaufen() {
               <li><strong>Haflinger</strong> – Der Klassiker für Anfänger (Große Nachfrage)</li>
             </ol>
             <p className="text-lg text-gray-700 leading-relaxed mt-4">
-              <strong>Sportlich ambitioniert?</strong> Wenn du neben Freizeitreiten auch sportliche Ambitionen hast, findest du in unseren spezialisierten Ratgebern zum <LocalizedLink href="/pferde-ratgeber/springpferd-kaufen" className="text-brand hover:text-brand-dark underline">Springpferd kaufen</LocalizedLink> und <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand hover:text-brand-dark underline">Dressurpferd kaufen</LocalizedLink> detaillierte Informationen zu Auswahlkriterien und Preisen.
+              <strong>Sportlich ambitioniert?</strong> Wenn du neben Freizeitreiten auch sportliche Ambitionen hast, findest du in unseren spezialisierten Ratgebern zum <LocalizedLink href="/pferd-kaufen/springpferd" className="text-brand hover:text-brand-dark underline">Springpferd kaufen</LocalizedLink> und <LocalizedLink href="/pferd-kaufen/dressurpferd" className="text-brand hover:text-brand-dark underline">Dressurpferd kaufen</LocalizedLink> detaillierte Informationen zu Auswahlkriterien und Preisen.
             </p>
           </section>
 
@@ -670,7 +670,7 @@ export default function FreizeitpferdKaufen() {
               Ein professioneller Kaufvertrag schützt dich vor bösen Überraschungen. Erfahre, welche 7 Punkte dein Pferdekaufvertrag enthalten muss.
             </p>
             <LocalizedLink
-               href="/pferde-ratgeber/pferdekaufvertrag"
+               href="/pferd-kaufen/kaufvertrag"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
               Zum Kaufvertrag-Ratgeber
@@ -766,7 +766,7 @@ export default function FreizeitpferdKaufen() {
               <strong>Tipp:</strong> Lass die Ankaufsuntersuchung im Kaufvertrag dokumentieren. Wenn der Tierarzt nichts finden konnte und das Pferd später Probleme hat, schützt das dich rechtlich.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Detaillierte Informationen und kostenlose Vertragsvorlagen findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag-Ratgeber</LocalizedLink>.
+              Detaillierte Informationen und kostenlose Vertragsvorlagen findest du in unserem <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag-Ratgeber</LocalizedLink>.
             </p>
           </section>
 

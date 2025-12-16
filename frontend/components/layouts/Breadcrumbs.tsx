@@ -49,7 +49,7 @@ function ChevronRight() {
  *   items={[
  *     { name: 'Home', url: '/' },
  *     { name: 'Ratgeber', url: '/pferde-ratgeber' },
- *     { name: 'Pferd kaufen', url: '/pferde-ratgeber/pferd-kaufen' }
+ *     { name: 'Pferd kaufen', url: '/pferd-kaufen' }
  *   ]}
  * />
  * ```

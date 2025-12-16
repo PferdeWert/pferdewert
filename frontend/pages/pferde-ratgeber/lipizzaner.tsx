@@ -373,7 +373,7 @@ export default function Lipizzaner() {
               Warum diese Rasse traditionell nicht für Anfänger empfohlen wird
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die klassische Antwort ist: Nein, diese sensiblen Barockpferde sind nichts für Anfänger. Und für viele Einsteiger ist das korrekt. Ihre Sensibilität bedeutet, dass unsichere Hilfen zu Verwirrung führen. Ihre Intelligenz bedeutet, dass sie schnell lernen, aber auch schnell frustriert sind. Grundlagen zum Reiteinstieg findest du in unserem <LocalizedLink href="/pferde-ratgeber/anfaengerpferd-kaufen" className="text-brand hover:text-brand-dark underline">Anfängerpferd-Ratgeber</LocalizedLink>.
+              Die klassische Antwort ist: Nein, diese sensiblen Barockpferde sind nichts für Anfänger. Und für viele Einsteiger ist das korrekt. Ihre Sensibilität bedeutet, dass unsichere Hilfen zu Verwirrung führen. Ihre Intelligenz bedeutet, dass sie schnell lernen, aber auch schnell frustriert sind. Grundlagen zum Reiteinstieg findest du in unserem <LocalizedLink href="/pferd-kaufen/anfaenger" className="text-brand hover:text-brand-dark underline">Anfängerpferd-Ratgeber</LocalizedLink>.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               Ein unerfahrener Reiter kann ungewollt schlechte Gewohnheiten unterrichten, die das Pferd dann dauerhaft beibehält.
@@ -430,7 +430,7 @@ export default function Lipizzaner() {
               Lipizzaner kaufen – Was du beachten musst und wo du suchen solltest
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Für allgemeine Tipps zum Pferdekauf empfehlen wir unseren ausführlichen <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">Ratgeber: Was kostet ein Pferd?</LocalizedLink>. Da Lipizzaner oft für klassische Dressur eingesetzt werden, ist auch unser <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-brand hover:text-brand-dark underline">Dressurpferd-Ratgeber</LocalizedLink> hilfreich.
+              Für allgemeine Tipps zum Pferdekauf empfehlen wir unseren ausführlichen <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">Ratgeber: Was kostet ein Pferd?</LocalizedLink>. Da Lipizzaner oft für klassische Dressur eingesetzt werden, ist auch unser <LocalizedLink href="/pferd-kaufen/dressurpferd" className="text-brand hover:text-brand-dark underline">Dressurpferd-Ratgeber</LocalizedLink> hilfreich.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -486,7 +486,7 @@ export default function Lipizzaner() {
               <strong>Private Züchter:</strong> Es gibt hochwertige Privatbetriebe in ganz Europa. Vorteil: persönliche Verbindung, oft faire Preise. Nachteil: Qualität ist variabel, du musst gründlich recherchieren.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Online-Plattformen (ehorses.de, equidenarium.com):</strong> Große Auswahl, schnell. Nachteil: Käufer-Beware-Prinzip, oft Vermittlungs-Markups. Bei jedem Kauf solltest du einen rechtssicheren <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> abschließen.
+              <strong>Online-Plattformen (ehorses.de, equidenarium.com):</strong> Große Auswahl, schnell. Nachteil: Käufer-Beware-Prinzip, oft Vermittlungs-Markups. Bei jedem Kauf solltest du einen rechtssicheren <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> abschließen.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
@@ -575,7 +575,7 @@ export default function Lipizzaner() {
               Haltung und Fütterung: Hardy und anspruchslos wie die Karst-Vorfahren
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Detaillierte Informationen zu laufenden Kosten findest du in unserem <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferd-Ratgeber</LocalizedLink>.
+              Detaillierte Informationen zu laufenden Kosten findest du in unserem <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitpferd-Ratgeber</LocalizedLink>.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">

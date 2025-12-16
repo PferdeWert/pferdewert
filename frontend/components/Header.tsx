@@ -62,7 +62,7 @@ const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         label: "Pferd kaufen",
-        href: "/pferde-ratgeber/pferd-kaufen",
+        href: "/pferd-kaufen",
         description: "Tipps für den Pferdekauf",
         icon: kaufenIcon
       },

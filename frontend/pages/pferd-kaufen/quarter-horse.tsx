@@ -160,7 +160,7 @@ export default function QuarterHorseKaufen() {
               Die Bezeichnung &quot;Quarter Horse&quot; geht auf seine historische Stärke zurück: Bei Pferderennen über eine Viertelmeile (ca. 400 Meter) war und ist er unschlagbar schnell. Diese genetische Schnelligkeit kombiniert mit einer außergewöhnlichen Cow Sense macht ihn zur idealen Rasse für Western-Disziplinen und Rancharbeit.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Dieser Ratgeber hilft dir, den perfekten Quarter Horse für deine individuellen Bedürfnisse zu finden – sei es als Sportpartner, Freizeitbegleiter oder potenzieller Turnierheld. Weitere allgemeine Informationen zum Pferdekauf findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferdekauf</LocalizedLink>.
+              Dieser Ratgeber hilft dir, den perfekten Quarter Horse für deine individuellen Bedürfnisse zu finden – sei es als Sportpartner, Freizeitbegleiter oder potenzieller Turnierheld. Weitere allgemeine Informationen zum Pferdekauf findest du in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferdekauf</LocalizedLink>.
             </p>
           </section>
 
@@ -237,7 +237,7 @@ export default function QuarterHorseKaufen() {
             <ul className="space-y-2 text-lg text-gray-700">
               <li>• Harmonische, ruhige Gangart</li>
               <li>• Betont Gleichmäßigkeit und Gelassenheit</li>
-              <li>• Gut für <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferd kaufen</LocalizedLink> und Einsteiger in Western-Disziplinen</li>
+              <li>• Gut für <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitpferd kaufen</LocalizedLink> und Einsteiger in Western-Disziplinen</li>
               <li>• Breiter Einsatzbereich</li>
               <li>• Wichtig: Nicht mit Langsamkeit verwechseln</li>
               <li>• Erfordert präzise Körperkontrolle und Feinabstimmung</li>

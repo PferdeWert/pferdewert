@@ -13,7 +13,7 @@
  * import useSEOHreflang from '@/hooks/useSEOHreflang';
  *
  * export default function DressurpferdKaufen() {
- *   const hreflangTags = useSEOHreflang('/pferde-ratgeber/dressurpferd-kaufen');
+ *   const hreflangTags = useSEOHreflang('/pferd-kaufen/dressurpferd');
  *
  *   return (
  *     <Layout>
@@ -38,7 +38,7 @@ export interface HreflangTag {
 /**
  * Generate hreflang link tags for a given path
  *
- * @param path - The path without domain (e.g., '/pferde-ratgeber/dressurpferd-kaufen')
+ * @param path - The path without domain (e.g., '/pferd-kaufen/dressurpferd')
  * @returns React elements with hreflang link tags
  */
 export default function useSEOHreflang(path: string) {
@@ -106,15 +106,15 @@ export function useHreflangData(path: string): HreflangTag[] {
  * Get canonical URL for current domain
  * Uses getCurrentCountry() for consistent domain detection across SSR and client
  *
- * @param path - The path without domain (e.g., '/pferde-ratgeber/dressurpferd-kaufen')
+ * @param path - The path without domain (e.g., '/pferd-kaufen/dressurpferd')
  * @returns Canonical URL for the current domain
  *
  * Usage:
  * ```tsx
- * const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/dressurpferd-kaufen');
- * // On pferdewert.de → https://pferdewert.de/pferde-ratgeber/dressurpferd-kaufen
- * // On pferdewert.at → https://pferdewert.at/pferde-ratgeber/dressurpferd-kaufen
- * // On pferdewert.ch → https://pferdewert.ch/pferde-ratgeber/dressurpferd-kaufen
+ * const canonicalUrl = useCanonicalUrl('/pferd-kaufen/dressurpferd');
+ * // On pferdewert.de → https://pferdewert.de/pferd-kaufen/dressurpferd
+ * // On pferdewert.at → https://pferdewert.at/pferd-kaufen/dressurpferd
+ * // On pferdewert.ch → https://pferdewert.ch/pferd-kaufen/dressurpferd
  * ```
  *
  * Note: Uses getCurrentCountry() which returns DE during SSR (safe default).

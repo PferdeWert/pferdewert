@@ -168,7 +168,7 @@ export default function WasKostetEinPferd() {
         <section className="scroll-mt-32 lg:scroll-mt-40">
           <p className="text-lg text-gray-700 leading-relaxed">
             Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>400€ - 800€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. In diesem{' '}
-            <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+            <LocalizedLink href="/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
               umfassenden Pferdekauf-Ratgeber
             </LocalizedLink>{' '}
             erfährst du, wie du ein passendes Pferd findest und worauf du beim Kauf achten solltest.
@@ -324,7 +324,7 @@ export default function WasKostetEinPferd() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Preise nach Pferdetyp</h3>
 
             <h4 className="text-xl font-bold text-brand-brown mb-3">
-              <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand-brown hover:text-brand-dark">
+              <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand-brown hover:text-brand-dark">
                 Freizeitpferd
               </LocalizedLink>
             </h4>
@@ -333,7 +333,7 @@ export default function WasKostetEinPferd() {
               <li>• Geeignet für Anfänger und Hobbyreiter</li>
               <li>• Meist ältere, gut ausgebildete Pferde</li>
               <li>• Solide Grundausbildung vorhanden</li>
-              <li>• Mehr Details in unserem <LocalizedLink href="/pferde-ratgeber/freizeitpferd-kaufen" className="text-brand hover:text-brand-dark underline">Freizeitpferd-Ratgeber</LocalizedLink></li>
+              <li>• Mehr Details in unserem <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitpferd-Ratgeber</LocalizedLink></li>
             </ul>
 
             <h4 className="text-xl font-bold text-brand-brown mb-3">Sportpferd</h4>
@@ -341,11 +341,11 @@ export default function WasKostetEinPferd() {
             <ul className="text-lg text-gray-700 space-y-2 mb-8">
               <li>
                 • Spezialisierte Ausbildung (
-                <LocalizedLink href="/pferde-ratgeber/dressurpferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferd-kaufen/dressurpferd" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Dressur
                 </LocalizedLink>
                 ,
-                <LocalizedLink href="/pferde-ratgeber/springpferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferd-kaufen/springpferd" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Springen
                 </LocalizedLink>
                 , Vielseitigkeit)
@@ -424,7 +424,7 @@ export default function WasKostetEinPferd() {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <p className="text-lg text-gray-700">
                 Nach erfolgreicher AKU solltest du den Kauf rechtssicher mit einem{' '}
-                <LocalizedLink href="/pferde-ratgeber/pferdekaufvertrag" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Pferdekaufvertrag
                 </LocalizedLink>{' '}
                 abschließen. Dies schützt beide Parteien und klärt wichtige Details wie Gewährleistung, Rücktrittsbedingungen und vereinbarte Mängel.
@@ -1615,7 +1615,7 @@ export default function WasKostetEinPferd() {
               </ul>
               <p className="text-lg text-gray-700 mt-4 font-bold">
                 Nur wenn du alle Fragen mit &quot;Ja&quot; beantworten kannst, bist du finanziell und zeitlich für ein eigenes Pferd bereit. Weitere wichtige Aspekte zur Vorbereitung findest du in unserem{' '}
-                <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
+                <LocalizedLink href="/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
                   Pferdekauf-Ratgeber
                 </LocalizedLink>
                 .

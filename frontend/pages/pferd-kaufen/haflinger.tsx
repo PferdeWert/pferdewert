@@ -206,7 +206,7 @@ export default function HaflingerKaufenPage() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Für weitere Informationen über die Eignung verschiedener <LocalizedLink href="/pferde-ratgeber/anfaengerpferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">Pferderassen für Anfänger</LocalizedLink> lies unseren umfassenden Vergleichsratgeber.
+            Für weitere Informationen über die Eignung verschiedener <LocalizedLink href="/pferd-kaufen/anfaenger" className="text-brand-brown hover:text-brand-brownDark underline">Pferderassen für Anfänger</LocalizedLink> lies unseren umfassenden Vergleichsratgeber.
           </p>
         </section>
 
@@ -371,7 +371,7 @@ export default function HaflingerKaufenPage() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            <strong>Aber:</strong> Sie sind <strong>nicht</strong>&quot;kostenlos trainierbar&quot;. Ein Haflinger mit schwachem Reiter wird bald die Kontrolle übernehmen. Sie brauchen konsistente, selbstsichere Führung. Das ist nicht &quot;Anfänger&quot; im Sinne von &quot;komplett Reit-unerfahren&quot; – das ist &quot;Anfänger&quot; im Sinne von &quot;du hast Lektionen, aber nicht 20 Jahre Erfahrung&quot;. Wenn du dein <LocalizedLink href="/pferde-ratgeber/anfaengerpferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">erstes Pferd kaufen</LocalizedLink> möchtest, lies unseren Anfänger-Guide.
+            <strong>Aber:</strong> Sie sind <strong>nicht</strong>&quot;kostenlos trainierbar&quot;. Ein Haflinger mit schwachem Reiter wird bald die Kontrolle übernehmen. Sie brauchen konsistente, selbstsichere Führung. Das ist nicht &quot;Anfänger&quot; im Sinne von &quot;komplett Reit-unerfahren&quot; – das ist &quot;Anfänger&quot; im Sinne von &quot;du hast Lektionen, aber nicht 20 Jahre Erfahrung&quot;. Wenn du dein <LocalizedLink href="/pferd-kaufen/anfaenger" className="text-brand-brown hover:text-brand-brownDark underline">erstes Pferd kaufen</LocalizedLink> möchtest, lies unseren Anfänger-Guide.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
@@ -509,7 +509,7 @@ export default function HaflingerKaufenPage() {
           </h2>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Der Haflinger Kaufprozess folgt den gleichen Schritten wie beim allgemeinen Pferdekauf. Nutze unsere umfassende <LocalizedLink href="/pferde-ratgeber/pferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">Pferd kaufen Checkliste</LocalizedLink> um sicherzustellen, dass du nichts vergisst.
+            Der Haflinger Kaufprozess folgt den gleichen Schritten wie beim allgemeinen Pferdekauf. Nutze unsere umfassende <LocalizedLink href="/pferd-kaufen" className="text-brand-brown hover:text-brand-brownDark underline">Pferd kaufen Checkliste</LocalizedLink> um sicherzustellen, dass du nichts vergisst.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand mt-8">
