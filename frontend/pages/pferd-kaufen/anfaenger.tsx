@@ -236,16 +236,16 @@ const weitereVersicherungenData = [
   }
 ];
 
-// SEO Metadata - currently DE only, can add AT/CH locales later
+// SEO Metadata - Fokus auf Verlasspferd und Schulpferde für absolute Anfänger
 const seoLocales = {
   de: {
-    title: "Anfängerpferd kaufen: Ratgeber für sicheren Kauf 2025",
-    description: "Finden Sie Ihr perfektes Anfängerpferd: Von geeigneten Rassen über realistische Kosten bis zur rechtlichen Absicherung. KI-Bewertung in 2 Minuten verfügbar.",
-    keywords: "anfängerpferd kaufen, anfängerpferd rassen, anfängerpferd alter, pferd für anfänger, erstes pferd kaufen",
-    ogTitle: "Anfängerpferd kaufen: Der ultimative Ratgeber 2025",
-    ogDescription: "Umfassender Guide zum Kauf eines Anfängerpferds: Rassen, Kosten, AKU, rechtliche Absicherung & Versicherungen. Jetzt informieren!",
-    twitterTitle: "Anfängerpferd kaufen: Der ultimative Ratgeber",
-    twitterDescription: "Von geeigneten Rassen über Kosten bis zur AKU: So kaufst du dein erstes Pferd sicher. Mit Checklisten & Praxis-Tipps.",
+    title: "Anfängerpferd kaufen: Verlasspferde & Schulpferde für Einsteiger",
+    description: "Anfängerpferd kaufen: Verlasspferde, Schulpferde & ruhige Rassen für absolute Einsteiger. Optimales Alter 10-18 Jahre, Preise 3.000-10.000€. Charakter wichtiger als Rasse!",
+    keywords: "anfängerpferd kaufen, verlasspferd kaufen, schulpferd kaufen, pferd für anfänger, erstes pferd kaufen, ruhiges pferd kaufen",
+    ogTitle: "Anfängerpferd kaufen: Verlasspferde & Schulpferde für Einsteiger",
+    ogDescription: "Verlasspferde für Anfänger: Schulpferde, Haflinger & Fjordpferde. Alter 10-18 Jahre, fehlerverzeihend, geduldig. So findest du dein erstes Pferd.",
+    twitterTitle: "Anfängerpferd kaufen: Verlasspferde Guide",
+    twitterDescription: "Verlasspferde für Einsteiger: Schulpferde, ältere Pferde, Haflinger. Charakter > Rasse. Preise 3.000-10.000€.",
   },
 };
 
@@ -272,10 +272,10 @@ export default function AnfaengerpferdKaufen() {
       />
 
       <RatgeberHero
-        title="Anfängerpferd kaufen: Der ultimative Ratgeber für den sicheren Pferdekauf (2025)"
-        subtitle="Du träumst vom eigenen Pferd? Der Kauf eines Anfängerpferdes ist ein aufregender Schritt. Studien zeigen, dass über 40% der Erstkäufer mit ihrem ersten Pferd überfordert sind – oft, weil es zu jung, zu temperamentvoll oder unzureichend ausgebildet war. Mit der richtigen Vorbereitung findest du ein Pferd, das perfekt zu dir passt."
+        title="Anfängerpferd kaufen: Verlasspferde & Schulpferde für absolute Einsteiger"
+        subtitle="Dein erstes eigenes Pferd sollte ein echter Lehrmeister sein – geduldig, fehlerverzeihend und nervenstark. 40% der Erstkäufer scheitern, weil sie ein zu junges oder temperamentvolles Pferd wählen. Hier erfährst du, warum ältere Verlasspferde und ausgediente Schulpferde die beste Wahl für Anfänger sind."
         readTime="12 Min."
-        publishDate="November 2025"
+        publishDate="Dezember 2025"
         author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
         primaryCta={heroPrimaryCta}
         badgeLabel="Kauf & Verkauf"

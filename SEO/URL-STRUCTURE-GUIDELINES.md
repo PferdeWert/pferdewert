@@ -2,46 +2,71 @@
 
 **CRITICAL**: This document defines the canonical URL structure for all content on PferdeWert.de.
 
+**Letzte Aktualisierung**: Dezember 2025
+
 ---
 
-## Content Type URL Patterns
+## URL-Strategie Übersicht
 
-### 1. Ratgeber (Guide) Content
+PferdeWert.de verwendet **zwei verschiedene URL-Strukturen** basierend auf Content-Intent:
 
-**Base Path**: `/pferde-ratgeber/`
+| Intent | URL-Präfix | Struktur | Beispiel |
+|--------|------------|----------|----------|
+| **Commercial** | `/pferd-kaufen/` | Hierarchisch | `/pferd-kaufen/bayern` |
+| **Informational** | `/pferde-ratgeber/` | Flach | `/pferde-ratgeber/aku-pferd` |
 
-**Pattern**: `https://pferdewert.de/pferde-ratgeber/{article-slug}`
+---
 
-**Examples**:
-- ✅ `/pferde-ratgeber/dressurpferd-kaufen`
+## 1. COMMERCIAL CLUSTER: `/pferd-kaufen/`
+
+**Für**: Kaufbezogene Inhalte mit hoher Conversion-Absicht
+
+### Hub (Pillar Page)
+**URL**: `https://pferdewert.de/pferd-kaufen/`
+
+### Spokes (Cluster Pages)
+**Pattern**: `https://pferdewert.de/pferd-kaufen/{spoke-slug}`
+
+**Beispiele**:
+- ✅ `/pferd-kaufen/bayern` (Regional)
+- ✅ `/pferd-kaufen/nrw` (Regional)
+- ✅ `/pferd-kaufen/oesterreich` (Länder)
+- ✅ `/pferd-kaufen/schweiz` (Länder)
+- ✅ `/pferd-kaufen/haflinger` (Rassen-Kaufen)
+- ✅ `/pferd-kaufen/islandpferd` (Rassen-Kaufen)
+- ✅ `/pferd-kaufen/checkliste` (Thematisch)
+- ❌ `/pferde-ratgeber/pferd-kaufen-bayern` (FALSCH - gehört ins Kauf-Cluster)
+
+**Vorteile dieser Struktur**:
+- Keyword "pferd-kaufen" direkt nach Domain = maximale Relevanz
+- Google erkennt Cluster-Zugehörigkeit durch URL-Hierarchie
+- Breadcrumbs: Home → Pferd kaufen → Bayern
+- Alle Spokes stärken automatisch den Hub
+
+---
+
+## 2. INFORMATIONAL CONTENT: `/pferde-ratgeber/`
+
+**Für**: Informationale Inhalte ohne direkten Kaufbezug
+
+### Pattern
+**URL**: `https://pferdewert.de/pferde-ratgeber/{article-slug}`
+
+**Beispiele**:
+- ✅ `/pferde-ratgeber/aku-pferd`
 - ✅ `/pferde-ratgeber/was-kostet-ein-pferd`
+- ✅ `/pferde-ratgeber/pferdehaltung-kosten`
 - ✅ `/pferde-ratgeber/pferdekaufvertrag`
-- ✅ `/pferde-ratgeber/springpferd-kaufen`
-- ❌ `/ratgeber/pferdekauf/dressurpferd-kaufen` (WRONG - old structure)
-- ❌ `/ratgeber/dressurpferd-kaufen` (WRONG - wrong base path)
+- ✅ `/pferde-ratgeber/pferderassen`
+- ❌ `/ratgeber/pferdekauf/dressurpferd-kaufen` (FALSCH - alte Struktur)
+- ❌ `/ratgeber/dressurpferd-kaufen` (FALSCH - falscher Base Path)
 
-**Nested Categories**: AVOID nested paths. Use flat structure with descriptive slugs instead.
+**Regel**: Flache Struktur unter `/pferde-ratgeber/` - KEINE verschachtelten Pfade!
 
 **Reasoning**:
-- Flat structure = better for SEO (less URL depth)
-- `/pferde-ratgeber/` = includes target keyword "pferde" in URL
-- Category implied by slug itself (e.g., `pferdekauf-*`, `springpferd-*`)
-
----
-
-### 2. Sub-Topics within Guides
-
-**Pattern**: `https://pferdewert.de/pferde-ratgeber/{main-topic}/{sub-topic}`
-
-**Use ONLY when necessary** (max 1 level deep):
-
-**Examples**:
-- ✅ `/pferde-ratgeber/pferd-kaufen/kosten`
-- ✅ `/pferde-ratgeber/pferd-verkaufen/tipps`
-- ✅ `/pferde-ratgeber/aku-pferd/kosten`
-- ❌ `/pferde-ratgeber/pferd/kaufen/kosten` (too deep)
-
-**Rule**: Max 2 levels after `/pferde-ratgeber/` (main-topic + sub-topic)
+- Flache Struktur = bessere SEO bei informationalem Content
+- `/pferde-ratgeber/` = "Guide"-Signal an Google
+- Kategorie impliziert durch Slug selbst
 
 ---
 
@@ -118,38 +143,78 @@ https://pferdewert.de/{content-type}/{slug}
 
 When creating new content, verify:
 
-- [ ] Base path is `/pferde-ratgeber/` for guide content
-- [ ] Slug follows formatting rules (lowercase, hyphens, no umlauts)
-- [ ] URL depth is max 2 levels (base + main-topic + sub-topic)
-- [ ] Primary keyword is present in slug
-- [ ] Canonical URL uses correct format
-- [ ] All metadata references use correct URL structure
-- [ ] Schema markup uses correct absolute URLs
-- [ ] Internal links reference correct paths
+### Für Commercial Cluster Content (Pferd-Kaufen):
+- [ ] URL-Präfix ist `/pferd-kaufen/` für alle Kauf-bezogenen Spokes
+- [ ] Hub-Page hat URL `/pferd-kaufen/`
+- [ ] Spokes haben URL `/pferd-kaufen/{spoke-slug}`
 
----
+### Für Informational Content:
+- [ ] Base path ist `/pferde-ratgeber/` für Guide Content
+- [ ] Keine verschachtelten Pfade unter `/pferde-ratgeber/`
 
-## Migration Notes
-
-**Historical URLs** (before 2025-01-09):
-- Some SEO documentation incorrectly used `/ratgeber/pferdekauf/` structure
-- This structure was NEVER implemented on the live site
-- All new content MUST use `/pferde-ratgeber/` structure
-
-**Reference Files to Update**:
-- `SEO/SEO-PROZESS/orchestration/phase-5-onpage-seo.md` (lines 218-224)
-- Any content outlines referencing old structure
+### Allgemein:
+- [ ] Slug folgt Formatierungsregeln (lowercase, hyphens, keine Umlaute)
+- [ ] Primary keyword ist im Slug vorhanden
+- [ ] Canonical URL verwendet korrektes Format
+- [ ] Alle Metadata-Referenzen nutzen korrekte URL-Struktur
+- [ ] Schema markup nutzt korrekte absolute URLs
+- [ ] Interne Links referenzieren korrekte Pfade
 
 ---
 
 ## Quick Reference
 
-**Correct Base Path**: `/pferde-ratgeber/`
-**Incorrect Base Path**: `/ratgeber/` or `/ratgeber/pferdekauf/`
+### Commercial Intent (Kaufen):
+```
+/pferd-kaufen/                    ← Hub
+/pferd-kaufen/{spoke}             ← Spokes (bayern, haflinger, etc.)
+```
 
-**When in doubt**: Check `frontend/pages/pferde-ratgeber/` directory for existing structure.
+### Informational Intent (Ratgeber):
+```
+/pferde-ratgeber/{article-slug}   ← Flache Struktur
+```
+
+### VERBOTEN:
+```
+❌ /pferde-ratgeber/pferd-kaufen-bayern    (Kauf-Content gehört ins Kauf-Cluster!)
+❌ /pferde-ratgeber/pferd-kaufen/bayern    (Nested unter Ratgeber)
+❌ /ratgeber/...                           (Falscher Base Path)
+```
 
 ---
 
-**Last Updated**: 2025-01-09
+## Entscheidungsbaum: Welche URL-Struktur?
+
+```
+Ist der Content kaufbezogen?
+├── JA → Gehört zu /pferd-kaufen/
+│   ├── Hub? → /pferd-kaufen/
+│   └── Spoke? → /pferd-kaufen/{topic}
+│
+└── NEIN → Gehört zu /pferde-ratgeber/
+    └── Flach: /pferde-ratgeber/{slug}
+```
+
+---
+
+## Directory Structure (Frontend)
+
+```
+frontend/pages/
+├── pferd-kaufen/
+│   ├── index.tsx           ← Hub: /pferd-kaufen/
+│   ├── bayern.tsx          ← Spoke: /pferd-kaufen/bayern
+│   ├── haflinger.tsx       ← Spoke: /pferd-kaufen/haflinger
+│   └── ...
+│
+└── pferde-ratgeber/
+    ├── aku-pferd.tsx       ← /pferde-ratgeber/aku-pferd
+    ├── was-kostet-ein-pferd.tsx
+    └── ...
+```
+
+---
+
+**Last Updated**: 2025-12-16
 **Status**: CANONICAL - This is the definitive URL structure reference

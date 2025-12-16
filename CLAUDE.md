@@ -21,10 +21,30 @@
 - **Format**: Immer WebP, Qualität 80%, max 1200px Breite
 - **Ziel**: `frontend/public/images/ratgeber/`
 
-## SEO & URL Structure
-- **Ratgeber Base Path**: `/pferde-ratgeber/` - NEVER use `/ratgeber/` or nested paths like `/ratgeber/pferdekauf/`
-- **URL Format**: `https://pferdewert.de/pferde-ratgeber/{article-slug}` (flat structure, no categories)
+## SEO & URL Structure (Aktualisiert Dezember 2025)
+
+### Zwei URL-Strukturen basierend auf Intent:
+
+| Intent | URL-Präfix | Struktur | Beispiel |
+|--------|------------|----------|----------|
+| **Commercial** | `/pferd-kaufen/` | Hierarchisch (Hub/Spoke) | `/pferd-kaufen/bayern` |
+| **Informational** | `/pferde-ratgeber/` | Flach | `/pferde-ratgeber/aku-pferd` |
+
+### Commercial Cluster (Pferd kaufen):
+- **Hub**: `/pferd-kaufen/` (direkt nach Domain für max. Keyword-Relevanz)
+- **Spokes**: `/pferd-kaufen/{spoke}` (z.B. `/pferd-kaufen/bayern`, `/pferd-kaufen/haflinger`)
+- **NIEMALS** Kauf-Content unter `/pferde-ratgeber/` erstellen!
+
+### Informational Content (Ratgeber):
+- **Base Path**: `/pferde-ratgeber/` - Flache Struktur, keine Verschachtelung
+- **Beispiel**: `/pferde-ratgeber/was-kostet-ein-pferd`
+
+### Verboten:
+- ❌ `/pferde-ratgeber/pferd-kaufen-bayern` (Kauf-Content gehört ins Kauf-Cluster!)
+- ❌ `/ratgeber/...` (Falscher Base Path)
+
 - **Full Guidelines**: See [SEO/URL-STRUCTURE-GUIDELINES.md](SEO/URL-STRUCTURE-GUIDELINES.md) for complete URL rules
+- **SEO Strategy**: See [SEO/STRATEGY/topic-cluster-strategie-2025.md](SEO/STRATEGY/topic-cluster-strategie-2025.md) for Hub/Spoke architecture
 - **SEO Process**: See [SEO/SEO-PROZESS/](SEO/SEO-PROZESS/) for content creation workflow
 
 ## Critical Coding Patterns

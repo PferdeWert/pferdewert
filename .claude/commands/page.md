@@ -71,14 +71,36 @@ Die Datei enthält separate Objekte für DE, AT und CH unter `locales`:
 }
 ```
 
-## 3. Slug generieren
+## 3. Slug & URL-Pfad generieren
 
-Erstelle URL-slug aus Keyword:
+### Schritt 1: Slug erstellen
 - Lowercase
 - Leerzeichen → Bindestriche
 - Umlaute: ä→ae, ö→oe, ü→ue, ß→ss
 
-Beispiel: "Pferd kaufen Tipps" → "pferd-kaufen-tipps"
+Beispiel: "Pferd kaufen Bayern" → "bayern"
+
+### Schritt 2: URL-Pfad bestimmen (WICHTIG!)
+
+**Entscheidungsbaum:**
+```
+Ist das Keyword kaufbezogen UND gehört zum "Pferd kaufen" Cluster?
+├── JA → frontend/pages/pferd-kaufen/{slug}.tsx
+│   Beispiele:
+│   - "Pferd kaufen Bayern" → frontend/pages/pferd-kaufen/bayern.tsx
+│   - "Haflinger kaufen" → frontend/pages/pferd-kaufen/haflinger.tsx
+│   - "Pferd kaufen Checkliste" → frontend/pages/pferd-kaufen/checkliste.tsx
+│
+└── NEIN → frontend/pages/pferde-ratgeber/{slug}.tsx
+    Beispiele:
+    - "AKU Pferd" → frontend/pages/pferde-ratgeber/aku-pferd.tsx
+    - "Was kostet ein Pferd" → frontend/pages/pferde-ratgeber/was-kostet-ein-pferd.tsx
+```
+
+**NIEMALS:**
+- ❌ Kauf-Content unter `/pferde-ratgeber/` erstellen
+- ❌ `frontend/pages/pferde-ratgeber/pferd-kaufen-bayern.tsx` (FALSCH!)
+- ✅ `frontend/pages/pferd-kaufen/bayern.tsx` (RICHTIG!)
 
 ## 4. KRITISCH: Referenz-Template lesen
 
@@ -179,7 +201,9 @@ const RELATED_ARTICLES = [
 
 ## 5. React/Next.js Page erstellen
 
-Erstelle: `frontend/pages/pferde-ratgeber/{slug}.tsx`
+**Erstelle die Page im korrekten Verzeichnis** (siehe Schritt 3):
+- Commercial Content: `frontend/pages/pferd-kaufen/{slug}.tsx`
+- Informational Content: `frontend/pages/pferde-ratgeber/{slug}.tsx`
 
 **Kritische Anforderungen:**
 - Folge ALLEN Design-Guidelines aus SEO-DESIGN.md

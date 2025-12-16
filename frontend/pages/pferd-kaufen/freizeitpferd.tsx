@@ -20,31 +20,31 @@ const trendingUpIcon = <TrendingUp className="w-4 h-4 ml-2" />;
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
-    description: 'Freizeitpferd kaufen leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
-    keywords: 'freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd temperament, anfängerpferd kaufen, gutes freizeitpferd finden',
-    ogTitle: 'Freizeitpferd kaufen: Kompletter Guide für Anfänger',
-    ogDescription: 'Freizeitpferd kaufen: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden mit Checklisten für sicheren Pferdekauf.',
-    twitterTitle: 'Freizeitpferd kaufen: Kompletter Guide',
-    twitterDescription: 'Rassen, Kosten, Gesundheitschecks & Kaufvertrag: So kaufst du dein Freizeitpferd sicher. Mit Checklisten & Praxis-Tipps.',
+    title: 'Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter',
+    description: 'Freizeitpferd kaufen: Vielseitige Rassen von Warmblut bis Quarter Horse, Preise 8.000-25.000€, Qualitätskriterien & AKU. Für erfahrene Freizeitreiter mit Ambitionen.',
+    keywords: 'freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd warmblut, vielseitiges reitpferd, allrounder pferd kaufen',
+    ogTitle: 'Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter',
+    ogDescription: 'Freizeitpferd kaufen: Warmblüter, Quarter Horses & vielseitige Allrounder. Preise, Qualitätskriterien und Kaufberatung für erfahrene Reiter.',
+    twitterTitle: 'Freizeitpferd kaufen: Allrounder Guide',
+    twitterDescription: 'Vielseitige Freizeitpferde: Warmblut, Quarter Horse & mehr. Preise 8.000-25.000€, Qualitätskriterien & AKU-Tipps.',
   },
   at: {
-    title: 'Freizeitpferd kaufen in Österreich: Kompletter Guide',
-    description: 'Freizeitpferd kaufen in Österreich leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
-    keywords: 'freizeitpferd kaufen österreich, freizeitpferd rassen, anfängerpferd kaufen, pferdekauf österreich',
-    ogTitle: 'Freizeitpferd kaufen in Österreich: Kompletter Guide',
-    ogDescription: 'Freizeitpferd kaufen in Österreich: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden für sicheren Pferdekauf.',
-    twitterTitle: 'Freizeitpferd kaufen Österreich: Guide',
-    twitterDescription: 'Rassen, Kosten & Kaufvertrag: So kaufst du dein Freizeitpferd in Österreich sicher.',
+    title: 'Freizeitpferd kaufen in Österreich: Vielseitige Allrounder',
+    description: 'Freizeitpferd kaufen in Österreich: Vielseitige Rassen, Preise 8.000-25.000€, Qualitätskriterien & AKU. Für ambitionierte Freizeitreiter.',
+    keywords: 'freizeitpferd kaufen österreich, freizeitpferd rassen, vielseitiges reitpferd, allrounder pferd',
+    ogTitle: 'Freizeitpferd kaufen in Österreich: Vielseitige Allrounder',
+    ogDescription: 'Freizeitpferd kaufen in Österreich: Warmblüter & vielseitige Allrounder für ambitionierte Freizeitreiter.',
+    twitterTitle: 'Freizeitpferd kaufen Österreich',
+    twitterDescription: 'Vielseitige Freizeitpferde in Österreich: Rassen, Preise & Qualitätskriterien.',
   },
   ch: {
-    title: 'Freizeitpferd kaufen in der Schweiz: Kompletter Guide',
-    description: 'Freizeitpferd kaufen in der Schweiz leicht gemacht: Rassen, Kosten, Gesundheitschecks & Kaufvertrag. Unser Leitfaden mit Checklisten hilft dir, das richtige Pferd sicher zu kaufen.',
-    keywords: 'freizeitpferd kaufen schweiz, freizeitpferd rassen, anfängerpferd kaufen, pferdekauf schweiz',
-    ogTitle: 'Freizeitpferd kaufen in der Schweiz: Kompletter Guide',
-    ogDescription: 'Freizeitpferd kaufen in der Schweiz: Von Rassenauswahl bis Kaufvertrag. Praktischer Leitfaden für sicheren Pferdekauf.',
-    twitterTitle: 'Freizeitpferd kaufen Schweiz: Guide',
-    twitterDescription: 'Rassen, Kosten & Kaufvertrag: So kaufst du dein Freizeitpferd in der Schweiz sicher.',
+    title: 'Freizeitpferd kaufen in der Schweiz: Vielseitige Allrounder',
+    description: 'Freizeitpferd kaufen in der Schweiz: Vielseitige Rassen, Preise 10.000-30.000 CHF, Qualitätskriterien & AKU. Für ambitionierte Freizeitreiter.',
+    keywords: 'freizeitpferd kaufen schweiz, freizeitpferd rassen, vielseitiges reitpferd, allrounder pferd',
+    ogTitle: 'Freizeitpferd kaufen in der Schweiz: Vielseitige Allrounder',
+    ogDescription: 'Freizeitpferd kaufen in der Schweiz: Warmblüter & vielseitige Allrounder für ambitionierte Freizeitreiter.',
+    twitterTitle: 'Freizeitpferd kaufen Schweiz',
+    twitterDescription: 'Vielseitige Freizeitpferde in der Schweiz: Rassen, Preise & Qualitätskriterien.',
   },
 };
 
@@ -60,7 +60,6 @@ export default function FreizeitpferdKaufen() {
     { id: 'definition', title: 'Was ist ein Freizeitpferd?' },
     { id: 'kosten', title: 'Kosten: Kaufpreis und Unterhalt' },
     { id: 'rassen', title: 'Die besten Pferderassen für Freizeitreiter' },
-    { id: 'anfaenger', title: 'Anfängerpferde: Rassen und Alter' },
     { id: 'kaufprozess', title: 'Kaufprozess: Private vs. Händler' },
     { id: 'gesundheit', title: 'Gesundheitscheck und AKU' },
     { id: 'rechtliches', title: 'Rechtliche Aspekte und Kaufvertrag' },
@@ -71,27 +70,27 @@ export default function FreizeitpferdKaufen() {
   const faqItems = [
     {
       question: 'Was kostet ein gutes Freizeitpferd?',
-      answer: 'Ein gutes Freizeitpferd kostet zwischen 6.000€ und 25.000€ beim Kauf, abhängig von Alter, Rasse und Ausbildungsstand. Budget-Varianten (5-10 Jahre, Basis-Ausbildung) kosten 6.000-12.000€, mittleres Segment 12.000-18.000€, Premium-Pferde 18.000€+. Zusätzlich fallen jährliche Unterhaltskosten von 4.000-6.000€ an (Futter, Stall, Tierarzt, Hufschmied).'
+      answer: 'Ein vielseitiges Freizeitpferd kostet zwischen 8.000€ und 25.000€, abhängig von Alter, Rasse und Ausbildungsstand. Solide Allrounder (6-12 Jahre, gut ausgebildet) kosten 10.000-15.000€, Premium-Pferde mit Turniererfahrung 15.000-25.000€. Warmblüter und Quarter Horses im gehobenen Segment liegen bei 12.000-20.000€. Zusätzlich fallen jährliche Unterhaltskosten von 5.000-7.000€ an.'
     },
     {
-      question: 'Welche Pferderasse ist beste für Anfänger?',
-      answer: 'Die besten Anfängerrassen sind: 1) Haflinger (extrem zuverlässig, geduldig, ideal für Anfänger), 2) Quarter Horse (nervenstark, intelligent, gehorsam), 3) Isländer (ausdauernd, trittsicher), 4) Fjordpferd (robust, für schwerere Reiter), 5) Hannoveraner (klassisches deutsches Reitpferd). Das Wichtigste ist nicht nur die Rasse, sondern das individuelle Temperament des Pferdes - teste es persönlich vor dem Kauf.'
+      question: 'Welche Rassen eignen sich als vielseitige Freizeitpferde?',
+      answer: 'Für ambitionierte Freizeitreiter empfehlen sich: 1) Hannoveraner und Oldenburger (vielseitig, elegant, auch für leichte Dressur/Springen), 2) Quarter Horse (nervenstark, wendig, Trail und Western), 3) Trakehner (edel, ausdauernd, Gelände), 4) Friesen (imposant, gutmütig). Diese Rassen bieten Vielseitigkeit für Reiter, die mehr als nur Ausritte planen.'
     },
     {
-      question: 'Welches Alter sollte ein Anfängerpferd haben?',
-      answer: 'Optimal für Anfänger ist ein Alter zwischen 8-15 Jahren: Der Körper ist vollständig entwickelt, es hat genug Trainingserfahrung, noch 10-15 Jahre Lebensdauer, und das Temperament ist etabliert. Junge Pferde (unter 7 Jahren) brauchen erfahrene Reiter. Senior-Pferde (über 20 Jahren) sind oft günstig, haben aber häufig gesundheitliche Probleme.'
+      question: 'Was unterscheidet ein Freizeitpferd von einem Anfängerpferd?',
+      answer: 'Ein Freizeitpferd ist für erfahrene Reiter gedacht, die vielseitig reiten möchten (Gelände, leichte Dressur, Springen). Es kann temperamentvoller sein und mehr Können vom Reiter verlangen. Ein Anfängerpferd hingegen muss besonders fehlerverzeihend, ruhig und geduldig sein. Für absolute Anfänger empfehlen wir unseren spezialisierten Ratgeber zum Anfängerpferd kaufen.'
+    },
+    {
+      question: 'Welches Alter ist optimal für ein Freizeitpferd?',
+      answer: 'Für erfahrene Freizeitreiter ist das optimale Alter 6-14 Jahre. In diesem Bereich sind Pferde voll ausgebildet, körperlich in Bestform und haben noch 15-20 Jahre vor sich. Jüngere Pferde (5-7 Jahre) sind temperamentvoller, aber für erfahrene Reiter gut zu handhaben. Pferde unter 5 Jahren sollten nur von sehr erfahrenen Reitern gekauft werden.'
     },
     {
       question: 'Ist eine tierärztliche Ankaufsuntersuchung wirklich nötig?',
-      answer: 'Ja, absolut! Eine Ankaufsuntersuchung durch einen Tierarzt kostet 400-600€ und ist nicht optional - es ist Pflicht. Sie dauert 1-2 Stunden und prüft Allgemeinzustand, Bewegung unter Last, Herz, Lungen, Zähne und Augen. Diese Untersuchung schützt dich vor teuren Fehlkäufen und kann dir 5.000€+ in Veterinärkosten sparen.'
-    },
-    {
-      question: 'Was muss in einen Pferd-Kaufvertrag rein?',
-      answer: 'Ein gültiger Kaufvertrag muss enthalten: 1) Identifikation (Name, Alter, Rasse, Farbe, besondere Merkmale, ggf. Pferdepass), 2) Finanzielle Bedingungen (Kaufpreis, Zahlungsweise, Anzahlung), 3) Zustandsbeschreibung (Gesundheit, Ausbildung, Temperament), 4) Gewährleistung (meist 6 Monate, Details was abgedeckt), 5) Haftung nach Übergabe (wann wechselt Verantwortung), 6) Unterschriften beider Parteien mit Datum und Ort.'
+      answer: 'Ja, absolut! Bei Freizeitpferden im Preissegment 8.000-25.000€ ist eine große AKU mit Röntgen (600-1.000€) unverzichtbar. Sie prüft Bewegungsapparat, Herz-Kreislauf und Atemwege. Bei vielseitiger Nutzung (Gelände, leichtes Springen) sind gesunde Gelenke besonders wichtig. Die AKU-Kosten sind eine Investition, die dich vor teuren Fehlkäufen schützt.'
     },
     {
       question: 'Sollte ich ein Freizeitpferd privat oder von einem Händler kaufen?',
-      answer: 'Private Verkäufer bieten 20-30% niedrigere Preise, aber keine Gewährleistung. Händler sind teurer (20-30% höher), bieten aber 1-2 Jahre Gewährleistung, Rückgaberecht und rechtliche Sicherheit. Für Anfänger empfehle ich einen seriösen Händler oder etablierte Plattformen (ehorses.de, pferde.de), da die Mehrkosten durch Sicherheit und Rückgaberecht kompensiert werden.'
+      answer: 'Bei Pferden ab 10.000€ empfehle ich seriöse Händler oder etablierte Züchter: Du erhältst 12-24 Monate Gewährleistung, professionelle Beratung und oft Probereiten-Möglichkeiten. Privatverkäufe sind 20-30% günstiger, aber ohne rechtliche Absicherung. Bei Premium-Freizeitpferden lohnen sich die Mehrkosten für die Sicherheit.'
     }
   ];
 
@@ -141,10 +140,10 @@ export default function FreizeitpferdKaufen() {
         {/* Hero Section */}
         <RatgeberHero
           badgeLabel="Kauf & Verkauf"
-          title="Freizeitpferd kaufen: Der komplette Leitfaden für Anfänger"
-          subtitle="Dein Traum vom eigenen Freizeitpferd rückt näher. Erfahre alles über die besten Rassen, realistische Kosten, wichtige Gesundheitschecks und die rechtliche Absicherung beim Kauf."
+          title="Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter"
+          subtitle="Du suchst ein vielseitiges Pferd für Gelände, leichte Dressur und entspannte Ausritte? Erfahre alles über die besten Rassen für erfahrene Freizeitreiter, realistische Preise im Premium-Segment und worauf du bei der Auswahl achten solltest."
           readTime="15 Min."
-          publishDate="November 2025"
+          publishDate="Dezember 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
         />
@@ -423,75 +422,22 @@ export default function FreizeitpferdKaufen() {
             </p>
           </section>
 
-          {/* Section: Anfänger */}
-          <section id="anfaenger" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Anfängerpferde: Welche Rassen und welches Alter?
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Nicht jedes Freizeitpferd ist ein <strong>Anfängerpferd</strong>. Hier sind die Unterschiede.
+          {/* Hinweis für Anfänger */}
+          <RatgeberHighlightBox
+            title="Bist du Anfänger oder Wiedereinsteiger?"
+            icon={shieldIcon}
+          >
+            <p className="text-base text-gray-700 mb-4">
+              Dieser Ratgeber richtet sich an erfahrene Freizeitreiter, die ein vielseitiges Pferd suchen. Als Anfänger brauchst du ein besonders geduldiges, fehlerverzeihend Pferd (Verlasspferd) – am besten ein älteres Schulpferd oder einen gutmütigen Haflinger.
             </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Rasse-Matching für Anfänger
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Für dein erstes <strong>Anfängerpferd</strong> solltest du diese 7 Rassen bevorzugen:
-            </p>
-            <ol className="space-y-2 text-lg text-gray-700 list-decimal list-inside">
-              <li>Haflinger – Der sichere Einstieg</li>
-              <li>Quarter Horse – Der intelligente Partner</li>
-              <li>Isländer – Der Wanderer</li>
-              <li>Fjordpferd – Der Kraftprotz</li>
-              <li>Hannoveraner – Der Klassiker</li>
-              <li>Deutsches Reitpferd – Der Allrounder</li>
-              <li>Friese – Der Elegante (mit Vorbehalt)</li>
-            </ol>
-            <p className="text-lg text-gray-700 leading-relaxed mt-4">
-              Das Wichtigste: Auch die beste Rasse kann ein schlechtes Temperament haben. Teste das Pferd immer persönlich, bevor du Geld zahlst. Ein nervöses Haflinger-Mix ist schlechter als ein ruhiger Quarter Horse.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Altersempfehlung: Mit welchem Alter solltest du kaufen?
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Hier gibt es klare Regeln:
-            </p>
-
-            <div className="bg-green-50 border-l-4 border-green-500 p-6 my-6">
-              <h4 className="font-bold text-gray-900 mb-3">Optimal für Anfänger: 8–15 Jahre</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>✓ Körperlich vollständig entwickelt</li>
-                <li>✓ Genug Trainingserfahrung</li>
-                <li>✓ Noch 10–15 Jahre Lebensdauer</li>
-                <li>✓ Temperament ist etabliert, keine Überraschungen</li>
-              </ul>
-            </div>
-
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-6">
-              <h4 className="font-bold text-gray-900 mb-3">Junge Pferde (unter 7 Jahren): Nur für erfahrene Reiter</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>⚠ Körper noch wachsend</li>
-                <li>⚠ Temperament unvorhersehbar</li>
-                <li>⚠ Brauchen erfahrene Anleitung</li>
-                <li>⚠ Risiko größer</li>
-              </ul>
-            </div>
-
-            <div className="bg-red-50 border-l-4 border-red-500 p-6 my-6">
-              <h4 className="font-bold text-gray-900 mb-3">Senior-Pferde (über 20 Jahren): Möglich, aber risikobehaftet</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>✓ Oft günstig</li>
-                <li>✗ Gesundheitliche Probleme häufig</li>
-                <li>✗ Veterinärkosten höher</li>
-                <li>✗ Lebensdauer begrenzt (3–5 Jahre realistisch)</li>
-              </ul>
-            </div>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Faustregel:</strong> Kaufe ein Pferd, das 2–3 Jahre jünger ist als dein Retirement-Plan. Wenn du mit 60 Jahren reiten willst, kaufe mit 65 nicht erst ein 10-jähriges Pferd.
-            </p>
-          </section>
+            <LocalizedLink
+               href="/pferd-kaufen/anfaenger"
+              className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
+            >
+              Zum Anfängerpferd-Ratgeber
+              {trendingUpIcon}
+            </LocalizedLink>
+          </RatgeberHighlightBox>
 
           {/* Section: Kaufprozess */}
           <section id="kaufprozess" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">

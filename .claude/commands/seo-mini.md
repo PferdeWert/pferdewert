@@ -50,8 +50,12 @@ mkdir -p "SEO/SEO-CONTENT/$KEYWORD_SLUG/seo"
 
 **KRITISCH**: Lies den Pillar-Artikel und extrahiere behandelte Themen.
 
+**Pfad zum Pillar-Artikel bestimmen:**
+- Für Kauf-Cluster: `frontend/pages/pferd-kaufen/index.tsx` (Hub)
+- Für andere Cluster: `frontend/pages/pferde-ratgeber/{pillar}.tsx`
+
 ```
-1. Lies: frontend/pages/pferde-ratgeber/{pillar}.tsx
+1. Lies den Pillar-Artikel (siehe Pfad oben)
 2. Extrahiere ALLE H2/H3 Überschriften
 3. Extrahiere Haupt-Themen und Kernaussagen
 4. Speichere in: SEO/SEO-CONTENT/$KEYWORD_SLUG/research/pillar-themes.json
@@ -61,7 +65,7 @@ mkdir -p "SEO/SEO-CONTENT/$KEYWORD_SLUG/seo"
 ```json
 {
   "pillar_slug": "pferd-kaufen",
-  "pillar_url": "/pferde-ratgeber/pferd-kaufen",
+  "pillar_url": "/pferd-kaufen/",
   "headings": [
     "Worauf beim Pferdekauf achten",
     "Die richtige Pferderasse wählen",
@@ -156,7 +160,8 @@ prompt:
 
   5. **PILLAR-LINK (PFLICHT!)**:
      Im Fazit oder Einleitung MUSS stehen:
-     "Weitere Informationen finden Sie in unserem ausführlichen Ratgeber zum [Thema des Pillars](/pferde-ratgeber/{pillar})."
+     - Für Kauf-Cluster: "Weitere Informationen finden Sie in unserem ausführlichen [Pferd kaufen Ratgeber](/pferd-kaufen/)."
+     - Für andere Cluster: "Weitere Informationen finden Sie in unserem ausführlichen Ratgeber zum [Thema](/pferde-ratgeber/{pillar})."
 
   6. **CTA**:
      - Alle CTAs verlinken auf "/pferde-preis-berechnen"
@@ -216,8 +221,8 @@ prompt:
      {
        "internal_links": [
          {
-           "url": "/pferde-ratgeber/{pillar}",
-           "anchor": "ausführlichen Ratgeber zum {Pillar-Thema}",
+           "url": "/pferd-kaufen/",  // Für Kauf-Cluster - ODER /pferde-ratgeber/{pillar} für andere
+           "anchor": "Pferd kaufen Ratgeber",
            "required": true,
            "placement": {
              "section": "intro_or_conclusion",
