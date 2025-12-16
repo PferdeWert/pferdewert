@@ -268,6 +268,12 @@ const nextConfig = {
         destination: '/ueber-pferdewert',
         statusCode: 301,
       },
+      // Duplicate content cleanup: /pferd-kaufen/bayern → /pferde-ratgeber/pferd-kaufen-bayern
+      {
+        source: '/pferd-kaufen/bayern',
+        destination: '/pferde-ratgeber/pferd-kaufen-bayern',
+        statusCode: 301,
+      },
     ]
   },
 };

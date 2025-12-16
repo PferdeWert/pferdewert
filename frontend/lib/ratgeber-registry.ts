@@ -293,24 +293,6 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     ]
   },
 
-  // Pferd kaufen Bayern Guide (custom path: /pferd-kaufen/bayern)
-  {
-    slug: 'bayern',
-    title: 'Pferd kaufen in Bayern: Die besten Marktplätze & Preise',
-    description: 'Pferd kaufen in Bayern: Vergleich der Top-Marktplätze (ehorses, Kleinanzeigen, pferde.de), realistische Preise 2025 & Kaufcheckliste für Anfänger.',
-    category: 'Kauf & Verkauf',
-    readTime: '16 Min.',
-    image: '/images/ratgeber/pferd-weide-haimhausen-bayern.webp',
-    priority: '0.7',
-    changefreq: 'monthly',
-    relatedSlugs: [
-      'pferd-kaufen',
-      'haflinger-kaufen',
-      'freizeitpferd-kaufen'
-    ],
-    basePath: '/pferd-kaufen'
-  },
-
   // Pony kaufen Guide
   {
     slug: 'pony-kaufen',
