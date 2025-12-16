@@ -17,7 +17,7 @@
 import { Resend } from 'resend';
 
 // Configuration
-const RECIPIENT_EMAIL = 'benni_reder@gmx.de';
+const RECIPIENT_EMAILS = ['benni_reder@gmx.de', 'sabine-reder@gmx.net'];
 const BASE_URL = 'https://pferdewert.de';
 const RATGEBER_PATH = '/pferde-ratgeber';
 
@@ -52,7 +52,7 @@ async function sendArticleNotification(articleSlug, additionalInfo = {}) {
   try {
     const result = await resend.emails.send({
       from: 'PferdeWert SEO <seo@pferdewert.de>',
-      to: RECIPIENT_EMAIL,
+      to: RECIPIENT_EMAILS,
       subject: `Neuer SEO-Artikel live: ${articleSlug}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">

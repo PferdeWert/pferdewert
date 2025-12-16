@@ -15,6 +15,27 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any
 
+
+# Load .env file manually (no external dependencies)
+def load_dotenv(env_path: str = "/home/dev/.env") -> None:
+    """Load environment variables from .env file"""
+    try:
+        with open(env_path, "r") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, _, value = line.partition("=")
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    if key and not os.getenv(key):  # Only set if not already set
+                        os.environ[key] = value
+    except FileNotFoundError:
+        pass
+
+
+# Load .env before reading config
+load_dotenv()
+
 # Configure logging
 LOG_DIR = Path("/home/dev/logs")
 LOG_DIR.mkdir(exist_ok=True)
@@ -30,7 +51,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-CLAUDE_CLI = "/home/dev/node_modules/.bin/claude"
+CLAUDE_CLI = "npx"
 WORKING_DIR = "/home/dev"
 QUEUE_FILE = Path("/home/dev/SEO/article_queue.json")
 TIMEOUT_MINUTES = 10  # Per phase timeout
@@ -111,7 +132,7 @@ def run_claude(prompt: str, timeout_minutes: int = TIMEOUT_MINUTES) -> tuple[boo
             return True, "[DRY RUN] Simulated success"
 
         result = subprocess.run(
-            [CLAUDE_CLI, "--print", "--dangerously-skip-permissions", prompt],
+            ["npx", "@anthropic-ai/claude-code", "--print", "--dangerously-skip-permissions", prompt],
             cwd=WORKING_DIR,
             capture_output=True,
             text=True,

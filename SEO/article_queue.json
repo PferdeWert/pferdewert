@@ -9,7 +9,7 @@
       "keyword": "trakehner kaufen",
       "type": "mini",
       "pillar": "pferd-kaufen",
-      "priority": 6,
+      "priority": 1,
       "search_volume": 720,
       "phase": "P2",
       "notes": "Trakehner Verband, Sporteignung Dressur/Vielseitigkeit"
@@ -18,7 +18,7 @@
       "keyword": "pferd kaufen sachsen",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 7,
+      "priority": 2,
       "search_volume": 1000,
       "phase": "P2",
       "notes": "Sächsisches Warmblut, Moritzburg"
@@ -27,7 +27,7 @@
       "keyword": "pferd kaufen schleswig-holstein",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 8,
+      "priority": 3,
       "search_volume": 880,
       "phase": "P2",
       "notes": "Holsteiner, Trakehner, Elmshorn"
@@ -36,7 +36,7 @@
       "keyword": "pferd kaufen brandenburg",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 9,
+      "priority": 4,
       "search_volume": 720,
       "phase": "P3",
       "notes": "Brandenburger Warmblut, Neustadt/Dosse"
@@ -45,7 +45,7 @@
       "keyword": "pferd kaufen hessen",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 10,
+      "priority": 5,
       "search_volume": 590,
       "phase": "P3",
       "notes": "Hessisches Warmblut, Frankfurt Umgebung"
@@ -54,7 +54,7 @@
       "keyword": "pferd kaufen baden-wuerttemberg",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 11,
+      "priority": 6,
       "search_volume": 480,
       "phase": "P3",
       "notes": "Marbach, Württemberger"
@@ -63,7 +63,7 @@
       "keyword": "pferd kaufen niedersachsen",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 12,
+      "priority": 7,
       "search_volume": 390,
       "phase": "P3",
       "notes": "Hannoveraner, Celle, Verden"
@@ -76,55 +76,36 @@
       "pillar": "pferd-kaufen",
       "priority": 1,
       "search_volume": 4400,
-      "phase": "P1",
-      "notes": "Gangarten-Prüfung (Tölt, Pass), Island-Import, IPZV",
       "completed_at": "2025-12-14T15:11:17.784118"
-    }
-  ],
-  "failed": [
+    },
     {
       "keyword": "quarter horse kaufen",
       "type": "mini",
       "pillar": "pferd-kaufen",
-      "priority": 2,
       "search_volume": 3600,
-      "phase": "P1",
-      "notes": "Western-Eignung, AQHA-Papiere, US-Import",
-      "failed_at": "2025-12-14T21:10:31.323290",
-      "error": "Phase 5 (git) failed: Command '['git', 'commit', '-m', 'feat(ratgeber): Add quarter horse kaufen article\\n\\n🤖 Generated with Claude Code Automation']' died with <Signals.SIGPIPE: 13>."
+      "completed_at": "2025-12-14"
     },
     {
       "keyword": "pferd kaufen bayern",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 3,
       "search_volume": 1900,
-      "phase": "P1",
-      "notes": "Bayerisches Warmblut, Schwaiganger, Auktionen",
-      "failed_at": "2025-12-14T22:22:20.952050",
-      "error": "Phase 5 (git) failed: Command '['git', 'commit', '-m', 'feat(ratgeber): Add pferd kaufen bayern article\\n\\n🤖 Generated with Claude Code Automation']' died with <Signals.SIGPIPE: 13>."
+      "completed_at": "2025-12-14"
     },
     {
       "keyword": "pferd kaufen nrw",
       "type": "mini-regional",
       "pillar": "pferd-kaufen",
-      "priority": 4,
       "search_volume": 1600,
-      "phase": "P1",
-      "notes": "Westfalen, Rheinländer, Warendorfer Auktion",
-      "failed_at": "2025-12-14T22:48:18.950850",
-      "error": "Phase 4 (page) failed: Unknown error"
+      "completed_at": "2025-12-15"
     },
     {
       "keyword": "friese kaufen",
       "type": "mini",
       "pillar": "pferd-kaufen",
-      "priority": 5,
       "search_volume": 1900,
-      "phase": "P1",
-      "notes": "KFPS-Stammbuch, Gesundheitsrisiken, NL-Import",
-      "failed_at": "2025-12-15T18:47:05.877130",
-      "error": "Phase 5 (git) failed: Command '['git', 'push', 'origin', 'main']' returned non-zero exit status 1."
+      "completed_at": "2025-12-15"
     }
-  ]
+  ],
+  "failed": []
 }
