@@ -355,7 +355,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Quarter Horse kaufen in Deutschland: Foundation vs Performance Bloodlines, AQHA-Papiere, Western-Ausbildung & Züchter. Preise 5.000-50.000€.',
     category: 'Pferderassen',
     readTime: '7 Min.',
-    image: '/images/ratgeber/quarter-horse-western-rider.webp',
+    image: '/images/ratgeber/quarter-horse-weide.webp',
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [

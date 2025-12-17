@@ -117,7 +117,7 @@ export default function QuarterHorseKaufen() {
     >
       <RatgeberHead
         slug="quarter-horse-kaufen"
-        image="/images/ratgeber/quarter-horse-western-rider.webp"
+        image="/images/ratgeber/quarter-horse-weide.webp"
         locales={seoLocales}
         datePublished="2025-12-14"
         wordCount={705}
@@ -139,8 +139,8 @@ export default function QuarterHorseKaufen() {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/quarter-horse-western-rider.webp"
-          alt="Quarter Horse mit Western-Reiter bei der Ranch-Arbeit"
+          src="/images/ratgeber/quarter-horse-weide.webp"
+          alt="Quarter Horse auf der Weide"
           priority={true}
           objectPosition="center 30%"
         />
