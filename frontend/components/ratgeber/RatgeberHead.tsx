@@ -51,6 +51,26 @@ interface LocaleMap {
   ch?: LocaleContent;
 }
 
+// ============================================================================
+// MULTI-DOMAIN SEO: Country-exclusive pages
+// These pages should NOT have hreflang tags (they only exist on one domain)
+// ============================================================================
+const COUNTRY_EXCLUSIVE_SLUGS = [
+  // DE-only regional pages
+  'bayern',
+  'nrw',
+  'sachsen',
+  'schleswig-holstein',
+  'brandenburg',
+  'hessen',
+  'baden-wuerttemberg',
+  'niedersachsen',
+  // AT-only
+  'oesterreich',
+  // CH-only
+  'schweiz',
+];
+
 export interface RatgeberHeadProps {
   slug: string;
   image: string; // relative path, e.g., /images/ratgeber/haflinger.webp
@@ -116,8 +136,12 @@ export default function RatgeberHead({
   const hasAtContent = !!(locales['de-AT'] || locales.at);
   const hasChContent = !!(locales['de-CH'] || locales.ch);
 
+  // Check if this is a country-exclusive page (no hreflang needed)
+  const isExclusivePage = COUNTRY_EXCLUSIVE_SLUGS.includes(slug);
+
   // Generate hreflang tags for all available locales
-  const hreflangTags = [
+  // SKIP hreflang for country-exclusive pages (they only exist on one domain)
+  const hreflangTags = isExclusivePage ? [] : [
     { hreflang: 'de', href: `${DOMAINS['de']}${basePath}/${slug}` },
     ...(hasAtContent ? [{ hreflang: 'de-AT', href: `${DOMAINS['de-AT']}${basePath}/${slug}` }] : []),
     ...(hasChContent ? [{ hreflang: 'de-CH', href: `${DOMAINS['de-CH']}${basePath}/${slug}` }] : []),

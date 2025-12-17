@@ -1,5 +1,5 @@
 // scripts/generate-sitemap.mjs
-// Updated Nov 2025: Domain-based routing (pferdewert.de vs pferdewert.at)
+// Updated Dec 2025: Country-exclusive pages for multi-domain SEO
 import fs from 'fs';
 import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
 
@@ -18,6 +18,44 @@ const OUTPUT_PATHS = {
   AT: 'public/sitemap-at.xml',
   CH: 'public/sitemap-ch.xml',
 };
+
+// ============================================================================
+// MULTI-DOMAIN SEO: Country-exclusive pages
+// These pages should only appear in their respective country's sitemap
+// Mirrors the middleware configuration for consistency
+// ============================================================================
+const COUNTRY_EXCLUSIVE_PAGES = {
+  DE: [
+    '/pferd-kaufen/bayern',
+    '/pferd-kaufen/nrw',
+    '/pferd-kaufen/sachsen',
+    '/pferd-kaufen/schleswig-holstein',
+    '/pferd-kaufen/brandenburg',
+    '/pferd-kaufen/hessen',
+    '/pferd-kaufen/baden-wuerttemberg',
+    '/pferd-kaufen/niedersachsen',
+  ],
+  AT: [
+    '/pferd-kaufen/oesterreich',
+  ],
+  CH: [
+    '/pferd-kaufen/schweiz',
+  ],
+};
+
+/**
+ * Check if a page should be included in a specific country's sitemap
+ * Returns true if the page is available on that domain
+ */
+function isPageAvailableForCountry(path, countryCode) {
+  // Check if this page is exclusive to another country
+  for (const [exclusiveCountry, pages] of Object.entries(COUNTRY_EXCLUSIVE_PAGES)) {
+    if (pages.includes(path) && exclusiveCountry !== countryCode) {
+      return false; // This page belongs to a different country
+    }
+  }
+  return true; // Page is available on this domain
+}
 
 // Base pages (same structure for both domains)
 // NOTE: Only include canonical URLs here, NOT redirect sources!
@@ -70,14 +108,26 @@ function getCurrentDate() {
 
 /**
  * Generate sitemap XML for a specific domain
+ * @param {string} domain - Full domain URL (e.g., 'https://pferdewert.de')
+ * @param {object} pageConfig - Page configuration object
+ * @param {string} countryCode - Country code ('DE', 'AT', 'CH')
  */
-function generateSitemap(domain, pageConfig) {
+function generateSitemap(domain, pageConfig, countryCode) {
   const lastmod = getCurrentDate();
+  let includedCount = 0;
+  let excludedCount = 0;
 
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
   Object.entries(pageConfig).forEach(([path, config]) => {
+    // Check if this page should be included for this country
+    if (!isPageAvailableForCountry(path, countryCode)) {
+      excludedCount++;
+      return; // Skip this page for this domain
+    }
+
+    includedCount++;
     sitemap += `
   <url>
     <loc>${domain}${path}</loc>
@@ -90,6 +140,11 @@ function generateSitemap(domain, pageConfig) {
   sitemap += `
 </urlset>
 `;
+
+  // Log exclusion stats
+  if (excludedCount > 0) {
+    console.log(`   ${countryCode}: ${includedCount} pages included, ${excludedCount} country-exclusive pages excluded`);
+  }
 
   return sitemap;
 }
@@ -119,18 +174,21 @@ function main() {
     const pageConfig = buildPageConfig();
     const lastmod = getCurrentDate();
 
-    // Generate DE sitemap (primary)
-    const deSitemap = generateSitemap(DOMAINS.DE, pageConfig);
+    console.log('\n📍 Generating country-specific sitemaps...');
+    console.log('   (Regional pages are excluded from other countries\' sitemaps)\n');
+
+    // Generate DE sitemap (primary) - includes DE-only pages like Bayern, NRW
+    const deSitemap = generateSitemap(DOMAINS.DE, pageConfig, 'DE');
     fs.writeFileSync(OUTPUT_PATHS.DE, deSitemap, 'utf-8');
     console.log('✅ DE Sitemap generated: public/sitemap-de.xml');
 
-    // Generate AT sitemap (separate domain)
-    const atSitemap = generateSitemap(DOMAINS.AT, pageConfig);
+    // Generate AT sitemap - includes AT-only page (Österreich), excludes DE/CH pages
+    const atSitemap = generateSitemap(DOMAINS.AT, pageConfig, 'AT');
     fs.writeFileSync(OUTPUT_PATHS.AT, atSitemap, 'utf-8');
     console.log('✅ AT Sitemap generated: public/sitemap-at.xml');
 
-    // Generate CH sitemap (separate domain)
-    const chSitemap = generateSitemap(DOMAINS.CH, pageConfig);
+    // Generate CH sitemap - includes CH-only page (Schweiz), excludes DE/AT pages
+    const chSitemap = generateSitemap(DOMAINS.CH, pageConfig, 'CH');
     fs.writeFileSync(OUTPUT_PATHS.CH, chSitemap, 'utf-8');
     console.log('✅ CH Sitemap generated: public/sitemap-ch.xml');
 

@@ -20,31 +20,31 @@ const heartIcon = <Heart className="w-5 h-5" />;
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Friese kaufen 2025: KFPS-Papiere, Preise & Gesundheit',
-    description: 'Friese kaufen ➤ Wichtige KFPS-Papiere ✓ Rassetypische Gesundheit ✓ Preise 5.000-50.000€ ✓ Barocke Pferderasse. Jetzt informieren!',
-    keywords: 'friese kaufen, friesenpferd, KFPS, barocke pferderasse, friesen pferd kaufen',
-    ogTitle: 'Friese kaufen: KFPS-Papiere, Preise & Gesundheit',
-    ogDescription: 'Alles über Friesen: KFPS-Registrierung, Gesundheit, Preise und Zuchtlinien. Mit KI-gestützter Bewertung in 2 Minuten.',
-    twitterTitle: 'Friese kaufen: Der komplette Ratgeber',
-    twitterDescription: 'KFPS-Papiere, Gesundheit, Preise & Zuchtlinien. Jetzt informieren!',
+    title: 'Friese kaufen 2025: KFPS-Prädikate, Preise & Gesundheitstests',
+    description: 'Friese kaufen ➤ KFPS Star & Kroon erklärt ✓ Preise 3.000-50.000€ ✓ Gentests für Dwarfism ✓ Barock vs. Sport-Typ. Jetzt informieren!',
+    keywords: 'friese kaufen, friesenpferd kaufen, KFPS prädikate, friese preis, barock friese, friese kaufen deutschland',
+    ogTitle: 'Friese kaufen: KFPS-Prädikate, Preise & Gesundheitstests',
+    ogDescription: 'Alles über Friesen: KFPS Star/Kroon, Genetische Tests, Preisübersicht und Zuchtlinien. Mit KI-gestützter Bewertung in 2 Minuten.',
+    twitterTitle: 'Friese kaufen: Der komplette Ratgeber zu KFPS & Preisen',
+    twitterDescription: 'KFPS-Prädikate, Dwarfism-Tests, 3.000-50.000€. Jetzt informieren!',
   },
   at: {
-    title: 'Friese kaufen in Österreich: KFPS & Preise 2025',
-    description: 'Friese kaufen in Österreich ➤ KFPS-Registrierung ✓ Züchter in AT ✓ Preise & Gesundheit ✓ Barocke Rasse. Jetzt informieren!',
-    keywords: 'friese kaufen österreich, friesenpferd österreich, KFPS österreich',
-    ogTitle: 'Friese kaufen in Österreich: KFPS & Preise',
-    ogDescription: 'Alles über Friesen in Österreich: KFPS-Dokumente, Züchter und Preise.',
+    title: 'Friese kaufen in Österreich: KFPS-Prädikate & Preise 2025',
+    description: 'Friese kaufen in Österreich ➤ KFPS Star/Kroon ✓ Züchter in AT ✓ Preise 3.000-50.000€ ✓ Gesundheitstests. Jetzt informieren!',
+    keywords: 'friese kaufen österreich, friesenpferd österreich, KFPS prädikate österreich',
+    ogTitle: 'Friese kaufen in Österreich: KFPS & Prädikate',
+    ogDescription: 'Friesen in Österreich: KFPS-Registrierung, Prädikate, Züchter und aktuelle Preise.',
     twitterTitle: 'Friese kaufen in Österreich',
-    twitterDescription: 'KFPS-Registrierung, Züchter in AT, Preise & Gesundheit.',
+    twitterDescription: 'KFPS-Prädikate, Züchter, Preise & Gesundheitstests.',
   },
   ch: {
-    title: 'Friese kaufen Schweiz: KFPS-Papiere & CHF-Preise',
-    description: 'Friese kaufen in der Schweiz ➤ KFPS-Dokumente ✓ CHF 8.000-80.000 ✓ Schweizer Züchter ✓ Gesundheit. Jetzt informieren!',
-    keywords: 'friese kaufen schweiz, friesenpferd schweiz, KFPS schweiz',
-    ogTitle: 'Friese kaufen in der Schweiz: KFPS & Preise',
-    ogDescription: 'Alles über Friesen in der Schweiz: KFPS, CHF-Preise und Züchter.',
+    title: 'Friese kaufen Schweiz: KFPS-Prädikate & CHF-Preise 2025',
+    description: 'Friese kaufen in der Schweiz ➤ KFPS Star/Kroon ✓ CHF 5.000-100.000 ✓ Schweizer Züchter ✓ Gentests. Jetzt informieren!',
+    keywords: 'friese kaufen schweiz, friesenpferd schweiz, KFPS prädikate schweiz',
+    ogTitle: 'Friese kaufen in der Schweiz: KFPS & Prädikate',
+    ogDescription: 'Friesen in der Schweiz: KFPS-Registrierung, Prädikate, CHF-Preise und Züchter.',
     twitterTitle: 'Friese kaufen Schweiz',
-    twitterDescription: 'KFPS-Dokumente, CHF 8.000-80.000, Schweizer Züchter.',
+    twitterDescription: 'KFPS-Prädikate, CHF 5.000-100.000, Schweizer Züchter.',
   },
 };
 
@@ -58,10 +58,17 @@ export default function FrieseKaufen() {
 
   const sections = [
     { id: 'kfps-papiere', title: 'Friesen-spezifische Merkmale und KFPS-Papiere' },
-    { id: 'gesundheit', title: 'Gesundheit und typische Friesen-Probleme' },
+    { id: 'kfps-praedikate', title: 'KFPS-Prädikate und Einstufungen erklärt' },
+    { id: 'preise-kategorien', title: 'Preisübersicht: Friesen nach Kategorie' },
+    { id: 'gesundheit', title: 'Gesundheit und genetische Erkrankungen' },
+    { id: 'gentests', title: 'Genetische Tests und Wasserklar-Zertifikat' },
+    { id: 'barock-vs-sport', title: 'Barock-Friese vs. Sport-Friese: Die zwei Typen' },
+    { id: 'wo-kaufen', title: 'Wo Friesen kaufen? Marktplätze & Verkäufer' },
     { id: 'preise', title: 'Friesen-Preise und Zuchtlinien' },
     { id: 'disziplinen', title: 'Friesen für verschiedene Disziplinen' },
-    { id: 'pflege', title: 'Pflege und Haltung von Friesen' },
+    { id: 'anfaenger', title: 'Sind Friesen für Anfänger geeignet?' },
+    { id: 'behang-mauke', title: 'Behang und Mauke: Pflegeanforderungen' },
+    { id: 'friesen-in-not', title: 'Friesen in Not: Rettung und Adoption' },
     { id: 'checkliste', title: 'Checkliste für den perfekten Friese-Kauf' },
     { id: 'training', title: 'Training und Vorbereitung vor dem Friese-Kauf' },
     { id: 'kosten', title: 'Kosten und Finanzplanung' },
@@ -102,6 +109,18 @@ export default function FrieseKaufen() {
     {
       question: 'Kann ich einen Friesen als Freizeitpferd nutzen?',
       answer: 'Ja, Friesen eignen sich sehr gut als Freizeitpferde, wenn man ihre Besonderheiten beachtet. Sie sind ausdauernd und trittsicher im Gelände, haben einen freundlichen und menschenbezogenen Charakter, und ihre imposante Erscheinung macht jedes Ausreiten zu etwas Besonderem. Allerdings benötigen sie regelmäßige Bewegung und mentale Beschäftigung. Ihre Sensibilität erfordert einen einfühlsamen Umgang. Mit der richtigen Pflege und Haltung sind Friesen wunderbare Freizeitpartner.'
+    },
+    {
+      question: 'Barock-Friese oder Sport-Friese: Welcher Typ passt zu mir?',
+      answer: 'Barock-Friesen haben einen kräftigen Körperbau, üppigen Behang und sind ideal für Kutschfahrten, Shows und traditionelle Dressur. Sie sind eher rustikal und wiegen oft über 500 kg. Sport-Friesen sind leichter und eleganter gebaut mit besseren Galoppierfähigkeiten, eignen sich für moderne Dressur und leichte Sprünge. Für Anfänger sind beide Typen eher weniger geeignet. Deine Ziele und das verfügbare Budget sollten deine Wahl leiten.'
+    },
+    {
+      question: 'Wo kann ich einen seriösen Friesen kaufen?',
+      answer: 'Seriöse Quellen sind die KFPS-Datenbank (offizielle Online-Börse), anerkannte Gestüte in den Niederlanden und Deutschland, spezialisierte Pferdehändler mit KFPS-Lizenz, sowie Pferdemarktplätze wie ehorses oder PferdeMarkt. Vorsicht bei eBay Kleinanzeigen für hochpreisige Pferde - dort finden sich leider auch Betrüger. Vor dem Kauf: Immer das Pferd live besichtigen, reiten, und eine AKU durchführen lassen.'
+    },
+    {
+      question: 'Wie erkenne ich KFPS-Prädikate wie Star oder Kroon?',
+      answer: 'KFPS-Prädikate sind Qualitätseinstufungen in den Papieren. Stamboek ist die Basiseintragung. Ster (Star) ist die erste Qualitätsstufe, vergeben an Pferde mit guter Bewegung und Exterieur. Kroon (Krone) ist eine höhere Einstufung mit strengeren Anforderungen. Model ist die höchste Stuteneinstufung. Preferent ist ein Prädikat für besondere Zuchtwerte. Höhere Prädikate bedeuten bessere Genetik und höhere Preise.'
     }
   ];
 
@@ -126,7 +145,7 @@ export default function FrieseKaufen() {
         image="/images/ratgeber/friese-weide.webp"
         locales={seoLocales}
         datePublished="2025-12-15"
-        wordCount={805}
+        wordCount={2600}
         breadcrumbTitle="Friese kaufen"
         faqItems={faqItems}
       />
@@ -138,7 +157,7 @@ export default function FrieseKaufen() {
           badgeLabel="Barocke Pferderasse"
           title="Friese kaufen: Worauf bei der barocken Pferderasse achten"
           subtitle="Wenn du einen Friese kaufen möchtest, stehst du vor einer besonderen Herausforderung. Diese majestätische Pferderasse mit ihrer barocken Erscheinung und bewegenden Eleganz fasziniert Pferdeliebhaber weltweit."
-          readTime="8 Min."
+          readTime="15 Min."
           publishDate="Dezember 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
@@ -202,6 +221,95 @@ export default function FrieseKaufen() {
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed">
               Nur Pferde, die alle Kriterien erfüllen, erhalten das begehrte KFPS-Zertifikat. Dies garantiert nicht nur Reinrassigkeit, sondern auch höchste Zuchtqualität.
+            </p>
+          </section>
+
+          {/* KFPS-Prädikate Section */}
+          <section id="kfps-praedikate" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              KFPS-Prädikate und Einstufungen erklärt
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Die KFPS vergibt verschiedene Prädikate an Friesen, die deren Qualität und Zuchtwert angeben. Diese Einstufungen beeinflussen den Preis und die Eignung für bestimmte Ziele erheblich.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Die verschiedenen KFPS-Einstufungen
+            </h3>
+
+            <ul className="space-y-4 text-lg text-gray-700">
+              <li className="bg-amber-50 p-4 rounded-lg">
+                <strong>Stamboek:</strong> Die Basiseintragung für reinrassige Friesen. Pferde mit normaler Qualität und durchschnittlichen Bewegungen.
+              </li>
+              <li className="bg-amber-50 p-4 rounded-lg">
+                <strong>Ster (Star):</strong> Die erste Qualitätsstufe. Vergeben an Pferde mit guter Bewegung, korrektem Exterieur und guter Abstammung. Ein wichtiger Qualitätsstandard für Freizeitkäufer.
+              </li>
+              <li className="bg-amber-50 p-4 rounded-lg">
+                <strong>Kroon (Krone):</strong> Eine höhere Einstufung mit strengeren Anforderungen an Exterieur, Bewegung und Abstammung. Nur die besten Pferde erhalten dieses Prädikat.
+              </li>
+              <li className="bg-amber-50 p-4 rounded-lg">
+                <strong>Model:</strong> Die höchste Stuteneinstufung. Für Stuten mit ausgezeichnetem Exterieur und Bewegungspotenzial, ideal für Zucht.
+              </li>
+              <li className="bg-amber-50 p-4 rounded-lg">
+                <strong>Preferent:</strong> Ein Zuchtwert-Prädikat für Pferde mit besonderem genetischem Potenzial. Oft bei bekannten Zuchthengsten und -stuten.
+              </li>
+            </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              Die Prädikate sind entscheidend beim Friese-Kauf: Ein Star-Friese kostet typischerweise 30-50% mehr als ein Stamboek-Pferd, aber bietet bessere Langzeitaussichten. Wenn du den Friesen zuchten oder zu Turnieren führen möchtest, solltest du mindestens ein Ster-Prädikat anstreben.
+            </p>
+          </section>
+
+          {/* Preisübersicht nach Kategorie */}
+          <section id="preise-kategorien" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Preisübersicht: Friesen nach Kategorie
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Die Preise für Friesenpferde variieren je nach Alter, Ausbildungsstand, KFPS-Prädikat und Zuchtwert erheblich. Hier findest du eine realistische Übersicht der Marktpreise:
+            </p>
+
+            <div className="overflow-x-auto bg-amber-50 p-6 rounded-lg">
+              <table className="w-full text-lg text-gray-700">
+                <thead>
+                  <tr className="border-b-2 border-gray-300">
+                    <th className="text-left py-3 font-bold">Kategorie</th>
+                    <th className="text-left py-3 font-bold">Preisrange</th>
+                    <th className="text-left py-3 font-bold">Merkmale</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="py-4 font-semibold">Fohlen (1-2 Jahre)</td>
+                    <td className="py-4">3.000 - 8.000 €</td>
+                    <td className="py-4">Ohne Ausbildung, gutes Potenzial, oft ohne Ster-Prädikat</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="py-4 font-semibold">Freizeitpferd (5-10 Jahre)</td>
+                    <td className="py-4">8.000 - 15.000 €</td>
+                    <td className="py-4">Grundausbildung vorhanden, gutes Temperament, Stamboek/Ster</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="py-4 font-semibold">Ausgebildetes Pferd</td>
+                    <td className="py-4">15.000 - 25.000 €</td>
+                    <td className="py-4">Mittlere bis gute Ausbildung, mehrjähriges Training, Star-Prädikat</td>
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="py-4 font-semibold">Top-Zuchtpferd (Ster/Kroon)</td>
+                    <td className="py-4">25.000 - 50.000 €</td>
+                    <td className="py-4">Hervorragende Abstammung, Zuchtpotenzial, Turniererfolge möglich</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 font-semibold">Ohne KFPS-Papiere</td>
+                    <td className="py-4">2.000 - 5.000 €</td>
+                    <td className="py-4">Keine Reinrassigkeit-Garantie, nicht züchtbar, oft günstige &bdquo;Gnadenbrotplätze&ldquo;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              <strong>Wichtig:</strong> Kaufpreise können in speziellen Marktregionen (Niederlande, Deutschland) abweichen. Top-Zuchthengste oder international erfolgreiche Dressurpferde können auch über 50.000 EUR kosten. Vergleiche mehrere Angebote, bevor du dich entscheidest.
             </p>
           </section>
 
