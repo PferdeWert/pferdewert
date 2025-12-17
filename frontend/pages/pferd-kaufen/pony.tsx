@@ -107,7 +107,7 @@ export default function PonyKaufen() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('pony-kaufen').map(entry => ({
+  const relatedArticles = getRelatedArticles('pony').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -122,7 +122,8 @@ export default function PonyKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="pony-kaufen"
+        slug="pony"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/pony-foal-green-pasture.webp"
         locales={seoLocales}
         datePublished="2025-11-30"

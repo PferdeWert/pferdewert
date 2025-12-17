@@ -127,7 +127,8 @@ export default function FreizeitpferdKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="freizeitpferd-kaufen"
+        slug="freizeitpferd"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/haflinger-deckhengst-fohlenhof-ebbs.webp"
         locales={seoLocales}
         datePublished="2025-11-14"

@@ -147,7 +147,7 @@ const Pferdekaufvertrag: NextPage = () => {
 
   // CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
   const relatedArticles = useMemo(() =>
-    getRelatedArticles('pferdekaufvertrag').map(entry => ({
+    getRelatedArticles('kaufvertrag').map(entry => ({
       title: entry.title,
       description: entry.description,
       href: getRatgeberPath(entry.slug),
@@ -160,7 +160,8 @@ const Pferdekaufvertrag: NextPage = () => {
   return (
     <>
       <RatgeberHead
-        slug="pferdekaufvertrag"
+        slug="kaufvertrag"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/horses-mountain-field-spain.webp"
         locales={seoLocales}
         datePublished="2025-10-28"

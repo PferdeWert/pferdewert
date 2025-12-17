@@ -121,7 +121,7 @@ export default function PferdKaufenSchweizPage() {
   ];
 
   // Related Articles - automatically fetched from registry
-  const relatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('pferd-kaufen-schweiz').map(entry => ({
+  const relatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('schweiz').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -133,7 +133,8 @@ export default function PferdKaufenSchweizPage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <RatgeberHead
-        slug="pferd-kaufen-schweiz"
+        slug="schweiz"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/horses-zermatt-switzerland.webp"
         locales={seoLocales}
         datePublished="2025-12-04"

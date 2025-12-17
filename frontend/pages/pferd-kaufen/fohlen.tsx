@@ -112,7 +112,7 @@ export default function FohlenKaufen() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('fohlen-kaufen').map((entry) => ({
+  const relatedArticles = getRelatedArticles('fohlen').map((entry) => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -124,7 +124,8 @@ export default function FohlenKaufen() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <RatgeberHead
-        slug="fohlen-kaufen"
+        slug="fohlen"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/braunes-fohlen-stute-weide-irland.webp"
         locales={seoLocales}
         datePublished="2025-12-13"

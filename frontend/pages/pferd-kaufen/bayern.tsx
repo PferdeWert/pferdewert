@@ -98,7 +98,7 @@ export default function PferdKaufenBayern() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('pferd-kaufen-bayern').map(entry => ({
+  const relatedArticles = getRelatedArticles('bayern').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -113,7 +113,8 @@ export default function PferdKaufenBayern() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="pferd-kaufen-bayern"
+        slug="bayern"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/pferd-weide-haimhausen-bayern.webp"
         locales={seoLocales}
         datePublished="2025-12-14"

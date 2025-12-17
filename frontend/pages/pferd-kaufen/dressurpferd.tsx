@@ -103,7 +103,7 @@ export default function DressurpferdKaufen() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('dressurpferd-kaufen').map(entry => ({
+  const relatedArticles = getRelatedArticles('dressurpferd').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -118,7 +118,8 @@ export default function DressurpferdKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="dressurpferd-kaufen"
+        slug="dressurpferd"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/dressage-rider-competition-arena.webp"
         locales={seoLocales}
         datePublished="2025-11-09"

@@ -150,11 +150,11 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
     description: 'Alles über Kosten, Ablauf und Befunde der Ankaufsuntersuchung beim Pferdekauf.'
   },
   {
-    href: '/pferde-ratgeber/pferd-kaufen',
+    href: '/pferd-kaufen',
     image: '/images/ratgeber/pferd-kaufen/hero.webp',
     title: 'Pferd kaufen: Der komplette Ratgeber',
-    badge: 'Pferde-Ratgeber',
-    readTime: '15 min',
+    badge: 'Kauf & Verkauf',
+    readTime: '18 min',
     description: 'Checkliste, Tipps und Kaufberatung für Ihren erfolgreichen Pferdekauf.'
   },
   {

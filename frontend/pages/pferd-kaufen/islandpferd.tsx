@@ -107,7 +107,7 @@ export default function IslandpferdKaufen() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('islandpferd-kaufen').map(entry => ({
+  const relatedArticles = getRelatedArticles('islandpferd').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -122,7 +122,8 @@ export default function IslandpferdKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="islandpferd-kaufen"
+        slug="islandpferd"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/islandpferd-weide-1.webp"
         locales={seoLocales}
         datePublished="2025-12-15"

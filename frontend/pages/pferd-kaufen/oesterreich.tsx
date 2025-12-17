@@ -111,7 +111,7 @@ export default function PferdKaufenOesterreich() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('pferd-kaufen-oesterreich').map(entry => ({
+  const relatedArticles = getRelatedArticles('oesterreich').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -126,7 +126,8 @@ export default function PferdKaufenOesterreich() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="pferd-kaufen-oesterreich"
+        slug="oesterreich"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/horses-mountain-meadow-lake.webp"
         locales={seoLocales}
         datePublished="2025-11-30"

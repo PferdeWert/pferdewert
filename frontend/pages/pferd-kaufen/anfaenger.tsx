@@ -262,7 +262,8 @@ export default function AnfaengerpferdKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="anfaengerpferd-kaufen"
+        slug="anfaenger"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/anfaengerpferd-hero.webp"
         locales={seoLocales}
         datePublished="2025-01-14"

@@ -132,7 +132,7 @@ export default function SpringpferdKaufen() {
 
   // Related articles - use registry for consistent data
   const relatedArticles = useMemo(() => {
-    const entries = getRelatedArticles('springpferd-kaufen')
+    const entries = getRelatedArticles('springpferd')
     return entries.map(entry => ({
       title: entry.title,
       description: entry.description,
@@ -146,7 +146,8 @@ export default function SpringpferdKaufen() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <RatgeberHead
-        slug="springpferd-kaufen"
+        slug="springpferd"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/springpferd-hero-jumping.webp"
         locales={seoLocales}
         datePublished="2025-01-09"

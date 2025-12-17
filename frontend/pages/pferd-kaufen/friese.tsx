@@ -106,7 +106,7 @@ export default function FrieseKaufen() {
   ];
 
   // Related articles from registry (will be added after registry update)
-  const relatedArticles = getRelatedArticles('friese-kaufen').map(entry => ({
+  const relatedArticles = getRelatedArticles('friese').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -121,7 +121,8 @@ export default function FrieseKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="friese-kaufen"
+        slug="friese"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/friese-weide.webp"
         locales={seoLocales}
         datePublished="2025-12-15"

@@ -144,7 +144,7 @@ const PferdKaufen: NextPage = () => {
   const hreflangTags = useSEOHreflang('/pferd-kaufen')
 
 const relatedArticles = useMemo(() =>
-    getRelatedArticles('pferd-kaufen').map(entry => ({
+    getRelatedArticles('').map(entry => ({
       href: getRatgeberPath(entry.slug),
       image: entry.image,
       title: entry.title,

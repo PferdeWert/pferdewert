@@ -91,7 +91,7 @@ export default function PferdKaufenNrw() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('pferd-kaufen-nrw').map(entry => ({
+  const relatedArticles = getRelatedArticles('nrw').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -106,7 +106,8 @@ export default function PferdKaufenNrw() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="pferd-kaufen-nrw"
+        slug="nrw"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/pferde-weide-duelmen-muensterland.webp"
         locales={seoLocales}
         datePublished="2025-12-14"

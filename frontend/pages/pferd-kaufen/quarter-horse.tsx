@@ -101,7 +101,7 @@ export default function QuarterHorseKaufen() {
   ];
 
   // Related articles from registry
-  const relatedArticles = getRelatedArticles('quarter-horse-kaufen').map(entry => ({
+  const relatedArticles = getRelatedArticles('quarter-horse').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -116,7 +116,8 @@ export default function QuarterHorseKaufen() {
       background="bg-gradient-to-b from-amber-50 to-white"
     >
       <RatgeberHead
-        slug="quarter-horse-kaufen"
+        slug="quarter-horse"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/quarter-horse-weide.webp"
         locales={seoLocales}
         datePublished="2025-12-14"

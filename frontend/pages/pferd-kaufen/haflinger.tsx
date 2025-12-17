@@ -96,7 +96,7 @@ const sections = [
 
 export default function HaflingerKaufenPage() {
   // Related Articles - automatically fetched from registry based on relatedSlugs
-  const relatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('haflinger-kaufen').map(entry => ({
+  const relatedArticles: RatgeberRelatedArticle[] = getRelatedArticles('haflinger').map(entry => ({
     href: getRatgeberPath(entry.slug),
     image: entry.image,
     title: entry.title,
@@ -108,7 +108,8 @@ export default function HaflingerKaufenPage() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <RatgeberHead
-        slug="haflinger-kaufen"
+        slug="haflinger"
+        basePath="/pferd-kaufen"
         image="/images/ratgeber/haflinger-roebel.webp"
         locales={seoLocales}
         datePublished="2025-11-27"
