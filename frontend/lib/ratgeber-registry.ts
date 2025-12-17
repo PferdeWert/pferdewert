@@ -66,7 +66,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     changefreq: 'monthly',
     relatedSlugs: [
       'aku-pferd/kosten',
-      'pferd-kaufen',
+      '', // Hub-Seite /pferd-kaufen/
       'was-kostet-ein-pferd'
     ]
   },
@@ -79,7 +79,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     image: '/images/ratgeber/aku-pferd/kosten/woman-handler-horse-halter-outdoor.webp', // Außenaufnahme mit Besitzerin – passend zum Kostenthema
     priority: '0.6',
     changefreq: 'monthly',
-    relatedSlugs: ['aku-pferd', 'pferd-kaufen', 'was-kostet-ein-pferd']
+    relatedSlugs: ['aku-pferd', '', 'was-kostet-ein-pferd'] // '' = Hub-Seite /pferd-kaufen/
   },
 
   // ============================================================================
@@ -114,7 +114,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'pferd-kaufen',
+      '', // Hub-Seite /pferd-kaufen/
       'aku-pferd',
       'pferdemarkt'
     ]
@@ -200,7 +200,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     changefreq: 'monthly',
     relatedSlugs: [
       'was-kostet-ein-pferd',
-      'pferd-kaufen',
+      '', // Hub-Seite /pferd-kaufen/
       'aku-pferd'
     ]
   },
