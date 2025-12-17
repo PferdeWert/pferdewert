@@ -270,9 +270,9 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'dressurpferd-kaufen',
+      'dressurpferd',
       'was-kostet-ein-pferd',
-      'anfaengerpferd-kaufen'
+      'anfaenger'
     ]
   },
   // Spoke: /pferd-kaufen/haflinger
