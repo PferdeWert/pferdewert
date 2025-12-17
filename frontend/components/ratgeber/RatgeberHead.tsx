@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { COUNTRY_EXCLUSIVE_SLUGS } from '@/lib/country-exclusive-pages';
 
 // Domain mapping per Next.js i18n locale (configured in next.config.js)
 // UPDATED 2025-12-14: Uses Next.js i18n locales ('de', 'de-AT', 'de-CH')
@@ -50,26 +51,6 @@ interface LocaleMap {
   at?: LocaleContent;
   ch?: LocaleContent;
 }
-
-// ============================================================================
-// MULTI-DOMAIN SEO: Country-exclusive pages
-// These pages should NOT have hreflang tags (they only exist on one domain)
-// ============================================================================
-const COUNTRY_EXCLUSIVE_SLUGS = [
-  // DE-only regional pages
-  'bayern',
-  'nrw',
-  'sachsen',
-  'schleswig-holstein',
-  'brandenburg',
-  'hessen',
-  'baden-wuerttemberg',
-  'niedersachsen',
-  // AT-only
-  'oesterreich',
-  // CH-only
-  'schweiz',
-];
 
 export interface RatgeberHeadProps {
   slug: string;

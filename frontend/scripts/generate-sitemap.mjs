@@ -2,6 +2,7 @@
 // Updated Dec 2025: Country-exclusive pages for multi-domain SEO
 import fs from 'fs';
 import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
+import { isPageAvailableForCountry } from '../lib/country-exclusive-pages.ts';
 
 // Domain configuration for multi-country support
 // NOTE: DE uses non-www (Vercel redirects www → non-www)
@@ -18,44 +19,6 @@ const OUTPUT_PATHS = {
   AT: 'public/sitemap-at.xml',
   CH: 'public/sitemap-ch.xml',
 };
-
-// ============================================================================
-// MULTI-DOMAIN SEO: Country-exclusive pages
-// These pages should only appear in their respective country's sitemap
-// Mirrors the middleware configuration for consistency
-// ============================================================================
-const COUNTRY_EXCLUSIVE_PAGES = {
-  DE: [
-    '/pferd-kaufen/bayern',
-    '/pferd-kaufen/nrw',
-    '/pferd-kaufen/sachsen',
-    '/pferd-kaufen/schleswig-holstein',
-    '/pferd-kaufen/brandenburg',
-    '/pferd-kaufen/hessen',
-    '/pferd-kaufen/baden-wuerttemberg',
-    '/pferd-kaufen/niedersachsen',
-  ],
-  AT: [
-    '/pferd-kaufen/oesterreich',
-  ],
-  CH: [
-    '/pferd-kaufen/schweiz',
-  ],
-};
-
-/**
- * Check if a page should be included in a specific country's sitemap
- * Returns true if the page is available on that domain
- */
-function isPageAvailableForCountry(path, countryCode) {
-  // Check if this page is exclusive to another country
-  for (const [exclusiveCountry, pages] of Object.entries(COUNTRY_EXCLUSIVE_PAGES)) {
-    if (pages.includes(path) && exclusiveCountry !== countryCode) {
-      return false; // This page belongs to a different country
-    }
-  }
-  return true; // Page is available on this domain
-}
 
 // Base pages (same structure for both domains)
 // NOTE: Only include canonical URLs here, NOT redirect sources!

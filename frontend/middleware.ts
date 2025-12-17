@@ -1,44 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getExclusiveCountry } from './lib/country-exclusive-pages'
 
 // Simple Rate Limiting - In-Memory Map
 const rateLimit = new Map<string, { count: number, resetTime: number }>()
-
-// ============================================================================
-// MULTI-DOMAIN SEO: Country-exclusive pages
-// These pages should only be accessible on their respective country domain
-// Other domains return 404 to prevent duplicate content issues
-// ============================================================================
-const COUNTRY_EXCLUSIVE_PAGES: Record<string, string[]> = {
-  'DE': [
-    '/pferd-kaufen/bayern',
-    '/pferd-kaufen/nrw',
-    '/pferd-kaufen/sachsen',
-    '/pferd-kaufen/schleswig-holstein',
-    '/pferd-kaufen/brandenburg',
-    '/pferd-kaufen/hessen',
-    '/pferd-kaufen/baden-wuerttemberg',
-    '/pferd-kaufen/niedersachsen',
-  ],
-  'AT': [
-    '/pferd-kaufen/oesterreich',
-  ],
-  'CH': [
-    '/pferd-kaufen/schweiz',
-  ],
-};
-
-/**
- * Check if a page is exclusive to a specific country
- * Returns the country code if exclusive, null if available on all domains
- */
-function getExclusiveCountry(pathname: string): string | null {
-  for (const [country, pages] of Object.entries(COUNTRY_EXCLUSIVE_PAGES)) {
-    if (pages.some(page => pathname === page || pathname.startsWith(page + '/'))) {
-      return country;
-    }
-  }
-  return null;
-}
 
 // Domain configuration for multi-country support
 const DOMAIN_CONFIG = {
