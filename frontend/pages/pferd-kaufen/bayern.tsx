@@ -114,7 +114,7 @@ export default function PferdKaufenBayern() {
     >
       <RatgeberHead
         slug="pferd-kaufen-bayern"
-        image="/images/ratgeber/horses-mountain-field-bayern.webp"
+        image="/images/ratgeber/pferd-weide-haimhausen-bayern.webp"
         locales={seoLocales}
         datePublished="2025-12-14"
         wordCount={1033}
@@ -136,8 +136,8 @@ export default function PferdKaufenBayern() {
         />
 
         <RatgeberHeroImage
-          src="/images/ratgeber/horses-mountain-field-bayern.webp"
-          alt="Pferde auf einer Bergwiese in Bayern mit Alpenpanorama"
+          src="/images/ratgeber/pferd-weide-haimhausen-bayern.webp"
+          alt="Pferd auf grüner Weide in Bayern"
           priority={true}
           objectPosition="center 30%"
         />

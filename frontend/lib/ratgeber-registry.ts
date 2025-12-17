@@ -409,7 +409,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Pferd kaufen in Bayern: Top-Gestüte, Rottaler & Bayerisches Warmblut, regionale Märkte und praktische Tipps. Preise 3.000-25.000€.',
     category: 'Regional Guides',
     readTime: '8 Min.',
-    image: '/images/ratgeber/horses-mountain-field-bayern.webp',
+    image: '/images/ratgeber/pferd-weide-haimhausen-bayern.webp',
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
@@ -427,7 +427,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     description: 'Pferd kaufen in NRW: Top-Züchter im Münsterland, moderne Reitanlagen im Ruhrgebiet. Westfälische Warmblüter, lokale Märkte und praktische Tipps.',
     category: 'Regional Guides',
     readTime: '7 Min.',
-    image: '/images/ratgeber/horses-grazing-meadow-munsterland.webp',
+    image: '/images/ratgeber/pferde-weide-duelmen-muensterland.webp',
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
