@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import LocalizedLink from '@/components/LocalizedLink'
 import Layout from '@/components/Layout';
 import RatgeberHead from '@/components/ratgeber/RatgeberHead';
@@ -9,6 +10,7 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { Sparkles, CheckCircle, ShieldCheck, Award } from 'lucide-react';
+import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
 import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
@@ -187,32 +189,7 @@ const rassenData = [
   }
 ];
 
-const relatedArticles = [
-  {
-    href: '/pferd-kaufen',
-    image: '/images/ratgeber/pferd-kaufen/rider-brown-horse-dressage-arena.webp',
-    title: 'Pferd kaufen: Der ultimative Ratgeber für Erstkäufer',
-    badge: 'Kauf & Verkauf',
-    readTime: '18 Min.',
-    description: 'Der ultimative Ratgeber für den Pferdekauf. Checklisten, rechtliche Aspekte, Bewertungskriterien und Tipps für die richtige Entscheidung.'
-  },
-  {
-    href: '/pferd-kaufen/kaufvertrag',
-    image: '/images/ratgeber/horses-mountain-field-spain.webp',
-    title: 'Pferdekaufvertrag: Rechtliche Absicherung beim Pferdekauf',
-    badge: 'Finanzen & Recht',
-    readTime: '12 Min.',
-    description: 'Pferdekaufvertrag leicht erklärt: 7 wesentliche Bestandteile, häufige Fehler vermeiden, kostenloses Muster downloaden.'
-  },
-  {
-    href: '/pferde-ratgeber/aku-pferd',
-    image: '/images/ratgeber/aku-pferd/veterinarian-examining-horse-head-outdoor.webp',
-    title: 'Ankaufsuntersuchung beim Pferd: Der ultimative AKU-Ratgeber',
-    badge: 'Kauf & Verkauf',
-    readTime: '15 Min.',
-    description: 'Der umfassende Leitfaden zur Ankaufsuntersuchung beim Pferdekauf. Kosten, Ablauf und wie AKU-Befunde den Wert beeinflussen.'
-  }
-];
+// Related articles will be generated inside component with useMemo to prevent Fast Refresh loops
 
 const opKostenData = [
   { label: 'Kolik-OP:', kosten: '3.000-8.000€' },
@@ -255,6 +232,18 @@ export default function AnfaengerpferdKaufen() {
     href: "/pferde-preis-berechnen",
     icon: sparklesIcon
   };
+
+  // CRITICAL: Related articles MUST be inside component to avoid Next.js cache issues
+  const relatedArticles = useMemo(() =>
+    getRelatedArticles('anfaenger').map(entry => ({
+      title: entry.title,
+      description: entry.description,
+      href: getRatgeberPath(entry.slug),
+      image: entry.image,
+      badge: entry.category,
+      readTime: entry.readTime
+    })),
+  []);
 
   return (
     <Layout
