@@ -23,11 +23,11 @@ const OUTPUT_PATHS = {
 // NOTE: Only include canonical URLs here, NOT redirect sources!
 // - /was-ist-mein-pferd-wert → 301 → /pferde-preis-berechnen (REMOVED)
 // - /pferd-verkaufen → 301 → /pferde-ratgeber/pferd-verkaufen (REMOVED)
+// - /pferde-ratgeber/pferd-kaufen → 301 → /pferd-kaufen (REMOVED - now in registry with basePath)
 const BASE_PAGES = {
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/pferde-preis-berechnen': { priority: '0.9', changefreq: 'weekly' },
   '/pferde-ratgeber': { priority: '0.8', changefreq: 'monthly' },
-  '/pferde-ratgeber/pferd-kaufen': { priority: '0.8', changefreq: 'monthly' },
   '/beispiel-analyse': { priority: '0.7', changefreq: 'monthly' },
   '/ueber-pferdewert': { priority: '0.6', changefreq: 'monthly' },
   '/impressum': { priority: '0.3', changefreq: 'yearly' },
@@ -43,7 +43,8 @@ function buildPageConfig() {
   RATGEBER_ENTRIES.forEach(entry => {
     // Use custom basePath if provided, otherwise default to /pferde-ratgeber
     const basePath = entry.basePath || '/pferde-ratgeber';
-    const path = `${basePath}/${entry.slug}`;
+    // Handle empty slug for index pages (e.g., /pferd-kaufen/ hub)
+    const path = entry.slug === '' ? basePath : `${basePath}/${entry.slug}`;
     config[path] = {
       priority: entry.priority,
       changefreq: entry.changefreq
