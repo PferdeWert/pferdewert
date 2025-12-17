@@ -3,6 +3,43 @@ import { NextRequest, NextResponse } from 'next/server'
 // Simple Rate Limiting - In-Memory Map
 const rateLimit = new Map<string, { count: number, resetTime: number }>()
 
+// ============================================================================
+// MULTI-DOMAIN SEO: Country-exclusive pages
+// These pages should only be accessible on their respective country domain
+// Other domains return 404 to prevent duplicate content issues
+// ============================================================================
+const COUNTRY_EXCLUSIVE_PAGES: Record<string, string[]> = {
+  'DE': [
+    '/pferd-kaufen/bayern',
+    '/pferd-kaufen/nrw',
+    '/pferd-kaufen/sachsen',
+    '/pferd-kaufen/schleswig-holstein',
+    '/pferd-kaufen/brandenburg',
+    '/pferd-kaufen/hessen',
+    '/pferd-kaufen/baden-wuerttemberg',
+    '/pferd-kaufen/niedersachsen',
+  ],
+  'AT': [
+    '/pferd-kaufen/oesterreich',
+  ],
+  'CH': [
+    '/pferd-kaufen/schweiz',
+  ],
+};
+
+/**
+ * Check if a page is exclusive to a specific country
+ * Returns the country code if exclusive, null if available on all domains
+ */
+function getExclusiveCountry(pathname: string): string | null {
+  for (const [country, pages] of Object.entries(COUNTRY_EXCLUSIVE_PAGES)) {
+    if (pages.some(page => pathname === page || pathname.startsWith(page + '/'))) {
+      return country;
+    }
+  }
+  return null;
+}
+
 // Domain configuration for multi-country support
 const DOMAIN_CONFIG = {
   'pferdewert.at': { locale: 'de-AT', country: 'AT' },
@@ -109,6 +146,46 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(chUrl.toString(), 301);
   }
 
+  // Determine country from domain (or fallback to DE)
+  const country = domainConfig?.country || 'DE';
+
+  // 5. COUNTRY-EXCLUSIVE PAGES: Block regional pages on wrong domains
+  // e.g., /pferd-kaufen/bayern should only work on pferdewert.de
+  // This prevents duplicate content across domains
+  const exclusiveCountry = getExclusiveCountry(pathname);
+  if (exclusiveCountry && exclusiveCountry !== country) {
+    // This page belongs to a different country's domain
+    // Return 404 to signal Google this page doesn't exist here
+    return new NextResponse(
+      `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <title>Seite nicht verfügbar</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 100px auto; padding: 20px; text-align: center; }
+    h1 { color: #1a365d; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Diese Seite ist hier nicht verfügbar</h1>
+  <p>Der Inhalt, den du suchst, ist auf einer anderen Domain verfügbar.</p>
+  <p><a href="/pferd-kaufen/">Zurück zur Übersicht</a></p>
+</body>
+</html>`,
+      {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'X-Robots-Tag': 'noindex',
+        },
+      }
+    );
+  }
+
   // Determine locale from domain (or fallback to DE)
   const locale = domainConfig?.locale || 'de';
 
@@ -150,7 +227,6 @@ export function middleware(request: NextRequest) {
 
   // Response mit locale und country headers für Client-Side Detection
   const response = NextResponse.next();
-  const country = domainConfig?.country || 'DE';
   response.headers.set('x-locale', locale);
   response.headers.set('x-country', country);
   // Cookie for client-side access (headers not readable in browser)

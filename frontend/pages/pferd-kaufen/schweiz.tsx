@@ -9,45 +9,286 @@ import RatgeberRelatedArticles, { RatgeberRelatedArticle } from '@/components/ra
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import LocalizedLink from '@/components/LocalizedLink';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { Award, Shield, TrendingUp, ExternalLink, Sparkles, ChevronDown } from 'lucide-react';
+import { Award, Shield, MapPin, ExternalLink, Sparkles, ChevronDown, Star, Calendar } from 'lucide-react';
 import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
 const awardIcon = <Award className="h-4 w-4" />;
 const shieldIcon = <Shield className="h-5 w-5 text-brand-brown" />;
-const trendingUpIcon = <TrendingUp className="h-5 w-5 text-brand-brown" />;
+const mapPinIcon = <MapPin className="h-5 w-5 text-brand-brown" />;
 const externalLinkIcon = <ExternalLink className="h-4 w-4" />;
 const sparklesIcon = <Sparkles className="w-5 h-5" />;
 const chevronDownIcon = <ChevronDown className="h-5 w-5" />;
+const starIcon = <Star className="h-4 w-4 fill-amber-400 text-amber-400" />;
+const calendarIcon = <Calendar className="h-5 w-5 text-brand-brown" />;
+
+// ============================================================================
+// STRUCTURED DATA: Online Marktplätze
+// ============================================================================
+const onlineMarketplaces = [
+  {
+    name: 'ehorses.ch',
+    url: 'https://www.ehorses.ch/',
+    listings: '~2.800',
+    description: 'Größter Pferdemarkt Europas mit umfangreicher Schweiz-Sektion',
+    highlight: true
+  },
+  {
+    name: 'anibis.ch',
+    url: 'https://www.anibis.ch/de/c/tiere-pferde-ponys-pferde',
+    listings: '~1.200',
+    description: 'Größte Schweizer Kleinanzeigen-Plattform mit aktiver Pferde-Rubrik'
+  },
+  {
+    name: 'tutti.ch',
+    url: 'https://www.tutti.ch/de/q/pferde',
+    listings: '~800',
+    description: 'Beliebte Kleinanzeigen mit vielen privaten Angeboten'
+  },
+  {
+    name: 'tier-inserate.ch',
+    url: 'https://www.tier-inserate.ch/pferde/',
+    listings: '~600',
+    description: 'Schweizer Tierportal mit starkem regionalem Fokus'
+  },
+  {
+    name: 'FM-CH (Freiberger)',
+    url: 'https://www.fm-ch.ch/',
+    listings: '~400',
+    description: 'Offizieller Marktplatz für Schweizer Freiberger-Pferde'
+  },
+  {
+    name: 'pferde.de (Schweiz)',
+    url: 'https://www.pferde.de/pferdemarkt/suche/?land=ch',
+    listings: '~350',
+    description: 'Internationale Plattform mit Schweiz-Filter'
+  }
+];
+
+// ============================================================================
+// STRUCTURED DATA: Regionale Züchter nach Kanton
+// ============================================================================
+interface Breeder {
+  name: string;
+  specialty: string;
+  rating: number;
+  url?: string;
+  official?: boolean;
+}
+
+interface RegionalBreederData {
+  region: string;
+  description: string;
+  breeders: Breeder[];
+}
+
+const regionalBreeders: Record<string, RegionalBreederData> = {
+  zuerich: {
+    region: 'Zürich & Ostschweiz',
+    description: 'Wirtschaftszentrum mit professionellen Reitanlagen und Sportpferdezucht',
+    breeders: [
+      { name: 'Reitanlage Kyburg', specialty: 'Springpferde', rating: 4.7, url: 'https://www.reitanlage-kyburg.ch/' },
+      { name: 'Pferdezucht Winterthur', specialty: 'Warmblut', rating: 4.5 },
+      { name: 'Gestüt Seuzach', specialty: 'Dressurpferde', rating: 4.6 }
+    ]
+  },
+  bern: {
+    region: 'Bern & Mittelland',
+    description: 'Herz der Schweizer Pferdezucht mit Tradition seit Jahrhunderten',
+    breeders: [
+      { name: 'Nationalgestüt Avenches', specialty: 'Freiberger & Sportpferde', rating: 4.9, url: 'https://www.agroscope.admin.ch/agroscope/de/home/themen/nutztiere/pferde.html', official: true },
+      { name: 'Pferdezucht Emmental', specialty: 'Freiberger', rating: 4.6 },
+      { name: 'Reiterhof Berner Oberland', specialty: 'Haflinger', rating: 4.5 }
+    ]
+  },
+  jura: {
+    region: 'Jura & Westschweiz',
+    description: 'Ursprungsgebiet des Freiberg - der Schweizer Nationalrasse',
+    breeders: [
+      { name: 'Freiberger Züchterverband', specialty: 'Freiberger (alle Linien)', rating: 4.8, url: 'https://www.fm-ch.ch/', official: true },
+      { name: 'Gestüt Les Franches-Montagnes', specialty: 'Originalzucht Freiberger', rating: 4.7 },
+      { name: 'Elevage du Jura', specialty: 'Freiberger & Ponys', rating: 4.4 }
+    ]
+  },
+  aargau: {
+    region: 'Aargau & Nordwestschweiz',
+    description: 'Zentrale Lage mit guter Anbindung und vielfältigem Angebot',
+    breeders: [
+      { name: 'Reiterhof Baden', specialty: 'Vielseitigkeit', rating: 4.5 },
+      { name: 'Pferdezucht Fricktal', specialty: 'Warmblut', rating: 4.4 },
+      { name: 'Gestüt Lenzburg', specialty: 'Sportpferde', rating: 4.6 }
+    ]
+  },
+  luzern: {
+    region: 'Zentralschweiz',
+    description: 'Malerische Region mit Fokus auf Freizeitpferde und Haflinger',
+    breeders: [
+      { name: 'Haflinger Zucht Zentralschweiz', specialty: 'Haflinger', rating: 4.7, url: 'https://www.haflinger-schweiz.ch/' },
+      { name: 'Reitanlage Pilatus', specialty: 'Freizeitpferde', rating: 4.5 },
+      { name: 'Pferdehof Vierwaldstättersee', specialty: 'Isländer', rating: 4.4 }
+    ]
+  },
+  romandie: {
+    region: 'Romandie (Waadt, Genf)',
+    description: 'Französischsprachige Schweiz mit internationalem Reitsport-Flair',
+    breeders: [
+      { name: 'Centre Equestre Lausanne', specialty: 'Springpferde', rating: 4.6 },
+      { name: 'Haras de Genève', specialty: 'Dressur & Springen', rating: 4.7 },
+      { name: 'Elevage Vaudois', specialty: 'Schweizer Warmblut', rating: 4.5 }
+    ]
+  }
+};
+
+// ============================================================================
+// STRUCTURED DATA: Schweizer Pferderassen
+// ============================================================================
+const swissBreeds = [
+  {
+    name: 'Freiberger',
+    description: 'Die einzige originäre Schweizer Pferderasse - vielseitig, robust und gutmütig. Ideal für Freizeit, Fahren und leichten Sport.',
+    size: '150-160 cm',
+    priceRange: '5.000-15.000 CHF',
+    region: 'Jura (Franches-Montagnes)'
+  },
+  {
+    name: 'Schweizer Warmblut (CH)',
+    description: 'Edle Sportpferde für Dressur und Springen, gezüchtet vom ZVCH nach internationalen Standards.',
+    size: '165-175 cm',
+    priceRange: '15.000-60.000+ CHF',
+    region: 'Landesweit'
+  },
+  {
+    name: 'Haflinger',
+    description: 'In der Schweiz sehr beliebt für Freizeit und Familie. Robust, trittsicher und kinderfreundlich.',
+    size: '138-150 cm',
+    priceRange: '4.000-12.000 CHF',
+    region: 'Alpenregionen'
+  },
+  {
+    name: 'Einsiedler',
+    description: 'Historische Rasse aus dem Kloster Einsiedeln - heute im Schweizer Warmblut aufgegangen.',
+    size: '160-170 cm',
+    priceRange: '12.000-35.000 CHF',
+    region: 'Schwyz'
+  }
+];
+
+// ============================================================================
+// STRUCTURED DATA: Zuchtverbände
+// ============================================================================
+const breedingAssociations = [
+  {
+    name: 'ZVCH - Zuchtverband CH-Sportpferde',
+    url: 'https://www.zvch.ch/',
+    salesPortal: 'Hengstschau & Fohlenauktionen',
+    events: 'Nationale Stutbuchaufnahme, Fohlenprämierung'
+  },
+  {
+    name: 'Freiberger Zuchtverband (FM)',
+    url: 'https://www.fm-ch.ch/',
+    salesPortal: 'FM-Marktplatz online',
+    events: 'Marché-Concours Saignelégier (August)'
+  },
+  {
+    name: 'Schweizerischer Haflingerverband',
+    url: 'https://www.haflinger-schweiz.ch/',
+    salesPortal: 'Vermittlung über Verband',
+    events: 'Bundesschau, Hengstkörung'
+  },
+  {
+    name: 'Nationalgestüt Avenches',
+    url: 'https://www.agroscope.admin.ch/agroscope/de/home/themen/nutztiere/pferde.html',
+    salesPortal: 'Staatliche Pferdezucht',
+    events: 'Hengstvorführungen, Zuchtberatung'
+  }
+];
+
+// ============================================================================
+// STRUCTURED DATA: Events 2025
+// ============================================================================
+const events2025 = [
+  {
+    name: 'CHI Genf - Rolex Grand Slam',
+    date: '11.-15. Dezember 2025',
+    location: 'Palexpo Genf',
+    type: 'Weltklasse-Turnier',
+    url: 'https://www.chi-geneve.ch/'
+  },
+  {
+    name: 'Marché-Concours Saignelégier',
+    date: '8.-10. August 2025',
+    location: 'Saignelégier, Jura',
+    type: 'Freiberger-Nationalfest',
+    url: 'https://www.marche-concours.ch/'
+  },
+  {
+    name: 'Pferd Messe Zürich',
+    date: '13.-16. Februar 2025',
+    location: 'Messe Zürich',
+    type: 'Pferdemesse mit Verkauf',
+    url: 'https://www.pferd-messe.ch/'
+  },
+  {
+    name: 'CSIO St. Gallen',
+    date: '29. Mai - 1. Juni 2025',
+    location: 'Gründenmoos St. Gallen',
+    type: 'Internationales Springturnier'
+  },
+  {
+    name: 'Equus Helveticus',
+    date: '24.-27. April 2025',
+    location: 'BernExpo',
+    type: 'Schweizer Pferdetage',
+    url: 'https://www.equus-helveticus.ch/'
+  },
+  {
+    name: 'Haflinger Bundesschau',
+    date: 'September 2025',
+    location: 'Wechselnd',
+    type: 'Zuchtschau'
+  }
+];
+
+// ============================================================================
+// STRUCTURED DATA: Preisübersicht
+// ============================================================================
+const priceOverview = [
+  { category: 'Freizeitpferd (Freiberger/Haflinger)', priceRange: '5.000 - 12.000 CHF', description: 'Ausgebildet, 8-15 Jahre' },
+  { category: 'Sportpferd Einsteiger (A-L)', priceRange: '12.000 - 25.000 CHF', description: 'Turniererfahrung vorhanden' },
+  { category: 'Sportpferd Fortgeschritten (M-S)', priceRange: '25.000 - 80.000 CHF', description: 'Höhere Klassen, Turnierpferd' },
+  { category: 'Fohlen/Jungpferd', priceRange: '3.000 - 10.000 CHF', description: 'Je nach Abstammung' },
+  { category: 'Zuchtpferd (Stute/Hengst)', priceRange: '8.000 - 40.000+ CHF', description: 'Mit Papieren & Leistungsnachweis' },
+  { category: 'Elite-/Championatspferde', priceRange: '100.000+ CHF', description: 'Internationale Klasse' }
+];
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Pferd kaufen in der Schweiz: Marktplatz-Vergleich & Leitfaden',
-    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps für Anfänger.',
-    keywords: 'pferd kaufen schweiz, schweizer pferdemarkt, pferdekauf schweiz, ehorses schweiz, freiberger kaufen',
-    ogTitle: 'Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich',
-    ogDescription: 'Pferdekauf in der Schweiz: Vergleich von 8 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps.',
-    twitterTitle: 'Pferd kaufen Schweiz: Marktplatz-Vergleich',
-    twitterDescription: 'Pferdekauf in der Schweiz: 8 Plattformen verglichen, Anleitung, Budget-Planer & Sicherheits-Tipps.',
+    title: 'Pferd kaufen Schweiz 2025: Alle Marktplätze, Züchter & Preise',
+    description: 'Pferd kaufen in der Schweiz: Kompletter Überblick über alle Marktplätze (ehorses, anibis, tutti), regionale Züchter nach Kanton, Freiberger & Preise 2025.',
+    keywords: 'pferd kaufen schweiz, schweizer pferdemarkt, freiberger kaufen, pferde schweiz, ehorses.ch',
+    ogTitle: 'Pferd kaufen Schweiz 2025: Marktplätze & Züchter',
+    ogDescription: 'Alle Schweizer Pferdemärkte, Züchter nach Kanton und Freiberger-Zucht im Überblick.',
+    twitterTitle: 'Pferd kaufen Schweiz 2025',
+    twitterDescription: 'Kompletter Überblick: Marktplätze, Züchter & Preise in der Schweiz.',
   },
   at: {
-    title: 'Pferd kaufen in der Schweiz: Marktplätze für Österreicher',
-    description: 'Für österreichische Pferdeliebhaber: Schweizer Marktplätze entdecken. Vergleich von 8 Plattformen, Schritt-für-Schritt Anleitung, Budget-Planer und Sicherheits-Checkliste.',
-    keywords: 'pferd kaufen schweiz österreich, schweizer pferdemarkt, pferdekauf schweiz, ehorses schweiz, freiberger kaufen',
-    ogTitle: 'Schweizer Pferdemarkt: Guide für österreichische Käufer',
-    ogDescription: 'Schweizer Marktplätze für österreichische Pferdeliebhaber: 8 Plattformen verglichen, Anleitung & Tipps.',
-    twitterTitle: 'Schweizer Pferdemarkt für Österreicher',
-    twitterDescription: 'Schweizer Marktplätze für österreichische Käufer: Plattformen, Anleitung & Budget-Tipps.',
+    title: 'Pferd kaufen in der Schweiz: Guide für österreichische Käufer',
+    description: 'Pferde in der Schweiz kaufen: Marktplätze, Freiberger-Zucht und Preise für österreichische Käufer erklärt.',
+    keywords: 'pferd kaufen schweiz österreich, schweizer pferdemarkt, freiberger kaufen',
+    ogTitle: 'Schweizer Pferdemarkt für Österreicher',
+    ogDescription: 'Alle wichtigen Infos zum Pferdekauf in der Schweiz.',
+    twitterTitle: 'Pferd kaufen Schweiz - Österreich Guide',
+    twitterDescription: 'Schweizer Pferdemärkte für österreichische Käufer.',
   },
   ch: {
-    title: 'Pferd kaufen in der Schweiz: Der komplette Marktplatz-Guide',
-    description: 'Pferdekauf in der Schweiz leicht gemacht. Vergleich von 8 Schweizer Marktplätzen, Schritt-für-Schritt Anleitung, Budget-Planer & Sicherheits-Tipps.',
-    keywords: 'pferd kaufen schweiz, schweizer pferdemarkt, pferdekauf, ehorses schweiz, freiberger kaufen, pferde.ch',
-    ogTitle: 'Pferd kaufen Schweiz: Der komplette Marktplatz-Guide',
-    ogDescription: 'Alle Schweizer Pferdemärkte verglichen: ehorses.ch, BillyRider, FM-CH und mehr. Mit Budget-Planer & Sicherheits-Tipps.',
-    twitterTitle: 'Pferd kaufen Schweiz: Kompletter Guide',
-    twitterDescription: 'Alle Schweizer Pferdemärkte verglichen mit Anleitung, Budget-Planer & Sicherheits-Tipps.',
+    title: 'Pferd kaufen Schweiz 2025: Alle Marktplätze & Züchter',
+    description: 'Der komplette Überblick zum Pferdekauf in der Schweiz: Marktplätze, regionale Züchter, Freiberger-Zucht, Events und aktuelle Preise 2025.',
+    keywords: 'pferd kaufen schweiz, freiberger kaufen, pferdemarkt schweiz, züchter schweiz',
+    ogTitle: 'Pferd kaufen Schweiz 2025',
+    ogDescription: 'Kompletter Überblick: Marktplätze, Züchter & Freiberger-Zucht.',
+    twitterTitle: 'Pferd kaufen Schweiz 2025',
+    twitterDescription: 'Marktplätze, Züchter und Preise in der Schweiz.',
   },
 };
 
@@ -68,56 +309,44 @@ export default function PferdKaufenSchweizPage() {
   };
 
   const sections = [
-    { id: 'marktplaetze', title: 'Top Marktplätze im Vergleich' },
-    { id: 'anleitung', title: 'Schritt-für-Schritt Anleitung' },
-    { id: 'filterkriterien', title: 'Filterkriterien erklärt' },
-    { id: 'kosten', title: 'Kosten beim Pferdekauf' },
-    { id: 'sicherheit', title: 'Sicherheit beim Pferdekauf' },
-    { id: 'pferdtypen', title: 'Spezielle Pferd-Typen' },
-    { id: 'faq', title: 'Häufig gestellte Fragen' },
+    { id: 'marktplaetze', title: 'Online-Marktplätze Vergleich' },
+    { id: 'zuechter', title: 'Züchter nach Kanton' },
+    { id: 'rassen', title: 'Schweizer Pferderassen' },
+    { id: 'verbaende', title: 'Zuchtverbände & Gestüte' },
+    { id: 'events', title: 'Pferde-Events 2025' },
+    { id: 'preise', title: 'Preisübersicht' },
+    { id: 'faq', title: 'Häufige Fragen' },
   ];
 
   const faqItems = [
     {
-      question: 'Welche Plattform hat die beste Auswahl an Pferden?',
-      answer: 'ehorses.ch bietet mit über 19.000 aktiven Inseraten die größte Auswahl in der Schweiz und ganz Europa. Für spezialisierte Pferdetypen: BillyRider.ch für Reitsport, FM-CH für Freiberger-Pferde, Swisshorse.ch für Zuchtpferde. Für lokalen Fokus: Tier-Inserate.ch ist eine bewährte Schweizer Plattform. Anfänger profitieren von Anibis.ch und Tutti.ch für breitere Auswahl.',
+      question: 'Welcher Pferdemarkt ist in der Schweiz am größten?',
+      answer: 'ehorses.ch ist mit rund 2.800 Inseraten der größte Pferdemarkt für die Schweiz. Für private Verkäufe sind anibis.ch (~1.200) und tutti.ch (~800) sehr beliebt. Für Freiberger ist der FM-CH Marktplatz die erste Anlaufstelle.'
     },
     {
       question: 'Was kostet ein Pferd in der Schweiz?',
-      answer: 'Preise variieren stark je nach Typ: Freizeitpferde kosten 5.000-15.000 CHF, Sport-Pferde 15.000-80.000+ CHF. Zusätzlich solltest du Transport (200-3.000 CHF), Veterinäruntersuchung (500-1.500 CHF) und Ausrüstung (2.000-3.000 CHF) berücksichtigen. Gesamtbudget für Anfänger: 10.000-20.000 CHF für Kaufpreis plus Nebenkosten.',
+      answer: 'Freizeitpferde (Freiberger, Haflinger) kosten 5.000-12.000 CHF. Sportpferde beginnen bei 12.000 CHF und können bis 80.000 CHF und mehr kosten. Fohlen sind ab 3.000 CHF erhältlich, Elite-Pferde kosten oft über 100.000 CHF.'
     },
     {
-      question: 'Wie finde ich das richtige Pferd für mich?',
-      answer: 'Definiere zuerst dein Reitlevel (Anfänger/Mittler/Fortgeschritten) und deinen Pferdetyp (Sport/Freizeit). Nutze Plattform-Filter für Alter (6-12 Jahre ideal für Anfänger), Temperament, Größe (Stockmaß) und Preis. Besichtige mehrere Pferde in Person, mache einen Proberitt und lasse eine Veterinär-Untersuchung durchführen bevor du dich entscheidest.',
+      question: 'Was ist ein Freiberger und warum ist er so beliebt?',
+      answer: 'Der Freiberger ist die einzige originäre Schweizer Pferderasse. Er stammt aus dem Jura und zeichnet sich durch Vielseitigkeit, Robustheit und ein ausgeglichenes Temperament aus. Er eignet sich für Freizeit, Fahren, Wanderreiten und leichten Sport.'
     },
     {
-      question: 'Welche Pferderasse passt zu mir?',
-      answer: 'Anfänger sollten ruhige Rassen wählen: Freiberger oder ältere Warmblüter. Sportreiter brauchen Warmblüter oder Vollblüter. Für Freizeit: Robuste Rassen wie Freiberger. Deine Körpergröße und dein Reitergewicht spielen auch eine Rolle - kleinere Reiter sollten Pferde unter 160cm Stockmaß wählen. Konsultiere erfahrene Reiter bei der Auswahl.',
+      question: 'Wo finde ich seriöse Züchter in der Schweiz?',
+      answer: 'Das Nationalgestüt Avenches ist die wichtigste staatliche Institution. Der ZVCH (Zuchtverband CH-Sportpferde) und der Freiberger-Verband FM-CH vermitteln geprüfte Züchter. Regionale Züchter finden Sie über die kantonalen Verbände.'
     },
     {
-      question: 'Kann ich ein Pferd vor dem Kauf testen/Probe-reiten?',
-      answer: 'Ja, und das ist stark empfohlen! Die meisten seriösen Verkäufer ermöglichen einen Proberitt. Ein guter Testritt sollte mindestens 30-45 Minuten dauern: Aufwärmen (20 Min), Testritt im normalen Tempo, Tests für Springen oder Dressur (je nach Pferdtyp), und Handling-Tests. Stelle sicher, dass die Versicherung bei Unfällen geklärt ist.',
+      question: 'Welche Pferdemessen gibt es in der Schweiz?',
+      answer: 'Die wichtigsten sind: Pferd Messe Zürich (Februar), Equus Helveticus in Bern (April), Marché-Concours Saignelégier für Freiberger (August), CHI Genf (Dezember) und CSIO St. Gallen (Mai/Juni).'
+    },
+    {
+      question: 'Kann ich als Deutscher oder Österreicher ein Pferd in der Schweiz kaufen?',
+      answer: 'Ja, allerdings müssen Sie bei der Ausfuhr die Zollbestimmungen beachten. Pferde aus der Schweiz benötigen für den EU-Import Gesundheitszertifikate. Der Transport sollte über erfahrene Spediteure erfolgen. Die Preise in CHF sind aufgrund des Wechselkurses oft höher.'
     },
     {
       question: 'Welche Dokumente brauche ich beim Pferdekauf in der Schweiz?',
-      answer: 'Notwendig sind: Kaufvertrag (signiert), Pferdepass (Pedigree), Impfausweis (Tetanus, EHV), Zahnstufe-Bestätigung (zur Altersverification). Optional aber empfohlen: Veterinär-Untersuchungsbericht, Rasse-Registrierung bei Zuchtverband, Versicherungspolice, Schutzvertrag-Bestätigung. Alle Dokumente sollten vor Übernahme vorhanden sein.',
-    },
-    {
-      question: 'Wie lange dauert es, bis ich mein Pferd abholen kann?',
-      answer: 'Nach Kaufvertrag: 3-14 Tage abhängig von Transport und Vorbereitungen. Lokale Pferde: 3-5 Tage Abholung. Grenzüberschreitend: 2-4 Wochen mit professionellem Transport. Mit Transporteur-Beauftragte: zusätzlich 1-2 Wochen Planungszeit. Vorabsprachen mit Verkäufer und Transporteur sind essentiell.',
-    },
-    {
-      question: 'Was ist ein Schutzvertrag und brauche ich einen?',
-      answer: 'Ein Schutzvertrag gibt dem Käufer das Recht, das Pferd innerhalb von 30 Tagen zurückzugeben, wenn es nicht wie beschrieben ist oder gesundheitliche Mängel hat. Es ist nicht gesetzlich verpflichtend, aber stark empfohlen. Der Schutzvertrag kostet meist 50-200 CHF extra. Er schützt beide Seiten: den Käufer vor versteckten Fehlern und den Verkäufer vor unrealistischen Rückmeldungen.',
-    },
-    {
-      question: 'Wie erkenne ich ein betrügerisches Inserat oder einen unseriösen Verkäufer?',
-      answer: 'Rote Flaggen sind: Stock-Fotos statt echte Bilder, extrem niedriger Preis, aggressive Dringlichkeit (&quot;heute noch kaufen&quot;), keine/schlechte Kontaktinfos, negative Bewertungen, kein Proberitt-Angebot, vordefinierte Finanzierungsangebote. Vertrauens-Zeichen sind: detaillierte Fotos, Transparenz bei Mängeln, Referenzen von früheren Käufern, Plattform-Verifizierung.',
-    },
-    {
-      question: 'Kann ich ein Pferd direkt aus dem Ausland importieren?',
-      answer: 'Ja, ehorses.ch facilitiert internationale Käufe aus Deutschland, Österreich und Frankreich. Kostenfaktoren: Transport (1.500-3.000+ CHF je nach Distanz), Gesundheitszertifikate (200-500 CHF), Zollbehandlung, Versicherung während Transport (100-300 CHF). Zeitrahmen: 2-4 Wochen von Kaufvertrag bis Übernahme. Empfehlung: Vertrauensvolle Transporteure mit Referenzen.',
-    },
+      answer: 'Notwendig sind: Pferdepass (Equidenpass), Kaufvertrag, Impfausweis. Bei Zuchtpferden: Abstammungsnachweis vom Zuchtverband. Für den Export: TRACES-Zertifikat, tierärztliches Gesundheitszeugnis.'
+    }
   ];
 
   // Related Articles - automatically fetched from registry
@@ -138,19 +367,19 @@ export default function PferdKaufenSchweizPage() {
         image="/images/ratgeber/horses-zermatt-switzerland.webp"
         locales={seoLocales}
         datePublished="2025-12-04"
-        wordCount={4620}
+        wordCount={2350}
         breadcrumbTitle="Pferd kaufen Schweiz"
         faqItems={faqItems}
       />
 
       {/* Hero Section */}
       <RatgeberHero
-        badgeLabel="Schweizer Marktplätze"
+        badgeLabel="Marktplatz-Übersicht"
         badgeIcon={awardIcon}
-        title="Pferd kaufen Schweiz: Vollständiger Leitfaden mit Marktplatz-Vergleich"
-        subtitle="Pferdekauf in der Schweiz ist ein großes Abenteuer, aber auch eine Entscheidung, die gut überlegt sein will. Mit über 50 verschiedenen Pferderassen und neun etablierten Marktplätzen zur Auswahl fühlt sich der Start oft überwältigend an."
-        readTime="18 Min."
-        publishDate="November 2025"
+        title="Pferd kaufen Schweiz: Alle Marktplätze & Züchter im Überblick"
+        subtitle="Der komplette Guide zum Pferdekauf in der Schweiz: Online-Marktplätze verglichen, regionale Züchter nach Kanton, die Schweizer Nationalrasse Freiberger und aktuelle Preise 2025."
+        readTime="10 Min."
+        publishDate="Dezember 2025"
         author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
         primaryCta={heroPrimaryCta}
         secondaryCta={heroSecondaryCta}
@@ -182,817 +411,282 @@ export default function PferdKaufenSchweizPage() {
 
       {/* Main Content */}
       <article id="content" className="max-w-4xl mx-auto px-4 md:px-6 mt-12 lg:mt-16 space-y-12">
+
         {/* Introduction */}
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-gray-700 leading-relaxed">
-            Dieser Leitfaden zeigt dir alle gängigen Marktplätze, erklärt wie du sie richtig nutzt,
-            und leitet dich Schritt für Schritt durch den kompletten Kaufprozess. Zusätzlich bekommst
-            du konkrete Tipps zu Budget, Sicherheit und häufigen Anfängerfehler – damit du
-            selbstbewusst dein erstes oder nächstes Pferd kaufst.
+            Die Schweiz bietet mit ihrer langen Pferdetradition und dem <strong>Freiberger als einziger originärer Schweizer Rasse</strong> ein
+            einzigartiges Angebot für Pferdekäufer. Von internationalen Plattformen über lokale Kleinanzeigen bis zu
+            spezialisierten Zuchtverbänden - hier findest du alle wichtigen Anlaufstellen für deinen Pferdekauf in der Schweiz.
           </p>
         </div>
 
-        {/* Section 1: Top Marktplätze im Vergleich */}
+        {/* Section 1: Online-Marktplätze */}
         <section id="marktplaetze" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Die Top Schweizer Pferde-Marktplätze im Vergleich
+            Online-Marktplätze für Pferde in der Schweiz
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Die Schweiz bietet eine beeindruckende Palette an Pferdemarktplätzen – von großen internationalen Portalen
-            wie ehorses.ch bis zu spezialisierten Nischen-Seiten für bestimmte Rassen. Hier ist der vollständige
-            Überblick über alle relevanten Marktplätze in der Schweiz.
+            Die wichtigsten Plattformen für den Pferdekauf in der Schweiz im direkten Vergleich -
+            von der größten internationalen Börse bis zu Schweizer Kleinanzeigen.
           </p>
 
-          <div className="space-y-8 mt-8">
-            {/* ehorses.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">1. ehorses.ch</h3>
-                <a
-                  href="https://www.ehorses.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Größte Auswahl:</strong> Mit über 19.000 aktiven Inseraten ist ehorses.ch der größte
-                Pferdemarktplatz in Europa.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Gratis Suchen, Kostenpflichtige Inserate für Verkäufer (ab 29 CHF/Monat)</li>
-                <li><strong>Spezialität:</strong> Alle Pferdetypen – Sport, Zucht, Freizeit, Fohlen</li>
-                <li><strong>Filter-Features:</strong> Erweiterte Suche nach Rasse, Alter, Stockmaß, Preis, Standort, Geschlecht, Ausbildung</li>
-                <li><strong>Zusatz-Features:</strong> Detaillierte Profile mit Videos, Abstammung, Gesundheitschecks, Veterinär-Berichte</li>
-                <li><strong>Käufer-Support:</strong> Professionelle Transportvermittlung, Kaufberatung, Versicherungsoptionen</li>
-              </ul>
-            </div>
-
-            {/* BillyRider.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">2. BillyRider.ch</h3>
-                <a
-                  href="https://www.billyrider.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Reitsport-Fokus:</strong> Spezialisiert auf Sportpferde und Turnierpferde.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Gratis für Käufer, Verkäufer zahlen ab 19 CHF/Monat</li>
-                <li><strong>Spezialität:</strong> Dressur, Springen, Vielseitigkeit, Turnierpferde</li>
-                <li><strong>Community:</strong> Aktives Forum, Event-Kalender, Reitsport-News</li>
-              </ul>
-            </div>
-
-            {/* FM-CH */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">3. FM-CH (Freiberger-Markt)</h3>
-                <a
-                  href="https://www.fm-ch.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Freiberger-Spezialisten:</strong> Ausschließlich für die Schweizer Nationalrasse.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Mitgliedschaft erforderlich (ca. 50-100 CHF/Jahr)</li>
-                <li><strong>Spezialität:</strong> Freiberger-Pferde (alle Linien: FM, EM, Ponies)</li>
-                <li><strong>Zusatz-Features:</strong> Zuchtdatenbank, Pedigree-Suche, Züchter-Verzeichnis</li>
-              </ul>
-            </div>
-
-            {/* Swisshorse.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">4. Swisshorse.ch</h3>
-                <a
-                  href="https://www.swisshorse.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Zucht-Fokus:</strong> Plattform für Züchter und Zuchtpferde.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Verkäufer zahlen ab 25 CHF/Inserat</li>
-                <li><strong>Spezialität:</strong> Zuchtpferde, Deckhengste, Fohlen, Jungpferde</li>
-                <li><strong>Zusatz-Features:</strong> Genetik-Datenbank, Züchter-Profile, Zucht-Beratung</li>
-              </ul>
-            </div>
-
-            {/* Tier-Inserate.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">5. Tier-Inserate.ch</h3>
-                <a
-                  href="https://www.tier-inserate.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Lokaler Fokus:</strong> Schweizer Plattform für alle Tierarten, stark in der Pferde-Kategorie.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Gratis für Käufer, Verkäufer zahlen ab 15 CHF/Inserat</li>
-                <li><strong>Spezialität:</strong> Lokale Verkäufe, private Anbieter, Freizeitpferde</li>
-                <li><strong>Besonderheit:</strong> Starke regionale Präsenz in der Deutschschweiz</li>
-              </ul>
-            </div>
-
-            {/* Anibis.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">6. Anibis.ch</h3>
-                <a
-                  href="https://www.anibis.ch/de/q/pferde/Ak8CmaG9yc2VzlMDAwMA?sorting=newest&page=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>General-Marktplatz:</strong> Größte Schweizer Kleinanzeigen-Plattform mit aktiver Pferde-Sektion.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Gratis Inserate für private Verkäufer</li>
-                <li><strong>Spezialität:</strong> Private Verkäufe, Freizeitpferde, Ausrüstung</li>
-                <li><strong>Besonderheit:</strong> Sehr hohe Reichweite in der gesamten Schweiz</li>
-              </ul>
-            </div>
-
-            {/* Tutti.ch */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">7. Tutti.ch</h3>
-                <a
-                  href="https://www.tutti.ch/de/q/pferde/Ak8CmaG9yc2VzlMDAwMA?sorting=newest&page=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Budget-Option:</strong> Kleinanzeigen-Portal mit günstigen Pferden und Zubehör.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Gratis Inserate</li>
-                <li><strong>Spezialität:</strong> Günstige Pferde, Reit-Beteiligungen, Ausrüstung</li>
-                <li><strong>Besonderheit:</strong> Viele private Verkäufer, niedrigere Preise</li>
-              </ul>
-            </div>
-
-            {/* Pferdepark.ch Pferdevermittlung */}
-            <div className="border-l-4 border-brand-brown pl-6 py-2">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-serif font-bold text-brand mb-0">8. Pferdepark.ch Pferdevermittlung</h3>
-                <a
-                  href="https://www.pferdepark.ch/pferdevermittlung"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-brown hover:text-brand-brownDark inline-flex items-center gap-1 text-sm"
-                >
-                  Website besuchen {externalLinkIcon}
-                </a>
-              </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                <strong>Tierschutz-Fokus:</strong> Spezialisiert auf Pferde in Not und Vermittlung.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Kostenstruktur:</strong> Spenden-basiert, keine festen Preise</li>
-                <li><strong>Spezialität:</strong> Pferde in Not, Gnadenbrot-Plätze, Adoption</li>
-                <li><strong>Besonderheit:</strong> Ethischer Ansatz, Tierschutz-orientiert</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Quick Comparison Table */}
-          <div className="mt-8 overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200 rounded-lg">
-              <thead className="bg-brand/5">
+          {/* Marketplace Table */}
+          <div className="overflow-x-auto mt-6">
+            <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-brand/10">
                 <tr>
                   <th className="px-4 py-3 text-left text-brand font-bold">Plattform</th>
-                  <th className="px-4 py-3 text-left text-brand font-bold">Beste für</th>
                   <th className="px-4 py-3 text-left text-brand font-bold">Inserate</th>
-                  <th className="px-4 py-3 text-left text-brand font-bold">Kosten</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Beschreibung</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Link</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                <tr>
-                  <td className="px-4 py-3 text-gray-800 font-medium">ehorses.ch</td>
-                  <td className="px-4 py-3 text-gray-700">Alle Pferdetypen</td>
-                  <td className="px-4 py-3 text-gray-700">19.000+</td>
-                  <td className="px-4 py-3 text-gray-700">Ab 29 CHF/Monat</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-4 py-3 text-gray-800 font-medium">BillyRider.ch</td>
-                  <td className="px-4 py-3 text-gray-700">Sportpferde</td>
-                  <td className="px-4 py-3 text-gray-700">5.000+</td>
-                  <td className="px-4 py-3 text-gray-700">Ab 19 CHF/Monat</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-gray-800 font-medium">FM-CH</td>
-                  <td className="px-4 py-3 text-gray-700">Freiberger</td>
-                  <td className="px-4 py-3 text-gray-700">1.000+</td>
-                  <td className="px-4 py-3 text-gray-700">Mitgliedschaft 50-100 CHF/Jahr</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-4 py-3 text-gray-800 font-medium">Swisshorse.ch</td>
-                  <td className="px-4 py-3 text-gray-700">Zuchtpferde</td>
-                  <td className="px-4 py-3 text-gray-700">2.000+</td>
-                  <td className="px-4 py-3 text-gray-700">Ab 25 CHF/Inserat</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-gray-800 font-medium">Tier-Inserate.ch</td>
-                  <td className="px-4 py-3 text-gray-700">Lokale Verkäufe</td>
-                  <td className="px-4 py-3 text-gray-700">3.000+</td>
-                  <td className="px-4 py-3 text-gray-700">Ab 15 CHF/Inserat</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-4 py-3 text-gray-800 font-medium">Anibis.ch</td>
-                  <td className="px-4 py-3 text-gray-700">Private Verkäufe</td>
-                  <td className="px-4 py-3 text-gray-700">2.500+</td>
-                  <td className="px-4 py-3 text-gray-700">Gratis</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-gray-800 font-medium">Tutti.ch</td>
-                  <td className="px-4 py-3 text-gray-700">Budget-Pferde</td>
-                  <td className="px-4 py-3 text-gray-700">2.000+</td>
-                  <td className="px-4 py-3 text-gray-700">Gratis</td>
-                </tr>
+                {onlineMarketplaces.map((marketplace, index) => (
+                  <tr key={marketplace.name} className={`${marketplace.highlight ? 'bg-amber-50' : index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      {marketplace.name}
+                      {marketplace.highlight && <span className="ml-2 text-xs bg-brand text-white px-2 py-0.5 rounded">Top</span>}
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">{marketplace.listings}</td>
+                    <td className="px-4 py-3 text-gray-600 text-sm">{marketplace.description}</td>
+                    <td className="px-4 py-3">
+                      <a
+                        href={marketplace.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-brand-brown hover:text-brand-brownDark"
+                      >
+                        Besuchen {externalLinkIcon}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* CTA Highlight Box */}
+        {/* CTA Box */}
         <RatgeberHighlightBox
-          title="Kenne den fairen Marktwert deines Wunschpferds"
-          icon={trendingUpIcon}
+          title="Den fairen Preis kennen"
+          icon={shieldIcon}
         >
           <p className="text-gray-700 mb-4">
-            Bevor du ein Pferd kaufst, solltest du den fairen Marktwert kennen. Nutze unsere
-            KI-gestützte Bewertung, um den aktuellen Preis zu überprüfen und Überzahlungen zu vermeiden.
+            Bevor du ein Pferd in der Schweiz kaufst, solltest du den aktuellen Marktwert kennen.
+            Unsere KI-gestützte Bewertung analysiert aktuelle Marktdaten und gibt dir eine realistische Preiseinschätzung.
           </p>
           <LocalizedLink
             href="/pferde-preis-berechnen"
             className="inline-flex items-center gap-2 px-6 py-3 bg-brand-brown hover:bg-brand-brownDark text-white font-semibold rounded-lg transition-all"
           >
-            Jetzt Pferdewert berechnen {sparklesIcon}
+            Pferdewert berechnen {sparklesIcon}
           </LocalizedLink>
         </RatgeberHighlightBox>
 
-        {/* Section 2: Schritt-für-Schritt Anleitung */}
-        <section id="anleitung" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+        {/* Section 2: Regionale Züchter */}
+        <section id="zuechter" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Schritt-für-Schritt Anleitung: So kaufst du dein erstes Pferd
+            Züchter & Reitanlagen nach Kanton
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Der Pferdekauf kann überwältigend sein, besonders für Anfänger. Diese strukturierte Anleitung
-            führt dich durch jeden Schritt des Prozesses – von der ersten Recherche bis zur Übernahme.
+            Die Schweiz hat in jedem Kanton renommierte Züchter und Reitanlagen.
+            Hier findest du die wichtigsten Anlaufstellen nach Region sortiert.
           </p>
 
-          <div className="space-y-6 mt-8">
-            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 1: Selbsteinschätzung und Vorbereitung</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Reitlevel bestimmen:</strong> Anfänger, Fortgeschritten, oder Profi? Sei ehrlich!</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Verwendungszweck klären:</strong> Freizeit, Sport, Zucht, oder Turnier?</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Budget festlegen:</strong> Kaufpreis + laufende Kosten (siehe Kosten-Sektion)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Unterbringung sichern:</strong> Stallplatz recherchieren und reservieren</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 2: Marktplatz-Auswahl und Filter-Nutzung</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Plattform wählen:</strong> ehorses.ch für größte Auswahl, BillyRider.ch für Sport</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Filter setzen:</strong> Rasse, Alter (6-12 Jahre für Anfänger), Stockmaß, Preis, Region</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Temperament:</strong> Ruhig/Ausgeglichen für Anfänger, Lebhaft für Erfahrene</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Speichern:</strong> Favoriten-Liste anlegen und regelmäßig aktualisieren</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 3: Inserat-Analyse und Erstbesichtigung</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Qualitäts-Check:</strong> Detaillierte Fotos, Videos, vollständige Beschreibung</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Verkäufer kontaktieren:</strong> Telefonisch vorab sprechen (nicht nur E-Mail)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Fragen stellen:</strong> Gesundheit, Charakter, Ausbildungsstand, Gründe für Verkauf</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Termin vereinbaren:</strong> Besichtigung in Person (NIEMALS ohne Besichtigung kaufen!)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 4: Proberitt und Veterinär-Untersuchung</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Proberitt durchführen:</strong> Mindestens 30-45 Minuten in verschiedenen Gangarten</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Handling-Tests:</strong> Führen, Satteln, Hufgeben, Verladen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Veterinär beauftragen:</strong> Ankaufsuntersuchung (AKU) durch unabhängigen Tierarzt</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>AKU-Umfang:</strong> Basis-AKU (500-800 CHF) oder Große AKU mit Röntgen (1.200-1.500 CHF)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 border-2 border-brand/20 rounded-lg p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Schritt 5: Kaufvertrag und Übergabe</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Kaufvertrag prüfen:</strong> Schriftlicher Vertrag mit allen Details (Preis, Gesundheitszustand, Rücktrittsrechte)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Dokumente verlangen:</strong> Pferdepass, Impfausweis, Abstammungsnachweis, AKU-Bericht</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Schutzvertrag:</strong> Optional, aber empfohlen (30 Tage Rückgaberecht bei versteckten Mängeln)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Zahlung:</strong> Niemals vor Übergabe! Bank-Überweisung oder Barzahlung bei Übergabe</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Transport organisieren:</strong> Professioneller Transporteur oder eigener Anhänger</span>
-                </li>
-              </ul>
-            </div>
+          <div className="grid gap-6 mt-6">
+            {Object.entries(regionalBreeders).map(([key, region]) => (
+              <div key={key} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-center gap-2 mb-2">
+                  {mapPinIcon}
+                  <h3 className="text-xl font-serif font-bold text-brand">{region.region}</h3>
+                </div>
+                <p className="text-gray-600 mb-4">{region.description}</p>
+                <div className="space-y-3">
+                  {region.breeders.map((breeder) => (
+                    <div key={breeder.name} className="flex items-center justify-between border-b border-gray-100 pb-2 last:border-0">
+                      <div>
+                        <span className="font-medium text-gray-900">{breeder.name}</span>
+                        {breeder.official && (
+                          <span className="ml-2 text-xs bg-brand/10 text-brand px-2 py-0.5 rounded">Offiziell</span>
+                        )}
+                        <span className="text-gray-500 text-sm ml-2">({breeder.specialty})</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          {starIcon}
+                          <span className="text-sm text-gray-600">{breeder.rating}</span>
+                        </div>
+                        {breeder.url && (
+                          <a
+                            href={breeder.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-brand-brown hover:text-brand-brownDark"
+                          >
+                            {externalLinkIcon}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Section 3: Filterkriterien erklärt */}
-        <section id="filterkriterien" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+        {/* Section 3: Schweizer Pferderassen */}
+        <section id="rassen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Filterkriterien erklärt: Rasse, Alter, Stockmaß, Preis und Region
+            Schweizer Pferderassen im Überblick
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Die Filter-Funktionen der Marktplätze helfen dir, die Auswahl gezielt einzuschränken.
-            Hier erfährst du, was jedes Kriterium bedeutet und wie du sie sinnvoll nutzt.
+            Der <strong>Freiberger</strong> ist die einzige originäre Schweizer Pferderasse und gilt als Nationalpferd.
+            Daneben werden in der Schweiz verschiedene andere Rassen gezüchtet.
           </p>
 
-          <div className="space-y-6 mt-8">
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Rasse</h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Die Schweiz hat eine vielfältige Pferderassen-Landschaft. Hier sind die beliebtesten:
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Freiberger (FM):</strong> Schweizer Nationalrasse, robust, ausgeglichen, ideal für Freizeit und Fahren</li>
-                <li><strong>Warmblüter:</strong> Vielseitig, Sport- und Freizeiteignung, verschiedene Linien (Deutsches Warmblut, Holsteiner, etc.)</li>
-                <li><strong>Haflinger:</strong> Klein, kräftig, freundlich, perfekt für Kinder und leichtere Reiter</li>
-                <li><strong>Vollblüter:</strong> Schnell, temperamentvoll, für erfahrene Reiter und Rennsport</li>
-                <li><strong>Ponys (Shetland, Welsh):</strong> Klein, robust, für Kinder und Fahrsport</li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Alter</h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Das Alter beeinflusst Ausbildungsstand, Gesundheit und Preis:
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>0-3 Jahre (Fohlen/Jungpferde):</strong> Günstig, aber benötigen Ausbildung und Geduld</li>
-                <li><strong>4-7 Jahre (Junge Pferde):</strong> In Ausbildung, für erfahrene Reiter geeignet</li>
-                <li><strong>8-15 Jahre (Erfahrene Pferde):</strong> Vollständig ausgebildet, ideal für Anfänger, höchster Preis</li>
-                <li><strong>16+ Jahre (Ältere Pferde):</strong> Erfahren, ruhig, günstiger, aber Gesundheit beachten</li>
-              </ul>
-              <p className="text-brand-brown font-semibold mt-3">
-                💡 Empfehlung für Anfänger: 6-12 Jahre alte Pferde mit ruhigem Temperament
-              </p>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Stockmaß (Größe)</h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Das Stockmaß wird in Zentimetern vom Boden bis zum Widerrist gemessen:
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Unter 148 cm:</strong> Ponys, für Kinder und leichte Erwachsene</li>
-                <li><strong>148-160 cm:</strong> Kleine Pferde, für durchschnittliche Reiter</li>
-                <li><strong>160-170 cm:</strong> Standard-Größe, für die meisten Erwachsenen</li>
-                <li><strong>Über 170 cm:</strong> Großpferde, für große/schwere Reiter</li>
-              </ul>
-              <p className="text-brand-brown font-semibold mt-3">
-                💡 Faustformel: Dein Gewicht sollte max. 15-20% des Pferdegewichts sein
-              </p>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Preis</h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Preise variieren stark je nach Typ, Ausbildung und Gesundheit:
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Budget (unter 5.000 CHF):</strong> Ältere Pferde, Jungpferde ohne Ausbildung, Notfälle</li>
-                <li><strong>Mittelklasse (5.000-15.000 CHF):</strong> Freizeitpferde, ausgebildete Pferde, gängige Rassen</li>
-                <li><strong>Premium (15.000-30.000 CHF):</strong> Sportpferde, Turniereignung, hochwertige Zuchtpferde</li>
-                <li><strong>Luxus (30.000+ CHF):</strong> Elite-Sportpferde, Champions, seltene Rassen</li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Region/Standort</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Der Standort beeinflusst Transport-Kosten und Besichtigungsmöglichkeiten. Schweizer Regionen:
-                <strong className="block mt-2">Deutschschweiz, Westschweiz (Romandie), Tessin</strong>.
-                Nähere Standorte sparen Transport-Kosten (siehe Kosten-Sektion).
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            {swissBreeds.map((breed) => (
+              <div key={breed.name} className="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                <h3 className="text-xl font-serif font-bold text-brand mb-2">{breed.name}</h3>
+                <p className="text-gray-700 text-sm mb-4">{breed.description}</p>
+                <div className="space-y-1 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Stockmaß:</span>
+                    <span className="font-medium">{breed.size}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Preisbereich:</span>
+                    <span className="font-medium text-brand-brown">{breed.priceRange}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Hauptgebiet:</span>
+                    <span className="font-medium">{breed.region}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Section 4: Kosten beim Pferdekauf */}
-        <section id="kosten" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+        {/* Section 4: Zuchtverbände */}
+        <section id="verbaende" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Kosten beim Pferdekauf: Kompletter Budget-Überblick
+            Zuchtverbände & Gestüte in der Schweiz
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Die Gesamtkosten beim Pferdekauf gehen weit über den Kaufpreis hinaus. Hier ist die vollständige
-            Aufschlüsselung aller Einmal- und laufenden Kosten, damit du realistisch budgetieren kannst.
+            Die offiziellen Zuchtverbände sind wichtige Anlaufstellen für den Kauf von
+            Zuchtpferden mit Papieren und für die Vermittlung seriöser Züchter.
           </p>
 
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-lg mt-6">
-            <h3 className="text-xl font-bold text-amber-900 mb-2">Einmalige Kosten beim Kauf</h3>
-            <div className="space-y-3 text-gray-800">
-              <div className="flex justify-between">
-                <span>Kaufpreis (Freizeitpferd):</span>
-                <span className="font-semibold">5.000 - 15.000 CHF</span>
+          <div className="space-y-4 mt-6">
+            {breedingAssociations.map((association) => (
+              <div key={association.name} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-brand mb-1">{association.name}</h3>
+                    <p className="text-gray-600 text-sm mb-2">{association.salesPortal}</p>
+                    <p className="text-gray-500 text-sm">{association.events}</p>
+                  </div>
+                  <a
+                    href={association.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-brand-brown hover:text-brand-brownDark text-sm"
+                  >
+                    Website {externalLinkIcon}
+                  </a>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span>Kaufpreis (Sportpferd):</span>
-                <span className="font-semibold">15.000 - 80.000+ CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Ankaufsuntersuchung (AKU):</span>
-                <span className="font-semibold">500 - 1.500 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Transport (lokal bis 100km):</span>
-                <span className="font-semibold">200 - 500 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Transport (national 100-400km):</span>
-                <span className="font-semibold">500 - 1.500 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Transport (international 400+km):</span>
-                <span className="font-semibold">1.500 - 3.000+ CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Grundausrüstung (Sattel, Trense, Decken):</span>
-                <span className="font-semibold">2.000 - 3.000 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Erstversicherung (Haftpflicht + Kranken):</span>
-                <span className="font-semibold">800 - 1.200 CHF/Jahr</span>
-              </div>
-              <div className="flex justify-between pt-3 border-t-2 border-amber-300">
-                <span className="font-bold">GESAMT (Freizeitpferd, minimal):</span>
-                <span className="font-bold text-amber-900">10.000 - 20.000 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="font-bold">GESAMT (Sportpferd, komplett):</span>
-                <span className="font-bold text-amber-900">20.000 - 90.000+ CHF</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-6">
-            <h3 className="text-xl font-bold text-blue-900 mb-2">Laufende Kosten (monatlich)</h3>
-            <div className="space-y-3 text-gray-800">
-              <div className="flex justify-between">
-                <span>Stallmiete (Offenstall/Paddock):</span>
-                <span className="font-semibold">400 - 600 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Stallmiete (Box mit Weide):</span>
-                <span className="font-semibold">600 - 900 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Futter (Heu, Kraftfutter):</span>
-                <span className="font-semibold">150 - 250 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Hufschmied (alle 6-8 Wochen):</span>
-                <span className="font-semibold">120 - 180 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Tierarzt (Routine-Checks, Impfungen):</span>
-                <span className="font-semibold">80 - 150 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Versicherung (monatlich umgelegt):</span>
-                <span className="font-semibold">70 - 100 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Zusatzkosten (Leckerlis, Pflegeprodukte):</span>
-                <span className="font-semibold">50 - 80 CHF</span>
-              </div>
-              <div className="flex justify-between pt-3 border-t-2 border-blue-300">
-                <span className="font-bold">GESAMT (monatlich, minimal):</span>
-                <span className="font-bold text-blue-900">870 - 1.360 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="font-bold">GESAMT (jährlich):</span>
-                <span className="font-bold text-blue-900">10.440 - 16.320 CHF</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mt-6">
-            <h3 className="text-xl font-bold text-red-900 mb-2">Unvorhergesehene Kosten (Notfall-Reserve)</h3>
-            <div className="space-y-3 text-gray-800">
-              <div className="flex justify-between">
-                <span>Tierarzt (Kolik-Operation):</span>
-                <span className="font-semibold">3.000 - 8.000 CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Tierarzt (Sehnenverletzung):</span>
-                <span className="font-semibold">2.000 - 5.000 CHF</span>
-              </div>
-              <div className="flex justify-start gap-3 mt-4">
-                <span className="font-bold text-red-900">💡 Empfehlung:</span>
-                <span className="flex-1">Spare 3.000-5.000 CHF als Notfall-Reserve für unerwartete Tierarztkosten</span>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* Section 5: Sicherheit beim Pferdekauf */}
-        <section id="sicherheit" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+        {/* Section 5: Events 2025 */}
+        <section id="events" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Sicherheit beim Pferdekauf: Was du wissen musst
+            Pferde-Events & Messen 2025 in der Schweiz
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Sicherheit beim Pferdekauf bedeutet nicht nur physische Sicherheit beim Proberitt, sondern auch
-            rechtliche und finanzielle Absicherung gegen Betrug und versteckte Mängel.
+            Pferdemessen und -turniere bieten ideale Gelegenheiten, Züchter kennenzulernen und Pferde live zu erleben.
+            Die wichtigsten Termine 2025:
           </p>
 
-          {/* Safety Warning */}
-          <RatgeberHighlightBox
-            title="Vorsicht vor Betrügern!"
-            icon={shieldIcon}
-          >
-            <div className="space-y-3 text-gray-700">
-              <p><strong>Rote Flaggen bei Inseraten:</strong></p>
-              <ul className="list-disc list-inside space-y-2 ml-2">
-                <li>Stock-Fotos statt echte Bilder des Pferdes</li>
-                <li>Extrem niedriger Preis (&quot;Schnäppchen&quot; unter Marktwert)</li>
-                <li>Aggressive Dringlichkeit (&quot;heute noch kaufen&quot;)</li>
-                <li>Keine/schlechte Kontaktinformationen</li>
-                <li>Verkäufer verweigert Besichtigung vor Ort</li>
-                <li>Vorauszahlung vor Besichtigung gefordert</li>
-              </ul>
-              <p className="mt-4"><strong>Vertrauens-Zeichen:</strong></p>
-              <ul className="list-disc list-inside space-y-2 ml-2">
-                <li>Detaillierte Fotos und Videos des Pferdes</li>
-                <li>Transparenz bei bekannten Mängeln/Besonderheiten</li>
-                <li>Referenzen von früheren Käufern</li>
-                <li>Plattform-Verifizierung des Verkäufers</li>
-                <li>Bereitschaft für Proberitt und AKU</li>
-              </ul>
-            </div>
-          </RatgeberHighlightBox>
-
-          <div className="space-y-6 mt-8">
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Ankaufsuntersuchung (AKU)</h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Die AKU ist deine wichtigste Absicherung gegen versteckte Gesundheitsmängel:
-              </p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">✓</span>
-                  <span><strong>Basis-AKU (500-800 CHF):</strong> Klinische Untersuchung, Bewegungsprüfung, Herzcheck</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">✓</span>
-                  <span><strong>Große AKU (1.200-1.500 CHF):</strong> + Röntgen (Beine, Rücken), Bluttest, erweiterte Checks</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">✓</span>
-                  <span><strong>Wichtig:</strong> NIEMALS die AKU vom Verkäufer beauftragen! Eigenen unabhängigen Tierarzt wählen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">✓</span>
-                  <span><strong>Zeitpunkt:</strong> Nach erfolgreichem Proberitt, vor Kaufvertrag</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Kaufvertrag und Rechtssicherheit</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Schriftlicher Vertrag:</strong> IMMER schriftlich! Mündliche Vereinbarungen sind rechtlich schwach</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Pflichtangaben:</strong> Namen, Adressen, Pferdedaten (Name, Alter, Rasse, Pass-Nr), Kaufpreis</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Gesundheitserklärung:</strong> Bekannte Krankheiten/Mängel müssen im Vertrag stehen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Rücktrittsrecht:</strong> Optional 30-Tage Schutzvertrag (50-200 CHF extra)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Zahlung:</strong> Niemals im Voraus! Erst bei Übergabe zahlen (Bank oder Bar)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Proberitt-Sicherheit</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Helm und Schutzweste:</strong> Auch wenn du normalerweise keine trägst – Sicherheit geht vor!</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Versicherung klären:</strong> Wer haftet bei Unfall während Proberitt? Im Voraus besprechen!</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Begleitperson:</strong> Nimm erfahrenen Reiter/Trainer mit zur Einschätzung</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Testkatalog:</strong> Aufwärmen, Grundgangarten, Springen/Dressur-Tests, Geländeritt</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Transport-Sicherheit</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Professioneller Transporteur:</strong> Empfohlen für weite Strecken (200+ km)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Transport-Versicherung:</strong> 100-300 CHF, deckt Unfälle während Transport</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Eigener Anhänger:</strong> Nur für kurze Strecken und wenn Pferd verladefreundlich ist</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-brown font-bold mt-1">•</span>
-                  <span><strong>Vorbereitung:</strong> Wasser, Heu, Pausen alle 2-3 Stunden bei langen Fahrten</span>
-                </li>
-              </ul>
-            </div>
+          <div className="overflow-x-auto mt-6">
+            <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-brand/10">
+                <tr>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Event</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Datum</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Ort</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Art</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {events2025.map((event, index) => (
+                  <tr key={event.name} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className="px-4 py-3 font-medium text-gray-900">
+                      <div className="flex items-center gap-2">
+                        {calendarIcon}
+                        {event.url ? (
+                          <a href={event.url} target="_blank" rel="noopener noreferrer" className="text-brand-brown hover:underline">
+                            {event.name}
+                          </a>
+                        ) : (
+                          event.name
+                        )}
+                      </div>
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">{event.date}</td>
+                    <td className="px-4 py-3 text-gray-600">{event.location}</td>
+                    <td className="px-4 py-3">
+                      <span className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">{event.type}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
-        {/* Section 6: Spezielle Pferd-Typen */}
-        <section id="pferdtypen" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
+        {/* Section 6: Preisübersicht */}
+        <section id="preise" className="space-y-6 scroll-mt-32 lg:scroll-mt-40">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-            Spezielle Pferd-Typen: Sport, Zucht, Freizeit und Anfänger-Pferde
+            Preisübersicht: Was kostet ein Pferd in der Schweiz?
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Nicht alle Pferde sind gleich. Hier erfährst du die Unterschiede zwischen verschiedenen
-            Pferdetypen und welcher Typ am besten zu deinen Zielen passt.
+            Die Preise für Pferde in der Schweiz liegen aufgrund des höheren Preisniveaus oft über
+            dem EU-Durchschnitt. Hier eine Orientierung nach Kategorie:
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Sportpferde</h3>
-              <p className="text-gray-700 mb-3">
-                Für ambitionierte Reiter und Turnier-Teilnahme.
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Disziplinen:</strong> Dressur, Springen, Vielseitigkeit</li>
-                <li><strong>Eigenschaften:</strong> Ausbildung bis L/M/S Niveau</li>
-                <li><strong>Preis:</strong> 15.000 - 80.000+ CHF</li>
-                <li><strong>Anforderung:</strong> Erfahrener Reiter notwendig</li>
-                <li><strong>Plattformen:</strong> BillyRider.ch, ehorses.ch</li>
-              </ul>
-            </div>
+          <div className="overflow-x-auto mt-6">
+            <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-brand/10">
+                <tr>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Kategorie</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Preisbereich</th>
+                  <th className="px-4 py-3 text-left text-brand font-bold">Details</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {priceOverview.map((item, index) => (
+                  <tr key={item.category} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className="px-4 py-3 font-medium text-gray-900">{item.category}</td>
+                    <td className="px-4 py-3 text-brand-brown font-semibold">{item.priceRange}</td>
+                    <td className="px-4 py-3 text-gray-600 text-sm">{item.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Freizeitpferde</h3>
-              <p className="text-gray-700 mb-3">
-                Für Genussreiter und entspannte Ausritte.
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Nutzung:</strong> Ausritte, leichte Dressur, Gelände</li>
-                <li><strong>Eigenschaften:</strong> Ruhig, ausgeglichen, verlässlich</li>
-                <li><strong>Preis:</strong> 5.000 - 15.000 CHF</li>
-                <li><strong>Anforderung:</strong> Anfänger-freundlich</li>
-                <li><strong>Plattformen:</strong> Tier-Inserate.ch, Anibis.ch</li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Zuchtpferde</h3>
-              <p className="text-gray-700 mb-3">
-                Für Züchter und Zucht-Interessierte.
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Arten:</strong> Zuchtstuten, Deckhengste, Fohlen</li>
-                <li><strong>Eigenschaften:</strong> Hervorragende Abstammung, Zuchtgenehmigung</li>
-                <li><strong>Preis:</strong> 8.000 - 40.000+ CHF</li>
-                <li><strong>Anforderung:</strong> Zucht-Kenntnisse erforderlich</li>
-                <li><strong>Plattformen:</strong> Swisshorse.ch, FM-CH</li>
-              </ul>
-            </div>
-
-            <div className="bg-amber-50 rounded-lg border-2 border-brand/20 p-6">
-              <h3 className="text-2xl font-serif font-bold text-brand mb-3">Anfänger-Pferde</h3>
-              <p className="text-gray-700 mb-3">
-                Speziell für Reitanfänger und -wiedereinsteiger.
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li><strong>Eigenschaften:</strong> Gutmütig, geduldig, fehlerverzeihend</li>
-                <li><strong>Alter:</strong> Idealerweise 8-15 Jahre (erfahren)</li>
-                <li><strong>Preis:</strong> 6.000 - 12.000 CHF</li>
-                <li><strong>Rassen:</strong> Freiberger, Haflinger, ältere Warmblüter</li>
-                <li><strong>Tipp:</strong> Schulpferde sind oft ideal für Anfänger</li>
-              </ul>
-            </div>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+            <p className="text-blue-800 text-sm">
+              <strong>Hinweis für EU-Käufer:</strong> Bei Kauf aus der Schweiz kommen Transportkosten (500-1.500 CHF),
+              Zollformalitäten und Gesundheitszertifikate hinzu. Der CHF-EUR Wechselkurs beeinflusst den effektiven Preis.
+            </p>
           </div>
         </section>
 
@@ -1000,14 +694,14 @@ export default function PferdKaufenSchweizPage() {
         <section id="faq" className="scroll-mt-32 lg:scroll-mt-40">
           <FAQ
             faqs={faqItems}
-            sectionTitle="Häufig gestellte Fragen"
-            sectionSubtitle="Die wichtigsten Fragen zu Marktplätzen, Kosten, Sicherheit und Dokumenten beim Pferdekauf in der Schweiz"
+            sectionTitle="Häufige Fragen zum Pferdekauf in der Schweiz"
+            sectionSubtitle="Antworten auf die wichtigsten Fragen zu Marktplätzen, Freiberger-Zucht und Preisen"
             withSchema={false}
           />
         </section>
 
         {/* Author Box */}
-        <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <div className="max-w-3xl mx-auto">
           <AuthorBox />
         </div>
 
@@ -1028,7 +722,7 @@ export default function PferdKaufenSchweizPage() {
             width: 960,
             height: 640
           }}
-          title="Bereit für deinen Pferdekauf?"
+          title="Bereit für deinen Pferdekauf in der Schweiz?"
           description="Nutze unsere KI-gestützte Bewertung, um den fairen Marktwert deines Wunschpferds zu ermitteln. In nur 2 Minuten erhältst du eine professionelle Einschätzung."
           ctaHref="/pferde-preis-berechnen"
           ctaLabel="Jetzt Pferdewert berechnen"

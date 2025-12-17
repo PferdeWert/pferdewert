@@ -9,104 +9,295 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { Sparkles, ShieldCheck, Euro, TrendingUp, FileCheck } from 'lucide-react';
+import { MapPin, Euro, TrendingUp, ExternalLink, Star, Calendar, Mountain, Award } from 'lucide-react';
 import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
-const sparklesIcon = <Sparkles className="w-5 h-5" />;
-const shieldIcon = <ShieldCheck className="w-5 h-5" />;
+const mapPinIcon = <MapPin className="w-5 h-5" />;
+const trendingIcon = <TrendingUp className="w-5 h-5" />;
 const euroIcon = <Euro className="w-5 h-5" />;
+const mountainIcon = <Mountain className="w-5 h-5" />;
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Pferd kaufen in Österreich: Kompletter Ratgeber 2025 | PferdeWert',
-    description: 'Pferd kaufen in Österreich? ✓ Alle Marktplätze ✓ Preise nach Bundesland ✓ Noriker & Haflinger ✓ Kaufvertrag & AKU. Jetzt informieren!',
-    keywords: 'pferd kaufen österreich, pferdekauf österreich, pferde österreich, noriker kaufen, haflinger kaufen',
-    ogTitle: 'Pferd kaufen in Österreich: Der komplette Ratgeber 2025',
-    ogDescription: 'Dein ultimativer Guide zum Pferdekauf in Österreich. Marktplätze, Preise, Rassen, Bundesländer - alles was du wissen musst.',
-    twitterTitle: 'Pferd kaufen in Österreich: Kompletter Ratgeber 2025',
-    twitterDescription: 'Alle Marktplätze, Preise nach Bundesland, Noriker & Haflinger, Kaufvertrag & AKU.',
+    title: 'Pferd kaufen Österreich 2025: Alle Marktplätze, Züchter & Auktionen',
+    description: 'Pferd kaufen in Österreich: Willhaben, ehorses & Landwirt.com im Vergleich. Plus: Top-Züchter von Tirol bis Wien, Auktionen 2025 & Zuchtverbände.',
+    keywords: 'pferd kaufen österreich, willhaben pferde, landwirt pferde, noriker kaufen, haflinger kaufen, pferdemarkt österreich',
+    ogTitle: 'Pferd kaufen Österreich 2025: Alle Marktplätze & Züchter',
+    ogDescription: 'Komplette Übersicht: Online-Marktplätze, regionale Züchter von Tirol bis Wien, Auktionen 2025 und Zuchtverbände in Österreich.',
+    twitterTitle: 'Pferd kaufen Österreich 2025: Alle Marktplätze & Züchter',
+    twitterDescription: 'Willhaben, ehorses & Landwirt.com. Plus: Top-Züchter, Auktionen 2025 & Verbände.',
   },
   at: {
-    title: 'Pferd kaufen in Österreich: Dein kompletter Kaufratgeber 2025',
-    description: 'Pferd kaufen in Österreich? ✓ Willhaben & Landwirt.com ✓ Preise von Tirol bis Wien ✓ Noriker & Haflinger ✓ Kaufvertrag. Jetzt lesen!',
-    keywords: 'pferd kaufen österreich, pferd kaufen tirol, pferd kaufen kärnten, noriker kaufen, haflinger kaufen, willhaben pferde',
-    ogTitle: 'Pferd kaufen in Österreich: Dein Kaufratgeber 2025',
-    ogDescription: 'Der österreichische Guide zum Pferdekauf. Von Tirol bis Wien - alle Marktplätze, Preise und Tipps für deinen Pferdekauf.',
-    twitterTitle: 'Pferd kaufen in Österreich: Dein Kaufratgeber',
-    twitterDescription: 'Von Tirol bis Wien - alles über Pferdekauf in Österreich.',
+    title: 'Pferd kaufen Österreich 2025: Alle Marktplätze, Züchter & Auktionen',
+    description: 'Pferd kaufen in Österreich: Willhaben, ehorses & Landwirt.com. Plus: Top-Züchter von Tirol bis Wien, Auktionen 2025 & Zuchtverbände mit Verkaufsportalen.',
+    keywords: 'pferd kaufen österreich, willhaben pferde, landwirt pferde, noriker kaufen, haflinger kaufen, pferdezucht austria',
+    ogTitle: 'Pferd kaufen Österreich 2025: Alle Marktplätze & Züchter',
+    ogDescription: 'Dein österreichischer Guide: Online-Marktplätze, Züchter von Tirol bis Wien, Auktionen 2025 und alle Zuchtverbände.',
+    twitterTitle: 'Pferd kaufen Österreich 2025',
+    twitterDescription: 'Alle Marktplätze, Züchter & Auktionen in Österreich.',
   },
   ch: {
-    title: 'Pferd kaufen in Österreich: Ratgeber für Schweizer Käufer 2025',
-    description: 'Pferd aus Österreich kaufen? ✓ Noriker & Haflinger ✓ Transport CH-AT ✓ Preise in CHF ✓ Importbestimmungen. Jetzt informieren!',
-    keywords: 'pferd kaufen österreich, pferd österreich schweiz, noriker kaufen, haflinger kaufen, pferd importieren',
-    ogTitle: 'Pferd aus Österreich kaufen: Ratgeber für Schweizer',
-    ogDescription: 'Österreichische Pferde für Schweizer Käufer. Noriker, Haflinger & mehr - mit Import-Tipps und Preisen.',
-    twitterTitle: 'Pferd aus Österreich kaufen: Schweizer Ratgeber',
-    twitterDescription: 'Österreichische Pferde für Schweizer - mit Import-Tipps.',
+    title: 'Pferde aus Österreich kaufen: Marktplätze & Import für Schweizer',
+    description: 'Pferde aus Österreich für Schweizer Käufer: Willhaben, ehorses, Noriker & Haflinger, Import-Tipps und Transport.',
+    keywords: 'pferd österreich kaufen, import pferd österreich schweiz, noriker schweiz, haflinger kaufen',
+    ogTitle: 'Pferde aus Österreich kaufen: Guide für Schweizer',
+    ogDescription: 'Pferde aus Österreich: Marktplätze, Züchter & Import-Tipps für Schweizer Käufer.',
+    twitterTitle: 'Pferde aus Österreich für Schweizer',
+    twitterDescription: 'Import-Guide: Pferde aus Österreich kaufen.',
   },
 };
+
+// Online Marketplace Data
+const onlineMarketplaces = [
+  {
+    name: 'ehorses.at',
+    url: 'https://www.ehorses.at/',
+    listings: '~2.200',
+    description: 'Größter internationaler Pferdemarkt mit AT-Inseraten',
+    highlight: true,
+  },
+  {
+    name: 'Willhaben.at',
+    url: 'https://www.willhaben.at/iad/kaufen-und-verkaufen/marktplatz/pferde-ponys-esel',
+    listings: '~1.500',
+    description: 'Österreichs größtes Kleinanzeigenportal, viele Privatverkäufer',
+    highlight: true,
+  },
+  {
+    name: 'Landwirt.com',
+    url: 'https://www.landwirt.com/pferdemarkt/',
+    listings: '~800',
+    description: 'Direktkauf von Bauern und Züchtern, besonders Noriker',
+    highlight: false,
+  },
+  {
+    name: 'pferde.de',
+    url: 'https://www.pferde.de/pferdemarkt/oesterreich/',
+    listings: '~400',
+    description: 'Traditioneller Marktplatz mit österreichischen Angeboten',
+    highlight: false,
+  },
+];
+
+// Regional Breeders/Sellers Data
+const regionalBreeders = {
+  tirol: {
+    region: 'Tirol',
+    description: 'Österreichs Pferde-Hochburg Nr. 1 mit Haflinger-Tradition und alpiner Aufzucht',
+    breeders: [
+      { name: 'Haflinger Pferdezuchtverband Tirol', location: 'Absam', specialty: 'Haflinger (offizielle Zuchtstelle)', rating: '4.9', url: 'https://www.haflinger-tirol.com', official: true },
+      { name: 'Gestüt Fohlenhof', location: 'Ebbs', specialty: 'Haflinger, almgeprägte Aufzucht', rating: '4.8', url: 'https://www.fohlenhof.at' },
+      { name: 'Lipizzanergestüt Piber', location: 'Piber (Stmk)', specialty: 'Lipizzaner (Spanische Hofreitschule)', rating: '4.9', url: 'https://www.piber.com', official: true },
+      { name: 'Reiterhof Inntal', location: 'Wattens', specialty: 'Warmblut, Freizeitpferde', rating: '4.6', url: null },
+    ],
+  },
+  kaernten: {
+    region: 'Kärnten',
+    description: 'Schnell wachsender Markt mit Noriker-Tradition und günstigen Preisen',
+    breeders: [
+      { name: 'Kärntner Pferdezuchtverband', location: 'Klagenfurt', specialty: 'Noriker, Kärntner Warmblut', rating: '4.7', url: 'https://www.pferdezucht-kaernten.at', official: true },
+      { name: 'Gestüt Ossiacher See', location: 'Ossiach', specialty: 'Noriker, Freizeitpferde', rating: '4.5', url: null },
+      { name: 'Reiterhof Kärnten', location: 'Villach', specialty: 'Warmblut, Sportpferde', rating: '4.6', url: null },
+    ],
+  },
+  steiermark: {
+    region: 'Steiermark',
+    description: 'Traditioneller Pferdemarkt mit Lipizzaner-Zucht und Landesgestüt',
+    breeders: [
+      { name: 'Landesgestüt Piber', location: 'Köflach', specialty: 'Lipizzaner (Staatlich)', rating: '4.9', url: 'https://www.piber.com', official: true },
+      { name: 'Steirischer Pferdezuchtverband', location: 'Graz', specialty: 'Warmblut, Noriker', rating: '4.6', url: 'https://www.pferdezucht-stmk.at', official: true },
+      { name: 'Gestüt Murtal', location: 'Murau', specialty: 'Freizeitpferde, Ponys', rating: '4.5', url: null },
+      { name: 'Reiterhof Südsteiermark', location: 'Leibnitz', specialty: 'Warmblut, Dressur', rating: '4.7', url: null },
+    ],
+  },
+  oberoesterreich: {
+    region: 'Oberösterreich',
+    description: 'Großes Angebot mit vielfältiger Zuchtszene',
+    breeders: [
+      { name: 'OÖ Pferdezuchtverband', location: 'Linz', specialty: 'Warmblut, alle Rassen', rating: '4.6', url: 'https://www.pferdezucht-ooe.at', official: true },
+      { name: 'Gestüt Innviertel', location: 'Ried im Innkreis', specialty: 'Warmblut, Sportpferde', rating: '4.5', url: null },
+      { name: 'Reiterhof Salzkammergut', location: 'Vöcklabruck', specialty: 'Freizeitpferde, Haflinger', rating: '4.7', url: null },
+    ],
+  },
+  niederoesterreich: {
+    region: 'Niederösterreich & Wien',
+    description: 'Urbane Nähe zu Wien mit breitem Angebot und höheren Preisen',
+    breeders: [
+      { name: 'NÖ Pferdezuchtverband', location: 'St. Pölten', specialty: 'Warmblut, alle Rassen', rating: '4.6', url: 'https://www.pferdezucht-noe.at', official: true },
+      { name: 'Gestüt Weinviertel', location: 'Hollabrunn', specialty: 'Warmblut, Dressur', rating: '4.5', url: null },
+      { name: 'Spanische Hofreitschule Wien', location: 'Wien', specialty: 'Lipizzaner (Ausbildung)', rating: '4.9', url: 'https://www.srs.at', official: true },
+      { name: 'Reitanlage Wienerwald', location: 'Purkersdorf', specialty: 'Freizeitpferde, Schulbetrieb', rating: '4.4', url: null },
+    ],
+  },
+  salzburg: {
+    region: 'Salzburg',
+    description: 'Alpine Pferdeszene mit Haflinger und touristischem Fokus',
+    breeders: [
+      { name: 'Salzburger Pferdezuchtverband', location: 'Salzburg', specialty: 'Haflinger, Noriker, Warmblut', rating: '4.7', url: 'https://www.pferdezucht-salzburg.at', official: true },
+      { name: 'Gestüt Pinzgau', location: 'Zell am See', specialty: 'Noriker, alpine Aufzucht', rating: '4.8', url: null },
+      { name: 'Reiterhof Pongau', location: 'St. Johann', specialty: 'Haflinger, Freizeitpferde', rating: '4.6', url: null },
+    ],
+  },
+};
+
+// Austrian Breeding Associations
+const breedingAssociations = [
+  {
+    name: 'Pferdezucht Austria',
+    shortName: 'PZA',
+    url: 'https://www.pferdezucht-austria.at',
+    salesPortal: 'https://www.pferdezucht-austria.at/verkaufspferde/',
+    description: 'Dachorganisation aller österreichischen Pferdezuchtverbände. Zentrale Anlaufstelle für Zuchtpferde.',
+    events: 'Pferdezuchtmesse Wels, Österreichische Bundesschau',
+  },
+  {
+    name: 'Haflinger Pferdezuchtverband Tirol',
+    shortName: 'HPVT',
+    url: 'https://www.haflinger-tirol.com',
+    salesPortal: 'https://www.haflinger-tirol.com/verkauf/',
+    description: 'Weltweites Zentrum der Haflinger-Zucht. Direkte Vermittlung von Haflingern.',
+    events: 'Haflinger Weltschau, Fohlenauktionen',
+  },
+  {
+    name: 'Österreichischer Noriker-Zuchtverband',
+    shortName: 'ÖNZV',
+    url: 'https://www.noriker.at',
+    salesPortal: 'https://www.noriker.at/verkaufspferde/',
+    description: 'Zuchtverband für Österreichs heimische Kaltblutrasse.',
+    events: 'Noriker-Championat, Bundesschau',
+  },
+];
+
+// Events 2025
+const events2025 = [
+  {
+    name: 'Pferd Wels',
+    date: '7.-9. November 2025',
+    location: 'Messe Wels (OÖ)',
+    description: 'Österreichs größte Pferdemesse mit Auktionen, Präsentationen und Verkaufsständen aller Rassen.',
+    type: 'Messe & Auktion',
+  },
+  {
+    name: 'Haflinger Weltausstellung',
+    date: '2025 (Datum wird bekannt gegeben)',
+    location: 'Ebbs (Tirol)',
+    description: 'Internationale Schau der weltbesten Haflinger mit Verkauf und Auktionen.',
+    type: 'Internationale Schau',
+  },
+  {
+    name: 'Noriker Bundesschau',
+    date: 'September 2025',
+    location: 'Rotiert zwischen Bundesländern',
+    description: 'Jährliche Präsentation der besten Noriker Österreichs mit Prämierungen.',
+    type: 'Bundesschau',
+  },
+  {
+    name: 'Lipizzaner Fohlenmarkt Piber',
+    date: 'Oktober 2025',
+    location: 'Gestüt Piber (Stmk)',
+    description: 'Traditioneller Verkauf von Lipizzaner-Fohlen aus dem staatlichen Gestüt.',
+    type: 'Staatliche Auktion',
+  },
+  {
+    name: 'Pferdemarkt Klagenfurt',
+    date: 'Mai & Oktober 2025',
+    location: 'Klagenfurt (Kärnten)',
+    description: 'Regionaler Pferdemarkt mit Fokus auf Noriker und Freizeitpferde.',
+    type: 'Traditioneller Markt',
+  },
+  {
+    name: 'Warmblut Auktion Stadl-Paura',
+    date: 'Frühjahr & Herbst 2025',
+    location: 'Stadl-Paura (OÖ)',
+    description: 'Auktion für österreichische Warmblüter durch den OÖ Pferdezuchtverband.',
+    type: 'Verbandsauktion',
+  },
+];
+
+// Austrian breed highlights
+const austrianBreeds = [
+  {
+    name: 'Noriker',
+    description: 'Österreichs heimische Kaltblutrasse aus den Alpen. Robust, sanft und vielseitig. Ideal für Freizeit, Fahren und leichte Landwirtschaft.',
+    size: '155-170 cm',
+    priceRange: '3.000-12.000 €',
+    region: 'Kärnten, Salzburg, Steiermark',
+  },
+  {
+    name: 'Haflinger',
+    description: 'Die goldene Bergrasse mit Weltruf. Tirol ist das Zentrum der Haflinger-Zucht. Trittsicher, genügsam und ideal für Anfänger.',
+    size: '138-150 cm',
+    priceRange: '4.000-15.000 €',
+    region: 'Tirol, Vorarlberg',
+  },
+  {
+    name: 'Lipizzaner',
+    description: 'Die edle Barockrasse der Spanischen Hofreitschule. Das Gestüt Piber züchtet alle Lipizzaner für Wien.',
+    size: '155-165 cm',
+    priceRange: '10.000-50.000+ €',
+    region: 'Steiermark (Piber), Wien',
+  },
+  {
+    name: 'Österreichisches Warmblut',
+    description: 'Vielseitiges Sportpferd für Dressur, Springen und Vielseitigkeit. Gezüchtet von den Landespferdezuchtverbänden.',
+    size: '165-175 cm',
+    priceRange: '8.000-30.000 €',
+    region: 'Alle Bundesländer',
+  },
+];
+
+// Price Overview by Region
+const priceOverview = [
+  { category: 'Freizeitpferde (Einsteiger)', priceRange: '2.500 - 6.000 €', note: 'Kärnten/Steiermark günstiger' },
+  { category: 'Noriker (gut ausgebildet)', priceRange: '4.000 - 10.000 €', note: 'Salzburg/Kärnten beste Auswahl' },
+  { category: 'Haflinger (gut ausgebildet)', priceRange: '5.000 - 12.000 €', note: 'Tirol 10-15% teurer' },
+  { category: 'Lipizzaner', priceRange: '10.000 - 50.000+ €', note: 'Nur aus Piber oder privaten Züchtern' },
+  { category: 'Warmblut Dressur (L-Niveau)', priceRange: '12.000 - 25.000 €', note: 'Wien/NÖ teurer' },
+  { category: 'Warmblut Springen (M-Niveau)', priceRange: '15.000 - 35.000 €', note: 'Auktionen in Stadl-Paura' },
+  { category: 'Ponys & Kleinpferde', priceRange: '2.000 - 5.000 €', note: 'Willhaben gute Auswahl' },
+];
 
 export default function PferdKaufenOesterreich() {
 
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
     href: "/pferde-preis-berechnen",
-    icon: sparklesIcon
+    icon: trendingIcon
   };
 
   const sections = [
-    { id: 'marktplaetze', title: 'Wo Pferde in Österreich kaufen?' },
-    { id: 'preise', title: 'Was kostet ein Pferd in Österreich?' },
-    { id: 'rassen', title: 'Beliebte Pferderassen in Österreich' },
-    { id: 'bundeslaender', title: 'Pferde nach Bundesland kaufen' },
-    { id: 'kaufprozess', title: 'Der Kaufprozess Schritt für Schritt' },
-    { id: 'kosten', title: 'Laufende Kosten für Pferdehalter' },
-    { id: 'sicherheit', title: 'Sicherheit beim Pferdekauf' },
+    { id: 'online-marktplaetze', title: 'Online-Marktplätze im Vergleich' },
+    { id: 'regionale-zuechter', title: 'Züchter & Gestüte nach Bundesland' },
+    { id: 'zuchtverbande', title: 'Zuchtverbände & Verkaufsportale' },
+    { id: 'oesterreichische-rassen', title: 'Österreichische Pferderassen' },
+    { id: 'maerkte-events', title: 'Pferdemärkte & Auktionen 2025' },
+    { id: 'preise', title: 'Preisübersicht nach Region' },
+    { id: 'kauftipps', title: 'Tipps für den Kauf in Österreich' },
     { id: 'faq', title: 'Häufig gestellte Fragen' },
   ];
 
   const faqItems = [
     {
-      question: 'Wo kann ich Pferde in Österreich kaufen?',
-      answer: 'Die Top 5 Plattformen sind: ehorses.at (17.000+ Angebote, international), Willhaben.at (Österreichisches Kleinanzeigen-Portal mit lokalen Verkäufern), Landwirt.com (Direktkauf von Bauern und Züchtern), BillyRider (spezialisierte Filter, Sportpferde-Fokus) und direkte Züchter über Zuchtverbände (höchste Sicherheit). Jede Plattform hat Vor- und Nachteile – die beste Strategie ist, auf mehreren Plattformen zu suchen.'
+      question: 'Wie viele Pferde werden aktuell in Österreich angeboten?',
+      answer: 'Auf den großen Online-Plattformen finden Sie zusammen über 4.500 Pferde-Inserate in Österreich. Ehorses.at hat rund 2.200 Inserate, Willhaben.at etwa 1.500 und Landwirt.com weitere 800. Dazu kommen die Verkaufspferde direkt bei den Zuchtverbänden und auf den regionalen Pferdemärkten.'
     },
     {
-      question: 'Wie viel kostet ein Pferd in Österreich?',
-      answer: 'Preise variieren stark: Freizeitpferde kosten 1.500–10.000 €, Sportpferde 7.000–25.000 €, spezialisierte Rassen (Noriker, Haflinger) 4.000–15.000 €. Extrem günstige Pferde (unter 1.000 €) sind oft ältere Pferde, Notverkäufe oder haben Verhaltens-/Gesundheitsprobleme. Rechne mit zusätzlich 300–600 € für die Ankaufsuntersuchung ein.'
+      question: 'Welches Bundesland ist am besten für den Pferdekauf?',
+      answer: 'Das hängt von der gewünschten Rasse ab: Tirol ist das Zentrum für Haflinger (aber 10-15% teurer). Kärnten und Salzburg sind ideal für Noriker zu guten Preisen. Die Steiermark bietet Lipizzaner aus Piber. Oberösterreich hat die größte Vielfalt. Wien ist teuer, aber nah an vielen Reitanlagen.'
     },
     {
-      question: 'Welche Pferderassen sollte ich in Österreich kaufen?',
-      answer: 'Das hängt von deinen Zielen ab: Anfänger und Freizeitreiter → Noriker oder Haflinger (robust, sicher, züchterische Tradition). Sportreiter → Warmblüter (Dressur/Springen). Wenn du nicht sicher bist, fang mit einem älteren Freizeitpferd an – es ist günstiger und weniger anspruchsvoll.'
+      question: 'Was kosten Pferde in Österreich?',
+      answer: 'Die Preise variieren stark nach Rasse und Region: Freizeitpferde kosten 2.500-6.000 EUR, Noriker 4.000-10.000 EUR, Haflinger 5.000-12.000 EUR. Lipizzaner aus Piber starten bei 10.000 EUR. Warmblüter für den Sport liegen bei 12.000-35.000 EUR. Kärnten und Steiermark sind generell günstiger als Tirol oder Wien.'
     },
     {
-      question: 'Kann ich ein Pferd von einem Landwirt kaufen?',
-      answer: 'Ja, absolut. Landwirte und kleine Züchter haben oft gesündere Pferde als Profihändler. Die Tiere sind robuster gezüchtet und weniger psychisch belastet. Nutze Landwirt.com oder frag bei lokalen Zuchtverbänden nach. Essentiell: AKU trotzdem durchführen und Schriftvertrag insistieren.'
+      question: 'Was ist besser: Willhaben oder ehorses?',
+      answer: 'Beide haben Vorteile: Willhaben ist Österreichs größtes Kleinanzeigenportal mit vielen Privatverkäufern und oft günstigeren Preisen. Ehorses ist der größte internationale Pferdemarkt mit professionelleren Anzeigen und mehr Sportpferden. Tipp: Nutze beide parallel für die größte Auswahl.'
     },
     {
-      question: 'Wie lange dauert ein Pferdekauf?',
-      answer: 'Typischerweise 3–6 Wochen: Suche (1–4 Wochen) → Besichtigung und AKU (1–2 Wochen) → Verhandlung und Vertrag (3–5 Tage) → Zahlung und Übergabe (1–2 Tage). Manche Käufer brauchen länger (mehrfache Besichtigungen), manche schneller (Glück, schnelle Entscheidung).'
-    },
-    {
-      question: 'Ist es sicher, ein Pferd online zu kaufen?',
-      answer: 'Online-Kauf ist sicher auf etablierten Plattformen (ehorses, Willhaben, Landwirt), wenn du vorsichtig bist: Video-Inspektionen verlangen, Vor-Ort-Besichtigung machen, schriftlichen Vertrag insistieren, sichere Zahlungsmethode nutzen (Bank Transfer), AKU vor Vertragsabschluss durchführen. Remote-Käufe sind zunächst riskant, aber machbar mit guten Prozessen.'
-    },
-    {
-      question: 'Was brauche ich zum Pferdekauf? (Unterlagen/Dokumentation)',
-      answer: 'Du brauchst: EU-Pferdepass (vom Verkäufer), AKU-Zertifikat (vom Tierarzt), schriftlicher Kaufvertrag (beide unterzeichnet), Versicherungspolice (vor Übernahme), Stallplatz-Bestätigung (für die Registrierung). Der Verkäufer gibt dir die ersten drei, du organisierst die letzten zwei.'
-    },
-    {
-      question: 'Wer darf in Österreich Pferde halten?',
-      answer: 'Theoretisch jeder mit ausreichend Platz und Mitteln. Praktisch: Jedes Bundesland hat Mindestanforderungen für Pferdeställe (Größe, Ausstattung, Hygiene). Haftpflicht-Versicherung ist (meistens) verpflichtend. Tierärztliche Betreuung ist essentiell und rechtsverbindlich. Frag beim Stallbetreiber oder der Gemeinde nach lokalen Vorschriften.'
-    },
-    {
-      question: 'Ist ein Pferdekauf eine gute Investition?',
-      answer: 'Nein, nicht finanziell. Pferde sind wie Autos – sie deprecieren. Ein 10.000 € Pferd ist nach 5 Jahren 3.000–5.000 € wert. Die Investition lohnt sich emotional und für Freizeitnutzung, nicht finanziell. Wenn dir 800 € monatliche Unterhaltskosten ohne finanzielle Rendite wehtun, ist ein Pferd nicht für dich.'
-    },
-    {
-      question: 'Wie viel kostet ein Pferd im Monat?',
-      answer: '400–1.300 € je nach Region und Pferdetyp: Günstig (Freizeitpferd auf Weide): 400–600 €. Mittleres Budget (guter Stall, Freizeitpferd): 700–1.000 €. Premium (Sportpferd, beste Infrastruktur): 1.200–1.500 €. Unterschätze nicht die Kosten – anfangs braucht man meist mehr.'
+      question: 'Wann finden die wichtigsten Pferdemessen statt?',
+      answer: 'Das Highlight ist "Pferd Wels" im November – Österreichs größte Pferdemesse mit Auktionen aller Rassen. Für Haflinger gibt es die Weltschau in Ebbs (Tirol), für Noriker die Bundesschau im September. Lipizzaner-Fohlen werden im Oktober in Piber versteigert.'
     }
   ];
 
@@ -131,18 +322,19 @@ export default function PferdKaufenOesterreich() {
         image="/images/ratgeber/horses-mountain-meadow-lake.webp"
         locales={seoLocales}
         datePublished="2025-11-30"
-        wordCount={4442}
-        breadcrumbTitle="Pferd kaufen in Österreich"
+        wordCount={2400}
+        breadcrumbTitle="Pferd kaufen Österreich"
         faqItems={faqItems}
       />
 
       <article>
         {/* Hero Section */}
         <RatgeberHero
-          badgeLabel="Kauf & Verkauf"
-          title="Pferd kaufen in Österreich: Der ultimative Ratgeber für dein Traumpferd"
-          subtitle="Von Willhaben bis Landwirt.com, von Tirol bis Wien – alles was du über den Pferdekauf in Österreich wissen musst. Marktplätze, Preise, Rassen und rechtliche Absicherung."
-          readTime="18 Min."
+          badgeIcon={mapPinIcon}
+          badgeLabel="Marktplatz-Übersicht"
+          title="Pferd kaufen in Österreich: Alle Marktplätze, Züchter & Auktionen 2025"
+          subtitle="Über 4.500 Pferde warten in Österreich auf neue Besitzer. Hier findest du alle Online-Portale von Willhaben bis Landwirt.com, Züchter von Tirol bis Wien, die wichtigsten Pferdemessen und Zuchtverbände mit Verkaufsportalen."
+          readTime="15 Min."
           publishDate="November 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
@@ -150,7 +342,7 @@ export default function PferdKaufenOesterreich() {
 
         <RatgeberHeroImage
           src="/images/ratgeber/horses-mountain-meadow-lake.webp"
-          alt="Pferde auf einer Bergwiese am See - typisch für die alpine Pferdehaltung"
+          alt="Pferde auf einer Bergwiese am See - typisch für die alpine Pferdehaltung in Österreich"
           priority={true}
           objectPosition="center 95%"
           attribution={{
@@ -170,443 +362,348 @@ export default function PferdKaufenOesterreich() {
           {/* Introduction */}
           <section className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              In Österreich leben rund 80.000 Pferde, und jedes Jahr wechseln tausende Tiere ihre Besitzer. Wenn du ein <strong>Pferd kaufen</strong> möchtest, wirst du schnell merken: Der Pferdemarkt ist vielfältig, aber auch komplex. Zwischen Willhaben, ehorses, Landwirt.com und spezialisierten Züchtern verlieren viele Anfänger den Überblick.
+              <strong>Österreich ist ein Pferdeland mit langer Tradition.</strong> Von den weltberühmten Lipizzanern der Spanischen Hofreitschule über die robusten Noriker aus den Alpen bis zu den goldenen Haflingern aus Tirol: In Österreich findest du einzigartige Pferderassen, die nirgendwo sonst so authentisch gezüchtet werden.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Diese Anleitung führt dich Schritt für Schritt durch den gesamten Prozess des <strong>Pferdekaufs in Österreich</strong>. Du erfährst, wo du ein Pferd kaufen kannst, welche Preise realistisch sind, welche Rassen sich für deine Situation eignen, und wie du den Kaufprozess sicher und professionell gestaltest. Am Ende des Ratgebers kennst du alle wichtigen Punkte, um eine informierte Entscheidung zu treffen.
+              Diese Seite gibt dir einen vollständigen Überblick über alle Möglichkeiten, in Österreich ein Pferd zu finden: Online-Marktplätze im Vergleich, Züchter und Gestüte sortiert nach Bundesland, die Zuchtverbände mit ihren Verkaufsportalen und die wichtigsten Pferdemessen und Auktionen 2025.
             </p>
           </section>
 
-          {/* Section: Marktplätze */}
-          <section id="marktplaetze" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Online Marketplaces */}
+          <section id="online-marktplaetze" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Wo Pferde in Österreich kaufen – Die wichtigsten Marktplätze
+              Online-Marktplätze im Vergleich
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die erste große Herausforderung beim Pferdekauf: Wo fängst du überhaupt an zu suchen? In Österreich gibt es mehrere etablierte Plattformen, jede mit eigenen Vor- und Nachteilen.
+              Österreich hat eine einzigartige Marktplatz-Landschaft: Neben den internationalen Plattformen gibt es mit Willhaben und Landwirt.com starke lokale Alternativen. Hier die wichtigsten im Vergleich:
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              ehorses.at – Europas größter Online Pferdemarkt
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>ehorses</strong> ist mit über 17.000 Inseraten die größte Pferdeverkaufsplattform im deutschsprachigen Raum. Die Plattform ist ideal, wenn du eine große Auswahl durchsuchen möchtest. Du findest hier Pferde aller Rassen, Altersgruppen und Preisklassen – von günstigen Freizeitpferden bis zu Sportpferden mit beeindruckenden Papieren.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Vorteil:</strong> Die erweiterten Filteroptionen ermöglichen es dir, deine Suche einzugrenzen (Rasse, Größe, Alter, Trainingslevel). <strong>Nachteil:</strong> ehorses ist ein internationaler Marktplatz, was bedeutet, dass Transportkosten für Pferde aus Deutschland oder anderen Ländern anfallen können.
+            {/* Marketplace Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+                <thead>
+                  <tr className="bg-brand text-white">
+                    <th className="px-4 py-3 text-left font-semibold">Plattform</th>
+                    <th className="px-4 py-3 text-left font-semibold">Inserate AT</th>
+                    <th className="px-4 py-3 text-left font-semibold">Besonderheit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {onlineMarketplaces.map((marketplace, index) => (
+                    <tr key={marketplace.name} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                      <td className="px-4 py-3">
+                        <a
+                          href={marketplace.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand hover:text-brand-dark font-medium inline-flex items-center gap-1"
+                        >
+                          {marketplace.name}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        {marketplace.highlight && (
+                          <span className="ml-2 px-2 py-0.5 bg-amber-100 text-amber-800 text-xs rounded-full">Empfohlen</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 font-semibold text-gray-900">{marketplace.listings}</td>
+                      <td className="px-4 py-3 text-gray-600 text-sm">{marketplace.description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm text-gray-500 italic">
+              Stand: Dezember 2025. Die Zahlen schwanken je nach Saison.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Willhaben.at – Österreichs größtes Kleinanzeigenportal
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Willhaben</strong> ist dein lokales Äquivalent zu eBay. Hier inserieren hauptsächlich private Verkäufer und kleinere Züchter aus Österreich. Die Plattform ist kostenlos für private Angebote, was bedeutet, dass du oft direktere Verhandlungen führen kannst.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der große Vorteil: Du kannst relativ einfach lokale Verkäufer kontaktieren. Du sparst Transportkosten und kannst das Pferd mehrmals besichtigen, bevor du kaufst. <strong>Vorsicht:</strong> Nicht alle Angebote sind professionell – eine <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">Ankaufsuntersuchung (AKU)</LocalizedLink> ist unverzichtbar.
-            </p>
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <strong>Tipp:</strong> Für österreichische Rassen wie Noriker und Haflinger ist <strong>Landwirt.com</strong> oft die beste Quelle – hier inserieren die Bauern und Züchter direkt. Für Sportpferde und internationale Rassen ist <strong>ehorses</strong> die erste Wahl.
+              </p>
+            </div>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Landwirt.com – Direkt von Züchtern und Bauern kaufen
-            </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Landwirt.com</strong> ist der Geheimtipp für viele erfahrene Pferdekäufer. Auf diesem Agrarmarktplatz inserieren Bauern und Züchter ihre Pferde. Du sprichst direkt mit Menschen, die Pferde groß gezogen haben und ihre Gesundheit und Temperament gut kennen.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Oft sind Pferde von Bauernhöfen günstiger als bei professionellen Händlern. Außerdem haben sie in der Regel mehr Auslauf gehabt und sind weniger verwöhnt als Pferde, die Jahre in Ställen standen.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Züchter und Zuchtverbände – Direktkauf mit Gewährleistung
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der sicherste Weg zum Pferdekauf ist der direkte Kontakt mit anerkannten Züchtern. In Österreich gibt es etablierte Zuchtverbände für fast jede Rasse: Pferdezucht Austria (Dachorganisation), Tiroler Pferderegion (Haflinger und Noriker), Landespferdezuchtverband Steiermark, und Kärntner Pferdeverbände für alpine Rassen.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der Vorteil: Zuchtverbände garantieren oft Papiere, Gesundheitstests und sogar eine gewisse Haftung für Mängel. Die Preise sind höher als bei Privatverkäufern, aber dafür bekommst du maximale Sicherheit.
+              Einen ausführlichen Vergleich aller Pferdemarkt-Portale findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">Pferdemarkt-Vergleich</LocalizedLink>.
             </p>
           </section>
 
-          {/* CTA Box 1: Marktplatz-Übersicht */}
+          {/* Section: Regional Breeders */}
+          <section id="regionale-zuechter" className="scroll-mt-32 lg:scroll-mt-40 space-y-8">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Züchter & Gestüte nach Bundesland
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Jedes Bundesland hat seine Pferde-Tradition. Tirol ist das Zentrum der Haflinger-Zucht, Kärnten und Salzburg sind bekannt für Noriker, die Steiermark beherbergt das weltberühmte Lipizzaner-Gestüt Piber.
+            </p>
+
+            {Object.values(regionalBreeders).map((region) => (
+              <div key={region.region} className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900">
+                  {region.region}
+                </h3>
+                <p className="text-gray-600">{region.description}</p>
+
+                <div className="grid gap-4">
+                  {region.breeders.map((breeder) => (
+                    <div key={breeder.name} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <h4 className="font-semibold text-gray-900">
+                            {breeder.url ? (
+                              <a
+                                href={breeder.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-brand hover:text-brand-dark inline-flex items-center gap-1"
+                              >
+                                {breeder.name}
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            ) : (
+                              breeder.name
+                            )}
+                            {'official' in breeder && breeder.official && (
+                              <span className="ml-2 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">Offiziell</span>
+                            )}
+                          </h4>
+                          <p className="text-sm text-gray-500">{breeder.location}</p>
+                        </div>
+                        {breeder.rating && (
+                          <div className="flex items-center gap-1 text-amber-500">
+                            <Star className="w-4 h-4 fill-current" />
+                            <span className="text-sm font-medium">{breeder.rating}</span>
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-gray-600 mt-2 text-sm">{breeder.specialty}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </section>
+
+          {/* CTA Box 1 */}
           <RatgeberHighlightBox
-            title="Objektive Preisbewertung für österreichische Pferde"
+            title="Gefundenes Pferd bewerten lassen"
             icon={euroIcon}
           >
             <p className="text-base text-gray-700 mb-4">
-              Unsicher, ob der Preis fair ist? PferdeWerts KI-gestützte Analyse vergleicht das Pferd mit aktuellen Marktpreisen und liefert dir eine fundierte Einschätzung – objektiv und unabhängig.
+              Du hast ein interessantes Pferd in Österreich gefunden? Lass dir in 2 Minuten eine KI-gestützte Werteinschätzung geben und gehe informiert in die Verhandlung.
             </p>
             <LocalizedLink
               href="/pferde-preis-berechnen"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
-              Jetzt Pferdewert berechnen
+              Pferdewert berechnen
               <TrendingUp className="w-4 h-4 ml-2" />
             </LocalizedLink>
           </RatgeberHighlightBox>
 
-          {/* Section: Preise */}
-          <section id="preise" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Breeding Associations */}
+          <section id="zuchtverbande" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Was kostet ein Pferd in Österreich? – Kompletter Preisratgeber
+              Zuchtverbände mit Verkaufsportalen
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Die Preis-Frage ist oft das größte Hindernis beim Pferdekauf. Die gute Nachricht: Es gibt Pferde für fast jedes Budget. Die schlechte Nachricht: Es gibt große Unterschiede.
+              Die österreichischen Zuchtverbände betreiben eigene Verkaufsportale und veranstalten regelmäßig Auktionen. Der Vorteil: Registrierte Pferde mit dokumentierter Abstammung und oft tierärztlicher Beurteilung.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Preisranges nach Pferdetyp
-            </h3>
-            <ul className="space-y-4 text-lg text-gray-700">
-              <li>
-                <strong>Freizeitpferde</strong> (für Freizeitreiter, kein Leistungssport): Budget-Option 1.500–3.000 €, Mittleres Segment 3.000–7.000 €, Premium-Freizeitpferd 7.000–10.000 €
-              </li>
-              <li>
-                <strong>Sportpferde</strong> (Dressur, Springen, Vielseitigkeit): Basis-Sportpferd 7.000–12.000 €, Etabliertes Sportpferd 12.000–25.000 €, Spitzensportpferd 25.000–100.000+ €
-              </li>
-              <li>
-                <strong>Spezialisierte Rassen</strong>: Noriker 3.000–10.000 €, Haflinger 4.000–15.000 €, Kaltblüter (Draft) 2.000–8.000 €
-              </li>
-            </ul>
+            <div className="grid gap-6">
+              {breedingAssociations.map((association) => (
+                <div key={association.name} className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-brand/10 rounded-lg">
+                      <Award className="w-6 h-6 text-brand" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        <a
+                          href={association.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand hover:text-brand-dark inline-flex items-center gap-1"
+                        >
+                          {association.name}
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </h3>
+                      <p className="text-gray-600 mb-3">{association.description}</p>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <a
+                          href={association.salesPortal}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand hover:text-brand-dark font-medium inline-flex items-center gap-1"
+                        >
+                          Verkaufsportal
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        <span className="text-gray-500">Events: {association.events}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Günstige Pferde kaufen – Budget unter 1.000 Euro
-            </h3>
+          {/* Section: Austrian Breeds */}
+          <section id="oesterreichische-rassen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Österreichische Pferderassen
+            </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Es ist möglich, ein Pferd unter 1.000 € zu finden. Diese Kategorie umfasst: ältere Pferde (15+ Jahre), Notverkäufe, Rescue-Pferde aus schlechter Haltung, und reitunfähige Pferde für Zucht oder Therapie.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Warnung:</strong> Bei diesen Preisen musst du besonders vorsichtig sein. Die AKU ist nicht optional – sie ist essentiell. Oft steckt dahinter ein Grund, warum das Pferd so günstig ist.
+              Österreich hat einzigartige Pferderassen mit jahrhundertelanger Tradition. Diese Rassen findest du nirgendwo sonst in dieser Qualität und Authentizität:
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Regionale Preisunterschiede nach Bundesland
-            </h3>
-            <ul className="space-y-4 text-lg text-gray-700">
-              <li>
-                <strong>Tirol:</strong> Die höchsten Preise (alpine Tradition, Haflinger stronghold). Noriker und Haflinger kosten hier 15–20% mehr als im Osten.
-              </li>
-              <li>
-                <strong>Kärnten:</strong> Schnell wachsender Markt mit guten Preisen. Regionale Spezialrassen sind günstig, Importierte teuer.
-              </li>
-              <li>
-                <strong>Steiermark:</strong> Solider, günstiger Markt. Landwirt.com hat hohe Aktivität hier.
-              </li>
-              <li>
-                <strong>Niederösterreich, Oberösterreich:</strong> Durchschnittliche Preise. Große regionale Zuchtverbände halten Preise stabil.
-              </li>
-              <li>
-                <strong>Wien:</strong> Sehr hohe Preise, wenige Angebote. Urban Living + weniger Stall = höhere Nachfrage, höhere Preise.
-              </li>
-            </ul>
+            <div className="space-y-6">
+              {austrianBreeds.map((breed) => (
+                <div key={breed.name} className="bg-white rounded-lg border border-gray-200 p-5">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{breed.name}</h3>
+                  <p className="text-gray-600 mb-3">{breed.description}</p>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <span className="text-gray-500">Stockmaß: {breed.size}</span>
+                    <span className="font-semibold text-brand">Preis: {breed.priceRange}</span>
+                    <span className="text-gray-500">Zuchtgebiet: {breed.region}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Praktischer Ratschlag:</strong> Wenn Budget dein Limit ist, schau in Kärnten und der Steiermark. Wenn du Premium-Rassen willst, akzeptiere Tiroler Preise.
+              Mehr zu einzelnen Rassen findest du in unseren Ratgebern zu <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> und <LocalizedLink href="/pferde-ratgeber/lipizzaner" className="text-brand hover:text-brand-dark underline">Lipizzaner</LocalizedLink>.
             </p>
           </section>
 
-          {/* Section: Rassen */}
-          <section id="rassen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Events 2025 */}
+          <section id="maerkte-events" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Beliebte Pferderassen in Österreich – Kaufratgeber
+              Pferdemärkte & Auktionen 2025 in Österreich
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Nicht alle Pferde sind gleich. Deine Wahl der Rasse hat enorme Auswirkungen auf Charakter, Größe, Eignung und Preis. In Österreich gibt es natürliche Favoriten.
+              Österreich hat eine reiche Tradition an Pferdemessen und Auktionen. Die wichtigsten Termine 2025:
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Noriker kaufen – Österreichs heimische Pferderasse
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der <strong>Noriker</strong> ist DAS österreichische Pferd. Diese eleganten Kaltblüter stammen aus den alpinen Regionen und sind für ihre Zuverlässigkeit, Kraft und Sanftheit bekannt.
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Höhe:</strong> 1,45–1,60 m (mittelgroß)</li>
-              <li><strong>Gewicht:</strong> 600–800 kg</li>
-              <li><strong>Temperament:</strong> Ruhig, vertrauensvoll, intelligent</li>
-              <li><strong>Verwendung:</strong> Fahren, Freizeit, Therapie, leichte Landwirtschaft</li>
-              <li><strong>Preise:</strong> Freizeitqualität 4.000–7.000 €, Gezüchtete Linien 7.000–15.000 €</li>
-            </ul>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Haflinger kaufen – Alpine Rasse mit Tradition
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> ist nach dem Noriker die zweite klassische österreichische Rasse. Diese kleinen, kraftvollen Bergpferde sind berühmt für ihre Zuverlässigkeit und ihre Fähigkeit, in schwierigem Gelände zu arbeiten.
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Höhe:</strong> 1,38–1,50 m (ideal für Kinder und Leichtreitende)</li>
-              <li><strong>Temperament:</strong> Energisch, gelehrig, sicher</li>
-              <li><strong>Farbe:</strong> Fast immer Goldrappé mit heller Mähne</li>
-              <li><strong>Verwendung:</strong> Freizeitreiten, Fahren, Kinderreiten, Trekking</li>
-              <li><strong>Preise:</strong> Basis 4.000–6.000 €, Gut trainiert 6.000–12.000 €</li>
-            </ul>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Besonderheit:</strong> Haflinger sind ideal für Anfänger und Kinder. Sie sind nicht faul – sie sind nur sicher. Ein Haflinger wird dich nicht abwerfen, sondern eher versuchen, dich zu retten.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Freizeitpferde vs. Sportpferde – Die richtige Wahl treffen
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Ehrlicher Ratschlag:</strong> 80% aller Käufer brauchen ein <LocalizedLink href="/pferd-kaufen/freizeitpferd" className="text-brand hover:text-brand-dark underline">Freizeitpferd</LocalizedLink>. Wenn du nicht mindestens 3x pro Woche trainierst und keine Turniererfahrung hast, kauf ein Freizeitpferd. Ein überteuertes Sportpferd wird dich nicht glücklich machen.
-            </p>
+            <div className="space-y-4">
+              {events2025.map((event) => (
+                <div key={event.name} className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Calendar className="w-4 h-4 text-brand" />
+                        <span className="text-sm font-medium text-brand">{event.date}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900">{event.name}</h3>
+                      <p className="text-sm text-gray-500">{event.location}</p>
+                    </div>
+                    <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                      {event.type}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mt-3 text-sm">{event.description}</p>
+                </div>
+              ))}
+            </div>
           </section>
 
-          {/* CTA Box 2: Rassen-Bewertung */}
+          {/* CTA Box 2 */}
           <RatgeberHighlightBox
-            title="PferdeWert nutzen für objektive Bewertung"
-            icon={sparklesIcon}
+            title="Vorbereitet zur Auktion"
+            icon={mountainIcon}
           >
             <p className="text-base text-gray-700 mb-4">
-              Eine professionelle Bewertung hilft dir, teure Fehlkäufe zu vermeiden. PferdeWerts KI-gestützte Analyse in 2 Minuten basiert auf objektiven Qualitätskriterien und ermöglicht den Vergleich mit aktuellen Marktpreisen.
+              Ob Pferd Wels oder Lipizzaner-Fohlenmarkt in Piber: Mit einer vorherigen Werteinschätzung weißt du genau, bis zu welchem Preis du mitbieten solltest.
             </p>
             <LocalizedLink
               href="/pferde-preis-berechnen"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
-              Jetzt Qualität bewerten lassen
-              <Sparkles className="w-4 h-4 ml-2" />
+              Werteinschätzung holen
+              <TrendingUp className="w-4 h-4 ml-2" />
             </LocalizedLink>
           </RatgeberHighlightBox>
 
-          {/* Section: Bundesländer */}
-          <section id="bundeslaender" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Price Overview */}
+          <section id="preise" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Pferde in Österreich nach Bundesland kaufen – Regionale Märkte
+              Preisübersicht: Was kosten Pferde in Österreich?
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Österreich ist nicht einheitlich, wenn es um Pferdezucht und -märkte geht. Jedes Bundesland hat seine Charakteristiken, Traditionen und Preisstrukturen.
+              Österreich hat regionale Preisunterschiede: Tirol ist für Haflinger 10-15% teurer als der Durchschnitt. Wien und Umgebung sind generell teurer. Kärnten und Steiermark bieten oft die besten Preis-Leistungs-Verhältnisse.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Pferde in Tirol kaufen – Größter regionaler Markt
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Tirol ist Österreichs Pferde-Hochburg. Mit fast 500 monatlichen Suchanfragen und einer starken +23% Wachstumstrend ist Tirol der wichtigste Pferdemarkt im Land.
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li>Alpines Klima züchtet robuste Pferde (Haflinger, Noriker)</li>
-              <li>Starke Zucht-Tradition seit Jahrhunderten</li>
-              <li>Höhere Preise (10–15% über Bundesdurchschnitt)</li>
-              <li><strong>Tipp:</strong> Nutze regionale Tiroler Zuchtverbände. Persönliche Kontakte sind hier mehr wert als Online-Anzeigen.</li>
-            </ul>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+                <thead>
+                  <tr className="bg-brand text-white">
+                    <th className="px-4 py-3 text-left font-semibold">Kategorie</th>
+                    <th className="px-4 py-3 text-left font-semibold">Preisspanne</th>
+                    <th className="px-4 py-3 text-left font-semibold">Hinweis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {priceOverview.map((item, index) => (
+                    <tr key={item.category} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                      <td className="px-4 py-3 font-medium text-gray-900">{item.category}</td>
+                      <td className="px-4 py-3 font-semibold text-brand">{item.priceRange}</td>
+                      <td className="px-4 py-3 text-gray-600 text-sm">{item.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Pferde in Kärnten kaufen – Schnell wachsender Markt
-            </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Kärnten ist das Überraschungs-Bundesland. Mit einer beeindruckenden +50% Wachstumsrate ist Kärnten der schnellste wachsende Pferdemarkt in Österreich.
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li>Günstigere Preise (10–15% unter Tirol)</li>
-              <li>Neu entwickelnde Zucht-Infrastruktur</li>
-              <li>Weniger Konkurrenz = bessere Angebote</li>
-              <li><strong>Tipp:</strong> Wenn du Zeit für die Suche hast, kann Kärnten dir bessere Preise geben als Tirol.</li>
-            </ul>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Pferde in der Steiermark kaufen
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Die Steiermark ist ein traditioneller Pferde-Markt mit solider Infrastruktur. Mit etwa 390 monatlichen Suchanfragen ist die Steiermark immer noch ein bedeutender Markt. Bekannte Zucht-Regionen: Murtal (leichte Reitpferde), Südsteiermark (Freizeit- und Sportreiterei).
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Pferde in Wien kaufen – Urban Market
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Wien ist ein Spezialfall. Mit nur 40 monatlichen Suchanfragen ist der Wiener Pferdemarkt sehr klein und hart umkämpft. Rechne mit 20–30% höheren Preisen. Schau dich auch in umliegenden Regionen um – Niederösterreich ist nah.
+              Mehr Informationen zu Pferdepreisen allgemein findest du in unserem <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">ausführlichen Kostenratgeber</LocalizedLink>.
             </p>
           </section>
 
-          {/* Section: Kaufprozess */}
-          <section id="kaufprozess" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Buying Tips */}
+          <section id="kauftipps" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Der Kaufprozess Schritt für Schritt – Vom Traum zum Besitzer
+              Tipps für den Pferdekauf in Österreich
             </h2>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Schritt 1: Vorbereitung und Bedarfsanalyse
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Bevor du überhaupt anfängst zu suchen, klär deine Anforderungen: Budget (Anschaffungspreis, Transport, AKU, Ausrüstung), Nutzungszweck, Erfahrungslevel und praktische Rahmenbedingungen (Stallplatz, Zeit für tägliche Pflege).
-            </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">1. Nutze die Vielfalt der Marktplätze</h3>
+                <p className="text-gray-600">
+                  Willhaben hat die meisten Privatverkäufer, Landwirt.com die besten Noriker-Angebote, ehorses die größte Sportpferde-Auswahl. Nutze alle drei parallel.
+                </p>
+              </div>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Schritt 2: Suche und Vergleich auf Marktplätzen
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Erstelle Such-Alerts auf Willhaben, ehorses und Landwirt.com. Speichere potenzielle Kandidaten in einer Liste. Filter nach Rasse, Größe, Preis, Alter und Trainingsstand.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Rote Flaggen:</strong> &quot;Schnell verkaufen müssen&quot;, keine Kontaktinformationen, nur Fotos ohne Video, unrealistisch günstiger Preis.
-            </p>
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">2. Besuche die Zuchtgebiete</h3>
+                <p className="text-gray-600">
+                  Für Haflinger lohnt sich eine Reise nach Tirol (Ebbs), für Noriker nach Kärnten oder Salzburg, für Lipizzaner nach Piber. Die Pferdedichte ist dort so hoch, dass du an einem Wochenende mehrere Züchter besuchen kannst.
+                </p>
+              </div>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Schritt 3: Besichtigung und Inspektion
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Was du überprüfst: Augen (klar, hell), Zahnstand, Haut und Fell, Hufe, Bewegung (ruhig im Schritt, symmetrisch im Trab), Temperament. Frage den Verkäufer: &quot;Wie lange schon bei dir?&quot;, &quot;Warum verkaufst du?&quot;, &quot;Irgendwelche Verletzungen?&quot;
-            </p>
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">3. Pferd Wels nicht verpassen</h3>
+                <p className="text-gray-600">
+                  Die Messe &quot;Pferd Wels&quot; im November ist der perfekte Ort, um Züchter kennenzulernen, Pferde zu vergleichen und an Auktionen teilzunehmen. Hier triffst du die gesamte österreichische Pferdeszene.
+                </p>
+              </div>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Schritt 4: Ankaufsuntersuchung (AKU)
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Die <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">AKU (Ankaufsuntersuchung)</LocalizedLink> ist in Österreich nicht gesetzlich vorgeschrieben, aber absolut essentiell. Sie schützt dich vor teuren Überraschungen.
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Basis AKU:</strong> 300–400 € (Allgemeinzustand, Herz, Lungen, Bewegungsapparat)</li>
-              <li><strong>Mit Blutuntersuchung:</strong> 400–600 €</li>
-              <li><strong>Mit Ultraschall:</strong> 600–800 €</li>
-            </ul>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Timing:</strong> AKU am besten VOR Vertragsabschluss. Der Tierarzt sollte unabhängig vom Verkäufer sein.
-            </p>
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">4. AKU von lokalen Tierärzten</h3>
+                <p className="text-gray-600">
+                  Österreich hat eine hohe Dichte an spezialisierten Pferde-Tierärzten. Lass die <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">Ankaufsuntersuchung</LocalizedLink> vor Ort durchführen. Kosten: 300-600 EUR.
+                </p>
+              </div>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Schritt 5: Kaufvertrag und Rechtliche Absicherung
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Ein schriftlicher <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">Pferdekaufvertrag</LocalizedLink> ist essentiell. Das schützt beide Seiten. Was muss im Vertrag stehen: Namen und Daten beider Parteien, Pferdetasche (Namen, Rasse, Alter, Farbe), Kaufpreis, Garantien, Rücktrittsrecht, Übergabedatum.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Schritt 6: Registrierung und Versicherung
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Pferdepass:</strong> Jedes Pferd mit Papieren hat einen EU-Pferdepass. Bei Eigentümerwechsel muss der Pass aktualisiert werden.
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Haftpflicht:</strong> Essentiell (50–200 € pro Jahr)</li>
-              <li><strong>Pferde-Krankenversicherung:</strong> Optional (80–300 € pro Jahr)</li>
-              <li><strong>Todesfallversicherung:</strong> Optional (200–500 € pro Jahr)</li>
-            </ul>
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">5. Kaufvertrag nicht vergessen</h3>
+                <p className="text-gray-600">
+                  Auch beim freundlichen Tiroler Bauern gilt: Nur ein schriftlicher <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">Kaufvertrag</LocalizedLink> schützt dich rechtlich. Das ist in Österreich Standard.
+                </p>
+              </div>
+            </div>
           </section>
 
-          {/* CTA Box 3: Sicherheit */}
-          <RatgeberHighlightBox
-            title="Rechtliche Absicherung ist essentiell"
-            icon={shieldIcon}
-          >
-            <p className="text-base text-gray-700 mb-4">
-              Kaufvertrag, AKU, Versicherungen – diese Punkte solltest du nie überspringen. PferdeWert hilft dir zusätzlich mit einer objektiven Bewertung, um teure Fehlkäufe zu vermeiden.
-            </p>
-            <LocalizedLink
-              href="/pferd-kaufen/kaufvertrag"
-              className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
-            >
-              Mehr zum Kaufvertrag
-              <FileCheck className="w-4 h-4 ml-2" />
-            </LocalizedLink>
-          </RatgeberHighlightBox>
-
-          {/* Section: Laufende Kosten */}
-          <section id="kosten" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Laufende Kosten für Pferdehalter – Vollständiger Kostenüberblick
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Du hast dein Pferd gekauft. Jetzt kommen die Unterhaltskosten. Viele neue Pferdebesitzer unterschätzen diese.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Stallplatz und Unterkunft
-            </h3>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Tirol:</strong> 250–500 € (alpine Weiden, günstig)</li>
-              <li><strong>Wien:</strong> 400–800 € (teuer, Limited Capacity)</li>
-              <li><strong>Steiermark/Kärnten:</strong> 150–300 € (günstig)</li>
-              <li><strong>Durchschnitt Österreich:</strong> 200–400 € pro Monat</li>
-            </ul>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Fütterung, Tierarzt und Hufschmied
-            </h3>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Fütterung:</strong> 150–300 € pro Monat</li>
-              <li><strong>Tierarzt (Routine):</strong> 50–150 € pro Monat</li>
-              <li><strong>Hufschmied:</strong> 50–80 € pro Monat</li>
-            </ul>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Gesamtkostenübersicht
-            </h3>
-            <ul className="space-y-4 text-lg text-gray-700">
-              <li>
-                <strong>Günstiges Budget (Freizeitpferd auf Weide):</strong> ca. 420 € pro Monat
-              </li>
-              <li>
-                <strong>Mittleres Budget (Freizeitpferd auf gutem Stall):</strong> ca. 830 € pro Monat
-              </li>
-              <li>
-                <strong>Premium Budget (Sportpferd, gute Infrastruktur):</strong> ca. 1.300 € pro Monat
-              </li>
-            </ul>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Realistische Range für Österreich:</strong> 400–1.300 € pro Monat, je nach Region und Pferdetyp. Anfänger unterschätzen immer die monatlichen Kosten – rechne großzügig.
-            </p>
-          </section>
-
-          {/* Section: Sicherheit */}
-          <section id="sicherheit" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Sicherheit beim Pferdekauf – Typische Fehler vermeiden
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Betrug beim Pferdekauf ist realer als viele denken. Aber mit Know-how kannst du dich schützen.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Rote Flaggen – Anzeichen für dubiose Verkäufer
-            </h3>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li>Verkäufer will kein Inspektions-Video</li>
-              <li>&quot;Keine AKU möglich&quot; (doch, sie ist standard)</li>
-              <li>Zahlung nur in bar, vor der Übergabe</li>
-              <li>Geschichte des Pferdes ist vage oder widersprüchlich</li>
-              <li>Druck: &quot;Ich hab einen anderen Käufer interessiert&quot;</li>
-              <li>Drastisch unter Marktpreis (warum?)</li>
-            </ul>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Online-Kaufbetrug vermeiden
-            </h3>
-            <ol className="space-y-2 text-lg text-gray-700 list-decimal list-inside">
-              <li><strong>Plattform-Verifizierung:</strong> Kaufe nur auf etablierten Plattformen (ehorses, Willhaben, Landwirt)</li>
-              <li><strong>Verkäufer-Verifizierung:</strong> Prüfe Bewertungen und Länge des Accounts</li>
-              <li><strong>Video-Calls:</strong> Fordere einen Video-Call an (nicht nur Fotos)</li>
-              <li><strong>Zahlung sichern:</strong> Nutze Banküberweisung mit Käuferschutz</li>
-              <li><strong>Vertrag vor Zahlung:</strong> Nie bezahlen ohne schriftlichen Vertrag</li>
-              <li><strong>Vor-Ort-Check:</strong> Besichtige das Pferd IMMER persönlich, bevor du zahlst</li>
-            </ol>
-          </section>
-
-          {/* Fazit */}
-          <section className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Fazit – Dein Weg zum Traumpferd in Österreich
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Pferd kaufen in Österreich</strong> ist kein Geheimnis – es braucht nur Information, Geduld und Sorgfalt.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Du weißt jetzt:
-            </p>
-            <ul className="space-y-2 text-lg text-gray-700">
-              <li><strong>Wo</strong> du ein Pferd kaufen kannst (Willhaben, ehorses, Landwirt, Züchter)</li>
-              <li><strong>Was</strong> realistische Preise sind (Freizeitpferde 1.500–10.000 €)</li>
-              <li><strong>Welche Rassen</strong> zu dir passen (Noriker, Haflinger für Anfänger; Warmblüter für Sport)</li>
-              <li><strong>Wie</strong> der Kaufprozess funktioniert (6 durchdachte Schritte)</li>
-              <li><strong>Welche Kosten</strong> monatlich auf dich zukommen (400–1.300 €)</li>
-              <li><strong>Wie</strong> du dich vor Betrug schützt (AKU, Vertrag, Sorgfalt)</li>
-            </ul>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der entscheidende Punkt: Eil dich nicht. Ein gutes Pferd zu finden braucht Zeit. Nimm dir 4–6 Wochen, besichtige mehrere Kandidaten, und höre auf dein Bauchgefühl.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Das wichtigste Tool am Ende deines Kaufs?</strong> Nutze den <LocalizedLink href="/" className="text-brand hover:text-brand-dark underline">PferdeWert Rechner</LocalizedLink>, um eine realistische Preiseinschätzung für dein Pferd zu bekommen – ob beim Kauf, für Versicherungen oder einfach um zu wissen, was dein Pferd wert ist.
-            </p>
-          </section>
         </div>
 
         {/* FAQ Section */}
@@ -614,15 +711,15 @@ export default function PferdKaufenOesterreich() {
           <div className="max-w-3xl mx-auto px-4 md:px-6">
             <FAQ
               faqs={faqItems}
-              sectionTitle="Häufig gestellte Fragen"
-              sectionSubtitle="Die wichtigsten Fragen und Antworten rund um den Pferdekauf in Österreich"
+              sectionTitle="Häufig gestellte Fragen zum Pferdekauf in Österreich"
+              sectionSubtitle="Antworten zu Marktplätzen, Bundesländern, Preisen und österreichischen Rassen"
               withSchema={false}
             />
           </div>
         </section>
 
         {/* Author Box */}
-        <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 mt-16">
           <AuthorBox />
         </div>
 
@@ -638,8 +735,8 @@ export default function PferdKaufenOesterreich() {
             src: '/images/shared/blossi-shooting.webp',
             alt: 'Pferdebewertung mit PferdeWert'
           }}
-          title="Bereit für eine professionelle Pferdebewertung?"
-          description="Nutze unsere KI-gestützte Analyse in nur 2 Minuten und erhalte eine fundierte Einschätzung des Pferdewerts – objektiv, schnell und zuverlässig."
+          title="Gefunden? Jetzt bewerten lassen."
+          description="Nutze unsere KI-gestützte Analyse in nur 2 Minuten und gehe mit einer fundierten Werteinschätzung in die Verhandlung – objektiv, schnell und zuverlässig."
           ctaHref="/pferde-preis-berechnen"
           ctaLabel="Jetzt Pferdewert berechnen"
         />

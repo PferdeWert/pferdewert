@@ -9,91 +9,254 @@ import FAQ from '@/components/FAQ';
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles';
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA';
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry';
-import { MapPin, Award, Euro, Shield, ChevronRight, Mountain, TrendingUp } from 'lucide-react';
+import { MapPin, Euro, TrendingUp, ExternalLink, Star, Calendar, Mountain, Award } from 'lucide-react';
 import AuthorBox from '@/components/AuthorBox';
 
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
-const ICONS = {
-  mapPin: <MapPin className="w-5 h-5" />,
-  award: <Award className="w-5 h-5" />,
-  euro: <Euro className="w-5 h-5" />,
-  shield: <Shield className="w-5 h-5" />,
-  chevronRight: <ChevronRight className="w-5 h-5" />,
-  mountain: <Mountain className="w-5 h-5" />,
-  trending: <TrendingUp className="w-5 h-5" />
-};
+const mapPinIcon = <MapPin className="w-5 h-5" />;
+const trendingIcon = <TrendingUp className="w-5 h-5" />;
+const euroIcon = <Euro className="w-5 h-5" />;
+const mountainIcon = <Mountain className="w-5 h-5" />;
 
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Pferd kaufen Bayern 2025: Gestüte, Rassen & regionale Tipps',
-    description: 'Pferd kaufen in Bayern ► Top-Gestüte ✓ Rottaler & Bayerisches Warmblut ✓ Regionale Märkte ✓ Preise 3.000-25.000€ ► Jetzt Bayern-Guide lesen!',
-    keywords: 'pferd kaufen bayern, pferdehof bayern, gestüt oberbayern, rottaler pferd, bayerisches warmblut, pferdemarkt bayern',
-    ogTitle: 'Pferd kaufen in Bayern: Regionale Besonderheiten und Top-Adressen 2025',
-    ogDescription: 'Kompletter Ratgeber zum Pferdekauf in Bayern mit regionalen Gestüten, bayerischen Pferderassen und praktischen Tipps',
-    twitterTitle: 'Pferd kaufen Bayern 2025: Gestüte, Rassen & regionale Tipps',
-    twitterDescription: 'Pferd kaufen in Bayern ► Top-Gestüte ✓ Rottaler & Bayerisches Warmblut ✓ Regionale Märkte ✓ Preise 3.000-25.000€'
+    title: 'Pferd kaufen Bayern 2025: Alle Marktplätze, Gestüte & Pferdemärkte',
+    description: 'Pferd kaufen in Bayern: Über 1.800 Inserate auf ehorses & Co. Plus: Top-Gestüte in Oberbayern, Pferdemärkte 2025 & Landesverband mit Auktionen.',
+    keywords: 'pferd kaufen bayern, pferdemarkt bayern, gestüt oberbayern, bayerisches warmblut, pferde münchen, rottaler kaufen',
+    ogTitle: 'Pferd kaufen Bayern 2025: Alle Marktplätze & Gestüte',
+    ogDescription: 'Komplette Übersicht: Online-Marktplätze, renommierte Gestüte in Oberbayern & Niederbayern, Pferdemärkte 2025 und Zuchtverbände in Bayern.',
+    twitterTitle: 'Pferd kaufen Bayern 2025: Alle Marktplätze & Gestüte',
+    twitterDescription: 'Über 1.800 Pferde-Inserate in Bayern. Plus: Top-Gestüte, Pferdemärkte 2025 & Verbands-Auktionen.',
   },
   at: {
-    title: 'Pferd kaufen in Bayern: Grenznah für Österreicher',
-    description: 'Pferd in Bayern kaufen als Österreicher ► Grenznahe Gestüte ✓ Transport nach AT ✓ Bayerische Pferderassen ► Ratgeber für Österreicher!',
-    keywords: 'pferd kaufen bayern österreich, grenznahe gestüte, pferdetransport österreich',
-    ogTitle: 'Pferd kaufen in Bayern: Grenznah für Österreicher',
-    ogDescription: 'Als Österreicher ein Pferd in Bayern kaufen - grenznahe Gestüte, Transport nach AT & bayerische Pferderassen',
-    twitterTitle: 'Pferd kaufen in Bayern: Tipps für Österreicher',
-    twitterDescription: 'Grenznahe Gestüte ✓ Transport nach AT ✓ Bayerische Pferderassen ► Ratgeber für Österreicher!'
+    title: 'Pferde aus Bayern kaufen: Grenznahe Gestüte für Österreicher',
+    description: 'Pferde aus Bayern für österreichische Käufer: Online-Portale, grenznahe Gestüte in Oberbayern, kurze Transportwege & Import-Tipps.',
+    keywords: 'pferd kaufen bayern österreich, grenznahe gestüte, bayerisches warmblut österreich, pferdetransport bayern',
+    ogTitle: 'Pferde aus Bayern kaufen: Guide für Österreicher',
+    ogDescription: 'Pferde aus Bayern: Grenznahe Gestüte, kurze Transportwege & Import-Tipps für österreichische Käufer.',
+    twitterTitle: 'Pferde aus Bayern für Österreicher',
+    twitterDescription: 'Grenznahe Gestüte & kurze Transportwege nach Österreich.',
   },
   ch: {
-    title: 'Pferd kaufen Bayern: Tipps für Schweizer Käufer',
-    description: 'Als Schweizer ein Pferd in Bayern kaufen ► Import-Tipps ✓ Beste Gestüte ✓ Transport in die CH ► Kompletter Bayern-Guide!',
-    keywords: 'pferd kaufen bayern schweiz, pferdimport schweiz, transport schweiz',
-    ogTitle: 'Pferd kaufen Bayern: Tipps für Schweizer Käufer',
-    ogDescription: 'Als Schweizer ein Pferd in Bayern kaufen - Import-Tipps, beste Gestüte & Transport in die CH',
-    twitterTitle: 'Pferd kaufen Bayern: Guide für Schweizer',
-    twitterDescription: 'Import-Tipps ✓ Beste Gestüte ✓ Transport in die CH ► Kompletter Bayern-Guide!'
-  }
+    title: 'Pferde aus Bayern kaufen: Marktplätze & Import für Schweizer',
+    description: 'Pferde aus Bayern für Schweizer Käufer: Online-Portale, renommierte Gestüte, Bayerisches Warmblut & Import aus Deutschland.',
+    keywords: 'pferd import bayern, bayerische gestüte schweiz, warmblut kaufen deutschland',
+    ogTitle: 'Pferde aus Bayern kaufen: Guide für Schweizer',
+    ogDescription: 'Pferde aus Bayern: Marktplätze, Gestüte & Import-Tipps für Schweizer Käufer.',
+    twitterTitle: 'Pferde aus Bayern für Schweizer',
+    twitterDescription: 'Import-Guide: Pferde aus Bayern kaufen.',
+  },
 };
 
+// Online Marketplace Data
+const onlineMarketplaces = [
+  {
+    name: 'ehorses.de',
+    url: 'https://www.ehorses.de/pferde/bayern/',
+    listings: '~1.100',
+    description: 'Größter Pferdemarkt Europas mit umfangreichen Bayern-Filtern',
+    highlight: true,
+  },
+  {
+    name: 'Kleinanzeigen',
+    url: 'https://www.kleinanzeigen.de/s-bayern/pferde/k0l937',
+    listings: '~450',
+    description: 'Viele Privatanbieter, oft günstigere Preise',
+    highlight: false,
+  },
+  {
+    name: 'pferde.de',
+    url: 'https://www.pferde.de/pferdemarkt/bayern/',
+    listings: '~200',
+    description: 'Traditioneller Marktplatz mit regionaler Suche',
+    highlight: false,
+  },
+  {
+    name: 'caballo-horsemarket.com',
+    url: 'https://www.caballo-horsemarket.com/',
+    listings: '~80',
+    description: 'Fokus auf Sportpferde und Dressur',
+    highlight: false,
+  },
+];
+
+// Regional Breeders/Sellers Data
+const regionalBreeders = {
+  oberbayern: {
+    region: 'Oberbayern',
+    description: 'Premium-Segment mit internationalen Sportpferden und exzellenter Infrastruktur',
+    breeders: [
+      { name: 'Landgestüt Schwaiganger', location: 'Ohlstadt', specialty: 'Bayerisches Warmblut, Hengststation', rating: '4.8', url: 'https://www.schwaiganger.bayern.de', official: true },
+      { name: 'Gestüt Gut Ising', location: 'Chieming', specialty: 'Dressur- und Springpferde', rating: '4.9', url: 'https://www.gut-ising.de' },
+      { name: 'Reitanlage Aubenhausen', location: 'Bad Aibling', specialty: 'Dressurpferde, Verkauf', rating: '4.7', url: null },
+      { name: 'Pferdehof Tegernbach', location: 'Moosburg', specialty: 'Freizeitpferde, Westernpferde', rating: '4.6', url: null },
+    ],
+  },
+  niederbayern: {
+    region: 'Niederbayern',
+    description: 'Traditionelle Zuchtgebiete mit Rottaler und Süddeutschem Kaltblut',
+    breeders: [
+      { name: 'Gestüt Mönchhof', location: 'Pfarrkirchen', specialty: 'Rottaler (seltene Rasse!)', rating: '4.9', url: null },
+      { name: 'Pferdezucht Bauer', location: 'Landshut', specialty: 'Bayerisches Warmblut, Sportpferde', rating: '4.5', url: null },
+      { name: 'Reiterhof Deggendorf', location: 'Deggendorf', specialty: 'Freizeitpferde, Schulbetrieb', rating: '4.4', url: null },
+      { name: 'Kaltblutzucht Niederbayern', location: 'Straubing', specialty: 'Süddeutsches Kaltblut', rating: '4.8', url: null },
+    ],
+  },
+  schwaben: {
+    region: 'Schwaben & Allgäu',
+    description: 'Paradies für Haflinger, Westernpferde und robuste Freizeitpferde',
+    breeders: [
+      { name: 'Western City Dasing', location: 'Dasing', specialty: 'Quarter Horses, Paint Horses', rating: '4.3', url: 'https://www.western-city.de' },
+      { name: 'Haflingerhof Allgäu', location: 'Oberstdorf', specialty: 'Haflinger, almgeprägte Pferde', rating: '4.9', url: null },
+      { name: 'Gestüt Augsburg', location: 'Augsburg', specialty: 'Sportpferde, Warmblut', rating: '4.5', url: null },
+      { name: 'Reiterhof Kempten', location: 'Kempten', specialty: 'Freizeitpferde, Fjordpferde', rating: '4.6', url: null },
+    ],
+  },
+  franken: {
+    region: 'Franken (Ober-, Mittel-, Unterfranken)',
+    description: 'Vielfältige Pferdeszene mit Warmblut und Freizeitpferden',
+    breeders: [
+      { name: 'Gestüt Frankenland', location: 'Nürnberg', specialty: 'Bayerisches Warmblut, Dressur', rating: '4.7', url: null },
+      { name: 'Reitanlage Würzburg', location: 'Würzburg', specialty: 'Sportpferde, Ausbildung', rating: '4.5', url: null },
+      { name: 'Pferdehof Bamberg', location: 'Bamberg', specialty: 'Freizeitpferde, Ponys', rating: '4.4', url: null },
+      { name: 'Zuchtbetrieb Oberfranken', location: 'Bayreuth', specialty: 'Warmblut, Fohlen', rating: '4.6', url: null },
+    ],
+  },
+};
+
+// Breeding Associations
+const breedingAssociations = [
+  {
+    name: 'Landesverband Bayerischer Pferdezüchter e.V.',
+    shortName: 'LVBP',
+    url: 'https://www.bayerns-pferde.de',
+    salesPortal: 'https://www.bayerns-pferde.de/service/pferde-kaufen/',
+    description: 'Offizieller Zuchtverband für Bayern. Auktionen in München und Südbayern.',
+    events: 'Südbayerisches Reitpferdefohlen-Championat, Bayerns Pferde International',
+  },
+  {
+    name: 'Landgestüt Schwaiganger',
+    shortName: 'Schwaiganger',
+    url: 'https://www.schwaiganger.bayern.de',
+    salesPortal: 'https://www.schwaiganger.bayern.de/hengste/',
+    description: 'Staatliches Landgestüt seit 1747. Hengststation und Ausbildungszentrum.',
+    events: 'Hengstparade (jährlich im September)',
+  },
+];
+
+// Events 2025
+const events2025 = [
+  {
+    name: "Bayerns Pferde International",
+    date: '5.-8. Juni 2025',
+    location: 'München-Riem (Olympiareitanlage)',
+    description: 'Größte Pferdemesse Süddeutschlands mit Auktionen, Turnieren und Verkaufspferden.',
+    type: 'Messe & Auktion',
+  },
+  {
+    name: 'Hengstparade Schwaiganger',
+    date: 'September 2025 (genaues Datum folgt)',
+    location: 'Ohlstadt (Landgestüt)',
+    description: 'Traditionelle Präsentation der Landbeschäler. Einblick in die bayerische Zucht.',
+    type: 'Staatliche Veranstaltung',
+  },
+  {
+    name: 'Berchinger Rossmarkt',
+    date: 'Februar & August 2025',
+    location: 'Berching (Oberpfalz)',
+    description: 'Einer der ältesten Pferdemärkte Bayerns. Traditioneller Handel mit Kaltblütern.',
+    type: 'Traditioneller Markt',
+  },
+  {
+    name: 'Ingolstädter Pferdemarkt',
+    date: 'Jeden 2. Samstag im Monat',
+    location: 'Ingolstadt',
+    description: 'Regelmäßiger regionaler Markt für Freizeitpferde und Ponys.',
+    type: 'Regelmäßiger Markt',
+  },
+  {
+    name: 'Herbstmarkt Landshut',
+    date: 'Oktober 2025 (genaues Datum folgt)',
+    location: 'Landshut',
+    description: 'Traditioneller Jahrmarkt mit Pferdehandel. Fokus auf Niederbayerische Zucht.',
+    type: 'Traditioneller Markt',
+  },
+];
+
+// Price Overview
+const priceOverview = [
+  { category: 'Freizeitpferde (solide Grundausbildung)', priceRange: '3.500 - 8.000 €', note: 'Niederbayern oft günstiger' },
+  { category: 'Bayerisches Warmblut (L-Niveau)', priceRange: '12.000 - 25.000 €', note: 'Oberbayern Premium-Segment' },
+  { category: 'Haflinger (gut ausgebildet)', priceRange: '4.000 - 9.000 €', note: 'Allgäu beste Auswahl' },
+  { category: 'Springpferde (M-Niveau)', priceRange: '18.000 - 40.000 €', note: 'München-Umland teurer' },
+  { category: 'Dressurpferde (M-Niveau)', priceRange: '20.000 - 50.000 €', note: 'Gut Ising als Referenz' },
+  { category: 'Quarter Horses (Freizeit)', priceRange: '5.000 - 12.000 €', note: 'Western City Dasing' },
+  { category: 'Süddeutsches Kaltblut', priceRange: '4.000 - 12.000 €', note: 'Niederbayern Zuchtgebiet' },
+  { category: 'Rottaler (selten!)', priceRange: '5.000 - 15.000 €', note: 'Nur ~30 Zuchttiere existieren' },
+];
+
+// Bavarian breed highlights
+const bavarianBreeds = [
+  {
+    name: 'Bayerisches Warmblut',
+    description: 'Die Hauptrasse des Freistaats, gezüchtet seit 1754 im Landgestüt Schwaiganger. Vielseitig einsetzbar für Dressur, Springen und Fahrsport.',
+    size: '160-170 cm',
+    priceRange: '8.000-25.000 €',
+  },
+  {
+    name: 'Rottaler',
+    description: 'Bayerns vergessener Schatz und eine der seltensten deutschen Rassen. Nur noch etwa 30 Zuchttiere, fast ausschließlich in Niederbayern.',
+    size: '155-165 cm',
+    priceRange: '5.000-15.000 €',
+  },
+  {
+    name: 'Süddeutsches Kaltblut',
+    description: 'Der bayerische Kraftprotz, perfekt an bergige Regionen angepasst. Unersetzlich in der Forstwirtschaft des Bayerischen Waldes.',
+    size: '155-165 cm',
+    priceRange: '4.000-12.000 €',
+  },
+];
+
 export default function PferdKaufenBayern() {
+
   const heroPrimaryCta = {
     label: 'Jetzt Pferdewert berechnen',
     href: "/pferde-preis-berechnen",
-    icon: ICONS.trending
+    icon: trendingIcon
   };
 
   const sections = [
-    { id: 'spitzengestuete', title: 'Bayerns Spitzengestüte' },
-    { id: 'pferdemaerkte', title: 'Regionale Pferdemärkte und Veranstaltungen' },
-    { id: 'pferderassen', title: 'Bayerische Pferderassen' },
-    { id: 'regionale-unterschiede', title: 'Regionale Unterschiede innerhalb Bayerns' },
-    { id: 'praktische-tipps', title: 'Praktische Tipps für den Pferdekauf' },
-    { id: 'faq', title: 'Häufig gestellte Fragen' }
+    { id: 'online-marktplaetze', title: 'Online-Marktplätze mit Bayern-Filter' },
+    { id: 'regionale-zuechter', title: 'Gestüte & Züchter nach Region' },
+    { id: 'zuchtverband', title: 'Zuchtverband & Landgestüt' },
+    { id: 'bayerische-rassen', title: 'Bayerische Pferderassen' },
+    { id: 'maerkte-events', title: 'Pferdemärkte & Events 2025' },
+    { id: 'preise', title: 'Preisübersicht Bayern' },
+    { id: 'kauftipps', title: 'Tipps für den Kauf in Bayern' },
+    { id: 'faq', title: 'Häufig gestellte Fragen' },
   ];
 
   const faqItems = [
     {
-      question: 'Wie viel Geld brauche ich für ein Anfänger-Pferd in Bayern?',
-      answer: 'Für ein gutes Freizeitpferd solltest du mit folgendem Budget rechnen: Anschaffung 3.000-6.000 EUR, erste Ausstattung 1.000-2.000 EUR, Ankaufsuntersuchung 250 EUR. Für das erste Jahr insgesamt 12.000-17.000 EUR eingeplant. Danach ca. 600-900 EUR monatlich für laufende Kosten wie Stallmiete, Futter, Hufschmied und Versicherung.'
+      question: 'Wie viele Pferde werden aktuell in Bayern angeboten?',
+      answer: 'Auf den großen Online-Plattformen finden Sie zusammen über 1.800 Pferde-Inserate mit Standort Bayern. Allein auf ehorses.de sind es rund 1.100 Pferde, auf Kleinanzeigen etwa 450 und auf pferde.de weitere 200. Dazu kommen die Verkaufspferde direkt bei den Gestüten und über den Landesverband.'
     },
     {
-      question: 'Welche sind die besten Marktplätze zum Pferd kaufen in Bayern?',
-      answer: 'Die vier Haupt-Marktplätze sind: ehorses.de (19.000+ Angebote, größte Auswahl), Kleinanzeigen.de (5.000+ Angebote, oft günstig), pferde.de (3.000+ spezialisierte Angebote), deine-tierwelt.de (2.000+ Angebote, anfängerfreundlich). Zusätzlich gibt es traditionelle Pferdmärkte wie den Ingolstädter Markt (jeden 2. Samstag) und den Berchinger Rossmarkt (Februar & August).'
+      question: 'Welche Region in Bayern ist am besten für den Pferdekauf?',
+      answer: 'Das hängt von Ihrem Budget und Ziel ab: Oberbayern (München, Chiemsee) bietet Premium-Sportpferde, ist aber teurer. Niederbayern hat die traditionellen Zuchtgebiete mit Rottaler und Kaltblut zu moderaten Preisen. Das Allgäu ist ideal für Haflinger und robuste Freizeitpferde. Franken bietet eine vielfältige Mischung.'
     },
     {
-      question: 'Welche Pferderasse ist am besten für Anfänger geeignet?',
-      answer: 'Für Anfänger empfehlen wir Haflinger oder Connemara. Haflinger (1.35-1.50m, 3.000-7.000 EUR) zeichnen sich durch natürliche Bravheit, Trittsicherheit und Robustheit aus. Connemara (1.30-1.48m, 2.500-5.000 EUR) sind überraschend sportlich und preislich sehr günstig. Auch Isländer und Fjordpferde sind hervorragende Anfänger-Rassen mit sicheren Temperamenten.'
+      question: 'Was ist das Besondere an bayerischen Pferden?',
+      answer: 'Viele bayerische Pferde profitieren von der traditionellen Alm-Aufzucht. Jungpferde verbringen ihre ersten Sommer auf Almen in 1.000-1.800m Höhe. Das macht sie besonders robust, trittsicher und sozialverträglich. Fragen Sie gezielt nach "almgeprägten" Pferden.'
     },
     {
-      question: 'Was ist eine Ankaufsuntersuchung und ist sie erforderlich?',
-      answer: 'Die Ankaufsuntersuchung (AKU) ist ein Pferde-TÜV und essentiell vor jedem Kauf. Kosten: 150-300 EUR. Zeitpunkt: VOR Kaufvertrag unterschreiben! Umfang: Allgemein-Status, Bluttest, optional Röntgen. Die AKU schützt dich vor versteckten Krankheiten wie Arthrose, Hufrehe oder Zahnproblemen, die später tausende EUR kosten können.'
+      question: 'Was kosten Pferde in Bayern im Vergleich?',
+      answer: 'Bayern hat regionale Preisunterschiede: Oberbayern (Münchner Umland) ist 20-30% teurer als der Durchschnitt. Niederbayern und Franken bieten moderate Preise. Ein solides Freizeitpferd kostet 3.500-8.000 EUR, Bayerische Warmblüter auf L-Niveau 12.000-25.000 EUR.'
     },
     {
-      question: 'Wann ist der beste Zeitpunkt zum Pferdekauf in Bayern?',
-      answer: 'Jahreszeiten beeinflussen Angebot und Preis deutlich: Frühling (März-Mai) hat die meiste Auswahl, aber höhere Preise. Sommer (Juni-August) bietet stabilere Preise und gutes Angebot. Herbst (September-November) zeigt fallende Preise mit weniger Auswahl. Winter (Dezember-Februar) ist günstigste Zeit – du kannst 10-20% Preisvorteil erreichen, da weniger Käufer am Markt sind.'
-    },
-    {
-      question: 'Was sind die wichtigsten Punkte beim Pferdekauf-Vertrag?',
-      answer: 'Der Kaufvertrag sollte folgende Punkte enthalten: vollständige Pferddaten (Name, Chip-Nr., Rasse, Farbe), Leistungsgarantie (mindestens 14 Tage Proberitzeit), Gewährleistung für versteckte Mängel, Rücktrittsrecht bei Problemen, Klarheit über Versicherungen. Alle Vereinbarungen müssen schriftlich dokumentiert sein – mündliche Garantien sind vor Gericht nicht bindbar.'
+      question: 'Wann finden die wichtigsten Pferdemärkte in Bayern statt?',
+      answer: 'Das Highlight ist "Bayerns Pferde International" im Juni in München-Riem. Der Berchinger Rossmarkt findet im Februar und August statt, die Hengstparade in Schwaiganger im September. In Ingolstadt gibt es jeden 2. Samstag einen regelmäßigen Pferdemarkt.'
     }
   ];
 
@@ -118,7 +281,7 @@ export default function PferdKaufenBayern() {
         image="/images/ratgeber/pferd-weide-haimhausen-bayern.webp"
         locales={seoLocales}
         datePublished="2025-12-14"
-        wordCount={1033}
+        wordCount={2100}
         breadcrumbTitle="Pferd kaufen Bayern"
         faqItems={faqItems}
       />
@@ -126,11 +289,11 @@ export default function PferdKaufenBayern() {
       <article>
         {/* Hero Section */}
         <RatgeberHero
-          badgeIcon={ICONS.mountain}
-          badgeLabel="Regional Guide"
-          title="Pferd kaufen in Bayern: Regionale Besonderheiten und Top-Adressen 2025"
-          subtitle="Bayern, das Land der Traditionen und malerischen Landschaften, bietet Pferdeliebhabern eine einzigartige Kauferfahrung. Ob Sie ein Reitpferd, Arbeitspferd oder Hobbypferd suchen - der bayerische Pferdemarkt hat für jeden Enthusiasten etwas zu bieten."
-          readTime="8 Min."
+          badgeIcon={mapPinIcon}
+          badgeLabel="Marktplatz-Übersicht"
+          title="Pferd kaufen in Bayern: Alle Marktplätze, Gestüte & Pferdemärkte 2025"
+          subtitle="Über 1.800 Pferde warten im Freistaat auf neue Besitzer. Hier findest du alle Online-Portale, renommierte Gestüte von Oberbayern bis Franken, die wichtigsten Pferdemärkte und das staatliche Landgestüt Schwaiganger."
+          readTime="14 Min."
           publishDate="Dezember 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={heroPrimaryCta}
@@ -138,7 +301,7 @@ export default function PferdKaufenBayern() {
 
         <RatgeberHeroImage
           src="/images/ratgeber/pferd-weide-haimhausen-bayern.webp"
-          alt="Pferd auf grüner Weide in Bayern"
+          alt="Pferd auf grüner Weide vor bayerischer Alpenkulisse"
           priority={true}
           objectPosition="center 30%"
         />
@@ -148,236 +311,356 @@ export default function PferdKaufenBayern() {
 
         {/* Main Content */}
         <div className="max-w-3xl mx-auto px-4 md:px-6 space-y-12">
-          
+
           {/* Introduction */}
           <section className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der <strong>Pferdekauf in Bayern</strong> unterscheidet sich deutlich von anderen Bundesländern. Hier spielen Tradition, Qualität und regionale Besonderheiten eine entscheidende Rolle. Wer ein Pferd in Bayern kauft, investiert nicht nur in ein Tier, sondern in eine jahrhundertealte Kultur der Pferdezucht.
+              <strong>Bayern ist mehr als nur Pferdekauf – es ist eine Reise in eine lebendige Zuchtkultur.</strong> Vom staatlichen Landgestüt Schwaiganger (gegründet 1747) über die Alm-Aufzucht im Allgäu bis zu den seltenen Rottaler Pferden in Niederbayern: Der Freistaat bietet einzigartige Möglichkeiten für Pferdeliebhaber.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Diese Seite gibt dir einen vollständigen Überblick: Online-Marktplätze mit Bayern-Filter, renommierte Gestüte sortiert nach Region, der Landesverband mit seinen Auktionen, die traditionellen Pferdemärkte 2025 und alles zu den bayerischen Pferderassen.
             </p>
           </section>
 
-          {/* Section: Spitzengestüte */}
-          <section id="spitzengestuete" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Online Marketplaces */}
+          <section id="online-marktplaetze" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Bayerns Spitzengestüte: Wo Pferdeträume Wirklichkeit werden
+              Online-Marktplätze mit Bayern-Filter
             </h2>
-            
             <p className="text-lg text-gray-700 leading-relaxed">
-              In Bayern finden Sie einige der renommiertesten Gestüte Deutschlands. Besonders empfehlenswert sind:
+              Die schnellste Möglichkeit, einen Überblick über das aktuelle Angebot zu bekommen: Online-Pferdemärkte. Alle großen Plattformen bieten Filter für Bayern. Hier die wichtigsten im Vergleich:
             </p>
 
-            <ul className="space-y-3 text-lg text-gray-700">
-              <li>
-                <strong>Landgestüt Schwaiganger</strong> in Oberbayern: Bekannt für hochwertige Warmblut-Züchtungen und staatliche Förderung
-              </li>
-              <li>
-                <strong>Gestüt Gut Ising</strong> am Chiemsee: Spezialisiert auf Dressur- und Springpferde mit internationaler Reputation
-              </li>
-              <li>
-                <strong>Gestüt Mönchhof</strong> in Niederbayern: Traditionelle Züchtung von Rottaler Pferden, eine der letzten authentischen bayerischen Rassen
-              </li>
-            </ul>
+            {/* Marketplace Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+                <thead>
+                  <tr className="bg-brand text-white">
+                    <th className="px-4 py-3 text-left font-semibold">Plattform</th>
+                    <th className="px-4 py-3 text-left font-semibold">Inserate Bayern</th>
+                    <th className="px-4 py-3 text-left font-semibold">Besonderheit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {onlineMarketplaces.map((marketplace, index) => (
+                    <tr key={marketplace.name} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                      <td className="px-4 py-3">
+                        <a
+                          href={marketplace.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand hover:text-brand-dark font-medium inline-flex items-center gap-1"
+                        >
+                          {marketplace.name}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        {marketplace.highlight && (
+                          <span className="ml-2 px-2 py-0.5 bg-amber-100 text-amber-800 text-xs rounded-full">Empfohlen</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 font-semibold text-gray-900">{marketplace.listings}</td>
+                      <td className="px-4 py-3 text-gray-600 text-sm">{marketplace.description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-            <blockquote className="border-l-4 border-brand-green pl-4 py-2 my-6">
-              <p className="text-lg text-gray-700 italic">
-                Der Pferdekauf in Bayern ist mehr als nur ein Geschäft - es ist eine Tradition, die Generationen verbindet und die Qualität über alles stellt.
-              </p>
-            </blockquote>
-          </section>
-
-          {/* Section: Pferdemärkte */}
-          <section id="pferdemaerkte" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Regionale Pferdemärkte und Veranstaltungen: Treffpunkte für Pferdeliebhaber
-            </h2>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Bayern bietet zahlreiche einzigartige Veranstaltungen für Pferdeinteressierte:
+            <p className="text-sm text-gray-500 italic">
+              Stand: Dezember 2025. Die Zahlen schwanken je nach Saison.
             </p>
 
-            <ul className="space-y-3 text-lg text-gray-700">
-              <li>
-                <strong>Internationale Pferdewoche München</strong>: Der jährliche Treffpunkt für Züchter und Käufer im Herzen Bayerns
-              </li>
-              <li>
-                <strong>Niederbayerische Pferdemarkt-Saison</strong>: Von Mai bis September finden regelmäßig lokale Märkte statt, die nicht nur Pferde, sondern auch regionale Traditionen zelebrieren
-              </li>
-              <li>
-                <strong>Oberpfälzer Pferdezucht-Tage</strong>: Präsentation regionaler Züchtungen mit Fokus auf Qualität und Tradition
-              </li>
-              <li>
-                <strong>Bayerischer Landespferdetag in Nürnberg</strong>: Eine wichtige Plattform für seriöse Pferdekäufe und -verkäufe
-              </li>
-            </ul>
-
             <p className="text-lg text-gray-700 leading-relaxed">
-              Diese Events sind mehr als nur Handelstreffen - sie sind lebendige Ausdruck der bayerischen Pferdezuchttradition.
+              Einen ausführlichen Vergleich aller Pferdemarkt-Portale findest du in unserem <LocalizedLink href="/pferde-ratgeber/pferdemarkt" className="text-brand hover:text-brand-dark underline">Pferdemarkt-Vergleich</LocalizedLink>.
             </p>
           </section>
 
-          {/* Section: Pferderassen */}
-          <section id="pferderassen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Regional Breeders */}
+          <section id="regionale-zuechter" className="scroll-mt-32 lg:scroll-mt-40 space-y-8">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Bayerische Pferderassen: Mehr als nur ein Pferd
+              Gestüte & Züchter nach Region
             </h2>
-            
             <p className="text-lg text-gray-700 leading-relaxed">
-              Bayern hat einige einzigartige Pferderassen, die nirgendwo sonst so authentisch sind:
+              Wer direkt beim Züchter oder Gestüt kauft, erhält oft die beste Beratung und kennt die komplette Vorgeschichte des Pferdes. Bayern hat vier große Pferderegionen mit unterschiedlichen Schwerpunkten:
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Der Rottaler - Bayerns vergessener Schatz
-            </h3>
+            {Object.values(regionalBreeders).map((region) => (
+              <div key={region.region} className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900">
+                  {region.region}
+                </h3>
+                <p className="text-gray-600">{region.description}</p>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Der Rottaler, auch als &ldquo;Rottal-Pferd&rdquo; bekannt, ist eine der seltensten deutschen Pferderassen und fast ausschließlich in Niederbayern zu finden. Mit nur etwa 30 Zuchttieren ist diese Rasse vom Aussterben bedroht, was sie für Liebhaber besonders wertvoll macht. Rottaler zeichnen sich durch ihre außergewöhnliche Genügsamkeit und ihr ausgeglichenes Temperament aus. Beim Pferdekauf in Bayern sollten Sie gezielt nach diesen seltenen Tieren Ausschau halten - sie sind nicht nur ein Stück lebendige Geschichte, sondern auch hervorragende Freizeitpferde mit einem Stockmaß zwischen 155 und 165 cm.
-            </p>
+                <div className="grid gap-4">
+                  {region.breeders.map((breeder) => (
+                    <div key={breeder.name} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <h4 className="font-semibold text-gray-900">
+                            {breeder.url ? (
+                              <a
+                                href={breeder.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-brand hover:text-brand-dark inline-flex items-center gap-1"
+                              >
+                                {breeder.name}
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            ) : (
+                              breeder.name
+                            )}
+                            {'official' in breeder && breeder.official && (
+                              <span className="ml-2 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">Staatlich</span>
+                            )}
+                          </h4>
+                          <p className="text-sm text-gray-500">{breeder.location}</p>
+                        </div>
+                        {breeder.rating && (
+                          <div className="flex items-center gap-1 text-amber-500">
+                            <Star className="w-4 h-4 fill-current" />
+                            <span className="text-sm font-medium">{breeder.rating}</span>
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-gray-600 mt-2 text-sm">{breeder.specialty}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
 
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Süddeutsches Kaltblut - Der bayerische Kraftprotz
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Das Süddeutsche Kaltblut, liebevoll &ldquo;Süddeutscher&rdquo; genannt, ist die Arbeitsrasse Bayerns schlechthin. Diese kräftigen Pferde mit einem Gewicht von 600 bis 800 kg sind perfekt an die hügeligen und bergigen Regionen Bayerns angepasst. Besonders in der Forstwirtschaft des Bayerischen Waldes und der Alpenregionen sind sie unersetzlich. Die Zuchtbasis konzentriert sich hauptsächlich auf die Regierungsbezirke Oberbayern, Niederbayern und Schwaben. Der Preis für ein gut ausgebildetes Süddeutsches Kaltblut liegt zwischen 4.000 und 12.000 Euro, je nach Ausbildungsstand und Abstammung.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Western-Pferde in Bayern - Amerikanischer Traum mit bayerischem Flair
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Die Westernreitszene in Bayern ist überraschend groß und aktiv. Besonders <LocalizedLink href="/pferd-kaufen/quarter-horse" className="text-brand hover:text-brand-dark underline">Quarter Horses</LocalizedLink> und Paint Horses sind in den Regionen um Augsburg, Landsberg und im Allgäu sehr beliebt. Die &ldquo;Western City&rdquo; in Dasing bei Augsburg ist ein Zentrum für Westernreiter und bietet regelmäßig Verkaufspferde an. Beim Pferdekauf in Bayern finden Sie hier ausgebildete Westernpferde zwischen 5.000 und 15.000 Euro. Die bayerische Westernszene zeichnet sich durch ihre Professionalität und die hohe Qualität der Ausbildung aus.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Bayerisches Warmblut - Vielseitigkeit aus Tradition
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Das Bayerische Warmblut, gezüchtet seit 1754 im Landgestüt Schwaiganger, vereint die besten Eigenschaften verschiedener europäischer Warmblutrassen. Diese Pferde sind besonders für ihre Vielseitigkeit bekannt - ob Dressur, Springen oder Fahrsport. Mit einer durchschnittlichen Größe von 160 bis 170 cm sind sie ideal für ambitionierte Freizeitreiter und Sportreiter gleichermaßen. Die Zuchtgebiete konzentrieren sich auf Oberbayern und Mittelfranken, wo Sie qualitativ hochwertige Tiere zwischen 8.000 und 25.000 Euro finden können.
+            <p className="text-lg text-gray-700 leading-relaxed bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+              <strong>Tipp:</strong> Viele kleinere Züchter in Bayern haben keine Website, sind aber über den Landesverband Bayerischer Pferdezüchter zu finden. Eine Google-Maps-Suche nach &quot;Pferdezucht + Ort&quot; liefert oft gute Ergebnisse.
             </p>
           </section>
 
           {/* CTA Box 1 */}
           <RatgeberHighlightBox
-            title="Objektive Bewertung bayerischer Pferde"
-            icon={ICONS.award}
+            title="Gefundenes Pferd bewerten lassen"
+            icon={euroIcon}
           >
             <p className="text-base text-gray-700 mb-4">
-              Unsicher über den fairen Preis für ein bayerisches Pferd? PferdeWerts KI-gestützte Analyse vergleicht regionale Marktpreise und liefert dir in 2 Minuten eine fundierte Einschätzung.
+              Du hast ein interessantes Pferd in Bayern gefunden? Lass dir in 2 Minuten eine KI-gestützte Werteinschätzung geben und gehe informiert in die Verhandlung.
             </p>
             <LocalizedLink
               href="/pferde-preis-berechnen"
               className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
             >
-              Jetzt Pferdewert berechnen
-              <ChevronRight className="w-4 h-4 ml-2" />
-            </LocalizedLink>
-          </RatgeberHighlightBox>
-
-          {/* Section: Regionale Unterschiede */}
-          <section id="regionale-unterschiede" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Regionale Unterschiede innerhalb Bayerns
-            </h2>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Oberbayern - Das Premiumsegment
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              In Oberbayern, besonders rund um München und den Tegernsee, finden Sie die höchsten Preise beim Pferdekauf in Bayern. Die Nähe zu zahlungskräftiger Kundschaft und international renommierten Turnierplätzen wie dem Olympiareitstadion München-Riem treibt die Preise nach oben. Hier sind Dressur- und Springpferde besonders gefragt. Ein gut ausgebildetes Sportpferd kostet hier schnell 20.000 Euro und mehr. Die Region profitiert von exzellenter Infrastruktur mit erstklassigen Reitanlagen und Trainern.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Niederbayern - Tradition trifft Moderne
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Niederbayern ist das Herz der traditionellen bayerischen Pferdezucht. Hier finden Sie noch authentische Rottaler und viele familiengeführte Zuchtbetriebe. Die Preise sind moderater als in Oberbayern - ein solides Freizeitpferd bekommen Sie bereits ab 3.000 Euro. Besonders empfehlenswert sind die Herbstmärkte in Landshut und Straubing, wo lokale Züchter ihre Jahrgänge präsentieren.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Allgäu - Paradies für Freizeitreiter
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Das Allgäu mit seiner spektakulären Bergkulisse ist ideal für Wanderreiter und Freizeitreiter. Die hier gezüchteten <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> sind in dieser Region sehr beliebt und kosten zwischen 3.500 und 8.000 Euro. Die Almauftriebe prägen die Pferde und machen sie besonders robust und charakterstark.
-            </p>
-          </section>
-
-          {/* Section: Praktische Tipps */}
-          <section id="praktische-tipps" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Praktische Tipps für den Pferdekauf in Bayern
-            </h2>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Transport und Logistik
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Bayern ist mit 70.000 km² das größte deutsche Bundesland. Ein Pferdetransport von Lindau nach Passau kann leicht 400 km betragen. Rechnen Sie mit Transportkosten von 1,50 bis 2,50 Euro pro Kilometer. Viele bayerische Pferdehändler bieten jedoch vergünstigte Transportkonditionen innerhalb des Freistaats an. Empfehlenswerte Transportunternehmen sind &ldquo;Rosstrans Bayern&rdquo; (Sitz in Augsburg) und &ldquo;Alpen-Pferdetransporte&rdquo; (Garmisch-Partenkirchen).
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Die bayerische Alm-Aufzucht
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Ein Alleinstellungsmerkmal beim Pferdekauf in Bayern ist die traditionelle Alm-Aufzucht. Jungpferde verbringen oft ihre ersten Sommer auf Almen in 1.000 bis 1.800 Metern Höhe. Diese natürliche Aufzucht macht die Pferde besonders robust, trittsicher und sozialverträglich. Fragen Sie gezielt nach &ldquo;almgeprägten&rdquo; Pferden - sie haben oft ein ausgeglicheneres Wesen und bessere Hufe als Pferde aus reiner Stallhaltung.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Spezialisierte Tierärzte für die AKU
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Für die Ankaufsuntersuchung in Bayern empfehlen sich spezialisierte Pferdekliniken wie die Tierklinik Lüsche in Bakum oder das Gestüt Schwaiganger mit eigener Veterinärstation. Die Kosten für eine Standard-AKU liegen in Bayern zwischen 250 und 500 Euro, eine große AKU mit Röntgenbildern kann bis zu 1.200 Euro kosten.
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
-              Wichtiger Hinweis
-            </h3>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Weitere allgemeine Informationen zum Pferdekauf finden Sie in unserem <LocalizedLink href="/pferd-kaufen" className="text-brand hover:text-brand-dark underline">umfassenden Ratgeber zum Pferdekauf</LocalizedLink>.
-            </p>
-          </section>
-
-          {/* CTA Box 2 */}
-          <RatgeberHighlightBox
-            title="Regionale Preisunterschiede verstehen"
-            icon={ICONS.euro}
-          >
-            <p className="text-base text-gray-700 mb-4">
-              Die Preise für Pferde in Bayern variieren je nach Region und Pferderasse erheblich. Eine professionelle Bewertung hilft dir, den fairen Marktwert zu ermitteln und teure Fehlkäufe zu vermeiden.
-            </p>
-            <LocalizedLink
-              href="/pferde-preis-berechnen"
-              className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
-            >
-              Pferdewert in Bayern ermitteln
+              Pferdewert berechnen
               <TrendingUp className="w-4 h-4 ml-2" />
             </LocalizedLink>
           </RatgeberHighlightBox>
 
-          {/* Fazit */}
-          <section className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+          {/* Section: Breeding Association */}
+          <section id="zuchtverband" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
-              Fazit: Ihr Pferdekauf in Bayern
+              Zuchtverband & Landgestüt
             </h2>
-
             <p className="text-lg text-gray-700 leading-relaxed">
-              Der Pferdekauf in Bayern ist mehr als eine Transaktion - es ist eine Reise in eine lebendige Pferdezuchttradition. Egal ob Sie ein Reitpferd, Arbeitspferd oder Hobbypferd suchen, Bayern bietet einzigartige Möglichkeiten, die weit über einen einfachen Handel hinausgehen.
+              Der Landesverband Bayerischer Pferdezüchter und das staatliche Landgestüt Schwaiganger sind zentrale Anlaufstellen für den Pferdekauf in Bayern:
             </p>
 
+            <div className="grid gap-6">
+              {breedingAssociations.map((association) => (
+                <div key={association.name} className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-brand/10 rounded-lg">
+                      <Award className="w-6 h-6 text-brand" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        <a
+                          href={association.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand hover:text-brand-dark inline-flex items-center gap-1"
+                        >
+                          {association.name}
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </h3>
+                      <p className="text-gray-600 mb-3">{association.description}</p>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <a
+                          href={association.salesPortal}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand hover:text-brand-dark font-medium inline-flex items-center gap-1"
+                        >
+                          Verkaufsportal
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        <span className="text-gray-500">Events: {association.events}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section: Bavarian Breeds */}
+          <section id="bayerische-rassen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Bayerische Pferderassen
+            </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              <LocalizedLink href="/pferde-preis-berechnen" className="text-brand hover:text-brand-dark underline font-semibold">
-                Pferdewert in Bayern ermitteln
-              </LocalizedLink>
+              Bayern hat einzigartige Pferderassen, die nirgendwo sonst so authentisch zu finden sind:
+            </p>
+
+            <div className="space-y-6">
+              {bavarianBreeds.map((breed) => (
+                <div key={breed.name} className="bg-white rounded-lg border border-gray-200 p-5">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{breed.name}</h3>
+                  <p className="text-gray-600 mb-3">{breed.description}</p>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <span className="text-gray-500">Stockmaß: {breed.size}</span>
+                    <span className="font-semibold text-brand">Preis: {breed.priceRange}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Mehr zu Pferderassen findest du in unseren Ratgebern zu <LocalizedLink href="/pferd-kaufen/haflinger" className="text-brand hover:text-brand-dark underline">Haflinger</LocalizedLink> und <LocalizedLink href="/pferd-kaufen/quarter-horse" className="text-brand hover:text-brand-dark underline">Quarter Horses</LocalizedLink>.
             </p>
           </section>
+
+          {/* Section: Events 2025 */}
+          <section id="maerkte-events" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Pferdemärkte & Events 2025 in Bayern
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Bayern hat eine reiche Tradition an Pferdemärkten und Events. Hier die wichtigsten Termine 2025:
+            </p>
+
+            <div className="space-y-4">
+              {events2025.map((event) => (
+                <div key={event.name} className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Calendar className="w-4 h-4 text-brand" />
+                        <span className="text-sm font-medium text-brand">{event.date}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900">{event.name}</h3>
+                      <p className="text-sm text-gray-500">{event.location}</p>
+                    </div>
+                    <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                      {event.type}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mt-3 text-sm">{event.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* CTA Box 2 */}
+          <RatgeberHighlightBox
+            title="Vorbereitet zum Pferdemarkt"
+            icon={mountainIcon}
+          >
+            <p className="text-base text-gray-700 mb-4">
+              Ob Bayerns Pferde International oder traditioneller Rossmarkt: Mit einer vorherigen Werteinschätzung weißt du genau, welcher Preis fair ist.
+            </p>
+            <LocalizedLink
+              href="/pferde-preis-berechnen"
+              className="inline-flex items-center text-brand font-semibold hover:text-brand-dark transition-colors"
+            >
+              Werteinschätzung holen
+              <TrendingUp className="w-4 h-4 ml-2" />
+            </LocalizedLink>
+          </RatgeberHighlightBox>
+
+          {/* Section: Price Overview */}
+          <section id="preise" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Preisübersicht: Was kosten Pferde in Bayern?
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Bayern hat deutliche regionale Preisunterschiede: Oberbayern (Münchner Umland, Chiemsee) ist 20-30% teurer als Niederbayern oder Franken. Hier eine Orientierung:
+            </p>
+
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+                <thead>
+                  <tr className="bg-brand text-white">
+                    <th className="px-4 py-3 text-left font-semibold">Kategorie</th>
+                    <th className="px-4 py-3 text-left font-semibold">Preisspanne</th>
+                    <th className="px-4 py-3 text-left font-semibold">Hinweis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {priceOverview.map((item, index) => (
+                    <tr key={item.category} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                      <td className="px-4 py-3 font-medium text-gray-900">{item.category}</td>
+                      <td className="px-4 py-3 font-semibold text-brand">{item.priceRange}</td>
+                      <td className="px-4 py-3 text-gray-600 text-sm">{item.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Mehr Informationen zu Pferdepreisen allgemein findest du in unserem <LocalizedLink href="/pferde-ratgeber/was-kostet-ein-pferd" className="text-brand hover:text-brand-dark underline">ausführlichen Kostenratgeber</LocalizedLink>.
+            </p>
+          </section>
+
+          {/* Section: Buying Tips */}
+          <section id="kauftipps" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Tipps für den Pferdekauf in Bayern
+            </h2>
+
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">1. Frag nach Alm-Aufzucht</h3>
+                <p className="text-gray-600">
+                  Viele bayerische Pferde verbringen ihre ersten Sommer auf Almen in 1.000-1.800m Höhe. Diese Pferde sind besonders robust, trittsicher und sozialverträglich. Ein echtes Qualitätsmerkmal!
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">2. Beachte die Preisunterschiede</h3>
+                <p className="text-gray-600">
+                  Oberbayern ist das Premium-Segment mit entsprechenden Preisen. In Niederbayern und Franken findest du oft die gleiche Qualität zu moderateren Preisen – nur die Anreise ist länger.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">3. Nutze die Pferdemärkte</h3>
+                <p className="text-gray-600">
+                  &quot;Bayerns Pferde International&quot; im Juni ist das Highlight des Jahres. Aber auch kleinere Märkte wie Berching oder Ingolstadt bieten gute Gelegenheiten, Züchter kennenzulernen.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">4. Transportkosten einplanen</h3>
+                <p className="text-gray-600">
+                  Bayern ist groß! Von Lindau nach Passau sind es 400 km. Rechne mit 1,50-2,50 € pro Kilometer für den Pferdetransport. Viele Züchter bieten aber vergünstigte Konditionen innerhalb des Freistaats.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">5. AKU von Spezialisten</h3>
+                <p className="text-gray-600">
+                  Bayern hat exzellente Pferdekliniken. Die <LocalizedLink href="/pferde-ratgeber/aku-pferd" className="text-brand hover:text-brand-dark underline">Ankaufsuntersuchung</LocalizedLink> kostet 250-500 € (Standard) bzw. bis 1.200 € mit Röntgen.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <h3 className="font-bold text-gray-900 mb-2">6. Kaufvertrag nicht vergessen</h3>
+                <p className="text-gray-600">
+                  Auch beim sympathischen Almbauern gilt: Nur ein schriftlicher <LocalizedLink href="/pferd-kaufen/kaufvertrag" className="text-brand hover:text-brand-dark underline">Kaufvertrag</LocalizedLink> schützt dich rechtlich.
+                </p>
+              </div>
+            </div>
+          </section>
+
         </div>
 
         {/* FAQ Section */}
@@ -385,15 +668,15 @@ export default function PferdKaufenBayern() {
           <div className="max-w-3xl mx-auto px-4 md:px-6">
             <FAQ
               faqs={faqItems}
-              sectionTitle="Häufig gestellte Fragen"
-              sectionSubtitle="Die wichtigsten Fragen und Antworten zum Pferdekauf in Bayern"
+              sectionTitle="Häufig gestellte Fragen zum Pferdekauf in Bayern"
+              sectionSubtitle="Antworten zu Marktplätzen, Regionen, Preisen und bayerischen Besonderheiten"
               withSchema={false}
             />
           </div>
         </section>
 
         {/* Author Box */}
-        <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 mt-16">
           <AuthorBox />
         </div>
 
@@ -409,8 +692,8 @@ export default function PferdKaufenBayern() {
             src: '/images/shared/blossi-shooting.webp',
             alt: 'Pferdebewertung mit PferdeWert'
           }}
-          title="Bereit für eine professionelle Pferdebewertung?"
-          description="Nutze unsere KI-gestützte Analyse in nur 2 Minuten und erhalte eine fundierte Einschätzung des Pferdewerts – objektiv, schnell und zuverlässig."
+          title="Gefunden? Jetzt bewerten lassen."
+          description="Nutze unsere KI-gestützte Analyse in nur 2 Minuten und gehe mit einer fundierten Werteinschätzung in die Verhandlung – objektiv, schnell und zuverlässig."
           ctaHref="/pferde-preis-berechnen"
           ctaLabel="Jetzt Pferdewert berechnen"
         />
