@@ -1,6 +1,6 @@
 # SEO Content-Architektur PferdeWert.de
 
-**Stand:** Dezember 2025
+**Stand:** Dezember 2025 (aktualisiert 17.12.2025)
 
 ---
 
@@ -33,8 +33,18 @@
 | Dressurpferd | `/pferd-kaufen/dressurpferd` | 590 | ✅ Live | 287 |
 | Freizeitpferd | `/pferd-kaufen/freizeitpferd` | 480 | ✅ Live | 287 |
 | Anfängerpferd | `/pferd-kaufen/anfaenger` | 390 | ✅ Live | 267 |
-| Pony | `/pferd-kaufen/pony` | 6.600 | ⚪ Offen | — |
-| Fohlen | `/pferd-kaufen/fohlen` | 2.900 | ⚪ Offen | — |
+| Pony | `/pferd-kaufen/pony` | 6.600 | ✅ Live | — |
+| Fohlen | `/pferd-kaufen/fohlen` | 2.900 | ✅ Live | — |
+
+**Geplante Regional-Erweiterungen (Phase 3):**
+| Spoke | URL | Vol/Mo | Status |
+|-------|-----|--------|--------|
+| Sachsen | `/pferd-kaufen/sachsen` | 1.000 | ⚪ Offen |
+| Schleswig-Holstein | `/pferd-kaufen/schleswig-holstein` | 880 | ⚪ Offen |
+| Brandenburg | `/pferd-kaufen/brandenburg` | 720 | ⚪ Offen |
+| Hessen | `/pferd-kaufen/hessen` | 590 | ⚪ Offen |
+| Baden-Württemberg | `/pferd-kaufen/baden-wuerttemberg` | 480 | ⚪ Offen |
+| Niedersachsen | `/pferd-kaufen/niedersachsen` | 390 | ⚪ Offen |
 
 ---
 
@@ -44,8 +54,8 @@
 
 | Spoke | URL | Vol/Mo | Status | Wörter |
 |-------|-----|--------|--------|--------|
-| AKU Kosten | `/pferde-ratgeber/aku-pferd-kosten` | 260 | ⚠️ 404 | — |
-| Große/Kleine AKU | `/pferde-ratgeber/grosse-kleine-aku` | 170 | ⚠️ 404 | — |
+| AKU Kosten | `/pferde-ratgeber/aku-pferd/kosten` | 260 | ✅ Live | — |
+| Große/Kleine AKU | `/pferde-ratgeber/grosse-kleine-aku` | 170 | ⚪ Offen | — |
 | AKU Röntgen | `/pferde-ratgeber/aku-roentgen` | 140 | ⚪ Offen | — |
 | AKU Checkliste | `/pferde-ratgeber/aku-checkliste` | 110 | ⚪ Offen | — |
 
@@ -67,36 +77,92 @@
 
 ### 4. Pferd Verkaufen (Mixed)
 
-**Hub:** `/pferde-ratgeber/pferd-verkaufen` (1.300 Vol/Mo)
+**Hub:** `/pferde-ratgeber/pferd-verkaufen` (1.300 Vol/Mo) — **6.847 Wörter**
 
-| Spoke | URL | Vol/Mo | Status |
-|-------|-----|--------|--------|
-| Pferdewert ermitteln | `/pferde-ratgeber/wie-viel-ist-mein-pferd-wert` | 2.900 | ✅ Live |
-| Pferdekaufvertrag | `/pferde-ratgeber/pferdekaufvertrag` | 720 | ✅ Live |
-| Pferd inserieren | `/pferde-ratgeber/pferd-inserieren` | 480 | ⚪ Offen |
+| Spoke | URL | Vol/Mo | Status | Wörter |
+|-------|-----|--------|--------|--------|
+| Pferdekaufvertrag | `/pferde-ratgeber/pferdekaufvertrag` | 2.600* | 🔄 Migration | 4.500 |
+| Pferdemarkt | `/pferde-ratgeber/pferdemarkt` | TBD | ✅ Live | — |
+| Pferd inserieren | `/pferde-ratgeber/pferd-inserieren` | 480 | ⚪ Offen | — |
+
+*\*Kombiniertes Volumen: "kaufvertrag pferd" (1.600) + "pferdekaufvertrag" (1.000)*
+
+**⚠️ Migration erforderlich:**
+- Aktuelle URL: `/pferd-kaufen/kaufvertrag`
+- Neue URL: `/pferde-ratgeber/pferdekaufvertrag`
+- Grund: Intent ist informational (60%), nicht commercial. Alle Top-Ergebnisse nutzen zusammengeschriebenes Keyword.
+- Action: 301-Redirect einrichten
 
 ---
 
 ### 5. Pferderassen (Informational) — Phase 3
 
-**Hub:** `/pferde-ratgeber/pferderassen` (8.100 Vol/Mo)
+**Hub:** `/pferde-ratgeber/pferderassen` (8.100 Vol/Mo) — ⚪ Offen
 
-| Spoke | URL | Vol/Mo | Status |
-|-------|-----|--------|--------|
-| Hannoveraner | `/pferde-ratgeber/hannoveraner` | 2.400 | ⚪ Offen |
-| Oldenburger | `/pferde-ratgeber/oldenburger` | 1.900 | ⚪ Offen |
-| Holsteiner | `/pferde-ratgeber/holsteiner` | 1.300 | ⚪ Offen |
-| Trakehner | `/pferde-ratgeber/trakehner` | 1.000 | ⚪ Offen |
-| Deutsches Reitpony | `/pferde-ratgeber/deutsches-reitpony` | 880 | ⚪ Offen |
+| Spoke | URL | Vol/Mo | Status | Wörter |
+|-------|-----|--------|--------|--------|
+| Hannoveraner | `/pferde-ratgeber/hannoveraner` | 2.400 | ⚪ Offen | — |
+| Oldenburger | `/pferde-ratgeber/oldenburger` | 1.900 | ⚪ Offen | — |
+| Holsteiner | `/pferde-ratgeber/holsteiner` | 1.300 | ⚪ Offen | — |
+| Trakehner | `/pferde-ratgeber/trakehner` | 1.000 | ⚪ Offen | — |
+| Deutsches Reitpony | `/pferde-ratgeber/deutsches-reitpony` | 880 | ⚪ Offen | — |
+
+---
+
+### 6. Orphan Pages (Nicht eingebunden)
+
+| Seite | URL | Status | Empfehlung |
+|-------|-----|--------|------------|
+| Lipizzaner | `/pferde-ratgeber/lipizzaner` | ⚠️ Orphan | Zu "Lipizzaner kaufen" umbauen → `/pferd-kaufen/lipizzaner` oder löschen |
+
+---
+
+## Quick Reference: Was gehört wohin?
+
+| Thema | Gehört in | NICHT in |
+|-------|-----------|----------|
+| Allgemeine Kaufberatung | Pferd-kaufen Pillar | Rassen/Regional Mini-Pages |
+| AKU Basics | AKU-Pferd Pillar | Kaufen-Spokes |
+| Preisübersicht allgemein | Was-kostet-ein-Pferd | Regional Mini-Pages |
+| Rassen-spezifische Preise | [Rasse]-kaufen Spoke | Pferd-kaufen Pillar |
+| Regionale Gestüte/Händler | [Region]-kaufen Spoke | Pferd-kaufen Pillar |
+| Rechtliches (Vertrag) | Pferdekaufvertrag | Andere Spokes |
+| Monatliche Kosten | Pferdehaltung-Kosten Pillar | Was-kostet-ein-Pferd |
 
 ---
 
 ## Internal Linking Regeln
 
+### Grundregeln
 1. **Pillar → Spokes:** Jeder Hub verlinkt im Text auf alle zugehörigen Spokes (min. 3)
 2. **Spoke → Pillar:** Link im ersten Absatz + am Ende
 3. **Spoke ↔ Spoke:** 1-2 Links zu verwandten Artikeln
 4. **Cross-Cluster:** Thematisch verwandte Cluster verlinken aufeinander
+
+### Link-Templates pro Content-Typ
+
+**Mini-Page (500-1000 Wörter):**
+```
+INTRO: Link zu Pillar ("Mehr im kompletten Ratgeber")
+MITTE: 1-2 Links zu verwandten Spokes
+ENDE: CTA mit Link zu Pillar + Rechner
+```
+
+**Spoke (1200-2000 Wörter):**
+```
+INTRO: Link zu Pillar
+CONTENT: 3-5 Links zu verwandten Spokes
+SIDEBAR: Verwandte Artikel
+ENDE: Link zu Pillar + Rechner CTA
+```
+
+**Pillar (2500+ Wörter):**
+```
+TOC: Alle Sektionen verlinkt
+JEDE SEKTION: 1-2 Links zu passenden Spokes
+SIDEBAR: Alle Cluster-Artikel
+ENDE: Cross-Cluster Links
+```
 
 ---
 
