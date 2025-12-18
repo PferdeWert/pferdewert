@@ -100,8 +100,8 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     changefreq: 'weekly',
     relatedSlugs: [
       'was-kostet-ein-pferd',
-      'aku-pferd',
-      'pferdemarkt'
+      'islandpferd',
+      'haflinger'
     ]
   },
   {
@@ -114,9 +114,9 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      '', // Hub-Seite /pferd-kaufen/
-      'aku-pferd',
-      'pferdemarkt'
+      'quarter-horse',
+      'friese',
+      'islandpferd'
     ]
   },
   // Spoke: /pferd-kaufen/freizeitpferd
@@ -131,8 +131,8 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'kaufvertrag',
-      'aku-pferd',
+      'islandpferd',
+      'quarter-horse',
       '' // Hub-Seite
     ]
   },
@@ -148,9 +148,9 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'freizeitpferd',
-      'kaufvertrag',
-      'aku-pferd'
+      'islandpferd',
+      'friese',
+      'haflinger'
     ]
   },
   // Spoke: /pferd-kaufen/schweiz
@@ -253,17 +253,18 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     priority: '0.7',
     changefreq: 'monthly',
     relatedSlugs: [
-      'kaufvertrag',
-      'aku-pferd',
+      'friese',
+      'lipizzaner',
       '' // Hub-Seite
     ]
   },
 
-  // Pferderassen Guides
+  // Pferderassen Guides - Lipizzaner (Commercial Intent)
   {
     slug: 'lipizzaner',
-    title: 'Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse',
-    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert.',
+    basePath: '/pferd-kaufen',
+    title: 'Lipizzaner kaufen: Preise, Gestüte & Tipps 2025',
+    description: 'Lipizzaner kaufen: Aktuelle Preise (3.000-25.000€), seriöse Gestüte & Züchter, worauf beim Kauf achten. Kompletter Kaufratgeber mit Kosten-Übersicht.',
     category: 'Pferderassen',
     readTime: '16 Min.',
     image: '/images/ratgeber/lipizzaner-white-horse.webp',
@@ -271,7 +272,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     changefreq: 'monthly',
     relatedSlugs: [
       'dressurpferd',
-      'was-kostet-ein-pferd',
+      'friese',
       'anfaenger'
     ]
   },
@@ -354,7 +355,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     title: 'Quarter Horse kaufen: Westernreiten und amerikanische Zuchtlinien',
     description: 'Quarter Horse kaufen in Deutschland: Foundation vs Performance Bloodlines, AQHA-Papiere, Western-Ausbildung & Züchter. Preise 5.000-50.000€.',
     category: 'Pferderassen',
-    readTime: '7 Min.',
+    readTime: '15 Min.',
     image: '/images/ratgeber/quarter-horse-weide.webp',
     priority: '0.7',
     changefreq: 'monthly',
@@ -372,7 +373,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     title: 'Friese kaufen: KFPS-Papiere, Preise & Gesundheit',
     description: 'Friese kaufen leicht gemacht: KFPS-Registrierung, rassetypische Gesundheit, Preise 5.000-50.000€. Der komplette Ratgeber zur barocken Pferderasse.',
     category: 'Pferderassen',
-    readTime: '8 Min.',
+    readTime: '15 Min.',
     image: '/images/ratgeber/friese-weide.webp',
     priority: '0.7',
     changefreq: 'monthly',
@@ -390,7 +391,7 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     title: 'Islandpferd kaufen: Tölt, Gangarten & FIZO-Tests',
     description: 'Islandpferd kaufen ✓ Tölt & 5 Gangarten verstehen ✓ FIZO-Bewertung richtig lesen ✓ Winterhaltung & Robustheit. Experten-Guide für Isländer.',
     category: 'Pferderassen',
-    readTime: '12 Min.',
+    readTime: '16 Min.',
     image: '/images/ratgeber/islandpferd-weide-1.webp',
     priority: '0.7',
     changefreq: 'monthly',

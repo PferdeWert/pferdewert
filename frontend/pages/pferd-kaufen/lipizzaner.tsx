@@ -19,34 +19,34 @@ const awardIcon = <Award className="w-5 h-5" />;
 const euroIcon = <Euro className="w-5 h-5" />;
 const heartIcon = <Heart className="w-5 h-5" />;
 
-// SEO Locale Content for RatgeberHead
+// SEO Locale Content for RatgeberHead - Commercial Intent
 const seoLocales = {
   de: {
-    title: 'Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse',
-    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen. Kompletter Ratgeber mit Preisen, Gestüten & Tipps für Anfänger. 2025 aktualisiert.',
-    keywords: 'lipizzaner, barockpferde, lipizzaner kaufen, lipizzaner preis, lipizzaner charakter, lipizzaner gestüte, spanische hofreitschule wien',
-    ogTitle: 'Lipizzaner – Der ultimative Ratgeber zur edlen Pferderasse',
-    ogDescription: 'Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über ihre Herkunft, den einzigartigen Farbwechsel, Charakter und wie du einen kaufst.',
-    twitterTitle: 'Lipizzaner – Der ultimative Pferderasse-Ratgeber',
-    twitterDescription: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & wie du einen kaufst. Mit Preisen, Gestüten & Tipps für Anfänger.',
+    title: 'Lipizzaner kaufen: Preise, Gestüte & Tipps 2025',
+    description: 'Lipizzaner kaufen: Aktuelle Preise (3.000-25.000€), seriöse Gestüte & Züchter, worauf beim Kauf achten. Kompletter Kaufratgeber mit Kosten-Übersicht.',
+    keywords: 'lipizzaner kaufen, lipizzaner preis, lipizzaner kosten, lipizzaner gestüte, lipizzaner züchter, barockpferd kaufen',
+    ogTitle: 'Lipizzaner kaufen: Preise, Gestüte & Tipps 2025',
+    ogDescription: 'Lipizzaner kaufen: Aktuelle Preise, seriöse Gestüte in Österreich & Slowenien, worauf du beim Kauf achten musst.',
+    twitterTitle: 'Lipizzaner kaufen: Preise & Gestüte 2025',
+    twitterDescription: 'Lipizzaner kaufen: Preise von 3.000-25.000€, seriöse Gestüte & worauf du achten musst.',
   },
   at: {
-    title: 'Lipizzaner in Österreich – Der ultimative Ratgeber',
-    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in Österreich. Kompletter Ratgeber mit Preisen, Gestüten & Tipps.',
-    keywords: 'lipizzaner österreich, barockpferde, lipizzaner kaufen, lipizzaner preis, spanische hofreitschule wien, lipizzaner gestüte',
-    ogTitle: 'Lipizzaner in Österreich – Der ultimative Ratgeber',
-    ogDescription: 'Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über Lipizzaner in Österreich.',
-    twitterTitle: 'Lipizzaner in Österreich – Der Ratgeber',
-    twitterDescription: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in Österreich.',
+    title: 'Lipizzaner kaufen in Österreich: Preise & Gestüte 2025',
+    description: 'Lipizzaner kaufen in Österreich: Preise, Gestüt Piber, Spanische Hofreitschule Wien & seriöse Züchter. Kompletter Kaufratgeber.',
+    keywords: 'lipizzaner kaufen österreich, gestüt piber, lipizzaner preis, spanische hofreitschule wien, lipizzaner züchter österreich',
+    ogTitle: 'Lipizzaner kaufen in Österreich: Preise & Gestüte 2025',
+    ogDescription: 'Lipizzaner kaufen in Österreich: Gestüt Piber, seriöse Züchter & aktuelle Preise.',
+    twitterTitle: 'Lipizzaner kaufen in Österreich 2025',
+    twitterDescription: 'Lipizzaner kaufen: Gestüt Piber, Preise & Züchter in Österreich.',
   },
   ch: {
-    title: 'Lipizzaner in der Schweiz – Der ultimative Ratgeber',
-    description: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in der Schweiz. Kompletter Ratgeber mit Preisen, Gestüten & Tipps.',
-    keywords: 'lipizzaner schweiz, barockpferde, lipizzaner kaufen, lipizzaner preis, lipizzaner gestüte',
-    ogTitle: 'Lipizzaner in der Schweiz – Der ultimative Ratgeber',
-    ogDescription: 'Lipizzaner sind edle Barockpferde mit faszinierender Geschichte. Erfahre alles über Lipizzaner in der Schweiz.',
-    twitterTitle: 'Lipizzaner in der Schweiz – Der Ratgeber',
-    twitterDescription: 'Alles über Lipizzaner: Geschichte, Farben, Charakter & Kaufen in der Schweiz.',
+    title: 'Lipizzaner kaufen in der Schweiz: Preise in CHF & Züchter 2025',
+    description: 'Lipizzaner kaufen in der Schweiz: Preise in CHF, Züchter & Import aus Österreich/Slowenien. Kompletter Kaufratgeber.',
+    keywords: 'lipizzaner kaufen schweiz, lipizzaner preis chf, barockpferd kaufen schweiz, lipizzaner züchter',
+    ogTitle: 'Lipizzaner kaufen in der Schweiz: Preise & Züchter 2025',
+    ogDescription: 'Lipizzaner kaufen in der Schweiz: Preise in CHF, Züchter & Import-Tipps.',
+    twitterTitle: 'Lipizzaner kaufen in der Schweiz 2025',
+    twitterDescription: 'Lipizzaner kaufen: Preise in CHF, Züchter & Import-Tipps für die Schweiz.',
   },
 };
 
@@ -125,8 +125,9 @@ export default function Lipizzaner() {
         image="/images/ratgeber/lipizzaner-white-horse.webp"
         locales={seoLocales}
         datePublished="2025-11-23"
+        dateModified="2025-12-18"
         wordCount={3150}
-        breadcrumbTitle="Lipizzaner"
+        breadcrumbTitle="Lipizzaner kaufen"
         author={{
           name: 'Benjamin Reder',
           url: 'https://pferdewert.de/ueber-pferdewert',
@@ -134,14 +135,15 @@ export default function Lipizzaner() {
           image: 'https://pferdewert.de/images/shared/benjamin-reder.webp',
         }}
         faqItems={faqItems}
+        basePath="/pferd-kaufen"
       />
 
       <article>
         {/* Hero Section */}
         <RatgeberHero
           badgeLabel="Pferderassen"
-          title="Lipizzaner – Der ultimative Ratgeber zur edlen Barockpferderasse"
-          subtitle="Lipizzaner sind nicht nur elegante Barockpferde – sie sind lebende Geschichte. Erfahre alles über ihre faszinierende Herkunft, den einzigartigen Farbwechsel und wie du einen Lipizzaner kaufst."
+          title="Lipizzaner kaufen: Preise, Gestüte & Tipps 2025"
+          subtitle="Lipizzaner kaufen leicht gemacht: Aktuelle Preise (3.000-25.000€), seriöse Gestüte in Österreich & Slowenien, und worauf du beim Kauf achten musst. Der komplette Kaufratgeber."
           readTime="16 Min."
           publishDate="November 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}

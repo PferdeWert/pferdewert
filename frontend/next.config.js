@@ -327,6 +327,11 @@ const nextConfig = {
         destination: '/pferd-kaufen/kaufvertrag',
         statusCode: 301,
       },
+      {
+        source: '/pferde-ratgeber/lipizzaner',
+        destination: '/pferd-kaufen/lipizzaner',
+        statusCode: 301,
+      },
       // ===== ENDE PFERD-KAUFEN CLUSTER MIGRATION =====
 
       {
