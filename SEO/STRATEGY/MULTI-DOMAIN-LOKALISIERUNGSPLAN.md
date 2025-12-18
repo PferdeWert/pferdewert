@@ -1,236 +1,77 @@
-# Multi-Domain Lokalisierungsplan für PferdeWert
+# Multi-Domain Lokalisierung PferdeWert
 
-**Status:** Phase 1+2 implementiert ✅ | Deployment ausstehend
-**Erstellt:** 17. Dezember 2025
-**Zuletzt aktualisiert:** 18. Dezember 2025
-**Strategie:** Radikale Entschlankung - AT/CH = Conversion-Maschinen, .de = Content-Hub
+**Status:** ✅ Implementiert | **Aktualisiert:** 18. Dezember 2025
 
 ---
 
-## Aktueller Stand
+## Strategie
 
-### ✅ Phase 1: Implementiert
-- [x] Whitelist-Config in `lib/country-exclusive-pages.ts`
-- [x] Middleware: 301-Redirect für nicht-erlaubte Seiten
-- [x] Header: Kein Ratgeber-Link auf AT/CH (nur "Pferd kaufen" + "Über uns")
-- [x] Footer: SEO-Magnet-Links für AT/CH
-
-### ✅ Phase 2: Content-Lokalisierung
-- [x] Homepage lokalisieren (Geo-Tags, Schema, Meta-Tags)
-- [x] Formular-Seite lokalisieren (OG-Tags, Twitter-Tags)
-
-### 📊 Phase 3: Monitoring
-- [ ] Deployment auf Vercel
-- [ ] Sitemaps neu generieren (`npm run sitemap`)
-- [ ] Google Search Console: Sitemaps einreichen
-- [ ] Nach 2-4 Wochen: Indexierung & Rankings prüfen
-
----
-
-## 1. Strategie: Radikale Entschlackung
-
-### Kernprinzip
 ```
-.de  = Content-Hub (alle Ratgeber, alle Rassen, alle Regionen)
-.at  = Conversion-Maschine (6 Seiten + 1 SEO-Magnet im Footer)
-.ch  = Conversion-Maschine (6 Seiten + 1 SEO-Magnet im Footer)
+.de = Content-Hub (28 Seiten: alle Ratgeber, Rassen, Regionen)
+.at = Conversion-Maschine (7 Seiten)
+.ch = Conversion-Maschine (7 Seiten)
 ```
 
-### Philosophie
-> **AT/CH-User kommen zum Bewerten, nicht zum Lesen.**
-> Wer Ratgeber will, findet sie über Google auf .de.
-
-### Warum radikal?
-1. **Kein Duplicate Content** - Jede Seite existiert nur auf einer Domain
-2. **Google MUSS indexieren** - Keine Alternative für AT/CH-Suchen
-3. **Minimaler Wartungsaufwand** - 6 Seiten statt 25+ pro Domain
-4. **Klare User Journey** - Kommen → Bewerten → Fertig
-5. **Kein Ratgeber im Header** - User werden nicht abgelenkt
-6. **SEO-Magnet versteckt** - Im Footer für Google crawlbar, nicht prominent
+**Prinzip:** AT/CH-User kommen zum Bewerten, nicht zum Lesen. Kein Duplicate Content.
 
 ---
 
-## 2. Seiten-Matrix
+## Seiten-Matrix
 
-### Whitelist pro Domain
-
-| Seite | .de | .at | .ch | Lokalisiert? |
-|-------|:---:|:---:|:---:|:-------------|
-| `/` | ✅ | ✅ | ✅ | Phase 2 |
-| `/pferde-preis-berechnen` | ✅ | ✅ | ✅ | Phase 2 |
-| `/pferd-kaufen/` (Hub) | ✅ | ✅ | ✅ | Keine Tiles auf AT/CH |
-| `/pferd-kaufen/oesterreich` | ❌ | ✅ | ❌ | ✅ SEO-Magnet |
-| `/pferd-kaufen/schweiz` | ❌ | ❌ | ✅ | ✅ SEO-Magnet |
-| `/pferd-kaufen/{region}` | ✅ | ❌ | ❌ | DE-Regionen |
-| `/pferd-kaufen/{rasse}` | ✅ | ❌ | ❌ | Rassen |
-| `/pferde-ratgeber/*` | ✅ | ❌ | ❌ | Nur .de |
-| `/ueber-pferdewert` | ✅ | ✅ | ✅ | - |
-| `/impressum`, `/datenschutz`, `/agb` | ✅ | ✅ | ✅ | - |
-
-### Ergebnis
-- **.de:** ~30 Seiten (Content-Hub)
-- **.at:** 6 Seiten (Conversion + SEO-Magnet)
-- **.ch:** 6 Seiten (Conversion + SEO-Magnet)
+| Seite | .de | .at | .ch |
+|-------|:---:|:---:|:---:|
+| `/` | ✅ | ✅ | ✅ |
+| `/pferde-preis-berechnen` | ✅ | ✅ | ✅ |
+| `/pferd-kaufen/oesterreich` | ❌ | ✅ | ❌ |
+| `/pferd-kaufen/schweiz` | ❌ | ❌ | ✅ |
+| `/ueber-pferdewert` | ✅ | ✅ | ✅ |
+| `/impressum`, `/datenschutz`, `/agb` | ✅ | ✅ | ✅ |
+| `/pferd-kaufen/*` (Hub, Rassen, Regionen) | ✅ | ❌ | ❌ |
+| `/pferde-ratgeber/*` | ✅ | ❌ | ❌ |
 
 ---
 
-## 3. Technische Implementierung
+## Implementierung
 
-### 3.1 Whitelist-Config
-**Datei:** `frontend/lib/country-exclusive-pages.ts`
-
+### Whitelist (`lib/country-exclusive-pages.ts`)
 ```typescript
-export const COUNTRY_ALLOWED_PATHS: Record<CountryCode, readonly string[]> = {
-  DE: ['*'], // All pages allowed
-  AT: ['/', '/pferde-preis-berechnen', '/pferd-kaufen', '/pferd-kaufen/oesterreich',
-       '/ueber-pferdewert', '/impressum', '/datenschutz', '/agb'],
-  CH: ['/', '/pferde-preis-berechnen', '/pferd-kaufen', '/pferd-kaufen/schweiz',
-       '/ueber-pferdewert', '/impressum', '/datenschutz', '/agb'],
-};
+AT: ['/', '/pferde-preis-berechnen', '/pferd-kaufen/oesterreich',
+     '/ueber-pferdewert', '/impressum', '/datenschutz', '/agb']
+CH: ['/', '/pferde-preis-berechnen', '/pferd-kaufen/schweiz',
+     '/ueber-pferdewert', '/impressum', '/datenschutz', '/agb']
 ```
 
-### 3.2 Middleware: 301 Redirect
-**Datei:** `frontend/middleware.ts`
-
+### Middleware (`middleware.ts`)
 - Nicht-erlaubte Seiten → 301-Redirect zur Homepage
-- Besser für UX (keine Sackgasse) und SEO (Link Equity erhalten)
+- Blacklist: `/pferd-kaufen/oesterreich` nur auf .at, `/schweiz` nur auf .ch
 
-### 3.3 Header: Conditional Navigation
-**Datei:** `frontend/components/Header.tsx`
-
+### Header (`Header.tsx`)
 | Domain | Navigation |
 |--------|------------|
 | .de | Ratgeber (Dropdown) + Über uns |
-| .at/.ch | Pferd kaufen + Über uns |
+| .at | Pferdekauf Österreich + Über uns |
+| .ch | Pferdekauf Schweiz + Über uns |
 
-### 3.4 Footer: SEO-Magnet Links
-**Datei:** `frontend/components/Footer.tsx`
+### Footer (`Footer.tsx`)
+| Domain | SEO-Magnet Link |
+|--------|-----------------|
+| .at | Pferdekauf Österreich |
+| .ch | Pferdekauf Schweiz |
 
-| Domain | Footer-Link |
-|--------|-------------|
-| .at | "Pferdekauf Österreich" → `/pferd-kaufen/oesterreich` |
-| .ch | "Pferdekauf Schweiz" → `/pferd-kaufen/schweiz` |
-| .de | Keine zusätzlichen Links |
+### Homepage (`index.tsx`)
+- Hero Badge: "🏆 #1 Online Pferdebewertung in Österreich/Schweiz"
+- Geo-Tags: `geo.region: AT/CH`
+- Schema: `areaServed: Österreich/Schweiz`
 
----
-
-## 4. Phase 2: Content-Lokalisierung
-
-### 4.1 Homepage lokalisieren
-
-**Aktueller Stand:** Stark DE-fokussiert
-- Meta-Tags: `geo.region: DE`, `geo.country: Deutschland`
-- Texte: "deutschen Pferdemarktes", "50.000 Verkaufsdaten aus Deutschland"
-- Schema: `areaServed: Deutschland`
-
-**Zu lokalisieren für AT:**
-
-| Element | DE (aktuell) | AT (neu) |
-|---------|--------------|----------|
-| Geo Meta | `geo.region: DE` | `geo.region: AT` |
-| Trust-Signal | "100+ erfolgreiche Bewertungen" | "Auch in Österreich verfügbar" |
-| Marktplatz-Referenz | - | willhaben.at, ehorses.at |
-| Schema areaServed | Deutschland | Österreich |
-
-**Zu lokalisieren für CH:**
-
-| Element | DE (aktuell) | CH (neu) |
-|---------|--------------|----------|
-| Geo Meta | `geo.region: DE` | `geo.region: CH` |
-| Währung | € implizit | CHF erwähnen |
-| Marktplatz-Referenz | - | anibis.ch, tutti.ch |
-| Schema areaServed | Deutschland | Schweiz |
-
-### 4.2 Formular-Seite lokalisieren
-
-**Mögliche Anpassungen:**
-
-| Element | DE | AT | CH |
-|---------|----|----|-----|
-| Beispielpreise | Deutsche Preise | Österreichische Preise | CHF-Preise |
-| Zahlungsmethoden | Alle | +EPS hervorheben | - |
-| Trust-Text | "deutscher Pferdemarkt" | "österreichischer Pferdemarkt" | "Schweizer Pferdemarkt" |
-
-### 4.3 Hub-Seite `/pferd-kaufen/` auf AT/CH
-
-**Strategie:** Keine lokalen Tiles auf AT/CH.
-
-- Hub-Seite zeigt auf AT/CH **keine Regionen-Tiles** (Bayern, NRW, etc.)
-- Der einzige lokale Content ist `/pferd-kaufen/oesterreich` bzw. `/schweiz`
-- Dieser ist **nur im Footer verlinkt** (SEO-Magnet, nicht prominent)
-- User sollen direkt zur Bewertung, nicht durch Tiles abgelenkt werden
-
----
-
-## 5. SEO-Auswirkungen
-
-### Erwartete Ergebnisse
-
-| Metrik | Vorher | Nach Phase 1 | Nach Phase 2 |
-|--------|--------|--------------|--------------|
-| Seiten auf .at/.ch | ~25 | 6 | 6 |
-| Duplicate Content | 100% | 0% | 0% |
-| Lokale Trust-Signale | 0 | 0 | ✅ |
-| Wartungsaufwand | Hoch | Minimal | Minimal |
-
-### User Journey (AT)
-
-```
-AT-User sucht "Pferdebewertung Österreich"
-         │
-         ▼
-Google zeigt pferdewert.at (einzige Option!)
-         │
-         ▼
-User landet auf pferdewert.at/
-(Lokalisierte Homepage mit AT-Trust-Signalen)
-         │
-         ├── Klickt "Pferd bewerten" → /pferde-preis-berechnen ✅
-         │   (Lokalisiert mit österreichischen Beispielen)
-         │
-         └── Will Ratgeber? → Nicht im Header sichtbar
-             → Findet über Google auf pferdewert.de
+### Sitemaps
+```bash
+npm run sitemap
+# DE: 28 Seiten | AT: 7 Seiten | CH: 7 Seiten
 ```
 
 ---
 
-## 6. Implementierungshinweise
+## Nächste Schritte
 
-### Homepage-Lokalisierung (useCountryConfig)
-
-```typescript
-// In pages/index.tsx
-const { isAustria, isSwitzerland, isGermany } = useCountryConfig();
-
-// Geo Meta Tags
-<meta name="geo.region" content={isAustria ? "AT" : isSwitzerland ? "CH" : "DE"} />
-<meta name="geo.country" content={isAustria ? "Österreich" : isSwitzerland ? "Schweiz" : "Deutschland"} />
-
-// Trust-Signal
-{isAustria && <span>Auch für den österreichischen Pferdemarkt</span>}
-{isSwitzerland && <span>Auch für den Schweizer Pferdemarkt</span>}
-
-// Schema.org areaServed
-areaServed: {
-  "@type": "Country",
-  "name": isAustria ? "Österreich" : isSwitzerland ? "Schweiz" : "Deutschland"
-}
-```
-
-### Prioritäten
-
-1. **Hoch:** Homepage Geo-Tags + Schema (SEO-kritisch)
-2. **Mittel:** Trust-Signale auf Homepage (Conversion)
-3. **Niedrig:** Formular-Beispielpreise (Nice-to-have)
-
----
-
-## 7. Änderungsverlauf
-
-| Datum | Änderung |
-|-------|----------|
-| 17.12.2025 | Initial: Blacklist-Ansatz für regionale Seiten |
-| 18.12.2025 | Refactoring: Whitelist-Ansatz für radikale Entschlackung |
-| 18.12.2025 | Ergänzt: Phase 2 Lokalisierungsplan mit konkreten Anpassungen |
-| 18.12.2025 | Vereinfacht: Keine Tiles auf AT/CH Hub, nur Footer-SEO-Magnet |
-| 18.12.2025 | Phase 2 implementiert: Homepage + Formular lokalisiert (Geo-Tags, Schema, OG) |
+- [ ] Google Search Console: Sitemaps einreichen
+- [ ] Nach 2-4 Wochen: Indexierung prüfen
