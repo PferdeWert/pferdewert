@@ -28,7 +28,8 @@
  * ```
  */
 
-import { getAvailableCountries, getCurrentCountry } from '@/lib/countries';
+import { useRouter } from 'next/router';
+import { getAvailableCountries } from '@/lib/countries';
 
 export interface HreflangTag {
   hreflang: string;
@@ -102,9 +103,16 @@ export function useHreflangData(path: string): HreflangTag[] {
   return hreflangData;
 }
 
+// Domain mapping per Next.js i18n locale
+const LOCALE_TO_DOMAIN: Record<string, string> = {
+  'de': 'pferdewert.de',
+  'de-AT': 'pferdewert.at',
+  'de-CH': 'pferdewert.ch',
+} as const;
+
 /**
  * Get canonical URL for current domain
- * Uses getCurrentCountry() for consistent domain detection across SSR and client
+ * Uses useRouter().locale for SSR-safe domain detection
  *
  * @param path - The path without domain (e.g., '/pferd-kaufen/dressurpferd')
  * @returns Canonical URL for the current domain
@@ -117,11 +125,13 @@ export function useHreflangData(path: string): HreflangTag[] {
  * // On pferdewert.ch → https://pferdewert.ch/pferd-kaufen/dressurpferd
  * ```
  *
- * Note: Uses getCurrentCountry() which returns DE during SSR (safe default).
- * This prevents hydration mismatches while maintaining consistent behavior.
+ * CRITICAL: Uses useRouter().locale instead of getCurrentCountry() to ensure
+ * correct canonical URL during SSR. This fixes Google indexing issues where
+ * .at/.ch pages were showing .de canonical URLs.
  */
 export function useCanonicalUrl(path: string): string {
-  const country = getCurrentCountry(); // Reuses existing domain detection logic
+  const { locale } = useRouter();
+  const domain = LOCALE_TO_DOMAIN[locale || 'de'] || 'pferdewert.de';
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `https://${country.domain}${cleanPath}`;
+  return `https://${domain}${cleanPath}`;
 }
