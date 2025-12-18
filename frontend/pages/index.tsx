@@ -132,6 +132,9 @@ export default function PferdeWertHomepage() {
   const countryName = isAustria ? 'Österreich' : isSwitzerland ? 'Schweiz' : 'Deutschland';
   const geoRegion = isAustria ? 'AT' : isSwitzerland ? 'CH' : 'DE';
   const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
+  const heroBadge = isAustria ? '🏆 #1 Online Pferdebewertung in Österreich'
+    : isSwitzerland ? '🏆 #1 Online Pferdebewertung in der Schweiz'
+    : '🏆 #1 Online Pferdebewertung';
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -307,7 +310,7 @@ export default function PferdeWertHomepage() {
 
         {/* Hero Section */}
         <HeroSection
-          badge="🏆 #1 Online Pferdebewertung"
+          badge={heroBadge}
           headline="Wie viel ist mein Pferd wert?"
           highlightedWord="Pferd wert"
           image="/images/shared/blossi-shooting.webp"
