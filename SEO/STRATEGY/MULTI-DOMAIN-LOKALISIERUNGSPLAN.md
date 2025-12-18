@@ -15,10 +15,9 @@
 - [x] Header: Kein Ratgeber-Link auf AT/CH (nur "Pferd kaufen" + "Über uns")
 - [x] Footer: SEO-Magnet-Links für AT/CH
 
-### 🚀 Phase 2: Content-Lokalisierung (offen)
-- [ ] Homepage lokalisieren (Marktplätze, Trust-Signale)
+### 🚀 Phase 2: Content-Lokalisierung (optional)
+- [ ] Homepage lokalisieren (Geo-Tags, Trust-Signale)
 - [ ] Formular-Seite lokalisieren (Währung, Beispiele)
-- [ ] Hub-Seite `/pferd-kaufen/` lokalisieren (lokale Tiles)
 
 ### 📊 Phase 3: Monitoring
 - [ ] Deployment auf Vercel
@@ -59,7 +58,7 @@
 |-------|:---:|:---:|:---:|:-------------|
 | `/` | ✅ | ✅ | ✅ | Phase 2 |
 | `/pferde-preis-berechnen` | ✅ | ✅ | ✅ | Phase 2 |
-| `/pferd-kaufen/` (Hub) | ✅ | ✅ | ✅ | Phase 2 |
+| `/pferd-kaufen/` (Hub) | ✅ | ✅ | ✅ | Keine Tiles auf AT/CH |
 | `/pferd-kaufen/oesterreich` | ❌ | ✅ | ❌ | ✅ SEO-Magnet |
 | `/pferd-kaufen/schweiz` | ❌ | ❌ | ✅ | ✅ SEO-Magnet |
 | `/pferd-kaufen/{region}` | ✅ | ❌ | ❌ | DE-Regionen |
@@ -152,12 +151,14 @@ export const COUNTRY_ALLOWED_PATHS: Record<CountryCode, readonly string[]> = {
 | Zahlungsmethoden | Alle | +EPS hervorheben | - |
 | Trust-Text | "deutscher Pferdemarkt" | "österreichischer Pferdemarkt" | "Schweizer Pferdemarkt" |
 
-### 4.3 Hub-Seite `/pferd-kaufen/` lokalisieren
+### 4.3 Hub-Seite `/pferd-kaufen/` auf AT/CH
 
-**Aktuelle Tiles (DE):** Bayern, NRW, Sachsen, etc.
+**Strategie:** Keine lokalen Tiles auf AT/CH.
 
-**AT-Version:** Nur Österreich-Tile prominent
-**CH-Version:** Nur Schweiz-Tile prominent
+- Hub-Seite zeigt auf AT/CH **keine Regionen-Tiles** (Bayern, NRW, etc.)
+- Der einzige lokale Content ist `/pferd-kaufen/oesterreich` bzw. `/schweiz`
+- Dieser ist **nur im Footer verlinkt** (SEO-Magnet, nicht prominent)
+- User sollen direkt zur Bewertung, nicht durch Tiles abgelenkt werden
 
 ---
 
@@ -231,3 +232,4 @@ areaServed: {
 | 17.12.2025 | Initial: Blacklist-Ansatz für regionale Seiten |
 | 18.12.2025 | Refactoring: Whitelist-Ansatz für radikale Entschlackung |
 | 18.12.2025 | Ergänzt: Phase 2 Lokalisierungsplan mit konkreten Anpassungen |
+| 18.12.2025 | Vereinfacht: Keine Tiles auf AT/CH Hub, nur Footer-SEO-Magnet |
