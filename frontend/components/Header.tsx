@@ -83,14 +83,8 @@ const NAVIGATION_ITEMS: NavItem[] = [
   },
 ]
 
-// AT/CH: Simplified navigation without Ratgeber dropdown (content is on .de)
+// AT/CH: Minimal navigation - only Über uns (local SEO magnet is in footer only)
 const NAVIGATION_ITEMS_ATCH: NavItem[] = [
-  {
-    label: "Pferd kaufen",
-    href: "/pferd-kaufen",
-    description: "Tipps für den Pferdekauf",
-    icon: kaufenIcon,
-  },
   {
     label: "Über uns",
     href: "/ueber-pferdewert",

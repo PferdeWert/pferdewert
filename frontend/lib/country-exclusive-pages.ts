@@ -109,8 +109,7 @@ export const COUNTRY_ALLOWED_PATHS: Record<CountryCode, readonly string[]> = {
   AT: [
     '/',
     '/pferde-preis-berechnen',
-    '/pferd-kaufen',
-    '/pferd-kaufen/oesterreich',
+    '/pferd-kaufen/oesterreich', // Local SEO magnet (footer only)
     '/ueber-pferdewert',
     '/impressum',
     '/datenschutz',
@@ -119,8 +118,7 @@ export const COUNTRY_ALLOWED_PATHS: Record<CountryCode, readonly string[]> = {
   CH: [
     '/',
     '/pferde-preis-berechnen',
-    '/pferd-kaufen',
-    '/pferd-kaufen/schweiz',
+    '/pferd-kaufen/schweiz', // Local SEO magnet (footer only)
     '/ueber-pferdewert',
     '/impressum',
     '/datenschutz',
