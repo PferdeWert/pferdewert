@@ -1,7 +1,8 @@
 # Multi-Domain Lokalisierungsplan für PferdeWert
 
-**Status:** Implementierungsbereit
+**Status:** Phase 1, 2, 5 implementiert ✅ | Phase 3, 4 ausstehend
 **Erstellt:** 17. Dezember 2025
+**Zuletzt aktualisiert:** 18. Dezember 2025
 **Ziel:** Duplicate Content eliminieren, Google-Konsolidierung verhindern, lokalen Mehrwert schaffen
 
 ---
@@ -59,87 +60,37 @@ pferdewert.ch  ─┬─ /pferd-kaufen/bayern     (❌ irrelevant für CH-Nutzer
 
 ## 3. Implementierungsschritte
 
-### Phase 1: Middleware - Regional-Seiten blockieren (Priorität: HOCH)
+### Phase 1: Middleware - Regional-Seiten blockieren ✅ IMPLEMENTIERT
 
 **Datei:** `frontend/middleware.ts`
+**Konfiguration:** `frontend/lib/country-exclusive-pages.ts` (Single Source of Truth)
 
 ```typescript
-// Neue Konstante: Seiten die NUR auf bestimmten Domains erlaubt sind
-const COUNTRY_EXCLUSIVE_PAGES: Record<string, string[]> = {
-  'DE': [
-    '/pferd-kaufen/bayern',
-    '/pferd-kaufen/nrw',
-    '/pferd-kaufen/sachsen',
-    '/pferd-kaufen/schleswig-holstein',
-    '/pferd-kaufen/brandenburg',
-    '/pferd-kaufen/hessen',
-    '/pferd-kaufen/baden-wuerttemberg',
-    '/pferd-kaufen/niedersachsen',
-  ],
-  'AT': [
-    '/pferd-kaufen/oesterreich',
-  ],
-  'CH': [
-    '/pferd-kaufen/schweiz',
-  ],
-};
+// Zentrale Konfiguration in lib/country-exclusive-pages.ts
+import { getExclusiveCountry } from './lib/country-exclusive-pages'
 
-// Im middleware() Funktion, nach Locale-Detection:
-function middleware(request: NextRequest) {
-  // ... bestehende Logik ...
-
-  const country = domainConfig?.country || 'DE';
-
-  // NEUE LOGIK: Regional-exklusive Seiten prüfen
-  const pathname = request.nextUrl.pathname;
-
-  // Prüfe ob die Seite für ein anderes Land exklusiv ist
-  for (const [exclusiveCountry, exclusivePages] of Object.entries(COUNTRY_EXCLUSIVE_PAGES)) {
-    if (exclusiveCountry !== country) {
-      // Diese Seite gehört zu einem anderen Land
-      if (exclusivePages.some(page => pathname === page || pathname.startsWith(page + '/'))) {
-        // Option A: 404 zurückgeben
-        return new NextResponse(null, { status: 404 });
-
-        // Option B (besser für UX): Redirect zur Haupt-Hub-Seite
-        // const hubUrl = new URL('/pferd-kaufen/', request.url);
-        // return NextResponse.redirect(hubUrl, 302);
-      }
-    }
-  }
-
-  // ... Rest der bestehenden Logik ...
+// In middleware.ts:
+const exclusiveCountry = getExclusiveCountry(pathname);
+if (exclusiveCountry && exclusiveCountry !== country) {
+  // 404 mit noindex zurückgeben
+  return new NextResponse(htmlWith404AndNoindex, { status: 404 });
 }
 ```
 
-### Phase 2: Sitemaps anpassen (Priorität: HOCH)
+**Ergebnis:** Regionale Seiten geben 404 + `X-Robots-Tag: noindex` auf falschen Domains zurück.
+
+### Phase 2: Sitemaps anpassen ✅ IMPLEMENTIERT
 
 **Datei:** `frontend/scripts/generate-sitemap.mjs`
-
-Die Sitemaps müssen pro Domain nur die relevanten URLs enthalten:
+**Konfiguration:** `frontend/lib/country-exclusive-pages.ts` (importiert)
 
 ```javascript
-// Seiten die pro Domain exklusiv sind
-const COUNTRY_EXCLUSIVE_PAGES = {
-  'de': ['/pferd-kaufen/bayern', '/pferd-kaufen/nrw'],
-  'at': ['/pferd-kaufen/oesterreich'],
-  'ch': ['/pferd-kaufen/schweiz'],
-};
+import { isPageAvailableForCountry } from '../lib/country-exclusive-pages.ts';
 
-// Beim Generieren der Sitemap:
-function generateSitemap(domain, country) {
-  const pages = getAllPages();
-
-  return pages.filter(page => {
-    // Prüfe ob die Seite für ein anderes Land exklusiv ist
-    for (const [exclusiveCountry, exclusivePages] of Object.entries(COUNTRY_EXCLUSIVE_PAGES)) {
-      if (exclusiveCountry !== country && exclusivePages.includes(page)) {
-        return false; // Diese Seite nicht in dieser Sitemap
-      }
-    }
-    return true;
-  });
-}
+// Pro Domain wird gefiltert:
+// - sitemap-de.xml: 28 Seiten (inkl. DE-Bundesländer, ohne AT/CH)
+// - sitemap-at.xml: 27 Seiten (inkl. Österreich, ohne DE/CH)
+// - sitemap-ch.xml: 27 Seiten (inkl. Schweiz, ohne DE/AT)
 ```
 
 ### Phase 3: Preise lokalisieren (Priorität: MITTEL)
@@ -252,43 +203,42 @@ export default function PferdKaufenHub() {
 }
 ```
 
-### Phase 5: hreflang anpassen (Priorität: NIEDRIG)
-
-Für Regional-exklusive Seiten: **KEINE hreflang-Tags**
+### Phase 5: hreflang anpassen ✅ IMPLEMENTIERT
 
 **Datei:** `components/ratgeber/RatgeberHead.tsx`
+**Konfiguration:** `frontend/lib/country-exclusive-pages.ts` (importiert)
 
 ```tsx
-// Regional-exklusive Seiten (keine hreflang!)
-const COUNTRY_EXCLUSIVE_SLUGS = [
-  'bayern', 'nrw', 'sachsen', // DE-only
-  'oesterreich', // AT-only
-  'schweiz', // CH-only
-];
+import { COUNTRY_EXCLUSIVE_SLUGS } from '@/lib/country-exclusive-pages';
 
 // Im Component:
 const isExclusivePage = COUNTRY_EXCLUSIVE_SLUGS.includes(slug);
 
-// Nur hreflang rendern wenn NICHT exklusiv
-{!isExclusivePage && hreflangTags.map((tag) => (
-  <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
-))}
+// hreflang nur für nicht-exklusive Seiten
+const hreflangTags = isExclusivePage ? [] : [
+  { hreflang: 'de', href: `${DOMAINS['de']}${basePath}/${slug}` },
+  // ... AT, CH, x-default
+];
 ```
+
+**Ergebnis:** Exklusive Seiten haben keine hreflang-Tags → Google versteht, dass sie nur auf einer Domain existieren.
 
 ---
 
 ## 4. Migrations-Checkliste
 
-### Vor dem Deployment
-- [ ] Middleware mit Regional-Blocking erweitern
-- [ ] Sitemaps pro Domain generieren (ohne fremde Regionen)
-- [ ] Sitemaps bei Google Search Console neu einreichen
-- [ ] hreflang für exklusive Seiten entfernen
+### Technische Implementierung (Dezember 2025)
+- [x] Middleware mit Regional-Blocking erweitern (Phase 1)
+- [x] Sitemaps pro Domain generieren (Phase 2)
+- [x] hreflang für exklusive Seiten entfernen (Phase 5)
+- [x] Zentrale Konfiguration erstellen (`lib/country-exclusive-pages.ts`)
 
-### Nach dem Deployment
-- [ ] Google Search Console: Indexierung prüfen (404 für exklusive Seiten)
+### Noch offen
+- [ ] Sitemaps bei Google Search Console neu einreichen
+- [ ] Phase 3: Währungslokalisierung (CHF für .ch)
+- [ ] Phase 4: Hub-Seiten lokalisieren (Marktplätze pro Land)
+- [ ] Google Search Console: Indexierung nach 2-4 Wochen prüfen
 - [ ] Analytics: Traffic-Verteilung pro Domain prüfen
-- [ ] Backlinks: Ggf. interne Verlinkung anpassen
 
 ---
 
