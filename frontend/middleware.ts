@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { isPageAllowedForCountry } from './lib/country-exclusive-pages'
+import { isPageAllowedForCountry, isPageBlockedForCountry } from './lib/country-exclusive-pages'
 
 // Simple Rate Limiting - In-Memory Map
 const rateLimit = new Map<string, { count: number, resetTime: number }>()
@@ -117,6 +117,14 @@ export function middleware(request: NextRequest) {
   // Non-whitelisted pages redirect to homepage (301) to avoid 404s
   // DE allows all pages, AT/CH only allow core conversion pages
   if (!isPageAllowedForCountry(pathname, country as 'DE' | 'AT' | 'CH')) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/';
+    return NextResponse.redirect(url, 301);
+  }
+
+  // 6. BLACKLIST: Block country-exclusive pages on wrong domains
+  // e.g., /pferd-kaufen/oesterreich only on .at, /pferd-kaufen/bayern only on .de
+  if (isPageBlockedForCountry(pathname, country as 'DE' | 'AT' | 'CH')) {
     const url = request.nextUrl.clone();
     url.pathname = '/';
     return NextResponse.redirect(url, 301);

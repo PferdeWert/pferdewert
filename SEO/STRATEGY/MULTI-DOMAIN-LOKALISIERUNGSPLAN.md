@@ -1,6 +1,6 @@
 # Multi-Domain Lokalisierungsplan für PferdeWert
 
-**Status:** Phase 1 implementiert ✅ | Phase 2 offen
+**Status:** Phase 1+2 implementiert ✅ | Deployment ausstehend
 **Erstellt:** 17. Dezember 2025
 **Zuletzt aktualisiert:** 18. Dezember 2025
 **Strategie:** Radikale Entschlankung - AT/CH = Conversion-Maschinen, .de = Content-Hub
@@ -15,9 +15,9 @@
 - [x] Header: Kein Ratgeber-Link auf AT/CH (nur "Pferd kaufen" + "Über uns")
 - [x] Footer: SEO-Magnet-Links für AT/CH
 
-### 🚀 Phase 2: Content-Lokalisierung (optional)
-- [ ] Homepage lokalisieren (Geo-Tags, Trust-Signale)
-- [ ] Formular-Seite lokalisieren (Währung, Beispiele)
+### ✅ Phase 2: Content-Lokalisierung
+- [x] Homepage lokalisieren (Geo-Tags, Schema, Meta-Tags)
+- [x] Formular-Seite lokalisieren (OG-Tags, Twitter-Tags)
 
 ### 📊 Phase 3: Monitoring
 - [ ] Deployment auf Vercel
@@ -233,3 +233,4 @@ areaServed: {
 | 18.12.2025 | Refactoring: Whitelist-Ansatz für radikale Entschlackung |
 | 18.12.2025 | Ergänzt: Phase 2 Lokalisierungsplan mit konkreten Anpassungen |
 | 18.12.2025 | Vereinfacht: Keine Tiles auf AT/CH Hub, nur Footer-SEO-Magnet |
+| 18.12.2025 | Phase 2 implementiert: Homepage + Formular lokalisiert (Geo-Tags, Schema, OG) |
