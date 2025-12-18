@@ -593,6 +593,7 @@ const Pferdemarkt: NextPage = () => {
               sectionTitle="Häufige Fragen zum Pferdemarkt"
               sectionSubtitle="Alles was du über den deutschen Pferdemarkt und Kauforte wissen möchtest"
               faqs={pferdemarktFaqItems}
+              withSchema={false}
             />
           </div>
 

@@ -432,6 +432,7 @@ const AkuPferdKosten: NextPage = () => {
               sectionTitle="Häufig gestellte Fragen zu AKU Kosten"
               sectionSubtitle="Alles was du über die Kosten der Ankaufsuntersuchung wissen möchtest"
               faqs={faqItems}
+              withSchema={false}
             />
           </section>
 

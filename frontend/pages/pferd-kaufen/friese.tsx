@@ -352,6 +352,148 @@ export default function FrieseKaufen() {
             </RatgeberHighlightBox>
           </section>
 
+          {/* Genetische Tests Section */}
+          <section id="gentests" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Genetische Tests und Wasserklar-Zertifikat
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Genetische Tests sind beim Friese-Kauf essentiell. Die erblichen Erkrankungen der Rasse können durch DNA-Analysen zuverlässig identifiziert werden.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Wichtige Gentests für Friesen
+            </h3>
+
+            <ul className="space-y-4 text-lg text-gray-700">
+              <li className="border-l-4 border-brand-brown pl-4">
+                <strong>Dwarfism-Test (CA1/CA2 Marker):</strong> Testet auf das Zwergwuchsen-Gen. Pferde mit zwei mutierten Genen erhalten nur verkrüppelte Nachkommen. Kostenpunkt: ca. 150-200 EUR pro Pferd.
+              </li>
+              <li className="border-l-4 border-brand-brown pl-4">
+                <strong>Hydrocephalus-Test:</strong> Identifiziert das Gen für Wasserkopf, eine potenziell tödliche Erbkrankheit. Sollte bei jedem Zuchtkandidaten durchgeführt werden. Kosten: ca. 150-200 EUR.
+              </li>
+              <li className="border-l-4 border-brand-brown pl-4">
+                <strong>Aortariss-Prädisposition:</strong> Friesen haben eine erhöhte Neigung zu spontanen Aortarissen. Ein Test kann teilweise durchgeführt werden, ist aber nicht standardisiert. Lass dies mit dem Tierarzt besprechen.
+              </li>
+              <li className="border-l-4 border-brand-brown pl-4">
+                <strong>Wasserklar-Zertifikat:</strong> Ein informelles Zertifikat, das das Pferd als frei von bestimmten genetischen Erkrankungen einstuft. Nicht offiziell, aber als Verkaufsargument beliebt. Verlangen Sie offizielle KFPS-Gentestergebnisse statt nur &quot;Wasserklar&quot;-Behauptungen.
+              </li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Gesamtbudget für Gentests
+            </h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Eine komplette Gentestbatterie (Dwarfism + Hydrocephalus + zusätzliche Marker) kostet typischerweise 300-500 EUR. Für Zuchtkandidaten oder hochpreisige Freizeitpferde ist dieses Investment essentiell und sollte Teil der Ankaufsuntersuchung sein. Gute Züchter haben ihre Tiere bereits getestet und stellen die Ergebnisse gerne zur Verfügung.
+            </p>
+          </section>
+
+          {/* Barock vs. Sport-Friese Section */}
+          <section id="barock-vs-sport" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Barock-Friese vs. Sport-Friese: Die zwei Typen
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              In der modernen Friesenzucht haben sich zwei unterschiedliche Typen entwickelt: Der klassische Barock-Friese und der modernere Sport-Friese. Jeder Typ hat unterschiedliche Stärken und ist für verschiedene Ziele geeignet.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-amber-50 p-6 rounded-lg">
+                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+                  Barock-Friese
+                </h3>
+                <ul className="space-y-2 text-lg text-gray-700">
+                  <li><strong>Körperbau:</strong> Massiv, kräftig, kompakt</li>
+                  <li><strong>Behang:</strong> Üppig und sehr wallend</li>
+                  <li><strong>Gewicht:</strong> Oft über 500 kg</li>
+                  <li><strong>Bewegung:</strong> Korrekt, aber nicht besonders elastisch</li>
+                  <li><strong>Einsatz:</strong> Kutschfahren, Shows, traditionelle Dressur</li>
+                  <li><strong>Preis:</strong> Oft günstiger als Sport-Friesen</li>
+                </ul>
+              </div>
+
+              <div className="bg-amber-50 p-6 rounded-lg">
+                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+                  Sport-Friese
+                </h3>
+                <ul className="space-y-2 text-lg text-gray-700">
+                  <li><strong>Körperbau:</strong> Eleganter, schlanker, höher im Viereck</li>
+                  <li><strong>Behang:</strong> Moderater Behang, nicht so üppig</li>
+                  <li><strong>Gewicht:</strong> 450-500 kg</li>
+                  <li><strong>Bewegung:</strong> Bessere Gangarten, elastischer, rhythmischer</li>
+                  <li><strong>Einsatz:</strong> Moderne Dressur, leichte Sprünge, Freizeitreiten</li>
+                  <li><strong>Preis:</strong> Höher wegen besserer Reitqualitäten</li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed mt-8">
+              <strong>Die wichtigste Frage:</strong> Möchtest du deinen Friesen fahren, reiten oder beide? Barock-Friesen sind Kutschpferde, die traditionell gezogen wurden. Sport-Friesen sind auf modernes Reiten optimiert. Für Anfänger und Freizeitreiter ist der Sport-Typ oft besser geeignet, da er mehr Elastizität und bessere Bewegungen hat.
+            </p>
+          </section>
+
+          {/* Wo Friesen kaufen? */}
+          <section id="wo-kaufen" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Wo Friesen kaufen? Marktplätze und Verkäufer
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Es gibt verschiedene Wege, einen seriösen Friesen zu finden. Nicht alle Quellen sind gleich zuverlässig - achte auf Seriösität und offizielle Papiere.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Seriöse Kaufquellen
+            </h3>
+
+            <ul className="space-y-4 text-lg text-gray-700">
+              <li className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <strong>KFPS-Online-Datenbank:</strong> Die offizielle Börse des Koninklijk Friesch Paarden Stamboek (KFPS.nl). Hier sind alle registrierten Züchter und Verkäufer gelistet. Vollständige Papiere garantiert, aber auch die teuersten Pferde.
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <strong>Gestüte in Friesland (Niederlande):</strong> Die ursprüngliche Heimat der Friesen. Züchter vor Ort haben oft die beste Auswahl und können direkten Kontakt anbieten. Transport muss organisiert werden.
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <strong>Spezialisierte deutsche Gestüte:</strong> Es gibt anerkannte Friesen-Zuchtbetriebe in Deutschland (besonders NRW und Bayern), die KFPS-zertifizierte Pferde züchten.
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <strong>ehorses und PferdeMarkt:</strong> Spezialisierte Pferdehandelsplattformen mit Verifizierung und Käuferschutz. Gute Filteroptionen nach KFPS-Status.
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <strong>Friesenpferde-Zuchtverband e.V. (Deutschland):</strong> Bietet Listen von zertifizierten Züchtern und organisiert teilweise auch Verkaufsveranstaltungen.
+              </li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Vorsicht bei diesen Quellen
+            </h3>
+
+            <ul className="space-y-3 text-lg text-gray-700">
+              <li className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                <strong>eBay Kleinanzeigen:</strong> Ungeeignet für teure Friesen. Hier verstecken sich oft Betrüger und unseriöse Verkäufer. Private Verkäufer können legitim sein, aber verlange immer die Papiere und eine AKU.
+              </li>
+              <li className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                <strong>Facebook-Gruppen ohne Moderation:</strong> Keine Kontrolle über Verkäufer, hohe Betrugsquoten. Nutze nur moderierte, offizielle KFPS-Gruppen.
+              </li>
+              <li className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                <strong>Privatverkäufe ohne Papiere:</strong> &quot;Günstige Schnäppchen&quot; ohne Papiere sind oft Pferde mit versteckten Problemen. Nicht züchtbar, keine Wiederkaufsmöglichkeiten.
+              </li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Checkliste vor dem Kauf
+            </h3>
+
+            <ul className="space-y-2 text-lg text-gray-700">
+              <li>✓ Papiere prüfen: Sind KFPS-Dokumente vollständig und original?</li>
+              <li>✓ Ancestry überprüfen: Lass die Abstammung im KFPS-Register nachlesen</li>
+              <li>✓ Live sehen: Besichtige das Pferd persönlich, reite es, wenn möglich</li>
+              <li>✓ AKU durchführen: Unerlässlich vor dem Kauf (800-1.500 EUR)</li>
+              <li>✓ Gentests verlangen: Dwarfism- und Hydrocephalus-Tests sollten vorhanden sein</li>
+              <li>✓ Video von Bewegungen: Lass dir Videos zeigen, bevor du das Pferd besuchst</li>
+              <li>✓ Kaufvertrag: Mit vollständigen Bedingungen, Gewährleistung und Rückgaberecht</li>
+            </ul>
+          </section>
+
           {/* Preise Section */}
           <section id="preise" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
@@ -400,6 +542,194 @@ export default function FrieseKaufen() {
             </ul>
             <p className="text-lg text-gray-700 leading-relaxed">
               Wichtig: Jedes Pferd ist individuell. Ein Ankaufstraining kann dir helfen, die tatsächlichen Stärken deines potenziellen Friesenpferdes zu erkennen.
+            </p>
+          </section>
+
+          {/* Anfänger Section */}
+          <section id="anfaenger" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Sind Friesen für Anfänger geeignet?
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Die ehrliche Antwort: Nein, Friesen sind nicht für absolute Anfänger geeignet. Dies ist eine wichtige Realität, die viele Pferdeliebhaber übersehen.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Warum Friesen eine Herausforderung für Anfänger sind
+            </h3>
+
+            <ul className="space-y-4 text-lg text-gray-700">
+              <li className="border-l-4 border-amber-500 pl-4">
+                <strong>Sensibles Temperament:</strong> Friesen reagieren feinfühlig auf Hilfen und Stimmungen des Reiters. Unsicherheit oder falsche Signale können zu Widerständen führen.
+              </li>
+              <li className="border-l-4 border-amber-500 pl-4">
+                <strong>Hohe Energie:</strong> Diese Pferde haben viel Temperament und benötigen konsequente, faire Führung. Anfänger können diese Energie oft nicht richtig kanalisieren.
+              </li>
+              <li className="border-l-4 border-amber-500 pl-4">
+                <strong>Große und kräftige Körper:</strong> Mit einem Gewicht von 450-550 kg ist ein Friese physisch anspruchsvoll zu bewältigen. Anfänger können in gefährliche Situationen geraten.
+              </li>
+              <li className="border-l-4 border-amber-500 pl-4">
+                <strong>Hohe Unterhaltskosten:</strong> Die spezielle Pflege, Fütterung und mögliche gesundheitliche Probleme erfordern finanzielle Stabilität.
+              </li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Alternative für Anfänger
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              Wenn du wirklich von Friesen träumst, aber noch Anfänger bist, gibt es bessere Wege:
+            </p>
+
+            <ul className="space-y-2 text-lg text-gray-700">
+              <li>• <strong>Reitbeteiligung auf einem Friesen:</strong> Teile dir ein Friesen-Pferd mit einem erfahrenen Besitzer. So lernst du die Rasse kennen.</li>
+              <li>• <strong>Unterricht mit Friesenpferden:</strong> Suche dir einen Reitbetrieb, der Schulpferde-Friesen hat und Anfängerlektionen anbietet.</li>
+              <li>• <strong>Anfänger-freundliche Rassen erst:</strong> Lerne auf Pferden wie Haflingern, Tinkern oder stabilen Warmblütern, bevor du dich einem Friesen zuwendest.</li>
+              <li>• <strong>Mit Trainer kaufen:</strong> Wenn du bereits fortgeschritten bist, kaufe einen Friesen zusammen mit deinem Trainer aus und mache ein Intensiv-Training.</li>
+            </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              Ein Friese braucht einen erfahrenen Partner. Die beste Freude mit dieser wunderbaren Rasse erhältst du, wenn du bereit bist, die nötige Erfahrung und Verständnis mitzubringen.
+            </p>
+          </section>
+
+          {/* Behang und Mauke Section */}
+          <section id="behang-mauke" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Behang und Mauke: Pflegeanforderungen
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Der charakteristische Behang ist eines der schönsten Merkmale eines Friesenpferdes - aber auch eine große Verantwortung. Mauke ist die häufigste Nebenwirkung mangelnder Behangpflege.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Die tägliche Behangroutine
+            </h3>
+
+            <div className="bg-amber-50 p-6 rounded-lg space-y-4">
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Täglich (30-45 Minuten):</h4>
+                <ul className="space-y-2 text-lg text-gray-700 list-disc pl-5">
+                  <li>Behang kämmen und entwirren mit breiter Bürste</li>
+                  <li>Trocknung bei feuchtem Wetter (mit Handtuch trocknen)</li>
+                  <li>Spezialshampoos bei Verschmutzung verwenden</li>
+                  <li>Fesseln auf Rötung und Reizungen prüfen</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Wöchentlich:</h4>
+                <ul className="space-y-2 text-lg text-gray-700 list-disc pl-5">
+                  <li>Gründliches Waschen des Behangs mit warmem Wasser</li>
+                  <li>Entfernung von Schlamm und Verschmutzungen</li>
+                  <li>Massage der Fesseln zur Verbesserung der Zirkulation</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Monatlich:</h4>
+                <ul className="space-y-2 text-lg text-gray-700 list-disc pl-5">
+                  <li>Professionelle Behangpflege oder gründliches Home-Spa</li>
+                  <li>Überprüfung auf erste Anzeichen von Mauke</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Was ist Mauke und wie vermeidet man sie?
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Mauke ist eine chronische Dermatitis der Fesseln, verursacht durch Feuchtigkeit, Schmutz und Bakterien. Sie ist bei Friesen deutlich häufiger als bei anderen Rassen wegen des dichten Behangs.
+            </p>
+
+            <ul className="space-y-3 text-lg text-gray-700">
+              <li className="bg-green-50 p-4 rounded-lg">
+                <strong>Prävention #1 - Trockener Stall:</strong> Friesen brauchen trockene Box mit guter Einstreu. Feuchte Stallungen führen zu Mauke.
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg">
+                <strong>Prävention #2 - Behangschoner:</strong> Für Winter oder feuchte Perioden: spezielle Behangschoner mit Reißverschluss schützen vor Nässe.
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg">
+                <strong>Prävention #3 - Spezialshampoos:</strong> Regelmäßige Verwendung von antiseptischen Behangshampos (mit Teebaum oder Aloe-Vera).
+              </li>
+              <li className="bg-green-50 p-4 rounded-lg">
+                <strong>Prävention #4 - Regelmäßige Kontrolle:</strong> Tägliche Überprüfung auf rote Flecken oder Schwellungen. Frühe Erkennung verhindert schlimme Verläufe.
+              </li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Kosten und Produkte
+            </h3>
+
+            <ul className="space-y-2 text-lg text-gray-700">
+              <li>• Spezial-Behangshampo: 15-30 EUR pro Liter</li>
+              <li>• Behangschoner (Paar): 80-150 EUR</li>
+              <li>• Professionelle Behangpflege/Spa: 100-200 EUR pro Besuch</li>
+              <li>• Hochwertige Bürsten und Kämme: 30-80 EUR</li>
+              <li>• Tierärztliche Mauke-Behandlung: 200-500 EUR (falls nötig)</li>
+            </ul>
+          </section>
+
+          {/* Friesen in Not Section */}
+          <section id="friesen-in-not" className="scroll-mt-32 lg:scroll-mt-40 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand">
+              Friesen in Not: Rettung und Adoption
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Es gibt alternative Wege, einen Friesen zu bekommen - durch Adoption aus Tierschutz oder Friesenhilfe-Organisationen. Dies ist oft günstiger und hilft Pferden in schwierigen Situationen.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Friesenhilfe-Organisationen in Deutschland
+            </h3>
+
+            <ul className="space-y-4 text-lg text-gray-700">
+              <li className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <strong>Friesenhilfe e.V. Deutschland:</strong> Eine spezialisierte Organisation für Friesen in Not. Sie vermittelt Pferde an seriöse Privathalter oder Gnadenbrotplätze.
+              </li>
+              <li className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <strong>Tierschutzverbände:</strong> Größere Tierschutzorganisationen haben gelegentlich auch Friesen in ihren Beständen, die ein neues Zuhause suchen.
+              </li>
+              <li className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <strong>Gnadenbrotplatz-Netzwerke:</strong> Online-Portale verbinden Privathalter mit Pferden, die Gnadenbrotplätze brauchen.
+              </li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Vor- und Nachteile von Adoptionen
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-green-50 p-6 rounded-lg">
+                <h4 className="text-lg font-bold text-gray-900 mb-4">Vorteile</h4>
+                <ul className="space-y-2 text-lg text-gray-700 list-disc pl-5">
+                  <li>Drastisch reduzierte Adoptionsgebühren (100-500 EUR)</li>
+                  <li>Moralische Genugtuung: Du hilfst einem Pferd in Not</li>
+                  <li>Oft bereits trainiert und mit Erfahrung</li>
+                  <li>Ausführliche Hintergrundberichte vom Tierheim</li>
+                  <li>Nachbetreuung und Unterstützung von der Organisation</li>
+                </ul>
+              </div>
+
+              <div className="bg-red-50 p-6 rounded-lg">
+                <h4 className="text-lg font-bold text-gray-900 mb-4">Nachteile</h4>
+                <ul className="space-y-2 text-lg text-gray-700 list-disc pl-5">
+                  <li>Pferde können Verhaltensprobleme oder Traumata haben</li>
+                  <li>Gesundheitliche Probleme sind oft vorhandenes Grund für die Abgabe</li>
+                  <li>Ungewisse Abstammung und Papiere</li>
+                  <li>Keine KFPS-Registrierung (nicht züchtbar)</li>
+                  <li>Umgewöhnung und Retraining erforderlich</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mt-8">
+              Schutzgebühren und Kosten
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Friesenhilfe-Organisationen erheben meist eine Schutzgebühr von 100-500 EUR. Diese deckt Tierarztkosten und die Betreuung während des Aufenthalts. Die Gebühr ist deutlich niedriger als ein Zuchtkauf, garantiert aber nicht ein problemloses Pferd. Manche Friesen in Gnadenbrotplätzen haben langfristige Verhaltens- oder Gesundheitsprobleme, die anhaltende Unterstützung erfordern.
             </p>
           </section>
 
@@ -561,6 +891,7 @@ export default function FrieseKaufen() {
                 faqs={faqItems}
                 sectionTitle="Häufig gestellte Fragen"
                 sectionSubtitle="Die wichtigsten Antworten zu KFPS-Papieren, Gesundheit und Haltung beim Friese-Kauf"
+                withSchema={false}
               />
             </div>
           </section>
