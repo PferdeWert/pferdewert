@@ -83,8 +83,30 @@ const NAVIGATION_ITEMS: NavItem[] = [
   },
 ]
 
-// AT/CH: Minimal navigation - only Über uns (local SEO magnet is in footer only)
-const NAVIGATION_ITEMS_ATCH: NavItem[] = [
+// AT: Local navigation with Österreich page
+const NAVIGATION_ITEMS_AT: NavItem[] = [
+  {
+    label: "Pferdekauf Österreich",
+    href: "/pferd-kaufen/oesterreich",
+    description: "Tipps für den Pferdekauf in Österreich",
+    icon: kaufenIcon,
+  },
+  {
+    label: "Über uns",
+    href: "/ueber-pferdewert",
+    description: "Erfahre mehr über PferdeWert",
+    icon: ueberUnsIcon,
+  },
+]
+
+// CH: Local navigation with Schweiz page
+const NAVIGATION_ITEMS_CH: NavItem[] = [
+  {
+    label: "Pferdekauf Schweiz",
+    href: "/pferd-kaufen/schweiz",
+    description: "Tipps für den Pferdekauf in der Schweiz",
+    icon: kaufenIcon,
+  },
   {
     label: "Über uns",
     href: "/ueber-pferdewert",
@@ -99,8 +121,10 @@ export default function HeaderUnified() {
   const router = useRouter()
   const { country } = useCountryConfig()
 
-  // AT/CH: Use simplified navigation without Ratgeber dropdown
-  const navigationItems = country === 'DE' ? NAVIGATION_ITEMS : NAVIGATION_ITEMS_ATCH
+  // Select navigation based on country (DE: full, AT/CH: local)
+  const navigationItems = country === 'AT' ? NAVIGATION_ITEMS_AT
+    : country === 'CH' ? NAVIGATION_ITEMS_CH
+    : NAVIGATION_ITEMS
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
