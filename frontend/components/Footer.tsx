@@ -1,11 +1,14 @@
 // frontend/components/Footer.tsx
 
 import LocalizedLink from "@/components/LocalizedLink";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 // Konstante außerhalb des Renders für bessere Performance
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+  const { isAustria, isSwitzerland } = useCountryConfig();
+
   return (
     <footer className="bg-[#FCFAF6] text-center text-sm text-[#5A4B3B] mt-12 py-6 border-t border-[#EAE4DC]">
       {/* Semantische Navigation mit ul/li Struktur */}
@@ -16,6 +19,21 @@ export default function Footer() {
               Pferd bewerten
             </LocalizedLink>
           </li>
+          {/* Lokale SEO-Magnet Links für AT/CH */}
+          {isAustria && (
+            <li>
+              <LocalizedLink href="/pferd-kaufen/oesterreich" className="hover:underline">
+                Pferdekauf Österreich
+              </LocalizedLink>
+            </li>
+          )}
+          {isSwitzerland && (
+            <li>
+              <LocalizedLink href="/pferd-kaufen/schweiz" className="hover:underline">
+                Pferdekauf Schweiz
+              </LocalizedLink>
+            </li>
+          )}
           {/* Accessibility-konformes Details/Summary Dropdown */}
           <li>
             <details className="relative inline-block group">

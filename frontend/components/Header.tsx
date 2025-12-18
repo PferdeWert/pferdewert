@@ -7,6 +7,7 @@ import CountrySwitcher from "@/components/CountrySwitcher"
 import { Menu, X, ChevronDown, BookOpen, Users, FileText, ShoppingBag, TrendingUp } from "lucide-react"
 import { useRouter } from "next/router"
 import Breadcrumbs from "./Breadcrumbs"
+import { useCountryConfig } from "@/hooks/useCountryConfig"
 
 // ============================================================================
 // FAST REFRESH FIX: Define icons at module level to prevent recreation
@@ -82,10 +83,30 @@ const NAVIGATION_ITEMS: NavItem[] = [
   },
 ]
 
+// AT/CH: Simplified navigation without Ratgeber dropdown (content is on .de)
+const NAVIGATION_ITEMS_ATCH: NavItem[] = [
+  {
+    label: "Pferd kaufen",
+    href: "/pferd-kaufen",
+    description: "Tipps für den Pferdekauf",
+    icon: kaufenIcon,
+  },
+  {
+    label: "Über uns",
+    href: "/ueber-pferdewert",
+    description: "Erfahre mehr über PferdeWert",
+    icon: ueberUnsIcon,
+  },
+]
+
 export default function HeaderUnified() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
   const router = useRouter()
+  const { country } = useCountryConfig()
+
+  // AT/CH: Use simplified navigation without Ratgeber dropdown
+  const navigationItems = country === 'DE' ? NAVIGATION_ITEMS : NAVIGATION_ITEMS_ATCH
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -175,7 +196,7 @@ export default function HeaderUnified() {
 
             {/* Desktop Navigation mit Dropdowns */}
             <nav className="flex items-center space-x-8">
-              {NAVIGATION_ITEMS.map((item) => (
+              {navigationItems.map((item) => (
                 item.dropdown ? (
                   <div key={item.href} className="relative group">
                     <div className="flex items-center">
@@ -289,7 +310,7 @@ export default function HeaderUnified() {
           <nav className="h-full flex flex-col">
             {/* Navigation Links - 2025 Best Practice: Card-based Accordion */}
             <div className="flex-1 overflow-y-auto px-3 py-4 space-y-2">
-              {NAVIGATION_ITEMS.map((item) => (
+              {navigationItems.map((item) => (
                 <div key={item.href}>
                   {item.dropdown ? (
                     // Accordion Section with inline expansion

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getExclusiveCountry } from './lib/country-exclusive-pages'
+import { isPageAllowedForCountry } from './lib/country-exclusive-pages'
 
 // Simple Rate Limiting - In-Memory Map
 const rateLimit = new Map<string, { count: number, resetTime: number }>()
@@ -113,41 +113,13 @@ export function middleware(request: NextRequest) {
   // Determine country from domain (or fallback to DE)
   const country = domainConfig?.country || 'DE';
 
-  // 5. COUNTRY-EXCLUSIVE PAGES: Block regional pages on wrong domains
-  // e.g., /pferd-kaufen/bayern should only work on pferdewert.de
-  // This prevents duplicate content across domains
-  const exclusiveCountry = getExclusiveCountry(pathname);
-  if (exclusiveCountry && exclusiveCountry !== country) {
-    // This page belongs to a different country's domain
-    // Return 404 to signal Google this page doesn't exist here
-    return new NextResponse(
-      `<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
-  <title>Seite nicht verfügbar</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 100px auto; padding: 20px; text-align: center; }
-    h1 { color: #1a365d; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <h1>Diese Seite ist hier nicht verfügbar</h1>
-  <p>Der Inhalt, den du suchst, ist auf einer anderen Domain verfügbar.</p>
-  <p><a href="/pferd-kaufen/">Zurück zur Übersicht</a></p>
-</body>
-</html>`,
-      {
-        status: 404,
-        headers: {
-          'Content-Type': 'text/html; charset=utf-8',
-          'X-Robots-Tag': 'noindex',
-        },
-      }
-    );
+  // 5. WHITELIST: Only allow specific pages on AT/CH domains
+  // Non-whitelisted pages redirect to homepage (301) to avoid 404s
+  // DE allows all pages, AT/CH only allow core conversion pages
+  if (!isPageAllowedForCountry(pathname, country as 'DE' | 'AT' | 'CH')) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/';
+    return NextResponse.redirect(url, 301);
   }
 
   // Determine locale from domain (or fallback to DE)

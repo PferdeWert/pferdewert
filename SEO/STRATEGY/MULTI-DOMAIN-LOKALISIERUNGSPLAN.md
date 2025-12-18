@@ -1,283 +1,233 @@
 # Multi-Domain Lokalisierungsplan für PferdeWert
 
-**Status:** Phase 1, 2, 5 implementiert ✅ | Phase 3, 4 ausstehend
+**Status:** Phase 1 implementiert ✅ | Phase 2 offen
 **Erstellt:** 17. Dezember 2025
 **Zuletzt aktualisiert:** 18. Dezember 2025
-**Ziel:** Duplicate Content eliminieren, Google-Konsolidierung verhindern, lokalen Mehrwert schaffen
+**Strategie:** Radikale Entschlankung - AT/CH = Conversion-Maschinen, .de = Content-Hub
 
 ---
 
-## 1. Problemanalyse
+## Aktueller Stand
 
-### Aktueller Stand
+### ✅ Phase 1: Implementiert
+- [x] Whitelist-Config in `lib/country-exclusive-pages.ts`
+- [x] Middleware: 301-Redirect für nicht-erlaubte Seiten
+- [x] Header: Kein Ratgeber-Link auf AT/CH (nur "Pferd kaufen" + "Über uns")
+- [x] Footer: SEO-Magnet-Links für AT/CH
+
+### 🚀 Phase 2: Content-Lokalisierung (offen)
+- [ ] Homepage lokalisieren (Marktplätze, Trust-Signale)
+- [ ] Formular-Seite lokalisieren (Währung, Beispiele)
+- [ ] Hub-Seite `/pferd-kaufen/` lokalisieren (lokale Tiles)
+
+### 📊 Phase 3: Monitoring
+- [ ] Deployment auf Vercel
+- [ ] Sitemaps neu generieren (`npm run sitemap`)
+- [ ] Google Search Console: Sitemaps einreichen
+- [ ] Nach 2-4 Wochen: Indexierung & Rankings prüfen
+
+---
+
+## 1. Strategie: Radikale Entschlackung
+
+### Kernprinzip
 ```
-pferdewert.de  ─┬─ /pferd-kaufen/bayern     (macht Sinn ✅)
-               ├─ /pferd-kaufen/nrw        (macht Sinn ✅)
-               ├─ /pferd-kaufen/oesterreich (macht Sinn für DE-Käufer ⚠️)
-               └─ /pferd-kaufen/schweiz     (macht Sinn für DE-Käufer ⚠️)
-
-pferdewert.at  ─┬─ /pferd-kaufen/bayern     (❌ irrelevant für AT-Nutzer)
-               ├─ /pferd-kaufen/nrw        (❌ irrelevant für AT-Nutzer)
-               ├─ /pferd-kaufen/oesterreich (macht Sinn ✅)
-               └─ /pferd-kaufen/schweiz     (⚠️ weniger relevant)
-
-pferdewert.ch  ─┬─ /pferd-kaufen/bayern     (❌ irrelevant für CH-Nutzer)
-               ├─ /pferd-kaufen/nrw        (❌ irrelevant für CH-Nutzer)
-               ├─ /pferd-kaufen/oesterreich (⚠️ weniger relevant)
-               └─ /pferd-kaufen/schweiz     (macht Sinn ✅)
+.de  = Content-Hub (alle Ratgeber, alle Rassen, alle Regionen)
+.at  = Conversion-Maschine (6 Seiten + 1 SEO-Magnet im Footer)
+.ch  = Conversion-Maschine (6 Seiten + 1 SEO-Magnet im Footer)
 ```
 
-### Das Problem
-1. **Duplicate Content:** 3x gleicher Content auf 3 Domains
-2. **Kein lokaler Mehrwert:** AT/CH-Nutzer sehen Bayern-Content
-3. **Google-Konsolidierung:** Google wählt eine Version, ignoriert andere
-4. **Link Equity Split:** Backlinks verteilen sich auf 3 Domains
+### Philosophie
+> **AT/CH-User kommen zum Bewerten, nicht zum Lesen.**
+> Wer Ratgeber will, findet sie über Google auf .de.
+
+### Warum radikal?
+1. **Kein Duplicate Content** - Jede Seite existiert nur auf einer Domain
+2. **Google MUSS indexieren** - Keine Alternative für AT/CH-Suchen
+3. **Minimaler Wartungsaufwand** - 6 Seiten statt 25+ pro Domain
+4. **Klare User Journey** - Kommen → Bewerten → Fertig
+5. **Kein Ratgeber im Header** - User werden nicht abgelenkt
+6. **SEO-Magnet versteckt** - Im Footer für Google crawlbar, nicht prominent
 
 ---
 
-## 2. Ziel-Struktur
+## 2. Seiten-Matrix
 
-### Regional-Seiten: EXKLUSIV pro Domain
+### Whitelist pro Domain
 
-| Seite | .de | .at | .ch | Begründung |
-|-------|-----|-----|-----|------------|
-| `/pferd-kaufen/bayern` | ✅ Live | ❌ 404 | ❌ 404 | Nur für DE relevant |
-| `/pferd-kaufen/nrw` | ✅ Live | ❌ 404 | ❌ 404 | Nur für DE relevant |
-| `/pferd-kaufen/sachsen` (geplant) | ✅ Live | ❌ 404 | ❌ 404 | Nur für DE relevant |
-| `/pferd-kaufen/oesterreich` | ❌ 404 | ✅ Live | ❌ 404 | Nur für AT relevant |
-| `/pferd-kaufen/schweiz` | ❌ 404 | ❌ 404 | ✅ Live | Nur für CH relevant |
+| Seite | .de | .at | .ch | Lokalisiert? |
+|-------|:---:|:---:|:---:|:-------------|
+| `/` | ✅ | ✅ | ✅ | Phase 2 |
+| `/pferde-preis-berechnen` | ✅ | ✅ | ✅ | Phase 2 |
+| `/pferd-kaufen/` (Hub) | ✅ | ✅ | ✅ | Phase 2 |
+| `/pferd-kaufen/oesterreich` | ❌ | ✅ | ❌ | ✅ SEO-Magnet |
+| `/pferd-kaufen/schweiz` | ❌ | ❌ | ✅ | ✅ SEO-Magnet |
+| `/pferd-kaufen/{region}` | ✅ | ❌ | ❌ | DE-Regionen |
+| `/pferd-kaufen/{rasse}` | ✅ | ❌ | ❌ | Rassen |
+| `/pferde-ratgeber/*` | ✅ | ❌ | ❌ | Nur .de |
+| `/ueber-pferdewert` | ✅ | ✅ | ✅ | - |
+| `/impressum`, `/datenschutz`, `/agb` | ✅ | ✅ | ✅ | - |
 
-### Rassen- & Ratgeber-Seiten: ALLE Domains (aber lokalisiert!)
-
-| Seite | .de | .at | .ch | Lokalisierung |
-|-------|-----|-----|-----|---------------|
-| `/pferd-kaufen/haflinger` | ✅ EUR | ✅ EUR (AT-Fokus) | ✅ CHF | Preise, Marktplätze |
-| `/pferd-kaufen/` (Hub) | ✅ DE-Fokus | ✅ AT-Fokus | ✅ CH-Fokus | Marktplätze, Regionen |
-| `/pferde-ratgeber/aku-pferd` | ✅ EUR | ✅ EUR | ✅ CHF | Preise |
-| `/pferde-ratgeber/was-kostet-ein-pferd` | ✅ EUR | ✅ EUR | ✅ CHF | Alle Preise |
+### Ergebnis
+- **.de:** ~30 Seiten (Content-Hub)
+- **.at:** 6 Seiten (Conversion + SEO-Magnet)
+- **.ch:** 6 Seiten (Conversion + SEO-Magnet)
 
 ---
 
-## 3. Implementierungsschritte
+## 3. Technische Implementierung
 
-### Phase 1: Middleware - Regional-Seiten blockieren ✅ IMPLEMENTIERT
+### 3.1 Whitelist-Config
+**Datei:** `frontend/lib/country-exclusive-pages.ts`
 
+```typescript
+export const COUNTRY_ALLOWED_PATHS: Record<CountryCode, readonly string[]> = {
+  DE: ['*'], // All pages allowed
+  AT: ['/', '/pferde-preis-berechnen', '/pferd-kaufen', '/pferd-kaufen/oesterreich',
+       '/ueber-pferdewert', '/impressum', '/datenschutz', '/agb'],
+  CH: ['/', '/pferde-preis-berechnen', '/pferd-kaufen', '/pferd-kaufen/schweiz',
+       '/ueber-pferdewert', '/impressum', '/datenschutz', '/agb'],
+};
+```
+
+### 3.2 Middleware: 301 Redirect
 **Datei:** `frontend/middleware.ts`
-**Konfiguration:** `frontend/lib/country-exclusive-pages.ts` (Single Source of Truth)
+
+- Nicht-erlaubte Seiten → 301-Redirect zur Homepage
+- Besser für UX (keine Sackgasse) und SEO (Link Equity erhalten)
+
+### 3.3 Header: Conditional Navigation
+**Datei:** `frontend/components/Header.tsx`
+
+| Domain | Navigation |
+|--------|------------|
+| .de | Ratgeber (Dropdown) + Über uns |
+| .at/.ch | Pferd kaufen + Über uns |
+
+### 3.4 Footer: SEO-Magnet Links
+**Datei:** `frontend/components/Footer.tsx`
+
+| Domain | Footer-Link |
+|--------|-------------|
+| .at | "Pferdekauf Österreich" → `/pferd-kaufen/oesterreich` |
+| .ch | "Pferdekauf Schweiz" → `/pferd-kaufen/schweiz` |
+| .de | Keine zusätzlichen Links |
+
+---
+
+## 4. Phase 2: Content-Lokalisierung
+
+### 4.1 Homepage lokalisieren
+
+**Aktueller Stand:** Stark DE-fokussiert
+- Meta-Tags: `geo.region: DE`, `geo.country: Deutschland`
+- Texte: "deutschen Pferdemarktes", "50.000 Verkaufsdaten aus Deutschland"
+- Schema: `areaServed: Deutschland`
+
+**Zu lokalisieren für AT:**
+
+| Element | DE (aktuell) | AT (neu) |
+|---------|--------------|----------|
+| Geo Meta | `geo.region: DE` | `geo.region: AT` |
+| Trust-Signal | "100+ erfolgreiche Bewertungen" | "Auch in Österreich verfügbar" |
+| Marktplatz-Referenz | - | willhaben.at, ehorses.at |
+| Schema areaServed | Deutschland | Österreich |
+
+**Zu lokalisieren für CH:**
+
+| Element | DE (aktuell) | CH (neu) |
+|---------|--------------|----------|
+| Geo Meta | `geo.region: DE` | `geo.region: CH` |
+| Währung | € implizit | CHF erwähnen |
+| Marktplatz-Referenz | - | anibis.ch, tutti.ch |
+| Schema areaServed | Deutschland | Schweiz |
+
+### 4.2 Formular-Seite lokalisieren
+
+**Mögliche Anpassungen:**
+
+| Element | DE | AT | CH |
+|---------|----|----|-----|
+| Beispielpreise | Deutsche Preise | Österreichische Preise | CHF-Preise |
+| Zahlungsmethoden | Alle | +EPS hervorheben | - |
+| Trust-Text | "deutscher Pferdemarkt" | "österreichischer Pferdemarkt" | "Schweizer Pferdemarkt" |
+
+### 4.3 Hub-Seite `/pferd-kaufen/` lokalisieren
+
+**Aktuelle Tiles (DE):** Bayern, NRW, Sachsen, etc.
+
+**AT-Version:** Nur Österreich-Tile prominent
+**CH-Version:** Nur Schweiz-Tile prominent
+
+---
+
+## 5. SEO-Auswirkungen
+
+### Erwartete Ergebnisse
+
+| Metrik | Vorher | Nach Phase 1 | Nach Phase 2 |
+|--------|--------|--------------|--------------|
+| Seiten auf .at/.ch | ~25 | 6 | 6 |
+| Duplicate Content | 100% | 0% | 0% |
+| Lokale Trust-Signale | 0 | 0 | ✅ |
+| Wartungsaufwand | Hoch | Minimal | Minimal |
+
+### User Journey (AT)
+
+```
+AT-User sucht "Pferdebewertung Österreich"
+         │
+         ▼
+Google zeigt pferdewert.at (einzige Option!)
+         │
+         ▼
+User landet auf pferdewert.at/
+(Lokalisierte Homepage mit AT-Trust-Signalen)
+         │
+         ├── Klickt "Pferd bewerten" → /pferde-preis-berechnen ✅
+         │   (Lokalisiert mit österreichischen Beispielen)
+         │
+         └── Will Ratgeber? → Nicht im Header sichtbar
+             → Findet über Google auf pferdewert.de
+```
+
+---
+
+## 6. Implementierungshinweise
+
+### Homepage-Lokalisierung (useCountryConfig)
 
 ```typescript
-// Zentrale Konfiguration in lib/country-exclusive-pages.ts
-import { getExclusiveCountry } from './lib/country-exclusive-pages'
+// In pages/index.tsx
+const { isAustria, isSwitzerland, isGermany } = useCountryConfig();
 
-// In middleware.ts:
-const exclusiveCountry = getExclusiveCountry(pathname);
-if (exclusiveCountry && exclusiveCountry !== country) {
-  // 404 mit noindex zurückgeben
-  return new NextResponse(htmlWith404AndNoindex, { status: 404 });
+// Geo Meta Tags
+<meta name="geo.region" content={isAustria ? "AT" : isSwitzerland ? "CH" : "DE"} />
+<meta name="geo.country" content={isAustria ? "Österreich" : isSwitzerland ? "Schweiz" : "Deutschland"} />
+
+// Trust-Signal
+{isAustria && <span>Auch für den österreichischen Pferdemarkt</span>}
+{isSwitzerland && <span>Auch für den Schweizer Pferdemarkt</span>}
+
+// Schema.org areaServed
+areaServed: {
+  "@type": "Country",
+  "name": isAustria ? "Österreich" : isSwitzerland ? "Schweiz" : "Deutschland"
 }
 ```
 
-**Ergebnis:** Regionale Seiten geben 404 + `X-Robots-Tag: noindex` auf falschen Domains zurück.
+### Prioritäten
 
-### Phase 2: Sitemaps anpassen ✅ IMPLEMENTIERT
-
-**Datei:** `frontend/scripts/generate-sitemap.mjs`
-**Konfiguration:** `frontend/lib/country-exclusive-pages.ts` (importiert)
-
-```javascript
-import { isPageAvailableForCountry } from '../lib/country-exclusive-pages.ts';
-
-// Pro Domain wird gefiltert:
-// - sitemap-de.xml: 28 Seiten (inkl. DE-Bundesländer, ohne AT/CH)
-// - sitemap-at.xml: 27 Seiten (inkl. Österreich, ohne DE/CH)
-// - sitemap-ch.xml: 27 Seiten (inkl. Schweiz, ohne DE/AT)
-```
-
-### Phase 3: Preise lokalisieren (Priorität: MITTEL)
-
-#### 3.1 Utility-Funktion erstellen
-
-**Neue Datei:** `frontend/lib/currency.ts`
-
-```typescript
-import { getCurrentCountry } from '@/lib/countries';
-
-export interface PriceRange {
-  min: number;
-  max: number;
-  currency: 'EUR' | 'CHF';
-}
-
-// CHF/EUR Wechselkurs (ungefähr, für Anzeige)
-const CHF_EUR_RATE = 1.05; // 1 EUR = ~1.05 CHF
-
-export function formatPriceRange(
-  minEur: number,
-  maxEur: number,
-  country?: string
-): string {
-  const currentCountry = country || getCurrentCountry().code;
-
-  if (currentCountry === 'CH') {
-    const minChf = Math.round(minEur * CHF_EUR_RATE / 100) * 100;
-    const maxChf = Math.round(maxEur * CHF_EUR_RATE / 100) * 100;
-    return `CHF ${minChf.toLocaleString('de-CH')} – ${maxChf.toLocaleString('de-CH')}`;
-  }
-
-  // DE und AT: Euro
-  return `${minEur.toLocaleString('de-DE')} – ${maxEur.toLocaleString('de-DE')} €`;
-}
-
-export function formatPrice(eurAmount: number, country?: string): string {
-  const currentCountry = country || getCurrentCountry().code;
-
-  if (currentCountry === 'CH') {
-    const chfAmount = Math.round(eurAmount * CHF_EUR_RATE / 100) * 100;
-    return `CHF ${chfAmount.toLocaleString('de-CH')}`;
-  }
-
-  return `${eurAmount.toLocaleString('de-DE')} €`;
-}
-```
-
-#### 3.2 In Komponenten verwenden
-
-**Beispiel in** `pages/pferd-kaufen/haflinger.tsx`:
-
-```tsx
-import { formatPriceRange } from '@/lib/currency';
-import { useCountryConfig } from '@/hooks/useCountryConfig';
-
-// Im Component:
-const { country } = useCountryConfig();
-
-// Statt:
-// <td>4.000 - 15.000 €</td>
-
-// Jetzt:
-<td>{formatPriceRange(4000, 15000, country.code)}</td>
-// .de/.at: "4.000 – 15.000 €"
-// .ch: "CHF 4'200 – 15'800"
-```
-
-### Phase 4: Hub-Seiten lokalisieren (Priorität: MITTEL)
-
-**Datei:** `pages/pferd-kaufen/index.tsx`
-
-Die Hub-Seite `/pferd-kaufen/` sollte je nach Domain unterschiedliche Inhalte zeigen:
-
-```tsx
-import { useCountryConfig } from '@/hooks/useCountryConfig';
-
-export default function PferdKaufenHub() {
-  const { country } = useCountryConfig();
-
-  // Marktplätze je nach Land
-  const marketplaces = {
-    DE: [
-      { name: 'ehorses.de', url: '...', listings: '~12.000' },
-      { name: 'Kleinanzeigen', url: '...', listings: '~8.000' },
-    ],
-    AT: [
-      { name: 'Willhaben.at', url: '...', listings: '~1.500' },
-      { name: 'ehorses.at', url: '...', listings: '~2.200' },
-      { name: 'Landwirt.com', url: '...', listings: '~800' },
-    ],
-    CH: [
-      { name: 'anibis.ch', url: '...', listings: '~600' },
-      { name: 'tutti.ch', url: '...', listings: '~400' },
-      { name: 'ehorses.ch', url: '...', listings: '~500' },
-    ],
-  };
-
-  // Regionale Spokes je nach Land
-  const regionalSpokes = {
-    DE: ['bayern', 'nrw', 'sachsen', 'niedersachsen'],
-    AT: ['oesterreich'], // Nur eine Seite, aber Bundesländer als Sections
-    CH: ['schweiz'], // Nur eine Seite, aber Kantone als Sections
-  };
-
-  return (
-    // ... Render basierend auf country.code ...
-  );
-}
-```
-
-### Phase 5: hreflang anpassen ✅ IMPLEMENTIERT
-
-**Datei:** `components/ratgeber/RatgeberHead.tsx`
-**Konfiguration:** `frontend/lib/country-exclusive-pages.ts` (importiert)
-
-```tsx
-import { COUNTRY_EXCLUSIVE_SLUGS } from '@/lib/country-exclusive-pages';
-
-// Im Component:
-const isExclusivePage = COUNTRY_EXCLUSIVE_SLUGS.includes(slug);
-
-// hreflang nur für nicht-exklusive Seiten
-const hreflangTags = isExclusivePage ? [] : [
-  { hreflang: 'de', href: `${DOMAINS['de']}${basePath}/${slug}` },
-  // ... AT, CH, x-default
-];
-```
-
-**Ergebnis:** Exklusive Seiten haben keine hreflang-Tags → Google versteht, dass sie nur auf einer Domain existieren.
+1. **Hoch:** Homepage Geo-Tags + Schema (SEO-kritisch)
+2. **Mittel:** Trust-Signale auf Homepage (Conversion)
+3. **Niedrig:** Formular-Beispielpreise (Nice-to-have)
 
 ---
 
-## 4. Migrations-Checkliste
+## 7. Änderungsverlauf
 
-### Technische Implementierung (Dezember 2025)
-- [x] Middleware mit Regional-Blocking erweitern (Phase 1)
-- [x] Sitemaps pro Domain generieren (Phase 2)
-- [x] hreflang für exklusive Seiten entfernen (Phase 5)
-- [x] Zentrale Konfiguration erstellen (`lib/country-exclusive-pages.ts`)
-
-### Noch offen
-- [ ] Sitemaps bei Google Search Console neu einreichen
-- [ ] Phase 3: Währungslokalisierung (CHF für .ch)
-- [ ] Phase 4: Hub-Seiten lokalisieren (Marktplätze pro Land)
-- [ ] Google Search Console: Indexierung nach 2-4 Wochen prüfen
-- [ ] Analytics: Traffic-Verteilung pro Domain prüfen
-
----
-
-## 5. Erwartete Ergebnisse
-
-| Metrik | Vorher | Nachher (erwartet) |
-|--------|--------|-------------------|
-| Indexierte Seiten .de | 25 | 22 (exklusive AT/CH weg) |
-| Indexierte Seiten .at | 25 | 20 (exklusive DE/CH weg) |
-| Indexierte Seiten .ch | 25 | 20 (exklusive DE/AT weg) |
-| Duplicate Content | 100% | ~20% (nur noch Ratgeber) |
-| Google Konsolidierung | Wahrscheinlich | Unwahrscheinlich |
-| Lokaler Mehrwert | Keiner | CHF-Preise, lokale Marktplätze |
-
----
-
-## 6. Offene Fragen
-
-1. **Was passiert mit bestehenden Rankings?**
-   - Bayern-Seite auf .at hat vermutlich keine Rankings → kein Verlust
-   - Sollte trotzdem vorsichtig ausgerollt werden
-
-2. **Redirect oder 404?**
-   - **Empfehlung: 404** (klarer für Google)
-   - Alternative: 302-Redirect zur Hub-Seite (besser für User)
-
-3. **Schweiz-Seite auf .de behalten?**
-   - Für DE-Käufer die in CH kaufen wollen ist das relevant
-   - **Empfehlung:** Auf .de behalten, aber mit DE-Perspektive ("Import aus CH")
-   - Auf .ch ist es die Hauptseite
-
----
-
-## 7. Quick Wins (Sofort umsetzbar)
-
-1. **Sitemaps sofort anpassen** – Regional-Seiten nur in passende Sitemap
-2. **hreflang für Regional-Seiten entfernen** – Kein Cross-Domain-Signal
-3. **Meta-Descriptions lokalisieren** – Bereits teilweise vorhanden (seoLocales)
-
----
-
-**Nächster Schritt:** Middleware-Änderung implementieren (Phase 1)
+| Datum | Änderung |
+|-------|----------|
+| 17.12.2025 | Initial: Blacklist-Ansatz für regionale Seiten |
+| 18.12.2025 | Refactoring: Whitelist-Ansatz für radikale Entschlackung |
+| 18.12.2025 | Ergänzt: Phase 2 Lokalisierungsplan mit konkreten Anpassungen |
