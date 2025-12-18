@@ -287,7 +287,10 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
   const userSelectedLand = useRef<boolean>(false);
 
   // AT-Rollout: Country-specific configuration
-  const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
+  const { country, locale, ausbildungOptions, landOptions, domain, isAustria, isSwitzerland } = useCountryConfig();
+
+  // Localized content for meta tags
+  const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
   // stepData depends on ausbildungOptions and locale (for placeholder text)
@@ -709,20 +712,20 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
           content="Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!"
         />
 
-        {/* Open Graph Meta Tags */}
+        {/* Open Graph Meta Tags - Localized */}
         <meta property="og:title" content="Pferdewert berechnen – KI-gestützte Bewertung in 2 Min" />
         <meta property="og:description" content="Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pferdewert.de/pferde-preis-berechnen" />
-        <meta property="og:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
-        <meta property="og:site_name" content="PferdeWert.de" />
+        <meta property="og:url" content={`${domain}/pferde-preis-berechnen`} />
+        <meta property="og:image" content={`${domain}/images/pferdepreis-berechnen-og.jpg`} />
+        <meta property="og:site_name" content={siteName} />
         <meta property="og:locale" content={ogLocale} />
 
-        {/* Twitter Card Meta Tags */}
+        {/* Twitter Card Meta Tags - Localized */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pferdewert berechnen – KI-gestützte Bewertung in 2 Min" />
         <meta name="twitter:description" content="Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!" />
-        <meta name="twitter:image" content="https://pferdewert.de/images/pferdepreis-berechnen-og.jpg" />
+        <meta name="twitter:image" content={`${domain}/images/pferdepreis-berechnen-og.jpg`} />
         <meta name="twitter:site" content="@PferdeWert" />
 
         {/* Canonical and Hreflang - AT Rollout */}

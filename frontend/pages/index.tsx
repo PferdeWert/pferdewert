@@ -19,6 +19,7 @@ const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
 import { Clock, Shield, Award, ArrowRight, TrendingUp, CheckCircle, Instagram, Users } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 import { useSEO } from "@/hooks/useSEO";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
 // FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
 const faqItems = [
@@ -125,6 +126,12 @@ const instagramIcon = <Instagram className="w-5 h-5" />;
 export default function PferdeWertHomepage() {
   // Next.js i18n domain routing provides correct locale on server AND client
   const { canonical, hreflangTags, ogLocale } = useSEO();
+  const { isAustria, isSwitzerland, domain } = useCountryConfig();
+
+  // Localized content
+  const countryName = isAustria ? 'Österreich' : isSwitzerland ? 'Schweiz' : 'Deutschland';
+  const geoRegion = isAustria ? 'AT' : isSwitzerland ? 'CH' : 'DE';
+  const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -142,12 +149,12 @@ export default function PferdeWertHomepage() {
         />
         <meta name="keywords" content="pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdepreise, was ist mein pferd wert, pferd preis, pferdemarkt preise, pferde bewertung" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="author" content="PferdeWert.de" />
+        <meta name="author" content={siteName} />
 
-        {/* Geographic Meta Tags */}
-        <meta name="geo.region" content="DE" />
-        <meta name="geo.country" content="Deutschland" />
-        <meta name="geo.placename" content="Deutschland" />
+        {/* Geographic Meta Tags - Localized */}
+        <meta name="geo.region" content={geoRegion} />
+        <meta name="geo.country" content={countryName} />
+        <meta name="geo.placename" content={countryName} />
         <meta name="ICBM" content="51.0, 9.0" />
 
         {/* Open Graph Meta Tags */}
@@ -196,29 +203,29 @@ export default function PferdeWertHomepage() {
           `
         }} />
 
-        {/* Structured Data für SEO */}
+        {/* Structured Data für SEO - Localized */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "PferdeWert.de",
+              "name": siteName,
               "alternateName": "PferdeWert",
-              "url": "https://pferdewert.de/",
-              "description": "Pferdepreis berechnen und ermitteln: Deutschlands führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung",
+              "url": `${domain}/`,
+              "description": `Pferdepreis berechnen und ermitteln: ${countryName}s führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung`,
               "publisher": {
                 "@type": "Organization",
-                "name": "PferdeWert.de",
-                "url": "https://pferdewert.de",
+                "name": siteName,
+                "url": domain,
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://pferdewert.de/images/logo.webp"
+                  "url": `${domain}/images/logo.webp`
                 }
               },
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://pferdewert.de/pferde-preis-berechnen?query={search_term_string}",
+                "target": `${domain}/pferde-preis-berechnen?query={search_term_string}`,
                 "query-input": "required name=search_term_string"
               },
               "mainEntity": {
@@ -243,27 +250,27 @@ export default function PferdeWertHomepage() {
           }}
         />
 
-        {/* LocalBusiness Schema */}
+        {/* LocalBusiness Schema - Localized */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "PferdeWert.de",
+              "name": siteName,
               "alternateName": "PferdeWert",
-              "description": "Pferdepreis berechnen: Deutschlands führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung",
-              "url": "https://pferdewert.de",
-              "logo": "https://pferdewert.de/images/logo.webp",
-              "image": "https://pferdewert.de/images/shared/blossi-shooting.webp",
-              "priceRange": "€",
+              "description": `Pferdepreis berechnen: ${countryName}s führende Plattform für professionelle KI-basierte Online Pferdebewertung mit präziser Pferdepreis Berechnung`,
+              "url": domain,
+              "logo": `${domain}/images/logo.webp`,
+              "image": `${domain}/images/shared/blossi-shooting.webp`,
+              "priceRange": isSwitzerland ? "CHF" : "€",
               "areaServed": {
                 "@type": "Country",
-                "name": "Deutschland"
+                "name": countryName
               },
               "serviceArea": {
                 "@type": "Country",
-                "name": "Deutschland"
+                "name": countryName
               },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
@@ -277,12 +284,12 @@ export default function PferdeWertHomepage() {
                       "description": "Online Pferdebewertung mit KI-gestützter Pferdepreis Berechnung für faire Marktpreise. Ermitteln Sie den Wert Ihres Pferdes in 2 Minuten.",
                       "provider": {
                         "@type": "Organization",
-                        "name": "PferdeWert.de"
+                        "name": siteName
                       },
                       "category": "Pferdebewertung",
                       "areaServed": {
                         "@type": "Country",
-                        "name": "Deutschland"
+                        "name": countryName
                       }
                     }
                   }
