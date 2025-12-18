@@ -1,5 +1,6 @@
 import { NextPage } from "next"
 import Head from "next/head"
+import { useRouter } from "next/router"
 import LocalizedLink from '@/components/LocalizedLink'
 import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 import { useMemo } from "react"
@@ -83,13 +84,16 @@ const anfaengerRassen = [
   }
 ]
 
-const regionTiles = [
+// Region tiles per country - shown based on locale
+const regionTilesDE = [
   {
     title: "Bayern",
+    href: "/pferd-kaufen/bayern",
     description: "Zucht-Hochburg mit Premium-Preisen beim Pferdekauf. Hochwertige Warmblüter aus renommierten Zuchtlinien. Preise 10-15% über Bundesdurchschnitt."
   },
   {
     title: "Nordrhein-Westfalen",
+    href: "/pferd-kaufen/nrw",
     description: "Größter deutscher Pferdemarkt für Pferdekauf mit über 300.000 Pferden. Breite Preisspanne, große Auswahl in allen Kategorien."
   },
   {
@@ -99,6 +103,22 @@ const regionTiles = [
   {
     title: "Schleswig-Holstein",
     description: "Holsteiner Zucht weltbekannt – beim Pferdekauf für exzellente Springpferde. Moderate Preise bei hoher Qualität."
+  }
+]
+
+const regionTilesAT = [
+  {
+    title: "Österreich",
+    href: "/pferd-kaufen/oesterreich",
+    description: "Pferdekauf in Österreich: Von Tirol bis Wien findest du Haflinger, Noriker und Warmblüter. Starke Zuchttraditionen und faire Preise."
+  }
+]
+
+const regionTilesCH = [
+  {
+    title: "Schweiz",
+    href: "/pferd-kaufen/schweiz",
+    description: "Pferdekauf in der Schweiz: Freiberger aus dem Jura, Warmblüter und internationale Sportpferde. Qualität auf höchstem Niveau."
   }
 ]
 
@@ -140,8 +160,33 @@ const faqItems: FAQItem[] = [
 
 
 const PferdKaufen: NextPage = () => {
+  const { locale } = useRouter()
   const canonicalUrl = useCanonicalUrl('/pferd-kaufen')
   const hreflangTags = useSEOHreflang('/pferd-kaufen')
+
+  // Select region tiles based on locale/country
+  const regionTiles = useMemo(() => {
+    if (locale === 'de-AT') return regionTilesAT
+    if (locale === 'de-CH') return regionTilesCH
+    return regionTilesDE
+  }, [locale])
+
+  // Locale-specific labels for the region section
+  const regionSectionTitle = useMemo(() => {
+    if (locale === 'de-AT') return 'Pferdemarkt in Österreich'
+    if (locale === 'de-CH') return 'Pferdemarkt in der Schweiz'
+    return 'Pferdemarkt nach Bundesländern'
+  }, [locale])
+
+  // Locale-specific intro text for regional section
+  const regionIntroText = useMemo(() => {
+    if (locale === 'de-AT') return 'Der österreichische Pferdemarkt bietet von Tirol bis Wien vielfältige Angebote. Haflinger, Noriker und Warmblüter sind besonders beliebt:'
+    if (locale === 'de-CH') return 'Der Schweizer Pferdemarkt ist bekannt für Qualität und Tradition. Vom Freiberger bis zum internationalen Sportpferd findest du hier alles:'
+    return 'Der deutsche Pferdemarkt ist regional unterschiedlich geprägt. Je nach Bundesland findest du verschiedene Schwerpunkte, Preisstrukturen und Angebote:'
+  }, [locale])
+
+  // Show German-specific price differences only for DE locale
+  const showGermanPriceDifferences = locale !== 'de-AT' && locale !== 'de-CH'
 
 const relatedArticles = useMemo(() =>
     getRelatedArticles('').map(entry => ({
@@ -1319,31 +1364,35 @@ const relatedArticles = useMemo(() =>
                 Regionale Unterschiede: Wo kauft man Pferde am besten?
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Der deutsche Pferdemarkt ist regional unterschiedlich geprägt. Je nach Bundesland findest du verschiedene
-                Schwerpunkte, Preisstrukturen und Angebote:
+                {regionIntroText}
               </p>
 
-              <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand">Pferdemarkt nach Bundesländern</h3>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand">{regionSectionTitle}</h3>
               <RatgeberRegionGrid
                 regions={regionTiles.map((region) => ({
                   title: region.title,
                   description: region.description,
+                  href: region.href,
                   icon: mapPinIcon
                 }))}
               />
 
-              <h3 className="text-xl font-serif text-brand mt-6 mb-3">Preisunterschiede zwischen Regionen</h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Regionale Preisunterschiede von 5-15% sind normal:
-              </p>
-              <ul className="space-y-2 text-gray-700 leading-relaxed">
-                <li>• <strong>Teuer:</strong> München, Hamburg, Frankfurt (Großstadtnähe)</li>
-                <li>• <strong>Mittel:</strong> Ländliche Gebiete in Bayern, NRW, Niedersachsen</li>
-                <li>
-                  • <strong>Günstiger:</strong> Ostdeutsche Bundesländer, ländliche Regionen in Brandenburg,
-                  Mecklenburg-Vorpommern
-                </li>
-              </ul>
+              {showGermanPriceDifferences && (
+                <>
+                  <h3 className="text-xl font-serif text-brand mt-6 mb-3">Preisunterschiede zwischen Regionen</h3>
+                  <p className="text-gray-700 leading-relaxed mb-3">
+                    Regionale Preisunterschiede von 5-15% sind normal:
+                  </p>
+                  <ul className="space-y-2 text-gray-700 leading-relaxed">
+                    <li>• <strong>Teuer:</strong> München, Hamburg, Frankfurt (Großstadtnähe)</li>
+                    <li>• <strong>Mittel:</strong> Ländliche Gebiete in Bayern, NRW, Niedersachsen</li>
+                    <li>
+                      • <strong>Günstiger:</strong> Ostdeutsche Bundesländer, ländliche Regionen in Brandenburg,
+                      Mecklenburg-Vorpommern
+                    </li>
+                  </ul>
+                </>
+              )}
 
               <h3 className="text-xl font-serif text-brand mt-6 mb-3">Vorteile lokaler Käufe</h3>
               <ul className="space-y-2 text-gray-700 leading-relaxed">
