@@ -1,8 +1,8 @@
 // scripts/generate-sitemap.mjs
-// Updated Dec 2025: Country-exclusive pages for multi-domain SEO
+// Updated Dec 2025: Multi-domain SEO with whitelist (AT/CH) and blacklist (DE)
 import fs from 'fs';
 import { RATGEBER_ENTRIES } from '../lib/ratgeber-registry.ts';
-import { isPageAvailableForCountry } from '../lib/country-exclusive-pages.ts';
+import { isPageAllowedForCountry, isPageAvailableForCountry } from '../lib/country-exclusive-pages.ts';
 
 // Domain configuration for multi-country support
 // NOTE: DE uses non-www (Vercel redirects www → non-www)
@@ -85,7 +85,13 @@ function generateSitemap(domain, pageConfig, countryCode) {
 
   Object.entries(pageConfig).forEach(([path, config]) => {
     // Check if this page should be included for this country
-    if (!isPageAvailableForCountry(path, countryCode)) {
+    // Uses WHITELIST for AT/CH (only 8 core pages) and BLACKLIST for DE (all except AT/CH exclusive)
+    const isAllowed = isPageAllowedForCountry(path, countryCode);
+    const isAvailable = isPageAvailableForCountry(path, countryCode);
+
+    // AT/CH: Must pass whitelist check
+    // DE: Must pass blacklist check (not exclusive to other country)
+    if (!isAllowed || !isAvailable) {
       excludedCount++;
       return; // Skip this page for this domain
     }

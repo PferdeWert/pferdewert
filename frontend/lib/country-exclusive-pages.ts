@@ -131,6 +131,7 @@ export const COUNTRY_ALLOWED_PATHS: Record<CountryCode, readonly string[]> = {
 /**
  * Check if a page is allowed for a specific country (whitelist approach).
  * Used by middleware to block all non-whitelisted pages on AT/CH.
+ * Uses EXACT match - each allowed path must be explicitly listed.
  */
 export function isPageAllowedForCountry(pathname: string, country: CountryCode): boolean {
   if (country === 'DE') return true;
@@ -140,5 +141,6 @@ export function isPageAllowedForCountry(pathname: string, country: CountryCode):
   if (systemPaths.some(p => pathname.startsWith(p))) return true;
 
   const allowed = COUNTRY_ALLOWED_PATHS[country];
-  return allowed.some(p => pathname === p || pathname.startsWith(p + '/'));
+  // EXACT match only - /pferd-kaufen does NOT allow /pferd-kaufen/haflinger
+  return allowed.includes(pathname);
 }
