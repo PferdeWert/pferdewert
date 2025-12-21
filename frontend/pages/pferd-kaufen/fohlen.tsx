@@ -132,6 +132,7 @@ export default function FohlenKaufen() {
         wordCount={3200}
         breadcrumbTitle="Fohlen kaufen"
         faqItems={faqItems}
+        noindex={true}
       />
 
       <article>

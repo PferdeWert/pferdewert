@@ -221,7 +221,7 @@ const relatedArticles = useMemo(() =>
             content="pferd kaufen, pferd kaufen anfänger, dressurpferde kaufen, springpferd kaufen, pferd kaufen worauf achten, pferdebewertung, aku pferd, pferd kaufen checkliste, pferdekaufvertrag"
           />
           <meta name="author" content="PferdeWert.de" />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content="noindex, follow" />
           <meta httpEquiv="content-language" content="de-DE" />
 
           {/* Canonical URL */}

@@ -168,6 +168,7 @@ const Pferdekaufvertrag: NextPage = () => {
         wordCount={4500}
         breadcrumbTitle="Pferdekaufvertrag"
         faqItems={faqItems}
+        noindex={true}
       />
 
       <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">

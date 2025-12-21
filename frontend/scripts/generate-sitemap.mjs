@@ -55,7 +55,7 @@ function buildPageConfig() {
   return config;
 }
 
-// Seiten die NICHT indexiert werden sollen
+// Seiten die NICHT indexiert werden sollen (technische Seiten)
 const EXCLUDED_PAGES = [
   '/ergebnis',
   '/pdf-test',
@@ -63,6 +63,20 @@ const EXCLUDED_PAGES = [
   '/api/*',
   '/_next/*',
   '/admin/*'
+];
+
+// SEO Recovery: noindex-Seiten aus Sitemap ausschließen
+// Diese Seiten haben meta robots="noindex, follow" und sollten nicht in der Sitemap sein
+// Stand: 21.12.2025 - Google December 2025 Core Update Recovery
+const NOINDEX_PAGES = [
+  '/pferd-kaufen',              // Hub-Seite ohne unique Content
+  '/pferde-ratgeber',           // Hub-Seite ohne unique Content
+  '/pferd-kaufen/fohlen',       // SV: 1.300 - konsolidiert
+  '/pferd-kaufen/kaufvertrag',  // SV: 1.000 - informational intent
+  '/pferd-kaufen/lipizzaner',   // SV: 480 - niedrig
+  '/pferd-kaufen/anfaenger',    // SV: 260 - niedrig
+  '/pferde-ratgeber/aku-pferd/kosten', // SV: 210 - in Haupt-AKU integrieren
+  '/pferde-ratgeber/pferdemarkt',      // SV: 110 - nicht core business
 ];
 
 function getCurrentDate() {
@@ -94,6 +108,13 @@ function generateSitemap(domain, pageConfig, countryCode) {
     if (!isAllowed || !isAvailable) {
       excludedCount++;
       return; // Skip this page for this domain
+    }
+
+    // SEO Recovery: Skip noindex pages from sitemap
+    // These pages have meta robots="noindex, follow" and should not be in sitemap
+    if (NOINDEX_PAGES.includes(path)) {
+      excludedCount++;
+      return; // Skip noindex pages
     }
 
     includedCount++;

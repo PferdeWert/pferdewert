@@ -74,6 +74,9 @@ export interface RatgeberHeadProps {
   // Base path for URLs (defaults to /pferde-ratgeber)
   // Use for pages outside /pferde-ratgeber/, e.g., basePath="/pferd-kaufen"
   basePath?: string;
+
+  // SEO Recovery: Set to true to add noindex,follow for temporary deindexing
+  noindex?: boolean;
 }
 
 export default function RatgeberHead({
@@ -87,6 +90,7 @@ export default function RatgeberHead({
   author,
   faqItems,
   basePath = '/pferde-ratgeber',
+  noindex = false,
 }: RatgeberHeadProps) {
   const { locale: routerLocale } = useRouter();
   const locale = (routerLocale as Locale) || 'de';
@@ -226,7 +230,7 @@ export default function RatgeberHead({
       <title>{content.title}</title>
       <meta name="description" content={content.description} />
       {content.keywords && <meta name="keywords" content={content.keywords} />}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* hreflang Tags */}

@@ -136,6 +136,7 @@ export default function Lipizzaner() {
         }}
         faqItems={faqItems}
         basePath="/pferd-kaufen"
+        noindex={true}
       />
 
       <article>

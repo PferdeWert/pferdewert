@@ -259,6 +259,7 @@ export default function AnfaengerpferdKaufen() {
         wordCount={4180}
         breadcrumbTitle="Anfängerpferd kaufen"
         faqItems={faqItems}
+        noindex={true}
       />
 
       <RatgeberHero

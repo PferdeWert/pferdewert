@@ -129,6 +129,7 @@ const Pferdemarkt: NextPage = () => {
         wordCount={1725}
         breadcrumbTitle="Pferdemarkt"
         faqItems={pferdemarktFaqItems}
+        noindex={true}
       />
 
       <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">

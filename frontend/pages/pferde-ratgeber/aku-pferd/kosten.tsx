@@ -194,6 +194,7 @@ const AkuPferdKosten: NextPage = () => {
             jobTitle: 'Gründer & Pferdeexperte'
           }}
           faqItems={faqItems.map(f => ({ question: f.question, answer: f.answer }))}
+          noindex={true}
         />
 
         <RatgeberHero
