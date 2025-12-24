@@ -404,7 +404,7 @@ export default function PferdeWertHomepage() {
 {/* Instagram Section */}
 <section className="py-12 bg-brand-light/50">
   <div className="container mx-auto px-4">
-    <div className="max-w-xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       <a
         href="https://www.instagram.com/pferdewert.de/"
         target="_blank"
