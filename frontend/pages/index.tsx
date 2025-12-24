@@ -16,6 +16,10 @@ const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSecti
 const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
   loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />,
 });
+// SEO Recovery: Umfassende Ratgeber-Section für "pferd wert berechnen" Rankings
+const WertermittlungSection = dynamic(() => import("@/components/WertermittlungSection"), {
+  loading: () => <div className="min-h-[800px] bg-gradient-to-b from-white to-amber-50/30 animate-pulse" />,
+});
 import { Clock, Shield, Award, ArrowRight, TrendingUp, CheckCircle, Instagram, Users } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 import { useSEO } from "@/hooks/useSEO";
@@ -472,6 +476,11 @@ export default function PferdeWertHomepage() {
 
         {/* Testimonials Section */}
         <TestimonialsSection />
+
+        {/* SEO Recovery: Umfassende Wertermittlung-Ratgeber-Section */}
+        {/* Target Keywords: "pferd wert berechnen", "wie viel ist mein pferd wert" */}
+        {/* Ziel: ~2.000 Wörter Content mit E-E-A-T Signalen für bessere Rankings */}
+        <WertermittlungSection />
 
         {/* Pferd kaufen Preis Section - High-value keyword targeting */}
         <section id="pferd-kaufen-preis" className="section bg-brand-light/30">
