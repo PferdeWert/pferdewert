@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { isPageAllowedForCountry, isPageBlockedForCountry } from './lib/country-exclusive-pages'
+import { isPageAllowedForCountry, getExclusiveCountry } from './lib/country-exclusive-pages'
 
 // Simple Rate Limiting - In-Memory Map
 const rateLimit = new Map<string, { count: number, resetTime: number }>()
@@ -113,18 +113,24 @@ export function middleware(request: NextRequest) {
   // Determine country from domain (or fallback to DE)
   const country = domainConfig?.country || 'DE';
 
-  // 5. WHITELIST: Only allow specific pages on AT/CH domains
+  // 5. CROSS-DOMAIN REDIRECT: Country-exclusive pages redirect to correct domain
+  // IMPORTANT: This check must come BEFORE whitelist to prevent homepage redirects
+  // e.g., pferdewert.ch/pferd-kaufen/oesterreich → pferdewert.at/pferd-kaufen/oesterreich
+  const exclusiveCountry = getExclusiveCountry(pathname);
+  if (exclusiveCountry && exclusiveCountry !== country) {
+    const targetDomain = CANONICAL_DOMAINS[exclusiveCountry];
+    const targetUrl = new URL(`https://${targetDomain}${pathname}`);
+    // Preserve query parameters
+    request.nextUrl.searchParams.forEach((value, key) => {
+      targetUrl.searchParams.set(key, value);
+    });
+    return NextResponse.redirect(targetUrl.toString(), 301);
+  }
+
+  // 6. WHITELIST: Only allow specific pages on AT/CH domains
   // Non-whitelisted pages redirect to homepage (301) to avoid 404s
   // DE allows all pages, AT/CH only allow core conversion pages
   if (!isPageAllowedForCountry(pathname, country as 'DE' | 'AT' | 'CH')) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/';
-    return NextResponse.redirect(url, 301);
-  }
-
-  // 6. BLACKLIST: Block country-exclusive pages on wrong domains
-  // e.g., /pferd-kaufen/oesterreich only on .at, /pferd-kaufen/bayern only on .de
-  if (isPageBlockedForCountry(pathname, country as 'DE' | 'AT' | 'CH')) {
     const url = request.nextUrl.clone();
     url.pathname = '/';
     return NextResponse.redirect(url, 301);
