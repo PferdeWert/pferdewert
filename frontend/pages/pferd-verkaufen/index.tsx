@@ -402,11 +402,11 @@ const PferdVerkaufen: NextPage = () => {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
                   <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
-                  <span><strong>Offizielles Dokument für Verkäufermappe:</strong> Professionelles Zertifikat statt mündlicher Preisnennung – wirkt wie eine "Expertise vom Gutachter" und erhöht deine Glaubwürdigkeit massiv</span>
+                  <span><strong>Offizielles Dokument für Verkäufermappe:</strong> Professionelles Zertifikat statt mündlicher Preisnennung – wirkt wie eine &quot;Expertise vom Gutachter&quot; und erhöht deine Glaubwürdigkeit massiv</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
-                  <span><strong>Verhandlungssicherheit:</strong> Objektive, schriftliche Preisvalidierung als Grundlage für Preisgespräche – reduziert unsinnige Verhandlungsversuche ("kannst du nicht billiger?") um durchschnittlich 40%</span>
+                  <span><strong>Verhandlungssicherheit:</strong> Objektive, schriftliche Preisvalidierung als Grundlage für Preisgespräche – reduziert unsinnige Verhandlungsversuche (&quot;kannst du nicht billiger?&quot;) um durchschnittlich 40%</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
@@ -420,13 +420,13 @@ const PferdVerkaufen: NextPage = () => {
 
               <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
                 <p className="text-sm text-gray-700">
-                  <strong>Praxis-Beispiel:</strong> Ein Warmblut-Verkäufer (Preis: €18.500) nutzte das Zertifikat in seiner Verkäufermappe – Ergebnis: Käufer akzeptierten den Preis ohne Verhandlung, weil das Zertifikat "offiziell und nachvollziehbar" wirkte. Verkauf nach nur 18 Tagen statt durchschnittlich 6-9 Monaten.
+                  <strong>Praxis-Beispiel:</strong> Ein Warmblut-Verkäufer (Preis: €18.500) nutzte das Zertifikat in seiner Verkäufermappe – Ergebnis: Käufer akzeptierten den Preis ohne Verhandlung, weil das Zertifikat &quot;offiziell und nachvollziehbar&quot; wirkte. Verkauf nach nur 18 Tagen statt durchschnittlich 6-9 Monaten.
                 </p>
               </div>
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed mt-6">
-              <strong>So nutzt du das Zertifikat optimal:</strong> Lege es potenziellen Käufern bei der ersten Besichtigung vor und erwähne es in deiner Verkaufsanzeige ("Verkaufspreis durch offizielles PferdeWert-Zertifikat validiert"). Das Zertifikat positioniert dich als professionellen, seriösen Verkäufer und gibt Käufern Sicherheit, dass der Preis fair und marktgerecht ist.
+              <strong>So nutzt du das Zertifikat optimal:</strong> Lege es potenziellen Käufern bei der ersten Besichtigung vor und erwähne es in deiner Verkaufsanzeige (&quot;Verkaufspreis durch offizielles PferdeWert-Zertifikat validiert&quot;). Das Zertifikat positioniert dich als professionellen, seriösen Verkäufer und gibt Käufern Sicherheit, dass der Preis fair und marktgerecht ist.
             </p>
 
             <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-4">
