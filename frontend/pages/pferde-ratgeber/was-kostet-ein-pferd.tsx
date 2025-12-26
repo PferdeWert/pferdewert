@@ -311,8 +311,8 @@ export default function WasKostetEinPferd() {
             </div>
           </div>
 
-          {/* Community Survey - Real Data from Instagram */}
-          <SurveyBox survey={monthlyCostsSurvey} />
+          {/* Community Survey - Interactive Voting */}
+          <SurveyBox survey={monthlyCostsSurvey} allowVoting={true} />
         </section>
 
           {/* Section 1: Anschaffungskosten */}

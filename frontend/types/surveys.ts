@@ -24,4 +24,6 @@ export interface SurveyBoxProps {
   showChart?: boolean      // Default: true - show bar chart
   compact?: boolean        // Compact view for sidebars
   className?: string       // Additional Tailwind classes
+  allowVoting?: boolean    // Enable interactive voting (default: false)
+  onVoteComplete?: (updatedSurvey: Survey) => void  // Callback after successful vote
 }

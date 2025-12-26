@@ -1,13 +1,13 @@
 import { Survey } from '@/types/surveys'
 
 /**
- * Monatliche Pferdehaltungskosten - Instagram Community Umfrage
+ * Monatliche Pferdehaltungskosten - Community Umfrage
  *
  * Frage: "Wie viel zahlt ihr monatlich für euer Pferd?"
- * Quelle: Instagram Story Umfrage @pferdewert.de
+ * Quelle: PferdeWert Community Umfrage
  *
  * Update-Prozess:
- * 1. Instagram-Umfrage durchführen (1. des Monats)
+ * 1. Community-Umfrage durchführen (1. des Monats)
  * 2. Nach 24h Ergebnisse sammeln
  * 3. totalParticipants KUMULATIV erhöhen (alle Monate zusammen)
  * 4. results aktualisieren mit neuen Prozenten
@@ -20,7 +20,7 @@ export const monthlyCostsSurvey: Survey = {
   lastUpdated: '2025-12-26',
   totalParticipants: 523,
   question: 'Wie viel zahlt ihr monatlich für euer Pferd?',
-  description: 'Umfrage in unserer Instagram-Community unter aktiven Pferdebesitzern',
+  description: 'Umfrage in unserer Community unter aktiven Pferdebesitzern',
   platform: 'instagram',
   category: 'costs',
   results: [
