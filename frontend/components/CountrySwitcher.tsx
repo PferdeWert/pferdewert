@@ -54,8 +54,21 @@ export default function CountrySwitcher({ variant = 'desktop' }: CountrySwitcher
       cleanPath = '/';
     }
 
+    // COUNTRY-SPECIFIC PAGES: Redirect to homepage if page doesn't exist in target country
+    // These pages only exist in specific countries (e.g., /pferd-kaufen/oesterreich only on .at)
+    const countrySpecificPages = [
+      '/pferd-kaufen/oesterreich',  // Only AT
+      '/pferd-kaufen/schweiz',      // Only CH
+    ];
+
+    let targetPath = cleanPath;
+    if (countrySpecificPages.includes(cleanPath)) {
+      // User is on a country-specific page → redirect to homepage of target country
+      targetPath = '/';
+    }
+
     // Build URL for target country's domain
-    const targetUrl = buildCountryUrl(targetCountry, cleanPath) + currentSearch;
+    const targetUrl = buildCountryUrl(targetCountry, targetPath) + currentSearch;
 
     // Navigate with full page reload (cross-domain navigation)
     window.location.href = targetUrl;
