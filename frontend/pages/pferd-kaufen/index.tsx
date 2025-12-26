@@ -1806,7 +1806,7 @@ const relatedArticles = useMemo(() =>
                 </p>
 
                 <p className="text-lg text-gray-700 mt-6">
-                  Du möchtest jetzt den nächsten Schritt gehen oder dein Pferd <LocalizedLink href="/pferde-ratgeber/pferd-verkaufen" className="text-brand-brown hover:underline">verkaufen</LocalizedLink>? <span className="font-bold">Bewerte dein Wunschpferd mit PferdeWert</span> – unsere KI vergleicht es mit tausenden verifizierten Marktdaten und gibt dir eine objektive Preiseinschätzung in Minuten.
+                  Du möchtest jetzt den nächsten Schritt gehen oder dein Pferd <LocalizedLink href="/pferd-verkaufen" className="text-brand-brown hover:underline">verkaufen</LocalizedLink>? <span className="font-bold">Bewerte dein Wunschpferd mit PferdeWert</span> – unsere KI vergleicht es mit tausenden verifizierten Marktdaten und gibt dir eine objektive Preiseinschätzung in Minuten.
                 </p>
 
                 <div className="mt-6">

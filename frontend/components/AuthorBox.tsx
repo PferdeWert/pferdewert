@@ -37,6 +37,11 @@ export default function AuthorBox() {
               unser zweites Pferd und begleitet uns täglich.
             </p>
             <p>
+              <strong>Eigene Verkaufserfahrung:</strong> Wir haben selbst ein Pferd erfolgreich verkauft und kennen die emotionalen
+              und praktischen Herausforderungen aus erster Hand – von der Preisfindung über Interessenten-Gespräche bis zum
+              Abschied. Diese persönliche Erfahrung fließt direkt in unsere Ratgeber ein.
+            </p>
+            <p>
               Als <strong>KI-Experte mit über 10 Jahren Digitalerfahrung</strong> verbinde ich technisches Know-how
               mit der Realität der Pferdehaltung – ich kenne den Alltag zwischen Stallkosten, Tierarztrechnungen
               und Futterplanung aus erster Hand.

@@ -69,7 +69,7 @@ const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         label: "Pferd verkaufen",
-        href: "/pferde-ratgeber/pferd-verkaufen",
+        href: "/pferd-verkaufen",
         description: "Erfolgreich verkaufen",
         icon: verkaufenIcon
       },

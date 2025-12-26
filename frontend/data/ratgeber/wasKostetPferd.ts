@@ -158,11 +158,11 @@ export const wasKostetPferdRelatedArticles: RatgeberRelatedArticle[] = [
     description: 'Checkliste, Tipps und Kaufberatung für Ihren erfolgreichen Pferdekauf.'
   },
   {
-    href: '/pferde-ratgeber/pferd-verkaufen',
+    href: '/pferd-verkaufen',
     image: '/images/ratgeber/pferd-verkaufen/hero.webp',
     title: 'Pferd verkaufen: Optimaler Preis',
-    badge: 'Pferde-Ratgeber',
-    readTime: '10 min',
+    badge: 'Verkaufsservice',
+    readTime: '18 min',
     description: 'So finden Sie den richtigen Verkaufspreis für Ihr Pferd.'
   }
 ]

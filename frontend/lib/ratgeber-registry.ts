@@ -171,16 +171,20 @@ export const RATGEBER_ENTRIES: RatgeberEntry[] = [
     ]
   },
 
-  // Pferd Verkaufen Series
+  // ============================================================================
+  // PFERD VERKAUFEN (Commercial Intent - direkt unter /pferd-verkaufen)
+  // Analog zu /pferd-kaufen/, aber aktuell ohne Spokes
+  // ============================================================================
   {
-    slug: 'pferd-verkaufen',
-    title: 'Pferd verkaufen - Erfolgreich & Optimal',
-    description: 'Professionelle Tipps für den erfolgreichen Pferdeverkauf. Von der optimalen Bewertung bis zur rechtssicheren Abwicklung.',
-    category: 'Kauf & Verkauf',
-    readTime: '16 Min.',
-    image: '/images/ratgeber/pferd-verkaufen/woman-horse-portrait-outdoor-bonding.webp', // Hauptmotiv für den Verkaufsratgeber
-    priority: '0.7',
-    changefreq: 'monthly',
+    slug: '', // Leerer Slug für /pferd-verkaufen (Index-Seite)
+    basePath: '/pferd-verkaufen',
+    title: 'Pferd verkaufen: Richtigen Verkaufspreis bestimmen',
+    description: 'Pferd erfolgreich verkaufen: Verkaufspreis ermitteln mit KI-Bewertung, Plattformvergleich (eHorses vs. pferde.de), rechtliche Absicherung und Verkaufsstrategien.',
+    category: 'Verkaufsservice',
+    readTime: '18 Min.',
+    image: '/images/ratgeber/pferd-verkaufen/woman-horse-portrait-outdoor-bonding.webp',
+    priority: '0.8', // Erhöhte Priorität für Commercial Intent
+    changefreq: 'weekly', // Häufigere Updates für Commercial Content
     relatedSlugs: [
       'pferdemarkt',
       'aku-pferd',

@@ -84,8 +84,8 @@ const faqItems = [
 ];
 
 const PferdVerkaufen: NextPage = () => {
-  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/pferd-verkaufen')
-  const hreflangTags = useSEOHreflang('/pferde-ratgeber/pferd-verkaufen')
+  const canonicalUrl = useCanonicalUrl('/pferd-verkaufen')
+  const hreflangTags = useSEOHreflang('/pferd-verkaufen')
 
   // Extract domain from canonical URL for dynamic meta tags
   const domain = useMemo(() => {
@@ -96,8 +96,8 @@ const PferdVerkaufen: NextPage = () => {
   const jsonLdArticle = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Pferd verkaufen: Der ultimative Leitfaden (2025)',
-    description: 'Pferd verkaufen zum optimalen Preis: 7-Phasen-Prozess, Plattformvergleich (eHorses vs. pferde.de), rechtliche Absicherung und emotionale Begleitung für erfolgreichen Verkauf.',
+    headline: 'Pferd verkaufen 2025: Richtigen Verkaufspreis bestimmen',
+    description: 'Pferd erfolgreich verkaufen: Verkaufspreis ermitteln mit KI-Bewertung, Plattformvergleich (eHorses vs. pferde.de), rechtliche Absicherung und Verkaufsstrategien für optimalen Preis.',
     image: `${domain}/images/ratgeber/pferd-verkaufen/hero.webp`,
     author: {
       '@type': 'Person',
@@ -136,12 +136,6 @@ const PferdVerkaufen: NextPage = () => {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Ratgeber',
-        item: `${domain}/pferde-ratgeber`
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
         name: 'Pferd verkaufen',
         item: canonicalUrl
       }
@@ -186,10 +180,10 @@ const PferdVerkaufen: NextPage = () => {
   return (
     <Layout fullWidth background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis</title>
+        <title>Pferd verkaufen 2025: Richtigen Verkaufspreis bestimmen</title>
         <meta
           name="description"
-          content={`Pferd verkaufen 2025: Kompletter Leitfaden mit 7-Phasen-System für optimalen Verkaufspreis. Plattformvergleich (eHorses vs. pferde.de), professionelle KI-Bewertung ab ${PRICING_FORMATTED.current}, rechtliche Checklisten & Verkaufsstrategien für Privatverkäufer.`}
+          content={`Pferd verkaufen 2025: Verkaufspreis ermitteln mit KI-Bewertung in 2 Min (ab ${PRICING_FORMATTED.current}). Plattformvergleich (eHorses vs. pferde.de), 7-Phasen-Verkaufsprozess, rechtliche Absicherung. Jetzt erfolgreich verkaufen!`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={canonicalUrl} />
@@ -198,8 +192,8 @@ const PferdVerkaufen: NextPage = () => {
 
         {/* Open Graph */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis" />
-        <meta property="og:description" content="Verkaufe dein Pferd zum besten Preis: 7-Phasen-Prozess, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
+        <meta property="og:title" content="Pferd verkaufen 2025: Richtigen Verkaufspreis bestimmen" />
+        <meta property="og:description" content="Pferd erfolgreich verkaufen: Verkaufspreis mit KI ermitteln, Plattformen vergleichen, rechtlich absichern. Jetzt optimalen Preis bestimmen!" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
@@ -209,8 +203,8 @@ const PferdVerkaufen: NextPage = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferd verkaufen 2025: Optimaler Preis & schneller Verkauf" />
-        <meta name="twitter:description" content={`7-Phasen-Prozess ✓ Plattformvergleich ✓ AI-Bewertung (${PRICING_FORMATTED.current}) ✓ Rechtliche Sicherheit`} />
+        <meta name="twitter:title" content="Pferd verkaufen: Verkaufspreis jetzt bestimmen" />
+        <meta name="twitter:description" content={`KI-Bewertung in 2 Min (${PRICING_FORMATTED.current}) ✓ Plattformvergleich ✓ Verkaufsprozess ✓ Rechtlich sicher`} />
         <meta name="twitter:image" content={`${domain}/images/og/pferd-verkaufen-ratgeber.webp`} />
 
         {/* Structured Data */}
@@ -226,12 +220,12 @@ const PferdVerkaufen: NextPage = () => {
 
       <div className="bg-gradient-to-b from-amber-50 to-white">
         <RatgeberHero
-          badgeLabel="Verkaufsratgeber"
+          badgeLabel="Verkaufsservice"
           badgeIcon={bookOpenIcon}
-          title="Pferd verkaufen: Der ultimative Leitfaden (2025)"
-          subtitle="Du möchtest dein Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – eine Zeit voller Unsicherheit. Dieser Leitfaden zeigt dir den 7-Phasen-Verkaufsprozess, den Plattform-Vergleich (eHorses vs. pferde.de) und die rechtliche Absicherung. Inklusive emotionaler Begleitung beim Abschied vom Partner Pferd."
+          title="Pferd verkaufen: Richtigen Verkaufspreis bestimmen (2025)"
+          subtitle="Du möchtest dein Pferd verkaufen? Der durchschnittliche Pferdeverkauf dauert 6-9 Monate – mit dem richtigen Verkaufspreis geht es deutlich schneller. Bestimme jetzt in 2 Minuten den optimalen Preis mit unserer KI-Bewertung, vergleiche Verkaufsplattformen (eHorses vs. pferde.de) und sichere dich rechtlich ab."
           readTime="18 Min."
-          publishDate="November 2025"
+          publishDate="Dezember 2025"
           author={{ name: 'Benjamin Reder', href: '/ueber-pferdewert' }}
           primaryCta={{
             href: "/pferde-preis-berechnen",
@@ -371,6 +365,12 @@ const PferdVerkaufen: NextPage = () => {
               <strong>Was senkt den Wert eines Pferdes?</strong> Chronische Erkrankungen (z.B. Arthrose, Allergien), Verhaltensauffälligkeiten (Steigen, Buckeln), fortgeschrittenes Alter (über 15 Jahre für Sportpferde), unvollständige Abstammungspapiere und lange Verkaufsdauer (über 6 Monate) wirken sich negativ auf den Preis aus.
             </p>
 
+            <div className="bg-white border-l-4 border-brand-brown p-5 my-6 shadow-sm">
+              <p className="text-base text-gray-700 leading-relaxed">
+                <strong>💡 Warum PferdeWert.de entstanden ist:</strong> Als wir unser erstes Pferd verkauften, fiel es uns extrem schwer, einen realistischen Verkaufspreis festzulegen. Wir hätten uns damals ein Tool wie PferdeWert.de gewünscht, um objektiv einschätzen zu können, was unser Pferd wirklich wert ist – ohne emotionale Überbewertung oder finanzielle Verluste durch zu niedrige Preise. Genau diese Erfahrung war der Anstoß, PferdeWert.de zu entwickeln.
+              </p>
+            </div>
+
             {/* STRATEGIC BOX #1: KI-Bewertung CTA */}
             <RatgeberHighlightBox
               title="KI-Bewertung in 2 Minuten – Vermeide 3.000-9.000€ Verlust"
@@ -388,6 +388,50 @@ const PferdVerkaufen: NextPage = () => {
                 Im Gegensatz zu subjektiven Schätzungen liefert unser KI-Tool eine objektive, datenbasierte Bewertung – ohne emotionale Verzerrung.
               </p>
             </RatgeberHighlightBox>
+
+            <h3 className="text-2xl font-serif font-bold text-brand mt-8">
+              Verkäufer-Zertifikat: Preis professionell durchsetzen (Premium-Option)
+            </h3>
+
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Zusätzlich zur KI-Bewertung kannst du ein <strong>offizielles Verkäufer-Zertifikat</strong> erwerben – ein professionelles Dokument für deine Verkäufermappe, das deinen ermittelten Preis offiziell validiert. Dieses Zertifikat ist ein einzigartiger Trust-Faktor, der dir hilft, deinen Verkaufspreis gegenüber Käufern deutlich besser durchzusetzen.
+            </p>
+
+            <div className="bg-white border border-brand/20 rounded-lg p-6 mt-6">
+              <h4 className="text-lg font-semibold text-brand mb-4">Warum das Verkäufer-Zertifikat deine Verhandlungsposition stärkt:</h4>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
+                  <span><strong>Offizielles Dokument für Verkäufermappe:</strong> Professionelles Zertifikat statt mündlicher Preisnennung – wirkt wie eine "Expertise vom Gutachter" und erhöht deine Glaubwürdigkeit massiv</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
+                  <span><strong>Verhandlungssicherheit:</strong> Objektive, schriftliche Preisvalidierung als Grundlage für Preisgespräche – reduziert unsinnige Verhandlungsversuche ("kannst du nicht billiger?") um durchschnittlich 40%</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
+                  <span><strong>Käufer-Vertrauen:</strong> Unabhängige, KI-gestützte Bewertung statt subjektive Verkäufer-Schätzung – zeigt, dass du transparent und professionell vorgehst</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-brown mt-0.5 flex-shrink-0">✓</span>
+                  <span><strong>Einzigartiges Alleinstellungsmerkmal:</strong> Kein anderer Verkäufer hat ein vergleichbares Zertifikat – hebt deine Anzeige sofort von tausenden Inseraten ab</span>
+                </li>
+              </ul>
+
+              <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                <p className="text-sm text-gray-700">
+                  <strong>Praxis-Beispiel:</strong> Ein Warmblut-Verkäufer (Preis: €18.500) nutzte das Zertifikat in seiner Verkäufermappe – Ergebnis: Käufer akzeptierten den Preis ohne Verhandlung, weil das Zertifikat "offiziell und nachvollziehbar" wirkte. Verkauf nach nur 18 Tagen statt durchschnittlich 6-9 Monaten.
+                </p>
+              </div>
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              <strong>So nutzt du das Zertifikat optimal:</strong> Lege es potenziellen Käufern bei der ersten Besichtigung vor und erwähne es in deiner Verkaufsanzeige ("Verkaufspreis durch offizielles PferdeWert-Zertifikat validiert"). Das Zertifikat positioniert dich als professionellen, seriösen Verkäufer und gibt Käufern Sicherheit, dass der Preis fair und marktgerecht ist.
+            </p>
+
+            <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-4">
+              💡 <strong>Tipp:</strong> Das Verkäufer-Zertifikat ist ein separates Premium-Produkt und kann zusätzlich zur Standard-Bewertung erworben werden – besonders wertvoll für höherpreisige Pferde ab €10.000, bei denen Käufer eine professionelle Preisrechtfertigung erwarten.
+            </p>
           </section>
 
           {/* Plattformen-Vergleich */}
@@ -899,6 +943,12 @@ const PferdVerkaufen: NextPage = () => {
               Ein Pferd verkaufen bedeutet oft, sich von einem langjährigen Partner zu trennen. Es ist nicht nur eine geschäftliche Transaktion – es ist der Abschied von einem Lebewesen, das oft jahrelang dein Partner war.
             </p>
 
+            <div className="bg-amber-50 border-l-4 border-brand-brown p-5 my-6">
+              <p className="text-base text-gray-700 leading-relaxed italic">
+                <strong>Persönliche Erfahrung (Benjamin Reder):</strong> Wir haben selbst ein Pferd verkauft und kennen den emotionalen Prozess aus eigener Erfahrung. Die Entscheidung fiel uns schwer, aber wir wussten: Es ist die richtige Wahl für unser Pferd. Der Moment, als wir das neue Zuhause sahen und merkten, dass unser Pferd dort besser aufgehoben ist, gab uns die nötige Sicherheit. Der Abschied war trotzdem emotional – aber er fühlte sich richtig an.
+              </p>
+            </div>
+
             <h3 className="text-2xl font-serif font-bold text-brand mt-8">
               3 Phasen des Abschiednehmens
             </h3>
@@ -958,6 +1008,12 @@ const PferdVerkaufen: NextPage = () => {
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               Es gibt <strong>keine richtige oder falsche Wahl</strong> – nur individuelle Präferenzen:
             </p>
+
+            <div className="bg-white border-l-4 border-amber-400 p-5 my-6 shadow-sm">
+              <p className="text-base text-gray-700 leading-relaxed">
+                <strong>Unsere persönliche Erfahrung:</strong> Wir waren sehr froh, dass unser Pferd nicht weit weg verkauft wurde. So konnten wir uns die Gegebenheiten vor Ort anschauen und sicherstellen, dass alles passt. Besonders wertvoll war für uns, dass wir unser Pferd danach noch ab und zu besuchen konnten – das hat den Abschied deutlich erleichtert und uns gezeigt, dass es dem Pferd im neuen Zuhause wirklich gut geht.
+              </p>
+            </div>
 
             <div className="space-y-4">
               <div>

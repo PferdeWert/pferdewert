@@ -229,16 +229,19 @@ const nextConfig = {
         destination: '/pferde-ratgeber/aku-pferd',
         statusCode: 301,
       },
+      // ===== PFERD-VERKAUFEN MIGRATION (Dez 2025) =====
+      // Commercial Intent → direkt unter /pferd-verkaufen (wie /pferd-kaufen)
       {
-        source: '/pferd-verkaufen',
-        destination: '/pferde-ratgeber/pferd-verkaufen',
+        source: '/pferde-ratgeber/pferd-verkaufen',
+        destination: '/pferd-verkaufen',
         statusCode: 301,
       },
       {
         source: '/pferde-ratgeber/pferd-verkaufen/tipps',
-        destination: '/pferde-ratgeber/pferd-verkaufen',
+        destination: '/pferd-verkaufen',
         statusCode: 301,
       },
+      // ===== ENDE PFERD-VERKAUFEN MIGRATION =====
       {
         source: '/pferde-ratgeber/pferd-kaufen/was-kostet-ein-pferd',
         destination: '/pferde-ratgeber/was-kostet-ein-pferd',
@@ -351,7 +354,7 @@ const nextConfig = {
       },
       {
         source: '/ratgeber/pferd-verkaufen',
-        destination: '/pferde-ratgeber/pferd-verkaufen',
+        destination: '/pferd-verkaufen',
         statusCode: 301,
       },
       {
