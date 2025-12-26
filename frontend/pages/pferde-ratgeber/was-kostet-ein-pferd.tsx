@@ -9,9 +9,11 @@ import RatgeberHead from '@/components/ratgeber/RatgeberHead'
 import FAQ from '@/components/FAQ'
 import RatgeberRelatedArticles from '@/components/ratgeber/RatgeberRelatedArticles'
 import RatgeberFinalCTA from '@/components/ratgeber/RatgeberFinalCTA'
+import SurveyBox from '@/components/surveys/SurveyBox'
 import { Calculator, ShieldAlert } from 'lucide-react'
 import { getRelatedArticles, getRatgeberPath } from '@/lib/ratgeber-registry'
 import AuthorBox from '@/components/AuthorBox'
+import { monthlyCostsSurvey } from '@/data/surveys/monthly-costs'
 
 // Section definitions for Table of Contents
 const sections = [
@@ -308,6 +310,9 @@ export default function WasKostetEinPferd() {
               </div>
             </div>
           </div>
+
+          {/* Community Survey - Real Data from Instagram */}
+          <SurveyBox survey={monthlyCostsSurvey} />
         </section>
 
           {/* Section 1: Anschaffungskosten */}
