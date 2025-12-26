@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { useMemo } from "react"
 import Image from "next/image"
 import Layout from "@/components/Layout"
 import LocalizedLink from "@/components/LocalizedLink"
@@ -9,6 +10,11 @@ import useSEOHreflang, { useCanonicalUrl } from "@/hooks/useSEOHreflang"
 export default function UeberUns() {
   const canonicalUrl = useCanonicalUrl('/ueber-pferdewert')
   const hreflangTags = useSEOHreflang('/ueber-pferdewert')
+
+  const domain = useMemo(() => {
+    const url = new URL(canonicalUrl)
+    return `${url.protocol}//${url.host}`
+  }, [canonicalUrl])
 
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
@@ -25,11 +31,11 @@ export default function UeberUns() {
           content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung. Transparent, fair und von Experten entwickelt."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://pferdewert.de/images/shared/familie-blossi.webp" />
+        <meta property="og:image" content={`${domain}/images/shared/familie-blossi.webp`} />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
         <meta property="twitter:description" content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung." />
-        <meta property="twitter:image" content="https://pferdewert.de/images/shared/familie-blossi.webp" />
+        <meta property="twitter:image" content={`${domain}/images/shared/familie-blossi.webp`} />
         <link rel="canonical" href={canonicalUrl} />
         {hreflangTags}
 
@@ -43,8 +49,8 @@ export default function UeberUns() {
               "name": "PferdeWert.de",
               "alternateName": "PferdeWert",
               "description": "Deutschlands führende KI-basierte Online-Pferdebewertung. Transparent, fair und präzise Marktwertanalysen für Pferde.",
-              "url": "https://pferdewert.de",
-              "logo": "https://pferdewert.de/favicon.svg",
+              "url": domain,
+              "logo": `${domain}/favicon.svg`,
               "foundingDate": "2025",
               "founders": [
                 {
@@ -72,7 +78,7 @@ export default function UeberUns() {
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "url": "https://pferdewert.de"
+                "url": domain
               },
               "address": {
                 "@type": "PostalAddress",
@@ -94,7 +100,7 @@ export default function UeberUns() {
                 "name": "PferdeWert.de"
               },
               "description": "Erfahren Sie mehr über das PferdeWert.de Team - eine Pferdefamilie mit KI-Expertise, die den Pferdemarkt transparenter und fairer gestaltet.",
-              "url": "https://pferdewert.de/ueber-pferdewert"
+              "url": canonicalUrl
             })
           }}
         />

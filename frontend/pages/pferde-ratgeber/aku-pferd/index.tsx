@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import { useMemo } from 'react'
 import LocalizedLink from '@/components/LocalizedLink'
 import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 import { Award, ArrowRight, ChevronDown } from 'lucide-react'
@@ -36,6 +37,12 @@ const AKUPferd: NextPage = () => {
   const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/aku-pferd')
   const hreflangTags = useSEOHreflang('/pferde-ratgeber/aku-pferd')
 
+  // Extract domain from canonical URL for dynamic meta tags
+  const domain = useMemo(() => {
+    const url = new URL(canonicalUrl)
+    return `${url.protocol}//${url.host}`
+  }, [canonicalUrl])
+
   const getSectionNumber = (sectionId: string) => {
     const index = akuSections.findIndex(section => section.id === sectionId)
     return index === -1 ? undefined : index + 1
@@ -62,8 +69,10 @@ const AKUPferd: NextPage = () => {
     "name": "Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden",
     "description": "Alles über die Ankaufsuntersuchung (AKU) beim Pferd – Definition, Ablauf, Befundklassen und worauf du achten solltest",
     "author": {
-      "@type": "Organization",
-      "name": "PferdeWert.de"
+      "@type": "Person",
+      "name": "Benjamin Reder",
+      "url": "https://pferdewert.de/ueber-pferdewert",
+      "jobTitle": "Gründer von PferdeWert.de, KI-Experte & Pferdebesitzer seit 2017"
     },
     "step": [
       {
@@ -97,8 +106,8 @@ const AKUPferd: NextPage = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "PferdeWert.de",
-    "url": "https://pferdewert.de",
-    "logo": "https://pferdewert.de/images/logo.webp",
+    "url": domain,
+    "logo": `${domain}/images/logo.webp`,
     "description": "Deutschlands führende Plattform für KI-gestützte Pferdebewertung",
     "sameAs": [
       "https://www.facebook.com/pferdewert",
@@ -130,8 +139,8 @@ const AKUPferd: NextPage = () => {
         <meta property="og:title" content="Ankaufsuntersuchung beim Pferd: Der komplette Leitfaden zur AKU" />
         <meta property="og:description" content="Was ist eine AKU? Alles über die Ankaufsuntersuchung beim Pferd – Ablauf, Befundklassen und worauf du achten solltest." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/aku-pferd" />
-        <meta property="og:image" content="https://pferdewert.de/images/aku-pferd-ratgeber.jpg" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={`${domain}/images/aku-pferd-ratgeber.jpg`} />
 
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />

@@ -185,13 +185,14 @@ const AkuPferdKosten: NextPage = () => {
           image="/images/ratgeber/aku-pferd/kosten/woman-handler-horse-halter-outdoor.webp"
           locales={seoLocales}
           datePublished="2025-10-15"
-          dateModified="2025-12-14"
+          dateModified="2025-12-25"
           wordCount={2200}
           breadcrumbTitle="AKU Kosten"
           author={{
-            name: 'Benjamin Reder',
-            url: 'https://pferdewert.de/ueber-pferdewert',
-            jobTitle: 'Gründer & Pferdeexperte'
+            name: "Benjamin Reder",
+            url: "https://pferdewert.de/ueber-pferdewert",
+            jobTitle: "Gründer von PferdeWert.de, KI-Experte & Pferdebesitzer seit 2017",
+            image: "https://pferdewert.de/images/shared/benjamin-reder.webp"
           }}
           faqItems={faqItems.map(f => ({ question: f.question, answer: f.answer }))}
           noindex={true}

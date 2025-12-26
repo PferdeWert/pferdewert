@@ -126,10 +126,17 @@ const Pferdemarkt: NextPage = () => {
         image="/images/ratgeber/horse-market-havelberg-crowd.webp"
         locales={seoLocales}
         datePublished="2025-10-25"
+        dateModified="2025-12-25"
         wordCount={1725}
         breadcrumbTitle="Pferdemarkt"
         faqItems={pferdemarktFaqItems}
         noindex={true}
+        author={{
+          name: "Benjamin Reder",
+          url: "https://pferdewert.de/ueber-pferdewert",
+          jobTitle: "Gründer von PferdeWert.de, KI-Experte & Pferdebesitzer seit 2017",
+          image: "https://pferdewert.de/images/shared/benjamin-reder.webp"
+        }}
       />
 
       <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">

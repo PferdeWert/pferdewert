@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useMemo } from "react";
 import Layout from "@/components/Layout"; // Neu: Layout mit Footer
 import LocalizedLink from "@/components/LocalizedLink";
 import ReactMarkdown from "react-markdown";
@@ -90,47 +91,43 @@ Der Hannoveraner Wallach bietet ein solides Preis-Leistungs-Verhältnis für Kä
 
 _Ergebnis erstellt durch die PferdeWert-KI – keine rechtsverbindliche Bewertung._`;
 
-// SEO Configuration - Page 4/22: Beispiel-Analyse
-const seoConfig = {
-  title: "Pferdebewertung Beispiel - So funktioniert unsere KI-Analyse | PferdeWert",
-  description: "Sehen Sie eine echte Pferdebewertung im Detail. Beispiel-Analyse zeigt, wie unsere KI den Wert Ihres Pferdes ermittelt. Transparent und nachvollziehbar.",
-  keywords: "pferdebewertung beispiel, pferdewert beispiel analyse, ki pferdebewertung demonstration, pferdemarkt bewertung beispiel, pferdepreis berechnen beispiel, pferd schätzen lassen beispiel, marktwert pferd beispiel, pferdegutachten beispiel, equine valuation example",
-  canonicalUrl: "https://pferdewert.de/beispiel-analyse",
-  ogImage: "https://pferdewert.de/images/shared/result.webp"
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Pferdebewertung Beispiel - KI-Analyse Demonstration",
-  "description": seoConfig.description,
-  "image": seoConfig.ogImage,
-  "url": seoConfig.canonicalUrl,
-  "datePublished": "2025-07-15",
-  "dateModified": "2025-12-04",
-  "author": {
-    "@type": "Organization",
-    "name": "PferdeWert",
-    "url": "https://pferdewert.de"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "PferdeWert",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://pferdewert.de/images/logo.webp"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": seoConfig.canonicalUrl
-  },
-  "keywords": seoConfig.keywords
-};
-
 export default function BeispielAnalyse() {
   const canonicalUrl = useCanonicalUrl('/beispiel-analyse')
   const hreflangTags = useSEOHreflang('/beispiel-analyse')
+
+  const domain = useMemo(() => {
+    const url = new URL(canonicalUrl)
+    return `${url.protocol}//${url.host}`
+  }, [canonicalUrl])
+
+  const jsonLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Pferdebewertung Beispiel - KI-Analyse Demonstration",
+    "description": "Sehen Sie eine echte Pferdebewertung im Detail. Beispiel-Analyse zeigt, wie unsere KI den Wert Ihres Pferdes ermittelt. Transparent und nachvollziehbar.",
+    "image": `${domain}/images/shared/result.webp`,
+    "url": canonicalUrl,
+    "datePublished": "2025-07-15",
+    "dateModified": "2025-12-04",
+    "author": {
+      "@type": "Organization",
+      "name": "PferdeWert",
+      "url": domain
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PferdeWert",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${domain}/images/logo.webp`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "keywords": "pferdebewertung beispiel, pferdewert beispiel analyse, ki pferdebewertung demonstration, pferdemarkt bewertung beispiel, pferdepreis berechnen beispiel, pferd schätzen lassen beispiel, marktwert pferd beispiel, pferdegutachten beispiel, equine valuation example"
+  }), [domain, canonicalUrl])
 
   return (
     <Layout>
@@ -155,15 +152,15 @@ export default function BeispielAnalyse() {
         <meta property="og:title" content="Pferdebewertung Beispiel Bayern: KI-Analyse Demo | PferdeWert" />
         <meta property="og:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pferdewert.de/beispiel-analyse" />
-        <meta property="og:image" content="https://pferdewert.de/images/shared/result.webp" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={`${domain}/images/shared/result.webp`} />
         <meta property="og:locale" content="de_DE" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pferdebewertung Beispiel Bayern: KI-Analyse Demo | PferdeWert" />
         <meta name="twitter:description" content="Pferdebewertung Beispiel Bayern & NRW: Sehen Sie eine echte KI-Analyse im Detail. Transparente Marktwert-Ermittlung für Hannoveraner Wallach. Jetzt Demo ansehen!" />
-        <meta name="twitter:image" content="https://pferdewert.de/images/shared/result.webp" />
+        <meta name="twitter:image" content={`${domain}/images/shared/result.webp`} />
 
         {/* Canonical URL & hreflang */}
         <link rel="canonical" href={canonicalUrl} />

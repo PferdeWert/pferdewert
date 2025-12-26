@@ -142,10 +142,16 @@ export default function WasKostetEinPferd() {
         image="/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/horse-chestnut-eating-hay-stable-window.webp"
         locales={seoLocales}
         datePublished="2025-10-11"
-        dateModified="2025-10-25"
+        dateModified="2025-12-25"
         wordCount={2750}
         breadcrumbTitle="Was kostet ein Pferd?"
         faqItems={faqItems}
+        author={{
+          name: "Benjamin Reder",
+          url: "https://pferdewert.de/ueber-pferdewert",
+          jobTitle: "Gründer von PferdeWert.de, KI-Experte & Pferdebesitzer seit 2017",
+          image: "https://pferdewert.de/images/shared/benjamin-reder.webp"
+        }}
       />
 
       {/* Hero Section */}

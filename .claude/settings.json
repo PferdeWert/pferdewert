@@ -1,25 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "bash",
-      "webfetch",
-      "cd",
-      "git",
-      "npm",
-      "npm run",
-      "playwright",
-      "javascript",
-      "mcp",
-      "npx",
-      "node",
-      "rm",
-      "run lint",
-      "playwright",
-      "resize",
-      "allow-all-browser-permissions",
-      "all browser permissions",
-      "source",
-      "ruff"
+      "Bash",
+      "WebFetch",
+      "Cd",
+      "Git",
+      "Npm",
+      "Npm run",
+      "Playwright",
+      "Javascript",
+      "Mcp",
+      "Npx",
+      "Node",
+      "Rm",
+      "Run lint",
+      "Resize",
+      "Allow-all-browser-permissions",
+      "All browser permissions",
+      "Source",
+      "Ruff"
     ],
     "deny": []
   }

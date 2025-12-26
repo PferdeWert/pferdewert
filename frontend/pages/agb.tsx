@@ -19,7 +19,7 @@ export default function AGB() {
         <meta property="og:title" content="AGB – Allgemeine Geschäftsbedingungen | PferdeWert" />
         <meta property="og:description" content="Transparente Geschäftsbedingungen für die professionelle KI-Pferdebewertung. Faire Konditionen und Rechtssicherheit für alle Kunden." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pferdewert.de/agb" />
+        <meta property="og:url" content={canonical} />
         <link rel="canonical" href={canonical} />
         {hreflangTags.map(tag => (
           <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />

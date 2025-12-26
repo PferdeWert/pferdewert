@@ -164,6 +164,12 @@ const PferdKaufen: NextPage = () => {
   const canonicalUrl = useCanonicalUrl('/pferd-kaufen')
   const hreflangTags = useSEOHreflang('/pferd-kaufen')
 
+  // Extract domain from canonical URL for dynamic meta tags
+  const domain = useMemo(() => {
+    const url = new URL(canonicalUrl)
+    return `${url.protocol}//${url.host}`
+  }, [canonicalUrl])
+
   // Select region tiles based on locale/country
   const regionTiles = useMemo(() => {
     if (locale === 'de-AT') return regionTilesAT
@@ -230,16 +236,16 @@ const relatedArticles = useMemo(() =>
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="article" />
-          <meta property="og:url" content="https://pferdewert.de/pferd-kaufen" />
+          <meta property="og:url" content={canonicalUrl} />
           <meta property="og:title" content="Pferd kaufen 2025: Ultimativer Ratgeber mit Checkliste & Bewertung" />
           <meta property="og:description" content="Pferd kaufen 2025: Kompletter Ratgeber mit 7-Schritte-Checkliste, AKU-Guide, Bewertungskriterien & Preisübersicht (1.000-50.000€). Worauf achten?" />
-          <meta property="og:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
+          <meta property="og:image" content={`${domain}/images/pferd-kaufen-ratgeber-og.jpg`} />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Pferd kaufen 2025: Ultimativer Ratgeber mit Checkliste & Bewertung" />
           <meta name="twitter:description" content="Pferd kaufen 2025: Kompletter Ratgeber mit 7-Schritte-Checkliste, AKU-Guide, Bewertungskriterien & Preisübersicht (1.000-50.000€). Worauf achten?" />
-          <meta name="twitter:image" content="https://pferdewert.de/images/pferd-kaufen-ratgeber-og.jpg" />
+          <meta name="twitter:image" content={`${domain}/images/pferd-kaufen-ratgeber-og.jpg`} />
 
           {/* Article Schema */}
           <script
@@ -259,14 +265,14 @@ const relatedArticles = useMemo(() =>
                   "name": "PferdeWert.de",
                   "logo": {
                     "@type": "ImageObject",
-                    "url": "https://pferdewert.de/logo.png"
+                    "url": `${domain}/logo.png`
                   }
                 },
                 "datePublished": "2025-01-05",
                 "dateModified": "2025-01-05",
                 "mainEntityOfPage": {
                   "@type": "WebPage",
-                  "@id": "https://pferdewert.de/pferd-kaufen"
+                  "@id": canonicalUrl
                 }
               })
             }}
@@ -283,7 +289,7 @@ const relatedArticles = useMemo(() =>
                 "description": "Professionelle Schritt-für-Schritt-Anleitung zum sicheren Pferdekauf mit Bedarfsanalyse, Budgetplanung, Besichtigung, AKU-Untersuchung und Kaufvertrag.",
                 "image": {
                   "@type": "ImageObject",
-                  "url": "https://pferdewert.de/images/pferd-kaufen-anleitung.jpg",
+                  "url": `${domain}/images/pferd-kaufen-anleitung.jpg`,
                   "width": 1200,
                   "height": 630
                 },

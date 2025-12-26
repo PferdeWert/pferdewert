@@ -83,36 +83,47 @@ const faqItems = [
     }
 ];
 
-const jsonLdArticle = {
+const PferdVerkaufen: NextPage = () => {
+  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/pferd-verkaufen')
+  const hreflangTags = useSEOHreflang('/pferde-ratgeber/pferd-verkaufen')
+
+  // Extract domain from canonical URL for dynamic meta tags
+  const domain = useMemo(() => {
+    const url = new URL(canonicalUrl)
+    return `${url.protocol}//${url.host}`
+  }, [canonicalUrl])
+
+  const jsonLdArticle = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Pferd verkaufen: Der ultimative Leitfaden (2025)',
     description: 'Pferd verkaufen zum optimalen Preis: 7-Phasen-Prozess, Plattformvergleich (eHorses vs. pferde.de), rechtliche Absicherung und emotionale Begleitung für erfolgreichen Verkauf.',
-    image: 'https://pferdewert.de/images/ratgeber/pferd-verkaufen/hero.webp',
+    image: `${domain}/images/ratgeber/pferd-verkaufen/hero.webp`,
     author: {
-      '@type': 'Organization',
-      name: 'PferdeWert.de',
-      url: 'https://pferdewert.de'
+      '@type': 'Person',
+      name: 'Benjamin Reder',
+      url: 'https://pferdewert.de/ueber-pferdewert',
+      jobTitle: 'Gründer von PferdeWert.de, KI-Experte & Pferdebesitzer seit 2017'
     },
     publisher: {
       '@type': 'Organization',
       name: 'PferdeWert.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://pferdewert.de/images/logo.webp'
+        url: `${domain}/images/logo.webp`
       }
     },
     datePublished: '2025-01-09',
-    dateModified: '2025-01-09',
+    dateModified: '2025-12-25',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://pferdewert.de/pferde-ratgeber/pferd-verkaufen'
+      '@id': canonicalUrl
     },
     inLanguage: 'de-DE',
     keywords: 'pferd verkaufen, pferdewert ermitteln, pferd verkaufen plattformen, pferd verkaufen preis, pferd schnell verkaufen'
 };
 
-const jsonLdBreadcrumb = {
+  const jsonLdBreadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -120,28 +131,24 @@ const jsonLdBreadcrumb = {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://pferdewert.de'
+        item: domain
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://pferdewert.de/pferde-ratgeber'
+        item: `${domain}/pferde-ratgeber`
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Pferd verkaufen',
-        item: 'https://pferdewert.de/pferde-ratgeber/pferd-verkaufen'
+        item: canonicalUrl
       }
     ]
-};
+  };
 
-const PferdVerkaufen: NextPage = () => {
-  const canonicalUrl = useCanonicalUrl('/pferde-ratgeber/pferd-verkaufen')
-  const hreflangTags = useSEOHreflang('/pferde-ratgeber/pferd-verkaufen')
-
-// CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
+  // CRITICAL: Related articles MUST be inside component with useMemo to avoid Fast Refresh loops
   // Module-level .map() creates new array instances on every Fast Refresh → infinite reload
   const relatedArticles = useMemo(
     () =>
@@ -193,10 +200,10 @@ const PferdVerkaufen: NextPage = () => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Pferd verkaufen 2025: Ultimativer Leitfaden für optimalen Preis" />
         <meta property="og:description" content="Verkaufe dein Pferd zum besten Preis: 7-Phasen-Prozess, Plattformvergleich und rechtliche Tipps für erfolgreichen Verkauf." />
-        <meta property="og:url" content="https://pferdewert.de/pferde-ratgeber/pferd-verkaufen" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="PferdeWert.de" />
         <meta property="og:locale" content="de_DE" />
-        <meta property="og:image" content="https://pferdewert.de/images/ratgeber/pferd-verkaufen/hero.webp" />
+        <meta property="og:image" content={`${domain}/images/ratgeber/pferd-verkaufen/hero.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -204,7 +211,7 @@ const PferdVerkaufen: NextPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pferd verkaufen 2025: Optimaler Preis & schneller Verkauf" />
         <meta name="twitter:description" content={`7-Phasen-Prozess ✓ Plattformvergleich ✓ AI-Bewertung (${PRICING_FORMATTED.current}) ✓ Rechtliche Sicherheit`} />
-        <meta name="twitter:image" content="https://pferdewert.de/images/og/pferd-verkaufen-ratgeber.webp" />
+        <meta name="twitter:image" content={`${domain}/images/og/pferd-verkaufen-ratgeber.webp`} />
 
         {/* Structured Data */}
         <script

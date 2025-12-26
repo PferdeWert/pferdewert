@@ -320,11 +320,14 @@ export default function WertermittlungSection() {
             </div>
           </div>
 
-          {/* 3 Wege zur Wertermittlung */}
+          {/* 3 Wege zur Wertermittlung - SEO: pferdebewertungsservice */}
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              3 Wege zur Pferdewert-Berechnung
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center">
+              Pferdebewertungsservice: 3 Wege zur Wertermittlung
             </h3>
+            <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+              Vom klassischen Gutachter bis zur modernen KI-Lösung – finde den Pferdebewertungsservice, der zu dir passt
+            </p>
 
             <div className="grid md:grid-cols-3 gap-6 items-stretch">
               {/* Weg 1: KI-Bewertung (USP!) */}
@@ -335,15 +338,15 @@ export default function WertermittlungSection() {
                 <div className="flex items-center justify-center w-14 h-14 bg-white/20 rounded-xl mb-4 mt-2">
                   {SPARKLES_ICON}
                 </div>
-                <h4 className="text-xl font-bold mb-3">1. KI-basierte Bewertung</h4>
+                <h4 className="text-xl font-bold mb-3">1. Online-Pferdebewertungsservice</h4>
                 <ul className="space-y-2 text-white/90 mb-4">
                   <li>✓ Sofort verfügbar (2 Minuten)</li>
                   <li>✓ Aktuelle Marktdaten</li>
-                  <li>✓ Individuelle Analyse</li>
-                  <li>✓ PDF-Report</li>
+                  <li>✓ Individuelle KI-Analyse</li>
+                  <li>✓ PDF-Report zum Download</li>
                 </ul>
                 <p className="text-sm text-white/70 mb-4 flex-grow">
-                  Unsere KI liefert marktgerechte Einschätzungen basierend auf tausenden Bewertungen.
+                  Die moderne Alternative zum teuren Gutachter – marktgerechte Einschätzung basierend auf tausenden Verkaufsdaten.
                 </p>
                 <LocalizedLink
                   href="/pferde-preis-berechnen"
@@ -375,15 +378,15 @@ export default function WertermittlungSection() {
                 <div className="flex items-center justify-center w-14 h-14 bg-brand-light rounded-xl mb-4">
                   {USERS_ICON}
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-3">3. Professioneller Gutachter</h4>
+                <h4 className="text-xl font-bold text-gray-900 mb-3">3. Klassischer Gutachter</h4>
                 <ul className="space-y-2 text-gray-600 mb-4">
-                  <li>• Kosten: 150-500€</li>
-                  <li>• Wartezeit: 1-4 Wochen</li>
-                  <li>• Vor-Ort-Besichtigung</li>
+                  <li>• Kosten: 500-800€</li>
+                  <li>• Wartezeit: 2-4 Wochen</li>
+                  <li>• Termin vor Ort nötig</li>
                   <li>• Rechtsgültiges Gutachten</li>
                 </ul>
                 <p className="text-sm text-gray-500 flex-grow">
-                  Empfohlen bei Rechtsstreitigkeiten, Versicherungsfällen oder bei Pferden über 50.000€.
+                  Traditioneller Pferdebewertungsservice – sinnvoll bei Rechtsstreitigkeiten, Versicherungsfällen oder Pferden über 50.000€.
                 </p>
               </div>
             </div>

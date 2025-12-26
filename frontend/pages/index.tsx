@@ -154,7 +154,7 @@ export default function PferdeWertHomepage() {
           name="description"
           content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten."
         />
-        <meta name="keywords" content="pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdepreise, was ist mein pferd wert, pferd preis, pferdemarkt preise, pferde bewertung" />
+        <meta name="keywords" content="pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdebewertungsservice, pferdepreise, was ist mein pferd wert, pferd preis, pferdemarkt preise, pferde bewertung" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content={siteName} />
 
@@ -168,10 +168,10 @@ export default function PferdeWertHomepage() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="PferdeWert" />
         <meta property="og:locale" content={ogLocale} />
-        <meta property="og:url" content="https://pferdewert.de/" />
+        <meta property="og:url" content={canonical} />
         <meta property="og:title" content="Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de" />
         <meta property="og:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
-        <meta property="og:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
+        <meta property="og:image" content={`${domain}/images/shared/blossi-shooting.webp`} />
         <meta property="og:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -180,7 +180,7 @@ export default function PferdeWertHomepage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Was ist mein Pferd wert? ✓ KI-Pferdebewertung | PferdeWert.de" />
         <meta name="twitter:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
-        <meta name="twitter:image" content="https://pferdewert.de/images/shared/blossi-shooting.webp" />
+        <meta name="twitter:image" content={`${domain}/images/shared/blossi-shooting.webp`} />
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
 
         {/* Canonical and Hreflang - AT Rollout */}
