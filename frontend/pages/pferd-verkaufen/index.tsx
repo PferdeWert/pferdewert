@@ -426,8 +426,15 @@ const PferdVerkaufen: NextPage = () => {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed mt-6">
-              <strong>So nutzt du das Zertifikat optimal:</strong> Lege es potenziellen Käufern bei der ersten Besichtigung vor und erwähne es in deiner Verkaufsanzeige (&quot;Verkaufspreis durch offizielles PferdeWert-Zertifikat validiert&quot;). Das Zertifikat positioniert dich als professionellen, seriösen Verkäufer und gibt Käufern Sicherheit, dass der Preis fair und marktgerecht ist.
+              <strong>So nutzt du das Zertifikat optimal:</strong>
             </p>
+
+            <ul className="space-y-2 text-gray-700 mt-3 ml-4">
+              <li>• <strong>In Verkaufsanzeigen (eHorses, pferde.de):</strong> Lade das Zertifikat als Bild in die Anzeige hoch – Käufer sehen direkt in der Bildergalerie, dass der Preis professionell ermittelt wurde. Das erhöht die Seriosität massiv und filtert unseriöse Anfragen heraus.</li>
+              <li>• <strong>Im Anzeigentext erwähnen:</strong> &quot;Verkaufspreis durch offizielles PferdeWert-Zertifikat validiert – Bewertung liegt vor&quot;</li>
+              <li>• <strong>Bei Besichtigungen:</strong> Lege das Zertifikat potenziellen Käufern in deiner Verkäufermappe vor – wirkt wie eine Expertise vom Sachverständigen</li>
+              <li>• <strong>Bei Preisverhandlungen:</strong> Verweise auf das Zertifikat als objektive Grundlage – reduziert unrealistische Verhandlungsversuche</li>
+            </ul>
 
             <p className="text-base text-gray-700 bg-white border border-brand/10 rounded-lg p-4 mt-4">
               💡 <strong>Tipp:</strong> Das Verkäufer-Zertifikat ist ein separates Premium-Produkt und kann zusätzlich zur Standard-Bewertung erworben werden – besonders wertvoll für höherpreisige Pferde ab €10.000, bei denen Käufer eine professionelle Preisrechtfertigung erwarten.
