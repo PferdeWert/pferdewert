@@ -527,6 +527,10 @@ export default function PferdeWertHomepage() {
         {/* Testimonials Section */}
         <TestimonialsSection />
 
+        {/* AT/CH Only: Local Expertise Section - Explains localized algorithm */}
+        {/* This creates unique content for AT/CH to improve Google indexing */}
+        <LocalExpertiseSection />
+
         {/* SEO Recovery: Umfassende Wertermittlung-Ratgeber-Section */}
         {/* Target Keywords: "pferd wert berechnen", "wie viel ist mein pferd wert" */}
         {/* Ziel: ~2.000 Wörter Content mit E-E-A-T Signalen für bessere Rankings */}
@@ -589,10 +593,6 @@ export default function PferdeWertHomepage() {
 
         {/* Features Section - Lazy loaded for better performance */}
         <FeaturesSection />
-
-        {/* AT/CH Only: Local Expertise Section - Explains localized algorithm */}
-        {/* This creates unique content for AT/CH to improve Google indexing */}
-        <LocalExpertiseSection />
 
         {/* FAQ Section */}
         <section className="section">
