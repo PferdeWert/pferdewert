@@ -25,8 +25,9 @@ import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 import { useSEO } from "@/hooks/useSEO";
 import { useCountryConfig } from "@/hooks/useCountryConfig";
 
-// FAQ Data - HYDRATION FIX: Moved outside component to prevent infinite re-renders
-const faqItems = [
+// FAQ Data - Factory function for localized content
+// HYDRATION FIX: Returns stable array structure, only text values change
+const getLocalizedFaqItems = (marketRegions: string, marketName: string, paymentMethods: string) => [
     {
       frage: "Was ist mein Pferd wert?",
       antwort: "Unser KI-Modell analysiert Verkaufsdaten, Rasse, Alter, Ausbildung, Gesundheitsstatus und mehr – so erhältst du eine realistische Preisspanne für dein Pferd, sofort und ohne Anmeldung."
@@ -57,7 +58,7 @@ const faqItems = [
     },
     {
       frage: "Berücksichtigt die Bewertung regionale Preisunterschiede?",
-      antwort: "Ja, definitiv! Unsere KI analysiert regionale Marktdaten und berücksichtigt, dass Pferde in Bayern, NRW oder anderen Bundesländern unterschiedliche Preise erzielen können. Auch die Nähe zu Reitzentren und die lokale Nachfrage fließen in die Bewertung ein."
+      antwort: `Ja, definitiv! Unsere KI analysiert regionale Marktdaten und berücksichtigt, dass Pferde in ${marketRegions} unterschiedliche Preise erzielen können. Auch die Nähe zu Reitzentren und die lokale Nachfrage fließen in die Bewertung ein.`
     },
     {
       frage: "Was passiert, wenn mein Pferd Gesundheitsprobleme hat?",
@@ -69,7 +70,7 @@ const faqItems = [
     },
     {
       frage: "Wie aktuell sind die Marktdaten in der Bewertung?",
-      antwort: "Unsere Datenbank wird kontinuierlich aktualisiert. Wir analysieren laufend aktuelle Verkäufe, Auktionsergebnisse und Markttrends. So reflektiert jede Bewertung die neuesten Entwicklungen des deutschen Pferdemarktes."
+      antwort: `Unsere Datenbank wird kontinuierlich aktualisiert. Wir analysieren laufend aktuelle Verkäufe, Auktionsergebnisse und Markttrends. So reflektiert jede Bewertung die neuesten Entwicklungen des ${marketName}.`
     },
     {
       frage: "Was kostet eine Pferdebewertung normalerweise?",
@@ -94,20 +95,10 @@ const faqItems = [
     },
     {
       frage: "Welche Zahlungsmethoden werden akzeptiert?",
-      antwort: "Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich zusätzlich EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe."
+      antwort: paymentMethods
     }
 ];
 
-// FAST REFRESH FIX: Pre-compute FAQ schema at module level
-// The .map() in JSX creates new objects causing infinite Fast Refresh loops
-const FAQ_SCHEMA_ENTITIES = faqItems.map(item => ({
-  "@type": "Question",
-  "name": item.frage,
-  "acceptedAnswer": {
-    "@type": "Answer",
-    "text": item.antwort
-  }
-}));
 
 // FAST REFRESH FIX: Define all icons at module level to prevent recreation
 const clockIcon = <Clock className="w-4 h-4 text-brand-brown" />;
@@ -140,6 +131,54 @@ export default function PferdeWertHomepage() {
     : isSwitzerland ? '🏆 #1 Online Pferdebewertung in der Schweiz'
     : '🏆 #1 Online Pferdebewertung';
 
+  // Localized SEO content for AT/CH unique indexing
+  const metaTitle = isAustria
+    ? 'Was ist mein Pferd wert? KI-Pferdebewertung Österreich | PferdeWert.at'
+    : isSwitzerland
+      ? 'Was ist mein Pferd wert? KI-Pferdebewertung Schweiz | PferdeWert.ch'
+      : 'Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de';
+
+  const metaDescription = isAustria
+    ? 'Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung für den österreichischen Markt. Präzise Marktwert-Einschätzung in 2 Minuten.'
+    : isSwitzerland
+      ? 'Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung für den Schweizer Markt. Präzise Marktwert-Einschätzung in 2 Minuten.'
+      : 'Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten.';
+
+  const marketRegions = isAustria
+    ? 'Wien, Salzburg oder Tirol'
+    : isSwitzerland
+      ? 'Zürich, Bern oder Basel'
+      : 'Bayern, NRW oder anderen Bundesländern';
+
+  const marketName = isAustria
+    ? 'österreichischen Pferdemarktes'
+    : isSwitzerland
+      ? 'Schweizer Pferdemarktes'
+      : 'deutschen Pferdemarktes';
+
+  const marketDataSource = isAustria
+    ? 'aus Österreich und dem deutschsprachigen Raum'
+    : isSwitzerland
+      ? 'aus der Schweiz und dem deutschsprachigen Raum'
+      : 'aus Deutschland';
+
+  // Geographic coordinates for ICBM meta tag
+  const icbmCoordinates = isAustria
+    ? '47.5, 13.5' // Salzburg region
+    : isSwitzerland
+      ? '46.8, 8.2' // Central Switzerland
+      : '51.0, 9.0'; // Central Germany
+
+  // Localized payment methods for AT/CH
+  const paymentMethods = isAustria
+    ? 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe.'
+    : isSwitzerland
+      ? 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie TWINT für schnelle Schweizer Zahlungen. Die Zahlung erfolgt sicher über Stripe.'
+      : 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich EPS und aus der Schweiz TWINT. Die Zahlung erfolgt sicher über Stripe.';
+
+  // Localized FAQ items for AT/CH unique indexing
+  const localizedFaqItems = getLocalizedFaqItems(marketRegions, marketName, paymentMethods);
+
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
@@ -148,11 +187,11 @@ export default function PferdeWertHomepage() {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta httpEquiv="content-language" content="de" />
 
-        {/* Primary Meta Tags */}
-        <title>Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de</title>
+        {/* Primary Meta Tags - Localized for AT/CH unique indexing */}
+        <title>{metaTitle}</title>
         <meta
           name="description"
-          content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten."
+          content={metaDescription}
         />
         <meta name="keywords" content="pferde preis berechnen, pferdewert ermitteln, pferdebewertung online, pferdebewertungsservice, pferdepreise, was ist mein pferd wert, pferd preis, pferdemarkt preise, pferde bewertung" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -162,24 +201,24 @@ export default function PferdeWertHomepage() {
         <meta name="geo.region" content={geoRegion} />
         <meta name="geo.country" content={countryName} />
         <meta name="geo.placename" content={countryName} />
-        <meta name="ICBM" content="51.0, 9.0" />
+        <meta name="ICBM" content={icbmCoordinates} />
 
         {/* Open Graph Meta Tags */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="PferdeWert" />
         <meta property="og:locale" content={ogLocale} />
         <meta property="og:url" content={canonical} />
-        <meta property="og:title" content="Was ist mein Pferd wert? KI-Pferdebewertung | PferdeWert.de" />
-        <meta property="og:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={`${domain}/images/shared/blossi-shooting.webp`} />
         <meta property="og:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
-        {/* Twitter Card Meta Tags */}
+        {/* Twitter Card Meta Tags - Localized */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Was ist mein Pferd wert? ✓ KI-Pferdebewertung | PferdeWert.de" />
-        <meta name="twitter:description" content="Wie viel ist mein Pferd wert? Professionelle KI-Pferdebewertung basierend auf aktuellen Marktdaten. Präzise Marktwert-Einschätzung in 2 Minuten." />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={`${domain}/images/shared/blossi-shooting.webp`} />
         <meta name="twitter:image:alt" content="Pferdepreis berechnen - KI-basierte Pferdebewertung von PferdeWert" />
 
@@ -245,14 +284,21 @@ export default function PferdeWertHomepage() {
           }}
         />
 
-        {/* FAQ Schema */}
+        {/* FAQ Schema - Localized for AT/CH */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": FAQ_SCHEMA_ENTITIES
+              "mainEntity": localizedFaqItems.map(item => ({
+                "@type": "Question",
+                "name": item.frage,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": item.antwort
+                }
+              }))
             })
           }}
         />
@@ -501,7 +547,7 @@ export default function PferdeWertHomepage() {
                 </div>
                 <h3 className="text-h3 font-bold text-gray-900 mb-3">Aktuelle Marktpreise</h3>
                 <p className="text-gray-600">
-                  Realistische Pferdepreis-Daten basierend auf über 50.000 Verkaufsdaten aus Deutschland
+                  Realistische Pferdepreis-Daten basierend auf über 50.000 Verkaufsdaten {marketDataSource}
                 </p>
               </div>
 
@@ -551,7 +597,7 @@ export default function PferdeWertHomepage() {
             </div>
 
             <div className="max-w-4xl mx-auto space-y-6">
-              {faqItems.map((item, index) => (
+              {localizedFaqItems.map((item, index) => (
                 <details key={index} className="bg-brand-light/50 rounded-2xl border border-gray-200 cursor-pointer hover:bg-brand-light/70 transition-colors">
                   <summary className="p-6 text-lg font-semibold text-brand hover:text-brand-brown transition-colors list-none [&::-webkit-details-marker]:hidden">
                     <div className="flex items-center justify-between w-full">
