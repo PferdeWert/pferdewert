@@ -4,6 +4,7 @@
 // E-E-A-T optimiert: Experience, Expertise, Authoritativeness, Trustworthiness
 
 import LocalizedLink from '@/components/LocalizedLink'
+import { useCountryConfig } from '@/hooks/useCountryConfig'
 import { Calculator, Scale, Heart, TrendingUp, FileCheck, Users, Sparkles, Info, CheckCircle } from 'lucide-react'
 
 // Module-level icon definitions to prevent Fast Refresh loops
@@ -46,6 +47,37 @@ const PREIS_NACH_ALTER = [
 ]
 
 export default function WertermittlungSection() {
+  const { isAustria, isSwitzerland } = useCountryConfig();
+
+  // Localized regional content for AT/CH unique indexing
+  const premiumRegion = isAustria
+    ? 'Westösterreich (Tirol, Vorarlberg)'
+    : isSwitzerland
+      ? 'der Deutschschweiz (Zürich, Bern)'
+      : 'Süddeutschland (Bayern, Baden-Württemberg)';
+
+  const lowPriceRegion = isAustria
+    ? 'Ostösterreich'
+    : isSwitzerland
+      ? 'ländlichen Regionen'
+      : 'Ostdeutschland';
+
+  const exampleLocation = isAustria
+    ? 'Standort Salzburg'
+    : isSwitzerland
+      ? 'Standort Zürich'
+      : 'Standort Bayern';
+
+  const marketAdjustmentLocation = isAustria
+    ? 'Salzburg, hohe Nachfrage'
+    : isSwitzerland
+      ? 'Zürich, hohe Nachfrage'
+      : 'Bayern, hohe Nachfrage';
+
+  const marketSourceText = isAustria || isSwitzerland
+    ? 'deutschsprachiger Pferdebörsen'
+    : 'deutscher Pferdebörsen';
+
   return (
     <section id="pferd-wert-berechnen" className="section bg-gradient-to-b from-white to-amber-50/30">
       <div className="container mx-auto px-4">
@@ -177,9 +209,8 @@ export default function WertermittlungSection() {
                   <h4 className="text-xl font-bold text-gray-900">4. Marktanpassung</h4>
                 </div>
                 <p className="text-gray-700 leading-relaxed">
-                  Angebot und Nachfrage variieren regional und saisonal. In <strong>Süddeutschland
-                  (Bayern, Baden-Württemberg)</strong> sind Preise oft 10-20% höher als in
-                  Ostdeutschland. Die <strong>Hauptsaison</strong> (März-Juni) erzielt bessere
+                  Angebot und Nachfrage variieren regional und saisonal. In <strong>{premiumRegion}</strong> sind Preise oft 10-20% höher als in
+                  {' '}{lowPriceRegion}. Die <strong>Hauptsaison</strong> (März-Juni) erzielt bessere
                   Preise als der Winter. Aktuelle Trends wie &quot;sanfte Ausbildung&quot; oder
                   bestimmte Blutlinien können den Wert zusätzlich beeinflussen. Unsere
                   KI-Bewertung berücksichtigt all diese Faktoren automatisch.
@@ -218,7 +249,7 @@ export default function WertermittlungSection() {
                 </table>
               </div>
               <p className="text-sm text-gray-500 mt-2">
-                * Preise basierend auf Marktanalyse deutscher Pferdebörsen, Stand: Dezember 2025
+                * Preise basierend auf Marktanalyse {marketSourceText}, Stand: Dezember 2025
               </p>
             </div>
 
@@ -286,7 +317,7 @@ export default function WertermittlungSection() {
               <div className="bg-gray-50 rounded-xl p-6 mb-6">
                 <p className="text-gray-700 mb-4">
                   <strong>Pferd:</strong> 8-jähriger Hannoveraner Wallach, L-Dressur ausgebildet,
-                  gute AKU ohne Befunde, Standort Bayern
+                  gute AKU ohne Befunde, {exampleLocation}
                 </p>
               </div>
 
@@ -304,7 +335,7 @@ export default function WertermittlungSection() {
                   <span className="font-semibold text-green-600">+1.500€</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="text-gray-700">+ Marktanpassung (Bayern, hohe Nachfrage)</span>
+                  <span className="text-gray-700">+ Marktanpassung ({marketAdjustmentLocation})</span>
                   <span className="font-semibold text-green-600">+500€</span>
                 </div>
                 <div className="flex justify-between items-center py-4 bg-brand-brown/10 rounded-xl px-4 mt-4">
