@@ -2,6 +2,7 @@ import LocalizedLink from '@/components/LocalizedLink'
 import { NextPage } from 'next';
 import Head from 'next/head';
 import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang';
+import { useCountryConfig } from '@/hooks/useCountryConfig';
 
 import { useMemo } from 'react';
 import { ChevronDown, BookOpen, Calculator, TrendingUp, Shield, CheckCircle } from 'lucide-react';
@@ -86,6 +87,14 @@ const faqItems = [
 const PferdVerkaufen: NextPage = () => {
   const canonicalUrl = useCanonicalUrl('/pferd-verkaufen')
   const hreflangTags = useSEOHreflang('/pferd-verkaufen')
+  const { isAustria, isSwitzerland } = useCountryConfig();
+
+  // Localized market name
+  const marketName = isAustria
+    ? "österreichischen Markt"
+    : isSwitzerland
+      ? "Schweizer Markt"
+      : "deutschen Markt";
 
   // Extract domain from canonical URL for dynamic meta tags
   const domain = useMemo(() => {
@@ -377,7 +386,7 @@ const PferdVerkaufen: NextPage = () => {
               icon={calculatorBrownIcon}
             >
               <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
-                PferdeWert unterstützt dich beim Pferd verkaufen mit präziser Wertermittlung. Unser KI-Tool analysiert die relevanten Wertfaktoren und vergleicht dein Pferd mit realen Verkaufsdaten aus dem deutschen Markt.
+                PferdeWert unterstützt dich beim Pferd verkaufen mit präziser Wertermittlung. Unser KI-Tool analysiert die relevanten Wertfaktoren und vergleicht dein Pferd mit realen Verkaufsdaten aus dem {marketName}.
               </p>
               <CTAButton
                 type="primary"

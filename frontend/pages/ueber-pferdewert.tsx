@@ -6,10 +6,26 @@ import LocalizedLink from "@/components/LocalizedLink"
 import { PRICING_FORMATTED } from "@/lib/pricing"
 import { Shield, Zap, Target } from "lucide-react"
 import useSEOHreflang, { useCanonicalUrl } from "@/hooks/useSEOHreflang"
+import { useCountryConfig } from "@/hooks/useCountryConfig"
 
 export default function UeberUns() {
   const canonicalUrl = useCanonicalUrl('/ueber-pferdewert')
   const hreflangTags = useSEOHreflang('/ueber-pferdewert')
+  const { isAustria, isSwitzerland } = useCountryConfig();
+
+  // Localized content
+  const countryName = isAustria ? 'Österreich' : isSwitzerland ? 'Schweiz' : 'Deutschland';
+  const countryCode = isAustria ? 'AT' : isSwitzerland ? 'CH' : 'DE';
+  const leadingPlatformText = isAustria
+    ? 'Österreichs führende KI-basierte Online-Pferdebewertung'
+    : isSwitzerland
+      ? 'Die Schweizer KI-basierte Online-Pferdebewertung'
+      : 'Deutschlands führende KI-basierte Online-Pferdebewertung';
+  const numberOneText = isAustria
+    ? 'Österreichs #1 Online-Pferdebewertung'
+    : isSwitzerland
+      ? 'Die Schweizer Online-Pferdebewertung'
+      : 'Deutschlands #1 Online-Pferdebewertung';
 
   const domain = useMemo(() => {
     const url = new URL(canonicalUrl)
@@ -22,19 +38,19 @@ export default function UeberUns() {
         <title>Über PferdeWert.de | KI-Experten für Pferdebewertung & Marktwertanalyse</title>
         <meta
           name="description"
-          content={`🐎 PferdeWert.de Team: Pferdefamilie mit KI-Expertise für präzise Pferdebewertungen ab ${PRICING_FORMATTED.current} ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ Deutschlands #1 Online-Pferdebewertung ✓`}
+          content={`🐎 PferdeWert.de Team: Pferdefamilie mit KI-Expertise für präzise Pferdebewertungen ab ${PRICING_FORMATTED.current} ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ ${numberOneText} ✓`}
         />
         <meta name="keywords" content="pferdebewertung experte, pferde sachverständiger, pferdewert team, ki pferdebewertung, online pferdegutachter" />
         <meta property="og:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
         <meta
           property="og:description"
-          content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung. Transparent, fair und von Experten entwickelt."
+          content={`Pferdefamilie mit KI-Expertise: ${leadingPlatformText}. Transparent, fair und von Experten entwickelt.`}
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${domain}/images/shared/familie-blossi.webp`} />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
-        <meta property="twitter:description" content="Pferdefamilie mit KI-Expertise: Deutschlands führende Online-Pferdebewertung." />
+        <meta property="twitter:description" content={`Pferdefamilie mit KI-Expertise: ${leadingPlatformText}.`} />
         <meta property="twitter:image" content={`${domain}/images/shared/familie-blossi.webp`} />
         <link rel="canonical" href={canonicalUrl} />
         {hreflangTags}
@@ -48,7 +64,7 @@ export default function UeberUns() {
               "@type": "Organization",
               "name": "PferdeWert.de",
               "alternateName": "PferdeWert",
-              "description": "Deutschlands führende KI-basierte Online-Pferdebewertung. Transparent, fair und präzise Marktwertanalysen für Pferde.",
+              "description": `${leadingPlatformText}. Transparent, fair und präzise Marktwertanalysen für Pferde.`,
               "url": domain,
               "logo": `${domain}/favicon.svg`,
               "foundingDate": "2025",
@@ -62,7 +78,7 @@ export default function UeberUns() {
               ],
               "areaServed": {
                 "@type": "Country",
-                "name": "Deutschland"
+                "name": countryName
               },
               "serviceType": "Pferdebewertung und Marktwertanalyse",
               "expertise": [
@@ -82,7 +98,7 @@ export default function UeberUns() {
               },
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "DE"
+                "addressCountry": countryCode
               }
             })
           }}
@@ -251,7 +267,7 @@ export default function UeberUns() {
               {/* Hauptmission */}
               <div className="space-y-8 mb-12">
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Transparenz für den deutschen Pferdemarkt</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Transparenz für den deutschsprachigen Pferdemarkt</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Wir wollen, dass jeder Pferdemensch – ob Käufer, Verkäufer oder Besitzer – den Marktwert eines Pferdes
                     <span className="font-semibold text-brand-brown"> realistisch und fair einschätzen</span> kann. Ohne
