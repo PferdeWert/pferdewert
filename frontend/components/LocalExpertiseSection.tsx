@@ -63,10 +63,10 @@ export default function LocalExpertiseSection() {
             Speziell für {countryName}
           </span>
           <h2 className="text-h2 font-bold text-gray-900 mb-4">
-            Lokalisierte Bewertung für den {isAustria ? 'österreichischen' : 'Schweizer'} Markt
+            Pferdebewertung in {countryName}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Unsere KI wurde speziell für {countryName} angepasst – mit lokalem Ausbildungssystem,
+            Unser Modell wurde speziell für den Markt in {countryName} entwickelt – mit {isAustria ? 'österreichischem' : 'Schweizer'} Ausbildungssystem,
             regionalen Marktdaten und {federation}-konformen Standards.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function LocalExpertiseSection() {
 
             <p className="text-gray-600 mb-6">
               Der {isAustria ? 'österreichische' : 'Schweizer'} Pferdemarkt hat eigene Dynamiken.
-              Unsere KI berücksichtigt lokale Preisunterschiede und regionale Besonderheiten.
+              Unser Modell berücksichtigt lokale Preisunterschiede und regionale Besonderheiten.
             </p>
 
             <ul className="space-y-3">
