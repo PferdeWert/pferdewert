@@ -18,7 +18,7 @@ export interface RealTestimonial {
 export const TESTIMONIALS_DATA: RealTestimonial[] = [
   {
     name: "Miriam F.",
-    location: "Deutschland",
+    location: "",
     role: "Ambitionierte Freizeitreiterin (Dressur)",
     photo: "/images/testimonials/miriam-customer-64.webp",
     instagramHandle: "herzenspferd_felino",
@@ -28,7 +28,7 @@ export const TESTIMONIALS_DATA: RealTestimonial[] = [
   },
   {
     name: "Eva T.",
-    location: "Deutschland",
+    location: "",
     role: "Besitzerin von Fürstiano",
     photo: "/images/testimonials/eva-customer-64.webp",
     instagramHandle: "die_rappenschmiede",
@@ -38,7 +38,7 @@ export const TESTIMONIALS_DATA: RealTestimonial[] = [
   },
   {
     name: "Denise B.",
-    location: "Deutschland",
+    location: "",
     role: "von energy_emotion",
     photo: "/images/testimonials/denise-customer-64.webp",
     instagramHandle: "energy_emotion",
@@ -90,7 +90,7 @@ export default function TestimonialsSection({
                   <div className="flex-1 pt-1">
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
                     <div className="text-sm text-gray-600 leading-snug">{testimonial.role}</div>
-                    <div className="text-xs text-gray-500">{testimonial.location}</div>
+                    {testimonial.location && <div className="text-xs text-gray-500">{testimonial.location}</div>}
                   </div>
                 </div>
 
