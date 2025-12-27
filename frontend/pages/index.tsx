@@ -20,6 +20,10 @@ const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), {
 const WertermittlungSection = dynamic(() => import("@/components/WertermittlungSection"), {
   loading: () => <div className="min-h-[800px] bg-gradient-to-b from-white to-amber-50/30 animate-pulse" />,
 });
+// AT/CH unique content: Explains localized algorithm and form differences
+const LocalExpertiseSection = dynamic(() => import("@/components/LocalExpertiseSection"), {
+  loading: () => null, // Silent loading - component returns null for DE anyway
+});
 import { Clock, Shield, Award, ArrowRight, TrendingUp, CheckCircle, Instagram, Users } from "lucide-react";
 import { PRICING_FORMATTED, PRICING_TEXTS } from "../lib/pricing";
 import { useSEO } from "@/hooks/useSEO";
@@ -585,6 +589,10 @@ export default function PferdeWertHomepage() {
 
         {/* Features Section - Lazy loaded for better performance */}
         <FeaturesSection />
+
+        {/* AT/CH Only: Local Expertise Section - Explains localized algorithm */}
+        {/* This creates unique content for AT/CH to improve Google indexing */}
+        <LocalExpertiseSection />
 
         {/* FAQ Section */}
         <section className="section">
