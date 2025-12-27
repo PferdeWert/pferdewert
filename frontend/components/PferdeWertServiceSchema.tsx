@@ -8,6 +8,7 @@ import ServiceSchema, {
   createQualityMeasure
 } from './ServiceSchema';
 import { SCHEMA_PRICING, PRICING_FORMATTED } from '@/lib/pricing';
+import { useCountryConfig } from '@/hooks/useCountryConfig';
 
 interface PferdeWertServiceSchemaProps {
   // Page context to customize the schema
@@ -25,43 +26,81 @@ export default function PferdeWertServiceSchema({
   serviceUrl,
   includeOffers = true
 }: PferdeWertServiceSchemaProps): React.JSX.Element {
+  const { isAustria, isSwitzerland, domain } = useCountryConfig();
+
+  // Localized content based on country
+  const countryName = isAustria ? 'Österreich' : isSwitzerland ? 'Schweiz' : 'Deutschland';
+  const countryCode = isAustria ? 'AT' : isSwitzerland ? 'CH' : 'DE';
+  const leadingPlatformText = isAustria
+    ? 'Österreichs führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.'
+    : isSwitzerland
+      ? 'Die Schweizer Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.'
+      : 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.';
 
   // Service provider data for PferdeWert
   const provider = {
     type: 'Organization' as const,
     name: 'PferdeWert',
-    url: 'https://pferdewert.de',
-    description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.',
-    logo: 'https://pferdewert.de/images/logo.webp',
-    image: 'https://pferdewert.de/images/shared/blossi-shooting.webp',
-    email: 'info@pferdewert.de',
+    url: `https://${domain}`,
+    description: leadingPlatformText,
+    logo: `https://${domain}/images/logo.webp`,
+    image: `https://${domain}/images/shared/blossi-shooting.webp`,
+    email: `info@${domain}`,
     address: {
-      addressCountry: 'DE'
+      addressCountry: countryCode
     },
     foundingDate: '2024-01-01',
     slogan: 'Entwickelt von Reitern für Reiter'
   };
 
-  // Service areas - Germany-wide coverage
-  const areaServed = [
-    createServiceArea('Deutschland', 'Country'),
-    createServiceArea('Baden-Württemberg', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Bayern', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Berlin', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Brandenburg', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Bremen', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Hamburg', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Hessen', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Mecklenburg-Vorpommern', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Niedersachsen', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Nordrhein-Westfalen', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Rheinland-Pfalz', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Saarland', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Sachsen', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Sachsen-Anhalt', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Schleswig-Holstein', 'State', createServiceArea('Deutschland', 'Country')),
-    createServiceArea('Thüringen', 'State', createServiceArea('Deutschland', 'Country'))
-  ];
+  // Service areas - Country-specific regions
+  const areaServed = isAustria
+    ? [
+        createServiceArea('Österreich', 'Country'),
+        createServiceArea('Wien', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Niederösterreich', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Oberösterreich', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Salzburg', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Tirol', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Vorarlberg', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Kärnten', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Steiermark', 'State', createServiceArea('Österreich', 'Country')),
+        createServiceArea('Burgenland', 'State', createServiceArea('Österreich', 'Country'))
+      ]
+    : isSwitzerland
+      ? [
+          createServiceArea('Schweiz', 'Country'),
+          createServiceArea('Zürich', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('Bern', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('Luzern', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('Aargau', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('St. Gallen', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('Basel', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('Graubünden', 'State', createServiceArea('Schweiz', 'Country')),
+          createServiceArea('Thurgau', 'State', createServiceArea('Schweiz', 'Country'))
+        ]
+      : [
+          createServiceArea('Deutschland', 'Country'),
+          createServiceArea('Baden-Württemberg', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Bayern', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Berlin', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Brandenburg', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Bremen', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Hamburg', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Hessen', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Mecklenburg-Vorpommern', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Niedersachsen', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Nordrhein-Westfalen', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Rheinland-Pfalz', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Saarland', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Sachsen', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Sachsen-Anhalt', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Schleswig-Holstein', 'State', createServiceArea('Deutschland', 'Country')),
+          createServiceArea('Thüringen', 'State', createServiceArea('Deutschland', 'Country'))
+        ];
+
+  // Default service URL based on domain
+  const defaultServiceUrl = `https://${domain}/pferde-preis-berechnen`;
 
   // Service offers
   const offers = includeOffers ? [
@@ -70,7 +109,7 @@ export default function PferdeWertServiceSchema({
       'Professionelle Bewertung des Marktwerts Ihres Pferdes mittels künstlicher Intelligenz in nur 2 Minuten. Berücksichtigt Abstammung, Ausbildungsstand, Gesundheitsstatus und aktuelle Marktdaten.',
       SCHEMA_PRICING.price,
       {
-        url: serviceUrl || 'https://pferdewert.de/pferde-preis-berechnen',
+        url: serviceUrl || defaultServiceUrl,
         priceCurrency: SCHEMA_PRICING.priceCurrency,
         availability: 'OnlineOnly',
         category: 'Pferdebewertung'
@@ -81,7 +120,7 @@ export default function PferdeWertServiceSchema({
       'Erhalten Sie innerhalb von 2 Minuten eine detaillierte Analyse des Marktwerts Ihres Pferdes basierend auf über 1000 Marktdaten und KI-Algorithmen.',
       SCHEMA_PRICING.price,
       {
-        url: serviceUrl || 'https://pferdewert.de/pferde-preis-berechnen',
+        url: serviceUrl || defaultServiceUrl,
         priceCurrency: SCHEMA_PRICING.priceCurrency,
         availability: 'OnlineOnly',
         category: 'Marktanalyse'
@@ -105,10 +144,10 @@ export default function PferdeWertServiceSchema({
     'Pferdebewertung online',
     'Was ist mein Pferd wert',
     'Pferdepreis berechnen',
-    'Pferdebewertung Deutschland',
+    `Pferdebewertung ${countryName}`,
     'KI Pferdebewertung',
     'Pferdewert Gutachten',
-    'Pferdemarkt Deutschland'
+    `Pferdemarkt ${countryName}`
   ];
 
   // Target audience
@@ -135,7 +174,7 @@ export default function PferdeWertServiceSchema({
     createQualityMeasure(
       'Marktdatenbasis',
       '1000+ Datenpunkte',
-      'Unsere Bewertung basiert auf über 1000 aktuellen Marktdaten aus ganz Deutschland'
+      `Unsere Bewertung basiert auf über 1000 aktuellen Marktdaten aus dem deutschsprachigen Raum`
     ),
     createQualityMeasure(
       'Kundenzufriedenheit',
@@ -149,13 +188,13 @@ export default function PferdeWertServiceSchema({
     createPotentialAction(
       'AssessAction',
       'Pferdebewertung starten',
-      serviceUrl || 'https://pferdewert.de/pferde-preis-berechnen',
+      serviceUrl || defaultServiceUrl,
       'PT2M'
     ),
     createPotentialAction(
       'BuyAction',
       'Bewertung kaufen',
-      serviceUrl || 'https://pferdewert.de/pferde-preis-berechnen',
+      serviceUrl || defaultServiceUrl,
       'PT2M'
     )
   ];
@@ -172,7 +211,7 @@ export default function PferdeWertServiceSchema({
       case 'homepage':
         return {
           name: 'PferdeWert - Professionelle Pferdebewertung',
-          description: 'Deutschlands führende Plattform für KI-basierte Pferdebewertung. Ermitteln Sie den Marktwert Ihres Pferdes schnell, präzise und kostengünstig.'
+          description: `${leadingPlatformText} Ermitteln Sie den Marktwert Ihres Pferdes schnell, präzise und kostengünstig.`
         };
 
       default: // service
@@ -189,7 +228,7 @@ export default function PferdeWertServiceSchema({
     <ServiceSchema
       serviceName={serviceDetails.name}
       serviceDescription={serviceDetails.description}
-      serviceUrl={serviceUrl || 'https://pferdewert.de/pferde-preis-berechnen'}
+      serviceUrl={serviceUrl || defaultServiceUrl}
       serviceType="ProfessionalService"
       provider={provider}
       areaServed={areaServed}

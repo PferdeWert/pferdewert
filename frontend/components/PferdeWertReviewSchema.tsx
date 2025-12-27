@@ -1,6 +1,7 @@
 // components/PferdeWertReviewSchema.tsx
 import React from 'react';
 import ReviewSchema, { createReviewFromTestimonial, calculateAggregateRating } from './ReviewSchema';
+import { useCountryConfig } from '@/hooks/useCountryConfig';
 
 interface PferdeWertReviewSchemaProps {
   // Page context to customize the schema
@@ -36,38 +37,38 @@ const TESTIMONIALS_DATA = [
   }
 ];
 
-// CRITICAL FIX: Define item schemas OUTSIDE component to prevent object recreation on each render
-const ITEM_SCHEMAS = {
+// Factory function to create item schemas based on country
+const getItemSchemas = (domain: string, leadingPlatformText: string) => ({
   service: {
     name: 'PferdeWert',
     type: 'Organization' as const,
-    url: 'https://pferdewert.de',
-    description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung',
-    image: 'https://pferdewert.de/images/shared/blossi-shooting.webp'
+    url: `https://${domain}`,
+    description: leadingPlatformText,
+    image: `https://${domain}/images/shared/blossi-shooting.webp`
   },
   about: {
     name: 'PferdeWert',
     type: 'Organization' as const,
-    url: 'https://pferdewert.de',
-    description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung',
-    image: 'https://pferdewert.de/images/shared/blossi-shooting.webp'
+    url: `https://${domain}`,
+    description: leadingPlatformText,
+    image: `https://${domain}/images/shared/blossi-shooting.webp`
   },
   homepage: {
     name: 'PferdeWert',
     type: 'Organization' as const,
-    url: 'https://pferdewert.de',
-    description: 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung. Entwickelt von Reitern für Reiter.',
-    image: 'https://pferdewert.de/images/shared/blossi-shooting.webp'
+    url: `https://${domain}`,
+    description: `${leadingPlatformText} Entwickelt von Reitern für Reiter.`,
+    image: `https://${domain}/images/shared/blossi-shooting.webp`
   }
-};
+});
 
-// CRITICAL FIX: Organization data OUTSIDE component
-const ORGANIZATION_DATA = {
+// Factory function for organization data based on country
+const getOrganizationData = (domain: string) => ({
   name: 'PferdeWert',
-  url: 'https://pferdewert.de',
-  logo: 'https://pferdewert.de/images/logo.webp',
+  url: `https://${domain}`,
+  logo: `https://${domain}/images/logo.webp`,
   sameAs: [] as string[]
-};
+});
 
 // CRITICAL FIX: Pre-compute reviews from testimonials at module level
 const REVIEWS_DATA = TESTIMONIALS_DATA.map(createReviewFromTestimonial);
@@ -78,13 +79,25 @@ export default function PferdeWertReviewSchema({
   serviceUrl,
   includeTestimonials = true
 }: PferdeWertReviewSchemaProps): React.JSX.Element {
+  const { isAustria, isSwitzerland, domain } = useCountryConfig();
+
+  // Localized leading platform text
+  const leadingPlatformText = isAustria
+    ? 'Österreichs führende Plattform für professionelle KI-basierte Pferdebewertung'
+    : isSwitzerland
+      ? 'Die Schweizer Plattform für professionelle KI-basierte Pferdebewertung'
+      : 'Deutschlands führende Plattform für professionelle KI-basierte Pferdebewertung';
 
   // Use pre-computed data - no array creation in render!
   const reviews = includeTestimonials ? REVIEWS_DATA : [];
   const aggregateRating = includeTestimonials ? AGGREGATE_RATING_DATA : undefined;
 
-  // Get item reviewed - use static schema directly
-  const itemReviewed = ITEM_SCHEMAS[pageType as keyof typeof ITEM_SCHEMAS];
+  // Get localized item schemas and organization data
+  const itemSchemas = getItemSchemas(domain, leadingPlatformText);
+  const organizationData = getOrganizationData(domain);
+
+  // Get item reviewed - use localized schema
+  const itemReviewed = itemSchemas[pageType as keyof typeof itemSchemas];
 
   // Only override URL if needed and different - minimizes object creation
   const finalItemReviewed = (pageType === 'service' && serviceUrl && serviceUrl !== itemReviewed.url)
@@ -96,7 +109,7 @@ export default function PferdeWertReviewSchema({
       itemReviewed={finalItemReviewed}
       aggregateRating={aggregateRating}
       reviews={reviews}
-      organization={ORGANIZATION_DATA}
+      organization={organizationData}
     />
   );
 }

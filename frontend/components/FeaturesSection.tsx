@@ -1,9 +1,10 @@
 // components/FeaturesSection.tsx
 // Extracted Features Section für bessere Code-Splitting Performance
 import { Clock, Shield, Award, TrendingUp, CheckCircle, Users } from "lucide-react";
+import { useCountryConfig } from "@/hooks/useCountryConfig";
 
-// Features Data
-const FEATURES_DATA = [
+// Feature data factory function for localization
+const getFeaturesData = (coverageText: string) => [
   {
     iconType: "Clock",
     title: "Blitzschnell",
@@ -32,11 +33,22 @@ const FEATURES_DATA = [
   {
     iconType: "Users",
     title: "Vertrauenswürdig",
-    description: "Professionelle Pferdepreis-Bewertungen für Pferdebesitzer deutschlandweit.",
+    description: `Professionelle Pferdepreis-Bewertungen für Pferdebesitzer ${coverageText}.`,
   },
 ];
 
 export default function FeaturesSection() {
+  const { isAustria, isSwitzerland } = useCountryConfig();
+
+  // Localized coverage text
+  const coverageText = isAustria
+    ? "in Österreich"
+    : isSwitzerland
+      ? "in der Schweiz"
+      : "deutschlandweit";
+
+  const FEATURES_DATA = getFeaturesData(coverageText);
+
   return (
     <section id="vorteile" className="section">
       <div className="container mx-auto px-4">
