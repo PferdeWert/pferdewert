@@ -18,7 +18,7 @@ import { Survey } from '@/types/surveys'
 export const monthlyCostsSurvey: Survey = {
   id: 'monthly-costs-2025-12',
   lastUpdated: '2025-12-28',
-  totalParticipants: 30,
+  totalParticipants: 43,
   question: 'Wie viel zahlt ihr monatlich für euer Pferd?',
   description: 'Umfrage in unserer Community unter aktiven Pferdebesitzern',
   platform: 'instagram',
@@ -26,23 +26,23 @@ export const monthlyCostsSurvey: Survey = {
   results: [
     {
       range: 'Unter 400€',
-      percentage: 20,
-      count: 6
+      percentage: 23,
+      count: 10
     },
     {
       range: '400-600€',
       percentage: 40,
-      count: 12
+      count: 17
     },
     {
       range: '600-800€',
-      percentage: 10,
+      percentage: 7,
       count: 3
     },
     {
       range: 'Über 800€',
       percentage: 30,
-      count: 9
+      count: 13
     },
   ],
 
@@ -55,12 +55,12 @@ export const monthlyCostsSurvey: Survey = {
    */
   instagramBaseline: {
     date: '2025-12-28',
-    totalVotes: 30,
+    totalVotes: 43,
     byRange: {
-      'Unter 400€': 6,
-      '400-600€': 12,
+      'Unter 400€': 10,
+      '400-600€': 17,
       '600-800€': 3,
-      'Über 800€': 9
+      'Über 800€': 13
     }
   }
 }
