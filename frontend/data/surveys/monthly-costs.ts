@@ -4,15 +4,43 @@ import { Survey } from '@/types/surveys'
  * Monatliche Pferdehaltungskosten - Community Umfrage
  *
  * Frage: "Wie viel zahlt ihr monatlich für euer Pferd?"
- * Quelle: PferdeWert Community Umfrage
+ * Quelle: PferdeWert Community Umfrage (Instagram + Website)
  *
- * Update-Prozess:
- * 1. Community-Umfrage durchführen (1. des Monats)
- * 2. Nach 24h Ergebnisse sammeln
- * 3. totalParticipants KUMULATIV erhöhen (alle Monate zusammen)
- * 4. results aktualisieren mit neuen Prozenten
- * 5. lastUpdated auf aktuelles Datum
- * 6. Git commit: "feat(surveys): Update monthly costs survey (Monat YYYY - XXX participants)"
+ * ══════════════════════════════════════════════════════════════
+ * UPDATE-PROZESS (Instagram-Daten aktualisieren)
+ * ══════════════════════════════════════════════════════════════
+ *
+ * 1. ZUERST Website-Votes prüfen:
+ *    npx tsx scripts/check-survey-votes.ts
+ *
+ *    → Falls Website-Votes existieren: Diese notieren!
+ *      Sie werden beim Update NICHT überschrieben (separate MongoDB Collection),
+ *      aber du solltest wissen, wie viele es sind.
+ *
+ * 2. Instagram-Ergebnisse ablesen:
+ *    - Stimmen pro Option zählen (NICHT Views!)
+ *    - Beispiel: 10 + 17 + 3 + 13 = 43 Teilnehmer
+ *
+ * 3. NUR instagramBaseline aktualisieren:
+ *    - totalVotes = Summe aller Instagram-Stimmen
+ *    - byRange = Stimmen pro Range
+ *    - date = aktuelles Datum
+ *
+ * 4. results + totalParticipants aktualisieren:
+ *    - Diese spiegeln die Instagram-Daten wider
+ *    - Website-Votes werden bei Anzeige automatisch addiert (siehe vote.ts)
+ *
+ * 5. Git commit:
+ *    "feat(surveys): Update monthly costs survey (Monat YYYY - XX participants)"
+ *
+ * ══════════════════════════════════════════════════════════════
+ * ARCHITEKTUR
+ * ══════════════════════════════════════════════════════════════
+ *
+ * Instagram-Daten: instagramBaseline (statisch in diesem File)
+ * Website-Votes:   MongoDB Collection "survey_votes" (dynamisch)
+ * Anzeige:         Kombiniert beides automatisch (siehe /api/surveys/vote.ts)
+ *
  */
 
 export const monthlyCostsSurvey: Survey = {
