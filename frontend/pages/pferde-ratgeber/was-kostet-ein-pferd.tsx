@@ -144,7 +144,7 @@ export default function WasKostetEinPferd() {
         image="/images/ratgeber/pferd-kaufen/was-kostet-ein-pferd/horse-chestnut-eating-hay-stable-window.webp"
         locales={seoLocales}
         datePublished="2025-10-11"
-        dateModified="2025-12-25"
+        dateModified="2025-12-28"
         wordCount={2750}
         breadcrumbTitle="Was kostet ein Pferd?"
         faqItems={faqItems}
@@ -159,7 +159,7 @@ export default function WasKostetEinPferd() {
       {/* Hero Section */}
       <RatgeberHero
           title="Was kostet ein Pferd?"
-          subtitle="Vollständige Kostenübersicht 2025: Von der Anschaffung bis zum monatlichen Unterhalt"
+          subtitle="Echte Daten aus unserer Community – und warum wir selbst über 800 € pro Monat ausgeben"
           primaryCta={PRIMARY_CTA}
           secondaryCta={SECONDARY_CTA}
         />
@@ -175,11 +175,11 @@ export default function WasKostetEinPferd() {
         {/* Lead Paragraph */}
         <section className="scroll-mt-32 lg:scroll-mt-40">
           <p className="text-lg text-gray-700 leading-relaxed">
-            Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>300€ - 900€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. In diesem{' '}
+            Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz – ob du gerade überlegst, dir ein Pferd zu kaufen, oder als Pferdebesitzer deine Ausgaben vergleichen möchtest. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>300€ - 900€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. Du planst einen Pferdekauf? In unserem{' '}
             <LocalizedLink href="/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
-              umfassenden Pferdekauf-Ratgeber
+              Pferdekauf-Ratgeber
             </LocalizedLink>{' '}
-            erfährst du, wie du ein passendes Pferd findest und worauf du beim Kauf achten solltest.
+            erfährst du, wie du ein passendes Pferd findest.
           </p>
         </section>
 
@@ -313,6 +313,42 @@ export default function WasKostetEinPferd() {
               </div>
             </div>
           </div>
+
+          {/* E-E-A-T: Real-Life Kostenbeispiel aus eigener Erfahrung */}
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg shadow-sm">
+            <h4 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+              <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded">PRAXIS-BEISPIEL</span>
+              Unsere monatlichen Kosten – Sportpferd Stuttgart
+            </h4>
+
+            <p className="text-sm text-gray-600 mb-4">
+              6-jährige Stute (Deutsches Sportpferd), L-Dressur in Ausbildung, Boxenhaltung mit Vollpension, Stand Dezember 2025
+            </p>
+
+            <div className="space-y-2 text-sm mb-4">
+              <div className="flex justify-between border-b border-gray-200 pb-1">
+                <span>Vollpension (inkl. Box, Futter, Weide, moderne Halle + Außenplatz)</span>
+                <span className="font-bold">550€</span>
+              </div>
+              <div className="flex justify-between border-b border-gray-200 pb-1">
+                <span>Hufschmied (alle 8 Wochen, ~150€/Termin)</span>
+                <span className="font-bold">~75€</span>
+              </div>
+              <div className="flex justify-between border-b border-gray-200 pb-1">
+                <span>Reitunterricht (3x/Woche) + Beritt (1x/Woche)</span>
+                <span className="font-bold">250-350€</span>
+              </div>
+              <div className="flex justify-between pt-2 border-t-2 border-blue-600">
+                <span className="font-bold">Monatliche Kosten gesamt</span>
+                <span className="font-bold text-blue-700 text-lg">&gt;800€</span>
+              </div>
+            </div>
+
+            <p className="text-xs text-gray-500 italic">
+              Diese Kosten entsprechen dem, was laut unserer Community-Umfrage 30% aller Pferdebesitzer monatlich ausgeben.
+              Nicht enthalten: Tierarzt-Notfälle, Versicherungen, Equipment-Ersatz.
+            </p>
+          </div>
         </section>
 
           {/* Section 1: Anschaffungskosten */}
@@ -364,6 +400,23 @@ export default function WasKostetEinPferd() {
               <li>• Jüngere Pferde mit nachgewiesenem Potenzial</li>
               <li>• Oft mit Abstammungsnachweisen und Turnierresultaten</li>
             </ul>
+
+            {/* E-E-A-T: Gründerstory - Eigene Erfahrung beim Pferdekauf */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-amber-600 p-6 my-8 rounded-r-lg">
+              <div className="flex items-start gap-3">
+                <div className="bg-amber-600 text-white rounded-full p-2 flex-shrink-0 mt-0.5">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-2">Warum wir PferdeWert gegründet haben</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Als wir unsere eigene Stute auf einer <strong>Auktion des Gestüt Marbach</strong> (eines der renommiertesten Gestüte Deutschlands) erwarben, lag der angestrebte Auktionspreis bei <strong>20.000€ - 30.000€</strong>. Unser PferdeWert-Algorithmus hatte exakt diese Preisspanne ermittelt – bevor wir den Hammer fallen sahen. Diese Übereinstimmung zwischen der Einschätzung von Zuchtexperten und unserer KI war einer der Gründungsmomente für PferdeWert.de.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <h4 className="text-xl font-bold text-brand-brown mb-3">Jungpferd (3-4 Jahre)</h4>
             <p className="text-lg text-gray-700 mb-2"><strong>Preisspanne:</strong> 3.000€ - 12.000€ (Durchschnitt: ~6.000€)</p>
@@ -1146,6 +1199,27 @@ export default function WasKostetEinPferd() {
                     Empfehlung: Eine finanzielle Reserve von mindestens 2.000€ - 5.000€ für Notfälle ist ratsam, selbst mit OP-Versicherung.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* E-E-A-T: Persönliche Erfahrung mit Klinikaufenthalt */}
+            <div className="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+              <h4 className="font-bold text-amber-800 mb-3 flex items-center gap-2">
+                <span className="bg-amber-600 text-white text-xs px-2 py-1 rounded">ERFAHRUNGSBERICHT</span>
+                Unsere Realität: Klinikaufenthalt 2025
+              </h4>
+              <div className="text-gray-700 space-y-3">
+                <p className="text-sm">
+                  Dieses Jahr musste unsere 6-jährige Stute ungeplant in die Klinik – wie Notfälle nun mal sind:
+                </p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li>• <strong>Klinikaufenthalt:</strong> ~2.200€</li>
+                  <li>• <strong>Nachbehandlung:</strong> ~800€</li>
+                  <li>• <strong>Gesamt:</strong> ~3.000€ zusätzlich zu den regulären Kosten</li>
+                </ul>
+                <p className="mt-3 font-semibold text-amber-800 text-sm">
+                  Unser Fazit: Ein einziger ungeplanter Klinikaufenthalt kann die gesamte Jahresplanung sprengen. Unsere jährlichen Routine-Tierarztkosten (Impfungen 2x/Jahr + Blutbild) liegen bei ca. 800€ – die 3.000€ Notfall kamen komplett on top.
+                </p>
               </div>
             </div>
 
