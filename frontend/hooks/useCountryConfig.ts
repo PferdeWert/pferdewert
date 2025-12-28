@@ -1,4 +1,5 @@
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo } from 'react';
+import { useRouter } from 'next/compat/router';
 
 interface CountryConfig {
   country: 'DE' | 'AT' | 'CH';
@@ -33,60 +34,32 @@ const DOMAINS = {
   CH: 'https://pferdewert.ch',
 } as const;
 
-/**
- * Detect country from hostname or cookie
- * Works client-side via window.location and cookie fallback
- */
-function detectCountryFromHost(): 'DE' | 'AT' | 'CH' {
-  if (typeof window !== 'undefined') {
-    const host = window.location.hostname;
-    if (host.includes('pferdewert.ch')) return 'CH';
-    if (host.includes('pferdewert.at')) return 'AT';
-    // Fallback: Check cookie set by middleware (handles whitespace)
-    const cookieMatch = document.cookie.match(/(?:^|;\s*)x-country=(\w+)/);
-    if (cookieMatch?.[1] === 'CH') return 'CH';
-    if (cookieMatch?.[1] === 'AT') return 'AT';
-  }
-  return 'DE';
-}
-
-/**
- * Get initial country - runs immediately to prevent hydration mismatch
- * Called during useState initialization for correct SSR/client hydration
- */
-function getInitialCountry(): 'DE' | 'AT' | 'CH' {
-  if (typeof window !== 'undefined') {
-    return detectCountryFromHost();
-  }
-  // SSR: Default to DE, middleware cookie will correct on client if needed
-  return 'DE';
-}
+// Map Next.js i18n locale to country code
+const LOCALE_TO_COUNTRY: Record<string, 'DE' | 'AT' | 'CH'> = {
+  'de': 'DE',
+  'de-AT': 'AT',
+  'de-CH': 'CH',
+};
 
 /**
  * Custom hook for country-specific configuration
- * Detects locale from domain (primary) or cookie (fallback)
  *
- * NEW BEHAVIOR (Domain-based):
- * - pferdewert.de → DE config
- * - pferdewert.at → AT config
- * - No more /at/ path prefix needed on .at domain
+ * SSR-SAFE: Uses Next.js router.locale which is set correctly on both
+ * server and client via i18n domain routing (next.config.js).
+ *
+ * This fixes the bug where Schema.org data showed pferdewert.de on .ch/.at domains.
  *
  * Usage:
  * const { country, locale, ausbildungOptions, landOptions } = useCountryConfig();
  */
 export function useCountryConfig(): CountryConfig {
-  // HYDRATION FIX: Initialize with detected country to prevent flash
-  // On client, getInitialCountry() runs immediately and returns correct value
-  // On server, returns 'DE' as default
-  const [country, setCountry] = useState<'DE' | 'AT' | 'CH'>(getInitialCountry);
+  // next/compat/router returns null if router is not mounted yet
+  const router = useRouter();
 
-  // Client-side: Sync if country changes (e.g., user switches domain mid-session)
-  useEffect(() => {
-    const detected = detectCountryFromHost();
-    if (detected !== country) {
-      setCountry(detected);
-    }
-  }, [country]);
+  // SSR-SAFE: Next.js i18n domain routing sets router.locale correctly on server AND client
+  // This is configured in next.config.js with domain-based locale detection
+  // Fallback to 'de' if router is not yet mounted (edge case during initial render)
+  const country = LOCALE_TO_COUNTRY[router?.locale || 'de'] || 'DE';
 
   // FAST REFRESH FIX: Memoize config based on country to prevent recreation
   const config = useMemo(() => {
