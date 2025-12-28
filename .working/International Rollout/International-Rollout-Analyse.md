@@ -356,16 +356,22 @@ const session = await stripe.checkout.sessions.create({
 
 ## 🗺️ SEO & Sitemap: Multi-Domain Setup
 
-### Learnings aus AT-Rollout (Nov 2025)
+### Implementierung (Aktualisiert: Dezember 2025)
 
-**Problem erkannt:** Statische sitemap.xml/robots.txt funktioniert NICHT mit Multi-Domain Setup!
-- Vercel serviert dieselbe statische Datei für alle Domains
-- pferdewert.at bekam fälschlicherweise DE-Sitemap mit `www.pferdewert.de/*` URLs
+**Status:** ✅ **FUNKTIONIERT KORREKT** - Dynamische Domain-Erkennung im Einsatz
 
-**Lösung implementiert:**
-1. **Separate Sitemap-Dateien:** `sitemap-de.xml`, `sitemap-at.xml`, `sitemap-ch.xml`, etc.
-2. **API Routes:** `/api/sitemap.ts` und `/api/robots.ts` erkennen Domain und liefern korrekte Datei
-3. **Vercel Rewrites:** `/sitemap.xml` → `/api/sitemap`, `/robots.txt` → `/api/robots`
+**Architektur:**
+1. **Statische Dateien** (generiert via `npm run sitemap`):
+   - `public/sitemap-de.xml`, `sitemap-at.xml`, `sitemap-ch.xml`
+   - `public/robots-de.txt`, `robots-at.txt`, `robots-ch.txt`
+2. **Dynamische API Routes:**
+   - `/api/sitemap.ts` - liest `req.headers.host` und serviert die richtige sitemap-{country}.xml
+   - `/api/robots.ts` - liest `req.headers.host` und serviert die richtige robots-{country}.txt
+3. **Vercel Rewrites** (vercel.json):
+   - `/sitemap.xml` → `/api/sitemap`
+   - `/robots.txt` → `/api/robots`
+
+**Ergebnis:** Jede Domain erhält automatisch die korrekte Sitemap (pferdewert.de → sitemap-de.xml, etc.) ✅
 
 ### Architektur für NL-Rollout
 

@@ -77,7 +77,7 @@ cd frontend && npm run dev     # Port 3000
 npm run lint && npm run type-check  # REQUIRED before commits
 npm run sitemap                # Generate sitemap.xml & robots.txt (vor deployment)
 
-# Backend  
+# Backend
 cd backend && uvicorn main:app --reload --port 8000
 
 # Hetzner Server Access

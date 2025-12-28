@@ -95,13 +95,13 @@ const SECONDARY_CTA = {
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Pferde Kosten Tabelle 2025: 300-800€/Monat - Kompletter Überblick',
-    description: 'Pferd Kosten 2025: Komplette Tabellen! ✓ Monatlich (300-800€) ✓ Anschaffung (2.500-20.000€) ✓ Rasse-Vergleich ✓ Regional-Unterschiede ✓ 3 Budget-Szenarien. Jetzt informieren!',
+    title: 'Pferde Kosten Tabelle 2025: 300-900€/Monat - Kompletter Überblick',
+    description: 'Pferd Kosten 2025: Komplette Tabellen! ✓ Monatlich (300-900€) ✓ Anschaffung (2.500-20.000€) ✓ Rasse-Vergleich ✓ Regional-Unterschiede ✓ 3 Budget-Szenarien. Jetzt informieren!',
     keywords: 'was kostet ein pferd, pferd kosten, pferd preis, pferd kosten monatlich, pferd kosten tabelle, pferdehaltung kosten, pferd anschaffungskosten',
-    ogTitle: 'Pferde Kosten Tabelle 2025: 300-800€/Monat - Kompletter Überblick',
-    ogDescription: 'Pferd Kosten 2025: Komplette Tabellen mit allen Ausgaben! Monatlich (300-800€), Anschaffung (2.500-20.000€), Rasse-Vergleich, Regional-Unterschiede, 3 Budget-Szenarien.',
-    twitterTitle: 'Pferde Kosten Tabelle 2025: 300-800€/Monat',
-    twitterDescription: 'Komplette Tabellen! Monatlich (300-800€), Anschaffung (2.500-20.000€), Rasse-Vergleich, Regional-Unterschiede, Budget-Szenarien.',
+    ogTitle: 'Pferde Kosten Tabelle 2025: 300-900€/Monat - Kompletter Überblick',
+    ogDescription: 'Pferd Kosten 2025: Komplette Tabellen mit allen Ausgaben! Monatlich (300-900€), Anschaffung (2.500-20.000€), Rasse-Vergleich, Regional-Unterschiede, 3 Budget-Szenarien.',
+    twitterTitle: 'Pferde Kosten Tabelle 2025: 300-900€/Monat',
+    twitterDescription: 'Komplette Tabellen! Monatlich (300-900€), Anschaffung (2.500-20.000€), Rasse-Vergleich, Regional-Unterschiede, Budget-Szenarien.',
   },
   at: {
     title: 'Pferde Kosten Tabelle Österreich 2025: 350-900€/Monat - Alle Ausgaben',
@@ -175,7 +175,7 @@ export default function WasKostetEinPferd() {
         {/* Lead Paragraph */}
         <section className="scroll-mt-32 lg:scroll-mt-40">
           <p className="text-lg text-gray-700 leading-relaxed">
-            Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>400€ - 800€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. In diesem{' '}
+            Pferdekosten sind ein wichtiger Faktor beim Pferdebesitz. Ein Pferd kostet in der Anschaffung zwischen <strong>2.500€ und 20.000€+</strong>, abhängig von Rasse, Alter und Ausbildungsstand. Die <strong>Pferdekosten monatlich</strong> liegen durchschnittlich bei <strong>300€ - 900€</strong>, während die <strong>Pferdekosten jährlich</strong> ohne Anschaffung etwa 5.000€ - 10.000€ betragen. In diesem{' '}
             <LocalizedLink href="/pferd-kaufen" className="text-primary-600 hover:text-primary-700 font-semibold">
               umfassenden Pferdekauf-Ratgeber
             </LocalizedLink>{' '}
@@ -188,6 +188,9 @@ export default function WasKostetEinPferd() {
           <RatgeberTableOfContents sections={sections} />
         </section>
 
+        {/* Community Survey - Direkt nach Inhaltsverzeichnis für maximale Aufmerksamkeit */}
+        <SurveyBox survey={monthlyCostsSurvey} allowVoting={true} />
+
         {/* Featured Snippet Box: Pferdekosten auf einen Blick */}
         <RatgeberHighlightBox
           title="Pferdekosten auf einen Blick"
@@ -199,7 +202,7 @@ export default function WasKostetEinPferd() {
             </div>
             <div className="flex justify-between items-start pb-3 border-b border-brand-brown-light">
               <span className="font-semibold text-gray-900">Monatliche Kosten:</span>
-              <span className="text-brand-brown font-bold">400€ - 800€</span>
+              <span className="text-brand-brown font-bold">300€ - 900€</span>
             </div>
             <div className="flex justify-between items-start pb-3 border-b border-brand-brown-light">
               <span className="font-semibold text-gray-900">Jährliche Kosten:</span>
@@ -222,7 +225,7 @@ export default function WasKostetEinPferd() {
           </h2>
 
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Die monatlichen Kosten für ein Pferd liegen zwischen <strong>300€ und 800€</strong>, abhängig von Haltungsform und Region. Im Durchschnitt solltest du mit <strong>500-600€ monatlich</strong> rechnen. Diese Kosten decken die Grundversorgung ab – Notfälle und Zusatzleistungen kommen extra hinzu.
+            Die monatlichen Kosten für ein Pferd liegen zwischen <strong>300€ und 900€</strong>, abhängig von Haltungsform und Region. Im Durchschnitt solltest du mit <strong>500-600€ monatlich</strong> rechnen. Diese Kosten decken die Grundversorgung ab – Notfälle und Zusatzleistungen kommen extra hinzu.
           </p>
 
           <div className="overflow-x-auto mb-6">
@@ -291,7 +294,7 @@ export default function WasKostetEinPferd() {
                     Gesamt (Durchschnitt)
                   </td>
                   <td className="border border-gray-300 px-4 py-3 text-right font-bold text-brand-brown">
-                    300-800 €
+                    300-900 €
                   </td>
                 </tr>
               </tbody>
@@ -310,9 +313,6 @@ export default function WasKostetEinPferd() {
               </div>
             </div>
           </div>
-
-          {/* Community Survey - Real Data from Instagram */}
-          <SurveyBox survey={monthlyCostsSurvey} />
         </section>
 
           {/* Section 1: Anschaffungskosten */}
@@ -720,7 +720,7 @@ export default function WasKostetEinPferd() {
             <RatgeberHighlightBox
               title="Wichtig beim Pferdekauf"
             >
-              Der Pferdepreis allein sagt nichts über die Gesamtkosten aus. Bedenke immer die laufenden monatlichen Kosten (300-800€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
+              Der Pferdepreis allein sagt nichts über die Gesamtkosten aus. Bedenke immer die laufenden monatlichen Kosten (300-900€), Versicherungen, Tierarzt und unvorhersehbare Ausgaben. Ein günstiges Pferd kann durch hohe Folgekosten teurer werden als ein gut ausgebildetes, gesundes Pferd mit höherem Kaufpreis.
             </RatgeberHighlightBox>
           </section>
 
