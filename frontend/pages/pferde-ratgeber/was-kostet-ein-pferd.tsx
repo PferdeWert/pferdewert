@@ -412,7 +412,7 @@ export default function WasKostetEinPferd() {
                 <div>
                   <h4 className="font-bold text-gray-900 mb-2">Warum wir PferdeWert gegründet haben</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Als wir unsere eigene Stute auf einer <strong>Auktion des Gestüt Marbach</strong> (eines der renommiertesten Gestüte Deutschlands) erwarben, zahlten wir am Ende zwischen <strong>20.000€ und 30.000€</strong>. Unser PferdeWert-Algorithmus hatte vorab exakt diese Preisspanne berechnet. Diese Übereinstimmung zwischen dem tatsächlichen Marktpreis und unserer KI-Bewertung war einer der Gründungsmomente für PferdeWert.de.
+                    Als wir unsere eigene Stute auf einer <strong>Auktion des Gestüt Marbach</strong> (eines der renommiertesten Gestüte Deutschlands) erwarben, lagen sowohl die Preiseinschätzung des Gestüts als auch unser finaler Kaufpreis in der Range von <strong>20.000€ - 30.000€</strong> – exakt die Spanne, die unser PferdeWert-Algorithmus vorab berechnet hatte. Diese Übereinstimmung war einer der Gründungsmomente für PferdeWert.de.
                   </p>
                 </div>
               </div>
