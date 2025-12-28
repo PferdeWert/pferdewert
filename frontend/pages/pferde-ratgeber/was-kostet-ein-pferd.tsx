@@ -318,7 +318,7 @@ export default function WasKostetEinPferd() {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg shadow-sm">
             <h4 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
               <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded">PRAXIS-BEISPIEL</span>
-              Unsere monatlichen Kosten – Sportpferd Stuttgart
+              Unsere monatlichen Kosten für Blossi (Stuttgart)
             </h4>
 
             <p className="text-sm text-gray-600 mb-4">
