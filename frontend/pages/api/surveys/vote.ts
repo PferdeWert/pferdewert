@@ -43,7 +43,7 @@ const recentVotes = new Map<string, number>()
 
 // Valid ranges per survey (TODO: Move to survey-registry.ts later)
 const VALID_RANGES: Record<string, string[]> = {
-  'monthly-costs-2025-12': ['300-400€', '400-600€', '600-800€', '800€+']
+  'monthly-costs-2025-12': ['Unter 400€', '400-600€', '600-800€', 'Über 800€']
 }
 
 export default async function handler(
@@ -120,29 +120,44 @@ export default async function handler(
 
     await votesCollection.insertOne(vote)
 
-    // 7. CALCULATE UPDATED RESULTS
-    const allVotes = await votesCollection
+    // 7. CALCULATE UPDATED RESULTS (Instagram + Website combined)
+    const allWebsiteVotes = await votesCollection
       .find({ surveyId })
       .toArray()
 
-    const totalVotes = allVotes.length
-    const votesByRange = allVotes.reduce((acc: Record<string, number>, vote: VoteDocument) => {
+    // Get Instagram baseline (static data from last Instagram update)
+    const instagramBaseline = monthlyCostsSurvey.instagramBaseline ?? {
+      totalVotes: 0,
+      byRange: {} as Record<string, number>
+    }
+
+    // Combine Instagram baseline + Website votes
+    const websiteVotesByRange = allWebsiteVotes.reduce((acc: Record<string, number>, vote: VoteDocument) => {
       acc[vote.range] = (acc[vote.range] || 0) + 1
       return acc
     }, {} as Record<string, number>)
 
+    const totalCombined = instagramBaseline.totalVotes + allWebsiteVotes.length
+
     // 8. CREATE COMPLETE UPDATED SURVEY OBJECT
-    const updatedResults = validRanges.map(range => ({
-      range,
-      count: votesByRange[range] || 0,
-      percentage: totalVotes > 0
-        ? Math.round(((votesByRange[range] || 0) / totalVotes) * 100)
-        : 0
-    }))
+    const updatedResults = validRanges.map(rangeKey => {
+      const instagramCount = instagramBaseline.byRange[rangeKey] || 0
+      const websiteCount = websiteVotesByRange[rangeKey] || 0
+      const combinedCount = instagramCount + websiteCount
+
+      return {
+        range: rangeKey,
+        count: combinedCount,
+        percentage: totalCombined > 0
+          ? Math.round((combinedCount / totalCombined) * 100)
+          : 0
+      }
+    })
 
     const updatedSurvey: Survey = {
       ...monthlyCostsSurvey, // Base survey data (question, platform, category, etc.)
-      totalParticipants: totalVotes,
+      platform: allWebsiteVotes.length > 0 ? 'multi' : 'instagram',
+      totalParticipants: totalCombined,
       results: updatedResults,
       lastUpdated: new Date().toISOString().split('T')[0]
     }

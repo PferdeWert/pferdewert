@@ -17,34 +17,52 @@ import { Survey } from '@/types/surveys'
 
 export const monthlyCostsSurvey: Survey = {
   id: 'monthly-costs-2025-12',
-  lastUpdated: '2025-12-26',
-  totalParticipants: 523,
+  lastUpdated: '2025-12-28',
+  totalParticipants: 30,
   question: 'Wie viel zahlt ihr monatlich für euer Pferd?',
   description: 'Umfrage in unserer Community unter aktiven Pferdebesitzern',
   platform: 'instagram',
   category: 'costs',
   results: [
     {
-      range: '300-400€',
-      percentage: 18,
-      count: 94
+      range: 'Unter 400€',
+      percentage: 20,
+      count: 6
     },
     {
       range: '400-600€',
-      percentage: 38,
-      count: 199
+      percentage: 40,
+      count: 12
     },
     {
       range: '600-800€',
-      percentage: 29,
-      count: 152
+      percentage: 10,
+      count: 3
     },
     {
-      range: '800€+',
-      percentage: 15,
-      count: 78
+      range: 'Über 800€',
+      percentage: 30,
+      count: 9
     },
-  ]
+  ],
+
+  /**
+   * Instagram Baseline für Delta-Berechnung
+   * Bei nächstem Instagram-Update:
+   * 1. Neue Insta-Zahlen minus diese Baseline = Insta-Delta
+   * 2. Website-Votes aus MongoDB addieren
+   * 3. Neue Baseline setzen
+   */
+  instagramBaseline: {
+    date: '2025-12-28',
+    totalVotes: 30,
+    byRange: {
+      'Unter 400€': 6,
+      '400-600€': 12,
+      '600-800€': 3,
+      'Über 800€': 9
+    }
+  }
 }
 
 // Beispiel für weitere Umfragen (später):

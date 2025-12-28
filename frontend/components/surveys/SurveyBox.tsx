@@ -57,6 +57,10 @@ export default function SurveyBox({
         if (existingVote) {
           setHasVoted(true)
           setSelectedOption(existingVote)
+          // Wenn User gevotet hat, muss er ein Pferd besitzen (legacy fix)
+          if (savedOwnsHorse === null) {
+            setOwnsHorse(true)
+          }
         }
       } catch (e) {
         logError('[SURVEY] localStorage read failed:', e)
@@ -168,7 +172,7 @@ export default function SurveyBox({
       {/* Header */}
       <div className="mb-4">
         <h3 className={`font-bold text-gray-900 mb-2 ${compact ? 'text-lg' : 'text-xl'}`}>
-          💡 Echte Daten von {localSurvey.totalParticipants.toLocaleString('de-DE')} Pferdebesitzern
+          💡 Echte Daten aus unserer PferdeWert-Community
         </h3>
         <p className="text-sm text-gray-600">
           Stand: {formatDate(localSurvey.lastUpdated)}
@@ -257,8 +261,8 @@ export default function SurveyBox({
         </div>
       )}
 
-      {/* Results - Bar Chart (shown after voting or in read-only mode) */}
-      {showChart && (!allowVoting || hasVoted) && (
+      {/* Results - Bar Chart (shown after voting, for non-horse-owners, or in read-only mode) */}
+      {showChart && (!allowVoting || hasVoted || ownsHorse === false) && (
         <div className="space-y-3 mb-4">
           {localSurvey.results.map((result, index) => (
             <div key={index} className="flex items-center gap-3">
@@ -309,7 +313,6 @@ export default function SurveyBox({
       <div className="pt-3 border-t border-amber-200">
         <p className="text-xs text-gray-500">
           <strong>Quelle:</strong> PferdeWert Community, {formatDate(localSurvey.lastUpdated)}
-          {' '} • {localSurvey.totalParticipants.toLocaleString('de-DE')} Teilnehmer
         </p>
       </div>
     </div>
