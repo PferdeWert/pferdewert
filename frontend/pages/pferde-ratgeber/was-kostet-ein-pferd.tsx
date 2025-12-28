@@ -412,7 +412,7 @@ export default function WasKostetEinPferd() {
                 <div>
                   <h4 className="font-bold text-gray-900 mb-2">Warum wir PferdeWert gegründet haben</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Als wir unsere eigene Stute auf einer <a href="https://www.gestuet-marbach.de" target="_blank" rel="noopener" className="text-primary-600 hover:text-primary-700 font-semibold">Auktion des Gestüt Marbach</a> (eines der renommiertesten Gestüte Deutschlands) erwarben, hatte unser PferdeWert-Algorithmus vorab exakt die Preisspanne berechnet, die auch das Gestüt angesetzt hatte – und in der am Ende unser finaler Kaufpreis lag. Diese Übereinstimmung war einer der Gründungsmomente für PferdeWert.de.
+                    Als wir unsere eigene Stute Blossi auf einer <a href="https://www.gestuet-marbach.de" target="_blank" rel="noopener" className="text-primary-600 hover:text-primary-700 font-semibold">Auktion des Gestüt Marbach</a> (eines der renommiertesten Gestüte Deutschlands) erworben haben, hatte unser PferdeWert-Algorithmus vorab exakt die Preisspanne berechnet, die auch das Gestüt angesetzt hatte – und in der am Ende auch unser finaler Kaufpreis lag. Diese Übereinstimmung war einer der Gründungsmomente für PferdeWert.de.
                   </p>
                 </div>
               </div>
