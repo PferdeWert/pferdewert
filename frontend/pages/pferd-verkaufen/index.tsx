@@ -279,6 +279,23 @@ const PferdVerkaufen: NextPage = () => {
             <p className="text-lg text-gray-700 leading-relaxed">
               In diesem ultimativen Leitfaden erfährst du alles Wichtige: vom 7-Phasen-Verkaufsprozess über den detaillierten Plattform-Vergleich (eHorses vs. private Kanäle) bis hin zur rechtlichen Absicherung durch professionelle Kaufverträge. Wir decken auch den oft vernachlässigten emotionalen Aspekt ab – denn ein Pferd zu verkaufen bedeutet, Abschied von einem Partner zu nehmen.
             </p>
+
+            {/* E-E-A-T: Eigene Verkaufserfahrung */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-amber-600 p-6 my-8 rounded-r-lg">
+              <div className="flex items-start gap-3">
+                <div className="bg-amber-600 text-white rounded-full p-2 flex-shrink-0 mt-0.5">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-2">Warum wir diesen Ratgeber schreiben</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Wir haben selbst ein Pferd erfolgreich verkauft und kennen die emotionalen und praktischen Herausforderungen aus erster Hand – von der Preisfindung über Interessenten-Gespräche bis zum Abschied. Diese persönliche Erfahrung fließt direkt in diesen Ratgeber ein.
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* Pferdewert ermitteln */}
