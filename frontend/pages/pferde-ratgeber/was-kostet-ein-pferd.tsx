@@ -29,43 +29,43 @@ const sections = [
   { id: 'faq', title: 'FAQ - Häufige Fragen zu Pferdekosten' }
 ]
 
-// FAQ Items
+// FAQ Items - Optimiert für Readability (Flesch ≥60)
 const faqItems = [
   {
     question: 'Was kostet ein Pferd im Monat durchschnittlich?',
-    answer: 'Ein Pferd kostet im Durchschnitt 400€ - 800€ pro Monat, abhängig von Haltungsform, Region und individuellen Bedürfnissen. In der Offenstallhaltung in ländlichen Regionen können die Kosten bei ~400€ liegen, während Boxenhaltung in Stadtnähe 600€ - 900€/Monat kostet. Sportpferde in Vollpension mit Beritt können 1.200€ - 2.000€+/Monat erreichen. Diese Kosten decken nur die Grundversorgung (Stall, Futter, Hufpflege, Basis-Tierarzt, Versicherung). Notfälle, Turniere oder Zusatzleistungen kommen extra hinzu.'
+    answer: 'Ein Pferd kostet 400€ bis 800€ pro Monat. Die genauen Kosten hängen von Haltung und Region ab. Im Offenstall zahlst du etwa 400€. Eine Box in Stadtnähe kostet 600€ bis 900€. Sportpferde mit Beritt erreichen 1.200€ bis 2.000€. Diese Summen decken nur die Basis: Stall, Futter, Hufpflege, Tierarzt und Versicherung. Notfälle und Extras kommen noch dazu.'
   },
   {
     question: 'Wie viel kostet ein Pferd in der Anschaffung?',
-    answer: 'Die Anschaffungskosten für ein Pferd liegen zwischen 2.500€ und 20.000€. Freizeitpferde kosten 2.500€ - 8.000€, Sportpferde 8.000€ - 30.000€+ und Jungpferde 3.000€ - 12.000€. Hinzu kommen die Ankaufsuntersuchung (AKU) mit 200€ - 800€ sowie die Erstausstattung (Sattel, Trense, Decken etc.) mit 1.000€ - 4.660€. Die Gesamtkosten für die Anschaffung belaufen sich somit auf 3.700€ - 20.460€. Ein günstiges Pferd in der Anschaffung bedeutet nicht zwangsläufig niedrige Gesamtkosten – ein gesundes, gut ausgebildetes Pferd spart langfristig oft mehr Tierarzt- und Trainingskosten.'
+    answer: 'Die Anschaffung kostet 2.500€ bis 20.000€. Freizeitpferde liegen bei 2.500€ bis 8.000€. Sportpferde kosten 8.000€ bis 30.000€. Jungpferde gibt es für 3.000€ bis 12.000€. Dazu kommt die AKU mit 200€ bis 800€. Die Erstausstattung kostet 1.000€ bis 4.660€. Insgesamt also 3.700€ bis 20.460€. Wichtig: Ein günstiges Pferd kann teuer werden. Gesunde, gut ausgebildete Pferde sparen langfristig Tierarzt- und Trainingskosten.'
   },
   {
     question: 'Wie viel kostet das günstigste Pferd?',
-    answer: 'Das günstigste Pferd kostet zwischen 500€ - 2.000€ und ist meist ein älteres Freizeitpferd oder ein Pferd mit kleineren gesundheitlichen Problemen. Allerdings: Ein billiges Pferd kann teuer werden. Unsichtbare Gesundheitsprobleme können zu Tierarztkosten von 2.000€ - 8.000€+ führen. Eine Ankaufsuntersuchung (AKU) für 200€ - 800€ ist also auch beim günstigen Kauf essentiell. Viele Pferdehalter sparen am falschen Ende: Ein 4.000€ Pferd mit guter AKU ist langfristig günstiger als ein 1.500€ Pferd mit versteckten Erkrankungen. Wir empfehlen: Budget für AKU einplanen (mindestens 400€) und lieber 3.000€+ für ein gesundes, gut ausgebildetes Pferd investieren.'
+    answer: 'Das günstigste Pferd kostet 500€ bis 2.000€. Meist sind das ältere Pferde oder welche mit kleinen Problemen. Aber Vorsicht: Billig kann teuer werden! Versteckte Krankheiten kosten schnell 2.000€ bis 8.000€ beim Tierarzt. Eine AKU für 200€ bis 800€ ist daher Pflicht. Unser Tipp: Lieber 3.000€+ für ein gesundes Pferd ausgeben. Das spart langfristig viel Geld.'
   },
   {
     question: 'Wie viel kostet ein Reitpony oder Mini-Pferd?',
-    answer: 'Ein Reitpony oder Mini-Pferd kostet zwischen 1.500€ - 8.000€ in der Anschaffung, deutlich weniger als ein Warmblut-Pferd (8.000€ - 20.000€+). Die monatlichen Pferdekosten sind auch geringer: Ein Pony benötigt weniger Futter (20-30% weniger als ein Großpferd), die Stallmiete ist oft identisch, aber Ausrüstung ist günstiger. Allerdings: Spezialisierte Reitponys (für Turniere) können 5.000€ - 15.000€ kosten. Faustregel: Mit Pony sparst du 100€ - 200€ monatlich, amortisierst du die "billigere" Anschaffung aber erst nach 5-10 Jahren.'
+    answer: 'Ein Pony kostet 1.500€ bis 8.000€. Das ist weniger als ein Warmblut mit 8.000€ bis 20.000€. Die Haltung ist auch günstiger. Ponys brauchen 20-30% weniger Futter. Die Stallmiete bleibt aber gleich. Du sparst etwa 100€ bis 200€ im Monat. Turnier-Ponys können aber auch 5.000€ bis 15.000€ kosten.'
   },
   {
-    question: 'Wie unterscheiden sich Pferdkosten zwischen Offenstall und Vollpension?',
-    answer: 'Offenstall/Laufstall: 300€ - 600€/Monat (nur Grundversorgung: Stall, Futter, Wasser). Vollpension: 600€ - 1.200€+/Monat (alles inklusive: tägliche Versorgung, Fütterung, Stallausmisten, Weidegang). Vollpension mit Beritt/Training: 1.200€ - 2.000€+/Monat. Bei der Vollpension sparst du Zeit und Arbeit, bei Offenstall sparst du bis zu 50% der monatlichen Kosten. Allerdings: Eigenständige Pferdehalter unterschätzen versteckte Kosten - Tierarzt-Notfälle, Transport, Reparaturen nehmen schnell 200€ - 500€/Monat zusätzlich in Anspruch. Wähle basierend auf deinem Zeitbudget: Vollpension = weniger Zeit, Offenstall = mehr Eigenarbeit aber günstiger.'
+    question: 'Wie unterscheiden sich Kosten zwischen Offenstall und Vollpension?',
+    answer: 'Offenstall kostet 300€ bis 600€ im Monat. Du bekommst Stall, Futter und Wasser. Vollpension kostet 600€ bis 1.200€. Hier ist alles dabei: Fütterung, Misten, Weidegang. Mit Beritt zahlst du 1.200€ bis 2.000€. Vollpension spart Zeit. Offenstall spart bis zu 50% Kosten. Aber unterschätze versteckte Kosten nicht: Notfälle und Reparaturen kosten schnell 200€ bis 500€ extra.'
   },
   {
     question: 'Welche versteckten Kosten gibt es bei der Pferdehaltung?',
-    answer: 'Die häufigsten versteckten Kosten sind: (1) Notfall-Tierarztkosten von 2.000€ - 8.000€ für Kolik-OPs oder Verletzungen, (2) Equipment-Erneuerung mit 200€ - 700€/Jahr für Decken und Sattelzeug, (3) Transport mit 80€ - 600€ für Tierarzt-Notfälle oder Turniere, (4) Weiterbildung/Reitunterricht mit 120€ - 600€/Monat, (5) Zusatzbehandlungen wie Physiotherapie (60€ - 100€/Termin) oder Osteopathie (80€ - 150€/Termin) und (6) Anhänger-Wartung/TÜV mit 200€ - 500€/Jahr. Wir empfehlen eine monatliche Rücklage von mindestens 100€ - 200€ für unvorhergesehene Kosten.'
+    answer: 'Die häufigsten versteckten Kosten: Tierarzt-Notfälle kosten 2.000€ bis 8.000€. Equipment-Erneuerung: 200€ bis 700€ pro Jahr. Transport: 80€ bis 600€. Reitunterricht: 120€ bis 600€ im Monat. Physio oder Osteo: 60€ bis 150€ pro Termin. Anhänger-TÜV: 200€ bis 500€ jährlich. Unser Tipp: Leg jeden Monat 100€ bis 200€ für Notfälle zurück.'
   },
   {
     question: 'Ist eine Pferde-Versicherung sinnvoll?',
-    answer: 'Ja, Versicherungen sind essenziell. Die Haftpflichtversicherung (60€ - 120€/Jahr) ist OBLIGATORISCH und deckt Schäden ab, die das Pferd Dritten zufügt. Ohne Haftpflicht haftest du unbegrenzt mit deinem Privatvermögen. Eine OP-Versicherung (150€ - 400€/Jahr) ist DRINGEND EMPFOHLEN, da Operationen 3.000€ - 15.000€ kosten können. Die Versicherung deckt bis zu 10.000€ - 25.000€. Eine Kolik-OP kostet z.B. 6.000€, eine Fraktur-OP 12.000€ – ohne Versicherung oft finanzieller Ruin. Eine Krankenversicherung (400€ - 1.200€/Jahr) ist OPTIONAL und lohnt sich meist nur für Pferde mit chronischen Problemen.'
+    answer: 'Ja! Die Haftpflicht ist Pflicht. Sie kostet 60€ bis 120€ pro Jahr. Ohne sie haftest du mit deinem gesamten Vermögen. Die OP-Versicherung empfehlen wir dringend. Sie kostet 150€ bis 400€ jährlich. Eine Kolik-OP kostet sonst 6.000€. Eine Fraktur-OP sogar 12.000€. Die Versicherung deckt bis zu 25.000€. Eine Krankenversicherung für 400€ bis 1.200€ lohnt sich nur bei chronisch kranken Pferden.'
   },
   {
     question: 'Was beeinflusst den Pferdepreis am meisten?',
-    answer: 'Der Pferdepreis wird hauptsächlich von 5 Faktoren bestimmt: (1) Ausbildungsstand – ein rohes Jungpferd kostet 3.000€ - 6.000€, während ein turniererfahrenes Sportpferd 15.000€ - 30.000€+ kostet. (2) Rasse – Warmblüter (8.000€ - 20.000€) sind teurer als Freiberger (4.000€ - 8.000€). (3) Alter – Pferde zwischen 5-12 Jahren erzielen Höchstpreise. (4) Gesundheitszustand – eine positive AKU erhöht den Wert um 15-25%. (5) Abstammung – Pferde mit Championatslinien können 50-100% teurer sein. Regional können Preise um 20-30% variieren: Süddeutschland ist teurer als Ostdeutschland.'
+    answer: 'Fünf Faktoren bestimmen den Preis: 1. Ausbildung: Jungpferde kosten 3.000€ bis 6.000€. Turnierpferde 15.000€ bis 30.000€. 2. Rasse: Warmblüter sind teurer als Freiberger. 3. Alter: Pferde von 5 bis 12 Jahren erzielen Höchstpreise. 4. Gesundheit: Eine gute AKU erhöht den Wert um 15-25%. 5. Abstammung: Top-Linien kosten 50-100% mehr. Auch die Region zählt: Süddeutschland ist 20-30% teurer.'
   },
   {
     question: 'Wie unterscheiden sich Pferdepreise nach Rasse?',
-    answer: 'Pferdepreise variieren stark nach Rasse: Warmblüter (z.B. Hannoveraner, Holsteiner) kosten 8.000€ - 20.000€ für Freizeit/Sport, Spitzensportpferde bis 100.000€+. Quarter Horses liegen bei 6.000€ - 15.000€, spezialisierte Westernpferde bis 30.000€+. Islandpferde kosten 4.000€ - 12.000€, mit Tölt-Champions bis 25.000€+. Haflinger/Freiberger sind günstiger bei 3.000€ - 8.000€, Zuchtpferde bis 15.000€. Ponys starten bei 2.000€ - 6.000€, Turnierpponys bis 20.000€. Vollblüter reichen von 3.000€ (Off-Track) bis 500.000€+ (Spitzenzucht). Der Preis spiegelt Zucht, Ausbildung und Marktnachfrage wider.'
+    answer: 'Die Preise nach Rasse: Warmblüter kosten 8.000€ bis 20.000€. Spitzenpferde bis 100.000€. Quarter Horses: 6.000€ bis 15.000€. Isländer: 4.000€ bis 12.000€. Haflinger: 3.000€ bis 8.000€. Ponys: 2.000€ bis 6.000€. Vollblüter: 3.000€ bis 500.000€. Der Preis hängt von Zucht, Training und Nachfrage ab.'
   }
 ]
 
@@ -96,7 +96,7 @@ const SECONDARY_CTA = {
 const seoLocales = {
   de: {
     title: 'Pferde Kosten Tabelle 2025: 300-900€/Monat - Kompletter Überblick',
-    description: 'Pferd Kosten 2025: Komplette Tabellen! ✓ Monatlich (300-900€) ✓ Anschaffung (2.500-20.000€) ✓ Rasse-Vergleich ✓ Regional-Unterschiede ✓ 3 Budget-Szenarien. Jetzt informieren!',
+    description: 'Pferd Kosten 2025: Monatlich 300-900€, Anschaffung 2.500-20.000€. Komplette Tabellen mit Rasse-Vergleich & Budget-Szenarien.',
     keywords: 'was kostet ein pferd, pferd kosten, pferd preis, pferd kosten monatlich, pferd kosten tabelle, pferdehaltung kosten, pferd anschaffungskosten',
     ogTitle: 'Pferde Kosten Tabelle 2025: 300-900€/Monat - Kompletter Überblick',
     ogDescription: 'Pferd Kosten 2025: Komplette Tabellen mit allen Ausgaben! Monatlich (300-900€), Anschaffung (2.500-20.000€), Rasse-Vergleich, Regional-Unterschiede, 3 Budget-Szenarien.',
@@ -564,7 +564,7 @@ export default function WasKostetEinPferd() {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
               <p className="text-lg font-bold text-gray-900 mb-2">Spartipp</p>
               <p className="text-lg text-gray-700">
-                Viele Gegenstände können gebraucht gekauft werden. eBay Kleinanzeigen oder spezialisierte Facebook-Gruppen bieten oft gut erhaltene Ausrüstung zu 40-60% des Neupreises. Wer Geld beim Stall sparen möchte, sollte auch <strong>günstige Offenstall-Optionen</strong> vergleichen.
+                Viele Gegenstände können gebraucht gekauft werden. Auf Kleinanzeigen oder in spezialisierten Facebook-Gruppen findet man oft gut erhaltene Ausrüstung zu 40-60% des Neupreises. Wir kaufen den Großteil unserer Ausrüstung gebraucht, meistens auf Kleinanzeigen.de. Wer Geld beim Stall sparen möchte, sollte auch <strong>günstige Offenstall-Optionen</strong> vergleichen.
               </p>
             </div>
 

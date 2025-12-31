@@ -20,7 +20,7 @@ const trendingUpIcon = <TrendingUp className="w-4 h-4 ml-2" />;
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter',
+    title: 'Freizeitpferd kaufen: Allrounder-Guide 2025 | PferdeWert',
     description: 'Freizeitpferd kaufen: Rassen von Warmblut bis Quarter Horse. Preise 8.000-25.000€, Qualitätskriterien & AKU-Tipps.',
     keywords: 'freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd warmblut, vielseitiges reitpferd, allrounder pferd kaufen',
     ogTitle: 'Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter',

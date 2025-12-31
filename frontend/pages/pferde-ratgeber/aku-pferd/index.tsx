@@ -119,7 +119,7 @@ const AKUPferd: NextPage = () => {
     <>
       <Head>
         {/* OPTIMIERT: Fokus auf "aku pferd" (informational), KEIN Kosten-Keyword */}
-        <title>AKU Pferd: Ablauf, Überblick & Leitfaden der Ankaufsuntersuchung | PferdeWert</title>
+        <title>AKU Pferd: Ablauf & Leitfaden 2025 | PferdeWert</title>
         <meta name="description" content="Was ist eine AKU beim Pferd? ✓ Ablauf der Ankaufsuntersuchung ✓ Kleine vs. Große AKU ✓ Zeitaufwand ✓ Expertenwissen für Pferdekäufer" />
         <meta name="keywords" content="aku pferd, ankaufsuntersuchung pferd, aku ablauf, kleine aku, große aku, aku klassen, befunde, röntgenbilder" />
         <meta name="author" content="PferdeWert.de" />

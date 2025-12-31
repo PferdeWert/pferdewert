@@ -21,7 +21,7 @@ const mountainIcon = <Mountain className="w-5 h-5" />;
 // SEO Locale Content for RatgeberHead
 const seoLocales = {
   de: {
-    title: 'Pferd kaufen Bayern 2025: Alle Marktplätze, Gestüte & Pferdemärkte',
+    title: 'Pferd kaufen Bayern: Gestüte & Märkte 2025 | PferdeWert',
     description: 'Pferd kaufen in Bayern: Über 1.800 Inserate auf ehorses & Co. Plus: Top-Gestüte in Oberbayern, Pferdemärkte 2025 & Landesverband mit Auktionen.',
     keywords: 'pferd kaufen bayern, pferdemarkt bayern, gestüt oberbayern, bayerisches warmblut, pferde münchen, rottaler kaufen',
     ogTitle: 'Pferd kaufen Bayern 2025: Alle Marktplätze & Gestüte',

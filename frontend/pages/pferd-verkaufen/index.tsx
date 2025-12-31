@@ -192,7 +192,7 @@ const PferdVerkaufen: NextPage = () => {
         <title>Pferd verkaufen 2025: Richtigen Verkaufspreis bestimmen</title>
         <meta
           name="description"
-          content={`Pferd verkaufen 2025: Verkaufspreis ermitteln mit KI-Bewertung in 2 Min (ab ${PRICING_FORMATTED.current}). Plattformvergleich (eHorses vs. pferde.de), 7-Phasen-Verkaufsprozess, rechtliche Absicherung. Jetzt erfolgreich verkaufen!`}
+          content={`Pferd verkaufen 2025: KI-Bewertung in 2 Min (ab ${PRICING_FORMATTED.current}). Plattformvergleich, 7-Phasen-Prozess & rechtliche Tipps.`}
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={canonicalUrl} />
