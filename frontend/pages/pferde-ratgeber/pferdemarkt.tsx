@@ -28,7 +28,7 @@ const alertCircleBrownIcon = <AlertCircle className="h-5 w-5 text-brand-brown" /
 const seoLocales = {
   de: {
     title: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
-    description: 'Pferdemarkt Deutschland 2025: Havelberger Markt mit 200.000 Besuchern, Bietigheim, Online-Plattformen mit 19.000+ Inserate. Tipps für Pferdekauf. Jetzt entdecken!',
+    description: 'Pferdemarkt 2025: Havelberg mit 200.000 Besuchern, Online-Plattformen mit 19.000+ Inserate. Tipps für sicheren Pferdekauf.',
     keywords: 'pferdemarkt, pferdemarkt deutschland, pferdemärkte, online pferdemarkt, havelberger pferdemarkt, bietigheimer pferdemarkt',
     ogTitle: 'Pferdemarkt 2025: Online Plattformen & traditionelle Märkte',
     ogDescription: 'Pferdemarkt Deutschland: Entdecke Havelberg (200.000 Besucher), Bietigheim & Online-Plattformen. Praktische Tipps für sicheren Pferdekauf.',

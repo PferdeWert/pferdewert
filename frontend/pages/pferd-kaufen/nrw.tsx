@@ -22,7 +22,7 @@ const buildingIcon = <Building2 className="w-5 h-5" />;
 const seoLocales = {
   de: {
     title: 'Pferd kaufen NRW 2025: Alle Marktplätze, Züchter & Märkte im Überblick',
-    description: 'Pferd kaufen in NRW: Über 2.500 Inserate auf ehorses, kleinanzeigen & Co. Plus: Top-Züchter im Münsterland, Pferdemärkte 2025 & Zuchtverbände mit Verkaufsportalen.',
+    description: 'Pferd kaufen in NRW: 2.500+ Inserate auf ehorses & Co. Top-Züchter im Münsterland, Pferdemärkte 2025 & Zuchtverbände.',
     keywords: 'pferd kaufen nrw, pferdemarkt nrw, pferdezüchter münsterland, westfale kaufen, pferde kleinanzeigen nrw',
     ogTitle: 'Pferd kaufen NRW 2025: Alle Marktplätze & Züchter',
     ogDescription: 'Komplette Übersicht: Online-Marktplätze, regionale Züchter im Münsterland & Niederrhein, Pferdemärkte 2025 und Zuchtverbände in NRW.',

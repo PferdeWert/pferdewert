@@ -21,7 +21,7 @@ const trendingUpIcon = <TrendingUp className="w-4 h-4 ml-2" />;
 const seoLocales = {
   de: {
     title: 'Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter',
-    description: 'Freizeitpferd kaufen: Vielseitige Rassen von Warmblut bis Quarter Horse, Preise 8.000-25.000€, Qualitätskriterien & AKU. Für erfahrene Freizeitreiter mit Ambitionen.',
+    description: 'Freizeitpferd kaufen: Rassen von Warmblut bis Quarter Horse. Preise 8.000-25.000€, Qualitätskriterien & AKU-Tipps.',
     keywords: 'freizeitpferd kaufen, freizeitpferd rassen, freizeitpferd warmblut, vielseitiges reitpferd, allrounder pferd kaufen',
     ogTitle: 'Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter',
     ogDescription: 'Freizeitpferd kaufen: Warmblüter, Quarter Horses & vielseitige Allrounder. Preise, Qualitätskriterien und Kaufberatung für erfahrene Reiter.',

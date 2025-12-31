@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { COUNTRY_EXCLUSIVE_SLUGS } from '@/lib/country-exclusive-pages';
+import { COUNTRY_EXCLUSIVE_SLUGS, isPageAllowedForCountry } from '@/lib/country-exclusive-pages';
 
 // Domain mapping per Next.js i18n locale (configured in next.config.js)
 // UPDATED 2025-12-14: Uses Next.js i18n locales ('de', 'de-AT', 'de-CH')
@@ -113,7 +113,12 @@ export default function RatgeberHead({
   const siteName = SITE_NAMES[locale] || SITE_NAMES['de'];
   const ogLocale = OG_LOCALES[locale] || OG_LOCALES['de'];
 
-  const canonicalUrl = `${domain}${basePath}/${slug}`;
+  // Build full path - handles empty slug for hub/index pages
+  // e.g., basePath="/pferd-kaufen", slug="" → "/pferd-kaufen"
+  // e.g., basePath="/pferde-ratgeber", slug="aku-pferd" → "/pferde-ratgeber/aku-pferd"
+  const fullPath = slug ? `${basePath}/${slug}` : basePath;
+
+  const canonicalUrl = `${domain}${fullPath}`;
   const imageUrl = `${domain}${image}`;
   const finalDateModified = dateModified || datePublished;
 
@@ -124,13 +129,19 @@ export default function RatgeberHead({
   // Check if this is a country-exclusive page (no hreflang needed)
   const isExclusivePage = COUNTRY_EXCLUSIVE_SLUGS.includes(slug);
 
+  // Check if page is actually AVAILABLE on AT/CH (via whitelist, not just has content)
+  // This prevents hreflang from pointing to pages that 301-redirect on AT/CH
+  const isAllowedOnAT = isPageAllowedForCountry(fullPath, 'AT');
+  const isAllowedOnCH = isPageAllowedForCountry(fullPath, 'CH');
+
   // Generate hreflang tags for all available locales
   // SKIP hreflang for country-exclusive pages (they only exist on one domain)
+  // ALSO skip AT/CH hreflang if page is not allowed on those domains (would cause 301 redirect)
   const hreflangTags = isExclusivePage ? [] : [
-    { hreflang: 'de', href: `${DOMAINS['de']}${basePath}/${slug}` },
-    ...(hasAtContent ? [{ hreflang: 'de-AT', href: `${DOMAINS['de-AT']}${basePath}/${slug}` }] : []),
-    ...(hasChContent ? [{ hreflang: 'de-CH', href: `${DOMAINS['de-CH']}${basePath}/${slug}` }] : []),
-    { hreflang: 'x-default', href: `${DOMAINS['de']}${basePath}/${slug}` },
+    { hreflang: 'de', href: `${DOMAINS['de']}${fullPath}` },
+    ...(hasAtContent && isAllowedOnAT ? [{ hreflang: 'de-AT', href: `${DOMAINS['de-AT']}${fullPath}` }] : []),
+    ...(hasChContent && isAllowedOnCH ? [{ hreflang: 'de-CH', href: `${DOMAINS['de-CH']}${fullPath}` }] : []),
+    { hreflang: 'x-default', href: `${DOMAINS['de']}${fullPath}` },
   ];
 
   // Build author schema - Person if provided, otherwise Organization fallback

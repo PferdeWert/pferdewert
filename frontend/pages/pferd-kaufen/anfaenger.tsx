@@ -217,7 +217,7 @@ const weitereVersicherungenData = [
 const seoLocales = {
   de: {
     title: "Anfängerpferd kaufen: Verlasspferde & Schulpferde für Einsteiger",
-    description: "Anfängerpferd kaufen: Verlasspferde, Schulpferde & ruhige Rassen für absolute Einsteiger. Optimales Alter 10-18 Jahre, Preise 3.000-10.000€. Charakter wichtiger als Rasse!",
+    description: "Anfängerpferd kaufen: Ruhige Rassen für Einsteiger. Alter 10-18 Jahre, 3.000-10.000€. Worauf achten? Tipps & Checkliste.",
     keywords: "anfängerpferd kaufen, verlasspferd kaufen, schulpferd kaufen, pferd für anfänger, erstes pferd kaufen, ruhiges pferd kaufen",
     ogTitle: "Anfängerpferd kaufen: Verlasspferde & Schulpferde für Einsteiger",
     ogDescription: "Verlasspferde für Anfänger: Schulpferde, Haflinger & Fjordpferde. Alter 10-18 Jahre, fehlerverzeihend, geduldig. So findest du dein erstes Pferd.",

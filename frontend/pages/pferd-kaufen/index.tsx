@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import LocalizedLink from '@/components/LocalizedLink'
-import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
+import { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 import { useMemo } from "react"
 import { ArrowRight, TrendingUp, MapPin, ChevronDown, AlertTriangle } from "lucide-react"
 
@@ -162,7 +162,7 @@ const faqItems: FAQItem[] = [
 const PferdKaufen: NextPage = () => {
   const { locale } = useRouter()
   const canonicalUrl = useCanonicalUrl('/pferd-kaufen')
-  const hreflangTags = useSEOHreflang('/pferd-kaufen')
+  // NOTE: No hreflang for noindex pages - they're not indexed anyway
 
   // Extract domain from canonical URL for dynamic meta tags
   const domain = useMemo(() => {
@@ -232,7 +232,7 @@ const relatedArticles = useMemo(() =>
 
           {/* Canonical URL */}
           <link rel="canonical" href={canonicalUrl} />
-          {hreflangTags}
+          {/* NOTE: No hreflang for noindex pages - they're not indexed anyway */}
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="article" />

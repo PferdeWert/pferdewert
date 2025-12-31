@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { RATGEBER_ENTRIES, getRatgeberPath, type RatgeberEntry } from '@/lib/ratgeber-registry'
 import LocalizedLink from '@/components/LocalizedLink'
-import useSEOHreflang, { useCanonicalUrl } from '@/hooks/useSEOHreflang'
+import { useCanonicalUrl } from '@/hooks/useSEOHreflang'
 
 // ============================================================================
 // TYPES
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
 
 const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
   const canonicalUrl = useCanonicalUrl('/pferde-ratgeber')
-  const hreflangTags = useSEOHreflang('/pferde-ratgeber')
+  // NOTE: No hreflang for noindex pages - they're not indexed anyway
 
   return (
     <>
@@ -69,7 +69,7 @@ const PferdeRatgeber: NextPage<PageProps> = ({ artikel }) => {
         <meta name="keywords" content="Pferde Ratgeber, AKU Pferd, Pferd kaufen, Pferd verkaufen, Pferdekauf Ratgeber, Ankaufsuntersuchung, Pferdegesundheit" />
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href={canonicalUrl} />
-        {hreflangTags}
+        {/* NOTE: No hreflang for noindex pages - they're not indexed anyway */}
       </Head>
 
       <Header />
