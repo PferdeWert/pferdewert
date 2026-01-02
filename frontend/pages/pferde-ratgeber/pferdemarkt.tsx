@@ -130,7 +130,6 @@ const Pferdemarkt: NextPage = () => {
         wordCount={1725}
         breadcrumbTitle="Pferdemarkt"
         faqItems={pferdemarktFaqItems}
-        noindex={true}
         author={{
           name: "Benjamin Reder",
           url: "https://pferdewert.de/ueber-pferdewert",

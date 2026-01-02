@@ -81,8 +81,6 @@ const NOINDEX_PAGES = [
   '/pferd-kaufen/kaufvertrag',  // SV: 1.000 - informational intent
   '/pferd-kaufen/lipizzaner',   // SV: 480 - niedrig
   '/pferd-kaufen/anfaenger',    // SV: 260 - niedrig
-  '/pferde-ratgeber/aku-pferd/kosten', // SV: 210 - in Haupt-AKU integrieren
-  '/pferde-ratgeber/pferdemarkt',      // SV: 110 - nicht core business
 ];
 
 function getCurrentDate() {

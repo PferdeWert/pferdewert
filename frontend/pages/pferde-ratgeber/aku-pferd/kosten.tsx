@@ -195,7 +195,6 @@ const AkuPferdKosten: NextPage = () => {
             image: "https://pferdewert.de/images/shared/benjamin-reder.webp"
           }}
           faqItems={faqItems.map(f => ({ question: f.question, answer: f.answer }))}
-          noindex={true}
         />
 
         <RatgeberHero
