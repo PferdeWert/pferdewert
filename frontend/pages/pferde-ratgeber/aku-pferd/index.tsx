@@ -125,11 +125,9 @@ const AKUPferd: NextPage = () => {
         <meta name="author" content="PferdeWert.de" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-        {/* Technical Meta Tags */}
+        {/* Technical Meta Tags - theme-color & msapplication-TileColor defined in _document.tsx */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <meta name="theme-color" content="#5A4B3B" />
-        <meta name="msapplication-TileColor" content="#5A4B3B" />
 
         {/* Canonical and hreflang */}
         <link rel="canonical" href={canonicalUrl} />
