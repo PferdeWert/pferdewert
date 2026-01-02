@@ -67,10 +67,16 @@ const EXCLUDED_PAGES = [
 
 // SEO Recovery: noindex-Seiten aus Sitemap ausschließen
 // Diese Seiten haben meta robots="noindex, follow" und sollten nicht in der Sitemap sein
-// Stand: 21.12.2025 - Google December 2025 Core Update Recovery
+// Stand: 02.01.2026 - Google December 2025 Core Update Recovery
 const NOINDEX_PAGES = [
+  // Legal pages (noindex, follow)
+  '/datenschutz',               // Privacy policy
+  '/impressum',                 // Imprint
+  '/agb',                       // Terms & conditions
+  // Hub pages without unique content
   '/pferd-kaufen',              // Hub-Seite ohne unique Content
   '/pferde-ratgeber',           // Hub-Seite ohne unique Content
+  // Low-value or consolidated pages
   '/pferd-kaufen/fohlen',       // SV: 1.300 - konsolidiert
   '/pferd-kaufen/kaufvertrag',  // SV: 1.000 - informational intent
   '/pferd-kaufen/lipizzaner',   // SV: 480 - niedrig

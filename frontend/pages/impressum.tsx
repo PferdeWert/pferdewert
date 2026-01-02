@@ -10,6 +10,7 @@ export default function Impressum() {
     <Layout>
       <Head>
         <title>Impressum | PferdeWert.de</title>
+        <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href={canonical} />
         {hreflangTags.map(tag => (
           <link key={tag.hreflang} rel="alternate" hrefLang={tag.hreflang} href={tag.href} />
