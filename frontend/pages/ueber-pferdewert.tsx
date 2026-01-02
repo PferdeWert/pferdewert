@@ -66,7 +66,7 @@ export default function UeberUns() {
               "alternateName": "PferdeWert",
               "description": `${leadingPlatformText}. Transparent, fair und präzise Marktwertanalysen für Pferde.`,
               "url": domain,
-              "logo": `${domain}/favicon.svg`,
+              "logo": `${domain}/web-app-manifest-512x512.png`,
               "foundingDate": "2025",
               "founders": [
                 {

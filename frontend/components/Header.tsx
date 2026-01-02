@@ -201,7 +201,7 @@ export default function HeaderUnified() {
             {/* Logo + Brand Name */}
             <LocalizedLink href="/" className="flex items-center space-x-3">
               <Image
-                src="/favicon.svg"
+                src="/web-app-manifest-192x192.png"
                 alt="PferdeWert"
                 width={40}
                 height={40}
@@ -281,7 +281,7 @@ export default function HeaderUnified() {
             {/* Logo ohne Text */}
             <LocalizedLink href="/" className="flex items-center -ml-2">
               <Image
-                src="/favicon.svg"
+                src="/web-app-manifest-192x192.png"
                 alt="PferdeWert"
                 width={36}
                 height={36}
