@@ -136,7 +136,7 @@ const breedingAssociations = [
     name: 'Rheinisches Pferdestammbuch e.V.',
     shortName: 'Rheinland',
     url: 'https://www.pferdezucht-rheinland.de',
-    salesPortal: 'https://www.pferdezucht-rheinland.de/verkaufspferde/',
+    salesPortal: 'https://auction.pferdezucht-rheinland.de/',
     description: 'Zuchtverband für den Rheinländer und andere Rassen. Verkaufsportal mit geprüften Pferden.',
     events: 'Rheinische Auktion, Fohlenchampionate',
   },

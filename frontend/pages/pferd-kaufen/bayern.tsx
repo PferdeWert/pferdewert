@@ -131,7 +131,7 @@ const breedingAssociations = [
     name: 'Landesverband Bayerischer Pferdezüchter e.V.',
     shortName: 'LVBP',
     url: 'https://www.bayerns-pferde.de',
-    salesPortal: 'https://www.bayerns-pferde.de/service/pferde-kaufen/',
+    salesPortal: 'https://www.bayerns-pferde.de',
     description: 'Offizieller Zuchtverband für Bayern. Auktionen in München und Südbayern.',
     events: 'Südbayerisches Reitpferdefohlen-Championat, Bayerns Pferde International',
   },
