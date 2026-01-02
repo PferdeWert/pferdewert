@@ -358,6 +358,11 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/ratgeber/pferd-kaufen',
+        destination: '/pferd-kaufen',
+        statusCode: 301,
+      },
+      {
         source: '/ratgeber',
         destination: '/pferde-ratgeber',
         statusCode: 301,
