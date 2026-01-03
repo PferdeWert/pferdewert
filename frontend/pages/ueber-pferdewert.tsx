@@ -28,6 +28,13 @@ export default function UeberUns() {
       ? 'Die Schweizer Online-Pferdebewertung'
       : 'Deutschlands #1 Online-Pferdebewertung';
 
+  // AT/CH specific market description
+  const marketDescription = isAustria
+    ? 'Ob Haflinger aus Tirol, Lipizzaner aus Wien oder Warmblut aus Salzburg – unser KI-Modell berücksichtigt die Besonderheiten des österreichischen Pferdemarkts, inklusive OEPS-konformer Ausbildungsstufen wie LP und LM.'
+    : isSwitzerland
+      ? 'Ob Freiberger aus dem Jura, Warmblut aus Zürich oder Haflinger aus Graubünden – unser KI-Modell berücksichtigt die Besonderheiten des Schweizer Pferdemarkts mit SVPS-konformen Standards.'
+      : 'Ob Warmblut, Haflinger oder Isländer – unser KI-Modell analysiert den gesamten deutschen Pferdemarkt mit FN-konformen Ausbildungsstufen.';
+
   // AT/CH Localized Meta
   const metaTitle = isAustria
     ? 'Über PferdeWert.at | KI-Pferdebewertung für Österreich'
@@ -70,7 +77,7 @@ export default function UeberUns() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "PferdeWert.de",
+              "name": siteName,
               "alternateName": "PferdeWert",
               "description": `${leadingPlatformText}. Transparent, fair und präzise Marktwertanalysen für Pferde.`,
               "url": domain,
@@ -121,9 +128,9 @@ export default function UeberUns() {
               "@type": "AboutPage",
               "mainEntity": {
                 "@type": "Organization",
-                "name": "PferdeWert.de"
+                "name": siteName
               },
-              "description": "Erfahren Sie mehr über das PferdeWert.de Team - eine Pferdefamilie mit KI-Expertise, die den Pferdemarkt transparenter und fairer gestaltet.",
+              "description": `Erfahren Sie mehr über das ${siteName} Team - eine Pferdefamilie mit KI-Expertise, die den ${isAustria ? 'österreichischen' : isSwitzerland ? 'Schweizer' : 'deutschen'} Pferdemarkt transparenter und fairer gestaltet.`,
               "url": canonicalUrl
             })
           }}
@@ -152,7 +159,7 @@ export default function UeberUns() {
                   Über uns
                 </h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-2xl">
-                  Eine kleine Pferdefamilie mit großer Mission: Den Pferdemarkt transparenter, fairer und einfach besser zu machen – mit KI-Power und viel Herzblut.
+                  Eine kleine Pferdefamilie mit großer Mission: Den {isAustria ? 'österreichischen' : isSwitzerland ? 'Schweizer' : 'deutschen'} Pferdemarkt transparenter, fairer und einfach besser zu machen – mit KI-Power und viel Herzblut.
                 </p>
               </div>
             </div>
@@ -258,7 +265,10 @@ export default function UeberUns() {
                   <h3 className="text-2xl font-semibold text-gray-900 mb-4">Von der Idee zur Realität</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Aus dieser Neugier wurde ein kleines Projekt – und aus diesem Projekt entstand:{" "}
-                    <span className="font-bold text-brand-brown text-xl">PferdeWert.de</span>
+                    <span className="font-bold text-brand-brown text-xl">{siteName}</span>
+                  </p>
+                  <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                    {marketDescription}
                   </p>
                 </div>
               </div>
@@ -275,11 +285,11 @@ export default function UeberUns() {
               {/* Hauptmission */}
               <div className="space-y-8 mb-12">
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Transparenz für den deutschsprachigen Pferdemarkt</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Transparenz für den {isAustria ? 'österreichischen' : isSwitzerland ? 'Schweizer' : 'deutschsprachigen'} Pferdemarkt</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Wir wollen, dass jeder Pferdemensch – ob Käufer, Verkäufer oder Besitzer – den Marktwert eines Pferdes
+                    Wir wollen, dass jeder Pferdemensch {isAustria ? 'in Österreich' : isSwitzerland ? 'in der Schweiz' : ''} – ob Käufer, Verkäufer oder Besitzer – den Marktwert eines Pferdes
                     <span className="font-semibold text-brand-brown"> realistisch und fair einschätzen</span> kann. Ohne
-                    teure Experten. Ohne Rätselraten. Ohne Bauchgefühl. Sondern mit einer datenbasierten, neutralen Analyse.
+                    teure Experten. Ohne Rätselraten. Ohne Bauchgefühl. Sondern mit einer datenbasierten, neutralen Analyse{isAustria ? ', die den österreichischen Markt versteht' : isSwitzerland ? ', die den Schweizer Markt versteht' : ''}.
                   </p>
                 </div>
 
@@ -298,7 +308,7 @@ export default function UeberUns() {
               {/* Unsere Lösung */}
               <div className="bg-[#fdf7f1] p-8 rounded-xl border border-[#e0c9aa] mb-8">
                 <h3 className="text-2xl font-semibold text-brand-brown mb-6">
-                  <span className="font-bold">PferdeWert.de</span> - Die professionelle Lösung:
+                  <span className="font-bold">{siteName}</span> - Die professionelle Lösung{isAustria ? ' für Österreich' : isSwitzerland ? ' für die Schweiz' : ''}:
                 </h3>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="flex items-start space-x-3">

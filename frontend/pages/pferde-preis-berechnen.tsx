@@ -30,7 +30,6 @@ import {
 const getLocalizedFaqData = (isAustria: boolean, isSwitzerland: boolean) => {
   const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
   const exampleBreed = isAustria ? 'Haflinger' : isSwitzerland ? 'Freiberger' : 'Hannoveraner';
-  const exampleRegion = isAustria ? 'Tirol' : isSwitzerland ? 'Graubünden' : 'Bayern';
   const paymentMethods = isAustria
     ? 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie EPS (Electronic Payment Standard) – die beliebteste Zahlungsmethode in Österreich. Die Zahlung erfolgt sicher über Stripe.'
     : isSwitzerland
