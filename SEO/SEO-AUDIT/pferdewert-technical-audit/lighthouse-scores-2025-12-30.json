@@ -1,0 +1,215 @@
+{
+  "audit_date": "2025-12-30",
+  "domain": "pferdewert.de",
+  "lighthouse_version": "12.x",
+  "test_mode": "mobile",
+  "summary": {
+    "average_performance": 0.97,
+    "average_accessibility": 0.96,
+    "average_best_practices": 1.0,
+    "average_seo": 1.0
+  },
+  "pages": [
+    {
+      "url": "https://pferdewert.de/",
+      "page_type": "homepage",
+      "priority": 1,
+      "scores": {
+        "performance": 1.00,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "core_web_vitals": {
+        "LCP": "0.8s",
+        "FCP": "0.3s",
+        "TBT": "0ms",
+        "CLS": "0",
+        "SI": "0.4s"
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferde-preis-berechnen",
+      "page_type": "conversion",
+      "priority": 1,
+      "scores": {
+        "performance": 0.95,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "core_web_vitals": {
+        "LCP": "1.5s",
+        "FCP": "0.3s",
+        "TBT": "0ms",
+        "CLS": "0",
+        "SI": "0.7s"
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/beispiel-analyse",
+      "page_type": "service",
+      "priority": 2,
+      "scores": {
+        "performance": 1.00,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "core_web_vitals": {
+        "LCP": "0.8s",
+        "FCP": "0.3s",
+        "TBT": "0ms",
+        "CLS": "0",
+        "SI": "0.4s"
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd",
+      "page_type": "ratgeber",
+      "priority": 2,
+      "scores": {
+        "performance": 0.97,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "core_web_vitals": {
+        "LCP": "1.3s",
+        "FCP": "0.3s",
+        "TBT": "0ms",
+        "CLS": "0",
+        "SI": "0.3s"
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+      "page_type": "ratgeber",
+      "priority": 2,
+      "scores": {
+        "performance": 0.99,
+        "accessibility": 0.95,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "core_web_vitals": {
+        "LCP": "1.0s",
+        "FCP": "0.3s",
+        "TBT": "0ms",
+        "CLS": "0",
+        "SI": "0.4s"
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+      "page_type": "ratgeber",
+      "priority": 2,
+      "scores": {
+        "performance": 0.96,
+        "accessibility": 0.95,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferd-kaufen/freizeitpferd",
+      "page_type": "spoke",
+      "priority": 2,
+      "scores": {
+        "performance": 0.96,
+        "accessibility": 0.95,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferd-kaufen/haflinger",
+      "page_type": "spoke",
+      "priority": 2,
+      "scores": {
+        "performance": 0.96,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferd-kaufen/bayern",
+      "page_type": "spoke",
+      "priority": 2,
+      "scores": {
+        "performance": 0.95,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "cwv_status": "PASS"
+    },
+    {
+      "url": "https://pferdewert.de/pferd-kaufen/nrw",
+      "page_type": "spoke",
+      "priority": 2,
+      "scores": {
+        "performance": 0.96,
+        "accessibility": 0.96,
+        "best_practices": 1.00,
+        "seo": 1.00
+      },
+      "cwv_status": "PASS"
+    }
+  ],
+  "identified_issues": {
+    "performance": [
+      {
+        "id": "uses-long-cache-ttl",
+        "severity": "WARNING",
+        "title": "Serve static assets with an efficient cache policy",
+        "affected_pages": "all",
+        "score": 0.5
+      },
+      {
+        "id": "unused-css-rules",
+        "severity": "WARNING",
+        "title": "Reduce unused CSS",
+        "affected_pages": "all",
+        "score": 0.5
+      },
+      {
+        "id": "legacy-javascript",
+        "severity": "WARNING",
+        "title": "Avoid serving legacy JavaScript to modern browsers",
+        "affected_pages": "all",
+        "score": 0.5
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "color-contrast",
+        "severity": "WARNING",
+        "title": "Background and foreground colors may not have sufficient contrast ratio",
+        "affected_pages": "needs investigation",
+        "score": null
+      }
+    ],
+    "best_practices": [],
+    "seo": []
+  },
+  "core_web_vitals_summary": {
+    "LCP_threshold": "2.5s (good)",
+    "all_pages_pass_LCP": true,
+    "best_LCP": "0.8s (homepage)",
+    "worst_LCP": "1.5s (pferde-preis-berechnen)",
+    "CLS_threshold": "0.1 (good)",
+    "all_pages_pass_CLS": true,
+    "TBT_threshold": "200ms (good)",
+    "all_pages_pass_TBT": true
+  }
+}

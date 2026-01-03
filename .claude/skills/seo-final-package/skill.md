@@ -1,3 +1,9 @@
+---
+name: seo-final-package
+description: Erstellt deployment-ready Publication Package mit Next.js Code, Metadata und Schemas. Phase 7 des SEO Workflows.
+allowed-tools: Read, Write, Edit, Glob
+---
+
 # SEO Final Package - Publication Document Generator
 
 Creates all-in-one publication document with complete Next.js code, metadata, and schemas.

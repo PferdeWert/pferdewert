@@ -1,0 +1,164 @@
+{
+  "audit_date": "2025-12-30",
+  "domain": "pferdewert.de",
+  "total_urls": 20,
+  "sitemap_source": "https://pferdewert.de/sitemap.xml",
+  "url_categories": {
+    "main_pages": [
+      {
+        "url": "https://pferdewert.de/",
+        "type": "homepage",
+        "priority": 1,
+        "description": "Homepage - Haupteinstiegsseite"
+      },
+      {
+        "url": "https://pferdewert.de/pferde-preis-berechnen",
+        "type": "conversion",
+        "priority": 1,
+        "description": "Bewertungsformular - Haupt-Conversion-Seite"
+      },
+      {
+        "url": "https://pferdewert.de/beispiel-analyse",
+        "type": "service",
+        "priority": 2,
+        "description": "Beispielanalyse - Trust-Building"
+      },
+      {
+        "url": "https://pferdewert.de/ueber-pferdewert",
+        "type": "about",
+        "priority": 3,
+        "description": "Über uns - E-E-A-T Seite"
+      }
+    ],
+    "ratgeber_articles": [
+      {
+        "url": "https://pferdewert.de/pferde-ratgeber/aku-pferd",
+        "type": "ratgeber",
+        "priority": 2,
+        "description": "AKU Pferd - Informational Content"
+      },
+      {
+        "url": "https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+        "type": "ratgeber",
+        "priority": 2,
+        "description": "Was kostet ein Pferd - High-Volume Keyword"
+      },
+      {
+        "url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+        "type": "ratgeber",
+        "priority": 2,
+        "description": "Pferd verkaufen - Commercial Intent"
+      }
+    ],
+    "commercial_cluster": [
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/freizeitpferd",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Freizeitpferd kaufen - Spoke Page"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/springpferd",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Springpferd kaufen - Spoke Page"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/dressurpferd",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Dressurpferd kaufen - Spoke Page"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/haflinger",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Haflinger kaufen - Rasse Spoke"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/pony",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Pony kaufen - Spoke Page"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/quarter-horse",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Quarter Horse kaufen - Rasse Spoke"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/friese",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Friese kaufen - Rasse Spoke"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/islandpferd",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Islandpferd kaufen - Rasse Spoke"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/bayern",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Pferd kaufen Bayern - Regional Spoke"
+      },
+      {
+        "url": "https://pferdewert.de/pferd-kaufen/nrw",
+        "type": "spoke",
+        "priority": 2,
+        "description": "Pferd kaufen NRW - Regional Spoke"
+      }
+    ],
+    "legal_pages": [
+      {
+        "url": "https://pferdewert.de/impressum",
+        "type": "legal",
+        "priority": 4,
+        "description": "Impressum - Legal Required"
+      },
+      {
+        "url": "https://pferdewert.de/datenschutz",
+        "type": "legal",
+        "priority": 4,
+        "description": "Datenschutz - Legal Required"
+      },
+      {
+        "url": "https://pferdewert.de/agb",
+        "type": "legal",
+        "priority": 4,
+        "description": "AGB - Legal Required"
+      }
+    ]
+  },
+  "priority_summary": {
+    "prio_1_business_critical": 2,
+    "prio_2_high_value": 14,
+    "prio_3_medium": 1,
+    "prio_4_low": 3
+  },
+  "top_20_urls_for_analysis": [
+    "https://pferdewert.de/",
+    "https://pferdewert.de/pferde-preis-berechnen",
+    "https://pferdewert.de/beispiel-analyse",
+    "https://pferdewert.de/pferde-ratgeber/aku-pferd",
+    "https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+    "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+    "https://pferdewert.de/pferd-kaufen/freizeitpferd",
+    "https://pferdewert.de/pferd-kaufen/springpferd",
+    "https://pferdewert.de/pferd-kaufen/dressurpferd",
+    "https://pferdewert.de/pferd-kaufen/haflinger",
+    "https://pferdewert.de/pferd-kaufen/pony",
+    "https://pferdewert.de/pferd-kaufen/quarter-horse",
+    "https://pferdewert.de/pferd-kaufen/friese",
+    "https://pferdewert.de/pferd-kaufen/islandpferd",
+    "https://pferdewert.de/pferd-kaufen/bayern",
+    "https://pferdewert.de/pferd-kaufen/nrw",
+    "https://pferdewert.de/ueber-pferdewert",
+    "https://pferdewert.de/impressum",
+    "https://pferdewert.de/datenschutz",
+    "https://pferdewert.de/agb"
+  ]
+}

@@ -61,7 +61,17 @@ OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
    - SEO/SEO-PROZESS/methodology/content-writing-examples.md
    - SEO/pferdewert-brand-language.md
 
-3. Schreibe vollständigen Artikel:
+3. 🎯 READABILITY-REGEL (8. Klasse Niveau - KRITISCH!):
+   - **Flesch-Reading-Ease Ziel: ≥ 60** (Deutsch-Skala)
+   - **Max 15 Wörter pro Satz** (Durchschnitt, einzelne dürfen länger sein)
+   - **Max 3 Sätze pro Absatz** (für Scannability)
+   - **Einfache Wörter bevorzugen**: "nutzen" statt "verwenden", "zeigen" statt "demonstrieren"
+   - **Keine Schachtelsätze**: Hauptsatz + max 1 Nebensatz
+   - **Fachbegriffe IMMER erklären**: "AKU (Ankaufsuntersuchung)" beim ersten Vorkommen
+   - **Aktiv statt Passiv**: "Wir prüfen" statt "Es wird geprüft"
+   - **Ziel**: Ein 14-Jähriger soll den Text verstehen können
+
+4. Schreibe vollständigen Artikel:
    - Nutze outline.sections[] als Struktur
    - Integriere keyword.primary, secondary, longtail natürlich
    - Verwende contentRequirements.eeat.experienceSnippets[] für E-E-A-T Signale
@@ -146,8 +156,11 @@ OUTPUT: SEO/SEO-CONTENT/{keyword-slug}/
 ✅ **Word Count im Target Range**
 ✅ **Primary Keyword Density 0.8-1.2%**
 ✅ **Min 8 semantische Topics abgedeckt**
+✅ **Readability Flesch-Score ≥ 60** (8. Klasse Niveau)
+✅ **Durchschnittliche Satzlänge ≤ 15 Wörter**
 ❌ **Wenn E-E-A-T Score &lt; 7** → Retry Phase 4B mit expliziter E-E-A-T Verstärkung
-❌ **Wenn Readability &lt; 60** → Retry mit Aufforderung kürzere Sätze/einfachere Sprache
+❌ **Wenn Readability &lt; 60** → Retry: "Vereinfache Sprache: max 15 Wörter/Satz, keine Schachtelsätze"
+❌ **Wenn avg Satzlänge > 18 Wörter** → Retry: "Kürze lange Sätze, teile komplexe Aussagen auf"
 
 **Partial Success**: Wenn 1-2 Checks failed aber E-E-A-T Score ≥ 7 → proceed mit Warning.
 

@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet ein Pferd monatlich im Unterhalt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Pferd kostet durchschnittlich 700€ - 1.000€ monatlich im Unterhalt. Das setzt sich zusammen aus: Stallmiete (450€), Futter (130€), Hufschmied (75€), Tierarzt (50€) und Versicherungen (55€). Die genaue Summe hängt von der Stallart (Selbstversorger vs. Vollpension), Region und Pferdetyp ab. Mit Reitunterricht oder Beritt können es bis zu 1.500€ monatlich werden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie teuer ist es, ein Pferd zu besitzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die monatlichen Kosten für ein Pferd liegen zwischen 400€ (Budget-Variante mit Selbstversorger, ländlich) und 1.800€+ (Sportpferd, Vollpension, Stadt mit Beritt). Ein realistisches Budget für gute Pferdeversorgung sollte mit 700€ - 1.200€ monatlich kalkuliert werden, plus eine Notfall-Reserve von 1.500€ - 2.000€."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was sind die größten Kostenpositionen bei der Pferdehaltung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die größten Kostenpositionen sind: (1) Stallmiete - 40-50% des Budgets (150€ - 900€), (2) Futter & Heu - 15-20% (60€ - 220€), (3) Hufschmied - 5-10% (35€ - 130€), (4) Tierarzt & Versicherungen - 10-15% zusammen, (5) Reitunterricht/Training - 0-20% je nach Ambition (0€ - 350€+)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich Pferdekosten sparen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, deutlich. Die wirksamsten Sparmöglichkeiten: (1) Stallwechsel zu Selbstversorger - spart 150€ - 300€/Monat, (2) Barfuß statt Eisenbeschlag - spart 30€ - 50€, (3) Gruppenlektionen statt Privat - spart 100€ - 200€, (4) Heu vom Bauern kaufen - spart 15€ - 30€, (5) Futter-Coop mit anderen Besitzern - spart 10€ - 20€. Gesamtsparpotential: 300€ - 500€ monatlich. Aber: Spar nicht bei Futter-Qualität, Hufbetreuung oder Tierarzt!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist eine OP-Versicherung für Pferde sinnvoll?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, OP-Versicherung ist dringend empfohlen. Kosten: 200€ - 400€/Jahr (17€ - 33€/Monat). Eine einzige Kolik-OP kostet 4.000€ - 8.000€. Die Versicherung amortisiert sich nach 1-2 Notfällen. Auch OP-Versicherung mit niedriger Deckung (2.500€) ist besser als gar keine. Haftpflichtversicherung ist nicht optional - ist oft in deiner Privathaftpflicht enthalten, sollte aber gezielt für Pferdehaltung checked werden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viel Notfall-Reserve sollte ich als Pferdehalter haben?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minimum: 1.500€ - 2.000€ in sofort verfügbarer Reserve. Das ist die durchschnittliche Notfall-Vet-Rechnung (ohne OP). Idealerweise solltest du 10-15% deines monatlichen Budgets als kontinuierliche Rücklagen bilden. Beispiel: Bei 600€ monatlichem Budget 60€ - 90€/Monat sparen, Aufbaudauer 15-24 Monate. Notfall-Rücklagen sind für: Vet-Notfälle (nicht versichert), Equipment-Schäden, Notfall-Transport, oder Notfall-Stallwechsel nötig."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche regionalen Unterschiede gibt es bei Pferdekosten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Massive regionale Unterschiede besonders bei Stallmiete: Großstadt (Berlin, München) 600€ - 900€ Vollpension, Stadtrand (Umland) 400€ - 600€, Landkreis 250€ - 400€, Ländlich 150€ - 300€. Faustregel: Jede Stunde Fahrtweg sparen kostet etwa 200€ - 300€ monatlich weniger. Auch Futterpreise und Vet-Gebühren variieren regional erheblich. In Österreich und der Schweiz können die Preise nochmal abweichen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche versteckten Kosten übersehen Anfänger häufig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Häufig übersehene versteckte Kosten: (1) Raus-/Rein-Service falls du nicht selbst kommst (50€ - 150€), (2) Zusätzlicher Koppelgang (30€ - 80€), (3) Heu-Qualitäts-Aufschlag (20€ - 50€), (4) Führanlage/Solarium-Nutzung (50€ - 100€), (5) Equipment-Ersatz (Satteldecken, Bandagen, 10€ - 40€), (6) Feed-Preisschwankungen im Winter (+30€ - 50€), (7) Physiotherapie/Osteopathie (60€ - 150€ pro Termin), (8) Transport & Turniere (variable). Kalkuliere 10-15% Puffer für unvorhergesehenes ein."
+      }
+    }
+  ]
+}

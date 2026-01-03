@@ -1,3 +1,9 @@
+---
+name: seo-quality-check
+description: Validiert Content-Qualität, E-E-A-T Signals und Brand Compliance. Quality Gate vor Publication. Verwenden bei "qualität prüfen" oder "content validieren".
+allowed-tools: Read, Glob, Grep, mcp__dataforseo__*
+---
+
 # SEO Quality Check - Content Validation & E-E-A-T Scoring
 
 Validates content quality, E-E-A-T signals, brand compliance, and SEO best practices.
@@ -143,13 +149,109 @@ Can accept multiple formats:
 - Images optimized (Next.js Image component)
 - At least 1 image per major section
 
-### 4. Content Quality
+### 4. Readability (KRITISCH - Flesch ≥60 erforderlich!)
 
-**Readability**:
+**🎯 Ziel: Flesch-Kincaid Score ≥60 (8. Klasse Niveau)**
+
+Der Flesch-Score ist ein HARD FAIL Kriterium. Content mit Score <60 wird NICHT publiziert.
+
+**Flesch-Score Faktoren** (was den Score beeinflusst):
+1. **Durchschnittliche Satzlänge** (ASL) → Je kürzer, desto besser
+2. **Durchschnittliche Silben pro Wort** (ASW) → Je weniger, desto besser
+
+**Formel**: `206.835 - (1.015 × ASL) - (84.6 × ASW)`
+
+#### Konkrete Schreibregeln für Flesch ≥60:
+
+**Satzlänge (WICHTIGSTER Faktor!):**
+- ✅ **Ziel: 10-15 Wörter** pro Satz durchschnittlich
+- ⚠️ Max 20 Wörter als absolute Obergrenze
+- ❌ NIEMALS Sätze >25 Wörter
+
+**Schachtelsätze vermeiden:**
+```
+❌ FALSCH (32 Wörter, Flesch ~25):
+"Wenn Sie ein Pferd kaufen möchten, das sowohl für Anfänger geeignet ist
+als auch über eine solide Ausbildung verfügt, sollten Sie unbedingt darauf
+achten, dass Sie eine professionelle Ankaufsuntersuchung durchführen lassen."
+
+✅ RICHTIG (3 Sätze, je ~10 Wörter, Flesch ~70):
+"Du möchtest ein Pferd kaufen? Es soll für Anfänger geeignet sein und
+eine gute Ausbildung haben. Dann lass unbedingt eine AKU machen."
+```
+
+**Wortlänge - Einfache Wörter bevorzugen:**
+| Komplex (vermeiden) | Einfach (bevorzugen) |
+|---------------------|----------------------|
+| Ankaufsuntersuchung | AKU |
+| Pferdebewertung | Pferde-Check |
+| Gesundheitszustand | Gesundheit |
+| Veterinärmedizinisch | tierärztlich |
+| Dokumentation | Nachweis |
+| Qualitätskriterien | Prüfpunkte |
+| Marktwertsteigerung | mehr Wert |
+
+**Aktiv statt Passiv:**
+```
+❌ "Das Pferd wird von einem Tierarzt untersucht."
+✅ "Der Tierarzt untersucht das Pferd."
+
+❌ "Die Bewertung wird in 2 Minuten erstellt."
+✅ "Du bekommst die Bewertung in 2 Minuten."
+```
+
+**Direkte Ansprache:**
+```
+❌ "Man sollte darauf achten..."
+✅ "Achte darauf..."
+
+❌ "Es empfiehlt sich..."
+✅ "Wir empfehlen dir..."
+```
+
+**Listen statt Fließtext:**
+```
+❌ FALSCH (langer Fließtext):
+"Bei der Ankaufsuntersuchung prüft der Tierarzt den allgemeinen
+Gesundheitszustand, die Bewegungsapparate, die Atemwege und das
+Herz-Kreislauf-System sowie die Augen."
+
+✅ RICHTIG (Liste):
+"Bei der AKU prüft der Tierarzt:
+- Allgemeine Gesundheit
+- Bewegung und Gelenke
+- Atemwege
+- Herz und Kreislauf
+- Augen"
+```
+
+**Satz-Starter variieren:**
+- Nicht jeden Satz mit "Das Pferd..." beginnen
+- Fragen einbauen: "Was kostet das?"
+- Imperative nutzen: "Prüfe...", "Achte auf..."
+
+#### Readability Check Prozess:
+
+1. **Vor Publikation**: `mcp__dataforseo__on_page_instant_pages` aufrufen
+2. **Score prüfen**: `meta.content.flesch_kincaid_readability_index`
+3. **Bei Score <60**: Content MUSS überarbeitet werden
+
+#### Readability Score Interpretation:
+
+| Score | Status | Aktion |
+|-------|--------|--------|
+| 70+ | ✅ Excellent | Sofort publizieren |
+| 60-69 | ✅ Pass | Publizieren OK |
+| 50-59 | ⚠️ Warning | Überarbeitung empfohlen |
+| 40-49 | ❌ Fail | MUSS überarbeitet werden |
+| <40 | ❌ Critical | Komplett neu schreiben |
+
+### 5. Content Quality
+
+**Weitere Qualitätskriterien**:
 - Clear topic sentences in paragraphs
 - Transition words used
 - Active voice preferred (> 80%)
-- Short sentences (avg < 20 words)
 - Bullet points/lists for scannability
 
 **User Intent Alignment**:
@@ -290,6 +392,7 @@ If SERP data available, compare to top 3 ranking pages:
 ## Pass/Fail Logic
 
 **FAIL** (cannot proceed to publication):
+- **Flesch-Kincaid Score < 60** (HARD FAIL - Readability zu niedrig!)
 - E-E-A-T overall score < 5.0
 - Brand compliance violation (any critical rule)
 - Title or meta description missing

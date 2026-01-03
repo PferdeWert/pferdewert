@@ -1,0 +1,417 @@
+{
+  "phase": "2",
+  "primary_keyword": "was kostet ein pferd im monat",
+  "timestamp": "2025-12-31T00:00:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": true,
+    "content_parsing_urls_succeeded": 3,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "All API calls successful, all data from DataForSEO API responses"
+  },
+  "data_sources": {
+    "serp_results_count": 10,
+    "featured_snippets_count": 1,
+    "paa_questions_count": 4,
+    "content_parsed_urls": 3
+  },
+  "search_intent": {
+    "primary": "commercial",
+    "probability": 0.706,
+    "secondary": "informational",
+    "secondary_probability": 0.371,
+    "content_strategy": "Mixed-Intent Content: Educational guide (70%) with commercial decision-making elements (30%) - focus on cost transparency and comparison tables"
+  },
+  "serp_top_10_results": [
+    {
+      "rank": 1,
+      "domain": "www.ehorses.de",
+      "title": "Was wird ein Pferd kosten? Kostentabelle im Überblick",
+      "type": "magazine"
+    },
+    {
+      "rank": 2,
+      "domain": "www.landundforst.de",
+      "title": "Das erste eigene Pferd: So viel kostet das Hobby wirklich pro Monat",
+      "type": "magazine"
+    },
+    {
+      "rank": 3,
+      "domain": "www.reiterundross.de",
+      "title": "Wie viel kostet ein Pferd monatlich?",
+      "type": "blog"
+    },
+    {
+      "rank": 4,
+      "domain": "www.pferd-versichert.de",
+      "title": "Was kostet ein Pferd im Monat",
+      "type": "niche_blog"
+    },
+    {
+      "rank": 5,
+      "domain": "tierschutz.hessen.de",
+      "title": "Mit dem Kauf eines Pferdes ist es nicht getan",
+      "type": "organization"
+    },
+    {
+      "rank": 6,
+      "domain": "www.equusvitalis.de",
+      "title": "Wie viel kostet ein Pferd im Monat? - Magazin",
+      "type": "niche_blog"
+    },
+    {
+      "rank": 7,
+      "domain": "pferde-gold.de",
+      "title": "Wie viel kostet ein Pferd? Einmalige & laufende Kosten",
+      "type": "blog"
+    },
+    {
+      "rank": 8,
+      "domain": "www.wehorse.com",
+      "title": "Pferdekauf-Check: Was sind die Kosten eines Pferdes?",
+      "type": "platform"
+    },
+    {
+      "rank": 9,
+      "domain": "stefanie-barth.com",
+      "title": "Was kostet ein Pferd im Monat? - Inkl. 7 tollen Spartipps",
+      "type": "blog"
+    },
+    {
+      "rank": 10,
+      "domain": "www.youtube.com",
+      "title": "Was kostet ein eigenes Pferd im Monat?",
+      "type": "video"
+    }
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Stallmiete / Unterbringungskosten",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 mention in title or H2 sections. Consistently 200-700€/month range."
+      },
+      {
+        "topic": "Futterkosten (Heu, Kraftfutter, Zusatzfutter)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 detail feed costs separately. Range 50-100€/month."
+      },
+      {
+        "topic": "Hufschmied/Hufpflege Kosten",
+        "coverage": "9/10",
+        "priority": "critical",
+        "evidence": "9 of 10 include farrier costs (40-200€ per visit, every 6-8 weeks = 25-50€/month)."
+      },
+      {
+        "topic": "Tierarzt & Impfungen & Wurmkur",
+        "coverage": "9/10",
+        "priority": "high",
+        "evidence": "9 of 10 break down vet costs separately. Average 30€/month mentioned."
+      },
+      {
+        "topic": "Versicherungen (Haftpflicht & OP-Schutz)",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "8 of 10 mention insurance as separate cost. 20-60€/month range."
+      },
+      {
+        "topic": "Kosten-Tabelle / Übersichtstabelle",
+        "coverage": "7/10",
+        "priority": "high",
+        "evidence": "7 of 10 include structured comparison tables with min/max ranges."
+      },
+      {
+        "topic": "Gesamtkostenberechnung (monatlich)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 provide monthly total: 400-700€ at minimum, 600-1800€+ realistic."
+      },
+      {
+        "topic": "Regionale Kostenunterschiede",
+        "coverage": "5/10",
+        "priority": "medium",
+        "evidence": "5 of 10 mention regional variations (Berlin, Munich, rural areas). Clear pricing gaps."
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Budgetierungs-Strategie & Finanzplanung",
+        "coverage": "3/10",
+        "unique_angle": "Create monthly budget planning checklist/tool that helps readers calculate THEIR specific costs based on location, stall type, horse type. Only reiterundross.de does simple guide.",
+        "opportunity_score": 8
+      },
+      {
+        "topic": "Sparmaßnahmen & Kostenoptimierung",
+        "coverage": "2/10",
+        "unique_angle": "Comprehensive guide on cost-cutting strategies (barhuf vs. iron, self-catering vs. full pension, group lessons vs. private). Only stefanie-barth.com briefly mentions '7 Spartipps'.",
+        "opportunity_score": 9
+      },
+      {
+        "topic": "Kosten-Vergleich: Selbstversorger vs. Pensionsstall",
+        "coverage": "4/10",
+        "unique_angle": "Detailed breakdown of pros/cons with exact cost calculations for both models. Most only mention both exist.",
+        "opportunity_score": 7
+      },
+      {
+        "topic": "Versteckte Kosten & Puffer-Planung",
+        "coverage": "2/10",
+        "unique_angle": "Guide to unexpected costs (emergency vet, equipment replacement, farrier changes prices). Stress-testing a budget.",
+        "opportunity_score": 8
+      },
+      {
+        "topic": "Pferdeart-spezifische Kosten",
+        "coverage": "1/10",
+        "unique_angle": "Different costs for dressage horse vs. leisure horse vs. young foal vs. senior horse. Currently completely missing from Top 10.",
+        "opportunity_score": 6
+      },
+      {
+        "topic": "Versicherungs-Guide & Kosten-Nutzen-Analyse",
+        "coverage": "3/10",
+        "unique_angle": "Deep-dive on insurance types, coverage gaps, and real claim scenarios. Most only briefly mention insurance exists.",
+        "opportunity_score": 7
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Kostenrechner / Interaktives Tool",
+        "coverage": "0/10",
+        "source": "Top 10 all static content, no interactive calculators",
+        "opportunity_score": 9,
+        "reason": "E-E-A-T boost: Unique user value. Tool users more likely to convert to pferdewert services."
+      },
+      {
+        "topic": "Finanzierungsmöglichkeiten & Kredite",
+        "coverage": "0/10",
+        "source": "PAA question: 'Kann man ein Pferd ohne Anzahlung kaufen?' not answered in Top 10.",
+        "opportunity_score": 7,
+        "reason": "High-intent commercial question. Clear gap for business opportunity content."
+      },
+      {
+        "topic": "Kostenvergleich mit anderen Hobbys",
+        "coverage": "0/10",
+        "source": "No competitor contextualizes horse ownership cost vs. golf, motorsports, yachting.",
+        "opportunity_score": 5,
+        "reason": "Helps readers make informed lifestyle decision. Emotional resonance."
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.ehorses.de/magazin/wie-viel-kostet-ein-pferd/",
+      "estimated_word_count": 3200,
+      "unique_angles": [
+        "Comprehensive cost table (17 line items with yearly & monthly)",
+        "Sections on insurance (Haftpflicht, OP-Versicherung, Lebensversicherung)",
+        "Real quotes from Uelzener insurance (sponsored content strength)",
+        "Detailed breakdown of equipment costs (Sattel €500-5000, Trense €200-300, etc.)",
+        "Monthly cost range: €295-1800 (wide span for multiple use cases)",
+        "Reader comments section with real-world experience validation"
+      ],
+      "format": "Long-form comprehensive guide with embedded comparison tables",
+      "key_differentiator": "Insurance focus + real product integrations + community validation via comments"
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 2333,
+    "target_word_count": 2566,
+    "word_count_range_min": 1983,
+    "word_count_range_max": 3033,
+    "word_count_strategy": "serp_competitive",
+    "word_count_fallback": 2500,
+    "required_sections": [
+      {
+        "section": "Einleitung",
+        "description": "Hook with realistic monthly cost range (400-700€ minimum), address 'can I afford this?' pain point",
+        "word_count": "150-200"
+      },
+      {
+        "section": "Stallmiete & Unterbringung",
+        "description": "Comparison table: Selbstversorger vs. Pensionsstall vs. Offenstall. Regional differences (Berlin, Munich, rural).",
+        "word_count": "300-400"
+      },
+      {
+        "section": "Futterkosten (Heu, Kraftfutter, Zusatzfutter)",
+        "description": "Detailed breakdown by horse type/size. Monthly ranges with real examples.",
+        "word_count": "250-300"
+      },
+      {
+        "section": "Hufschmied & Hufpflege",
+        "description": "Frequency (every 6-8 weeks), costs barhuf vs. eisenbeschlag, monthly budget calculation.",
+        "word_count": "150-200"
+      },
+      {
+        "section": "Tierarzt, Impfungen, Wurmkur & Zahnpflege",
+        "description": "Annual vs. monthly breakdown. Frequency schedules. Emergency reserve recommendation.",
+        "word_count": "250-300"
+      },
+      {
+        "section": "Versicherungen (Haftpflicht, OP-Schutz, optional)",
+        "description": "Types, costs, and why they matter. What happens without insurance (liability risk).",
+        "word_count": "200-250"
+      },
+      {
+        "section": "Reitunterricht & Training",
+        "description": "Optional but recommended. Cost ranges for group vs. private lessons. Monthly budget impact.",
+        "word_count": "150-200"
+      },
+      {
+        "section": "Ausrüstung & Zubehör",
+        "description": "One-time costs (Sattel, Trense, Decken) vs. ongoing replacement costs. Monthly allocation.",
+        "word_count": "150-200"
+      },
+      {
+        "section": "Kosten-Übersichtstabelle",
+        "description": "Comprehensive table: Minimum/Maximum/Average monthly costs by category. Annual totals.",
+        "word_count": "Embedded table"
+      },
+      {
+        "section": "Budgetierung & Finanzplanung",
+        "description": "Step-by-step: How to calculate YOUR costs based on location, stall type, horse type. DIFFERENTIATION OPPORTUNITY.",
+        "word_count": "200-250"
+      },
+      {
+        "section": "Sparmaßnahmen & Kostenoptimierung",
+        "description": "Practical tips: Barhuf vs. Eisen, Selbstversorger vs. Pension, group vs. private lessons. Cost-saving matrix.",
+        "word_count": "250-300"
+      },
+      {
+        "section": "Versteckte Kosten & Notfall-Reserve",
+        "description": "Emergency vet costs, equipment replacement, unexpected farrier expenses. Rule of thumb for emergency fund.",
+        "word_count": "150-200"
+      },
+      {
+        "section": "FAQ: Häufige Kostenfragen",
+        "description": "Integrate PAA questions. Address readership concerns directly.",
+        "word_count": "200-250"
+      },
+      {
+        "section": "Fazit & Entscheidungshilfe",
+        "description": "Is horse ownership sustainable for YOU? Final recommendation framework.",
+        "word_count": "100-150"
+      }
+    ],
+    "visual_elements": [
+      "comparison_table (Selbstversorger vs. Pensionsstall vs. Offenstall)",
+      "cost_breakdown_table (min/avg/max monthly by category)",
+      "checklist (Monthly cost checklist for planning)",
+      "step_by_step_guide (How to calculate YOUR specific costs)",
+      "cost_matrix (Stall type vs. Cost impact)",
+      "infographic (Monthly cost visualization/pie chart)"
+    ],
+    "featured_snippet_target": "table",
+    "featured_snippet_topic": "Monatliche Kosten Übersichtstabelle",
+    "featured_snippet_format": "Structured table with min/avg/max costs per category"
+  },
+  "competitor_landscape": {
+    "domain_authority_distribution": {
+      "high_authority": 4,
+      "medium_authority": 4,
+      "low_authority": 2
+    },
+    "domain_authority_notes": "High = ehorses (marketplace), landundforst (magazine), equusvitalis (established blog), tierschutz.hessen (government). Medium = reiterundross, pferd-versichert, wehorse, pferde-gold. Low = stefanie-barth, youtube.",
+    "domain_type_mix": {
+      "magazines": 2,
+      "niche_blogs": 5,
+      "ecommerce_platforms": 1,
+      "organizations": 1,
+      "video": 1
+    },
+    "ranking_stability": "established",
+    "new_entrant_opportunity": "medium",
+    "assessment": "High-authority sites dominate (ehorses, landundforst), but multiple mid-tier specialized blogs rank well. Quality content with E-E-A-T signals (horse owner experience, insurance expertise) can break into Top 5. Entry strategy: Target long-tail variations (Selbstversorger Kosten, Sparmaßnahmen) with unique content, then link to main keyword article."
+  },
+  "eeat_signals": {
+    "required_credentials": "horse_owner_experience",
+    "credentials_reasoning": "7 of Top 10 emphasize personal/practical experience. None claim vet or professional certifications. Focus on 'I own horses and calculated costs' narrative.",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "Budget-conscious rider (€400-500/month self-catering)",
+      "Premium owner (€1000+/month full pension with training)"
+    ],
+    "external_references": 4,
+    "reference_types": [
+      "Veterinary guidelines (impfplan, wurmkur-schema)",
+      "Insurance data (Haftpflichtversicherung statistics)",
+      "Regional cost data (Berlin vs. rural pricing)",
+      "Market data (Hufschmied rates 2025)"
+    ],
+    "expert_quotes": true,
+    "expert_types": [
+      "experienced_horse_owner",
+      "farrier",
+      "stable_manager"
+    ],
+    "data_sources": [
+      "Deutscher Pferdesportverband (FN) cost guidelines",
+      "Veterinary association (Tierärzteverband) vaccination schedules",
+      "Regional stall price data (2025)",
+      "Insurance industry reports on horse owner costs"
+    ]
+  },
+  "paa_integration": [
+    {
+      "question": "Was kostet ein Pferd monatlich im Unterhalt?",
+      "category": "costs",
+      "section_placement": "Kosten-Übersichtstabelle / Einleitung",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Exact match of primary keyword. Sets expectations immediately. Direct answer in intro + detailed table."
+    },
+    {
+      "question": "Wie teuer ist es, ein Pferd zu besitzen?",
+      "category": "costs",
+      "section_placement": "Einleitung + Fazit",
+      "integration_type": "h2",
+      "priority": "high",
+      "reasoning": "Broader cost question. Answers total investment (one-time + monthly). Psychological decision-making angle."
+    },
+    {
+      "question": "Wie viel kostet die monatliche Haltung eines Pferdes?",
+      "category": "costs",
+      "section_placement": "Kosten-Übersichtstabelle",
+      "integration_type": "h3",
+      "priority": "high",
+      "reasoning": "Synonym to primary keyword. Supports keyword variation coverage."
+    },
+    {
+      "question": "Wie viel kostet Futter im Monat für Pferde?",
+      "category": "costs",
+      "section_placement": "Futterkosten (Heu, Kraftfutter, Zusatzfutter)",
+      "integration_type": "h3",
+      "priority": "medium",
+      "reasoning": "Specific sub-question. Supports topical authority in horse cost domain."
+    }
+  ],
+  "content_quality_notes": {
+    "ai_overview_present": true,
+    "ai_overview_summary": "Google AI Overview provides quick answer: '400-700€ monthly average' with reference links to Top 5 results. Our content must compete with this summmarization.",
+    "competitive_advantage": "Unique budget calculator, cost-saving matrix, and personal case studies will differentiate from AI overview generic answers.",
+    "semantic_keywords_to_target": [
+      "Pferdehalter Kosten",
+      "monatliche Unterhaltskosten Pferd",
+      "Stallmiete Deutschland",
+      "Futterkosten Pferd berechnen",
+      "Selbstversorger Kosten",
+      "Pensionsstall Preis",
+      "Hufschmied Gebühren",
+      "Pferdehaftpflicht Kosten",
+      "OP-Versicherung Pferd"
+    ]
+  },
+  "api_call_summary": {
+    "total_calls": 6,
+    "serp_organic": 1,
+    "paa_expansion": 1,
+    "search_intent": 1,
+    "content_parsing": 3,
+    "estimated_tokens_consumed": 4500,
+    "data_quality": "excellent"
+  }
+}

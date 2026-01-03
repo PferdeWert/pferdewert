@@ -1,3 +1,9 @@
+---
+name: seo-full-workflow
+description: Orchestriert komplette 7-Phase SEO Pipeline von Keyword Research bis Publication. Verwenden bei "SEO content erstellen" oder "neuen ratgeber artikel".
+allowed-tools: Task, Read, Write, Edit, Glob, Grep, Bash, mcp__dataforseo__*
+---
+
 # SEO Full Workflow - Complete Content Pipeline
 
 Orchestrates complete 7-phase SEO pipeline via specialized sub-agents for token efficiency.

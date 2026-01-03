@@ -64,10 +64,13 @@ Wir verwandeln komplexe Pferdebewertungen in verständliche, datenbasierte Einsc
    - ✅ "Wir analysieren 13 Bewertungskriterien"
    - ❌ "13 Bewertungskriterien werden analysiert"
 
-4. **Kurz, prägnant, scanbar**
-   - Maximal 20 Wörter pro Satz
-   - Absätze: 3-4 Sätze
+4. **Kurz, prägnant, scanbar (8. Klasse Niveau!)**
+   - **Max 15 Wörter pro Satz** (Durchschnitt, vereinzelt bis 20 ok)
+   - Absätze: 2-3 Sätze (max 4)
    - Zwischenüberschriften alle 200-300 Wörter
+   - **Flesch-Reading-Ease Ziel: ≥ 60** (ein 14-Jähriger muss es verstehen)
+   - Keine Schachtelsätze: Hauptsatz + max 1 Nebensatz
+   - Einfache Wörter: "nutzen" statt "verwenden", "zeigen" statt "demonstrieren"
 
 5. **Rhetorische Mittel gezielt einsetzen**
    - Fragen: "Was macht ein Pferd wirklich wertvoll?"

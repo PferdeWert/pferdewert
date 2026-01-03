@@ -1,0 +1,310 @@
+{
+  "primary_keyword": "was kostet ein pferd im monat",
+  "research_date": "2025-12-31",
+  "api_calls_executed": 3,
+  "keyword_overview": {
+    "search_volume": 880,
+    "monthly_average": 880,
+    "cpc": 0.21,
+    "competition_level": "LOW",
+    "competition_score": 0.03,
+    "keyword_difficulty": 1,
+    "search_intent_primary": "commercial",
+    "search_intent_secondary": "informational",
+    "trend_monthly": -18,
+    "trend_quarterly": -33,
+    "trend_yearly": -55,
+    "monthly_searches_last_12": {
+      "2025-11": 590,
+      "2025-10": 720,
+      "2025-09": 880,
+      "2025-08": 880,
+      "2025-07": 720,
+      "2025-06": 720,
+      "2025-05": 720,
+      "2025-04": 1300,
+      "2025-03": 1300,
+      "2025-02": 1000,
+      "2025-01": 1000,
+      "2024-12": 1300
+    }
+  },
+  "secondary_keywords_from_keyword_ideas": [
+    {
+      "keyword": "monatliche kosten pferd",
+      "search_volume": 260,
+      "cpc": 0.91,
+      "competition_level": "LOW",
+      "keyword_difficulty": 1,
+      "search_intent": "commercial",
+      "monthly_avg_trend": 24
+    },
+    {
+      "keyword": "kosten pferd monat",
+      "search_volume": 390,
+      "cpc": 0.08,
+      "competition_level": "LOW",
+      "keyword_difficulty": "not_specified",
+      "search_intent": "commercial",
+      "monthly_avg_trend": -64
+    },
+    {
+      "keyword": "wie viel kostet ein pferd monatlich",
+      "search_volume": 590,
+      "cpc": "not_specified",
+      "competition_level": "LOW",
+      "keyword_difficulty": "not_specified",
+      "search_intent": "commercial",
+      "monthly_avg_trend": -19
+    },
+    {
+      "keyword": "pferd kosten",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "competition_level": "LOW",
+      "keyword_difficulty": 2,
+      "search_intent": "commercial",
+      "monthly_avg_trend": -23
+    },
+    {
+      "keyword": "futterkosten pferd pro monat",
+      "search_volume": 90,
+      "cpc": 0.1,
+      "competition_level": "LOW",
+      "keyword_difficulty": "not_specified",
+      "search_intent": "commercial",
+      "monthly_avg_trend": -22
+    },
+    {
+      "keyword": "pferd kosten pro monat",
+      "search_volume": 390,
+      "cpc": 0.21,
+      "competition_level": "LOW",
+      "keyword_difficulty": "not_specified",
+      "search_intent": "commercial",
+      "monthly_avg_trend": 23
+    }
+  ],
+  "tertiary_cost_breakdown_keywords": [
+    {
+      "keyword": "hufschmied kosten",
+      "search_volume": 390,
+      "cpc": "not_specified",
+      "competition_level": "LOW",
+      "search_intent": "commercial"
+    },
+    {
+      "keyword": "stallmiete pferd",
+      "search_volume": 140,
+      "cpc": 0.05,
+      "competition_level": "LOW",
+      "keyword_difficulty": 8,
+      "search_intent": "commercial"
+    },
+    {
+      "keyword": "tierarzt pferd kosten",
+      "search_volume": 30,
+      "cpc": 1.97,
+      "competition_level": "LOW",
+      "keyword_difficulty": 6,
+      "search_intent": "commercial"
+    },
+    {
+      "keyword": "pferdeversicherung kosten",
+      "search_volume": 260,
+      "cpc": 2.02,
+      "competition_level": "HIGH",
+      "keyword_difficulty": 14,
+      "search_intent": "commercial"
+    },
+    {
+      "keyword": "pferdehaltung kosten",
+      "search_volume": 90,
+      "cpc": 4.0,
+      "competition_level": "LOW",
+      "keyword_difficulty": 2,
+      "search_intent": "commercial"
+    },
+    {
+      "keyword": "pferd unterhaltskosten",
+      "search_volume": 260,
+      "cpc": 0.26,
+      "competition_level": "LOW",
+      "keyword_difficulty": "not_specified",
+      "search_intent": "informational"
+    }
+  ],
+  "keyword_ideas_api_stats": {
+    "total_ideas_returned": 30,
+    "high_volume_keywords": [
+      {
+        "keyword": "pferd",
+        "search_volume": 165000,
+        "competition_level": "LOW",
+        "keyword_difficulty": 52
+      },
+      {
+        "keyword": "stall frei",
+        "search_volume": 49500,
+        "competition_level": "LOW",
+        "keyword_difficulty": 8
+      },
+      {
+        "keyword": "pferd kaufen",
+        "search_volume": 40500,
+        "competition_level": "LOW",
+        "keyword_difficulty": 25
+      }
+    ],
+    "direct_cost_keywords": [
+      {
+        "keyword": "monatliche kosten pferd",
+        "search_volume": 260,
+        "keyword_difficulty": 1
+      },
+      {
+        "keyword": "futterkosten pferd pro monat",
+        "search_volume": 90,
+        "keyword_difficulty": "not_specified"
+      }
+    ]
+  },
+  "keyword_overview_api_results": {
+    "total_keywords_analyzed": 10,
+    "primary_keyword_data": {
+      "keyword": "was kostet ein pferd im monat",
+      "search_volume": 880,
+      "cpc": 0.21,
+      "competition_level": "LOW",
+      "keyword_difficulty": 1,
+      "search_intent_primary": "commercial",
+      "search_intent_secondary": "informational"
+    },
+    "all_keywords_sorted_by_volume": [
+      {
+        "keyword": "pferd kosten",
+        "volume": 1000
+      },
+      {
+        "keyword": "was kostet ein pferd im monat",
+        "volume": 880
+      },
+      {
+        "keyword": "wie viel kostet ein pferd monatlich",
+        "volume": 590
+      },
+      {
+        "keyword": "pferd kosten pro monat",
+        "volume": 390
+      },
+      {
+        "keyword": "kosten pferd monat",
+        "volume": 390
+      },
+      {
+        "keyword": "hufschmied kosten",
+        "volume": 390
+      },
+      {
+        "keyword": "monatliche kosten pferd",
+        "volume": 260
+      },
+      {
+        "keyword": "pferdeversicherung kosten",
+        "volume": 260
+      },
+      {
+        "keyword": "pferd unterhaltskosten",
+        "volume": 260
+      },
+      {
+        "keyword": "pferdehaltung kosten",
+        "volume": 90
+      },
+      {
+        "keyword": "stallmiete pferd",
+        "volume": 140
+      },
+      {
+        "keyword": "tierarzt pferd kosten",
+        "volume": 30
+      }
+    ]
+  },
+  "high_cpc_opportunities": [
+    {
+      "keyword": "pferdehaltung kosten",
+      "cpc": 4.0,
+      "difficulty": 2,
+      "volume": 90,
+      "commercial_intent": "very_high"
+    },
+    {
+      "keyword": "pferdeversicherung kosten",
+      "cpc": 2.02,
+      "difficulty": 14,
+      "volume": 260,
+      "commercial_intent": "high"
+    },
+    {
+      "keyword": "tierarzt pferd kosten",
+      "cpc": 1.97,
+      "difficulty": 6,
+      "volume": 30,
+      "commercial_intent": "high"
+    },
+    {
+      "keyword": "monatliche kosten pferd",
+      "cpc": 0.91,
+      "difficulty": 1,
+      "volume": 260,
+      "commercial_intent": "high"
+    }
+  ],
+  "easy_ranking_opportunities": [
+    {
+      "keyword": "was kostet ein pferd im monat",
+      "difficulty": 1,
+      "volume": 880,
+      "cpc": 0.21,
+      "notes": "Primary target - extremely easy to rank, decent volume"
+    },
+    {
+      "keyword": "monatliche kosten pferd",
+      "difficulty": 1,
+      "volume": 260,
+      "cpc": 0.91,
+      "notes": "Secondary target - very easy, higher CPC than primary"
+    },
+    {
+      "keyword": "pferdehaltung kosten",
+      "difficulty": 2,
+      "volume": 90,
+      "cpc": 4.0,
+      "notes": "Highest CPC but lowest volume - good for monetization"
+    },
+    {
+      "keyword": "pferd kosten",
+      "difficulty": 2,
+      "volume": 1000,
+      "cpc": 0.42,
+      "notes": "Highest volume in cluster - excellent ranking target"
+    }
+  ],
+  "content_gap_analysis": {
+    "cost_breakdown_topics_with_search_volume": [
+      "Stallmiete/Boxenmiete Kosten",
+      "Futterkosten (Heu, Hafer, Kraftfutter)",
+      "Hufschmied/Hufpflege Kosten",
+      "Tierarzt/Veterinär Kosten",
+      "Pferdeversicherung Kosten",
+      "Ausbildung/Trainings Kosten",
+      "Transportkosten",
+      "Zahnbehandlung/Zahnarzt",
+      "Impfungen/Entwurmung"
+    ],
+    "regional_cost_variations": "Not directly addressed in keywords - opportunity for regional content",
+    "breed_specific_costs": "Not addressed - could target specific breeds (Haflinger, Warmblut, etc.)",
+    "activity_level_costs": "Recreational vs. Professional - not captured in keywords"
+  }
+}

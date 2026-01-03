@@ -1,3 +1,9 @@
+---
+name: seo-content-optimizer
+description: Analysiert und optimiert bestehende Ratgeber-Artikel durch DataForSEO-Analyse mit automatischer Implementierung. Verwenden bei "artikel optimieren" oder "ranking verbessern".
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash, mcp__dataforseo__*
+---
+
 # SEO Content Optimizer - Bestehende Artikel verbessern
 
 Analysiert und optimiert bestehende Ratgeber-Artikel auf PferdeWert.de durch DataForSEO-Analyse mit **automatischer Implementierung**.
@@ -40,10 +46,69 @@ Analysiert und optimiert bestehende Ratgeber-Artikel auf PferdeWert.de durch Dat
 
 ### Phase 7: Optimization Plan
 **Erstelle priorisierten Plan** → `recommendations/optimization-plan.md`:
+- **Priority 0: Readability Fix** (wenn Flesch <60 - MUSS ZUERST!)
 - **Priority 1: Quick Wins** (Title, Meta, top 5 Keywords, Schema)
 - **Priority 2: Content Expansion** (neue H2s, PAA-Fragen, Section-Erweiterungen)
 - **Priority 3: E-E-A-T** (optional, nur auf Anfrage)
 - Expected Impact: Ranking, Traffic, SEO Score projections
+
+### Phase 7.5: Readability Optimization (wenn Flesch <60)
+
+**🎯 Ziel: Flesch-Kincaid Score ≥60**
+
+Wenn der aktuelle Score <60 ist, MUSS dieser Schritt VOR allen anderen Optimierungen erfolgen!
+
+**Readability-Check durchführen:**
+```
+mcp__dataforseo__on_page_instant_pages mit URL
+→ meta.content.flesch_kincaid_readability_index extrahieren
+```
+
+**Bei Score <60 - Systematische Überarbeitung:**
+
+1. **Lange Sätze finden und kürzen:**
+   - Alle Sätze >20 Wörter identifizieren
+   - Aufteilen in 2-3 kürzere Sätze (Ziel: 10-15 Wörter)
+   - Nebensätze als eigenständige Sätze formulieren
+
+2. **Schachtelsätze auflösen:**
+   ```
+   ❌ VORHER: "Wenn du ein Pferd kaufen möchtest, das für Anfänger
+   geeignet ist und über eine solide Ausbildung verfügt, solltest du
+   eine AKU durchführen lassen, die von einem erfahrenen Tierarzt
+   durchgeführt wird."
+
+   ✅ NACHHER: "Du suchst ein Anfänger-Pferd mit guter Ausbildung?
+   Dann brauchst du eine AKU. Ein erfahrener Tierarzt prüft das Pferd
+   gründlich durch."
+   ```
+
+3. **Passive → Aktive Formulierungen:**
+   ```
+   ❌ "Das Pferd wird untersucht" → ✅ "Der Tierarzt untersucht das Pferd"
+   ❌ "Es wird empfohlen" → ✅ "Wir empfehlen dir"
+   ```
+
+4. **Komplexe Wörter ersetzen:**
+   | Komplex | Einfach |
+   |---------|---------|
+   | Ankaufsuntersuchung | AKU |
+   | Veterinärmedizinisch | tierärztlich |
+   | Qualitätskriterien | Prüfpunkte |
+   | entsprechend | passend |
+   | hinsichtlich | wegen / für |
+
+5. **Listen statt Fließtext:**
+   - Aufzählungen wo möglich einsetzen
+   - Lange Absätze in Bulletpoints aufbrechen
+
+6. **Fragen einbauen:**
+   - "Was kostet das?" statt "Die Kosten betragen..."
+   - Lockert den Text auf + verbessert Score
+
+**Nach Überarbeitung erneut prüfen:**
+- Readability-Check wiederholen
+- Erst wenn Flesch ≥60: weiter mit Phase 8
 
 ### Phase 8: Automatic Implementation
 

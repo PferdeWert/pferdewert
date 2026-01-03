@@ -1,0 +1,196 @@
+{
+  "audit_date": "2025-12-30",
+  "domain": "pferdewert.de",
+  "total_urls_analyzed": 16,
+  "api_success_rate": "100%",
+
+  "global_checks": {
+    "https": {"status": "PASS", "all_pages": true},
+    "html_doctype": {"status": "PASS", "all_pages": true},
+    "canonical": {"status": "PASS", "all_pages": true},
+    "mobile_friendly": {"status": "PASS", "all_pages": true},
+    "seo_friendly_urls": {"status": "PASS", "all_pages": true}
+  },
+
+  "issues_by_severity": {
+    "CRITICAL": [],
+
+    "WARNING": [
+      {
+        "id": "W-001",
+        "type": "title_too_long",
+        "severity": "WARNING",
+        "description": "Title tag exceeds 60 characters (recommended limit)",
+        "affected_urls": [
+          {"url": "https://pferdewert.de/pferde-ratgeber/aku-pferd", "title_length": 77, "title": "AKU Pferd: Ablauf, Überblick & Leitfaden der Ankaufsuntersuchung | PferdeWert"},
+          {"url": "https://pferdewert.de/pferd-kaufen/freizeitpferd", "title_length": 69, "title": "Freizeitpferd kaufen: Vielseitige Allrounder für ambitionierte Reiter"},
+          {"url": "https://pferdewert.de/pferd-kaufen/bayern", "title_length": 66, "title": "Pferd kaufen Bayern 2025: Alle Marktplätze, Gestüte & Pferdemärkte"},
+          {"url": "https://pferdewert.de/pferd-kaufen/nrw", "title_length": 70, "title": "Pferd kaufen NRW 2025: Alle Marktplätze, Züchter & Märkte im Überblick"}
+        ],
+        "impact": "Titles may be truncated in SERPs, reducing CTR",
+        "recommendation": "Shorten titles to 55-60 characters while keeping primary keyword at start"
+      },
+      {
+        "id": "W-002",
+        "type": "description_too_long",
+        "severity": "WARNING",
+        "description": "Meta description exceeds 155-160 characters",
+        "affected_urls": [
+          {"url": "https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd", "desc_length": 174},
+          {"url": "https://pferdewert.de/pferd-verkaufen", "desc_length": 207}
+        ],
+        "impact": "Description may be truncated in SERPs",
+        "recommendation": "Shorten to 150-155 characters with call-to-action"
+      },
+      {
+        "id": "W-003",
+        "type": "render_blocking_resources",
+        "severity": "WARNING",
+        "description": "Render-blocking stylesheets detected",
+        "affected_urls": "all pages (2 stylesheets each)",
+        "impact": "May slow initial paint, affects FCP",
+        "recommendation": "Consider inlining critical CSS or using preload/async"
+      },
+      {
+        "id": "W-004",
+        "type": "no_image_title",
+        "severity": "WARNING",
+        "description": "Images missing title attribute",
+        "affected_urls": "all pages",
+        "impact": "Minor accessibility and UX impact",
+        "recommendation": "Add descriptive title attributes to key images"
+      },
+      {
+        "id": "W-005",
+        "type": "duplicate_meta_tags",
+        "severity": "WARNING",
+        "description": "Duplicate meta tags found",
+        "affected_urls": [
+          {"url": "https://pferdewert.de/pferde-ratgeber/aku-pferd", "duplicates": ["theme-color", "msapplication-tilecolor"]}
+        ],
+        "impact": "May cause parsing issues",
+        "recommendation": "Remove duplicate meta tags"
+      },
+      {
+        "id": "W-006",
+        "type": "low_content_rate",
+        "severity": "WARNING",
+        "description": "Low text-to-HTML ratio (8.1%)",
+        "affected_urls": [
+          {"url": "https://pferdewert.de/pferde-preis-berechnen", "content_rate": 0.081}
+        ],
+        "impact": "May be seen as thin content by search engines",
+        "recommendation": "Add more visible text content or FAQ section"
+      },
+      {
+        "id": "W-007",
+        "type": "cache_policy",
+        "severity": "WARNING",
+        "description": "Static assets not using efficient cache policy",
+        "affected_urls": "all pages",
+        "lighthouse_score": 0.5,
+        "impact": "Repeat visits may be slower than necessary",
+        "recommendation": "Set longer cache TTL for static assets (images, fonts, CSS/JS)"
+      },
+      {
+        "id": "W-008",
+        "type": "unused_css",
+        "severity": "WARNING",
+        "description": "Unused CSS rules detected",
+        "affected_urls": "all pages",
+        "lighthouse_score": 0.5,
+        "impact": "Increases page load time and bandwidth usage",
+        "recommendation": "Use PurgeCSS or similar to remove unused styles"
+      },
+      {
+        "id": "W-009",
+        "type": "legacy_javascript",
+        "severity": "WARNING",
+        "description": "Legacy JavaScript being served to modern browsers",
+        "affected_urls": "all pages",
+        "lighthouse_score": 0.5,
+        "impact": "Larger bundle size than necessary",
+        "recommendation": "Use differential serving or modern build targets"
+      }
+    ],
+
+    "INFO": [
+      {
+        "id": "I-001",
+        "type": "dom_size_warning",
+        "severity": "INFO",
+        "description": "DOM has nodes with more than 60 children",
+        "affected_urls": "most ratgeber pages",
+        "impact": "May slightly impact rendering performance",
+        "recommendation": "Consider lazy loading or virtualization for long lists"
+      },
+      {
+        "id": "I-002",
+        "type": "irrelevant_meta_keywords",
+        "severity": "INFO",
+        "description": "Meta keywords don't fully match content",
+        "affected_urls": [
+          {"url": "https://pferdewert.de/beispiel-analyse", "consistency": 0.545}
+        ],
+        "impact": "Minor - meta keywords ignored by Google",
+        "recommendation": "Update meta keywords or remove if not needed"
+      },
+      {
+        "id": "I-003",
+        "type": "external_links",
+        "severity": "INFO",
+        "description": "High number of external links",
+        "affected_urls": [
+          {"url": "https://pferdewert.de/pferd-kaufen/bayern", "external_links": 11},
+          {"url": "https://pferdewert.de/pferd-kaufen/nrw", "external_links": 12}
+        ],
+        "impact": "PageRank flow to external sites",
+        "recommendation": "Consider using rel='noopener' and reviewing link necessity"
+      }
+    ]
+  },
+
+  "positive_findings": {
+    "excellent_performance": {
+      "description": "All pages score 95-100% on Lighthouse Performance",
+      "detail": "Homepage achieves perfect 100% performance score"
+    },
+    "perfect_seo_score": {
+      "description": "All pages achieve 100% Lighthouse SEO score",
+      "detail": "Meta tags, canonicals, crawlability all optimized"
+    },
+    "perfect_best_practices": {
+      "description": "All pages achieve 100% Best Practices score",
+      "detail": "HTTPS, secure cookies, no deprecated APIs"
+    },
+    "excellent_core_web_vitals": {
+      "description": "All Core Web Vitals pass Google's thresholds",
+      "LCP": "All pages under 1.5s (threshold: 2.5s)",
+      "CLS": "All pages at 0 (threshold: 0.1)",
+      "TBT": "All pages at 0ms (threshold: 200ms)"
+    },
+    "strong_content": {
+      "description": "Rich, detailed content on ratgeber pages",
+      "examples": [
+        {"url": "was-kostet-ein-pferd", "word_count": 3988},
+        {"url": "aku-pferd", "word_count": 3198},
+        {"url": "pferd-verkaufen", "word_count": 3837}
+      ]
+    },
+    "proper_heading_structure": {
+      "description": "All pages have proper H1-H4 hierarchy",
+      "detail": "Single H1, logical heading progression"
+    },
+    "complete_social_media_tags": {
+      "description": "OpenGraph and Twitter Cards properly configured",
+      "detail": "All pages have og:title, og:description, og:image"
+    }
+  },
+
+  "onpage_scores": {
+    "average": 99.0,
+    "range": "96.34 - 100",
+    "pages_with_100": 8,
+    "pages_below_100": 8
+  }
+}

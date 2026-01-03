@@ -1,0 +1,241 @@
+{
+  "primary_keyword": "was kostet ein pferd im monat",
+  "analyzed_at": "2025-12-31T00:00:00Z",
+  "competitors_analyzed": [
+    {
+      "domain": "ehorses.de",
+      "serp_position": 1,
+      "keywords_extracted": 50
+    },
+    {
+      "domain": "landundforst.de",
+      "serp_position": 2,
+      "keywords_extracted": 50
+    },
+    {
+      "domain": "reiterundross.de",
+      "serp_position": 3,
+      "keywords_extracted": 50
+    }
+  ],
+  "competitor_keywords": [
+    {
+      "keyword": "pferd",
+      "search_volume": 165000,
+      "cpc": 0.4,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferde",
+      "search_volume": 165000,
+      "cpc": 0.4,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "stall frei",
+      "search_volume": 49500,
+      "cpc": 0.02,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "competitor_rank": 1,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "wallach",
+      "search_volume": 14800,
+      "cpc": 0.52,
+      "competitor_rank": 4,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "araber pferd",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "competitor_rank": 6,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "arabisch pferd",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "competitor_rank": 6,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "arabisches pferd",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "competitor_rank": 5,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "fohlen",
+      "search_volume": 9900,
+      "cpc": 0.17,
+      "competitor_rank": 2,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferd araber",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "competitor_rank": 6,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferd schimmel",
+      "search_volume": 9900,
+      "cpc": 0.36,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferde araber",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "competitor_rank": 4,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "pferde schimmel",
+      "search_volume": 9900,
+      "cpc": 0.36,
+      "competitor_rank": 3,
+      "competitor_domain": "ehorses.de"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd",
+      "search_volume": 4400,
+      "cpc": 0.1,
+      "competitor_rank": 3,
+      "competitor_domain": "landundforst.de"
+    },
+    {
+      "keyword": "kosten für pferd",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "competitor_rank": 3,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "kosten pferd",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "competitor_rank": 2,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "pferd kosten",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "competitor_rank": 7,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "pferde preise",
+      "search_volume": 880,
+      "cpc": 0.45,
+      "competitor_rank": 5,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "was kostet ein pferd im monat",
+      "search_volume": 880,
+      "cpc": 0.21,
+      "competitor_rank": 4,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "was kostet pferd im monat",
+      "search_volume": 880,
+      "cpc": 0.21,
+      "competitor_rank": 6,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "pferde kosten tabelle",
+      "search_volume": 720,
+      "cpc": 0,
+      "competitor_rank": 1,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "pferde weihnacht",
+      "search_volume": 590,
+      "cpc": 0.52,
+      "competitor_rank": 6,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "pferde weihnachten",
+      "search_volume": 590,
+      "cpc": 0.52,
+      "competitor_rank": 8,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd monatlich",
+      "search_volume": 590,
+      "cpc": 0,
+      "competitor_rank": 4,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd im monat",
+      "search_volume": 480,
+      "cpc": 0,
+      "competitor_rank": 7,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "hufschmied kosten",
+      "search_volume": 390,
+      "cpc": 0,
+      "competitor_rank": 1,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "kosten für hufschmied",
+      "search_volume": 390,
+      "cpc": 0,
+      "competitor_rank": 1,
+      "competitor_domain": "reiterundross.de"
+    },
+    {
+      "keyword": "kosten hufschmied",
+      "search_volume": 390,
+      "cpc": 0,
+      "competitor_rank": 1,
+      "competitor_domain": "reiterundross.de"
+    }
+  ],
+  "statistics": {
+    "total_extracted": 150,
+    "after_filtering": 61,
+    "after_dedup": 61,
+    "final_selection": 30,
+    "avg_search_volume": 20306,
+    "avg_competitor_rank": 3.6
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "phase": "6A",
+  "primary_keyword": "was kostet ein pferd im monat",
+  "slug": "pferd-kosten-monatlich",
+  "publication_ready": false,
+  "overall_quality_score": 6.2,
+  "publication_threshold": 7.5,
+  "status": "REVISION_REQUIRED",
+  "revision_phase": "6B",
+
+  "quality_gate_checks": {
+    "overall_score": {
+      "target": 8.0,
+      "acceptable": 7.5,
+      "critical": 7.5,
+      "article_score": 6.2,
+      "status": "CRITICAL_FAIL",
+      "action": "MUST_REVISE"
+    },
+    "primary_keyword_density": {
+      "target": "0.8-1.2%",
+      "acceptable": "0.5-1.5%",
+      "critical": "<0.5% or >1.5%",
+      "article_value": "0.07%",
+      "status": "CRITICAL_FAIL",
+      "action": "ADD_15_TO_20_INSTANCES"
+    },
+    "eeat_score": {
+      "target": 7.0,
+      "acceptable": 6.5,
+      "critical": 6.5,
+      "article_score": 6.0,
+      "status": "BELOW_ACCEPTABLE",
+      "action": "EXPAND_SIGNALS"
+    },
+    "flesch_reading_ease": {
+      "target": "70-80",
+      "acceptable": "60-85",
+      "critical": "<50 or >90",
+      "article_value": 56.6,
+      "status": "WARNING",
+      "action": "SIMPLIFY_LANGUAGE"
+    },
+    "content_length_delta": {
+      "target": "+10-20%",
+      "acceptable": "±10%",
+      "article_value": "Good (2668 words)",
+      "status": "PASS"
+    },
+    "topic_completeness": {
+      "target": "≥90%",
+      "acceptable": "≥80%",
+      "article_value": "100%",
+      "status": "PASS"
+    },
+    "paa_coverage": {
+      "target": "≥80%",
+      "acceptable": "≥60%",
+      "article_value": "100%",
+      "status": "PASS"
+    },
+    "internal_links": {
+      "target": 3,
+      "acceptable": 2,
+      "article_value": 0,
+      "status": "CRITICAL_FAIL",
+      "action": "ADD_3_INTERNAL_LINKS"
+    }
+  },
+
+  "phase_6b_revision_priority": [
+    {
+      "priority": 1,
+      "issue": "Primary Keyword Density (0.07% vs 0.8-1.2%)",
+      "severity": "CRITICAL",
+      "action": "Add 15-20 instances of 'was kostet ein pferd im monat' throughout article",
+      "estimated_effort": "High",
+      "sections_to_update": [
+        "Introduction (add 1 more)",
+        "Section 1 H2/H3 headers",
+        "Section 2-7 body text",
+        "FAQ section (add 3)",
+        "Conclusion (add 1)"
+      ],
+      "examples": [
+        "Introduction: 'Aber realistisch betrachtet: Was kostet ein Pferd im Monat wirklich?'",
+        "Section 1: Add to table intro",
+        "FAQ: Integrate into questions naturally"
+      ]
+    },
+    {
+      "priority": 2,
+      "issue": "Secondary Keywords Missing (0 occurrences)",
+      "severity": "HIGH",
+      "action": "Add high-volume secondary keywords naturally",
+      "missing_keywords": [
+        {
+          "keyword": "pferd kosten monatlich",
+          "volume": 880,
+          "current_count": 0,
+          "target_count": 3
+        },
+        {
+          "keyword": "pferdehalter kosten",
+          "volume": 1000,
+          "current_count": 0,
+          "target_count": 2
+        },
+        {
+          "keyword": "unterhaltskosten pferd",
+          "volume": 1000,
+          "current_count": 0,
+          "target_count": 2
+        },
+        {
+          "keyword": "futterkosten pferd",
+          "volume": 390,
+          "current_count": 0,
+          "target_count": 2
+        }
+      ],
+      "integration_points": [
+        "H2/H3 headers",
+        "Body text (natural mentions)",
+        "FAQ section"
+      ]
+    },
+    {
+      "priority": 3,
+      "issue": "Internal Links Missing (0 vs 3 required)",
+      "severity": "CRITICAL",
+      "action": "Add 3+ internal links with keyword-rich anchor text",
+      "required_links": [
+        {
+          "anchor_text": "interaktiven Kosten-Rechner",
+          "target_section": "Calculator/Tool",
+          "keyword_focus": "calculator, budgetrechner"
+        },
+        {
+          "anchor_text": "Detaillierter Stallmiete-Vergleich",
+          "target_section": "Related article on stall options",
+          "keyword_focus": "stallmiete, selbstversorger"
+        },
+        {
+          "anchor_text": "Versicherungen für Pferdehalter",
+          "target_section": "Insurance guide",
+          "keyword_focus": "versicherung, haftpflicht"
+        }
+      ],
+      "estimated_effort": "Low-Medium"
+    },
+    {
+      "priority": 4,
+      "issue": "Readability Below Target (56.6 vs 60+ FRE)",
+      "severity": "HIGH",
+      "action": "Simplify language and sentence structures",
+      "problematic_areas": [
+        "Complex noun compounds (Notfall-Vet-Rechnung → Tierarzt im Notfall)",
+        "Long phrases within sentences",
+        "Technical terminology without explanation"
+      ],
+      "improvements": [
+        "Break long sentences into shorter ones (target: 12-18 words avg)",
+        "Replace complex words with simple ones",
+        "Add more white space and short paragraphs",
+        "Use bullet points instead of long lists"
+      ],
+      "estimated_effort": "Medium"
+    },
+    {
+      "priority": 5,
+      "issue": "E-E-A-T Score Below Acceptable (6.0 vs 6.5)",
+      "severity": "MEDIUM",
+      "action": "Expand credibility and authority signals",
+      "improvements": [
+        {
+          "signal": "Author Credentials",
+          "current": "Not explicitly stated",
+          "action": "Add author bio with experience duration"
+        },
+        {
+          "signal": "External References",
+          "current": "Missing",
+          "action": "Add 2-3 references to veterinary sources or market data"
+        },
+        {
+          "signal": "Citations",
+          "current": "Statistics without links",
+          "action": "Link statistics to credible sources"
+        },
+        {
+          "signal": "Personal Credibility",
+          "current": "Blossi example present",
+          "action": "Emphasize experience duration (10+ years mentioned but not prominent)"
+        }
+      ],
+      "estimated_effort": "Low-Medium"
+    }
+  ],
+
+  "pre_revision_checklist": [
+    {
+      "item": "Read current article-draft.md",
+      "status": false
+    },
+    {
+      "item": "Identify all keyword placement opportunities",
+      "status": false
+    },
+    {
+      "item": "Plan secondary keyword integration",
+      "status": false
+    },
+    {
+      "item": "Prepare internal link anchors",
+      "status": false
+    },
+    {
+      "item": "Simplify complex sentence structures",
+      "status": false
+    },
+    {
+      "item": "Verify all changes maintain content quality",
+      "status": false
+    }
+  ],
+
+  "revision_content_guidelines": {
+    "primary_keyword_integration": {
+      "target_instances": "21-32 occurrences (0.8-1.2% density)",
+      "current_instances": 2,
+      "needed_instances": "15-20",
+      "distribution": {
+        "title": 1,
+        "h1": 1,
+        "introduction": 2,
+        "section_headers": 4,
+        "body_text": 8,
+        "faq": 3,
+        "conclusion": 2
+      }
+    },
+    "secondary_keyword_targets": [
+      {
+        "keyword": "pferd kosten monatlich",
+        "current_density": 0,
+        "target_density": "0.1-0.2%",
+        "target_instances": 3
+      },
+      {
+        "keyword": "pferdehalter kosten",
+        "current_density": 0,
+        "target_density": "0.07-0.15%",
+        "target_instances": 2
+      },
+      {
+        "keyword": "unterhaltskosten pferd",
+        "current_density": 0,
+        "target_density": "0.07-0.15%",
+        "target_instances": 2
+      },
+      {
+        "keyword": "futterkosten pferd",
+        "current_density": 0,
+        "target_density": "0.07-0.15%",
+        "target_instances": 2
+      }
+    ],
+    "readability_improvements": {
+      "target_flesch_score": "60+",
+      "current_score": 56.6,
+      "needed_improvement": "+3.4 points",
+      "strategies": [
+        "Break sentences >20 words into 2-3 shorter sentences",
+        "Replace technical terms with everyday language",
+        "Use active voice instead of passive",
+        "Reduce nominalization (noun chains)",
+        "Add more short paragraphs (2-3 sentences)"
+      ]
+    },
+    "internal_linking_requirements": {
+      "minimum_required": 3,
+      "current_count": 0,
+      "placement_strategy": "Natural integration in body text, not forced"
+    }
+  },
+
+  "post_revision_validation": [
+    {
+      "check": "Primary Keyword Density",
+      "method": "Word count analysis",
+      "target": "0.8-1.2%",
+      "pass_criteria": "Count occurrences and calculate percentage"
+    },
+    {
+      "check": "Flesch Reading Ease",
+      "method": "Readability tool",
+      "target": "60+",
+      "pass_criteria": "Score ≥60"
+    },
+    {
+      "check": "Secondary Keywords",
+      "method": "Search and count",
+      "target": "All keywords ≥target_instances",
+      "pass_criteria": "pferd kosten monatlich: ≥3, others: ≥2"
+    },
+    {
+      "check": "Internal Links",
+      "method": "Manual review",
+      "target": "3+ links with keyword anchors",
+      "pass_criteria": "≥3 contextual links present"
+    },
+    {
+      "check": "E-E-A-T Score",
+      "method": "Content analysis",
+      "target": "≥6.5",
+      "pass_criteria": "All 4 pillars strengthened"
+    },
+    {
+      "check": "Overall Quality Score",
+      "method": "Weighted calculation",
+      "target": "≥7.5",
+      "pass_criteria": "Final score ≥7.5 before publication"
+    }
+  ],
+
+  "estimated_revision_timeline": {
+    "phase_6b_work": {
+      "keyword_optimization": "2-3 hours",
+      "internal_links": "1-2 hours",
+      "readability_revision": "2-3 hours",
+      "eeat_expansion": "1-2 hours",
+      "total": "6-10 hours"
+    },
+    "validation": {
+      "re-analysis": "1-2 hours",
+      "final_review": "1 hour",
+      "total": "2-3 hours"
+    },
+    "grand_total": "8-13 hours"
+  },
+
+  "final_notes": {
+    "critical_issues": [
+      "Primary keyword is SEVERELY under-optimized (0.07% vs 0.8% minimum)",
+      "Article will likely NOT rank for target keyword without revision",
+      "Multiple quality gates failed - publication is NOT approved"
+    ],
+    "strengths": [
+      "Excellent topic coverage (100% of must-have topics)",
+      "Perfect PAA coverage (100% of related questions)",
+      "Good content length and structure",
+      "Strong FAQ section (10 questions)",
+      "Realistic cost scenarios included"
+    ],
+    "revision_focus": [
+      "This is NOT a content quality issue - it's an SEO optimization issue",
+      "Content is valuable and comprehensive",
+      "Revision involves natural integration of keywords, not content rewrite",
+      "Expected to achieve 7.5-8.0+ quality score after Phase 6B"
+    ]
+  },
+
+  "decision": {
+    "publication_approved": false,
+    "reason": "Multiple critical quality gates failed",
+    "required_action": "Phase 6B Revision (Mandatory)",
+    "expected_outcome_after_revision": "Publication Ready (8.0+/10 quality score)",
+    "timestamp": "2026-01-02T12:00:00Z"
+  }
+}

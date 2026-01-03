@@ -1,3 +1,9 @@
+---
+name: ratgeber-builder
+description: Erstellt aus SEO-Content automatisch fertige Ratgeber-Seiten. Verwenden wenn User "ratgeber erstellen" oder "page aus SEO content" sagt.
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+---
+
 # Ratgeber Page Builder
 
 Erstellt aus SEO-Content automatisch eine fertige Ratgeber-Seite nach den Design-Vorgaben von SEO-DESIGN.md.
@@ -55,6 +61,63 @@ Erstellt aus SEO-Content automatisch eine fertige Ratgeber-Seite nach den Design
 - **Keine Box-Inflation**: NICHT jeden Absatz in Boxen packen!
 - **Body Paragraphs**: IMMER `text-lg` für `<p>` Tags (NIEMALS `text-sm`)
 - **Duzen**: IMMER "Du", "Dein", "Dir" in Ratgebern
+
+### Readability (🎯 Ziel: Flesch ≥60 - PFLICHT!)
+
+**Der Flesch-Score entscheidet über Publikation!** Content mit Score <60 wird NICHT veröffentlicht.
+
+#### Schreibregeln für hohen Flesch-Score:
+
+**1. Kurze Sätze (WICHTIGSTER Faktor!):**
+- ✅ **Ziel: 10-15 Wörter** pro Satz
+- ⚠️ Maximum: 20 Wörter
+- ❌ NIEMALS >25 Wörter in einem Satz
+
+**2. Schachtelsätze auflösen:**
+```
+❌ SCHLECHT (Flesch ~30):
+"Wenn du ein Pferd kaufen möchtest, das sowohl für Anfänger geeignet
+ist als auch über eine solide Grundausbildung verfügt, solltest du
+unbedingt darauf achten, dass eine professionelle AKU durchgeführt wird."
+
+✅ GUT (Flesch ~70):
+"Du möchtest ein Anfänger-Pferd mit guter Ausbildung? Dann ist eine
+AKU Pflicht. Der Tierarzt prüft Gesundheit und Rittigkeit."
+```
+
+**3. Einfache Wörter bevorzugen:**
+| Vermeiden | Besser |
+|-----------|--------|
+| Ankaufsuntersuchung | AKU |
+| Veterinärmedizinisch | tierärztlich |
+| Gesundheitszustand | Gesundheit |
+| Qualitätskriterien | Prüfpunkte |
+| Dokumentation | Nachweis |
+
+**4. Aktiv statt Passiv:**
+```
+❌ "Das Pferd wird vom Tierarzt untersucht."
+✅ "Der Tierarzt untersucht das Pferd."
+```
+
+**5. Direkte Ansprache:**
+```
+❌ "Man sollte beachten..."
+✅ "Achte darauf..."
+```
+
+**6. Listen statt Fließtext:**
+- Aufzählungen erhöhen Lesbarkeit
+- Jeder Punkt = 1 klare Aussage
+- Max 5-7 Punkte pro Liste
+
+**7. Fragen einbauen:**
+- "Was kostet ein Pferd pro Monat?"
+- "Worauf musst du achten?"
+- Fragen lockern Text auf + verbessern Score
+
+#### Readability-Check vor Publikation:
+Nach Erstellung IMMER prüfen mit `/readability-check [url]`
 
 ### Layout Props (KRITISCH!)
 ```tsx

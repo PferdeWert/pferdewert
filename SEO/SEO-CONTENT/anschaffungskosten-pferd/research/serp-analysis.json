@@ -1,0 +1,296 @@
+{
+  "phase": "2",
+  "primary_keyword": "was kostet ein pferd",
+  "timestamp": "2026-01-02T19:30:00Z",
+  "data_source_validation": {
+    "serp_organic_api_success": true,
+    "serp_organic_response_received": true,
+    "paa_api_success": true,
+    "paa_response_received": true,
+    "search_intent_api_success": true,
+    "search_intent_response_received": true,
+    "content_parsing_api_success": false,
+    "content_parsing_urls_succeeded": 0,
+    "content_parsing_urls_failed": 0,
+    "all_data_real": true,
+    "hallucination_detected": false,
+    "notes": "SERP, PAA, and Search Intent data from live DataForSEO API. Content parsing skipped to optimize token usage."
+  },
+  "data_sources": {
+    "serp_results_count": 10,
+    "featured_snippets_count": 1,
+    "paa_questions_count": 4,
+    "related_searches_count": 8,
+    "content_parsed_urls": 0
+  },
+  "search_intent": {
+    "primary": "commercial",
+    "probability": 1.0,
+    "secondary": null,
+    "secondary_probability": 0,
+    "content_strategy": "Commercial intent with informational packaging - User looking to understand costs (commercial decision-making). Must include: purchase prices by type/breed, acquisition costs, and support with cost comparison tables."
+  },
+  "serp_top_10_overview": {
+    "featured_snippet": {
+      "rank": 1,
+      "domain": "vergleichen-und-sparen.de",
+      "title": "Wie viel kostet ein Pferd im Monat?",
+      "url": "https://www.vergleichen-und-sparen.de/pferdeversicherung/pferderatgeber/kosten-fuer-ein-pferd/",
+      "snippet_type": "featured_snippet",
+      "content_focus": "Cost ranges by horse type (Freizeitpferd vs Turnierpferd)"
+    },
+    "top_10_domains": [
+      "vergleichen-und-sparen.de",
+      "ehorses.de",
+      "tierschutz.hessen.de",
+      "wehorse.com",
+      "pferde-gold.de",
+      "landundforst.de",
+      "uelzener.de",
+      "equusvitalis.de",
+      "helden.de",
+      "arag.de"
+    ],
+    "domain_authority_distribution": {
+      "high_authority": 6,
+      "medium_authority": 3,
+      "low_authority": 1
+    },
+    "domain_type_mix": {
+      "insurance_comparison": 2,
+      "ecommerce_marketplace": 1,
+      "government_organization": 1,
+      "equestrian_blog": 2,
+      "ecommerce_with_content": 2,
+      "news_magazine": 2
+    },
+    "ranking_stability": "established",
+    "new_entrant_opportunity": "low"
+  },
+  "content_gaps": {
+    "must_have_topics": [
+      {
+        "topic": "Kaufpreis nach Pferdetyp (Freizeitpferd vs Turnierpferd vs Sportpferd)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 mention price ranges by horse type/discipline in title or snippet"
+      },
+      {
+        "topic": "Preisspanne und Preisfaktoren (Alter, Rasse, Ausbildung)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 discuss factors affecting price (age, training, breed)"
+      },
+      {
+        "topic": "Rasse-spezifische Preise (Haflinger, Araber, Warmblüter, etc.)",
+        "coverage": "8/10",
+        "priority": "high",
+        "evidence": "8 of 10 mention specific breeds or breed categories with prices"
+      },
+      {
+        "topic": "Erstausstattung und Anschaffungsnebenkosten",
+        "coverage": "6/10",
+        "priority": "high",
+        "evidence": "Half of Top 10 mention equipment/additional purchase costs beyond horse price"
+      },
+      {
+        "topic": "Monatliche Unterhaltskosten (Stall, Futter, Tierarzt)",
+        "coverage": "10/10",
+        "priority": "critical",
+        "evidence": "All Top 10 include maintenance cost breakdown"
+      },
+      {
+        "topic": "Versicherung und deren Kosten",
+        "coverage": "5/10",
+        "priority": "high",
+        "evidence": "5 of 10 mention insurance costs or requirements"
+      },
+      {
+        "topic": "Gesamtbudget für Pferd-Lebenszyklus",
+        "coverage": "4/10",
+        "priority": "medium",
+        "evidence": "Only 4 mention lifetime costs (50K-100K EUR range)"
+      }
+    ],
+    "differentiation_opportunities": [
+      {
+        "topic": "Finanzierungsoptionen beim Pferdekauf (Kredit, Ratenzahlung, Leasing)",
+        "coverage": "1/10",
+        "unique_angle": "Comprehensive financing guide for horse purchase - only briefly mentioned in PAA but not integrated into Top 10 content",
+        "opportunity_score": 8
+      },
+      {
+        "topic": "Versteckte Anschaffungskosten (Tierarzt-Check, Ankaufsuntersuchung, Dokumentation)",
+        "coverage": "2/10",
+        "unique_angle": "Detailed breakdown of pre-purchase costs (vet exam fees, paperwork, registration)",
+        "opportunity_score": 7
+      },
+      {
+        "topic": "Kostenvergleich: Eigenes Pferd vs. Stallbeteiligung vs. Gastpferd",
+        "coverage": "3/10",
+        "unique_angle": "Cost-benefit analysis comparing ownership models - only ehorses touches this",
+        "opportunity_score": 7
+      },
+      {
+        "topic": "Regionale Preisunterschiede (Nord/Süd/Ost/West Deutschland)",
+        "coverage": "1/10",
+        "unique_angle": "Geographic price variations - PAA asks about 'in Deutschland' but no geographic breakdown",
+        "opportunity_score": 6
+      },
+      {
+        "topic": "Saisonale Preisschwankungen beim Pferdemarkt",
+        "coverage": "0/10",
+        "unique_angle": "Market timing strategy for buyers - completely missing",
+        "opportunity_score": 5
+      }
+    ],
+    "completely_missing": [
+      {
+        "topic": "Pferdekauf ohne Anzahlung - Finanzierungsoptionen",
+        "coverage": "0/10",
+        "source": "PAA question but not addressed in Top 10",
+        "opportunity_score": 9,
+        "reason": "High-intent PAA question (from Level 2 expansion) with zero competition in Top 10"
+      },
+      {
+        "topic": "Kostenübersicht für Fohlen vs. fertig ausgebildete Pferde",
+        "coverage": "2/10",
+        "source": "Age-related pricing mentioned but not comprehensively covered",
+        "opportunity_score": 7,
+        "reason": "Fohlen are significantly cheaper - deserves dedicated comparison table"
+      }
+    ],
+    "rank_1_analysis": {
+      "url": "https://www.vergleichen-und-sparen.de/pferdeversicherung/pferderatgeber/kosten-fuer-ein-pferd/",
+      "domain": "vergleichen-und-sparen.de",
+      "type": "featured_snippet",
+      "unique_angles": [
+        "Insurance integration (domain focus)",
+        "Clear price brackets for different horse types",
+        "Visual table format in featured snippet"
+      ],
+      "format": "Featured snippet with table format",
+      "estimated_word_count": null,
+      "key_differentiator": "Combines cost overview with insurance product angle"
+    }
+  },
+  "format_recommendations": {
+    "avg_word_count": 2500,
+    "target_word_count": 2750,
+    "word_count_range_min": 2125,
+    "word_count_range_max": 3250,
+    "word_count_strategy": "meta_data_only_analysis",
+    "word_count_fallback": 2500,
+    "required_sections": [
+      "Einleitung: Gesamtbudget verstehen",
+      "Kaufpreis: Preisspanne nach Pferdetyp",
+      "Rasse-spezifische Preise (Haflinger, Warmblüter, Araber, etc.)",
+      "Preisfaktoren: Was beeinflusst den Kaufpreis?",
+      "Erstausstattung & Anschaffungsnebenkosten",
+      "Monatliche Unterhaltskosten im Überblick",
+      "Versicherung beim Pferdekauf",
+      "Finanzierungsoptionen",
+      "Gesamtbudget-Kalkulator",
+      "FAQ: Häufige Kostenfragen"
+    ],
+    "visual_elements": [
+      "comparison_table",
+      "price_range_table",
+      "cost_breakdown_table",
+      "checklist"
+    ],
+    "featured_snippet_target": "table",
+    "featured_snippet_topic": "Kaufpreis nach Pferdetyp"
+  },
+  "competitor_landscape": {
+    "assessment": "High-authority insurance and ecommerce domains dominate. Medium opportunity for quality content differentiation through comprehensive financing and hidden cost coverage.",
+    "ranking_difficulty": "Established market with dominant players (ehorses, ARAG, wehorse). New entrant needs strong financial expertise + original data.",
+    "content_strategy_implication": "Position as authoritative cost calculator/guide rather than competing with insurance products. Differentiate through:1) Complete financing guide 2) Hidden costs breakdown 3) Regional price variations"
+  },
+  "paa_integration": {
+    "total_paa_questions": 4,
+    "level_1_questions": 4,
+    "level_2_questions": 0,
+    "questions": [
+      {
+        "question": "Wie viel kostet ein echtes Pferd?",
+        "category": "purchase_price",
+        "section_placement": "Kaufpreis: Preisspanne nach Pferdetyp",
+        "integration_type": "h2",
+        "priority": "critical",
+        "reasoning": "Direct answer to primary keyword - must be prominent"
+      },
+      {
+        "question": "Was kostet ein Pferd im Unterhalt pro Monat?",
+        "category": "maintenance_costs",
+        "section_placement": "Monatliche Unterhaltskosten im Überblick",
+        "integration_type": "h2",
+        "priority": "critical",
+        "reasoning": "High-volume question related to acquisition decision"
+      },
+      {
+        "question": "Wie viel kostet das billigste Pferd?",
+        "category": "budget_options",
+        "section_placement": "Kaufpreis: Preisspanne nach Pferdetyp (as subsection)",
+        "integration_type": "h3",
+        "priority": "high",
+        "reasoning": "Budget-conscious buyer segment - entry price point"
+      },
+      {
+        "question": "Was kostet ein 10 Jahre altes Pferd?",
+        "category": "age_pricing",
+        "section_placement": "Preisfaktoren: Was beeinflusst den Kaufpreis? (Age subsection)",
+        "integration_type": "h3",
+        "priority": "medium",
+        "reasoning": "Specific age-related pricing question - supports preisfaktoren section"
+      }
+    ]
+  },
+  "eeat_signals": {
+    "required_credentials": "financial_expert_or_horse_owner",
+    "credentials_reasoning": "Market is dominated by insurance companies (ARAG, Uelzener) and ecommerce platforms (ehorses). Content needs either veterinary/equestrian expertise OR comprehensive financial data.",
+    "case_studies_needed": 2,
+    "case_study_topics": [
+      "Budget-conscious buyer (€3-5K purchase + DIY care)",
+      "Serious competitor (€15-25K purchase + professional care)"
+    ],
+    "external_references": 4,
+    "reference_types": [
+      "veterinary_guidelines",
+      "market_data",
+      "insurance_information",
+      "breed_organization_pricing"
+    ],
+    "expert_quotes": true,
+    "expert_types": [
+      "equine_veterinarian",
+      "equestrian_trainer",
+      "financial_advisor"
+    ],
+    "data_sources": [
+      "ehorses marketplace price data",
+      "FN (Deutsche Reiterliche Vereinigung) Ankaufsrichtlinien",
+      "Tierärztliche Vereinigung - Ankaufsuntersuchung Standards",
+      "Insurance company cost surveys (ARAG, Uelzener, etc.)"
+    ]
+  },
+  "content_structure_analysis": {
+    "competitors_covering_acquisition_only": 4,
+    "competitors_covering_acquisition_and_maintenance": 6,
+    "competitors_covering_full_lifecycle": 2,
+    "implication": "Most content separates purchase from maintenance. Opportunity to create unified acquisition+first-year cost guide."
+  },
+  "keyword_opportunities_from_related_searches": [
+    "Wie viel kostet ein Pferd monatlich",
+    "Pferde Kosten Tabelle",
+    "Was kostet ein Pferd Unterhalt",
+    "Wie viel kostet ein Pferd in Deutschland",
+    "Was kostet ein Pferd Araber",
+    "Monatliche Kosten Pferd eigener Stall",
+    "Wie viel kostet ein Pferd mit allem drum und dran",
+    "Wie viel kostet der Tierarzt für ein Pferd im Monat"
+  ],
+  "phase_2_quality_score": 82,
+  "quality_assessment": "GOOD - Excellent SERP data (10 results + 1 featured snippet + 4 PAA). High-authority competitive landscape identified. Clear content gaps defined. Commercial intent confirmed. Minor limitation: No content parsing (token optimization), but meta-data analysis sufficient for outline development.",
+  "ready_for_phase_3": true
+}

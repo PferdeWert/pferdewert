@@ -1,0 +1,326 @@
+{
+  "primary_keyword": "was kostet ein pferd",
+  "analyzed_at": "2026-01-02T18:22:47.367677Z",
+  "algorithm_version": "v3.0",
+  "total_keywords_analyzed": 20,
+  "keywords_after_filtering": 18,
+  "top_keywords": [
+    {
+      "keyword": "was kostet ein pferd",
+      "search_volume": 2400,
+      "cpc": 0.1,
+      "relevance_score": 6.42,
+      "similarity": 1.0,
+      "word_overlap": 4,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 2400,
+        "cpc": 0.1,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 4
+    },
+    {
+      "keyword": "wie viel kostet ein pferd",
+      "search_volume": 4400,
+      "cpc": 0.1,
+      "relevance_score": 6.02,
+      "similarity": 0.8,
+      "word_overlap": 3,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 4400,
+        "cpc": 0.1,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 5
+    },
+    {
+      "keyword": "wie viel kostet ein freizeitpferd",
+      "search_volume": 40,
+      "cpc": 0.16,
+      "relevance_score": 4.23,
+      "similarity": 0.679,
+      "word_overlap": 2,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 40,
+        "cpc": 0.16,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 5
+    },
+    {
+      "keyword": "was kostet ein pferd in deutschland",
+      "search_volume": 70,
+      "cpc": 0.02,
+      "relevance_score": 4.2,
+      "similarity": 0.727,
+      "word_overlap": 4,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 70,
+        "cpc": 0.02,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 6
+    },
+    {
+      "keyword": "haflinger pferde",
+      "search_volume": 2900,
+      "cpc": 0.36,
+      "relevance_score": 4.09,
+      "similarity": 0.5,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 2900,
+        "cpc": 0.36,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 2
+    },
+    {
+      "keyword": "wie viel kostet ein pferdestall",
+      "search_volume": 30,
+      "cpc": 0,
+      "relevance_score": 4.04,
+      "similarity": 0.706,
+      "word_overlap": 2,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 30,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 5
+    },
+    {
+      "keyword": "wie viel kostet ein pferd im jahr",
+      "search_volume": 260,
+      "cpc": 0,
+      "relevance_score": 3.97,
+      "similarity": 0.679,
+      "word_overlap": 3,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 260,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 7
+    },
+    {
+      "keyword": "was kostet ein pferd in der anschaffung",
+      "search_volume": 30,
+      "cpc": 0,
+      "relevance_score": 3.9,
+      "similarity": 0.678,
+      "word_overlap": 4,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 30,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 7
+    },
+    {
+      "keyword": "was kostet ein pferd in der unterhaltung",
+      "search_volume": 30,
+      "cpc": 0,
+      "relevance_score": 3.84,
+      "similarity": 0.667,
+      "word_overlap": 4,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 30,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 7
+    },
+    {
+      "keyword": "wie viel kostet ein pferd in deutschland",
+      "search_volume": 260,
+      "cpc": 0.08,
+      "relevance_score": 3.74,
+      "similarity": 0.6,
+      "word_overlap": 3,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 260,
+        "cpc": 0.08,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 7
+    },
+    {
+      "keyword": "erstausstattung pferd",
+      "search_volume": 170,
+      "cpc": 0.93,
+      "relevance_score": 3.49,
+      "similarity": 0.488,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 170,
+        "cpc": 0.93,
+        "competition_level": "commercial"
+      },
+      "cluster_id": 0,
+      "cluster_name": "General",
+      "word_count": 2
+    },
+    {
+      "keyword": "wie viel kostet ein pony im jahr",
+      "search_volume": 50,
+      "cpc": 0,
+      "relevance_score": 3.4,
+      "similarity": 0.577,
+      "word_overlap": 2,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 50,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 7
+    },
+    {
+      "keyword": "anschaffungskosten pferd",
+      "search_volume": 50,
+      "cpc": 0,
+      "relevance_score": 3.2,
+      "similarity": 0.636,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 50,
+        "cpc": 0,
+        "competition_level": "informational"
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 2
+    },
+    {
+      "keyword": "wie viel kostet ein pferd mit allem drum und dran",
+      "search_volume": 90,
+      "cpc": 0,
+      "relevance_score": 3.14,
+      "similarity": 0.522,
+      "word_overlap": 3,
+      "has_question_word": true,
+      "keyword_info": {
+        "search_volume": 90,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 1,
+      "cluster_name": "Informational",
+      "word_count": 10
+    },
+    {
+      "keyword": "pferd kaufen kosten",
+      "search_volume": 110,
+      "cpc": 0.4,
+      "relevance_score": 2.88,
+      "similarity": 0.41,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 110,
+        "cpc": 0.4,
+        "competition_level": "commercial"
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "pferde kosten tabelle",
+      "search_volume": 720,
+      "cpc": 0,
+      "relevance_score": 2.41,
+      "similarity": 0.439,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 720,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "aku pferd kosten",
+      "search_volume": 210,
+      "cpc": 0,
+      "relevance_score": 2.29,
+      "similarity": 0.444,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 210,
+        "cpc": 0,
+        "competition_level": "commercial"
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 3
+    },
+    {
+      "keyword": "pferde kosten tabelle tierarzt",
+      "search_volume": 20,
+      "cpc": 0,
+      "relevance_score": 2.01,
+      "similarity": 0.4,
+      "word_overlap": 1,
+      "has_question_word": false,
+      "keyword_info": {
+        "search_volume": 20,
+        "cpc": 0,
+        "competition_level": "LOW"
+      },
+      "cluster_id": 2,
+      "cluster_name": "Commercial",
+      "word_count": 4
+    }
+  ],
+  "cluster_distribution": {
+    "Informational": 11,
+    "General": 2,
+    "Commercial": 5
+  },
+  "statistics": {
+    "avg_search_volume": 658.0,
+    "avg_cpc": 0.12,
+    "avg_relevance_score": 3.74,
+    "keywords_with_questions": 11
+  }
+}

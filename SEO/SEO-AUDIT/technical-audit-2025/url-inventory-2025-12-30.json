@@ -1,0 +1,104 @@
+{
+  "audit_date": "2025-12-30",
+  "domain": "pferdewert.de",
+  "sitemap_url": "https://www.pferdewert.de/sitemap.xml",
+
+  "urls_in_sitemap": {
+    "total": 20,
+    "main_pages": [
+      {"url": "https://pferdewert.de/", "lastmod": "2025-12-21", "priority": 1},
+      {"url": "https://pferdewert.de/pferde-preis-berechnen", "lastmod": "2025-12-21", "priority": 1},
+      {"url": "https://pferdewert.de/beispiel-analyse", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/ueber-pferdewert", "lastmod": "2025-12-21", "priority": 3}
+    ],
+    "legal_pages": [
+      {"url": "https://pferdewert.de/impressum", "lastmod": "2025-12-21", "priority": 4},
+      {"url": "https://pferdewert.de/datenschutz", "lastmod": "2025-12-21", "priority": 4},
+      {"url": "https://pferdewert.de/agb", "lastmod": "2025-12-21", "priority": 4}
+    ],
+    "ratgeber_articles": [
+      {"url": "https://pferdewert.de/pferde-ratgeber/aku-pferd", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen", "lastmod": "2025-12-21", "priority": 2}
+    ],
+    "pferd_kaufen_pages": [
+      {"url": "https://pferdewert.de/pferd-kaufen/freizeitpferd", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/springpferd", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/dressurpferd", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/haflinger", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/pony", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/quarter-horse", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/friese", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/islandpferd", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/bayern", "lastmod": "2025-12-21", "priority": 2},
+      {"url": "https://pferdewert.de/pferd-kaufen/nrw", "lastmod": "2025-12-21", "priority": 2}
+    ]
+  },
+
+  "urls_missing_from_sitemap": {
+    "critical": [
+      {"url": "/pferd-kaufen/", "note": "Hub page - very important for SEO!", "priority": 1},
+      {"url": "/pferde-ratgeber/", "note": "Ratgeber index page", "priority": 2},
+      {"url": "/pferd-verkaufen/", "note": "Selling guide - high value", "priority": 2}
+    ],
+    "high_value": [
+      {"url": "/pferd-kaufen/oesterreich", "note": "Austrian regional page", "priority": 2},
+      {"url": "/pferd-kaufen/schweiz", "note": "Swiss regional page", "priority": 2},
+      {"url": "/pferd-kaufen/fohlen", "note": "Foal buying guide", "priority": 2},
+      {"url": "/pferd-kaufen/anfaenger", "note": "Beginner guide", "priority": 2},
+      {"url": "/pferd-kaufen/lipizzaner", "note": "Breed page", "priority": 2},
+      {"url": "/pferd-kaufen/kaufvertrag", "note": "Contract guide", "priority": 2},
+      {"url": "/pferde-ratgeber/aku-pferd/kosten", "note": "AKU costs sub-page", "priority": 2},
+      {"url": "/pferde-ratgeber/pferdemarkt", "note": "Marketplace comparison guide", "priority": 2}
+    ],
+    "excluded_intentionally": [
+      {"url": "/ergebnis", "note": "Dynamic results page - noindex expected"},
+      {"url": "/wertgutachten-ergebnis", "note": "Dynamic results page - noindex expected"},
+      {"url": "/zertifikat-preview", "note": "Internal preview page"},
+      {"url": "/test-loading", "note": "Test page"},
+      {"url": "/pdf-test", "note": "Test page"}
+    ]
+  },
+
+  "priority_classification": {
+    "prio_1_business_critical": [
+      "https://pferdewert.de/",
+      "https://pferdewert.de/pferde-preis-berechnen",
+      "https://pferdewert.de/pferd-kaufen/"
+    ],
+    "prio_2_high_value": [
+      "https://pferdewert.de/beispiel-analyse",
+      "https://pferdewert.de/pferd-verkaufen/",
+      "https://pferdewert.de/pferde-ratgeber/",
+      "https://pferdewert.de/pferde-ratgeber/aku-pferd",
+      "https://pferdewert.de/pferde-ratgeber/was-kostet-ein-pferd",
+      "https://pferdewert.de/pferde-ratgeber/pferd-verkaufen",
+      "https://pferdewert.de/pferd-kaufen/freizeitpferd",
+      "https://pferdewert.de/pferd-kaufen/springpferd",
+      "https://pferdewert.de/pferd-kaufen/dressurpferd",
+      "https://pferdewert.de/pferd-kaufen/haflinger",
+      "https://pferdewert.de/pferd-kaufen/bayern"
+    ],
+    "prio_3_medium": [
+      "https://pferdewert.de/pferd-kaufen/pony",
+      "https://pferdewert.de/pferd-kaufen/quarter-horse",
+      "https://pferdewert.de/pferd-kaufen/friese",
+      "https://pferdewert.de/pferd-kaufen/islandpferd",
+      "https://pferdewert.de/pferd-kaufen/nrw",
+      "https://pferdewert.de/pferd-kaufen/oesterreich",
+      "https://pferdewert.de/pferd-kaufen/schweiz",
+      "https://pferdewert.de/ueber-pferdewert"
+    ],
+    "prio_4_low": [
+      "https://pferdewert.de/impressum",
+      "https://pferdewert.de/datenschutz",
+      "https://pferdewert.de/agb"
+    ]
+  },
+
+  "issues_found": {
+    "sitemap_incomplete": true,
+    "missing_pages_count": 11,
+    "critical_missing": 3
+  }
+}

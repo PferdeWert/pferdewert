@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Was kostet ein Pferd im Monat? Realistische Kostenübersicht für Pferdehalter",
+  "alternativeHeadline": "Pferd Kosten monatlich: Detaillierte Übersicht aller Ausgaben 2025",
+  "description": "Vollständige Kostenübersicht für Pferdehalter: Stallmiete, Futter, Hufschmied, Tierarzt, Versicherungen, Reitunterricht und versteckte Kosten mit realistische Szenarien.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pferdewert.de/images/ratgeber/pferd-kosten-monatlich.webp",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "PferdeWert.de Redaktion",
+    "url": "https://pferdewert.de/ueber-uns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PferdeWert.de",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pferdewert.de/logo.png",
+      "width": 200,
+      "height": 50
+    }
+  },
+  "datePublished": "2026-01-02",
+  "dateModified": "2026-01-02",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pferdewert.de/pferde-ratgeber/pferd-kosten-monatlich"
+  },
+  "articleBody": "Was kostet ein Pferd im Monat? Der Traum vom eigenen Pferd ist verlockend. Aber realistisch betrachtet: Wie viel kostet dich ein Pferd monatlich wirklich? Viele Anfänger unterschätzen die laufenden Kosten massiv. In diesem Guide schlüsseln wir ALLE monatlichen Kosten auf: Stallmiete (150€-900€), Futter (60€-220€), Hufschmied (35€-130€), Tierarzt (20€-100€), Versicherungen (15€-110€), Reitunterricht (0€-350€) und Ausrüstung (10€-60€).",
+  "keywords": "was kostet ein pferd im monat, pferd kosten monatlich, pferdehalter kosten, unterhaltskosten pferd, stallmiete, futterkosten, hufschmied kosten, tierarzt kosten, pferd versicherung",
+  "wordCount": 2566,
+  "articleSection": "Ratgeber",
+  "inLanguage": {
+    "@type": "Language",
+    "name": "Deutsch",
+    "alternateName": "de"
+  }
+}

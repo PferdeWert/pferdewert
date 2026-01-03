@@ -1,3 +1,9 @@
+---
+name: frontend-design
+description: Erstellt produktionsreife Frontend-Komponenten mit dem PferdeWert Design-System. Automatisch verwenden bei UI-Entwicklung, Styling, Component-Erstellung.
+allowed-tools: Read, Write, Edit, Glob, Grep
+---
+
 # PferdeWert Frontend Design Skill
 
 Erstellt produktionsreife Frontend-Komponenten und UI-Elemente mit dem **PferdeWert Design-System**. Verhindert generische AI-Ästhetik und hält sich strikt an die Brand-Farben.

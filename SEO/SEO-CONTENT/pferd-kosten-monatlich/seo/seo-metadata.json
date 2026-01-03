@@ -1,0 +1,137 @@
+{
+  "phase": "5A",
+  "primary_keyword": "was kostet ein pferd im monat",
+  "slug": "pferd-kosten-monatlich",
+  "timestamp": "2026-01-02T12:00:00Z",
+
+  "locales": {
+    "de": {
+      "metadata": {
+        "title": "Pferd Kosten monatlich: Realistische Übersicht 2025",
+        "description": "Was kostet ein Pferd monatlich? Detaillierte Kostenübersicht: Stallmiete, Futter, Hufschmied, Vet. Mit interaktivem Budgetrechner & Sparmaßnahmen.",
+        "canonical_url": "https://pferdewert.de/pferde-ratgeber/pferd-kosten-monatlich",
+        "robots": "index, follow",
+        "keywords": "was kostet ein pferd im monat, pferd kosten monatlich, pferdehalter kosten, unterhaltskosten pferd"
+      },
+      "open_graph": {
+        "og:title": "Pferd Kosten monatlich: Realistische Übersicht 2025",
+        "og:description": "Was kostet ein Pferd monatlich? Detaillierte Kostenübersicht mit Stallmiete, Futter, Hufschmied & Vet-Kosten.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.de/pferde-ratgeber/pferd-kosten-monatlich",
+        "og:site_name": "PferdeWert.de",
+        "og:locale": "de_DE",
+        "og:image": "https://pferdewert.de/images/ratgeber/pferd-kosten-monatlich.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Pferd Kosten monatlich: Realistische Übersicht",
+        "twitter:description": "Detaillierte Kostenübersicht für Pferdehalter mit Stallmiete, Futter, Hufschmied & mehr.",
+        "twitter:image": "https://pferdewert.de/images/ratgeber/pferd-kosten-monatlich.webp"
+      }
+    },
+    "at": {
+      "metadata": {
+        "title": "Pferd Kosten in Österreich: Monatliche Übersicht 2025",
+        "description": "Was kostet ein Pferd monatlich in Österreich? Kostenübersicht mit regionalen Preisen, Stallmiete, Futter & Versicherungen. Mit österreichischem Budgetrechner.",
+        "canonical_url": "https://pferdewert.at/pferde-ratgeber/pferd-kosten-monatlich",
+        "robots": "index, follow",
+        "keywords": "pferd kosten monatlich österreich, pferdehalter kosten at, unterhaltskosten pferd"
+      },
+      "open_graph": {
+        "og:title": "Pferd Kosten in Österreich: Monatliche Übersicht 2025",
+        "og:description": "Was kostet ein Pferd monatlich in Österreich? Detaillierte Kostenübersicht mit österreichischen Preisen.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.at/pferde-ratgeber/pferd-kosten-monatlich",
+        "og:site_name": "PferdeWert.at",
+        "og:locale": "de_AT",
+        "og:image": "https://pferdewert.at/images/ratgeber/pferd-kosten-monatlich.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Pferd Kosten in Österreich: Monatliche Übersicht",
+        "twitter:description": "Kostenübersicht für österreichische Pferdehalter mit regionalen Preisen.",
+        "twitter:image": "https://pferdewert.at/images/ratgeber/pferd-kosten-monatlich.webp"
+      }
+    },
+    "ch": {
+      "metadata": {
+        "title": "Pferd Kosten in der Schweiz: Monatliche Übersicht CHF",
+        "description": "Was kostet ein Pferd monatlich in der Schweiz? Kostenübersicht in CHF: Stallmiete, Futter, Hufschmied & Versicherungen mit schweizer Budgetrechner.",
+        "canonical_url": "https://pferdewert.ch/pferde-ratgeber/pferd-kosten-monatlich",
+        "robots": "index, follow",
+        "keywords": "pferd kosten monatlich schweiz, pferdehalter kosten chf, unterhaltskosten pferd"
+      },
+      "open_graph": {
+        "og:title": "Pferd Kosten in der Schweiz: Monatliche Übersicht CHF",
+        "og:description": "Was kostet ein Pferd monatlich in der Schweiz? Kostenübersicht in CHF mit schweizer Stallpreisen & Versicherungen.",
+        "og:type": "article",
+        "og:url": "https://pferdewert.ch/pferde-ratgeber/pferd-kosten-monatlich",
+        "og:site_name": "PferdeWert.ch",
+        "og:locale": "de_CH",
+        "og:image": "https://pferdewert.ch/images/ratgeber/pferd-kosten-monatlich.webp"
+      },
+      "twitter_card": {
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Pferd Kosten in der Schweiz: Monatliche Übersicht CHF",
+        "twitter:description": "Kostenübersicht für Schweizer Pferdehalter in CHF mit aktuellen Preisen.",
+        "twitter:image": "https://pferdewert.ch/images/ratgeber/pferd-kosten-monatlich.webp"
+      }
+    }
+  },
+
+  "hreflang": [
+    {
+      "hreflang": "de",
+      "href": "https://pferdewert.de/pferde-ratgeber/pferd-kosten-monatlich"
+    },
+    {
+      "hreflang": "de-AT",
+      "href": "https://pferdewert.at/pferde-ratgeber/pferd-kosten-monatlich"
+    },
+    {
+      "hreflang": "de-CH",
+      "href": "https://pferdewert.ch/pferde-ratgeber/pferd-kosten-monatlich"
+    },
+    {
+      "hreflang": "x-default",
+      "href": "https://pferdewert.de/pferde-ratgeber/pferd-kosten-monatlich"
+    }
+  ],
+
+  "shared": {
+    "twitter:site": "@PferdeWert",
+    "twitter:creator": "@PferdeWert",
+    "og:image:width": 1200,
+    "og:image:height": 630
+  },
+
+  "validation": {
+    "de": {
+      "title_length": 55,
+      "description_length": 157,
+      "primary_keyword_in_title": true,
+      "status": "PASS"
+    },
+    "at": {
+      "title_length": 60,
+      "description_length": 158,
+      "primary_keyword_in_title": true,
+      "status": "PASS"
+    },
+    "ch": {
+      "title_length": 62,
+      "description_length": 160,
+      "primary_keyword_in_title": true,
+      "status": "WARNING_SLIGHT_OVERLONG"
+    }
+  },
+
+  "featured_image": {
+    "url": "https://pferdewert.de/images/ratgeber/pferd-kosten-monatlich.webp",
+    "alt": "Kostenübersicht für Pferdehalter - Stallmiete, Futter, Tierarzt und weitere monatliche Ausgaben",
+    "width": 1200,
+    "height": 630,
+    "format": "webp",
+    "file_size_kb": 145
+  }
+}

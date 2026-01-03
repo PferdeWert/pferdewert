@@ -1,0 +1,93 @@
+{
+  "phase": "5C",
+  "primary_keyword": "was kostet ein pferd im monat",
+  "timestamp": "2026-01-02T12:00:00Z",
+  "total_internal_links": 6,
+
+  "internal_links": [
+    {
+      "position": 1,
+      "section": "Stallmiete Kostenvergleich",
+      "anchor_text": "Pferd kaufen: Worauf achten beim Kauf",
+      "target_url": "/pferde-ratgeber/pferd-kaufen-worauf-achten",
+      "context": "Bevor du monatliche Kosten planst, solltest du auch wissen, worauf du beim Pferdekauf achten musst. Unser Guide zeigt dir [Pferd kaufen: Worauf achten beim Kauf], damit du von Anfang an die richtigen Entscheidungen triffst.",
+      "relevance": "high",
+      "anchor_type": "exact_keyword",
+      "word_position": 650
+    },
+    {
+      "position": 2,
+      "section": "Tierarzt & Notfall-Kosten",
+      "anchor_text": "Pferd Gesundheitscheck Kosten",
+      "target_url": "/pferde-ratgeber/pferd-gesundheitscheck-kosten",
+      "context": "Neben den monatlichen Routine-Vet-Kosten fallen auch regelmäßige Gesundheitschecks an. Die [Pferd Gesundheitscheck Kosten] solltest du bei der Budgetplanung berücksichtigen.",
+      "relevance": "high",
+      "anchor_type": "exact_keyword",
+      "word_position": 1200
+    },
+    {
+      "position": 3,
+      "section": "Versicherungen & Notfall-Rücklagen",
+      "anchor_text": "Pferdehaftpflicht Versicherung Vergleich",
+      "target_url": "/pferde-ratgeber/pferdehaftpflicht-versicherung-vergleich",
+      "context": "Versicherungen sind ein wichtiger Kostenfaktor. Nutze unseren [Pferdehaftpflicht Versicherung Vergleich], um die beste und günstigste Option für deine Situation zu finden.",
+      "relevance": "high",
+      "anchor_type": "exact_keyword",
+      "word_position": 1400
+    },
+    {
+      "position": 4,
+      "section": "Futterkosten & Ernährung",
+      "anchor_text": "Pferd Ernährung und Fütterung Guide",
+      "target_url": "/pferde-ratgeber/pferd-ernaehrung-futterung",
+      "context": "Futterkosten machen einen großen Anteil des Budgets aus. Erfahre mehr über optimale [Pferd Ernährung und Fütterung Guide], um dein Pferd richtig zu versorgen und gleichzeitig Kosten zu optimieren.",
+      "relevance": "medium",
+      "anchor_type": "exact_keyword",
+      "word_position": 900
+    },
+    {
+      "position": 5,
+      "section": "Stalltypen & Kosten",
+      "anchor_text": "Selbstversorger vs. Pensionsstall",
+      "target_url": "/pferde-ratgeber/selbstversorger-vs-pensionsstall",
+      "context": "Die Stallwahl ist deine größte Kosteneinsparung-Möglichkeit. Vergleiche die Optionen in unserem Ratgeber zum Thema [Selbstversorger vs. Pensionsstall], um die beste Lösung für dein Budget zu finden.",
+      "relevance": "high",
+      "anchor_type": "exact_keyword",
+      "word_position": 750
+    },
+    {
+      "position": 6,
+      "section": "Notfall-Planung & Reserve",
+      "anchor_text": "Pferdewert Bewertung und Versicherungsschutz",
+      "target_url": "/pferde-ratgeber/pferdewert-ermitteln",
+      "context": "Um dein Pferd optimal zu versichern und eine Notfall-Reserve zu bilden, solltest du den aktuellen Wert deines Pferdes kennen. Nutze unsere [Pferdewert Bewertung und Versicherungsschutz] zur genauen Kalkulation.",
+      "relevance": "medium",
+      "anchor_type": "thematic_keyword",
+      "word_position": 1600
+    }
+  ],
+
+  "linking_strategy": {
+    "distribution": "Natürlich über Artikel verteilt",
+    "anchor_text_variety": "Mix aus exakten Keywords und thematischen Variationen",
+    "minimum_relevance": "high",
+    "focus": "Interne PferdeWert-Ratgeber zu verwandten Kosten- und Pferdekauf-Themen",
+    "validation_note": "Alle Links zu bestehenden Ratgeber-Seiten mit validierter Sitemap"
+  },
+
+  "link_placement_quality": {
+    "early_section_links": 1,
+    "mid_section_links": 3,
+    "conclusion_links": 2,
+    "total_valid_links": 6,
+    "quality_gate_status": "PASS (min 3 required)"
+  },
+
+  "sitemap_validation": {
+    "validated_against": "SEO/sitemap-ratgeber.json (Latest)",
+    "all_target_urls_exist": true,
+    "broken_links": 0,
+    "missing_links": 0,
+    "validation_timestamp": "2026-01-02T12:00:00Z"
+  }
+}

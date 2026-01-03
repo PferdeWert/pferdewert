@@ -1,0 +1,593 @@
+{
+  "phase": "3",
+  "primary_keyword": "was kostet ein pferd im monat",
+  "timestamp": "2026-01-02T00:00:00Z",
+  "keyword_placement_strategy": "Natural integration with 0.8-1.2% target density",
+
+  "primary_keyword_placements": {
+    "title": {
+      "text": "Was kostet ein Pferd im Monat? Vollständige Kostenübersicht 2025",
+      "keyword_used": "was kostet ein pferd im monat",
+      "position": "start",
+      "importance": "critical"
+    },
+    "h1": {
+      "text": "Was kostet ein Pferd im Monat? Realistische Kostenübersicht für Pferdehalter",
+      "keyword_used": "was kostet ein pferd im monat",
+      "position": "start",
+      "importance": "critical"
+    },
+    "meta_description": {
+      "text": "Pferdekosten monatlich: Stallmiete, Futter, Hufschmied, Vet. Interaktive Kosten-Tabelle + Sparmaßnahmen. Kostenloser Budgetrechner.",
+      "keyword_used": "pferdekosten monatlich",
+      "position": "start",
+      "importance": "high"
+    },
+    "introduction": {
+      "word_count_target": 180,
+      "keyword_placements": 1,
+      "instance": "First sentence: 'was kostet ein pferd im monat' or natural variation",
+      "importance": "high"
+    },
+    "section_1_h2": {
+      "text": "Pferdehaltungskosten auf einen Blick: Komplette Kostentabelle",
+      "keyword_used": "monatliche kosten pferd",
+      "importance": "medium"
+    },
+    "section_1_table": {
+      "location": "First visual element",
+      "keyword_integration": "Table header + introduction text",
+      "target_keyword": "Was kostet ein Pferd im Monat?",
+      "importance": "critical (featured snippet target)"
+    },
+    "faq_q1": {
+      "question": "Was kostet ein Pferd monatlich im Unterhalt?",
+      "keyword_used": "pferd monatlich unterhalt",
+      "importance": "high (PAA source)"
+    },
+    "conclusion": {
+      "word_count_target": 180,
+      "keyword_placements": 1,
+      "instance": "Natural mention in summary or decision framework",
+      "importance": "high"
+    }
+  },
+
+  "secondary_keywords": [
+    {
+      "keyword": "pferd kosten monatlich",
+      "search_volume": 880,
+      "priority": "high",
+      "placements": [
+        {
+          "section": "Introduction",
+          "h_level": "body",
+          "text_sample": "Um zu verstehen, wie viel ein Pferd kostet monatlich..."
+        },
+        {
+          "section": "Section 1: Kostenübersicht",
+          "h_level": "h3",
+          "text_sample": "H3: 'Was kostet ein Pferd monatlich? Die wichtigsten Positionen'"
+        }
+      ],
+      "target_count": 2
+    },
+    {
+      "keyword": "pferdehalter kosten",
+      "search_volume": 1000,
+      "priority": "high",
+      "placements": [
+        {
+          "section": "Introduction",
+          "h_level": "body",
+          "text_sample": "Pferdehalter Kosten richtig budgetieren"
+        },
+        {
+          "section": "FAQ Section",
+          "h_level": "body",
+          "text_sample": "FAQ: 'Wie viel sollten Pferdehalter monatlich budgetieren?'"
+        }
+      ],
+      "target_count": 2
+    },
+    {
+      "keyword": "unterhaltskosten pferd",
+      "search_volume": 1000,
+      "priority": "high",
+      "placements": [
+        {
+          "section": "Section 5: Tierarzt",
+          "h_level": "body",
+          "text_sample": "Die Unterhaltskosten für ein Pferd setzen sich aus..."
+        },
+        {
+          "section": "Conclusion",
+          "h_level": "body",
+          "text_sample": "Realistische Unterhaltskosten verstehen und planen"
+        }
+      ],
+      "target_count": 2
+    },
+    {
+      "keyword": "stallmiete pferd",
+      "search_volume": 140,
+      "priority": "high",
+      "placements": [
+        {
+          "section": "Section 2: Stallmiete (H2)",
+          "h_level": "h2",
+          "text_sample": "H2 Title contains keyword"
+        },
+        {
+          "section": "Section 2: First paragraph",
+          "h_level": "body",
+          "text_sample": "Die Stallmiete ist meist die größte Kostenposition..."
+        },
+        {
+          "section": "Section 2: Comparison table",
+          "h_level": "table",
+          "text_sample": "Table row: Stallmiete per stall type"
+        },
+        {
+          "section": "Section 2: H3 subsection",
+          "h_level": "h3",
+          "text_sample": "H3: 'Wie viel Stallmiete ist realistisch in meiner Region?'"
+        }
+      ],
+      "target_count": 4
+    },
+    {
+      "keyword": "futterkosten pferd",
+      "search_volume": 390,
+      "priority": "high",
+      "placements": [
+        {
+          "section": "Section 3: Futter & Heu (H2)",
+          "h_level": "h2",
+          "text_sample": "H2: 'Futterkosten: Was kostet es, dein Pferd zu füttern?'"
+        },
+        {
+          "section": "Section 3: First paragraph",
+          "h_level": "body",
+          "text_sample": "Futterkosten machen etwa 15-20% der Gesamtbudgets aus"
+        },
+        {
+          "section": "Section 3: Cost breakdown",
+          "h_level": "body",
+          "text_sample": "Die Futterkosten für ein 500kg Pferd betragen durchschnittlich..."
+        },
+        {
+          "section": "Section 3: H3 subsection",
+          "h_level": "h3",
+          "text_sample": "H3: 'Wie berechne ich die Futterkosten für mein Pferd?'"
+        }
+      ],
+      "target_count": 4
+    },
+    {
+      "keyword": "hufschmied kosten",
+      "search_volume": 390,
+      "priority": "high",
+      "placements": [
+        {
+          "section": "Section 4: Hufschmied (H2)",
+          "h_level": "h2",
+          "text_sample": "H2: 'Hufschmied Kosten: Alle 6-8 Wochen eine Ausgabe'"
+        },
+        {
+          "section": "Section 4: First paragraph",
+          "h_level": "body",
+          "text_sample": "Hufschmied Kosten sind vorhersehbar aber oft unterschätzt"
+        },
+        {
+          "section": "Cost comparison table",
+          "h_level": "table",
+          "text_sample": "Table row: Hufschmied costs per visit and type"
+        }
+      ],
+      "target_count": 3
+    },
+    {
+      "keyword": "pferd versicherung kosten",
+      "search_volume": 30,
+      "priority": "medium",
+      "placements": [
+        {
+          "section": "Section 6: Versicherungen (H2)",
+          "h_level": "h2",
+          "text_sample": "H2: 'Pferdehaftpflicht & OP-Versicherung: Kosten verstehen'"
+        },
+        {
+          "section": "Section 6: Main text",
+          "h_level": "body",
+          "text_sample": "Pferd Versicherung Kosten im Detail: Haftpflicht vs. OP"
+        },
+        {
+          "section": "FAQ Section",
+          "h_level": "body",
+          "text_sample": "FAQ: 'Welche Versicherungen für Pferde brauche ich?'"
+        }
+      ],
+      "target_count": 3
+    },
+    {
+      "keyword": "monatliche kosten pferd",
+      "search_volume": 260,
+      "priority": "medium",
+      "placements": [
+        {
+          "section": "Section 1: H2",
+          "h_level": "h2",
+          "text_sample": "H2: 'Monatliche Kosten auf einen Blick'"
+        },
+        {
+          "section": "Section 1: Table introduction",
+          "h_level": "body",
+          "text_sample": "Die monatliche Kosten für ein Pferd variieren stark..."
+        }
+      ],
+      "target_count": 2
+    },
+    {
+      "keyword": "pferd kosten tabelle",
+      "search_volume": 720,
+      "priority": "medium",
+      "placements": [
+        {
+          "section": "Section 1: Featured snippet table",
+          "h_level": "table",
+          "text_sample": "Complete cost table with min/avg/max structure"
+        },
+        {
+          "section": "Section 1: Introduction to table",
+          "h_level": "body",
+          "text_sample": "Unsere Pferd Kosten Tabelle zeigt alle Positionen..."
+        }
+      ],
+      "target_count": 2
+    }
+  ],
+
+  "semantic_keywords": [
+    {
+      "keyword": "pferdehalter kosten",
+      "relevance": "direct_synonym",
+      "placement_sections": ["Introduction", "FAQ"],
+      "target_count": 2
+    },
+    {
+      "keyword": "pferdeunterhalt kosten",
+      "relevance": "direct_synonym",
+      "placement_sections": ["Section 5", "Conclusion"],
+      "target_count": 2
+    },
+    {
+      "keyword": "stallmiete deutschland",
+      "relevance": "long_tail_regional",
+      "placement_sections": ["Section 2: Regional comparison"],
+      "target_count": 1
+    },
+    {
+      "keyword": "pensionsstall kosten",
+      "relevance": "sub_topic",
+      "placement_sections": ["Section 2: H3 subsection"],
+      "target_count": 2
+    },
+    {
+      "keyword": "selbstversorger kosten",
+      "relevance": "sub_topic",
+      "placement_sections": ["Section 2: Comparison", "Section 7: Cost savings"],
+      "target_count": 2
+    },
+    {
+      "keyword": "futterkosten berechnen",
+      "relevance": "long_tail_question",
+      "placement_sections": ["Section 3: H3 'Calculator'"],
+      "target_count": 1
+    },
+    {
+      "keyword": "heu kosten monat",
+      "relevance": "component_cost",
+      "placement_sections": ["Section 3: Feed breakdown"],
+      "target_count": 1
+    },
+    {
+      "keyword": "tierarzt kosten pferd",
+      "relevance": "component_cost",
+      "placement_sections": ["Section 5: H2"],
+      "target_count": 2
+    },
+    {
+      "keyword": "haftpflichtversicherung pferd",
+      "relevance": "sub_topic",
+      "placement_sections": ["Section 6: Insurance breakdown"],
+      "target_count": 2
+    },
+    {
+      "keyword": "op versicherung kosten",
+      "relevance": "component_insurance",
+      "placement_sections": ["Section 6: H3 subsection"],
+      "target_count": 1
+    },
+    {
+      "keyword": "notfall reserve pferd",
+      "relevance": "emergency_planning",
+      "placement_sections": ["Section 7: Hidden costs"],
+      "target_count": 2
+    },
+    {
+      "keyword": "versteckte kosten pferd",
+      "relevance": "direct_synonym",
+      "placement_sections": ["Section 7: H2"],
+      "target_count": 3
+    },
+    {
+      "keyword": "pferd sparen tipps",
+      "relevance": "sub_topic",
+      "placement_sections": ["Section 7: Cost-saving strategies"],
+      "target_count": 2
+    }
+  ],
+
+  "paa_keyword_integration": [
+    {
+      "paa_question": "Was kostet ein Pferd monatlich im Unterhalt?",
+      "primary_keyword_match": "exact_match",
+      "section": "FAQ Q1",
+      "integration_type": "h2_level_faq",
+      "keywords_to_use": ["pferd monatlich unterhalt", "monatliche kosten pferd"]
+    },
+    {
+      "paa_question": "Wie teuer ist es, ein Pferd zu besitzen?",
+      "primary_keyword_match": "semantic_match",
+      "section": "FAQ Q2",
+      "integration_type": "h2_level_faq",
+      "keywords_to_use": ["pferd besitzen kosten", "pferdehalter kosten"]
+    },
+    {
+      "paa_question": "Wie viel kostet die monatliche Haltung eines Pferdes?",
+      "primary_keyword_match": "exact_match",
+      "section": "FAQ Q3",
+      "integration_type": "h2_level_faq",
+      "keywords_to_use": ["monatliche haltung kosten", "unterhaltskosten pferd"]
+    },
+    {
+      "paa_question": "Wie viel kostet Futter im Monat für Pferde?",
+      "primary_keyword_match": "component_match",
+      "section": "FAQ Q4",
+      "integration_type": "h3_level_faq",
+      "keywords_to_use": ["futterkosten pferd", "futter monatlich"]
+    },
+    {
+      "paa_question": "Kann ich Pferdekosten sparen?",
+      "primary_keyword_match": "related_question",
+      "section": "FAQ Q5 (inferred)",
+      "integration_type": "h3_level_faq",
+      "keywords_to_use": ["pferd kosten sparen", "sparmaßnahmen"]
+    }
+  ],
+
+  "keyword_density_targets": {
+    "primary_keyword": {
+      "keyword": "was kostet ein pferd im monat",
+      "target_density": "0.8-1.0%",
+      "word_count_basis": 2566,
+      "target_occurrences": "20-26",
+      "critical_placements": [
+        "Title (1x)",
+        "H1 (1x)",
+        "Introduction (1-2x)",
+        "Section 1 H2 or H3 (1x)",
+        "Cost summary table intro (1x)",
+        "FAQ Q1 (1x)",
+        "Conclusion (1x)"
+      ],
+      "minimum_critical": 8
+    },
+    "secondary_keywords_combined": {
+      "target_density": "1.5-2.0%",
+      "note": "Secondary keywords should collectively appear 38-51 times across article"
+    },
+    "semantic_keywords": {
+      "target_density": "2.0-2.5%",
+      "note": "13 semantic keywords should appear distributed naturally throughout"
+    }
+  },
+
+  "h_tag_keyword_structure": {
+    "h1": {
+      "keyword": "was kostet ein pferd im monat",
+      "exact_or_variation": "exact",
+      "position": "start_of_h1"
+    },
+    "h2_tags": [
+      {
+        "section_number": 1,
+        "keyword_target": "monatliche kosten pferd",
+        "suggested_h2": "Pferdehaltungskosten auf einen Blick: Komplette Kostentabelle"
+      },
+      {
+        "section_number": 2,
+        "keyword_target": "stallmiete",
+        "suggested_h2": "Stallmiete: Die größte Kostenposition (150–800€/Monat)"
+      },
+      {
+        "section_number": 3,
+        "keyword_target": "futterkosten",
+        "suggested_h2": "Futterkosten: Was kostet es, dein Pferd zu füttern?"
+      },
+      {
+        "section_number": 4,
+        "keyword_target": "hufschmied kosten",
+        "suggested_h2": "Hufschmied Kosten: Alle 6-8 Wochen eine Ausgabe"
+      },
+      {
+        "section_number": 5,
+        "keyword_target": "tierarzt kosten",
+        "suggested_h2": "Tierarzt & Routinebehandlungen: Kosten & Häufigkeit"
+      },
+      {
+        "section_number": 6,
+        "keyword_target": "pferd versicherung",
+        "suggested_h2": "Pferdehaftpflicht & OP-Versicherung: Was brauchst du wirklich?"
+      },
+      {
+        "section_number": 7,
+        "keyword_target": "versteckte kosten",
+        "suggested_h2": "Versteckte Kosten, die oft vergessen werden + Notfall-Budget"
+      }
+    ]
+  },
+
+  "table_keyword_placement": {
+    "featured_snippet_table": {
+      "section": "1 - Kostenübersicht",
+      "table_title": "Monatliche Pferdekosten Übersichtstabelle",
+      "column_headers": [
+        "Kostenposition",
+        "Minimum",
+        "Durchschnitt",
+        "Maximum"
+      ],
+      "keywords_in_table": [
+        "Stallmiete",
+        "Futterkosten",
+        "Hufschmied",
+        "Tierarzt",
+        "Versicherungen",
+        "Reitunterricht",
+        "Ausrüstung"
+      ],
+      "seo_benefit": "Targets featured snippet for primary keyword variations"
+    }
+  },
+
+  "internal_link_anchor_text_keywords": [
+    {
+      "target_section": "Section 2: Stallmiete",
+      "anchor_text": "Detaillierter Vergleich: Selbstversorger vs. Pensionsstall",
+      "keywords": ["stallmiete", "selbstversorger", "pensionsstall"]
+    },
+    {
+      "target_section": "Section 3: Futter",
+      "anchor_text": "Vollständiger Pferd-Fütterungs-Guide für Anfänger",
+      "keywords": ["futterkosten", "pferd füttern"]
+    },
+    {
+      "target_section": "Section 5: Tierarzt",
+      "anchor_text": "Impfplan und Gesundheitscheck-Kalender für Pferde",
+      "keywords": ["tierarzt kosten", "impfung pferd"]
+    },
+    {
+      "target_section": "Section 6: Versicherung",
+      "anchor_text": "Haftpflicht- & OP-Versicherung Vergleich 2025",
+      "keywords": ["haftpflicht", "op versicherung"]
+    },
+    {
+      "target_section": "Section 7: Hidden Costs",
+      "anchor_text": "Wie viel kostet ein Notfall-Tierarzt? Real-Fallstudien",
+      "keywords": ["notfall tierarzt", "notfall kosten"]
+    }
+  ],
+
+  "faq_section_keywords": {
+    "q1_keywords": [
+      "pferd monatlich unterhalt",
+      "was kostet unterhalt",
+      "pferdeunterhalt monatlich"
+    ],
+    "q2_keywords": [
+      "pferd besitzen kosten",
+      "wie teuer pferd",
+      "pferdehalter budget"
+    ],
+    "q3_keywords": [
+      "monatliche haltung kosten",
+      "haltung pferd kosten",
+      "monatliche unterhaltskosten"
+    ],
+    "q4_keywords": [
+      "futterkosten monatlich",
+      "futter budget pferd",
+      "heu preis monatlich"
+    ],
+    "q5_keywords": [
+      "pferd kosten sparen",
+      "sparmaßnahmen pferd",
+      "kosten reduzieren pferd"
+    ]
+  },
+
+  "keyword_distribution_by_section": {
+    "introduction": {
+      "word_count": 180,
+      "primary_keyword_count": 1,
+      "secondary_keyword_count": 2,
+      "semantic_keyword_count": 1
+    },
+    "section_1": {
+      "word_count": 300,
+      "primary_keyword_count": 2,
+      "secondary_keyword_count": 3,
+      "semantic_keyword_count": 2
+    },
+    "section_2": {
+      "word_count": 320,
+      "primary_keyword_count": 0,
+      "secondary_keyword_count": 4,
+      "semantic_keyword_count": 3
+    },
+    "section_3": {
+      "word_count": 280,
+      "primary_keyword_count": 0,
+      "secondary_keyword_count": 4,
+      "semantic_keyword_count": 2
+    },
+    "section_4": {
+      "word_count": 200,
+      "primary_keyword_count": 0,
+      "secondary_keyword_count": 3,
+      "semantic_keyword_count": 1
+    },
+    "section_5": {
+      "word_count": 300,
+      "primary_keyword_count": 0,
+      "secondary_keyword_count": 3,
+      "semantic_keyword_count": 2
+    },
+    "section_6": {
+      "word_count": 250,
+      "primary_keyword_count": 0,
+      "secondary_keyword_count": 3,
+      "semantic_keyword_count": 2
+    },
+    "section_7": {
+      "word_count": 217,
+      "primary_keyword_count": 0,
+      "secondary_keyword_count": 2,
+      "semantic_keyword_count": 3
+    },
+    "faq": {
+      "word_count": 257,
+      "primary_keyword_count": 3,
+      "secondary_keyword_count": 5,
+      "semantic_keyword_count": 2
+    },
+    "conclusion": {
+      "word_count": 180,
+      "primary_keyword_count": 1,
+      "secondary_keyword_count": 2,
+      "semantic_keyword_count": 1
+    }
+  },
+
+  "summary": {
+    "total_primary_keyword_target": "20-26 occurrences (0.8-1.0% density)",
+    "total_secondary_keyword_target": "38-51 occurrences (1.5-2.0% density)",
+    "total_semantic_keyword_target": "51-64 occurrences (2.0-2.5% density)",
+    "estimated_total_keyword_mentions": "109-141 across all categories",
+    "keyword_diversity_score": "high (1 primary + 10 secondary + 13 semantic)",
+    "paa_integration_score": "complete (5 PAA questions addressed)",
+    "featured_snippet_alignment": "optimized (Section 1 table format for min/avg/max comparison)"
+  }
+}

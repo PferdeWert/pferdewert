@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "timestamp": "2026-01-02T00:00:00Z",
+    "primary_keyword": "was kostet ein pferd",
+    "location": "Germany",
+    "language": "de",
+    "tools_used": [
+      "mcp__dataforseo__dataforseo_labs_google_related_keywords",
+      "mcp__dataforseo__dataforseo_labs_google_keyword_ideas",
+      "mcp__dataforseo__dataforseo_labs_google_keyword_overview"
+    ]
+  },
+  "primary_keyword_data": {
+    "keyword": "was kostet ein pferd",
+    "search_volume": 2400,
+    "monthly_searches": {
+      "2025-11": 1900,
+      "2025-10": 2400,
+      "2025-09": 2400,
+      "2025-08": 2900,
+      "2025-07": 2900,
+      "2025-06": 2400,
+      "2025-05": 2900,
+      "2025-04": 2900,
+      "2025-03": 2900,
+      "2025-02": 2400,
+      "2025-01": 2900,
+      "2024-12": 2400
+    },
+    "cpc": 0.1,
+    "competition": 0.02,
+    "competition_level": "LOW",
+    "low_top_of_page_bid": 0.03,
+    "high_top_of_page_bid": 0.12,
+    "search_volume_trend": {
+      "monthly": -21,
+      "quarterly": -21,
+      "yearly": -34
+    },
+    "search_intent": "commercial",
+    "avg_backlinks": 3.5,
+    "avg_referring_domains": 2,
+    "rank": 60.8,
+    "serp_elements": [
+      "ai_overview",
+      "organic",
+      "people_also_ask",
+      "related_searches",
+      "images"
+    ],
+    "serp_results_count": 7540000
+  },
+  "related_keywords_top_20": [
+    {
+      "keyword": "wie viel kostet ein pferd monatlich",
+      "search_volume": 590,
+      "intent": "commercial",
+      "competition": "LOW",
+      "avg_backlinks": 6.2
+    },
+    {
+      "keyword": "pferde kosten tabelle",
+      "search_volume": 720,
+      "intent": "informational",
+      "competition": "LOW",
+      "keyword_difficulty": 1,
+      "avg_backlinks": 10
+    },
+    {
+      "keyword": "wie viel kostet ein pferd im jahr",
+      "search_volume": 260,
+      "intent": "commercial",
+      "competition": "LOW",
+      "avg_backlinks": 5.1
+    },
+    {
+      "keyword": "wie viel kostet ein pferd in deutschland",
+      "search_volume": 260,
+      "intent": "commercial",
+      "competition": "LOW",
+      "cpc": 0.08,
+      "avg_backlinks": 3.8
+    },
+    {
+      "keyword": "monatliche kosten pferd eigener stall",
+      "search_volume": 170,
+      "intent": "commercial",
+      "competition": "LOW",
+      "cpc": 2.76,
+      "keyword_difficulty": 1,
+      "avg_backlinks": 9.8
+    },
+    {
+      "keyword": "wie viel kostet ein pferd mit allem drum und dran",
+      "search_volume": 90,
+      "intent": "commercial",
+      "competition": "LOW",
+      "search_volume_trend_monthly": 56
+    },
+    {
+      "keyword": "futterkosten pferd pro monat",
+      "search_volume": 90,
+      "intent": "commercial",
+      "competition": "LOW",
+      "cpc": 0.1
+    },
+    {
+      "keyword": "hufschmied kosten",
+      "search_volume": 390,
+      "intent": "commercial",
+      "competition": "LOW",
+      "avg_backlinks": 4.7
+    },
+    {
+      "keyword": "was kostet ein pony im monat",
+      "search_volume": 90,
+      "intent": "commercial",
+      "competition": "LOW"
+    },
+    {
+      "keyword": "was kostet ein pferd in deutschland",
+      "search_volume": 70,
+      "intent": "informational",
+      "competition": "LOW",
+      "cpc": 0.02
+    },
+    {
+      "keyword": "monatliche kosten pferd rechner",
+      "search_volume": 50,
+      "intent": "navigational",
+      "competition": "LOW",
+      "cpc": 0.14,
+      "keyword_difficulty": 1
+    },
+    {
+      "keyword": "wie viel kostet ein pony im jahr",
+      "search_volume": 50,
+      "intent": "commercial",
+      "competition": "LOW",
+      "keyword_difficulty": 20
+    },
+    {
+      "keyword": "wie viel kostet der tierarzt für ein pferd im monat",
+      "search_volume": 40,
+      "intent": "commercial",
+      "competition": "LOW",
+      "keyword_difficulty": 1
+    },
+    {
+      "keyword": "wie viel kostet ein freizeitpferd",
+      "search_volume": 40,
+      "intent": "informational",
+      "competition": "LOW",
+      "cpc": 0.16,
+      "keyword_difficulty": 15
+    },
+    {
+      "keyword": "was kostet ein pferd in der anschaffung",
+      "search_volume": 30,
+      "intent": "commercial",
+      "competition": "LOW"
+    },
+    {
+      "keyword": "was kostet ein pferd in der unterhaltung",
+      "search_volume": 30,
+      "intent": "commercial",
+      "competition": "LOW"
+    },
+    {
+      "keyword": "was kostet ein islandpferd im monat",
+      "search_volume": 30,
+      "intent": "commercial",
+      "competition": "LOW"
+    },
+    {
+      "keyword": "wie viel kostet ein pferdestall",
+      "search_volume": 30,
+      "intent": "commercial",
+      "competition": "LOW",
+      "keyword_difficulty": 51
+    },
+    {
+      "keyword": "pferde kosten tabelle tierarzt",
+      "search_volume": 20,
+      "intent": "commercial",
+      "competition": "LOW"
+    },
+    {
+      "keyword": "tierarzt kosten pferd monatlich",
+      "search_volume": 20,
+      "intent": "commercial",
+      "competition": "LOW",
+      "cpc": 0.68
+    }
+  ],
+  "keyword_ideas_high_volume": [
+    {
+      "keyword": "hufschmied in der nähe",
+      "search_volume": 6600,
+      "cpc": 1.13,
+      "competition": "LOW",
+      "intent": "commercial"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd",
+      "search_volume": 4400,
+      "cpc": 0.1,
+      "competition": "LOW",
+      "intent": "commercial"
+    },
+    {
+      "keyword": "wie viel ps hat ein pferd",
+      "search_volume": 6600,
+      "competition": "LOW",
+      "intent": "informational"
+    },
+    {
+      "keyword": "pferd reiten in der nähe",
+      "search_volume": 1600,
+      "cpc": 0.6,
+      "competition": "LOW",
+      "keyword_difficulty": 34
+    },
+    {
+      "keyword": "pferd reiten",
+      "search_volume": 3600,
+      "cpc": 0.29,
+      "competition": "LOW",
+      "keyword_difficulty": 58
+    },
+    {
+      "keyword": "ponyreiten in der nähe",
+      "search_volume": 5400,
+      "cpc": 0.55,
+      "competition": "LOW",
+      "keyword_difficulty": 11
+    },
+    {
+      "keyword": "reitschule in der nähe",
+      "search_volume": 4400,
+      "cpc": 0.47,
+      "competition": "LOW",
+      "keyword_difficulty": 44
+    },
+    {
+      "keyword": "größtes pferd der welt",
+      "search_volume": 5400,
+      "competition": "LOW",
+      "intent": "informational"
+    },
+    {
+      "keyword": "haflinger pferde",
+      "search_volume": 2900,
+      "cpc": 0.36,
+      "competition": "LOW",
+      "keyword_difficulty": 4
+    },
+    {
+      "keyword": "wie schlafen pferde",
+      "search_volume": 2900,
+      "cpc": 0.11,
+      "competition": "LOW",
+      "intent": "informational"
+    }
+  ],
+  "keyword_overview_results": [
+    {
+      "keyword": "was kostet ein pferd",
+      "search_volume": 2400,
+      "competition": "LOW",
+      "cpc": 0.1,
+      "intent": "commercial"
+    },
+    {
+      "keyword": "pferd kaufen kosten",
+      "search_volume": 110,
+      "competition": "LOW",
+      "cpc": 0.4,
+      "intent": "commercial",
+      "keyword_difficulty": 17
+    },
+    {
+      "keyword": "anschaffungskosten pferd",
+      "search_volume": 50,
+      "competition": "LOW",
+      "intent": "informational"
+    },
+    {
+      "keyword": "erstausstattung pferd",
+      "search_volume": 170,
+      "competition": "HIGH",
+      "cpc": 0.93,
+      "intent": "commercial"
+    },
+    {
+      "keyword": "aku pferd kosten",
+      "search_volume": 210,
+      "competition": "LOW",
+      "intent": "commercial"
+    }
+  ]
+}

@@ -5,6 +5,45 @@ Referenz-Beispiele für Sub-Agent Content-Erstellung in Phase 4B. Externalisiert
 
 ---
 
+## 🎯 READABILITY-REGEL: 8. Klasse Niveau (KRITISCH!)
+
+**Ziel**: Flesch-Reading-Ease ≥ 60 (Deutsch-Skala) → Ein 14-Jähriger muss es verstehen!
+
+### Kernregeln:
+1. **Max 15 Wörter pro Satz** (Durchschnitt)
+2. **Max 3 Sätze pro Absatz**
+3. **Keine Schachtelsätze**: Hauptsatz + max 1 Nebensatz
+4. **Einfache Wörter bevorzugen**
+5. **Fachbegriffe IMMER erklären**: "AKU (Ankaufsuntersuchung)"
+
+### ❌ Schlechte Readability (Score ~30)
+```
+Die Ankaufsuntersuchung, die von einem erfahrenen Tierarzt durchgeführt werden sollte und die verschiedene klinische sowie bildgebende Verfahren umfasst, stellt einen essentiellen Bestandteil des Pferdekaufprozesses dar, der keinesfalls vernachlässigt werden darf, da ansonsten schwerwiegende gesundheitliche Probleme des Pferdes möglicherweise unentdeckt bleiben könnten.
+```
+**Probleme**: 52 Wörter, 1 Satz, 4 Nebensätze, Passiv
+
+### ✅ Gute Readability (Score ~65)
+```
+Die Ankaufsuntersuchung ist ein Muss beim Pferdekauf. Ein Tierarzt prüft das Pferd gründlich. Er schaut sich Herz, Lunge und Bewegung an. Oft macht er auch Röntgenbilder.
+
+Ohne diese Untersuchung riskierst du böse Überraschungen. Versteckte Krankheiten fallen erst später auf. Dann wird es richtig teuer.
+```
+**Besser**: Kurze Sätze (5-12 Wörter), klare Struktur, aktive Sprache
+
+### Wort-Austausch-Tabelle (einfacher = besser)
+| ❌ Komplex | ✅ Einfach |
+|-----------|-----------|
+| implementieren | umsetzen |
+| demonstrieren | zeigen |
+| evaluieren | prüfen |
+| akquirieren | kaufen |
+| signifikant | wichtig |
+| optimal | am besten |
+| resultieren | führen zu |
+| priorisieren | zuerst machen |
+
+---
+
 ## 📝 Beispiel 1: Einleitungsparagraph (Optimale Struktur)
 
 **Primary Keyword**: "Pferd kaufen worauf achten"

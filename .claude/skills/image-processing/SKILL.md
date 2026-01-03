@@ -1,5 +1,7 @@
 ---
+name: image-processing
 description: Verarbeitet Bilder für PferdeWert - konvertiert zu WebP mit sprechendem Namen. Automatisch verwenden wenn User einen Bild-Link schickt!
+allowed-tools: Bash, Read, Write
 ---
 
 # Bild-Verarbeitung für PferdeWert

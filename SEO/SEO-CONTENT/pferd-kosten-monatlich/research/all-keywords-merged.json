@@ -1,0 +1,620 @@
+{
+  "primary_keyword": "was kostet ein pferd im monat",
+  "merged_at": "2025-12-31T00:00:00Z",
+  "sources": {
+    "phase_1b": 10,
+    "phase_1c": 30,
+    "total": 37,
+    "unique": 37
+  },
+  "all_keywords": [
+    {
+      "keyword": "pferd",
+      "search_volume": 165000,
+      "cpc": 0.4,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde",
+      "search_volume": 165000,
+      "cpc": 0.4,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "stall frei",
+      "search_volume": 49500,
+      "cpc": 0.02,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "kaufen pferd",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd kaufen",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde kaufen",
+      "search_volume": 40500,
+      "cpc": 0.22,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "wallach",
+      "search_volume": 14800,
+      "cpc": 0.52,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "araber pferd",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "arabisch pferd",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "arabisches pferd",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "fohlen",
+      "search_volume": 9900,
+      "cpc": 0.17,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd araber",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd schimmel",
+      "search_volume": 9900,
+      "cpc": 0.36,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde araber",
+      "search_volume": 9900,
+      "cpc": 0.09,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde schimmel",
+      "search_volume": 9900,
+      "cpc": 0.36,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd",
+      "search_volume": 4400,
+      "cpc": 0.1,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferd kosten",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "kosten für pferd",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "kosten pferd",
+      "search_volume": 1000,
+      "cpc": 0.42,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "was kostet ein pferd im monat",
+      "search_volume": 880,
+      "cpc": 0.21,
+      "source": "phase_1b",
+      "cluster_name": "Informational",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde preise",
+      "search_volume": 880,
+      "cpc": 0.45,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "was kostet pferd im monat",
+      "search_volume": 880,
+      "cpc": 0.21,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde kosten tabelle",
+      "search_volume": 720,
+      "cpc": 0,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd monatlich",
+      "search_volume": 590,
+      "cpc": 0,
+      "source": "phase_1b",
+      "cluster_name": "Informational",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde weihnacht",
+      "search_volume": 590,
+      "cpc": 0.52,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "pferde weihnachten",
+      "search_volume": 590,
+      "cpc": 0.52,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "high"
+    },
+    {
+      "keyword": "wie viel kostet ein pferd im monat",
+      "search_volume": 480,
+      "cpc": 0,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "medium"
+    },
+    {
+      "keyword": "kosten pferd monat",
+      "search_volume": 390,
+      "cpc": 0.08,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pferd kosten pro monat",
+      "search_volume": 390,
+      "cpc": 0.21,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "hufschmied kosten",
+      "search_volume": 390,
+      "cpc": 0,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "medium"
+    },
+    {
+      "keyword": "kosten für hufschmied",
+      "search_volume": 390,
+      "cpc": 0,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "medium"
+    },
+    {
+      "keyword": "kosten hufschmied",
+      "search_volume": 390,
+      "cpc": 0,
+      "source": "phase_1c",
+      "cluster_name": "Competitor-Proven",
+      "priority": "medium"
+    },
+    {
+      "keyword": "monatliche kosten pferd",
+      "search_volume": 260,
+      "cpc": 0.91,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pferd unterhaltskosten",
+      "search_volume": 260,
+      "cpc": 0.26,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "stallmiete pferd",
+      "search_volume": 140,
+      "cpc": 0.05,
+      "source": "phase_1b",
+      "cluster_name": "General",
+      "priority": "medium"
+    },
+    {
+      "keyword": "futterkosten pferd pro monat",
+      "search_volume": 90,
+      "cpc": 0.1,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    },
+    {
+      "keyword": "tierarzt pferd kosten",
+      "search_volume": 30,
+      "cpc": 1.97,
+      "source": "phase_1b",
+      "cluster_name": "Commercial",
+      "priority": "low"
+    }
+  ],
+  "priority_keywords": {
+    "high": [
+      {
+        "keyword": "pferd",
+        "search_volume": 165000,
+        "cpc": 0.4,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde",
+        "search_volume": 165000,
+        "cpc": 0.4,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "stall frei",
+        "search_volume": 49500,
+        "cpc": 0.02,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "kaufen pferd",
+        "search_volume": 40500,
+        "cpc": 0.22,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd kaufen",
+        "search_volume": 40500,
+        "cpc": 0.22,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde kaufen",
+        "search_volume": 40500,
+        "cpc": 0.22,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "wallach",
+        "search_volume": 14800,
+        "cpc": 0.52,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "araber pferd",
+        "search_volume": 9900,
+        "cpc": 0.09,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "arabisch pferd",
+        "search_volume": 9900,
+        "cpc": 0.09,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "arabisches pferd",
+        "search_volume": 9900,
+        "cpc": 0.09,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "fohlen",
+        "search_volume": 9900,
+        "cpc": 0.17,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd araber",
+        "search_volume": 9900,
+        "cpc": 0.09,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd schimmel",
+        "search_volume": 9900,
+        "cpc": 0.36,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde araber",
+        "search_volume": 9900,
+        "cpc": 0.09,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde schimmel",
+        "search_volume": 9900,
+        "cpc": 0.36,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "wie viel kostet ein pferd",
+        "search_volume": 4400,
+        "cpc": 0.1,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferd kosten",
+        "search_volume": 1000,
+        "cpc": 0.42,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "high"
+      },
+      {
+        "keyword": "kosten für pferd",
+        "search_volume": 1000,
+        "cpc": 0.42,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "kosten pferd",
+        "search_volume": 1000,
+        "cpc": 0.42,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "was kostet ein pferd im monat",
+        "search_volume": 880,
+        "cpc": 0.21,
+        "source": "phase_1b",
+        "cluster_name": "Informational",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde preise",
+        "search_volume": 880,
+        "cpc": 0.45,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "was kostet pferd im monat",
+        "search_volume": 880,
+        "cpc": 0.21,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde kosten tabelle",
+        "search_volume": 720,
+        "cpc": 0,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "wie viel kostet ein pferd monatlich",
+        "search_volume": 590,
+        "cpc": 0,
+        "source": "phase_1b",
+        "cluster_name": "Informational",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde weihnacht",
+        "search_volume": 590,
+        "cpc": 0.52,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      },
+      {
+        "keyword": "pferde weihnachten",
+        "search_volume": 590,
+        "cpc": 0.52,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "high"
+      }
+    ],
+    "medium": [
+      {
+        "keyword": "wie viel kostet ein pferd im monat",
+        "search_volume": 480,
+        "cpc": 0,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "medium"
+      },
+      {
+        "keyword": "kosten pferd monat",
+        "search_volume": 390,
+        "cpc": 0.08,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pferd kosten pro monat",
+        "search_volume": 390,
+        "cpc": 0.21,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "hufschmied kosten",
+        "search_volume": 390,
+        "cpc": 0,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "medium"
+      },
+      {
+        "keyword": "kosten für hufschmied",
+        "search_volume": 390,
+        "cpc": 0,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "medium"
+      },
+      {
+        "keyword": "kosten hufschmied",
+        "search_volume": 390,
+        "cpc": 0,
+        "source": "phase_1c",
+        "cluster_name": "Competitor-Proven",
+        "priority": "medium"
+      },
+      {
+        "keyword": "monatliche kosten pferd",
+        "search_volume": 260,
+        "cpc": 0.91,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "pferd unterhaltskosten",
+        "search_volume": 260,
+        "cpc": 0.26,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "medium"
+      },
+      {
+        "keyword": "stallmiete pferd",
+        "search_volume": 140,
+        "cpc": 0.05,
+        "source": "phase_1b",
+        "cluster_name": "General",
+        "priority": "medium"
+      }
+    ],
+    "low": [
+      {
+        "keyword": "futterkosten pferd pro monat",
+        "search_volume": 90,
+        "cpc": 0.1,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "low"
+      },
+      {
+        "keyword": "tierarzt pferd kosten",
+        "search_volume": 30,
+        "cpc": 1.97,
+        "source": "phase_1b",
+        "cluster_name": "Commercial",
+        "priority": "low"
+      }
+    ]
+  },
+  "statistics": {
+    "total_keywords": 37,
+    "high_priority": 26,
+    "medium_priority": 9,
+    "low_priority": 2,
+    "avg_search_volume": 16506,
+    "total_search_volume": 610740
+  }
+}

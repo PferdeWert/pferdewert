@@ -1,3 +1,9 @@
+---
+name: seo-metadata-optimization
+description: Erstellt SEO Metadata, Structured Data Schemas und Internal Linking Empfehlungen. Verwenden bei "schema erstellen" oder "metadata optimieren".
+allowed-tools: Read, Write, Edit, Glob
+---
+
 # SEO Metadata Optimization - Schemas & Internal Linking
 
 Creates SEO metadata, structured data schemas, and internal linking recommendations.
