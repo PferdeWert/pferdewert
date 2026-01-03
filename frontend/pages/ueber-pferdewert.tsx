@@ -16,6 +16,7 @@ export default function UeberUns() {
   // Localized content
   const countryName = isAustria ? 'Österreich' : isSwitzerland ? 'Schweiz' : 'Deutschland';
   const countryCode = isAustria ? 'AT' : isSwitzerland ? 'CH' : 'DE';
+  const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
   const leadingPlatformText = isAustria
     ? 'Österreichs führende KI-basierte Online-Pferdebewertung'
     : isSwitzerland
@@ -27,6 +28,13 @@ export default function UeberUns() {
       ? 'Die Schweizer Online-Pferdebewertung'
       : 'Deutschlands #1 Online-Pferdebewertung';
 
+  // AT/CH Localized Meta
+  const metaTitle = isAustria
+    ? 'Über PferdeWert.at | KI-Pferdebewertung für Österreich'
+    : isSwitzerland
+      ? 'Über PferdeWert.ch | KI-Pferdebewertung für die Schweiz'
+      : 'Über PferdeWert.de | KI-Experten für Pferdebewertung & Marktwertanalyse';
+
   const domain = useMemo(() => {
     const url = new URL(canonicalUrl)
     return `${url.protocol}//${url.host}`
@@ -35,13 +43,13 @@ export default function UeberUns() {
   return (
     <Layout fullWidth={true} background="bg-gradient-to-b from-amber-50 to-white">
       <Head>
-        <title>Über PferdeWert.de | KI-Experten für Pferdebewertung & Marktwertanalyse</title>
+        <title>{metaTitle}</title>
         <meta
           name="description"
-          content={`🐎 PferdeWert.de Team: Pferdefamilie mit KI-Expertise für präzise Pferdebewertungen ab ${PRICING_FORMATTED.current} ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ ${numberOneText} ✓`}
+          content={`🐎 ${siteName} Team: Pferdefamilie mit KI-Expertise für präzise Pferdebewertungen ab ${PRICING_FORMATTED.current} ➤ Transparent & fair ✓ Von Reitern für Reiter ✓ ${numberOneText} ✓`}
         />
-        <meta name="keywords" content="pferdebewertung experte, pferde sachverständiger, pferdewert team, ki pferdebewertung, online pferdegutachter" />
-        <meta property="og:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
+        <meta name="keywords" content={`pferdebewertung experte ${countryName.toLowerCase()}, pferde sachverständiger, pferdewert team, ki pferdebewertung, online pferdegutachter`} />
+        <meta property="og:title" content={metaTitle} />
         <meta
           property="og:description"
           content={`Pferdefamilie mit KI-Expertise: ${leadingPlatformText}. Transparent, fair und von Experten entwickelt.`}
@@ -49,7 +57,7 @@ export default function UeberUns() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${domain}/images/shared/familie-blossi.webp`} />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Über PferdeWert.de | KI-Experten für Pferdebewertung" />
+        <meta property="twitter:title" content={metaTitle} />
         <meta property="twitter:description" content={`Pferdefamilie mit KI-Expertise: ${leadingPlatformText}.`} />
         <meta property="twitter:image" content={`${domain}/images/shared/familie-blossi.webp`} />
         <link rel="canonical" href={canonicalUrl} />

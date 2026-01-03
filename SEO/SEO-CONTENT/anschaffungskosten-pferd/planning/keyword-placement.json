@@ -1,486 +1,343 @@
 {
-  "analysis_date": "2026-01-02T19:50:00Z",
   "phase": "3",
   "primary_keyword": "was kostet ein pferd",
-  "target_focus": "anschaffungskosten pferd",
-  "total_keywords_to_target": 61,
-  "keyword_distribution_strategy": "Hierarchical placement based on search volume and relevance to acquisition costs",
-  "placement_summary": {
-    "primary_keywords": {
-      "count": 4,
-      "keywords": [
-        "was kostet ein pferd",
-        "anschaffungskosten pferd",
-        "pferd kaufen kosten",
-        "kosten pferd"
+  "timestamp": "2026-01-03T10:00:00Z",
+  "url": "/pferde-ratgeber/anschaffungskosten-pferd",
+
+  "keyword_strategy": {
+    "primary_keyword": {
+      "keyword": "was kostet ein pferd",
+      "search_volume": 2400,
+      "placements": [
+        "H1 (Title)",
+        "Meta Title (first 20 chars)",
+        "Meta Description",
+        "Introduction (first paragraph)",
+        "H2 Section 1",
+        "FAQ Section",
+        "Conclusion"
       ],
-      "placement": "Title, H1, Introduction, H2.1 (Kaufpreis), Conclusion",
-      "target_density": "2-3 appearances across article"
-    },
-    "secondary_keywords": {
-      "count": 15,
-      "keywords": [
-        "pferd preis",
-        "pferd kosten",
-        "anschaffungskosten für ein pferd",
-        "erstausstattung pferd",
-        "aku pferd kosten",
-        "pferd kaufen preis",
-        "haflinger preis",
-        "warmblut preis",
-        "apfelschimmel kaufen",
-        "andalusier kaufen",
-        "wie viel kostet ein pferd",
-        "wie viel kostet ein pferd in deutschland",
-        "pferde preise",
-        "preis pferd",
-        "kosten für pferd"
-      ],
-      "placement": "H2 headings, Introduction, FAQ",
-      "target_density": "1-2 appearances each"
-    },
-    "tertiary_keywords_breeding": {
-      "count": 42,
-      "category": "Breed-specific prices",
-      "keywords": [
-        "achal tekkiner gold preis",
-        "achal tekkiner kaufen",
-        "achal tekkiner preis",
-        "achal-tekkiner gold preis",
-        "achal-tekkiner kaufen",
-        "achal-tekkiner preis",
-        "akhal teke kaufen",
-        "akhal teke preis",
-        "akhal-teke kaufen",
-        "akhal-teke preis",
-        "alt oldenburger kaufen",
-        "alt-oldenburger kaufen",
-        "altwürttemberger pferd kaufen",
-        "american miniatur horse kaufen",
-        "american miniature horse kaufen",
-        "american quarter horse kaufen",
-        "andalusier kaufen",
-        "andalusier kaufen ehorses",
-        "andalusier pferd kaufen",
-        "andalusier pferd preis",
-        "andalusier pferde kaufen",
-        "appaloosa kaufen deutschland",
-        "appaloosa pferd kaufen",
-        "appaloosa pferde kaufen",
-        "appaloosa pony",
-        "apfelschimmel kaufen",
-        "apfelschimmel pferd kaufen",
-        "apfelschimmel pferde kaufen",
-        "apfelschimmel pony"
-      ],
-      "placement": "H2.2 (Rasse-spezifische Preise) breed comparison table and subsections",
-      "target_density": "1 appearance each in breed price tables"
-    },
-    "supporting_keywords_budget": {
-      "count": 8,
-      "keywords": [
-        "anfänger pferderasse",
-        "anfänger pferderassen",
-        "anfängerpferd kaufen",
-        "wie viel kostet ein freizeitpferd",
-        "wie viel kostet ein normales pferd",
-        "wie viel kostet ein turnierpferd",
-        "eigenes pferd kosten",
-        "haflinger pferde"
-      ],
-      "placement": "Budget scenario sections (H2.7), Freizeitpferd subsection",
-      "target_density": "1-2 appearances each"
-    },
-    "long_tail_keywords": {
-      "count": 12,
-      "keywords": [
+      "target_density": "1.5-2%",
+      "variations": [
         "was kostet ein pferd in der anschaffung",
-        "was kostet ein pferd in deutschland",
-        "wie viel kostet ein pferd in deutschland",
-        "wie viel kostet ein pferd mit allem drum und dran",
-        "was kostet ein turnierpferd",
-        "pferd kosten tabelle",
-        "pferdehaltung kosten",
-        "pferde kosten tabelle tierarzt",
-        "kosten pferdehaltung",
-        "wie viel kostet ein pferdestall",
-        "wie viel kostet ein pony im jahr",
-        "angelina de vittorio verkaufspferde"
-      ],
-      "placement": "FAQ section, closing statements in sections",
-      "target_density": "Natural mention in context"
-    }
-  },
-  "section_keyword_allocation": {
-    "introduction": {
-      "primary_keywords": [
-        "was kostet ein pferd",
-        "anschaffungskosten pferd"
-      ],
-      "natural_placement_count": 2,
-      "strategy": "Hook with problem statement using both keywords naturally"
-    },
-    "section_1_kaufpreis": {
-      "h2_keyword": "was kostet ein pferd + preisspanne nach pferdetyp",
-      "supporting_keywords": [
-        "pferd kaufen kosten",
-        "pferd preis",
-        "wie viel kostet ein freizeitpferd",
-        "wie viel kostet ein turnierpferd"
-      ],
-      "breed_keywords": [
-        "freizeitpferd preis",
-        "sportpferd kaufen",
-        "turnierpferd preis"
-      ],
-      "word_count": 320,
-      "placement_strategy": "Price brackets by type - use type keywords in subsection headers"
-    },
-    "section_2_rasse_preise": {
-      "h2_keyword": "pferdepreise nach rasse",
-      "supporting_keywords": [
-        "warmblut preis",
-        "haflinger preis",
-        "araber kaufen"
-      ],
-      "breed_specific_keywords": [
-        "hannoveraner kaufen",
-        "oldenburger kaufen",
-        "haflinger kaufen",
-        "achal tekkiner kaufen",
-        "akhal teke kaufen",
-        "american quarter horse kaufen",
-        "andalusier kaufen",
-        "appaloosa kaufen",
-        "apfelschimmel kaufen"
-      ],
-      "word_count": 420,
-      "placement_strategy": "Create breed price comparison table with all breed keywords from keywords list",
-      "table_format": "Breed | Price Range | Best For | Characteristics",
-      "additional_keywords": [
-        "fohlen kaufen",
-        "junges pferd kaufen"
+        "wie viel kostet ein pferd",
+        "was kostet ein pferd in deutschland"
       ]
     },
-    "section_3_preisfaktoren": {
-      "h2_keyword": "preisfaktoren was beeinflusst kaufpreis",
-      "supporting_keywords": [
-        "pferd alter preis",
-        "trainiertes pferd",
-        "ankaufsuntersuchung",
-        "pferdeabstammung preis"
-      ],
-      "word_count": 280,
-      "placement_strategy": "Explain each price multiplier - age, training, health, bloodline"
+    "secondary_keywords": [
+      {
+        "keyword": "pferd kaufen kosten",
+        "search_volume": 110,
+        "placements": ["H2 Section 1", "H2 Section 6", "Conclusion"],
+        "target_occurrences": "3-5x"
+      },
+      {
+        "keyword": "anschaffungskosten pferd",
+        "search_volume": 50,
+        "placements": ["H1", "H2 Section 6", "Introduction", "Conclusion"],
+        "target_occurrences": "2-4x"
+      }
+    ]
+  },
+
+  "section_keyword_mapping": {
+    "introduction": {
+      "word_count": 190,
+      "keywords": {
+        "primary": ["was kostet ein pferd", "anschaffungskosten pferd"],
+        "supporting": ["pferd kaufen kosten", "wie viel kostet ein pferd"]
+      },
+      "keyword_density_target": "2%"
     },
-    "section_4_erstausstattung": {
-      "h2_keyword": "erstausstattung pferd",
-      "supporting_keywords": [
-        "pferdeausrüstung kosten",
-        "sattle kosten",
-        "reiter ausrüstung",
-        "anhänger kaufen"
-      ],
-      "word_count": 320,
-      "placement_strategy": "Equipment checklist with cost breakdowns for each item"
+
+    "section_1": {
+      "heading": "Was kostet ein Pferd in der Anschaffung?",
+      "word_count": 350,
+      "featured_snippet_target": true,
+      "keywords": {
+        "primary": ["was kostet ein pferd", "pferd kaufen kosten"],
+        "supporting": ["anschaffungskosten pferd", "wie viel kostet ein pferd", "freizeitpferd kosten", "sportpferd preis", "turnierpferd kosten"]
+      },
+      "keyword_density_target": "2.5%"
     },
-    "section_5_aku_versteckt": {
-      "h2_keyword": "ankaufsuntersuchung aku versteckte anschaffungskosten",
-      "supporting_keywords": [
-        "aku pferd kosten",
-        "pferd transport kosten",
-        "hufschmied kosten erstmal",
-        "pferdepass kosten",
-        "tierarzt ankaufsuntersuchung"
-      ],
-      "word_count": 280,
-      "placement_strategy": "Cost checklist - each hidden cost as separate H3 with keyword naturally integrated"
+
+    "section_2": {
+      "heading": "Pferdepreise nach Rasse - Detaillierte Uebersicht",
+      "word_count": 400,
+      "keywords": {
+        "primary": ["pferd preis", "preis pferd"],
+        "supporting": [
+          "warmblut preis",
+          "hannoveraner preis",
+          "haflinger preis",
+          "haflinger pferde",
+          "quarter horse kaufen",
+          "american quarter horse kaufen",
+          "andalusier preis",
+          "friese kaufen",
+          "islaender preis",
+          "vollblut preis"
+        ]
+      },
+      "keyword_density_target": "2%"
     },
-    "section_6_finanzierung": {
-      "h2_keyword": "finanzierungsoptionen pferd",
-      "supporting_keywords": [
-        "pferd kredit",
-        "pferd finanzierung",
-        "pferd ratenzahlung",
-        "pferdeleasingkosten",
-        "stallbeteiligung kosten"
-      ],
-      "word_count": 280,
-      "placement_strategy": "Compare financing methods - each method as H3 with keyword variations"
+
+    "section_3": {
+      "heading": "Was beeinflusst den Pferdepreis? Die 5 wichtigsten Preisfaktoren",
+      "word_count": 350,
+      "keywords": {
+        "primary": ["pferd preis", "was kostet ein pferd"],
+        "supporting": [
+          "pferd ausbildung kosten",
+          "was kostet ein 10 jahre altes pferd",
+          "pferd kaufen deutschland",
+          "wann pferd kaufen",
+          "regionale preisunterschiede pferd"
+        ]
+      },
+      "paa_integration": {
+        "question": "Was kostet ein 10 Jahre altes Pferd?",
+        "integration_type": "H3"
+      },
+      "keyword_density_target": "2%"
     },
-    "section_7_budget_szenarien": {
-      "h2_keyword": "gesamtbudget pferdeanschaffung",
-      "supporting_keywords": [
-        "anfängerpferd kaufen",
-        "budget pferd",
-        "günstiges pferd kaufen",
-        "wie viel geld für pferd"
-      ],
-      "word_count": 220,
-      "placement_strategy": "3 realistic scenarios showing line-item budgets for different buyer types"
+
+    "section_4": {
+      "heading": "Ankaufsuntersuchung (AKU) - Kosten und warum sie unverzichtbar ist",
+      "word_count": 300,
+      "keywords": {
+        "primary": ["aku pferd kosten", "ankaufsuntersuchung pferd"],
+        "supporting": [
+          "aku kosten",
+          "grosse aku kosten",
+          "kleine aku kosten",
+          "aku pferd",
+          "ankaufsuntersuchung kosten"
+        ]
+      },
+      "keyword_density_target": "2.5%"
     },
-    "section_8_modelle_vergleich": {
-      "h2_keyword": "kostenvergleich eigenes pferd stallbeteiligung gastpferd",
-      "supporting_keywords": [
-        "stallbeteiligung kosten",
-        "eigenes pferd kosten",
-        "gastpferd kosten",
-        "reitbeteiligung kosten",
-        "pferd mieten vs kaufen"
-      ],
-      "word_count": 200,
-      "placement_strategy": "Side-by-side comparison of ownership models with financial analysis"
+
+    "section_5": {
+      "heading": "Erstausstattung - Was du wirklich brauchst",
+      "word_count": 350,
+      "keywords": {
+        "primary": ["erstausstattung pferd", "pferd ausruestung kosten"],
+        "supporting": [
+          "pferd zubehoer",
+          "sattel kosten",
+          "trense kosten",
+          "pferd decken kosten",
+          "erstausstattung pferd kosten"
+        ]
+      },
+      "keyword_density_target": "2%"
     },
+
+    "section_6": {
+      "heading": "Versteckte Anschaffungskosten - Diese Kosten vergessen Anfaenger",
+      "word_count": 230,
+      "content_gap_opportunity": true,
+      "keywords": {
+        "primary": ["anschaffungskosten fuer ein pferd", "pferd kaufen kosten"],
+        "supporting": [
+          "eigenes pferd kosten",
+          "was kostet ein pferd in der anschaffung",
+          "pferd transport kosten",
+          "pferd umschreibung kosten"
+        ]
+      },
+      "keyword_density_target": "2%"
+    },
+
+    "section_7_optional": {
+      "heading": "Finanzierungsoptionen beim Pferdekauf",
+      "word_count": 150,
+      "content_gap_opportunity": true,
+      "keywords": {
+        "primary": [],
+        "supporting": [
+          "pferd finanzieren",
+          "pferd ratenzahlung",
+          "pferd kredit"
+        ]
+      },
+      "keyword_density_target": "1.5%"
+    },
+
     "faq_section": {
-      "questions_with_keywords": [
-        {
-          "question": "Wie viel kostet ein echtes Pferd?",
-          "keywords": [
-            "was kostet ein pferd",
-            "echtes pferd preis"
-          ]
-        },
+      "word_count": 275,
+      "questions": [
         {
           "question": "Wie viel kostet das billigste Pferd?",
-          "keywords": [
-            "günstiges pferd",
-            "billiges pferd",
-            "anfängerpferd"
-          ]
+          "keywords": ["guenstigstes pferd", "billiges pferd kaufen"],
+          "paa_source": true
         },
         {
           "question": "Was kostet ein 10 Jahre altes Pferd?",
-          "keywords": [
-            "wie viel kostet ein 10 jahre altes pferd",
-            "pferd altersgerechter preis"
-          ]
+          "keywords": ["pferd 10 jahre preis", "aelteres pferd kaufen"],
+          "paa_source": true
         },
         {
-          "question": "Wie viel kostet eine Ankaufsuntersuchung?",
-          "keywords": [
-            "aku pferd kosten",
-            "ankaufsuntersuchung kosten"
-          ]
+          "question": "Was kostet ein normales Freizeitpferd?",
+          "keywords": ["freizeitpferd kosten", "normales pferd preis"],
+          "paa_source": true
         },
         {
-          "question": "Kann man ein Pferd ohne Anzahlung kaufen?",
-          "keywords": [
-            "pferd ohne anzahlung",
-            "pferd finanzierung"
-          ]
+          "question": "Lohnt sich ein junges Pferd als Anfaenger?",
+          "keywords": ["jungpferd kaufen", "anfaengerpferd"],
+          "paa_source": false
         },
         {
-          "question": "Was kostet die Erstausstattung?",
-          "keywords": [
-            "erstausstattung pferd",
-            "ausrüstung kosten"
-          ]
-        },
-        {
-          "question": "Welche versteckten Kosten gibt es?",
-          "keywords": [
-            "versteckte kosten pferd",
-            "nebenkosten anschaffung"
-          ]
+          "question": "Was kostet die AKU beim Pferdekauf?",
+          "keywords": ["aku kosten", "ankaufsuntersuchung kosten"],
+          "paa_source": false
         }
       ]
     },
+
     "conclusion": {
-      "keywords_to_include": [
-        "anschaffungskosten pferd",
-        "was kostet ein pferd",
-        "pferd-kosten-monatlich"
-      ],
-      "placement_strategy": "Summarize main points, reinforce primary keywords, link to monthly costs article"
-    }
-  },
-  "keyword_frequency_analysis": {
-    "high_priority_keywords": {
-      "was kostet ein pferd": {
-        "target_appearances": 3,
-        "placement": [
-          "Title/Meta",
-          "Introduction (1st paragraph)",
-          "H2.1 Kaufpreis section",
-          "FAQ first question",
-          "Conclusion"
-        ],
-        "notes": "Primary keyword - must appear naturally but prominently"
+      "word_count": 190,
+      "keywords": {
+        "primary": ["was kostet ein pferd", "anschaffungskosten pferd", "pferd kaufen kosten"],
+        "supporting": ["gesamtkosten pferd anschaffung"]
       },
-      "anschaffungskosten pferd": {
-        "target_appearances": 4,
-        "placement": [
-          "Title/Meta",
-          "H2 section headers (2x)",
-          "Introduction",
-          "Conclusion"
-        ],
-        "notes": "Target keyword focus - should appear in multiple contexts"
-      },
-      "pferd kaufen kosten": {
-        "target_appearances": 2,
-        "placement": [
-          "H2.1 Kaufpreis section",
-          "H2.7 Budget scenarios"
-        ],
-        "notes": "Secondary primary - used in section transitions"
-      }
-    },
-    "medium_priority_keywords": {
-      "keywords": [
-        "erstausstattung pferd",
-        "aku pferd kosten",
-        "warmblut preis",
-        "haflinger preis",
-        "stallbeteiligung kosten"
-      ],
-      "target_appearances_each": 2,
-      "placement": "H2/H3 headers + body content naturally"
-    },
-    "low_priority_breed_keywords": {
-      "keywords": "All 20+ breed-specific keywords from all-keywords-merged.json",
-      "target_appearances_each": 1,
-      "placement": "H2.2 Rasse-spezifische Preise breed table and subsections",
-      "notes": "Long-tail traffic capture - appears in comparative context"
+      "cta_keywords": ["pferd bewerten", "pferd preis berechnen"]
     }
   },
-  "semantic_keyword_clusters": {
-    "cluster_1_price_discovery": {
-      "primary": "was kostet ein pferd",
-      "related": [
-        "pferd preis",
-        "pferdepreis",
-        "kosten pferd",
-        "pferd kaufen kosten",
-        "wie viel kostet"
-      ],
-      "distribution": "Sections 1, 2, 7 (price discovery sections)"
+
+  "long_tail_keywords_to_integrate": [
+    {
+      "keyword": "was kostet ein pferd in der anschaffung",
+      "placement": "Section 1, Section 6"
     },
-    "cluster_2_acquisition": {
-      "primary": "anschaffungskosten pferd",
-      "related": [
-        "anschaffungskosten für ein pferd",
-        "pferdeanschaffung",
-        "kaufkosten",
-        "erwerbskosten"
-      ],
-      "distribution": "Title, H2 headers, introduction, budget sections"
+    {
+      "keyword": "wie viel kostet ein pferd mit allem drum und dran",
+      "placement": "Conclusion"
     },
-    "cluster_3_equipment": {
-      "primary": "erstausstattung pferd",
-      "related": [
-        "pferdeausrüstung kosten",
-        "sattle kosten",
-        "reiterausrüstung",
-        "zubehör kaufen"
-      ],
-      "distribution": "Section 4 (Erstausstattung)"
+    {
+      "keyword": "wie viel kostet ein freizeitpferd",
+      "placement": "Section 1, FAQ"
     },
-    "cluster_4_veterinary": {
-      "primary": "aku pferd kosten",
-      "related": [
-        "ankaufsuntersuchung",
-        "tierarzt untersuchung",
-        "gesundheitliche checks",
-        "kaufuntersuchung"
-      ],
-      "distribution": "Section 5 (AKU und versteckte Kosten)"
+    {
+      "keyword": "wie viel kostet ein normales pferd",
+      "placement": "FAQ"
     },
-    "cluster_5_financing": {
-      "primary": "pferd finanzierung",
-      "related": [
-        "pferd kredit",
-        "ratenzahlung pferd",
-        "pferdeleasingkosten",
-        "pferdekredit",
-        "ohne anzahlung kaufen"
-      ],
-      "distribution": "Section 6 (Finanzierungsoptionen)"
+    {
+      "keyword": "was kostet ein turnierpferd",
+      "placement": "Section 1"
     },
-    "cluster_6_ownership_models": {
-      "primary": "stallbeteiligung kosten",
-      "related": [
-        "eigenes pferd kosten",
-        "gastpferd kosten",
-        "reitbeteiligung",
-        "mieten vs kaufen",
-        "kostenbeteiligung"
-      ],
-      "distribution": "Section 8 (Ownership model comparison)"
+    {
+      "keyword": "anschaffungskosten fuer ein pferd",
+      "placement": "Section 6"
+    },
+    {
+      "keyword": "eigenes pferd kosten",
+      "placement": "Section 6"
     }
-  },
-  "breed_keyword_distribution": {
-    "section_2_rasse_table": {
-      "breeds_to_feature": [
-        "haflinger",
-        "warmblüter (hannoveraner, oldenburger, trakehner)",
-        "araber",
-        "achal tekkiner / akhal teke",
-        "american quarter horse",
-        "andalusier",
-        "appaloosa",
-        "apfelschimmel (color variant - note: include in multiple breed sections)"
-      ],
-      "table_structure": "Breed | Price Range | Characteristics | Best For | Keywords",
-      "keyword_placement_notes": "Each breed row should reference 2-3 keyword variations naturally (e.g., 'Haflinger kaufen', 'Haflinger preis', 'Haflinger pferde')"
+  ],
+
+  "lsi_keywords_to_use": [
+    "Kaufpreis",
+    "Preisspanne",
+    "Anschaffung",
+    "Investition",
+    "Budget",
+    "Ausbildungsstand",
+    "Pferdetyp",
+    "Rasse",
+    "AKU",
+    "Ankaufsuntersuchung",
+    "Erstausstattung",
+    "Sattel",
+    "Trense",
+    "Transport",
+    "Registrierung",
+    "Marktpreis",
+    "Preisfaktoren",
+    "Alter",
+    "Gesundheit",
+    "Abstammung"
+  ],
+
+  "brand_keywords": [
+    {
+      "keyword": "PferdeWert",
+      "placement": "Conclusion CTA",
+      "context": "KI-Bewertungstool"
     },
-    "long_tail_variations": {
-      "strategy": "Collect breed searches with modifiers: kaufen, preis, pferd, pferde, ehorses",
-      "examples": [
-        "achal tekkiner kaufen → mention in table",
-        "andalusier pferd kaufen → mention in description",
-        "appaloosa kaufen deutschland → note regional availability"
-      ]
+    {
+      "keyword": "pferde-preis-berechnen",
+      "placement": "Conclusion CTA",
+      "context": "Internal link to evaluation tool"
     }
-  },
-  "content_gap_keyword_targeting": {
-    "financing_opportunities": {
-      "keywords_to_target": [
-        "pferd kredit",
-        "pferd finanzierung",
-        "pferd ohne anzahlung",
-        "pferd ratenzahlung",
-        "pferdekredit"
-      ],
-      "coverage_in_competitors": "1/10",
-      "section": "H2.6 Finanzierungsoptionen",
-      "strategy": "Comprehensive guide with real financing scenarios + monthly payment calculations"
+  ],
+
+  "internal_linking_keywords": [
+    {
+      "anchor_text": "Pferdekauf-Ratgeber",
+      "target": "/pferd-kaufen",
+      "placement": "Introduction"
     },
-    "hidden_costs": {
-      "keywords_to_target": [
-        "versteckte kosten pferd",
-        "pferd nebenkosten",
-        "aku pferd kosten",
-        "ankaufsuntersuchung",
-        "pferd transport kosten"
-      ],
-      "coverage_in_competitors": "2/10",
-      "section": "H2.5 AKU und versteckte Anschaffungskosten",
-      "strategy": "Detailed checklist of all pre-purchase and immediate post-purchase costs"
+    {
+      "anchor_text": "Ankaufsuntersuchung (AKU)",
+      "target": "/pferde-ratgeber/aku-pferd",
+      "placement": "Section 4"
     },
-    "ownership_models": {
-      "keywords_to_target": [
-        "stallbeteiligung kosten",
-        "eigenes pferd kosten",
-        "gastpferd kosten",
-        "pferd mieten vs kaufen",
-        "reitbeteiligung kosten"
-      ],
-      "coverage_in_competitors": "3/10",
-      "section": "H2.8 Kostenvergleich - Eigenes Pferd vs. Stallbeteiligung vs. Gastpferd",
-      "strategy": "Financial comparison of all ownership options with 5-year projections"
+    {
+      "anchor_text": "Kosten der Ankaufsuntersuchung",
+      "target": "/pferde-ratgeber/aku-pferd/kosten",
+      "placement": "Section 4"
+    },
+    {
+      "anchor_text": "Pferdemärkte und Online-Plattformen",
+      "target": "/pferde-ratgeber/pferdemarkt",
+      "placement": "Section 2"
+    },
+    {
+      "anchor_text": "Freizeitpferd-Ratgeber",
+      "target": "/pferd-kaufen/freizeitpferd",
+      "placement": "Section 1"
+    },
+    {
+      "anchor_text": "Dressurpferd kaufen",
+      "target": "/pferd-kaufen/dressurpferd",
+      "placement": "Section 1"
+    },
+    {
+      "anchor_text": "Springpferd kaufen",
+      "target": "/pferd-kaufen/springpferd",
+      "placement": "Section 1"
+    },
+    {
+      "anchor_text": "monatliche Kosten",
+      "target": "/pferde-ratgeber/pferd-kosten-monatlich",
+      "placement": "Introduction, Conclusion"
+    },
+    {
+      "anchor_text": "Pferd bewerten",
+      "target": "/pferde-preis-berechnen",
+      "placement": "Conclusion CTA"
     }
+  ],
+
+  "keyword_exclusions": {
+    "avoid": [
+      "monatliche kosten",
+      "stallmiete",
+      "unterhaltskosten",
+      "hufschmied kosten monatlich",
+      "futter kosten monatlich"
+    ],
+    "reason": "Diese Keywords gehoeren zum separaten Artikel /pferde-ratgeber/pferd-kosten-monatlich"
   },
-  "keyword_validation": {
-    "total_keywords_to_cover": 61,
-    "keywords_in_title": 1,
-    "keywords_in_h2": 8,
-    "keywords_in_h3": 20,
-    "keywords_in_tables": 15,
-    "keywords_in_faq": 7,
-    "keywords_in_body": 10,
-    "coverage_percentage": "100%",
-    "validation_status": "✓ All 61 keywords from all-keywords-merged.json addressed in outline"
-  },
-  "next_steps_phase_4": "When writing Phase 4 content, use this keyword-placement.json as reference for: 1) Natural keyword integration in each section, 2) Breed keyword distribution in H2.2 comparison table, 3) Long-tail keyword variations in FAQ responses, 4) Semantic cluster expansion in body content"
+
+  "seo_quality_metrics": {
+    "primary_keyword_in_h1": true,
+    "primary_keyword_in_meta_title": true,
+    "primary_keyword_in_first_100_words": true,
+    "keyword_stuffing_risk": "low",
+    "estimated_readability": "good",
+    "target_flesch_score": 60
+  }
 }

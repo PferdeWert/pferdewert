@@ -135,6 +135,20 @@ export default function PferdeWertHomepage() {
     : isSwitzerland ? '🏆 #1 Online Pferdebewertung in der Schweiz'
     : '🏆 #1 Online Pferdebewertung';
 
+  // AT/CH: Unique hero subtitle for differentiation
+  const heroSubtitle = isAustria
+    ? 'Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung. Speziell für den österreichischen Pferdemarkt entwickelt – mit OEPS-konformen Ausbildungsstufen und regionalen Marktdaten aus Wien, Salzburg, Tirol und allen Bundesländern.'
+    : isSwitzerland
+      ? 'Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung. Speziell für den Schweizer Pferdemarkt entwickelt – mit SVPS-konformen Ausbildungsstufen und regionalen Marktdaten aus Zürich, Bern, Basel und allen Kantonen.'
+      : 'Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung. Entwickelt von Reitern für Reiter – präzise Analyse in nur 2 Minuten.';
+
+  // AT/CH: Unique trust badge text
+  const trustBadgeText = isAustria
+    ? '100+ erfolgreiche Bewertungen in Österreich'
+    : isSwitzerland
+      ? '100+ erfolgreiche Bewertungen in der Schweiz'
+      : '100+ erfolgreiche Bewertungen';
+
   // Localized SEO content for AT/CH unique indexing
   const metaTitle = isAustria
     ? 'Was ist mein Pferd wert? KI-Pferdebewertung Österreich | PferdeWert.at'
@@ -378,8 +392,7 @@ export default function PferdeWertHomepage() {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bvND+0532KzGVhZQAAAAD//Z"
         >
           <p className="text-xl text-gray-600 leading-relaxed">
-            Erfahre den Marktwert deines Pferdes mit unserer professionellen KI-Pferdebewertung.
-            Entwickelt von Reitern für Reiter – präzise Analyse in nur 2 Minuten.
+            {heroSubtitle}
           </p>
 
           {/* Trust Indicators */}
@@ -398,7 +411,7 @@ export default function PferdeWertHomepage() {
             </div>
             <div className="flex items-center space-x-2">
               {usersIcon}
-              <span>100+ erfolgreiche Bewertungen</span>
+              <span>{trustBadgeText}</span>
             </div>
           </div>
 

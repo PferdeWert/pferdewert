@@ -26,29 +26,47 @@ import {
   calculateFormCompletionTime
 } from "@/lib/analytics";
 
-// FAQ Data für die zentrale FAQ-Komponente
-const faqData = [
-  {
-    question: "Wie wird der Preis eines Pferdes berechnet?",
-    answer: "Der Preis eines Pferdes setzt sich aus mehreren Bewertungsfaktoren zusammen: Grundwert (Rasse, Alter, Abstammung) + Ausbildungswert (Ausbildungsstand A/L/M/S) + Gesundheitswert (AKU-Status, Vorerkrankungen) + Marktwert-Anpassung (regionale Nachfrage). Die Formel lautet: Pferdewert = (Grundwert × Ausbildungsfaktor) + Gesundheitsfaktor ± Marktanpassung. Beispiel: Ein 8-jähriger Hannoveraner (Grundwert 15.000 €) mit L-Dressur-Ausbildung (Faktor 1,8) und positiver AKU (+2.000 €) ergibt: (15.000 × 1,8) + 2.000 = 29.000 €."
-  },
-  {
-    question: "Was kostet mich die Pferdepreisberechnung?",
-    answer: `Eine professionelle Pferdebewertung kostet je nach Methode unterschiedlich: Traditionelle Gutachten durch Sachverständige liegen bei 150-500 € und dauern mehrere Tage. Online-Tools wie PferdeWert.de bieten KI-gestützte Bewertungen ab ${PRICING_FORMATTED.current} mit sofortigem Ergebnis. Der Preis richtet sich nach dem Umfang: Basis-Marktwertschätzung (${PRICING_FORMATTED.current}–30 €), erweiterte Analyse mit Marktvergleich (50-100 €) oder vollständiges Wertgutachten mit Rechtsgültigkeit (ab 150 €).`
-  },
-  {
-    question: "Welche Faktoren beeinflussen den Pferdepreis am meisten?",
-    answer: "Der Ausbildungsstand ist der wichtigste Wertfaktor: Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein E-Pferd, ein M/S-Pferd sogar 5-10x mehr. Turniererfolge auf M/S-Niveau können den Wert um 10.000-50.000 € steigern. Weitere Hauptfaktoren: Gesundheitszustand (positive AKU +15-20%, chronische Erkrankungen -30-50%), Abstammung (prämiierte Hengstlinie +20-40%), Alter (optimal 6-12 Jahre), Rasse (Warmblut-Sportpferde höher bewertet als Freizeitpferde) und Charakter (\"Anfängergeeignet\" +10-15%)."
-  },
-  {
-    question: "Ist eine Pferdepreis-Berechnung online zuverlässig?",
-    answer: "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>30.000 €) zusätzlich Sachverständigen-Gutachten einholen."
-  },
-  {
-    question: "Welche Zahlungsmethoden werden akzeptiert?",
-    answer: "Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich zusätzlich EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe."
-  }
-];
+// FAQ Data für die zentrale FAQ-Komponente - wird unten lokalisiert basierend auf Country
+const getLocalizedFaqData = (isAustria: boolean, isSwitzerland: boolean) => {
+  const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
+  const exampleBreed = isAustria ? 'Haflinger' : isSwitzerland ? 'Freiberger' : 'Hannoveraner';
+  const exampleRegion = isAustria ? 'Tirol' : isSwitzerland ? 'Graubünden' : 'Bayern';
+  const paymentMethods = isAustria
+    ? 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie EPS (Electronic Payment Standard) – die beliebteste Zahlungsmethode in Österreich. Die Zahlung erfolgt sicher über Stripe.'
+    : isSwitzerland
+      ? 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie TWINT für schnelle Schweizer Zahlungen. Die Zahlung erfolgt sicher über Stripe.'
+      : 'Wir akzeptieren Kreditkarte, Klarna, PayPal sowie für Kunden aus Österreich zusätzlich EPS (Electronic Payment Standard). Die Zahlung erfolgt sicher über Stripe.';
+
+  // AT-specific: Training levels explanation
+  const trainingExplanation = isAustria
+    ? 'Der Ausbildungsstand ist der wichtigste Wertfaktor. In Österreich nutzen wir die OEPS-konformen Stufen: A, L, LP (L mit Galoppwechseln), LM (L mit Seitengängen), M und S. Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein Pferd ohne Ausbildung.'
+    : 'Der Ausbildungsstand ist der wichtigste Wertfaktor: Ein L-ausgebildetes Pferd kostet durchschnittlich 2-3x mehr als ein E-Pferd, ein M/S-Pferd sogar 5-10x mehr. Turniererfolge auf M/S-Niveau können den Wert um 10.000-50.000 € steigern.';
+
+  return [
+    {
+      question: "Wie wird der Preis eines Pferdes berechnet?",
+      answer: `Der Preis eines Pferdes setzt sich aus mehreren Bewertungsfaktoren zusammen: Grundwert (Rasse, Alter, Abstammung) + Ausbildungswert (Ausbildungsstand A/L/M/S) + Gesundheitswert (AKU-Status, Vorerkrankungen) + Marktwert-Anpassung (regionale Nachfrage${isAustria ? ' in Österreich' : ''}). Die Formel lautet: Pferdewert = (Grundwert × Ausbildungsfaktor) + Gesundheitsfaktor ± Marktanpassung. Beispiel: Ein 8-jähriger ${exampleBreed} (Grundwert 15.000 €) mit L-Dressur-Ausbildung (Faktor 1,8) und positiver AKU (+2.000 €) ergibt: (15.000 × 1,8) + 2.000 = 29.000 €.`
+    },
+    {
+      question: "Was kostet mich die Pferdepreisberechnung?",
+      answer: `Eine professionelle Pferdebewertung kostet je nach Methode unterschiedlich: Traditionelle Gutachten durch Sachverständige liegen bei 150-500 € und dauern mehrere Tage. Online-Tools wie ${siteName} bieten KI-gestützte Bewertungen ab ${PRICING_FORMATTED.current} mit sofortigem Ergebnis. Der Preis richtet sich nach dem Umfang: Basis-Marktwertschätzung (${PRICING_FORMATTED.current}–30 €), erweiterte Analyse mit Marktvergleich (50-100 €) oder vollständiges Wertgutachten mit Rechtsgültigkeit (ab 150 €).`
+    },
+    {
+      question: "Welche Faktoren beeinflussen den Pferdepreis am meisten?",
+      answer: `${trainingExplanation} Weitere Hauptfaktoren: Gesundheitszustand (positive AKU +15-20%, chronische Erkrankungen -30-50%), Abstammung (prämiierte Hengstlinie +20-40%), Alter (optimal 6-12 Jahre), Rasse (${isAustria ? 'Haflinger und Warmblüter' : 'Warmblut-Sportpferde'} höher bewertet als Freizeitpferde) und Charakter ("Anfängergeeignet" +10-15%).`
+    },
+    {
+      question: isAustria ? "Berücksichtigt die Bewertung den österreichischen Markt?" : "Ist eine Pferdepreis-Berechnung online zuverlässig?",
+      answer: isAustria
+        ? `Ja, absolut! Unsere KI wurde speziell für den österreichischen Pferdemarkt trainiert. Wir berücksichtigen regionale Preisunterschiede zwischen Wien, Salzburg, Tirol und anderen Bundesländern. Auch österreichische Auktionsergebnisse (z.B. Stadl-Paura) fließen in die Bewertung ein. Die Genauigkeit liegt bei ±10-15% des tatsächlichen Marktwertes.`
+        : "Online-Pferdebewertungen bieten eine solide Orientierung mit einer Genauigkeit von ±10-15% des tatsächlichen Marktwertes. Sie basieren auf Marktdatenanalysen und KI-Algorithmen, die tausende Verkaufspreise auswerten. Vorteile: Schnell (2 Min.), objektiv, kostengünstig. Grenzen: Keine physische Begutachtung, individuelle Besonderheiten werden nicht erfasst. Für Kaufverhandlungen geeignet, aber kein Ersatz für tierärztliche AKU. Empfehlung: Online-Bewertung als Basis nutzen, bei hochpreisigen Pferden (>30.000 €) zusätzlich Sachverständigen-Gutachten einholen."
+    },
+    {
+      question: "Welche Zahlungsmethoden werden akzeptiert?",
+      answer: paymentMethods
+    }
+  ];
+};
 
 interface FormState {
   rasse: string;
@@ -291,6 +309,22 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
   // Localized content for meta tags
   const siteName = isAustria ? 'PferdeWert.at' : isSwitzerland ? 'PferdeWert.ch' : 'PferdeWert.de';
+
+  // AT/CH: Localized Meta Tags for unique indexing
+  const metaTitle = isAustria
+    ? 'Pferdewert berechnen Österreich – KI-Bewertung in 2 Min | PferdeWert.at'
+    : isSwitzerland
+      ? 'Pferdewert berechnen Schweiz – KI-Bewertung in 2 Min | PferdeWert.ch'
+      : 'Pferdewert berechnen – KI-gestützte Bewertung in 2 Min';
+
+  const metaDescription = isAustria
+    ? 'Pferdewert berechnen für den österreichischen Markt: KI-Analyse mit OEPS-Ausbildungsstufen, regionalen Preisdaten aus Wien, Salzburg & Tirol. Ergebnis in 2 Min!'
+    : isSwitzerland
+      ? 'Pferdewert berechnen für den Schweizer Markt: KI-Analyse mit SVPS-Standards und regionalen Preisdaten aus Zürich, Bern & Basel. Ergebnis in 2 Min!'
+      : 'Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!';
+
+  // Localized FAQ data
+  const faqData = getLocalizedFaqData(isAustria, isSwitzerland);
 
   // FAST REFRESH FIX: Memoize stepData to prevent infinite re-renders
   // stepData depends on ausbildungOptions and locale (for placeholder text)
@@ -705,16 +739,16 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta httpEquiv="content-language" content="de" />
 
-        {/* Primary Meta Tags */}
-        <title>Pferdewert berechnen – KI-gestützte Bewertung in 2 Min</title>
+        {/* Primary Meta Tags - Localized for AT/CH */}
+        <title>{metaTitle}</title>
         <meta
           name="description"
-          content="Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!"
+          content={metaDescription}
         />
 
         {/* Open Graph Meta Tags - Localized */}
-        <meta property="og:title" content="Pferdewert berechnen – KI-gestützte Bewertung in 2 Min" />
-        <meta property="og:description" content="Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!" />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${domain}/pferde-preis-berechnen`} />
         <meta property="og:image" content={`${domain}/images/pferdepreis-berechnen-og.jpg`} />
@@ -723,8 +757,8 @@ export default function PferdePreisBerechnenPage(): React.ReactElement {
 
         {/* Twitter Card Meta Tags - Localized */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pferdewert berechnen – KI-gestützte Bewertung in 2 Min" />
-        <meta name="twitter:description" content="Pferdewert berechnen mit KI in 2 Min.: 15+ Kriterien, präzise Marktanalyse, sofortiges Ergebnis-PDF. Jetzt faire Preiseinschätzung starten!" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={`${domain}/images/pferdepreis-berechnen-og.jpg`} />
         <meta name="twitter:site" content="@PferdeWert" />
 
